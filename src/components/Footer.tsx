@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
-import logoPatron from "@/assets/logo-patro.png";
+
 
 const Footer = () => {
   return (
