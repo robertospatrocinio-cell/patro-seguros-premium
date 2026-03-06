@@ -1,0 +1,80 @@
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
+
+const articles = [
+  { slug: "quanto-custa-seguro-auto", title: "Quanto Custa Seguro Auto em 2025?", excerpt: "Descubra os fatores que influenciam o preço do seguro auto e como economizar.", category: "Seguro Auto" },
+  { slug: "seguro-auto-vale-a-pena", title: "Seguro Auto Vale a Pena? Entenda os Prós e Contras", excerpt: "Análise completa sobre quando contratar seguro auto e quando não faz sentido.", category: "Seguro Auto" },
+  { slug: "o-que-seguro-residencial-cobre", title: "O Que o Seguro Residencial Cobre?", excerpt: "Conheça todas as coberturas do seguro residencial e proteja seu lar.", category: "Seguro Residencial" },
+  { slug: "quanto-custa-plano-de-saude", title: "Quanto Custa um Plano de Saúde em 2025?", excerpt: "Guia completo de preços de planos de saúde por faixa etária e operadora.", category: "Planos de Saúde" },
+  { slug: "melhor-plano-saude-guarulhos", title: "Melhor Plano de Saúde em Guarulhos", excerpt: "Compare as principais operadoras que atendem Guarulhos e região.", category: "Planos de Saúde" },
+  { slug: "seguro-empresarial-o-que-cobre", title: "Seguro Empresarial: O Que Cobre?", excerpt: "Entenda todas as coberturas do seguro empresarial e proteja seu negócio.", category: "Seguro Empresarial" },
+  { slug: "seguro-para-tratores", title: "Seguro para Tratores: Guia Completo", excerpt: "Tudo sobre seguro de tratores, coberturas, preços e como contratar.", category: "Agronegócio" },
+  { slug: "seguro-para-colheitadeiras", title: "Seguro para Colheitadeiras", excerpt: "Proteja sua colheitadeira contra roubo, incêndio e acidentes operacionais.", category: "Agronegócio" },
+  { slug: "seguro-galpoes-industriais-guia", title: "Seguro para Galpões Industriais: Como Funciona", excerpt: "Guia completo sobre proteção para instalações industriais.", category: "Empresarial" },
+  { slug: "7-seguros-proteger-familia", title: "Os 7 Seguros Mais Importantes para Proteger Sua Família", excerpt: "Descubra quais seguros toda família deveria ter.", category: "Dicas" },
+  { slug: "como-escolher-seguro-empresa", title: "Como Escolher o Seguro Ideal para Sua Empresa", excerpt: "Passo a passo para encontrar a proteção certa para o seu negócio.", category: "Empresarial" },
+  { slug: "seguro-auto-7-erros", title: "Seguro Auto: 7 Erros que Fazem Você Pagar Mais", excerpt: "Evite esses erros comuns e economize no seguro do seu carro.", category: "Seguro Auto" },
+  { slug: "seguro-vida-por-que-ter", title: "Seguro de Vida: Por Que Todo Adulto Deveria Ter Um", excerpt: "Entenda a importância do seguro de vida e como ele protege sua família.", category: "Seguro Vida" },
+  { slug: "seguro-fianca-vs-caucao", title: "Seguro Fiança Locatícia vs. Caução: Qual Escolher?", excerpt: "Comparativo completo entre as duas modalidades de garantia locatícia.", category: "Seguro Fiança" },
+  { slug: "o-que-e-responsabilidade-civil", title: "O Que É Responsabilidade Civil e Por Que Você Precisa", excerpt: "Entenda como o RC protege profissionais e empresas.", category: "RC" },
+  { slug: "como-proteger-frota", title: "Como Proteger Sua Frota com Menor Custo", excerpt: "Estratégias para reduzir o custo do seguro de frota sem perder cobertura.", category: "Seguro Frota" },
+  { slug: "seguro-rural-como-funciona", title: "Seguro Rural: Como Funciona", excerpt: "Tudo sobre seguro agrícola, pecuário e de máquinas no campo.", category: "Agronegócio" },
+  { slug: "como-funciona-cotacao-seguros", title: "Como Funciona a Cotação de Seguros", excerpt: "Entenda o processo de cotação e como escolher a melhor proposta.", category: "Dicas" },
+  { slug: "dicas-evitar-sinistros", title: "Dicas para Evitar Sinistros no Dia a Dia", excerpt: "Prevenção é o melhor seguro. Confira dicas práticas.", category: "Dicas" },
+  { slug: "seguro-moto-vale-a-pena", title: "Seguro Moto Vale a Pena? Análise Completa", excerpt: "Descubra quando o seguro de moto compensa e como contratar.", category: "Seguro Moto" },
+  { slug: "plano-saude-individual-vs-empresarial", title: "Plano de Saúde Individual vs Empresarial", excerpt: "Entenda as diferenças e qual é mais vantajoso para você.", category: "Planos de Saúde" },
+  { slug: "seguro-viagem-internacional", title: "Seguro Viagem Internacional: O Que Você Precisa Saber", excerpt: "Guia completo para viajar protegido para qualquer destino.", category: "Seguro Viagem" },
+  { slug: "seguro-condominio-obrigatorio", title: "Seguro Condomínio é Obrigatório? Entenda a Lei", excerpt: "Saiba sobre a obrigatoriedade e coberturas do seguro condominial.", category: "Seguro Condomínio" },
+  { slug: "seguro-cyber-empresas", title: "Seguro Cyber: Proteção Digital para Empresas", excerpt: "Proteja sua empresa contra ataques cibernéticos e vazamento de dados.", category: "Seguro Cyber" },
+  { slug: "previdencia-privada-vgbl-pgbl", title: "Previdência Privada: VGBL ou PGBL?", excerpt: "Entenda as diferenças e escolha o melhor plano de previdência.", category: "Previdência" },
+  { slug: "seguro-celular-como-contratar", title: "Seguro Celular: Como Contratar e Quanto Custa", excerpt: "Proteja seu smartphone contra roubo, furto e quebra acidental.", category: "Seguro Celular" },
+  { slug: "seguro-transporte-cargas", title: "Seguro de Transporte de Cargas: Guia Completo", excerpt: "Tudo sobre seguro de carga e RCTR-C para transportadoras.", category: "Seguro Transporte" },
+  { slug: "seguro-engenharia-obras", title: "Seguro Engenharia para Obras e Construções", excerpt: "Proteção para riscos de engenharia em obras civis e montagem.", category: "Seguro Engenharia" },
+  { slug: "como-acionar-seguro-auto", title: "Como Acionar o Seguro Auto: Passo a Passo", excerpt: "Guia prático para quando você precisar usar seu seguro.", category: "Seguro Auto" },
+  { slug: "seguro-odontologico-coberturas", title: "Seguro Odontológico: Coberturas e Valores", excerpt: "Entenda o que o seguro odonto cobre e quanto custa.", category: "Seguro Odonto" },
+];
+
+const Blog = () => {
+  return (
+    <>
+      <Header />
+      <main>
+        <section className="gradient-hero py-20">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="mb-4">Blog Patro Seguros</h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Conteúdo de autoridade sobre seguros, proteção patrimonial e dicas para você e sua empresa.
+            </p>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {articles.map((article) => (
+                <Link key={article.slug} to={`/blog/${article.slug}`}>
+                  <Card className="hover:shadow-lg transition-base h-full">
+                    <CardContent className="pt-6">
+                      <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">{article.category}</span>
+                      <h3 className="text-lg font-semibold mt-3 mb-2">{article.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-4">{article.excerpt}</p>
+                      <span className="text-sm font-medium text-primary flex items-center">
+                        Ler mais <ArrowRight className="ml-1 h-4 w-4" />
+                      </span>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default Blog;
