@@ -9,13 +9,25 @@ const Parceiros = () => {
     { name: "Allianz", description: "Seguradora global com soluções completas" },
     { name: "Azul Seguros", description: "Seguros acessíveis com ampla cobertura" },
     { name: "Mapfre", description: "Tradição e confiança em seguros diversos" },
-    { name: "Sompo", description: "Inovação e tecnologia em proteção" },
     { name: "HDI Seguros", description: "Especialista em seguros corporativos" },
     { name: "Zurich", description: "Soluções globais para riscos complexos" },
     { name: "Bradesco Seguros", description: "Solidez e credibilidade nacional" },
     { name: "Liberty Seguros", description: "Flexibilidade e personalização" },
-    { name: "Chubb", description: "Seguros premium e de alto valor" },
+    { name: "Suhai", description: "Proteção veicular acessível" },
+    { name: "Justos", description: "Seguro auto inteligente e digital" },
+    { name: "Darwin", description: "Inovação em seguros" },
+    { name: "Ituran", description: "Rastreamento e proteção veicular" },
     { name: "SulAmérica", description: "Tradição em seguros de saúde e vida" },
+  ];
+
+  const healthPartners = [
+    { name: "Bradesco Saúde", description: "Ampla rede credenciada e cobertura nacional" },
+    { name: "Amil Saúde", description: "Planos individuais e empresariais com excelente custo-benefício" },
+    { name: "SulAmérica Saúde", description: "Tradição e qualidade em saúde suplementar" },
+    { name: "Porto Saúde", description: "Inovação e tecnologia em planos de saúde" },
+    { name: "NotreDame Intermédica", description: "Rede própria e preços acessíveis" },
+    { name: "MedSenior", description: "Especialista em planos para a terceira idade" },
+    { name: "Omint", description: "Planos premium com atendimento diferenciado" },
   ];
 
   return (
