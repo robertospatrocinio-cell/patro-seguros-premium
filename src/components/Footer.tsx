@@ -10,7 +10,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src={logoPatron} alt="Patro Seguros" className="h-12 w-auto" />
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 bg-gradient-to-br from-primary to-blue-700 rounded-xl flex items-center justify-center">
+                  <span className="text-white font-heading font-bold text-base">P</span>
+                </div>
+                <span className="font-heading font-bold text-xl text-white">Patro <span className="text-primary-foreground/80">Seguros</span></span>
+              </div>
             </div>
             <p className="text-sm text-white/60 mb-4 leading-relaxed max-w-sm">
               Proteção inteligente para você, sua família e sua empresa. A corretora de seguros que compara o mercado para encontrar a melhor solução.
