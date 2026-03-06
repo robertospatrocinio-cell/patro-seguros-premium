@@ -59,8 +59,7 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl gradient-primary flex items-center justify-center text-white font-bold text-sm">P</div>
-              <span className="font-heading font-bold text-xl text-foreground">Patro<span className="text-primary"> Seguros</span></span>
+              <img src={logoPatron} alt="Patro Seguros" className="h-10 w-auto" />
             </Link>
 
             {/* Desktop */}
