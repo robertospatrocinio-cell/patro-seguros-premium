@@ -9,13 +9,25 @@ const Parceiros = () => {
     { name: "Allianz", description: "Seguradora global com soluções completas" },
     { name: "Azul Seguros", description: "Seguros acessíveis com ampla cobertura" },
     { name: "Mapfre", description: "Tradição e confiança em seguros diversos" },
-    { name: "Sompo", description: "Inovação e tecnologia em proteção" },
     { name: "HDI Seguros", description: "Especialista em seguros corporativos" },
     { name: "Zurich", description: "Soluções globais para riscos complexos" },
     { name: "Bradesco Seguros", description: "Solidez e credibilidade nacional" },
     { name: "Liberty Seguros", description: "Flexibilidade e personalização" },
-    { name: "Chubb", description: "Seguros premium e de alto valor" },
+    { name: "Suhai", description: "Proteção veicular acessível" },
+    { name: "Justos", description: "Seguro auto inteligente e digital" },
+    { name: "Darwin", description: "Inovação em seguros" },
+    { name: "Ituran", description: "Rastreamento e proteção veicular" },
     { name: "SulAmérica", description: "Tradição em seguros de saúde e vida" },
+  ];
+
+  const healthPartners = [
+    { name: "Bradesco Saúde", description: "Ampla rede credenciada e cobertura nacional" },
+    { name: "Amil Saúde", description: "Planos individuais e empresariais com excelente custo-benefício" },
+    { name: "SulAmérica Saúde", description: "Tradição e qualidade em saúde suplementar" },
+    { name: "Porto Saúde", description: "Inovação e tecnologia em planos de saúde" },
+    { name: "NotreDame Intermédica", description: "Rede própria e preços acessíveis" },
+    { name: "MedSenior", description: "Especialista em planos para a terceira idade" },
+    { name: "Omint", description: "Planos premium com atendimento diferenciado" },
   ];
 
   return (
@@ -53,6 +65,19 @@ const Parceiros = () => {
             {/* Grid de Parceiros */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {partners.map((partner, index) => (
+                <Card key={index} className="hover:shadow-lg transition-base">
+                  <CardContent className="pt-6">
+                    <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
+                    <p className="text-muted-foreground">{partner.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Operadoras de Saúde */}
+            <h2 className="text-center mb-8 mt-16">Operadoras de Planos de Saúde</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {healthPartners.map((partner, index) => (
                 <Card key={index} className="hover:shadow-lg transition-base">
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>

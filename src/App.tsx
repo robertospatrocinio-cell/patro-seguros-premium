@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
 import Sobre from "./pages/Sobre";
 import Parceiros from "./pages/Parceiros";
@@ -27,6 +28,20 @@ import SeguroRCProfissional from "./pages/SeguroRCProfissional";
 import SeguroCondominio from "./pages/SeguroCondominio";
 import SeguroEngenharia from "./pages/SeguroEngenharia";
 import SeguroCyber from "./pages/SeguroCyber";
+import SeguroCelular from "./pages/SeguroCelular";
+import PlanosDeSaude from "./pages/PlanosDeSaude";
+import IndiqueAmigo from "./pages/IndiqueAmigo";
+import CotacaoSeguroAuto from "./pages/CotacaoSeguroAuto";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import SeguroMaquinasAgricolas from "./pages/SeguroMaquinasAgricolas";
+import SeguroEquipamentosAgricolas from "./pages/SeguroEquipamentosAgricolas";
+import SeguroGalpoesIndustriais from "./pages/SeguroGalpoesIndustriais";
+import SeguroMaquinasIndustriais from "./pages/SeguroMaquinasIndustriais";
+import SeoSeguroAutoGuarulhos from "./pages/SeoSeguroAutoGuarulhos";
+import SeoPlanoSaudeGuarulhos from "./pages/SeoPlanoSaudeGuarulhos";
+import SeoSeguroEmpresarialGuarulhos from "./pages/SeoSeguroEmpresarialGuarulhos";
+import SeoCorretoraGuarulhos from "./pages/SeoCorretoraGuarulhos";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -62,8 +77,23 @@ const App = () => (
           <Route path="/seguro-condominio" element={<SeguroCondominio />} />
           <Route path="/seguro-engenharia" element={<SeguroEngenharia />} />
           <Route path="/seguro-cyber" element={<SeguroCyber />} />
+          <Route path="/seguro-celular" element={<SeguroCelular />} />
+          <Route path="/planos-de-saude" element={<PlanosDeSaude />} />
+          <Route path="/indique-um-amigo" element={<IndiqueAmigo />} />
+          <Route path="/cotacao-seguro-auto" element={<CotacaoSeguroAuto />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogArticle />} />
+          <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
+          <Route path="/seguro-equipamentos-agricolas" element={<SeguroEquipamentosAgricolas />} />
+          <Route path="/seguro-galpoes-industriais" element={<SeguroGalpoesIndustriais />} />
+          <Route path="/seguro-maquinas-industriais" element={<SeguroMaquinasIndustriais />} />
+          <Route path="/seguro-auto-guarulhos" element={<SeoSeguroAutoGuarulhos />} />
+          <Route path="/plano-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
+          <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresarialGuarulhos />} />
+          <Route path="/corretora-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
