@@ -203,3 +203,8 @@
     opacity: 0;
   }
 }
+
+
+#lovable-badge {
+  display: none !important;
+}
