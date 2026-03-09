@@ -83,6 +83,7 @@ const SeguroRural = () => {
         { title: "Seguro de Máquinas", link: "/seguro-maquinas" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Seguro de Transporte", link: "/seguro-transporte" },
+        { title: "Seguro Ambiental", link: "/seguro-ambiental" },
       ]}
     />
   );

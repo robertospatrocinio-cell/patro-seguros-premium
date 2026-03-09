@@ -83,6 +83,7 @@ const SeguroRC = () => {
         { title: "Seguro RC Profissional", link: "/seguro-rc-profissional" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Seguro Engenharia", link: "/seguro-engenharia" },
+        { title: "Seguro Ambiental", link: "/seguro-ambiental" },
       ]}
     />
   );
