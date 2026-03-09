@@ -42,6 +42,7 @@ import SeoSeguroAutoGuarulhos from "./pages/SeoSeguroAutoGuarulhos";
 import SeoPlanoSaudeGuarulhos from "./pages/SeoPlanoSaudeGuarulhos";
 import SeoSeguroEmpresarialGuarulhos from "./pages/SeoSeguroEmpresarialGuarulhos";
 import SeoCorretoraGuarulhos from "./pages/SeoCorretoraGuarulhos";
+import SeguroAmbiental from "./pages/SeguroAmbiental";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -91,6 +92,7 @@ const App = () => (
           <Route path="/plano-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
           <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresarialGuarulhos />} />
           <Route path="/corretora-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
+          <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppButton />
