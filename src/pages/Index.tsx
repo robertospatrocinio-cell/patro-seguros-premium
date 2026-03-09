@@ -18,6 +18,7 @@ const solutions = [
   { title: "Seguro de Vida", desc: "Proteção para quem você ama", icon: Shield, link: "/seguro-vida" },
   { title: "Máquinas Agrícolas", desc: "Especialistas em agronegócio", icon: Tractor, link: "/seguro-maquinas-agricolas" },
   { title: "Galpões Industriais", desc: "Proteção industrial completa", icon: Factory, link: "/seguro-galpoes-industriais" },
+  { title: "Seguro Ambiental", desc: "Proteção contra riscos ambientais", icon: Leaf, link: "/seguro-ambiental" },
 ];
 
 const diferenciais = [
