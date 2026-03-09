@@ -83,6 +83,7 @@ const SeguroTransporte = () => {
         { title: "Seguro de Frota", link: "/seguro-frota" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Seguro Responsabilidade Civil", link: "/seguro-rc" },
+        { title: "Seguro Ambiental", link: "/seguro-ambiental" },
       ]}
     />
   );
