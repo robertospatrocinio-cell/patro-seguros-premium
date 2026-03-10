@@ -140,6 +140,7 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-auto", label: "Auto" },
+                  { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-moto", label: "Moto" },
                   { to: "/seguro-vida", label: "Vida" },
                   { to: "/seguro-residencial", label: "Residencial" },

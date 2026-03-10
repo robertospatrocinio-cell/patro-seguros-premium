@@ -99,6 +99,8 @@ const App = () => (
           <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
           <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
           <Route path="/seguro-estagiario" element={<SeguroEstagiario />} />
+          <Route path="/seguro-fianca-locaticia" element={<SeguroFiancaLocaticia />} />
+          <Route path="/seguro-caminhao" element={<SeguroCaminhao />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppButton />

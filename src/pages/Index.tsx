@@ -21,6 +21,8 @@ const solutions = [
   { title: "Seguro Ambiental", desc: "Proteção contra riscos ambientais", icon: Leaf, link: "/seguro-ambiental" },
   { title: "Acidentes Pessoais", desc: "Proteção financeira contra acidentes", icon: UserCheck, link: "/seguro-acidentes-pessoais" },
   { title: "Seguro Estagiário", desc: "Obrigatório por lei para estagiários", icon: GraduationCap, link: "/seguro-estagiario" },
+  { title: "Seguro Caminhão", desc: "Proteção para veículos pesados", icon: Truck, link: "/seguro-caminhao" },
+  { title: "Fiança Locatícia", desc: "Alugue sem fiador com segurança", icon: Key, link: "/seguro-fianca-locaticia" },
 ];
 
 const diferenciais = [
