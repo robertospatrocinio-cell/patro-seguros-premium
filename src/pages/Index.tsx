@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Smartphone, Plane, Tractor, Factory, Leaf } from "lucide-react";
+import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Smartphone, Plane, Tractor, Factory, Leaf, UserCheck, GraduationCap } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,8 @@ const solutions = [
   { title: "Máquinas Agrícolas", desc: "Especialistas em agronegócio", icon: Tractor, link: "/seguro-maquinas-agricolas" },
   { title: "Galpões Industriais", desc: "Proteção industrial completa", icon: Factory, link: "/seguro-galpoes-industriais" },
   { title: "Seguro Ambiental", desc: "Proteção contra riscos ambientais", icon: Leaf, link: "/seguro-ambiental" },
+  { title: "Acidentes Pessoais", desc: "Proteção financeira contra acidentes", icon: UserCheck, link: "/seguro-acidentes-pessoais" },
+  { title: "Seguro Estagiário", desc: "Obrigatório por lei para estagiários", icon: GraduationCap, link: "/seguro-estagiario" },
 ];
 
 const diferenciais = [

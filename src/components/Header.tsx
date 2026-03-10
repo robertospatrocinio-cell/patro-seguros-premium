@@ -79,6 +79,7 @@ const Header = () => {
                 <DropLink to="/seguro-viagem">Seguro Viagem</DropLink>
                 <DropLink to="/seguro-celular">Seguro Celular</DropLink>
                 <DropLink to="/seguro-fianca">Seguro Fiança</DropLink>
+                <DropLink to="/seguro-acidentes-pessoais">Acidentes Pessoais</DropLink>
                 <DropLink to="/previdencia-privada">Previdência Privada</DropLink>
                 <DropLink to="/planos-de-saude">Planos de Saúde</DropLink>
                 <DropLink to="/seguro-odonto">Seguro Odonto</DropLink>
@@ -94,6 +95,7 @@ const Header = () => {
                 <DropLink to="/seguro-engenharia">Seguro Engenharia</DropLink>
                 <DropLink to="/seguro-cyber">Seguro Cyber</DropLink>
                 <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
+                <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
               </NavDropdown>
 
               <NavDropdown label="Especialidades">
@@ -142,6 +144,7 @@ const Header = () => {
                   { to: "/seguro-viagem", label: "Viagem" },
                   { to: "/seguro-celular", label: "Celular" },
                   { to: "/planos-de-saude", label: "Saúde" },
+                  { to: "/seguro-acidentes-pessoais", label: "Acid. Pessoais" },
                   { to: "/previdencia-privada", label: "Previdência" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
@@ -160,6 +163,7 @@ const Header = () => {
                   { to: "/seguro-condominio", label: "Condomínio" },
                   { to: "/seguro-cyber", label: "Cyber" },
                   { to: "/seguro-ambiental", label: "Ambiental" },
+                  { to: "/seguro-estagiario", label: "Estagiário" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
                 ))}
