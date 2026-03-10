@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Smartphone, Plane, Tractor, Factory, Leaf, UserCheck, GraduationCap } from "lucide-react";
+import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Smartphone, Plane, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
