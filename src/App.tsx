@@ -43,6 +43,8 @@ import SeoPlanoSaudeGuarulhos from "./pages/SeoPlanoSaudeGuarulhos";
 import SeoSeguroEmpresarialGuarulhos from "./pages/SeoSeguroEmpresarialGuarulhos";
 import SeoCorretoraGuarulhos from "./pages/SeoCorretoraGuarulhos";
 import SeguroAmbiental from "./pages/SeguroAmbiental";
+import SeguroAcidentesPessoais from "./pages/SeguroAcidentesPessoais";
+import SeguroEstagiario from "./pages/SeguroEstagiario";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
