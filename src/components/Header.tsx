@@ -73,12 +73,14 @@ const Header = () => {
 
               <NavDropdown label="Seguros Pessoais">
                 <DropLink to="/seguro-auto">Seguro Auto</DropLink>
+                <DropLink to="/seguro-caminhao">Seguro Caminhão</DropLink>
                 <DropLink to="/seguro-moto">Seguro Moto</DropLink>
                 <DropLink to="/seguro-vida">Seguro de Vida</DropLink>
                 <DropLink to="/seguro-residencial">Seguro Residencial</DropLink>
                 <DropLink to="/seguro-viagem">Seguro Viagem</DropLink>
                 <DropLink to="/seguro-celular">Seguro Celular</DropLink>
                 <DropLink to="/seguro-fianca">Seguro Fiança</DropLink>
+                <DropLink to="/seguro-fianca-locaticia">Fiança Locatícia</DropLink>
                 <DropLink to="/seguro-acidentes-pessoais">Acidentes Pessoais</DropLink>
                 <DropLink to="/previdencia-privada">Previdência Privada</DropLink>
                 <DropLink to="/planos-de-saude">Planos de Saúde</DropLink>
@@ -138,6 +140,7 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-auto", label: "Auto" },
+                  { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-moto", label: "Moto" },
                   { to: "/seguro-vida", label: "Vida" },
                   { to: "/seguro-residencial", label: "Residencial" },
