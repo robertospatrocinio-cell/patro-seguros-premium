@@ -45,6 +45,8 @@ import SeoCorretoraGuarulhos from "./pages/SeoCorretoraGuarulhos";
 import SeguroAmbiental from "./pages/SeguroAmbiental";
 import SeguroAcidentesPessoais from "./pages/SeguroAcidentesPessoais";
 import SeguroEstagiario from "./pages/SeguroEstagiario";
+import SeguroFiancaLocaticia from "./pages/SeguroFiancaLocaticia";
+import SeguroCaminhao from "./pages/SeguroCaminhao";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
