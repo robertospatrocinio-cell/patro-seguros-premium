@@ -95,6 +95,7 @@ const Header = () => {
                 <DropLink to="/seguro-engenharia">Seguro Engenharia</DropLink>
                 <DropLink to="/seguro-cyber">Seguro Cyber</DropLink>
                 <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
+                <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
               </NavDropdown>
 
               <NavDropdown label="Especialidades">
