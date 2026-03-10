@@ -79,6 +79,7 @@ const Header = () => {
                 <DropLink to="/seguro-viagem">Seguro Viagem</DropLink>
                 <DropLink to="/seguro-celular">Seguro Celular</DropLink>
                 <DropLink to="/seguro-fianca">Seguro Fiança</DropLink>
+                <DropLink to="/seguro-acidentes-pessoais">Acidentes Pessoais</DropLink>
                 <DropLink to="/previdencia-privada">Previdência Privada</DropLink>
                 <DropLink to="/planos-de-saude">Planos de Saúde</DropLink>
                 <DropLink to="/seguro-odonto">Seguro Odonto</DropLink>
