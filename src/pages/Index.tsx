@@ -19,6 +19,8 @@ const solutions = [
   { title: "Máquinas Agrícolas", desc: "Especialistas em agronegócio", icon: Tractor, link: "/seguro-maquinas-agricolas" },
   { title: "Galpões Industriais", desc: "Proteção industrial completa", icon: Factory, link: "/seguro-galpoes-industriais" },
   { title: "Seguro Ambiental", desc: "Proteção contra riscos ambientais", icon: Leaf, link: "/seguro-ambiental" },
+  { title: "Acidentes Pessoais", desc: "Proteção financeira contra acidentes", icon: UserCheck, link: "/seguro-acidentes-pessoais" },
+  { title: "Seguro Estagiário", desc: "Obrigatório por lei para estagiários", icon: GraduationCap, link: "/seguro-estagiario" },
 ];
 
 const diferenciais = [
