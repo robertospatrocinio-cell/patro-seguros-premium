@@ -28,6 +28,7 @@ const Parceiros = () => {
     { name: "NotreDame Intermédica", description: "Rede própria e preços acessíveis" },
     { name: "MedSenior", description: "Especialista em planos para a terceira idade" },
     { name: "Omint", description: "Planos premium com atendimento diferenciado" },
+    { name: "Unimed", description: "Maior cooperativa médica do mundo com ampla presença nacional" },
   ];
 
   return (
