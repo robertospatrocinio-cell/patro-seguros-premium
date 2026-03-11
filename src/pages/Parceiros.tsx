@@ -18,6 +18,7 @@ const Parceiros = () => {
     { name: "Darwin", description: "Inovação em seguros" },
     { name: "Ituran", description: "Rastreamento e proteção veicular" },
     { name: "SulAmérica", description: "Tradição em seguros de saúde e vida" },
+    { name: "Akad", description: "Soluções inovadoras em seguros corporativos e garantias" },
   ];
 
   const healthPartners = [
