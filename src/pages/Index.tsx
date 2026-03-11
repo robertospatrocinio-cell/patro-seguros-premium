@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
-const seguradoras = ["Porto", "HDI", "Allianz", "Tokio Marine", "Mapfre", "Bradesco", "Azul", "Zurich", "Liberty", "Suhai", "Justos", "Darwin", "Ituran"];
+const seguradoras = ["Porto", "HDI", "Allianz", "Tokio Marine", "Mapfre", "Bradesco", "Azul", "Zurich", "Liberty", "Suhai", "Justos", "Darwin", "Ituran", "Akad"];
 
 const operadoras = ["Bradesco Saúde", "Amil", "SulAmérica Saúde", "Porto Saúde", "NotreDame Intermédica", "MedSenior", "Omint", "Unimed"];
 
