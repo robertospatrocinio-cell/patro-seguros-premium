@@ -99,7 +99,7 @@ const Index = () => {
             <p className="text-center text-xs text-muted-foreground mb-6 uppercase tracking-[0.2em] font-medium">Operadoras de Planos de Saúde</p>
             <div className="flex flex-wrap justify-center gap-3 items-center">
               {operadoras.map((name) => (
-                <div key={name} className="px-4 py-2 rounded-xl bg-background text-sm font-medium text-muted-foreground border hover:border-primary/30 hover:text-primary transition-base">
+                <div key={name} className="px-4 py-2 rounded-xl bg-background text-sm font-medium text-muted-foreground border border-[hsl(0,0%,75%)] shadow-[0_0_6px_0_hsla(0,0%,70%,0.3)] hover:border-primary/30 hover:text-primary hover:shadow-[0_0_8px_0_hsla(var(--primary),0.2)] transition-base">
                   {name}
                 </div>
               ))}
