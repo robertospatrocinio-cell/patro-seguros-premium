@@ -65,7 +65,7 @@ const Parceiros = () => {
             {/* Grid de Parceiros */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {partners.map((partner, index) => (
-                <Card key={index} className="hover:shadow-lg transition-base">
+                <Card key={index} className="hover:shadow-lg transition-base border-2" style={{ borderImage: 'linear-gradient(135deg, #C0C0C0, #E8E8E8, #A8A8A8, #D4D4D4, #B0B0B0) 1', borderStyle: 'solid' }}>
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
                     <p className="text-muted-foreground">{partner.description}</p>
