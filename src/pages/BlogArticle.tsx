@@ -2652,7 +2652,6 @@ Dicas para escolher:
       { q: "Posso ter plano de saúde e odontológico separados?", a: "Sim! São produtos independentes. Você pode contratar plano de saúde de uma operadora e odontológico de outra, escolhendo o melhor de cada uma." },
     ],
   },
-  },
   "5-dicas-baratear-seguro-auto": {
     title: "5 Dicas para Baratear o Seguro Auto",
     content: `O seguro auto é um dos investimentos mais importantes para quem tem veículo, mas muita gente acaba pagando mais do que deveria por falta de informação. A boa notícia é que existem estratégias simples e legítimas para reduzir o valor da apólice sem comprometer a proteção.
