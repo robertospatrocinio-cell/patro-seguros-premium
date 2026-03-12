@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Car, Bike, Home, Truck, CheckCircle, TrendingUp, Shield, Clock, Users, Award, ArrowRight, HelpCircle, Phone } from "lucide-react";
@@ -63,6 +64,7 @@ const etapas = [
 const Consorcio = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <PageMeta title="Consórcio" description="Consórcio de carros, motos, imóveis e caminhões com a Patro Seguros. Sem juros, parcelas acessíveis e poder de compra à vista. Simule grátis!" />
       <Header />
 
       {/* Hero */}

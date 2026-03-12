@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -60,6 +61,7 @@ const Cotacao = () => {
 
   return (
     <>
+      <PageMeta title="Cotação de Seguros" description="Solicite uma cotação gratuita de seguros com a Patro Seguros. Comparamos as melhores seguradoras para encontrar o melhor preço e cobertura para você." />
       <Header />
       <main>
         {/* Hero */}

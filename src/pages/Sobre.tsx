@@ -1,11 +1,13 @@
 import { Shield, Target, Heart, Award } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Sobre = () => {
   return (
     <>
+      <PageMeta title="Sobre a Patro Seguros" description="Conheça a Patro Seguros — corretora de seguros em Guarulhos com atendimento consultivo, especialistas dedicados e parceria com as melhores seguradoras do Brasil." />
       <Header />
       <main>
         {/* Hero */}

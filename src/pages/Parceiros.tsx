@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Parceiros = () => {
@@ -35,6 +36,7 @@ const Parceiros = () => {
 
   return (
     <>
+      <PageMeta title="Seguradoras Parceiras" description="Conheça as seguradoras parceiras da Patro Seguros: Porto, Tokio Marine, Allianz, Bradesco, HDI, Mapfre e mais. As melhores opções do mercado para você." />
       <Header />
       <main>
         {/* Hero */}

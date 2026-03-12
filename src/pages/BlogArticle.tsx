@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowLeft } from "lucide-react";
 
@@ -2863,6 +2864,7 @@ const BlogArticle = () => {
 
   return (
     <>
+      <PageMeta title={article.title} description={`${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros para você e sua empresa.`} />
       <Header />
       <main>
         <section className="gradient-hero py-16">

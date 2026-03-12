@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -33,6 +34,7 @@ const IndiqueAmigo = () => {
   if (submitted) {
     return (
       <>
+        <PageMeta title="Indicação Enviada" description="Obrigado por indicar um amigo para a Patro Seguros!" />
         <Header />
         <main className="py-20">
           <div className="container mx-auto px-4 text-center max-w-lg">
@@ -51,6 +53,7 @@ const IndiqueAmigo = () => {
 
   return (
     <>
+      <PageMeta title="Indique um Amigo" description="Indique um amigo para a Patro Seguros e ganhe benefícios. Programa de indicação com vantagens para quem indica e quem é indicado." />
       <Header />
       <main>
         <section className="gradient-hero py-20">

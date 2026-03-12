@@ -1,6 +1,7 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 
 const SEGFY_URL = "https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D";
@@ -9,6 +10,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 const CotacaoSeguroAuto = () => {
   return (
     <>
+      <PageMeta title="Cotação Seguro Auto" description="Faça sua cotação de seguro auto online com a Patro Seguros. Compare preços de Porto, Tokio Marine, Allianz e mais. Resposta em até 2 horas." />
       <Header />
       <main>
         <section className="gradient-hero py-20">
