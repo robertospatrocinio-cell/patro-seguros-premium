@@ -48,6 +48,10 @@ import SeguroEstagiario from "./pages/SeguroEstagiario";
 import SeguroFiancaLocaticia from "./pages/SeguroFiancaLocaticia";
 import SeguroCaminhao from "./pages/SeguroCaminhao";
 import SeguroVidaPME from "./pages/SeguroVidaPME";
+import SeguroArmazenagem from "./pages/SeguroArmazenagem";
+import SeguroPlacaSolar from "./pages/SeguroPlacaSolar";
+import SeguroPecuario from "./pages/SeguroPecuario";
+import SeguroCafe from "./pages/SeguroCafe";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
