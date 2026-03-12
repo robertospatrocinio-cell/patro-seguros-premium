@@ -57,6 +57,10 @@ import SeguroLojasShopping from "./pages/SeguroLojasShopping";
 import SeguroDroneAgricola from "./pages/SeguroDroneAgricola";
 import SeguroTransporteAgro from "./pages/SeguroTransporteAgro";
 import SeguroBike from "./pages/SeguroBike";
+import SeguroJetSki from "./pages/SeguroJetSki";
+import SeguroEmbarcacoes from "./pages/SeguroEmbarcacoes";
+import SeguroAvioes from "./pages/SeguroAvioes";
+import SeguroHelicopteros from "./pages/SeguroHelicopteros";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
