@@ -7,6 +7,154 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "consorcio-imoveis-casa-propria": {
+    title: "Consórcio de Imóveis: O Sonho da Casa Própria ao Seu Alcance",
+    content: `A casa própria é o maior sonho de milhões de brasileiros — e o consórcio de imóveis é uma das formas mais inteligentes, econômicas e acessíveis de realizá-lo. Sem juros bancários, sem entrada obrigatória e com parcelas que cabem no bolso, o consórcio é a alternativa que mais cresce no Brasil para aquisição de imóveis.
+
+Neste guia completo, a Patro Seguros explica tudo sobre o consórcio de imóveis: como funciona, vantagens, formas de contemplação, dicas para ser contemplado mais rápido e muito mais.
+
+O Que É o Consórcio de Imóveis?
+
+O consórcio de imóveis é uma modalidade de compra programada em que um grupo de pessoas se une para formar uma poupança coletiva. Todo mês, cada participante paga uma parcela, e o valor acumulado pelo grupo é utilizado para contemplar um ou mais participantes com a carta de crédito para compra do imóvel.
+
+Diferente do financiamento bancário, o consórcio NÃO cobra juros — apenas uma taxa de administração, que é significativamente menor. Isso pode representar uma economia de até 50% no valor total pago pelo imóvel.
+
+Como Funciona o Consórcio de Imóveis?
+
+O processo é simples e transparente:
+
+1. Escolha do plano: você define o valor da carta de crédito (valor do imóvel desejado) e o prazo de pagamento (geralmente de 120 a 240 meses).
+
+2. Pagamento das parcelas: todo mês você paga a parcela do consórcio, que é composta pelo fundo comum (poupança do grupo), taxa de administração e fundo de reserva.
+
+3. Assembleias mensais: todo mês acontece uma assembleia onde participantes são contemplados por sorteio ou lance.
+
+4. Contemplação: ao ser contemplado, você recebe a carta de crédito no valor contratado para comprar seu imóvel.
+
+5. Compra do imóvel: com a carta de crédito em mãos, você escolhe o imóvel — casa, apartamento, terreno ou imóvel comercial — e a administradora efetua o pagamento.
+
+6. Continuidade do pagamento: mesmo após a contemplação, você continua pagando as parcelas restantes até o final do plano.
+
+Formas de Contemplação
+
+Existem duas formas de ser contemplado no consórcio:
+
+1. Sorteio: todos os meses, um ou mais participantes são contemplados por sorteio aleatório. Todos os consorciados ativos e adimplentes participam automaticamente.
+
+2. Lance: o participante oferece um valor antecipado (lance) para antecipar sua contemplação. O maior lance do mês é contemplado. Existem diferentes tipos de lance:
+
+- Lance livre: você oferece qualquer percentual do valor da carta de crédito.
+- Lance fixo: valor pré-definido pela administradora (geralmente 25% ou 30%).
+- Lance embutido: o valor do lance é descontado da própria carta de crédito — você não precisa ter dinheiro extra.
+- Lance com FGTS: é possível utilizar o saldo do FGTS como lance para antecipar a contemplação.
+
+Vantagens do Consórcio de Imóveis
+
+1. Sem juros bancários: essa é a maior vantagem. No financiamento, os juros podem dobrar ou triplicar o valor do imóvel. No consórcio, você paga apenas a taxa de administração (geralmente de 15% a 20% do valor total, diluída em todo o prazo).
+
+Comparativo real:
+- Imóvel de R$ 300.000 financiado em 30 anos (juros de 10% a.a.): valor total pago ~ R$ 750.000 a R$ 900.000.
+- Mesmo imóvel em consórcio de 15 anos (taxa admin. de 18%): valor total pago ~ R$ 354.000.
+- Economia: até R$ 500.000!
+
+2. Sem entrada obrigatória: no financiamento, o banco exige entrada de 20% a 30% do valor do imóvel. No consórcio, você começa a participar apenas com a primeira parcela.
+
+3. Parcelas mais acessíveis: como não há juros compostos, as parcelas do consórcio são menores que as do financiamento para o mesmo valor de imóvel.
+
+4. Poder de compra à vista: quando contemplado, a carta de crédito funciona como pagamento à vista para o vendedor. Isso dá poder de negociação para obter descontos de 5% a 15% no preço do imóvel.
+
+5. Flexibilidade de uso: a carta de crédito pode ser utilizada para:
+- Comprar casa ou apartamento (novo ou usado)
+- Adquirir terreno
+- Construir em terreno próprio
+- Reformar ou ampliar imóvel existente
+- Comprar imóvel comercial (sala, loja, galpão)
+- Quitar financiamento imobiliário existente
+
+6. Utilização do FGTS: o saldo do FGTS pode ser utilizado para:
+- Dar lance e antecipar a contemplação
+- Complementar a carta de crédito
+- Amortizar parcelas
+
+7. Sem comprometimento de renda imediato: como o consórcio não é um financiamento, ele não compromete sua capacidade de crédito bancário. Você pode ter um consórcio e ainda conseguir financiamento para outras finalidades.
+
+8. Planejamento financeiro: o consórcio funciona como uma poupança disciplinada. Mesmo que você não seja contemplado nos primeiros meses, está construindo patrimônio.
+
+Consórcio vs. Financiamento: Comparativo Completo
+
+Juros: Consórcio NÃO tem juros, apenas taxa de administração. Financiamento cobra juros compostos (8% a 12% a.a.).
+
+Entrada: Consórcio não exige entrada. Financiamento exige 20% a 30%.
+
+Valor total pago: Consórcio é 40% a 60% mais barato. Financiamento pode custar 2x a 3x o valor do imóvel.
+
+Acesso ao imóvel: Consórcio depende de contemplação (sorteio ou lance). Financiamento é imediato após aprovação.
+
+Poder de negociação: Consórcio permite comprar à vista (carta de crédito). Financiamento é pagamento parcelado ao vendedor.
+
+Burocracia: Consórcio tem menos burocracia. Financiamento exige análise de crédito rigorosa.
+
+FGTS: Ambos permitem uso do FGTS.
+
+Ideal para: Consórcio para quem pode planejar. Financiamento para quem precisa do imóvel imediatamente.
+
+Para Quem o Consórcio de Imóveis É Ideal?
+
+- Quem não tem pressa: pode esperar a contemplação por sorteio.
+- Quem quer economizar: a diferença de custo total é enorme comparada ao financiamento.
+- Quem não tem entrada: o consórcio não exige valor de entrada.
+- Investidores: consórcio é uma ferramenta de investimento patrimonial.
+- Quem quer trocar de imóvel: vender o atual e usar a carta de crédito para comprar um melhor.
+- Quem quer construir: a carta de crédito pode ser usada para construção em terreno próprio.
+- Jovens planejando o futuro: começar cedo aumenta as chances de contemplação e garante patrimônio.
+
+Dicas da Patro Seguros Para Ser Contemplado Mais Rápido
+
+1. Ofereça lances estratégicos: analise o histórico de lances vencedores do seu grupo e ofereça um lance competitivo.
+
+2. Use o lance embutido: se não tem dinheiro extra para lance, utilize o lance embutido (descontado da carta de crédito).
+
+3. Utilize o FGTS como lance: combine seu FGTS com lance próprio para aumentar suas chances.
+
+4. Mantenha as parcelas em dia: inadimplência suspende a participação nos sorteios.
+
+5. Considere grupos menores: grupos com menos participantes tendem a ter contemplações mais rápidas.
+
+6. Antecipe parcelas: pagar parcelas adiantadas reduz o saldo devedor e demonstra capacidade financeira.
+
+7. Acompanhe as assembleias: conheça o comportamento do seu grupo — valores de lances vencedores, número de contemplações por mês.
+
+8. Diversifique: ter mais de uma cota aumenta suas chances de contemplação.
+
+Cuidados ao Contratar um Consórcio
+
+1. Escolha administradora autorizada pelo Banco Central: verifique se a empresa está registrada e fiscalizada pelo BACEN.
+
+2. Leia o contrato completo: entenda a taxa de administração, fundo de reserva, reajustes e regras de contemplação.
+
+3. Desconfie de promessas de contemplação garantida: nenhuma administradora pode garantir quando você será contemplado.
+
+4. Verifique o índice de reajuste: as parcelas e a carta de crédito são reajustadas anualmente (geralmente pelo INCC para imóveis).
+
+5. Entenda as regras de desistência: em caso de desistência, você recebe o valor pago (descontadas taxas) somente ao final do grupo ou por sorteio.
+
+Como Contratar com a Patro Seguros
+
+1. Entre em contato pelo WhatsApp, telefone ou site.
+2. Informe o valor do imóvel desejado e o prazo ideal.
+3. Apresentamos as melhores opções de consórcio das principais administradoras.
+4. Você escolhe o plano ideal e já começa a participar dos sorteios.
+
+A Patro Seguros trabalha com as maiores e mais confiáveis administradoras de consórcio do Brasil. Realizamos o sonho da casa própria de centenas de famílias todos os anos. Comece o seu consórcio hoje!`,
+    faqs: [
+      { q: "O consórcio de imóveis é seguro?", a: "Sim, desde que contratado com administradora autorizada pelo Banco Central do Brasil. O BACEN fiscaliza e regula todas as administradoras de consórcio, garantindo a segurança dos participantes. A Patro Seguros trabalha apenas com administradoras autorizadas e de sólida reputação." },
+      { q: "Posso usar o FGTS no consórcio de imóveis?", a: "Sim! O FGTS pode ser utilizado para dar lance (antecipar contemplação), complementar a carta de crédito, amortizar ou liquidar o saldo devedor. As regras são similares às do financiamento — o imóvel deve ser residencial, urbano e para moradia do titular." },
+      { q: "Quanto tempo demora para ser contemplado?", a: "Varia conforme o grupo e a estratégia. Por sorteio, pode ocorrer no primeiro mês ou no último. Por lance, depende do valor oferecido. Em média, a contemplação por lance ocorre nos primeiros 24 a 36 meses para quem oferece lances competitivos." },
+      { q: "Posso comprar imóvel usado com o consórcio?", a: "Sim! A carta de crédito pode ser usada para comprar imóvel novo ou usado, casa ou apartamento, terreno, imóvel comercial ou até para construção e reforma. A única exigência é que o imóvel esteja regularizado e livre de ônus." },
+      { q: "O que acontece se eu desistir do consórcio?", a: "Em caso de desistência, você receberá os valores pagos ao fundo comum (descontadas taxa de administração e multa contratual) por sorteio nas assembleias ou ao final do grupo. A legislação garante a devolução, mas o prazo pode ser longo." },
+      { q: "As parcelas do consórcio são fixas?", a: "As parcelas são reajustadas anualmente pelo índice previsto em contrato — geralmente o INCC (Índice Nacional de Custo da Construção) para consórcio de imóveis. Isso garante que a carta de crédito acompanhe a valorização do mercado imobiliário." },
+    ],
+  },
   "seguro-agricola-contra-granizo": {
     title: "Seguro Agrícola Contra Granizo: Proteja Sua Lavoura dos Prejuízos Climáticos",
     content: `O granizo é um dos fenômenos climáticos mais devastadores para a agricultura brasileira. Em questão de minutos, uma tempestade de granizo pode destruir completamente uma safra inteira, gerando prejuízos de milhões de reais. O Seguro Agrícola contra granizo é a principal ferramenta para proteger o produtor rural contra essas perdas.

@@ -42,6 +42,7 @@ const articles = [
   { slug: "rc-clinicas-estetica", title: "Seguro RC para Clínicas de Estética: Proteção Essencial", excerpt: "Entenda por que clínicas de estética precisam de seguro de responsabilidade civil e como se proteger contra processos.", category: "RC" },
   { slug: "seguro-condominio-guia-completo", title: "Seguro de Condomínio: Guia Completo — Obrigatoriedade, Coberturas e Como Contratar", excerpt: "Saiba tudo sobre o seguro condominial obrigatório, o que cobre, responsabilidades do síndico e como escolher a melhor apólice.", category: "Seguro Condomínio" },
   { slug: "seguro-agricola-contra-granizo", title: "Seguro Agrícola Contra Granizo: Proteja Sua Lavoura", excerpt: "Entenda como o seguro agrícola protege contra granizo, quais culturas são cobertas, custos e como acionar em caso de sinistro.", category: "Agronegócio" },
+  { slug: "consorcio-imoveis-casa-propria", title: "Consórcio de Imóveis: O Sonho da Casa Própria ao Seu Alcance", excerpt: "Descubra como o consórcio de imóveis funciona, vantagens sobre o financiamento, formas de contemplação e dicas para realizar o sonho da casa própria.", category: "Consórcio" },
 ];
 
 const Blog = () => {
