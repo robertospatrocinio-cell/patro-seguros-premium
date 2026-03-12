@@ -43,6 +43,7 @@ const articles = [
   { slug: "seguro-condominio-guia-completo", title: "Seguro de Condomínio: Guia Completo — Obrigatoriedade, Coberturas e Como Contratar", excerpt: "Saiba tudo sobre o seguro condominial obrigatório, o que cobre, responsabilidades do síndico e como escolher a melhor apólice.", category: "Seguro Condomínio" },
   { slug: "seguro-agricola-contra-granizo", title: "Seguro Agrícola Contra Granizo: Proteja Sua Lavoura", excerpt: "Entenda como o seguro agrícola protege contra granizo, quais culturas são cobertas, custos e como acionar em caso de sinistro.", category: "Agronegócio" },
   { slug: "consorcio-imoveis-casa-propria", title: "Consórcio de Imóveis: O Sonho da Casa Própria ao Seu Alcance", excerpt: "Descubra como o consórcio de imóveis funciona, vantagens sobre o financiamento, formas de contemplação e dicas para realizar o sonho da casa própria.", category: "Consórcio" },
+  { slug: "seguro-cobertura-lucros-cessantes", title: "Os Benefícios do Seguro com Cobertura de Lucros Cessantes", excerpt: "Entenda como a cobertura de lucros cessantes protege o faturamento da sua empresa em caso de sinistro e por que é indispensável.", category: "Empresarial" },
 ];
 
 const Blog = () => {
