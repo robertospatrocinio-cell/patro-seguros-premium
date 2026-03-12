@@ -56,6 +56,7 @@ import Consorcio from "./pages/Consorcio";
 import SeguroLojasShopping from "./pages/SeguroLojasShopping";
 import SeguroDroneAgricola from "./pages/SeguroDroneAgricola";
 import SeguroTransporteAgro from "./pages/SeguroTransporteAgro";
+import SeguroBike from "./pages/SeguroBike";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
