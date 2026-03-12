@@ -52,6 +52,7 @@ const articles = [
 const Blog = () => {
   return (
     <>
+      <PageMeta title="Blog" description="Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio." />
       <Header />
       <main>
         <section className="gradient-hero py-20">

@@ -42,6 +42,7 @@ const testimonials = [
 const Index = () => {
   return (
     <>
+      <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — corretora de seguros em Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
       <Header />
       <main>
         {/* Hero */}

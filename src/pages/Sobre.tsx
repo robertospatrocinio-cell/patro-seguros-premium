@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 const Sobre = () => {
   return (
     <>
+      <PageMeta title="Sobre a Patro Seguros" description="Conheça a Patro Seguros — corretora de seguros em Guarulhos com atendimento consultivo, especialistas dedicados e parceria com as melhores seguradoras do Brasil." />
       <Header />
       <main>
         {/* Hero */}
