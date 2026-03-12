@@ -161,7 +161,7 @@ const Header = () => {
 
             <div className="py-2 px-3">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Seguros Pessoais</p>
-              <div className="grid grid-cols-2 gap-1">
+                <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-auto", label: "Auto" },
                   { to: "/seguro-moto", label: "Moto" },
@@ -170,10 +170,12 @@ const Header = () => {
                   { to: "/seguro-viagem", label: "Viagem" },
                   { to: "/seguro-celular", label: "Celular" },
                   { to: "/planos-de-saude", label: "Saúde" },
+                  { to: "/seguro-odonto", label: "Plano Odonto" },
+                  { to: "/seguro-fianca", label: "Fiança" },
+                  { to: "/seguro-fianca-locaticia", label: "Fiança Locatícia" },
                   { to: "/seguro-acidentes-pessoais", label: "Acid. Pessoais" },
                   { to: "/seguro-estagiario", label: "Estagiário" },
                   { to: "/previdencia-privada", label: "Previdência" },
-                  { to: "/seguro-odonto", label: "Plano Odonto" },
                   { to: "/seguro-bike", label: "Bike" },
                   { to: "/seguro-jetski", label: "Jet Ski" },
                   { to: "/seguro-embarcacoes", label: "Embarcações" },
