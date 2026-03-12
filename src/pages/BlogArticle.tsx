@@ -7,6 +7,130 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "seguro-carta-verde-mercosul": {
+    title: "Seguro Carta Verde: Tudo Sobre a Proteção Obrigatória para o Mercosul",
+    content: `Vai viajar de carro para a Argentina, Uruguai, Paraguai ou outro país da América do Sul? Então você precisa do Seguro Carta Verde. Neste guia completo, a Patro Seguros explica tudo sobre essa proteção obrigatória, como funciona, quanto custa e como contratar.
+
+O Que É o Seguro Carta Verde?
+
+O Seguro Carta Verde (também chamado de Seguro de Responsabilidade Civil de Veículos — RCV) é um seguro obrigatório para todos os veículos que cruzam fronteiras terrestres entre os países do Mercosul e seus associados. Ele funciona como uma garantia de que, em caso de acidente no exterior, os danos causados a terceiros serão cobertos financeiramente.
+
+O nome "Carta Verde" vem do documento em papel verde que comprova a contratação do seguro e deve ser apresentado na fronteira e portado durante toda a viagem.
+
+Para Quais Países o Seguro Carta Verde É Obrigatório?
+
+O seguro é exigido para circular nos seguintes países:
+
+Membros do Mercosul:
+- Argentina
+- Uruguai
+- Paraguai
+- Venezuela (atualmente suspenso)
+
+Países Associados:
+- Chile
+- Bolívia
+- Peru
+- Colômbia
+- Equador
+
+Se você vai cruzar a fronteira terrestre com qualquer um desses países, o Seguro Carta Verde é obrigatório — independentemente do tempo de permanência.
+
+O Que o Seguro Carta Verde Cobre?
+
+As coberturas obrigatórias incluem:
+
+1. Responsabilidade Civil por Danos Materiais a Terceiros: cobre danos ao veículo e propriedade de terceiros envolvidos no acidente. Valores variam conforme o país, geralmente entre US$ 20.000 e US$ 40.000.
+
+2. Responsabilidade Civil por Danos Corporais a Terceiros: indenização por lesões corporais, invalidez ou morte de terceiros. Valores podem chegar a US$ 40.000 ou mais, dependendo da legislação do país.
+
+3. Despesas Médicas e Hospitalares de Terceiros: cobertura para tratamento médico, cirurgias e internações de terceiros envolvidos no acidente.
+
+4. Despesas com Advogado: honorários advocatícios e custas judiciais no país onde ocorreu o sinistro.
+
+Importante: o Seguro Carta Verde NÃO cobre danos ao seu próprio veículo nem lesões ao motorista segurado. Para essa proteção, você precisa de um seguro auto com cobertura internacional ou um seguro viagem.
+
+Quanto Custa o Seguro Carta Verde?
+
+O valor do Seguro Carta Verde varia conforme:
+
+- Período de cobertura: quanto mais dias, maior o custo total (mas menor o custo diário).
+- País de destino: cada país tem exigências diferentes de valores mínimos.
+- Tipo de veículo: carros, motos, caminhões e ônibus têm valores distintos.
+
+Valores médios de referência (2025):
+
+- 8 dias (mínimo): R$ 80 a R$ 150
+- 15 dias: R$ 120 a R$ 200
+- 30 dias: R$ 180 a R$ 300
+- 90 dias: R$ 400 a R$ 700
+
+Considerando o custo de um acidente no exterior (que pode chegar a dezenas de milhares de dólares), o Seguro Carta Verde tem um custo extremamente acessível.
+
+Como Contratar o Seguro Carta Verde?
+
+Com a Patro Seguros, a contratação é rápida e simples:
+
+1. Entre em contato pelo WhatsApp, telefone ou site.
+2. Informe: destino, datas de ida e volta, tipo de veículo e placa.
+3. Recebemos sua cotação em minutos.
+4. Após a contratação, o certificado (Carta Verde) é emitido digitalmente.
+5. Imprima o documento e leve junto com os documentos do veículo.
+
+Dica: contrate com antecedência! Embora seja possível contratar na fronteira, os valores costumam ser mais altos e as condições menos favoráveis.
+
+Documentos Necessários na Fronteira
+
+Além do Seguro Carta Verde, você precisará apresentar:
+
+- CNH (Carteira Nacional de Habilitação) válida
+- CRLV (Certificado de Registro e Licenciamento do Veículo)
+- RG ou Passaporte (CPF não é aceito como documento de identidade)
+- Certificado do Seguro Carta Verde impresso
+- Se o veículo não estiver no seu nome: autorização do proprietário com firma reconhecida
+
+O Que Acontece Se Eu Não Tiver a Carta Verde?
+
+As consequências são sérias:
+
+- Impedimento de entrada: o veículo será barrado na fronteira.
+- Multa: valores variam por país, podendo ser bastante elevados.
+- Apreensão do veículo: em alguns países, o carro pode ser retido.
+- Responsabilidade pessoal: em caso de acidente, você responderá com seu próprio patrimônio por todos os danos — sem limite.
+
+Não arrisque. O custo do seguro é infinitamente menor do que as consequências de não tê-lo.
+
+Dicas da Patro Seguros Para Sua Viagem
+
+1. Contrate antes de viajar: evite filas e preços mais altos na fronteira.
+2. Confira a validade: certifique-se de que o período do seguro cobre toda a sua viagem, incluindo possíveis atrasos.
+3. Leve o documento impresso: embora algumas fronteiras aceitem digital, o documento impresso é mais seguro.
+4. Combine com seguro viagem: o Carta Verde não cobre você nem seu veículo — complemente com seguro viagem e seguro auto internacional.
+5. Salve os contatos da seguradora: tenha à mão o telefone de emergência da seguradora no exterior.
+6. Fotografe tudo em caso de acidente: registre o local, danos e dados dos envolvidos antes de acionar o seguro.
+
+Seguro Carta Verde vs. Seguro Viagem vs. Seguro Auto
+
+Seguro Carta Verde: cobre danos a TERCEIROS no exterior. É obrigatório. Não cobre o segurado nem seu veículo.
+
+Seguro Viagem: cobre despesas médicas, bagagem e emergências do VIAJANTE. Recomendado, mas não obrigatório para Mercosul (obrigatório para Europa/Schengen).
+
+Seguro Auto com cobertura internacional: cobre danos ao SEU VEÍCULO no exterior. Opcional, mas altamente recomendado.
+
+Ideal: contratar os três para uma viagem completamente protegida.
+
+Contrate Seu Seguro Carta Verde com a Patro Seguros
+
+A Patro Seguros é especialista em seguros para viagens terrestres ao Mercosul. Oferecemos emissão rápida, preços competitivos e suporte completo em português durante toda a sua viagem. Solicite sua cotação agora e viaje tranquilo!`,
+    faqs: [
+      { q: "O Seguro Carta Verde é obrigatório para todos os veículos?", a: "Sim, é obrigatório para carros, motos, caminhões, ônibus e qualquer veículo automotor que cruze fronteiras terrestres com países do Mercosul e associados. Não há exceção por tipo de veículo ou tempo de permanência." },
+      { q: "Posso contratar o Seguro Carta Verde na fronteira?", a: "Sim, é possível contratar na fronteira, mas não é recomendado. Os preços costumam ser mais altos, as filas podem ser longas e as opções de cobertura são limitadas. O ideal é contratar com antecedência pela Patro Seguros." },
+      { q: "O seguro auto brasileiro vale no exterior?", a: "Não. O seguro auto contratado no Brasil não tem validade fora do território nacional. Para circular nos países do Mercosul, é obrigatório contratar o Seguro Carta Verde, que é um seguro específico para circulação internacional." },
+      { q: "A Carta Verde cobre danos ao meu próprio veículo?", a: "Não. O Seguro Carta Verde cobre apenas danos causados a TERCEIROS (veículos, propriedades e pessoas). Para proteger seu próprio veículo no exterior, é necessário contratar um seguro auto com cobertura internacional." },
+      { q: "Qual o prazo mínimo de contratação da Carta Verde?", a: "O prazo mínimo é geralmente de 8 dias. É possível contratar por períodos de 8, 15, 30, 60 ou 90 dias. Recomendamos contratar por um período um pouco maior que a viagem planejada, para cobrir imprevistos." },
+      { q: "Preciso da Carta Verde para ir ao Chile de avião?", a: "Não. O Seguro Carta Verde é exigido apenas para veículos que cruzam fronteiras terrestres. Se você viaja de avião e aluga um carro no destino, o seguro do veículo alugado é responsabilidade da locadora." },
+    ],
+  },
   "seguro-auto-premium-diferenciais": {
     title: "Seguro Auto Premium: Conheça os Principais Diferenciais",
     content: `Nem todo seguro auto é igual. Enquanto o seguro convencional oferece proteção básica contra roubo, furto e colisão, o Seguro Auto Premium vai muito além — proporcionando uma experiência completa de proteção, conforto e exclusividade. Neste artigo, a Patro Seguros explica em detalhes o que torna o seguro auto premium a escolha ideal para quem busca o melhor.
