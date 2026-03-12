@@ -64,7 +64,7 @@ const Contato = () => {
 
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
-                  <Clock className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <Clock className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">Horário</h3>
                   <p className="text-sm text-muted-foreground">
                     Seg a Sex: 9h às 18h<br />
