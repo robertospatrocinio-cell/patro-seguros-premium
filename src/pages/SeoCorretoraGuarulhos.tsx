@@ -15,8 +15,8 @@ const SeoCorretoraGuarulhos = () => (
     <main>
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="mb-6">Corretora de Seguros em Guarulhos — Patro Seguros</h1>
-          <p className="text-xl text-muted-foreground mb-8">
+          <h1 className="text-white mb-6">Corretora de Seguros em Guarulhos — Patro Seguros</h1>
+          <p className="text-xl text-white/70 mb-8">
             A Patro Seguros é a corretora de seguros mais completa de Guarulhos. Atendimento consultivo, cotação rápida e as melhores seguradoras do mercado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

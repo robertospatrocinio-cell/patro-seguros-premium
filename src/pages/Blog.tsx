@@ -58,8 +58,8 @@ const Blog = () => {
       <main>
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="mb-4">Blog Patro Seguros</h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="text-white mb-4">Blog Patro Seguros</h1>
+            <p className="text-xl text-white/70 max-w-2xl mx-auto">
               Conteúdo de autoridade sobre seguros, proteção patrimonial e dicas para você e sua empresa.
             </p>
           </div>

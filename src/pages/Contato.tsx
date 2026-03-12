@@ -15,8 +15,8 @@ const Contato = () => {
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="mb-6">Fale Conosco</h1>
-              <p className="text-xl text-muted-foreground">
+              <h1 className="text-white mb-6">Fale Conosco</h1>
+              <p className="text-xl text-white/70">
                 Estamos prontos para atender você. Entre em contato e descubra como podemos te ajudar
               </p>
             </div>

@@ -161,7 +161,7 @@ const Header = () => {
 
             <div className="py-2 px-3">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Seguros Pessoais</p>
-              <div className="grid grid-cols-2 gap-1">
+                <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-auto", label: "Auto" },
                   { to: "/seguro-moto", label: "Moto" },
@@ -170,10 +170,12 @@ const Header = () => {
                   { to: "/seguro-viagem", label: "Viagem" },
                   { to: "/seguro-celular", label: "Celular" },
                   { to: "/planos-de-saude", label: "Saúde" },
+                  { to: "/seguro-odonto", label: "Plano Odonto" },
+                  { to: "/seguro-fianca", label: "Fiança" },
+                  { to: "/seguro-fianca-locaticia", label: "Fiança Locatícia" },
                   { to: "/seguro-acidentes-pessoais", label: "Acid. Pessoais" },
                   { to: "/seguro-estagiario", label: "Estagiário" },
                   { to: "/previdencia-privada", label: "Previdência" },
-                  { to: "/seguro-odonto", label: "Plano Odonto" },
                   { to: "/seguro-bike", label: "Bike" },
                   { to: "/seguro-jetski", label: "Jet Ski" },
                   { to: "/seguro-embarcacoes", label: "Embarcações" },
@@ -188,17 +190,22 @@ const Header = () => {
 
             <div className="py-2 px-3">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Empresarial</p>
-              <div className="grid grid-cols-2 gap-1">
+                <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-empresarial", label: "Empresarial" },
                   { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-frota", label: "Frota" },
                   { to: "/seguro-transporte", label: "Transporte" },
                   { to: "/seguro-rc", label: "RC" },
+                  { to: "/seguro-rc-profissional", label: "RC Profissional" },
                   { to: "/seguro-condominio", label: "Condomínio" },
+                  { to: "/seguro-engenharia", label: "Engenharia" },
                   { to: "/seguro-cyber", label: "Cyber" },
                   { to: "/seguro-vida-pme", label: "Vida PME" },
                   { to: "/seguro-lojas-shopping", label: "Lojas Shopping" },
+                  { to: "/seguro-maquinas", label: "Máquinas" },
+                  { to: "/seguro-galpoes-industriais", label: "Galpões Industriais" },
+                  { to: "/seguro-maquinas-industriais", label: "Máq. Industriais" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
                 ))}
@@ -210,10 +217,12 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-maquinas-agricolas", label: "Máq. Agrícolas" },
+                  { to: "/seguro-equipamentos-agricolas", label: "Equip. Agrícolas" },
                   { to: "/seguro-armazenagem", label: "Armazenagem" },
                   { to: "/seguro-placa-solar", label: "Placas Solar" },
                   { to: "/seguro-pecuario", label: "Pecuário" },
                   { to: "/seguro-cafe", label: "Café" },
+                  { to: "/seguro-rural", label: "Rural" },
                   { to: "/seguro-ambiental", label: "Ambiental" },
                   { to: "/seguro-drone-agricola", label: "Drone Agrícola" },
                   { to: "/seguro-transporte-agro", label: "Transp. Agrícola" },

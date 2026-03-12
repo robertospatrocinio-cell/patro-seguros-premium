@@ -58,8 +58,8 @@ const IndiqueAmigo = () => {
       <main>
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
-            <h1 className="mb-4">Indique um Amigo</h1>
-            <p className="text-xl text-muted-foreground mb-4">
+            <h1 className="text-white mb-4">Indique um Amigo</h1>
+            <p className="text-xl text-white/70 mb-4">
               Indique uma pessoa e receba benefícios exclusivos quando a contratação for realizada.
             </p>
           </div>

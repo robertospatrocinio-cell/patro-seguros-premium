@@ -1,8 +1,10 @@
-import { Shield, Target, Heart, Award } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Shield, Target, Heart, Award, Phone, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Sobre = () => {
   return (
@@ -14,8 +16,8 @@ const Sobre = () => {
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="mb-6">Quem Somos</h1>
-              <p className="text-xl text-muted-foreground">
+              <h1 className="text-white mb-6">Quem Somos</h1>
+              <p className="text-xl text-white/70">
                 Especialistas em proteção financeira com atendimento consultivo e rápido
               </p>
             </div>
@@ -197,6 +199,29 @@ const Sobre = () => {
                   </CardContent>
                 </Card>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20 gradient-hero relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsla(215,100%,60%,0.2),transparent_70%)]" />
+          <div className="container mx-auto px-4 text-center relative">
+            <h2 className="text-white mb-4">Pronto para se proteger?</h2>
+            <p className="text-lg text-white/70 mb-10 max-w-xl mx-auto">
+              Fale com nossos especialistas e descubra a melhor solução de seguro para você.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link to="/cotacao">
+                <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white text-primary hover:bg-white/90">
+                  Pedir Cotação Gratuita
+                </Button>
+              </Link>
+              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20">
+                  <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
+                </Button>
+              </a>
             </div>
           </div>
         </section>

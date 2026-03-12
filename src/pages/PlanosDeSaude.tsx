@@ -28,12 +28,12 @@ const PlanosDeSaude = () => {
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <div className="text-6xl mb-6">🏥</div>
-            <h1 className="mb-6">Planos de Saúde — Compare e Encontre o Melhor</h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <h1 className="text-white mb-6">Planos de Saúde — Compare e Encontre o Melhor</h1>
+            <p className="text-xl text-white/70 mb-8">
               Trabalhamos com as principais operadoras do Brasil para encontrar o plano de saúde ideal para você, sua família ou sua empresa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://www.patroseguros.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="text-lg px-8">
                   Simular Plano de Saúde <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -89,7 +89,7 @@ const PlanosDeSaude = () => {
             <h2 className="mb-6 text-white">Encontre o Plano de Saúde Ideal</h2>
             <p className="text-xl mb-8 text-white/90">Use nosso simulador ou fale com um especialista</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://www.patroseguros.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="secondary">Simular Agora</Button>
               </a>
               <a href="tel:1151997500">
