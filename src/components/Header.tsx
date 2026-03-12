@@ -48,43 +48,41 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Slim top bar */}
-      <div className="bg-[hsl(220,40%,12%)] text-white/70">
+      {/* Top bar */}
+      <div className="bg-foreground">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-1.5 text-[11px]">
-            <div className="flex items-center gap-4">
-              <a href="tel:1151997500" className="flex items-center gap-1.5 hover:text-white transition-base" aria-label="Ligar para (11) 5199-7500">
+            <div className="flex items-center gap-5">
+              <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/30 hover:text-white/60 transition-base" aria-label="Ligar para (11) 5199-7500">
                 <Phone className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 hover:text-white transition-base" aria-label="Enviar e-mail para contato@patroseguros.com.br">
+              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/30 hover:text-white/60 transition-base" aria-label="Enviar e-mail">
                 <Mail className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="hidden sm:inline-flex items-center gap-1.5 text-white/50 font-medium text-[10px] uppercase tracking-widest">
-                SUSEP 211112427
-              </span>
-            </div>
+            <span className="hidden sm:inline text-white/20 font-medium text-[10px] uppercase tracking-[0.12em]">
+              SUSEP 211112427
+            </span>
             <div className="flex items-center gap-3">
-              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no Instagram"><Instagram className="h-3.5 w-3.5" aria-hidden="true" /></a>
-              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no Facebook"><Facebook className="h-3.5 w-3.5" aria-hidden="true" /></a>
-              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no LinkedIn"><Linkedin className="h-3.5 w-3.5" aria-hidden="true" /></a>
+              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
+              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
+              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" /></a>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main nav */}
-      <div className="bg-background/90 backdrop-blur-xl border-b border-border/50">
+      <div className="bg-background/95 backdrop-blur-xl border-b border-border/40">
         <div className="container mx-auto px-4">
-          <nav className="flex items-center justify-between h-[60px]" aria-label="Navegação principal">
-            <Link to="/" className="flex items-center gap-2.5" aria-label="Patro Seguros — Página inicial">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center" aria-hidden="true">
-                <span className="text-white font-heading font-bold text-sm">P</span>
+          <nav className="flex items-center justify-between h-14" aria-label="Navegação principal">
+            <Link to="/" className="flex items-center gap-2" aria-label="Patro Seguros — Página inicial">
+              <div className="w-7 h-7 rounded-md bg-foreground flex items-center justify-center" aria-hidden="true">
+                <span className="text-white font-heading font-bold text-xs">P</span>
               </div>
-              <span className="font-heading font-bold text-lg text-foreground tracking-tight">Patro <span className="text-primary">Seguros</span></span>
+              <span className="font-heading font-bold text-[15px] text-foreground tracking-tight">Patro <span className="font-bold text-foreground/50">Seguros</span></span>
             </Link>
 
             {/* Desktop nav */}
