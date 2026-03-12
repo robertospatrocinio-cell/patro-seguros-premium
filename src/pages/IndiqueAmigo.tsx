@@ -34,6 +34,7 @@ const IndiqueAmigo = () => {
   if (submitted) {
     return (
       <>
+        <PageMeta title="Indicação Enviada" description="Obrigado por indicar um amigo para a Patro Seguros!" />
         <Header />
         <main className="py-20">
           <div className="container mx-auto px-4 text-center max-w-lg">
