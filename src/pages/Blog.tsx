@@ -38,6 +38,7 @@ const articles = [
   { slug: "seguro-acidentes-pessoais-passageiros-uber-vans", title: "Seguro de Acidentes Pessoais para Passageiros de Uber, Vans Escolares e Vans de Transporte", excerpt: "Entenda como o seguro de acidentes pessoais protege passageiros de aplicativos e vans, quem é obrigado a contratar e como funciona a cobertura.", category: "Acidentes Pessoais" },
   { slug: "cobertura-vidros-retrovisores-farois-seguro-auto", title: "Cobertura de Vidros, Retrovisores e Faróis no Seguro Auto: Guia Completo", excerpt: "Saiba como funciona a cobertura de vidros, retrovisores e faróis no seguro auto, quando acionar e como economizar.", category: "Seguro Auto" },
   { slug: "seguro-auto-premium-diferenciais", title: "Seguro Auto Premium: Conheça os Principais Diferenciais", excerpt: "Descubra o que diferencia o seguro auto premium do convencional e por que vale a pena investir em proteção superior.", category: "Seguro Auto" },
+  { slug: "seguro-carta-verde-mercosul", title: "Seguro Carta Verde: Tudo Sobre a Proteção Obrigatória para o Mercosul", excerpt: "Entenda o que é o Seguro Carta Verde, por que é obrigatório e como contratar para viajar de carro pela América do Sul.", category: "Seguro Auto" },
 ];
 
 const Blog = () => {
