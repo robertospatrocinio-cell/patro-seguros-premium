@@ -103,12 +103,19 @@ const Header = () => {
                 <DropLink to="/seguro-condominio">Seguro Condomínio</DropLink>
                 <DropLink to="/seguro-engenharia">Seguro Engenharia</DropLink>
                 <DropLink to="/seguro-cyber">Seguro Cyber</DropLink>
-                <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
                 <DropLink to="/seguro-vida-pme">Vida PME</DropLink>
               </NavDropdown>
 
-              <NavDropdown label="Especialidades">
+              <NavDropdown label="Agro">
                 <DropLink to="/seguro-maquinas-agricolas">Máquinas Agrícolas</DropLink>
+                <DropLink to="/seguro-armazenagem">Seguro Armazenagem</DropLink>
+                <DropLink to="/seguro-placa-solar">Seguro Placas Solar</DropLink>
+                <DropLink to="/seguro-pecuario">Seguro Pecuário</DropLink>
+                <DropLink to="/seguro-cafe">Seguro Café</DropLink>
+                <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
+              </NavDropdown>
+
+              <NavDropdown label="Especialidades">
                 <DropLink to="/seguro-equipamentos-agricolas">Equipamentos Agrícolas</DropLink>
                 <DropLink to="/seguro-galpoes-industriais">Galpões Industriais</DropLink>
                 <DropLink to="/seguro-maquinas-industriais">Máquinas Industriais</DropLink>
