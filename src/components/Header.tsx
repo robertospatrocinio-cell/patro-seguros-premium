@@ -75,9 +75,9 @@ const Header = () => {
       {/* Main nav */}
       <div className="bg-background/95 backdrop-blur-xl border-b border-border/40">
         <div className="container mx-auto px-4">
-          <nav className="flex items-center justify-between h-14" aria-label="Navegação principal">
+          <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
             <Link to="/" className="flex items-center gap-2.5" aria-label="Patro Seguros — Página inicial">
-              <img src={logoShield} alt="" className="w-10 h-10 object-contain" aria-hidden="true" />
+              <img src={logoShield} alt="" className="w-16 h-16 object-contain shrink-0" aria-hidden="true" />
               <span className="font-heading font-bold text-[15px] text-foreground tracking-tight">Patro <span className="font-bold text-foreground/50">Seguros</span></span>
             </Link>
 
