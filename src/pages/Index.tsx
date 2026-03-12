@@ -138,9 +138,9 @@ const Index = () => {
         <section className="py-20 bg-background" aria-labelledby="diferenciais-heading">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Diferenciais</span>
-              <h2 id="diferenciais-heading" className="mt-3 mb-4">Por que escolher a Patro Seguros?</h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">Atendimento consultivo e personalizado que faz a diferença na hora de proteger o que importa.</p>
+              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Como Trabalhamos</span>
+              <h2 id="diferenciais-heading" className="mt-3 mb-4">Corretor de seguros de verdade, não um robô</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">Na Patro, cada cliente tem um especialista dedicado. Não vendemos seguro — encontramos a proteção certa para o seu momento.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
               {diferenciais.map((item, i) => (
