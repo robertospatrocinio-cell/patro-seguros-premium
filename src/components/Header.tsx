@@ -341,18 +341,14 @@ const Header = () => {
               </div>
             </MobileSection>
 
-            <Link to="/consorcio" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Consórcio</Link>
-            <Link to="/blog" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Blog</Link>
-            <Link to="/sobre" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
-            <Link to="/contato" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
+            <Link to="/consorcio" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Consórcio</Link>
+            <Link to="/sobre" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
+            <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
 
-            <div className="flex gap-2 pt-4 pb-2">
-              <Link to="/cotacao" className="flex-1" onClick={close}>
-                <Button className="w-full rounded-xl">Cotação Grátis</Button>
+            <div className="pt-4 pb-2">
+              <Link to="/cotacao" className="block" onClick={close}>
+                <Button className="w-full rounded-lg text-[13px] h-10">Solicitar Cotação Grátis</Button>
               </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex-1">
-                <Button variant="cta" className="w-full rounded-xl">WhatsApp</Button>
-              </a>
             </div>
           </div>
         </div>
