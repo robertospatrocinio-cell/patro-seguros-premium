@@ -95,8 +95,8 @@ const Footer = () => {
               <p>CNPJ: 41.641.558/0001-33 | SUSEP — Registro nº 211112427</p>
             </div>
             <div className="flex gap-6">
-              <Link to="/privacidade" className="hover:text-white/70 transition-base">Privacidade</Link>
-              <Link to="/termos" className="hover:text-white/70 transition-base">Termos</Link>
+              <span className="text-white/40 cursor-default">Privacidade</span>
+              <span className="text-white/40 cursor-default">Termos</span>
             </div>
           </div>
         </div>
