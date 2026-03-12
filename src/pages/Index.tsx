@@ -67,7 +67,7 @@ const Index = () => {
                 </span>
               </div>
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
-                A proteção certa pelo menor preço.
+                Protegemos você, sua família e sua empresa.
               </h1>
               <p className="text-[15px] md:text-base text-white/45 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
                 Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
