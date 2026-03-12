@@ -39,6 +39,7 @@ const articles = [
   { slug: "cobertura-vidros-retrovisores-farois-seguro-auto", title: "Cobertura de Vidros, Retrovisores e Faróis no Seguro Auto: Guia Completo", excerpt: "Saiba como funciona a cobertura de vidros, retrovisores e faróis no seguro auto, quando acionar e como economizar.", category: "Seguro Auto" },
   { slug: "seguro-auto-premium-diferenciais", title: "Seguro Auto Premium: Conheça os Principais Diferenciais", excerpt: "Descubra o que diferencia o seguro auto premium do convencional e por que vale a pena investir em proteção superior.", category: "Seguro Auto" },
   { slug: "seguro-carta-verde-mercosul", title: "Seguro Carta Verde: Tudo Sobre a Proteção Obrigatória para o Mercosul", excerpt: "Entenda o que é o Seguro Carta Verde, por que é obrigatório e como contratar para viajar de carro pela América do Sul.", category: "Seguro Auto" },
+  { slug: "rc-clinicas-estetica", title: "Seguro RC para Clínicas de Estética: Proteção Essencial", excerpt: "Entenda por que clínicas de estética precisam de seguro de responsabilidade civil e como se proteger contra processos.", category: "RC" },
 ];
 
 const Blog = () => {
