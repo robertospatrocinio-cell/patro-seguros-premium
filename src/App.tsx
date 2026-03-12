@@ -57,6 +57,10 @@ import SeguroLojasShopping from "./pages/SeguroLojasShopping";
 import SeguroDroneAgricola from "./pages/SeguroDroneAgricola";
 import SeguroTransporteAgro from "./pages/SeguroTransporteAgro";
 import SeguroBike from "./pages/SeguroBike";
+import SeguroJetSki from "./pages/SeguroJetSki";
+import SeguroEmbarcacoes from "./pages/SeguroEmbarcacoes";
+import SeguroAvioes from "./pages/SeguroAvioes";
+import SeguroHelicopteros from "./pages/SeguroHelicopteros";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -121,6 +125,10 @@ const App = () => (
           <Route path="/seguro-drone-agricola" element={<SeguroDroneAgricola />} />
           <Route path="/seguro-transporte-agro" element={<SeguroTransporteAgro />} />
           <Route path="/seguro-bike" element={<SeguroBike />} />
+          <Route path="/seguro-jetski" element={<SeguroJetSki />} />
+          <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
+          <Route path="/seguro-avioes" element={<SeguroAvioes />} />
+          <Route path="/seguro-helicopteros" element={<SeguroHelicopteros />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppButton />
