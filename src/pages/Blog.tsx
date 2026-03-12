@@ -41,6 +41,7 @@ const articles = [
   { slug: "seguro-carta-verde-mercosul", title: "Seguro Carta Verde: Tudo Sobre a Proteção Obrigatória para o Mercosul", excerpt: "Entenda o que é o Seguro Carta Verde, por que é obrigatório e como contratar para viajar de carro pela América do Sul.", category: "Seguro Auto" },
   { slug: "rc-clinicas-estetica", title: "Seguro RC para Clínicas de Estética: Proteção Essencial", excerpt: "Entenda por que clínicas de estética precisam de seguro de responsabilidade civil e como se proteger contra processos.", category: "RC" },
   { slug: "seguro-condominio-guia-completo", title: "Seguro de Condomínio: Guia Completo — Obrigatoriedade, Coberturas e Como Contratar", excerpt: "Saiba tudo sobre o seguro condominial obrigatório, o que cobre, responsabilidades do síndico e como escolher a melhor apólice.", category: "Seguro Condomínio" },
+  { slug: "seguro-agricola-contra-granizo", title: "Seguro Agrícola Contra Granizo: Proteja Sua Lavoura", excerpt: "Entenda como o seguro agrícola protege contra granizo, quais culturas são cobertas, custos e como acionar em caso de sinistro.", category: "Agronegócio" },
 ];
 
 const Blog = () => {
