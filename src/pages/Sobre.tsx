@@ -1,6 +1,7 @@
 import { Shield, Target, Heart, Award } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Sobre = () => {

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Smartphone, Plane, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";

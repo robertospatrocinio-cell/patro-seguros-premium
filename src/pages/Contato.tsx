@@ -1,6 +1,7 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
