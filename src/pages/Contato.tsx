@@ -140,15 +140,15 @@ const Contato = () => {
               Nossa equipe está pronta para atender você via WhatsApp ou telefone
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="cta" className="text-lg px-8">
-                  <MessageCircle className="mr-2 h-5 w-5" />
+              <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" variant="cta" className="w-full sm:w-auto text-lg px-8">
+                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                   Chamar no WhatsApp
                 </Button>
               </a>
-              <a href="tel:1151997500">
-                <Button size="lg" variant="default" className="text-lg px-8">
-                  <Phone className="mr-2 h-5 w-5" />
+              <a href="tel:1151997500" className="w-full sm:w-auto">
+                <Button size="lg" variant="default" className="w-full sm:w-auto text-lg px-8">
+                  <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
                   Ligar Agora
                 </Button>
               </a>
