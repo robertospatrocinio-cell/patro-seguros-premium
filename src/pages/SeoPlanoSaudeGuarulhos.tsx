@@ -9,7 +9,7 @@ const SeoPlanoSaudeGuarulhos = () => (
   <>
     <PageMeta title="Plano de Saúde em Guarulhos" description="Encontre o melhor plano de saúde em Guarulhos. Compare Bradesco Saúde, Amil, SulAmérica e mais. Atendimento local e cotação gratuita com a Patro Seguros." />
     <Header />
-    <main>
+    <main id="main-content">
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h1 className="text-white mb-6">Plano de Saúde em Guarulhos — Compare e Contrate</h1>

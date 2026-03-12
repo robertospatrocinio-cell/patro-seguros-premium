@@ -55,7 +55,7 @@ const Blog = () => {
     <>
       <PageMeta title="Blog" description="Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio." />
       <Header />
-      <main>
+      <main id="main-content">
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-white mb-4">Blog Patro Seguros</h1>

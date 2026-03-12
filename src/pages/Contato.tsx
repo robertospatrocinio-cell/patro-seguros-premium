@@ -10,7 +10,7 @@ const Contato = () => {
     <>
       <PageMeta title="Contato" description="Entre em contato com a Patro Seguros em Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Tire dúvidas e solicite cotações de seguros." />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
@@ -29,7 +29,7 @@ const Contato = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
-                  <Phone className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <Phone className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">Telefone</h3>
                   <a href="tel:1151997500" className="text-primary hover:underline">
                     (11) 5199-7500
@@ -39,7 +39,7 @@ const Contato = () => {
 
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
-                  <MessageCircle className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <MessageCircle className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">WhatsApp</h3>
                   <a 
                     href="https://wa.me/551151997500" 
@@ -54,7 +54,7 @@ const Contato = () => {
 
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
-                  <Mail className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <Mail className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">E-mail</h3>
                   <a href="mailto:contato@patroseguros.com.br" className="text-primary hover:underline text-sm">
                     contato@patroseguros.com.br
@@ -64,7 +64,7 @@ const Contato = () => {
 
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
-                  <Clock className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <Clock className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">Horário</h3>
                   <p className="text-sm text-muted-foreground">
                     Seg a Sex: 9h às 18h<br />
@@ -80,7 +80,7 @@ const Contato = () => {
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-4 mb-6">
-                      <MapPin className="h-8 w-8 text-primary flex-shrink-0" />
+                      <MapPin className="h-8 w-8 text-primary flex-shrink-0" aria-hidden="true" />
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Nosso Endereço</h3>
                         <p className="text-muted-foreground mb-4">
@@ -140,15 +140,15 @@ const Contato = () => {
               Nossa equipe está pronta para atender você via WhatsApp ou telefone
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="cta" className="text-lg px-8">
-                  <MessageCircle className="mr-2 h-5 w-5" />
+              <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" variant="cta" className="w-full sm:w-auto text-lg px-8">
+                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                   Chamar no WhatsApp
                 </Button>
               </a>
-              <a href="tel:1151997500">
-                <Button size="lg" variant="default" className="text-lg px-8">
-                  <Phone className="mr-2 h-5 w-5" />
+              <a href="tel:1151997500" className="w-full sm:w-auto">
+                <Button size="lg" variant="default" className="w-full sm:w-auto text-lg px-8">
+                  <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
                   Ligar Agora
                 </Button>
               </a>

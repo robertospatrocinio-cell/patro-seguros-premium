@@ -54,7 +54,7 @@ const Index = () => {
       <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — corretora de seguros em Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label="Início">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(215,100%,60%,0.15),transparent_60%)]" />
@@ -74,14 +74,14 @@ const Index = () => {
                 Comparamos as principais seguradoras do mercado para encontrar a melhor proteção com o menor custo.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
-                <Link to="/cotacao">
-                  <Button size="lg" className="text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12">
+                <Link to="/cotacao" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12">
                     <Shield className="mr-2 h-4 w-4" aria-hidden="true" />
                     Solicitar Cotação Grátis
                   </Button>
                 </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Falar no WhatsApp
                   </Button>
@@ -292,13 +292,13 @@ const Index = () => {
               Fale com nossos especialistas e receba sua cotação gratuita em até 2 horas.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/cotacao">
-                <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white text-primary hover:bg-white/90">
+              <Link to="/cotacao" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white text-primary hover:bg-white/90">
                   Pedir Cotação Gratuita
                 </Button>
               </Link>
-              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500">
-                <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20">
+              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
                   (11) 5199-7500
                 </Button>

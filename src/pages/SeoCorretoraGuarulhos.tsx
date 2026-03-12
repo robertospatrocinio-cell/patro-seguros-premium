@@ -12,7 +12,7 @@ const SeoCorretoraGuarulhos = () => (
   <>
     <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — a melhor corretora de seguros de Guarulhos. Atendimento consultivo, cotação grátis e parceria com as principais seguradoras do Brasil." />
     <Header />
-    <main>
+    <main id="main-content">
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h1 className="text-white mb-6">Corretora de Seguros em Guarulhos — Patro Seguros</h1>

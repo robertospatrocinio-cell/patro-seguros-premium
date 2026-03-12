@@ -56,7 +56,7 @@ const InsurancePageTemplate = ({
       />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label={`${title} — cotação gratuita`}>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(215,100%,60%,0.15),transparent_60%)]" />
@@ -74,13 +74,13 @@ const InsurancePageTemplate = ({
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1">{title}</h1>
               <p className="text-lg text-white/70 mb-10 animate-fade-up-delay-2">{subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
-                <Link to="/cotacao">
-                  <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8">
+                <Link to="/cotacao" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8">
                     Pedir Cotação Gratuita
                   </Button>
                 </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="rounded-xl h-12 px-8 bg-white/10 border border-white/20 text-white hover:bg-white/20">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 bg-white/10 border border-white/20 text-white hover:bg-white/20">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> WhatsApp
                   </Button>
                 </a>
@@ -306,11 +306,11 @@ const InsurancePageTemplate = ({
             <h2 className="text-white mb-4">Solicite sua cotação de {title} agora</h2>
             <p className="text-lg text-white/70 mb-10 max-w-xl mx-auto">Resposta em até 2 horas com as melhores opções do mercado</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/cotacao">
-                <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8">Pedir Cotação Gratuita</Button>
+              <Link to="/cotacao" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8">Pedir Cotação Gratuita</Button>
               </Link>
-              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500">
-                <Button size="lg" className="rounded-xl h-12 px-8 bg-white/10 border border-white/20 text-white hover:bg-white/20">
+              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 bg-white/10 border border-white/20 text-white hover:bg-white/20">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> (11) 5199-7500
                 </Button>
               </a>

@@ -24,7 +24,7 @@ const PlanosDeSaude = () => {
     <>
       <PageMeta title="Planos de Saúde" description="Compare planos de saúde das melhores operadoras: Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis para pessoa física e empresas em Guarulhos." />
       <Header />
-      <main>
+      <main id="main-content">
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <div className="text-6xl mb-6">🏥</div>
@@ -33,14 +33,14 @@ const PlanosDeSaude = () => {
               Trabalhamos com as principais operadoras do Brasil para encontrar o plano de saúde ideal para você, sua família ou sua empresa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="text-lg px-8">
-                  Simular Plano de Saúde <ArrowRight className="ml-2 h-5 w-5" />
+              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-lg px-8">
+                  Simular Plano de Saúde <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Button>
               </a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="cta" className="text-lg px-8">
-                  <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" variant="cta" className="w-full sm:w-auto text-lg px-8">
+                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" /> WhatsApp
                 </Button>
               </a>
             </div>
@@ -76,7 +76,7 @@ const PlanosDeSaude = () => {
                 "Atendimento consultivo e humanizado",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <p>{item}</p>
                 </div>
               ))}
@@ -89,12 +89,12 @@ const PlanosDeSaude = () => {
             <h2 className="mb-6 text-white">Encontre o Plano de Saúde Ideal</h2>
             <p className="text-xl mb-8 text-white/90">Use nosso simulador ou fale com um especialista</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="secondary">Simular Agora</Button>
+              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto">Simular Agora</Button>
               </a>
-              <a href="tel:1151997500">
-                <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
-                  <Phone className="mr-2 h-5 w-5" /> (11) 5199-7500
+              <a href="tel:1151997500" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary">
+                  <Phone className="mr-2 h-5 w-5" aria-hidden="true" /> (11) 5199-7500
                 </Button>
               </a>
             </div>
