@@ -62,18 +62,7 @@ const Index = () => {
           <div className="container mx-auto px-4 relative">
             <div className="py-28 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="animate-fade-up mb-8">
-                <div className="inline-flex flex-col items-center gap-1 px-6 py-3 rounded-2xl bg-gradient-to-b from-[hsla(43,60%,70%,0.12)] to-[hsla(43,60%,50%,0.04)] border border-[hsla(43,70%,60%,0.2)] backdrop-blur-sm shadow-[0_0_24px_hsla(43,80%,50%,0.12),inset_0_1px_0_hsla(43,80%,80%,0.15)]">
-                  <div className="flex items-center gap-1">
-                    <Star className="h-3 w-3 fill-[hsl(43,80%,55%)] text-[hsl(43,80%,55%)]" aria-hidden="true" />
-                    <Star className="h-3.5 w-3.5 fill-[hsl(43,80%,60%)] text-[hsl(43,80%,60%)]" aria-hidden="true" />
-                    <Award className="h-5 w-5 text-[hsl(43,80%,60%)] drop-shadow-[0_0_4px_hsla(43,80%,50%,0.5)]" strokeWidth={1.8} aria-hidden="true" />
-                    <Star className="h-3.5 w-3.5 fill-[hsl(43,80%,60%)] text-[hsl(43,80%,60%)]" aria-hidden="true" />
-                    <Star className="h-3 w-3 fill-[hsl(43,80%,55%)] text-[hsl(43,80%,55%)]" aria-hidden="true" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.14em] bg-gradient-to-r from-[hsl(43,70%,65%)] via-[hsl(40,85%,75%)] to-[hsl(43,70%,65%)] bg-clip-text text-transparent drop-shadow-sm">
-                    Melhor Corretora de Guarulhos
-                  </span>
-                </div>
+                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)]" />
               </div>
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
                 Protegemos você, sua família e sua empresa.
