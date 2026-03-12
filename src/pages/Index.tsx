@@ -296,9 +296,9 @@ const Index = () => {
         <section className="py-24 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsla(215,100%,60%,0.2),transparent_70%)]" />
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-white mb-4">Pronto para proteger o que importa?</h2>
+            <h2 className="text-white mb-4">Peça sua cotação agora — é grátis e sem compromisso</h2>
             <p className="text-lg text-white/70 mb-10 max-w-xl mx-auto">
-              Fale com nossos especialistas e receba sua cotação gratuita em até 2 horas.
+              Nosso time responde em até 2 horas com propostas de várias seguradoras. Você compara e decide.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" className="w-full sm:w-auto">
