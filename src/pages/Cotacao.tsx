@@ -49,7 +49,7 @@ const Cotacao = () => {
     );
     
     // Redirecionar para WhatsApp
-    window.open(`https://wa.me/5511519975000?text=${whatsappMessage}`, "_blank");
+    window.open(`https://wa.me/551151997500?text=${whatsappMessage}`, "_blank");
     
     toast.success("Redirecionando para WhatsApp...", {
       description: "Em instantes você será atendido por um de nossos especialistas!",
