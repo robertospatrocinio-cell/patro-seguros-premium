@@ -49,52 +49,51 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Slim top bar */}
-      <div className="bg-primary text-primary-foreground">
+      <div className="bg-[hsl(220,40%,12%)] text-white/70">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-1.5 text-xs">
+          <div className="flex items-center justify-between py-1.5 text-[11px]">
             <div className="flex items-center gap-4">
-              <a href="tel:1151997500" className="flex items-center gap-1.5 hover:opacity-80 transition-base" aria-label="Ligar para (11) 5199-7500">
+              <a href="tel:1151997500" className="flex items-center gap-1.5 hover:text-white transition-base" aria-label="Ligar para (11) 5199-7500">
                 <Phone className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 hover:opacity-80 transition-base" aria-label="Enviar e-mail para contato@patroseguros.com.br">
+              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 hover:text-white transition-base" aria-label="Enviar e-mail para contato@patroseguros.com.br">
                 <Mail className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-amber-400/20 border border-yellow-400/50 text-yellow-300 font-bold text-[10px] uppercase tracking-wider drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(251,191,36,0.3)' }}>
-                <Award className="h-3 w-3 text-yellow-300 drop-shadow-[0_0_4px_rgba(251,191,36,0.5)]" aria-hidden="true" />
-                Melhor Corretora de Guarulhos
+              <span className="hidden sm:inline-flex items-center gap-1.5 text-white/50 font-medium text-[10px] uppercase tracking-widest">
+                SUSEP 211112427
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-base" aria-label="Patro Seguros no Instagram"><Instagram className="h-3.5 w-3.5" aria-hidden="true" /></a>
-              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-base" aria-label="Patro Seguros no Facebook"><Facebook className="h-3.5 w-3.5" aria-hidden="true" /></a>
-              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-base" aria-label="Patro Seguros no LinkedIn"><Linkedin className="h-3.5 w-3.5" aria-hidden="true" /></a>
+              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no Instagram"><Instagram className="h-3.5 w-3.5" aria-hidden="true" /></a>
+              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no Facebook"><Facebook className="h-3.5 w-3.5" aria-hidden="true" /></a>
+              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no LinkedIn"><Linkedin className="h-3.5 w-3.5" aria-hidden="true" /></a>
             </div>
           </div>
         </div>
       </div>
 
       {/* Main nav */}
-      <div className="bg-background/80 backdrop-blur-xl border-b">
+      <div className="bg-background/90 backdrop-blur-xl border-b border-border/50">
         <div className="container mx-auto px-4">
-          <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
-            <Link to="/" className="flex items-center gap-2" aria-label="Patro Seguros — Página inicial">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-700 rounded-xl flex items-center justify-center" aria-hidden="true">
+          <nav className="flex items-center justify-between h-[60px]" aria-label="Navegação principal">
+            <Link to="/" className="flex items-center gap-2.5" aria-label="Patro Seguros — Página inicial">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center" aria-hidden="true">
                 <span className="text-white font-heading font-bold text-sm">P</span>
               </div>
-              <span className="font-heading font-bold text-lg text-foreground">Patro <span className="text-primary">Seguros</span></span>
+              <span className="font-heading font-bold text-lg text-foreground tracking-tight">Patro <span className="text-primary">Seguros</span></span>
             </Link>
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
-              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Início</Link>
+              <Link to="/" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Início</Link>
 
               {/* Pessoal — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/60 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
                   Pessoal
                   <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
                 </button>
@@ -146,7 +145,7 @@ const Header = () => {
 
               {/* Empresarial — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/60 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
                   Empresarial
                   <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
                 </button>
@@ -195,7 +194,7 @@ const Header = () => {
 
               {/* Agro — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/60 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
                   Agro
                   <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
                 </button>
@@ -233,18 +232,18 @@ const Header = () => {
                 </div>
               </div>
 
-              <Link to="/consorcio" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Consórcio</Link>
-              <Link to="/blog" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Blog</Link>
-              <Link to="/sobre" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Sobre</Link>
-              <Link to="/contato" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Contato</Link>
+              <Link to="/consorcio" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Consórcio</Link>
+              <Link to="/blog" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Blog</Link>
+              <Link to="/sobre" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Sobre</Link>
+              <Link to="/contato" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Contato</Link>
             </div>
 
             <div className="hidden lg:flex items-center gap-2">
               <Link to="/cotacao">
-                <Button size="sm" className="rounded-xl">Cotação Grátis</Button>
+                <Button size="sm" className="rounded-xl text-[13px] font-medium h-9">Cotação Grátis</Button>
               </Link>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="sm" variant="cta" className="rounded-xl">WhatsApp</Button>
+                <Button size="sm" variant="cta" className="rounded-xl text-[13px] font-medium h-9">WhatsApp</Button>
               </a>
             </div>
 

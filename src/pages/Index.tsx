@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key } from "lucide-react";
+import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key, Star, Quote } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -10,7 +10,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 
 const seguradoras = ["Porto", "HDI", "Allianz", "Tokio Marine", "Mapfre", "Bradesco", "Azul", "Zurich", "Liberty", "Suhai", "Justos", "Darwin", "Ituran", "Akad"];
 
-const operadoras = ["Bradesco Saúde", "Amil", "SulAmérica Saúde", "Porto Saúde", "HapVida/NotreDame Intermédica", "MedSenior", "Omint", "Unimed", "Prevent Senior", "Alice", "Care Plus"];
+const operadoras = ["Bradesco Saúde", "Amil", "SulAmérica Saúde", "Porto Saúde", "HapVida/NotreDame", "MedSenior", "Omint", "Unimed", "Prevent Senior", "Alice", "Care Plus"];
 
 const solutions = [
   { title: "Seguro Auto", desc: "Proteção completa para seu veículo", icon: Car, link: "/seguro-auto" },
@@ -57,39 +57,41 @@ const Index = () => {
       <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label="Início">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(215,100%,60%,0.15),transparent_60%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsla(215,100%,70%,0.1),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.15),transparent)]" />
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container mx-auto px-4 relative">
-            <div className="py-20 md:py-32 max-w-3xl mx-auto text-center">
+            <div className="py-24 md:py-36 max-w-3xl mx-auto text-center">
               <div className="animate-fade-up">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/10 mb-6 backdrop-blur-sm">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-semibold bg-white/[0.07] text-white/80 border border-white/[0.08] mb-8 backdrop-blur-sm tracking-wide">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
-                  Corretora de Seguros em Guarulhos · SUSEP 211112427
+                  Corretora registrada SUSEP nº 211112427
                 </span>
               </div>
-              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
+              <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1">
                 Seguro para você, sua empresa e o agro — com cotação gratuita em até 2 horas
               </h1>
-              <p className="text-lg md:text-xl text-white/80 mb-4 text-balance animate-fade-up-delay-2 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-white/60 mb-6 text-balance animate-fade-up-delay-2 max-w-2xl mx-auto font-normal">
                 A Patro compara mais de 14 seguradoras e 11 operadoras de saúde para encontrar a proteção certa pelo menor preço. Atendimento consultivo e sem burocracia.
               </p>
 
               {/* Proof bar */}
-              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 animate-fade-up-delay-2">
-                <span className="text-white/60 text-sm font-medium">✓ Cotação grátis</span>
-                <span className="text-white/60 text-sm font-medium">✓ Resposta em 2h</span>
-                <span className="text-white/60 text-sm font-medium">✓ Sem compromisso</span>
+              <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-10 animate-fade-up-delay-2">
+                {["Cotação grátis", "Resposta em 2h", "Sem compromisso"].map((item) => (
+                  <span key={item} className="text-white/40 text-sm flex items-center gap-2">
+                    <CheckCircle className="h-3.5 w-3.5 text-accent/70" aria-hidden="true" />
+                    {item}
+                  </span>
+                ))}
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <Link to="/cotacao" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12 font-semibold">
-                    <Shield className="mr-2 h-4 w-4" aria-hidden="true" />
+                  <Button size="lg" className="w-full sm:w-auto text-sm px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12 font-semibold shadow-lg shadow-white/10">
                     Solicitar Cotação Grátis
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm font-semibold">
+                  <Button size="lg" className="w-full sm:w-auto text-sm px-8 rounded-xl h-12 bg-white/[0.06] border border-white/10 text-white/80 hover:bg-white/[0.12] backdrop-blur-sm font-medium">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Falar no WhatsApp
                   </Button>
@@ -100,31 +102,31 @@ const Index = () => {
         </section>
 
         {/* Parceiros — faixa compacta */}
-        <section className="py-8 bg-background border-b" aria-label="Seguradoras e operadoras parceiras">
+        <section className="py-10 bg-background border-b" aria-label="Seguradoras e operadoras parceiras">
           <div className="container mx-auto px-4">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <div>
-                <h2 className="text-center text-[10px] text-muted-foreground mb-3 uppercase tracking-[0.2em] font-medium">Seguradoras Parceiras</h2>
-                <ul className="flex flex-wrap justify-center gap-2 items-center list-none" role="list">
+                <p className="text-center text-[10px] text-muted-foreground/60 mb-3 uppercase tracking-[0.2em] font-semibold">Seguradoras Parceiras</p>
+                <div className="flex flex-wrap justify-center gap-2 items-center">
                   {seguradoras.map((name) => (
-                    <li key={name} className="px-3 py-1.5 rounded-lg bg-muted text-xs font-medium text-muted-foreground border border-border hover:border-primary/30 hover:text-primary transition-all duration-200 cursor-default">
+                    <span key={name} className="px-3 py-1.5 rounded-lg bg-muted/50 text-[11px] font-medium text-muted-foreground/70 border border-transparent hover:border-primary/20 hover:text-primary transition-base cursor-default">
                       {name}
-                    </li>
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
               <div>
-                <h2 className="text-center text-[10px] text-muted-foreground mb-3 uppercase tracking-[0.2em] font-medium">Operadoras de Planos de Saúde</h2>
-                <ul className="flex flex-wrap justify-center gap-2 items-center list-none" role="list">
+                <p className="text-center text-[10px] text-muted-foreground/60 mb-3 uppercase tracking-[0.2em] font-semibold">Operadoras de Saúde</p>
+                <div className="flex flex-wrap justify-center gap-2 items-center">
                   {operadoras.map((name) => (
-                    <li key={name} className="px-3 py-1.5 rounded-lg bg-muted text-xs font-medium text-muted-foreground border border-border hover:border-primary/30 hover:text-primary transition-all duration-200 cursor-default">
+                    <span key={name} className="px-3 py-1.5 rounded-lg bg-muted/50 text-[11px] font-medium text-muted-foreground/70 border border-transparent hover:border-primary/20 hover:text-primary transition-base cursor-default">
                       {name}
-                    </li>
+                    </span>
                   ))}
-                </ul>
-                <div className="text-center mt-3">
+                </div>
+                <div className="text-center mt-4">
                   <Link to="/planos-de-saude">
-                    <Button variant="ghost" size="sm" className="text-primary rounded-xl text-xs">
+                    <Button variant="ghost" size="sm" className="text-primary rounded-xl text-xs font-medium">
                       Simular Plano de Saúde <ArrowRight className="ml-1 h-3 w-3" aria-hidden="true" />
                     </Button>
                   </Link>
@@ -135,20 +137,20 @@ const Index = () => {
         </section>
 
         {/* Diferenciais */}
-        <section className="py-20 bg-background" aria-labelledby="diferenciais-heading">
+        <section className="py-24 bg-background" aria-labelledby="diferenciais-heading">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Como Trabalhamos</span>
-              <h2 id="diferenciais-heading" className="mt-3 mb-4">Corretor de seguros de verdade, não um robô</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">Na Patro, cada cliente tem um especialista dedicado. Não vendemos seguro — encontramos a proteção certa para o seu momento.</p>
+            <div className="text-center mb-16">
+              <span className="section-label">Como Trabalhamos</span>
+              <h2 id="diferenciais-heading" className="mt-4 mb-4">Corretor de seguros de verdade, não um robô</h2>
+              <p className="text-muted-foreground max-w-lg mx-auto text-[15px]">Na Patro, cada cliente tem um especialista dedicado. Não vendemos seguro — encontramos a proteção certa para o seu momento.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {diferenciais.map((item, i) => (
-                <div key={i} className="premium-card p-6 text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-primary-light flex items-center justify-center mx-auto mb-4">
+                <div key={i} className="premium-card p-7 text-center">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/[0.06] flex items-center justify-center mx-auto mb-5">
                     <item.icon className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <h3 className="text-base font-semibold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -157,23 +159,23 @@ const Index = () => {
         </section>
 
         {/* Soluções */}
-        <section className="py-20 gradient-surface" aria-labelledby="solucoes-heading">
+        <section className="py-24 gradient-surface" aria-labelledby="solucoes-heading">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">O Que Protegemos</span>
-              <h2 id="solucoes-heading" className="mt-3 mb-4">Auto, saúde, empresa, agro e muito mais</h2>
-              <p className="text-muted-foreground max-w-xl mx-auto">Clique em qualquer seguro para entender as coberturas e pedir sua cotação gratuita.</p>
+            <div className="text-center mb-16">
+              <span className="section-label">O Que Protegemos</span>
+              <h2 id="solucoes-heading" className="mt-4 mb-4">Auto, saúde, empresa, agro e muito mais</h2>
+              <p className="text-muted-foreground max-w-lg mx-auto text-[15px]">Clique em qualquer seguro para entender as coberturas e pedir sua cotação gratuita.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {solutions.map((s, i) => (
                 <Link key={i} to={s.link} className="group">
-                  <article className="premium-card p-6 h-full">
-                    <div className="w-10 h-10 rounded-xl bg-primary-light flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-base">
-                      <s.icon className="h-5 w-5 text-primary group-hover:text-white transition-base" aria-hidden="true" />
+                  <article className="premium-card p-6 h-full flex flex-col">
+                    <div className="w-10 h-10 rounded-xl bg-primary/[0.06] flex items-center justify-center mb-4 group-hover:bg-primary transition-base">
+                      <s.icon className="h-5 w-5 text-primary group-hover:text-primary-foreground transition-base" aria-hidden="true" />
                     </div>
-                    <h3 className="text-base font-semibold mb-1">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">{s.desc}</p>
-                    <span className="text-xs font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <h3 className="text-[15px] font-semibold mb-1">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 flex-1">{s.desc}</p>
+                    <span className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
                       Saiba mais <ArrowRight className="h-3 w-3" aria-hidden="true" />
                     </span>
                   </article>
@@ -184,14 +186,14 @@ const Index = () => {
         </section>
 
         {/* Cotação Auto */}
-        <section className="py-20 bg-background" aria-labelledby="cotacao-auto-heading">
+        <section className="py-24 bg-background" aria-labelledby="cotacao-auto-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <div className="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center mx-auto mb-6" aria-hidden="true">
+              <div className="w-14 h-14 rounded-2xl bg-primary/[0.06] flex items-center justify-center mx-auto mb-6" aria-hidden="true">
                 <Car className="h-7 w-7 text-primary" />
               </div>
               <h2 id="cotacao-auto-heading" className="mb-4">Cotação de Seguro Auto Online</h2>
-              <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+              <p className="text-muted-foreground mb-10 max-w-lg mx-auto text-[15px]">
                 Faça sua cotação de Seguro Auto, Moto, Caminhão e Vans direto pelo nosso sistema online. Resultado em minutos.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -200,12 +202,12 @@ const Index = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button size="lg" variant="cta" className="text-base px-8 rounded-xl h-12">
+                  <Button size="lg" variant="cta" className="text-sm px-8 rounded-xl h-12">
                     Fazer Cotação Online <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                   </Button>
                 </a>
                 <Link to="/planos-de-saude">
-                  <Button size="lg" variant="outline" className="text-base px-8 rounded-xl h-12">
+                  <Button size="lg" variant="outline" className="text-sm px-8 rounded-xl h-12">
                     Simular Plano de Saúde
                   </Button>
                 </Link>
@@ -215,13 +217,13 @@ const Index = () => {
         </section>
 
         {/* Benefícios */}
-        <section className="py-20 bg-primary-light" aria-labelledby="beneficios-heading">
+        <section className="py-24 bg-primary/[0.03]" aria-labelledby="beneficios-heading">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Benefícios</span>
-              <h2 id="beneficios-heading" className="mt-3 mb-4">O que você ganha com a Patro</h2>
+            <div className="text-center mb-16">
+              <span className="section-label">Benefícios</span>
+              <h2 id="beneficios-heading" className="mt-4 mb-4">O que você ganha com a Patro</h2>
             </div>
-            <ul className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto list-none">
+            <ul className="grid md:grid-cols-2 gap-3 max-w-3xl mx-auto list-none">
               {[
                 "Cotação gratuita e sem compromisso",
                 "Comparação entre várias seguradoras",
@@ -232,9 +234,9 @@ const Index = () => {
                 "WhatsApp direto com seu corretor",
                 "Análise de risco personalizada",
               ].map((b, i) => (
-                <li key={i} className="flex items-center gap-3 bg-card rounded-xl p-4 border">
-                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" aria-hidden="true" />
-                  <p className="text-sm font-medium">{b}</p>
+                <li key={i} className="flex items-center gap-3 bg-card rounded-xl p-4 border hover:border-primary/15 transition-base">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" aria-hidden="true" />
+                  <p className="text-sm font-medium text-foreground/80">{b}</p>
                 </li>
               ))}
             </ul>
@@ -242,27 +244,30 @@ const Index = () => {
         </section>
 
         {/* Depoimentos */}
-        <section className="py-20 bg-background" aria-labelledby="depoimentos-heading">
+        <section className="py-24 bg-background" aria-labelledby="depoimentos-heading">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Depoimentos</span>
-              <h2 id="depoimentos-heading" className="mt-3">O que nossos clientes dizem</h2>
+            <div className="text-center mb-16">
+              <span className="section-label">Depoimentos</span>
+              <h2 id="depoimentos-heading" className="mt-4">O que nossos clientes dizem</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {testimonials.map((t, i) => (
-                <article key={i} className="premium-card p-6">
+                <article key={i} className="premium-card p-7 flex flex-col">
+                  <Quote className="h-6 w-6 text-primary/20 mb-4" aria-hidden="true" />
+                  <blockquote className="text-sm text-muted-foreground mb-6 leading-relaxed flex-1">
+                    {t.content}
+                  </blockquote>
                   <div className="flex gap-0.5 mb-4" role="img" aria-label={`Avaliação: ${t.rating} de 5 estrelas`}>
                     {Array.from({ length: t.rating }).map((_, j) => (
-                      <span key={j} className="text-amber-400 text-sm" aria-hidden="true">★</span>
+                      <Star key={j} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" aria-hidden="true" />
                     ))}
                   </div>
-                  <blockquote className="text-sm text-muted-foreground mb-5 leading-relaxed italic">"{t.content}"</blockquote>
                   <div className="flex items-center gap-3 pt-4 border-t">
-                    <div className="w-9 h-9 rounded-full bg-primary-light flex items-center justify-center text-primary font-semibold text-sm" aria-hidden="true">
+                    <div className="w-9 h-9 rounded-full bg-primary/[0.06] flex items-center justify-center text-primary font-semibold text-sm" aria-hidden="true">
                       {t.name[0]}
                     </div>
                     <div>
-                      <p className="text-sm font-semibold">{t.name}</p>
+                      <p className="text-sm font-semibold text-foreground">{t.name}</p>
                       <p className="text-xs text-muted-foreground">{t.role}</p>
                     </div>
                   </div>
@@ -273,41 +278,42 @@ const Index = () => {
         </section>
 
         {/* Quem Somos */}
-        <section className="py-20 gradient-surface" aria-labelledby="sobre-heading">
+        <section className="py-24 gradient-surface" aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Quem é a Patro</span>
-              <h2 id="sobre-heading" className="mt-3 mb-6">Corretora de seguros com atendimento de gente, não de máquina</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
+              <span className="section-label">Quem é a Patro</span>
+              <h2 id="sobre-heading" className="mt-4 mb-6">Corretora de seguros com atendimento de gente, não de máquina</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4 text-[15px]">
                 A Patro é uma corretora de seguros registrada na SUSEP (nº 211112427), com sede em Guarulhos/SP, que atende pessoas físicas, famílias, empresas de todos os portes e produtores rurais em todo o Brasil.
               </p>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-10 text-[15px]">
                 Nosso diferencial é simples: cada cliente conversa direto com um especialista, recebe propostas comparativas de múltiplas seguradoras e tem suporte completo — da cotação ao sinistro.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link to="/sobre"><Button variant="outline" className="rounded-xl">Conheça Nossa História</Button></Link>
-                <Link to="/indique-um-amigo"><Button variant="ghost" className="rounded-xl text-primary">Indique um Amigo <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" /></Button></Link>
+                <Link to="/sobre"><Button variant="outline" className="rounded-xl text-sm">Conheça Nossa História</Button></Link>
+                <Link to="/indique-um-amigo"><Button variant="ghost" className="rounded-xl text-primary text-sm">Indique um Amigo <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" /></Button></Link>
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Final */}
-        <section className="py-24 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsla(215,100%,60%,0.2),transparent_70%)]" />
+        <section className="py-28 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,60%,0.12),transparent)]" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-4">Peça sua cotação agora — é grátis e sem compromisso</h2>
-            <p className="text-lg text-white/70 mb-10 max-w-xl mx-auto">
+            <p className="text-base text-white/50 mb-12 max-w-lg mx-auto">
               Nosso time responde em até 2 horas com propostas de várias seguradoras. Você compara e decide.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white text-primary hover:bg-white/90">
+                <Button size="lg" className="w-full sm:w-auto text-sm px-8 rounded-xl h-12 bg-white text-primary hover:bg-white/90 font-semibold shadow-lg shadow-white/10">
                   Pedir Cotação Gratuita
                 </Button>
               </Link>
               <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20">
+                <Button size="lg" className="w-full sm:w-auto text-sm px-8 rounded-xl h-12 bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
                   (11) 5199-7500
                 </Button>
@@ -317,18 +323,23 @@ const Index = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-20 bg-background" aria-labelledby="faq-heading">
+        <section className="py-24 bg-background" aria-labelledby="faq-heading">
           <div className="container mx-auto px-4 max-w-3xl">
-            <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">FAQ</span>
-              <h2 id="faq-heading" className="mt-3">Perguntas Frequentes</h2>
+            <div className="text-center mb-16">
+              <span className="section-label">FAQ</span>
+              <h2 id="faq-heading" className="mt-4">Perguntas Frequentes</h2>
             </div>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {faqs.map((faq, i) => (
-                <div key={i} className="premium-card p-5">
-                  <h3 className="text-base font-semibold mb-2">{faq.question}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
-                </div>
+                <details key={i} className="premium-card group" open={i === 0}>
+                  <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold text-foreground hover:text-primary transition-base select-none list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light flex-shrink-0">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 -mt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
               ))}
             </div>
           </div>
