@@ -62,9 +62,6 @@ const Header = () => {
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
             </div>
-            <span className="hidden sm:inline text-white/20 font-medium text-[10px] uppercase tracking-[0.12em]">
-              SUSEP 211112427
-            </span>
             <div className="flex items-center gap-3">
               <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
               <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
