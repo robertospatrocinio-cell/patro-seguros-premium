@@ -14,7 +14,7 @@ const Footer = () => {
               </div>
               <span className="font-heading font-bold text-[15px] text-white tracking-tight">Patro Seguros</span>
             </div>
-            <p className="text-[13px] text-white/30 mb-6 leading-relaxed max-w-xs">
+            <p className="text-[13px] text-white/60 mb-6 leading-relaxed max-w-xs">
               Corretora de seguros em Guarulhos. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.
             </p>
             <div className="flex gap-2">
