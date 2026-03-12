@@ -190,17 +190,22 @@ const Header = () => {
 
             <div className="py-2 px-3">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Empresarial</p>
-              <div className="grid grid-cols-2 gap-1">
+                <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-empresarial", label: "Empresarial" },
                   { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-frota", label: "Frota" },
                   { to: "/seguro-transporte", label: "Transporte" },
                   { to: "/seguro-rc", label: "RC" },
+                  { to: "/seguro-rc-profissional", label: "RC Profissional" },
                   { to: "/seguro-condominio", label: "Condomínio" },
+                  { to: "/seguro-engenharia", label: "Engenharia" },
                   { to: "/seguro-cyber", label: "Cyber" },
                   { to: "/seguro-vida-pme", label: "Vida PME" },
                   { to: "/seguro-lojas-shopping", label: "Lojas Shopping" },
+                  { to: "/seguro-maquinas", label: "Máquinas" },
+                  { to: "/seguro-galpoes-industriais", label: "Galpões Industriais" },
+                  { to: "/seguro-maquinas-industriais", label: "Máq. Industriais" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
                 ))}
