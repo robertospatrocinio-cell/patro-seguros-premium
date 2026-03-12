@@ -276,12 +276,13 @@ const Index = () => {
         <section className="py-20 gradient-surface" aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Sobre</span>
-              <h2 id="sobre-heading" className="mt-3 mb-6">A melhor corretora de seguros de Guarulhos</h2>
+              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Quem é a Patro</span>
+              <h2 id="sobre-heading" className="mt-3 mb-6">Corretora de seguros com atendimento de gente, não de máquina</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                A Patro é uma corretora de seguros registrada na SUSEP (nº 211112427), com sede em Guarulhos/SP, que atende pessoas físicas, famílias, empresas de todos os portes e produtores rurais em todo o Brasil.
+              </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                A Patro Corretora de Seguros é especialista em proteção financeira e patrimonial para pessoas físicas,
-                famílias, profissionais liberais e empresas de todos os portes. Nossa missão é levar segurança,
-                tranquilidade e proteção inteligente através de um atendimento consultivo e totalmente personalizado.
+                Nosso diferencial é simples: cada cliente conversa direto com um especialista, recebe propostas comparativas de múltiplas seguradoras e tem suporte completo — da cotação ao sinistro.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/sobre"><Button variant="outline" className="rounded-xl">Conheça Nossa História</Button></Link>
