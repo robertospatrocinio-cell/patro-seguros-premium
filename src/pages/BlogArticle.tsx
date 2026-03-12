@@ -7,6 +7,162 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "rc-clinicas-estetica": {
+    title: "Seguro RC para Clínicas de Estética: Proteção Essencial para Profissionais da Beleza",
+    content: `O mercado de estética no Brasil é um dos maiores do mundo — e com ele crescem também os riscos profissionais. Procedimentos como harmonização facial, preenchimento labial, depilação a laser, peelings químicos e aplicação de botox envolvem riscos reais de danos aos clientes. Um único processo judicial pode comprometer todo o patrimônio de uma clínica. É aí que entra o Seguro de Responsabilidade Civil (RC) para Clínicas de Estética.
+
+Neste guia completo, a Patro Seguros explica tudo sobre o RC para clínicas de estética: o que cobre, por que é indispensável e como contratar.
+
+O Que É o Seguro RC para Clínicas de Estética?
+
+O Seguro de Responsabilidade Civil Profissional para clínicas de estética é uma proteção que cobre danos corporais, estéticos e morais causados involuntariamente aos clientes durante ou após a realização de procedimentos estéticos.
+
+Ele garante indenização financeira e cobertura de custas judiciais caso a clínica ou o profissional seja processado por um cliente que alega ter sofrido danos em decorrência de um procedimento.
+
+Por Que Clínicas de Estética Precisam de Seguro RC?
+
+Os números são alarmantes:
+
+- O Brasil é o 2º maior mercado de estética do mundo.
+- Processos por danos estéticos crescem cerca de 15% ao ano.
+- Indenizações podem ultrapassar R$ 500.000 em casos graves.
+- Mesmo profissionais experientes estão sujeitos a reações adversas e complicações.
+
+Situações reais que geram processos:
+
+- Queimaduras por laser ou luz pulsada em tipos de pele sensíveis.
+- Reações alérgicas a produtos de preenchimento ou toxina botulínica.
+- Assimetrias faciais após harmonização.
+- Manchas e cicatrizes após peelings químicos.
+- Infecções pós-procedimento por falha de esterilização.
+- Resultados insatisfatórios que o cliente considera "dano estético".
+- Necrose tecidual por aplicação incorreta de preenchimento.
+
+Mesmo quando o profissional seguiu todos os protocolos, o cliente pode entrar com ação judicial — e os custos de defesa são elevados.
+
+O Que o Seguro RC para Estética Cobre?
+
+As coberturas principais incluem:
+
+1. Danos Corporais a Clientes: indenização por lesões físicas causadas durante ou após procedimentos estéticos. Inclui queimaduras, cicatrizes, infecções, reações adversas e complicações.
+
+2. Danos Estéticos: cobertura específica para alegações de danos à aparência do cliente — resultado insatisfatório, assimetrias, manchas e deformidades.
+
+3. Danos Morais: indenização por sofrimento emocional, constrangimento e abalo psicológico do cliente.
+
+4. Custas Judiciais e Honorários Advocatícios: cobertura completa dos custos de defesa, incluindo advogados, perícias, custas processuais e honorários periciais.
+
+5. Despesas Médicas e Hospitalares: reembolso de gastos com tratamento médico, cirurgias corretivas e internações necessárias para reparar o dano.
+
+6. Responsabilidade Civil das Instalações: danos causados aos clientes nas dependências da clínica (queda, choque elétrico, acidente com equipamentos).
+
+7. Responsabilidade por Produtos: cobertura para danos causados por produtos aplicados nos clientes (cremes, ácidos, toxinas, preenchimentos).
+
+8. Cobertura Retroativa: proteção contra reclamações por procedimentos realizados antes da contratação do seguro (com retroatividade contratada).
+
+Quais Procedimentos Estão Cobertos?
+
+O seguro RC para estética geralmente cobre:
+
+Procedimentos Faciais:
+- Harmonização facial
+- Preenchimento labial e de olheiras
+- Aplicação de botox (toxina botulínica)
+- Bichectomia
+- Microagulhamento
+- Skinbooster e bioestimuladores
+
+Procedimentos Corporais:
+- Depilação a laser e luz pulsada
+- Criolipólise e lipocavitação
+- Carboxiterapia
+- Drenagem linfática
+- Massagem modeladora
+- Radiofrequência corporal
+
+Tratamentos de Pele:
+- Peelings químicos (superficiais, médios e profundos)
+- Limpeza de pele
+- Tratamento de acne e manchas
+- Microagulhamento com drug delivery
+- LED terapia e fototerapia
+
+Outros:
+- Extensão de cílios
+- Micropigmentação e microblading
+- Design de sobrancelhas
+- Tratamentos capilares
+
+Quem Deve Contratar o Seguro RC?
+
+- Clínicas de estética e centros de beleza
+- Esteticistas autônomas e profissionais liberais
+- Biomédicos(as) estetas
+- Dentistas que realizam harmonização facial
+- Dermatologistas com procedimentos estéticos
+- Enfermeiros(as) estetas
+- Farmacêuticos(as) estetas
+- Fisioterapeutas dermatofuncionais
+- Salões de beleza com serviços de estética
+
+Mesmo profissionais que trabalham sozinhos, em domicílio ou em espaços compartilhados (coworkings de estética) precisam de proteção.
+
+Quanto Custa o Seguro RC para Clínicas de Estética?
+
+O valor varia conforme:
+
+- Faturamento anual da clínica
+- Tipos de procedimentos realizados
+- Número de profissionais
+- Limite de indenização contratado
+- Histórico de sinistros
+
+Valores médios de referência (2025):
+
+- Profissional autônomo: R$ 800 a R$ 2.500/ano
+- Clínica pequena (1-3 profissionais): R$ 2.000 a R$ 5.000/ano
+- Clínica média (4-10 profissionais): R$ 5.000 a R$ 15.000/ano
+- Clínica grande (10+ profissionais): R$ 15.000 a R$ 40.000/ano
+
+Considerando que um único processo pode gerar indenizações de R$ 50.000 a R$ 500.000, o seguro RC é um investimento mínimo com proteção máxima.
+
+Casos Reais: Por Que o Seguro RC Faz Diferença
+
+Caso 1 — Queimadura por laser: uma cliente sofreu queimaduras de 2º grau durante sessão de depilação a laser. O processo resultou em indenização de R$ 80.000 por danos corporais e morais. O seguro RC cobriu integralmente.
+
+Caso 2 — Reação a preenchimento: uma paciente desenvolveu necrose tecidual após preenchimento com ácido hialurônico. Os custos de cirurgia corretiva e indenização somaram R$ 150.000. O seguro RC cobriu os custos e a defesa judicial.
+
+Caso 3 — Resultado insatisfatório: um cliente processou a clínica por insatisfação com harmonização facial, alegando dano estético. Embora o procedimento tenha sido correto, os custos de defesa judicial chegaram a R$ 25.000. O seguro RC cobriu os honorários advocatícios.
+
+Dicas da Patro Seguros para Clínicas de Estética
+
+1. Contrate o seguro RC antes de começar a atender: não espere um problema acontecer.
+2. Documente tudo: fotos antes e depois, termo de consentimento assinado, ficha de anamnese completa.
+3. Use termo de consentimento informado: explique riscos e obtenha assinatura do cliente.
+4. Invista em capacitação: profissionais bem treinados reduzem riscos e o custo do seguro.
+5. Mantenha equipamentos calibrados: manutenção preventiva evita acidentes.
+6. Escolha produtos de qualidade: utilize apenas produtos com registro na ANVISA.
+7. Tenha protocolos escritos: procedimentos padronizados reduzem erros.
+8. Revise sua cobertura anualmente: conforme a clínica cresce, o seguro deve acompanhar.
+
+Como Contratar com a Patro Seguros
+
+1. Solicite cotação pelo WhatsApp, telefone ou site.
+2. Informe os procedimentos realizados, número de profissionais e faturamento.
+3. Comparamos propostas das melhores seguradoras do mercado.
+4. Você escolhe o plano ideal com orientação especializada.
+5. Apólice emitida rapidamente — proteção imediata.
+
+A Patro Seguros é especialista em Responsabilidade Civil para profissionais de saúde e estética. Proteja seu patrimônio, sua reputação e sua tranquilidade.`,
+    faqs: [
+      { q: "O seguro RC é obrigatório para clínicas de estética?", a: "Não é obrigatório por lei, mas é altamente recomendado. Um único processo pode comprometer todo o patrimônio do profissional ou da clínica. Além disso, muitos convênios e associações profissionais exigem o seguro RC como condição para credenciamento." },
+      { q: "O seguro cobre procedimentos realizados por estagiários?", a: "Depende da apólice contratada. Algumas seguradoras oferecem extensão de cobertura para estagiários e assistentes, desde que estejam sob supervisão de profissional habilitado. Consulte a Patro Seguros para garantir essa proteção." },
+      { q: "Se o cliente assinar termo de consentimento, ainda preciso de seguro?", a: "Sim! O termo de consentimento é importante para a defesa judicial, mas não elimina a responsabilidade do profissional. O cliente pode alegar que não foi devidamente informado ou que o profissional cometeu erro técnico. O seguro RC é a proteção financeira complementar." },
+      { q: "O seguro cobre harmonização facial feita por dentista?", a: "Sim, desde que o profissional esteja habilitado e dentro de sua competência legal. A cobertura inclui procedimentos de harmonização orofacial realizados por dentistas com especialização reconhecida pelo CFO." },
+      { q: "Posso contratar o seguro RC como pessoa física (autônoma)?", a: "Sim, profissionais autônomos podem contratar o seguro RC individual. Não é necessário ter CNPJ. A apólice pode ser emitida em nome da pessoa física com base no CPF e registro profissional." },
+      { q: "O seguro RC cobre procedimentos invasivos como bichectomia?", a: "A cobertura depende do tipo de procedimento e da habilitação do profissional. Procedimentos cirúrgicos como bichectomia geralmente exigem que o profissional seja médico ou dentista. Informe todos os procedimentos na contratação para garantir cobertura adequada." },
+    ],
+  },
   "seguro-carta-verde-mercosul": {
     title: "Seguro Carta Verde: Tudo Sobre a Proteção Obrigatória para o Mercosul",
     content: `Vai viajar de carro para a Argentina, Uruguai, Paraguai ou outro país da América do Sul? Então você precisa do Seguro Carta Verde. Neste guia completo, a Patro Seguros explica tudo sobre essa proteção obrigatória, como funciona, quanto custa e como contratar.
