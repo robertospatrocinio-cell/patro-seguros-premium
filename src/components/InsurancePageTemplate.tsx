@@ -26,6 +26,7 @@ const InsurancePageTemplate = ({
   title, subtitle, description, icon,
   coverages, whoNeeds, whyPatro, faqs,
   relatedInsurances = [],
+  badge,
 }: InsurancePageProps) => {
   return (
     <>
