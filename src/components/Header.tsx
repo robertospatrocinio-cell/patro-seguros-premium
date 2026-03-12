@@ -77,14 +77,14 @@ const Header = () => {
       </div>
 
       {/* Main nav */}
-      <div className="bg-background/80 backdrop-blur-xl border-b">
+      <div className="bg-background/90 backdrop-blur-xl border-b border-border/50">
         <div className="container mx-auto px-4">
-          <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
-            <Link to="/" className="flex items-center gap-2" aria-label="Patro Seguros — Página inicial">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-700 rounded-xl flex items-center justify-center" aria-hidden="true">
+          <nav className="flex items-center justify-between h-[60px]" aria-label="Navegação principal">
+            <Link to="/" className="flex items-center gap-2.5" aria-label="Patro Seguros — Página inicial">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-primary-glow rounded-xl flex items-center justify-center" aria-hidden="true">
                 <span className="text-white font-heading font-bold text-sm">P</span>
               </div>
-              <span className="font-heading font-bold text-lg text-foreground">Patro <span className="text-primary">Seguros</span></span>
+              <span className="font-heading font-bold text-lg text-foreground tracking-tight">Patro <span className="text-primary">Seguros</span></span>
             </Link>
 
             {/* Desktop nav */}
