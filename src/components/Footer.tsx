@@ -41,7 +41,7 @@ const Footer = () => {
                 { to: "/indique-um-amigo", label: "Indique" },
                 { to: "/contato", label: "Contato" },
               ].map(l => (
-                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/25 hover:text-white/60 transition-base">{l.label}</Link></li>
+                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/50 hover:text-white/80 transition-base">{l.label}</Link></li>
               ))}
             </ul>
           </nav>
