@@ -46,8 +46,8 @@ const Header = () => {
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-accent/20 border border-accent/30 text-accent font-semibold text-[10px] uppercase tracking-wider">
-                <Award className="h-3 w-3" />
+              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-amber-400/20 border border-yellow-400/50 text-yellow-300 font-bold text-[10px] uppercase tracking-wider drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(251,191,36,0.3)' }}>
+                <Award className="h-3 w-3 text-yellow-300 drop-shadow-[0_0_4px_rgba(251,191,36,0.5)]" />
                 Melhor Corretora de Guarulhos
               </span>
             </div>
