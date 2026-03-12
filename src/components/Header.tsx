@@ -217,10 +217,12 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-maquinas-agricolas", label: "Máq. Agrícolas" },
+                  { to: "/seguro-equipamentos-agricolas", label: "Equip. Agrícolas" },
                   { to: "/seguro-armazenagem", label: "Armazenagem" },
                   { to: "/seguro-placa-solar", label: "Placas Solar" },
                   { to: "/seguro-pecuario", label: "Pecuário" },
                   { to: "/seguro-cafe", label: "Café" },
+                  { to: "/seguro-rural", label: "Rural" },
                   { to: "/seguro-ambiental", label: "Ambiental" },
                   { to: "/seguro-drone-agricola", label: "Drone Agrícola" },
                   { to: "/seguro-transporte-agro", label: "Transp. Agrícola" },
