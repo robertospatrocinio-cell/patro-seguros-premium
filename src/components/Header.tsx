@@ -16,7 +16,7 @@ const Header = () => {
         <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" />
       </button>
       <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-        <div className="bg-card rounded-2xl shadow-lg border p-2 backdrop-blur-xl">
+        <div className="bg-card rounded-2xl shadow-lg border p-2 backdrop-blur-xl max-h-[70vh] overflow-y-auto">
           {children}
         </div>
       </div>
