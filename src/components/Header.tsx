@@ -194,7 +194,7 @@ const Header = () => {
 
               {/* Agro — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/60 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
                   Agro
                   <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
                 </button>
