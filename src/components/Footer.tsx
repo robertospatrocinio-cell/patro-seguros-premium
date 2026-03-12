@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
-              <img src={logoShield} alt="" className="w-10 h-10 object-contain" aria-hidden="true" />
+              <img src={logoShield} alt="" className="w-16 h-16 object-contain shrink-0" aria-hidden="true" />
               <span className="font-heading font-bold text-[15px] text-white tracking-tight">Patro Seguros</span>
             </div>
             <p className="text-[13px] text-white/60 mb-6 leading-relaxed max-w-xs">
