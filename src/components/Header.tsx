@@ -240,10 +240,10 @@ const Header = () => {
 
             <div className="hidden lg:flex items-center gap-2">
               <Link to="/cotacao">
-                <Button size="sm" className="rounded-xl">Cotação Grátis</Button>
+                <Button size="sm" className="rounded-xl text-[13px] font-medium h-9">Cotação Grátis</Button>
               </Link>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="sm" variant="cta" className="rounded-xl">WhatsApp</Button>
+                <Button size="sm" variant="cta" className="rounded-xl text-[13px] font-medium h-9">WhatsApp</Button>
               </a>
             </div>
 
