@@ -33,14 +33,14 @@ const PlanosDeSaude = () => {
               Trabalhamos com as principais operadoras do Brasil para encontrar o plano de saúde ideal para você, sua família ou sua empresa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="text-lg px-8">
-                  Simular Plano de Saúde <ArrowRight className="ml-2 h-5 w-5" />
+              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-lg px-8">
+                  Simular Plano de Saúde <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Button>
               </a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="cta" className="text-lg px-8">
-                  <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button size="lg" variant="cta" className="w-full sm:w-auto text-lg px-8">
+                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" /> WhatsApp
                 </Button>
               </a>
             </div>
