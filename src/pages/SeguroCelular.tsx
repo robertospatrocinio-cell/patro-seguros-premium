@@ -7,6 +7,7 @@ const SeguroCelular = () => {
       subtitle="Cobertura completa contra roubo, furto, quebra acidental e danos elétricos para seu celular."
       description="O Seguro Celular da Patro Seguros protege seu smartphone contra os principais riscos do dia a dia. Com cobertura para roubo, furto qualificado, quebra acidental e danos por líquidos, você garante a tranquilidade de usar seu aparelho sem preocupações. Trabalhamos com as melhores seguradoras para oferecer o melhor custo-benefício."
       icon="📱"
+      metaDescription="Seguro Celular contra roubo, furto, quebra acidental e danos por líquidos. Proteção para iPhone, Samsung e todos os smartphones. Cotação grátis Patro Seguros."
       coverages={[
         { title: "Roubo e Furto Qualificado", description: "Proteção contra roubo e furto com arrombamento do seu smartphone." },
         { title: "Quebra Acidental", description: "Cobertura para danos causados por quedas e impactos acidentais." },

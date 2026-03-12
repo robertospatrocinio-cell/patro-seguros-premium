@@ -7,6 +7,7 @@ const SeguroGalpoesIndustriais = () => {
       subtitle="Proteção completa para galpões, armazéns e instalações industriais contra incêndio, roubo e riscos operacionais."
       description="O Seguro de Galpões Industriais da Patro Seguros oferece proteção completa para suas instalações industriais, incluindo o prédio, conteúdo, mercadorias armazenadas e maquinário. Proteja seu patrimônio contra incêndio, explosão, vendaval, roubo e muito mais."
       icon="🏭"
+      metaDescription="Seguro para Galpões Industriais — proteção contra incêndio, roubo, vendaval e danos ao estoque. Cobertura para armazéns e instalações. Cotação grátis Patro Seguros."
       coverages={[
         { title: "Incêndio, Raio e Explosão", description: "Cobertura básica para o prédio e seu conteúdo." },
         { title: "Vendaval e Granizo", description: "Proteção contra danos estruturais por fenômenos climáticos." },

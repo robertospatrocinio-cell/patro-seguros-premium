@@ -7,6 +7,7 @@ const SeguroMaquinasAgricolas = () => {
       subtitle="Proteja tratores, colheitadeiras, plantadeiras e todo seu maquinário agrícola contra riscos e prejuízos."
       description="O Seguro de Máquinas Agrícolas da Patro Seguros é a solução completa para proteger o patrimônio do produtor rural. Cobrimos tratores, colheitadeiras, plantadeiras, pulverizadores e outros equipamentos essenciais para a produção agrícola. Com a Patro, você conta com a expertise de quem entende do agronegócio e oferece as melhores condições do mercado."
       icon="🚜"
+      metaDescription="Seguro de Máquinas Agrícolas — tratores, colheitadeiras, plantadeiras e pulverizadores. Proteção contra incêndio, roubo e tombamento. Cotação grátis Patro Seguros."
       badge="Especialistas no Agro"
       coverages={[
         { title: "Incêndio e Explosão", description: "Proteção contra danos causados por incêndio, raio e explosão nas máquinas agrícolas." },
