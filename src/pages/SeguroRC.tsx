@@ -6,6 +6,7 @@ const SeguroRC = () => {
       title="Seguro Responsabilidade Civil"
       subtitle="Proteção contra danos causados a terceiros nas suas operações"
       icon="⚖️"
+      metaDescription="Seguro Responsabilidade Civil para empresas. Proteção contra danos a terceiros, processos judiciais e indenizações. Cotação grátis Patro Seguros Guarulhos."
       description="O Seguro de Responsabilidade Civil (RC) protege sua empresa contra reclamações por danos materiais ou corporais causados a terceiros durante suas operações. Acidentes, erros e imprevistos podem gerar processos caros. Este seguro cobre indenizações e despesas judiciais, protegendo o patrimônio da empresa. Com a Patro Seguros, você tem coberturas personalizadas para seu ramo de atividade."
       coverages={[
         {

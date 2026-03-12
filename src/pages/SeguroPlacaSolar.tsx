@@ -7,6 +7,7 @@ const SeguroPlacaSolar = () => {
       subtitle="Proteja seu investimento em energia solar fotovoltaica contra danos, furto e fenômenos naturais."
       description="O Seguro de Placas Solares da Patro Seguros oferece proteção completa para sistemas fotovoltaicos instalados em propriedades rurais e empresas do agronegócio. Cobrimos painéis solares, inversores e toda a estrutura de geração de energia contra os principais riscos, garantindo a continuidade da sua economia energética."
       icon="☀️"
+      metaDescription="Seguro para Placas Solares e sistemas fotovoltaicos. Proteção contra granizo, furto, danos elétricos e fenômenos naturais. Cotação grátis Patro Seguros."
       badge="Especialistas no Agro"
       coverages={[
         { title: "Danos aos Painéis", description: "Proteção contra quebra, trinca e danos físicos aos módulos fotovoltaicos." },

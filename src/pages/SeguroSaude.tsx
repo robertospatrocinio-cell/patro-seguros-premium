@@ -6,6 +6,7 @@ const SeguroSaude = () => {
       title="Seguro Saúde / Plano de Saúde"
       subtitle="Acesso a atendimento médico de qualidade quando você mais precisa"
       icon="🏥"
+      metaDescription="Plano de Saúde e Seguro Saúde. Compare Bradesco, Amil, SulAmérica, Porto Saúde e mais. Individual, familiar e empresarial. Cotação grátis Patro Seguros."
       description="O Seguro Saúde (Plano de Saúde) garante acesso a consultas, exames, internações e procedimentos médicos com qualidade e rapidez. É fundamental para evitar comprometer suas economias em situações de emergência e garantir atendimento adequado para você e sua família. Com a Patro Seguros, você encontra as melhores operadoras, planos sob medida e condições especiais."
       coverages={[
         {

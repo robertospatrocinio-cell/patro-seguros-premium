@@ -7,6 +7,7 @@ const SeguroPecuario = () => {
       subtitle="Proteja bovinos, equinos, suínos e outros animais contra morte por doenças, acidentes e fenômenos naturais."
       description="O Seguro Pecuário da Patro Seguros oferece proteção completa para o seu rebanho. Cobrimos morte de animais por doenças, acidentes, raios, afogamento e outros eventos, garantindo a segurança do seu investimento na pecuária. Com subsídio do governo federal, o seguro fica ainda mais acessível."
       icon="🐄"
+      metaDescription="Seguro Pecuário para bovinos, equinos e suínos. Proteção contra morte por doenças, acidentes e raios. Subsídio do governo. Cotação grátis Patro Seguros."
       badge="Especialistas no Agro"
       coverages={[
         { title: "Morte por Doença", description: "Cobertura para morte de animais causada por doenças cobertas pela apólice." },

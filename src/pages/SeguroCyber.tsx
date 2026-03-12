@@ -6,6 +6,7 @@ const SeguroCyber = () => {
       title="Seguro Cyber / Segurança Cibernética"
       subtitle="Proteção contra ataques cibernéticos e vazamento de dados"
       icon="🔒"
+      metaDescription="Seguro Cyber contra ataques hackers, ransomware e vazamento de dados. Proteção LGPD para empresas. Cobertura de custos de recuperação. Cotação grátis Patro Seguros."
       description="O Seguro Cyber protege empresas contra riscos digitais: ataques hackers, ransomware, vazamento de dados, invasões de sistemas e violações da LGPD. Com o aumento exponencial de crimes cibernéticos, é fundamental proteger seu negócio. O seguro cobre não apenas os danos financeiros, mas também custos de recuperação, notificações obrigatórias, defesa jurídica e danos à reputação. Com a Patro Seguros, você tem acesso às melhores coberturas de segurança cibernética."
       coverages={[
         {

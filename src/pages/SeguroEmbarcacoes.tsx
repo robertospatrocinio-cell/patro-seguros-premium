@@ -6,6 +6,7 @@ const SeguroEmbarcacoes = () => {
       title="Seguro Embarcações"
       subtitle="Proteção completa para lanchas, veleiros e embarcações de todos os portes"
       icon="⛵"
+      metaDescription="Seguro de Embarcações para lanchas, veleiros e iates. Cobertura contra danos ao casco, roubo, RC e assistência náutica. Cotação grátis Patro Seguros."
       description="O Seguro de Embarcações garante proteção abrangente para lanchas, veleiros, iates e outras embarcações. Cubra seu patrimônio contra danos, roubo, responsabilidade civil e muito mais."
       coverages={[
         { title: "Casco e Máquinas", description: "Cobertura para danos ao casco, motor e sistemas mecânicos da embarcação." },

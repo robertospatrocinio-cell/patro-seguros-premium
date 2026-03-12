@@ -6,6 +6,7 @@ const SeoSeguroEmpresarialGuarulhos = () => (
     subtitle="Proteção completa para empresas de Guarulhos e região. Cotação gratuita e personalizada."
     description="A Patro Seguros é especialista em seguros empresariais em Guarulhos. Protegemos comércios, indústrias, prestadores de serviços e empresas de todos os portes contra incêndio, roubo, responsabilidade civil e muito mais. Atendimento local e presencial."
     icon="🏢"
+    metaDescription="Seguro Empresarial em Guarulhos para comércios, indústrias e serviços. Proteção contra incêndio, roubo e RC. Atendimento local. Cotação grátis Patro Seguros."
     coverages={[
       { title: "Incêndio e Explosão", description: "Cobertura básica para imóvel e conteúdo empresarial." },
       { title: "Roubo e Furto", description: "Proteção para equipamentos, mercadorias e valores." },

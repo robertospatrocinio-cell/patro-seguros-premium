@@ -7,6 +7,7 @@ const SeguroEquipamentosAgricolas = () => {
       subtitle="Proteção completa para implementos, pulverizadores, irrigação e equipamentos de precisão."
       description="O Seguro de Equipamentos Agrícolas protege seus implementos e ferramentas essenciais para a produção. Desde sistemas de irrigação até GPS agrícola e drones, oferecemos coberturas sob medida para garantir a continuidade da sua operação no campo."
       icon="⚙️"
+      metaDescription="Seguro de Equipamentos Agrícolas — implementos, pulverizadores, irrigação e GPS agrícola. Proteção completa para o campo. Cotação grátis Patro Seguros."
       coverages={[
         { title: "Incêndio e Raio", description: "Proteção contra incêndio, raio e explosão nos equipamentos." },
         { title: "Roubo e Furto", description: "Cobertura contra roubo e furto qualificado." },

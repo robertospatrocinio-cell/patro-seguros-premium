@@ -6,6 +6,7 @@ const SeguroLojasShopping = () => {
       title="Seguro para Lojas de Shopping"
       subtitle="Proteção especializada para lojistas e operações dentro de shopping centers"
       icon="🏬"
+      metaDescription="Seguro para Lojas de Shopping — proteção contra incêndio, roubo, RC e lucros cessantes para lojistas em centros comerciais. Cotação grátis Patro Seguros."
       description="O Seguro para Lojas de Shopping é uma proteção essencial para lojistas que operam em centros comerciais. Incêndios, roubos, danos ao estoque, responsabilidade civil com clientes e interrupção das atividades podem gerar prejuízos imensos. Com a Patro Seguros, sua loja de shopping conta com coberturas personalizadas que garantem a continuidade do seu negócio, proteção do patrimônio e tranquilidade para vender todos os dias."
       coverages={[
         {

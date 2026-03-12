@@ -6,6 +6,7 @@ const SeguroJetSki = () => {
       title="Seguro Jet Ski"
       subtitle="Proteção completa para seu jet ski e embarcações pessoais"
       icon="🚤"
+      metaDescription="Seguro Jet Ski — proteção contra danos, roubo, furto e responsabilidade civil para embarcações pessoais. Navegue com tranquilidade. Cotação grátis Patro Seguros."
       description="O Seguro Jet Ski oferece cobertura abrangente para proteger sua embarcação contra danos, roubo, furto e responsabilidade civil. Navegue com tranquilidade sabendo que seu investimento está protegido."
       coverages={[
         { title: "Colisão e Abalroamento", description: "Cobertura contra danos causados por colisão com outras embarcações ou objetos." },

@@ -6,6 +6,7 @@ const SeguroRCProfissional = () => {
       title="Seguro RC Profissional (E&O)"
       subtitle="Proteção para profissionais liberais contra erros e omissões"
       icon="👔"
+      metaDescription="Seguro RC Profissional (E&O) para médicos, advogados, engenheiros, contadores e arquitetos. Proteção contra erros e omissões. Cotação grátis Patro Seguros."
       description="O Seguro de Responsabilidade Civil Profissional (também chamado E&O - Errors & Omissions) protege profissionais liberais contra reclamações de clientes por erros, omissões ou negligência na prestação de serviços. Médicos, advogados, engenheiros, arquitetos, contadores e outros profissionais estão sujeitos a processos que podem comprometer todo o patrimônio pessoal. Com a Patro Seguros, você tem proteção específica para sua profissão."
       coverages={[
         {

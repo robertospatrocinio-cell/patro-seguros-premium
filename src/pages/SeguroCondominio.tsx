@@ -6,6 +6,7 @@ const SeguroCondominio = () => {
       title="Seguro Condomínio"
       subtitle="Proteção completa para áreas comuns e patrimônio coletivo"
       icon="🏢"
+      metaDescription="Seguro Condomínio para áreas comuns, equipamentos e RC. Proteção contra incêndio, danos elétricos e acidentes com moradores. Cotação grátis Patro Seguros."
       description="O Seguro Condomínio protege as áreas comuns, equipamentos coletivos e a responsabilidade civil do condomínio contra diversos riscos. Incêndios, danos elétricos, responsabilidade civil e acidentes podem gerar prejuízos significativos que seriam rateados entre condôminos. Com a Patro Seguros, seu condomínio tem proteção adequada com valores acessíveis e gestão especializada."
       coverages={[
         {

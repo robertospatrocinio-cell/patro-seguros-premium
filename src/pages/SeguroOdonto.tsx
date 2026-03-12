@@ -6,6 +6,7 @@ const SeguroOdonto = () => {
       title="Seguro Odontológico"
       subtitle="Cuide da saúde bucal da sua família com tranquilidade"
       icon="🦷"
+      metaDescription="Plano Odontológico com ampla rede de dentistas. Consultas, limpeza, canal, ortodontia e implantes. Valores a partir de R$ 20/mês. Cotação grátis Patro Seguros."
       description="O Seguro Odontológico (Plano Dentário) oferece acesso a consultas, procedimentos preventivos e tratamentos odontológicos com valores acessíveis. Manter a saúde bucal em dia é fundamental para a saúde geral e evita gastos elevados com tratamentos emergenciais. Com a Patro Seguros, você encontra planos completos com ampla rede credenciada e coberturas que vão de limpezas a implantes."
       coverages={[
         {

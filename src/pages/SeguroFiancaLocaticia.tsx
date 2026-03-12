@@ -6,6 +6,7 @@ const SeguroFiancaLocaticia = () => {
       title="Seguro Fiança Locatícia"
       subtitle="A substituição inteligente do fiador para aluguel de imóveis residenciais e comerciais"
       icon="🏠"
+      metaDescription="Seguro Fiança Locatícia — substitui fiador e caução no aluguel. Aprovação rápida para residencial e comercial. Proteção para proprietário e inquilino. Cotação grátis."
       description="O Seguro Fiança Locatícia é a solução moderna e segura que substitui a figura do fiador e a caução em contratos de locação. Garantido por grandes seguradoras, ele protege o proprietário contra inadimplência e danos ao imóvel, enquanto o inquilino aluga sem depender de terceiros. Ideal para imóveis residenciais e comerciais, o seguro fiança locatícia é aceito pela maioria das imobiliárias e garante tranquilidade para todas as partes envolvidas. A Patro Seguros oferece as melhores condições com aprovação rápida e atendimento consultivo."
       coverages={[
         { title: "Aluguel em Atraso", description: "Indenização ao proprietário pelos aluguéis não pagos pelo inquilino" },

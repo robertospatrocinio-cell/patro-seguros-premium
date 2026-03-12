@@ -6,6 +6,7 @@ const SeguroMaquinas = () => {
       title="Seguro de Máquinas e Equipamentos"
       subtitle="Proteção para o maquinário essencial da sua operação"
       icon="⚙️"
+      metaDescription="Seguro de Máquinas e Equipamentos industriais e agrícolas. Cobertura contra quebra, incêndio e lucros cessantes. Cotação grátis Patro Seguros."
       description="O Seguro de Máquinas e Equipamentos protege contra danos, quebras e paralisações de maquinário industrial, agrícola, de construção e equipamentos especializados. Uma quebra inesperada pode custar caro em reparos e lucros cessantes. Com a Patro Seguros, você protege seu investimento em equipamentos e garante a continuidade operacional do seu negócio."
       coverages={[
         {

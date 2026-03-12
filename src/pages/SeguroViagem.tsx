@@ -6,6 +6,7 @@ const SeguroViagem = () => {
       title="Seguro Viagem"
       subtitle="Viaje tranquilo com proteção completa nacional e internacional"
       icon="✈️"
+      metaDescription="Seguro Viagem nacional e internacional. Cobertura médica, extravio de bagagem e cancelamento. Obrigatório na Europa. Cotação grátis Patro Seguros Guarulhos."
       description="O Seguro Viagem é fundamental para garantir tranquilidade durante suas viagens, seja a lazer ou negócios. Oferece cobertura para emergências médicas, extravio de bagagem, cancelamento de viagem e muito mais. Muitos países exigem seguro viagem obrigatório. Com a Patro Seguros, você viaja protegido com as melhores seguradoras e valores competitivos."
       coverages={[
         {
