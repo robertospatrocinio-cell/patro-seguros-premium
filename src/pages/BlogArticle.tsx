@@ -2652,6 +2652,83 @@ Dicas para escolher:
       { q: "Posso ter plano de saúde e odontológico separados?", a: "Sim! São produtos independentes. Você pode contratar plano de saúde de uma operadora e odontológico de outra, escolhendo o melhor de cada uma." },
     ],
   },
+  },
+  "5-dicas-baratear-seguro-auto": {
+    title: "5 Dicas para Baratear o Seguro Auto",
+    content: `O seguro auto é um dos investimentos mais importantes para quem tem veículo, mas muita gente acaba pagando mais do que deveria por falta de informação. A boa notícia é que existem estratégias simples e legítimas para reduzir o valor da apólice sem comprometer a proteção.
+
+Neste artigo, a Patro Seguros compartilha 5 dicas práticas para você economizar no seguro do seu carro em 2025.
+
+1. Instale Dispositivos de Rastreamento e Antifurto
+
+Veículos com rastreadores, bloqueadores ou sistemas antifurto homologados representam menor risco para as seguradoras. Isso se traduz em descontos que podem variar de 5% a 25% no valor do seguro.
+
+Equipamentos como rastreadores GPS, travas de câmbio e alarmes certificados demonstram ao segurador que você se preocupa com a segurança do veículo. Algumas seguradoras oferecem parcerias com empresas de rastreamento, o que pode gerar economia adicional.
+
+Dica Patro: Antes de instalar, consulte sua seguradora sobre quais dispositivos são aceitos e qual o desconto oferecido por cada um.
+
+2. Mantenha o Perfil Atualizado e Seja Honesto
+
+O perfil do motorista é um dos fatores que mais influenciam no preço do seguro. Informações como idade, estado civil, CEP de pernoite, uso do veículo e se possui garagem fazem grande diferença.
+
+- Motoristas acima de 26 anos pagam menos.
+- Veículo guardado em garagem fechada reduz o prêmio.
+- Uso exclusivo para lazer é mais barato que uso profissional.
+- CEP de pernoite em regiões com menor índice de sinistros gera desconto.
+
+Importante: Nunca omita ou altere informações. Além de ser fraude, em caso de sinistro a seguradora pode negar a indenização se descobrir inconsistências no perfil declarado.
+
+3. Aumente a Franquia
+
+A franquia é o valor que você paga do próprio bolso em caso de sinistro parcial (batidas, amassados). Quanto maior a franquia escolhida, menor o valor do seguro.
+
+Se você é um motorista cuidadoso e dificilmente aciona o seguro para reparos menores, optar por uma franquia mais alta pode gerar uma economia significativa — em alguns casos, de 10% a 20% no prêmio anual.
+
+Faça as contas: se a diferença entre a franquia normal e a reduzida é de R$ 500, mas o desconto no prêmio é de R$ 800 no ano, vale a pena considerar a franquia maior.
+
+4. Acumule Bônus de Renovação (Classe de Bônus)
+
+A cada ano sem sinistro, você sobe uma classe de bônus, que pode chegar a até 35% de desconto no seguro. Esse é um dos maiores fatores de economia a longo prazo.
+
+- Classe 0: sem desconto (primeiro seguro)
+- Classe 1: 10% de desconto
+- Classe 2: 15% de desconto
+- Classe 3 a 7: descontos progressivos até 35%
+
+Dica Patro: Ao trocar de seguradora, solicite a transferência da classe de bônus. Esse é um direito do segurado e muitas pessoas perdem desconto por não saber disso. Na Patro, sempre verificamos e transferimos seu bônus automaticamente.
+
+5. Compare Cotações com uma Corretora Especializada
+
+Essa é talvez a dica mais importante. Cada seguradora tem sua própria fórmula de precificação, e os valores podem variar enormemente para o mesmo carro e perfil. Diferenças de 30% a 50% entre seguradoras são comuns.
+
+Uma corretora como a Patro Seguros faz cotações simultâneas com diversas seguradoras, comparando preços, coberturas e condições. Assim, você tem a garantia de encontrar a melhor relação custo-benefício sem precisar pesquisar sozinho.
+
+Além do preço, avaliamos:
+- Qualidade do atendimento em sinistros
+- Rede de oficinas referenciadas
+- Coberturas inclusas e opcionais
+- Facilidade de acionamento da assistência 24h
+
+Bônus: Outras Formas de Economizar
+
+- Pague à vista: Algumas seguradoras oferecem desconto de 5% a 10% no pagamento à vista.
+- Contrate mais de um seguro: Combinar seguro auto + residencial ou auto + vida pode gerar descontos por pacote.
+- Renove com antecedência: Renovar 30 dias antes do vencimento evita cotações de última hora e permite negociar melhores condições.
+- Indique amigos: Na Patro, nosso programa "Indique um Amigo" oferece benefícios para quem traz novos clientes.
+
+Conclusão
+
+Baratear o seguro auto não significa abrir mão de proteção. Com as estratégias certas — rastreador, perfil correto, franquia adequada, bônus acumulado e uma boa corretora — você pode economizar significativamente e manter seu veículo totalmente protegido.
+
+A Patro Seguros está pronta para fazer uma cotação personalizada e encontrar o melhor seguro auto para o seu perfil. Fale conosco pelo WhatsApp e descubra quanto você pode economizar!`,
+    faqs: [
+      { q: "Qual a dica mais eficiente para baratear o seguro auto?", a: "Comparar cotações com uma corretora especializada é a estratégia com maior impacto. Diferenças de 30% a 50% entre seguradoras são comuns para o mesmo perfil e veículo." },
+      { q: "Instalar rastreador realmente reduz o seguro?", a: "Sim! Dependendo do dispositivo e da seguradora, o desconto pode variar de 5% a 25%. Consulte sua corretora antes de instalar para saber quais são aceitos." },
+      { q: "Posso transferir meu bônus ao trocar de seguradora?", a: "Sim, a transferência da classe de bônus é um direito do segurado. Na Patro, fazemos essa transferência automaticamente para garantir que você não perca o desconto acumulado." },
+      { q: "Aumentar a franquia vale a pena?", a: "Para motoristas cuidadosos que raramente acionam o seguro para reparos menores, sim. Compare a economia no prêmio anual com o valor adicional que pagaria em caso de sinistro." },
+      { q: "Pagar o seguro à vista dá desconto?", a: "Sim, muitas seguradoras oferecem de 5% a 10% de desconto para pagamento à vista. Consulte as condições na sua cotação." },
+    ],
+  },
 };
 
 const defaultArticle = {
