@@ -5,9 +5,6 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Footer from "@/components/Footer";
-import PageMeta from "@/components/PageMeta";
-import { Card, CardContent } from "@/components/ui/card";
 
 const Sobre = () => {
   return (
