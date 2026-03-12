@@ -74,14 +74,14 @@ const Index = () => {
                 Comparamos as principais seguradoras do mercado para encontrar a melhor proteção com o menor custo.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
-                <Link to="/cotacao">
-                  <Button size="lg" className="text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12">
+                <Link to="/cotacao" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12">
                     <Shield className="mr-2 h-4 w-4" aria-hidden="true" />
                     Solicitar Cotação Grátis
                   </Button>
                 </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Falar no WhatsApp
                   </Button>
