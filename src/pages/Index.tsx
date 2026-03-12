@@ -268,7 +268,7 @@ const Index = () => {
                 </Button>
               </Link>
               <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.05] border border-white/[0.08] text-white/50 hover:bg-white/[0.08] hover:text-white/70 font-medium">
+                <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] hover:text-white font-medium">
                   <Phone className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
                   (11) 5199-7500
                 </Button>
