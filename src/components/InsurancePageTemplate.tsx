@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CheckCircle, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, Phone, MessageCircle, ArrowRight, Award } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -19,12 +19,14 @@ interface InsurancePageProps {
   whyPatro: string[];
   faqs: FAQ[];
   relatedInsurances?: { title: string; link: string }[];
+  badge?: string;
 }
 
 const InsurancePageTemplate = ({
   title, subtitle, description, icon,
   coverages, whoNeeds, whyPatro, faqs,
   relatedInsurances = [],
+  badge,
 }: InsurancePageProps) => {
   return (
     <>
@@ -36,6 +38,14 @@ const InsurancePageTemplate = ({
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-28 max-w-3xl mx-auto text-center">
               <div className="text-5xl mb-6 animate-fade-up">{icon}</div>
+              {badge && (
+                <div className="flex justify-center mb-6 animate-fade-up">
+                  <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-amber-400/20 border border-yellow-400/50 text-yellow-300 font-bold text-xs uppercase tracking-wider drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(251,191,36,0.3)' }}>
+                    <Award className="h-4 w-4 text-yellow-300 drop-shadow-[0_0_4px_rgba(251,191,36,0.5)]" />
+                    {badge}
+                  </span>
+                </div>
+              )}
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1">{title}</h1>
               <p className="text-lg text-white/70 mb-10 animate-fade-up-delay-2">{subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
