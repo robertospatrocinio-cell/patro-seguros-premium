@@ -355,7 +355,14 @@ const Header = () => {
               </div>
             </MobileSection>
 
-            <Link to="/consorcio" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Consórcio</Link>
+            <MobileSection id="consorcio" label="Consórcio">
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/consorcio">Visão Geral</MobileLink>
+                <MobileLink to="/consorcio-carro">Carro</MobileLink>
+                <MobileLink to="/consorcio-imoveis">Imóveis</MobileLink>
+                <MobileLink to="/consorcio-veiculos-pesados">Veículos Pesados</MobileLink>
+              </div>
+            </MobileSection>
             <Link to="/sobre" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
             <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
 
