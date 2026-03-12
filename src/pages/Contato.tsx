@@ -80,7 +80,7 @@ const Contato = () => {
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-4 mb-6">
-                      <MapPin className="h-8 w-8 text-primary flex-shrink-0" />
+                      <MapPin className="h-8 w-8 text-primary flex-shrink-0" aria-hidden="true" />
                       <div>
                         <h3 className="text-xl font-semibold mb-2">Nosso Endereço</h3>
                         <p className="text-muted-foreground mb-4">
