@@ -29,7 +29,7 @@ const Contato = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
-                  <Phone className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <Phone className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">Telefone</h3>
                   <a href="tel:1151997500" className="text-primary hover:underline">
                     (11) 5199-7500
