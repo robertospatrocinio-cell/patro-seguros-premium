@@ -232,10 +232,10 @@ const Header = () => {
                 </div>
               </div>
 
-              <Link to="/consorcio" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Consórcio</Link>
-              <Link to="/blog" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Blog</Link>
-              <Link to="/sobre" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Sobre</Link>
-              <Link to="/contato" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Contato</Link>
+              <Link to="/consorcio" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Consórcio</Link>
+              <Link to="/blog" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Blog</Link>
+              <Link to="/sobre" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Sobre</Link>
+              <Link to="/contato" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Contato</Link>
             </div>
 
             <div className="hidden lg:flex items-center gap-2">
