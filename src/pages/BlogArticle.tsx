@@ -2728,6 +2728,127 @@ A Patro Seguros está pronta para fazer uma cotação personalizada e encontrar 
       { q: "Pagar o seguro à vista dá desconto?", a: "Sim, muitas seguradoras oferecem de 5% a 10% de desconto para pagamento à vista. Consulte as condições na sua cotação." },
     ],
   },
+  "coberturas-assistencia-24h-seguro-residencial": {
+    title: "Coberturas da Assistência 24h e Benefícios do Seguro Residencial",
+    content: `O seguro residencial vai muito além da proteção contra incêndio. Um dos maiores diferenciais — e muitas vezes o mais utilizado pelos segurados — é a assistência 24 horas, que oferece serviços práticos para o dia a dia da sua casa.
+
+Neste guia completo, a Patro Seguros explica todas as coberturas da assistência 24h e os principais benefícios do seguro residencial.
+
+O Que É a Assistência 24h do Seguro Residencial?
+
+A assistência 24 horas é um pacote de serviços emergenciais incluído na maioria das apólices de seguro residencial. Funciona como um "plano de manutenção" da sua casa: basta ligar para a central da seguradora e solicitar o serviço, sem custo adicional (ou com custo reduzido, dependendo do plano).
+
+A assistência pode ser acionada quantas vezes forem necessárias durante a vigência do seguro, respeitando os limites de cada apólice.
+
+Principais Serviços da Assistência 24h
+
+1. Chaveiro
+
+Perdeu a chave, trancou dentro de casa ou a fechadura quebrou? A assistência envia um chaveiro profissional para abrir a porta, trocar a fechadura ou fazer cópias de chave.
+
+- Atendimento emergencial para portas trancadas
+- Troca de segredo e instalação de fechaduras
+- Disponível 24 horas, inclusive finais de semana e feriados
+
+2. Encanador / Hidráulica
+
+Vazamentos, canos estourados, entupimentos e problemas com torneiras e válvulas são resolvidos pela assistência hidráulica.
+
+- Reparo de vazamentos em tubulações
+- Desentupimento de pias, ralos e vasos sanitários
+- Troca de torneiras, sifões e flexíveis
+- Reparo em válvulas de descarga e caixas d'água
+
+3. Eletricista
+
+Problemas elétricos podem ser perigosos e urgentes. A assistência envia um eletricista qualificado para resolver:
+
+- Curto-circuito e queda de disjuntores
+- Troca de tomadas, interruptores e lâmpadas
+- Reparo em chuveiros elétricos
+- Verificação de quadros de distribuição
+- Instalação de ventiladores de teto
+
+4. Vidraceiro
+
+Vidros quebrados em janelas, portas e box de banheiro são substituídos ou reparados:
+
+- Troca de vidros em janelas e portas
+- Reparo em box de banheiro
+- Instalação de vidros em esquadrias
+
+5. Desentupimento
+
+Além do encanador, muitas apólices oferecem serviço específico de desentupimento com equipamentos profissionais:
+
+- Desentupimento de esgoto e redes pluviais
+- Limpeza de caixas de gordura
+- Desentupimento de vasos sanitários e ralos
+
+6. Limpeza Pós-Sinistro
+
+Após um sinistro como incêndio, alagamento ou vendaval, a seguradora providencia a limpeza do imóvel:
+
+- Remoção de entulho e escombros
+- Limpeza de fuligem e resíduos
+- Secagem e desumidificação após alagamentos
+
+7. Cobertura Provisória de Telhado
+
+Se o telhado for danificado por vendaval, chuva de granizo ou queda de árvore, a assistência providencia cobertura provisória para evitar infiltrações até o reparo definitivo.
+
+8. Vigilância e Guarda do Imóvel
+
+Em caso de sinistro que comprometa a segurança do imóvel (porta arrombada, janela quebrada), a seguradora pode enviar um vigilante temporário para guardar o local.
+
+Coberturas Principais do Seguro Residencial
+
+Além da assistência 24h, o seguro residencial oferece coberturas contra diversos riscos:
+
+Cobertura Básica (Obrigatória)
+- Incêndio, queda de raio e explosão de qualquer natureza
+
+Coberturas Adicionais (Opcionais)
+- Roubo e furto qualificado de bens dentro do imóvel
+- Danos elétricos a equipamentos e eletrodomésticos
+- Vendaval, furacão, ciclone, tornado e granizo
+- Alagamento e inundação
+- Desmoronamento total ou parcial
+- Impacto de veículos terrestres e queda de aeronaves
+- Responsabilidade civil familiar (danos causados a terceiros)
+- Quebra de vidros, espelhos e mármores
+- Perda ou pagamento de aluguel (se o imóvel ficar inabitável)
+
+Benefícios Extras que Muita Gente Não Conhece
+
+Muitas seguradoras incluem benefícios adicionais que tornam o seguro residencial ainda mais vantajoso:
+
+- Desconto em lojas parceiras: Materiais de construção, decoração e eletrodomésticos com preços especiais.
+- Check-up residencial: Visita técnica para verificar instalações elétricas e hidráulicas preventivamente.
+- Hospedagem temporária: Se o imóvel ficar inabitável após um sinistro, a seguradora cobre hospedagem em hotel.
+- Mudança temporária: Transporte de mudança para um imóvel provisório em caso de sinistro grave.
+- Cesta básica: Algumas seguradoras fornecem cesta básica em caso de sinistro que comprometa o estoque de alimentos.
+- Guarda de móveis: Armazenamento temporário de móveis e pertences durante reparos no imóvel.
+
+Quanto Custa o Seguro Residencial?
+
+O seguro residencial é um dos mais acessíveis do mercado. Para apartamentos, o custo pode começar a partir de R$ 150 a R$ 300 por ano. Para casas, os valores variam de R$ 200 a R$ 600 por ano, dependendo das coberturas escolhidas.
+
+Considerando que uma única visita de encanador ou eletricista pode custar entre R$ 150 e R$ 400, o seguro residencial se paga em uma única utilização da assistência 24h.
+
+Conclusão
+
+O seguro residencial é uma proteção completa e acessível que vai muito além do incêndio. A assistência 24h resolve problemas do dia a dia — chaveiro, encanador, eletricista — sem custo adicional, e as coberturas protegem seu patrimônio contra imprevistos.
+
+A Patro Seguros faz cotações com as melhores seguradoras para encontrar o plano ideal para sua casa ou apartamento. Fale conosco pelo WhatsApp e proteja seu lar!`,
+    faqs: [
+      { q: "Quantas vezes posso usar a assistência 24h do seguro residencial?", a: "Na maioria das apólices, não há limite de acionamentos durante a vigência. Cada serviço tem um limite de valor ou tempo de mão de obra por chamado, mas você pode acionar quantas vezes precisar." },
+      { q: "A assistência 24h cobre materiais ou só mão de obra?", a: "Geralmente cobre mão de obra e materiais básicos (torneira, sifão, disjuntor). Materiais especiais ou de maior valor podem ser cobrados à parte. Consulte as condições da sua apólice." },
+      { q: "Seguro residencial cobre danos elétricos em eletrodomésticos?", a: "Sim, com a cobertura de danos elétricos. Se uma oscilação de energia queimar sua TV, geladeira ou computador, o seguro indeniza o reparo ou a reposição do equipamento." },
+      { q: "Inquilino pode contratar seguro residencial?", a: "Sim! Inquilinos podem (e devem) contratar seguro residencial para proteger seus bens dentro do imóvel. A cobertura do proprietário protege a estrutura, mas não os pertences do inquilino." },
+      { q: "Quanto custa um seguro residencial?", a: "A partir de R$ 150/ano para apartamentos e R$ 200/ano para casas. É um dos seguros mais acessíveis do mercado e se paga com uma única utilização da assistência 24h." },
+    ],
+  },
 };
 
 const defaultArticle = {
