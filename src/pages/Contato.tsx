@@ -54,7 +54,7 @@ const Contato = () => {
 
               <Card className="text-center hover:shadow-lg transition-base">
                 <CardContent className="pt-6">
-                  <Mail className="h-12 w-12 mx-auto mb-4 text-primary" />
+                  <Mail className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">E-mail</h3>
                   <a href="mailto:contato@patroseguros.com.br" className="text-primary hover:underline text-sm">
                     contato@patroseguros.com.br
