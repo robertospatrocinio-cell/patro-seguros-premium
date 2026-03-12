@@ -258,7 +258,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,hsla(215,100%,50%,0.06),transparent)]" />
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-4 font-extrabold">Peça sua cotação agora.</h2>
-            <p className="text-[14px] text-white/35 mb-12 max-w-md mx-auto">
+            <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
               Gratuita, sem compromisso. Resposta em até 2 horas com propostas comparativas.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
