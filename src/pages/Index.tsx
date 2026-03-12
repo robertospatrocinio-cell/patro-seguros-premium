@@ -22,8 +22,8 @@ const solutions = [
 ];
 
 const stats = [
-  { value: "14+", label: "Seguradoras" },
-  { value: "11", label: "Operadoras de Saúde" },
+  { value: "16+", label: "Seguradoras" },
+  { value: "20", label: "Operadoras de Saúde" },
   { value: "2h", label: "Tempo de Resposta" },
   { value: "100%", label: "Cotação Gratuita" },
 ];
