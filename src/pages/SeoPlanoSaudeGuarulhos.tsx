@@ -19,7 +19,7 @@ const SeoPlanoSaudeGuarulhos = () => (
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/planos-de-saude">
               <Button size="lg" className="text-lg px-8">Simular Plano de Saúde <ArrowRight className="ml-2 h-5 w-5" /></Button>
-            </a>
+            </Link>
             <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20cotar%20plano%20de%20sa%C3%BAde%20em%20Guarulhos" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="cta"><MessageCircle className="mr-2 h-5 w-5" /> WhatsApp</Button>
             </a>
