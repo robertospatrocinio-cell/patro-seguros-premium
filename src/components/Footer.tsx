@@ -23,8 +23,8 @@ const Footer = () => {
                 { href: "https://www.facebook.com/patroseguros", icon: Facebook, label: "Facebook" },
                 { href: "https://www.linkedin.com/company/patro-seguros", icon: Linkedin, label: "LinkedIn" },
               ].map(({ href, icon: Icon, label }) => (
-                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] flex items-center justify-center transition-base" aria-label={`Patro Seguros no ${label}`}>
-                  <Icon className="h-3.5 w-3.5 text-white/30" aria-hidden="true" />
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] flex items-center justify-center transition-base" aria-label={`Patro Seguros no ${label}`}>
+                  <Icon className="h-3.5 w-3.5 text-white/50" aria-hidden="true" />
                 </a>
               ))}
             </div>
