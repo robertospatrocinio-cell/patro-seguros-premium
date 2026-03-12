@@ -12,7 +12,8 @@ const operadoras = [
   { name: "Amil Saúde", desc: "Planos individuais e empresariais com excelente custo-benefício" },
   { name: "SulAmérica Saúde", desc: "Tradição e qualidade em saúde suplementar" },
   { name: "Porto Saúde", desc: "Inovação e tecnologia em planos de saúde" },
-  { name: "NotreDame Intermédica", desc: "Rede própria e preços acessíveis" },
+  { name: "HapVida/NotreDame Intermédica", desc: "Rede própria e preços acessíveis" },
+  { name: "Prevent Senior", desc: "Planos acessíveis com foco no público sênior" },
   { name: "MedSenior", desc: "Especialista em planos para a terceira idade" },
   { name: "Omint", desc: "Planos premium com atendimento diferenciado" },
 ];
