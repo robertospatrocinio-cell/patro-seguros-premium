@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, ChevronRight, Award, Car, Heart, Home, Building2, Tractor } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
