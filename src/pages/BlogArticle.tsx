@@ -7,6 +7,145 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "cobertura-vidros-retrovisores-farois-seguro-auto": {
+    title: "Cobertura de Vidros, Retrovisores e Faróis no Seguro Auto: Guia Completo",
+    content: `Trocar um para-brisa, um retrovisor ou um farol pode pesar muito no bolso. Felizmente, a maioria dos seguros auto oferece cobertura específica para vidros, retrovisores e faróis — muitas vezes sem franquia ou com franquia reduzida. Neste guia completo, a Patro Seguros explica tudo o que você precisa saber.
+
+O Que É a Cobertura de Vidros no Seguro Auto?
+
+A cobertura de vidros é uma proteção adicional (ou acessória) do seguro auto que cobre a troca ou reparo de peças de vidro e iluminação do veículo. Ela funciona de forma independente da cobertura de casco, ou seja, acionar a cobertura de vidros não afeta o bônus do seguro na maioria das seguradoras.
+
+Os itens cobertos geralmente incluem:
+
+- Para-brisa dianteiro e traseiro
+- Vidros laterais (portas e fixos)
+- Retrovisores externos (espelho e carcaça)
+- Faróis dianteiros e traseiros (lanternas)
+- Teto solar (quando contratado)
+
+Como Funciona a Cobertura de Vidros?
+
+A cobertura de vidros funciona de maneira simples e prática:
+
+1. Acionamento: ao sofrer dano em algum dos itens cobertos, o segurado entra em contato com a seguradora ou corretora.
+
+2. Autorização: a seguradora autoriza o reparo ou substituição, geralmente em até 24 horas.
+
+3. Reparo ou troca: o serviço é realizado em oficinas e vidraçarias credenciadas pela seguradora, com peças originais ou equivalentes.
+
+4. Franquia: dependendo do plano contratado, pode haver franquia parcial, franquia zero ou participação do segurado.
+
+Tipos de Cobertura de Vidros
+
+Existem diferentes modalidades de cobertura de vidros no mercado:
+
+1. Cobertura Básica: cobre apenas para-brisa dianteiro e traseiro. É a opção mais econômica, ideal para quem quer proteção essencial.
+
+2. Cobertura Completa: inclui para-brisas, vidros laterais, retrovisores e faróis. É a mais contratada e oferece melhor custo-benefício.
+
+3. Cobertura Premium: além de todos os vidros, inclui teto solar, sensores de chuva e câmeras ADAS (sistemas de assistência ao motorista).
+
+Cobertura de Retrovisores: O Que Está Incluído?
+
+Os retrovisores são peças frequentemente danificadas no trânsito. A cobertura geralmente inclui:
+
+- Espelho do retrovisor: a lente espelhada interna.
+- Carcaça: a estrutura externa que abriga o espelho.
+- Mecanismo elétrico: o motor de regulagem elétrica, quando aplicável.
+- Retrovisor com sensores: modelos com sensores de ponto cego e aquecimento.
+- Pintura: em algumas seguradoras, inclui a pintura da carcaça na cor do veículo.
+
+Atenção: o retrovisor interno (dentro do carro) geralmente não está coberto, pois faz parte do acabamento do veículo.
+
+Cobertura de Faróis e Lanternas: Como Funciona?
+
+A cobertura de faróis protege contra danos nos sistemas de iluminação do veículo:
+
+- Faróis dianteiros: incluindo faróis de neblina, faróis de LED, xenon e halógenos.
+- Lanternas traseiras: todas as lanternas, incluindo a do freio central (brake light).
+- Pisca lateral: setas laterais integradas aos retrovisores ou para-lamas.
+
+Importante: faróis de tecnologia avançada (LED, laser, matrix) são significativamente mais caros. Certifique-se de que sua apólice cobre o tipo de farol do seu veículo sem limitação de valor.
+
+Quando Acionar a Cobertura de Vidros?
+
+Você pode acionar a cobertura nas seguintes situações:
+
+- Pedras na estrada: a causa mais comum de danos ao para-brisa.
+- Vandalismo: vidros quebrados por ação de vândalos.
+- Tentativa de furto: vidros quebrados durante tentativa de arrombamento.
+- Acidentes de trânsito: qualquer colisão que danifique vidros ou faróis.
+- Fenômenos naturais: granizo, queda de árvores e objetos.
+- Trincas espontâneas: variação térmica ou defeito de fabricação.
+
+Dica: muitas seguradoras oferecem reparo de trincas sem custo, evitando a troca completa do para-brisa. Isso é mais rápido, mais barato e ambientalmente mais sustentável.
+
+Cobertura de Vidros Tem Franquia?
+
+A franquia varia conforme a seguradora e o plano contratado:
+
+- Franquia zero (sem custo para o segurado): disponível em planos mais completos. O segurado não paga nada na troca.
+- Franquia reduzida: o segurado paga um valor fixo menor que a franquia normal do seguro.
+- Franquia parcial: o segurado paga um percentual do valor da peça.
+- Sem cobertura de vidros: em seguros mais básicos, vidros podem não estar incluídos. Nesse caso, o segurado pode contratar à parte.
+
+Acionar a cobertura de vidros afeta o bônus? Na maioria das seguradoras, NÃO. A cobertura de vidros é independente e não interfere na classe de bônus do seguro.
+
+Quanto Custa a Cobertura de Vidros no Seguro Auto?
+
+O custo da cobertura de vidros representa, em média, 10% a 20% do valor total do seguro auto. Fatores que influenciam o preço:
+
+- Tipo de veículo: carros importados e de luxo têm peças mais caras.
+- Tecnologia dos vidros: para-brisas com sensores, aquecimento ou projeção head-up display custam mais.
+- Tipo de faróis: faróis LED e matrix são significativamente mais caros que halógenos.
+- Região: grandes cidades tendem a ter mais sinistros de vidros.
+- Histórico: se você já acionou vidros recentemente, o custo pode aumentar.
+
+Valores médios de peças (para referência):
+
+- Para-brisa comum: R$ 500 a R$ 1.500
+- Para-brisa com sensores: R$ 2.000 a R$ 8.000
+- Retrovisor completo: R$ 300 a R$ 2.500
+- Farol dianteiro LED: R$ 2.000 a R$ 15.000
+- Vidro lateral: R$ 200 a R$ 800
+
+Dicas da Patro Seguros Para Economizar
+
+1. Contrate cobertura completa de vidros: evita surpresas com custos de troca que podem superar R$ 10.000 em veículos modernos.
+
+2. Prefira reparo a troca: quando possível, o reparo de trincas é mais rápido e econômico.
+
+3. Mantenha distância segura: a principal causa de danos ao para-brisa são pedras lançadas por veículos à frente.
+
+4. Use estacionamento coberto: protege contra granizo e queda de objetos.
+
+5. Compare propostas: a Patro Seguros cota com diversas seguradoras para encontrar o melhor custo-benefício.
+
+6. Verifique a rede credenciada: certifique-se de que há vidraçarias credenciadas próximas à sua região.
+
+7. Atenção ao teto solar: se seu veículo possui teto solar, verifique se está incluído na cobertura.
+
+8. Não espere a trinca crescer: trincas pequenas podem ser reparadas; se crescerem, exigem troca completa.
+
+Como Contratar a Cobertura de Vidros com a Patro Seguros?
+
+É simples e rápido:
+
+1. Solicite uma cotação pelo nosso site, WhatsApp ou telefone.
+2. Informe o modelo do veículo e o tipo de cobertura desejada.
+3. Nossos especialistas comparam propostas de múltiplas seguradoras.
+4. Você escolhe o melhor plano e já está protegido.
+
+A Patro Seguros é especialista em encontrar a cobertura ideal de vidros para cada perfil de cliente, sempre com o melhor custo-benefício do mercado.`,
+    faqs: [
+      { q: "A cobertura de vidros é obrigatória no seguro auto?", a: "Não, a cobertura de vidros é acessória (opcional). Porém, é altamente recomendada, pois a troca de vidros e faróis pode custar milhares de reais, especialmente em veículos com tecnologia avançada." },
+      { q: "Acionar a cobertura de vidros aumenta o preço do seguro na renovação?", a: "Na maioria das seguradoras, não. A cobertura de vidros é independente do casco e não afeta a classe de bônus do segurado, mesmo que seja acionada várias vezes." },
+      { q: "Quantas vezes posso acionar a cobertura de vidros por ano?", a: "Geralmente não há limite de acionamentos por ano para a cobertura de vidros. Porém, cada seguradora tem suas regras específicas — consulte sua apólice ou fale com a Patro Seguros para confirmar." },
+      { q: "O seguro cobre para-brisa com sensor de chuva e câmera ADAS?", a: "Depende do plano contratado. Planos premium geralmente cobrem para-brisas com sensores, câmeras ADAS e projeção head-up display. Planos básicos podem ter limitação de valor." },
+      { q: "Posso contratar a cobertura de vidros separadamente, sem seguro auto?", a: "Algumas seguradoras oferecem planos avulsos de proteção de vidros, mas o custo-benefício é melhor quando contratado junto ao seguro auto completo." },
+      { q: "O seguro cobre vidros blindados?", a: "Vidros blindados possuem cobertura específica e valor diferenciado. É necessário informar a blindagem na contratação do seguro para garantir a cobertura adequada." },
+    ],
+  },
   "seguro-acidentes-pessoais-passageiros-uber-vans": {
     title: "Seguro de Acidentes Pessoais para Passageiros de Uber, Vans Escolares e Vans de Transporte",
     content: `O transporte de passageiros por aplicativos como Uber, 99 e vans escolares ou de fretamento cresceu exponencialmente nos últimos anos. Com isso, uma pergunta fundamental surge: quem protege o passageiro em caso de acidente? A resposta é o Seguro de Acidentes Pessoais de Passageiros (APP).
