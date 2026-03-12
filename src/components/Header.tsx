@@ -79,7 +79,6 @@ const Header = () => {
 
               <NavDropdown label="Seguros Pessoais">
                 <DropLink to="/seguro-auto">Seguro Auto</DropLink>
-                <DropLink to="/seguro-caminhao">Seguro Caminhão</DropLink>
                 <DropLink to="/seguro-moto">Seguro Moto</DropLink>
                 <DropLink to="/seguro-vida">Seguro de Vida</DropLink>
                 <DropLink to="/seguro-residencial">Seguro Residencial</DropLink>
@@ -88,6 +87,7 @@ const Header = () => {
                 <DropLink to="/seguro-fianca">Seguro Fiança</DropLink>
                 <DropLink to="/seguro-fianca-locaticia">Fiança Locatícia</DropLink>
                 <DropLink to="/seguro-acidentes-pessoais">Acidentes Pessoais</DropLink>
+                <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
                 <DropLink to="/previdencia-privada">Previdência Privada</DropLink>
                 <DropLink to="/planos-de-saude">Planos de Saúde</DropLink>
                 <DropLink to="/seguro-odonto">Seguro Odonto</DropLink>
@@ -95,6 +95,7 @@ const Header = () => {
 
               <NavDropdown label="Empresarial">
                 <DropLink to="/seguro-empresarial">Seguro Empresarial</DropLink>
+                <DropLink to="/seguro-caminhao">Seguro Caminhão</DropLink>
                 <DropLink to="/seguro-frota">Seguro de Frota</DropLink>
                 <DropLink to="/seguro-transporte">Seguro de Transporte</DropLink>
                 <DropLink to="/seguro-rc">Responsabilidade Civil</DropLink>
@@ -103,7 +104,6 @@ const Header = () => {
                 <DropLink to="/seguro-engenharia">Seguro Engenharia</DropLink>
                 <DropLink to="/seguro-cyber">Seguro Cyber</DropLink>
                 <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
-                <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
                 <DropLink to="/seguro-vida-pme">Vida PME</DropLink>
               </NavDropdown>
 
@@ -147,7 +147,6 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-auto", label: "Auto" },
-                  { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-moto", label: "Moto" },
                   { to: "/seguro-vida", label: "Vida" },
                   { to: "/seguro-residencial", label: "Residencial" },
@@ -155,6 +154,7 @@ const Header = () => {
                   { to: "/seguro-celular", label: "Celular" },
                   { to: "/planos-de-saude", label: "Saúde" },
                   { to: "/seguro-acidentes-pessoais", label: "Acid. Pessoais" },
+                  { to: "/seguro-estagiario", label: "Estagiário" },
                   { to: "/previdencia-privada", label: "Previdência" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
@@ -167,13 +167,13 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-empresarial", label: "Empresarial" },
+                  { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-frota", label: "Frota" },
                   { to: "/seguro-transporte", label: "Transporte" },
                   { to: "/seguro-rc", label: "RC" },
                   { to: "/seguro-condominio", label: "Condomínio" },
                   { to: "/seguro-cyber", label: "Cyber" },
                   { to: "/seguro-ambiental", label: "Ambiental" },
-                  { to: "/seguro-estagiario", label: "Estagiário" },
                   { to: "/seguro-vida-pme", label: "Vida PME" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
