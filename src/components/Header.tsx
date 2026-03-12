@@ -21,14 +21,14 @@ const Header = () => {
       <div className="border-b border-border/50 last:border-0">
         <button
           onClick={() => toggleMobileSection(id)}
-          className="flex items-center justify-between w-full py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary transition-base"
+          className="flex items-center justify-between w-full py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary transition-base"
           aria-expanded={isOpen}
         >
           {label}
-          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+          <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground/50 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
         </button>
         {isOpen && (
-          <div className="pb-3 px-3 animate-fade-in">
+          <div className="pb-3 px-3">
             {children}
           </div>
         )}
@@ -37,11 +37,11 @@ const Header = () => {
   };
 
   const MobileSubLabel = ({ children }: { children: React.ReactNode }) => (
-    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-2 mb-1 px-2">{children}</p>
+    <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mt-3 mb-1 px-2">{children}</p>
   );
 
   const MobileLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
-    <Link to={to} className="block py-1.5 px-2 text-sm text-foreground/70 hover:text-primary rounded-lg hover:bg-muted/50 transition-base" onClick={close}>
+    <Link to={to} className="block py-1.5 px-2 text-[13px] text-foreground/60 hover:text-primary rounded-md hover:bg-muted/50 transition-base" onClick={close}>
       {children}
     </Link>
   );
