@@ -12,7 +12,7 @@ const parceiros = ["Porto", "HDI", "Allianz", "Tokio Marine", "Mapfre", "Bradesc
 
 const solutions = [
   { title: "Seguro Auto", desc: "Carro, moto e caminhão", icon: Car, link: "/seguro-auto" },
-  { title: "Plano de Saúde", desc: "11 operadoras comparadas", icon: Heart, link: "/planos-de-saude" },
+  { title: "Plano de Saúde", desc: "20 operadoras comparadas", icon: Heart, link: "/planos-de-saude" },
   { title: "Seguro Empresarial", desc: "PME, lojas e galpões", icon: Building2, link: "/seguro-empresarial" },
   { title: "Seguro Residencial", desc: "Casa e apartamento", icon: Home, link: "/seguro-residencial" },
   { title: "Seguro de Vida", desc: "Individual e familiar", icon: Shield, link: "/seguro-vida" },
