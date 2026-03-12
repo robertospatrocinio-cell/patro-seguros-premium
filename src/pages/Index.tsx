@@ -61,9 +61,9 @@ const Index = () => {
           <div className="container mx-auto px-4 relative">
             <div className="py-28 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="animate-fade-up">
-                <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] font-medium bg-white/[0.06] text-white/50 border border-white/[0.06] mb-8">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--accent))]" aria-hidden="true" />
-                  SUSEP 211112427
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-[0.08em] bg-gradient-to-r from-[hsl(43,80%,55%)] to-[hsl(38,90%,45%)] text-white border border-[hsl(43,70%,60%)]/30 shadow-[0_0_16px_hsla(43,80%,50%,0.25)] mb-8">
+                  <Award className="h-3.5 w-3.5" aria-hidden="true" />
+                  Melhor Corretora de Guarulhos
                 </span>
               </div>
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
