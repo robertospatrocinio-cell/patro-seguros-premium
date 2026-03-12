@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-1 mb-5">
               <img src={logoShield} alt="" className="w-16 h-16 object-contain shrink-0" aria-hidden="true" />
-              <img src={logoText3d} alt="Patro Seguros" className="h-14 object-contain brightness-200" />
+              <img src={logoText3d} alt="Patro Seguros" className="h-28 object-contain brightness-200" />
             </div>
             <p className="text-[13px] text-white/60 mb-6 leading-relaxed max-w-xs">
               Corretora de seguros em Guarulhos. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.

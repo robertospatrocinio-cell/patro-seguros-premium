@@ -79,7 +79,7 @@ const Header = () => {
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
             <Link to="/" className="flex items-center gap-1" aria-label="Patro Seguros — Página inicial">
               <img src={logoShield} alt="" className="w-16 h-16 object-contain shrink-0 -my-3" aria-hidden="true" />
-              <img src={logoText3d} alt="Patro Seguros" className="h-14 object-contain" />
+              <img src={logoText3d} alt="Patro Seguros" className="h-28 object-contain" />
             </Link>
 
             {/* Desktop nav */}
