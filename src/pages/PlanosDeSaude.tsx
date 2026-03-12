@@ -89,7 +89,7 @@ const PlanosDeSaude = () => {
             <h2 className="mb-6 text-white">Encontre o Plano de Saúde Ideal</h2>
             <p className="text-xl mb-8 text-white/90">Use nosso simulador ou fale com um especialista</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://www.patroseguros.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="secondary">Simular Agora</Button>
               </a>
               <a href="tel:1151997500">

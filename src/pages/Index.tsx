@@ -186,11 +186,11 @@ const Index = () => {
                     Fazer Cotação Online <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
-                <a href="https://www.patroseguros.com" target="_blank" rel="noopener noreferrer">
+                <Link to="/planos-de-saude">
                   <Button size="lg" variant="outline" className="text-base px-8 rounded-xl h-12">
                     Simular Plano de Saúde
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
