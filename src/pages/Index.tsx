@@ -12,7 +12,7 @@ const parceiros = ["Porto", "HDI", "Allianz", "Tokio Marine", "Mapfre", "Bradesc
 
 const solutions = [
   { title: "Seguro Auto", desc: "Carro, moto e caminhão", icon: Car, link: "/seguro-auto" },
-  { title: "Plano de Saúde", desc: "11 operadoras comparadas", icon: Heart, link: "/planos-de-saude" },
+  { title: "Plano de Saúde", desc: "20 operadoras comparadas", icon: Heart, link: "/planos-de-saude" },
   { title: "Seguro Empresarial", desc: "PME, lojas e galpões", icon: Building2, link: "/seguro-empresarial" },
   { title: "Seguro Residencial", desc: "Casa e apartamento", icon: Home, link: "/seguro-residencial" },
   { title: "Seguro de Vida", desc: "Individual e familiar", icon: Shield, link: "/seguro-vida" },
@@ -22,8 +22,8 @@ const solutions = [
 ];
 
 const stats = [
-  { value: "14+", label: "Seguradoras" },
-  { value: "11", label: "Operadoras de Saúde" },
+  { value: "16+", label: "Seguradoras" },
+  { value: "20", label: "Operadoras de Saúde" },
   { value: "2h", label: "Tempo de Resposta" },
   { value: "100%", label: "Cotação Gratuita" },
 ];
@@ -31,7 +31,7 @@ const stats = [
 const diferenciais = [
   { icon: Zap, title: "Cotação em até 2 horas", desc: "Propostas comparativas de várias seguradoras entregues rapidamente." },
   { icon: Users, title: "Consultor dedicado", desc: "Especialista analisa seu perfil e recomenda exatamente o que faz sentido." },
-  { icon: Shield, title: "14+ seguradoras", desc: "Porto, Tokio Marine, Allianz, HDI e mais — comparamos todas." },
+  { icon: Shield, title: "16+ seguradoras", desc: "Porto, Tokio Marine, Allianz, HDI e mais — comparamos todas." },
   { icon: Headphones, title: "Suporte em sinistro", desc: "Cuidamos de todo o processo: abertura, acompanhamento e resolução." },
 ];
 
