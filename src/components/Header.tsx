@@ -89,7 +89,7 @@ const Header = () => {
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
-              <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Início</Link>
+              <Link to="/" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Início</Link>
 
               {/* Pessoal — mega menu */}
               <div className="relative group">
