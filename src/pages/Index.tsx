@@ -69,7 +69,7 @@ const Index = () => {
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
                 Protegemos você, sua família e sua empresa.
               </h1>
-              <p className="text-[15px] md:text-base text-white/45 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
+              <p className="text-[15px] md:text-base text-white/70 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
                 Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
               </p>
 
@@ -81,7 +81,7 @@ const Index = () => {
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.05] border border-white/[0.08] text-white/60 hover:bg-white/[0.08] hover:text-white/80 font-medium tracking-tight">
+                  <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] hover:text-white font-medium tracking-tight">
                     <MessageCircle className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
                     WhatsApp
                   </Button>
@@ -176,7 +176,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,50%,0.08),transparent)]" />
               <div className="relative">
                 <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto Online</h2>
-                <p className="text-white/40 mb-8 text-[14px] max-w-md mx-auto">
+                <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
                   Auto, moto, caminhão e vans — resultado em minutos pelo nosso sistema.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -190,7 +190,7 @@ const Index = () => {
                     </Button>
                   </a>
                   <Link to="/planos-de-saude">
-                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white/[0.06] border border-white/[0.08] text-white/60 hover:bg-white/[0.1] font-medium">
+                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] font-medium">
                       Simular Plano de Saúde
                     </Button>
                   </Link>
@@ -258,7 +258,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,hsla(215,100%,50%,0.06),transparent)]" />
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-4 font-extrabold">Peça sua cotação agora.</h2>
-            <p className="text-[14px] text-white/35 mb-12 max-w-md mx-auto">
+            <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
               Gratuita, sem compromisso. Resposta em até 2 horas com propostas comparativas.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -268,7 +268,7 @@ const Index = () => {
                 </Button>
               </Link>
               <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.05] border border-white/[0.08] text-white/50 hover:bg-white/[0.08] hover:text-white/70 font-medium">
+                <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] hover:text-white font-medium">
                   <Phone className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
                   (11) 5199-7500
                 </Button>
