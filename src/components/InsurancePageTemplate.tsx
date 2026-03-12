@@ -29,9 +29,14 @@ const InsurancePageTemplate = ({
   coverages, whoNeeds, whyPatro, faqs,
   relatedInsurances = [],
   badge,
+  metaDescription,
 }: InsurancePageProps) => {
   return (
     <>
+      <PageMeta
+        title={title}
+        description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
+      />
       <Header />
       <main>
         {/* Hero */}
