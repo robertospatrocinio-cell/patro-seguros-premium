@@ -22,6 +22,7 @@ const operadoras = [
 const PlanosDeSaude = () => {
   return (
     <>
+      <PageMeta title="Planos de Saúde" description="Compare planos de saúde das melhores operadoras: Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis para pessoa física e empresas em Guarulhos." />
       <Header />
       <main>
         <section className="gradient-hero py-20">

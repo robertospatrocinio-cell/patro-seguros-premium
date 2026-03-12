@@ -10,6 +10,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 
 const SeoCorretoraGuarulhos = () => (
   <>
+    <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — a melhor corretora de seguros de Guarulhos. Atendimento consultivo, cotação grátis e parceria com as principais seguradoras do Brasil." />
     <Header />
     <main>
       <section className="gradient-hero py-20">

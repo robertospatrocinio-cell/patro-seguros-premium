@@ -52,6 +52,7 @@ const IndiqueAmigo = () => {
 
   return (
     <>
+      <PageMeta title="Indique um Amigo" description="Indique um amigo para a Patro Seguros e ganhe benefícios. Programa de indicação com vantagens para quem indica e quem é indicado." />
       <Header />
       <main>
         <section className="gradient-hero py-20">
