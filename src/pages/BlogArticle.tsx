@@ -7,6 +7,140 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "seguro-condominio-guia-completo": {
+    title: "Seguro de Condomínio: Guia Completo — Obrigatoriedade, Coberturas e Como Contratar",
+    content: `Você sabia que o seguro de condomínio é obrigatório por lei no Brasil? Seja residencial, comercial ou misto, todo condomínio edilício deve ter seguro contra incêndio e outros riscos. Neste guia completo, a Patro Seguros explica tudo o que síndicos, administradoras e condôminos precisam saber.
+
+O Seguro de Condomínio É Obrigatório?
+
+Sim. O Código Civil Brasileiro (Art. 1.346) e a Lei 4.591/64 determinam que todo condomínio edilício é obrigado a contratar seguro contra incêndio ou destruição, total ou parcial, da edificação.
+
+A responsabilidade pela contratação é do síndico. O não cumprimento dessa obrigação pode gerar:
+
+- Responsabilidade civil pessoal do síndico: em caso de sinistro sem seguro, o síndico pode ser processado e responder com seu patrimônio pessoal.
+- Multa e destituição: a assembleia pode destituir o síndico por negligência.
+- Prejuízos irrecuperáveis: sem seguro, os custos de reconstrução recaem sobre todos os condôminos.
+
+O Que o Seguro de Condomínio Cobre?
+
+O seguro condominial possui coberturas obrigatórias (básicas) e coberturas opcionais (adicionais) que ampliam a proteção.
+
+Coberturas Obrigatórias (Básicas):
+
+1. Incêndio: cobertura contra danos causados por fogo, incluindo propagação entre unidades e áreas comuns.
+
+2. Queda de Raio: danos estruturais e a equipamentos causados por descarga elétrica atmosférica.
+
+3. Explosão de Qualquer Natureza: inclui explosão de gás, caldeiras, vasos de pressão e outros equipamentos.
+
+Coberturas Opcionais (Recomendadas):
+
+4. Danos Elétricos: proteção para curtos-circuitos, sobrecarga e variação de tensão que danifiquem equipamentos do condomínio — elevadores, bombas, portões, câmeras, interfones e central de segurança.
+
+5. Responsabilidade Civil do Condomínio: cobre danos corporais e materiais causados a terceiros nas áreas comuns — queda em piso molhado, acidente em elevador, queda de objetos da fachada.
+
+6. Responsabilidade Civil do Síndico: proteção para o síndico contra ações judiciais por atos de gestão — erros administrativos, omissões e decisões que causem prejuízo ao condomínio.
+
+7. Vendaval, Granizo e Fumaça: danos à estrutura causados por fenômenos climáticos.
+
+8. Alagamento e Inundação: cobertura contra danos por enchentes, transbordamento de rios e acúmulo de água.
+
+9. Quebra de Vidros: proteção para vidros, espelhos e mármores das áreas comuns.
+
+10. Roubo e Furto Qualificado: cobertura para bens do condomínio subtraídos das áreas comuns — equipamentos, móveis, itens de decoração.
+
+11. Desmoronamento: cobertura contra colapso parcial ou total da edificação.
+
+12. Impacto de Veículos e Aeronaves: danos causados por colisão de veículos ou queda de aeronaves na edificação.
+
+13. Equipamentos Eletrônicos: proteção para sistemas de CFTV, automação, interfonia, portões eletrônicos e central de alarme.
+
+14. Perda de Aluguel: se unidades ficarem inabitáveis após sinistro, cobre o aluguel temporário dos moradores.
+
+O Seguro de Condomínio Cobre as Unidades Individuais?
+
+Atenção: o seguro condominial cobre a estrutura da edificação e as áreas comuns. Ele NÃO cobre:
+
+- Móveis e pertences pessoais dos moradores
+- Reformas e benfeitorias feitas pelo proprietário nas unidades
+- Danos causados pelo morador à sua própria unidade
+
+Para proteger seus bens pessoais, cada morador deve contratar um seguro residencial individual — que cobre mobília, eletrodomésticos, eletrônicos e responsabilidade civil do morador.
+
+Dica: a Patro Seguros oferece condições especiais para moradores de condomínios que já são nossos clientes.
+
+Responsabilidades do Síndico
+
+O síndico tem papel fundamental no seguro condominial:
+
+1. Contratar o seguro: é obrigação legal do síndico providenciar a contratação.
+2. Aprovar em assembleia: o valor do seguro deve ser apresentado e aprovado em assembleia de condôminos.
+3. Renovar anualmente: garantir que o seguro esteja sempre vigente, sem lacunas de cobertura.
+4. Verificar coberturas: assegurar que as coberturas são adequadas ao perfil e porte do condomínio.
+5. Atualizar o valor segurado: após reformas, ampliações ou instalação de novos equipamentos.
+6. Acionar o seguro: em caso de sinistro, comunicar a seguradora imediatamente.
+
+O seguro de RC do Síndico é especialmente importante — ele protege o gestor contra ações de condôminos por erros de administração.
+
+Quanto Custa o Seguro de Condomínio?
+
+O valor varia conforme:
+
+- Tipo do condomínio: residencial, comercial ou misto
+- Porte da edificação: número de unidades, andares e área construída
+- Localização: região, proximidade de corpos d'água, histórico de sinistros
+- Idade da construção: prédios mais antigos tendem a ter custo maior
+- Coberturas contratadas: quanto mais coberturas, maior o valor
+- Valor de reconstrução: custo estimado para reconstruir a edificação
+
+Valores médios de referência (2025):
+
+- Condomínio pequeno (até 20 unidades): R$ 2.000 a R$ 5.000/ano
+- Condomínio médio (20 a 80 unidades): R$ 5.000 a R$ 15.000/ano
+- Condomínio grande (80+ unidades): R$ 15.000 a R$ 50.000/ano
+- Condomínio comercial: R$ 8.000 a R$ 40.000/ano
+
+O custo é rateado entre todos os condôminos na taxa condominial, representando um valor mensal baixo por unidade.
+
+Como Determinar o Valor Segurado?
+
+O valor segurado deve corresponder ao custo de reconstrução da edificação — não ao valor de mercado ou de venda. Isso inclui:
+
+- Custo de reconstrução da estrutura (paredes, lajes, pilares)
+- Instalações hidráulicas e elétricas
+- Revestimentos, pisos e acabamentos das áreas comuns
+- Elevadores, bombas e equipamentos fixos
+- Áreas de lazer (piscina, churrasqueira, salão de festas)
+
+A avaliação deve ser feita por profissional habilitado (engenheiro ou arquiteto) e atualizada periodicamente.
+
+Erros Comuns na Contratação do Seguro Condominial
+
+1. Sub-seguro: contratar valor segurado menor que o custo de reconstrução. Em caso de sinistro, a indenização será proporcional (cláusula de rateio).
+2. Não contratar RC do Síndico: o síndico fica exposto a processos pessoais.
+3. Esquecer coberturas importantes: danos elétricos e RC são essenciais mas frequentemente negligenciados.
+4. Não renovar no prazo: lacunas de cobertura deixam o condomínio desprotegido.
+5. Ignorar benfeitorias: reformas e novos equipamentos devem ser incluídos na apólice.
+6. Não ler a apólice: desconhecer exclusões e limites pode gerar surpresas no sinistro.
+
+Como Contratar com a Patro Seguros
+
+1. Solicite cotação pelo WhatsApp, telefone ou site.
+2. Envie a convenção do condomínio e informações da edificação.
+3. Comparamos propostas das melhores seguradoras do mercado.
+4. Apresentamos as opções ao síndico e/ou assembleia.
+5. Apólice emitida rapidamente com proteção imediata.
+
+A Patro Seguros é especialista em seguros condominiais e atende condomínios residenciais, comerciais e mistos em Guarulhos e região. Conte com nossa experiência para proteger seu patrimônio.`,
+    faqs: [
+      { q: "O seguro de condomínio é realmente obrigatório?", a: "Sim. O Art. 1.346 do Código Civil e a Lei 4.591/64 determinam que todo condomínio edilício deve ter seguro contra incêndio e destruição. O síndico é o responsável legal pela contratação e pode responder pessoalmente em caso de negligência." },
+      { q: "O seguro do condomínio cobre meus móveis e pertences?", a: "Não. O seguro condominial cobre apenas a estrutura da edificação e áreas comuns. Para proteger seus móveis, eletrodomésticos e pertences pessoais, é necessário contratar um seguro residencial individual para sua unidade." },
+      { q: "Quem paga o seguro do condomínio?", a: "O custo do seguro é rateado entre todos os condôminos e incluído na taxa condominial mensal. O valor por unidade costuma ser bastante acessível, geralmente entre R$ 10 e R$ 50 por mês, dependendo do porte do condomínio." },
+      { q: "O que é a RC do Síndico e por que é importante?", a: "A Responsabilidade Civil do Síndico cobre danos causados por erros de gestão, omissões ou decisões equivocadas do síndico. Sem essa cobertura, o síndico responde com seu patrimônio pessoal por ações judiciais movidas por condôminos." },
+      { q: "O seguro cobre danos causados por vazamento entre apartamentos?", a: "Depende da origem do vazamento. Se for nas tubulações comuns (responsabilidade do condomínio), o seguro condominial pode cobrir. Se for nas instalações internas da unidade, é responsabilidade do morador e coberto pelo seguro residencial individual." },
+      { q: "Condomínio horizontal (casas) também precisa de seguro?", a: "Sim, se houver áreas comuns e estrutura condominial, o seguro é obrigatório. Condomínios horizontais de casas devem segurar as áreas comuns (portaria, salão de festas, muros, guarita) e contratar RC do condomínio." },
+    ],
+  },
   "rc-clinicas-estetica": {
     title: "Seguro RC para Clínicas de Estética: Proteção Essencial para Profissionais da Beleza",
     content: `O mercado de estética no Brasil é um dos maiores do mundo — e com ele crescem também os riscos profissionais. Procedimentos como harmonização facial, preenchimento labial, depilação a laser, peelings químicos e aplicação de botox envolvem riscos reais de danos aos clientes. Um único processo judicial pode comprometer todo o patrimônio de uma clínica. É aí que entra o Seguro de Responsabilidade Civil (RC) para Clínicas de Estética.
