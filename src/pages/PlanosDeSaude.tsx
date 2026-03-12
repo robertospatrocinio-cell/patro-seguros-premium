@@ -76,7 +76,7 @@ const PlanosDeSaude = () => {
                 "Atendimento consultivo e humanizado",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <p>{item}</p>
                 </div>
               ))}
