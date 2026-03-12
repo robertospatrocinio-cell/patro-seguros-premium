@@ -12,7 +12,7 @@ const CotacaoSeguroAuto = () => {
     <>
       <PageMeta title="Cotação Seguro Auto" description="Faça sua cotação de seguro auto online com a Patro Seguros. Compare preços de Porto, Tokio Marine, Allianz e mais. Resposta em até 2 horas." />
       <Header />
-      <main>
+      <main id="main-content">
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <div className="text-6xl mb-6">🚗</div>

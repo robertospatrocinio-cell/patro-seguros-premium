@@ -56,7 +56,7 @@ const InsurancePageTemplate = ({
       />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label={`${title} — cotação gratuita`}>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(215,100%,60%,0.15),transparent_60%)]" />

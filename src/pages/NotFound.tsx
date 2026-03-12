@@ -17,7 +17,7 @@ const NotFound = () => {
     <>
       <PageMeta title="Página Não Encontrada" description="A página que você está procurando não existe ou foi movida." />
       <Header />
-      <main>
+      <main id="main-content">
         <section className="py-24 md:py-32">
           <div className="container mx-auto px-4 text-center max-w-lg">
             <div className="text-7xl font-heading font-bold text-primary mb-4">404</div>

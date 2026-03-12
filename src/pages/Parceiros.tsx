@@ -38,7 +38,7 @@ const Parceiros = () => {
     <>
       <PageMeta title="Seguradoras Parceiras" description="Conheça as seguradoras parceiras da Patro Seguros: Porto, Tokio Marine, Allianz, Bradesco, HDI, Mapfre e mais. As melhores opções do mercado para você." />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">

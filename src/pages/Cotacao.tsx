@@ -63,7 +63,7 @@ const Cotacao = () => {
     <>
       <PageMeta title="Cotação de Seguros" description="Solicite uma cotação gratuita de seguros com a Patro Seguros. Comparamos as melhores seguradoras para encontrar o melhor preço e cobertura para você." />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">

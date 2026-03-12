@@ -10,7 +10,7 @@ const Contato = () => {
     <>
       <PageMeta title="Contato" description="Entre em contato com a Patro Seguros em Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Tire dúvidas e solicite cotações de seguros." />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
