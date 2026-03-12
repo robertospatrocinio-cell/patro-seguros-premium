@@ -79,7 +79,6 @@ const Header = () => {
 
               <NavDropdown label="Seguros Pessoais">
                 <DropLink to="/seguro-auto">Seguro Auto</DropLink>
-                <DropLink to="/seguro-caminhao">Seguro Caminhão</DropLink>
                 <DropLink to="/seguro-moto">Seguro Moto</DropLink>
                 <DropLink to="/seguro-vida">Seguro de Vida</DropLink>
                 <DropLink to="/seguro-residencial">Seguro Residencial</DropLink>
@@ -88,6 +87,7 @@ const Header = () => {
                 <DropLink to="/seguro-fianca">Seguro Fiança</DropLink>
                 <DropLink to="/seguro-fianca-locaticia">Fiança Locatícia</DropLink>
                 <DropLink to="/seguro-acidentes-pessoais">Acidentes Pessoais</DropLink>
+                <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
                 <DropLink to="/previdencia-privada">Previdência Privada</DropLink>
                 <DropLink to="/planos-de-saude">Planos de Saúde</DropLink>
                 <DropLink to="/seguro-odonto">Seguro Odonto</DropLink>
@@ -95,6 +95,7 @@ const Header = () => {
 
               <NavDropdown label="Empresarial">
                 <DropLink to="/seguro-empresarial">Seguro Empresarial</DropLink>
+                <DropLink to="/seguro-caminhao">Seguro Caminhão</DropLink>
                 <DropLink to="/seguro-frota">Seguro de Frota</DropLink>
                 <DropLink to="/seguro-transporte">Seguro de Transporte</DropLink>
                 <DropLink to="/seguro-rc">Responsabilidade Civil</DropLink>
@@ -103,7 +104,6 @@ const Header = () => {
                 <DropLink to="/seguro-engenharia">Seguro Engenharia</DropLink>
                 <DropLink to="/seguro-cyber">Seguro Cyber</DropLink>
                 <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
-                <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
                 <DropLink to="/seguro-vida-pme">Vida PME</DropLink>
               </NavDropdown>
 
