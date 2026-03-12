@@ -7,6 +7,157 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "seguro-cobertura-lucros-cessantes": {
+    title: "Os Benefícios do Seguro com Cobertura de Lucros Cessantes",
+    content: `Imagine que um incêndio atinge sua empresa. O seguro empresarial cobre os danos ao prédio e aos equipamentos — mas quem cobre o faturamento que sua empresa deixou de gerar durante os meses de reconstrução? A resposta é a cobertura de Lucros Cessantes, uma das proteções mais importantes e subestimadas do mercado de seguros.
+
+Neste guia completo, a Patro Seguros explica o que são lucros cessantes, como essa cobertura funciona, por que é indispensável e como contratá-la.
+
+O Que São Lucros Cessantes?
+
+Lucros cessantes são os rendimentos que uma empresa deixa de obter em consequência de um sinistro que paralisa ou reduz suas operações. Em outras palavras, é o "lucro que parou de entrar" porque a empresa não pôde funcionar.
+
+Quando um incêndio, alagamento, explosão ou outro evento coberto pelo seguro atinge uma empresa, os danos vão muito além do patrimônio físico:
+
+- O faturamento cai ou zera durante a paralisação.
+- Os custos fixos continuam: aluguel, salários, encargos, financiamentos.
+- Clientes migram para concorrentes.
+- Contratos são cancelados por impossibilidade de entrega.
+- O fluxo de caixa é comprometido por meses ou até anos.
+
+A cobertura de lucros cessantes existe para cobrir exatamente esse gap financeiro — garantindo que a empresa sobreviva ao período de reconstrução.
+
+Como Funciona a Cobertura de Lucros Cessantes?
+
+A cobertura de lucros cessantes é uma extensão do seguro empresarial (ou seguro patrimonial). Ela indeniza a empresa pelo lucro líquido que deixou de obter e pelos custos fixos que continuaram incidindo durante o período de paralisação.
+
+Componentes da indenização:
+
+1. Lucro Líquido Cessante: o lucro que a empresa teria gerado se estivesse operando normalmente, calculado com base no histórico financeiro.
+
+2. Despesas Fixas: custos que continuam mesmo com a empresa parada:
+- Aluguel do imóvel
+- Folha de pagamento e encargos trabalhistas
+- Contas de água, luz e telefone (mínimos)
+- Parcelas de financiamentos e empréstimos
+- Impostos fixos
+- Honorários contábeis e advocatícios
+- Seguros e taxas
+
+3. Despesas Extraordinárias: custos adicionais para minimizar a paralisação:
+- Aluguel de local temporário
+- Locação de equipamentos substitutos
+- Transporte de funcionários para novo local
+- Horas extras para acelerar a retomada
+
+Período Indenitário
+
+O período indenitário é o prazo máximo de cobertura dos lucros cessantes — geralmente de 6 a 24 meses. Esse é o tempo estimado para que a empresa retome suas operações normais após o sinistro.
+
+A escolha do período indenitário é crucial:
+
+- 6 meses: adequado para empresas pequenas com operações simples.
+- 12 meses: padrão para a maioria das empresas de médio porte.
+- 18 a 24 meses: recomendado para indústrias, grandes empresas e operações complexas que demandam mais tempo de reconstrução.
+
+Quais Sinistros Ativam a Cobertura de Lucros Cessantes?
+
+A cobertura é ativada quando um sinistro coberto pela apólice básica causa paralisação das atividades. Os eventos mais comuns incluem:
+
+- Incêndio e explosão: a causa mais frequente de paralisação prolongada.
+- Alagamento e inundação: especialmente em regiões de risco.
+- Vendaval e granizo: danos a estruturas e equipamentos.
+- Queda de raio: danos a sistemas elétricos e equipamentos eletrônicos.
+- Danos elétricos: curtos-circuitos que comprometem máquinas e instalações.
+- Roubo e furto qualificado: perda de equipamentos essenciais para a operação.
+- Desmoronamento: colapso parcial ou total da edificação.
+- Impacto de veículos: veículos que colidem com a estrutura da empresa.
+
+Importante: a cobertura de lucros cessantes DEPENDE de um sinistro coberto pela apólice básica. Ela não funciona de forma isolada — é uma cobertura acessória.
+
+Exemplos Reais de Como os Lucros Cessantes Protegem
+
+Caso 1 — Restaurante incendiado:
+Um restaurante em Guarulhos sofreu incêndio na cozinha. Danos materiais: R$ 200.000 (cobertos pelo seguro empresarial). Porém, o restaurante ficou fechado por 5 meses durante a reforma. Faturamento mensal: R$ 80.000. Custos fixos mensais: R$ 45.000. Sem lucros cessantes: prejuízo de R$ 400.000 em faturamento perdido + R$ 225.000 em custos fixos. Com lucros cessantes: a seguradora indenizou R$ 175.000 em lucro líquido cessante + R$ 225.000 em despesas fixas.
+
+Caso 2 — Fábrica alagada:
+Uma fábrica de autopeças foi atingida por enchente. A linha de produção parou por 8 meses. Custos de reconstrução: R$ 500.000 (seguro patrimonial). Perda de faturamento: R$ 2.400.000. Custos fixos mantidos: R$ 960.000. A cobertura de lucros cessantes indenizou a perda de faturamento e os custos fixos, evitando a falência da empresa.
+
+Caso 3 — Loja de shopping com danos elétricos:
+Um curto-circuito danificou toda a instalação elétrica de uma loja. Fechamento: 2 meses. Custos do reparo: R$ 50.000. Aluguel do ponto: R$ 25.000/mês (continuou sendo cobrado pelo shopping). Faturamento perdido: R$ 120.000. Lucros cessantes cobriram o aluguel e o lucro perdido durante o período.
+
+Os 7 Principais Benefícios da Cobertura de Lucros Cessantes
+
+1. Sobrevivência da Empresa: dados do SEBRAE mostram que 40% das empresas que sofrem sinistros graves sem seguro de lucros cessantes fecham em até 2 anos. A cobertura garante fôlego financeiro para atravessar o período de reconstrução.
+
+2. Manutenção dos Funcionários: com os salários cobertos pelo seguro, a empresa pode manter sua equipe durante a paralisação — evitando custos de demissão, rescisão e posterior recontratação.
+
+3. Preservação de Clientes e Contratos: recursos para operar em local temporário ou manter entregas mínimas, evitando a migração de clientes para concorrentes.
+
+4. Pagamento de Custos Fixos: aluguel, financiamentos e obrigações continuam mesmo com a empresa parada. A cobertura garante o pagamento dessas obrigações.
+
+5. Proteção do Patrimônio Pessoal: sem a cobertura, o empresário pode precisar usar recursos pessoais, vender bens ou contrair dívidas para manter a empresa.
+
+6. Recuperação Acelerada: com recursos financeiros garantidos, a empresa pode investir na reconstrução com mais agilidade, sem depender de empréstimos emergenciais com juros altos.
+
+7. Tranquilidade para Tomar Decisões: em um momento de crise, ter a certeza de que o faturamento está protegido permite ao empresário focar na reconstrução sem desespero financeiro.
+
+Quanto Custa a Cobertura de Lucros Cessantes?
+
+O custo é surpreendentemente acessível quando comparado à proteção oferecida:
+
+- Em média, a cobertura de lucros cessantes representa 15% a 30% do valor do prêmio do seguro empresarial básico.
+- Para uma empresa com seguro empresarial de R$ 3.000/ano, a cobertura de lucros cessantes pode custar de R$ 450 a R$ 900 adicionais por ano.
+
+Fatores que influenciam o preço:
+- Faturamento anual da empresa
+- Margem de lucro e custos fixos
+- Ramo de atividade e risco
+- Período indenitário contratado
+- Localização e histórico de sinistros
+
+Como Calcular o Valor da Cobertura Necessária
+
+Para definir o valor adequado da cobertura de lucros cessantes, considere:
+
+1. Lucro líquido mensal × período indenitário
+2. + Custos fixos mensais × período indenitário
+3. + Margem para despesas extraordinárias (10% a 20%)
+
+Exemplo:
+- Lucro líquido mensal: R$ 30.000
+- Custos fixos mensais: R$ 50.000
+- Período indenitário: 12 meses
+- Cobertura necessária: (R$ 30.000 + R$ 50.000) × 12 = R$ 960.000
+- Com margem de 15%: R$ 1.104.000
+
+Dicas da Patro Seguros
+
+1. Não contrate seguro empresarial sem lucros cessantes: o patrimônio físico é substituível; o faturamento perdido, não.
+2. Calcule corretamente o período indenitário: subestimar o tempo de reconstrução é um erro comum e caro.
+3. Atualize anualmente: conforme a empresa cresce, a cobertura deve acompanhar.
+4. Documente seu faturamento: ter contabilidade organizada agiliza o processo de indenização.
+5. Considere despesas extraordinárias: aluguel temporário e equipamentos podem ser cobertos.
+6. Combine com outras coberturas: RC, danos elétricos e equipamentos eletrônicos complementam a proteção.
+
+Como Contratar com a Patro Seguros
+
+1. Solicite cotação pelo WhatsApp, telefone ou site.
+2. Informe o faturamento, custos fixos e ramo de atividade.
+3. Comparamos propostas das melhores seguradoras do mercado.
+4. Você escolhe o plano ideal com orientação especializada.
+5. Proteção imediata para seu faturamento.
+
+A Patro Seguros é especialista em seguros empresariais com cobertura de lucros cessantes. Proteja não apenas o patrimônio da sua empresa, mas o faturamento que mantém ela viva.`,
+    faqs: [
+      { q: "Lucros cessantes cobrem paralisação por pandemia ou decreto governamental?", a: "Geralmente não. A cobertura de lucros cessantes é ativada por sinistros físicos cobertos pela apólice (incêndio, alagamento, etc.). Paralisações por pandemias, lockdowns ou decretos governamentais normalmente não estão cobertas, salvo contratação específica de coberturas adicionais." },
+      { q: "Posso contratar lucros cessantes sem seguro empresarial?", a: "Não. A cobertura de lucros cessantes é uma cobertura acessória que depende da apólice básica de seguro empresarial ou patrimonial. É necessário ter o seguro base para adicionar lucros cessantes." },
+      { q: "Como a seguradora calcula o lucro cessante?", a: "A seguradora analisa os demonstrativos financeiros da empresa (balanços, DRE, livro caixa) dos últimos 12 a 24 meses para determinar o faturamento médio, margem de lucro e custos fixos. A indenização é proporcional à perda efetivamente comprovada." },
+      { q: "Lucros cessantes cobrem salários dos funcionários?", a: "Sim! Os salários, encargos trabalhistas (INSS, FGTS, férias) e benefícios dos funcionários são considerados custos fixos e estão incluídos na cobertura de lucros cessantes. Isso permite manter a equipe durante a paralisação." },
+      { q: "E se a empresa reabrir parcialmente?", a: "Se a empresa retomar parcialmente as operações, a indenização é ajustada proporcionalmente. A seguradora paga a diferença entre o faturamento normal e o faturamento reduzido durante o período de recuperação gradual." },
+      { q: "Microempresas e MEIs podem contratar lucros cessantes?", a: "Sim! Empresas de qualquer porte podem contratar. Para microempresas e MEIs, a cobertura é ainda mais importante, pois geralmente não possuem reservas financeiras para sobreviver a uma paralisação prolongada." },
+    ],
+  },
   "consorcio-imoveis-casa-propria": {
     title: "Consórcio de Imóveis: O Sonho da Casa Própria ao Seu Alcance",
     content: `A casa própria é o maior sonho de milhões de brasileiros — e o consórcio de imóveis é uma das formas mais inteligentes, econômicas e acessíveis de realizá-lo. Sem juros bancários, sem entrada obrigatória e com parcelas que cabem no bolso, o consórcio é a alternativa que mais cresce no Brasil para aquisição de imóveis.
