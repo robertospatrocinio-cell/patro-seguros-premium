@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle, MessageCircle, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 
 const SeoPlanoSaudeGuarulhos = () => (
