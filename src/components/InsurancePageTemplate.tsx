@@ -21,6 +21,7 @@ interface InsurancePageProps {
   faqs: FAQ[];
   relatedInsurances?: { title: string; link: string }[];
   badge?: string;
+  metaDescription?: string;
 }
 
 const InsurancePageTemplate = ({
