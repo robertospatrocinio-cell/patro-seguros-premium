@@ -6,6 +6,7 @@ const SeguroDroneAgricola = () => {
       title="Seguro Drone Agrícola"
       subtitle="Proteção completa para drones utilizados na agricultura de precisão"
       icon="🚁"
+      badge="Especialistas no Agro"
       description="Os drones agrícolas revolucionaram o campo, trazendo eficiência na pulverização, mapeamento de lavouras e monitoramento de safras. Porém, são equipamentos de alto valor e sujeitos a riscos como quedas, colisões, falhas técnicas e condições climáticas adversas. O Seguro Drone Agrícola garante a proteção do seu investimento e a continuidade das suas operações no campo. Na Patro Seguros, oferecemos coberturas especializadas para drones de pulverização, sensoriamento e mapeamento."
       coverages={[
         {

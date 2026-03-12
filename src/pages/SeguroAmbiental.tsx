@@ -5,6 +5,7 @@ const SeguroAmbiental = () => (
     title="Seguro Ambiental"
     subtitle="Proteção contra riscos de danos ambientais e responsabilidade por poluição"
     icon="🌿"
+    badge="Especialistas no Agro"
     description="O Seguro Ambiental oferece cobertura para empresas contra custos de remediação, danos a terceiros e responsabilidade civil decorrentes de eventos de poluição e contaminação ambiental. Essencial para indústrias, transportadoras de produtos perigosos, postos de combustível e qualquer atividade com potencial impacto ao meio ambiente."
     coverages={[
       { title: "Poluição Súbita e Acidental", description: "Cobertura para eventos inesperados de contaminação do solo, água ou ar." },
