@@ -11,7 +11,7 @@ const Sobre = () => {
     <>
       <PageMeta title="Sobre a Patro Seguros" description="Conheça a Patro Seguros — corretora de seguros em Guarulhos com atendimento consultivo, especialistas dedicados e parceria com as melhores seguradoras do Brasil." />
       <Header />
-      <main>
+      <main id="main-content">
         {/* Hero */}
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">

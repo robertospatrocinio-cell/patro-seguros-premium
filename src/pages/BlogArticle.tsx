@@ -2956,7 +2956,7 @@ const BlogArticle = () => {
         <FAQSchema faqs={article.faqs.map(f => ({ question: f.q, answer: f.a }))} />
       )}
       <Header />
-      <main>
+      <main id="main-content">
         <section className="gradient-hero py-16">
           <div className="container mx-auto px-4 max-w-3xl">
             <Link to="/blog" className="inline-flex items-center text-sm text-white/60 hover:text-white mb-6">
