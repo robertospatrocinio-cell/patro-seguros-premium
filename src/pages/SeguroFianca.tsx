@@ -6,6 +6,7 @@ const SeguroFianca = () => {
       title="Seguro Fiança Locatícia"
       subtitle="Alugue seu imóvel sem fiador e sem burocracia"
       icon="🔑"
+      metaDescription="Seguro Fiança Locatícia — alugue sem fiador e sem caução. Aprovação rápida para imóveis residenciais e comerciais. Cotação grátis Patro Seguros."
       description="O Seguro Fiança Locatícia substitui a necessidade de fiador ou caução em contratos de aluguel. É a forma mais moderna, rápida e segura de garantir o cumprimento das obrigações locatícias. Para o locatário, elimina a necessidade de pedir favor a amigos ou familiares. Para o proprietário, garante proteção financeira. Com a Patro Seguros, você contrata de forma ágil e com as melhores condições."
       coverages={[
         {

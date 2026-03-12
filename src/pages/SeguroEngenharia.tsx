@@ -6,6 +6,7 @@ const SeguroEngenharia = () => {
       title="Seguro Garantia e Riscos de Engenharia"
       subtitle="Proteção completa para obras e projetos de construção"
       icon="🏗️"
+      metaDescription="Seguro de Engenharia e Garantia para obras civis e montagens industriais. Risco de engenharia, RC e seguro garantia. Cotação grátis Patro Seguros."
       description="Os Seguros de Engenharia protegem obras de construção civil, montagens industriais e projetos de infraestrutura contra diversos riscos durante e após a execução. Incluem Seguro Garantia, Risco de Engenharia, Responsabilidade Civil e outros. São essenciais para construtoras, incorporadoras e empresas que executam grandes projetos. Com a Patro Seguros, você tem acesso a coberturas especializadas e suporte técnico completo."
       coverages={[
         {

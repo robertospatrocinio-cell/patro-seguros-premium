@@ -6,6 +6,7 @@ const SeguroTransporte = () => {
       title="Seguro de Transporte"
       subtitle="Proteção completa para cargas nacionais e internacionais"
       icon="📦"
+      metaDescription="Seguro de Transporte de Cargas — proteção para mercadorias em trânsito rodoviário, aéreo e marítimo. RCTR-C e RCF-DC. Cotação grátis Patro Seguros."
       description="O Seguro de Transporte protege mercadorias durante o trajeto rodoviário, aéreo, marítimo ou ferroviário contra roubo, acidentes, avarias e diversos outros riscos. É fundamental para empresas que transportam ou recebem cargas, garantindo o valor da mercadoria em caso de sinistro. Com a Patro Seguros, você tem acesso a coberturas nacionais e internacionais com as principais seguradoras especializadas."
       coverages={[
         {

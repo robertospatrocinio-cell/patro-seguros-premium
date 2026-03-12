@@ -6,6 +6,7 @@ const SeguroFrota = () => {
       title="Seguro de Frota"
       subtitle="Proteção especializada para múltiplos veículos da sua empresa"
       icon="🚛"
+      metaDescription="Seguro de Frota empresarial com economia de até 40% vs seguros individuais. Gestão centralizada, relatórios e assistência 24h. Cotação grátis Patro Seguros."
       description="O Seguro de Frota é desenhado especificamente para empresas que possuem múltiplos veículos. Oferece coberturas similares ao seguro auto, mas com condições e gestão diferenciadas, adequadas para operações empresariais. Com a Patro Seguros, você tem gestão centralizada, economia de escala, relatórios de sinistralidade e suporte especializado para manter sua operação sempre rodando."
       coverages={[
         {

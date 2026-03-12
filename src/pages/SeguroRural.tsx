@@ -6,6 +6,7 @@ const SeguroRural = () => {
       title="Seguro Rural"
       subtitle="Proteção completa para o agronegócio e atividades do campo"
       icon="🚜"
+      metaDescription="Seguro Rural para lavoura, pecuária e máquinas agrícolas. Subsídio do governo federal. Proteção contra seca, granizo e geada. Cotação grátis Patro Seguros."
       description="O Seguro Rural protege produtores contra perdas na lavoura, pecuária, máquinas agrícolas e benfeitorias. Fenômenos climáticos, pragas, doenças e acidentes podem comprometer toda a produção. Com a Patro Seguros, você tem acesso a seguros agrícolas subsidiados pelo governo, pecuário, de máquinas e equipamentos, sempre com análise especializada para o setor do agronegócio."
       coverages={[
         {

@@ -6,6 +6,7 @@ const PrevidenciaPrivada = () => {
       title="Previdência Privada"
       subtitle="Construa seu futuro com tranquilidade e segurança financeira"
       icon="💰"
+      metaDescription="Previdência Privada VGBL e PGBL. Planeje sua aposentadoria com benefícios fiscais e rentabilidade. Compare planos. Cotação grátis Patro Seguros."
       description="A Previdência Privada é um investimento de longo prazo focado em garantir renda na aposentadoria ou realizar objetivos futuros. É uma alternativa ou complemento à previdência oficial, oferecendo mais flexibilidade, rendimentos potencialmente melhores e benefícios fiscais. Com a Patro Seguros, você tem acesso aos melhores planos do mercado, com análise completa para escolher a opção ideal para seu perfil."
       coverages={[
         {
