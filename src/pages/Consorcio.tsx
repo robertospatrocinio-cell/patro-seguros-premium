@@ -133,11 +133,19 @@ const Consorcio = () => {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full rounded-xl group-hover:bg-primary">
-                    Simular {m.title} <ArrowRight className="h-4 w-4 ml-2" />
-                  </Button>
-                </a>
+                {m.link ? (
+                  <Link to={m.link} className="w-full">
+                    <Button className="w-full rounded-xl group-hover:bg-primary">
+                      Saiba Mais sobre {m.title} <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  </Link>
+                ) : (
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="w-full rounded-xl group-hover:bg-primary">
+                      Simular {m.title} <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  </a>
+                )}
               </div>
             ))}
           </div>
