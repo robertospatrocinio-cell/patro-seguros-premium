@@ -92,7 +92,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
             <div className="flex flex-col items-center md:items-start gap-1">
               <p>© {new Date().getFullYear()} Patro Corretora de Seguros. Todos os direitos reservados.</p>
-              <p>SUSEP — Registro nº 211112427</p>
+              <p>CNPJ: 41.641.558/0001-33 | SUSEP — Registro nº 211112427</p>
             </div>
             <div className="flex gap-6">
               <Link to="/privacidade" className="hover:text-white/70 transition-base">Privacidade</Link>
