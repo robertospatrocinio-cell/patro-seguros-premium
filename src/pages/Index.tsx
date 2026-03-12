@@ -176,7 +176,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,50%,0.08),transparent)]" />
               <div className="relative">
                 <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto Online</h2>
-                <p className="text-white/40 mb-8 text-[14px] max-w-md mx-auto">
+                <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
                   Auto, moto, caminhão e vans — resultado em minutos pelo nosso sistema.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
