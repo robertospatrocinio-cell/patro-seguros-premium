@@ -1,30 +1,47 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, Award } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, ChevronRight, Award, Car, Heart, Home, Building2, Tractor } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
 
-  const NavDropdown = ({ label, children }: { label: string; children: React.ReactNode }) => (
-    <div className="relative group">
-      <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2" aria-haspopup="true" aria-expanded="false">
-        {label}
-        <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
-      </button>
-      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" role="menu">
-        <div className="bg-card rounded-2xl shadow-lg border p-2 backdrop-blur-xl max-h-[70vh] overflow-y-auto">
-          {children}
-        </div>
+  const toggleMobileSection = (section: string) => {
+    setOpenMobileSection(openMobileSection === section ? null : section);
+  };
+
+  const close = () => setIsMenuOpen(false);
+
+  const MobileSection = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => {
+    const isOpen = openMobileSection === id;
+    return (
+      <div className="border-b border-border/50 last:border-0">
+        <button
+          onClick={() => toggleMobileSection(id)}
+          className="flex items-center justify-between w-full py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary transition-base"
+          aria-expanded={isOpen}
+        >
+          {label}
+          <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+        </button>
+        {isOpen && (
+          <div className="pb-3 px-3 animate-fade-in">
+            {children}
+          </div>
+        )}
       </div>
-    </div>
+    );
+  };
+
+  const MobileSubLabel = ({ children }: { children: React.ReactNode }) => (
+    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-2 mb-1 px-2">{children}</p>
   );
 
-  const DropLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
-    <Link to={to} className="block px-3 py-2 text-sm text-foreground/70 hover:text-primary hover:bg-primary-light rounded-xl transition-base" role="menuitem">
+  const MobileLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+    <Link to={to} className="block py-1.5 px-2 text-sm text-foreground/70 hover:text-primary rounded-lg hover:bg-muted/50 transition-base" onClick={close}>
       {children}
     </Link>
   );
@@ -60,74 +77,161 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Main nav - glassmorphism */}
+      {/* Main nav */}
       <div className="bg-background/80 backdrop-blur-xl border-b">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
             <Link to="/" className="flex items-center gap-2" aria-label="Patro Seguros — Página inicial">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-700 rounded-xl flex items-center justify-center" aria-hidden="true">
-                  <span className="text-white font-heading font-bold text-sm">P</span>
-                </div>
-                <span className="font-heading font-bold text-lg text-foreground">Patro <span className="text-primary">Seguros</span></span>
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-blue-700 rounded-xl flex items-center justify-center" aria-hidden="true">
+                <span className="text-white font-heading font-bold text-sm">P</span>
               </div>
+              <span className="font-heading font-bold text-lg text-foreground">Patro <span className="text-primary">Seguros</span></span>
             </Link>
 
-            {/* Desktop */}
+            {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
               <Link to="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Início</Link>
 
-              <NavDropdown label="Seguros Pessoais">
-                <DropLink to="/seguro-auto">Seguro Auto</DropLink>
-                <DropLink to="/seguro-moto">Seguro Moto</DropLink>
-                <DropLink to="/seguro-vida">Seguro de Vida</DropLink>
-                <DropLink to="/seguro-residencial">Seguro Residencial</DropLink>
-                <DropLink to="/seguro-viagem">Seguro Viagem</DropLink>
-                <DropLink to="/seguro-celular">Seguro Celular</DropLink>
-                <DropLink to="/seguro-fianca">Seguro Fiança</DropLink>
-                <DropLink to="/seguro-fianca-locaticia">Fiança Locatícia</DropLink>
-                <DropLink to="/seguro-acidentes-pessoais">Acidentes Pessoais</DropLink>
-                <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
-                <DropLink to="/previdencia-privada">Previdência Privada</DropLink>
-                <DropLink to="/planos-de-saude">Planos de Saúde</DropLink>
-                <DropLink to="/seguro-odonto">Plano Odontológico</DropLink>
-                <DropLink to="/seguro-bike">Seguro Bike</DropLink>
-                <DropLink to="/seguro-jetski">Seguro Jet Ski</DropLink>
-                <DropLink to="/seguro-embarcacoes">Seguro Embarcações</DropLink>
-                <DropLink to="/seguro-avioes">Seguro Aviões</DropLink>
-                <DropLink to="/seguro-helicopteros">Seguro Helicópteros</DropLink>
-                <DropLink to="/seguro-carta-verde">Seguro Carta Verde</DropLink>
-              </NavDropdown>
+              {/* Pessoal — mega menu */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                  Pessoal
+                  <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
+                </button>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[520px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="bg-card rounded-2xl shadow-xl border p-5 backdrop-blur-xl">
+                    <div className="grid grid-cols-3 gap-6">
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Veículos</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-auto" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Auto</Link>
+                          <Link to="/seguro-moto" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Moto</Link>
+                          <Link to="/seguro-caminhao" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Caminhão</Link>
+                          <Link to="/seguro-bike" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Bike</Link>
+                          <Link to="/seguro-carta-verde" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Carta Verde</Link>
+                        </div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 mt-4">Lazer</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-jetski" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Jet Ski</Link>
+                          <Link to="/seguro-embarcacoes" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Embarcações</Link>
+                          <Link to="/seguro-avioes" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Aviões</Link>
+                          <Link to="/seguro-helicopteros" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Helicópteros</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Vida e Saúde</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-vida" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro de Vida</Link>
+                          <Link to="/planos-de-saude" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Planos de Saúde</Link>
+                          <Link to="/seguro-odonto" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Plano Odontológico</Link>
+                          <Link to="/seguro-acidentes-pessoais" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Acidentes Pessoais</Link>
+                          <Link to="/previdencia-privada" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Previdência Privada</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Patrimônio</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-residencial" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Residencial</Link>
+                          <Link to="/seguro-celular" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Celular</Link>
+                          <Link to="/seguro-viagem" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Viagem</Link>
+                          <Link to="/seguro-fianca" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Fiança</Link>
+                          <Link to="/seguro-fianca-locaticia" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Fiança Locatícia</Link>
+                          <Link to="/seguro-estagiario" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Estagiário</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <NavDropdown label="Empresarial">
-                <DropLink to="/seguro-empresarial">Seguro Empresarial</DropLink>
-                <DropLink to="/seguro-caminhao">Seguro Caminhão</DropLink>
-                <DropLink to="/seguro-frota">Seguro de Frota</DropLink>
-                <DropLink to="/seguro-transporte">Seguro de Transporte</DropLink>
-                <DropLink to="/seguro-rc">Responsabilidade Civil</DropLink>
-                <DropLink to="/seguro-rc-profissional">RC Profissional</DropLink>
-                <DropLink to="/seguro-condominio">Seguro Condomínio</DropLink>
-                <DropLink to="/seguro-engenharia">Seguro Engenharia</DropLink>
-                <DropLink to="/seguro-cyber">Seguro Cyber</DropLink>
-                <DropLink to="/seguro-vida-pme">Vida PME</DropLink>
-                <DropLink to="/seguro-lojas-shopping">Lojas de Shopping</DropLink>
-                <DropLink to="/seguro-galpoes-industriais">Galpões Industriais</DropLink>
-                <DropLink to="/seguro-maquinas-industriais">Máquinas Industriais</DropLink>
-                <DropLink to="/seguro-maquinas">Máquinas e Equipamentos</DropLink>
-              </NavDropdown>
+              {/* Empresarial — mega menu */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                  Empresarial
+                  <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
+                </button>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="bg-card rounded-2xl shadow-xl border p-5 backdrop-blur-xl">
+                    <div className="grid grid-cols-3 gap-6">
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Empresas</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-empresarial" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Empresarial</Link>
+                          <Link to="/seguro-condominio" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Condomínio</Link>
+                          <Link to="/seguro-lojas-shopping" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Lojas de Shopping</Link>
+                          <Link to="/seguro-galpoes-industriais" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Galpões Industriais</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Frotas e Transporte</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-frota" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro de Frota</Link>
+                          <Link to="/seguro-transporte" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro de Transporte</Link>
+                        </div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 mt-4">Industrial</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-maquinas" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Máquinas e Equip.</Link>
+                          <Link to="/seguro-maquinas-industriais" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Máq. Industriais</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Responsabilidade</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-rc" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">RC Geral</Link>
+                          <Link to="/seguro-rc-profissional" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">RC Profissional</Link>
+                          <Link to="/seguro-cyber" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Cyber</Link>
+                          <Link to="/seguro-engenharia" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Engenharia</Link>
+                        </div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 mt-4">Colaboradores</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-vida-pme" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Vida PME</Link>
+                          <Link to="/seguro-estagiario" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Estagiário</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <NavDropdown label="Agro">
-                <DropLink to="/seguro-maquinas-agricolas">Máquinas Agrícolas</DropLink>
-                <DropLink to="/seguro-equipamentos-agricolas">Equipamentos Agrícolas</DropLink>
-                <DropLink to="/seguro-armazenagem">Seguro Armazenagem</DropLink>
-                <DropLink to="/seguro-placa-solar">Seguro Placas Solar</DropLink>
-                <DropLink to="/seguro-pecuario">Seguro Pecuário</DropLink>
-                <DropLink to="/seguro-cafe">Seguro Café</DropLink>
-                <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
-                <DropLink to="/seguro-drone-agricola">Drone Agrícola</DropLink>
-                <DropLink to="/seguro-transporte-agro">Transporte Agrícola</DropLink>
-                <DropLink to="/seguro-rural">Seguro Rural</DropLink>
-              </NavDropdown>
+              {/* Agro — mega menu */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                  Agro
+                  <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
+                </button>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="bg-card rounded-2xl shadow-xl border p-5 backdrop-blur-xl">
+                    <div className="grid grid-cols-2 gap-6">
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Máquinas e Equipamentos</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-maquinas-agricolas" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Máquinas Agrícolas</Link>
+                          <Link to="/seguro-equipamentos-agricolas" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Equipamentos Agrícolas</Link>
+                          <Link to="/seguro-drone-agricola" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Drone Agrícola</Link>
+                          <Link to="/seguro-placa-solar" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Placas Solar</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Produção e Transporte</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-rural" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Rural</Link>
+                          <Link to="/seguro-pecuario" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Pecuário</Link>
+                          <Link to="/seguro-cafe" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Café</Link>
+                          <Link to="/seguro-armazenagem" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Armazenagem</Link>
+                          <Link to="/seguro-transporte-agro" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Transporte Agrícola</Link>
+                          <Link to="/seguro-ambiental" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Ambiental</Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-border/50">
+                      <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />
+                        Atendemos produtores rurais de todos os estados do Brasil
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <Link to="/consorcio" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Consórcio</Link>
               <Link to="/blog" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Blog</Link>
@@ -145,7 +249,7 @@ const Header = () => {
             </div>
 
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => { setIsMenuOpen(!isMenuOpen); setOpenMobileSection(null); }}
               className="lg:hidden p-2 rounded-xl hover:bg-muted transition-base"
               aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu de navegação"}
               aria-expanded={isMenuOpen}
@@ -156,92 +260,107 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — accordion style */}
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg animate-fade-in max-h-[80vh] overflow-y-auto" role="navigation" aria-label="Menu mobile">
-          <div className="container mx-auto px-4 py-4 space-y-1">
-            <Link to="/" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Início</Link>
+          <div className="container mx-auto px-4 py-2">
+            <Link to="/" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>
+              Início
+            </Link>
 
-            <div className="py-2 px-3">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Seguros Pessoais</p>
-                <div className="grid grid-cols-2 gap-1">
-                {[
-                  { to: "/seguro-auto", label: "Auto" },
-                  { to: "/seguro-moto", label: "Moto" },
-                  { to: "/seguro-vida", label: "Vida" },
-                  { to: "/seguro-residencial", label: "Residencial" },
-                  { to: "/seguro-viagem", label: "Viagem" },
-                  { to: "/seguro-celular", label: "Celular" },
-                  { to: "/planos-de-saude", label: "Saúde" },
-                  { to: "/seguro-odonto", label: "Plano Odonto" },
-                  { to: "/seguro-fianca", label: "Fiança" },
-                  { to: "/seguro-fianca-locaticia", label: "Fiança Locatícia" },
-                  { to: "/seguro-acidentes-pessoais", label: "Acid. Pessoais" },
-                  { to: "/seguro-estagiario", label: "Estagiário" },
-                  { to: "/previdencia-privada", label: "Previdência" },
-                  { to: "/seguro-bike", label: "Bike" },
-                  { to: "/seguro-jetski", label: "Jet Ski" },
-                  { to: "/seguro-embarcacoes", label: "Embarcações" },
-                  { to: "/seguro-avioes", label: "Aviões" },
-                  { to: "/seguro-helicopteros", label: "Helicópteros" },
-                  { to: "/seguro-carta-verde", label: "Carta Verde" },
-                ].map(l => (
-                  <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
-                ))}
+            <MobileSection id="pessoal" label="Seguros Pessoais">
+              <MobileSubLabel>Veículos</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-auto">Auto</MobileLink>
+                <MobileLink to="/seguro-moto">Moto</MobileLink>
+                <MobileLink to="/seguro-caminhao">Caminhão</MobileLink>
+                <MobileLink to="/seguro-bike">Bike</MobileLink>
+                <MobileLink to="/seguro-carta-verde">Carta Verde</MobileLink>
               </div>
-            </div>
-
-            <div className="py-2 px-3">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Empresarial</p>
-                <div className="grid grid-cols-2 gap-1">
-                {[
-                  { to: "/seguro-empresarial", label: "Empresarial" },
-                  { to: "/seguro-caminhao", label: "Caminhão" },
-                  { to: "/seguro-frota", label: "Frota" },
-                  { to: "/seguro-transporte", label: "Transporte" },
-                  { to: "/seguro-rc", label: "RC" },
-                  { to: "/seguro-rc-profissional", label: "RC Profissional" },
-                  { to: "/seguro-condominio", label: "Condomínio" },
-                  { to: "/seguro-engenharia", label: "Engenharia" },
-                  { to: "/seguro-cyber", label: "Cyber" },
-                  { to: "/seguro-vida-pme", label: "Vida PME" },
-                  { to: "/seguro-lojas-shopping", label: "Lojas Shopping" },
-                  { to: "/seguro-galpoes-industriais", label: "Galpões Industriais" },
-                  { to: "/seguro-maquinas-industriais", label: "Máq. Industriais" },
-                  { to: "/seguro-maquinas", label: "Máquinas e Equip." },
-                ].map(l => (
-                  <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
-                ))}
+              <MobileSubLabel>Vida e Saúde</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-vida">Vida</MobileLink>
+                <MobileLink to="/planos-de-saude">Planos de Saúde</MobileLink>
+                <MobileLink to="/seguro-odonto">Plano Odonto</MobileLink>
+                <MobileLink to="/seguro-acidentes-pessoais">Acid. Pessoais</MobileLink>
+                <MobileLink to="/previdencia-privada">Previdência</MobileLink>
               </div>
-            </div>
-
-            <div className="py-2 px-3">
-              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Agro</p>
-              <div className="grid grid-cols-2 gap-1">
-                {[
-                  { to: "/seguro-maquinas-agricolas", label: "Máq. Agrícolas" },
-                  { to: "/seguro-equipamentos-agricolas", label: "Equip. Agrícolas" },
-                  { to: "/seguro-armazenagem", label: "Armazenagem" },
-                  { to: "/seguro-placa-solar", label: "Placas Solar" },
-                  { to: "/seguro-pecuario", label: "Pecuário" },
-                  { to: "/seguro-cafe", label: "Café" },
-                  { to: "/seguro-rural", label: "Rural" },
-                  { to: "/seguro-ambiental", label: "Ambiental" },
-                  { to: "/seguro-drone-agricola", label: "Drone Agrícola" },
-                  { to: "/seguro-transporte-agro", label: "Transp. Agrícola" },
-                ].map(l => (
-                  <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
-                ))}
+              <MobileSubLabel>Patrimônio</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-residencial">Residencial</MobileLink>
+                <MobileLink to="/seguro-celular">Celular</MobileLink>
+                <MobileLink to="/seguro-viagem">Viagem</MobileLink>
+                <MobileLink to="/seguro-fianca">Fiança</MobileLink>
+                <MobileLink to="/seguro-fianca-locaticia">Fiança Locatícia</MobileLink>
+                <MobileLink to="/seguro-estagiario">Estagiário</MobileLink>
               </div>
-            </div>
+              <MobileSubLabel>Lazer</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-jetski">Jet Ski</MobileLink>
+                <MobileLink to="/seguro-embarcacoes">Embarcações</MobileLink>
+                <MobileLink to="/seguro-avioes">Aviões</MobileLink>
+                <MobileLink to="/seguro-helicopteros">Helicópteros</MobileLink>
+              </div>
+            </MobileSection>
 
-            <Link to="/consorcio" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Consórcio</Link>
-            <Link to="/blog" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-            <Link to="/sobre" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Sobre</Link>
-            <Link to="/contato" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Contato</Link>
+            <MobileSection id="empresarial" label="Empresarial">
+              <MobileSubLabel>Empresas</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-empresarial">Empresarial</MobileLink>
+                <MobileLink to="/seguro-condominio">Condomínio</MobileLink>
+                <MobileLink to="/seguro-lojas-shopping">Lojas Shopping</MobileLink>
+                <MobileLink to="/seguro-galpoes-industriais">Galpões Industriais</MobileLink>
+              </div>
+              <MobileSubLabel>Frotas e Transporte</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-frota">Frota</MobileLink>
+                <MobileLink to="/seguro-transporte">Transporte</MobileLink>
+              </div>
+              <MobileSubLabel>Responsabilidade</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-rc">RC Geral</MobileLink>
+                <MobileLink to="/seguro-rc-profissional">RC Profissional</MobileLink>
+                <MobileLink to="/seguro-cyber">Cyber</MobileLink>
+                <MobileLink to="/seguro-engenharia">Engenharia</MobileLink>
+              </div>
+              <MobileSubLabel>Industrial</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-maquinas">Máquinas e Equip.</MobileLink>
+                <MobileLink to="/seguro-maquinas-industriais">Máq. Industriais</MobileLink>
+              </div>
+              <MobileSubLabel>Colaboradores</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-vida-pme">Vida PME</MobileLink>
+                <MobileLink to="/seguro-estagiario">Estagiário</MobileLink>
+              </div>
+            </MobileSection>
 
-            <div className="flex gap-2 pt-3">
-              <Link to="/cotacao" className="flex-1" onClick={() => setIsMenuOpen(false)}>
+            <MobileSection id="agro" label="Agro — Todo o Brasil">
+              <MobileSubLabel>Máquinas e Equipamentos</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-maquinas-agricolas">Máq. Agrícolas</MobileLink>
+                <MobileLink to="/seguro-equipamentos-agricolas">Equip. Agrícolas</MobileLink>
+                <MobileLink to="/seguro-drone-agricola">Drone Agrícola</MobileLink>
+                <MobileLink to="/seguro-placa-solar">Placas Solar</MobileLink>
+              </div>
+              <MobileSubLabel>Produção e Transporte</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-rural">Rural</MobileLink>
+                <MobileLink to="/seguro-pecuario">Pecuário</MobileLink>
+                <MobileLink to="/seguro-cafe">Café</MobileLink>
+                <MobileLink to="/seguro-armazenagem">Armazenagem</MobileLink>
+                <MobileLink to="/seguro-transporte-agro">Transp. Agrícola</MobileLink>
+                <MobileLink to="/seguro-ambiental">Ambiental</MobileLink>
+              </div>
+            </MobileSection>
+
+            <Link to="/consorcio" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Consórcio</Link>
+            <Link to="/blog" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Blog</Link>
+            <Link to="/sobre" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
+            <Link to="/contato" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
+
+            <div className="flex gap-2 pt-4 pb-2">
+              <Link to="/cotacao" className="flex-1" onClick={close}>
                 <Button className="w-full rounded-xl">Cotação Grátis</Button>
               </Link>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex-1">
