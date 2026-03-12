@@ -19,6 +19,7 @@ interface InsurancePageProps {
   whyPatro: string[];
   faqs: FAQ[];
   relatedInsurances?: { title: string; link: string }[];
+  badge?: string;
 }
 
 const InsurancePageTemplate = ({
