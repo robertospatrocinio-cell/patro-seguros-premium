@@ -2952,6 +2952,9 @@ const BlogArticle = () => {
   return (
     <>
       <PageMeta title={article.title} description={`${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros para você e sua empresa.`} />
+      {article.faqs.length > 0 && (
+        <FAQSchema faqs={article.faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      )}
       <Header />
       <main>
         <section className="gradient-hero py-16">
