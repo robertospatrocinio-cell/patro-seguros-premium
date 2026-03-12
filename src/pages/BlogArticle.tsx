@@ -2850,6 +2850,92 @@ A Patro Seguros faz cotações com as melhores seguradoras para encontrar o plan
       { q: "Quanto custa um seguro residencial?", a: "A partir de R$ 150/ano para apartamentos e R$ 200/ano para casas. É um dos seguros mais acessíveis do mercado e se paga com uma única utilização da assistência 24h." },
     ],
   },
+  "3-erros-produtor-rural-seguro-maquinas": {
+    title: "3 Coisas que o Produtor Rural Esquece na Hora de Contratar um Seguro de Máquinas",
+    content: `O seguro de máquinas agrícolas é um investimento fundamental para o produtor rural. Um trator, uma colheitadeira ou um pulverizador autopropelido representam centenas de milhares — às vezes milhões — de reais em patrimônio. Ainda assim, muitos produtores contratam o seguro sem atenção a detalhes que podem fazer toda a diferença na hora de um sinistro.
+
+Neste artigo, a Patro Seguros — especialista em seguros para o agronegócio — revela os 3 erros mais comuns que produtores rurais cometem ao contratar seguro de máquinas e como evitá-los.
+
+1. Não Declarar os Implementos Acoplados
+
+Este é, de longe, o erro mais frequente e mais caro. O produtor contrata o seguro do trator, mas esquece de incluir na apólice os implementos que trabalham acoplados: grade aradora, plantadeira, pulverizador de arrasto, subsolador, roçadeira, distribuidor de calcário, entre outros.
+
+Por que isso é um problema grave?
+
+Se o trator sofre um sinistro (incêndio, tombamento, colisão) e o implemento acoplado também é danificado, a seguradora indeniza apenas o trator — o implemento não coberto fica por conta do produtor. E implementos agrícolas não são baratos: uma plantadeira de precisão pode custar de R$ 150.000 a R$ 500.000. Um pulverizador autopropelido passa fácil de R$ 1 milhão.
+
+Como evitar:
+
+- Liste todos os implementos que você possui e informe ao corretor na hora da contratação.
+- Implementos podem ser segurados individualmente ou como acessórios do trator — depende da seguradora.
+- Atualize a apólice quando comprar novos implementos durante a vigência.
+- Implementos alugados ou de terceiros também podem ser cobertos — consulte as condições.
+
+Na Patro, fazemos um levantamento completo do parque de máquinas e implementos para garantir que nada fique de fora.
+
+2. Subdeclarar o Valor das Máquinas
+
+Muitos produtores declaram valores abaixo do real para pagar menos no seguro. Essa "economia" pode se transformar em prejuízo enorme em caso de sinistro por causa de uma regra chamada rateio (ou cláusula de rateio).
+
+Como funciona o rateio:
+
+Se você declara que seu trator vale R$ 300.000, mas o valor real de mercado é R$ 500.000, a seguradora entende que você segurou apenas 60% do patrimônio. Em caso de sinistro parcial (reparo de R$ 100.000, por exemplo), ela paga apenas 60% — ou seja, R$ 60.000. Você arca com os R$ 40.000 restantes.
+
+O rateio se aplica em sinistros parciais, que são os mais comuns (tombamento com danos reparáveis, incêndio parcial, danos por galhos ou queda de árvore). Em perda total, a indenização é limitada ao valor declarado — você recebe R$ 300.000 em vez dos R$ 500.000 que a máquina realmente vale.
+
+Como evitar:
+
+- Declare sempre o valor real de mercado ou de reposição da máquina.
+- Consulte tabelas de referência (como a tabela da revista Globo Rural ou FIPE para máquinas).
+- Considere que máquinas agrícolas se valorizam em períodos de câmbio alto — revise os valores na renovação.
+- Converse com seu corretor sobre a diferença entre valor de mercado e valor de novo (reposição).
+
+Na Patro, utilizamos tabelas atualizadas e acompanhamos a valorização/desvalorização do mercado de máquinas para garantir que o valor segurado seja sempre adequado.
+
+3. Ignorar a Cobertura de Incêndio em Operação no Campo
+
+Aqui está um ponto que pega muitos produtores de surpresa: nem toda apólice cobre incêndio durante a operação no campo. Algumas coberturas de incêndio são restritas a máquinas guardadas no galpão — e excluem incêndio durante colheita, preparo de solo ou transporte entre propriedades.
+
+Por que isso é crítico:
+
+A maioria dos incêndios em máquinas agrícolas acontece durante a operação — não dentro do galpão. Colheitadeiras de grãos são particularmente vulneráveis: a palha seca acumula no sistema de exaustão, o calor do motor atinge temperaturas extremas e uma faísca pode iniciar um incêndio devastador em segundos.
+
+Segundo dados do setor, incêndios em colheitadeiras durante a safra representam mais de 40% dos sinistros de máquinas agrícolas. Se sua apólice não cobre incêndio em operação, você está descoberto exatamente quando o risco é maior.
+
+Como evitar:
+
+- Leia atentamente as condições gerais da apólice — ou melhor, peça para seu corretor explicar cada exclusão.
+- Confirme que a cobertura de incêndio inclui "máquina em operação no campo" e não apenas "em repouso ou guardada".
+- Verifique se a cobertura se estende a incêndio causado por queimada de terceiros (fogo em propriedade vizinha que atinge suas máquinas).
+- Para colheitadeiras, priorize seguradoras que entendem o risco agrícola e não aplicam exclusões genéricas.
+
+Na Patro, somos especialistas em seguros para o agronegócio e conhecemos as cláusulas de cada seguradora. Garantimos que a cobertura de incêndio proteja sua máquina onde ela realmente precisa: no campo, em operação.
+
+Bônus: Outros Pontos de Atenção
+
+Além dos 3 erros principais, fique atento a:
+
+- Cobertura durante transporte entre fazendas: Se você transporta máquinas por estrada (em prancha ou rodando), confirme que há cobertura para colisão e tombamento durante o deslocamento.
+
+- Operador sem habilitação adequada: Algumas apólices exigem que o operador tenha habilitação (categoria C ou D) ou certificação técnica. Se um operador não habilitado estiver conduzindo no momento do sinistro, a cobertura pode ser negada.
+
+- Máquinas alugadas ou de terceiros: Se você aluga máquinas de terceiros ou empresta as suas, verifique se a apólice cobre sinistros nessas situações. Pode ser necessário incluir cláusula específica.
+
+- Cobertura para roubo no campo: Máquinas agrícolas são visadas por quadrilhas especializadas. Verifique se há cobertura de roubo/furto — e se existem exigências de rastreamento.
+
+Conclusão
+
+O seguro de máquinas agrícolas é um investimento essencial, mas só protege de verdade quando contratado com atenção aos detalhes. Declarar implementos, informar valores corretos e garantir cobertura de incêndio em operação são os três pontos que separam uma apólice que funciona de uma que frustra o produtor no pior momento.
+
+A Patro Seguros é especialista em seguros para o agronegócio e conhece as particularidades de cada seguradora e cada tipo de máquina. Fale conosco pelo WhatsApp e garanta que seu parque de máquinas esteja realmente protegido.`,
+    faqs: [
+      { q: "Implementos agrícolas precisam de seguro separado?", a: "Depende da seguradora. Algumas permitem incluir implementos como acessórios na apólice do trator, outras exigem apólice individual. O importante é que estejam declarados — implemento não declarado não tem cobertura em caso de sinistro." },
+      { q: "O que é rateio no seguro de máquinas?", a: "Rateio é a redução proporcional da indenização quando o valor segurado é menor que o valor real da máquina. Se você segurou por R$ 300 mil mas a máquina vale R$ 500 mil, em sinistro parcial a seguradora paga apenas 60% do prejuízo. Declare sempre o valor correto." },
+      { q: "Seguro de máquina agrícola cobre incêndio durante a colheita?", a: "Nem todas as apólices cobrem. Algumas restringem a cobertura de incêndio a máquinas guardadas em galpão. Confirme com seu corretor que a apólice inclui 'incêndio em operação no campo' — é onde a maioria dos incêndios em colheitadeiras acontece." },
+      { q: "Quanto custa o seguro de um trator?", a: "Em média, de 1,5% a 4% do valor da máquina por ano. Para um trator de R$ 400.000, o seguro fica entre R$ 6.000 e R$ 16.000/ano. Colheitadeiras e pulverizadores autopropelidos tendem a ser mais caros proporcionalmente pelo maior risco de incêndio." },
+      { q: "Produtor rural tem desconto no seguro de máquinas?", a: "Sim, alguns fatores reduzem o preço: galpão coberto para guarda, rastreador instalado, brigada de incêndio na propriedade, histórico sem sinistros e contratação de múltiplas máquinas (frota agrícola). Na Patro, analisamos todos esses fatores para otimizar o preço." },
+    ],
+  },
 };
 
 const defaultArticle = {
