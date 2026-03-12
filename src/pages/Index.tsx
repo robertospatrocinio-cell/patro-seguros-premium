@@ -292,13 +292,13 @@ const Index = () => {
               Fale com nossos especialistas e receba sua cotação gratuita em até 2 horas.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/cotacao">
-                <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white text-primary hover:bg-white/90">
+              <Link to="/cotacao" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white text-primary hover:bg-white/90">
                   Pedir Cotação Gratuita
                 </Button>
               </Link>
-              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500">
-                <Button size="lg" className="text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20">
+              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" />
                   (11) 5199-7500
                 </Button>

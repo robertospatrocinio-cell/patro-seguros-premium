@@ -306,11 +306,11 @@ const InsurancePageTemplate = ({
             <h2 className="text-white mb-4">Solicite sua cotação de {title} agora</h2>
             <p className="text-lg text-white/70 mb-10 max-w-xl mx-auto">Resposta em até 2 horas com as melhores opções do mercado</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/cotacao">
-                <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8">Pedir Cotação Gratuita</Button>
+              <Link to="/cotacao" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8">Pedir Cotação Gratuita</Button>
               </Link>
-              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500">
-                <Button size="lg" className="rounded-xl h-12 px-8 bg-white/10 border border-white/20 text-white hover:bg-white/20">
+              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 bg-white/10 border border-white/20 text-white hover:bg-white/20">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> (11) 5199-7500
                 </Button>
               </a>
