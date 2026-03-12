@@ -180,8 +180,23 @@ const Header = () => {
                   { to: "/seguro-rc", label: "RC" },
                   { to: "/seguro-condominio", label: "Condomínio" },
                   { to: "/seguro-cyber", label: "Cyber" },
-                  { to: "/seguro-ambiental", label: "Ambiental" },
                   { to: "/seguro-vida-pme", label: "Vida PME" },
+                ].map(l => (
+                  <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="py-2 px-3">
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Agro</p>
+              <div className="grid grid-cols-2 gap-1">
+                {[
+                  { to: "/seguro-maquinas-agricolas", label: "Máq. Agrícolas" },
+                  { to: "/seguro-armazenagem", label: "Armazenagem" },
+                  { to: "/seguro-placa-solar", label: "Placas Solar" },
+                  { to: "/seguro-pecuario", label: "Pecuário" },
+                  { to: "/seguro-cafe", label: "Café" },
+                  { to: "/seguro-ambiental", label: "Ambiental" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
                 ))}
