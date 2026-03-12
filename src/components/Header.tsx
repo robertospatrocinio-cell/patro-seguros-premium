@@ -90,7 +90,7 @@ const Header = () => {
                 <DropLink to="/seguro-estagiario">Seguro Estagiário</DropLink>
                 <DropLink to="/previdencia-privada">Previdência Privada</DropLink>
                 <DropLink to="/planos-de-saude">Planos de Saúde</DropLink>
-                <DropLink to="/seguro-odonto">Seguro Odonto</DropLink>
+                <DropLink to="/seguro-odonto">Plano Odontológico</DropLink>
               </NavDropdown>
 
               <NavDropdown label="Empresarial">
@@ -163,6 +163,7 @@ const Header = () => {
                   { to: "/seguro-acidentes-pessoais", label: "Acid. Pessoais" },
                   { to: "/seguro-estagiario", label: "Estagiário" },
                   { to: "/previdencia-privada", label: "Previdência" },
+                  { to: "/seguro-odonto", label: "Plano Odonto" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
                 ))}
