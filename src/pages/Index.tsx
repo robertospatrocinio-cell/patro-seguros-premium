@@ -28,10 +28,10 @@ const solutions = [
 ];
 
 const diferenciais = [
-  { icon: Clock, title: "Resposta em 2h", desc: "Cotação expressa sem burocracia. Resposta em até 2 horas úteis." },
-  { icon: Users, title: "Atendimento Consultivo", desc: "Análise personalizada das suas necessidades por especialistas." },
-  { icon: Shield, title: "Maiores Seguradoras", desc: "Comparamos Porto, Tokio Marine, Allianz, HDI e mais." },
-  { icon: Award, title: "Suporte em Sinistro", desc: "Acompanhamento completo em todo o processo de sinistro." },
+  { icon: Clock, title: "Cotação em até 2h", desc: "Envie seus dados e receba propostas comparativas de várias seguradoras em até 2 horas úteis." },
+  { icon: Users, title: "Consultoria Personalizada", desc: "Nossos especialistas analisam seu perfil e recomendam a proteção exata que você precisa — sem vender o que não faz sentido." },
+  { icon: Shield, title: "+14 Seguradoras Comparadas", desc: "Porto, Tokio Marine, Allianz, HDI, Bradesco, Mapfre e mais — comparamos todas para você pagar menos." },
+  { icon: Award, title: "Suporte Total em Sinistro", desc: "Se acontecer um imprevisto, a Patro cuida de todo o processo: abertura, acompanhamento e resolução junto à seguradora." },
 ];
 
 const testimonials = [
