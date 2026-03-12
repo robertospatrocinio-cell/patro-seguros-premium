@@ -70,7 +70,7 @@ const Index = () => {
                 A proteção certa pelo menor preço.
               </h1>
               <p className="text-[15px] md:text-base text-white/45 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
-                Comparamos 14+ seguradoras e 11 operadoras de saúde. Cotação gratuita em até 2 horas. Atendimento consultivo.
+                Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
