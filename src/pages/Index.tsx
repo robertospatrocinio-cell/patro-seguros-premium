@@ -8,7 +8,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 
 const seguradoras = ["Porto", "HDI", "Allianz", "Tokio Marine", "Mapfre", "Bradesco", "Azul", "Zurich", "Liberty", "Suhai", "Justos", "Darwin", "Ituran", "Akad"];
 
-const operadoras = ["Bradesco Saúde", "Amil", "SulAmérica Saúde", "Porto Saúde", "HapVida/NotreDame Intermédica", "MedSenior", "Omint", "Unimed", "Prevent Senior"];
+const operadoras = ["Bradesco Saúde", "Amil", "SulAmérica Saúde", "Porto Saúde", "HapVida/NotreDame Intermédica", "MedSenior", "Omint", "Unimed", "Prevent Senior", "Alice", "Care Plus"];
 
 const solutions = [
   { title: "Seguro Auto", desc: "Proteção completa para seu veículo", icon: Car, link: "/seguro-auto" },
