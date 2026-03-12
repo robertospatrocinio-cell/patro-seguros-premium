@@ -8,14 +8,11 @@ const WhatsAppButton = () => {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 group"
+      className="fixed bottom-5 right-5 z-50 group"
       aria-label="Falar no WhatsApp"
     >
-      <div className="relative">
-        <div className="absolute inset-0 rounded-full bg-[hsl(142,70%,45%)] blur-lg opacity-40 group-hover:opacity-60 transition-base scale-110" />
-        <div className="relative bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-white rounded-full p-4 shadow-xl transition-base group-hover:scale-110">
-          <MessageCircle className="h-6 w-6" />
-        </div>
+      <div className="relative bg-foreground text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-105 group-hover:shadow-2xl">
+        <MessageCircle className="h-5 w-5" strokeWidth={1.5} />
       </div>
     </a>
   );
