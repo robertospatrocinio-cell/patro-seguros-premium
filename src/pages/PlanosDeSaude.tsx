@@ -28,8 +28,8 @@ const PlanosDeSaude = () => {
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <div className="text-6xl mb-6">🏥</div>
-            <h1 className="mb-6">Planos de Saúde — Compare e Encontre o Melhor</h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <h1 className="text-white mb-6">Planos de Saúde — Compare e Encontre o Melhor</h1>
+            <p className="text-xl text-white/70 mb-8">
               Trabalhamos com as principais operadoras do Brasil para encontrar o plano de saúde ideal para você, sua família ou sua empresa.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

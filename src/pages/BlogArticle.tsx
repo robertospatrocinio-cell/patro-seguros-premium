@@ -2959,10 +2959,10 @@ const BlogArticle = () => {
       <main>
         <section className="gradient-hero py-16">
           <div className="container mx-auto px-4 max-w-3xl">
-            <Link to="/blog" className="inline-flex items-center text-sm text-muted-foreground hover:text-primary mb-6">
+            <Link to="/blog" className="inline-flex items-center text-sm text-white/60 hover:text-white mb-6">
               <ArrowLeft className="mr-1 h-4 w-4" /> Voltar ao Blog
             </Link>
-            <h1 className="mb-4">{article.title}</h1>
+            <h1 className="text-white mb-4">{article.title}</h1>
           </div>
         </section>
 
