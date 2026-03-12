@@ -103,12 +103,19 @@ const Header = () => {
                 <DropLink to="/seguro-condominio">Seguro Condomínio</DropLink>
                 <DropLink to="/seguro-engenharia">Seguro Engenharia</DropLink>
                 <DropLink to="/seguro-cyber">Seguro Cyber</DropLink>
-                <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
                 <DropLink to="/seguro-vida-pme">Vida PME</DropLink>
               </NavDropdown>
 
-              <NavDropdown label="Especialidades">
+              <NavDropdown label="Agro">
                 <DropLink to="/seguro-maquinas-agricolas">Máquinas Agrícolas</DropLink>
+                <DropLink to="/seguro-armazenagem">Seguro Armazenagem</DropLink>
+                <DropLink to="/seguro-placa-solar">Seguro Placas Solar</DropLink>
+                <DropLink to="/seguro-pecuario">Seguro Pecuário</DropLink>
+                <DropLink to="/seguro-cafe">Seguro Café</DropLink>
+                <DropLink to="/seguro-ambiental">Seguro Ambiental</DropLink>
+              </NavDropdown>
+
+              <NavDropdown label="Especialidades">
                 <DropLink to="/seguro-equipamentos-agricolas">Equipamentos Agrícolas</DropLink>
                 <DropLink to="/seguro-galpoes-industriais">Galpões Industriais</DropLink>
                 <DropLink to="/seguro-maquinas-industriais">Máquinas Industriais</DropLink>
@@ -173,8 +180,23 @@ const Header = () => {
                   { to: "/seguro-rc", label: "RC" },
                   { to: "/seguro-condominio", label: "Condomínio" },
                   { to: "/seguro-cyber", label: "Cyber" },
-                  { to: "/seguro-ambiental", label: "Ambiental" },
                   { to: "/seguro-vida-pme", label: "Vida PME" },
+                ].map(l => (
+                  <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="py-2 px-3">
+              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Agro</p>
+              <div className="grid grid-cols-2 gap-1">
+                {[
+                  { to: "/seguro-maquinas-agricolas", label: "Máq. Agrícolas" },
+                  { to: "/seguro-armazenagem", label: "Armazenagem" },
+                  { to: "/seguro-placa-solar", label: "Placas Solar" },
+                  { to: "/seguro-pecuario", label: "Pecuário" },
+                  { to: "/seguro-cafe", label: "Café" },
+                  { to: "/seguro-ambiental", label: "Ambiental" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
                 ))}
