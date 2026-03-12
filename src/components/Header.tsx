@@ -49,29 +49,28 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Slim top bar */}
-      <div className="bg-primary text-primary-foreground">
+      <div className="bg-[hsl(220,40%,12%)] text-white/70">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-1.5 text-xs">
+          <div className="flex items-center justify-between py-1.5 text-[11px]">
             <div className="flex items-center gap-4">
-              <a href="tel:1151997500" className="flex items-center gap-1.5 hover:opacity-80 transition-base" aria-label="Ligar para (11) 5199-7500">
+              <a href="tel:1151997500" className="flex items-center gap-1.5 hover:text-white transition-base" aria-label="Ligar para (11) 5199-7500">
                 <Phone className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 hover:opacity-80 transition-base" aria-label="Enviar e-mail para contato@patroseguros.com.br">
+              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 hover:text-white transition-base" aria-label="Enviar e-mail para contato@patroseguros.com.br">
                 <Mail className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-amber-400/20 border border-yellow-400/50 text-yellow-300 font-bold text-[10px] uppercase tracking-wider drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" style={{ textShadow: '0 1px 2px rgba(0,0,0,0.4), 0 0 8px rgba(251,191,36,0.3)' }}>
-                <Award className="h-3 w-3 text-yellow-300 drop-shadow-[0_0_4px_rgba(251,191,36,0.5)]" aria-hidden="true" />
-                Melhor Corretora de Guarulhos
+              <span className="hidden sm:inline-flex items-center gap-1.5 text-white/50 font-medium text-[10px] uppercase tracking-widest">
+                SUSEP 211112427
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-base" aria-label="Patro Seguros no Instagram"><Instagram className="h-3.5 w-3.5" aria-hidden="true" /></a>
-              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-base" aria-label="Patro Seguros no Facebook"><Facebook className="h-3.5 w-3.5" aria-hidden="true" /></a>
-              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-base" aria-label="Patro Seguros no LinkedIn"><Linkedin className="h-3.5 w-3.5" aria-hidden="true" /></a>
+              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no Instagram"><Instagram className="h-3.5 w-3.5" aria-hidden="true" /></a>
+              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no Facebook"><Facebook className="h-3.5 w-3.5" aria-hidden="true" /></a>
+              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white/80 transition-base" aria-label="Patro Seguros no LinkedIn"><Linkedin className="h-3.5 w-3.5" aria-hidden="true" /></a>
             </div>
           </div>
         </div>
