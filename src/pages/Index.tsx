@@ -28,10 +28,10 @@ const solutions = [
 ];
 
 const diferenciais = [
-  { icon: Clock, title: "Resposta em 2h", desc: "Cotação expressa sem burocracia. Resposta em até 2 horas úteis." },
-  { icon: Users, title: "Atendimento Consultivo", desc: "Análise personalizada das suas necessidades por especialistas." },
-  { icon: Shield, title: "Maiores Seguradoras", desc: "Comparamos Porto, Tokio Marine, Allianz, HDI e mais." },
-  { icon: Award, title: "Suporte em Sinistro", desc: "Acompanhamento completo em todo o processo de sinistro." },
+  { icon: Clock, title: "Cotação em até 2h", desc: "Envie seus dados e receba propostas comparativas de várias seguradoras em até 2 horas úteis." },
+  { icon: Users, title: "Consultoria Personalizada", desc: "Nossos especialistas analisam seu perfil e recomendam a proteção exata que você precisa — sem vender o que não faz sentido." },
+  { icon: Shield, title: "+14 Seguradoras Comparadas", desc: "Porto, Tokio Marine, Allianz, HDI, Bradesco, Mapfre e mais — comparamos todas para você pagar menos." },
+  { icon: Award, title: "Suporte Total em Sinistro", desc: "Se acontecer um imprevisto, a Patro cuida de todo o processo: abertura, acompanhamento e resolução junto à seguradora." },
 ];
 
 const testimonials = [
@@ -60,28 +60,36 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(215,100%,60%,0.15),transparent_60%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsla(215,100%,70%,0.1),transparent_50%)]" />
           <div className="container mx-auto px-4 relative">
-            <div className="py-24 md:py-36 max-w-3xl mx-auto text-center">
+            <div className="py-20 md:py-32 max-w-3xl mx-auto text-center">
               <div className="animate-fade-up">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/10 mb-8 backdrop-blur-sm">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/10 mb-6 backdrop-blur-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
-                  Corretora de Seguros em Guarulhos
+                  Corretora de Seguros em Guarulhos · SUSEP 211112427
                 </span>
               </div>
-              <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1">
-                Proteção inteligente para você, sua família e sua empresa
+              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
+                Seguro para você, sua empresa e o agro — com cotação gratuita em até 2 horas
               </h1>
-              <p className="text-lg md:text-xl text-white/70 mb-10 text-balance animate-fade-up-delay-2 max-w-2xl mx-auto">
-                Comparamos as principais seguradoras do mercado para encontrar a melhor proteção com o menor custo.
+              <p className="text-lg md:text-xl text-white/80 mb-4 text-balance animate-fade-up-delay-2 max-w-2xl mx-auto">
+                A Patro compara mais de 14 seguradoras e 11 operadoras de saúde para encontrar a proteção certa pelo menor preço. Atendimento consultivo e sem burocracia.
               </p>
+
+              {/* Proof bar */}
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 animate-fade-up-delay-2">
+                <span className="text-white/60 text-sm font-medium">✓ Cotação grátis</span>
+                <span className="text-white/60 text-sm font-medium">✓ Resposta em 2h</span>
+                <span className="text-white/60 text-sm font-medium">✓ Sem compromisso</span>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <Link to="/cotacao" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12 font-semibold">
                     <Shield className="mr-2 h-4 w-4" aria-hidden="true" />
                     Solicitar Cotação Grátis
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm font-semibold">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Falar no WhatsApp
                   </Button>
@@ -91,37 +99,37 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Seguradoras */}
-        <section className="py-14 bg-background border-b" aria-label="Seguradoras parceiras">
+        {/* Parceiros — faixa compacta */}
+        <section className="py-8 bg-background border-b" aria-label="Seguradoras e operadoras parceiras">
           <div className="container mx-auto px-4">
-            <h2 className="text-center text-xs text-muted-foreground mb-8 uppercase tracking-[0.2em] font-medium">Seguradoras Parceiras</h2>
-            <ul className="flex flex-wrap justify-center gap-3 items-center list-none" role="list">
-              {seguradoras.map((name) => (
-                <li key={name} className="px-5 py-2.5 rounded-xl bg-background text-sm font-medium text-muted-foreground border border-[hsl(0,0%,75%)] shadow-[0_0_6px_0_hsla(0,0%,70%,0.3)] hover:border-primary/30 hover:text-primary hover:shadow-[0_0_8px_0_hsla(var(--primary),0.2)] hover:font-bold hover:scale-[1.15] transition-all duration-200 cursor-default">
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* Operadoras */}
-        <section className="py-10 bg-muted/50 border-b" aria-label="Operadoras de saúde">
-          <div className="container mx-auto px-4">
-            <h2 className="text-center text-xs text-muted-foreground mb-6 uppercase tracking-[0.2em] font-medium">Operadoras de Planos de Saúde</h2>
-            <ul className="flex flex-wrap justify-center gap-3 items-center list-none" role="list">
-              {operadoras.map((name) => (
-                <li key={name} className="px-4 py-2 rounded-xl bg-background text-sm font-medium text-muted-foreground border border-[hsl(0,0%,75%)] shadow-[0_0_6px_0_hsla(0,0%,70%,0.3)] hover:border-primary/30 hover:text-primary hover:shadow-[0_0_8px_0_hsla(var(--primary),0.2)] hover:font-bold hover:scale-[1.15] transition-all duration-200">
-                  {name}
-                </li>
-              ))}
-            </ul>
-            <div className="text-center mt-6">
-              <Link to="/planos-de-saude">
-                <Button variant="ghost" size="sm" className="text-primary rounded-xl">
-                  Simular Plano de Saúde <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
-                </Button>
-              </Link>
+            <div className="flex flex-col gap-4">
+              <div>
+                <h2 className="text-center text-[10px] text-muted-foreground mb-3 uppercase tracking-[0.2em] font-medium">Seguradoras Parceiras</h2>
+                <ul className="flex flex-wrap justify-center gap-2 items-center list-none" role="list">
+                  {seguradoras.map((name) => (
+                    <li key={name} className="px-3 py-1.5 rounded-lg bg-muted text-xs font-medium text-muted-foreground border border-border hover:border-primary/30 hover:text-primary transition-all duration-200 cursor-default">
+                      {name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-center text-[10px] text-muted-foreground mb-3 uppercase tracking-[0.2em] font-medium">Operadoras de Planos de Saúde</h2>
+                <ul className="flex flex-wrap justify-center gap-2 items-center list-none" role="list">
+                  {operadoras.map((name) => (
+                    <li key={name} className="px-3 py-1.5 rounded-lg bg-muted text-xs font-medium text-muted-foreground border border-border hover:border-primary/30 hover:text-primary transition-all duration-200 cursor-default">
+                      {name}
+                    </li>
+                  ))}
+                </ul>
+                <div className="text-center mt-3">
+                  <Link to="/planos-de-saude">
+                    <Button variant="ghost" size="sm" className="text-primary rounded-xl text-xs">
+                      Simular Plano de Saúde <ArrowRight className="ml-1 h-3 w-3" aria-hidden="true" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -130,9 +138,9 @@ const Index = () => {
         <section className="py-20 bg-background" aria-labelledby="diferenciais-heading">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Diferenciais</span>
-              <h2 id="diferenciais-heading" className="mt-3 mb-4">Por que escolher a Patro Seguros?</h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">Atendimento consultivo e personalizado que faz a diferença na hora de proteger o que importa.</p>
+              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Como Trabalhamos</span>
+              <h2 id="diferenciais-heading" className="mt-3 mb-4">Corretor de seguros de verdade, não um robô</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">Na Patro, cada cliente tem um especialista dedicado. Não vendemos seguro — encontramos a proteção certa para o seu momento.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
               {diferenciais.map((item, i) => (
@@ -152,9 +160,9 @@ const Index = () => {
         <section className="py-20 gradient-surface" aria-labelledby="solucoes-heading">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Soluções</span>
-              <h2 id="solucoes-heading" className="mt-3 mb-4">Seguros para todas as necessidades</h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">Proteção completa para pessoas, famílias, empresas e agronegócio.</p>
+              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">O Que Protegemos</span>
+              <h2 id="solucoes-heading" className="mt-3 mb-4">Auto, saúde, empresa, agro e muito mais</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">Clique em qualquer seguro para entender as coberturas e pedir sua cotação gratuita.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {solutions.map((s, i) => (
@@ -268,12 +276,13 @@ const Index = () => {
         <section className="py-20 gradient-surface" aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Sobre</span>
-              <h2 id="sobre-heading" className="mt-3 mb-6">A melhor corretora de seguros de Guarulhos</h2>
+              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Quem é a Patro</span>
+              <h2 id="sobre-heading" className="mt-3 mb-6">Corretora de seguros com atendimento de gente, não de máquina</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                A Patro é uma corretora de seguros registrada na SUSEP (nº 211112427), com sede em Guarulhos/SP, que atende pessoas físicas, famílias, empresas de todos os portes e produtores rurais em todo o Brasil.
+              </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                A Patro Corretora de Seguros é especialista em proteção financeira e patrimonial para pessoas físicas,
-                famílias, profissionais liberais e empresas de todos os portes. Nossa missão é levar segurança,
-                tranquilidade e proteção inteligente através de um atendimento consultivo e totalmente personalizado.
+                Nosso diferencial é simples: cada cliente conversa direto com um especialista, recebe propostas comparativas de múltiplas seguradoras e tem suporte completo — da cotação ao sinistro.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/sobre"><Button variant="outline" className="rounded-xl">Conheça Nossa História</Button></Link>
@@ -287,9 +296,9 @@ const Index = () => {
         <section className="py-24 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,hsla(215,100%,60%,0.2),transparent_70%)]" />
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-white mb-4">Pronto para proteger o que importa?</h2>
+            <h2 className="text-white mb-4">Peça sua cotação agora — é grátis e sem compromisso</h2>
             <p className="text-lg text-white/70 mb-10 max-w-xl mx-auto">
-              Fale com nossos especialistas e receba sua cotação gratuita em até 2 horas.
+              Nosso time responde em até 2 horas com propostas de várias seguradoras. Você compara e decide.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" className="w-full sm:w-auto">
