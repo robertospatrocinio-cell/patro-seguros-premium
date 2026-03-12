@@ -45,6 +45,7 @@ const articles = [
   { slug: "consorcio-imoveis-casa-propria", title: "Consórcio de Imóveis: O Sonho da Casa Própria ao Seu Alcance", excerpt: "Descubra como o consórcio de imóveis funciona, vantagens sobre o financiamento, formas de contemplação e dicas para realizar o sonho da casa própria.", category: "Consórcio" },
   { slug: "seguro-cobertura-lucros-cessantes", title: "Os Benefícios do Seguro com Cobertura de Lucros Cessantes", excerpt: "Entenda como a cobertura de lucros cessantes protege o faturamento da sua empresa em caso de sinistro e por que é indispensável.", category: "Empresarial" },
   { slug: "5-dicas-baratear-seguro-auto", title: "5 Dicas para Baratear o Seguro Auto", excerpt: "Confira estratégias práticas para pagar menos no seguro do seu carro sem abrir mão da proteção.", category: "Seguro Auto" },
+  { slug: "coberturas-assistencia-24h-seguro-residencial", title: "Coberturas da Assistência 24h e Benefícios do Seguro Residencial", excerpt: "Descubra tudo o que a assistência 24h do seguro residencial cobre e os benefícios que protegem seu lar.", category: "Seguro Residencial" },
 ];
 
 const Blog = () => {
