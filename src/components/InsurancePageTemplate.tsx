@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CheckCircle, Phone, MessageCircle, ArrowRight, Award } from "lucide-react";
+import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -9,6 +9,8 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 
 interface Coverage { title: string; description: string; }
 interface FAQ { question: string; answer: string; }
+interface HowItWorksStep { step: string; title: string; description: string; }
+interface Scenario { title: string; description: string; }
 
 interface InsurancePageProps {
   title: string;
@@ -22,6 +24,14 @@ interface InsurancePageProps {
   relatedInsurances?: { title: string; link: string }[];
   badge?: string;
   metaDescription?: string;
+  // New dense content sections
+  detailedDescription?: string;
+  howItWorks?: HowItWorksStep[];
+  pricingInfo?: { intro: string; factors: string[]; note?: string };
+  importantDetails?: { title: string; content: string }[];
+  realScenarios?: Scenario[];
+  coverageExclusions?: string[];
+  tips?: string[];
 }
 
 const InsurancePageTemplate = ({
@@ -30,6 +40,13 @@ const InsurancePageTemplate = ({
   relatedInsurances = [],
   badge,
   metaDescription,
+  detailedDescription,
+  howItWorks,
+  pricingInfo,
+  importantDetails,
+  realScenarios,
+  coverageExclusions,
+  tips,
 }: InsurancePageProps) => {
   return (
     <>
@@ -71,15 +88,47 @@ const InsurancePageTemplate = ({
           </div>
         </section>
 
-        {/* Descrição */}
+        {/* Descrição Aprofundada */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl">
             <p className="text-lg text-muted-foreground leading-relaxed">{description}</p>
+            {detailedDescription && (
+              <div className="mt-8 space-y-4">
+                {detailedDescription.split('\n\n').map((paragraph, i) => (
+                  <p key={i} className="text-muted-foreground leading-relaxed">{paragraph}</p>
+                ))}
+              </div>
+            )}
           </div>
         </section>
 
+        {/* Como Funciona */}
+        {howItWorks && howItWorks.length > 0 && (
+          <section className="py-20 gradient-surface">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <div className="text-center mb-14">
+                <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Passo a Passo</span>
+                <h2 className="mt-3">Como Funciona o {title}</h2>
+              </div>
+              <div className="space-y-6">
+                {howItWorks.map((step, i) => (
+                  <div key={i} className="premium-card p-6 flex gap-5 items-start">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-sm font-bold text-primary">{step.step}</span>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold mb-2">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Coberturas */}
-        <section className="py-20 gradient-surface">
+        <section className={`py-20 ${howItWorks ? '' : 'gradient-surface'}`}>
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
               <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Coberturas</span>
@@ -92,7 +141,7 @@ const InsurancePageTemplate = ({
                     <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <h3 className="text-base font-semibold mb-1">{c.title}</h3>
-                      <p className="text-sm text-muted-foreground">{c.description}</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{c.description}</p>
                     </div>
                   </div>
                 </div>
@@ -100,6 +149,121 @@ const InsurancePageTemplate = ({
             </div>
           </div>
         </section>
+
+        {/* O Que Não É Coberto */}
+        {coverageExclusions && coverageExclusions.length > 0 && (
+          <section className="py-16">
+            <div className="container mx-auto px-4 max-w-3xl">
+              <div className="flex items-center gap-3 mb-8">
+                <AlertTriangle className="h-6 w-6 text-destructive flex-shrink-0" />
+                <h2 className="text-xl font-semibold">O que geralmente NÃO é coberto</h2>
+              </div>
+              <p className="text-sm text-muted-foreground mb-6">É importante conhecer as exclusões para evitar surpresas. Confira os itens mais comuns que ficam fora da cobertura padrão:</p>
+              <div className="grid md:grid-cols-2 gap-3">
+                {coverageExclusions.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 bg-destructive/5 border border-destructive/10 rounded-xl p-4">
+                    <span className="text-destructive font-bold text-sm mt-0.5">✕</span>
+                    <p className="text-sm text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Quanto Custa */}
+        {pricingInfo && (
+          <section className="py-20 gradient-surface">
+            <div className="container mx-auto px-4 max-w-3xl">
+              <div className="text-center mb-10">
+                <DollarSign className="h-8 w-8 text-primary mx-auto mb-3" />
+                <h2>Quanto custa o {title}?</h2>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-8">{pricingInfo.intro}</p>
+              <div className="premium-card p-6">
+                <h3 className="text-base font-semibold mb-4">Fatores que influenciam o preço:</h3>
+                <div className="grid md:grid-cols-2 gap-3">
+                  {pricingInfo.factors.map((factor, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-muted-foreground">{factor}</p>
+                    </div>
+                  ))}
+                </div>
+                {pricingInfo.note && (
+                  <div className="mt-6 pt-5 border-t border-border">
+                    <p className="text-sm text-muted-foreground leading-relaxed italic">{pricingInfo.note}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Cenários Reais */}
+        {realScenarios && realScenarios.length > 0 && (
+          <section className="py-20">
+            <div className="container mx-auto px-4 max-w-3xl">
+              <div className="text-center mb-14">
+                <BookOpen className="h-8 w-8 text-primary mx-auto mb-3" />
+                <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Exemplos Práticos</span>
+                <h2 className="mt-3">Situações Reais que o Seguro Resolve</h2>
+              </div>
+              <div className="space-y-4">
+                {realScenarios.map((scenario, i) => (
+                  <div key={i} className="premium-card p-6">
+                    <h3 className="text-base font-semibold mb-2">{scenario.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{scenario.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Informações Importantes */}
+        {importantDetails && importantDetails.length > 0 && (
+          <section className="py-20 gradient-surface">
+            <div className="container mx-auto px-4 max-w-3xl">
+              <div className="text-center mb-14">
+                <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Aprofundamento</span>
+                <h2 className="mt-3">O que você precisa saber</h2>
+              </div>
+              <div className="space-y-8">
+                {importantDetails.map((detail, i) => (
+                  <div key={i}>
+                    <h3 className="text-lg font-semibold mb-3">{detail.title}</h3>
+                    <div className="space-y-3">
+                      {detail.content.split('\n\n').map((p, j) => (
+                        <p key={j} className="text-muted-foreground leading-relaxed">{p}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Dicas */}
+        {tips && tips.length > 0 && (
+          <section className="py-16">
+            <div className="container mx-auto px-4 max-w-3xl">
+              <div className="flex items-center gap-3 mb-8">
+                <Lightbulb className="h-6 w-6 text-primary flex-shrink-0" />
+                <h2 className="text-xl font-semibold">Dicas da Patro para Economizar</h2>
+              </div>
+              <div className="space-y-3">
+                {tips.map((tip, i) => (
+                  <div key={i} className="flex items-start gap-3 bg-primary/5 border border-primary/10 rounded-xl p-4">
+                    <span className="text-primary font-bold text-sm mt-0.5">{i + 1}.</span>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{tip}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Quem Precisa */}
         <section className="py-16">
