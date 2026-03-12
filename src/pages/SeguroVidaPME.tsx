@@ -6,6 +6,7 @@ const SeguroVidaPME = () => {
       title="Seguro de Vida PME"
       subtitle="Proteção coletiva para pequenas e médias empresas"
       icon="🏢"
+      metaDescription="Seguro de Vida PME para pequenas e médias empresas. A partir de 3 vidas. Cobertura de morte, invalidez e assistência. Retenção de talentos. Cotação grátis Patro Seguros."
       description="O Seguro de Vida PME é a solução ideal para pequenas e médias empresas que desejam oferecer proteção aos seus colaboradores com custo acessível. Com contratação a partir de 3 vidas, o seguro garante coberturas de morte, invalidez e assistências, funcionando como um diferencial competitivo na retenção de talentos. A Patro Seguros compara as melhores seguradoras para encontrar o plano perfeito para o porte e o orçamento da sua empresa."
       coverages={[
         { title: "Morte Natural ou Acidental", description: "Indenização aos beneficiários do colaborador em caso de falecimento por qualquer causa" },

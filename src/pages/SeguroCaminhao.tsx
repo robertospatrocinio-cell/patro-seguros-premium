@@ -6,6 +6,7 @@ const SeguroCaminhao = () => {
       title="Seguro de Caminhão"
       subtitle="Proteção completa para caminhões, carretas e veículos pesados"
       icon="🚛"
+      metaDescription="Seguro de Caminhão para autônomos e transportadoras. Cobertura contra roubo, colisão, tombamento e RC. Proteção para carretas e cavalos mecânicos. Cotação grátis."
       description="O Seguro de Caminhão é fundamental para proteger o patrimônio de caminhoneiros autônomos, transportadoras e empresas que dependem de veículos pesados. Caminhões estão expostos a riscos específicos como roubo de carga, tombamento, colisões em rodovias e danos a terceiros. A Patro Seguros oferece coberturas completas e personalizadas, comparando as melhores seguradoras do mercado para garantir a proteção ideal para o seu caminhão, carreta ou cavalo mecânico."
       coverages={[
         { title: "Colisão e Capotamento", description: "Cobertura para danos ao caminhão em acidentes de trânsito e tombamentos" },

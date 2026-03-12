@@ -7,6 +7,7 @@ const SeguroCafe = () => {
       subtitle="Proteja sua produção de café contra geada, seca, granizo e outros riscos climáticos."
       description="O Seguro Café da Patro Seguros é a proteção ideal para cafeicultores. Cobrimos perdas na lavoura causadas por fenômenos climáticos adversos como geada, seca prolongada, granizo e excesso de chuva. Com subsídio do governo federal e análise especializada, garantimos as melhores condições para proteger sua safra."
       icon="☕"
+      metaDescription="Seguro Café para proteção da lavoura cafeeira contra geada, seca, granizo e excesso de chuva. Subsídio federal disponível. Cotação grátis Patro Seguros."
       badge="Especialistas no Agro"
       coverages={[
         { title: "Geada", description: "Proteção contra perdas causadas por geada na lavoura de café." },
