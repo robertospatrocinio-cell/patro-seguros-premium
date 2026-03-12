@@ -7,6 +7,133 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "seguro-acidentes-pessoais-passageiros-uber-vans": {
+    title: "Seguro de Acidentes Pessoais para Passageiros de Uber, Vans Escolares e Vans de Transporte",
+    content: `O transporte de passageiros por aplicativos como Uber, 99 e vans escolares ou de fretamento cresceu exponencialmente nos últimos anos. Com isso, uma pergunta fundamental surge: quem protege o passageiro em caso de acidente? A resposta é o Seguro de Acidentes Pessoais de Passageiros (APP).
+
+Neste guia completo, a Patro Seguros explica tudo sobre essa proteção essencial — quem precisa contratar, o que cobre, quanto custa e por que é tão importante.
+
+O Que É o Seguro de Acidentes Pessoais de Passageiros (APP)?
+
+O Seguro APP é uma modalidade obrigatória para veículos de transporte remunerado de passageiros. Ele garante indenização em caso de morte acidental, invalidez permanente ou despesas médicas e hospitalares decorrentes de acidentes durante o transporte.
+
+Diferente do DPVAT (extinto), o APP é contratado pelo proprietário do veículo junto a uma seguradora e oferece coberturas mais amplas e valores mais altos de indenização.
+
+Quem É Obrigado a Contratar o Seguro APP?
+
+A legislação brasileira determina que o seguro APP é obrigatório para:
+
+- Motoristas de aplicativo (Uber, 99, InDriver, etc.)
+- Vans escolares e de transporte escolar
+- Vans de fretamento e turismo
+- Micro-ônibus e ônibus de transporte coletivo
+- Táxis e mototáxis
+- Veículos de transporte por lotação
+
+A ausência do seguro pode resultar em multas, apreensão do veículo e até impedimento de renovação do alvará de funcionamento.
+
+O Que o Seguro APP Cobre?
+
+As coberturas principais incluem:
+
+1. Morte Acidental (MA): indenização paga aos beneficiários em caso de falecimento do passageiro decorrente de acidente durante o transporte. Valores típicos: R$ 10.000 a R$ 50.000 por passageiro.
+
+2. Invalidez Permanente Total ou Parcial por Acidente (IPA): indenização proporcional ao grau de invalidez sofrida. Cobre desde perda de membros até lesões que comprometam a capacidade funcional.
+
+3. Despesas Médicas, Hospitalares e Odontológicas (DMHO): reembolso de gastos com tratamento médico, cirurgias, internações e reabilitação decorrentes do acidente.
+
+4. Traslado e Remoção: cobertura para remoção do acidentado ao hospital mais próximo, incluindo ambulância.
+
+Seguro APP Para Motoristas de Uber e Aplicativos
+
+Se você é motorista de Uber, 99 ou qualquer plataforma de transporte por aplicativo, o seguro APP é fundamental:
+
+- Obrigatoriedade legal: a Lei 13.640/2018 regulamenta o transporte por aplicativos e exige seguro de acidentes pessoais para passageiros.
+- Proteção para o motorista: além dos passageiros, muitas apólices cobrem também o condutor.
+- Tranquilidade para trabalhar: em caso de acidente, os custos médicos e indenizações são cobertos pela seguradora, não pelo motorista.
+- Requisito para cadastro: muitas prefeituras exigem o APP para liberação do alvará de motorista de aplicativo.
+
+Dica importante: o seguro auto comum NÃO cobre passageiros de transporte remunerado. Você precisa de um seguro específico APP.
+
+Seguro APP Para Vans Escolares
+
+O transporte escolar é uma das atividades que mais exigem segurança e responsabilidade. O seguro APP para vans escolares é obrigatório e vital:
+
+- Proteção das crianças: em caso de acidente, a indenização garante tratamento médico e suporte financeiro às famílias.
+- Exigência do DETRAN e prefeituras: para obter e renovar o alvará de transporte escolar, o seguro APP é documento obrigatório.
+- Responsabilidade do transportador: sem seguro, o proprietário da van responde pessoalmente por todos os danos aos passageiros.
+- Credibilidade com os pais: ter seguro demonstra profissionalismo e preocupação com a segurança dos alunos.
+
+Coberturas recomendadas para vans escolares: além do APP básico, considere contratar coberturas adicionais como assistência 24h, carro reserva e RC do transportador.
+
+Seguro APP Para Vans de Fretamento e Transporte
+
+Empresas de fretamento, vans de turismo e transporte executivo também precisam do seguro APP:
+
+- Transporte corporativo: funcionários transportados por vans da empresa devem estar cobertos.
+- Fretamento e turismo: excursões, viagens e passeios exigem proteção para todos os passageiros embarcados.
+- Transporte por lotação: vans que fazem linhas municipais ou intermunicipais devem ter APP obrigatoriamente.
+- Eventos e shows: transporte de grupos para eventos precisa de cobertura específica.
+
+Quanto Custa o Seguro APP?
+
+O valor do seguro APP varia conforme:
+
+- Tipo de veículo (carro, van, micro-ônibus)
+- Número de passageiros cobertos
+- Valores de indenização escolhidos
+- Região de atuação
+- Histórico do condutor
+
+Em média, os valores são bastante acessíveis:
+
+- Motoristas de aplicativo: a partir de R$ 150/ano
+- Vans escolares (até 16 passageiros): a partir de R$ 300/ano
+- Vans de fretamento: a partir de R$ 400/ano
+
+Considerando que uma única ocorrência sem seguro pode custar dezenas ou centenas de milhares de reais em indenizações, o seguro APP é um investimento extremamente inteligente.
+
+Diferença Entre Seguro APP, DPVAT e Seguro Auto
+
+Muita gente confunde essas modalidades. Veja as diferenças:
+
+- DPVAT (extinto em 2020): era obrigatório para todos os veículos e cobria danos pessoais a vítimas de acidentes de trânsito. Foi substituído pelo SPVAT em alguns estados.
+- Seguro Auto: protege o veículo (roubo, colisão, incêndio) e a responsabilidade civil do motorista. NÃO cobre passageiros de transporte remunerado.
+- Seguro APP: específico para passageiros de transporte remunerado. Cobre morte, invalidez e despesas médicas dos passageiros durante o transporte.
+
+Portanto, se você faz transporte remunerado, precisa do APP além do seguro auto convencional.
+
+Como Contratar o Seguro APP na Patro Seguros
+
+Contratar o seguro APP com a Patro Seguros é simples e rápido:
+
+1. Entre em contato pelo WhatsApp ou telefone
+2. Informe o tipo de veículo e atividade (aplicativo, escolar, fretamento)
+3. Receba cotações das melhores seguradoras do mercado
+4. Escolha a melhor opção e emita sua apólice em minutos
+
+Na Patro Seguros, trabalhamos com as maiores seguradoras do Brasil, garantindo o melhor custo-benefício e atendimento especializado para motoristas de aplicativo, transporte escolar e fretamento.
+
+Por Que Escolher a Patro Seguros Para Seu APP?
+
+- Especialistas em seguros de transporte: conhecemos as exigências de cada prefeitura e órgão regulador.
+- Cotação gratuita e sem compromisso: comparamos várias seguradoras para encontrar o melhor preço.
+- Atendimento humanizado: nada de robôs. Você fala direto com especialistas.
+- Emissão rápida: sua apólice pode ser emitida no mesmo dia.
+- Suporte na hora do sinistro: acompanhamos você em todo o processo de acionamento.
+
+Não espere o acidente acontecer. Proteja seus passageiros e seu patrimônio agora mesmo. Entre em contato com a Patro Seguros e solicite sua cotação gratuita de Seguro APP!`,
+    faqs: [
+      { q: "O seguro APP é obrigatório para motoristas de Uber?", a: "Sim. A Lei 13.640/2018 e as regulamentações municipais exigem que motoristas de aplicativo tenham seguro de acidentes pessoais para passageiros (APP). Sem ele, o motorista pode ser multado e ter o veículo apreendido." },
+      { q: "O seguro auto comum cobre passageiros de Uber?", a: "Não. O seguro auto convencional não cobre passageiros de transporte remunerado. Para isso, é necessário contratar o seguro APP específico, que é uma apólice complementar." },
+      { q: "Quanto custa o seguro APP para van escolar?", a: "O valor varia conforme o número de passageiros e coberturas escolhidas, mas geralmente começa a partir de R$ 300/ano para vans de até 16 passageiros. Na Patro Seguros, fazemos cotação gratuita para encontrar o melhor preço." },
+      { q: "O que acontece se eu não tiver seguro APP?", a: "Além de estar irregular perante a lei, você responde pessoalmente por todos os danos causados aos passageiros em caso de acidente. Isso inclui despesas médicas, indenizações por invalidez e morte, que podem ultrapassar centenas de milhares de reais." },
+      { q: "O seguro APP cobre o motorista também?", a: "Depende da apólice contratada. Muitas seguradoras oferecem a opção de incluir o condutor na cobertura do APP, o que é altamente recomendado. Consulte a Patro Seguros para encontrar a melhor opção." },
+      { q: "Quais documentos preciso para contratar o seguro APP?", a: "Geralmente são necessários: documento do veículo (CRLV), CNH do condutor, alvará de transporte (se já possuir) e dados pessoais. O processo é simples e rápido." },
+      { q: "O seguro APP cobre acidentes fora do horário de trabalho?", a: "O seguro APP cobre acidentes que ocorram durante a atividade de transporte remunerado. Acidentes fora do serviço são cobertos pelo seguro auto convencional e pelo seguro de vida pessoal." },
+      { q: "Posso contratar seguro APP para frota de vans?", a: "Sim! A Patro Seguros oferece condições especiais para frotas de vans escolares, de fretamento e transporte. Quanto maior a frota, melhores as condições de preço." },
+    ],
+  },
   "quanto-custa-seguro-auto": {
     title: "Quanto Custa Seguro Auto em 2025?",
     content: `O preço do seguro auto varia conforme diversos fatores e entender cada um deles é fundamental para encontrar a melhor oferta. Em 2025, o mercado de seguros automotivos apresenta novas tendências de precificação, com seguradoras investindo em tecnologia para personalizar cada vez mais os valores.
