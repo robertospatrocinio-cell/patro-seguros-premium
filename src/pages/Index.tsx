@@ -60,28 +60,36 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsla(215,100%,60%,0.15),transparent_60%)]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,hsla(215,100%,70%,0.1),transparent_50%)]" />
           <div className="container mx-auto px-4 relative">
-            <div className="py-24 md:py-36 max-w-3xl mx-auto text-center">
+            <div className="py-20 md:py-32 max-w-3xl mx-auto text-center">
               <div className="animate-fade-up">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/10 mb-8 backdrop-blur-sm">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white/90 border border-white/10 mb-6 backdrop-blur-sm">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" aria-hidden="true" />
-                  Corretora de Seguros em Guarulhos
+                  Corretora de Seguros em Guarulhos · SUSEP 211112427
                 </span>
               </div>
-              <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1">
-                Proteção inteligente para você, sua família e sua empresa
+              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
+                Seguro para você, sua empresa e o agro — com cotação gratuita em até 2 horas
               </h1>
-              <p className="text-lg md:text-xl text-white/70 mb-10 text-balance animate-fade-up-delay-2 max-w-2xl mx-auto">
-                Comparamos as principais seguradoras do mercado para encontrar a melhor proteção com o menor custo.
+              <p className="text-lg md:text-xl text-white/80 mb-4 text-balance animate-fade-up-delay-2 max-w-2xl mx-auto">
+                A Patro compara mais de 14 seguradoras e 11 operadoras de saúde para encontrar a proteção certa pelo menor preço. Atendimento consultivo e sem burocracia.
               </p>
+
+              {/* Proof bar */}
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-8 animate-fade-up-delay-2">
+                <span className="text-white/60 text-sm font-medium">✓ Cotação grátis</span>
+                <span className="text-white/60 text-sm font-medium">✓ Resposta em 2h</span>
+                <span className="text-white/60 text-sm font-medium">✓ Sem compromisso</span>
+              </div>
+
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <Link to="/cotacao" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl bg-white text-primary hover:bg-white/90 h-12 font-semibold">
                     <Shield className="mr-2 h-4 w-4" aria-hidden="true" />
                     Solicitar Cotação Grátis
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm">
+                  <Button size="lg" className="w-full sm:w-auto text-base px-8 rounded-xl h-12 bg-white/10 border border-white/20 text-white hover:bg-white/20 backdrop-blur-sm font-semibold">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Falar no WhatsApp
                   </Button>
@@ -91,37 +99,37 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Seguradoras */}
-        <section className="py-14 bg-background border-b" aria-label="Seguradoras parceiras">
+        {/* Parceiros — faixa compacta */}
+        <section className="py-8 bg-background border-b" aria-label="Seguradoras e operadoras parceiras">
           <div className="container mx-auto px-4">
-            <h2 className="text-center text-xs text-muted-foreground mb-8 uppercase tracking-[0.2em] font-medium">Seguradoras Parceiras</h2>
-            <ul className="flex flex-wrap justify-center gap-3 items-center list-none" role="list">
-              {seguradoras.map((name) => (
-                <li key={name} className="px-5 py-2.5 rounded-xl bg-background text-sm font-medium text-muted-foreground border border-[hsl(0,0%,75%)] shadow-[0_0_6px_0_hsla(0,0%,70%,0.3)] hover:border-primary/30 hover:text-primary hover:shadow-[0_0_8px_0_hsla(var(--primary),0.2)] hover:font-bold hover:scale-[1.15] transition-all duration-200 cursor-default">
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* Operadoras */}
-        <section className="py-10 bg-muted/50 border-b" aria-label="Operadoras de saúde">
-          <div className="container mx-auto px-4">
-            <h2 className="text-center text-xs text-muted-foreground mb-6 uppercase tracking-[0.2em] font-medium">Operadoras de Planos de Saúde</h2>
-            <ul className="flex flex-wrap justify-center gap-3 items-center list-none" role="list">
-              {operadoras.map((name) => (
-                <li key={name} className="px-4 py-2 rounded-xl bg-background text-sm font-medium text-muted-foreground border border-[hsl(0,0%,75%)] shadow-[0_0_6px_0_hsla(0,0%,70%,0.3)] hover:border-primary/30 hover:text-primary hover:shadow-[0_0_8px_0_hsla(var(--primary),0.2)] hover:font-bold hover:scale-[1.15] transition-all duration-200">
-                  {name}
-                </li>
-              ))}
-            </ul>
-            <div className="text-center mt-6">
-              <Link to="/planos-de-saude">
-                <Button variant="ghost" size="sm" className="text-primary rounded-xl">
-                  Simular Plano de Saúde <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
-                </Button>
-              </Link>
+            <div className="flex flex-col gap-4">
+              <div>
+                <h2 className="text-center text-[10px] text-muted-foreground mb-3 uppercase tracking-[0.2em] font-medium">Seguradoras Parceiras</h2>
+                <ul className="flex flex-wrap justify-center gap-2 items-center list-none" role="list">
+                  {seguradoras.map((name) => (
+                    <li key={name} className="px-3 py-1.5 rounded-lg bg-muted text-xs font-medium text-muted-foreground border border-border hover:border-primary/30 hover:text-primary transition-all duration-200 cursor-default">
+                      {name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h2 className="text-center text-[10px] text-muted-foreground mb-3 uppercase tracking-[0.2em] font-medium">Operadoras de Planos de Saúde</h2>
+                <ul className="flex flex-wrap justify-center gap-2 items-center list-none" role="list">
+                  {operadoras.map((name) => (
+                    <li key={name} className="px-3 py-1.5 rounded-lg bg-muted text-xs font-medium text-muted-foreground border border-border hover:border-primary/30 hover:text-primary transition-all duration-200 cursor-default">
+                      {name}
+                    </li>
+                  ))}
+                </ul>
+                <div className="text-center mt-3">
+                  <Link to="/planos-de-saude">
+                    <Button variant="ghost" size="sm" className="text-primary rounded-xl text-xs">
+                      Simular Plano de Saúde <ArrowRight className="ml-1 h-3 w-3" aria-hidden="true" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </section>
