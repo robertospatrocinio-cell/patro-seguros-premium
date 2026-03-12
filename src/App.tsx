@@ -130,6 +130,7 @@ const App = () => (
           <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
           <Route path="/seguro-avioes" element={<SeguroAvioes />} />
           <Route path="/seguro-helicopteros" element={<SeguroHelicopteros />} />
+          <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <WhatsAppButton />
