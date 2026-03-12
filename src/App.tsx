@@ -54,6 +54,9 @@ import SeguroPlacaSolar from "./pages/SeguroPlacaSolar";
 import SeguroPecuario from "./pages/SeguroPecuario";
 import SeguroCafe from "./pages/SeguroCafe";
 import Consorcio from "./pages/Consorcio";
+import ConsorcioCarro from "./pages/ConsorcioCarro";
+import ConsorcioImoveis from "./pages/ConsorcioImoveis";
+import ConsorcioVeiculosPesados from "./pages/ConsorcioVeiculosPesados";
 import SeguroLojasShopping from "./pages/SeguroLojasShopping";
 import SeguroDroneAgricola from "./pages/SeguroDroneAgricola";
 import SeguroTransporteAgro from "./pages/SeguroTransporteAgro";
@@ -124,6 +127,9 @@ const App = () => (
           <Route path="/seguro-pecuario" element={<SeguroPecuario />} />
           <Route path="/seguro-cafe" element={<SeguroCafe />} />
           <Route path="/consorcio" element={<Consorcio />} />
+          <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
+          <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
+          <Route path="/consorcio-veiculos-pesados" element={<ConsorcioVeiculosPesados />} />
           <Route path="/seguro-lojas-shopping" element={<SeguroLojasShopping />} />
           <Route path="/seguro-drone-agricola" element={<SeguroDroneAgricola />} />
           <Route path="/seguro-transporte-agro" element={<SeguroTransporteAgro />} />

@@ -13,24 +13,28 @@ const modalidades = [
     title: "Consórcio de Carro",
     desc: "Realize o sonho do carro novo ou seminovo sem juros. Parcelas que cabem no seu bolso com poder de compra à vista.",
     benefits: ["Sem juros abusivos", "Parcelas acessíveis", "Poder de compra à vista", "Lance para antecipar"],
+    link: "/consorcio-carro",
   },
   {
     icon: Bike,
     title: "Consórcio de Moto",
     desc: "A forma mais inteligente de adquirir sua moto. Ideal para trabalho ou lazer, com condições imbatíveis.",
     benefits: ["Planos a partir de 60 meses", "Sem entrada obrigatória", "Flexibilidade de crédito", "Contemplação por sorteio ou lance"],
+    link: "",
   },
   {
     icon: Home,
     title: "Consórcio de Imóveis",
     desc: "Conquiste a casa própria, terreno ou imóvel comercial. O consórcio imobiliário é o caminho mais econômico para seu patrimônio.",
     benefits: ["Créditos de R$100 mil a R$1 milhão+", "Use o FGTS para dar lance", "Prazos de até 200 meses", "Sem juros bancários"],
+    link: "/consorcio-imoveis",
   },
   {
     icon: Truck,
     title: "Consórcio de Veículos Pesados",
     desc: "Caminhões, ônibus, máquinas e implementos. Renove ou amplie sua frota com planejamento e economia.",
     benefits: ["Créditos para novos e usados", "Ideal para empresas", "Planejamento financeiro", "Sem comprometer o fluxo de caixa"],
+    link: "/consorcio-veiculos-pesados",
   },
 ];
 
@@ -129,11 +133,19 @@ const Consorcio = () => {
                     </li>
                   ))}
                 </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full rounded-xl group-hover:bg-primary">
-                    Simular {m.title} <ArrowRight className="h-4 w-4 ml-2" />
-                  </Button>
-                </a>
+                {m.link ? (
+                  <Link to={m.link} className="w-full">
+                    <Button className="w-full rounded-xl group-hover:bg-primary">
+                      Saiba Mais sobre {m.title} <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  </Link>
+                ) : (
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full">
+                    <Button className="w-full rounded-xl group-hover:bg-primary">
+                      Simular {m.title} <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
+                  </a>
+                )}
               </div>
             ))}
           </div>
