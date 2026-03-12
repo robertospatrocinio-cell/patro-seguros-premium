@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoShield from "@/assets/logo-shield.png";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -75,10 +76,8 @@ const Header = () => {
       <div className="bg-background/95 backdrop-blur-xl border-b border-border/40">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-14" aria-label="Navegação principal">
-            <Link to="/" className="flex items-center gap-2" aria-label="Patro Seguros — Página inicial">
-              <div className="w-7 h-7 rounded-md bg-foreground flex items-center justify-center" aria-hidden="true">
-                <span className="text-white font-heading font-bold text-xs">P</span>
-              </div>
+            <Link to="/" className="flex items-center gap-2.5" aria-label="Patro Seguros — Página inicial">
+              <img src={logoShield} alt="" className="w-8 h-8 object-contain" aria-hidden="true" />
               <span className="font-heading font-bold text-[15px] text-foreground tracking-tight">Patro <span className="font-bold text-foreground/50">Seguros</span></span>
             </Link>
 

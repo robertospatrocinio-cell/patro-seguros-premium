@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import logoShield from "@/assets/logo-shield.png";
 
 const Footer = () => {
   return (
@@ -9,9 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-white/[0.08] flex items-center justify-center" aria-hidden="true">
-                <span className="text-white font-heading font-bold text-sm">P</span>
-              </div>
+              <img src={logoShield} alt="" className="w-8 h-8 object-contain" aria-hidden="true" />
               <span className="font-heading font-bold text-[15px] text-white tracking-tight">Patro Seguros</span>
             </div>
             <p className="text-[13px] text-white/60 mb-6 leading-relaxed max-w-xs">
