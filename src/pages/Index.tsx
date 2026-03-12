@@ -6,6 +6,9 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import seloMelhorCorretora from "@/assets/selo-melhor-corretora.png";
+import shieldHero3d from "@/assets/3d-shield-hero.png";
+import insuranceGroup3d from "@/assets/3d-insurance-group.png";
+import cotacaoOnline3d from "@/assets/3d-cotacao-online.png";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -60,6 +63,8 @@ const Index = () => {
         <section className="relative gradient-hero overflow-hidden" aria-label="Início">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,hsla(215,100%,50%,0.08),transparent)]" />
           <div className="container mx-auto px-4 relative">
+            {/* 3D Shield floating on the right */}
+            <img src={shieldHero3d} alt="" className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30 animate-fade-up" aria-hidden="true" />
             <div className="py-28 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="animate-fade-up mb-8">
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)]" />
@@ -145,6 +150,7 @@ const Index = () => {
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Soluções</span>
               <h2 id="solucoes-heading" className="mt-3">Tudo que você precisa proteger.</h2>
+              <img src={insuranceGroup3d} alt="" className="w-48 h-48 md:w-56 md:h-56 object-contain mx-auto mt-6 drop-shadow-[0_8px_24px_hsla(215,80%,30%,0.15)]" aria-hidden="true" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
               {solutions.map((s, i) => (
@@ -170,9 +176,10 @@ const Index = () => {
         {/* CTA — Cotação Auto */}
         <section className="py-20 md:py-24 bg-background" aria-labelledby="cotacao-auto-heading">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-10 md:p-16 text-center">
+            <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-10 md:p-16">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,50%,0.08),transparent)]" />
-              <div className="relative">
+              <img src={cotacaoOnline3d} alt="" className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80 drop-shadow-[0_0_30px_hsla(215,100%,60%,0.3)]" aria-hidden="true" />
+              <div className="relative md:max-w-[60%]">
                 <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto Online</h2>
                 <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
                   Auto, moto, caminhão e vans — resultado em minutos pelo nosso sistema.
