@@ -52,6 +52,7 @@ import SeguroArmazenagem from "./pages/SeguroArmazenagem";
 import SeguroPlacaSolar from "./pages/SeguroPlacaSolar";
 import SeguroPecuario from "./pages/SeguroPecuario";
 import SeguroCafe from "./pages/SeguroCafe";
+import Consorcio from "./pages/Consorcio";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
