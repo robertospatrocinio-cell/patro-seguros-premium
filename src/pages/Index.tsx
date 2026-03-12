@@ -160,9 +160,9 @@ const Index = () => {
         <section className="py-20 gradient-surface" aria-labelledby="solucoes-heading">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
-              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">Soluções</span>
-              <h2 id="solucoes-heading" className="mt-3 mb-4">Seguros para todas as necessidades</h2>
-              <p className="text-muted-foreground max-w-lg mx-auto">Proteção completa para pessoas, famílias, empresas e agronegócio.</p>
+              <span className="text-xs font-medium text-primary uppercase tracking-[0.2em]">O Que Protegemos</span>
+              <h2 id="solucoes-heading" className="mt-3 mb-4">Auto, saúde, empresa, agro e muito mais</h2>
+              <p className="text-muted-foreground max-w-xl mx-auto">Clique em qualquer seguro para entender as coberturas e pedir sua cotação gratuita.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {solutions.map((s, i) => (
