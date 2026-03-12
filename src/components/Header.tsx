@@ -221,7 +221,24 @@ const Header = () => {
                 </div>
               </div>
 
-              <Link to="/consorcio" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Consórcio</Link>
+              {/* Consórcio — mega menu */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
+                  Consórcio
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
+                </button>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                  <div className="bg-card rounded-xl shadow-xl border p-5">
+                    <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Produtos</p>
+                    <div className="space-y-0.5">
+                      <Link to="/consorcio" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Visão Geral</Link>
+                      <Link to="/consorcio-carro" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Carro</Link>
+                      <Link to="/consorcio-imoveis" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Imóveis</Link>
+                      <Link to="/consorcio-veiculos-pesados" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Veículos Pesados</Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <Link to="/sobre" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Sobre</Link>
               <Link to="/contato" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Contato</Link>
             </div>
@@ -338,7 +355,14 @@ const Header = () => {
               </div>
             </MobileSection>
 
-            <Link to="/consorcio" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Consórcio</Link>
+            <MobileSection id="consorcio" label="Consórcio">
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/consorcio">Visão Geral</MobileLink>
+                <MobileLink to="/consorcio-carro">Carro</MobileLink>
+                <MobileLink to="/consorcio-imoveis">Imóveis</MobileLink>
+                <MobileLink to="/consorcio-veiculos-pesados">Veículos Pesados</MobileLink>
+              </div>
+            </MobileSection>
             <Link to="/sobre" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
             <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
 
