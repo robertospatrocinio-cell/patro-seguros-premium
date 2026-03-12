@@ -147,7 +147,6 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-auto", label: "Auto" },
-                  { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-moto", label: "Moto" },
                   { to: "/seguro-vida", label: "Vida" },
                   { to: "/seguro-residencial", label: "Residencial" },
@@ -155,6 +154,7 @@ const Header = () => {
                   { to: "/seguro-celular", label: "Celular" },
                   { to: "/planos-de-saude", label: "Saúde" },
                   { to: "/seguro-acidentes-pessoais", label: "Acid. Pessoais" },
+                  { to: "/seguro-estagiario", label: "Estagiário" },
                   { to: "/previdencia-privada", label: "Previdência" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
@@ -167,13 +167,13 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-1">
                 {[
                   { to: "/seguro-empresarial", label: "Empresarial" },
+                  { to: "/seguro-caminhao", label: "Caminhão" },
                   { to: "/seguro-frota", label: "Frota" },
                   { to: "/seguro-transporte", label: "Transporte" },
                   { to: "/seguro-rc", label: "RC" },
                   { to: "/seguro-condominio", label: "Condomínio" },
                   { to: "/seguro-cyber", label: "Cyber" },
                   { to: "/seguro-ambiental", label: "Ambiental" },
-                  { to: "/seguro-estagiario", label: "Estagiário" },
                   { to: "/seguro-vida-pme", label: "Vida PME" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
