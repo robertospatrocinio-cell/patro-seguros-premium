@@ -190,7 +190,7 @@ const Index = () => {
                     </Button>
                   </a>
                   <Link to="/planos-de-saude">
-                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white/[0.06] border border-white/[0.08] text-white/60 hover:bg-white/[0.1] font-medium">
+                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] font-medium">
                       Simular Plano de Saúde
                     </Button>
                   </Link>
