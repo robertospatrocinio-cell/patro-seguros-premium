@@ -3,6 +3,7 @@ import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, Do
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
