@@ -35,6 +35,7 @@ const articles = [
   { slug: "seguro-engenharia-obras", title: "Seguro Engenharia para Obras e Construções", excerpt: "Proteção para riscos de engenharia em obras civis e montagem.", category: "Seguro Engenharia" },
   { slug: "como-acionar-seguro-auto", title: "Como Acionar o Seguro Auto: Passo a Passo", excerpt: "Guia prático para quando você precisar usar seu seguro.", category: "Seguro Auto" },
   { slug: "seguro-odontologico-coberturas", title: "Seguro Odontológico: Coberturas e Valores", excerpt: "Entenda o que o seguro odonto cobre e quanto custa.", category: "Seguro Odonto" },
+  { slug: "seguro-acidentes-pessoais-passageiros-uber-vans", title: "Seguro de Acidentes Pessoais para Passageiros de Uber, Vans Escolares e Vans de Transporte", excerpt: "Entenda como o seguro de acidentes pessoais protege passageiros de aplicativos e vans, quem é obrigado a contratar e como funciona a cobertura.", category: "Acidentes Pessoais" },
 ];
 
 const Blog = () => {
