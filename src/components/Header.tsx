@@ -184,6 +184,7 @@ const Header = () => {
                   { to: "/seguro-condominio", label: "Condomínio" },
                   { to: "/seguro-cyber", label: "Cyber" },
                   { to: "/seguro-vida-pme", label: "Vida PME" },
+                  { to: "/seguro-lojas-shopping", label: "Lojas Shopping" },
                 ].map(l => (
                   <Link key={l.to} to={l.to} className="py-2 px-3 text-sm rounded-lg hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>{l.label}</Link>
                 ))}
