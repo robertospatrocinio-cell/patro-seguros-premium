@@ -7,6 +7,179 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "seguro-auto-premium-diferenciais": {
+    title: "Seguro Auto Premium: Conheça os Principais Diferenciais",
+    content: `Nem todo seguro auto é igual. Enquanto o seguro convencional oferece proteção básica contra roubo, furto e colisão, o Seguro Auto Premium vai muito além — proporcionando uma experiência completa de proteção, conforto e exclusividade. Neste artigo, a Patro Seguros explica em detalhes o que torna o seguro auto premium a escolha ideal para quem busca o melhor.
+
+O Que É o Seguro Auto Premium?
+
+O Seguro Auto Premium é a categoria mais completa de seguro automotivo disponível no mercado. Ele combina coberturas amplas, franquias reduzidas, assistência 24h diferenciada e benefícios exclusivos que vão desde carro reserva superior até cobertura para acessórios e equipamentos especiais.
+
+É a modalidade indicada para veículos de alto valor, importados, blindados ou para motoristas que desejam a máxima proteção e conveniência no dia a dia.
+
+Principais Diferenciais do Seguro Auto Premium
+
+1. Franquia Reduzida ou Zero
+
+No seguro premium, a franquia — valor pago pelo segurado em caso de sinistro parcial — é significativamente menor do que no seguro convencional. Muitas seguradoras oferecem franquia zero para clientes premium, eliminando qualquer custo em caso de reparo.
+
+Seguro convencional: franquia de R$ 3.000 a R$ 8.000.
+Seguro premium: franquia de R$ 0 a R$ 2.000.
+
+Isso significa menos preocupação financeira quando você mais precisa do seguro.
+
+2. Carro Reserva Superior e por Mais Tempo
+
+Enquanto o seguro básico oferece carro reserva de categoria inferior por 7 a 15 dias, o seguro premium garante:
+
+- Veículo de categoria igual ou superior ao segurado.
+- Período estendido: 30, 45 ou até 60 dias de carro reserva.
+- Disponibilidade imediata: entrega em até 24 horas após o sinistro.
+- Modelos específicos: algumas seguradoras permitem escolher o modelo do carro reserva.
+
+Para quem depende do carro no dia a dia, esse diferencial é transformador.
+
+3. Cobertura Completa de Vidros, Retrovisores e Faróis
+
+O seguro premium inclui cobertura total e sem franquia para:
+
+- Para-brisas (inclusive com sensores de chuva e câmeras ADAS)
+- Vidros laterais e traseiros
+- Retrovisores com mecanismo elétrico
+- Faróis de LED, xenon e matrix
+- Teto solar e teto panorâmico
+
+Em veículos modernos, a troca de um único farol LED pode custar mais de R$ 10.000. A cobertura premium elimina esse risco.
+
+4. Assistência 24h Premium
+
+A assistência do seguro premium vai muito além do guincho:
+
+- Guincho ilimitado: sem limite de quilometragem para reboque, em todo o território nacional.
+- Motorista substituto: serviço de leva e traz quando o segurado não puder dirigir.
+- Hospedagem: diárias de hotel em caso de sinistro longe de casa.
+- Transporte alternativo: táxi, Uber ou transporte aéreo quando necessário.
+- Chaveiro especializado: incluindo programação de chaves codificadas.
+- Troca de pneus: sem limite de acionamentos por ano.
+- Pane seca: envio de combustível ao local do veículo.
+- Mecânico no local: diagnóstico e reparos emergenciais onde o veículo estiver.
+
+5. Cobertura para Acessórios e Personalização
+
+Veículos premium frequentemente possuem acessórios e personalizações que agregam valor. O seguro premium cobre:
+
+- Rodas esportivas e de liga leve
+- Equipamentos de som e multimídia
+- Insulfilm e envelopamento
+- Kit GNV
+- Bagageiro e rack de teto
+- Equipamentos off-road (para SUVs e picapes)
+- Blindagem (com contratação específica)
+
+No seguro convencional, esses itens geralmente não são cobertos ou possuem limite de valor muito baixo.
+
+6. Indenização Integral por Valor de Mercado Atualizado
+
+Em caso de perda total ou roubo/furto, o seguro premium garante:
+
+- Tabela FIPE integral: indenização pelo valor de mercado atualizado na data do sinistro.
+- Sem depreciação agressiva: algumas seguradoras premium garantem valor fixo (valor determinado) durante toda a vigência da apólice.
+- Pagamento rápido: prazo de indenização reduzido, geralmente em até 15 dias úteis.
+
+Isso é especialmente importante para veículos novos, onde a depreciação no primeiro ano pode chegar a 20%.
+
+7. Cobertura de Responsabilidade Civil Ampliada
+
+O seguro premium oferece limites muito maiores de responsabilidade civil:
+
+- RC Danos Materiais: até R$ 200.000 ou mais (vs. R$ 50.000 no convencional).
+- RC Danos Corporais: até R$ 300.000 ou mais (vs. R$ 50.000 no convencional).
+- RC para terceiros não identificados: proteção mesmo sem identificação do culpado.
+
+Esses limites elevados protegem o patrimônio do segurado em caso de acidentes graves.
+
+8. Proteção Contra Eventos da Natureza
+
+Cobertura completa contra:
+
+- Enchentes e alagamentos (cada vez mais comuns em grandes cidades)
+- Granizo
+- Queda de árvores e raios
+- Deslizamentos de terra
+- Ventos fortes e tornados
+
+No seguro convencional, essas coberturas podem ter franquias elevadas ou simplesmente não existir.
+
+9. Benefícios Exclusivos e Concierge
+
+Alguns seguros premium oferecem serviços de concierge que vão além da proteção do veículo:
+
+- Agendamento de revisão e manutenção em concessionárias autorizadas
+- Lavagem e higienização do veículo após sinistro
+- Serviço de despachante para documentação
+- Desconto em estacionamentos e pedágios conveniados
+- Programa de fidelidade com pontos e recompensas
+
+10. Atendimento Prioritário e Personalizado
+
+Clientes premium contam com:
+
+- Canal de atendimento exclusivo: linha direta sem fila de espera.
+- Gestor de conta dedicado: um profissional que conhece seu perfil e suas necessidades.
+- Vistoria digital: processo de vistoria simplificado por fotos pelo celular.
+- Sinistro expresso: processo de regulação acelerado para resolver tudo mais rápido.
+
+Para Quem o Seguro Auto Premium É Indicado?
+
+O seguro premium é ideal para:
+
+- Veículos importados e de luxo: por possuírem peças caras e manutenção especializada.
+- Carros blindados: que exigem cobertura específica e oficinas especializadas.
+- Veículos novos: para proteger o investimento contra depreciação.
+- Motoristas que rodam muito: mais exposição ao trânsito significa mais risco.
+- Profissionais que dependem do carro: empresários, executivos, representantes comerciais.
+- Quem busca tranquilidade total: sem se preocupar com franquias e limites.
+
+Seguro Auto Premium vs. Seguro Auto Convencional: Comparativo
+
+Franquia: Premium tem franquia reduzida ou zero; Convencional tem franquia normal (R$ 3.000 a R$ 8.000).
+Carro reserva: Premium oferece 30 a 60 dias com carro de mesma categoria; Convencional oferece 7 a 15 dias com categoria básica.
+Vidros e faróis: Premium cobre sem franquia; Convencional tem franquia ou não cobre.
+Guincho: Premium é ilimitado; Convencional tem limite de 200 a 400 km.
+RC Danos Materiais: Premium até R$ 200.000+; Convencional até R$ 50.000.
+Atendimento: Premium tem canal exclusivo; Convencional é padrão.
+Acessórios: Premium tem cobertura completa; Convencional tem pouca ou nenhuma.
+
+Quanto Custa o Seguro Auto Premium?
+
+O seguro premium custa, em média, 20% a 40% a mais que o seguro convencional. Considerando os benefícios adicionais, o custo-benefício é excelente — especialmente quando comparado ao valor de um único reparo de farol LED (R$ 10.000+) ou uma franquia convencional (R$ 5.000+).
+
+Fatores que influenciam o preço:
+
+- Valor do veículo e marca
+- Perfil do motorista (idade, sexo, região)
+- Tipo de uso (particular, comercial)
+- CEP de pernoite
+- Histórico de sinistros
+
+Como Contratar o Seguro Auto Premium com a Patro Seguros
+
+1. Solicite uma cotação pelo site, WhatsApp ou telefone.
+2. Nossos especialistas analisam seu perfil e veículo.
+3. Comparamos propostas premium das melhores seguradoras do mercado.
+4. Você escolhe o plano ideal com total transparência.
+5. Ativação imediata — seu veículo já sai protegido.
+
+A Patro Seguros trabalha com todas as grandes seguradoras premium do mercado — Porto Seguro, Tokio Marine, Allianz, Bradesco Seguros, SulAmérica, HDI, Zurich, Liberty e muito mais — garantindo sempre a melhor cobertura pelo melhor preço.`,
+    faqs: [
+      { q: "Qual a diferença entre seguro auto premium e convencional?", a: "O seguro premium oferece franquias menores ou zero, carro reserva por mais tempo e de categoria superior, cobertura completa de vidros e faróis sem franquia, guincho ilimitado, assistência 24h diferenciada e atendimento prioritário com canal exclusivo." },
+      { q: "O seguro auto premium vale a pena para carros populares?", a: "Depende do perfil do motorista. Se você depende muito do carro, roda bastante ou quer tranquilidade total sem se preocupar com franquias, o premium pode valer a pena mesmo para veículos populares. Para carros com faróis de LED, o custo de um único reparo pode justificar o investimento." },
+      { q: "O seguro premium cobre carro blindado?", a: "Sim, mas é necessário informar a blindagem na contratação. O seguro para veículos blindados possui condições específicas, incluindo oficinas especializadas e valores de cobertura diferenciados para os vidros blindados." },
+      { q: "Posso fazer upgrade do meu seguro convencional para premium?", a: "Sim, é possível fazer upgrade a qualquer momento. A Patro Seguros analisa sua apólice atual e propõe a migração para o plano premium com as melhores condições, sem perder o bônus acumulado." },
+      { q: "O seguro premium tem limite de acionamento de vidros?", a: "Na maioria das seguradoras premium, não há limite de acionamento para cobertura de vidros. Você pode trocar vidros, retrovisores e faróis quantas vezes precisar durante a vigência da apólice." },
+      { q: "O guincho ilimitado realmente funciona para qualquer distância?", a: "Sim, no seguro premium o guincho não tem limite de quilometragem. Seja uma pane na cidade ou uma viagem a centenas de quilômetros, o reboque até a oficina mais próxima ou de preferência do segurado está coberto." },
+    ],
+  },
   "cobertura-vidros-retrovisores-farois-seguro-auto": {
     title: "Cobertura de Vidros, Retrovisores e Faróis no Seguro Auto: Guia Completo",
     content: `Trocar um para-brisa, um retrovisor ou um farol pode pesar muito no bolso. Felizmente, a maioria dos seguros auto oferece cobertura específica para vidros, retrovisores e faróis — muitas vezes sem franquia ou com franquia reduzida. Neste guia completo, a Patro Seguros explica tudo o que você precisa saber.

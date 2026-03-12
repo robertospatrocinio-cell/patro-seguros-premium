@@ -37,6 +37,7 @@ const articles = [
   { slug: "seguro-odontologico-coberturas", title: "Seguro Odontológico: Coberturas e Valores", excerpt: "Entenda o que o seguro odonto cobre e quanto custa.", category: "Seguro Odonto" },
   { slug: "seguro-acidentes-pessoais-passageiros-uber-vans", title: "Seguro de Acidentes Pessoais para Passageiros de Uber, Vans Escolares e Vans de Transporte", excerpt: "Entenda como o seguro de acidentes pessoais protege passageiros de aplicativos e vans, quem é obrigado a contratar e como funciona a cobertura.", category: "Acidentes Pessoais" },
   { slug: "cobertura-vidros-retrovisores-farois-seguro-auto", title: "Cobertura de Vidros, Retrovisores e Faróis no Seguro Auto: Guia Completo", excerpt: "Saiba como funciona a cobertura de vidros, retrovisores e faróis no seguro auto, quando acionar e como economizar.", category: "Seguro Auto" },
+  { slug: "seguro-auto-premium-diferenciais", title: "Seguro Auto Premium: Conheça os Principais Diferenciais", excerpt: "Descubra o que diferencia o seguro auto premium do convencional e por que vale a pena investir em proteção superior.", category: "Seguro Auto" },
 ];
 
 const Blog = () => {
