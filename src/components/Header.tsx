@@ -122,6 +122,7 @@ const Header = () => {
                 <DropLink to="/seguro-rural">Seguro Rural</DropLink>
               </NavDropdown>
 
+              <Link to="/consorcio" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Consórcio</Link>
               <Link to="/blog" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Blog</Link>
               <Link to="/sobre" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Sobre</Link>
               <Link to="/contato" className="text-sm font-medium text-foreground/80 hover:text-primary transition-base px-3 py-2">Contato</Link>
@@ -204,6 +205,7 @@ const Header = () => {
               </div>
             </div>
 
+            <Link to="/consorcio" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Consórcio</Link>
             <Link to="/blog" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Blog</Link>
             <Link to="/sobre" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Sobre</Link>
             <Link to="/contato" className="block py-2.5 px-3 text-sm font-medium rounded-xl hover:bg-muted transition-base" onClick={() => setIsMenuOpen(false)}>Contato</Link>
