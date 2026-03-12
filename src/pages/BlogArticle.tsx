@@ -7,6 +7,169 @@ import { MessageCircle, ArrowLeft } from "lucide-react";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
 const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  "seguro-agricola-contra-granizo": {
+    title: "Seguro Agrícola Contra Granizo: Proteja Sua Lavoura dos Prejuízos Climáticos",
+    content: `O granizo é um dos fenômenos climáticos mais devastadores para a agricultura brasileira. Em questão de minutos, uma tempestade de granizo pode destruir completamente uma safra inteira, gerando prejuízos de milhões de reais. O Seguro Agrícola contra granizo é a principal ferramenta para proteger o produtor rural contra essas perdas.
+
+Neste guia completo, a Patro Seguros explica como funciona o seguro agrícola contra granizo, quais culturas são cobertas, quanto custa e como acionar em caso de sinistro.
+
+O Impacto do Granizo na Agricultura Brasileira
+
+Os números são preocupantes:
+
+- O Brasil registra mais de 1.000 eventos de granizo por ano em regiões agrícolas.
+- As perdas por granizo no agronegócio brasileiro ultrapassam R$ 3 bilhões anuais.
+- Estados como Paraná, Rio Grande do Sul, Santa Catarina, São Paulo e Minas Gerais são os mais afetados.
+- Uma única tempestade pode destruir 100% de uma lavoura em poucos minutos.
+- Culturas de alto valor como café, frutas e hortaliças são especialmente vulneráveis.
+
+Diferente de outros eventos climáticos, o granizo causa dano mecânico direto — ele esmaga, perfura e quebra folhas, frutos, caules e grãos. Mesmo quando não destrói completamente, o granizo compromete a qualidade e o valor comercial da produção.
+
+O Que É o Seguro Agrícola Contra Granizo?
+
+O Seguro Agrícola contra granizo é uma modalidade de seguro rural que indeniza o produtor quando sua lavoura sofre perdas causadas por chuva de granizo. Ele pode ser contratado de forma isolada (cobertura específica para granizo) ou como parte de um pacote de coberturas climáticas mais amplo.
+
+O seguro garante indenização proporcional ao dano sofrido, permitindo que o produtor recupere o investimento feito no plantio e conduza a safra seguinte sem comprometer seu fluxo de caixa.
+
+Quais Culturas Podem Ser Seguradas Contra Granizo?
+
+Praticamente todas as culturas agrícolas podem ser seguradas. As mais comuns incluem:
+
+Grãos e Cereais:
+- Soja
+- Milho (safra e safrinha)
+- Trigo
+- Arroz
+- Feijão
+- Sorgo
+
+Café:
+- Café arábica
+- Café conilon/robusta
+- O café é especialmente vulnerável ao granizo, pois o dano afeta a produção por múltiplas safras.
+
+Frutas:
+- Uva (viticultura)
+- Maçã
+- Citros (laranja, limão)
+- Banana
+- Manga
+- Morango
+
+Hortaliças:
+- Tomate
+- Alface e folhosas
+- Batata
+- Cebola
+
+Outras Culturas:
+- Cana-de-açúcar
+- Algodão
+- Tabaco
+- Flores e plantas ornamentais
+
+O Que o Seguro Contra Granizo Cobre?
+
+As coberturas incluem:
+
+1. Perda de Produtividade: indenização quando o granizo reduz a quantidade produzida abaixo do nível garantido pela apólice.
+
+2. Perda de Qualidade: quando o granizo não destrói a produção, mas compromete sua classificação comercial — grãos manchados, frutas com marcas, café com defeito.
+
+3. Replantio: cobertura dos custos de replantio quando o granizo atinge a lavoura em estágio inicial de desenvolvimento.
+
+4. Danos a Estruturas Agrícolas: cobertura para estufas, telados, parreirais e estruturas de proteção danificadas pelo granizo.
+
+5. Coberturas Combinadas: o seguro contra granizo geralmente pode ser combinado com:
+- Seca e estiagem
+- Geada
+- Chuva excessiva
+- Vendaval e tromba d'água
+- Incêndio e raio
+- Variação excessiva de temperatura
+
+Essa combinação oferece proteção climática completa para a lavoura.
+
+Como Funciona a Indenização?
+
+O processo de indenização segue etapas claras:
+
+1. Comunicação do sinistro: o produtor informa a seguradora imediatamente após o evento de granizo (prazo máximo geralmente de 5 a 7 dias).
+
+2. Vistoria de campo: um perito agrícola visita a propriedade para avaliar a extensão dos danos. A vistoria compara a produtividade esperada com a produtividade remanescente.
+
+3. Laudo técnico: o perito emite laudo detalhado com percentual de perda por talhão/área.
+
+4. Cálculo da indenização: a indenização é calculada com base no nível de cobertura contratado e no percentual de perda verificado.
+
+5. Pagamento: a seguradora efetua o pagamento ao produtor, geralmente em 30 a 45 dias após a conclusão da vistoria.
+
+Exemplo prático:
+- Lavoura de soja com custeio de R$ 5.000/hectare
+- Cobertura contratada: 80% do custeio (R$ 4.000/ha)
+- Granizo causa perda de 60% da produtividade
+- Indenização: R$ 4.000 × 60% = R$ 2.400 por hectare
+
+Programa de Subvenção ao Prêmio (PSR)
+
+O Governo Federal oferece o Programa de Subvenção ao Prêmio do Seguro Rural (PSR), que subsidia parte do custo do seguro agrícola. Isso torna o seguro muito mais acessível:
+
+- O governo paga de 20% a 40% do valor do prêmio do seguro.
+- O produtor paga apenas a diferença.
+- O PSR está disponível para a maioria das culturas e regiões do Brasil.
+- A subvenção é limitada por produtor e por ano-safra.
+
+Para aproveitar o PSR, é fundamental contratar o seguro no início da safra, pois os recursos têm limite orçamentário e são distribuídos por ordem de contratação.
+
+Quanto Custa o Seguro Agrícola Contra Granizo?
+
+O custo (prêmio) varia conforme:
+
+- Cultura segurada: cada cultura tem taxa de risco diferente
+- Região: áreas com maior incidência de granizo têm taxas mais altas
+- Nível de cobertura: quanto maior a cobertura, maior o prêmio
+- Histórico climático: regiões com histórico de eventos severos pagam mais
+- Tipo de cobertura: granizo isolado ou pacote multirrisco
+
+Valores médios de referência (safra 2024/2025):
+
+- Soja: 2% a 6% do valor segurado
+- Milho: 2% a 7% do valor segurado
+- Café: 3% a 8% do valor segurado
+- Uva/Maçã: 5% a 12% do valor segurado
+- Trigo: 3% a 8% do valor segurado
+
+Com a subvenção do PSR, o custo efetivo para o produtor pode cair pela metade.
+
+Dicas da Patro Seguros Para Produtores Rurais
+
+1. Contrate no início da safra: garanta acesso à subvenção do PSR e evite ficar sem cobertura.
+2. Documente sua lavoura: fotos e registros do estágio de desenvolvimento facilitam a vistoria em caso de sinistro.
+3. Não espere o granizo: o seguro tem carência — contrate antes do período de maior risco.
+4. Avalie o nível de cobertura: 70% a 80% do custeio é o padrão recomendado. Coberturas menores podem deixar o produtor descoberto.
+5. Combine coberturas: granizo + seca + geada oferece proteção completa contra os principais riscos climáticos.
+6. Comunique sinistros rapidamente: o prazo para comunicação é curto (5 a 7 dias). Não altere a lavoura antes da vistoria.
+7. Guarde notas fiscais: comprovantes de insumos, sementes e serviços são necessários para calcular o custeio segurado.
+8. Consulte um corretor especializado: o seguro agrícola tem particularidades que exigem orientação profissional.
+
+Como Contratar com a Patro Seguros
+
+1. Entre em contato pelo WhatsApp, telefone ou site.
+2. Informe: cultura, área plantada, localização, estágio da lavoura e cobertura desejada.
+3. Verificamos a disponibilidade de subvenção do PSR.
+4. Comparamos propostas das melhores seguradoras do agro.
+5. Você escolhe o plano ideal e sua lavoura fica protegida.
+
+A Patro Seguros é especialista em seguros rurais e agrícolas. Proteja sua safra contra o granizo e garanta a sustentabilidade financeira da sua atividade.`,
+    faqs: [
+      { q: "O seguro agrícola contra granizo é obrigatório?", a: "Não é obrigatório por lei, mas é exigido por muitas instituições financeiras como condição para liberação de crédito rural (financiamento de custeio). Além disso, é altamente recomendado como ferramenta de gestão de risco da atividade agrícola." },
+      { q: "Posso contratar seguro apenas contra granizo, sem outras coberturas?", a: "Sim, é possível contratar cobertura isolada para granizo. Porém, o custo-benefício de um pacote multirrisco (granizo + seca + geada + chuva excessiva) costuma ser melhor, pois a diferença de preço é pequena e a proteção é muito mais abrangente." },
+      { q: "O seguro cobre granizo em qualquer estágio da lavoura?", a: "Sim, desde que o seguro esteja vigente e a carência tenha sido cumprida. A cobertura vale do plantio à colheita. Porém, o percentual de indenização pode variar conforme o estágio de desenvolvimento — danos no florescimento, por exemplo, tendem a causar perdas maiores." },
+      { q: "Como funciona a subvenção do governo (PSR)?", a: "O Programa de Subvenção ao Prêmio do Seguro Rural (PSR) do governo federal paga de 20% a 40% do valor do prêmio do seguro. O produtor contrata normalmente e o desconto já é aplicado. Os recursos são limitados e distribuídos por ordem de contratação — por isso é importante contratar cedo." },
+      { q: "Posso fazer a colheita antes da vistoria do perito?", a: "Não é recomendado. Após comunicar o sinistro, o produtor deve aguardar a vistoria do perito para que os danos sejam avaliados em campo. Colher ou alterar a lavoura antes da vistoria pode comprometer a indenização. Em casos urgentes, consulte a seguradora." },
+      { q: "O seguro cobre danos a estufas e parreirais causados por granizo?", a: "Sim, existem coberturas específicas para estruturas agrícolas como estufas, telados, parreirais e casas de vegetação. Essa cobertura deve ser contratada separadamente da cobertura da lavoura e tem condições próprias." },
+    ],
+  },
   "seguro-condominio-guia-completo": {
     title: "Seguro de Condomínio: Guia Completo — Obrigatoriedade, Coberturas e Como Contratar",
     content: `Você sabia que o seguro de condomínio é obrigatório por lei no Brasil? Seja residencial, comercial ou misto, todo condomínio edilício deve ter seguro contra incêndio e outros riscos. Neste guia completo, a Patro Seguros explica tudo o que síndicos, administradoras e condôminos precisam saber.
