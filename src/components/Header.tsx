@@ -87,53 +87,53 @@ const Header = () => {
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
-              <Link to="/" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Início</Link>
+              <Link to="/" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Início</Link>
 
               {/* Pessoal — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/60 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
                   Pessoal
-                  <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
                 </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[520px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="bg-card rounded-2xl shadow-xl border p-5 backdrop-blur-xl">
-                    <div className="grid grid-cols-3 gap-6">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                  <div className="bg-card rounded-xl shadow-xl border p-5">
+                    <div className="grid grid-cols-3 gap-5">
                       <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Veículos</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Veículos</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-auto" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Auto</Link>
-                          <Link to="/seguro-moto" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Moto</Link>
-                          <Link to="/seguro-caminhao" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Caminhão</Link>
-                          <Link to="/seguro-bike" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Bike</Link>
-                          <Link to="/seguro-carta-verde" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Carta Verde</Link>
+                          <Link to="/seguro-auto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Auto</Link>
+                          <Link to="/seguro-moto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Moto</Link>
+                          <Link to="/seguro-caminhao" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Caminhão</Link>
+                          <Link to="/seguro-bike" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Bike</Link>
+                          <Link to="/seguro-carta-verde" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Carta Verde</Link>
                         </div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 mt-4">Lazer</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2 mt-4">Lazer</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-jetski" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Jet Ski</Link>
-                          <Link to="/seguro-embarcacoes" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Embarcações</Link>
-                          <Link to="/seguro-avioes" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Aviões</Link>
-                          <Link to="/seguro-helicopteros" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Helicópteros</Link>
-                        </div>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Vida e Saúde</p>
-                        <div className="space-y-0.5">
-                          <Link to="/seguro-vida" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro de Vida</Link>
-                          <Link to="/planos-de-saude" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Planos de Saúde</Link>
-                          <Link to="/seguro-odonto" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Plano Odontológico</Link>
-                          <Link to="/seguro-acidentes-pessoais" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Acidentes Pessoais</Link>
-                          <Link to="/previdencia-privada" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Previdência Privada</Link>
+                          <Link to="/seguro-jetski" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Jet Ski</Link>
+                          <Link to="/seguro-embarcacoes" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Embarcações</Link>
+                          <Link to="/seguro-avioes" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Aviões</Link>
+                          <Link to="/seguro-helicopteros" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Helicópteros</Link>
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Patrimônio</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Vida e Saúde</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-residencial" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Residencial</Link>
-                          <Link to="/seguro-celular" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Celular</Link>
-                          <Link to="/seguro-viagem" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Viagem</Link>
-                          <Link to="/seguro-fianca" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Fiança</Link>
-                          <Link to="/seguro-fianca-locaticia" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Fiança Locatícia</Link>
-                          <Link to="/seguro-estagiario" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Estagiário</Link>
+                          <Link to="/seguro-vida" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Vida</Link>
+                          <Link to="/planos-de-saude" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Saúde</Link>
+                          <Link to="/seguro-odonto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Odonto</Link>
+                          <Link to="/seguro-acidentes-pessoais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Acidentes Pessoais</Link>
+                          <Link to="/previdencia-privada" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Previdência</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Patrimônio</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-residencial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Residencial</Link>
+                          <Link to="/seguro-celular" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Celular</Link>
+                          <Link to="/seguro-viagem" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Viagem</Link>
+                          <Link to="/seguro-fianca" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Fiança</Link>
+                          <Link to="/seguro-fianca-locaticia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Fiança Locatícia</Link>
+                          <Link to="/seguro-estagiario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Estagiário</Link>
                         </div>
                       </div>
                     </div>
@@ -143,46 +143,46 @@ const Header = () => {
 
               {/* Empresarial — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/60 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
                   Empresarial
-                  <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
                 </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="bg-card rounded-2xl shadow-xl border p-5 backdrop-blur-xl">
-                    <div className="grid grid-cols-3 gap-6">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[440px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                  <div className="bg-card rounded-xl shadow-xl border p-5">
+                    <div className="grid grid-cols-3 gap-5">
                       <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Empresas</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Empresas</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-empresarial" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Empresarial</Link>
-                          <Link to="/seguro-condominio" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Condomínio</Link>
-                          <Link to="/seguro-lojas-shopping" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Lojas de Shopping</Link>
-                          <Link to="/seguro-galpoes-industriais" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Galpões Industriais</Link>
+                          <Link to="/seguro-empresarial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Empresarial</Link>
+                          <Link to="/seguro-condominio" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Condomínio</Link>
+                          <Link to="/seguro-lojas-shopping" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Lojas Shopping</Link>
+                          <Link to="/seguro-galpoes-industriais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Galpões</Link>
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Frotas e Transporte</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Transporte</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-frota" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro de Frota</Link>
-                          <Link to="/seguro-transporte" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro de Transporte</Link>
+                          <Link to="/seguro-frota" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Frota</Link>
+                          <Link to="/seguro-transporte" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Transporte</Link>
                         </div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 mt-4">Industrial</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2 mt-4">Industrial</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-maquinas" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Máquinas e Equip.</Link>
-                          <Link to="/seguro-maquinas-industriais" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Máq. Industriais</Link>
+                          <Link to="/seguro-maquinas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Máquinas</Link>
+                          <Link to="/seguro-maquinas-industriais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Máq. Industriais</Link>
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Responsabilidade</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Responsabilidade</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-rc" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">RC Geral</Link>
-                          <Link to="/seguro-rc-profissional" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">RC Profissional</Link>
-                          <Link to="/seguro-cyber" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Cyber</Link>
-                          <Link to="/seguro-engenharia" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Engenharia</Link>
+                          <Link to="/seguro-rc" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Geral</Link>
+                          <Link to="/seguro-rc-profissional" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Profissional</Link>
+                          <Link to="/seguro-cyber" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Cyber</Link>
+                          <Link to="/seguro-engenharia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Engenharia</Link>
                         </div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 mt-4">Colaboradores</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2 mt-4">Pessoas</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-vida-pme" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Vida PME</Link>
-                          <Link to="/seguro-estagiario" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Estagiário</Link>
+                          <Link to="/seguro-vida-pme" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Vida PME</Link>
+                          <Link to="/seguro-estagiario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Estagiário</Link>
                         </div>
                       </div>
                     </div>
@@ -192,57 +192,47 @@ const Header = () => {
 
               {/* Agro — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/60 hover:text-primary transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
                   Agro
-                  <ChevronDown className="h-3.5 w-3.5 opacity-50 group-hover:opacity-100 transition-base" aria-hidden="true" />
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
                 </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="bg-card rounded-2xl shadow-xl border p-5 backdrop-blur-xl">
-                    <div className="grid grid-cols-2 gap-6">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[380px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                  <div className="bg-card rounded-xl shadow-xl border p-5">
+                    <div className="grid grid-cols-2 gap-5">
                       <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Máquinas e Equipamentos</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Máquinas</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-maquinas-agricolas" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Máquinas Agrícolas</Link>
-                          <Link to="/seguro-equipamentos-agricolas" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Equipamentos Agrícolas</Link>
-                          <Link to="/seguro-drone-agricola" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Drone Agrícola</Link>
-                          <Link to="/seguro-placa-solar" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Placas Solar</Link>
+                          <Link to="/seguro-maquinas-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Agrícolas</Link>
+                          <Link to="/seguro-equipamentos-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Equipamentos</Link>
+                          <Link to="/seguro-drone-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Drone</Link>
+                          <Link to="/seguro-placa-solar" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Placa Solar</Link>
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Produção e Transporte</p>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Produção</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-rural" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Rural</Link>
-                          <Link to="/seguro-pecuario" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Pecuário</Link>
-                          <Link to="/seguro-cafe" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Café</Link>
-                          <Link to="/seguro-armazenagem" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Armazenagem</Link>
-                          <Link to="/seguro-transporte-agro" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Transporte Agrícola</Link>
-                          <Link to="/seguro-ambiental" className="block py-1.5 text-sm text-foreground/70 hover:text-primary transition-base">Seguro Ambiental</Link>
+                          <Link to="/seguro-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Rural</Link>
+                          <Link to="/seguro-pecuario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Pecuário</Link>
+                          <Link to="/seguro-cafe" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Café</Link>
+                          <Link to="/seguro-armazenagem" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Armazenagem</Link>
+                          <Link to="/seguro-transporte-agro" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Transporte</Link>
+                          <Link to="/seguro-ambiental" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Ambiental</Link>
                         </div>
                       </div>
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-border/50">
-                      <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden="true" />
-                        Atendemos produtores rurais de todos os estados do Brasil
-                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <Link to="/consorcio" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Consórcio</Link>
-              <Link to="/blog" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Blog</Link>
-              <Link to="/sobre" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Sobre</Link>
-              <Link to="/contato" className="text-[13px] font-medium text-foreground/60 hover:text-primary transition-base px-3 py-2">Contato</Link>
+              <Link to="/consorcio" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Consórcio</Link>
+              <Link to="/sobre" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Sobre</Link>
+              <Link to="/contato" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Contato</Link>
             </div>
 
             <div className="hidden lg:flex items-center gap-2">
               <Link to="/cotacao">
-                <Button size="sm" className="rounded-xl text-[13px] font-medium h-9">Cotação Grátis</Button>
+                <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4">Cotação Grátis</Button>
               </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="sm" variant="cta" className="rounded-xl text-[13px] font-medium h-9">WhatsApp</Button>
-              </a>
             </div>
 
             <button
