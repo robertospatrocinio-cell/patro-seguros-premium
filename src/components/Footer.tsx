@@ -90,7 +90,10 @@ const Footer = () => {
 
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
-            <p>© {new Date().getFullYear()} Patro Corretora de Seguros. Todos os direitos reservados.</p>
+            <div className="flex flex-col items-center md:items-start gap-1">
+              <p>© {new Date().getFullYear()} Patro Corretora de Seguros. Todos os direitos reservados.</p>
+              <p>SUSEP — Registro nº 211112427</p>
+            </div>
             <div className="flex gap-6">
               <Link to="/privacidade" className="hover:text-white/70 transition-base">Privacidade</Link>
               <Link to="/termos" className="hover:text-white/70 transition-base">Termos</Link>
