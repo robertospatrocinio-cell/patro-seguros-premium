@@ -6,6 +6,7 @@ const SeguroCartaVerde = () => {
       title="Seguro Carta Verde"
       subtitle="Proteção obrigatória para viagens de carro aos países do Mercosul"
       icon="🌎"
+      metaDescription="Seguro Carta Verde obrigatório para viagens de carro ao Mercosul — Argentina, Uruguai, Paraguai e Chile. Contratação rápida e online. Cotação grátis Patro Seguros."
       description="O Seguro Carta Verde é obrigatório para todos os veículos brasileiros que cruzam as fronteiras terrestres com países do Mercosul e associados. Garanta sua viagem com tranquilidade e dentro da lei."
       coverages={[
         { title: "Responsabilidade Civil por Danos Materiais", description: "Cobertura para danos materiais causados a terceiros em acidentes no exterior." },

@@ -6,6 +6,7 @@ const SeguroAvioes = () => {
       title="Seguro Aviões"
       subtitle="Proteção completa para aeronaves de todos os portes e finalidades"
       icon="✈️"
+      metaDescription="Seguro de Aviões para aeronaves particulares, executivas e comerciais. Cobertura de casco, RC e RETA. Cotação grátis Patro Seguros."
       description="O Seguro de Aviões oferece cobertura abrangente para aeronaves particulares, executivas e comerciais. Proteja seu patrimônio contra danos, responsabilidade civil e riscos da aviação."
       coverages={[
         { title: "Casco da Aeronave", description: "Cobertura contra danos ao casco, motor e componentes da aeronave em voo ou solo." },

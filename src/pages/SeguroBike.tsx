@@ -6,6 +6,7 @@ const SeguroBike = () => {
       title="Seguro Bike"
       subtitle="Proteção completa para sua bicicleta contra roubo, furto e acidentes"
       icon="🚲"
+      metaDescription="Seguro Bike para bicicletas urbanas, speed, MTB e elétricas. Proteção contra roubo, furto e danos acidentais. Cotação grátis Patro Seguros."
       description="O Seguro Bike da Patro Seguros protege sua bicicleta — seja ela urbana, speed, mountain bike, gravel ou elétrica — contra roubo, furto, danos acidentais e muito mais. Com o crescimento do ciclismo no Brasil, proteger seu investimento é fundamental. Bicicletas de alta performance podem custar de R$ 5.000 a R$ 80.000, e o seguro garante tranquilidade para pedalar sem preocupação. Cotação rápida, sem burocracia e com as melhores seguradoras do mercado."
       coverages={[
         {

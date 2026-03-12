@@ -6,6 +6,7 @@ const SeguroHelicopteros = () => {
       title="Seguro Helicópteros"
       subtitle="Proteção especializada para helicópteros e operações de asa rotativa"
       icon="🚁"
+      metaDescription="Seguro de Helicópteros — proteção para aeronaves de asa rotativa. Cobertura de casco, RC e riscos operacionais. Cotação grátis Patro Seguros."
       description="O Seguro de Helicópteros oferece cobertura completa para aeronaves de asa rotativa, protegendo contra danos ao casco, responsabilidade civil e riscos operacionais. Voe com segurança e tranquilidade."
       coverages={[
         { title: "Casco e Motor", description: "Cobertura contra danos ao casco, motor, rotor e componentes do helicóptero." },

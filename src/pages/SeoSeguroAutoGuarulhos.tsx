@@ -6,6 +6,7 @@ const SeoSeguroAutoGuarulhos = () => (
     subtitle="Proteja seu carro em Guarulhos com as melhores seguradoras. Cotação gratuita e atendimento local."
     description="Procurando seguro auto em Guarulhos? A Patro Seguros é a corretora de seguros referência em Guarulhos e região. Comparamos Porto Seguro, Tokio Marine, Allianz, HDI e outras seguradoras para garantir o melhor preço e cobertura para o seu veículo. Atendimento presencial e online."
     icon="🚗"
+    metaDescription="Seguro Auto em Guarulhos — compare cotações de Porto, Tokio Marine, Allianz e mais. Atendimento local e presencial. Cotação grátis Patro Seguros Guarulhos."
     coverages={[
       { title: "Cobertura Compreensiva", description: "Proteção contra roubo, furto, colisão, incêndio e fenômenos naturais." },
       { title: "Responsabilidade Civil", description: "Cobertura para danos materiais e corporais causados a terceiros." },
