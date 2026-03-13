@@ -63,20 +63,20 @@ const Footer = () => {
 
           {/* Contato */}
           <div>
-            <h3 className="font-heading font-semibold text-white/70 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h3>
+            <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h3>
             <address className="not-italic">
               <ul className="space-y-3 text-[13px]">
-                <li className="flex items-start gap-2.5 text-white/50">
-                  <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0 text-white/40" aria-hidden="true" />
+                <li className="flex items-start gap-2.5 text-white/70">
+                  <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0 text-white/60" aria-hidden="true" />
                   <span>Av. Salgado Filho, 2120<br />Sala 219 — Guarulhos/SP</span>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/40" aria-hidden="true" />
-                  <a href="tel:1151997500" className="text-white/50 hover:text-white/80 transition-base">(11) 5199-7500</a>
+                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
+                  <a href="tel:1151997500" className="text-white/70 hover:text-white/90 transition-base">(11) 5199-7500</a>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Mail className="h-3.5 w-3.5 flex-shrink-0 text-white/40" aria-hidden="true" />
-                  <a href="mailto:contato@patroseguros.com.br" className="text-white/50 hover:text-white/80 transition-base">contato@patroseguros.com.br</a>
+                  <Mail className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
+                  <a href="mailto:contato@patroseguros.com.br" className="text-white/70 hover:text-white/90 transition-base">contato@patroseguros.com.br</a>
                 </li>
               </ul>
             </address>
