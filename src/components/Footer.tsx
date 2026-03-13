@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Nav */}
           <nav aria-label="Links do site">
-            <h4 className="font-heading font-semibold text-white/60 text-[11px] uppercase tracking-[0.1em] mb-5">Empresa</h4>
+            <h3 className="font-heading font-semibold text-white/70 text-[11px] uppercase tracking-[0.1em] mb-5">Empresa</h3>
             <ul className="space-y-2.5">
               {[
                 { to: "/sobre", label: "Sobre" },
