@@ -66,6 +66,7 @@ import SeguroEmbarcacoes from "./pages/SeguroEmbarcacoes";
 import SeguroAvioes from "./pages/SeguroAvioes";
 import SeguroHelicopteros from "./pages/SeguroHelicopteros";
 import SeguroCartaVerde from "./pages/SeguroCartaVerde";
+import SeguroDecesso from "./pages/SeguroDecesso";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
