@@ -58,6 +58,7 @@ const Index = () => {
     <>
       <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — corretora de seguros em Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
       <FAQSchema faqs={faqs} />
+      <LocalBusinessSchema />
       <Header />
       <main id="main-content">
         {/* Hero */}
