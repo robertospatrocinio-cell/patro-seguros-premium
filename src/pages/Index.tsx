@@ -189,9 +189,13 @@ const Index = () => {
               ))}
             </div>
             <div className="text-center mt-10">
-              <Link to="/cotacao" className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:text-primary-hover transition-base">
-                Ver todos os seguros <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
+              <button
+                onClick={() => setShowAllSolutions(!showAllSolutions)}
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:text-primary-hover transition-base"
+              >
+                {showAllSolutions ? "Ver menos" : "Ver todos os seguros"}
+                {showAllSolutions ? <ChevronUp className="h-3.5 w-3.5" aria-hidden="true" /> : <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
+              </button>
             </div>
           </div>
         </section>
