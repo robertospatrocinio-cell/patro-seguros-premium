@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key, Star, Quote, Zap, Headphones, Plane, Bike, Ship, ChevronDown, ChevronUp, Umbrella, Stethoscope, SmilePlus } from "lucide-react";
+import { Shield, Users, Award, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Key, Star, Zap, Headphones, Plane, Bike, Ship, ChevronDown, ChevronUp, Umbrella, SmilePlus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -8,9 +8,11 @@ import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Button } from "@/components/ui/button";
 const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
-import shieldHero3d from "@/assets/3d-shield-hero.webp";
-import insuranceGroup3d from "@/assets/3d-insurance-group.webp";
-import cotacaoOnline3d from "@/assets/3d-cotacao-online.webp";
+
+// Lazy load below-fold decorative images
+const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
+const insuranceGroup3d = new URL("@/assets/3d-insurance-group.webp", import.meta.url).href;
+const cotacaoOnline3d = new URL("@/assets/3d-cotacao-online.webp", import.meta.url).href;
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -81,25 +83,24 @@ const Index = () => {
       <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label="Início">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,hsla(215,100%,50%,0.08),transparent)]" />
           <div className="container mx-auto px-4 relative">
-            {/* 3D Shield floating on the right */}
-            <img src={shieldHero3d} alt="" width={256} height={256} className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30 animate-fade-up" aria-hidden="true" loading="lazy" />
-            <div className="py-28 md:py-40 max-w-[680px] mx-auto text-center">
-              <div className="animate-fade-up mb-8">
-                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={144} height={144} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)] transition-transform duration-200 hover:scale-110" />
+            {/* 3D Shield floating on the right — desktop only, lazy */}
+            <img src={shieldHero3d} alt="" width={256} height={256} className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30" aria-hidden="true" loading="lazy" decoding="async" />
+            <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
+              <div className="mb-6 md:mb-8">
+                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
               </div>
-              <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
+            <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
                 Proteção inteligente para você, sua família e sua empresa.
               </h1>
-              <p className="text-[17px] md:text-lg text-white/90 mb-2 animate-fade-up-delay-1 font-medium">
+              <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
                 Sua Corretora de Seguros em Guarulhos
               </p>
-              <p className="text-[15px] md:text-base text-white/70 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
+              <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
                 Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/cotacao" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg bg-white text-foreground hover:bg-white/90 h-11 font-semibold tracking-tight">
                     Solicitar Cotação Grátis
@@ -147,7 +148,7 @@ const Index = () => {
         </section>
 
         {/* Diferenciais */}
-        <section className="py-24 md:py-32 bg-background" aria-labelledby="diferenciais-heading">
+        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }} aria-labelledby="diferenciais-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Por que a Patro</span>
@@ -168,12 +169,12 @@ const Index = () => {
         </section>
 
         {/* Soluções */}
-        <section className="py-24 md:py-32 gradient-surface" aria-labelledby="solucoes-heading">
+        <section className="py-16 md:py-32 gradient-surface" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }} aria-labelledby="solucoes-heading">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center mb-16">
+            <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
               <span className="section-label">Soluções</span>
               <h2 id="solucoes-heading" className="mt-3">Nossos Serviços de Seguros</h2>
-              <img src={insuranceGroup3d} alt="" width={224} height={224} className="w-48 h-48 md:w-56 md:h-56 object-contain mx-auto mt-6 drop-shadow-[0_8px_24px_hsla(215,80%,30%,0.15)]" aria-hidden="true" loading="lazy" />
+              <img src={insuranceGroup3d} alt="" width={224} height={224} className="hidden md:block w-56 h-56 object-contain mx-auto mt-6" aria-hidden="true" loading="lazy" decoding="async" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
               {visibleSolutions.map((s, i) => (
@@ -201,11 +202,10 @@ const Index = () => {
         </section>
 
         {/* CTA — Cotação Auto */}
-        <section className="py-20 md:py-24 bg-background" aria-labelledby="cotacao-auto-heading">
+        <section className="py-16 md:py-24 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="cotacao-auto-heading">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-10 md:p-16">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,50%,0.08),transparent)]" />
-              <img src={cotacaoOnline3d} alt="" width={192} height={192} className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80 drop-shadow-[0_0_30px_hsla(215,100%,60%,0.3)]" aria-hidden="true" loading="lazy" />
+            <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-8 md:p-16">
+              <img src={cotacaoOnline3d} alt="" width={192} height={192} className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80" aria-hidden="true" loading="lazy" decoding="async" />
               <div className="relative md:max-w-[60%]">
                 <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto Online</h2>
                 <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
@@ -233,7 +233,7 @@ const Index = () => {
         </section>
 
         {/* Depoimentos */}
-        <section className="py-24 md:py-32 gradient-surface" aria-labelledby="depoimentos-heading">
+        <section className="py-16 md:py-32 gradient-surface" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }} aria-labelledby="depoimentos-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Clientes</span>
@@ -266,7 +266,7 @@ const Index = () => {
         </section>
 
         {/* Sobre */}
-        <section className="py-24 md:py-32 bg-background" aria-labelledby="sobre-heading">
+        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
@@ -286,8 +286,7 @@ const Index = () => {
         </section>
 
         {/* CTA Final */}
-        <section className="py-28 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,hsla(215,100%,50%,0.06),transparent)]" />
+        <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 350px' }} aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-4 font-extrabold">Peça sua cotação agora.</h2>
             <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
@@ -310,7 +309,7 @@ const Index = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 md:py-32 bg-background" aria-labelledby="faq-heading">
+        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="faq-heading">
           <div className="container mx-auto px-4 max-w-2xl">
             <div className="text-center mb-16">
               <span className="section-label">FAQ</span>

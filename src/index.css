@@ -178,10 +178,12 @@
     transition: var(--transition-smooth);
   }
 
-  .premium-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-1px);
-    border-color: hsl(var(--border));
+  @media (hover: hover) {
+    .premium-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-1px);
+      border-color: hsl(var(--border));
+    }
   }
 
   .section-label {
