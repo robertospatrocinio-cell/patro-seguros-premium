@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Button } from "@/components/ui/button";
 import seloMelhorCorretora from "@/assets/selo-melhor-corretora.png";
 import shieldHero3d from "@/assets/3d-shield-hero.png";
@@ -57,6 +58,7 @@ const Index = () => {
     <>
       <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — corretora de seguros em Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
       <FAQSchema faqs={faqs} />
+      <LocalBusinessSchema />
       <Header />
       <main id="main-content">
         {/* Hero */}
@@ -70,8 +72,11 @@ const Index = () => {
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)]" />
               </div>
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
-                Proteção inteligente para você, sua família e sua empresa.
+                Patro Seguros — Sua Corretora de Seguros em Guarulhos
               </h1>
+              <p className="text-[17px] md:text-lg text-white/90 mb-2 animate-fade-up-delay-1 font-medium">
+                Proteção inteligente para você, sua família e sua empresa.
+              </p>
               <p className="text-[15px] md:text-base text-white/70 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
                 Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
               </p>
@@ -128,7 +133,7 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Por que a Patro</span>
-              <h2 id="diferenciais-heading" className="mt-3">Atendimento de especialista,<br className="hidden sm:block" /> não de robô.</h2>
+              <h2 id="diferenciais-heading" className="mt-3">Melhor corretora de seguros em Guarulhos:<br className="hidden sm:block" /> atendimento de especialista, não de robô.</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
               {diferenciais.map((item, i) => (
@@ -149,7 +154,7 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Soluções</span>
-              <h2 id="solucoes-heading" className="mt-3">Tudo que você precisa proteger.</h2>
+              <h2 id="solucoes-heading" className="mt-3">Nossos Serviços de Seguros</h2>
               <img src={insuranceGroup3d} alt="" className="w-48 h-48 md:w-56 md:h-56 object-contain mx-auto mt-6 drop-shadow-[0_8px_24px_hsla(215,80%,30%,0.15)]" aria-hidden="true" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
