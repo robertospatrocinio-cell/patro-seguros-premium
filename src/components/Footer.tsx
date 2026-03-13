@@ -84,11 +84,11 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/[0.08]">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/40">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/50">
             <p className="text-[13px]">© {new Date().getFullYear()} Patro Corretora de Seguros · <span className="text-white/70 font-semibold">CNPJ 41.641.558/0001-33</span> · <span className="text-white/70 font-semibold">SUSEP 211112427</span></p>
             <div className="flex gap-6">
-              <span className="cursor-default hover:text-white/60 transition-base">Privacidade</span>
-              <span className="cursor-default hover:text-white/60 transition-base">Termos</span>
+              <span className="cursor-default hover:text-white/70 transition-base">Privacidade</span>
+              <span className="cursor-default hover:text-white/70 transition-base">Termos</span>
             </div>
           </div>
         </div>
