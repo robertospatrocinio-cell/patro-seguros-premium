@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
-import logoFull from "@/assets/logo-full.webp";
+import logoFull from "@/assets/logo-full.png";
 
 const Footer = () => {
   return (
@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Nav */}
           <nav aria-label="Links do site">
-            <h4 className="font-heading font-semibold text-white/60 text-[11px] uppercase tracking-[0.1em] mb-5">Empresa</h4>
+            <h3 className="font-heading font-semibold text-white/70 text-[11px] uppercase tracking-[0.1em] mb-5">Empresa</h3>
             <ul className="space-y-2.5">
               {[
                 { to: "/sobre", label: "Sobre" },
@@ -46,7 +46,7 @@ const Footer = () => {
 
           {/* Seguros */}
           <nav aria-label="Principais seguros">
-            <h4 className="font-heading font-semibold text-white/60 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros</h4>
+            <h3 className="font-heading font-semibold text-white/70 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros</h3>
             <ul className="space-y-2.5">
               {[
                 { to: "/seguro-auto", label: "Auto" },
@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Contato */}
           <div>
-            <h4 className="font-heading font-semibold text-white/60 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h4>
+            <h3 className="font-heading font-semibold text-white/70 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h3>
             <address className="not-italic">
               <ul className="space-y-3 text-[13px]">
                 <li className="flex items-start gap-2.5 text-white/50">
@@ -84,11 +84,11 @@ const Footer = () => {
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/[0.08]">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/40">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/50">
             <p className="text-[13px]">© {new Date().getFullYear()} Patro Corretora de Seguros · <span className="text-white/70 font-semibold">CNPJ 41.641.558/0001-33</span> · <span className="text-white/70 font-semibold">SUSEP 211112427</span></p>
             <div className="flex gap-6">
-              <span className="cursor-default hover:text-white/60 transition-base">Privacidade</span>
-              <span className="cursor-default hover:text-white/60 transition-base">Termos</span>
+              <span className="cursor-default hover:text-white/70 transition-base">Privacidade</span>
+              <span className="cursor-default hover:text-white/70 transition-base">Termos</span>
             </div>
           </div>
         </div>
