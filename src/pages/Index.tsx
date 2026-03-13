@@ -272,7 +272,7 @@ const Index = () => {
               <span className="section-label">Quem somos</span>
               <h2 id="sobre-heading" className="mt-3 mb-6">Corretora com atendimento<br className="hidden sm:block" /> de gente, não de máquina.</h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
-                Registrada na SUSEP (nº 211112427), com sede em Guarulhos/SP. Atendemos pessoas físicas, famílias, empresas e produtores rurais em todo o Brasil.
+                Registrada na SUSEP (nº 212113511), com sede em Guarulhos/SP. Atendemos pessoas físicas, famílias, empresas e produtores rurais em todo o Brasil.
               </p>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-10">
                 Cada cliente conversa direto com um especialista, recebe propostas comparativas e tem suporte completo — da cotação ao sinistro.
