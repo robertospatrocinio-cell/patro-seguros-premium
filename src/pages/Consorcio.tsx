@@ -79,7 +79,7 @@ const Consorcio = () => {
             <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-6 border border-white/20">
               💰 Sem juros • Regulamentado pelo Banco Central
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight text-white">
               Consórcio: A Forma Mais <span className="text-yellow-300">Inteligente</span> de Conquistar Seus Sonhos
             </h1>
             <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
