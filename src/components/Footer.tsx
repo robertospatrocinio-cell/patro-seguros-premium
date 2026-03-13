@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
-import logoFull from "@/assets/logo-full.png";
+import logoFull from "@/assets/logo-full.webp";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-5">
-              <img src={logoFull} alt="Patro Seguros" className="h-20 object-contain brightness-200" />
+              <img src={logoFull} alt="Patro Seguros" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
             </div>
             <p className="text-[13px] text-white/60 mb-6 leading-relaxed max-w-xs">
               Corretora de seguros em Guarulhos. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.
