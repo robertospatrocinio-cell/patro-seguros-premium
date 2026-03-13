@@ -205,7 +205,7 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-10 md:p-16">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,50%,0.08),transparent)]" />
-              <img src={cotacaoOnline3d} alt="" className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80 drop-shadow-[0_0_30px_hsla(215,100%,60%,0.3)]" aria-hidden="true" />
+              <img src={cotacaoOnline3d} alt="" width={192} height={192} className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80 drop-shadow-[0_0_30px_hsla(215,100%,60%,0.3)]" aria-hidden="true" loading="lazy" />
               <div className="relative md:max-w-[60%]">
                 <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto Online</h2>
                 <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
