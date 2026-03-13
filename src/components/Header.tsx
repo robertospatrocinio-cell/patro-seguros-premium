@@ -54,19 +54,19 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-1.5 text-[11px]">
             <div className="flex items-center gap-5">
-              <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/30 hover:text-white/60 transition-base" aria-label="Ligar para (11) 5199-7500">
+              <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Ligar para (11) 5199-7500">
                 <Phone className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/30 hover:text-white/60 transition-base" aria-label="Enviar e-mail">
+              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Enviar e-mail">
                 <Mail className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
-              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
-              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-white/50 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" /></a>
+              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
+              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
+              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" /></a>
             </div>
           </div>
         </div>
