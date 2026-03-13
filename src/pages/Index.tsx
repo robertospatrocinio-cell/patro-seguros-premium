@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key, Star, Quote, Zap, Headphones } from "lucide-react";
+import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key, Star, Quote, Zap, Headphones, Plane, Bike, Ship, ChevronDown, ChevronUp, Umbrella, Stethoscope, SmilePlus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -24,7 +25,21 @@ const solutions = [
   { title: "Agronegócio", desc: "Máquinas, safra e pecuário", icon: Tractor, link: "/seguro-maquinas-agricolas" },
   { title: "Seguro Caminhão", desc: "Carga e veículo pesado", icon: Truck, link: "/seguro-caminhao" },
   { title: "Fiança Locatícia", desc: "Alugue sem fiador", icon: Key, link: "/seguro-fianca-locaticia" },
+  { title: "Seguro Viagem", desc: "Nacional e internacional", icon: Plane, link: "/seguro-viagem" },
+  { title: "Seguro Moto", desc: "Proteção completa", icon: Bike, link: "/seguro-moto" },
+  { title: "Seguro Condomínio", desc: "Áreas comuns e estrutura", icon: Building2, link: "/seguro-condominio" },
+  { title: "Seguro Cyber", desc: "Proteção digital", icon: Shield, link: "/seguro-cyber" },
+  { title: "Seguro Frota", desc: "Gestão de frotas", icon: Truck, link: "/seguro-frota" },
+  { title: "Seguro Transporte", desc: "Cargas em trânsito", icon: Truck, link: "/seguro-transporte" },
+  { title: "Seguro Odonto", desc: "Planos odontológicos", icon: SmilePlus, link: "/seguro-odonto" },
+  { title: "Previdência Privada", desc: "Planeje seu futuro", icon: Umbrella, link: "/previdencia-privada" },
+  { title: "Seguro Embarcações", desc: "Lanchas e jet skis", icon: Ship, link: "/seguro-embarcacoes" },
+  { title: "Consórcio", desc: "Carro, imóvel e mais", icon: Award, link: "/consorcio" },
+  { title: "Seguro RC", desc: "Responsabilidade civil", icon: Shield, link: "/seguro-rc" },
+  { title: "Seguro Celular", desc: "Smartphones protegidos", icon: Phone, link: "/seguro-celular" },
 ];
+
+const INITIAL_SOLUTIONS_COUNT = 8;
 
 const stats = [
   { value: "16+", label: "Seguradoras" },
@@ -54,6 +69,9 @@ const faqs = [
 ];
 
 const Index = () => {
+  const [showAllSolutions, setShowAllSolutions] = useState(false);
+  const visibleSolutions = showAllSolutions ? solutions : solutions.slice(0, INITIAL_SOLUTIONS_COUNT);
+
   return (
     <>
       <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — corretora de seguros em Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
@@ -158,7 +176,7 @@ const Index = () => {
               <img src={insuranceGroup3d} alt="" className="w-48 h-48 md:w-56 md:h-56 object-contain mx-auto mt-6 drop-shadow-[0_8px_24px_hsla(215,80%,30%,0.15)]" aria-hidden="true" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-              {solutions.map((s, i) => (
+              {visibleSolutions.map((s, i) => (
                 <Link key={i} to={s.link} className="group">
                   <article className="premium-card p-6 h-full">
                     <div className="w-9 h-9 rounded-lg bg-primary/[0.05] flex items-center justify-center mb-4 group-hover:bg-primary transition-base group-hover:scale-110">
@@ -171,9 +189,13 @@ const Index = () => {
               ))}
             </div>
             <div className="text-center mt-10">
-              <Link to="/cotacao" className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:text-primary-hover transition-base">
-                Ver todos os seguros <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </Link>
+              <button
+                onClick={() => setShowAllSolutions(!showAllSolutions)}
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:text-primary-hover transition-base"
+              >
+                {showAllSolutions ? "Ver menos" : "Ver todos os seguros"}
+                {showAllSolutions ? <ChevronUp className="h-3.5 w-3.5" aria-hidden="true" /> : <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
+              </button>
             </div>
           </div>
         </section>
