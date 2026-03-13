@@ -286,8 +286,7 @@ const Index = () => {
         </section>
 
         {/* CTA Final */}
-        <section className="py-28 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,hsla(215,100%,50%,0.06),transparent)]" />
+        <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 350px' }} aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-4 font-extrabold">Peça sua cotação agora.</h2>
             <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
