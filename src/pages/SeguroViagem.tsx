@@ -12,19 +12,23 @@ const SeguroViagem = () => {
       detailedDescription="Na Patro Seguros, comparamos planos de diversas seguradoras especializadas para encontrar a cobertura ideal para o seu perfil de viagem. Seja uma viagem a lazer, negócios, intercâmbio ou cruzeiro, analisamos fatores como destino, duração, idade, condições de saúde pré-existentes e atividades planejadas (esportes radicais, mergulho, ski) para recomendar o plano com melhor custo-benefício. Nosso diferencial é a orientação consultiva: explicamos cada cobertura, alertamos sobre exigências do destino e garantimos que você viaje com a proteção adequada — sem pagar por coberturas desnecessárias."
       howItWorks={[
         {
-          title: "1. Conte-nos sobre sua viagem",
+          step: "1",
+          title: "Conte-nos sobre sua viagem",
           description: "Informe destino, datas, número de viajantes, idades e se há condições de saúde pré-existentes. Quanto mais detalhes, melhor a recomendação."
         },
         {
-          title: "2. Receba cotações comparativas",
+          step: "2",
+          title: "Receba cotações comparativas",
           description: "Comparamos planos de múltiplas seguradoras e apresentamos as melhores opções com análise detalhada de coberturas e valores."
         },
         {
-          title: "3. Escolha e receba sua apólice",
+          step: "3",
+          title: "Escolha e receba sua apólice",
           description: "Após a escolha, a apólice é emitida digitalmente em minutos. Você recebe por e-mail com todos os contatos de emergência."
         },
         {
-          title: "4. Viaje com assistência 24h",
+          step: "4",
+          title: "Viaje com assistência 24h",
           description: "Durante toda a viagem, conte com central de atendimento 24h em português para qualquer emergência ou dúvida."
         },
       ]}

@@ -12,19 +12,23 @@ const SeguroCelular = () => {
       detailedDescription="Na Patro Seguros, comparamos planos de seguradoras especializadas em eletrônicos para encontrar a melhor proteção para o seu smartphone. Analisamos o modelo do aparelho, seu valor de mercado, perfil de uso e os riscos mais relevantes para recomendar a cobertura ideal. Diferente das 'garantias estendidas' de loja, o seguro celular dedicado oferece coberturas reais contra roubo e quebra, com indenização justa e processo de sinistro ágil. Atendemos proprietários de todas as marcas: Apple (iPhone), Samsung (Galaxy), Xiaomi, Motorola e outros."
       howItWorks={[
         {
-          title: "1. Informe os dados do aparelho",
+          step: "1",
+          title: "Informe os dados do aparelho",
           description: "Nos diga a marca, modelo, número de série (IMEI) e nota fiscal de compra. Aparelhos novos e usados podem ser segurados."
         },
         {
-          title: "2. Escolha o plano ideal",
+          step: "2",
+          title: "Escolha o plano ideal",
           description: "Apresentamos opções com diferentes coberturas e valores de franquia. Você escolhe o que faz mais sentido para seu perfil e orçamento."
         },
         {
-          title: "3. Ativação imediata",
+          step: "3",
+          title: "Ativação imediata",
           description: "Após a contratação, a cobertura é ativada rapidamente. Você recebe a apólice digital com todas as orientações."
         },
         {
-          title: "4. Sinistro simplificado",
+          step: "4",
+          title: "Sinistro simplificado",
           description: "Em caso de sinistro, basta registrar o B.O. (para roubo/furto), acionar a seguradora e acompanhar o processo de indenização."
         },
       ]}
