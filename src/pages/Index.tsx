@@ -7,7 +7,7 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Button } from "@/components/ui/button";
-import seloMelhorCorretora from "@/assets/selo-melhor-corretora.webp";
+const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
 import shieldHero3d from "@/assets/3d-shield-hero.webp";
 import insuranceGroup3d from "@/assets/3d-insurance-group.webp";
 import cotacaoOnline3d from "@/assets/3d-cotacao-online.webp";

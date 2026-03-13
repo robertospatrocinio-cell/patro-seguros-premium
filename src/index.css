@@ -225,6 +225,23 @@
     animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
     opacity: 0;
   }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .animate-fade-up,
+    .animate-fade-up-delay-1,
+    .animate-fade-up-delay-2,
+    .animate-fade-up-delay-3 {
+      animation: none !important;
+      opacity: 1 !important;
+    }
+
+    .transition-base,
+    .transition-smooth {
+      transition: none !important;
+    }
+  }
 }
 
 #lovable-badge {
