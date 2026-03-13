@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-5">
-              <img src={logoFull} alt="Patro Seguros" className="h-14 object-contain brightness-200" />
+              <img src={logoFull} alt="Patro Seguros" <img src={logoFull} alt="Patro Seguros" className="h-20 object-contain brightness-200" /> />
             </div>
             <p className="text-[13px] text-white/60 mb-6 leading-relaxed max-w-xs">
               Corretora de seguros em Guarulhos. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.
