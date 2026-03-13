@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Users, Clock, Award, CheckCircle, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Factory, Leaf, UserCheck, GraduationCap, Key, Star, Quote, Zap, Headphones, Plane, Bike, Ship, ChevronDown, ChevronUp, Umbrella, Stethoscope, SmilePlus } from "lucide-react";
+import { Shield, Users, Award, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Key, Star, Zap, Headphones, Plane, Bike, Ship, ChevronDown, ChevronUp, Umbrella, SmilePlus } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -8,9 +8,11 @@ import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Button } from "@/components/ui/button";
 const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
-import shieldHero3d from "@/assets/3d-shield-hero.webp";
-import insuranceGroup3d from "@/assets/3d-insurance-group.webp";
-import cotacaoOnline3d from "@/assets/3d-cotacao-online.webp";
+
+// Lazy load below-fold decorative images
+const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
+const insuranceGroup3d = new URL("@/assets/3d-insurance-group.webp", import.meta.url).href;
+const cotacaoOnline3d = new URL("@/assets/3d-cotacao-online.webp", import.meta.url).href;
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
