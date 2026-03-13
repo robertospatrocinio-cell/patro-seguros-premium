@@ -87,7 +87,7 @@ const Index = () => {
             <img src={shieldHero3d} alt="" width={256} height={256} className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30 animate-fade-up" aria-hidden="true" loading="lazy" />
             <div className="py-28 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="animate-fade-up mb-8">
-                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)] transition-transform duration-200 hover:scale-110" />
+                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={144} height={144} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)] transition-transform duration-200 hover:scale-110" />
               </div>
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
                 Proteção inteligente para você, sua família e sua empresa.
