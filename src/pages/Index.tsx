@@ -176,7 +176,7 @@ const Index = () => {
               <img src={insuranceGroup3d} alt="" className="w-48 h-48 md:w-56 md:h-56 object-contain mx-auto mt-6 drop-shadow-[0_8px_24px_hsla(215,80%,30%,0.15)]" aria-hidden="true" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-              {solutions.map((s, i) => (
+              {visibleSolutions.map((s, i) => (
                 <Link key={i} to={s.link} className="group">
                   <article className="premium-card p-6 h-full">
                     <div className="w-9 h-9 rounded-lg bg-primary/[0.05] flex items-center justify-center mb-4 group-hover:bg-primary transition-base group-hover:scale-110">
