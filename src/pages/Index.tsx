@@ -7,10 +7,10 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Button } from "@/components/ui/button";
-import seloMelhorCorretora from "@/assets/selo-melhor-corretora.webp";
-import shieldHero3d from "@/assets/3d-shield-hero.webp";
-import insuranceGroup3d from "@/assets/3d-insurance-group.webp";
-import cotacaoOnline3d from "@/assets/3d-cotacao-online.webp";
+import seloMelhorCorretora from "@/assets/selo-melhor-corretora.png";
+import shieldHero3d from "@/assets/3d-shield-hero.png";
+import insuranceGroup3d from "@/assets/3d-insurance-group.png";
+import cotacaoOnline3d from "@/assets/3d-cotacao-online.png";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
