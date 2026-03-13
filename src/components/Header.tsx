@@ -77,7 +77,7 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
             <Link to="/" className="flex items-center" aria-label="Patro Seguros — Página inicial">
-              <img src={logoFull} alt="Patro Seguros" width={251} height={140} fetchPriority="high" className="h-20 object-contain -my-2 transition-transform duration-200 hover:scale-110" />
+              <img src={logoFull} alt="Patro Seguros" width={251} height={140} className="h-20 object-contain -my-2" />
             </Link>
 
             {/* Desktop nav */}
