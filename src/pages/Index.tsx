@@ -154,7 +154,7 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Soluções</span>
-              <h2 id="solucoes-heading" className="mt-3">Tudo que você precisa proteger.</h2>
+              <h2 id="solucoes-heading" className="mt-3">Nossos Serviços de Seguros</h2>
               <img src={insuranceGroup3d} alt="" className="w-48 h-48 md:w-56 md:h-56 object-contain mx-auto mt-6 drop-shadow-[0_8px_24px_hsla(215,80%,30%,0.15)]" aria-hidden="true" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
