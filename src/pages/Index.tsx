@@ -148,7 +148,7 @@ const Index = () => {
         </section>
 
         {/* Diferenciais */}
-        <section className="py-24 md:py-32 bg-background" aria-labelledby="diferenciais-heading">
+        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }} aria-labelledby="diferenciais-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Por que a Patro</span>
