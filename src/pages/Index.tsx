@@ -133,7 +133,7 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Por que a Patro</span>
-              <h2 id="diferenciais-heading" className="mt-3">Atendimento de especialista,<br className="hidden sm:block" /> não de robô.</h2>
+              <h2 id="diferenciais-heading" className="mt-3">Melhor corretora de seguros em Guarulhos:<br className="hidden sm:block" /> atendimento de especialista, não de robô.</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
               {diferenciais.map((item, i) => (
