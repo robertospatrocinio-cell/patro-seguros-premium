@@ -309,7 +309,7 @@ const Index = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-24 md:py-32 bg-background" aria-labelledby="faq-heading">
+        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="faq-heading">
           <div className="container mx-auto px-4 max-w-2xl">
             <div className="text-center mb-16">
               <span className="section-label">FAQ</span>
