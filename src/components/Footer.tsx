@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="flex items-center mb-5">
               <img src={logoFull} alt="Patro Seguros" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
             </div>
-            <p className="text-[13px] text-white/60 mb-6 leading-relaxed max-w-xs">
+            <p className="text-[13px] text-white/80 mb-6 leading-relaxed max-w-xs">
               Corretora de seguros em Guarulhos. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.
             </p>
             <div className="flex gap-2">
