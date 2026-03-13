@@ -25,7 +25,21 @@ const solutions = [
   { title: "Agronegócio", desc: "Máquinas, safra e pecuário", icon: Tractor, link: "/seguro-maquinas-agricolas" },
   { title: "Seguro Caminhão", desc: "Carga e veículo pesado", icon: Truck, link: "/seguro-caminhao" },
   { title: "Fiança Locatícia", desc: "Alugue sem fiador", icon: Key, link: "/seguro-fianca-locaticia" },
+  { title: "Seguro Viagem", desc: "Nacional e internacional", icon: Plane, link: "/seguro-viagem" },
+  { title: "Seguro Moto", desc: "Proteção completa", icon: Bike, link: "/seguro-moto" },
+  { title: "Seguro Condomínio", desc: "Áreas comuns e estrutura", icon: Building2, link: "/seguro-condominio" },
+  { title: "Seguro Cyber", desc: "Proteção digital", icon: Shield, link: "/seguro-cyber" },
+  { title: "Seguro Frota", desc: "Gestão de frotas", icon: Truck, link: "/seguro-frota" },
+  { title: "Seguro Transporte", desc: "Cargas em trânsito", icon: Truck, link: "/seguro-transporte" },
+  { title: "Seguro Odonto", desc: "Planos odontológicos", icon: SmilePlus, link: "/seguro-odonto" },
+  { title: "Previdência Privada", desc: "Planeje seu futuro", icon: Umbrella, link: "/previdencia-privada" },
+  { title: "Seguro Embarcações", desc: "Lanchas e jet skis", icon: Ship, link: "/seguro-embarcacoes" },
+  { title: "Consórcio", desc: "Carro, imóvel e mais", icon: Award, link: "/consorcio" },
+  { title: "Seguro RC", desc: "Responsabilidade civil", icon: Shield, link: "/seguro-rc" },
+  { title: "Seguro Celular", desc: "Smartphones protegidos", icon: Phone, link: "/seguro-celular" },
 ];
+
+const INITIAL_SOLUTIONS_COUNT = 8;
 
 const stats = [
   { value: "16+", label: "Seguradoras" },
