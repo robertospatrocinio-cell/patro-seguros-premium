@@ -9,12 +9,16 @@ function asyncCssPlugin(): Plugin {
   return {
     name: "async-css",
     enforce: "post",
-    transformIndexHtml(html) {
-      return html.replace(
-        /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
-        '<link rel="stylesheet" href="$1" media="print" onload="this.media=\'all\'">' +
-        '<noscript><link rel="stylesheet" href="$1"></noscript>'
-      );
+    transformIndexHtml: {
+      order: "post",
+      handler(html) {
+        // Match any Vite-injected stylesheet link (with or without crossorigin)
+        return html.replace(
+          /<link\s+rel="stylesheet"\s*(?:crossorigin\s*)?href="(\/assets\/[^"]+\.css)"\s*\/?>/gi,
+          '<link rel="preload" href="$1" as="style" onload="this.rel=\'stylesheet\'">' +
+          '<noscript><link rel="stylesheet" href="$1"></noscript>'
+        );
+      },
     },
   };
 }
