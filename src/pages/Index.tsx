@@ -90,17 +90,17 @@ const Index = () => {
               <div className="mb-6 md:mb-8">
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
               </div>
-              <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
+            <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
                 Proteção inteligente para você, sua família e sua empresa.
               </h1>
-              <p className="text-[17px] md:text-lg text-white/90 mb-2 animate-fade-up-delay-1 font-medium">
+              <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
                 Sua Corretora de Seguros em Guarulhos
               </p>
-              <p className="text-[15px] md:text-base text-white/70 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
+              <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
                 Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/cotacao" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg bg-white text-foreground hover:bg-white/90 h-11 font-semibold tracking-tight">
                     Solicitar Cotação Grátis
