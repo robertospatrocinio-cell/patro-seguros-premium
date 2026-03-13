@@ -84,7 +84,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,hsla(215,100%,50%,0.08),transparent)]" />
           <div className="container mx-auto px-4 relative">
             {/* 3D Shield floating on the right */}
-            <img src={shieldHero3d} alt="" className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30 animate-fade-up" aria-hidden="true" />
+            <img src={shieldHero3d} alt="" width={256} height={256} className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30 animate-fade-up" aria-hidden="true" loading="lazy" />
             <div className="py-28 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="animate-fade-up mb-8">
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)] transition-transform duration-200 hover:scale-110" />
