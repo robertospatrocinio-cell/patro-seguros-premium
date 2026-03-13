@@ -161,7 +161,7 @@ const Index = () => {
               {solutions.map((s, i) => (
                 <Link key={i} to={s.link} className="group">
                   <article className="premium-card p-6 h-full">
-                    <div className="w-9 h-9 rounded-lg bg-primary/[0.05] flex items-center justify-center mb-4 group-hover:bg-primary transition-base">
+                    <div className="w-9 h-9 rounded-lg bg-primary/[0.05] flex items-center justify-center mb-4 group-hover:bg-primary transition-base group-hover:scale-110">
                       <s.icon className="h-[18px] w-[18px] text-primary group-hover:text-primary-foreground transition-base" strokeWidth={1.5} aria-hidden="true" />
                     </div>
                     <h3 className="text-[14px] font-semibold mb-0.5 tracking-tight">{s.title}</h3>
