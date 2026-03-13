@@ -46,7 +46,7 @@ const Footer = () => {
 
           {/* Seguros */}
           <nav aria-label="Principais seguros">
-            <h4 className="font-heading font-semibold text-white/60 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros</h4>
+            <h3 className="font-heading font-semibold text-white/70 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros</h3>
             <ul className="space-y-2.5">
               {[
                 { to: "/seguro-auto", label: "Auto" },
