@@ -63,7 +63,7 @@ const Footer = () => {
 
           {/* Contato */}
           <div>
-            <h4 className="font-heading font-semibold text-white/60 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h4>
+            <h3 className="font-heading font-semibold text-white/70 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h3>
             <address className="not-italic">
               <ul className="space-y-3 text-[13px]">
                 <li className="flex items-start gap-2.5 text-white/50">
