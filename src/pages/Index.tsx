@@ -71,8 +71,11 @@ const Index = () => {
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto drop-shadow-[0_0_20px_hsla(43,80%,50%,0.3)]" />
               </div>
               <h1 className="text-white text-balance mb-6 animate-fade-up-delay-1 font-extrabold">
-                Proteção inteligente para você, sua família e sua empresa.
+                Patro Seguros — Sua Corretora de Seguros em Guarulhos
               </h1>
+              <p className="text-[17px] md:text-lg text-white/90 mb-2 animate-fade-up-delay-1 font-medium">
+                Proteção inteligente para você, sua família e sua empresa.
+              </p>
               <p className="text-[15px] md:text-base text-white/70 mb-10 text-balance animate-fade-up-delay-2 max-w-[520px] mx-auto leading-relaxed">
                 Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
               </p>
