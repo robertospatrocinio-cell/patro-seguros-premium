@@ -233,7 +233,7 @@ const Index = () => {
         </section>
 
         {/* Depoimentos */}
-        <section className="py-24 md:py-32 gradient-surface" aria-labelledby="depoimentos-heading">
+        <section className="py-16 md:py-32 gradient-surface" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }} aria-labelledby="depoimentos-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Clientes</span>
