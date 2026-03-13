@@ -266,7 +266,7 @@ const Index = () => {
         </section>
 
         {/* Sobre */}
-        <section className="py-24 md:py-32 bg-background" aria-labelledby="sobre-heading">
+        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
