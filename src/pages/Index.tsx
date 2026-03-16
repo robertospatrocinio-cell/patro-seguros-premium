@@ -16,7 +16,7 @@ const cotacaoOnline3d = new URL("@/assets/3d-cotacao-online.webp", import.meta.u
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
-const parceiros = ["Porto Seguro", "Tokio Marine", "Allianz", "Azul Seguros", "Mapfre", "HDI Seguros", "Zurich", "Bradesco Seguros", "Liberty Seguros", "Suhai", "Justos", "Darwin", "Ituran", "SulAmérica", "Akad", "SURA", "SOMPO", "Itaú Seguros", "AXA", "Bradesco Saúde", "Amil", "Porto Saúde", "HapVida/NotreDame", "Prevent Senior", "MedSenior", "Omint", "Unimed"];
+const parceiros = ["Porto", "Tokio Marine", "Allianz", "Azul", "Mapfre", "HDI", "Zurich", "Bradesco", "Liberty", "Suhai", "Justos", "Darwin", "Ituran", "SulAmérica", "Akad", "SURA", "SOMPO", "Itaú", "AXA", "Bradesco Saúde", "Amil", "Porto Saúde", "HapVida/NotreDame", "Prevent Senior", "MedSenior", "Omint", "Unimed"];
 
 const solutions = [
   { title: "Seguro Auto", desc: "Carro, moto e caminhão", icon: Car, link: "/seguro-auto" },
