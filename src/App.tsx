@@ -71,6 +71,11 @@ const SeguroHelicopteros = lazy(() => import("./pages/SeguroHelicopteros"));
 const SeguroCartaVerde = lazy(() => import("./pages/SeguroCartaVerde"));
 const SeguroDecesso = lazy(() => import("./pages/SeguroDecesso"));
 const SeguroGarantia = lazy(() => import("./pages/SeguroGarantia"));
+const SeguroRCMedicos = lazy(() => import("./pages/SeguroRCMedicos"));
+const SeguroRCVeterinarios = lazy(() => import("./pages/SeguroRCVeterinarios"));
+const SeguroRCAdvogados = lazy(() => import("./pages/SeguroRCAdvogados"));
+const SeguroRCDentistas = lazy(() => import("./pages/SeguroRCDentistas"));
+const SeguroRCEngenheiros = lazy(() => import("./pages/SeguroRCEngenheiros"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -147,6 +152,11 @@ const App = () => (
             <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
             <Route path="/seguro-decesso" element={<SeguroDecesso />} />
             <Route path="/seguro-garantia" element={<SeguroGarantia />} />
+            <Route path="/seguro-rc-medicos" element={<SeguroRCMedicos />} />
+            <Route path="/seguro-rc-veterinarios" element={<SeguroRCVeterinarios />} />
+            <Route path="/seguro-rc-advogados" element={<SeguroRCAdvogados />} />
+            <Route path="/seguro-rc-dentistas" element={<SeguroRCDentistas />} />
+            <Route path="/seguro-rc-engenheiros" element={<SeguroRCEngenheiros />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

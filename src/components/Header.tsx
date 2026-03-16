@@ -171,6 +171,11 @@ const Header = () => {
                         <div className="space-y-0.5">
                           <Link to="/seguro-rc" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Geral</Link>
                           <Link to="/seguro-rc-profissional" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Profissional</Link>
+                          <Link to="/seguro-rc-medicos" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Médicos</Link>
+                          <Link to="/seguro-rc-dentistas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Dentistas</Link>
+                          <Link to="/seguro-rc-advogados" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Advogados</Link>
+                          <Link to="/seguro-rc-engenheiros" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Engenheiros</Link>
+                          <Link to="/seguro-rc-veterinarios" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Veterinários</Link>
                           <Link to="/seguro-cyber" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Cyber</Link>
                           <Link to="/seguro-engenharia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Engenharia</Link>
                           <Link to="/seguro-garantia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Garantia</Link>
@@ -320,6 +325,11 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-0.5">
                 <MobileLink to="/seguro-rc">RC Geral</MobileLink>
                 <MobileLink to="/seguro-rc-profissional">RC Profissional</MobileLink>
+                <MobileLink to="/seguro-rc-medicos">RC Médicos</MobileLink>
+                <MobileLink to="/seguro-rc-dentistas">RC Dentistas</MobileLink>
+                <MobileLink to="/seguro-rc-advogados">RC Advogados</MobileLink>
+                <MobileLink to="/seguro-rc-engenheiros">RC Engenheiros</MobileLink>
+                <MobileLink to="/seguro-rc-veterinarios">RC Veterinários</MobileLink>
                 <MobileLink to="/seguro-cyber">Cyber</MobileLink>
                 <MobileLink to="/seguro-engenharia">Engenharia</MobileLink>
                 <MobileLink to="/seguro-garantia">Garantia</MobileLink>
