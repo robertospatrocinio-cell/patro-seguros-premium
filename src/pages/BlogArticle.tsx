@@ -4189,6 +4189,144 @@ Não espere a próxima chuva forte para descobrir que não está protegido. Fale
       { q: "Como acionar o seguro em caso de alagamento?", a: "Comunique a seguradora o mais rápido possível, documente todos os danos com fotos e vídeos, não descarte itens antes da vistoria e reúna documentos (apólice, notas fiscais). A Patro Seguros acompanha todo o processo de sinistro para garantir que você receba a indenização correta." },
     ],
   },
+  "saude-mental-seguros-protecao": {
+    title: "Saúde Mental e Seguros: Como Proteger Seu Bem-Estar e o da Sua Equipe",
+    content: `A saúde mental nunca esteve tão em evidência. Segundo a OMS, o Brasil é o país mais ansioso do mundo e o segundo em casos de depressão nas Américas. Burnout, ansiedade, depressão e síndrome do pânico afetam milhões de brasileiros — e os impactos vão muito além do sofrimento pessoal: afastamentos, queda de produtividade, turnover e custos médicos crescentes atingem empresas de todos os portes.
+
+Neste guia completo, a Patro Seguros explica como os seguros e planos de saúde podem ser aliados fundamentais na proteção da saúde mental — tanto para pessoas físicas quanto para empresas que desejam cuidar de suas equipes.
+
+O Cenário da Saúde Mental no Brasil
+
+Os números são alarmantes:
+
+- 18,6 milhões de brasileiros convivem com transtornos de ansiedade
+- 11,5 milhões sofrem de depressão
+- O burnout foi reconhecido pela OMS como doença ocupacional em 2022
+- Transtornos mentais são a terceira maior causa de afastamento do trabalho no Brasil
+- O custo estimado da depressão e ansiedade para a economia global é de US$ 1 trilhão por ano em perda de produtividade
+
+Para as empresas, o impacto é direto: absenteísmo, presenteísmo (funcionário presente mas improdutivo), aumento de erros, conflitos interpessoais e perda de talentos. Para as famílias, o custo emocional e financeiro de tratamentos psiquiátricos e psicológicos pode ser devastador.
+
+Como os Seguros Protegem a Saúde Mental?
+
+Existem diferentes produtos de seguros e benefícios que oferecem suporte à saúde mental. Vamos detalhar cada um:
+
+1. Plano de Saúde — Cobertura Obrigatória para Saúde Mental
+
+Desde 2001, a Lei Federal 10.216 (Lei da Reforma Psiquiátrica) e as regulamentações da ANS garantem que todos os planos de saúde regulamentados devem cobrir tratamentos de saúde mental. Isso inclui:
+
+- Consultas com psiquiatras: sem limite de quantidade por ano
+- Sessões de psicoterapia: mínimo de 40 sessões por ano (podendo ser ampliado conforme indicação médica)
+- Internação psiquiátrica: em caso de crises graves, surtos ou risco de vida
+- Tratamento de dependência química e alcoolismo: internação e acompanhamento ambulatorial
+- Hospital-dia: tratamento intensivo diurno sem internação integral
+- Medicamentos psiquiátricos: quando administrados durante internação
+
+A ANS determina que os planos não podem limitar o número de consultas psiquiátricas e devem oferecer no mínimo 40 sessões de psicoterapia por ano — um avanço significativo que muitos beneficiários desconhecem.
+
+Dica da Patro Seguros: ao escolher um plano de saúde, verifique a rede credenciada de psiquiatras e psicólogos na sua região. Planos com rede ampla facilitam o acesso ao tratamento, reduzindo filas e tempo de espera.
+
+2. Plano de Saúde Empresarial — Cuidando da Equipe
+
+Para empresas, o plano de saúde empresarial é a ferramenta mais direta para oferecer suporte à saúde mental dos colaboradores. Além das coberturas obrigatórias da ANS, muitas operadoras oferecem programas adicionais:
+
+- Programas de Assistência ao Empregado (PAE/EAP): atendimento psicológico gratuito e confidencial, disponível 24h por telefone ou videochamada
+- Telemedicina psiquiátrica: consultas online com psiquiatras, reduzindo barreiras de acesso
+- Programas de prevenção ao burnout: workshops, palestras e acompanhamento preventivo
+- Grupos terapêuticos: sessões em grupo para temas como gestão do estresse e ansiedade
+- Acompanhamento de casos crônicos: monitoramento contínuo de colaboradores em tratamento
+
+Investir em saúde mental da equipe não é apenas humanitário — é estratégico. Estudos mostram que cada R$ 1 investido em saúde mental no trabalho gera retorno de R$ 4 em produtividade e redução de absenteísmo.
+
+3. Seguro de Vida — Proteção em Casos Graves
+
+O seguro de vida também pode oferecer coberturas relacionadas à saúde mental:
+
+- Invalidez por doença psiquiátrica: alguns seguros de vida cobrem invalidez permanente total causada por transtornos mentais graves que impeçam o segurado de exercer qualquer atividade laborativa
+- Diária por incapacidade temporária (DIT): cobertura de renda durante afastamento por tratamento psiquiátrico
+- Assistência funeral: em casos extremos de suicídio (a maioria das seguradoras cobre após 2 anos de vigência da apólice, conforme legislação)
+
+Atenção: a cobertura de suicídio no seguro de vida é um tema delicado. O Código Civil brasileiro (art. 798) estabelece que o seguro não cobre suicídio nos primeiros 2 anos de vigência. Após esse período, a cobertura é devida. Essa regra visa proteger tanto segurados quanto seguradoras.
+
+4. Seguro Saúde — Reembolso para Tratamentos
+
+Diferente do plano de saúde (que funciona com rede credenciada), o seguro saúde opera por reembolso — o segurado escolhe livremente seus profissionais e é reembolsado conforme os limites da apólice. Isso é especialmente valioso para saúde mental:
+
+- Liberdade de escolha do psicólogo/psiquiatra: o paciente pode manter seu terapeuta de confiança
+- Reembolso de sessões de psicoterapia: sem restrição de profissional credenciado
+- Tratamentos especializados: EMDR, terapia cognitivo-comportamental, psicanálise, entre outros
+- Internações em clínicas especializadas: reembolso conforme tabela da apólice
+
+Para profissionais que já possuem vínculo terapêutico com um psicólogo ou psiquiatra específico, o seguro saúde por reembolso pode ser a melhor opção.
+
+5. Seguro de Acidentes Pessoais — Cobertura Complementar
+
+Embora não seja focado em saúde mental, o seguro de acidentes pessoais pode complementar a proteção:
+
+- Diárias de incapacidade: renda durante afastamento por qualquer doença, incluindo transtornos mentais (em algumas apólices)
+- Invalidez permanente: cobertura em caso de incapacidade total por doença psiquiátrica grave
+
+Saúde Mental nas Empresas: O Que a Lei Exige?
+
+Com o reconhecimento do burnout como doença ocupacional pela OMS (CID-11), as empresas passaram a ter responsabilidades mais claras:
+
+- NR-1 atualizada: a partir de 2025, a NR-1 inclui riscos psicossociais no Programa de Gerenciamento de Riscos (PGR), exigindo que empresas identifiquem e mitiguem fatores de estresse ocupacional
+- Nexo causal: se comprovado que o transtorno mental foi causado ou agravado pelo trabalho, a empresa pode responder judicialmente
+- Afastamento pelo INSS: transtornos mentais já são a terceira maior causa de concessão de auxílio-doença no Brasil
+
+Para as empresas, ter um plano de saúde empresarial robusto e programas de prevenção não é apenas um benefício — é uma estratégia de gestão de riscos trabalhistas e de retenção de talentos.
+
+Como Escolher o Melhor Plano para Saúde Mental
+
+Na hora de contratar um plano de saúde ou seguro que cubra saúde mental, considere:
+
+1. Rede de psicólogos e psiquiatras: verifique a quantidade e qualidade de profissionais credenciados na sua região
+2. Número de sessões de psicoterapia: a ANS exige mínimo de 40/ano, mas alguns planos oferecem mais
+3. Telemedicina: acesso a consultas psiquiátricas e psicológicas por videochamada é cada vez mais importante
+4. Programa de Assistência ao Empregado (PAE): para empresas, esse programa oferece atendimento imediato e confidencial
+5. Cobertura de internação psiquiátrica: verifique os prazos e condições de internação
+6. Abrangência geográfica: planos nacionais facilitam o acesso em viagens ou mudanças
+
+Dicas Práticas para Cuidar da Saúde Mental
+
+Além dos seguros, algumas práticas fazem enorme diferença:
+
+Para pessoas:
+- Procure ajuda profissional ao primeiro sinal de sofrimento persistente — não espere piorar
+- Use os benefícios do seu plano de saúde: sessões de psicoterapia são um direito seu
+- CVV (Centro de Valorização da Vida): ligue 188 ou acesse cvv.org.br a qualquer momento
+- Pratique atividade física regularmente — é comprovadamente eficaz contra ansiedade e depressão
+- Mantenha rotina de sono regular e limite o uso de telas antes de dormir
+
+Para empresas:
+- Ofereça plano de saúde com boa rede de saúde mental
+- Implemente Programa de Assistência ao Empregado (PAE)
+- Treine lideranças para identificar sinais de sofrimento na equipe
+- Promova cultura de segurança psicológica — onde pedir ajuda não é fraqueza
+- Monitore indicadores de absenteísmo e presenteísmo relacionados a saúde mental
+- Adeque-se às exigências da NR-1 sobre riscos psicossociais
+
+Por Que Contar com a Patro Seguros?
+
+A Patro Seguros é especialista em planos de saúde e seguros de vida, com conhecimento aprofundado das coberturas de saúde mental oferecidas por cada operadora e seguradora do mercado.
+
+- Comparamos planos focando na qualidade da rede de saúde mental
+- Orientamos sobre os direitos garantidos pela ANS para tratamentos psiquiátricos e psicológicos
+- Para empresas, recomendamos planos com PAE e programas de prevenção ao burnout
+- Auxiliamos na adequação às exigências da NR-1 sobre riscos psicossociais
+- Suporte na utilização dos benefícios — muitos segurados desconhecem que têm direito a 40+ sessões de terapia por ano
+
+Cuidar da saúde mental é tão importante quanto cuidar da saúde física. E ter o seguro certo faz toda a diferença no acesso ao tratamento. Fale com a Patro Seguros pelo WhatsApp e descubra qual plano oferece a melhor proteção para sua saúde mental e da sua família.
+
+Se você está passando por um momento difícil, ligue para o CVV: 188 (24 horas, gratuito).`,
+    faqs: [
+      { q: "Plano de saúde cobre psicólogo e psiquiatra?", a: "Sim! Por regulamentação da ANS, todos os planos de saúde regulamentados devem cobrir consultas com psiquiatras (sem limite) e no mínimo 40 sessões de psicoterapia com psicólogo por ano. Esse é um direito do beneficiário que muita gente desconhece." },
+      { q: "Quantas sessões de terapia o plano de saúde cobre por ano?", a: "A ANS determina o mínimo de 40 sessões de psicoterapia por ano. Dependendo da indicação médica e do plano contratado, esse número pode ser ampliado. Consulte a Patro Seguros para encontrar planos com cobertura mais ampla." },
+      { q: "Burnout é coberto pelo plano de saúde?", a: "Sim. Desde que a OMS reconheceu o burnout como doença ocupacional (CID-11), os planos de saúde devem cobrir tratamento psiquiátrico e psicológico relacionado. Além disso, o colaborador pode ter direito a afastamento pelo INSS." },
+      { q: "Seguro de vida cobre suicídio?", a: "Após 2 anos de vigência da apólice, sim. O Código Civil brasileiro (art. 798) estabelece que nos primeiros 2 anos não há cobertura. Após esse período, a indenização é devida aos beneficiários, independentemente da causa do óbito." },
+      { q: "Como a empresa pode proteger a saúde mental dos funcionários?", a: "Contratando plano de saúde com boa rede de saúde mental, implementando Programa de Assistência ao Empregado (PAE), treinando lideranças e adequando-se à NR-1 sobre riscos psicossociais. A Patro Seguros orienta empresas em todas essas frentes." },
+    ],
+  },
 };
 
 const defaultArticle = {
