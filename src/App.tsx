@@ -168,6 +168,7 @@ const App = () => (
             <Route path="/seguro-rc-obras" element={<SeguroRCObras />} />
             <Route path="/plano-pet" element={<PlanoPet />} />
             <Route path="/plano-saude-empresarial" element={<PlanoSaudeEmpresarial />} />
+            <Route path="/seguro-propriedade-rural" element={<SeguroPropriedadeRural />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
