@@ -222,6 +222,7 @@ const Header = () => {
                           <Link to="/seguro-armazenagem" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Armazenagem</Link>
                           <Link to="/seguro-transporte-agro" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Transporte</Link>
                           <Link to="/seguro-ambiental" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Ambiental</Link>
+                          <Link to="/seguro-geada" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Geada</Link>
                         </div>
                       </div>
                     </div>
