@@ -71,6 +71,11 @@ const SeguroHelicopteros = lazy(() => import("./pages/SeguroHelicopteros"));
 const SeguroCartaVerde = lazy(() => import("./pages/SeguroCartaVerde"));
 const SeguroDecesso = lazy(() => import("./pages/SeguroDecesso"));
 const SeguroGarantia = lazy(() => import("./pages/SeguroGarantia"));
+const SeguroRCMedicos = lazy(() => import("./pages/SeguroRCMedicos"));
+const SeguroRCVeterinarios = lazy(() => import("./pages/SeguroRCVeterinarios"));
+const SeguroRCAdvogados = lazy(() => import("./pages/SeguroRCAdvogados"));
+const SeguroRCDentistas = lazy(() => import("./pages/SeguroRCDentistas"));
+const SeguroRCEngenheiros = lazy(() => import("./pages/SeguroRCEngenheiros"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
