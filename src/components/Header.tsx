@@ -288,6 +288,7 @@ const Header = () => {
                 <MobileLink to="/seguro-vida">Vida</MobileLink>
                 <MobileLink to="/planos-de-saude">Planos de Saúde</MobileLink>
                 <MobileLink to="/seguro-odonto">Plano Odonto</MobileLink>
+                <MobileLink to="/plano-pet">Plano Pet</MobileLink>
                 <MobileLink to="/seguro-acidentes-pessoais">Acid. Pessoais</MobileLink>
                 <MobileLink to="/previdencia-privada">Previdência</MobileLink>
               </div>
