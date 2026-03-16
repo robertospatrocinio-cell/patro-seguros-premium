@@ -3405,6 +3405,138 @@ Proteja seu investimento em irrigação. Entre em contato com a Patro Seguros pe
       { q: "A Patro Seguros atende produtores em todo o Brasil?", a: "Sim! Somos especialistas em seguros para o agronegócio com atendimento nacional. Como parceira das principais montadoras de equipamentos de irrigação, temos acesso a condições exclusivas em todo o país. Solicite sua cotação pelo WhatsApp." },
     ],
   },
+  "carros-mais-roubados-furtados-sp-2025": {
+    title: "Ranking: Os 10 Carros Mais Roubados e Furtados de SP em 2025",
+    content: `Se você mora em São Paulo ou na Região Metropolitana, saber quais são os carros mais visados pelos criminosos é fundamental para avaliar o risco do seu veículo e tomar decisões inteligentes sobre proteção. A Patro Seguros traz o ranking atualizado de 2025 com dados exclusivos da empresa de rastreamento Ituran, com base nas estatísticas oficiais da Secretaria da Segurança Pública do Estado de São Paulo.
+
+Os Números de 2025
+
+De janeiro a maio de 2025, foram registradas 28.524 ocorrências de roubos e furtos de automóveis de passeio na Região Metropolitana de São Paulo. Na comparação com o mesmo período de 2024, houve queda de 2.726 casos — uma redução de 8,7%.
+
+Um dado importante: os furtos (sem uso de violência) representam a grande maioria das ocorrências — 82,76% do total em 2025, contra 79,76% em 2024. Ou seja, proporcionalmente, os roubos com violência diminuíram, mas os furtos continuam sendo o principal problema.
+
+Os 10 Carros Mais Roubados e Furtados de SP em 2025
+
+Confira o ranking completo com o número de ocorrências registradas entre janeiro e maio de 2025:
+
+1º — Volkswagen Gol: 1.669 ocorrências
+O Gol lidera o ranking pelo enésimo ano consecutivo. Sua popularidade, grande frota circulante e facilidade de desmanche fazem dele o alvo número 1 dos criminosos. Modelos mais antigos (acima de 10 anos) são os mais visados.
+
+2º — Hyundai HB20: 1.397 ocorrências
+O HB20 subiu rapidamente no ranking nos últimos anos, acompanhando o crescimento da sua frota. É um dos carros mais vendidos do Brasil — e, consequentemente, um dos mais furtados.
+
+3º — Chevrolet Onix: 1.322 ocorrências
+Líder de vendas no Brasil por anos, o Onix naturalmente aparece entre os mais visados. A alta demanda por peças de reposição alimenta o mercado ilegal de desmanche.
+
+4º — Fiat Uno: 1.232 ocorrências
+Outro veterano do ranking. Apesar de ter saído de linha, a enorme frota circulante e a simplicidade do veículo (fácil de furtar) mantêm o Uno entre os mais visados.
+
+5º — Ford Ka: 1.212 ocorrências
+Mesmo com a saída da Ford do mercado brasileiro, o Ka continua com grande frota e alta demanda por peças — o que o torna atrativo para criminosos.
+
+6º — Chevrolet Corsa: 1.134 ocorrências
+Fora de linha há anos, o Corsa ainda é muito furtado pela mesma razão dos demais: grande frota, veículos antigos e peças com boa saída no mercado paralelo.
+
+7º — Fiat Argo: 819 ocorrências
+O Argo representa a nova geração de veículos que começa a aparecer no ranking à medida que sua frota cresce. Substituto do Palio, já é alvo frequente.
+
+8º — Fiat Strada: 696 ocorrências
+A picape mais vendida do Brasil não escapa dos criminosos. A Strada é muito utilizada para trabalho, o que aumenta sua exposição em áreas de risco.
+
+9º — Fiat Mobi: 683 ocorrências
+O carro mais barato do Brasil é também um dos mais furtados. Sua simplicidade e grande volume de vendas o tornam vulnerável.
+
+10º — Volkswagen Fox: 653 ocorrências
+Fora de linha desde 2021, o Fox ainda aparece no ranking pela grande frota remanescente e procura por peças no mercado de desmanche.
+
+As Cidades Mais Perigosas
+
+Entre as cidades com mais ocorrências de roubos e furtos nos primeiros cinco meses de 2025 na Região Metropolitana:
+
+- São Paulo: 13.480 ocorrências
+- Campinas: 1.412 ocorrências
+- Santo André: 1.398 ocorrências
+- Guarulhos: 1.316 ocorrências
+- São Bernardo do Campo: 836 ocorrências
+
+Guarulhos, onde a Patro Seguros está sediada, aparece como a 4ª cidade com mais ocorrências — reforçando a importância do seguro auto na região.
+
+Quando os Crimes Acontecem?
+
+Os dados revelam padrões claros sobre os horários e dias mais perigosos:
+
+Por período do dia:
+- Noite: 8.628 ocorrências (o mais perigoso)
+- Tarde: 6.773 ocorrências
+- Manhã: 6.366 ocorrências
+- Madrugada: 3.782 ocorrências
+
+Por dia da semana:
+- Quarta-feira: 5.000 ocorrências (o dia mais perigoso)
+- Quinta-feira: 4.966
+- Terça-feira: 4.828
+- Sexta-feira: 4.312
+- Segunda-feira: 3.424
+- Sábado: 3.155
+- Domingo: 2.839
+
+Carros com Mais de 10 Anos São os Mais Visados
+
+Um dado que surpreende muitos proprietários: veículos fabricados há mais de 10 anos foram alvo de 12.521 ocorrências — 43,9% do total. As razões são claras:
+
+- Sistemas de segurança mais simples (sem alarmes modernos, chaves codificadas básicas).
+- Facilidade de desmanche e revenda de peças.
+- Grande demanda por peças de reposição no mercado paralelo.
+- Proprietários com menor tendência a ter seguro.
+
+Esse é justamente o grupo que mais precisa de seguro — e que menos contrata. Se seu carro tem mais de 10 anos, o risco é maior e o seguro é ainda mais importante.
+
+Como Proteger Seu Veículo
+
+Independentemente de qual carro você tem, algumas medidas reduzem significativamente o risco:
+
+1. Contrate seguro auto: é a única garantia real de ressarcimento em caso de roubo ou furto.
+2. Instale rastreador: aumenta drasticamente as chances de recuperação e reduz o preço do seguro.
+3. Use estacionamentos seguros: evite deixar o carro na rua, especialmente à noite.
+4. Atenção aos horários: o período noturno concentra o maior número de ocorrências.
+5. Não deixe objetos à vista: bolsas, celulares e notebooks atraem criminosos.
+6. Verifique se as portas estão trancadas: furtos por "descuido" são cada vez mais comuns.
+7. Desconfie de abordagens: golpes de "batida proposital" são usados para roubar veículos.
+
+O Impacto no Preço do Seguro
+
+O modelo do veículo, a região de circulação e o CEP de pernoite são fatores determinantes no preço do seguro auto. Carros que aparecem no ranking dos mais roubados tendem a ter seguro mais caro — justamente porque o risco é maior.
+
+Porém, isso não significa que o seguro é inacessível. Com a Patro Seguros, comparamos cotações de múltiplas seguradoras para encontrar o melhor custo-benefício para o seu perfil. Muitas vezes, a diferença entre a seguradora mais cara e a mais barata para o mesmo carro e perfil pode ultrapassar 40%.
+
+Fatores que podem reduzir o preço:
+- Rastreador ou bloqueador instalado.
+- Garagem fechada para pernoite.
+- Bônus acumulado (anos sem sinistro).
+- Perfil do motorista (idade acima de 26 anos, casado).
+- Franquia reduzida ou aumentada conforme necessidade.
+
+Por Que Contratar o Seguro Auto com a Patro Seguros?
+
+A Patro Seguros está em Guarulhos — a 4ª cidade com mais roubos e furtos de veículos em SP. Conhecemos de perto a realidade da região e sabemos exatamente como proteger nossos clientes:
+
+- Cotação com as principais seguradoras do mercado para encontrar o melhor preço.
+- Análise personalizada do seu perfil e do risco do seu veículo.
+- Orientação sobre coberturas essenciais: casco, RCF, APP, assistência 24h.
+- Suporte completo em caso de sinistro — acompanhamos todo o processo.
+- Rastreadores parceiros com desconto para clientes Patro.
+
+Não espere ser a próxima estatística. Proteja seu veículo agora. Entre em contato com a Patro Seguros pelo WhatsApp e receba sua cotação personalizada.
+
+Fonte dos dados: Companhia de rastreamento veicular Ituran, com base em dados da Secretaria da Segurança Pública do Governo de SP, conforme divulgado pelo UOL Carros em julho de 2025.`,
+    faqs: [
+      { q: "Qual é o carro mais roubado de São Paulo em 2025?", a: "O Volkswagen Gol lidera o ranking com 1.669 ocorrências de roubo e furto entre janeiro e maio de 2025 na Região Metropolitana de SP. Em seguida vêm o Hyundai HB20 (1.397), Chevrolet Onix (1.322), Fiat Uno (1.232) e Ford Ka (1.212)." },
+      { q: "Ter um carro no ranking dos mais roubados encarece o seguro?", a: "Sim, o modelo do veículo é um dos fatores que influenciam o preço do seguro. Carros mais visados tendem a ter taxas mais altas. Porém, com a Patro Seguros, comparamos múltiplas seguradoras para encontrar o melhor custo-benefício — a diferença entre seguradoras pode passar de 40% para o mesmo carro." },
+      { q: "Rastreador reduz o preço do seguro auto?", a: "Sim! A instalação de rastreador e/ou bloqueador veicular pode reduzir o preço do seguro em até 15%. Além disso, aumenta significativamente as chances de recuperação do veículo em caso de roubo ou furto. Na Patro, indicamos parceiros de rastreamento com condições especiais." },
+      { q: "Carros antigos precisam mais de seguro?", a: "Os dados mostram que sim: veículos com mais de 10 anos representam 43,9% de todas as ocorrências de roubo e furto em SP. Justamente por terem sistemas de segurança mais simples e peças com alta demanda no mercado paralelo, carros antigos são os mais visados — e os que mais precisam de proteção." },
+      { q: "Qual o horário mais perigoso para roubo e furto de veículos?", a: "O período noturno é o mais perigoso, com 8.628 ocorrências entre janeiro e maio de 2025, seguido pela tarde (6.773), manhã (6.366) e madrugada (3.782). O dia da semana com mais casos é a quarta-feira. Evitar deixar o carro na rua à noite e usar estacionamentos seguros são medidas preventivas importantes." },
+    ],
+  },
 };
 
 const defaultArticle = {

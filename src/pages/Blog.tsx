@@ -51,6 +51,7 @@ const articles = [
   { slug: "seguro-veiculos-blindados", title: "Seguro para Veículos Blindados: Guia Completo", excerpt: "Tudo sobre seguro de carros blindados: coberturas, preços, exigências e como contratar a proteção certa.", category: "Seguro Auto" },
   { slug: "penhor-rural-seguro-maquinas-agricolas", title: "Penhor Rural e Seguro de Máquinas Agrícolas: O Que Todo Produtor Precisa Saber", excerpt: "Entenda o que é o penhor rural, como ele se relaciona com o seguro de máquinas e equipamentos agrícolas e por que sua lavoura depende dessa proteção.", category: "Agronegócio" },
   { slug: "seguro-pivo-central-equipamentos-irrigacao", title: "Seguro de Pivô Central e Equipamentos de Irrigação: Guia Completo", excerpt: "Tudo sobre seguro para pivôs centrais, carretéis, gotejamento e aspersão. Coberturas, preços e como proteger seu sistema de irrigação.", category: "Agronegócio" },
+  { slug: "carros-mais-roubados-furtados-sp-2025", title: "Ranking: Os 10 Carros Mais Roubados e Furtados de SP em 2025", excerpt: "Confira o ranking atualizado dos veículos mais visados pelos criminosos em São Paulo e saiba como proteger o seu.", category: "Seguro Auto" },
 ];
 
 const Blog = () => {
