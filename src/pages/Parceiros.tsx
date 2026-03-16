@@ -20,6 +20,7 @@ const Parceiros = () => {
     { name: "Ituran", description: "Rastreamento e proteção veicular" },
     { name: "SulAmérica", description: "Tradição em seguros de saúde e vida" },
     { name: "Akad", description: "Soluções inovadoras em seguros corporativos e garantias" },
+    { name: "SURA", description: "Seguros corporativos e soluções de gestão de riscos" },
   ];
 
   const healthPartners = [
