@@ -4037,6 +4037,158 @@ Não deixe sua empresa, sua carreira e seu patrimônio desprotegidos. Entre em c
       { q: "Por que a Patro Seguros é referência em RC?", a: "Somos especialistas em Responsabilidade Civil com profundo conhecimento das três modalidades (RC Geral, RC Profissional e D&O). Oferecemos análise personalizada de riscos, cotações comparativas e suporte dedicado em sinistros." },
     ],
   },
+  "seguros-contra-alagamentos": {
+    title: "Seguros Contra Alagamentos: Quais Cobrem e Como se Proteger",
+    content: `O Brasil enfrenta todos os anos episódios graves de alagamentos, enchentes e inundações. Chuvas intensas em poucas horas podem destruir veículos, invadir residências, paralisar empresas e devastar lavouras inteiras. O prejuízo financeiro pode ser catastrófico — mas a boa notícia é que existem seguros específicos que cobrem esses riscos.
+
+Neste guia completo, a Patro Seguros explica quais seguros cobrem alagamentos, como funcionam, o que observar na contratação e como garantir que você esteja realmente protegido.
+
+O Que É Considerado Alagamento nos Seguros?
+
+Antes de tudo, é importante entender que as seguradoras diferenciam os tipos de eventos:
+
+- Alagamento: acúmulo de água em vias e terrenos por deficiência do sistema de drenagem urbana, sem transbordamento de rios.
+- Enchente/Inundação: transbordamento de rios, córregos ou represas que invade áreas normalmente secas.
+- Enxurrada: escoamento superficial de grande volume de água em curto espaço de tempo, geralmente causado por chuvas intensas.
+
+A distinção é relevante porque algumas apólices cobrem um tipo e não outro. Na Patro Seguros, orientamos nossos clientes a contratar coberturas que incluam todos esses eventos para proteção completa.
+
+1. Seguro Auto — Proteção do Veículo Contra Alagamentos
+
+O seguro auto é um dos mais acionados em episódios de alagamento. Veículos submersos sofrem danos graves no motor, câmbio, parte elétrica e eletrônica, muitas vezes resultando em perda total.
+
+Como funciona a cobertura?
+
+A cobertura de alagamento no seguro auto geralmente está incluída na cobertura de Eventos da Natureza ou como cobertura adicional específica. Ela cobre:
+
+- Danos ao motor por hidrobloqueio (entrada de água nos cilindros)
+- Danos à parte elétrica e eletrônica
+- Danos ao câmbio e transmissão
+- Estofamento, carpete e revestimentos internos
+- Perda total quando o reparo é inviável
+
+Atenção: em muitas apólices, a cobertura de alagamento NÃO está incluída automaticamente na cobertura compreensiva (colisão + roubo). É preciso verificar se "Eventos da Natureza" ou "Alagamento/Enchente" constam explicitamente na sua apólice.
+
+Quanto custa adicionar?
+
+O acréscimo pela cobertura de eventos da natureza costuma representar de 3% a 8% sobre o prêmio total do seguro auto — um valor pequeno considerando que o conserto de um motor alagado pode custar de R$ 10.000 a R$ 40.000.
+
+Dica da Patro Seguros: se você mora ou transita por áreas com histórico de alagamentos, essa cobertura é indispensável. Não economize nesse item.
+
+2. Seguro Residencial — Proteção da Casa e dos Bens
+
+O seguro residencial pode cobrir danos causados por alagamentos à estrutura do imóvel e ao conteúdo (móveis, eletrodomésticos, roupas, documentos).
+
+Coberturas disponíveis:
+
+- Danos à estrutura: paredes, pisos, portas, janelas, instalações elétricas e hidráulicas danificadas pela água
+- Danos ao conteúdo: móveis, eletrodomésticos, eletrônicos, roupas e objetos pessoais
+- Despesas com moradia provisória: se a casa ficar inabitável, o seguro pode cobrir hotel ou aluguel temporário
+- Limpeza e descontaminação: custos de limpeza profunda após o recuo das águas
+- Danos elétricos: curto-circuitos e sobretensão causados pela água
+
+Atenção importante: nem todas as apólices residenciais incluem alagamento automaticamente. A cobertura básica geralmente cobre incêndio, raio e explosão. Alagamento, enchente e inundação costumam ser coberturas adicionais que precisam ser contratadas expressamente.
+
+Quanto custa?
+
+Um seguro residencial com cobertura de alagamento pode custar a partir de R$ 300/ano para apartamentos e R$ 500/ano para casas. Casas em áreas de risco podem ter prêmios maiores, mas a proteção compensa amplamente.
+
+3. Seguro Empresarial — Proteção do Negócio
+
+Para empresas, um alagamento pode significar paralisação total das operações, perda de estoque, danos a equipamentos e semanas (ou meses) sem faturamento. O seguro empresarial é vital.
+
+Coberturas para alagamento no seguro empresarial:
+
+- Danos ao imóvel: estrutura, instalações e benfeitorias
+- Danos ao conteúdo: estoque, matéria-prima, produtos acabados
+- Máquinas e equipamentos: computadores, servidores, maquinário industrial
+- Lucros cessantes: faturamento perdido durante a paralisação (cobertura adicional fundamental)
+- Despesas fixas: aluguel, salários e encargos que continuam mesmo com a empresa parada
+- Remoção de escombros: custos de limpeza e desentulho
+
+A cobertura de lucros cessantes é especialmente crítica: enquanto o seguro cobre os bens danificados, os lucros cessantes cobrem o dinheiro que a empresa deixou de ganhar. Sem essa cobertura, mesmo recebendo a indenização pelos bens, a empresa pode quebrar por falta de caixa durante a reconstrução.
+
+Quanto custa?
+
+Depende do porte, atividade, localização e valores segurados. Um comércio de pequeno porte pode contratar a partir de R$ 1.500/ano com cobertura de alagamento. Indústrias e empresas maiores investem proporcionalmente mais, mas o custo é insignificante frente ao prejuízo potencial.
+
+4. Seguro Condomínio — Proteção das Áreas Comuns
+
+O seguro de condomínio é obrigatório por lei e pode (e deve) incluir cobertura contra alagamentos para proteger as áreas comuns: garagens, halls, elevadores, sistemas elétricos e hidráulicos, bombas, geradores e áreas de lazer.
+
+Garagens subterrâneas são especialmente vulneráveis: um alagamento pode danificar dezenas de veículos simultaneamente e destruir sistemas elétricos caros. A cobertura de alagamento no seguro condominial protege o condomínio contra reclamações e custos de reparo.
+
+5. Seguro Rural — Proteção da Lavoura e do Campo
+
+Para produtores rurais, alagamentos e enchentes podem devastar lavouras inteiras, destruir pastagens, matar animais e danificar máquinas e equipamentos agrícolas.
+
+Coberturas disponíveis:
+
+- Seguro Agrícola: cobre perdas na lavoura causadas por excesso de chuvas, enchentes e alagamentos
+- Seguro Pecuário: cobre morte de animais por afogamento em enchentes
+- Seguro de Máquinas Agrícolas: cobre danos a tratores, colheitadeiras e implementos atingidos por alagamentos
+- Seguro de Armazenagem: protege grãos e produtos armazenados contra umidade e inundação
+
+O seguro rural conta com subvenção do governo federal (Programa de Subvenção ao Prêmio do Seguro Rural — PSR), que pode cobrir de 20% a 40% do custo do prêmio.
+
+6. Seguro de Transporte de Cargas — Proteção Durante o Trajeto
+
+Cargas em trânsito também estão expostas a alagamentos. Caminhões que ficam presos em enchentes podem ter toda a carga destruída pela água. O seguro de transporte cobre:
+
+- Danos à carga por alagamento, enchente ou inundação durante o transporte
+- Avarias por umidade excessiva
+- Perda total da carga submersa
+
+O Que Fazer Antes, Durante e Depois de um Alagamento
+
+ANTES — Prevenção:
+- Revise suas apólices: confirme que alagamento/enchente/inundação estão cobertos
+- Fotografe e inventarie seus bens: isso facilita enormemente o processo de indenização
+- Guarde documentos importantes em local elevado e à prova d'água
+- Instale barreiras físicas se estiver em área de risco (comportas, sacos de areia)
+
+DURANTE — Segurança:
+- Priorize vidas: saia do local se houver risco
+- Não tente atravessar áreas alagadas com o veículo
+- Desligue a energia elétrica se a água começar a entrar
+- Documente tudo com fotos e vídeos assim que for seguro
+
+DEPOIS — Acionamento do seguro:
+- Comunique a seguradora o mais rápido possível
+- Não descarte itens danificados antes da vistoria (ou fotografe tudo detalhadamente)
+- Reúna documentos: apólice, fotos, notas fiscais, laudos
+- Entre em contato com a Patro Seguros — nossa equipe orienta todo o processo de sinistro
+
+Erros Comuns que Deixam Pessoas Desprotegidas
+
+1. Achar que o seguro auto básico cobre alagamento — A cobertura compreensiva (colisão + roubo) frequentemente NÃO inclui eventos da natureza. Verifique sua apólice.
+
+2. Não contratar cobertura de alagamento no seguro residencial — A cobertura básica (incêndio, raio, explosão) não cobre. Alagamento é cobertura adicional.
+
+3. Ignorar lucros cessantes no seguro empresarial — O seguro pode cobrir os bens danificados, mas sem lucros cessantes, a empresa pode quebrar pela falta de faturamento durante a reconstrução.
+
+4. Subestimar os valores segurados — Se os valores segurados estiverem abaixo do real, a indenização será proporcional (cláusula de rateio). Mantenha os valores atualizados.
+
+5. Não documentar os bens — Sem fotos, notas fiscais e inventário, o processo de indenização se torna lento e complicado.
+
+Por Que Contar com a Patro Seguros?
+
+A Patro Seguros é especialista em proteção patrimonial completa. Nossa equipe analisa sua exposição a riscos de alagamento e recomenda as coberturas adequadas para cada situação:
+
+- Revisão completa de todas as suas apólices para garantir cobertura contra alagamentos
+- Cotações comparativas com seguradoras líderes
+- Orientação sobre valores segurados e coberturas adicionais essenciais
+- Suporte integral em caso de sinistro — desde a comunicação até o recebimento da indenização
+
+Não espere a próxima chuva forte para descobrir que não está protegido. Fale com a Patro Seguros pelo WhatsApp e garanta que seus bens, sua empresa e sua família estejam cobertos contra alagamentos.`,
+    faqs: [
+      { q: "O seguro auto cobre alagamento automaticamente?", a: "Nem sempre. A cobertura compreensiva (colisão + roubo/furto) frequentemente NÃO inclui eventos da natureza. É preciso verificar se 'Alagamento', 'Enchente' ou 'Eventos da Natureza' constam na sua apólice. Na dúvida, consulte a Patro Seguros para revisar sua cobertura." },
+      { q: "Qual seguro cobre alagamento em casa?", a: "O seguro residencial com cobertura adicional de alagamento/enchente/inundação. A cobertura básica (incêndio, raio, explosão) não inclui. É necessário contratar essa cobertura expressamente. O custo adicional é bastante acessível — a partir de R$ 300/ano." },
+      { q: "Minha empresa alagou e ficou parada. O seguro cobre o faturamento perdido?", a: "Somente se você tiver contratado a cobertura de Lucros Cessantes, que é adicional ao seguro empresarial. Ela cobre o lucro líquido cessante e as despesas fixas durante o período de paralisação. A Patro Seguros sempre recomenda essa cobertura para empresas." },
+      { q: "O seguro rural cobre alagamento na lavoura?", a: "Sim. O seguro agrícola cobre perdas na lavoura por excesso de chuvas, enchentes e alagamentos. Além disso, o Programa de Subvenção ao Prêmio (PSR) do governo pode cobrir de 20% a 40% do custo, tornando o seguro muito acessível para produtores rurais." },
+      { q: "Como acionar o seguro em caso de alagamento?", a: "Comunique a seguradora o mais rápido possível, documente todos os danos com fotos e vídeos, não descarte itens antes da vistoria e reúna documentos (apólice, notas fiscais). A Patro Seguros acompanha todo o processo de sinistro para garantir que você receba a indenização correta." },
+    ],
+  },
 };
 
 const defaultArticle = {
