@@ -223,6 +223,7 @@ const Header = () => {
                           <Link to="/seguro-transporte-agro" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Transporte</Link>
                           <Link to="/seguro-ambiental" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Ambiental</Link>
                           <Link to="/seguro-geada" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Geada</Link>
+                          <Link to="/seguro-propriedade-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Propriedade Rural</Link>
                         </div>
                       </div>
                     </div>
@@ -373,6 +374,7 @@ const Header = () => {
                 <MobileLink to="/seguro-transporte-agro">Transp. Agrícola</MobileLink>
                 <MobileLink to="/seguro-ambiental">Ambiental</MobileLink>
                 <MobileLink to="/seguro-geada">Geada</MobileLink>
+                <MobileLink to="/seguro-propriedade-rural">Propriedade Rural</MobileLink>
               </div>
             </MobileSection>
 
