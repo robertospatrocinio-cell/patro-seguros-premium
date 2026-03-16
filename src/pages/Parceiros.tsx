@@ -21,6 +21,7 @@ const Parceiros = () => {
     { name: "SulAmérica", description: "Tradição em seguros de saúde e vida" },
     { name: "Akad", description: "Soluções inovadoras em seguros corporativos e garantias" },
     { name: "SURA", description: "Seguros corporativos e soluções de gestão de riscos" },
+    { name: "SOMPO", description: "Seguros corporativos, agrícolas e soluções especializadas" },
   ];
 
   const healthPartners = [
