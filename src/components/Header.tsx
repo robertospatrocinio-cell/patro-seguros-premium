@@ -171,6 +171,11 @@ const Header = () => {
                         <div className="space-y-0.5">
                           <Link to="/seguro-rc" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Geral</Link>
                           <Link to="/seguro-rc-profissional" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Profissional</Link>
+                          <Link to="/seguro-rc-medicos" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Médicos</Link>
+                          <Link to="/seguro-rc-dentistas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Dentistas</Link>
+                          <Link to="/seguro-rc-advogados" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Advogados</Link>
+                          <Link to="/seguro-rc-engenheiros" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Engenheiros</Link>
+                          <Link to="/seguro-rc-veterinarios" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Veterinários</Link>
                           <Link to="/seguro-cyber" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Cyber</Link>
                           <Link to="/seguro-engenharia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Engenharia</Link>
                           <Link to="/seguro-garantia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Garantia</Link>
