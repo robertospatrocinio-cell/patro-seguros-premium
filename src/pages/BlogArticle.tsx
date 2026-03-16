@@ -3072,6 +3072,172 @@ Não arrisque seu investimento. Entre em contato com a Patro Seguros pelo WhatsA
       { q: "O que acontece se eu blindar o carro e não atualizar o seguro?", a: "Se a blindagem não constar na apólice, ela não será coberta em caso de sinistro. Além disso, a alteração de peso e características do veículo sem comunicação à seguradora pode ser considerada agravamento de risco, podendo até anular a apólice. Sempre comunique a blindagem à sua seguradora ou corretor." },
     ],
   },
+  "penhor-rural-seguro-maquinas-agricolas": {
+    title: "Penhor Rural e Seguro de Máquinas Agrícolas: O Que Todo Produtor Precisa Saber",
+    content: `O penhor rural é um dos instrumentos mais utilizados no financiamento do agronegócio brasileiro — e está diretamente ligado ao seguro de máquinas e equipamentos agrícolas. Se você é produtor rural e financia tratores, colheitadeiras, pulverizadores ou implementos, precisa entender essa relação para proteger seu patrimônio e cumprir as exigências dos bancos.
+
+Neste guia completo, a Patro Seguros — especialista em seguros de máquinas e equipamentos agrícolas e parceira das principais montadoras do setor — explica tudo sobre o penhor rural e como o seguro é peça-chave nessa engrenagem.
+
+O Que É Penhor Rural?
+
+O penhor rural é uma garantia real prevista no Código Civil (artigos 1.438 a 1.446) que permite ao produtor rural oferecer bens móveis — como máquinas, equipamentos, colheitas, rebanhos e insumos — como garantia de um financiamento ou empréstimo.
+
+Na prática, funciona assim: o produtor precisa de crédito para comprar um trator ou colheitadeira. O banco financia a aquisição e, em contrapartida, registra um penhor rural sobre o bem financiado. Isso significa que, até a quitação total da dívida, aquele equipamento é garantia do banco.
+
+Existem dois tipos principais de penhor rural:
+
+- Penhor agrícola: incide sobre colheitas, frutos, lenha, madeira, animais de lavoura e máquinas/instrumentos de agricultura.
+- Penhor pecuário: incide sobre animais que integram a atividade pastoril, agrícola ou de lacticínios.
+
+Para máquinas e equipamentos, o penhor agrícola é o mais utilizado, especialmente nas linhas de crédito do BNDES, Banco do Brasil, Sicredi, Sicoob e outros agentes financeiros do Plano Safra.
+
+Por Que o Banco Exige Seguro no Penhor Rural?
+
+Quando um banco financia uma máquina agrícola com penhor rural, ele precisa garantir que seu ativo de garantia esteja protegido. Se o trator financiado for destruído por um incêndio, roubado ou danificado por uma enchente, o banco perde sua garantia — e o produtor fica sem o equipamento e com a dívida.
+
+Por isso, praticamente todas as instituições financeiras exigem a contratação de seguro como condição para liberar o financiamento com penhor rural. Essa exigência está prevista nos manuais de crédito rural do Banco Central (MCR) e nas normativas do BNDES.
+
+O seguro protege simultaneamente:
+
+- O produtor: que recebe a indenização para repor o equipamento e manter a produção.
+- O banco: que tem a garantia de que o valor do bem financiado será preservado.
+- A cadeia produtiva: que não é interrompida por falta de maquinário.
+
+A Patro Seguros, como especialista em seguros de máquinas agrícolas e parceira das principais montadoras, conhece cada exigência dos bancos e ajuda o produtor a contratar a apólice certa, no valor correto, com as coberturas que o financiamento exige.
+
+Quais Máquinas e Equipamentos Podem Ser Dados em Penhor Rural?
+
+O penhor agrícola pode incidir sobre uma ampla gama de bens utilizados na atividade rural:
+
+- Tratores de todas as potências e marcas.
+- Colheitadeiras de grãos, cana-de-açúcar, algodão e café.
+- Pulverizadores autopropelidos e de arrasto.
+- Plantadeiras e semeadoras.
+- Implementos agrícolas (grades, arados, subsoladores, roçadeiras).
+- Drones agrícolas (pulverização e monitoramento).
+- Equipamentos de irrigação (pivôs centrais, carretéis).
+- Silos e secadores.
+- Caminhões e veículos utilitários rurais.
+
+A Patro Seguros trabalha com seguradoras que aceitam todos esses tipos de equipamentos e conhece as particularidades de cada categoria — desde o risco de incêndio em colheitadeiras até a cobertura de drones em operação de pulverização.
+
+Coberturas do Seguro de Máquinas no Contexto do Penhor Rural
+
+Para atender às exigências do penhor rural, o seguro de máquinas e equipamentos agrícolas deve incluir, no mínimo:
+
+Coberturas obrigatórias (exigidas pelos bancos):
+- Incêndio e explosão.
+- Roubo e furto.
+- Colisão e capotamento.
+- Danos por fenômenos naturais (vendaval, granizo, inundação, raio).
+
+Coberturas recomendadas:
+- Danos elétricos.
+- Incêndio em operação no campo (fundamental para colheitadeiras).
+- Responsabilidade civil do operador.
+- Despesas de salvamento e remoção.
+- Lucros cessantes (perda de receita pela parada da máquina).
+
+A Patro Seguros, como parceira das principais montadoras de máquinas agrícolas, tem acesso a condições especiais e coberturas exclusivas que atendem tanto as exigências dos bancos quanto a proteção real do produtor no campo.
+
+Como Funciona o Seguro com Cláusula de Beneficiário (Banco)?
+
+Quando o seguro é contratado em razão de financiamento com penhor rural, a apólice deve constar o banco financiador como beneficiário preferencial. Isso significa que:
+
+- Em caso de perda total (roubo sem recuperação, destruição por incêndio), a indenização é paga primeiro ao banco, até o limite do saldo devedor.
+- O valor excedente (diferença entre indenização e saldo devedor) é pago ao produtor.
+- Em caso de sinistro parcial, a indenização vai para o produtor para custear o reparo.
+
+Exemplo prático:
+O produtor financia uma colheitadeira de R$ 1.200.000 pelo Banco do Brasil. Após 2 anos, o saldo devedor é de R$ 800.000. Se a máquina sofre perda total por incêndio e o seguro indeniza R$ 1.100.000:
+- R$ 800.000 vão para o banco (quitação da dívida).
+- R$ 300.000 vão para o produtor.
+
+Sem seguro, o produtor perderia a colheitadeira e continuaria devendo R$ 800.000.
+
+A Patro Seguros orienta cada produtor sobre como funciona essa cláusula e garante que a apólice seja emitida corretamente com o beneficiário indicado pelo banco.
+
+Valor Segurado: Como Calcular Corretamente?
+
+Um dos erros mais comuns — e mais graves — é declarar o valor do equipamento abaixo do real. Isso gera o chamado rateio: em caso de sinistro, a indenização é reduzida proporcionalmente.
+
+Para máquinas financiadas com penhor rural, o valor segurado deve considerar:
+
+- Valor de mercado atualizado do equipamento (tabela FIPE para máquinas ou valor de referência das montadoras).
+- Valor de implementos e acessórios agregados.
+- Custo de reposição (quanto custaria comprar uma máquina equivalente hoje).
+
+Dica da Patro: como parceira das principais montadoras, temos acesso às tabelas de referência atualizadas e orientamos o produtor a declarar o valor correto, evitando rateio e garantindo indenização integral.
+
+Penhor Rural e Seguro: Passo a Passo para o Produtor
+
+1. Aprovação do financiamento: o banco aprova o crédito com penhor rural sobre a máquina.
+2. Cotação do seguro: a Patro Seguros cota com múltiplas seguradoras, comparando preços e coberturas.
+3. Emissão da apólice: com o banco indicado como beneficiário preferencial.
+4. Envio ao banco: a apólice é apresentada ao banco para liberação do financiamento.
+5. Liberação do crédito: com o seguro comprovado, o banco libera os recursos.
+6. Renovação anual: o seguro deve ser renovado a cada ano enquanto durar o financiamento.
+
+A Patro Seguros acompanha todo esse fluxo, desde a cotação até a renovação, garantindo que o produtor nunca fique descoberto.
+
+Quanto Custa o Seguro de Máquinas Agrícolas?
+
+O custo do seguro de máquinas agrícolas varia de 1,5% a 4,5% do valor do equipamento por ano. Alguns fatores que influenciam o preço:
+
+- Tipo de máquina: colheitadeiras e pulverizadores tendem a ser mais caros (maior risco de incêndio).
+- Região: áreas com maior índice de roubo ou maior risco climático impactam o preço.
+- Perfil do produtor: histórico de sinistros, tempo de atividade, quantidade de máquinas.
+- Local de guarda: máquinas guardadas em galpão coberto pagam menos.
+- Rastreador: equipamentos com rastreador têm desconto significativo.
+
+Exemplo: um trator de R$ 500.000 pode ter seguro anual entre R$ 7.500 e R$ 22.500. Uma colheitadeira de R$ 1.500.000 pode ter seguro entre R$ 30.000 e R$ 67.500.
+
+A Patro Seguros, como especialista no segmento agro e parceira das principais montadoras, consegue condições diferenciadas que reduzem significativamente o custo do seguro para o produtor.
+
+Riscos de Não Ter Seguro com Penhor Rural
+
+Produtores que deixam de renovar o seguro ou contratam coberturas insuficientes correm riscos graves:
+
+- Vencimento antecipado da dívida: o banco pode exigir a quitação imediata do financiamento se o seguro não estiver vigente.
+- Contratação pelo banco: se o produtor não contrata, o banco pode contratar o seguro por conta própria — geralmente a um custo muito maior.
+- Perda total sem indenização: sem seguro, o produtor perde a máquina e continua devendo ao banco.
+- Comprometimento da safra: sem a máquina, a operação agrícola pode ser inviabilizada.
+
+A Patro Seguros monitora os vencimentos de cada apólice e avisa o produtor com antecedência para que a renovação seja feita sem lacunas de cobertura.
+
+Documentos Necessários para Contratar o Seguro
+
+Para cotação e emissão do seguro de máquinas com penhor rural, o produtor precisa de:
+
+- Nota fiscal da máquina ou documento de propriedade.
+- Contrato de financiamento com a cláusula de penhor.
+- Dados do banco financiador (para inclusão como beneficiário).
+- Número de série e ano de fabricação do equipamento.
+- Informações sobre local de guarda e operação.
+- CAR (Cadastro Ambiental Rural) ou inscrição estadual do produtor.
+
+A Patro Seguros orienta sobre toda a documentação e cuida da burocracia para que o produtor foque no que importa: sua produção.
+
+Por Que a Patro Seguros É a Escolha Certa para o Produtor Rural?
+
+A Patro Seguros se consolidou como referência em seguros de máquinas e equipamentos agrícolas por reunir diferenciais que fazem a diferença no dia a dia do produtor:
+
+- Especialista em agronegócio: conhecemos as particularidades de cada tipo de máquina, cultura e região.
+- Parceira das principais montadoras: temos acesso a condições especiais, tabelas de referência e canais diretos com as maiores fabricantes de máquinas agrícolas do Brasil.
+- Cotação com múltiplas seguradoras: comparamos preços e coberturas para garantir o melhor custo-benefício.
+- Atendimento em todo o Brasil: o agro não tem fronteiras, e nosso atendimento também não.
+- Acompanhamento de sinistros: em caso de sinistro, estamos ao lado do produtor desde o aviso até a indenização.
+- Gestão de renovações: monitoramos os vencimentos para que o produtor nunca fique sem cobertura.
+
+Não deixe seu patrimônio e seu financiamento desprotegidos. Entre em contato com a Patro Seguros pelo WhatsApp e receba uma cotação personalizada para o seguro das suas máquinas e equipamentos agrícolas.`,
+    faqs: [
+      { q: "O que é penhor rural?", a: "O penhor rural é uma garantia real onde o produtor oferece bens móveis (máquinas, equipamentos, colheitas) como garantia de um financiamento. Ele permite que o produtor obtenha crédito para investir na produção sem precisar vender seus bens. O bem permanece com o produtor, mas fica vinculado ao banco até a quitação da dívida." },
+      { q: "O banco pode exigir seguro no financiamento com penhor rural?", a: "Sim, e na prática quase sempre exige. O seguro é condição para liberação do crédito na maioria dos financiamentos de máquinas agrícolas com penhor rural. Se o produtor não contrata ou não renova o seguro, o banco pode contratar por conta própria (a custo mais alto) ou até exigir a quitação antecipada da dívida." },
+      { q: "Quanto custa o seguro de máquinas agrícolas?", a: "O custo varia de 1,5% a 4,5% do valor do equipamento por ano. Um trator de R$ 500.000 pode ter seguro anual entre R$ 7.500 e R$ 22.500. A Patro Seguros, como especialista em seguros agrícolas e parceira das principais montadoras, consegue condições diferenciadas que reduzem significativamente o custo." },
+      { q: "Se a máquina financiada for roubada, quem recebe a indenização?", a: "O banco financiador recebe primeiro, até o limite do saldo devedor. O valor excedente vai para o produtor. Por exemplo: se o saldo devedor é R$ 500.000 e a indenização é R$ 700.000, o banco recebe R$ 500.000 (quitando a dívida) e o produtor recebe R$ 200.000 para ajudar na reposição do equipamento." },
+      { q: "A Patro Seguros atende produtores rurais em todo o Brasil?", a: "Sim! A Patro Seguros é especialista em seguros de máquinas e equipamentos agrícolas com atendimento em todo o Brasil. Como parceira das principais montadoras, temos acesso a condições exclusivas e conhecemos as particularidades de cada região produtora do país. Solicite sua cotação pelo WhatsApp." },
+    ],
+  },
 };
 
 const defaultArticle = {
