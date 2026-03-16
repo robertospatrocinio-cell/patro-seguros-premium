@@ -79,6 +79,7 @@ const SeguroRCEngenheiros = lazy(() => import("./pages/SeguroRCEngenheiros"));
 const SeguroRCExecutivos = lazy(() => import("./pages/SeguroRCExecutivos"));
 const SeguroRCObras = lazy(() => import("./pages/SeguroRCObras"));
 const PlanoPet = lazy(() => import("./pages/PlanoPet"));
+const PlanoSaudeEmpresarial = lazy(() => import("./pages/PlanoSaudeEmpresarial"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -163,6 +164,7 @@ const App = () => (
             <Route path="/seguro-rc-executivos" element={<SeguroRCExecutivos />} />
             <Route path="/seguro-rc-obras" element={<SeguroRCObras />} />
             <Route path="/plano-pet" element={<PlanoPet />} />
+            <Route path="/plano-saude-empresarial" element={<PlanoSaudeEmpresarial />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

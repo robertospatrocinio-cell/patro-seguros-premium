@@ -185,8 +185,9 @@ const Header = () => {
                         </div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2 mt-4">Pessoas</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-vida-pme" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Vida PME</Link>
+                         <Link to="/seguro-vida-pme" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Vida PME</Link>
                           <Link to="/seguro-decesso" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Decesso</Link>
+                          <Link to="/plano-saude-empresarial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Saúde Empresarial</Link>
                         </div>
                       </div>
                     </div>
@@ -350,6 +351,7 @@ const Header = () => {
                 <MobileLink to="/seguro-vida-pme">Vida PME</MobileLink>
                 <MobileLink to="/seguro-estagiario">Estagiário</MobileLink>
                 <MobileLink to="/seguro-decesso">Decesso</MobileLink>
+                <MobileLink to="/plano-saude-empresarial">Saúde Empresarial</MobileLink>
               </div>
             </MobileSection>
 
