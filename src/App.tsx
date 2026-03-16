@@ -77,6 +77,7 @@ const SeguroRCAdvogados = lazy(() => import("./pages/SeguroRCAdvogados"));
 const SeguroRCDentistas = lazy(() => import("./pages/SeguroRCDentistas"));
 const SeguroRCEngenheiros = lazy(() => import("./pages/SeguroRCEngenheiros"));
 const SeguroRCExecutivos = lazy(() => import("./pages/SeguroRCExecutivos"));
+const SeguroRCObras = lazy(() => import("./pages/SeguroRCObras"));
 const PlanoPet = lazy(() => import("./pages/PlanoPet"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
