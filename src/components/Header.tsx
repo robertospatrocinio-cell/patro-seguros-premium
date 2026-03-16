@@ -322,6 +322,7 @@ const Header = () => {
                 <MobileLink to="/seguro-rc-profissional">RC Profissional</MobileLink>
                 <MobileLink to="/seguro-cyber">Cyber</MobileLink>
                 <MobileLink to="/seguro-engenharia">Engenharia</MobileLink>
+                <MobileLink to="/seguro-garantia">Garantia</MobileLink>
               </div>
               <MobileSubLabel>Industrial</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
