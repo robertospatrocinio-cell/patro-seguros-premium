@@ -50,6 +50,7 @@ const articles = [
   { slug: "3-erros-produtor-rural-seguro-maquinas", title: "3 Coisas que o Produtor Rural Esquece na Hora de Contratar um Seguro de Máquinas", excerpt: "Erros comuns que podem deixar tratores, colheitadeiras e implementos sem proteção real. Saiba como evitar.", category: "Agronegócio" },
   { slug: "seguro-veiculos-blindados", title: "Seguro para Veículos Blindados: Guia Completo", excerpt: "Tudo sobre seguro de carros blindados: coberturas, preços, exigências e como contratar a proteção certa.", category: "Seguro Auto" },
   { slug: "penhor-rural-seguro-maquinas-agricolas", title: "Penhor Rural e Seguro de Máquinas Agrícolas: O Que Todo Produtor Precisa Saber", excerpt: "Entenda o que é o penhor rural, como ele se relaciona com o seguro de máquinas e equipamentos agrícolas e por que sua lavoura depende dessa proteção.", category: "Agronegócio" },
+  { slug: "seguro-pivo-central-equipamentos-irrigacao", title: "Seguro de Pivô Central e Equipamentos de Irrigação: Guia Completo", excerpt: "Tudo sobre seguro para pivôs centrais, carretéis, gotejamento e aspersão. Coberturas, preços e como proteger seu sistema de irrigação.", category: "Agronegócio" },
 ];
 
 const Blog = () => {
