@@ -47,6 +47,7 @@ const SeoPlanoSaudeGuarulhos = lazy(() => import("./pages/SeoPlanoSaudeGuarulhos
 const SeoSeguroEmpresarialGuarulhos = lazy(() => import("./pages/SeoSeguroEmpresarialGuarulhos"));
 const SeoCorretoraGuarulhos = lazy(() => import("./pages/SeoCorretoraGuarulhos"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
+const SeguroGeada = lazy(() => import("./pages/SeguroGeada"));
 const SeguroAcidentesPessoais = lazy(() => import("./pages/SeguroAcidentesPessoais"));
 const SeguroEstagiario = lazy(() => import("./pages/SeguroEstagiario"));
 const SeguroFiancaLocaticia = lazy(() => import("./pages/SeguroFiancaLocaticia"));
