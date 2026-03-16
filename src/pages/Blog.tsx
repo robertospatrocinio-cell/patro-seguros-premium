@@ -55,6 +55,7 @@ const articles = [
   { slug: "5-acoes-apos-acidente-veicular", title: "5 Ações Essenciais Após um Acidente Veicular", excerpt: "Saiba exatamente o que fazer nos primeiros minutos após uma colisão para garantir sua segurança, seus direitos e a cobertura do seguro.", category: "Seguro Auto" },
   { slug: "seguro-rc-medicos", title: "Seguro RC para Médicos: Por Que Todo Profissional da Saúde Precisa", excerpt: "Entenda como o Seguro de Responsabilidade Civil protege médicos contra processos, reclamações e indenizações por erros profissionais.", category: "RC" },
   { slug: "rc-geral-profissional-do-diferencas", title: "RC Geral, RC Profissional e D&O: Entenda as Diferenças", excerpt: "Descubra as diferenças entre os três principais seguros de Responsabilidade Civil e saiba qual sua empresa precisa.", category: "RC" },
+  { slug: "seguros-contra-alagamentos", title: "Seguros Contra Alagamentos: Quais Cobrem e Como se Proteger", excerpt: "Descubra quais seguros cobrem alagamentos, enchentes e inundações — para casa, carro, empresa e lavoura.", category: "Dicas" },
 ];
 
 const Blog = () => {
