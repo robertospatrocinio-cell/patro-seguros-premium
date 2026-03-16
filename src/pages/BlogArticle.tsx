@@ -2937,6 +2937,141 @@ A Patro Seguros é especialista em seguros para o agronegócio e conhece as part
       { q: "Produtor rural tem desconto no seguro de máquinas?", a: "Sim, alguns fatores reduzem o preço: galpão coberto para guarda, rastreador instalado, brigada de incêndio na propriedade, histórico sem sinistros e contratação de múltiplas máquinas (frota agrícola). Na Patro, analisamos todos esses fatores para otimizar o preço." },
     ],
   },
+  "seguro-veiculos-blindados": {
+    title: "Seguro para Veículos Blindados: Guia Completo",
+    content: `Blindar um veículo é um investimento que pode ultrapassar R$ 80.000, e não faz sentido proteger o carro contra balas sem protegê-lo contra roubo, colisão ou incêndio. O seguro para veículos blindados é indispensável — e tem particularidades que você precisa conhecer antes de contratar.
+
+Neste guia completo, a Patro Seguros explica tudo sobre o seguro de carros blindados: coberturas, preços, exigências das seguradoras e como garantir a melhor proteção.
+
+Por Que o Seguro de Veículo Blindado é Diferente?
+
+Um carro blindado não é apenas um carro mais caro. A blindagem altera características fundamentais do veículo:
+
+- O peso aumenta significativamente (entre 150 kg e 300 kg a mais).
+- Suspensão, freios e motor são mais exigidos, aumentando o desgaste.
+- O valor do veículo sobe substancialmente com a blindagem.
+- Reparos em caso de sinistro são mais complexos e caros.
+- Vidros blindados, por exemplo, podem custar de R$ 5.000 a R$ 20.000 cada.
+
+Por essas razões, o seguro de veículo blindado tem regras, coberturas e preços específicos que diferem do seguro auto convencional.
+
+Coberturas Essenciais para Veículos Blindados
+
+1. Cobertura Compreensiva (Casco)
+Protege contra roubo, furto, colisão, incêndio, alagamento e danos por fenômenos naturais. No caso de blindados, o valor segurado deve incluir o valor da blindagem, não apenas o valor do veículo zero.
+
+2. Cobertura da Blindagem
+Fundamental: a blindagem deve estar declarada e coberta na apólice. Muitas seguradoras tratam a blindagem como acessório e exigem declaração específica do nível de proteção (I, II, III-A etc.) e da empresa que realizou o serviço.
+
+3. Responsabilidade Civil Facultativa (RCF)
+Cobre danos causados a terceiros em caso de acidente. Para veículos blindados, recomenda-se um valor de cobertura mais alto, pois o peso extra pode causar danos maiores em colisões.
+
+4. Assistência 24 Horas
+Essencial, mas com atenção: nem todo guincho suporta o peso de um blindado. Verifique se a assistência cobre guincho para veículos pesados.
+
+5. Cobertura de Vidros e Componentes Blindados
+Vidros blindados são extremamente caros. Algumas seguradoras oferecem cobertura específica para troca de vidros blindados sem impactar o bônus da apólice principal.
+
+6. Carro Reserva
+Considere contratar carro reserva por período estendido (30, 45 ou 60 dias), pois reparos em blindados demoram mais do que em veículos convencionais.
+
+Quanto Custa o Seguro de Veículo Blindado?
+
+O preço do seguro de um carro blindado é, em média, 30% a 60% mais caro que o seguro do mesmo modelo sem blindagem. Os principais fatores que influenciam o custo são:
+
+- Valor total do veículo + blindagem: quanto maior, mais caro o seguro.
+- Nível da blindagem: blindagem nível III-A (a mais comum) custa menos para segurar do que níveis superiores.
+- Empresa de blindagem: seguradoras confiam mais em blindadoras certificadas e com boa reputação.
+- Perfil do motorista: idade, gênero, estado civil, CEP de pernoite.
+- Histórico de sinistros: bônus acumulado reduz significativamente o preço.
+- Dispositivos de segurança: rastreador e bloqueador são praticamente obrigatórios.
+
+Exemplo prático:
+Um SUV de R$ 350.000 com blindagem de R$ 90.000 (total segurado: R$ 440.000) pode ter um seguro anual entre R$ 15.000 e R$ 28.000, dependendo do perfil e coberturas.
+
+Exigências das Seguradoras
+
+Para aceitar um veículo blindado, a maioria das seguradoras exige:
+
+- Certificado de blindagem emitido pelo Exército Brasileiro (obrigatório por lei).
+- Blindagem realizada por empresa credenciada e certificada.
+- Rastreador e/ou bloqueador veicular instalado.
+- Inspeção veicular prévia (muitas seguradoras fazem vistoria presencial).
+- Idade do veículo e da blindagem dentro dos limites aceitos (geralmente até 10 anos para o carro e 7-8 anos para a blindagem).
+
+Atenção: blindagem clandestina ou sem certificação torna o seguro inválido. Sempre exija o certificado do Exército e nota fiscal da blindadora.
+
+Blindagem Nova vs. Blindagem Antiga: Impacto no Seguro
+
+A idade da blindagem afeta diretamente a aceitação e o preço do seguro:
+
+- Blindagem de 0 a 3 anos: aceitação facilitada, melhores condições.
+- Blindagem de 3 a 5 anos: aceitação normal, pode haver exigência de vistoria mais detalhada.
+- Blindagem acima de 5 anos: algumas seguradoras recusam ou exigem laudo de manutenção da blindagem.
+- Blindagem acima de 8 anos: poucas seguradoras aceitam; recomendável considerar a troca ou manutenção da blindagem.
+
+Dica: a manutenção periódica da blindagem (especialmente vedação e vidros) é fundamental para manter a cobertura do seguro.
+
+Sinistro em Veículo Blindado: Como Funciona?
+
+Em caso de sinistro, o processo tem algumas diferenças:
+
+Perda total (roubo/furto ou destruição):
+A seguradora indeniza o valor do veículo incluindo a blindagem, conforme declarado na apólice. Por isso é essencial que o valor segurado esteja correto.
+
+Sinistro parcial (colisão, vidros):
+O reparo deve ser feito em oficina referenciada que trabalhe com blindados. A seguradora cobre os custos, mas o prazo de reparo costuma ser maior (30 a 90 dias) devido à complexidade.
+
+Vidros blindados:
+A troca de um vidro blindado pode levar semanas, pois geralmente é fabricado sob medida. Algumas seguradoras têm convênio com blindadoras para agilizar o processo.
+
+Dicas para Economizar no Seguro de Blindado
+
+1. Instale rastreador e bloqueador: redução de até 15% no prêmio.
+2. Mantenha o bônus: anos sem sinistro acumulam descontos progressivos.
+3. Compare cotações: a diferença entre seguradoras pode chegar a 40%.
+4. Contrate pela Patro: como corretora, comparamos as melhores seguradoras para blindados.
+5. Mantenha a blindagem em dia: blindagem com manutenção regular tem melhor aceitação.
+6. Avalie a franquia: franquias mais altas reduzem o prêmio, mas considere o custo de reparos em blindados.
+7. Agrupe seguros: se tiver mais de um veículo, a contratação conjunta pode gerar desconto.
+
+Erros Comuns ao Contratar Seguro de Blindado
+
+- Não declarar a blindagem: se a blindagem não constar na apólice, não será indenizada em caso de sinistro.
+- Subdeclarar o valor: segurar por valor inferior ao real gera rateio e indenização reduzida.
+- Ignorar a certificação: blindagem sem certificado do Exército invalida a cobertura.
+- Não verificar a assistência: guincho comum pode não suportar o peso do blindado.
+- Contratar cobertura de vidros comum: vidros blindados custam 10x mais que vidros comuns; a cobertura precisa ser compatível.
+
+Quando Contratar o Seguro?
+
+O ideal é contratar o seguro antes mesmo de retirar o veículo da blindadora. Muitos clientes blindam o carro e circulam semanas sem seguro adequado — um risco enorme considerando o investimento.
+
+Passo a passo recomendado:
+1. Escolha o veículo e a blindadora.
+2. Solicite a cotação do seguro já com o valor da blindagem incluso.
+3. Aprovação e vistoria (algumas seguradoras fazem na própria blindadora).
+4. Retire o veículo já com o seguro ativo.
+
+Por Que Contratar com a Patro Seguros?
+
+A Patro Seguros é especialista em seguros de alto valor e trabalha com as principais seguradoras que aceitam veículos blindados. Nossos diferenciais:
+
+- Cotamos com múltiplas seguradoras para encontrar o melhor custo-benefício.
+- Conhecemos as exigências específicas de cada seguradora para blindados.
+- Acompanhamos todo o processo de sinistro, inclusive a indicação de oficinas especializadas.
+- Orientamos sobre a documentação necessária (certificado do Exército, notas fiscais, laudos).
+- Atendimento consultivo: analisamos seu perfil e recomendamos as coberturas ideais.
+
+Não arrisque seu investimento. Entre em contato com a Patro Seguros pelo WhatsApp e receba uma cotação personalizada para o seguro do seu veículo blindado.`,
+    faqs: [
+      { q: "O seguro de veículo blindado cobre a blindagem?", a: "Sim, desde que a blindagem esteja declarada na apólice com seu valor e nível de proteção. Se não estiver declarada, a seguradora indeniza apenas o valor do veículo sem blindagem. Por isso, é fundamental informar a blindagem no momento da contratação." },
+      { q: "Quanto custa o seguro de um carro blindado?", a: "Em média, o seguro de um veículo blindado custa de 30% a 60% mais que o do mesmo modelo sem blindagem. Para um SUV blindado de R$ 440.000 (veículo + blindagem), o seguro anual fica entre R$ 15.000 e R$ 28.000, dependendo do perfil e coberturas escolhidas." },
+      { q: "Preciso de rastreador para segurar um carro blindado?", a: "Na grande maioria dos casos, sim. Praticamente todas as seguradoras exigem rastreador e/ou bloqueador como condição para aceitar veículos blindados. Além de ser exigência, o rastreador pode gerar desconto de até 15% no valor do seguro." },
+      { q: "Blindagem antiga pode ser segurada?", a: "Depende da seguradora e da idade da blindagem. Em geral, blindagens com até 5 anos são aceitas sem restrição. Acima de 5 anos, pode haver exigência de laudo de manutenção. Acima de 8 anos, poucas seguradoras aceitam. Manter a manutenção da blindagem em dia facilita a aceitação." },
+      { q: "O que acontece se eu blindar o carro e não atualizar o seguro?", a: "Se a blindagem não constar na apólice, ela não será coberta em caso de sinistro. Além disso, a alteração de peso e características do veículo sem comunicação à seguradora pode ser considerada agravamento de risco, podendo até anular a apólice. Sempre comunique a blindagem à sua seguradora ou corretor." },
+    ],
+  },
 };
 
 const defaultArticle = {
