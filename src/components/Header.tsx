@@ -372,6 +372,7 @@ const Header = () => {
                 <MobileLink to="/seguro-armazenagem">Armazenagem</MobileLink>
                 <MobileLink to="/seguro-transporte-agro">Transp. Agrícola</MobileLink>
                 <MobileLink to="/seguro-ambiental">Ambiental</MobileLink>
+                <MobileLink to="/seguro-geada">Geada</MobileLink>
               </div>
             </MobileSection>
 
