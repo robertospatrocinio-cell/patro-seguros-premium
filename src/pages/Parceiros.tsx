@@ -23,6 +23,7 @@ const Parceiros = () => {
     { name: "SURA", description: "Seguros corporativos e soluções de gestão de riscos" },
     { name: "SOMPO", description: "Seguros corporativos, agrícolas e soluções especializadas" },
     { name: "Itaú Seguros", description: "Solidez e inovação em seguros patrimoniais e de vida" },
+    { name: "AXA", description: "Líder global em seguros e gestão de riscos" },
   ];
 
   const healthPartners = [
