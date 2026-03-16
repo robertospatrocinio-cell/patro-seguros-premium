@@ -3695,6 +3695,160 @@ Se você ainda não tem seguro auto, não espere precisar para contratar. E se j
       { q: "A Patro Seguros me ajuda no processo de sinistro?", a: "Sim! Esse é um dos principais diferenciais de contratar com uma corretora. Na Patro Seguros, acompanhamos todo o processo: abertura do sinistro, orientação sobre documentos, acompanhamento da vistoria, negociação com a seguradora e acompanhamento até a conclusão. Você não fica sozinho." },
     ],
   },
+  "seguro-rc-medicos": {
+    title: "Seguro RC para Médicos: Por Que Todo Profissional da Saúde Precisa",
+    content: `A medicina é uma profissão nobre — mas também uma das mais expostas a riscos jurídicos. O número de processos contra médicos no Brasil cresce a cada ano, e uma única condenação pode comprometer o patrimônio pessoal do profissional, mesmo que ele tenha agido dentro das melhores práticas.
+
+O Seguro de Responsabilidade Civil Profissional para Médicos (RC Médicos) é a proteção financeira que garante que o profissional não arque sozinho com indenizações, custos de defesa e acordos judiciais decorrentes de alegações de erro médico.
+
+Neste guia completo, a Patro Seguros explica tudo sobre o RC Médicos: o que cobre, quanto custa, quem precisa e por que não dá mais para exercer a medicina sem essa proteção.
+
+O Cenário Atual: Por Que o Médico Precisa de Seguro RC
+
+Os números são alarmantes:
+
+- O Brasil é o segundo país do mundo em número de processos contra médicos, atrás apenas dos Estados Unidos.
+- Segundo o Conselho Nacional de Justiça (CNJ), processos por erro médico crescem em média 12% ao ano.
+- O valor médio das condenações em primeira instância ultrapassa R$ 200.000 — e pode chegar a milhões em casos graves.
+- Especialidades cirúrgicas (ortopedia, ginecologia, cirurgia plástica, neurocirurgia) concentram o maior número de ações.
+- Processos podem levar de 3 a 10 anos para serem concluídos — durante todo esse período, o médico arca com custos de advogados.
+
+Mesmo médicos que exercem a profissão com excelência estão sujeitos a processos. Pacientes insatisfeitos, complicações inerentes a procedimentos, expectativas irreais e até má-fé são causas comuns de litígios.
+
+O que o RC Médicos protege:
+O seguro não protege contra o erro em si — protege o patrimônio do médico contra as consequências financeiras de uma alegação de erro, seja ela procedente ou não.
+
+O Que o Seguro RC Médicos Cobre
+
+1. Indenizações por Danos a Pacientes
+Cobre o pagamento de indenizações judiciais ou extrajudiciais quando o médico é condenado ou quando há acordo para encerrar o litígio. Inclui:
+- Danos materiais: custos de tratamentos corretivos, medicamentos, internações.
+- Danos morais: indenização por sofrimento, constrangimento e dor.
+- Danos estéticos: compensação por sequelas estéticas decorrentes de procedimentos.
+- Lucros cessantes do paciente: renda que o paciente deixou de ganhar.
+- Pensão vitalícia: em casos de incapacidade permanente.
+
+2. Custos de Defesa Jurídica
+Talvez o benefício mais utilizado. O seguro cobre:
+- Honorários de advogados especializados em direito médico.
+- Custas processuais e periciais.
+- Honorários de assistente técnico (perito do médico).
+- Despesas com produção de provas, laudos e pareceres técnicos.
+
+Importante: os custos de defesa são cobertos mesmo que o médico seja absolvido. Um processo que dura 5 anos pode custar de R$ 50.000 a R$ 200.000 em honorários advocatícios — mesmo quando o médico não tem culpa.
+
+3. Processos Éticos no CRM
+Algumas apólices cobrem os custos de defesa em processos ético-disciplinares no Conselho Regional de Medicina (CRM), incluindo honorários de advogado e despesas com documentação.
+
+4. Processos Criminais por Erro Médico
+Coberturas mais amplas incluem custos de defesa em processos criminais por lesão corporal culposa ou homicídio culposo decorrentes de ato médico.
+
+5. Cobertura Retroativa
+Muitas apólices oferecem cobertura retroativa — protegendo o médico contra reclamações feitas durante a vigência do seguro, mas referentes a atos praticados antes da contratação (dentro de um período retroativo definido).
+
+Especialidades Médicas e o RC: Quem Mais Precisa
+
+Todas as especialidades precisam de RC, mas algumas são mais expostas a riscos:
+
+Alto risco (taxas mais elevadas):
+- Cirurgia Plástica — expectativas estéticas e alto índice de insatisfação.
+- Ginecologia e Obstetrícia — complicações no parto e danos ao recém-nascido.
+- Ortopedia — cirurgias complexas e complicações pós-operatórias.
+- Neurocirurgia — risco de sequelas graves e permanentes.
+- Anestesiologia — reações adversas e complicações anestésicas.
+
+Risco moderado:
+- Oftalmologia — especialmente cirurgias refrativas.
+- Dermatologia — procedimentos estéticos.
+- Cardiologia intervencionista — cateterismos e implantes.
+- Urologia — procedimentos cirúrgicos.
+
+Risco menor (mas não inexistente):
+- Clínica Geral — diagnósticos tardios ou incorretos.
+- Pediatria — responsabilidade ampliada em menores.
+- Psiquiatria — prescrição de medicamentos e internações.
+- Medicina do Trabalho — laudos e atestados.
+
+Na Patro Seguros, trabalhamos com seguradoras que entendem as particularidades de cada especialidade e oferecem coberturas adequadas ao risco real do profissional.
+
+Quanto Custa o Seguro RC para Médicos
+
+O custo do RC Médicos varia conforme a especialidade, o limite de cobertura e o perfil do profissional. Em geral:
+
+- Clínica geral e especialidades de menor risco: R$ 1.500 a R$ 4.000/ano.
+- Especialidades de risco moderado: R$ 3.000 a R$ 8.000/ano.
+- Cirurgia plástica, obstetrícia e neurocirurgia: R$ 6.000 a R$ 20.000/ano.
+- Limites de cobertura: geralmente de R$ 100.000 a R$ 2.000.000 por sinistro.
+
+Fatores que influenciam o preço:
+- Especialidade médica (principal fator).
+- Limite de cobertura contratado.
+- Volume de procedimentos realizados.
+- Histórico de sinistros (processos anteriores).
+- Região de atuação.
+- Atuação em pessoa física ou jurídica.
+- Cobertura retroativa (quanto maior o período, maior o custo).
+
+Comparando com o risco: um cirurgião plástico que paga R$ 15.000/ano de seguro está protegendo um patrimônio que pode ser comprometido em R$ 500.000 ou mais por um único processo. É uma das melhores relações custo-benefício do mercado de seguros.
+
+RC do Médico vs. RC do Hospital/Clínica
+
+Um erro comum é acreditar que o seguro RC da clínica ou do hospital onde o médico trabalha já cobre o profissional individualmente. Na maioria dos casos, não cobre — ou cobre de forma insuficiente.
+
+O RC da instituição cobre a responsabilidade da pessoa jurídica. Quando o paciente processa o médico pessoalmente (o que é cada vez mais comum), o profissional precisa de sua própria apólice.
+
+Situações em que o RC pessoal é indispensável:
+- O médico é pessoa física autônoma atendendo em consultório próprio.
+- O médico atende em múltiplas clínicas e hospitais.
+- O contrato com a instituição não prevê cobertura ao profissional.
+- O paciente processa o médico e a instituição separadamente.
+- O hospital entra com ação de regresso contra o médico (cobra do médico o que pagou ao paciente).
+
+Dica da Patro: mesmo que a instituição tenha RC, contrate sua própria apólice. O custo é baixo comparado ao risco e garante proteção independente de qualquer vínculo institucional.
+
+O Que Fazer Quando Receber uma Notificação ou Processo
+
+Se você receber uma notificação judicial, citação ou intimação:
+
+1. Não entre em pânico — processos fazem parte da realidade médica atual.
+2. Não responda sozinho — não entre em contato com o paciente ou advogado dele.
+3. Comunique imediatamente sua seguradora ou a Patro Seguros.
+4. Reúna toda a documentação: prontuário, termo de consentimento, exames, prescrições, fotos (se aplicável).
+5. A seguradora designará advogados especializados em direito médico para sua defesa.
+
+Importante: o prazo para comunicar à seguradora é crucial. Atrasos podem comprometer a cobertura. Ao primeiro sinal de reclamação (mesmo informal), comunique.
+
+Dicas para Reduzir o Risco de Processos
+
+O seguro protege financeiramente, mas a prevenção é sempre o melhor caminho:
+
+- Prontuário detalhado: registre tudo — anamnese, exames, diagnóstico, tratamento, intercorrências. Um prontuário bem feito é a melhor defesa.
+- Termo de Consentimento Livre e Esclarecido (TCLE): obtenha para todo procedimento invasivo, explicando riscos, alternativas e possíveis complicações. O paciente deve assinar.
+- Comunicação clara: explique ao paciente o diagnóstico, o tratamento, os riscos e as limitações. Expectativas alinhadas reduzem litígios.
+- Atualização profissional: siga protocolos atualizados e guidelines reconhecidos.
+- Documentação fotográfica: especialmente em especialidades estéticas — fotografe antes e depois.
+- Relacionamento com o paciente: empatia e atenção reduzem significativamente a propensão a processar.
+
+Por Que Contratar o RC Médicos com a Patro Seguros
+
+A Patro Seguros é especialista em seguros de Responsabilidade Civil Profissional e oferece diferenciais que fazem a diferença para o médico:
+
+- Conhecemos as particularidades de cada especialidade e sabemos quais coberturas são essenciais para cada perfil.
+- Cotamos com múltiplas seguradoras especializadas em RC Médico para encontrar o melhor custo-benefício.
+- Orientamos sobre limites de cobertura adequados ao seu nível de risco.
+- Oferecemos apólices com cobertura retroativa para proteger contra reclamações de atos passados.
+- Acompanhamos todo o processo em caso de sinistro — desde a comunicação inicial até a conclusão.
+- Atendimento consultivo: analisamos seu perfil, especialidade e volume de atendimentos para recomendar a proteção ideal.
+
+Não espere um processo para se proteger. Entre em contato com a Patro Seguros pelo WhatsApp e receba uma cotação personalizada para o seu Seguro RC Médico.`,
+    faqs: [
+      { q: "O que o Seguro RC Médico cobre?", a: "Cobre indenizações por danos a pacientes (materiais, morais, estéticos), custos de defesa jurídica (advogados, perícias, custas processuais), processos éticos no CRM e, em algumas apólices, processos criminais por erro médico. Os custos de defesa são cobertos mesmo se o médico for absolvido." },
+      { q: "Quanto custa o Seguro RC para médicos?", a: "Varia de R$ 1.500 a R$ 20.000/ano conforme a especialidade. Clínica geral fica entre R$ 1.500 e R$ 4.000/ano. Cirurgia plástica, obstetrícia e neurocirurgia ficam entre R$ 6.000 e R$ 20.000/ano. O custo é uma fração do que um único processo pode representar financeiramente." },
+      { q: "O RC do hospital onde trabalho já me cobre?", a: "Na maioria dos casos, não cobre o médico individualmente — cobre a responsabilidade da instituição. Se o paciente processar você pessoalmente (cada vez mais comum), precisa de sua própria apólice. Mesmo com RC institucional, recomendamos contratar RC pessoal." },
+      { q: "O seguro cobre processos de atos anteriores à contratação?", a: "Sim, se a apólice incluir cobertura retroativa. Muitas seguradoras oferecem retroatividade de 1 a 5 anos ou até ilimitada. Isso significa que reclamações feitas durante a vigência do seguro, referentes a atos praticados antes da contratação, estarão cobertas dentro do período retroativo definido." },
+      { q: "Todas as especialidades médicas precisam de RC?", a: "Sim. Mesmo especialidades consideradas de menor risco, como clínica geral e pediatria, estão sujeitas a processos por diagnóstico tardio, prescrição inadequada ou outras alegações. O custo para especialidades de menor risco é bastante acessível (a partir de R$ 1.500/ano), tornando a proteção viável para todos." },
+    ],
+  },
 };
 
 const defaultArticle = {
