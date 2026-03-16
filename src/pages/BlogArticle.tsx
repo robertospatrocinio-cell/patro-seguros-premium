@@ -3238,6 +3238,173 @@ Não deixe seu patrimônio e seu financiamento desprotegidos. Entre em contato c
       { q: "A Patro Seguros atende produtores rurais em todo o Brasil?", a: "Sim! A Patro Seguros é especialista em seguros de máquinas e equipamentos agrícolas com atendimento em todo o Brasil. Como parceira das principais montadoras, temos acesso a condições exclusivas e conhecemos as particularidades de cada região produtora do país. Solicite sua cotação pelo WhatsApp." },
     ],
   },
+  "seguro-pivo-central-equipamentos-irrigacao": {
+    title: "Seguro de Pivô Central e Equipamentos de Irrigação: Guia Completo",
+    content: `A irrigação é o coração da produtividade agrícola no Brasil. Um pivô central pode custar de R$ 300.000 a R$ 2.000.000, dependendo do tamanho e da tecnologia embarcada. Perder esse equipamento para um vendaval, raio, incêndio ou roubo sem seguro pode comprometer safras inteiras e inviabilizar a operação.
+
+Neste guia completo, a Patro Seguros — especialista em seguros de máquinas e equipamentos agrícolas e parceira das principais montadoras do setor — explica tudo sobre o seguro de pivô central e equipamentos de irrigação: coberturas, preços, exigências e como garantir a proteção certa para seu sistema.
+
+Por Que Segurar o Pivô Central e o Sistema de Irrigação?
+
+O investimento em irrigação é um dos maiores que o produtor rural faz — e também um dos mais vulneráveis. Equipamentos de irrigação ficam permanentemente expostos no campo, sujeitos a riscos que não afetam máquinas guardadas em galpões:
+
+- Vendavais e tempestades: ventos fortes podem derrubar, torcer e destruir as torres e vãos de um pivô central em minutos.
+- Raios: descargas elétricas queimam painéis elétricos, motores, comandos e sistemas de automação.
+- Incêndio: queimadas no campo podem atingir mangueiras, cabos, motores e estruturas metálicas.
+- Roubo e furto: cabos elétricos, motores e bombas são alvos frequentes de furto.
+- Danos elétricos: oscilações na rede rural queimam inversores, painéis e motores.
+- Alagamento e enxurrada: enchentes podem arrastar tubulações, danificar bombas e soterrar equipamentos.
+
+Sem seguro, o produtor arca sozinho com prejuízos que podem ultrapassar R$ 1.000.000 — valor suficiente para comprometer o fluxo de caixa e até a continuidade da atividade.
+
+Quais Equipamentos de Irrigação Podem Ser Segurados?
+
+O seguro de equipamentos de irrigação cobre uma ampla gama de sistemas e componentes:
+
+Pivô Central:
+- Estrutura metálica (torres, vãos, tirantes).
+- Motores elétricos de tração das torres.
+- Sistema de acionamento e redutor.
+- Painel elétrico de comando e automação.
+- Aspersores, bocais e tubulação aérea.
+- Torre central e canhão final.
+
+Carretel Autopropelido (Rebobinador):
+- Estrutura do carretel e chassi.
+- Motor hidráulico ou mecânico.
+- Mangueira de polietileno.
+- Canhão aspensor.
+
+Sistemas de Gotejamento e Microaspersão:
+- Tubulações, mangueiras e conexões.
+- Filtros, injetores de fertilizantes.
+- Controladores e automação.
+
+Bombeamento:
+- Motobombas elétricas e a diesel.
+- Painéis elétricos e inversores de frequência.
+- Adutoras e tubulações enterradas.
+- Caixas de captação e reservatórios.
+
+Sistemas Lineares (Lateral Móvel):
+- Estrutura, torres e motores.
+- Painel de comando e automação.
+
+A Patro Seguros, como parceira das principais montadoras de equipamentos de irrigação, conhece cada componente e garante que a apólice cubra o sistema completo — sem deixar lacunas.
+
+Coberturas Essenciais para Equipamentos de Irrigação
+
+1. Incêndio, Raio e Explosão
+Cobertura básica que protege contra fogo, descargas elétricas diretas e indiretas, e explosão. Essencial para pivôs e sistemas elétricos expostos no campo.
+
+2. Vendaval, Granizo e Fenômenos Naturais
+Talvez a cobertura mais importante para pivôs centrais. Vendavais são a principal causa de sinistros em pivôs — um vento forte pode torcer torres, derrubar vãos e inutilizar o equipamento inteiro.
+
+3. Danos Elétricos
+Protege painéis, motores, inversores e sistemas de automação contra curto-circuito, sobrecarga e variação de tensão. Fundamental em regiões com rede elétrica rural instável.
+
+4. Roubo e Furto
+Cobre subtração de motores, bombas, cabos elétricos, painéis e componentes. O furto de cabos de cobre é um problema crescente nas áreas rurais.
+
+5. Alagamento e Inundação
+Protege bombas, painéis e estruturas contra danos causados por enchentes e enxurradas — risco real em propriedades próximas a córregos e rios.
+
+6. Quebra de Maquinário
+Cobertura que protege contra defeitos internos, falhas mecânicas e elétricas que causem dano ao equipamento fora da garantia do fabricante.
+
+7. Responsabilidade Civil
+Cobre danos que o equipamento de irrigação cause a terceiros — por exemplo, se o pivô atingir uma estrada, cerca ou propriedade vizinha.
+
+Quanto Custa o Seguro de Pivô Central?
+
+O custo do seguro de equipamentos de irrigação varia conforme o valor do sistema, a região, o tipo de equipamento e as coberturas contratadas. Em média:
+
+- Taxa anual: de 0,8% a 3% do valor do equipamento.
+- Pivô central de R$ 500.000: seguro anual entre R$ 4.000 e R$ 15.000.
+- Pivô central de R$ 1.200.000: seguro anual entre R$ 9.600 e R$ 36.000.
+- Carretel autopropelido de R$ 150.000: seguro anual entre R$ 1.200 e R$ 4.500.
+
+Fatores que influenciam o preço:
+
+- Valor total do sistema (incluindo bombeamento e automação).
+- Região: áreas com maior incidência de vendavais, raios ou furtos pagam mais.
+- Idade do equipamento: equipamentos mais novos têm melhores taxas.
+- Medidas de proteção: para-raios, cercas, vigilância e alarme reduzem o custo.
+- Histórico de sinistros: propriedades sem sinistros acumulam bônus.
+- Marca e modelo: equipamentos de fabricantes renomados têm melhor aceitação.
+
+A Patro Seguros, como especialista em seguros para o agronegócio e parceira das principais montadoras, negocia condições diferenciadas que reduzem significativamente o custo do seguro para o produtor.
+
+Sinistros Mais Comuns em Equipamentos de Irrigação
+
+Entender os sinistros mais frequentes ajuda o produtor a dimensionar suas coberturas:
+
+Vendaval (40% dos sinistros):
+É o vilão número 1 dos pivôs centrais. Ventos acima de 80 km/h podem torcer torres, dobrar tirantes e derrubar vãos inteiros. O prejuízo de um vendaval em um pivô grande pode ultrapassar R$ 500.000.
+
+Raios e danos elétricos (25% dos sinistros):
+Descargas elétricas e oscilações de tensão queimam painéis de comando, motores, inversores e sistemas de automação. Regiões com muitas tempestades elétricas (como o Cerrado) têm incidência elevada.
+
+Incêndio em campo (15% dos sinistros):
+Queimadas acidentais ou criminosas atingem mangueiras, cabos, motores e estruturas próximas ao solo. Em sistemas de gotejamento, o fogo pode destruir quilômetros de tubulação.
+
+Furto e roubo (12% dos sinistros):
+Cabos de cobre, motores elétricos e bombas são os itens mais visados. Propriedades afastadas e sem vigilância são as mais vulneráveis.
+
+Alagamento (8% dos sinistros):
+Enxurradas que danificam casas de bomba, painéis elétricos e estruturas de captação.
+
+Dicas para Proteger Seu Sistema de Irrigação
+
+1. Instale para-raios: reduz drasticamente o risco de danos por descargas elétricas e pode gerar desconto no seguro.
+2. Mantenha área limpa ao redor: aceiros e faixas sem vegetação protegem contra incêndio.
+3. Invista em vigilância: câmeras, alarme e cerca eletrônica reduzem o risco de furto e o custo do seguro.
+4. Faça manutenção preventiva: equipamentos bem mantidos têm menos falhas e melhor aceitação pelas seguradoras.
+5. Recolha o pivô em tempestades: se possível, posicione o pivô perpendicular à direção predominante do vento quando houver alerta de tempestade.
+6. Proteja o painel elétrico: instale em abrigo fechado, com aterramento adequado e proteção contra surtos.
+7. Documente o patrimônio: fotos, notas fiscais e inventário detalhado agilizam o processo de sinistro.
+
+Seguro de Pivô Central Financiado
+
+Muitos produtores financiam seus sistemas de irrigação pelo BNDES, Banco do Brasil, Sicredi ou outros agentes financeiros. Nesses casos, o seguro é obrigatório e o banco exige:
+
+- Apólice com o banco como beneficiário preferencial.
+- Coberturas mínimas definidas pelo agente financeiro.
+- Renovação anual enquanto durar o financiamento.
+- Valor segurado compatível com o saldo devedor ou valor de reposição.
+
+A Patro Seguros conhece as exigências de cada banco e emite a apólice no formato correto, evitando atrasos na liberação do crédito.
+
+Manutenção da Blindagem — Ops, da Irrigação!
+
+Um ponto frequentemente esquecido: a manutenção do sistema de irrigação impacta diretamente a cobertura do seguro. Equipamentos sem manutenção podem ter sinistros recusados por "falta de conservação" — uma exclusão presente em muitas apólices.
+
+Recomendações:
+- Mantenha registro das manutenções preventivas.
+- Substitua peças desgastadas antes que causem falhas.
+- Siga o plano de manutenção do fabricante.
+- Guarde notas fiscais de peças e serviços.
+
+Por Que Contratar com a Patro Seguros?
+
+A Patro Seguros é referência em seguros para o agronegócio e oferece diferenciais que fazem a diferença para o produtor rural:
+
+- Especialista em equipamentos de irrigação: conhecemos pivôs centrais, carretéis, gotejamento e todos os sistemas do mercado.
+- Parceira das principais montadoras: temos acesso a condições especiais, tabelas de referência e suporte técnico dos fabricantes.
+- Cotação com múltiplas seguradoras: comparamos preços e coberturas para garantir o melhor custo-benefício.
+- Atendimento em todo o Brasil: o agro não tem fronteiras, e nosso atendimento também não.
+- Acompanhamento de sinistros: em caso de sinistro, estamos ao lado do produtor desde o aviso até a indenização.
+- Gestão de renovações: monitoramos vencimentos para que o produtor nunca fique descoberto.
+
+Proteja seu investimento em irrigação. Entre em contato com a Patro Seguros pelo WhatsApp e receba uma cotação personalizada para o seguro do seu pivô central e equipamentos de irrigação.`,
+    faqs: [
+      { q: "O seguro cobre vendaval em pivô central?", a: "Sim, desde que a cobertura de vendaval esteja contratada na apólice — e é fortemente recomendada, já que vendavais são a principal causa de sinistros em pivôs centrais. A Patro Seguros sempre inclui essa cobertura nas cotações para equipamentos de irrigação." },
+      { q: "Quanto custa o seguro de um pivô central?", a: "Em média, de 0,8% a 3% do valor do equipamento por ano. Para um pivô de R$ 800.000, o seguro anual fica entre R$ 6.400 e R$ 24.000. A Patro Seguros, como especialista no agro e parceira das principais montadoras, consegue condições diferenciadas que reduzem significativamente o custo." },
+      { q: "O seguro de irrigação cobre raios e danos elétricos?", a: "Sim. A cobertura de raios e danos elétricos protege painéis de comando, motores, inversores e sistemas de automação contra descargas elétricas e oscilações de tensão. É uma cobertura essencial, especialmente em regiões com alta incidência de tempestades elétricas como o Cerrado." },
+      { q: "Preciso de seguro se o pivô central é financiado?", a: "Sim, o seguro é obrigatório em financiamentos de equipamentos de irrigação. O banco exige apólice com coberturas mínimas e com a instituição financeira como beneficiária. A Patro Seguros conhece as exigências de cada banco e emite a apólice no formato correto." },
+      { q: "A Patro Seguros atende produtores em todo o Brasil?", a: "Sim! Somos especialistas em seguros para o agronegócio com atendimento nacional. Como parceira das principais montadoras de equipamentos de irrigação, temos acesso a condições exclusivas em todo o país. Solicite sua cotação pelo WhatsApp." },
+    ],
+  },
 };
 
 const defaultArticle = {
