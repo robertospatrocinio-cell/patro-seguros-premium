@@ -3537,6 +3537,164 @@ Fonte dos dados: Companhia de rastreamento veicular Ituran, com base em dados da
       { q: "Qual o horário mais perigoso para roubo e furto de veículos?", a: "O período noturno é o mais perigoso, com 8.628 ocorrências entre janeiro e maio de 2025, seguido pela tarde (6.773), manhã (6.366) e madrugada (3.782). O dia da semana com mais casos é a quarta-feira. Evitar deixar o carro na rua à noite e usar estacionamentos seguros são medidas preventivas importantes." },
     ],
   },
+  "5-acoes-apos-acidente-veicular": {
+    title: "5 Ações Essenciais Após um Acidente Veicular",
+    content: `Um acidente de trânsito é uma situação de estresse extremo. O coração dispara, a adrenalina sobe e, na maioria das vezes, o motorista não sabe o que fazer. As decisões tomadas nos primeiros minutos após uma colisão podem determinar a sua segurança, a preservação dos seus direitos e até a aprovação ou recusa da cobertura do seguro.
+
+A Patro Seguros preparou este guia prático com as 5 ações essenciais que todo motorista deve seguir após um acidente veicular. Salve este artigo no celular — você pode precisar dele quando menos esperar.
+
+AÇÃO 1: Garanta a Segurança de Todos
+
+A primeira e mais importante ação após qualquer acidente é garantir a segurança — sua, dos passageiros e dos demais envolvidos.
+
+O que fazer imediatamente:
+
+- Mantenha a calma. Respire fundo antes de qualquer atitude.
+- Verifique se você e seus passageiros estão bem. Pergunte a todos se sentem dor, tontura ou dificuldade para se mover.
+- Se houver feridos graves, ligue imediatamente para o SAMU (192) ou Bombeiros (193). Não tente mover vítimas com suspeita de lesão na coluna.
+- Se possível, sinalize o local: ligue o pisca-alerta, coloque o triângulo de sinalização a pelo menos 30 metros do veículo (em rodovias, 60 metros) e acione as luzes de emergência.
+- Se o veículo estiver em condições de ser movido e não houver feridos, retire-o da via para evitar novos acidentes — especialmente em rodovias de alta velocidade.
+- Saia do veículo pelo lado da calçada ou acostamento, nunca pelo lado do tráfego.
+
+Atenção: em rodovias, permanecer na pista é extremamente perigoso. Se possível, todos os envolvidos devem aguardar fora dos veículos, atrás da barreira de proteção ou no acostamento.
+
+Quando chamar ajuda especializada:
+- Feridos de qualquer gravidade: SAMU (192) ou Bombeiros (193).
+- Acidente em rodovia: Polícia Rodoviária (191) ou concessionária da via.
+- Acidente em área urbana: Polícia Militar (190) para registro da ocorrência.
+- Vazamento de combustível ou risco de incêndio: Bombeiros (193) imediatamente.
+
+AÇÃO 2: Registre Tudo com Fotos e Vídeos
+
+Antes de mover qualquer veículo (exceto por questão de segurança), registre absolutamente tudo. Essa documentação é fundamental para o boletim de ocorrência, para o seguro e para eventual disputa judicial.
+
+O que fotografar:
+
+- Visão geral do acidente: tire fotos de longe mostrando a posição dos veículos, a via, a sinalização e as condições do local.
+- Danos em todos os veículos: fotografe cada amassado, arranhão, vidro quebrado, peça solta — de todos os ângulos.
+- Placas de todos os veículos envolvidos.
+- Marcas no chão: marcas de frenagem, óleo, vidro quebrado, pedaços de peças.
+- Sinalização da via: semáforos, placas de pare, faixas de pedestres, limites de velocidade.
+- Condições do local: iluminação, buracos, alagamento, obras — qualquer condição que possa ter contribuído para o acidente.
+- Documento do outro motorista: CNH e CRLV (documento do veículo). Fotografe ambos.
+- Testemunhas: se houver, peça nome e telefone. Anote ou fotografe.
+
+Dica da Patro: grave também um vídeo curto (30 segundos) fazendo um giro em torno do local do acidente. Isso mostra o contexto completo que fotos isoladas podem não captar.
+
+Não apague nada. Mesmo fotos que pareçam inúteis podem ser fundamentais depois.
+
+AÇÃO 3: Registre o Boletim de Ocorrência (B.O.)
+
+O Boletim de Ocorrência é um documento oficial essencial. Sem ele, o seguro pode recusar a cobertura e você pode perder direitos em uma eventual ação judicial.
+
+Como registrar o B.O.:
+
+- Online: em São Paulo, o B.O. pode ser registrado pela Delegacia Eletrônica (www.delegaciaeletronica.policiacivil.sp.gov.br) para acidentes sem vítimas.
+- Presencialmente: vá à delegacia mais próxima com seus documentos, fotos e dados do outro envolvido.
+- Na rodovia: a Polícia Rodoviária geralmente registra o boletim no local.
+
+Informações necessárias para o B.O.:
+
+- Seus dados pessoais e do veículo (CNH, CRLV).
+- Dados do outro motorista e veículo (nome, CNH, placa, seguradora).
+- Local exato, data e hora do acidente.
+- Descrição detalhada do que aconteceu (quem vinha de onde, velocidade aproximada, condições da via).
+- Dados de testemunhas, se houver.
+- Número do protocolo de atendimento (SAMU, Bombeiros, PRF), se aplicável.
+
+Importante: seja preciso e honesto na descrição. Contradições entre o B.O. e as evidências (fotos, câmeras de segurança) podem prejudicar sua posição — tanto no seguro quanto judicialmente.
+
+Prazo: registre o B.O. o mais rápido possível, preferencialmente no mesmo dia. Algumas seguradoras exigem o registro em até 24 horas.
+
+AÇÃO 4: Comunique Sua Seguradora Imediatamente
+
+Se você tem seguro auto, a comunicação rápida à seguradora é crucial. Cada seguradora tem prazos e procedimentos específicos, e o atraso na comunicação pode gerar problemas na cobertura.
+
+Como comunicar o sinistro:
+
+- Ligue para a central de atendimento da seguradora (o número está na apólice e geralmente no adesivo do para-brisa).
+- Muitas seguradoras já aceitam abertura de sinistro pelo aplicativo ou WhatsApp.
+- Tenha em mãos: número da apólice, dados do acidente, fotos e B.O.
+
+O que a seguradora vai orientar:
+
+- Se o veículo pode ser dirigido ou precisa de guincho (coberto pela assistência 24h).
+- Para qual oficina referenciada levar o veículo.
+- Quais documentos enviar e em que prazo.
+- Se há direito a carro reserva e como acionar.
+
+Dica da Patro: se você é cliente da Patro Seguros, pode ligar diretamente para nós. Intermediamos todo o processo com a seguradora, orientamos sobre cada passo e acompanhamos até a conclusão do sinistro. É para isso que a corretora existe — para estar ao seu lado quando você mais precisa.
+
+O que NÃO fazer:
+
+- Não autorize reparos por conta própria antes da vistoria da seguradora.
+- Não negocie diretamente com o outro motorista sem orientação (especialmente valores).
+- Não assine nada no local sem ler e entender completamente.
+- Não admita culpa no local — deixe isso para a análise técnica da seguradora.
+
+AÇÃO 5: Cuide da Sua Saúde — Mesmo Sem Dor Aparente
+
+Muitos motoristas saem de um acidente aparentemente ilesos e ignoram sintomas que podem aparecer horas ou dias depois. O estresse pós-acidente libera adrenalina que mascara dores e lesões.
+
+Por que buscar atendimento médico:
+
+- Lesões de whiplash (chicotada cervical) podem levar de 24 a 72 horas para manifestar sintomas.
+- Concussões leves podem não apresentar sinais imediatos.
+- Hematomas internos podem ser graves e assintomáticos nas primeiras horas.
+- Dores nas costas, pescoço e ombros frequentemente aparecem dias depois.
+- O laudo médico é documento essencial caso você precise acionar o seguro APP (Acidentes Pessoais de Passageiros) ou DPVAT.
+
+O que fazer:
+
+- Mesmo sem dor aparente, procure um pronto-socorro nas primeiras 24 horas.
+- Relate ao médico que esteve envolvido em acidente de trânsito — ele saberá o que investigar.
+- Guarde todos os laudos, exames e receitas — são documentos importantes para o seguro e eventual ação judicial.
+- Se sentir dor nos dias seguintes, procure atendimento imediatamente e mencione o acidente.
+
+Resumo: Checklist Pós-Acidente
+
+Para facilitar, aqui está o checklist completo que a Patro Seguros recomenda a todos os motoristas:
+
+Imediatamente após o acidente:
+- Manter a calma e verificar se todos estão bem.
+- Chamar SAMU/Bombeiros se houver feridos.
+- Sinalizar o local (pisca-alerta + triângulo).
+- Fotografar e filmar tudo antes de mover os veículos.
+
+Nos primeiros 30 minutos:
+- Trocar dados com o outro motorista (CNH, placa, seguradora, telefone).
+- Anotar dados de testemunhas.
+- Acionar a Polícia se necessário.
+
+Nas primeiras horas:
+- Registrar o Boletim de Ocorrência.
+- Comunicar a seguradora (ou a Patro Seguros, se for nosso cliente).
+- Procurar atendimento médico.
+
+Nos dias seguintes:
+- Enviar documentação completa à seguradora.
+- Acompanhar o andamento do sinistro.
+- Guardar todos os comprovantes e protocolos.
+
+O Que a Patro Seguros Faz por Você
+
+Na Patro Seguros, nosso trabalho não termina na venda da apólice — na verdade, é no momento do sinistro que o valor de uma corretora de verdade aparece:
+
+- Intermediamos toda a comunicação com a seguradora.
+- Orientamos sobre documentação e prazos.
+- Acompanhamos a vistoria, o reparo e a liberação do veículo.
+- Negociamos com a seguradora em caso de divergências.
+- Garantimos que seus direitos sejam respeitados.
+
+Se você ainda não tem seguro auto, não espere precisar para contratar. E se já tem, mas não tem uma corretora que te acompanha de verdade, converse com a Patro Seguros pelo WhatsApp.`,
+    faqs: [
+      { q: "Preciso chamar a polícia em todo acidente de trânsito?", a: "Para acidentes com vítimas, sim — é obrigatório. Para acidentes apenas com danos materiais, o registro do B.O. pode ser feito online (Delegacia Eletrônica) em muitos estados. Porém, a presença da polícia é recomendável quando há divergência entre os envolvidos sobre a dinâmica do acidente." },
+      { q: "Se eu não registrar o B.O., perco o direito ao seguro?", a: "A maioria das seguradoras exige o B.O. para abrir o sinistro e processar a indenização. Sem ele, a seguradora pode recusar a cobertura. Registre o B.O. o mais rápido possível — preferencialmente no mesmo dia do acidente, e no máximo em 24 horas." },
+      { q: "Posso escolher a oficina para o reparo?", a: "Depende da sua apólice. Seguros com oficina referenciada direcionam para oficinas credenciadas pela seguradora (geralmente com garantia de 1 a 2 anos no reparo). Seguros com livre escolha permitem que você escolha a oficina, mas pode haver diferença na cobertura. Na Patro, orientamos sobre a melhor opção." },
+      { q: "O que acontece se o outro motorista não tem seguro?", a: "Se o culpado não tem seguro, você pode acionar seu próprio seguro (se tiver cobertura de danos a terceiros ou casco) e a seguradora buscará o ressarcimento junto ao outro motorista. Se você também não tem seguro, precisará buscar o ressarcimento judicialmente — o B.O. e as fotos serão essenciais." },
+      { q: "A Patro Seguros me ajuda no processo de sinistro?", a: "Sim! Esse é um dos principais diferenciais de contratar com uma corretora. Na Patro Seguros, acompanhamos todo o processo: abertura do sinistro, orientação sobre documentos, acompanhamento da vistoria, negociação com a seguradora e acompanhamento até a conclusão. Você não fica sozinho." },
+    ],
+  },
 };
 
 const defaultArticle = {
