@@ -3849,6 +3849,194 @@ Não espere um processo para se proteger. Entre em contato com a Patro Seguros p
       { q: "Todas as especialidades médicas precisam de RC?", a: "Sim. Mesmo especialidades consideradas de menor risco, como clínica geral e pediatria, estão sujeitas a processos por diagnóstico tardio, prescrição inadequada ou outras alegações. O custo para especialidades de menor risco é bastante acessível (a partir de R$ 1.500/ano), tornando a proteção viável para todos." },
     ],
   },
+  "rc-geral-profissional-do-diferencas": {
+    title: "RC Geral, RC Profissional e D&O: Entenda as Diferenças",
+    content: `Se você é empresário, gestor ou profissional liberal, provavelmente já ouviu falar em "seguro de Responsabilidade Civil". Mas sabia que existem modalidades muito diferentes — e que contratar a errada pode deixar você completamente desprotegido?
+
+Neste guia completo, a Patro Seguros — especialista em seguros de Responsabilidade Civil — explica as diferenças entre RC Geral, RC Profissional (E&O) e D&O (Directors & Officers), para que você saiba exatamente qual proteção sua empresa e seus executivos precisam.
+
+O Que É Responsabilidade Civil nos Seguros?
+
+Antes de entender as diferenças, é importante compreender o conceito: Responsabilidade Civil é a obrigação legal de reparar danos causados a terceiros. No universo dos seguros, existem produtos específicos para cada tipo de risco:
+
+- RC Geral: danos operacionais a terceiros
+- RC Profissional (E&O): erros e omissões na prestação de serviços especializados
+- D&O: atos de gestão de diretores e administradores
+
+Cada modalidade protege contra riscos diferentes, e muitas empresas precisam de mais de uma — ou até das três simultaneamente.
+
+1. Seguro RC Geral — Proteção das Operações da Empresa
+
+O RC Geral (Responsabilidade Civil Geral) é o seguro mais amplo e abrangente. Ele protege a empresa contra danos materiais, corporais e morais causados a terceiros durante suas operações cotidianas.
+
+Quando o RC Geral é acionado?
+
+- Um cliente escorrega no piso molhado da sua loja e fratura o braço
+- Um produto fabricado pela sua empresa causa danos na residência do comprador
+- Um funcionário danifica o veículo de um visitante durante uma manobra
+- Detritos de uma obra caem sobre um pedestre ou veículo na rua
+- Um vazamento no seu estabelecimento causa danos ao imóvel vizinho
+
+Principais coberturas do RC Geral:
+
+- RC Operações: danos durante a execução das atividades da empresa
+- RC Empregador: acidentes com funcionários além do seguro obrigatório
+- RC Produtos: danos causados por produtos após entrega ao consumidor
+- RC Cruzada: proteção entre empresas do mesmo grupo econômico
+- Danos materiais, corporais e morais a terceiros
+- Despesas de defesa judicial
+
+Quem precisa de RC Geral?
+
+- Comércios varejistas e atacadistas
+- Restaurantes, bares e estabelecimentos alimentícios
+- Construtoras e empresas de reforma
+- Indústrias e fabricantes
+- Empresas de eventos
+- Prestadores de serviços em geral
+- Qualquer empresa que receba público ou interaja com terceiros
+
+Quanto custa?
+
+- Restaurante de médio porte: a partir de R$ 1.500/ano (limite de R$ 500 mil)
+- Loja de varejo: a partir de R$ 2.000/ano
+- Construtora de médio porte: de R$ 15.000 a R$ 50.000/ano com limites maiores
+
+2. Seguro RC Profissional (E&O) — Proteção Contra Erros Técnicos
+
+O RC Profissional, também chamado de E&O (Errors & Omissions), protege profissionais e empresas contra reclamações por erros, omissões ou falhas na prestação de serviços especializados.
+
+A diferença fundamental em relação ao RC Geral é que aqui o dano não é físico ou material — é um prejuízo financeiro causado por erro técnico, conselho inadequado, negligência ou imperícia profissional.
+
+Quando o RC Profissional é acionado?
+
+- Um contador comete um erro na declaração de IR do cliente, gerando multa
+- Um advogado perde um prazo processual e o cliente é prejudicado
+- Um arquiteto projeta uma estrutura com erro de cálculo
+- Um médico realiza um diagnóstico incorreto que leva a tratamento inadequado
+- Um consultor de TI implementa um sistema que causa prejuízos operacionais
+- Um dentista realiza um procedimento que causa danos estéticos permanentes
+
+Principais coberturas do RC Profissional:
+
+- Erros profissionais e omissões técnicas
+- Negligência, imperícia e imprudência
+- Custos de defesa em processos civis e éticos
+- Indenizações por prejuízos financeiros a clientes
+- Processos em conselhos profissionais (CRM, OAB, CREA, CRC)
+- Danos morais e estéticos
+
+Quem precisa de RC Profissional?
+
+- Médicos, dentistas e veterinários
+- Advogados e contadores
+- Engenheiros e arquitetos
+- Consultores de TI e desenvolvedores
+- Corretores de seguros e imóveis
+- Designers e publicitários
+- Qualquer profissional que presta serviços especializados
+
+Quanto custa?
+
+- Clínico geral: a partir de R$ 1.500/ano
+- Cirurgião plástico: de R$ 6.000 a R$ 20.000/ano
+- Escritório de advocacia (pequeno): a partir de R$ 3.000/ano
+- Escritório de engenharia: a partir de R$ 4.000/ano
+
+3. Seguro D&O (Directors & Officers) — Proteção dos Executivos
+
+O D&O é o seguro mais especializado das três modalidades. Ele protege o patrimônio pessoal de diretores, administradores, conselheiros e gestores contra reclamações por decisões de gestão empresarial.
+
+A diferença crucial: no D&O, o segurado é a pessoa física do executivo — não a empresa. É uma proteção individual do patrimônio pessoal de quem toma decisões estratégicas.
+
+Quando o D&O é acionado?
+
+- Acionistas minoritários processam o CEO por decisões que desvalorizaram as ações
+- A Receita Federal investiga o diretor financeiro por suposta irregularidade tributária
+- Funcionários processam pessoalmente o diretor de RH por assédio moral
+- Credores responsabilizam administradores em processo de recuperação judicial
+- O CADE investiga diretores por prática anticompetitiva
+- A CVM abre processo contra conselheiros de empresa listada
+
+Principais coberturas do D&O:
+
+- Custos de defesa judicial e administrativa
+- Indenizações e acordos judiciais
+- Processos regulatórios (CVM, CADE, Receita Federal)
+- Reclamações trabalhistas contra executivos pessoalmente
+- Ações de acionistas minoritários
+- Investigações criminais (custos de defesa)
+- Extensão a cônjuge e herdeiros
+- Multas seguráveis (administrativas e regulatórias)
+
+Quem precisa de D&O?
+
+- CEOs, CFOs, COOs e diretores estatutários
+- Membros de conselhos de administração e fiscal
+- Gestores de empresas de capital aberto
+- Diretores de empresas em fase de IPO
+- Executivos de empresas em recuperação judicial
+- Administradores de fundações e ONGs
+
+Quanto custa?
+
+- Empresa de médio porte: a partir de R$ 8.000/ano (limite de R$ 5 milhões)
+- Empresa de grande porte: de R$ 50.000 a R$ 300.000+/ano
+- Companhias abertas: valores significativamente maiores
+
+Tabela Comparativa: RC Geral vs RC Profissional vs D&O
+
+Para facilitar a compreensão, veja as principais diferenças:
+
+ASPECTO → RC GERAL | RC PROFISSIONAL | D&O
+
+Quem protege → A empresa | O profissional/empresa | O executivo (pessoa física)
+Tipo de dano → Material, corporal, moral | Financeiro por erro técnico | Decisões de gestão
+Causa → Operações cotidianas | Erro, omissão, negligência | Atos de administração
+Segurado → Pessoa jurídica | Pessoa física ou jurídica | Pessoa física (diretores)
+Exemplos → Queda de cliente, produto defeituoso | Diagnóstico errado, prazo perdido | Ação de acionista, investigação fiscal
+
+Posso Contratar Mais de Uma Modalidade?
+
+Sim — e na maioria dos casos, isso é recomendado! As três modalidades se complementam:
+
+- Uma construtora precisa de RC Geral (operações) + RC Profissional (projetos) + D&O (diretores)
+- Um hospital precisa de RC Geral (instalações) + RC Profissional (médicos) + D&O (administradores)
+- Um escritório de advocacia precisa de RC Profissional (erros advocatícios) + D&O (sócios-gestores)
+
+A Patro Seguros analisa sua operação completa e recomenda a combinação ideal de coberturas para proteção integral.
+
+Erros Comuns na Contratação
+
+1. Contratar apenas RC Geral achando que cobre erros profissionais — RC Geral não cobre falhas técnicas na prestação de serviços.
+
+2. Achar que o RC do hospital cobre o médico — Na maioria dos casos, a apólice institucional protege o hospital, não o profissional individualmente.
+
+3. Não contratar D&O porque "a empresa é pequena" — Processos trabalhistas e fiscais atingem empresas de todos os portes, e o patrimônio pessoal do executivo está em risco.
+
+4. Escolher limites muito baixos para economizar — Um único processo pode ultrapassar centenas de milhares de reais. O prêmio do seguro é uma fração desse valor.
+
+5. Não verificar a retroatividade da apólice — Sem retroatividade adequada, fatos anteriores à contratação podem ficar descobertos.
+
+Por Que a Patro Seguros É Especialista em RC?
+
+A Patro Seguros é referência no mercado de seguros de Responsabilidade Civil. Nossa equipe possui conhecimento técnico aprofundado em todas as modalidades de RC e trabalha com as melhores seguradoras do mercado.
+
+- Análise completa dos riscos do seu negócio e da sua atividade profissional
+- Recomendação personalizada de modalidades, limites e coberturas
+- Cotações comparativas com seguradoras especializadas em RC
+- Suporte jurídico e operacional em caso de sinistros e reclamações
+- Revisão contínua conforme mudanças no seu negócio ou carreira
+
+Não deixe sua empresa, sua carreira e seu patrimônio desprotegidos. Entre em contato com a Patro Seguros pelo WhatsApp e receba uma consultoria gratuita sobre qual combinação de RC é ideal para você.`,
+    faqs: [
+      { q: "Qual a principal diferença entre RC Geral e RC Profissional?", a: "O RC Geral cobre danos materiais, corporais e morais causados a terceiros durante as operações da empresa (ex: cliente que escorrega na loja). O RC Profissional cobre prejuízos financeiros causados por erros técnicos na prestação de serviços especializados (ex: contador que comete erro na declaração de IR)." },
+      { q: "D&O é só para grandes empresas?", a: "Não. Qualquer empresa cujos diretores ou gestores tomem decisões estratégicas precisa de D&O. Processos trabalhistas e fiscais atingem empresas de todos os portes, e o patrimônio pessoal do executivo fica em risco sem essa proteção." },
+      { q: "Posso ter RC Geral, RC Profissional e D&O ao mesmo tempo?", a: "Sim, e é recomendado em muitos casos! As três modalidades cobrem riscos diferentes e se complementam. A Patro Seguros analisa seu perfil e recomenda a combinação ideal." },
+      { q: "O RC Geral da empresa cobre erros profissionais dos funcionários?", a: "Não. O RC Geral cobre danos operacionais (escorregões, produtos defeituosos), mas não cobre erros técnicos na prestação de serviços. Para isso, é necessário contratar RC Profissional (E&O) separadamente." },
+      { q: "Por que a Patro Seguros é referência em RC?", a: "Somos especialistas em Responsabilidade Civil com profundo conhecimento das três modalidades (RC Geral, RC Profissional e D&O). Oferecemos análise personalizada de riscos, cotações comparativas e suporte dedicado em sinistros." },
+    ],
+  },
 };
 
 const defaultArticle = {
