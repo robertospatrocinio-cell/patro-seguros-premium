@@ -24,6 +24,7 @@ interface LandingPageProps {
   urgencyText?: string;
   metaDescription: string;
   heroEmoji: string;
+  heroImage?: string;
   priceAnchor?: string;
   guaranteeText?: string;
 }
