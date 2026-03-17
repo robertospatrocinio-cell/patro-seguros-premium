@@ -18,36 +18,7 @@ import heroHomeBg from "@/assets/hero-home.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
-const parceiros = [
-  { name: "AKAD", logo: "/logos/akad.png" },
-  { name: "ALLIANZ", logo: "/logos/allianz.png" },
-  { name: "AMIL", logo: "/logos/amil.png" },
-  { name: "AXA", logo: "/logos/axa.png" },
-  { name: "AZOS", logo: "/logos/azos.png" },
-  { name: "AZUL", logo: "/logos/azul.png" },
-  { name: "BRADESCO", logo: "/logos/bradesco.png" },
-  { name: "BRADESCO SAÚDE", logo: "/logos/bradesco-saude.png" },
-  { name: "DARWIN", logo: "/logos/darwin.png" },
-  { name: "HAPVIDA", logo: "/logos/hapvida.png" },
-  { name: "HDI", logo: "/logos/hdi.png" },
-  { name: "ITAÚ", logo: "/logos/itau.png" },
-  { name: "ITURAN", logo: "/logos/ituran.png" },
-  { name: "JUSTOS", logo: "/logos/justos.png" },
-  { name: "LIBERTY", logo: "/logos/liberty.png" },
-  { name: "MAPFRE", logo: "/logos/mapfre.png" },
-  { name: "MEDSENIOR", logo: "/logos/medsenior.png" },
-  { name: "OMINT", logo: "/logos/omint.png" },
-  { name: "PORTO", logo: "/logos/porto.png" },
-  { name: "PORTO SAÚDE", logo: "/logos/porto-saude.png" },
-  { name: "PREVENT SENIOR", logo: "/logos/prevent-senior.png" },
-  { name: "SOMPO", logo: "/logos/sompo.png" },
-  { name: "SUHAI", logo: "/logos/suhai.png" },
-  { name: "SULAMERICA", logo: "/logos/sulamerica.png" },
-  { name: "SURA", logo: "/logos/sura.png" },
-  { name: "TOKIO MARINE", logo: "/logos/tokio-marine.png" },
-  { name: "UNIMED", logo: "/logos/unimed.png" },
-  { name: "ZURICH", logo: "/logos/zurich.png" },
-];
+const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO", "BRADESCO SAÚDE", "DARWIN", "HAPVIDA/NOTREDAME", "HDI", "ITAÚ", "ITURAN", "JUSTOS", "LIBERTY", "MAPFRE", "MEDSENIOR", "OMINT", "PORTO", "PORTO SAÚDE", "PREVENT SENIOR", "SOMPO", "SUHAI", "SULAMERICA", "SURA", "TOKIO MARINE", "UNIMED", "ZURICH"];
 
 
 const stats = [
@@ -148,10 +119,10 @@ const Index = () => {
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
-            <div className="flex animate-marquee whitespace-nowrap items-center">
-              {[...parceiros, ...parceiros].map((p, i) => (
-                <span key={i} className="mx-8 flex-shrink-0 select-none hover:scale-110 transition-transform">
-                  <img src={p.logo} alt={p.name} className="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
+            <div className="flex animate-marquee whitespace-nowrap">
+              {[...parceiros, ...parceiros].map((name, i) => (
+                <span key={i} className="mx-6 text-[12px] font-medium text-muted-foreground/70 whitespace-nowrap select-none">
+                  {name}
                 </span>
               ))}
             </div>
