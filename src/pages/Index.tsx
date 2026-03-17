@@ -150,9 +150,8 @@ const Index = () => {
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
             <div className="flex animate-marquee whitespace-nowrap items-center">
               {[...parceiros, ...parceiros].map((p, i) => (
-                <span key={i} className="mx-6 flex items-center gap-2 whitespace-nowrap select-none hover:scale-110 transition-transform">
-                  <img src={p.logo} alt={p.name} className="h-8 w-8 object-contain" loading="lazy" />
-                  <span className="text-[12px] font-medium text-muted-foreground/70">{p.name}</span>
+                <span key={i} className="mx-8 flex-shrink-0 select-none hover:scale-110 transition-transform">
+                  <img src={p.logo} alt={p.name} className="h-14 w-auto object-contain grayscale hover:grayscale-0 transition-all" loading="lazy" />
                 </span>
               ))}
             </div>
