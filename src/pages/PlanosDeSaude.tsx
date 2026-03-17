@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import heroImg from "@/assets/hero-planos-saude.webp";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -25,8 +26,9 @@ const PlanosDeSaude = () => {
       <PageMeta title="Planos de Saúde" description="Compare planos de saúde das melhores operadoras: Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis para pessoa física e empresas em Guarulhos." />
       <Header />
       <main id="main-content">
-        <section className="gradient-hero py-20">
-          <div className="container mx-auto px-4 text-center max-w-4xl">
+        <section className="gradient-hero py-20 relative overflow-hidden">
+          <img src={heroImg} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20" aria-hidden="true" />
+          <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
             <div className="text-6xl mb-6">🏥</div>
             <h1 className="text-white mb-6">Planos de Saúde — Compare e Encontre o Melhor</h1>
             <p className="text-xl text-white/70 mb-8">
