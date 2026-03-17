@@ -151,6 +151,7 @@ const Header = () => {
                         <div className="space-y-0.5">
                           <Link to="/seguro-empresarial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Empresarial</Link>
                           <Link to="/seguro-condominio" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Condomínio</Link>
+                          <Link to="/seguro-imobiliario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Imobiliário</Link>
                           <Link to="/seguro-lojas-shopping" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Lojas Shopping</Link>
                           <Link to="/seguro-galpoes-industriais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Galpões</Link>
                         </div>
