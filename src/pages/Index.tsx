@@ -35,10 +35,20 @@ const diferenciais = [
   { icon: Headphones, title: "Suporte em sinistro", desc: "Cuidamos de todo o processo: abertura, acompanhamento e resolução." },
 ];
 
+import avatarMaria from "@/assets/avatar-maria.webp";
+import avatarJoao from "@/assets/avatar-joao.webp";
+import avatarAna from "@/assets/avatar-ana.webp";
+import avatarCarlos from "@/assets/avatar-carlos.webp";
+import avatarFernanda from "@/assets/avatar-fernanda.webp";
+import avatarRoberto from "@/assets/avatar-roberto.webp";
+
 const testimonials = [
-  { name: "Maria S.", role: "Empresária", content: "Atendimento excepcional. A equipe da Patro encontrou o seguro perfeito para minha empresa em poucas horas." },
-  { name: "João R.", role: "Autônomo", content: "Em menos de 24h tinha minha cotação comparativa. Contratei o melhor seguro auto pagando menos." },
-  { name: "Ana Paula M.", role: "Advogada", content: "Profissionais que entendem do assunto. Me orientaram sobre o RC profissional com muita clareza." },
+  { name: "Maria S.", role: "Empresária — Seguro Empresarial", content: "Atendimento excepcional. A equipe da Patro encontrou o seguro perfeito para minha empresa em poucas horas. Sinto que meu patrimônio está 100% protegido.", avatar: avatarMaria },
+  { name: "João R.", role: "Autônomo — Seguro Auto", content: "Em menos de 24h tinha minha cotação comparativa. Contratei o melhor seguro auto pagando menos do que eu esperava. Recomendo demais!", avatar: avatarJoao },
+  { name: "Ana Paula M.", role: "Advogada — Seguro RC Profissional", content: "Profissionais que entendem do assunto. Me orientaram sobre o RC profissional com muita clareza e encontraram a melhor cobertura.", avatar: avatarAna },
+  { name: "Carlos H.", role: "Médico — Plano de Saúde", content: "Precisava de um plano de saúde completo para minha família. A Patro comparou várias operadoras e encontrou exatamente o que eu precisava.", avatar: avatarCarlos },
+  { name: "Fernanda L.", role: "Designer — Seguro Residencial", content: "Minha casa é meu maior bem. A Patro me ajudou a proteger com o melhor custo-benefício. O suporte no sinistro foi impecável!", avatar: avatarFernanda },
+  { name: "Roberto A.", role: "Produtor Rural — Seguro Rural", content: "Proteger minha lavoura era prioridade. A equipe entendeu a realidade do campo e encontrou a cobertura ideal. Parceria de confiança!", avatar: avatarRoberto },
 ];
 
 const faqs = [
@@ -187,7 +197,7 @@ const Index = () => {
               <span className="section-label">Clientes</span>
               <h2 id="depoimentos-heading" className="mt-3">Quem contrata, recomenda.</h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
               {testimonials.map((t, i) => (
                 <article key={i} className="premium-card p-7 flex flex-col">
                   <div className="flex gap-0.5 mb-5" role="img" aria-label="5 de 5 estrelas">
@@ -199,9 +209,7 @@ const Index = () => {
                     "{t.content}"
                   </blockquote>
                   <div className="flex items-center gap-3 pt-5 border-t">
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-foreground font-semibold text-[11px]" aria-hidden="true">
-                      {t.name[0]}
-                    </div>
+                    <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
                     <div>
                       <p className="text-[13px] font-semibold text-foreground">{t.name}</p>
                       <p className="text-[11px] text-muted-foreground">{t.role}</p>
