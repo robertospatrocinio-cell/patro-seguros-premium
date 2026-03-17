@@ -63,8 +63,6 @@ const Index = () => {
             <img src={heroHomeBg} alt="" className="w-full h-full object-cover opacity-15" loading="eager" aria-hidden="true" />
           </div>
           <div className="container mx-auto px-4 relative">
-            {/* 3D Shield floating on the right — desktop only, lazy */}
-            <img src={shieldHero3d} alt="" width={256} height={256} className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30" aria-hidden="true" loading="lazy" decoding="async" />
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="mb-6 md:mb-8">
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
