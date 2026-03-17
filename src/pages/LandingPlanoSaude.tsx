@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import heroImg from "@/assets/lp-plano-saude.webp";
 
 const LandingPlanoSaude = () => (
   <LandingPageTemplate
+    heroImage={heroImg}
     title="Plano de Saúde"
     heroEmoji="🏥"
     headline="Plano de Saúde bom e barato existe. Nós encontramos para você."
