@@ -32,7 +32,7 @@ interface LandingPageProps {
 const LandingPageTemplate = ({
   title, headline, subheadline, painPoints, benefits, stats,
   testimonials, objections, ctaText, ctaUrl, urgencyText,
-  metaDescription, heroEmoji, priceAnchor, guaranteeText,
+  metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText,
 }: LandingPageProps) => {
 
   const mainCtaLink = ctaUrl || "/cotacao";
