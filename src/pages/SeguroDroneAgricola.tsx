@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-drone.webp";
 
 const SeguroDroneAgricola = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Drone Agrícola"
       subtitle="Proteção completa para drones utilizados na agricultura de precisão. Atendemos operadores de todos os estados do Brasil."
       icon="🚁"

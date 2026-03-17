@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-residencial.webp";
 
 const SeguroImobiliario = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguros Imobiliários"
       subtitle="Proteção completa para imóveis residenciais, comerciais, em construção e locação"
       icon="🏢"

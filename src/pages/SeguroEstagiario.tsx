@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-vida.webp";
 
 const SeguroEstagiario = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Estagiário"
       subtitle="Proteção obrigatória para estagiários conforme a Lei do Estágio"
       icon="🎓"

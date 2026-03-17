@@ -1,7 +1,9 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const SeoSeguroAutoGuarulhos = () => (
   <InsurancePageTemplate
+    heroImage={heroImg}
     title="Seguro Auto em Guarulhos — A Melhor Cotação da Região"
     subtitle="Proteja seu carro em Guarulhos com as melhores seguradoras. Cotação gratuita e atendimento local."
     description="Procurando seguro auto em Guarulhos? A Patro Seguros é a corretora de seguros referência em Guarulhos e região. Comparamos Porto Seguro, Tokio Marine, Allianz, HDI e outras seguradoras para garantir o melhor preço e cobertura para o seu veículo. Atendimento presencial e online."

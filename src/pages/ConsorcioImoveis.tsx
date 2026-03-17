@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-consorcio.webp";
 
 const ConsorcioImoveis = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Consórcio de Imóveis"
       subtitle="Conquiste a casa própria, terreno ou imóvel comercial sem juros bancários"
       icon="🏠"

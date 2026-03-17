@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
 const SeguroGarantia = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Garantia"
       subtitle="A alternativa inteligente à fiança bancária e ao depósito judicial"
       icon="🔒"

@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-rc.webp";
 
 const SeguroRCVeterinarios = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Veterinários"
       subtitle="Proteção profissional para médicos veterinários e clínicas"
       icon="🐾"

@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-funeral.webp";
 
 const SeguroDecesso = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Decesso"
       subtitle="Assistência funeral completa para colaboradores e seus familiares"
       icon="🕊️"

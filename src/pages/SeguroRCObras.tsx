@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-rc.webp";
 
 const SeguroRCObras = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Obras"
       subtitle="Proteção contra danos a terceiros em canteiros de obras e construções"
       icon="🏗️"

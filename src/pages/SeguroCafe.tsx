@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-rural.webp";
 
 const SeguroCafe = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Café — Proteção para sua Lavoura Cafeeira"
       subtitle="Proteja sua produção de café contra geada, seca, granizo e outros riscos. Atendemos cafeicultores de todos os estados do Brasil."
       description="O Seguro Café da Patro Seguros é a proteção ideal para cafeicultores. Cobrimos perdas na lavoura causadas por fenômenos climáticos adversos como geada, seca prolongada, granizo e excesso de chuva. Com subsídio do governo federal e análise especializada, garantimos as melhores condições para proteger sua safra. Atendemos cafeicultores de Minas Gerais, São Paulo, Espírito Santo, Bahia, Paraná, Rondônia e todos os demais estados produtores. Todo o atendimento é feito de forma remota, com a mesma qualidade e agilidade."

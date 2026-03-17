@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-saude.webp";
 
 const PlanoSaudeEmpresarial = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Plano de Saúde Empresarial"
       subtitle="Cuide dos seus colaboradores com os melhores planos de saúde corporativos"
       icon="🏢"

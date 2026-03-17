@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-rc.webp";
 
 const SeguroRCDentistas = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Dentistas"
       subtitle="Proteção contra processos por alegação de erro odontológico"
       icon="🦷"
