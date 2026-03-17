@@ -4495,6 +4495,189 @@ Não perca tempo comparando dezenas de planos sozinho. Fale com a Patro Seguros 
       { q: "Como a Patro Seguros ajuda PMEs a escolher o plano?", a: "Analisamos o perfil da empresa, comparamos propostas de múltiplas operadoras, negociamos carências e coparticipação, e oferecemos suporte contínuo pós-venda. Toda a consultoria é gratuita — nosso objetivo é encontrar o melhor plano para cada PME." },
     ],
   },
+  "beneficios-seguro-imobiliario": {
+    title: "Os Benefícios do Seguro Imobiliário: Proteção Completa para Seu Patrimônio",
+    content: `Imóveis representam, para a maioria das pessoas e empresas, o maior patrimônio acumulado ao longo da vida. Um incêndio, alagamento, vendaval ou mesmo um problema elétrico pode colocar em risco décadas de investimento. O Seguro Imobiliário existe para proteger esse patrimônio — e seus benefícios vão muito além do que a maioria imagina.
+
+Neste guia completo, a Patro Seguros explica o que é o Seguro Imobiliário, quais são seus principais benefícios, o que ele cobre, quem deve contratar e como escolher a melhor proteção para o seu imóvel.
+
+O Que É o Seguro Imobiliário?
+
+O Seguro Imobiliário é um conjunto de coberturas que protege imóveis — residenciais, comerciais, industriais ou em construção — contra danos físicos, responsabilidade civil e perdas financeiras decorrentes de sinistros. Ele pode ser contratado pelo proprietário, pelo locatário ou pelo administrador do condomínio.
+
+Diferente do que muitos pensam, o Seguro Imobiliário não é um produto único, mas uma categoria que engloba diversas modalidades:
+
+- Seguro Residencial: para casas e apartamentos.
+- Seguro Empresarial/Comercial: para lojas, escritórios e pontos comerciais.
+- Seguro Condomínio: obrigatório por lei para áreas comuns.
+- Seguro de Risco de Engenharia: para imóveis em construção ou reforma.
+- Seguro Fiança Locatícia: proteção para contratos de aluguel.
+
+Os 10 Principais Benefícios do Seguro Imobiliário
+
+1. Proteção Contra Incêndio, Raio e Explosão
+
+Esta é a cobertura básica e mais importante de qualquer seguro imobiliário. Um incêndio pode destruir completamente um imóvel em minutos, transformando anos de investimento em cinzas.
+
+- Incêndios elétricos são a causa mais comum de sinistros em imóveis no Brasil.
+- A cobertura inclui não apenas a estrutura, mas também o conteúdo (móveis, eletrodomésticos, equipamentos).
+- Explosões de gás e queda de raio também estão cobertas.
+
+Exemplo real: um curto-circuito em um apartamento causou incêndio que danificou três unidades do prédio. O seguro cobriu R$ 320.000 em reparos estruturais e reposição de bens dos moradores segurados.
+
+2. Proteção Contra Desastres Naturais
+
+Com as mudanças climáticas, eventos extremos estão cada vez mais frequentes no Brasil — e os imóveis são os mais afetados.
+
+Coberturas disponíveis:
+- Vendaval, furacão e ciclone: danos ao telhado, fachada e estrutura.
+- Granizo: perfuração de telhas, danos a veículos na garagem.
+- Alagamento e inundação: danos por enchentes e acúmulo de água.
+- Desmoronamento: colapso parcial ou total da edificação.
+- Queda de árvores: danos causados por árvores que caem sobre o imóvel.
+
+Importante: alagamento e inundação geralmente são coberturas adicionais que precisam ser contratadas separadamente da cobertura básica.
+
+3. Cobertura de Danos Elétricos
+
+Problemas elétricos são extremamente comuns e podem causar prejuízos significativos:
+
+- Curto-circuito que queima eletrodomésticos e equipamentos.
+- Sobrecarga na rede elétrica após queda de energia.
+- Oscilações de tensão que danificam aparelhos eletrônicos.
+
+A cobertura de danos elétricos é uma das mais acionadas e protege equipamentos como ar-condicionado, geladeira, computadores, televisores e sistemas de segurança.
+
+4. Responsabilidade Civil do Proprietário
+
+Se alguém se machucar dentro do seu imóvel ou nas suas proximidades por uma condição do imóvel, você pode ser responsabilizado judicialmente.
+
+Exemplos de situações cobertas:
+- Queda de reboco ou telha que atinge um pedestre.
+- Visitante que se machuca em piso escorregadio.
+- Vazamento do seu apartamento que danifica o vizinho de baixo.
+- Incêndio que se propaga para imóveis vizinhos.
+
+A cobertura de Responsabilidade Civil arca com indenizações, custos de defesa e despesas judiciais — evitando que o proprietário use recursos próprios.
+
+5. Proteção do Investimento em Aluguel
+
+Para quem é proprietário de imóveis locados, o seguro oferece benefícios específicos:
+
+- Perda de aluguel: se o imóvel ficar inabitável por sinistro coberto, o seguro paga o valor do aluguel durante o período de reparo.
+- Seguro fiança locatícia: substitui o fiador e garante o pagamento do aluguel caso o inquilino fique inadimplente.
+- Danos ao imóvel pelo locatário: em algumas apólices, danos causados pelo inquilino podem ser cobertos.
+
+Para investidores imobiliários com vários imóveis, o seguro garante a continuidade da renda mesmo em caso de sinistro.
+
+6. Assistência 24 Horas
+
+Um dos benefícios mais utilizados e menos conhecidos do seguro imobiliário é a assistência 24h, que inclui:
+
+- Chaveiro: em caso de perda de chaves ou tranca emperrada.
+- Encanador: para vazamentos, entupimentos e problemas hidráulicos.
+- Eletricista: para panes elétricas, disjuntores e instalações.
+- Vidraceiro: para troca de vidros quebrados.
+- Desentupidora: para ralos, pias e vasos sanitários entupidos.
+- Cobertura provisória de telhado: em caso de danos por tempestade.
+- Limpeza após sinistro: remoção de escombros e limpeza do imóvel.
+
+Muitos segurados recuperam o valor do seguro apenas com os serviços de assistência 24h ao longo do ano.
+
+7. Proteção para Condomínios (Obrigatória por Lei)
+
+O seguro condominial é obrigatório no Brasil, conforme o Código Civil (Art. 1.346). Mas os benefícios vão além da obrigatoriedade legal:
+
+- Protege as áreas comuns: portaria, elevadores, garagem, salão de festas, piscina.
+- Cobre a estrutura do prédio: fachada, telhado, instalações hidráulicas e elétricas.
+- Responsabilidade Civil do condomínio: danos a condôminos e visitantes.
+- Proteção para o síndico: cobertura de RC para atos de gestão.
+
+O síndico que não contrata o seguro obrigatório pode ser responsabilizado pessoalmente por eventuais prejuízos.
+
+8. Custo-Benefício Excepcional
+
+O seguro imobiliário é um dos seguros com melhor relação custo-benefício do mercado:
+
+- Para imóveis residenciais, o custo médio é de 0,1% a 0,5% do valor do imóvel por ano.
+- Um apartamento de R$ 500.000 pode ser segurado por R$ 500 a R$ 2.500/ano — menos de R$ 210/mês.
+- A assistência 24h, sozinha, pode gerar economia superior ao valor do prêmio.
+
+Comparando com o valor do patrimônio protegido, o seguro imobiliário é um investimento mínimo com retorno máximo em caso de sinistro.
+
+9. Tranquilidade e Segurança Patrimonial
+
+Benefícios intangíveis, mas valiosos:
+
+- Paz de espírito: saber que seu maior patrimônio está protegido.
+- Segurança financeira: um sinistro não compromete suas economias.
+- Proteção familiar: a família mantém o lar mesmo após eventos graves.
+- Credibilidade: para imóveis comerciais, demonstra gestão profissional.
+
+10. Flexibilidade de Coberturas
+
+O seguro imobiliário permite montar um pacote sob medida para cada necessidade:
+
+- Apenas a estrutura: ideal para proprietários de imóveis locados.
+- Apenas o conteúdo: para locatários que querem proteger seus bens.
+- Estrutura + conteúdo: proteção completa.
+- Coberturas adicionais: alagamento, vidros, RC, perda de aluguel.
+- Assistências extras: mudança, guarda de móveis, hospedagem.
+
+Quem Deve Contratar o Seguro Imobiliário?
+
+- Proprietários de casas e apartamentos: proteção do patrimônio principal da família.
+- Proprietários de imóveis locados: garantia de renda e proteção do bem.
+- Locatários: proteção dos bens pessoais dentro do imóvel alugado.
+- Síndicos e administradoras: cumprimento da obrigação legal e proteção das áreas comuns.
+- Construtoras e incorporadoras: seguro para obras em andamento.
+- Investidores imobiliários: proteção de portfólio de imóveis.
+- Empresas com imóvel próprio ou locado: seguro empresarial com coberturas imobiliárias.
+
+Erros Comuns ao Contratar Seguro Imobiliário
+
+1. Sub-seguro: declarar valor inferior ao real do imóvel. Em caso de sinistro, a indenização será proporcional — e insuficiente.
+
+2. Não incluir coberturas relevantes: economizar excluindo cobertura de alagamento em região de risco, por exemplo, pode sair muito caro.
+
+3. Confundir valor de mercado com valor de reconstrução: o seguro deve cobrir o custo de reconstrução/reparo, não necessariamente o valor de venda.
+
+4. Não atualizar a apólice: reformas, ampliações e aquisição de novos bens devem ser informadas à seguradora.
+
+5. Ignorar a assistência 24h: muitos segurados não sabem que têm direito e acabam pagando por serviços cobertos.
+
+Dicas da Patro Seguros
+
+1. Avalie todas as coberturas disponíveis: não contrate apenas o básico se sua região tem risco de alagamento ou vendaval.
+
+2. Atualize o valor segurado anualmente: inflação e reformas alteram o custo de reconstrução.
+
+3. Documente seu patrimônio: fotos, notas fiscais e laudos agilizam a regulação de sinistros.
+
+4. Combine seguros: seguro residencial + fiança locatícia para proprietários que alugam é uma combinação poderosa.
+
+5. Use a assistência 24h: chaveiro, encanador e eletricista podem ser acionados sempre que precisar.
+
+6. Compare propostas: a Patro Seguros compara as melhores seguradoras para encontrar o melhor custo-benefício.
+
+Como Contratar com a Patro Seguros
+
+1. Solicite sua cotação pelo WhatsApp, telefone ou site.
+2. Informe o tipo de imóvel, localização e valor estimado.
+3. Receba propostas comparativas das melhores seguradoras.
+4. Escolha o plano ideal com orientação especializada.
+5. Apólice emitida rapidamente — proteção imediata.
+
+A Patro Seguros é especialista em seguros imobiliários para todos os perfis: residencial, comercial, condominial e industrial. Proteja seu patrimônio com quem entende do assunto.`,
+    faqs: [
+      { q: "O seguro imobiliário cobre danos causados por inquilinos?", a: "Depende da apólice. Algumas coberturas incluem danos ao imóvel causados pelo locatário, como danos a paredes, pisos e instalações. É importante verificar essa cobertura na contratação, especialmente para proprietários de imóveis locados." },
+      { q: "Qual a diferença entre seguro residencial e seguro condominial?", a: "O seguro residencial protege a unidade individual (apartamento ou casa) e seus pertences. O seguro condominial, obrigatório por lei, protege as áreas comuns e a estrutura do prédio. Idealmente, o morador deve ter ambos para proteção completa." },
+      { q: "O seguro imobiliário cobre alagamento?", a: "Alagamento e inundação geralmente são coberturas adicionais, não incluídas na cobertura básica. Se seu imóvel está em região de risco, é fundamental contratar essa cobertura extra. O custo adicional é pequeno diante da proteção oferecida." },
+      { q: "Posso contratar seguro apenas para o conteúdo do imóvel?", a: "Sim! Locatários frequentemente contratam seguro apenas para seus bens pessoais dentro do imóvel alugado — móveis, eletrodomésticos, equipamentos eletrônicos e objetos pessoais. É uma proteção acessível e muito recomendada." },
+      { q: "O seguro imobiliário é dedutível no Imposto de Renda?", a: "Para pessoas físicas, o seguro residencial não é dedutível. Porém, para empresas (pessoa jurídica), o seguro do imóvel comercial pode ser lançado como despesa operacional, reduzindo a base de cálculo do IR e CSLL." },
+      { q: "Quanto tempo demora para receber a indenização?", a: "O prazo legal é de até 30 dias após a entrega de toda a documentação necessária. Na prática, sinistros simples são resolvidos em 10 a 15 dias. A Patro Seguros acompanha todo o processo para garantir agilidade." },
+    ],
+  },
 };
 
 const defaultArticle = {
