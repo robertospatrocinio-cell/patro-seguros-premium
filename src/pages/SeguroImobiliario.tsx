@@ -14,10 +14,10 @@ Os Seguros Imobiliários abrangem diversas modalidades: seguro do imóvel (estru
 
 Trabalhamos com as principais seguradoras do mercado para garantir condições competitivas, coberturas amplas e atendimento ágil em caso de sinistro.`}
       howItWorks={[
-        { step: "Análise do imóvel", description: "Avaliamos o tipo, localização, uso e valor do imóvel para definir o perfil de risco" },
-        { step: "Proposta personalizada", description: "Comparamos seguradoras e montamos a melhor combinação de coberturas e preço" },
-        { step: "Contratação simples", description: "Processo digital e rápido, sem burocracia, com emissão imediata da apólice" },
-        { step: "Suporte contínuo", description: "Acompanhamento durante toda a vigência, com assistência na regulação de sinistros" },
+        { step: "1", title: "Análise do imóvel", description: "Avaliamos o tipo, localização, uso e valor do imóvel para definir o perfil de risco" },
+        { step: "2", title: "Proposta personalizada", description: "Comparamos seguradoras e montamos a melhor combinação de coberturas e preço" },
+        { step: "3", title: "Contratação simples", description: "Processo digital e rápido, sem burocracia, com emissão imediata da apólice" },
+        { step: "4", title: "Suporte contínuo", description: "Acompanhamento durante toda a vigência, com assistência na regulação de sinistros" },
       ]}
       coverages={[
         { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória que protege a estrutura do imóvel contra fogo, queda de raio e explosões" },
