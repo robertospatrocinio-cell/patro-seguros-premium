@@ -48,6 +48,7 @@ const InsurancePageTemplate = ({
   realScenarios,
   coverageExclusions,
   tips,
+  quoteUrl,
 }: InsurancePageProps) => {
   return (
     <>
