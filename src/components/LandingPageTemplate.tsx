@@ -24,6 +24,7 @@ interface LandingPageProps {
   urgencyText?: string;
   metaDescription: string;
   heroEmoji: string;
+  heroImage?: string;
   priceAnchor?: string;
   guaranteeText?: string;
 }
@@ -31,7 +32,7 @@ interface LandingPageProps {
 const LandingPageTemplate = ({
   title, headline, subheadline, painPoints, benefits, stats,
   testimonials, objections, ctaText, ctaUrl, urgencyText,
-  metaDescription, heroEmoji, priceAnchor, guaranteeText,
+  metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText,
 }: LandingPageProps) => {
 
   const mainCtaLink = ctaUrl || "/cotacao";
@@ -79,39 +80,52 @@ const LandingPageTemplate = ({
         <section className="relative gradient-hero overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.15),transparent)]" />
           <div className="container mx-auto px-4 relative">
-            <div className="py-16 md:py-24 max-w-2xl mx-auto text-center">
-              <div className="text-5xl mb-5" role="img" aria-label={title}>{heroEmoji}</div>
+            <div className="py-16 md:py-24 flex flex-col md:flex-row items-center gap-10">
+              <div className="flex-1 text-center md:text-left max-w-xl">
+                {!heroImage && <div className="text-5xl mb-5" role="img" aria-label={title}>{heroEmoji}</div>}
 
-              {urgencyText && (
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/20 border border-red-400/40 text-red-300 font-bold text-[11px] uppercase tracking-wider mb-6">
-                  <Clock className="h-3.5 w-3.5" /> {urgencyText}
+                {urgencyText && (
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/20 border border-red-400/40 text-red-300 font-bold text-[11px] uppercase tracking-wider mb-6">
+                    <Clock className="h-3.5 w-3.5" /> {urgencyText}
+                  </div>
+                )}
+
+                <h1 className="text-white text-balance mb-4 font-extrabold leading-tight">
+                  {headline}
+                </h1>
+                <p className="text-base md:text-lg text-white/70 mb-8 max-w-xl leading-relaxed">
+                  {subheadline}
+                </p>
+
+                {priceAnchor && (
+                  <p className="text-white/50 text-sm mb-6">
+                    {priceAnchor}
+                  </p>
+                )}
+
+                <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start mb-8">
+                  <CtaButton />
+                  <CtaButton variant="whatsapp" />
+                </div>
+
+                {/* Trust badges inline */}
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-white/50 text-[11px] uppercase tracking-wider">
+                  <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5" /> SUSEP Registrada</span>
+                  <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Resposta em 2h</span>
+                  <span className="flex items-center gap-1.5"><CheckCircle className="h-3.5 w-3.5" /> 100% Gratuito</span>
+                </div>
+              </div>
+
+              {heroImage && (
+                <div className="flex-1 max-w-md w-full">
+                  <img
+                    src={heroImage}
+                    alt={title}
+                    className="w-full h-auto rounded-2xl shadow-2xl shadow-black/30 object-cover aspect-[4/3]"
+                    loading="eager"
+                  />
                 </div>
               )}
-
-              <h1 className="text-white text-balance mb-4 font-extrabold leading-tight">
-                {headline}
-              </h1>
-              <p className="text-base md:text-lg text-white/70 mb-8 max-w-xl mx-auto leading-relaxed">
-                {subheadline}
-              </p>
-
-              {priceAnchor && (
-                <p className="text-white/50 text-sm mb-6">
-                  {priceAnchor}
-                </p>
-              )}
-
-              <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-                <CtaButton />
-                <CtaButton variant="whatsapp" />
-              </div>
-
-              {/* Trust badges inline */}
-              <div className="flex flex-wrap items-center justify-center gap-4 text-white/50 text-[11px] uppercase tracking-wider">
-                <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5" /> SUSEP Registrada</span>
-                <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" /> Resposta em 2h</span>
-                <span className="flex items-center gap-1.5"><CheckCircle className="h-3.5 w-3.5" /> 100% Gratuito</span>
-              </div>
             </div>
           </div>
         </section>

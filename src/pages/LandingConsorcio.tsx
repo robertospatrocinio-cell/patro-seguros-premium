@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import heroImg from "@/assets/lp-consorcio.webp";
 
 const LandingConsorcio = () => (
   <LandingPageTemplate
+    heroImage={heroImg}
     title="Consórcio"
     heroEmoji="🏆"
     headline="Carro novo, casa própria ou caminhão — sem juros e sem entrada."

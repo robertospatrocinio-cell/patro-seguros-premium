@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import heroImg from "@/assets/lp-seguro-empresarial.webp";
 
 const LandingSeguroEmpresarial = () => (
   <LandingPageTemplate
+    heroImage={heroImg}
     title="Seguro Empresarial"
     heroEmoji="🏢"
     headline="Sua empresa pode fechar amanhã por um incêndio. Você está preparado?"

@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import heroImg from "@/assets/lp-seguro-vida.webp";
 
 const LandingSeguroVida = () => (
   <LandingPageTemplate
+    heroImage={heroImg}
     title="Seguro de Vida"
     heroEmoji="❤️"
     headline="Se algo acontecer com você, sua família vai ficar bem?"

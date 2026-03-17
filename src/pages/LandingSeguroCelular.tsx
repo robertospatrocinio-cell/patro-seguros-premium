@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import heroImg from "@/assets/lp-seguro-celular.webp";
 
 const LandingSeguroCelular = () => (
   <LandingPageTemplate
+    heroImage={heroImg}
     title="Seguro Celular"
     heroEmoji="📱"
     headline="Seu celular de R$ 5.000 está protegido? Ou é só uma questão de tempo?"

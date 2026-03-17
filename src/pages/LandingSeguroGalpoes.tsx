@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import heroImg from "@/assets/lp-seguro-galpoes.webp";
 
 const LandingSeguroGalpoes = () => (
   <LandingPageTemplate
+    heroImage={heroImg}
     title="Seguro de Galpões"
     heroEmoji="🏭"
     headline="Seu galpão vale milhões. E está protegido por quanto?"
