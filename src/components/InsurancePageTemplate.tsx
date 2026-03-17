@@ -310,9 +310,17 @@ const InsurancePageTemplate = ({
             <h2 className="text-white mb-4">Solicite sua cotação de {title} agora</h2>
             <p className="text-base text-white/50 mb-12 max-w-lg mx-auto">Resposta em até 2 horas com as melhores opções do mercado</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/cotacao" className="w-full sm:w-auto">
-                <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Pedir Cotação Gratuita</Button>
-              </Link>
+              {quoteUrl ? (
+                <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                    <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Fazer Cotação Online
+                  </Button>
+                </a>
+              ) : (
+                <Link to="/cotacao" className="w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Pedir Cotação Gratuita</Button>
+                </Link>
+              )}
               <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> (11) 5199-7500
