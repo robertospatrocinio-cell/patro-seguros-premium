@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-moto.webp";
 const SeguroMoto = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Moto"
       subtitle="Proteção completa para motociclistas com cobertura e assistência 24h especializada"
       icon="🏍️"
