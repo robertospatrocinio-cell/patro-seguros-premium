@@ -86,6 +86,12 @@ const PlanoPet = lazy(() => import("./pages/PlanoPet"));
 const PlanoSaudeEmpresarial = lazy(() => import("./pages/PlanoSaudeEmpresarial"));
 const SeguroImobiliario = lazy(() => import("./pages/SeguroImobiliario"));
 const SeguroFuneral = lazy(() => import("./pages/SeguroFuneral"));
+const LandingPages = lazy(() => import("./pages/LandingPages"));
+const LandingSeguroAuto = lazy(() => import("./pages/LandingSeguroAuto"));
+const LandingPlanoSaude = lazy(() => import("./pages/LandingPlanoSaude"));
+const LandingSeguroEmpresarial = lazy(() => import("./pages/LandingSeguroEmpresarial"));
+const LandingSeguroResidencial = lazy(() => import("./pages/LandingSeguroResidencial"));
+const LandingSeguroVida = lazy(() => import("./pages/LandingSeguroVida"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -177,6 +183,12 @@ const App = () => (
             <Route path="/seguro-propriedade-rural" element={<SeguroPropriedadeRural />} />
             <Route path="/seguro-imobiliario" element={<SeguroImobiliario />} />
             <Route path="/seguro-funeral" element={<SeguroFuneral />} />
+            <Route path="/landing-pages" element={<LandingPages />} />
+            <Route path="/lp/seguro-auto" element={<LandingSeguroAuto />} />
+            <Route path="/lp/plano-de-saude" element={<LandingPlanoSaude />} />
+            <Route path="/lp/seguro-empresarial" element={<LandingSeguroEmpresarial />} />
+            <Route path="/lp/seguro-residencial" element={<LandingSeguroResidencial />} />
+            <Route path="/lp/seguro-vida" element={<LandingSeguroVida />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
