@@ -53,11 +53,11 @@ Trabalhamos com as principais seguradoras do mercado para garantir condições c
         { title: "Alagamento em térreo", description: "Chuvas intensas inundaram o andar térreo de um prédio residencial. O seguro cobriu a limpeza, restauração e substituição de pisos e instalações elétricas." },
       ]}
       importantDetails={[
-        "O seguro imobiliário pode ser contratado pelo proprietário ou pelo locatário",
-        "A cobertura básica (incêndio, raio e explosão) é obrigatória em condomínios",
-        "É possível segurar apenas a estrutura, apenas o conteúdo ou ambos",
-        "Imóveis em construção ou reforma possuem modalidades específicas de seguro",
-        "A apólice deve ser atualizada sempre que houver reforma ou alteração significativa no imóvel",
+        { title: "Quem pode contratar", content: "O seguro imobiliário pode ser contratado pelo proprietário ou pelo locatário, dependendo do interesse segurado." },
+        { title: "Obrigatoriedade em condomínios", content: "A cobertura básica (incêndio, raio e explosão) é obrigatória em condomínios por determinação legal." },
+        { title: "Estrutura e conteúdo", content: "É possível segurar apenas a estrutura, apenas o conteúdo ou ambos, conforme a necessidade do segurado." },
+        { title: "Imóveis em construção", content: "Imóveis em construção ou reforma possuem modalidades específicas de seguro, como o risco de engenharia." },
+        { title: "Atualização da apólice", content: "A apólice deve ser atualizada sempre que houver reforma ou alteração significativa no imóvel para manter a cobertura adequada." },
       ]}
       tips={[
         "Mantenha o valor segurado atualizado para evitar sub-seguro em caso de sinistro",
