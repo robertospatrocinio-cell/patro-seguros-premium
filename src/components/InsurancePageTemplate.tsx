@@ -33,6 +33,7 @@ interface InsurancePageProps {
   coverageExclusions?: string[];
   tips?: string[];
   quoteUrl?: string;
+  heroImage?: string;
 }
 
 const InsurancePageTemplate = ({
