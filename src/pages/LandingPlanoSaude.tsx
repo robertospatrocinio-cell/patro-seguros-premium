@@ -8,6 +8,7 @@ const LandingPlanoSaude = () => (
     subheadline="Comparamos 20 operadoras — Amil, Bradesco Saúde, SulAmérica, Unimed e mais — para encontrar o plano ideal para seu bolso e sua família."
     metaDescription="Compare Planos de Saúde de 20 operadoras. Amil, Bradesco Saúde, SulAmérica, Unimed. Cotação gratuita em Guarulhos. Patro Seguros."
     ctaText="Comparar Planos de Saúde Grátis"
+    ctaUrl="https://www.patroseguros.com"
     urgencyText="Reajustes anuais em breve — garanta o melhor preço agora"
     priceAnchor="Planos a partir de R$ 189/mês* por pessoa"
     guaranteeText="Apresentamos no mínimo 3 opções de operadoras diferentes com comparativo detalhado de coberturas, rede credenciada e preço. Você decide sem pressão."
