@@ -97,6 +97,7 @@ Outro diferencial importante: motos exigem assistência 24h especializada. O gui
         { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },
         { title: "Seguro de Frota", link: "/seguro-frota" },
       ]}
+      quoteUrl="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
     />
   );
 };
