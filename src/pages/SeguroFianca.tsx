@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-fianca.webp";
 
 const SeguroFianca = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Fiança Locatícia"
       subtitle="Alugue seu imóvel sem fiador e sem burocracia"
       icon="🔑"

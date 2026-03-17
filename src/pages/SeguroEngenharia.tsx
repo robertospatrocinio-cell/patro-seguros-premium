@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-engenharia.webp";
 
 const SeguroEngenharia = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Garantia e Riscos de Engenharia"
       subtitle="Proteção completa para obras e projetos de construção"
       icon="🏗️"

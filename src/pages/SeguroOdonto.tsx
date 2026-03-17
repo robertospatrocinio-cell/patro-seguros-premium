@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-odonto.webp";
 
 const SeguroOdonto = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Odontológico"
       subtitle="Cuide da saúde bucal da sua família com tranquilidade"
       icon="🦷"
