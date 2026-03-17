@@ -112,34 +112,46 @@ Na Patro Seguros, comparamos planos de diversas seguradoras especializadas para 
       }}
       realScenarios={[
         {
-          title: "Fratura durante ski nos Alpes",
+          title: "Fratura durante ski nos Alpes (Internacional)",
           description: "Cliente sofreu fratura na perna durante viagem de ski na Áustria. O seguro cobriu resgate na montanha, cirurgia, internação de 3 dias e regresso sanitário ao Brasil com acompanhamento médico. Custo total coberto: € 45.000."
         },
         {
-          title: "Extravio de bagagem em conexão",
+          title: "Emergência médica em Fernando de Noronha (Nacional)",
+          description: "Turista teve crise de apendicite em Fernando de Noronha, onde não há estrutura hospitalar para cirurgia. O seguro nacional cobriu remoção aérea até Recife, cirurgia, internação de 2 dias e acompanhante. Custo total coberto: R$ 28.000."
+        },
+        {
+          title: "Extravio de bagagem em conexão internacional",
           description: "Família em viagem para Orlando teve bagagem extraviada em conexão em Miami. O seguro reembolsou R$ 3.200 para compra de roupas e itens essenciais e, após confirmação de perda definitiva, indenizou o valor integral das malas."
         },
         {
-          title: "Internação por intoxicação alimentar",
+          title: "Acidente de trilha na Chapada dos Veadeiros (Nacional)",
+          description: "Casal praticando ecoturismo na Chapada sofreu queda em trilha. O seguro nacional cobriu resgate, atendimento médico particular, exames e fisioterapia pós-viagem. Total coberto: R$ 12.500."
+        },
+        {
+          title: "Internação por intoxicação alimentar no México (Internacional)",
           description: "Viajante em lua de mel no México precisou de internação por intoxicação alimentar grave. O seguro cobriu 2 dias de internação, medicamentos e acompanhamento médico. Total coberto: US$ 8.500."
         },
         {
-          title: "Cancelamento por COVID antes do embarque",
+          title: "Cancelamento por COVID antes do embarque (Internacional)",
           description: "Casal testou positivo para COVID 3 dias antes da viagem à Europa. O seguro reembolsou passagens aéreas e reservas de hotel não reembolsáveis, totalizando R$ 18.000."
         },
       ]}
       importantDetails={[
         {
-          title: "Tratado de Schengen — Europa exige seguro obrigatório",
-          content: "Para entrar nos 27 países do espaço Schengen (incluindo Alemanha, França, Itália, Espanha, Portugal), é obrigatório apresentar seguro viagem com cobertura mínima de € 30.000 para despesas médicas. Sem o seguro, você pode ser impedido de entrar no país."
+          title: "Seguro Viagem Nacional — Por que contratar?",
+          content: "Mesmo com o SUS, o atendimento em cidades turísticas pode ser precário. Em destinos como Fernando de Noronha, Jericoacoara, Chapada Diamantina e Lençóis Maranhenses, a infraestrutura hospitalar é limitada. O seguro nacional garante atendimento particular imediato, remoção médica para centros com mais recursos e cobertura para imprevistos como extravio de bagagem em voos domésticos."
         },
         {
-          title: "Rede referenciada vs. reembolso",
-          content: "Alguns seguros trabalham com rede referenciada (hospitais parceiros onde você não paga nada), enquanto outros funcionam por reembolso (você paga e solicita devolução). A rede referenciada é mais prática e evita desembolso no momento da emergência."
+          title: "Seguro Viagem Internacional — Exigências por destino",
+          content: "Para entrar nos 27 países do espaço Schengen (Alemanha, França, Itália, Espanha, Portugal, etc.), é obrigatório seguro com cobertura mínima de € 30.000. Cuba, Equador e Venezuela também exigem seguro. Nos EUA, embora não obrigatório, é indispensável pelos custos médicos altíssimos."
+        },
+        {
+          title: "Diferenças entre Nacional e Internacional",
+          content: "O seguro nacional foca em despesas médicas, traslado e bagagem dentro do Brasil, com valores mais acessíveis. O internacional inclui coberturas exclusivas como regresso sanitário, traslado de corpo, assistência jurídica, cobertura para COVID-19 e atendimento em idioma local. Ambos oferecem assistência 24h."
         },
         {
           title: "Cartão de crédito não substitui seguro viagem",
-          content: "Muitos cartões oferecem 'seguro viagem', mas com coberturas limitadas (geralmente apenas morte acidental), sem assistência 24h e com processo de acionamento burocrático. Um seguro viagem dedicado oferece proteção muito mais abrangente."
+          content: "Muitos cartões oferecem 'seguro viagem', mas com coberturas limitadas (geralmente apenas morte acidental), sem assistência 24h e com processo de acionamento burocrático. Um seguro viagem dedicado oferece proteção muito mais abrangente — tanto nacional quanto internacional."
         },
         {
           title: "Declare condições pré-existentes",
@@ -148,60 +160,69 @@ Na Patro Seguros, comparamos planos de diversas seguradoras especializadas para 
       ]}
       tips={[
         "Contrate o seguro assim que comprar as passagens — a cobertura de cancelamento só vale se contratada antes do sinistro",
+        "Para viagens nacionais a destinos remotos (ilhas, chapadas, serras), priorize planos com traslado médico aéreo",
         "Para os EUA, nunca contrate menos de US$ 100.000 de DMH — uma apendicite pode custar US$ 30.000",
-        "Se vai praticar esportes como ski, mergulho ou trilha, contrate cobertura específica para esportes",
+        "Se vai praticar esportes como ski, mergulho, trilha ou surf, contrate cobertura específica para esportes — tanto no nacional quanto no internacional",
         "Leve a apólice impressa e salva no celular, junto com os números de emergência da seguradora",
         "Em caso de emergência, ligue para a central ANTES de ir ao hospital (exceto em risco de vida) para direcionamento à rede referenciada",
         "Gestantes devem verificar a semana gestacional limite e contratar cobertura para complicações gestacionais",
+        "Para viagens nacionais de carro, verifique se o seguro auto cobre o destino — o seguro viagem complementa com cobertura pessoal",
         "Guarde todos os recibos e laudos médicos — são necessários para reembolso",
       ]}
       whoNeeds={[
         "Viajantes internacionais (obrigatório na Europa/Schengen)",
+        "Viajantes nacionais para destinos remotos ou com infraestrutura limitada",
         "Quem viaja para países com custo médico alto (EUA, Canadá, Japão)",
-        "Famílias com crianças pequenas",
+        "Famílias com crianças pequenas — viagens nacionais ou internacionais",
         "Idosos e pessoas com condições de saúde pré-existentes",
         "Gestantes viajando antes da 32ª semana",
-        "Praticantes de esportes radicais e aventura",
+        "Praticantes de ecoturismo, trilhas e esportes de aventura no Brasil",
+        "Praticantes de esportes radicais no exterior (ski, mergulho, escalada)",
         "Intercambistas e estudantes no exterior",
         "Viajantes de negócios frequentes",
-        "Quem faz cruzeiros marítimos",
+        "Quem faz cruzeiros marítimos — nacionais ou internacionais",
       ]}
       whyPatro={[
-        "Comparamos planos de diversas seguradoras especializadas em viagem",
+        "Comparamos planos nacionais e internacionais de diversas seguradoras especializadas",
         "Orientação sobre coberturas obrigatórias por país e destino",
+        "Planos nacionais acessíveis a partir de R$ 5/dia com cobertura completa",
         "Emissão rápida da apólice — até minutos antes do embarque",
         "Planos específicos para gestantes, idosos, esportes e intercâmbio",
         "Atendimento consultivo: explicamos cada cobertura para você escolher com segurança",
-        "Suporte durante a viagem — se precisar acionar o seguro, estamos aqui para ajudar",
+        "Suporte durante a viagem — no Brasil ou no exterior, estamos aqui para ajudar",
       ]}
       faqs={[
+        {
+          question: "Preciso de seguro viagem para viajar dentro do Brasil?",
+          answer: "Não é obrigatório, mas é altamente recomendado, especialmente para destinos remotos como Fernando de Noronha, Chapada dos Veadeiros, Lençóis Maranhenses e praias isoladas. O SUS pode ter filas longas e infraestrutura limitada em regiões turísticas. O seguro garante atendimento particular imediato e traslado médico."
+        },
+        {
+          question: "Qual a diferença entre seguro viagem nacional e internacional?",
+          answer: "O seguro nacional cobre despesas médicas, traslado, bagagem e cancelamento dentro do Brasil, com valores mais acessíveis (a partir de R$ 5/dia). O internacional inclui coberturas adicionais como regresso sanitário, traslado de corpo, assistência jurídica e cobertura para COVID-19, com valores a partir de R$ 15/dia."
+        },
         {
           question: "Quando devo contratar o seguro viagem?",
           answer: "O ideal é contratar assim que comprar as passagens, especialmente se quiser cobertura de cancelamento de viagem. Porém, é possível contratar até poucas horas antes do embarque. Quanto antes contratar, mais protegido você estará."
         },
         {
           question: "Qual o valor de cobertura recomendado para cada destino?",
-          answer: "Para Europa, o mínimo obrigatório é € 30.000 (recomendamos € 60.000). Para EUA e Canadá, no mínimo US$ 100.000. Para América do Sul, US$ 30.000 costuma ser suficiente. Para Ásia e Oceania, recomendamos US$ 60.000. Analisamos cada caso individualmente."
+          answer: "Para viagens nacionais, recomendamos no mínimo R$ 15.000 de DMH. Para Europa, o mínimo obrigatório é € 30.000 (recomendamos € 60.000). Para EUA e Canadá, no mínimo US$ 100.000. Para América do Sul, US$ 30.000 costuma ser suficiente."
         },
         {
           question: "Gestantes podem contratar seguro viagem?",
-          answer: "Sim! Existem planos com cobertura para gestantes até a 28ª ou 32ª semana de gestação (varia por seguradora). É importante contratar cobertura para complicações gestacionais, não apenas o seguro básico."
+          answer: "Sim! Existem planos nacionais e internacionais com cobertura para gestantes até a 28ª ou 32ª semana de gestação (varia por seguradora). É importante contratar cobertura para complicações gestacionais, não apenas o seguro básico."
         },
         {
-          question: "O seguro viagem cobre COVID-19?",
-          answer: "Sim, a maioria dos seguros atuais inclui cobertura para COVID-19, incluindo internação, quarentena e até cancelamento de viagem por teste positivo. Confirmamos na cotação para total tranquilidade."
-        },
-        {
-          question: "Posso estender o seguro durante a viagem?",
-          answer: "Sim, é possível estender a cobertura mesmo estando no exterior, desde que a solicitação seja feita antes do vencimento da apólice original. Entre em contato conosco e providenciamos a extensão."
+          question: "O seguro viagem nacional cobre esportes e aventura?",
+          answer: "Sim, existem planos nacionais com cobertura para esportes de aventura como trilhas, rapel, mergulho, surf e mountain bike. É necessário contratar a cobertura adicional específica para esportes. Consulte-nos para encontrar o plano ideal."
         },
         {
           question: "O seguro do cartão de crédito é suficiente?",
-          answer: "Na maioria dos casos, não. Os seguros de cartão geralmente têm coberturas limitadas, sem assistência 24h em português e com processos burocráticos de acionamento. Para viagens internacionais, recomendamos sempre um seguro dedicado."
+          answer: "Na maioria dos casos, não. Os seguros de cartão geralmente têm coberturas limitadas, sem assistência 24h em português e com processos burocráticos de acionamento. Para viagens nacionais e internacionais, recomendamos sempre um seguro dedicado."
         },
         {
           question: "Como aciono o seguro em caso de emergência?",
-          answer: "Ligue para a central de atendimento 24h (número na apólice). Em emergências com risco de vida, vá direto ao hospital mais próximo e avise a seguradora em até 24h. A central orienta sobre hospitais da rede referenciada e procedimentos."
+          answer: "Ligue para a central de atendimento 24h (número na apólice). Em emergências com risco de vida, vá direto ao hospital mais próximo e avise a seguradora em até 24h. A central orienta sobre hospitais da rede referenciada e procedimentos — tanto no Brasil quanto no exterior."
         },
       ]}
       relatedInsurances={[
