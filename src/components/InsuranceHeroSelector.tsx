@@ -164,7 +164,7 @@ const InsuranceHeroSelector = () => {
             >
               <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 {/* Icon area with green gradient */}
-                <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-4 md:p-6 flex items-center justify-center">
+                <div className="bg-gradient-to-br from-primary to-primary/80 p-4 md:p-6 flex items-center justify-center">
                   <card.icon
                     className="h-6 w-6 md:h-8 md:w-8 text-white drop-shadow-md"
                     strokeWidth={1.5}
