@@ -197,7 +197,7 @@ const Index = () => {
               <span className="section-label">Clientes</span>
               <h2 id="depoimentos-heading" className="mt-3">Quem contrata, recomenda.</h2>
             </div>
-            <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
               {testimonials.map((t, i) => (
                 <article key={i} className="premium-card p-7 flex flex-col">
                   <div className="flex gap-0.5 mb-5" role="img" aria-label="5 de 5 estrelas">
@@ -209,9 +209,7 @@ const Index = () => {
                     "{t.content}"
                   </blockquote>
                   <div className="flex items-center gap-3 pt-5 border-t">
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center text-foreground font-semibold text-[11px]" aria-hidden="true">
-                      {t.name[0]}
-                    </div>
+                    <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover" loading="lazy" />
                     <div>
                       <p className="text-[13px] font-semibold text-foreground">{t.name}</p>
                       <p className="text-[11px] text-muted-foreground">{t.role}</p>
