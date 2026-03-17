@@ -48,8 +48,6 @@ const faqs = [
 ];
 
 const Index = () => {
-  const [showAllSolutions, setShowAllSolutions] = useState(false);
-  const visibleSolutions = showAllSolutions ? solutions : solutions.slice(0, INITIAL_SOLUTIONS_COUNT);
 
   return (
     <>
