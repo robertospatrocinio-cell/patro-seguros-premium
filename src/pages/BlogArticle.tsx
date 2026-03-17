@@ -4678,6 +4678,204 @@ A Patro Seguros é especialista em seguros imobiliários para todos os perfis: r
       { q: "Quanto tempo demora para receber a indenização?", a: "O prazo legal é de até 30 dias após a entrega de toda a documentação necessária. Na prática, sinistros simples são resolvidos em 10 a 15 dias. A Patro Seguros acompanha todo o processo para garantir agilidade." },
     ],
   },
+  "seguro-condominio-responsabilidades-sindico": {
+    title: "Seguro de Condomínio: Responsabilidades do Síndico e Como Evitar Problemas",
+    content: `Administrar um condomínio é uma tarefa complexa — e uma das maiores responsabilidades do síndico é garantir que o seguro condominial esteja em dia. Falhas nessa obrigação podem resultar em multas, processos e até responsabilização pessoal do síndico. Neste artigo, a Patro Seguros explica tudo o que o síndico precisa saber.
+
+O Seguro de Condomínio é Obrigatório?
+
+Sim. O Código Civil Brasileiro (Art. 1.346) determina que todo condomínio edilício deve contratar seguro contra risco de incêndio ou destruição, total ou parcial. Essa obrigação existe desde 1964, reforçada pela Lei 4.591.
+
+A não contratação configura infração legal e pode acarretar:
+
+- Multa ao condomínio e ao síndico pessoalmente
+- Responsabilização civil do síndico por prejuízos aos condôminos
+- Impossibilidade de obter certidões negativas
+- Dificuldade em financiamentos e negociações imobiliárias
+
+Responsabilidades do Síndico Quanto ao Seguro
+
+O síndico é o responsável legal pela contratação e manutenção do seguro condominial. Suas obrigações incluem:
+
+1. Contratar o seguro obrigatório: a cobertura mínima deve contemplar incêndio, queda de raio e explosão. Porém, a maioria dos especialistas recomenda coberturas muito mais amplas.
+
+2. Renovar a apólice anualmente: o seguro vence todos os anos e deve ser renovado sem gaps de cobertura. Um único dia sem seguro pode expor o síndico a responsabilização.
+
+3. Garantir cobertura adequada: o valor segurado deve corresponder ao custo real de reconstrução do edifício, incluindo áreas comuns, estrutura e instalações.
+
+4. Apresentar a apólice em assembleia: os condôminos têm direito de conhecer as condições do seguro contratado. Transparência evita conflitos.
+
+5. Acionar o seguro em caso de sinistro: o síndico deve comunicar a seguradora imediatamente e coordenar a documentação necessária.
+
+Coberturas Essenciais (Além do Obrigatório)
+
+A cobertura obrigatória (incêndio, raio e explosão) é apenas o mínimo. Um bom seguro condominial deve incluir:
+
+- Danos elétricos: curtos-circuitos, surtos de tensão e queima de equipamentos das áreas comuns (elevadores, bombas, portões, interfones)
+- Vendaval e granizo: danos à estrutura, telhados, fachadas e vidros causados por tempestades
+- Alagamento e inundação: proteção contra danos por chuvas fortes, transbordamento de rios e entupimento de galerias
+- Responsabilidade civil do condomínio: cobre danos causados a terceiros (queda de objetos da fachada, acidentes em áreas comuns)
+- Responsabilidade civil do síndico: protege o patrimônio pessoal do síndico contra ações judiciais por erros de gestão
+- Quebra de vidros: proteção para vidros de áreas comuns, guaritas e halls
+- Roubo de bens comuns: cobertura para equipamentos e mobiliário das áreas comuns
+
+Erros Comuns dos Síndicos
+
+1. Contratar apenas o seguro mínimo: a cobertura básica (incêndio, raio, explosão) não protege contra a maioria dos sinistros reais — que envolvem danos elétricos, vendavais e responsabilidade civil.
+
+2. Subdimensionar o valor segurado: se o valor segurado for inferior ao custo real de reconstrução, a indenização será proporcional (rateio). Exemplo: se o prédio vale R$ 10 milhões e está segurado por R$ 5 milhões, a indenização será de apenas 50%.
+
+3. Não incluir RC do síndico: sem essa cobertura, o patrimônio pessoal do síndico fica exposto a processos por erros de gestão.
+
+4. Deixar a apólice vencer: qualquer período sem cobertura expõe o condomínio e o síndico a riscos financeiros e legais.
+
+5. Não ler as exclusões: cada apólice tem exclusões específicas que precisam ser conhecidas para evitar surpresas na hora do sinistro.
+
+Como Escolher a Melhor Apólice
+
+- Compare pelo menos 3 propostas de seguradoras diferentes
+- Verifique o histórico de sinistros do condomínio
+- Avalie as coberturas adicionais necessárias para o perfil do prédio
+- Confirme que o valor segurado está atualizado
+- Inclua sempre a RC do síndico e RC do condomínio
+- Consulte uma corretora especializada como a Patro Seguros
+
+Quanto Custa o Seguro Condominial?
+
+O custo varia conforme:
+
+- Tipo de construção (alvenaria, mista, madeira)
+- Número de unidades e andares
+- Localização e CEP
+- Coberturas contratadas
+- Histórico de sinistros
+
+Em média, o custo por unidade fica entre R$ 15 e R$ 60 por mês — um valor muito baixo considerando a proteção oferecida.
+
+A Patro Seguros é especialista em seguros condominiais e ajuda síndicos de Guarulhos e região a contratar a proteção adequada, com orientação completa sobre obrigações legais e melhores coberturas.`,
+    faqs: [
+      { q: "O síndico pode ser responsabilizado pessoalmente pela falta de seguro?", a: "Sim. O Código Civil atribui ao síndico a obrigação de contratar o seguro. Se o condomínio sofrer um sinistro sem apólice vigente, o síndico pode ser processado e responsabilizado pessoalmente pelos prejuízos." },
+      { q: "Qual a cobertura mínima obrigatória?", a: "A lei exige cobertura contra incêndio, queda de raio e explosão. Porém, especialistas recomendam incluir danos elétricos, vendaval, RC do condomínio e RC do síndico, no mínimo." },
+      { q: "O seguro do condomínio cobre o apartamento individual?", a: "O seguro condominial cobre as áreas comuns e a estrutura do edifício. Para proteger o interior do apartamento e os bens pessoais, o morador precisa contratar um seguro residencial individual." },
+      { q: "Como calcular o valor segurado correto?", a: "O valor segurado deve corresponder ao custo de reconstrução do edifício (não ao valor de mercado). Uma avaliação feita por engenheiro ou pela própria seguradora garante que o valor esteja adequado." },
+      { q: "O seguro cobre danos causados por obras no condomínio?", a: "Depende da apólice e do tipo de obra. Reformas estruturais geralmente precisam de seguro de engenharia ou RC obras. Pequenas manutenções podem estar cobertas pela RC do condomínio." },
+      { q: "Quanto custa em média o seguro condominial?", a: "O custo por unidade varia entre R$ 15 e R$ 60/mês, dependendo do tipo de construção, localização, número de unidades e coberturas contratadas. O valor é rateado entre os condôminos na taxa condominial." },
+    ],
+  },
+  "fianca-locaticia-guia-inquilinos-proprietarios": {
+    title: "Seguro Fiança Locatícia: Guia Completo para Inquilinos e Proprietários",
+    content: `Alugar um imóvel exige garantias — e o Seguro Fiança Locatícia se tornou a opção mais prática, segura e moderna do mercado. Neste guia completo, a Patro Seguros explica como funciona, quanto custa, vantagens para inquilinos e proprietários, e por que ele vem substituindo fiadores e caução.
+
+O Que É o Seguro Fiança Locatícia?
+
+O Seguro Fiança Locatícia é uma garantia contratada pelo inquilino (ou pelo proprietário) que substitui a necessidade de fiador ou depósito caução no contrato de aluguel. Em caso de inadimplência, a seguradora paga o aluguel e encargos ao proprietário.
+
+É regulamentado pela Lei do Inquilinato (Lei 8.245/91, Art. 37) como uma das modalidades de garantia locatícia aceitas em contratos de locação.
+
+Como Funciona na Prática?
+
+1. O inquilino solicita o seguro: apresenta documentos pessoais e comprovante de renda. A seguradora faz uma análise de crédito.
+
+2. Aprovação e emissão: se aprovado, a apólice é emitida e o contrato de locação pode ser assinado imediatamente.
+
+3. Pagamento do prêmio: o inquilino paga o prêmio do seguro (anual ou parcelado), que geralmente equivale a 1 a 2,5 aluguéis por ano.
+
+4. Cobertura ativa: durante toda a vigência do contrato, a seguradora garante o pagamento ao proprietário em caso de inadimplência.
+
+5. Sinistro (inadimplência): se o inquilino deixar de pagar, o proprietário aciona a seguradora, que paga os valores devidos e depois cobra do inquilino.
+
+Coberturas do Seguro Fiança
+
+O seguro fiança pode cobrir muito mais do que apenas o aluguel:
+
+- Aluguel: cobertura principal, garantindo o pagamento mensal ao proprietário
+- IPTU: quando o imposto é de responsabilidade do inquilino no contrato
+- Condomínio: taxas condominiais em atraso
+- Contas de consumo: água, luz e gás (em algumas apólices)
+- Danos ao imóvel: reparos necessários causados pelo inquilino ao devolver o imóvel
+- Multa por rescisão antecipada: cobertura da multa contratual
+- Pintura na entrega: custos de pintura para devolução do imóvel nas condições originais
+- Despesas judiciais: custos de ação de despejo
+
+Vantagens para o Inquilino
+
+1. Sem fiador: não precisa pedir para parentes ou amigos assinarem como fiador — um constrangimento que a maioria quer evitar
+2. Sem caução: não precisa desembolsar 3 aluguéis antecipados como depósito
+3. Aprovação rápida: a análise de crédito é feita em horas, não dias
+4. Parcelamento: o prêmio pode ser parcelado no cartão de crédito ou boleto
+5. Coberturas extras: danos ao imóvel e pintura incluídos evitam surpresas na devolução
+6. Mobilidade: facilita mudanças, pois não depende de liberar caução ou encontrar novo fiador
+
+Vantagens para o Proprietário
+
+1. Garantia da seguradora: a seguradora tem solidez financeira para honrar os pagamentos — diferente de um fiador pessoa física
+2. Pagamento garantido: em caso de inadimplência, a seguradora paga rapidamente
+3. Cobertura de danos: o imóvel é devolvido em boas condições ou a seguradora indeniza
+4. Menos burocracia: análise de crédito profissional e rápida
+5. Suporte jurídico: a seguradora pode cobrir despesas de ação de despejo
+6. Redução de vacância: mais inquilinos conseguem alugar sem a barreira do fiador
+
+Seguro Fiança vs. Fiador vs. Caução
+
+Fiador:
+- Exige que uma pessoa com imóvel quitado assuma a responsabilidade
+- Constrangimento social para o inquilino
+- Risco: o fiador pode não ter recursos quando acionado
+- Burocracia: documentação extensa, certidões negativas
+
+Caução (depósito):
+- Exige 3 aluguéis antecipados (limitado a isso por lei)
+- Capital imobilizado durante todo o contrato
+- Não cobre danos ao imóvel além do valor depositado
+- Devolução burocrática no final do contrato
+
+Seguro Fiança:
+- Sem necessidade de terceiros ou capital imobilizado
+- Coberturas amplas (aluguel, IPTU, condomínio, danos)
+- Análise de crédito profissional e rápida
+- Renovação automática com a vigência do contrato
+
+Quanto Custa o Seguro Fiança Locatícia?
+
+O custo (prêmio) varia conforme:
+
+- Valor do aluguel e encargos
+- Perfil de crédito do inquilino
+- Coberturas contratadas
+- Região do imóvel
+
+Em média, o prêmio anual equivale a 1 a 2,5 aluguéis — muito menos do que os 3 aluguéis exigidos como caução, com a vantagem de oferecer cobertura muito mais ampla.
+
+Exemplo: para um aluguel de R$ 2.000/mês, o seguro fiança custa entre R$ 2.000 e R$ 5.000 por ano, podendo ser parcelado em até 12x.
+
+Quem Pode Contratar?
+
+- Pessoas físicas com comprovação de renda (CLT, autônomo, aposentado)
+- Pessoas jurídicas (empresas que alugam imóveis comerciais ou para colaboradores)
+- A renda deve ser geralmente 3x o valor do aluguel + encargos
+
+Documentos Necessários
+
+Para pessoa física:
+- RG e CPF
+- Comprovante de renda (holerite, IR, extrato bancário)
+- Comprovante de residência atual
+
+Para pessoa jurídica:
+- Contrato social e última alteração
+- Balanço patrimonial ou faturamento dos últimos 12 meses
+- Documentos dos sócios
+
+A Patro Seguros trabalha com as principais seguradoras de fiança locatícia do mercado, oferecendo as melhores condições e análise de crédito ágil. Facilite sua locação com segurança para ambas as partes.`,
+    faqs: [
+      { q: "O seguro fiança substitui o fiador?", a: "Sim, completamente. O seguro fiança é uma das garantias aceitas pela Lei do Inquilinato e substitui a necessidade de fiador ou caução. A maioria das imobiliárias já prefere o seguro fiança pela praticidade." },
+      { q: "Quanto custa o seguro fiança locatícia?", a: "Em média, o prêmio anual equivale a 1 a 2,5 aluguéis. Para um aluguel de R$ 2.000, o custo fica entre R$ 2.000 e R$ 5.000/ano, podendo ser parcelado." },
+      { q: "O que acontece se eu não pagar o aluguel?", a: "A seguradora paga ao proprietário os valores em atraso e depois cobra de você (inquilino). A inadimplência fica registrada e pode dificultar futuras contratações de seguro e crédito." },
+      { q: "Posso parcelar o seguro fiança?", a: "Sim! O prêmio pode ser parcelado no cartão de crédito (até 12x) ou em boletos. As condições variam conforme a seguradora." },
+      { q: "O proprietário pode exigir seguro fiança e fiador ao mesmo tempo?", a: "Não. A Lei do Inquilinato (Art. 37, parágrafo único) proíbe a exigência de mais de uma modalidade de garantia no mesmo contrato." },
+      { q: "O seguro fiança cobre danos ao imóvel?", a: "Sim, a maioria das apólices inclui cobertura para danos causados pelo inquilino ao imóvel, como paredes, pisos, instalações hidráulicas e elétricas, além de pintura na devolução." },
+    ],
+  },
 };
 
 const defaultArticle = {
