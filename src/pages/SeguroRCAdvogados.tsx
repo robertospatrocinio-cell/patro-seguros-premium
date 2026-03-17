@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rc.webp";
 const SeguroRCAdvogados = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Advogados"
       subtitle="Proteção contra processos por erro profissional na advocacia"
       icon="⚖️"

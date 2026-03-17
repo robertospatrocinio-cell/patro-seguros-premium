@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-vida.webp";
 const SeguroAcidentesPessoais = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro de Acidentes Pessoais"
       subtitle="Proteção financeira para você e sua família em caso de acidentes"
       icon="🛡️"

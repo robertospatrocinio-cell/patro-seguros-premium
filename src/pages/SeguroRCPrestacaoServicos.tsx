@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rc.webp";
 const SeguroRCPrestacaoServicos = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Prestação de Serviços em Terceiros"
       subtitle="Proteção para empresas que realizam serviços nas instalações de clientes"
       icon="🔧"

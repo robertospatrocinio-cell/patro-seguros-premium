@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rc.webp";
 const SeguroRCProfissional = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Profissional (E&O)"
       subtitle="Proteção para profissionais liberais contra erros e omissões"
       icon="👔"

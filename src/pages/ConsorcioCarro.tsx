@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-consorcio.webp";
 const ConsorcioCarro = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Consórcio de Carro"
       subtitle="Conquiste seu carro novo ou seminovo sem juros e com parcelas que cabem no bolso"
       icon="🚗"

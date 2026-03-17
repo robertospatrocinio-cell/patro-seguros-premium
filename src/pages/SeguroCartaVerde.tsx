@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-auto.webp";
 const SeguroCartaVerde = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Carta Verde"
       subtitle="Proteção obrigatória para viagens de carro aos países do Mercosul"
       icon="🌎"

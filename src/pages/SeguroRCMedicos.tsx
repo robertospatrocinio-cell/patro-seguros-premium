@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rc.webp";
 const SeguroRCMedicos = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Médicos"
       subtitle="Proteção patrimonial contra processos por erro médico"
       icon="🩺"

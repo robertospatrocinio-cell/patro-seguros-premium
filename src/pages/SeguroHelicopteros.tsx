@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-aviacao.webp";
 const SeguroHelicopteros = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Helicópteros"
       subtitle="Proteção especializada para helicópteros e operações de asa rotativa"
       icon="🚁"

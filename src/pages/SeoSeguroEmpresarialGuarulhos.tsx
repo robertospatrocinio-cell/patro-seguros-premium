@@ -3,6 +3,7 @@ import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
 const SeoSeguroEmpresarialGuarulhos = () => (
   <InsurancePageTemplate
+    heroImage={heroImg}
     title="Seguro Empresarial em Guarulhos"
     subtitle="Proteção completa para empresas de Guarulhos e região. Cotação gratuita e personalizada."
     description="A Patro Seguros é especialista em seguros empresariais em Guarulhos. Protegemos comércios, indústrias, prestadores de serviços e empresas de todos os portes contra incêndio, roubo, responsabilidade civil e muito mais. Atendimento local e presencial."

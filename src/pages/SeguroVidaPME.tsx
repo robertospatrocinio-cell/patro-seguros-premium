@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-vida.webp";
 const SeguroVidaPME = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro de Vida PME"
       subtitle="Proteção coletiva para pequenas e médias empresas"
       icon="🏢"

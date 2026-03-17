@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rc.webp";
 const SeguroRCEventos = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Eventos e Exposições"
       subtitle="Proteção para organizadores de eventos contra danos a participantes e ao local"
       icon="🎪"

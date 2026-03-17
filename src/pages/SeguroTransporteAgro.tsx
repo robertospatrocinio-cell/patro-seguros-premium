@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-transporte.webp";
 const SeguroTransporteAgro = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Transporte Agrícola"
       subtitle="Proteção completa para o transporte de grãos, insumos e produtos do campo. Atendemos transportadores de todos os estados do Brasil."
       icon="🚛"

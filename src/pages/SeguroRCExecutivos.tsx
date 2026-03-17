@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rc.webp";
 const SeguroRCExecutivos = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro RC Executivos (D&O)"
       subtitle="Proteção patrimonial para diretores, administradores e conselheiros"
       icon="👔"

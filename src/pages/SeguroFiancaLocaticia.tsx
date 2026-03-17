@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-fianca.webp";
 const SeguroFiancaLocaticia = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Fiança Locatícia"
       subtitle="A substituição inteligente do fiador para aluguel de imóveis residenciais e comerciais"
       icon="🏠"

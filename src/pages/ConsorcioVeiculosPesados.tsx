@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-consorcio.webp";
 const ConsorcioVeiculosPesados = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Consórcio de Veículos Pesados"
       subtitle="Caminhões, ônibus, máquinas e implementos — renove ou amplie sua frota sem juros"
       icon="🚛"

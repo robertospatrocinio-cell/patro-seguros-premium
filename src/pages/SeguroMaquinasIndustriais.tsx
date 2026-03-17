@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-maquinas.webp";
 const SeguroMaquinasIndustriais = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro de Máquinas Industriais"
       subtitle="Proteção para máquinas, equipamentos e linhas de produção contra quebra, incêndio e danos operacionais."
       description="O Seguro de Máquinas Industriais protege seu maquinário contra riscos que podem paralisar a produção e causar prejuízos significativos. Cobrimos tornos, prensas, injetoras, compressores e todo tipo de equipamento industrial."
