@@ -180,6 +180,7 @@ const Header = () => {
                           <Link to="/seguro-rc-veterinarios" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Veterinários</Link>
                           <Link to="/seguro-rc-executivos" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Executivos (D&O)</Link>
                           <Link to="/seguro-rc-obras" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Obras</Link>
+                          <Link to="/seguro-rc-prestacao-servicos" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Prest. Serviços</Link>
                           <Link to="/seguro-cyber" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Cyber</Link>
                           <Link to="/seguro-engenharia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Engenharia</Link>
                           <Link to="/seguro-garantia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Garantia</Link>
