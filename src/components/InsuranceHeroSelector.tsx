@@ -1,0 +1,174 @@
+import { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef } from "lucide-react";
+
+import heroFamilia from "@/assets/hero-familia.jpg";
+import heroEmpresa from "@/assets/hero-empresa.jpg";
+import heroAgro from "@/assets/hero-agro.jpg";
+
+type TabKey = "voce" | "empresa" | "agro";
+
+interface InsuranceCard {
+  title: string;
+  icon: React.ElementType;
+  link: string;
+}
+
+const tabs: { key: TabKey; label: string }[] = [
+  { key: "voce", label: "Para Você" },
+  { key: "empresa", label: "Para sua Empresa" },
+  { key: "agro", label: "Para o Agro" },
+];
+
+const cardsByTab: Record<TabKey, InsuranceCard[]> = {
+  voce: [
+    { title: "Seguro Auto", icon: Car, link: "/seguro-auto" },
+    { title: "Seguro de Vida", icon: Heart, link: "/seguro-vida" },
+    { title: "Seguro Residencial", icon: Home, link: "/seguro-residencial" },
+  ],
+  empresa: [
+    { title: "Seguro Patrimonial", icon: Building2, link: "/seguro-empresarial" },
+    { title: "RC Geral", icon: Shield, link: "/seguro-rc" },
+    { title: "Seguro Frota", icon: Truck, link: "/seguro-frota" },
+  ],
+  agro: [
+    { title: "Seguro Safra", icon: Wheat, link: "/seguro-rural" },
+    { title: "Máquinas Agrícolas", icon: Tractor, link: "/seguro-maquinas-agricolas" },
+    { title: "Seguro Rebanho", icon: Beef, link: "/seguro-pecuario" },
+  ],
+};
+
+const bgByTab: Record<TabKey, string> = {
+  voce: heroFamilia,
+  empresa: heroEmpresa,
+  agro: heroAgro,
+};
+
+const InsuranceHeroSelector = () => {
+  const [active, setActive] = useState<TabKey>("voce");
+  const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null });
+
+  useEffect(() => {
+    const btn = buttonRefs.current[active];
+    const container = tabsRef.current;
+    if (btn && container) {
+      const containerRect = container.getBoundingClientRect();
+      const btnRect = btn.getBoundingClientRect();
+      setPillStyle({
+        left: btnRect.left - containerRect.left,
+        width: btnRect.width,
+      });
+    }
+  }, [active]);
+
+  // Recalculate on resize
+  useEffect(() => {
+    const handler = () => {
+      const btn = buttonRefs.current[active];
+      const container = tabsRef.current;
+      if (btn && container) {
+        const containerRect = container.getBoundingClientRect();
+        const btnRect = btn.getBoundingClientRect();
+        setPillStyle({
+          left: btnRect.left - containerRect.left,
+          width: btnRect.width,
+        });
+      }
+    };
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, [active]);
+
+  const cards = cardsByTab[active];
+
+  return (
+    <section className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden" aria-label="Seguros por perfil">
+      {/* Background images with fade */}
+      {tabs.map((tab) => (
+        <div
+          key={tab.key}
+          className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+          style={{ opacity: active === tab.key ? 1 : 0 }}
+          aria-hidden={active !== tab.key}
+        >
+          <img
+            src={bgByTab[tab.key]}
+            alt=""
+            className="w-full h-full object-cover"
+            loading={tab.key === "voce" ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col items-center">
+        {/* Title */}
+        <h2 className="text-white text-2xl md:text-4xl font-extrabold text-center mb-3 tracking-tight font-heading">
+          Encontre o seguro ideal
+        </h2>
+        <p className="text-white/70 text-sm md:text-base text-center mb-8 max-w-md">
+          Selecione seu perfil e descubra as melhores opções
+        </p>
+
+        {/* Tab selector */}
+        <div
+          ref={tabsRef}
+          className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto"
+        >
+          {/* Sliding pill */}
+          <div
+            className="absolute top-1 bottom-1 rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out"
+            style={{ left: pillStyle.left, width: pillStyle.width }}
+          />
+          {tabs.map((tab) => (
+            <button
+              key={tab.key}
+              ref={(el) => { buttonRefs.current[tab.key] = el; }}
+              onClick={() => setActive(tab.key)}
+              className={`relative z-10 flex-1 sm:flex-none px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-colors duration-300 whitespace-nowrap ${
+                active === tab.key ? "text-foreground" : "text-white/80 hover:text-white"
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-3 gap-3 md:gap-5 w-full max-w-lg md:max-w-2xl">
+          {cards.map((card) => (
+            <Link
+              key={card.title}
+              to={card.link}
+              className="group transition-opacity duration-500 animate-fade-in"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                {/* Icon area with green gradient */}
+                <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-6 md:p-8 flex items-center justify-center">
+                  <card.icon
+                    className="h-8 w-8 md:h-10 md:w-10 text-white drop-shadow-md"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                </div>
+                {/* White base */}
+                <div className="bg-white p-3 md:p-4 text-center">
+                  <p className="text-xs md:text-sm font-semibold text-foreground tracking-tight leading-tight">
+                    {card.title}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default InsuranceHeroSelector;

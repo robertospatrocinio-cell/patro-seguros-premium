@@ -1,6 +1,7 @@
 import { useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Award, Phone, MessageCircle, ArrowRight, Car, Heart, Home, Building2, Truck, Tractor, Key, Star, Zap, Headphones, Plane, Bike, Ship, ChevronDown, ChevronUp, Umbrella, SmilePlus } from "lucide-react";
+import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -117,6 +118,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* Insurance Hero Selector */}
+        <InsuranceHeroSelector />
 
         {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">
