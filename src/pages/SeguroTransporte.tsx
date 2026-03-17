@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-transporte.webp";
 
 const SeguroTransporte = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro de Transporte"
       subtitle="Proteção completa para cargas nacionais e internacionais"
       icon="📦"
