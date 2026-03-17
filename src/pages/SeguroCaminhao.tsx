@@ -95,6 +95,7 @@ O Seguro de Caminhão cobre desde roubo e colisão até responsabilidade civil p
         { title: "Seguro Auto", link: "/seguro-auto" },
         { title: "Seguro RC", link: "/seguro-rc" },
       ]}
+      quoteUrl="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
     />
   );
 };

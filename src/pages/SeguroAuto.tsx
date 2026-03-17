@@ -111,6 +111,7 @@ Além da proteção patrimonial, o seguro auto oferece assistência 24h que reso
         { title: "Seguro de Moto", link: "/seguro-moto" },
         { title: "Seguro de Frota", link: "/seguro-frota" },
       ]}
+      quoteUrl="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
     />
   );
 };
