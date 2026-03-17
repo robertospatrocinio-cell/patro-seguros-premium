@@ -59,6 +59,8 @@ const articles = [
   { slug: "saude-mental-seguros-protecao", title: "Saúde Mental e Seguros: Como Proteger Seu Bem-Estar e o da Sua Equipe", excerpt: "Descubra como planos de saúde, seguro de vida e benefícios corporativos podem apoiar a saúde mental de colaboradores e famílias.", category: "Planos de Saúde" },
   { slug: "plano-saude-empresarial-pme", title: "Como Escolher o Melhor Plano de Saúde Empresarial para PMEs", excerpt: "Guia completo para pequenas e médias empresas escolherem o plano de saúde ideal: custos, coberturas, operadoras e dicas para economizar.", category: "Planos de Saúde" },
   { slug: "beneficios-seguro-imobiliario", title: "Os Benefícios do Seguro Imobiliário: Proteção Completa para Seu Patrimônio", excerpt: "Descubra os 10 principais benefícios do seguro imobiliário e por que proteger seu imóvel é essencial para sua segurança patrimonial.", category: "Seguro Imobiliário" },
+  { slug: "seguro-condominio-responsabilidades-sindico", title: "Seguro de Condomínio: Responsabilidades do Síndico e Como Evitar Problemas", excerpt: "Entenda as obrigações legais do síndico quanto ao seguro condominial, coberturas essenciais e erros comuns que podem gerar responsabilização pessoal.", category: "Seguro Condomínio" },
+  { slug: "fianca-locaticia-guia-inquilinos-proprietarios", title: "Seguro Fiança Locatícia: Guia Completo para Inquilinos e Proprietários", excerpt: "Saiba como funciona o seguro fiança, quanto custa, vantagens para inquilinos e proprietários, e por que ele substitui fiador e caução.", category: "Seguro Fiança" },
 ];
 
 const Blog = () => {
