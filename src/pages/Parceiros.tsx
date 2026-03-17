@@ -5,38 +5,38 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Parceiros = () => {
   const partners = [
-    { name: "Porto Seguro", description: "Líder em seguros automotivos e residenciais" },
-    { name: "Tokio Marine", description: "Excelência em seguros empresariais e patrimoniais" },
-    { name: "Allianz", description: "Seguradora global com soluções completas" },
-    { name: "Azos", description: "Seguro de vida digital, simples e acessível" },
-    { name: "Azul Seguros", description: "Seguros acessíveis com ampla cobertura" },
-    { name: "Mapfre", description: "Tradição e confiança em seguros diversos" },
-    { name: "HDI Seguros", description: "Especialista em seguros corporativos" },
-    { name: "Zurich", description: "Soluções globais para riscos complexos" },
-    { name: "Bradesco Seguros", description: "Solidez e credibilidade nacional" },
-    { name: "Liberty Seguros", description: "Flexibilidade e personalização" },
-    { name: "Suhai", description: "Proteção veicular acessível" },
-    { name: "Justos", description: "Seguro auto inteligente e digital" },
-    { name: "Darwin", description: "Inovação em seguros" },
-    { name: "Ituran", description: "Rastreamento e proteção veicular" },
-    { name: "SulAmérica", description: "Tradição em seguros de saúde e vida" },
-    { name: "Akad", description: "Soluções inovadoras em seguros corporativos e garantias" },
-    { name: "SURA", description: "Seguros corporativos e soluções de gestão de riscos" },
-    { name: "SOMPO", description: "Seguros corporativos, agrícolas e soluções especializadas" },
-    { name: "Itaú Seguros", description: "Solidez e inovação em seguros patrimoniais e de vida" },
-    { name: "AXA", description: "Líder global em seguros e gestão de riscos" },
+    { name: "Porto Seguro", description: "Líder em seguros automotivos e residenciais", logo: "/logos/porto.png" },
+    { name: "Tokio Marine", description: "Excelência em seguros empresariais e patrimoniais", logo: "/logos/tokio-marine.png" },
+    { name: "Allianz", description: "Seguradora global com soluções completas", logo: "/logos/allianz.png" },
+    { name: "Azos", description: "Seguro de vida digital, simples e acessível", logo: "/logos/azos.png" },
+    { name: "Azul Seguros", description: "Seguros acessíveis com ampla cobertura", logo: "/logos/azul.png" },
+    { name: "Mapfre", description: "Tradição e confiança em seguros diversos", logo: "/logos/mapfre.png" },
+    { name: "HDI Seguros", description: "Especialista em seguros corporativos", logo: "/logos/hdi.png" },
+    { name: "Zurich", description: "Soluções globais para riscos complexos", logo: "/logos/zurich.png" },
+    { name: "Bradesco Seguros", description: "Solidez e credibilidade nacional", logo: "/logos/bradesco.png" },
+    { name: "Liberty Seguros", description: "Flexibilidade e personalização", logo: "/logos/liberty.png" },
+    { name: "Suhai", description: "Proteção veicular acessível", logo: "/logos/suhai.png" },
+    { name: "Justos", description: "Seguro auto inteligente e digital", logo: "/logos/justos.png" },
+    { name: "Darwin", description: "Inovação em seguros", logo: "/logos/darwin.png" },
+    { name: "Ituran", description: "Rastreamento e proteção veicular", logo: "/logos/ituran.png" },
+    { name: "SulAmérica", description: "Tradição em seguros de saúde e vida", logo: "/logos/sulamerica.png" },
+    { name: "Akad", description: "Soluções inovadoras em seguros corporativos e garantias", logo: "/logos/akad.png" },
+    { name: "SURA", description: "Seguros corporativos e soluções de gestão de riscos", logo: "/logos/sura.png" },
+    { name: "SOMPO", description: "Seguros corporativos, agrícolas e soluções especializadas", logo: "/logos/sompo.png" },
+    { name: "Itaú Seguros", description: "Solidez e inovação em seguros patrimoniais e de vida", logo: "/logos/itau.png" },
+    { name: "AXA", description: "Líder global em seguros e gestão de riscos", logo: "/logos/axa.png" },
   ];
 
   const healthPartners = [
-    { name: "Bradesco Saúde", description: "Ampla rede credenciada e cobertura nacional" },
-    { name: "Amil Saúde", description: "Planos individuais e empresariais com excelente custo-benefício" },
-    { name: "SulAmérica Saúde", description: "Tradição e qualidade em saúde suplementar" },
-    { name: "Porto Saúde", description: "Inovação e tecnologia em planos de saúde" },
-    { name: "HapVida/NotreDame Intermédica", description: "Rede própria e preços acessíveis" },
-    { name: "Prevent Senior", description: "Planos acessíveis com foco no público sênior" },
-    { name: "MedSenior", description: "Especialista em planos para a terceira idade" },
-    { name: "Omint", description: "Planos premium com atendimento diferenciado" },
-    { name: "Unimed", description: "Maior cooperativa médica do mundo com ampla presença nacional" },
+    { name: "Bradesco Saúde", description: "Ampla rede credenciada e cobertura nacional", logo: "/logos/bradesco-saude.png" },
+    { name: "Amil Saúde", description: "Planos individuais e empresariais com excelente custo-benefício", logo: "/logos/amil.png" },
+    { name: "SulAmérica Saúde", description: "Tradição e qualidade em saúde suplementar", logo: "/logos/sulamerica.png" },
+    { name: "Porto Saúde", description: "Inovação e tecnologia em planos de saúde", logo: "/logos/porto-saude.png" },
+    { name: "HapVida/NotreDame Intermédica", description: "Rede própria e preços acessíveis", logo: "/logos/hapvida.png" },
+    { name: "Prevent Senior", description: "Planos acessíveis com foco no público sênior", logo: "/logos/prevent-senior.png" },
+    { name: "MedSenior", description: "Especialista em planos para a terceira idade", logo: "/logos/medsenior.png" },
+    { name: "Omint", description: "Planos premium com atendimento diferenciado", logo: "/logos/omint.png" },
+    { name: "Unimed", description: "Maior cooperativa médica do mundo com ampla presença nacional", logo: "/logos/unimed.png" },
   ];
 
   return (
@@ -76,9 +76,12 @@ const Parceiros = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {partners.map((partner, index) => (
                 <Card key={index} className="hover:shadow-lg transition-base border-2 border-[#C0C0C0] shadow-[0_0_8px_rgba(192,192,192,0.3)]">
-                  <CardContent className="pt-6">
-                    <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
-                    <p className="text-muted-foreground">{partner.description}</p>
+                  <CardContent className="pt-6 flex items-start gap-4">
+                    <img src={partner.logo} alt={partner.name} className="h-12 w-12 object-contain flex-shrink-0" loading="lazy" />
+                    <div>
+                      <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
+                      <p className="text-muted-foreground">{partner.description}</p>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -89,9 +92,12 @@ const Parceiros = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {healthPartners.map((partner, index) => (
                 <Card key={index} className="hover:shadow-lg transition-base border-2 border-[#C0C0C0] shadow-[0_0_8px_rgba(192,192,192,0.3)]">
-                  <CardContent className="pt-6">
-                    <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
-                    <p className="text-muted-foreground">{partner.description}</p>
+                  <CardContent className="pt-6 flex items-start gap-4">
+                    <img src={partner.logo} alt={partner.name} className="h-12 w-12 object-contain flex-shrink-0" loading="lazy" />
+                    <div>
+                      <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
+                      <p className="text-muted-foreground">{partner.description}</p>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
