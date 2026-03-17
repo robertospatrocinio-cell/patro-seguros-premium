@@ -32,6 +32,7 @@ interface InsurancePageProps {
   realScenarios?: Scenario[];
   coverageExclusions?: string[];
   tips?: string[];
+  quoteUrl?: string;
 }
 
 const InsurancePageTemplate = ({
