@@ -14,6 +14,7 @@ const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
 const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
 const insuranceGroup3d = new URL("@/assets/3d-insurance-group.webp", import.meta.url).href;
 const cotacaoOnline3d = new URL("@/assets/3d-cotacao-online.webp", import.meta.url).href;
+import heroHomeBg from "@/assets/hero-home.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
