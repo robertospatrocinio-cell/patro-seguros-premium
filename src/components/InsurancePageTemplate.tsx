@@ -50,6 +50,7 @@ const InsurancePageTemplate = ({
   coverageExclusions,
   tips,
   quoteUrl,
+  heroImage,
 }: InsurancePageProps) => {
   return (
     <>
