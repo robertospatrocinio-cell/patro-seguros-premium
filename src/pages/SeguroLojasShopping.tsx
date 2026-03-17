@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-lojas.webp";
 
 const SeguroLojasShopping = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro para Lojas de Shopping"
       subtitle="Proteção especializada para lojistas e operações dentro de shopping centers"
       icon="🏬"

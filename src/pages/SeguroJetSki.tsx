@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-jetski.webp";
 
 const SeguroJetSki = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Jet Ski"
       subtitle="Proteção completa para seu jet ski e embarcações pessoais"
       icon="🚤"

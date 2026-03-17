@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-maquinas.webp";
 
 const SeguroMaquinas = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro de Máquinas e Equipamentos"
       subtitle="Proteção para o maquinário essencial da sua operação"
       icon="⚙️"
