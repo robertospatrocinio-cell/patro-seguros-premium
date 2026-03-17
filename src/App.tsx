@@ -80,6 +80,7 @@ const SeguroRCDentistas = lazy(() => import("./pages/SeguroRCDentistas"));
 const SeguroRCEngenheiros = lazy(() => import("./pages/SeguroRCEngenheiros"));
 const SeguroRCExecutivos = lazy(() => import("./pages/SeguroRCExecutivos"));
 const SeguroRCObras = lazy(() => import("./pages/SeguroRCObras"));
+const SeguroRCPrestacaoServicos = lazy(() => import("./pages/SeguroRCPrestacaoServicos"));
 const PlanoPet = lazy(() => import("./pages/PlanoPet"));
 const PlanoSaudeEmpresarial = lazy(() => import("./pages/PlanoSaudeEmpresarial"));
 const SeguroImobiliario = lazy(() => import("./pages/SeguroImobiliario"));
