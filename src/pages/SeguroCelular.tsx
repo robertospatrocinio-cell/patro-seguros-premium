@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-celular.webp";
 
 const SeguroCelular = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Celular — Proteção Completa para Seu Smartphone"
       subtitle="Cobertura contra roubo, furto, quebra acidental, danos por líquidos e defeitos elétricos. Proteção para iPhone, Samsung, Xiaomi e todos os modelos."
       icon="📱"

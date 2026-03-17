@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-frota.webp";
 
 const SeguroFrota = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro de Frota"
       subtitle="Proteção especializada para múltiplos veículos da sua empresa"
       icon="🚛"

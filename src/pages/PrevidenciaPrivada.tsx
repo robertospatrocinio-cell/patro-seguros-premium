@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-previdencia.webp";
 
 const PrevidenciaPrivada = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Previdência Privada"
       subtitle="Construa seu futuro com tranquilidade e segurança financeira"
       icon="💰"

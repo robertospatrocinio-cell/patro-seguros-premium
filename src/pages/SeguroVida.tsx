@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-vida.webp";
 
 const SeguroVida = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro de Vida"
       subtitle="Proteção financeira para você e sua família em momentos difíceis"
       icon="❤️"

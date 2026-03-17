@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-solar.webp";
 
 const SeguroPlacaSolar = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Placas Solares — Proteção para Energia Solar no Campo"
       subtitle="Proteja seu investimento em energia solar fotovoltaica contra danos, furto e fenômenos naturais. Atendemos produtores de todos os estados do Brasil."
       description="O Seguro de Placas Solares da Patro Seguros oferece proteção completa para sistemas fotovoltaicos instalados em propriedades rurais e empresas do agronegócio. Cobrimos painéis solares, inversores e toda a estrutura de geração de energia contra os principais riscos, garantindo a continuidade da sua economia energética. Atendemos produtores rurais em todos os estados — cotação, emissão e sinistro de forma 100% remota."

@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
 const SeguroEmpresarial = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Empresarial"
       subtitle="Proteção completa para o patrimônio e as operações da sua empresa"
       icon="🏢"

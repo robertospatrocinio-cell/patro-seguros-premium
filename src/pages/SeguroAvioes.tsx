@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-aviacao.webp";
 
 const SeguroAvioes = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Aviões"
       subtitle="Proteção completa para aeronaves de todos os portes e finalidades"
       icon="✈️"

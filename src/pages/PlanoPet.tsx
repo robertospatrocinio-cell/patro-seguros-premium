@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-plano-pet.webp";
 
 const PlanoPet = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Plano Pet (Petlove)"
       subtitle="Plano de saúde para cães e gatos com a maior plataforma pet do Brasil"
       icon="🐶"

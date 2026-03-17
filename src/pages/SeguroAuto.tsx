@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const SeguroAuto = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Auto"
       subtitle="Proteção completa para seu veículo com as melhores seguradoras do mercado"
       icon="🚗"

@@ -33,6 +33,7 @@ interface InsurancePageProps {
   coverageExclusions?: string[];
   tips?: string[];
   quoteUrl?: string;
+  heroImage?: string;
 }
 
 const InsurancePageTemplate = ({
@@ -49,6 +50,7 @@ const InsurancePageTemplate = ({
   coverageExclusions,
   tips,
   quoteUrl,
+  heroImage,
 }: InsurancePageProps) => {
   return (
     <>
@@ -61,6 +63,11 @@ const InsurancePageTemplate = ({
       <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label={`${title} — cotação gratuita`}>
+          {heroImage && (
+            <div className="absolute inset-0">
+              <img src={heroImage} alt="" className="w-full h-full object-cover opacity-20" loading="eager" aria-hidden="true" />
+            </div>
+          )}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.12),transparent)]" />
           <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container mx-auto px-4 relative">

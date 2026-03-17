@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-condominio.webp";
 
 const SeguroCondominio = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Condomínio"
       subtitle="Proteção completa para áreas comuns e patrimônio coletivo"
       icon="🏢"

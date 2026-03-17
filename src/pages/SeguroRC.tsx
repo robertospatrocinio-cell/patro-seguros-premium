@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-rc.webp";
 
 const SeguroRC = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Responsabilidade Civil Geral"
       subtitle="Proteção completa contra danos causados a terceiros nas suas operações"
       icon="⚖️"

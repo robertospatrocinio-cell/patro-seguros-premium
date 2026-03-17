@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-embarcacoes.webp";
 
 const SeguroEmbarcacoes = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Embarcações"
       subtitle="Proteção completa para lanchas, veleiros e embarcações de todos os portes"
       icon="⛵"

@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-bike.webp";
 
 const SeguroBike = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Bike"
       subtitle="Proteção completa para sua bicicleta contra roubo, furto e acidentes"
       icon="🚲"

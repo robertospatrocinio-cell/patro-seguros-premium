@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-rural.webp";
 
 const SeguroRural = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Rural"
       subtitle="Proteção completa para o agronegócio em todo o Brasil. Atendemos produtores de todos os estados."
       icon="🚜"

@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-cyber.webp";
 
 const SeguroCyber = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Cyber / Segurança Cibernética"
       subtitle="Proteção contra ataques cibernéticos e vazamento de dados"
       icon="🔒"

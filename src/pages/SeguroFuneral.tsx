@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import heroImg from "@/assets/hero-seguro-funeral.webp";
 
 const SeguroFuneral = () => {
   return (
     <InsurancePageTemplate
+      heroImage={heroImg}
       title="Seguro Funeral — Tranquilidade para Você e Sua Família"
       subtitle="Cobertura completa para despesas funerárias, sem burocracia e com assistência imediata. Proteja quem você ama de custos inesperados em um momento delicado."
       icon="🕊️"
