@@ -8,6 +8,7 @@ const Parceiros = () => {
     { name: "Porto Seguro", description: "Líder em seguros automotivos e residenciais" },
     { name: "Tokio Marine", description: "Excelência em seguros empresariais e patrimoniais" },
     { name: "Allianz", description: "Seguradora global com soluções completas" },
+    { name: "Azos", description: "Seguro de vida digital, simples e acessível" },
     { name: "Azul Seguros", description: "Seguros acessíveis com ampla cobertura" },
     { name: "Mapfre", description: "Tradição e confiança em seguros diversos" },
     { name: "HDI Seguros", description: "Especialista em seguros corporativos" },
