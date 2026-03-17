@@ -4876,6 +4876,123 @@ A Patro Seguros trabalha com as principais seguradoras de fiança locatícia do 
       { q: "O seguro fiança cobre danos ao imóvel?", a: "Sim, a maioria das apólices inclui cobertura para danos causados pelo inquilino ao imóvel, como paredes, pisos, instalações hidráulicas e elétricas, além de pintura na devolução." },
     ],
   },
+  "seguro-rc-eventos-exposicoes": {
+    title: "Seguro RC para Eventos e Exposições: Tudo o Que Organizadores Precisam Saber",
+    content: `Organizar um evento — seja uma feira comercial, congresso, show, festival, exposição ou evento corporativo — envolve dezenas de riscos que podem gerar prejuízos milionários. Uma estrutura que desaba, um participante que se machuca, intoxicação alimentar ou danos ao local são situações reais que acontecem todos os dias no Brasil. Neste guia, a Patro Seguros explica como o Seguro RC Eventos protege organizadores, promotores e expositores.
+
+O Que É o Seguro RC Eventos e Exposições?
+
+O Seguro de Responsabilidade Civil para Eventos e Exposições cobre danos materiais, corporais e morais causados a participantes, visitantes, expositores e ao local durante a realização do evento — incluindo montagem e desmontagem.
+
+Em termos simples: se algo der errado durante o evento e terceiros forem prejudicados, a seguradora assume os custos de indenização e defesa judicial, protegendo o patrimônio do organizador.
+
+Por Que o RC Eventos É Essencial?
+
+Eventos concentram grande número de pessoas em um mesmo espaço, frequentemente com estruturas temporárias (palcos, stands, tendas, arquibancadas). Isso cria um cenário de risco elevado:
+
+- Acidentes estruturais: palcos, treliças, tendas e arquibancadas podem ceder ou desabar
+- Aglomeração: tumultos, empurrões e pisoteamento em eventos com grande público
+- Intoxicação alimentar: alimentos e bebidas servidos a centenas ou milhares de pessoas
+- Danos elétricos e incêndio: equipamentos de som, iluminação e geradores podem causar curtos e incêndios
+- Danos ao espaço: montagem e desmontagem frequentemente causam avarias no local
+- Queda de objetos: equipamentos, decoração e materiais suspensos podem cair sobre o público
+
+Um único acidente pode gerar processos com indenizações de centenas de milhares de reais — muito além da capacidade financeira da maioria dos organizadores.
+
+Quem Precisa Contratar?
+
+- Organizadores e promotores de eventos (feiras, shows, congressos, festivais)
+- Empresas que realizam eventos corporativos (convenções, lançamentos, confraternizações)
+- Produtoras de eventos culturais e artísticos
+- Organizadores de eventos esportivos
+- Expositores que participam de feiras e exposições
+- Buffets e empresas de catering para grandes eventos
+- Associações e entidades de classe que promovem congressos
+
+O Que o Seguro RC Eventos Cobre?
+
+Coberturas principais:
+
+1. Danos corporais a participantes: lesões sofridas por visitantes, espectadores e convidados — desde torções até fraturas e ferimentos graves
+2. Danos materiais ao local: prejuízos causados ao espaço, mobiliário, piso, paredes e instalações
+3. Danos morais: indenizações por constrangimento, sofrimento ou abalo psicológico
+4. Intoxicação alimentar: reclamações por problemas com alimentos e bebidas servidos
+5. Estruturas temporárias: danos causados por palcos, stands, tendas, arquibancadas e treliças
+6. Montagem e desmontagem: cobertura durante todo o período de preparação e retirada
+7. Danos a bens de expositores: prejuízos causados a materiais e equipamentos de expositores
+8. Despesas de defesa: custos com advogados, perícias e processos judiciais
+
+O Que NÃO É Coberto?
+
+É importante conhecer as exclusões para evitar surpresas:
+
+- Atos dolosos ou intencionais do organizador
+- Cancelamento do evento (existe seguro específico para isso)
+- Danos ao patrimônio do próprio segurado/organizador
+- Eventos realizados sem autorizações e alvarás obrigatórios
+- Danos causados por condições climáticas sem estrutura de proteção adequada
+- Multas e penalidades administrativas
+- Responsabilidade por atos de terceiros não vinculados à organização
+
+Exigência Legal e Contratual
+
+A maioria dos espaços de eventos no Brasil já exige a apresentação de apólice de RC como condição para liberar o uso do local:
+
+- Centros de convenções e exposições
+- Hotéis e resorts para eventos
+- Espaços públicos (exigência da prefeitura para alvará)
+- Clubes e associações
+- Shoppings e centros comerciais
+
+Sem o seguro, o evento pode ser impedido de acontecer. Além disso, muitos patrocinadores e contratantes corporativos exigem a apólice como condição para participação ou patrocínio.
+
+Quanto Custa o Seguro RC Eventos?
+
+O custo depende de diversos fatores:
+
+- Tipo de evento: feira, show, congresso, festival, evento esportivo
+- Público estimado: quanto maior o público, maior o risco e o custo
+- Duração: incluindo dias de montagem e desmontagem
+- Atividades de risco: pirotecnia, esportes radicais, estruturas elevadas
+- Local: evento ao ar livre tem riscos diferentes de evento em espaço fechado
+- Limite de indenização: quanto maior o limite, maior o prêmio
+
+Referências de preço:
+
+- Evento corporativo pequeno (até 200 pessoas): R$ 800 a R$ 3.000
+- Feira ou exposição de médio porte (500 a 2.000 pessoas): R$ 3.000 a R$ 15.000
+- Show ou festival de grande porte (5.000+ pessoas): R$ 15.000 a R$ 80.000+
+- Congressos e convenções: R$ 2.000 a R$ 12.000
+
+Cenários Reais
+
+Caso 1 — Treliça desabou em feira comercial: uma estrutura de iluminação cedeu durante uma feira, ferindo três visitantes. O seguro cobriu R$ 280.000 em indenizações por danos corporais e morais, além de R$ 35.000 em despesas de defesa.
+
+Caso 2 — Intoxicação em evento corporativo: mais de 40 convidados passaram mal após consumir alimentos em um evento empresarial. O RC cobriu R$ 150.000 em indenizações e despesas médicas.
+
+Caso 3 — Danos ao espaço na desmontagem: a equipe danificou piso e paredes do salão. O seguro cobriu R$ 65.000 em reparos ao proprietário.
+
+Caso 4 — Queda de stand em exposição: um stand mal montado caiu sobre o corredor, danificando equipamentos do expositor vizinho e ferindo um visitante. Indenização total: R$ 120.000.
+
+Dicas para Organizadores
+
+1. Contrate com antecedência: muitos espaços exigem a apólice semanas antes do evento
+2. Detalhe todas as atividades: atrações especiais, pirotecnia, alimentação — tudo deve constar na proposta
+3. Guarde documentação: contratos com fornecedores, alvarás, laudos técnicos de estruturas
+4. Para eventos recorrentes: considere uma apólice anual que cubra todos os eventos do período
+5. Verifique fornecedores: confirme se buffet, montadora de stands e equipe técnica também possuem seguro RC
+6. Escolha limites adequados: o limite deve ser compatível com o porte do evento e o público esperado
+
+A Patro Seguros é especialista em seguros para eventos de todos os portes — de pequenos eventos corporativos a grandes feiras e festivais. Proteja seu evento e seu patrimônio com quem entende do assunto.`,
+    faqs: [
+      { q: "O seguro RC Eventos é obrigatório?", a: "Não é obrigatório por lei em todos os casos, mas a maioria dos espaços de eventos e prefeituras exige a apólice como condição para liberar o alvará. Na prática, é indispensável para qualquer evento profissional." },
+      { q: "O seguro cobre cancelamento do evento?", a: "Não. O RC cobre danos a terceiros durante o evento. Para cobertura de cancelamento (por chuva, pandemia, problemas técnicos), existe um seguro específico chamado Seguro de Cancelamento de Eventos." },
+      { q: "A cobertura inclui montagem e desmontagem?", a: "Sim. A apólice cobre desde o início da montagem até a conclusão da desmontagem, período em que muitos sinistros ocorrem." },
+      { q: "Posso contratar uma apólice anual para vários eventos?", a: "Sim! Para organizadores que realizam eventos frequentes, oferecemos apólices anuais que cobrem todos os eventos do período, com condições especiais e custo menor por evento." },
+      { q: "Quanto custa para um evento pequeno?", a: "Eventos corporativos de pequeno porte (até 200 pessoas) custam entre R$ 800 e R$ 3.000, dependendo das atividades e limites de cobertura contratados." },
+      { q: "O expositor precisa de seguro próprio?", a: "É recomendável. O seguro do organizador cobre danos gerais do evento, mas cada expositor pode contratar RC próprio para proteger seus equipamentos e sua responsabilidade específica dentro do stand." },
+    ],
+  },
 };
 
 const defaultArticle = {

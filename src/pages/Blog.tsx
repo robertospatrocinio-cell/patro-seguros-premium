@@ -61,6 +61,7 @@ const articles = [
   { slug: "beneficios-seguro-imobiliario", title: "Os Benefícios do Seguro Imobiliário: Proteção Completa para Seu Patrimônio", excerpt: "Descubra os 10 principais benefícios do seguro imobiliário e por que proteger seu imóvel é essencial para sua segurança patrimonial.", category: "Seguro Imobiliário" },
   { slug: "seguro-condominio-responsabilidades-sindico", title: "Seguro de Condomínio: Responsabilidades do Síndico e Como Evitar Problemas", excerpt: "Entenda as obrigações legais do síndico quanto ao seguro condominial, coberturas essenciais e erros comuns que podem gerar responsabilização pessoal.", category: "Seguro Condomínio" },
   { slug: "fianca-locaticia-guia-inquilinos-proprietarios", title: "Seguro Fiança Locatícia: Guia Completo para Inquilinos e Proprietários", excerpt: "Saiba como funciona o seguro fiança, quanto custa, vantagens para inquilinos e proprietários, e por que ele substitui fiador e caução.", category: "Seguro Fiança" },
+  { slug: "seguro-rc-eventos-exposicoes", title: "Seguro RC para Eventos e Exposições: Tudo o Que Organizadores Precisam Saber", excerpt: "Guia completo sobre o seguro RC para feiras, shows, congressos e eventos corporativos. Coberturas, custos e por que é indispensável.", category: "RC" },
 ];
 
 const Blog = () => {
