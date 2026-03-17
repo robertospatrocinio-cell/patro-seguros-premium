@@ -59,6 +59,9 @@ const Index = () => {
       <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label="Início">
+          <div className="absolute inset-0">
+            <img src={heroHomeBg} alt="" className="w-full h-full object-cover opacity-15" loading="eager" aria-hidden="true" />
+          </div>
           <div className="container mx-auto px-4 relative">
             {/* 3D Shield floating on the right — desktop only, lazy */}
             <img src={shieldHero3d} alt="" width={256} height={256} className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 w-64 h-64 object-contain opacity-30" aria-hidden="true" loading="lazy" decoding="async" />
