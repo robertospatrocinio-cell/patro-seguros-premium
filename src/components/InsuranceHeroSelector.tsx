@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef } from "lucide-react";
+import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug } from "lucide-react";
 
 import heroFamilia from "@/assets/hero-familia.jpg";
 import heroEmpresa from "@/assets/hero-empresa.jpg";
@@ -25,16 +25,31 @@ const cardsByTab: Record<TabKey, InsuranceCard[]> = {
     { title: "Seguro Auto", icon: Car, link: "/seguro-auto" },
     { title: "Seguro de Vida", icon: Heart, link: "/seguro-vida" },
     { title: "Seguro Residencial", icon: Home, link: "/seguro-residencial" },
+    { title: "Plano de Saúde", icon: SmilePlus, link: "/planos-de-saude" },
+    { title: "Seguro Viagem", icon: Plane, link: "/seguro-viagem" },
+    { title: "Seguro Moto", icon: Bike, link: "/seguro-moto" },
+    { title: "Seguro Celular", icon: Phone, link: "/seguro-celular" },
+    { title: "Fiança Locatícia", icon: Key, link: "/seguro-fianca-locaticia" },
   ],
   empresa: [
-    { title: "Seguro Patrimonial", icon: Building2, link: "/seguro-empresarial" },
+    { title: "Seguro Empresarial", icon: Building2, link: "/seguro-empresarial" },
     { title: "RC Geral", icon: Shield, link: "/seguro-rc" },
     { title: "Seguro Frota", icon: Truck, link: "/seguro-frota" },
+    { title: "Seguro Cyber", icon: Laptop, link: "/seguro-cyber" },
+    { title: "Seguro Transporte", icon: Truck, link: "/seguro-transporte" },
+    { title: "Seguro Condomínio", icon: Building2, link: "/seguro-condominio" },
+    { title: "Seguro Engenharia", icon: HardHat, link: "/seguro-engenharia" },
+    { title: "Seguro Garantia", icon: Shield, link: "/seguro-garantia" },
   ],
   agro: [
     { title: "Seguro Safra", icon: Wheat, link: "/seguro-rural" },
     { title: "Máquinas Agrícolas", icon: Tractor, link: "/seguro-maquinas-agricolas" },
     { title: "Seguro Rebanho", icon: Beef, link: "/seguro-pecuario" },
+    { title: "Seguro Geada", icon: CloudRain, link: "/seguro-geada" },
+    { title: "Propriedade Rural", icon: Home, link: "/seguro-propriedade-rural" },
+    { title: "Transporte Agro", icon: Truck, link: "/seguro-transporte-agro" },
+    { title: "Equipamentos", icon: Sprout, link: "/seguro-equipamentos-agricolas" },
+    { title: "Drone Agrícola", icon: Bug, link: "/seguro-drone-agricola" },
   ],
 };
 
@@ -140,25 +155,25 @@ const InsuranceHeroSelector = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-3 gap-3 md:gap-5 w-full max-w-lg md:max-w-2xl">
+        <div className="grid grid-cols-4 gap-3 md:gap-4 w-full max-w-3xl"  key={active}>
           {cards.map((card) => (
             <Link
               key={card.title}
               to={card.link}
               className="group transition-opacity duration-500 animate-fade-in"
             >
-              <div className="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 {/* Icon area with green gradient */}
-                <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-6 md:p-8 flex items-center justify-center">
+                <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-4 md:p-6 flex items-center justify-center">
                   <card.icon
-                    className="h-8 w-8 md:h-10 md:w-10 text-white drop-shadow-md"
+                    className="h-6 w-6 md:h-8 md:w-8 text-white drop-shadow-md"
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />
                 </div>
                 {/* White base */}
-                <div className="bg-white p-3 md:p-4 text-center">
-                  <p className="text-xs md:text-sm font-semibold text-foreground tracking-tight leading-tight">
+                <div className="bg-white p-2 md:p-3 text-center">
+                  <p className="text-[10px] md:text-xs font-semibold text-foreground tracking-tight leading-tight">
                     {card.title}
                   </p>
                 </div>
