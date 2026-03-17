@@ -342,6 +342,7 @@ const Header = () => {
                 <MobileLink to="/seguro-rc-veterinarios">RC Veterinários</MobileLink>
                 <MobileLink to="/seguro-rc-executivos">RC Executivos (D&O)</MobileLink>
                 <MobileLink to="/seguro-rc-obras">RC Obras</MobileLink>
+                <MobileLink to="/seguro-rc-prestacao-servicos">RC Prest. Serviços</MobileLink>
                 <MobileLink to="/seguro-cyber">Cyber</MobileLink>
                 <MobileLink to="/seguro-engenharia">Engenharia</MobileLink>
                 <MobileLink to="/seguro-garantia">Garantia</MobileLink>
