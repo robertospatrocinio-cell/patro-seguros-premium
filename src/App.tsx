@@ -183,6 +183,12 @@ const App = () => (
             <Route path="/seguro-propriedade-rural" element={<SeguroPropriedadeRural />} />
             <Route path="/seguro-imobiliario" element={<SeguroImobiliario />} />
             <Route path="/seguro-funeral" element={<SeguroFuneral />} />
+            <Route path="/landing-pages" element={<LandingPages />} />
+            <Route path="/lp/seguro-auto" element={<LandingSeguroAuto />} />
+            <Route path="/lp/plano-de-saude" element={<LandingPlanoSaude />} />
+            <Route path="/lp/seguro-empresarial" element={<LandingSeguroEmpresarial />} />
+            <Route path="/lp/seguro-residencial" element={<LandingSeguroResidencial />} />
+            <Route path="/lp/seguro-vida" element={<LandingSeguroVida />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
