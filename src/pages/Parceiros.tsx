@@ -28,15 +28,15 @@ const Parceiros = () => {
   ];
 
   const healthPartners = [
-    { name: "Bradesco Saúde", description: "Ampla rede credenciada e cobertura nacional" },
-    { name: "Amil Saúde", description: "Planos individuais e empresariais com excelente custo-benefício" },
-    { name: "SulAmérica Saúde", description: "Tradição e qualidade em saúde suplementar" },
-    { name: "Porto Saúde", description: "Inovação e tecnologia em planos de saúde" },
-    { name: "HapVida/NotreDame Intermédica", description: "Rede própria e preços acessíveis" },
-    { name: "Prevent Senior", description: "Planos acessíveis com foco no público sênior" },
-    { name: "MedSenior", description: "Especialista em planos para a terceira idade" },
-    { name: "Omint", description: "Planos premium com atendimento diferenciado" },
-    { name: "Unimed", description: "Maior cooperativa médica do mundo com ampla presença nacional" },
+    { name: "Bradesco Saúde", description: "Ampla rede credenciada e cobertura nacional", logo: "/logos/bradesco-saude.png" },
+    { name: "Amil Saúde", description: "Planos individuais e empresariais com excelente custo-benefício", logo: "/logos/amil.png" },
+    { name: "SulAmérica Saúde", description: "Tradição e qualidade em saúde suplementar", logo: "/logos/sulamerica.png" },
+    { name: "Porto Saúde", description: "Inovação e tecnologia em planos de saúde", logo: "/logos/porto-saude.png" },
+    { name: "HapVida/NotreDame Intermédica", description: "Rede própria e preços acessíveis", logo: "/logos/hapvida.png" },
+    { name: "Prevent Senior", description: "Planos acessíveis com foco no público sênior", logo: "/logos/prevent-senior.png" },
+    { name: "MedSenior", description: "Especialista em planos para a terceira idade", logo: "/logos/medsenior.png" },
+    { name: "Omint", description: "Planos premium com atendimento diferenciado", logo: "/logos/omint.png" },
+    { name: "Unimed", description: "Maior cooperativa médica do mundo com ampla presença nacional", logo: "/logos/unimed.png" },
   ];
 
   return (
