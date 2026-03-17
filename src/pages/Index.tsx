@@ -172,38 +172,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Soluções */}
-        <section className="py-16 md:py-32 gradient-surface" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }} aria-labelledby="solucoes-heading">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
-              <span className="section-label">Soluções</span>
-              <h2 id="solucoes-heading" className="mt-3">Nossos Serviços de Seguros</h2>
-              <img src={insuranceGroup3d} alt="" width={224} height={224} className="hidden md:block w-56 h-56 object-contain mx-auto mt-6" aria-hidden="true" loading="lazy" decoding="async" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-              {visibleSolutions.map((s, i) => (
-                <Link key={i} to={s.link} className="group">
-                  <article className="premium-card p-6 h-full">
-                    <div className="w-9 h-9 rounded-lg bg-primary/[0.05] flex items-center justify-center mb-4 group-hover:bg-primary transition-base group-hover:scale-110">
-                      <s.icon className="h-[18px] w-[18px] text-primary group-hover:text-primary-foreground transition-base" strokeWidth={1.5} aria-hidden="true" />
-                    </div>
-                    <h3 className="text-[14px] font-semibold mb-0.5 tracking-tight">{s.title}</h3>
-                    <p className="text-[13px] text-muted-foreground">{s.desc}</p>
-                  </article>
-                </Link>
-              ))}
-            </div>
-            <div className="text-center mt-10">
-              <button
-                onClick={() => setShowAllSolutions(!showAllSolutions)}
-                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-primary hover:text-primary-hover transition-base"
-              >
-                {showAllSolutions ? "Ver menos" : "Ver todos os seguros"}
-                {showAllSolutions ? <ChevronUp className="h-3.5 w-3.5" aria-hidden="true" /> : <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />}
-              </button>
-            </div>
-          </div>
-        </section>
 
         {/* CTA — Cotação Auto */}
         <section className="py-16 md:py-24 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="cotacao-auto-heading">
