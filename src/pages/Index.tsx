@@ -119,6 +119,9 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Insurance Hero Selector */}
+        <InsuranceHeroSelector />
+
         {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">
           <div className="container mx-auto px-4">
