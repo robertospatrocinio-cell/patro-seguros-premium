@@ -300,6 +300,7 @@ const Header = () => {
                 <MobileLink to="/plano-pet">Plano Pet</MobileLink>
                 <MobileLink to="/seguro-acidentes-pessoais">Acid. Pessoais</MobileLink>
                 <MobileLink to="/previdencia-privada">Previdência</MobileLink>
+                <MobileLink to="/seguro-funeral">Funeral</MobileLink>
               </div>
               <MobileSubLabel>Patrimônio</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
