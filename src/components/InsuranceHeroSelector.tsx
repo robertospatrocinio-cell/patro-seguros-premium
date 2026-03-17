@@ -162,18 +162,18 @@ const InsuranceHeroSelector = () => {
               to={card.link}
               className="group transition-opacity duration-500 animate-fade-in"
             >
-              <div className="rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 {/* Icon area with green gradient */}
-                <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-6 md:p-8 flex items-center justify-center">
+                <div className="bg-gradient-to-br from-emerald-500 to-green-600 p-4 md:p-6 flex items-center justify-center">
                   <card.icon
-                    className="h-8 w-8 md:h-10 md:w-10 text-white drop-shadow-md"
+                    className="h-6 w-6 md:h-8 md:w-8 text-white drop-shadow-md"
                     strokeWidth={1.5}
                     aria-hidden="true"
                   />
                 </div>
                 {/* White base */}
-                <div className="bg-white p-3 md:p-4 text-center">
-                  <p className="text-xs md:text-sm font-semibold text-foreground tracking-tight leading-tight">
+                <div className="bg-white p-2 md:p-3 text-center">
+                  <p className="text-[10px] md:text-xs font-semibold text-foreground tracking-tight leading-tight">
                     {card.title}
                   </p>
                 </div>
