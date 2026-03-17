@@ -119,6 +119,7 @@ const Header = () => {
                           <Link to="/plano-pet" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Plano Pet</Link>
                           <Link to="/seguro-acidentes-pessoais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Acidentes Pessoais</Link>
                           <Link to="/previdencia-privada" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Previdência</Link>
+                          <Link to="/seguro-funeral" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Funeral</Link>
                         </div>
                       </div>
                       <div>
