@@ -86,6 +86,12 @@ const PlanoPet = lazy(() => import("./pages/PlanoPet"));
 const PlanoSaudeEmpresarial = lazy(() => import("./pages/PlanoSaudeEmpresarial"));
 const SeguroImobiliario = lazy(() => import("./pages/SeguroImobiliario"));
 const SeguroFuneral = lazy(() => import("./pages/SeguroFuneral"));
+const LandingPages = lazy(() => import("./pages/LandingPages"));
+const LandingSeguroAuto = lazy(() => import("./pages/LandingSeguroAuto"));
+const LandingPlanoSaude = lazy(() => import("./pages/LandingPlanoSaude"));
+const LandingSeguroEmpresarial = lazy(() => import("./pages/LandingSeguroEmpresarial"));
+const LandingSeguroResidencial = lazy(() => import("./pages/LandingSeguroResidencial"));
+const LandingSeguroVida = lazy(() => import("./pages/LandingSeguroVida"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
