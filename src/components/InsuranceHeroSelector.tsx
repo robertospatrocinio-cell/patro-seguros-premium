@@ -155,7 +155,7 @@ const InsuranceHeroSelector = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-3 gap-3 md:gap-5 w-full max-w-lg md:max-w-2xl">
+        <div className="grid grid-cols-4 gap-3 md:gap-4 w-full max-w-3xl"  key={active}>
           {cards.map((card) => (
             <Link
               key={card.title}
