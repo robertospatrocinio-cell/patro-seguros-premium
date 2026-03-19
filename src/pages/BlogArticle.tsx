@@ -5014,8 +5014,15 @@ const BlogArticle = () => {
       )}
       <Header />
       <main id="main-content">
-        <section className="gradient-hero py-16">
-          <div className="container mx-auto px-4 max-w-3xl">
+        <section className="gradient-hero py-16 relative overflow-hidden">
+          {slug && (
+            <img
+              src={getArticleImage(slug)}
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover opacity-20"
+            />
+          )}
+          <div className="container mx-auto px-4 max-w-3xl relative z-10">
             <Link to="/blog" className="inline-flex items-center text-sm text-white/60 hover:text-white mb-6">
               <ArrowLeft className="mr-1 h-4 w-4" /> Voltar ao Blog
             </Link>

@@ -85,8 +85,16 @@ const Blog = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {articles.map((article) => (
                 <Link key={article.slug} to={`/blog/${article.slug}`}>
-                  <Card className="hover:shadow-lg transition-base h-full">
-                    <CardContent className="pt-6">
+                  <Card className="hover:shadow-lg transition-base h-full overflow-hidden">
+                    <div className="aspect-video w-full overflow-hidden">
+                      <img
+                        src={getArticleImage(article.slug)}
+                        alt={article.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <CardContent className="pt-4">
                       <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">{article.category}</span>
                       <h3 className="text-lg font-semibold mt-3 mb-2">{article.title}</h3>
                       <p className="text-sm text-muted-foreground mb-4">{article.excerpt}</p>
