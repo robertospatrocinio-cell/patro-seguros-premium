@@ -5,6 +5,7 @@ import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 import { getArticleImage } from "@/lib/blogImages";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const articles = [
   { slug: "quanto-custa-seguro-auto", title: "Quanto Custa Seguro Auto em 2025?", excerpt: "Descubra os fatores que influenciam o preço do seguro auto e como economizar.", category: "Seguro Auto" },
@@ -87,11 +88,10 @@ const Blog = () => {
                 <Link key={article.slug} to={`/blog/${article.slug}`}>
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden">
                     <div className="aspect-video w-full overflow-hidden">
-                      <img
+                      <OptimizedImage
                         src={getArticleImage(article.slug)}
                         alt={article.title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        loading="lazy"
+                        className="w-full h-full transition-transform duration-300 hover:scale-105"
                       />
                     </div>
                     <CardContent className="pt-4">

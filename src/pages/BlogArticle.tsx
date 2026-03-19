@@ -6,6 +6,7 @@ import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowLeft } from "lucide-react";
 import { getArticleImage } from "@/lib/blogImages";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
@@ -5016,10 +5017,13 @@ const BlogArticle = () => {
       <main id="main-content">
         <section className="gradient-hero py-16 relative overflow-hidden">
           {slug && (
-            <img
+            <OptimizedImage
               src={getArticleImage(slug)}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-20"
+              className="absolute inset-0 w-full h-full"
+              eager
+              placeholderClass="bg-transparent"
+              style={{ opacity: 0.2 }}
             />
           )}
           <div className="container mx-auto px-4 max-w-3xl relative z-10">

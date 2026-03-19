@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -65,7 +66,7 @@ const InsurancePageTemplate = ({
         <section className="relative gradient-hero overflow-hidden" aria-label={`${title} — cotação gratuita`}>
           {heroImage && (
             <div className="absolute inset-0">
-              <img src={heroImage} alt="" className="w-full h-full object-cover opacity-20" loading="eager" aria-hidden="true" />
+              <OptimizedImage src={heroImage} alt="" className="w-full h-full" eager aria-hidden="true" placeholderClass="bg-transparent" style={{ opacity: 0.2 }} />
             </div>
           )}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.12),transparent)]" />
