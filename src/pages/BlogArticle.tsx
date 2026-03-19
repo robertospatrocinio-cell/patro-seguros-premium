@@ -5017,10 +5017,13 @@ const BlogArticle = () => {
       <main id="main-content">
         <section className="gradient-hero py-16 relative overflow-hidden">
           {slug && (
-            <img
+            <OptimizedImage
               src={getArticleImage(slug)}
               alt=""
-              className="absolute inset-0 w-full h-full object-cover opacity-20"
+              className="absolute inset-0 w-full h-full"
+              eager
+              placeholderClass="bg-transparent"
+              style={{ opacity: 0.2 }}
             />
           )}
           <div className="container mx-auto px-4 max-w-3xl relative z-10">
