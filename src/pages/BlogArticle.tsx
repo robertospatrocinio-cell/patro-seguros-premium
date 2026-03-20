@@ -5069,6 +5069,17 @@ const BlogArticle = () => {
               </div>
             )}
 
+            {/* Tags */}
+            {meta && meta.tags.length > 0 && (
+              <div className="mt-8 flex flex-wrap gap-2">
+                {meta.tags.map(tag => (
+                  <Link key={tag} to="/blog" className="bg-muted px-3 py-1 rounded-full text-xs text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors">
+                    #{tag}
+                  </Link>
+                ))}
+              </div>
+            )}
+
             <div className="mt-12 p-8 bg-muted rounded-xl text-center">
               <h3 className="text-2xl font-bold mb-4">Precisa de Ajuda com Seguros?</h3>
               <p className="text-muted-foreground mb-6">Fale com nossos especialistas e encontre a melhor proteção.</p>
@@ -5083,6 +5094,35 @@ const BlogArticle = () => {
                 </a>
               </div>
             </div>
+
+            {/* Artigos Relacionados */}
+            {related.length > 0 && (
+              <div className="mt-16">
+                <h2 className="text-xl font-bold mb-6">Artigos Relacionados</h2>
+                <div className="grid md:grid-cols-3 gap-5">
+                  {related.map(rel => (
+                    <Link key={rel.slug} to={`/blog/${rel.slug}`}>
+                      <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
+                        <div className="aspect-video w-full overflow-hidden">
+                          <OptimizedImage
+                            src={getArticleImage(rel.slug)}
+                            alt={rel.title}
+                            className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                        <CardContent className="pt-3">
+                          <span className="text-[10px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">{rel.category}</span>
+                          <h3 className="text-sm font-semibold mt-2 mb-1">{rel.title}</h3>
+                          <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+                            <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{rel.readTime} min</span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>

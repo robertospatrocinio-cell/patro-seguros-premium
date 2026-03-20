@@ -272,10 +272,17 @@ const Index = () => {
                     <CardContent className="pt-4">
                       <span className="text-[10px] font-medium text-primary bg-primary/10 px-2 py-1 rounded uppercase tracking-wider">{article.category}</span>
                       <h3 className="text-[15px] font-semibold mt-3 mb-2 tracking-tight">{article.title}</h3>
-                      <p className="text-[13px] text-muted-foreground mb-4 leading-relaxed">{article.excerpt}</p>
-                      <span className="text-[13px] font-medium text-primary flex items-center">
-                        Ler mais <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
-                      </span>
+                      <p className="text-[13px] text-muted-foreground mb-3 leading-relaxed">{article.excerpt}</p>
+                      <div className="flex items-center gap-3 text-[10px] text-muted-foreground mb-3">
+                        <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{formatDate(article.date)}</span>
+                        <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.readTime} min</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="flex items-center gap-1 text-[10px] text-muted-foreground"><User className="h-3 w-3" />{article.author}</span>
+                        <span className="text-[13px] font-medium text-primary flex items-center">
+                          Ler mais <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
+                        </span>
+                      </div>
                     </CardContent>
                   </Card>
                 </Link>
