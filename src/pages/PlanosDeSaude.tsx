@@ -105,6 +105,21 @@ const PlanosDeSaude = () => {
           </div>
         </section>
 
+        {/* Formulário Rápido */}
+        <section className="py-16">
+          <div className="container mx-auto px-4 max-w-xl">
+            <QuickQuoteForm
+              insuranceType="Plano de Saúde"
+              trackingLabel="plano-saude"
+              extraFields={[
+                { id: "tipo", label: "Tipo de plano", placeholder: "Selecione", type: "select", options: ["Individual / Familiar", "Empresarial (PME)", "Empresarial (grande empresa)", "Adesão"] },
+                { id: "vidas", label: "Quantidade de vidas", placeholder: "Selecione", type: "select", options: ["1 pessoa", "2 a 5 pessoas", "6 a 29 pessoas", "30 a 99 pessoas", "100+ pessoas"] },
+                { id: "cidade", label: "Cidade", placeholder: "Ex: Guarulhos" },
+              ]}
+            />
+          </div>
+        </section>
+
         <section className="py-16 bg-muted">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-center mb-12">Perguntas Frequentes sobre Planos de Saúde</h2>
