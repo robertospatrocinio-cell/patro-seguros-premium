@@ -63,7 +63,7 @@ const InsurancePageTemplate = ({
   coverageExclusions,
   tips,
   quoteUrl,
-  heroImage,
+  quoteFormFields,
 }: InsurancePageProps) => {
   return (
     <>
