@@ -42,7 +42,7 @@ const LandingPageTemplate = ({
   const CtaButton = ({ variant = "primary", size = "lg" }: { variant?: "primary" | "whatsapp"; size?: "lg" | "md" }) => {
     if (variant === "whatsapp") {
       return (
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick(`lp-${title}`)}>
           <Button size={size === "lg" ? "lg" : "default"} className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-white font-semibold shadow-lg">
             <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Chamar no WhatsApp
           </Button>
