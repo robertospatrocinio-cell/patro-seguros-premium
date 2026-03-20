@@ -246,6 +246,10 @@ const Index = () => {
                 <Link to="/sobre"><Button variant="outline" className="rounded-lg text-[13px] h-10">Conheça a Patro</Button></Link>
                 <Link to="/indique-um-amigo"><Button variant="ghost" className="rounded-lg text-primary text-[13px] h-10">Indique um amigo <ArrowRight className="ml-1 h-3 w-3" aria-hidden="true" /></Button></Link>
               </div>
+              {/* Google Business Widget */}
+              <div className="mt-10 max-w-sm mx-auto">
+                <GoogleBusinessWidget />
+              </div>
             </div>
           </div>
         </section>
