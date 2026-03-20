@@ -98,6 +98,7 @@ const LandingSeguroGalpoes = lazy(() => import("./pages/LandingSeguroGalpoes"));
 const LandingConsorcio = lazy(() => import("./pages/LandingConsorcio"));
 const LandingSeguroCelular = lazy(() => import("./pages/LandingSeguroCelular"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const SobreGuarulhos = lazy(() => import("./pages/SobreGuarulhos"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
 const NichoMedicos = lazy(() => import("./pages/NichoMedicos"));
@@ -206,6 +207,7 @@ const App = () => (
             <Route path="/lp/consorcio" element={<LandingConsorcio />} />
             <Route path="/lp/seguro-celular" element={<LandingSeguroCelular />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
