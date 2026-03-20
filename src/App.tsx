@@ -105,6 +105,7 @@ const NichoMedicos = lazy(() => import("./pages/NichoMedicos"));
 const NichoTransportadoras = lazy(() => import("./pages/NichoTransportadoras"));
 const NichoEmpresarios = lazy(() => import("./pages/NichoEmpresarios"));
 const NichoProfissionaisLiberais = lazy(() => import("./pages/NichoProfissionaisLiberais"));
+const Depoimentos = lazy(() => import("./pages/Depoimentos"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
