@@ -43,6 +43,7 @@ const SeguroMaquinasAgricolas = lazy(() => import("./pages/SeguroMaquinasAgricol
 const SeguroEquipamentosAgricolas = lazy(() => import("./pages/SeguroEquipamentosAgricolas"));
 const SeguroGalpoesIndustriais = lazy(() => import("./pages/SeguroGalpoesIndustriais"));
 const SeguroMaquinasIndustriais = lazy(() => import("./pages/SeguroMaquinasIndustriais"));
+const SeguroMaquinasLinhaAmarela = lazy(() => import("./pages/SeguroMaquinasLinhaAmarela"));
 const SeoSeguroAutoGuarulhos = lazy(() => import("./pages/SeoSeguroAutoGuarulhos"));
 const SeoPlanoSaudeGuarulhos = lazy(() => import("./pages/SeoPlanoSaudeGuarulhos"));
 const SeoSeguroEmpresarialGuarulhos = lazy(() => import("./pages/SeoSeguroEmpresarialGuarulhos"));
@@ -155,6 +156,7 @@ const App = () => (
             <Route path="/seguro-equipamentos-agricolas" element={<SeguroEquipamentosAgricolas />} />
             <Route path="/seguro-galpoes-industriais" element={<SeguroGalpoesIndustriais />} />
             <Route path="/seguro-maquinas-industriais" element={<SeguroMaquinasIndustriais />} />
+            <Route path="/seguro-maquinas-linha-amarela" element={<SeguroMaquinasLinhaAmarela />} />
             <Route path="/seguro-auto-guarulhos" element={<SeoSeguroAutoGuarulhos />} />
             <Route path="/plano-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
             <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresarialGuarulhos />} />
