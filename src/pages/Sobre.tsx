@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import socioRoberto from "@/assets/socio-roberto.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
 
@@ -94,8 +95,8 @@ const Sobre = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Roberto */}
               <div className="bg-background rounded-2xl overflow-hidden border shadow-sm">
-                <div className="aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center">
-                  <User className="h-20 w-20 text-muted-foreground/30" />
+                <div className="aspect-[4/3] overflow-hidden bg-muted">
+                  <img src={socioRoberto} alt="Roberto Patrocínio — Sócio-fundador da Patro Seguros" className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Roberto Patrocínio</h3>
