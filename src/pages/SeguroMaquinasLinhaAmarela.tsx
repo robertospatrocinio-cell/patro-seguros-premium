@@ -38,17 +38,28 @@ Na Patro Seguros, somos especialistas em seguros para equipamentos pesados. Aval
         "Modificações e adaptações não autorizadas pelo fabricante",
         "Máquinas operando em áreas de conflito ou embargo judicial",
       ]}
-      pricingInfo="O valor do seguro de máquinas linha amarela varia entre 1% e 4% do valor do equipamento por ano. Uma retroescavadeira de R$ 300 mil pode ser segurada a partir de R$ 3.000/ano. Fatores que influenciam: tipo de operação, local de guarda, histórico de sinistros e dispositivos antifurto."
+      pricingInfo={{
+        intro: "O valor do seguro de máquinas linha amarela varia entre 1% e 4% do valor do equipamento por ano. Uma retroescavadeira de R$ 300 mil pode ser segurada a partir de R$ 3.000/ano.",
+        factors: [
+          "Tipo e valor do equipamento",
+          "Ano de fabricação e estado de conservação",
+          "Local de guarda e tipo de operação",
+          "Histórico de sinistros do segurado",
+          "Dispositivos antifurto e rastreador",
+          "Frequência de transporte entre obras",
+        ],
+        note: "Locadoras com múltiplos equipamentos podem negociar apólice de frota com desconto progressivo.",
+      }}
       realScenarios={[
         { title: "Roubo em Canteiro", description: "Uma escavadeira de R$ 800 mil foi roubada durante a madrugada em obra sem vigilância. O seguro cobriu o valor integral, permitindo a compra de equipamento novo em 30 dias." },
         { title: "Tombamento em Terraplanagem", description: "Retroescavadeira tombou durante operação em terreno íngreme. Os reparos custaram R$ 120 mil, cobertos integralmente pelo seguro, incluindo guincho especializado." },
         { title: "Incêndio no Motor", description: "Pá carregadeira teve incêndio no motor durante operação. O sinistro de R$ 180 mil foi resolvido em 20 dias, incluindo equipamento reserva durante o reparo." },
       ]}
       importantDetails={[
-        "Mantenha a manutenção preventiva em dia — seguradoras podem recusar sinistros por negligência na manutenção",
-        "Informe o local exato de guarda e operação — mudanças devem ser comunicadas à seguradora",
-        "Instale rastreador e dispositivos antifurto para reduzir o prêmio em até 20%",
-        "Contrate cobertura de transporte se a máquina se desloca entre obras frequentemente",
+        { title: "Manutenção Preventiva", content: "Mantenha a manutenção em dia — seguradoras podem recusar sinistros por negligência na manutenção do equipamento." },
+        { title: "Local de Guarda", content: "Informe o local exato de guarda e operação. Mudanças de canteiro devem ser comunicadas à seguradora para manter a cobertura válida." },
+        { title: "Dispositivos Antifurto", content: "Instale rastreador e dispositivos antifurto para reduzir o prêmio em até 20%. Algumas seguradoras exigem rastreador para máquinas acima de R$ 500 mil." },
+        { title: "Cobertura de Transporte", content: "Contrate cobertura de transporte se a máquina se desloca entre obras com frequência — acidentes durante o deslocamento em carretas são comuns." },
       ]}
       tip="Para locadoras de máquinas: é possível contratar apólice de frota para múltiplos equipamentos com desconto progressivo. Quanto mais máquinas seguradas, menor o custo por unidade."
       whoNeeds={[
