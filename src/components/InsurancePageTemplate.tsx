@@ -63,6 +63,7 @@ const InsurancePageTemplate = ({
       <FAQSchema faqs={faqs} />
       <Header />
       <main id="main-content">
+        <Breadcrumb items={[{ label: title }]} />
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label={`${title} — cotação gratuita`}>
           {heroImage && (
