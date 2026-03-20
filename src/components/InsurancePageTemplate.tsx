@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
