@@ -208,6 +208,10 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
+            <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
+            <Route path="/seguros/transportadoras" element={<NichoTransportadoras />} />
+            <Route path="/seguros/empresarios" element={<NichoEmpresarios />} />
+            <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
