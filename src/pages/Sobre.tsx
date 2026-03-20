@@ -114,7 +114,7 @@ const Sobre = () => {
                     <span className="bg-muted px-2 py-1 rounded">RC</span>
                   </div>
                   <div className="flex gap-2">
-                    <a href="https://www.linkedin.com/in/patro-seguros" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
+                    <a href="https://linkedin.com/in/roberto-patrocinio" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-3.5 w-3.5" /> LinkedIn
                     </a>
                     <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
