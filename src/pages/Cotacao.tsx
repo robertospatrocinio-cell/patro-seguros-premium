@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -49,6 +50,8 @@ const Cotacao = () => {
     );
     
     // Redirecionar para WhatsApp
+    trackCotacaoSubmit(values.insuranceType);
+    trackWhatsAppClick("formulario-cotacao");
     window.open(`https://wa.me/551151997500?text=${whatsappMessage}`, "_blank");
     
     toast.success("Redirecionando para WhatsApp...", {
