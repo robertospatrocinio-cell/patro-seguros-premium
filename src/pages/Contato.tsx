@@ -130,6 +130,11 @@ const Contato = () => {
                 </Card>
               </div>
             </div>
+
+            {/* Google Business Widget */}
+            <div className="mt-8">
+              <GoogleBusinessWidget />
+            </div>
           </div>
         </section>
 
