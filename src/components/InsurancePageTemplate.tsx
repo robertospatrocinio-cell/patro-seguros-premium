@@ -324,6 +324,17 @@ const InsurancePageTemplate = ({
           </div>
         </section>
 
+        {/* Formulário Rápido */}
+        <section className="py-24" aria-labelledby="formulario-heading">
+          <div className="container mx-auto px-4 max-w-xl">
+            <QuickQuoteForm
+              insuranceType={title}
+              extraFields={quoteFormFields}
+              trackingLabel={title.toLowerCase().replace(/\s+/g, "-")}
+            />
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="py-28 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,60%,0.12),transparent)]" />
