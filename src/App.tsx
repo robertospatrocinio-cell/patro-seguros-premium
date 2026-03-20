@@ -217,6 +217,7 @@ const App = () => (
             <Route path="/seguros/transportadoras" element={<NichoTransportadoras />} />
             <Route path="/seguros/empresarios" element={<NichoEmpresarios />} />
             <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
+            <Route path="/seguros/:tipo" element={<SegurosQuotePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
