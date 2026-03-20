@@ -87,7 +87,7 @@ const Consorcio = () => {
               Carro, moto, imóvel ou veículo pesado — sem juros, sem entrada e com parcelas que cabem no seu bolso. Economize até 40% comparado ao financiamento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-hero")}>
                 <Button size="lg" variant="cta" className="rounded-xl text-base px-8 w-full sm:w-auto">
                   Simular Consórcio Grátis
                 </Button>
