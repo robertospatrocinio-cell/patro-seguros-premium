@@ -201,6 +201,9 @@ const App = () => (
             <Route path="/lp/seguro-galpoes" element={<LandingSeguroGalpoes />} />
             <Route path="/lp/consorcio" element={<LandingConsorcio />} />
             <Route path="/lp/seguro-celular" element={<LandingSeguroCelular />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
