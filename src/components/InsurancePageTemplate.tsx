@@ -17,6 +17,14 @@ interface FAQ { question: string; answer: string; }
 interface HowItWorksStep { step: string; title: string; description: string; }
 interface Scenario { title: string; description: string; }
 
+interface QuoteFormField {
+  id: string;
+  label: string;
+  placeholder: string;
+  type?: "text" | "select";
+  options?: string[];
+}
+
 interface InsurancePageProps {
   title: string;
   subtitle: string;
@@ -38,6 +46,7 @@ interface InsurancePageProps {
   tips?: string[];
   quoteUrl?: string;
   heroImage?: string;
+  quoteFormFields?: QuoteFormField[];
 }
 
 const InsurancePageTemplate = ({
