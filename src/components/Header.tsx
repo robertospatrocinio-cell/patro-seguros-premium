@@ -395,6 +395,7 @@ const Header = () => {
                 <MobileLink to="/consorcio-veiculos-pesados">Veículos Pesados</MobileLink>
               </div>
             </MobileSection>
+            <Link to="/blog" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Blog</Link>
             <Link to="/sobre" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
             <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
 

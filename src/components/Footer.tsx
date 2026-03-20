@@ -88,8 +88,8 @@ const Footer = () => {
             <p className="text-[13px]">© {new Date().getFullYear()} Patro Corretora de Seguros · <span className="text-white/90 font-semibold">CNPJ 41.641.558/0001-33</span> · <span className="text-white/90 font-semibold">SUSEP 212113511</span></p>
             <div className="flex gap-6 text-[13px]">
               <Link to="/landing-pages" className="hover:text-white/90 transition-base">Campanhas</Link>
-              <span className="cursor-default hover:text-white/90 transition-base">Privacidade</span>
-              <span className="cursor-default hover:text-white/90 transition-base">Termos</span>
+              <Link to="/politica-privacidade" className="hover:text-white/90 transition-base">Privacidade</Link>
+              <Link to="/termos-de-uso" className="hover:text-white/90 transition-base">Termos</Link>
             </div>
           </div>
         </div>
