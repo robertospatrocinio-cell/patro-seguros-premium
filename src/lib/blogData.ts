@@ -1,0 +1,103 @@
+export interface BlogArticleMeta {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  tags: string[];
+  author: string;
+  date: string; // ISO date
+  readTime: number; // minutes
+}
+
+export const articles: BlogArticleMeta[] = [
+  { slug: "quanto-custa-seguro-auto", title: "Quanto Custa Seguro Auto em 2025?", excerpt: "Descubra os fatores que influenciam o preço do seguro auto e como economizar.", category: "Seguro Auto", tags: ["seguro auto", "preços", "economia"], author: "Roberto Patro", date: "2025-01-15", readTime: 8 },
+  { slug: "seguro-auto-vale-a-pena", title: "Seguro Auto Vale a Pena? Entenda os Prós e Contras", excerpt: "Análise completa sobre quando contratar seguro auto e quando não faz sentido.", category: "Seguro Auto", tags: ["seguro auto", "dicas"], author: "Sandra Patro", date: "2025-01-22", readTime: 7 },
+  { slug: "o-que-seguro-residencial-cobre", title: "O Que o Seguro Residencial Cobre?", excerpt: "Conheça todas as coberturas do seguro residencial e proteja seu lar.", category: "Seguro Residencial", tags: ["seguro residencial", "coberturas"], author: "Roberto Patro", date: "2025-01-28", readTime: 6 },
+  { slug: "quanto-custa-plano-de-saude", title: "Quanto Custa um Plano de Saúde em 2025?", excerpt: "Guia completo de preços de planos de saúde por faixa etária e operadora.", category: "Planos de Saúde", tags: ["plano de saúde", "preços"], author: "Sandra Patro", date: "2025-02-03", readTime: 9 },
+  { slug: "melhor-plano-saude-guarulhos", title: "Melhor Plano de Saúde em Guarulhos", excerpt: "Compare as principais operadoras que atendem Guarulhos e região.", category: "Planos de Saúde", tags: ["plano de saúde", "guarulhos"], author: "Roberto Patro", date: "2025-02-10", readTime: 8 },
+  { slug: "seguro-empresarial-o-que-cobre", title: "Seguro Empresarial: O Que Cobre?", excerpt: "Entenda todas as coberturas do seguro empresarial e proteja seu negócio.", category: "Seguro Empresarial", tags: ["seguro empresarial", "coberturas"], author: "Sandra Patro", date: "2025-02-17", readTime: 7 },
+  { slug: "seguro-para-tratores", title: "Seguro para Tratores: Guia Completo", excerpt: "Tudo sobre seguro de tratores, coberturas, preços e como contratar.", category: "Agronegócio", tags: ["agronegócio", "máquinas agrícolas"], author: "Roberto Patro", date: "2025-02-24", readTime: 8 },
+  { slug: "seguro-para-colheitadeiras", title: "Seguro para Colheitadeiras", excerpt: "Proteja sua colheitadeira contra roubo, incêndio e acidentes operacionais.", category: "Agronegócio", tags: ["agronegócio", "máquinas agrícolas"], author: "Sandra Patro", date: "2025-03-03", readTime: 7 },
+  { slug: "seguro-galpoes-industriais-guia", title: "Seguro para Galpões Industriais: Como Funciona", excerpt: "Guia completo sobre proteção para instalações industriais.", category: "Empresarial", tags: ["seguro empresarial", "galpões"], author: "Roberto Patro", date: "2025-03-10", readTime: 6 },
+  { slug: "7-seguros-proteger-familia", title: "Os 7 Seguros Mais Importantes para Proteger Sua Família", excerpt: "Descubra quais seguros toda família deveria ter.", category: "Dicas", tags: ["dicas", "família", "proteção"], author: "Sandra Patro", date: "2025-03-17", readTime: 9 },
+  { slug: "como-escolher-seguro-empresa", title: "Como Escolher o Seguro Ideal para Sua Empresa", excerpt: "Passo a passo para encontrar a proteção certa para o seu negócio.", category: "Empresarial", tags: ["seguro empresarial", "dicas"], author: "Roberto Patro", date: "2025-03-24", readTime: 7 },
+  { slug: "seguro-auto-7-erros", title: "Seguro Auto: 7 Erros que Fazem Você Pagar Mais", excerpt: "Evite esses erros comuns e economize no seguro do seu carro.", category: "Seguro Auto", tags: ["seguro auto", "economia", "dicas"], author: "Sandra Patro", date: "2025-03-31", readTime: 6 },
+  { slug: "seguro-vida-por-que-ter", title: "Seguro de Vida: Por Que Todo Adulto Deveria Ter Um", excerpt: "Entenda a importância do seguro de vida e como ele protege sua família.", category: "Seguro Vida", tags: ["seguro vida", "família"], author: "Roberto Patro", date: "2025-04-07", readTime: 8 },
+  { slug: "seguro-fianca-vs-caucao", title: "Seguro Fiança Locatícia vs. Caução: Qual Escolher?", excerpt: "Comparativo completo entre as duas modalidades de garantia locatícia.", category: "Seguro Fiança", tags: ["seguro fiança", "aluguel"], author: "Sandra Patro", date: "2025-04-14", readTime: 7 },
+  { slug: "o-que-e-responsabilidade-civil", title: "O Que É Responsabilidade Civil e Por Que Você Precisa", excerpt: "Entenda como o RC protege profissionais e empresas.", category: "RC", tags: ["responsabilidade civil", "profissionais"], author: "Roberto Patro", date: "2025-04-21", readTime: 6 },
+  { slug: "como-proteger-frota", title: "Como Proteger Sua Frota com Menor Custo", excerpt: "Estratégias para reduzir o custo do seguro de frota sem perder cobertura.", category: "Seguro Frota", tags: ["seguro frota", "economia"], author: "Sandra Patro", date: "2025-04-28", readTime: 7 },
+  { slug: "seguro-rural-como-funciona", title: "Seguro Rural: Como Funciona", excerpt: "Tudo sobre seguro agrícola, pecuário e de máquinas no campo.", category: "Agronegócio", tags: ["agronegócio", "seguro rural"], author: "Roberto Patro", date: "2025-05-05", readTime: 8 },
+  { slug: "como-funciona-cotacao-seguros", title: "Como Funciona a Cotação de Seguros", excerpt: "Entenda o processo de cotação e como escolher a melhor proposta.", category: "Dicas", tags: ["dicas", "cotação"], author: "Sandra Patro", date: "2025-05-12", readTime: 5 },
+  { slug: "dicas-evitar-sinistros", title: "Dicas para Evitar Sinistros no Dia a Dia", excerpt: "Prevenção é o melhor seguro. Confira dicas práticas.", category: "Dicas", tags: ["dicas", "prevenção", "sinistro"], author: "Roberto Patro", date: "2025-05-19", readTime: 6 },
+  { slug: "seguro-moto-vale-a-pena", title: "Seguro Moto Vale a Pena? Análise Completa", excerpt: "Descubra quando o seguro de moto compensa e como contratar.", category: "Seguro Moto", tags: ["seguro moto", "dicas"], author: "Sandra Patro", date: "2025-05-26", readTime: 7 },
+  { slug: "plano-saude-individual-vs-empresarial", title: "Plano de Saúde Individual vs Empresarial", excerpt: "Entenda as diferenças e qual é mais vantajoso para você.", category: "Planos de Saúde", tags: ["plano de saúde", "empresarial"], author: "Roberto Patro", date: "2025-06-02", readTime: 7 },
+  { slug: "seguro-viagem-internacional", title: "Seguro Viagem Internacional: O Que Você Precisa Saber", excerpt: "Guia completo para viajar protegido para qualquer destino.", category: "Seguro Viagem", tags: ["seguro viagem", "internacional"], author: "Sandra Patro", date: "2025-06-09", readTime: 8 },
+  { slug: "seguro-condominio-obrigatorio", title: "Seguro Condomínio é Obrigatório? Entenda a Lei", excerpt: "Saiba sobre a obrigatoriedade e coberturas do seguro condominial.", category: "Seguro Condomínio", tags: ["seguro condomínio", "legislação"], author: "Roberto Patro", date: "2025-06-16", readTime: 6 },
+  { slug: "seguro-cyber-empresas", title: "Seguro Cyber: Proteção Digital para Empresas", excerpt: "Proteja sua empresa contra ataques cibernéticos e vazamento de dados.", category: "Seguro Cyber", tags: ["seguro cyber", "empresarial", "tecnologia"], author: "Sandra Patro", date: "2025-06-23", readTime: 7 },
+  { slug: "previdencia-privada-vgbl-pgbl", title: "Previdência Privada: VGBL ou PGBL?", excerpt: "Entenda as diferenças e escolha o melhor plano de previdência.", category: "Previdência", tags: ["previdência", "investimentos"], author: "Roberto Patro", date: "2025-06-30", readTime: 8 },
+  { slug: "seguro-celular-como-contratar", title: "Seguro Celular: Como Contratar e Quanto Custa", excerpt: "Proteja seu smartphone contra roubo, furto e quebra acidental.", category: "Seguro Celular", tags: ["seguro celular", "tecnologia"], author: "Sandra Patro", date: "2025-07-07", readTime: 6 },
+  { slug: "seguro-transporte-cargas", title: "Seguro de Transporte de Cargas: Guia Completo", excerpt: "Tudo sobre seguro de carga e RCTR-C para transportadoras.", category: "Seguro Transporte", tags: ["seguro transporte", "logística"], author: "Roberto Patro", date: "2025-07-14", readTime: 8 },
+  { slug: "seguro-engenharia-obras", title: "Seguro Engenharia para Obras e Construções", excerpt: "Proteção para riscos de engenharia em obras civis e montagem.", category: "Seguro Engenharia", tags: ["seguro engenharia", "construção"], author: "Sandra Patro", date: "2025-07-21", readTime: 7 },
+  { slug: "como-acionar-seguro-auto", title: "Como Acionar o Seguro Auto: Passo a Passo", excerpt: "Guia prático para quando você precisar usar seu seguro.", category: "Seguro Auto", tags: ["seguro auto", "sinistro", "dicas"], author: "Roberto Patro", date: "2025-07-28", readTime: 6 },
+  { slug: "seguro-odontologico-coberturas", title: "Seguro Odontológico: Coberturas e Valores", excerpt: "Entenda o que o seguro odonto cobre e quanto custa.", category: "Seguro Odonto", tags: ["seguro odonto", "saúde"], author: "Sandra Patro", date: "2025-08-04", readTime: 6 },
+  { slug: "seguro-acidentes-pessoais-passageiros-uber-vans", title: "Seguro de Acidentes Pessoais para Passageiros de Uber, Vans Escolares e Vans de Transporte", excerpt: "Entenda como o seguro de acidentes pessoais protege passageiros de aplicativos e vans.", category: "Acidentes Pessoais", tags: ["acidentes pessoais", "transporte"], author: "Roberto Patro", date: "2025-08-11", readTime: 9 },
+  { slug: "cobertura-vidros-retrovisores-farois-seguro-auto", title: "Cobertura de Vidros, Retrovisores e Faróis no Seguro Auto: Guia Completo", excerpt: "Saiba como funciona a cobertura de vidros, retrovisores e faróis no seguro auto.", category: "Seguro Auto", tags: ["seguro auto", "coberturas"], author: "Sandra Patro", date: "2025-08-18", readTime: 7 },
+  { slug: "seguro-auto-premium-diferenciais", title: "Seguro Auto Premium: Conheça os Principais Diferenciais", excerpt: "Descubra o que diferencia o seguro auto premium do convencional.", category: "Seguro Auto", tags: ["seguro auto", "premium"], author: "Roberto Patro", date: "2025-08-25", readTime: 7 },
+  { slug: "seguro-carta-verde-mercosul", title: "Seguro Carta Verde: Tudo Sobre a Proteção Obrigatória para o Mercosul", excerpt: "Entenda o que é o Seguro Carta Verde, por que é obrigatório e como contratar.", category: "Seguro Auto", tags: ["seguro auto", "viagem", "mercosul"], author: "Sandra Patro", date: "2025-09-01", readTime: 8 },
+  { slug: "rc-clinicas-estetica", title: "Seguro RC para Clínicas de Estética: Proteção Essencial", excerpt: "Entenda por que clínicas de estética precisam de seguro de responsabilidade civil.", category: "RC", tags: ["responsabilidade civil", "estética", "profissionais"], author: "Roberto Patro", date: "2025-09-08", readTime: 7 },
+  { slug: "seguro-condominio-guia-completo", title: "Seguro de Condomínio: Guia Completo — Obrigatoriedade, Coberturas e Como Contratar", excerpt: "Saiba tudo sobre o seguro condominial obrigatório.", category: "Seguro Condomínio", tags: ["seguro condomínio", "legislação", "coberturas"], author: "Sandra Patro", date: "2025-09-15", readTime: 10 },
+  { slug: "seguro-agricola-contra-granizo", title: "Seguro Agrícola Contra Granizo: Proteja Sua Lavoura", excerpt: "Entenda como o seguro agrícola protege contra granizo.", category: "Agronegócio", tags: ["agronegócio", "seguro agrícola", "clima"], author: "Roberto Patro", date: "2025-09-22", readTime: 8 },
+  { slug: "consorcio-imoveis-casa-propria", title: "Consórcio de Imóveis: O Sonho da Casa Própria ao Seu Alcance", excerpt: "Descubra como o consórcio de imóveis funciona e suas vantagens.", category: "Consórcio", tags: ["consórcio", "imóveis"], author: "Sandra Patro", date: "2025-09-29", readTime: 9 },
+  { slug: "seguro-cobertura-lucros-cessantes", title: "Os Benefícios do Seguro com Cobertura de Lucros Cessantes", excerpt: "Entenda como a cobertura de lucros cessantes protege o faturamento da sua empresa.", category: "Empresarial", tags: ["seguro empresarial", "lucros cessantes"], author: "Roberto Patro", date: "2025-10-06", readTime: 10 },
+  { slug: "5-dicas-baratear-seguro-auto", title: "5 Dicas para Baratear o Seguro Auto", excerpt: "Confira estratégias práticas para pagar menos no seguro do seu carro.", category: "Seguro Auto", tags: ["seguro auto", "economia", "dicas"], author: "Sandra Patro", date: "2025-10-13", readTime: 5 },
+  { slug: "coberturas-assistencia-24h-seguro-residencial", title: "Coberturas da Assistência 24h e Benefícios do Seguro Residencial", excerpt: "Descubra tudo o que a assistência 24h do seguro residencial cobre.", category: "Seguro Residencial", tags: ["seguro residencial", "assistência 24h"], author: "Roberto Patro", date: "2025-10-20", readTime: 7 },
+  { slug: "3-erros-produtor-rural-seguro-maquinas", title: "3 Coisas que o Produtor Rural Esquece na Hora de Contratar um Seguro de Máquinas", excerpt: "Erros comuns que podem deixar tratores e colheitadeiras sem proteção real.", category: "Agronegócio", tags: ["agronegócio", "máquinas agrícolas", "dicas"], author: "Sandra Patro", date: "2025-10-27", readTime: 6 },
+  { slug: "seguro-veiculos-blindados", title: "Seguro para Veículos Blindados: Guia Completo", excerpt: "Tudo sobre seguro de carros blindados: coberturas, preços e exigências.", category: "Seguro Auto", tags: ["seguro auto", "blindados"], author: "Roberto Patro", date: "2025-11-03", readTime: 8 },
+  { slug: "penhor-rural-seguro-maquinas-agricolas", title: "Penhor Rural e Seguro de Máquinas Agrícolas: O Que Todo Produtor Precisa Saber", excerpt: "Entenda o que é o penhor rural e como ele se relaciona com o seguro de máquinas.", category: "Agronegócio", tags: ["agronegócio", "penhor rural", "máquinas agrícolas"], author: "Sandra Patro", date: "2025-11-10", readTime: 9 },
+  { slug: "seguro-pivo-central-equipamentos-irrigacao", title: "Seguro de Pivô Central e Equipamentos de Irrigação: Guia Completo", excerpt: "Tudo sobre seguro para pivôs centrais, carretéis, gotejamento e aspersão.", category: "Agronegócio", tags: ["agronegócio", "irrigação"], author: "Roberto Patro", date: "2025-11-17", readTime: 8 },
+  { slug: "carros-mais-roubados-furtados-sp-2025", title: "Ranking: Os 10 Carros Mais Roubados e Furtados de SP em 2025", excerpt: "Confira o ranking atualizado dos veículos mais visados em São Paulo.", category: "Seguro Auto", tags: ["seguro auto", "roubo", "são paulo"], author: "Sandra Patro", date: "2025-11-24", readTime: 7 },
+  { slug: "5-acoes-apos-acidente-veicular", title: "5 Ações Essenciais Após um Acidente Veicular", excerpt: "Saiba o que fazer nos primeiros minutos após uma colisão.", category: "Seguro Auto", tags: ["seguro auto", "sinistro", "dicas"], author: "Roberto Patro", date: "2025-12-01", readTime: 6 },
+  { slug: "seguro-rc-medicos", title: "Seguro RC para Médicos: Por Que Todo Profissional da Saúde Precisa", excerpt: "Entenda como o Seguro RC protege médicos contra processos e reclamações.", category: "RC", tags: ["responsabilidade civil", "médicos", "saúde"], author: "Sandra Patro", date: "2025-12-08", readTime: 8 },
+  { slug: "rc-geral-profissional-do-diferencas", title: "RC Geral, RC Profissional e D&O: Entenda as Diferenças", excerpt: "Descubra as diferenças entre os três principais seguros de RC.", category: "RC", tags: ["responsabilidade civil", "empresarial"], author: "Roberto Patro", date: "2025-12-15", readTime: 7 },
+  { slug: "seguros-contra-alagamentos", title: "Seguros Contra Alagamentos: Quais Cobrem e Como se Proteger", excerpt: "Descubra quais seguros cobrem alagamentos, enchentes e inundações.", category: "Dicas", tags: ["dicas", "alagamento", "clima"], author: "Sandra Patro", date: "2025-12-22", readTime: 8 },
+  { slug: "saude-mental-seguros-protecao", title: "Saúde Mental e Seguros: Como Proteger Seu Bem-Estar e o da Sua Equipe", excerpt: "Descubra como planos de saúde e seguros apoiam a saúde mental.", category: "Planos de Saúde", tags: ["plano de saúde", "saúde mental", "empresarial"], author: "Roberto Patro", date: "2026-01-05", readTime: 9 },
+  { slug: "plano-saude-empresarial-pme", title: "Como Escolher o Melhor Plano de Saúde Empresarial para PMEs", excerpt: "Guia completo para PMEs escolherem o plano de saúde ideal.", category: "Planos de Saúde", tags: ["plano de saúde", "PME", "empresarial"], author: "Sandra Patro", date: "2026-01-12", readTime: 9 },
+  { slug: "beneficios-seguro-imobiliario", title: "Os Benefícios do Seguro Imobiliário: Proteção Completa para Seu Patrimônio", excerpt: "Descubra os 10 principais benefícios do seguro imobiliário.", category: "Seguro Imobiliário", tags: ["seguro imobiliário", "patrimônio"], author: "Roberto Patro", date: "2026-01-19", readTime: 8 },
+  { slug: "seguro-condominio-responsabilidades-sindico", title: "Seguro de Condomínio: Responsabilidades do Síndico e Como Evitar Problemas", excerpt: "Entenda as obrigações legais do síndico quanto ao seguro condominial.", category: "Seguro Condomínio", tags: ["seguro condomínio", "síndico", "legislação"], author: "Sandra Patro", date: "2026-01-26", readTime: 8 },
+  { slug: "fianca-locaticia-guia-inquilinos-proprietarios", title: "Seguro Fiança Locatícia: Guia Completo para Inquilinos e Proprietários", excerpt: "Saiba como funciona o seguro fiança, quanto custa e vantagens.", category: "Seguro Fiança", tags: ["seguro fiança", "aluguel", "imobiliário"], author: "Roberto Patro", date: "2026-02-02", readTime: 9 },
+  { slug: "seguro-rc-eventos-exposicoes", title: "Seguro RC para Eventos e Exposições: Tudo o Que Organizadores Precisam Saber", excerpt: "Guia completo sobre o seguro RC para feiras, shows e eventos corporativos.", category: "RC", tags: ["responsabilidade civil", "eventos"], author: "Sandra Patro", date: "2026-02-09", readTime: 8 },
+];
+
+// All unique tags sorted
+export const allTags = [...new Set(articles.flatMap(a => a.tags))].sort();
+
+// All unique categories sorted
+export const allCategories = [...new Set(articles.map(a => a.category))].sort();
+
+// Get article metadata by slug
+export const getArticleMeta = (slug: string): BlogArticleMeta | undefined =>
+  articles.find(a => a.slug === slug);
+
+// Get related articles (same category or shared tags, excluding current)
+export const getRelatedArticles = (slug: string, limit = 3): BlogArticleMeta[] => {
+  const current = getArticleMeta(slug);
+  if (!current) return articles.slice(0, limit);
+
+  const scored = articles
+    .filter(a => a.slug !== slug)
+    .map(a => {
+      let score = 0;
+      if (a.category === current.category) score += 3;
+      score += a.tags.filter(t => current.tags.includes(t)).length;
+      return { ...a, score };
+    })
+    .sort((a, b) => b.score - a.score);
+
+  return scored.slice(0, limit);
+};
+
+// Format date to Brazilian locale
+export const formatDate = (dateStr: string): string => {
+  const date = new Date(dateStr + "T12:00:00");
+  return date.toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
+};

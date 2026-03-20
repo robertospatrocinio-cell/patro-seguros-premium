@@ -4,10 +4,12 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ArrowLeft } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
@@ -5007,6 +5009,8 @@ const defaultArticle = {
 const BlogArticle = () => {
   const { slug } = useParams();
   const article = (slug && articlesContent[slug]) || defaultArticle;
+  const meta = slug ? getArticleMeta(slug) : undefined;
+  const related = slug ? getRelatedArticles(slug, 3) : [];
 
   return (
     <>
@@ -5032,6 +5036,14 @@ const BlogArticle = () => {
               <ArrowLeft className="mr-1 h-4 w-4" /> Voltar ao Blog
             </Link>
             <h1 className="text-white mb-4">{article.title}</h1>
+            {meta && (
+              <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
+                <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" />{meta.author}</span>
+                <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{formatDate(meta.date)}</span>
+                <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{meta.readTime} min de leitura</span>
+                <span className="bg-white/10 px-2 py-0.5 rounded text-xs">{meta.category}</span>
+              </div>
+            )}
           </div>
         </section>
 
@@ -5057,6 +5069,17 @@ const BlogArticle = () => {
               </div>
             )}
 
+            {/* Tags */}
+            {meta && meta.tags.length > 0 && (
+              <div className="mt-8 flex flex-wrap gap-2">
+                {meta.tags.map(tag => (
+                  <Link key={tag} to="/blog" className="bg-muted px-3 py-1 rounded-full text-xs text-muted-foreground hover:bg-primary/10 hover:text-primary transition-colors">
+                    #{tag}
+                  </Link>
+                ))}
+              </div>
+            )}
+
             <div className="mt-12 p-8 bg-muted rounded-xl text-center">
               <h3 className="text-2xl font-bold mb-4">Precisa de Ajuda com Seguros?</h3>
               <p className="text-muted-foreground mb-6">Fale com nossos especialistas e encontre a melhor proteção.</p>
@@ -5071,6 +5094,35 @@ const BlogArticle = () => {
                 </a>
               </div>
             </div>
+
+            {/* Artigos Relacionados */}
+            {related.length > 0 && (
+              <div className="mt-16">
+                <h2 className="text-xl font-bold mb-6">Artigos Relacionados</h2>
+                <div className="grid md:grid-cols-3 gap-5">
+                  {related.map(rel => (
+                    <Link key={rel.slug} to={`/blog/${rel.slug}`}>
+                      <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
+                        <div className="aspect-video w-full overflow-hidden">
+                          <OptimizedImage
+                            src={getArticleImage(rel.slug)}
+                            alt={rel.title}
+                            className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+                        <CardContent className="pt-3">
+                          <span className="text-[10px] font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">{rel.category}</span>
+                          <h3 className="text-sm font-semibold mt-2 mb-1">{rel.title}</h3>
+                          <div className="flex items-center gap-2 text-[11px] text-muted-foreground">
+                            <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{rel.readTime} min</span>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>
