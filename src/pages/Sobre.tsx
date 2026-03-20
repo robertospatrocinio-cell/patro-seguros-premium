@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram } from "lucide-react";
+import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -7,8 +7,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
-import socioRoberto from "@/assets/socio-roberto.webp";
-import sociaSandra from "@/assets/socia-sandra.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
 
@@ -20,12 +18,12 @@ const stats = [
 ];
 
 const equipe = [
-  { nome: "Marcos Oliveira", cargo: "Corretor — Seguros Empresariais", iniciais: "MO" },
-  { nome: "Juliana Costa", cargo: "Corretora — Planos de Saúde", iniciais: "JC" },
-  { nome: "Rafael Santos", cargo: "Corretor — Seguros Auto e Frota", iniciais: "RS" },
-  { nome: "Patrícia Lima", cargo: "Corretora — Agronegócio", iniciais: "PL" },
-  { nome: "Lucas Ferreira", cargo: "Corretor — RC e Vida", iniciais: "LF" },
-  { nome: "Camila Souza", cargo: "Assistente Administrativa", iniciais: "CS" },
+  { nome: "Roberto", cargo: "Sócio-Fundador · Diretor Comercial", iniciais: "RP" },
+  { nome: "Sandra", cargo: "Sócia-Fundadora · Diretora de Operações", iniciais: "SP" },
+  { nome: "Letícia", cargo: "Corretora — Planos de Saúde", iniciais: "LE" },
+  { nome: "João Carlos", cargo: "Corretor — Seguros Empresariais", iniciais: "JC" },
+  { nome: "Luciana", cargo: "Corretora — Seguros Pessoais", iniciais: "LU" },
+  { nome: "Gabriela", cargo: "Assistente Administrativa", iniciais: "GA" },
 ];
 
 const Sobre = () => {
@@ -68,8 +66,8 @@ const Sobre = () => {
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
                 A <strong className="text-foreground">Patro Corretora de Seguros</strong> nasceu com um propósito claro:
-                transformar a forma como as pessoas e empresas de Guarulhos se protegem. Fundada por <strong className="text-foreground">Roberto e Sandra Patro</strong>,
-                profissionais com mais de 15 anos de experiência combinada no mercado de seguros, nossa corretora se destaca
+                transformar a forma como as pessoas e empresas de Guarulhos se protegem. Fundada por <strong className="text-foreground">Roberto e Sandra Patrocínio</strong>,
+                profissionais com mais de 30 anos de experiência combinada no mercado de seguros, nossa corretora se destaca
                 pelo atendimento humanizado e pela busca incansável pelas melhores soluções para cada cliente.
               </p>
               <p>
@@ -96,11 +94,11 @@ const Sobre = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {/* Roberto */}
               <div className="bg-background rounded-2xl overflow-hidden border shadow-sm">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={socioRoberto} alt="Roberto Patro — Sócio-fundador da Patro Seguros" className="w-full h-full object-cover object-top" />
+                <div className="aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center">
+                  <User className="h-20 w-20 text-muted-foreground/30" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold">Roberto Patro</h3>
+                  <h3 className="text-xl font-bold">Roberto Patrocínio</h3>
                   <p className="text-sm text-primary font-medium mb-3">Sócio-Fundador · Diretor Comercial</p>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     Especialista em seguros empresariais, agronegócio e responsabilidade civil. Com ampla experiência no mercado,
@@ -126,11 +124,11 @@ const Sobre = () => {
 
               {/* Sandra */}
               <div className="bg-background rounded-2xl overflow-hidden border shadow-sm">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img src={sociaSandra} alt="Sandra Patro — Sócia-fundadora da Patro Seguros" className="w-full h-full object-cover object-top" />
+                <div className="aspect-[4/3] overflow-hidden bg-muted flex items-center justify-center">
+                  <User className="h-20 w-20 text-muted-foreground/30" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold">Sandra Patro</h3>
+                  <h3 className="text-xl font-bold">Sandra Patrocínio</h3>
                   <p className="text-sm text-primary font-medium mb-3">Sócia-Fundadora · Diretora de Operações</p>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     Especialista em planos de saúde, seguros pessoais e gestão de sinistros. Sandra é a responsável pela
