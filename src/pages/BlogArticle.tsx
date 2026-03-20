@@ -5009,6 +5009,8 @@ const defaultArticle = {
 const BlogArticle = () => {
   const { slug } = useParams();
   const article = (slug && articlesContent[slug]) || defaultArticle;
+  const meta = slug ? getArticleMeta(slug) : undefined;
+  const related = slug ? getRelatedArticles(slug, 3) : [];
 
   return (
     <>
@@ -5034,6 +5036,14 @@ const BlogArticle = () => {
               <ArrowLeft className="mr-1 h-4 w-4" /> Voltar ao Blog
             </Link>
             <h1 className="text-white mb-4">{article.title}</h1>
+            {meta && (
+              <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
+                <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" />{meta.author}</span>
+                <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{formatDate(meta.date)}</span>
+                <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{meta.readTime} min de leitura</span>
+                <span className="bg-white/10 px-2 py-0.5 rounded text-xs">{meta.category}</span>
+              </div>
+            )}
           </div>
         </section>
 
