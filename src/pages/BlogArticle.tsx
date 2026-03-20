@@ -5,6 +5,7 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowLeft } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 
@@ -5060,10 +5061,10 @@ const BlogArticle = () => {
               <h3 className="text-2xl font-bold mb-4">Precisa de Ajuda com Seguros?</h3>
               <p className="text-muted-foreground mb-6">Fale com nossos especialistas e encontre a melhor proteção.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/cotacao">
+                <Link to="/cotacao" onClick={() => trackCotacaoClick("blog-artigo")}>
                   <Button size="lg">Pedir Cotação</Button>
                 </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("blog-artigo")}>
                   <Button size="lg" variant="cta">
                     <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp
                   </Button>

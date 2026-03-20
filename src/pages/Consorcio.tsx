@@ -4,6 +4,7 @@ import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Car, Bike, Home, Truck, CheckCircle, TrendingUp, Shield, Clock, Users, Award, ArrowRight, HelpCircle, Phone } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20saber%20mais%20sobre%20cons%C3%B3rcio.";
 
@@ -86,7 +87,7 @@ const Consorcio = () => {
               Carro, moto, imóvel ou veículo pesado — sem juros, sem entrada e com parcelas que cabem no seu bolso. Economize até 40% comparado ao financiamento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-hero")}>
                 <Button size="lg" variant="cta" className="rounded-xl text-base px-8 w-full sm:w-auto">
                   Simular Consórcio Grátis
                 </Button>
@@ -140,7 +141,7 @@ const Consorcio = () => {
                     </Button>
                   </Link>
                 ) : (
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full" onClick={() => trackWhatsAppClick("consorcio-modalidade")}>
                     <Button className="w-full rounded-xl group-hover:bg-primary">
                       Simular {m.title} <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
@@ -250,7 +251,7 @@ const Consorcio = () => {
             Faça uma simulação gratuita agora e descubra quanto vai economizar com o consórcio. Sem compromisso!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-cta")}>
               <Button size="lg" variant="cta" className="rounded-xl text-base px-10">
                 Simular Agora pelo WhatsApp
               </Button>
@@ -307,7 +308,7 @@ const Consorcio = () => {
                 (11) 5199-7500
               </Button>
             </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-contato")}>
               <Button variant="cta" className="rounded-xl">
                 WhatsApp
               </Button>

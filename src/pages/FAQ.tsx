@@ -5,6 +5,7 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
@@ -110,7 +111,7 @@ const FAQ = () => {
               Fale diretamente com um especialista da Patro. Atendimento rápido e personalizado.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("faq")}>
                 <Button size="lg" className="rounded-lg bg-white text-foreground hover:bg-white/90 h-11 px-7 text-[13px] font-semibold">
                   <MessageCircle className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" /> Falar no WhatsApp
                 </Button>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Shield, Users, Clock, Award, MessageCircle, Phone } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -20,10 +21,10 @@ const SeoCorretoraGuarulhos = () => (
             A Patro Seguros é a corretora de seguros mais completa de Guarulhos. Atendimento consultivo, cotação rápida e as melhores seguradoras do mercado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/cotacao">
+            <Link to="/cotacao" onClick={() => trackCotacaoClick("seo-corretora-guarulhos")}>
               <Button size="lg" className="text-lg px-8"><Shield className="mr-2 h-5 w-5" /> Solicitar Cotação</Button>
             </Link>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("seo-corretora-guarulhos")}>
               <Button size="lg" variant="cta" className="text-lg px-8"><MessageCircle className="mr-2 h-5 w-5" /> WhatsApp</Button>
             </a>
           </div>

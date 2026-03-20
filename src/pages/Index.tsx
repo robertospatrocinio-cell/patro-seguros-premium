@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Star, Zap, Headphones } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -97,13 +98,13 @@ const Index = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Link to="/cotacao" className="w-full sm:w-auto">
+                <Link to="/cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick("homepage")}>
                   <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg bg-white text-foreground hover:bg-white/90 h-11 font-semibold tracking-tight">
                     Solicitar Cotação Grátis
                     <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
                   </Button>
                 </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("homepage-hero")}>
                   <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] hover:text-white font-medium tracking-tight">
                     <MessageCircle className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
                     WhatsApp
