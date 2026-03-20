@@ -45,21 +45,8 @@ const diferenciais = [
   { icon: Headphones, title: "Suporte em sinistro", desc: "Cuidamos de todo o processo: abertura, acompanhamento e resolução." },
 ];
 
-import avatarMaria from "@/assets/avatar-maria.webp";
-import avatarJoao from "@/assets/avatar-joao.webp";
-import avatarAna from "@/assets/avatar-ana.webp";
-import avatarCarlos from "@/assets/avatar-carlos.webp";
-import avatarFernanda from "@/assets/avatar-fernanda.webp";
-import avatarRoberto from "@/assets/avatar-roberto.webp";
 
-const testimonials = [
-  { name: "Maria S.", role: "Empresária — Seguro Empresarial", content: "Atendimento excepcional. A equipe da Patro encontrou o seguro perfeito para minha empresa em poucas horas. Sinto que meu patrimônio está 100% protegido.", avatar: avatarMaria },
-  { name: "João R.", role: "Autônomo — Seguro Auto", content: "Em menos de 24h tinha minha cotação comparativa. Contratei o melhor seguro auto pagando menos do que eu esperava. Recomendo demais!", avatar: avatarJoao },
-  { name: "Ana Paula M.", role: "Advogada — Seguro RC Profissional", content: "Profissionais que entendem do assunto. Me orientaram sobre o RC profissional com muita clareza e encontraram a melhor cobertura.", avatar: avatarAna },
-  { name: "Carlos H.", role: "Médico — Plano de Saúde", content: "Precisava de um plano de saúde completo para minha família. A Patro comparou várias operadoras e encontrou exatamente o que eu precisava.", avatar: avatarCarlos },
-  { name: "Fernanda L.", role: "Designer — Seguro Residencial", content: "Minha casa é meu maior bem. A Patro me ajudou a proteger com o melhor custo-benefício. O suporte no sinistro foi impecável!", avatar: avatarFernanda },
-  { name: "Roberto A.", role: "Produtor Rural — Seguro Rural", content: "Proteger minha lavoura era prioridade. A equipe entendeu a realidade do campo e encontrou a cobertura ideal. Parceria de confiança!", avatar: avatarRoberto },
-];
+
 
 const faqs = [
   { question: "Quanto tempo leva para receber uma cotação?", answer: "Em até 2 horas úteis você recebe sua cotação personalizada com propostas de múltiplas seguradoras." },
