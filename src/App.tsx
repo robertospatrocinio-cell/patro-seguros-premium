@@ -97,6 +97,9 @@ const LandingSeguroMoto = lazy(() => import("./pages/LandingSeguroMoto"));
 const LandingSeguroGalpoes = lazy(() => import("./pages/LandingSeguroGalpoes"));
 const LandingConsorcio = lazy(() => import("./pages/LandingConsorcio"));
 const LandingSeguroCelular = lazy(() => import("./pages/LandingSeguroCelular"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
+const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
