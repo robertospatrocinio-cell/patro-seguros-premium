@@ -43,6 +43,8 @@ const IndiqueAmigo = () => {
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     const text = `Indicação via site:\n\nCliente: ${values.nomeCliente}\nTel: ${values.telefoneCliente}\n\nIndicado: ${values.nomeIndicado}\nTel: ${values.telefoneIndicado}\nSeguro: ${values.tipoSeguro}\nMensagem: ${values.mensagem || "Não informada"}`;
     const encoded = encodeURIComponent(text);
+    trackCotacaoSubmit(`indicacao-${values.tipoSeguro}`);
+    trackWhatsAppClick("indique-amigo");
     window.open(`https://wa.me/551151997500?text=${encoded}`, "_blank");
     setSubmitted(true);
   };

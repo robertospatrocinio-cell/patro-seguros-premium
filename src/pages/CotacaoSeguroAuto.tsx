@@ -54,7 +54,7 @@ const CotacaoSeguroAuto = () => {
             <p className="text-muted-foreground mb-8">
               Nosso time está pronto para te ajudar a encontrar a melhor proteção para o seu veículo.
             </p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("cotacao-seguro-auto")}>
               <Button size="lg" variant="cta" className="text-lg px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>

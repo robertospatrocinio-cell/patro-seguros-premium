@@ -111,7 +111,7 @@ const FAQ = () => {
               Fale diretamente com um especialista da Patro. Atendimento rápido e personalizado.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("faq")}>
                 <Button size="lg" className="rounded-lg bg-white text-foreground hover:bg-white/90 h-11 px-7 text-[13px] font-semibold">
                   <MessageCircle className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" /> Falar no WhatsApp
                 </Button>

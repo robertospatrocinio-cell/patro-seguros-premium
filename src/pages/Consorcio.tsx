@@ -308,7 +308,7 @@ const Consorcio = () => {
                 (11) 5199-7500
               </Button>
             </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-contato")}>
               <Button variant="cta" className="rounded-xl">
                 WhatsApp
               </Button>
