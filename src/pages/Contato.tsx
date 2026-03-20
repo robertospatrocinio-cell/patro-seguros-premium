@@ -2,9 +2,17 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 
+const contatoFaqs = [
+  { question: "Preciso agendar para ser atendido?", answer: "Não é obrigatório, mas recomendamos agendar para garantir atendimento personalizado e sem espera. Entre em contato pelo WhatsApp para agendar." },
+  { question: "Atendem fora do horário comercial?", answer: "Para emergências e sinistros, temos plantão 24h. Para cotações e dúvidas gerais, atendemos de segunda a sexta das 9h às 18h e sábados das 9h às 13h." },
+  { question: "Posso ser atendido online?", answer: "Sim! Grande parte do nosso atendimento é feito por WhatsApp, e-mail e videochamada. Você não precisa vir até o escritório se não quiser." },
+  { question: "Quanto tempo demora para receber resposta?", answer: "Respondemos em até 2 horas úteis para todas as solicitações. Cotações completas são entregues no mesmo dia ou em até 24h para casos mais complexos." },
+];
 const Contato = () => {
   return (
     <>
