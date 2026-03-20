@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/tracking";
 import heroImg from "@/assets/hero-planos-saude.webp";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
