@@ -253,6 +253,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+              <Link to="/blog" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Blog</Link>
               <Link to="/sobre" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Sobre</Link>
               <Link to="/contato" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Contato</Link>
             </div>
