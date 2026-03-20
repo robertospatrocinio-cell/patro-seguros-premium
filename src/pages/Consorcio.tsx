@@ -251,7 +251,7 @@ const Consorcio = () => {
             Faça uma simulação gratuita agora e descubra quanto vai economizar com o consórcio. Sem compromisso!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-cta")}>
               <Button size="lg" variant="cta" className="rounded-xl text-base px-10">
                 Simular Agora pelo WhatsApp
               </Button>
