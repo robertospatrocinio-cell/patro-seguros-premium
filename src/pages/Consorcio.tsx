@@ -141,7 +141,7 @@ const Consorcio = () => {
                     </Button>
                   </Link>
                 ) : (
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full">
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full" onClick={() => trackWhatsAppClick("consorcio-modalidade")}>
                     <Button className="w-full rounded-xl group-hover:bg-primary">
                       Simular {m.title} <ArrowRight className="h-4 w-4 ml-2" />
                     </Button>
