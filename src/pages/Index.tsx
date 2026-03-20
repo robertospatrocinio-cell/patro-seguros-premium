@@ -247,10 +247,19 @@ const Index = () => {
                 <Link to="/sobre"><Button variant="outline" className="rounded-lg text-[13px] h-10">Conheça a Patro</Button></Link>
                 <Link to="/indique-um-amigo"><Button variant="ghost" className="rounded-lg text-primary text-[13px] h-10">Indique um amigo <ArrowRight className="ml-1 h-3 w-3" aria-hidden="true" /></Button></Link>
               </div>
-              {/* Google Business Widget */}
-              <div className="mt-10 max-w-sm mx-auto">
-                <GoogleBusinessWidget />
-              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Google Meu Negócio */}
+        <section className="py-16 md:py-24 gradient-surface" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="google-business-heading">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center mb-10">
+              <span className="section-label">Google Meu Negócio</span>
+              <h2 id="google-business-heading" className="mt-3">Avaliações reais de clientes reais</h2>
+            </div>
+            <div className="max-w-md mx-auto">
+              <GoogleBusinessWidget />
             </div>
           </div>
         </section>
