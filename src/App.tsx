@@ -100,6 +100,10 @@ const LandingSeguroCelular = lazy(() => import("./pages/LandingSeguroCelular"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
+const NichoMedicos = lazy(() => import("./pages/NichoMedicos"));
+const NichoTransportadoras = lazy(() => import("./pages/NichoTransportadoras"));
+const NichoEmpresarios = lazy(() => import("./pages/NichoEmpresarios"));
+const NichoProfissionaisLiberais = lazy(() => import("./pages/NichoProfissionaisLiberais"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -204,6 +208,10 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
+            <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
+            <Route path="/seguros/transportadoras" element={<NichoTransportadoras />} />
+            <Route path="/seguros/empresarios" element={<NichoEmpresarios />} />
+            <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
