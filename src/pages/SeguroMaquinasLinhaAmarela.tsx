@@ -61,7 +61,7 @@ Na Patro Seguros, somos especialistas em seguros para equipamentos pesados. Aval
         { title: "Dispositivos Antifurto", content: "Instale rastreador e dispositivos antifurto para reduzir o prêmio em até 20%. Algumas seguradoras exigem rastreador para máquinas acima de R$ 500 mil." },
         { title: "Cobertura de Transporte", content: "Contrate cobertura de transporte se a máquina se desloca entre obras com frequência — acidentes durante o deslocamento em carretas são comuns." },
       ]}
-      tip="Para locadoras de máquinas: é possível contratar apólice de frota para múltiplos equipamentos com desconto progressivo. Quanto mais máquinas seguradas, menor o custo por unidade."
+      tips="Para locadoras de máquinas: é possível contratar apólice de frota para múltiplos equipamentos com desconto progressivo. Quanto mais máquinas seguradas, menor o custo por unidade."
       whoNeeds={[
         "Construtoras e empreiteiras de obras civis",
         "Empresas de terraplanagem e pavimentação",
