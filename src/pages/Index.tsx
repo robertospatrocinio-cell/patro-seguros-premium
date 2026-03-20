@@ -8,7 +8,16 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import OptimizedImage from "@/components/OptimizedImage";
+import { getArticleImage } from "@/lib/blogImages";
 const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
+
+const blogDestaques = [
+  { slug: "quanto-custa-seguro-auto", title: "Quanto Custa Seguro Auto em 2025?", excerpt: "Descubra os fatores que influenciam o preço do seguro auto e como economizar.", category: "Seguro Auto" },
+  { slug: "melhor-plano-saude-guarulhos", title: "Melhor Plano de Saúde em Guarulhos", excerpt: "Compare as principais operadoras que atendem Guarulhos e região.", category: "Planos de Saúde" },
+  { slug: "seguro-empresarial-o-que-cobre", title: "Seguro Empresarial: O Que Cobre?", excerpt: "Entenda todas as coberturas do seguro empresarial e proteja seu negócio.", category: "Empresarial" },
+];
 
 // Lazy load below-fold decorative images
 const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
@@ -237,6 +246,45 @@ const Index = () => {
                 <Link to="/sobre"><Button variant="outline" className="rounded-lg text-[13px] h-10">Conheça a Patro</Button></Link>
                 <Link to="/indique-um-amigo"><Button variant="ghost" className="rounded-lg text-primary text-[13px] h-10">Indique um amigo <ArrowRight className="ml-1 h-3 w-3" aria-hidden="true" /></Button></Link>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Últimos Artigos do Blog */}
+        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }} aria-labelledby="blog-heading">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <span className="section-label">Blog</span>
+              <h2 id="blog-heading" className="mt-3">Últimos artigos</h2>
+              <p className="text-[14px] text-muted-foreground mt-4">Conteúdo de autoridade sobre seguros, proteção patrimonial e dicas para você e sua empresa.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+              {blogDestaques.map((article) => (
+                <Link key={article.slug} to={`/blog/${article.slug}`}>
+                  <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
+                    <div className="aspect-video w-full overflow-hidden">
+                      <OptimizedImage
+                        src={getArticleImage(article.slug)}
+                        alt={article.title}
+                        className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <CardContent className="pt-4">
+                      <span className="text-[10px] font-medium text-primary bg-primary/10 px-2 py-1 rounded uppercase tracking-wider">{article.category}</span>
+                      <h3 className="text-[15px] font-semibold mt-3 mb-2 tracking-tight">{article.title}</h3>
+                      <p className="text-[13px] text-muted-foreground mb-4 leading-relaxed">{article.excerpt}</p>
+                      <span className="text-[13px] font-medium text-primary flex items-center">
+                        Ler mais <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
+                      </span>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+            <div className="text-center mt-10">
+              <Link to="/blog">
+                <Button variant="outline" className="rounded-lg text-[13px] h-10">Ver todos os artigos <ArrowRight className="ml-1.5 h-3.5 w-3.5" aria-hidden="true" /></Button>
+              </Link>
             </div>
           </div>
         </section>

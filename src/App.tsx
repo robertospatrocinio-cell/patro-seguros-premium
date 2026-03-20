@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import CookieBanner from "@/components/CookieBanner";
 import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting
@@ -96,6 +97,9 @@ const LandingSeguroMoto = lazy(() => import("./pages/LandingSeguroMoto"));
 const LandingSeguroGalpoes = lazy(() => import("./pages/LandingSeguroGalpoes"));
 const LandingConsorcio = lazy(() => import("./pages/LandingConsorcio"));
 const LandingSeguroCelular = lazy(() => import("./pages/LandingSeguroCelular"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
+const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -197,10 +201,14 @@ const App = () => (
             <Route path="/lp/seguro-galpoes" element={<LandingSeguroGalpoes />} />
             <Route path="/lp/consorcio" element={<LandingConsorcio />} />
             <Route path="/lp/seguro-celular" element={<LandingSeguroCelular />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         <WhatsAppButton />
+        <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -253,6 +253,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+              <Link to="/blog" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Blog</Link>
               <Link to="/sobre" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Sobre</Link>
               <Link to="/contato" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Contato</Link>
             </div>
@@ -394,6 +395,7 @@ const Header = () => {
                 <MobileLink to="/consorcio-veiculos-pesados">Veículos Pesados</MobileLink>
               </div>
             </MobileSection>
+            <Link to="/blog" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Blog</Link>
             <Link to="/sobre" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
             <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
 
