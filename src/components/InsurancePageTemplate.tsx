@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
+import QuickQuoteForm from "@/components/QuickQuoteForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -15,6 +16,14 @@ interface Coverage { title: string; description: string; }
 interface FAQ { question: string; answer: string; }
 interface HowItWorksStep { step: string; title: string; description: string; }
 interface Scenario { title: string; description: string; }
+
+interface QuoteFormField {
+  id: string;
+  label: string;
+  placeholder: string;
+  type?: "text" | "select";
+  options?: string[];
+}
 
 interface InsurancePageProps {
   title: string;
@@ -37,6 +46,7 @@ interface InsurancePageProps {
   tips?: string[];
   quoteUrl?: string;
   heroImage?: string;
+  quoteFormFields?: QuoteFormField[];
 }
 
 const InsurancePageTemplate = ({
@@ -54,6 +64,7 @@ const InsurancePageTemplate = ({
   tips,
   quoteUrl,
   heroImage,
+  quoteFormFields,
 }: InsurancePageProps) => {
   return (
     <>
@@ -310,6 +321,17 @@ const InsurancePageTemplate = ({
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Formulário Rápido */}
+        <section className="py-24" aria-labelledby="formulario-heading">
+          <div className="container mx-auto px-4 max-w-xl">
+            <QuickQuoteForm
+              insuranceType={title}
+              extraFields={quoteFormFields}
+              trackingLabel={title.toLowerCase().replace(/\s+/g, "-")}
+            />
           </div>
         </section>
 

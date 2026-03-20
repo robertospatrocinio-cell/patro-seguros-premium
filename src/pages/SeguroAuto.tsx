@@ -114,6 +114,11 @@ Além da proteção patrimonial, o seguro auto oferece assistência 24h que reso
         { title: "Seguro de Frota", link: "/seguro-frota" },
       ]}
       quoteUrl="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
+      quoteFormFields={[
+        { id: "veiculo", label: "Veículo (Marca/Modelo/Ano)", placeholder: "Ex: Honda Civic 2023" },
+        { id: "cep", label: "CEP de pernoite", placeholder: "Ex: 07115-000" },
+        { id: "uso", label: "Uso do veículo", placeholder: "Selecione", type: "select", options: ["Lazer e ida ao trabalho", "Visita a clientes", "Motorista de app", "Outro"] },
+      ]}
     />
   );
 };
