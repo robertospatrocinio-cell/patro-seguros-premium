@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Star, Zap, Headphones } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
