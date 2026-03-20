@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Shield, Users, Clock, Award, MessageCircle, Phone } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
