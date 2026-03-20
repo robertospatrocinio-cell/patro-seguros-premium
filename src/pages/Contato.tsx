@@ -174,35 +174,16 @@ const Contato = () => {
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-center mb-12">Perguntas Frequentes sobre Atendimento</h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Preciso agendar para ser atendido?</h3>
-                <p className="text-muted-foreground">
-                  Não é obrigatório, mas recomendamos agendar para garantir atendimento personalizado e sem espera. 
-                  Entre em contato pelo WhatsApp para agendar.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Atendem fora do horário comercial?</h3>
-                <p className="text-muted-foreground">
-                  Para emergências e sinistros, temos plantão 24h. Para cotações e dúvidas gerais, atendemos de 
-                  segunda a sexta das 9h às 18h e sábados das 9h às 13h.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Posso ser atendido online?</h3>
-                <p className="text-muted-foreground">
-                  Sim! Grande parte do nosso atendimento é feito por WhatsApp, e-mail e videochamada. Você não precisa 
-                  vir até o escritório se não quiser.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-2">Quanto tempo demora para receber resposta?</h3>
-                <p className="text-muted-foreground">
-                  Respondemos em até 2 horas úteis para todas as solicitações. Cotações completas são entregues no 
-                  mesmo dia ou em até 24h para casos mais complexos.
-                </p>
-              </div>
+            <div className="divide-y divide-border">
+              {contatoFaqs.map((faq, i) => (
+                <details key={i} className="group py-5" open={i === 0}>
+                  <summary className="flex items-center justify-between cursor-pointer text-sm font-semibold hover:text-primary transition-colors select-none list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-muted-foreground/30 ml-4 group-open:rotate-45 transition-transform flex-shrink-0">+</span>
+                  </summary>
+                  <p className="pt-3 text-sm text-muted-foreground">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>

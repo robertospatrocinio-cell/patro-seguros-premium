@@ -18,7 +18,7 @@ const GoogleBusinessWidget = () => {
         <span className="text-2xl font-bold">4.9</span>
         <div className="flex gap-0.5">
           {[1, 2, 3, 4, 5].map(i => (
-            <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+            <Star key={i} className="h-4 w-4 fill-yellow-500 text-yellow-500" />
           ))}
         </div>
         <span className="text-xs text-muted-foreground">(150+ avaliações)</span>
