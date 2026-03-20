@@ -4,6 +4,7 @@ import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Car, Bike, Home, Truck, CheckCircle, TrendingUp, Shield, Clock, Users, Award, ArrowRight, HelpCircle, Phone } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20saber%20mais%20sobre%20cons%C3%B3rcio.";
 
