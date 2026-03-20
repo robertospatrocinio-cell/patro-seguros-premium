@@ -50,6 +50,8 @@ const Cotacao = () => {
     );
     
     // Redirecionar para WhatsApp
+    trackCotacaoSubmit(values.insuranceType);
+    trackWhatsAppClick("formulario-cotacao");
     window.open(`https://wa.me/551151997500?text=${whatsappMessage}`, "_blank");
     
     toast.success("Redirecionando para WhatsApp...", {

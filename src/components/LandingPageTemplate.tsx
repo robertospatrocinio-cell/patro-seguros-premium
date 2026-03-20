@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, Phone, CheckCircle, Shield, Clock, Users, Star, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageMeta from "@/components/PageMeta";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 const logoUrl = "/images/logo-full.webp";
