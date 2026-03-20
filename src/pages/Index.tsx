@@ -8,7 +8,16 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import OptimizedImage from "@/components/OptimizedImage";
+import { getArticleImage } from "@/lib/blogImages";
 const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
+
+const blogDestaques = [
+  { slug: "quanto-custa-seguro-auto", title: "Quanto Custa Seguro Auto em 2025?", excerpt: "Descubra os fatores que influenciam o preço do seguro auto e como economizar.", category: "Seguro Auto" },
+  { slug: "melhor-plano-saude-guarulhos", title: "Melhor Plano de Saúde em Guarulhos", excerpt: "Compare as principais operadoras que atendem Guarulhos e região.", category: "Planos de Saúde" },
+  { slug: "seguro-empresarial-o-que-cobre", title: "Seguro Empresarial: O Que Cobre?", excerpt: "Entenda todas as coberturas do seguro empresarial e proteja seu negócio.", category: "Empresarial" },
+];
 
 // Lazy load below-fold decorative images
 const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
