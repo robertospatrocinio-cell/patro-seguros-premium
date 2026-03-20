@@ -102,6 +102,11 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { title: "Seguro Auto", link: "/seguro-auto" },
         { title: "Seguro de Vida", link: "/seguro-vida" },
       ]}
+      quoteFormFields={[
+        { id: "tipo", label: "Tipo de imóvel", placeholder: "Selecione", type: "select", options: ["Apartamento", "Casa", "Sobrado", "Cobertura"] },
+        { id: "cep", label: "CEP do imóvel", placeholder: "Ex: 07115-000" },
+        { id: "condicao", label: "Condição", placeholder: "Selecione", type: "select", options: ["Próprio (moradia)", "Alugado (inquilino)", "Alugado (proprietário)", "Veraneio / temporada"] },
+      ]}
     />
   );
 };
