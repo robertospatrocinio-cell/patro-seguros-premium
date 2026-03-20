@@ -100,6 +100,10 @@ const LandingSeguroCelular = lazy(() => import("./pages/LandingSeguroCelular"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
 const TermosDeUso = lazy(() => import("./pages/TermosDeUso"));
+const NichoMedicos = lazy(() => import("./pages/NichoMedicos"));
+const NichoTransportadoras = lazy(() => import("./pages/NichoTransportadoras"));
+const NichoEmpresarios = lazy(() => import("./pages/NichoEmpresarios"));
+const NichoProfissionaisLiberais = lazy(() => import("./pages/NichoProfissionaisLiberais"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
