@@ -1,5 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import heroImg from "@/assets/hero-seguro-maquinas.webp";
+import heroImg from "@/assets/hero-seguro-maquinas-linha-amarela.webp";
 
 const SeguroMaquinasLinhaAmarela = () => {
   return (
