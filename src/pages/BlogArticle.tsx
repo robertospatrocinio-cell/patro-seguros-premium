@@ -4,10 +4,12 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ArrowLeft } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
+import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
