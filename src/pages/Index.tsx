@@ -260,6 +260,9 @@ const Index = () => {
             </div>
             <div className="max-w-md mx-auto">
               <GoogleBusinessWidget />
+            </div>
+          </div>
+        </section>
 
         {/* Últimos Artigos do Blog */}
         <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }} aria-labelledby="blog-heading">
