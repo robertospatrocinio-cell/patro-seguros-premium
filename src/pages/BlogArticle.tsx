@@ -5,6 +5,7 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, ArrowLeft } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 
