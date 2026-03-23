@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { Fragment } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -1426,7 +1427,9 @@ A maioria das apólices inclui assistências gratuitas como:
 
 Quanto custa o seguro residencial?
 
-O seguro residencial é um dos mais acessíveis do mercado. Um apartamento avaliado em R$ 300.000, por exemplo, pode ter seguro a partir de R$ 200 por ano. Casas em áreas de risco tendem a ser um pouco mais caras.`,
+O seguro residencial é um dos mais acessíveis do mercado. Um apartamento avaliado em R$ 300.000, por exemplo, pode ter seguro a partir de R$ 200 por ano. Casas em áreas de risco tendem a ser um pouco mais caras.
+
+Mora em Guarulhos? Conheça nossas soluções de seguro residencial para os bairros [Jardim Maia — seguros de alto padrão](/seguros-guarulhos/jardim-maia) e [Vila Augusta — proteção para apartamentos e imóveis](/seguros-guarulhos/vila-augusta). Atendimento local e personalizado para proteger seu lar.`,
     faqs: [
       { q: "Seguro residencial cobre celular roubado dentro de casa?", a: "Sim, desde que tenha a cobertura de roubo contratada. A maioria das apólices cobre bens dentro da residência até o limite contratado." },
       { q: "Inquilino pode contratar seguro residencial?", a: "Sim! Inquilinos podem e devem contratar seguro residencial para proteger seus bens dentro do imóvel alugado. O seguro do proprietário cobre a estrutura, não os bens do inquilino." },
@@ -2847,7 +2850,9 @@ Conclusão
 
 O seguro residencial é uma proteção completa e acessível que vai muito além do incêndio. A assistência 24h resolve problemas do dia a dia — chaveiro, encanador, eletricista — sem custo adicional, e as coberturas protegem seu patrimônio contra imprevistos.
 
-A Patro Seguros faz cotações com as melhores seguradoras para encontrar o plano ideal para sua casa ou apartamento. Fale conosco pelo WhatsApp e proteja seu lar!`,
+A Patro Seguros faz cotações com as melhores seguradoras para encontrar o plano ideal para sua casa ou apartamento. Fale conosco pelo WhatsApp e proteja seu lar!
+
+Se você mora em Guarulhos, confira nosso atendimento especializado para os bairros [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta), onde oferecemos consultoria presencial em seguros residenciais de alto padrão.`,
     faqs: [
       { q: "Quantas vezes posso usar a assistência 24h do seguro residencial?", a: "Na maioria das apólices, não há limite de acionamentos durante a vigência. Cada serviço tem um limite de valor ou tempo de mão de obra por chamado, mas você pode acionar quantas vezes precisar." },
       { q: "A assistência 24h cobre materiais ou só mão de obra?", a: "Geralmente cobre mão de obra e materiais básicos (torneira, sifão, disjuntor). Materiais especiais ou de maior valor podem ser cobrados à parte. Consulte as condições da sua apólice." },
@@ -4185,7 +4190,9 @@ A Patro Seguros é especialista em proteção patrimonial completa. Nossa equipe
 - Orientação sobre valores segurados e coberturas adicionais essenciais
 - Suporte integral em caso de sinistro — desde a comunicação até o recebimento da indenização
 
-Não espere a próxima chuva forte para descobrir que não está protegido. Fale com a Patro Seguros pelo WhatsApp e garanta que seus bens, sua empresa e sua família estejam cobertos contra alagamentos.`,
+Não espere a próxima chuva forte para descobrir que não está protegido. Fale com a Patro Seguros pelo WhatsApp e garanta que seus bens, sua empresa e sua família estejam cobertos contra alagamentos.
+
+Moradores de Guarulhos podem contar com atendimento local: veja nossas soluções para o [Jardim Maia](/seguros-guarulhos/jardim-maia) (alto padrão, próximo ao Bosque Maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) (apartamentos e imóveis residenciais).`,
     faqs: [
       { q: "O seguro auto cobre alagamento automaticamente?", a: "Nem sempre. A cobertura compreensiva (colisão + roubo/furto) frequentemente NÃO inclui eventos da natureza. É preciso verificar se 'Alagamento', 'Enchente' ou 'Eventos da Natureza' constam na sua apólice. Na dúvida, consulte a Patro Seguros para revisar sua cobertura." },
       { q: "Qual seguro cobre alagamento em casa?", a: "O seguro residencial com cobertura adicional de alagamento/enchente/inundação. A cobertura básica (incêndio, raio, explosão) não inclui. É necessário contratar essa cobertura expressamente. O custo adicional é bastante acessível — a partir de R$ 300/ano." },
@@ -5050,9 +5057,25 @@ const BlogArticle = () => {
         <section className="py-12">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="prose prose-lg max-w-none">
-              {article.content.split("\n\n").map((p, i) => (
-                <p key={i} className="text-muted-foreground mb-4 whitespace-pre-line">{p}</p>
-              ))}
+              {article.content.split("\n\n").map((p, i) => {
+                // Parse markdown-style [text](url) links
+                const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
+                return (
+                  <p key={i} className="text-muted-foreground mb-4 whitespace-pre-line">
+                    {parts.map((part, j) => {
+                      const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+                      if (linkMatch) {
+                        const [, text, url] = linkMatch;
+                        if (url.startsWith("/")) {
+                          return <Link key={j} to={url} className="text-primary underline hover:text-primary/80 font-medium">{text}</Link>;
+                        }
+                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{text}</a>;
+                      }
+                      return <Fragment key={j}>{part}</Fragment>;
+                    })}
+                  </p>
+                );
+              })}
             </div>
 
             {article.faqs.length > 0 && (

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, Phone, CheckCircle, Shield, Clock, Users, Star, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageMeta from "@/components/PageMeta";
+import OptimizedImage from "@/components/OptimizedImage";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
@@ -119,11 +120,14 @@ const LandingPageTemplate = ({
 
               {heroImage && (
                 <div className="flex-1 max-w-md w-full">
-                  <img
+                  <OptimizedImage
                     src={heroImage}
                     alt={title}
-                    className="w-full h-auto rounded-2xl shadow-2xl shadow-black/30 object-cover aspect-[4/3]"
-                    loading="eager"
+                    eager
+                    className="w-full h-auto rounded-2xl shadow-2xl shadow-black/30 aspect-[4/3]"
+                    width={448}
+                    height={336}
+                    fetchPriority="high"
                   />
                 </div>
               )}
