@@ -159,6 +159,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Galpões
   "seguro-galpoes-industriais-guia": blogSeguroGalpoes,
+
+  // Guarulhos
+  "riscos-sinistros-guarulhos-2026": blogSinistrosGuarulhos,
 };
 
 export const getArticleImage = (slug: string): string => {
