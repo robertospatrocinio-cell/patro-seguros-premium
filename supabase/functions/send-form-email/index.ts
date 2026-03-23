@@ -7,6 +7,11 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const resolveSmtpTlsServername = (host: string) => {
+  if (host === "webmail.patroseguros.com.br") return "hostgator.com.br";
+  return host;
+};
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -36,6 +41,8 @@ serve(async (req) => {
 
     console.log("Connecting to SMTP:", smtpHost);
 
+    const tlsServername = resolveSmtpTlsServername(smtpHost);
+
     const transporter = nodemailer.createTransport({
       host: smtpHost,
       port: 465,
@@ -45,9 +52,11 @@ serve(async (req) => {
         pass: smtpPass,
       },
       tls: {
-        rejectUnauthorized: false,
+        servername: tlsServername,
       },
     });
+
+    await transporter.verify();
 
     await transporter.sendMail({
       from: `"Patro Seguros" <${smtpUser}>`,
