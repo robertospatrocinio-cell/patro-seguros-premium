@@ -18,8 +18,27 @@ import { trackWhatsAppClick } from "@/lib/tracking";
 const WHATSAPP_NUMBER = "5511951997500";
 
 const SegurosGuarulhosBairros = () => {
-  const [selectedBairro, setSelectedBairro] = useState<BairroData>(bairros[0]);
+  const { bairro: bairroSlug } = useParams<{ bairro: string }>();
+  const navigate = useNavigate();
+
+  const initialBairro = bairroSlug
+    ? bairros.find((b) => b.id === bairroSlug) || bairros[0]
+    : bairros[0];
+
+  const [selectedBairro, setSelectedBairro] = useState<BairroData>(initialBairro);
   const [transitioning, setTransitioning] = useState(false);
+
+  // Sync state when URL param changes
+  useEffect(() => {
+    if (bairroSlug) {
+      const found = bairros.find((b) => b.id === bairroSlug);
+      if (found && found.id !== selectedBairro.id) {
+        setSelectedBairro(found);
+      } else if (!found) {
+        navigate("/seguros-guarulhos", { replace: true });
+      }
+    }
+  }, [bairroSlug]);
   const [formData, setFormData] = useState({ nome: "", telefone: "", email: "" });
   const [sending, setSending] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
