@@ -28,7 +28,7 @@ export const bairros: BairroData[] = [
   {
     id: "jardim-maia",
     nome: "Jardim Maia",
-    foco: "Alto Padrão",
+    foco: "Seguros de Alto Padrão e Vida",
     subtitulo: "Proteção premium para quem vive no coração verde de Guarulhos",
     descricao: "No Jardim Maia, onde o Bosque Maia e a Av. Paulo Faccini atraem moradores de alto padrão e valorizam imóveis, a Patro Seguros oferece soluções sob medida: seguro residencial completo para apartamentos de luxo, seguro auto para veículos premium e proteção patrimonial à altura do bairro mais nobre de Guarulhos. Nossa equipe conhece a região e atende com a agilidade que você merece.",
     image: imgJardimMaia,
@@ -41,7 +41,7 @@ export const bairros: BairroData[] = [
   {
     id: "vila-augusta",
     nome: "Vila Augusta",
-    foco: "Boom Imobiliário & Auto",
+    foco: "Seguro Auto e Apartamentos",
     subtitulo: "Seguros para o bairro que mais cresce em Guarulhos",
     descricao: "A Vila Augusta vive um verdadeiro boom imobiliário. Entre o Parque Fracalanza, o acesso rápido à Dutra e a proximidade do Shopping Internacional, novos moradores e investidores chegam todos os dias. A Patro Seguros acompanha essa transformação com seguros auto competitivos, seguro residencial para novos empreendimentos e proteção completa para quem está construindo vida na Vila Augusta.",
     image: imgVilaAugusta,
@@ -54,9 +54,9 @@ export const bairros: BairroData[] = [
   {
     id: "cumbica",
     nome: "Cumbica",
-    foco: "Logístico & Empresarial",
+    foco: "Logística, Carga e Frota",
     subtitulo: "Proteção especializada para o polo logístico de Guarulhos",
-    descricao: "Cumbica é sinônimo de logística. Com o Aeroporto Internacional de Guarulhos e o maior polo logístico do estado, a região demanda seguros empresariais robustos. A Patro Seguros é referência em seguro de carga, seguro de galpões, RC para transportadoras e proteção patrimonial para empresas que operam no coração logístico do Brasil.",
+    descricao: "Cumbica é sinônimo de logística. Com o Aeroporto Internacional de Guarulhos e o maior Polo Industrial do estado, a região demanda seguros empresariais robustos. A Patro Seguros é referência em seguro de carga, seguro de galpões, RC para transportadoras e proteção patrimonial para empresas que operam no coração logístico do Brasil.",
     image: imgCumbica,
     faqs: [
       { question: "Quais seguros empresariais são essenciais em Cumbica?", answer: "Para empresas em Cumbica, recomendamos seguro empresarial com cobertura para galpões, seguro de carga/transporte, RC para transportadoras e seguro de frota. A Patro é especialista em proteção para o polo logístico do Aeroporto." },
@@ -67,7 +67,7 @@ export const bairros: BairroData[] = [
   {
     id: "centro",
     nome: "Centro",
-    foco: "Profissional Liberal & Comércio",
+    foco: "RC Profissional e Comércio",
     subtitulo: "Sua corretora no coração comercial de Guarulhos",
     descricao: "O Centro de Guarulhos pulsa com comércio e serviços. Na Av. Salgado Filho — onde fica nossa sede — e nas imediações do Poli Shopping, advogados, dentistas, médicos e comerciantes precisam de proteção profissional. A Patro Seguros oferece RC Profissional, seguro empresarial para lojas e consultórios, além de planos de saúde corporativos, tudo com atendimento presencial a poucos passos de você.",
     image: imgCentro,
@@ -80,9 +80,9 @@ export const bairros: BairroData[] = [
   {
     id: "picanco",
     nome: "Picanço",
-    foco: "Família & Auto",
+    foco: "Seguro Auto Familiar",
     subtitulo: "Proteção para famílias no coração residencial de Guarulhos",
-    descricao: "O Picanço é um bairro de famílias. Com acesso fácil pela Transguarulhense e vizinhança tranquila, quem mora aqui busca segurança no dia a dia. A Patro Seguros entende essa necessidade: seguro auto com assistência 24h, seguro residencial com cobertura ampla e seguro de vida para proteger quem você ama. Atendimento rápido e humano para a família do Picanço.",
+    descricao: "O Picanço é um bairro de famílias. Com acesso fácil pela Avenida Transguarulhense e vizinhança tranquila, quem mora aqui busca segurança no dia a dia. A Patro Seguros entende essa necessidade: seguro auto com assistência 24h, seguro residencial com cobertura ampla e seguro de vida para proteger quem você ama. Atendimento rápido e humano para a família do Picanço.",
     image: imgPicanco,
     faqs: [
       { question: "Seguro auto no Picanço tem bom custo-benefício?", answer: "Sim! O Picanço é um bairro residencial tranquilo, o que pode contribuir para valores competitivos de seguro auto. A Patro compara entre diversas seguradoras para encontrar a melhor proposta." },
@@ -93,7 +93,7 @@ export const bairros: BairroData[] = [
   {
     id: "macedo",
     nome: "Macedo",
-    foco: "Saúde & PME",
+    foco: "Saúde PME e Clínicas",
     subtitulo: "Planos de saúde e seguros empresariais para o Macedo",
     descricao: "Próximo ao Hospital Bom Clima e com forte presença de pequenas e médias empresas, o Macedo é um bairro que une saúde e empreendedorismo. A Patro Seguros é especialista em planos de saúde empresariais para PMEs da região, seguro empresarial sob medida e seguro de vida em grupo para equipes. Proteja sua empresa e seus colaboradores com quem conhece o Macedo.",
     image: imgMacedo,
@@ -106,7 +106,7 @@ export const bairros: BairroData[] = [
   {
     id: "gopouva",
     nome: "Gopouva",
-    foco: "Tradição & Comunidade",
+    foco: "Seguros de Vida e Tradição",
     subtitulo: "Seguros com a tradição que Gopouva merece",
     descricao: "Gopouva é tradição. Desde a histórica Igreja de Santo Antônio até o comércio consolidado, o bairro respira comunidade. A Patro Seguros honra essa tradição com atendimento personalizado, seguro residencial para casas e apartamentos do bairro, seguro auto e planos de saúde individuais e familiares. Confiança construída ao longo dos anos, assim como Gopouva.",
     image: imgGopouva,
@@ -119,9 +119,9 @@ export const bairros: BairroData[] = [
   {
     id: "bonsucesso",
     nome: "Bonsucesso",
-    foco: "Logística & Expansão",
+    foco: "Empresarial e Logística",
     subtitulo: "Seguros para o bairro em expansão de Guarulhos",
-    descricao: "Bonsucesso cresce com o Shopping Bonsucesso como âncora e novos empreendimentos surgindo a cada mês. A região combina logística, comércio e residências. A Patro Seguros acompanha essa expansão com seguro empresarial para novos negócios, seguro auto para moradores e proteção patrimonial para investidores que apostam no futuro de Bonsucesso.",
+    descricao: "Bonsucesso cresce com o Shopping Bonsucesso como âncora e acesso direto à Dutra, com novos empreendimentos surgindo a cada mês. A região combina logística, comércio e residências. A Patro Seguros acompanha essa expansão com seguro empresarial para novos negócios, seguro auto para moradores e proteção patrimonial para investidores que apostam no futuro de Bonsucesso.",
     image: imgBonsucesso,
     faqs: [
       { question: "Quais seguros para novas empresas em Bonsucesso?", answer: "Para novos negócios em Bonsucesso, recomendamos seguro empresarial com cobertura contra incêndio e roubo, RC, e seguro de vida para sócios. A região em expansão demanda proteção desde o primeiro dia." },
@@ -132,9 +132,9 @@ export const bairros: BairroData[] = [
   {
     id: "paraventi",
     nome: "Paraventi",
-    foco: "Auto & Saúde Individual",
+    foco: "Auto e Saúde Individual",
     subtitulo: "Proteção acessível para moradores do Paraventi",
-    descricao: "O Paraventi, com o SESI como referência local, reúne famílias trabalhadoras que buscam proteção inteligente. A Patro Seguros oferece seguro auto com excelente custo-benefício, planos de saúde individuais acessíveis e seguro residencial completo. Atendimento ágil via WhatsApp e presencial para toda a comunidade do Paraventi.",
+    descricao: "O Paraventi, com a região do SESI como referência local, reúne famílias trabalhadoras que buscam proteção inteligente. A Patro Seguros oferece seguro auto com excelente custo-benefício, planos de saúde individuais acessíveis e seguro residencial completo. Atendimento ágil via WhatsApp e presencial para toda a comunidade do Paraventi.",
     image: imgParaventi,
     faqs: [
       { question: "Seguro auto barato no Paraventi, como encontrar?", answer: "A Patro Seguros compara cotações entre diversas seguradoras para encontrar o seguro auto mais acessível para moradores do Paraventi, sem abrir mão da qualidade de cobertura." },
@@ -145,9 +145,9 @@ export const bairros: BairroData[] = [
   {
     id: "continental",
     nome: "Continental",
-    foco: "Residencial Adensado",
+    foco: "Residencial e Proteção Familiar",
     subtitulo: "Seguros para a maior densidade populacional de Guarulhos",
-    descricao: "O Continental é um dos bairros mais populosos de Guarulhos. Com alta densidade de apartamentos e condomínios, a demanda por seguro residencial, seguro de condomínio e seguro auto é enorme. A Patro Seguros atende o Continental com agilidade: cotações rápidas, sinistros resolvidos com prioridade e planos que cabem no bolso de quem vive nesta região vibrante.",
+    descricao: "O Continental é um dos bairros mais populosos de Guarulhos. Com alta densidade de condomínios e apartamentos, a demanda por seguro residencial, seguro de condomínio e seguro auto é enorme. A Patro Seguros atende o Continental com agilidade: cotações rápidas, sinistros resolvidos com prioridade e planos que cabem no bolso de quem vive nesta região vibrante.",
     image: imgContinental,
     faqs: [
       { question: "Seguro de condomínio no Continental é obrigatório?", answer: "Sim! O seguro de condomínio é obrigatório por lei (Lei 4.591/64). No Continental, com alta concentração de edifícios, a Patro ajuda síndicos a encontrar a melhor cobertura com preço justo." },
