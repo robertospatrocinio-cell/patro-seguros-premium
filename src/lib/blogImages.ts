@@ -163,6 +163,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Guarulhos
   "riscos-sinistros-guarulhos-2026": blogSinistrosGuarulhos,
+
+  // Veículos Elétricos
+  "seguro-veiculos-eletricos-coberturas-riscos": blogVeiculosEletricos,
 };
 
 export const getArticleImage = (slug: string): string => {
