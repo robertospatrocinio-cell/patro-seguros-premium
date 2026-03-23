@@ -54,6 +54,7 @@ import blogCotacaoSeguros from "@/assets/blog/blog-cotacao-seguros.webp";
 import blogEvitarSinistros from "@/assets/blog/blog-evitar-sinistros.webp";
 import blogAlagamentos from "@/assets/blog/blog-alagamentos.webp";
 import blogSeguroGalpoes from "@/assets/blog/blog-seguro-galpoes.webp";
+import blogSinistrosGuarulhos from "@/assets/blog/blog-sinistros-guarulhos-2026.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
