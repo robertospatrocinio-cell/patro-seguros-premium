@@ -9,6 +9,11 @@ import imgBonsucesso from "@/assets/bairros/bonsucesso.webp";
 import imgParaventi from "@/assets/bairros/paraventi.webp";
 import imgContinental from "@/assets/bairros/continental.webp";
 
+export interface BairroFAQ {
+  question: string;
+  answer: string;
+}
+
 export interface BairroData {
   id: string;
   nome: string;
@@ -16,6 +21,7 @@ export interface BairroData {
   subtitulo: string;
   descricao: string;
   image: string;
+  faqs: BairroFAQ[];
 }
 
 export const bairros: BairroData[] = [
