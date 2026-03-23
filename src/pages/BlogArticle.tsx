@@ -1353,7 +1353,11 @@ Como economizar no seguro auto:
 3. Instale rastreador veicular homologado.
 4. Aumente o valor da franquia (paga menos no prêmio, mas mais em caso de sinistro parcial).
 5. Considere coberturas essenciais e elimine opcionais desnecessários.
-6. Pague à vista quando possível (algumas seguradoras oferecem desconto).`,
+6. Pague à vista quando possível (algumas seguradoras oferecem desconto).
+
+---
+
+🔋 **Está pensando em trocar para um carro elétrico?** Confira nosso guia completo sobre [seguro para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos) e descubra as coberturas específicas, diferenças de preço e riscos exclusivos. E se quiser planejar a compra, veja como funciona o [consórcio de veículos elétricos](/blog/consorcio-veiculos-eletricos-compra-planejada).`,
     faqs: [
       { q: "Qual o seguro auto mais barato em 2025?", a: "O valor depende do perfil do motorista e do veículo. Seguradoras como Justos, Liberty e Azul costumam ter preços competitivos para determinados perfis. A melhor forma é comparar cotações — na Patro fazemos isso gratuitamente." },
       { q: "Como reduzir o valor do seguro auto?", a: "Instale rastreador, aumente a franquia, mantenha bom histórico sem sinistros, compare seguradoras e considere coberturas essenciais sem opcionais desnecessários." },
