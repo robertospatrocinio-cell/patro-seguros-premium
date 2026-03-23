@@ -4190,7 +4190,9 @@ A Patro Seguros é especialista em proteção patrimonial completa. Nossa equipe
 - Orientação sobre valores segurados e coberturas adicionais essenciais
 - Suporte integral em caso de sinistro — desde a comunicação até o recebimento da indenização
 
-Não espere a próxima chuva forte para descobrir que não está protegido. Fale com a Patro Seguros pelo WhatsApp e garanta que seus bens, sua empresa e sua família estejam cobertos contra alagamentos.`,
+Não espere a próxima chuva forte para descobrir que não está protegido. Fale com a Patro Seguros pelo WhatsApp e garanta que seus bens, sua empresa e sua família estejam cobertos contra alagamentos.
+
+Moradores de Guarulhos podem contar com atendimento local: veja nossas soluções para o [Jardim Maia](/seguros-guarulhos/jardim-maia) (alto padrão, próximo ao Bosque Maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) (apartamentos e imóveis residenciais).`,
     faqs: [
       { q: "O seguro auto cobre alagamento automaticamente?", a: "Nem sempre. A cobertura compreensiva (colisão + roubo/furto) frequentemente NÃO inclui eventos da natureza. É preciso verificar se 'Alagamento', 'Enchente' ou 'Eventos da Natureza' constam na sua apólice. Na dúvida, consulte a Patro Seguros para revisar sua cobertura." },
       { q: "Qual seguro cobre alagamento em casa?", a: "O seguro residencial com cobertura adicional de alagamento/enchente/inundação. A cobertura básica (incêndio, raio, explosão) não inclui. É necessário contratar essa cobertura expressamente. O custo adicional é bastante acessível — a partir de R$ 300/ano." },
