@@ -5051,9 +5051,25 @@ const BlogArticle = () => {
         <section className="py-12">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="prose prose-lg max-w-none">
-              {article.content.split("\n\n").map((p, i) => (
-                <p key={i} className="text-muted-foreground mb-4 whitespace-pre-line">{p}</p>
-              ))}
+              {article.content.split("\n\n").map((p, i) => {
+                // Parse markdown-style [text](url) links
+                const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
+                return (
+                  <p key={i} className="text-muted-foreground mb-4 whitespace-pre-line">
+                    {parts.map((part, j) => {
+                      const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+                      if (linkMatch) {
+                        const [, text, url] = linkMatch;
+                        if (url.startsWith("/")) {
+                          return <Link key={j} to={url} className="text-primary underline hover:text-primary/80 font-medium">{text}</Link>;
+                        }
+                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{text}</a>;
+                      }
+                      return <Fragment key={j}>{part}</Fragment>;
+                    })}
+                  </p>
+                );
+              })}
             </div>
 
             {article.faqs.length > 0 && (
