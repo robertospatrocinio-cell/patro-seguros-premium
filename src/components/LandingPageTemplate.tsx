@@ -120,11 +120,14 @@ const LandingPageTemplate = ({
 
               {heroImage && (
                 <div className="flex-1 max-w-md w-full">
-                  <img
+                  <OptimizedImage
                     src={heroImage}
                     alt={title}
-                    className="w-full h-auto rounded-2xl shadow-2xl shadow-black/30 object-cover aspect-[4/3]"
-                    loading="eager"
+                    eager
+                    className="w-full h-auto rounded-2xl shadow-2xl shadow-black/30 aspect-[4/3]"
+                    width={448}
+                    height={336}
+                    fetchPriority="high"
                   />
                 </div>
               )}
