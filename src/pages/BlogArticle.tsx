@@ -1353,7 +1353,11 @@ Como economizar no seguro auto:
 3. Instale rastreador veicular homologado.
 4. Aumente o valor da franquia (paga menos no prêmio, mas mais em caso de sinistro parcial).
 5. Considere coberturas essenciais e elimine opcionais desnecessários.
-6. Pague à vista quando possível (algumas seguradoras oferecem desconto).`,
+6. Pague à vista quando possível (algumas seguradoras oferecem desconto).
+
+---
+
+🔋 **Está pensando em trocar para um carro elétrico?** Confira nosso guia completo sobre [seguro para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos) e descubra as coberturas específicas, diferenças de preço e riscos exclusivos. E se quiser planejar a compra, veja como funciona o [consórcio de veículos elétricos](/blog/consorcio-veiculos-eletricos-compra-planejada).`,
     faqs: [
       { q: "Qual o seguro auto mais barato em 2025?", a: "O valor depende do perfil do motorista e do veículo. Seguradoras como Justos, Liberty e Azul costumam ter preços competitivos para determinados perfis. A melhor forma é comparar cotações — na Patro fazemos isso gratuitamente." },
       { q: "Como reduzir o valor do seguro auto?", a: "Instale rastreador, aumente a franquia, mantenha bom histórico sem sinistros, compare seguradoras e considere coberturas essenciais sem opcionais desnecessários." },
@@ -1390,7 +1394,11 @@ Contras:
 - Franquia em caso de sinistro parcial
 - Processo de regulação pode levar tempo
 
-A conta é simples: compare o custo anual do seguro com o prejuízo potencial de ficar sem ele. Na grande maioria dos casos, o seguro auto é um investimento que vale cada centavo.`,
+A conta é simples: compare o custo anual do seguro com o prejuízo potencial de ficar sem ele. Na grande maioria dos casos, o seguro auto é um investimento que vale cada centavo.
+
+---
+
+🔋 **Pensando em migrar para um veículo elétrico?** O seguro funciona de forma diferente. Leia nosso artigo sobre [seguro para veículos elétricos: coberturas e riscos](/blog/seguro-veiculos-eletricos-coberturas-riscos).`,
     faqs: [
       { q: "Posso andar sem seguro auto?", a: "Legalmente sim, não é obrigatório. Mas financeiramente é muito arriscado. Um acidente grave pode gerar prejuízos de dezenas de milhares de reais, além de responsabilidade civil por danos a terceiros." },
       { q: "O DPVAT substitui o seguro auto?", a: "Não. O DPVAT (agora SPVAT) cobre apenas danos pessoais a vítimas de acidentes de trânsito com valores limitados. Não cobre danos ao seu veículo nem danos materiais a terceiros." },
@@ -1788,7 +1796,11 @@ Rastreadores e bloqueadores geram desconto de 5% a 15%. Muita gente esquece de i
 
 7. Renovar no automático sem renegociar
 
-Seguradoras costumam aumentar o valor na renovação. Sempre peça nova cotação e negocie. Trocar de seguradora pode render grande economia.`,
+Seguradoras costumam aumentar o valor na renovação. Sempre peça nova cotação e negocie. Trocar de seguradora pode render grande economia.
+
+---
+
+🔋 **Dica extra:** Se está considerando um veículo elétrico ou híbrido, saiba que o seguro tem particularidades importantes. Confira nosso guia sobre [seguro para carros elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos) e evite mais um erro na contratação.`,
     faqs: [
       { q: "Quanto posso economizar evitando esses erros?", a: "É possível economizar de 20% a 40% no valor do seguro auto apenas comparando cotações e aproveitando bônus e descontos disponíveis." },
       { q: "Posso transferir meu bônus entre seguradoras?", a: "Sim! O bônus por anos sem sinistro é transferível entre seguradoras. Exija a transferência e não perca o desconto que você conquistou." },
@@ -2729,7 +2741,11 @@ Conclusão
 
 Baratear o seguro auto não significa abrir mão de proteção. Com as estratégias certas — rastreador, perfil correto, franquia adequada, bônus acumulado e uma boa corretora — você pode economizar significativamente e manter seu veículo totalmente protegido.
 
-A Patro Seguros está pronta para fazer uma cotação personalizada e encontrar o melhor seguro auto para o seu perfil. Fale conosco pelo WhatsApp e descubra quanto você pode economizar!`,
+A Patro Seguros está pronta para fazer uma cotação personalizada e encontrar o melhor seguro auto para o seu perfil. Fale conosco pelo WhatsApp e descubra quanto você pode economizar!
+
+---
+
+🔋 **Veículos elétricos e híbridos** têm seguro mais caro, mas existem formas de economizar. Veja nosso guia completo sobre [seguro para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos) e descubra como reduzir o custo. Quer comprar um elétrico sem juros? Conheça o [consórcio de veículos elétricos](/blog/consorcio-veiculos-eletricos-compra-planejada).`,
     faqs: [
       { q: "Qual a dica mais eficiente para baratear o seguro auto?", a: "Comparar cotações com uma corretora especializada é a estratégia com maior impacto. Diferenças de 30% a 50% entre seguradoras são comuns para o mesmo perfil e veículo." },
       { q: "Instalar rastreador realmente reduz o seguro?", a: "Sim! Dependendo do dispositivo e da seguradora, o desconto pode variar de 5% a 25%. Consulte sua corretora antes de instalar para saber quais são aceitos." },
@@ -3538,7 +3554,11 @@ A Patro Seguros está em Guarulhos — a 4ª cidade com mais roubos e furtos de 
 
 Não espere ser a próxima estatística. Proteja seu veículo agora. Entre em contato com a Patro Seguros pelo WhatsApp e receba sua cotação personalizada.
 
-Fonte dos dados: Companhia de rastreamento veicular Ituran, com base em dados da Secretaria da Segurança Pública do Governo de SP, conforme divulgado pelo UOL Carros em julho de 2025.`,
+Fonte dos dados: Companhia de rastreamento veicular Ituran, com base em dados da Secretaria da Segurança Pública do Governo de SP, conforme divulgado pelo UOL Carros em julho de 2025.
+
+---
+
+🔋 **Carros elétricos também são alvo de furtos** — e o seguro funciona de forma diferente. Saiba tudo sobre [coberturas e riscos para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos).`,
     faqs: [
       { q: "Qual é o carro mais roubado de São Paulo em 2025?", a: "O Volkswagen Gol lidera o ranking com 1.669 ocorrências de roubo e furto entre janeiro e maio de 2025 na Região Metropolitana de SP. Em seguida vêm o Hyundai HB20 (1.397), Chevrolet Onix (1.322), Fiat Uno (1.232) e Ford Ka (1.212)." },
       { q: "Ter um carro no ranking dos mais roubados encarece o seguro?", a: "Sim, o modelo do veículo é um dos fatores que influenciam o preço do seguro. Carros mais visados tendem a ter taxas mais altas. Porém, com a Patro Seguros, comparamos múltiplas seguradoras para encontrar o melhor custo-benefício — a diferença entre seguradoras pode passar de 40% para o mesmo carro." },
