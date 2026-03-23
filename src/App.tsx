@@ -217,6 +217,8 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
             <Route path="/seguros-guarulhos-bairros" element={<SegurosGuarulhosBairros />} />
+            <Route path="/seguros-guarulhos" element={<SegurosGuarulhosBairros />} />
+            <Route path="/seguros-guarulhos/:bairro" element={<SegurosGuarulhosBairros />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />

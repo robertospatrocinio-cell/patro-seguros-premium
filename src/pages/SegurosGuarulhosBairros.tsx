@@ -49,8 +49,9 @@ const SegurosGuarulhosBairros = () => {
     setTimeout(() => {
       setSelectedBairro(bairro);
       setTransitioning(false);
+      navigate(`/seguros-guarulhos/${bairro.id}`, { replace: true });
     }, 300);
-  }, [selectedBairro.id]);
+  }, [selectedBairro.id, navigate]);
 
   const formatPhone = (value: string) => {
     const digits = value.replace(/\D/g, "").slice(0, 11);
