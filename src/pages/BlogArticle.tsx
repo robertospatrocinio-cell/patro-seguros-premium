@@ -1796,7 +1796,11 @@ Rastreadores e bloqueadores geram desconto de 5% a 15%. Muita gente esquece de i
 
 7. Renovar no automático sem renegociar
 
-Seguradoras costumam aumentar o valor na renovação. Sempre peça nova cotação e negocie. Trocar de seguradora pode render grande economia.`,
+Seguradoras costumam aumentar o valor na renovação. Sempre peça nova cotação e negocie. Trocar de seguradora pode render grande economia.
+
+---
+
+🔋 **Dica extra:** Se está considerando um veículo elétrico ou híbrido, saiba que o seguro tem particularidades importantes. Confira nosso guia sobre [seguro para carros elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos) e evite mais um erro na contratação.`,
     faqs: [
       { q: "Quanto posso economizar evitando esses erros?", a: "É possível economizar de 20% a 40% no valor do seguro auto apenas comparando cotações e aproveitando bônus e descontos disponíveis." },
       { q: "Posso transferir meu bônus entre seguradoras?", a: "Sim! O bônus por anos sem sinistro é transferível entre seguradoras. Exija a transferência e não perca o desconto que você conquistou." },
