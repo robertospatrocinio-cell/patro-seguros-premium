@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
+import { supabase } from "@/integrations/supabase/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -49,6 +50,14 @@ const Cotacao = () => {
       `Mensagem: ${values.message || "Não informada"}`
     );
     
+    // Enviar email
+    const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${values.message || "Não informada"}`;
+    const htmlBody = `<h2>Nova Solicitação de Cotação — ${values.insuranceType}</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${values.name}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${values.email}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${values.phone}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${values.insuranceType}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${values.message || "Não informada"}</td></tr></table>`;
+    
+    supabase.functions.invoke("send-form-email", {
+      body: { subject: `Nova Cotação — ${values.insuranceType}`, textBody, htmlBody },
+    }).catch(err => console.error("Email send error:", err));
+
     // Redirecionar para WhatsApp
     trackCotacaoSubmit(values.insuranceType);
     trackWhatsAppClick("formulario-cotacao");
