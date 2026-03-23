@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle } from "lucide-react";
+import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { bairros, type BairroData } from "@/lib/bairrosData";
@@ -62,7 +62,7 @@ const SegurosGuarulhosBairros = () => {
         },
       });
       toast.success("Dados enviados! Entraremos em contato em breve.");
-      const msg = encodeURIComponent(`Olá Patro, sou ${formData.nome} e quero uma cotação para o bairro ${selectedBairro.nome}.`);
+      const msg = encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}.`);
       trackWhatsAppClick(`bairro_${selectedBairro.id}`);
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
       setFormData({ nome: "", telefone: "", email: "" });
@@ -73,7 +73,7 @@ const SegurosGuarulhosBairros = () => {
     }
   };
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá Patro, quero uma cotação para o bairro ${selectedBairro.nome}`)}`;
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}`)}`;
 
   const breadcrumbItems = [
     { label: "Início", href: "/" },
@@ -86,7 +86,7 @@ const SegurosGuarulhosBairros = () => {
     "@type": "InsuranceAgency",
     "name": "Patro Seguros",
     "alternateName": `Patro Seguros ${selectedBairro.nome}`,
-    "url": `https://patro-secures-success.lovable.app/seguros-guarulhos-bairros`,
+    "url": "https://patro-secures-success.lovable.app/seguros-guarulhos-bairros",
     "logo": "https://patro-secures-success.lovable.app/favicon.ico",
     "description": `Corretora de seguros em ${selectedBairro.nome}, Guarulhos. Especialista em ${selectedBairro.foco.toLowerCase()}: seguro auto, residencial, empresarial, saúde e mais.`,
     "telephone": "+55-11-5199-7500",
@@ -128,10 +128,17 @@ const SegurosGuarulhosBairros = () => {
     }
   }), [selectedBairro]);
 
+  const servicosCards = [
+    { icon: Car, title: "Seguro Auto", desc: "Proteção completa com assistência 24h e cobertura contra roubo, furto e colisão.", href: "/seguro-auto" },
+    { icon: Home, title: "Seguro Residencial", desc: "Proteja seu lar contra incêndio, roubo, danos elétricos e mais.", href: "/seguro-residencial" },
+    { icon: Building2, title: "Seguro Empresarial", desc: "Proteja seu negócio com coberturas contra incêndio, roubo, RC e lucros cessantes.", href: "/seguro-empresarial" },
+    { icon: HeartPulse, title: "Plano de Saúde", desc: "Planos individuais, familiares e empresariais das melhores operadoras.", href: "/planos-de-saude" },
+  ];
+
   return (
     <>
       <PageMeta
-        title={`Seguros em ${selectedBairro.nome} | Patro Seguros Guarulhos`}
+        title={`Especialista em Seguros no ${selectedBairro.nome} | Patro Seguros`}
         description={`Corretora de seguros em ${selectedBairro.nome}, Guarulhos. ${selectedBairro.foco}: seguro auto, residencial, empresarial, saúde e mais. Cotação rápida pelo WhatsApp.`}
       />
 
@@ -146,7 +153,6 @@ const SegurosGuarulhosBairros = () => {
       <main id="main-content">
         {/* HERO SECTION */}
         <section className="relative min-h-[70vh] flex items-center overflow-hidden">
-          {/* Background image with overlay */}
           <div
             className={`absolute inset-0 transition-opacity duration-500 ${transitioning ? "opacity-0" : "opacity-100"}`}
           >
@@ -162,11 +168,11 @@ const SegurosGuarulhosBairros = () => {
           <div className="container mx-auto px-4 relative z-10 py-20">
             <Breadcrumb items={breadcrumbItems} />
             <div className={`max-w-3xl transition-all duration-500 ${transitioning ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}>
-              <span className="inline-block bg-[#D4AF37] text-[#003366] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+              <span className="inline-block bg-[#F2994A] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
                 {selectedBairro.foco}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-                Seguros em {selectedBairro.nome}
+                Especialista em Seguros no {selectedBairro.nome}
               </h1>
               <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl">
                 {selectedBairro.subtitulo}
@@ -184,7 +190,7 @@ const SegurosGuarulhosBairros = () => {
                 </a>
                 <button
                   onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
-                  className="inline-flex items-center justify-center gap-2 bg-[#D4AF37] hover:bg-[#c9a42f] text-[#003366] font-semibold px-6 py-3 rounded-lg transition-colors text-base"
+                  className="inline-flex items-center justify-center gap-2 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"
                 >
                   Solicitar Cotação Online
                   <ChevronRight className="h-4 w-4" />
@@ -220,7 +226,7 @@ const SegurosGuarulhosBairros = () => {
           <div className="container mx-auto px-4">
             <div className={`max-w-4xl mx-auto transition-all duration-500 ${transitioning ? "opacity-0" : "opacity-100"}`}>
               <div className="flex items-center gap-3 mb-6">
-                <MapPin className="h-6 w-6 text-[#D4AF37] shrink-0" />
+                <MapPin className="h-6 w-6 text-[#F2994A] shrink-0" />
                 <h2 className="text-2xl md:text-3xl font-bold text-[#003366]">
                   Patro Seguros em {selectedBairro.nome}
                 </h2>
@@ -232,46 +238,26 @@ const SegurosGuarulhosBairros = () => {
           </div>
         </section>
 
-        {/* GRADE DE SERVIÇOS */}
+        {/* GRADE DE SERVIÇOS — 4 CARDS */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold text-[#003366] text-center mb-10">
               Principais Seguros para {selectedBairro.nome}
             </h2>
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Link to="/seguro-auto">
-                <Card className="group hover:shadow-xl transition-all border-0 shadow-md h-full">
-                  <CardContent className="pt-8 pb-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#003366]/10 flex items-center justify-center group-hover:bg-[#003366] transition-colors">
-                      <Car className="h-8 w-8 text-[#003366] group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#003366] mb-2">Seguro Auto</h3>
-                    <p className="text-sm text-gray-500">Proteção completa para seu veículo com assistência 24h e cobertura contra roubo, furto e colisão.</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link to="/seguro-residencial">
-                <Card className="group hover:shadow-xl transition-all border-0 shadow-md h-full">
-                  <CardContent className="pt-8 pb-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#003366]/10 flex items-center justify-center group-hover:bg-[#003366] transition-colors">
-                      <Home className="h-8 w-8 text-[#003366] group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#003366] mb-2">Seguro Residencial</h3>
-                    <p className="text-sm text-gray-500">Proteja seu lar contra incêndio, roubo, danos elétricos e mais, com assistência residencial 24h.</p>
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link to="/seguro-empresarial">
-                <Card className="group hover:shadow-xl transition-all border-0 shadow-md h-full">
-                  <CardContent className="pt-8 pb-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#003366]/10 flex items-center justify-center group-hover:bg-[#003366] transition-colors">
-                      <Building2 className="h-8 w-8 text-[#003366] group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-bold text-[#003366] mb-2">Seguro Empresarial</h3>
-                    <p className="text-sm text-gray-500">Proteja seu negócio com coberturas contra incêndio, roubo, RC e lucros cessantes.</p>
-                  </CardContent>
-                </Card>
-              </Link>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {servicosCards.map((s) => (
+                <Link key={s.href} to={s.href}>
+                  <Card className="group hover:shadow-xl transition-all border-0 shadow-md h-full">
+                    <CardContent className="pt-8 pb-6 text-center">
+                      <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#003366]/10 flex items-center justify-center group-hover:bg-[#003366] transition-colors">
+                        <s.icon className="h-8 w-8 text-[#003366] group-hover:text-white transition-colors" />
+                      </div>
+                      <h3 className="text-lg font-bold text-[#003366] mb-2">{s.title}</h3>
+                      <p className="text-sm text-gray-500">{s.desc}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -281,17 +267,17 @@ const SegurosGuarulhosBairros = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
               <div className="flex flex-col items-center gap-3">
-                <Shield className="h-10 w-10 text-[#D4AF37]" />
+                <Shield className="h-10 w-10 text-[#F2994A]" />
                 <h3 className="text-white font-bold text-lg">Selo SUSEP</h3>
                 <p className="text-white/70 text-sm">Corretora registrada e habilitada pela Superintendência de Seguros Privados</p>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Clock className="h-10 w-10 text-[#D4AF37]" />
+                <Clock className="h-10 w-10 text-[#F2994A]" />
                 <h3 className="text-white font-bold text-lg">Resposta em até 2h</h3>
                 <p className="text-white/70 text-sm">Atendimento ágil via WhatsApp com cotação personalizada em até 2 horas</p>
               </div>
               <div className="flex flex-col items-center gap-3">
-                <Star className="h-10 w-10 text-[#D4AF37]" />
+                <Star className="h-10 w-10 text-[#F2994A]" />
                 <h3 className="text-white font-bold text-lg">Nota 4.9 no Google</h3>
                 <p className="text-white/70 text-sm">Avaliação de excelência no Google com centenas de clientes satisfeitos</p>
               </div>
@@ -343,12 +329,11 @@ const SegurosGuarulhosBairros = () => {
                     className="h-12"
                   />
                 </div>
-                {/* Campo oculto com o bairro */}
                 <input type="hidden" name="interesse" value={`Interesse em Seguro - ${selectedBairro.nome}`} />
                 <Button
                   type="submit"
                   disabled={sending}
-                  className="w-full h-12 bg-[#D4AF37] hover:bg-[#c9a42f] text-[#003366] font-bold text-base"
+                  className="w-full h-12 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-bold text-base"
                 >
                   {sending ? "Enviando..." : "Solicitar Cotação Gratuita"}
                 </Button>
@@ -393,18 +378,18 @@ const SegurosGuarulhosBairros = () => {
               <div>
                 <h4 className="text-white font-bold mb-3">Endereço</h4>
                 <p className="flex items-start gap-2">
-                  <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[#D4AF37]" />
+                  <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[#F2994A]" />
                   Av. Salgado Filho, 2120 – Sala 219, Guarulhos/SP
                 </p>
               </div>
               <div>
                 <h4 className="text-white font-bold mb-3">Contato</h4>
                 <p className="flex items-center gap-2 mb-1">
-                  <Phone className="h-4 w-4 text-[#D4AF37]" />
+                  <Phone className="h-4 w-4 text-[#F2994A]" />
                   (11) 5199-7500
                 </p>
                 <p className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-[#D4AF37]" />
+                  <Mail className="h-4 w-4 text-[#F2994A]" />
                   contato@patroseguros.com.br
                 </p>
               </div>
@@ -413,7 +398,7 @@ const SegurosGuarulhosBairros = () => {
                 <div className="flex flex-col gap-1">
                   <Link to="/politica-de-privacidade" className="hover:text-white transition-colors">Política de Privacidade</Link>
                   <Link to="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</Link>
-                  <Link to="/cotacao" className="text-[#D4AF37] hover:text-[#e0bd4a] font-medium transition-colors">Cotação Online →</Link>
+                  <Link to="/cotacao" className="text-[#F2994A] hover:text-[#f5a862] font-medium transition-colors">Cotação Online →</Link>
                 </div>
               </div>
             </div>
