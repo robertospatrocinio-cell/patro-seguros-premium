@@ -109,6 +109,7 @@ const NichoEmpresarios = lazy(() => import("./pages/NichoEmpresarios"));
 const NichoProfissionaisLiberais = lazy(() => import("./pages/NichoProfissionaisLiberais"));
 const Depoimentos = lazy(() => import("./pages/Depoimentos"));
 const SegurosQuotePage = lazy(() => import("./pages/SegurosQuotePage"));
+const SegurosGuarulhosBairros = lazy(() => import("./pages/SegurosGuarulhosBairros"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
