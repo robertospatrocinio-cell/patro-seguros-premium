@@ -56,6 +56,7 @@ import blogAlagamentos from "@/assets/blog/blog-alagamentos.webp";
 import blogSeguroGalpoes from "@/assets/blog/blog-seguro-galpoes.webp";
 import blogSinistrosGuarulhos from "@/assets/blog/blog-sinistros-guarulhos-2026.webp";
 import blogVeiculosEletricos from "@/assets/blog/blog-seguro-veiculos-eletricos.webp";
+import blogConsorcioEletricos from "@/assets/blog/blog-consorcio-veiculos-eletricos.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
@@ -166,6 +167,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Veículos Elétricos
   "seguro-veiculos-eletricos-coberturas-riscos": blogVeiculosEletricos,
+
+  // Consórcio Elétricos
+  "consorcio-veiculos-eletricos-compra-planejada": blogConsorcioEletricos,
 };
 
 export const getArticleImage = (slug: string): string => {

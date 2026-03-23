@@ -5324,6 +5324,162 @@ A [Patro Seguros](/sobre) acompanha essa evolução e já trabalha com as princi
       { q: "Vale a pena fazer seguro de carro elétrico popular como BYD Dolphin Mini?", a: "Sim! Mesmo veículos elétricos mais acessíveis possuem baterias caras e tecnologia sensível. O custo do seguro (a partir de R$ 3.500/ano) é baixo comparado ao risco de arcar com o reparo ou substituição da bateria, que pode custar R$ 40 mil ou mais." },
     ],
   },
+  "consorcio-veiculos-eletricos-compra-planejada": {
+    title: "Consórcio de Veículos Elétricos: A Alternativa Inteligente de Compra Planejada",
+    content: `O sonho de ter um carro elétrico está mais acessível do que você imagina. Enquanto muitos associam veículos elétricos a preços elevados e financiamentos com juros pesados, existe uma alternativa que combina planejamento financeiro, economia real e poder de compra: o **consórcio de veículos elétricos**.
+
+Neste guia completo, a [Patro Seguros](/sobre) explica como funciona o consórcio para carros elétricos, quais as vantagens em relação ao financiamento, quanto custa e como escolher o melhor plano para o seu perfil.
+
+## Por que considerar um consórcio para comprar seu carro elétrico?
+
+Os veículos elétricos no Brasil têm preços que variam de R$ 120 mil (modelos populares como BYD Dolphin Mini) a mais de R$ 700 mil (Porsche Taycan, BMW iX M60). Financiar esses valores pelos métodos tradicionais significa pagar **juros de 1,5% a 2,5% ao mês**, o que pode dobrar o custo total do veículo ao longo de 60 meses.
+
+O consórcio surge como alternativa porque:
+
+- **Não cobra juros** — apenas taxa de administração (entre 12% e 20% do valor total, diluída nas parcelas)
+- **Parcelas mais acessíveis** — planos de 60 a 100 meses permitem parcelas que cabem no orçamento
+- **Poder de compra à vista** — ao ser contemplado, você negocia como comprador à vista, obtendo descontos de 5% a 15%
+- **Disciplina financeira** — o compromisso mensal cria o hábito de poupar com objetivo definido
+
+## Como funciona o consórcio de veículos elétricos
+
+O consórcio é um sistema de autofinanciamento regulamentado pelo Banco Central. Funciona assim:
+
+### 1. Escolha da carta de crédito
+
+Você define o valor da carta de crédito com base no veículo desejado. Para veículos elétricos, as cartas mais comuns são:
+
+| Faixa de Carta | Modelos Compatíveis | Parcela Estimada (80 meses) |
+|---|---|---|
+| R$ 120.000 - R$ 150.000 | BYD Dolphin Mini, GWM Ora 03 | R$ 1.800 - R$ 2.300 |
+| R$ 150.000 - R$ 250.000 | BYD Dolphin, Volvo EX30, BYD Atto 3 | R$ 2.300 - R$ 3.800 |
+| R$ 250.000 - R$ 400.000 | Tesla Model 3/Y, BMW iX1, Volvo XC40 | R$ 3.800 - R$ 6.000 |
+| R$ 400.000 - R$ 700.000 | Porsche Taycan, BMW iX, Mercedes EQS | R$ 6.000 - R$ 10.500 |
+
+### 2. Contemplação
+
+Existem duas formas de ser contemplado:
+
+- **Sorteio mensal**: Todo mês, pelo menos um participante do grupo é sorteado e recebe a carta de crédito.
+- **Lance**: Você pode ofertar um valor (lance) para antecipar sua contemplação. Lances vencedores costumam ser de **15% a 30%** do valor da carta.
+
+### 3. Uso da carta de crédito
+
+Ao ser contemplado, a carta de crédito é liberada para a compra do veículo. Você pode:
+
+- Comprar o modelo exato planejado
+- Escolher outro modelo dentro do valor da carta
+- Usar parte do valor para transferência, IPVA e [seguro auto](/seguro-auto)
+- Complementar com recursos próprios se desejar um modelo mais caro
+
+## Consórcio vs. Financiamento: Comparativo para veículos elétricos
+
+Vamos comparar a compra de um **BYD Dolphin** (R$ 180.000) pelos dois métodos:
+
+### Financiamento Bancário (60 meses, juros 1,8% a.m.)
+
+- Entrada: R$ 36.000 (20%)
+- Financiado: R$ 144.000
+- Parcela mensal: ~R$ 4.200
+- **Total pago: R$ 288.000**
+- Custo dos juros: **R$ 108.000**
+
+### Consórcio (80 meses, taxa admin. 16%)
+
+- Sem entrada obrigatória
+- Carta de crédito: R$ 180.000
+- Parcela mensal: ~R$ 2.610
+- **Total pago: R$ 208.800**
+- Custo da administração: **R$ 28.800**
+
+### Economia com consórcio: R$ 79.200 💰
+
+A diferença é expressiva. Mesmo considerando que no consórcio você precisa esperar a contemplação (ou ofertar lance), a economia de quase **R$ 80 mil** é um argumento poderoso.
+
+## 5 vantagens exclusivas do consórcio para veículos elétricos
+
+### 1. Acompanhar a evolução tecnológica 🔋
+
+A tecnologia de baterias e veículos elétricos evolui rapidamente. Um consórcio de 60-80 meses permite que você **compre o modelo mais atual** no momento da contemplação, em vez de ficar preso ao modelo disponível hoje. Em 2-3 anos, os veículos elétricos terão mais autonomia, carregamento mais rápido e preços mais competitivos.
+
+### 2. Usar a carta para pagar o seguro 🛡️
+
+Muitas administradoras permitem utilizar parte da carta de crédito para cobrir custos como IPVA, transferência e **seguro auto**. Como o [seguro de veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos) tende a ser mais caro, essa flexibilidade é valiosa.
+
+### 3. Negociar como comprador à vista 💪
+
+Ao ser contemplado, você recebe o valor integral da carta. Isso permite negociar com concessionárias como comprador à vista, obtendo **descontos de 5% a 15%** que não são disponíveis para quem financia.
+
+### 4. Planejar a infraestrutura de carregamento ⚡
+
+Enquanto aguarda a contemplação, você pode investir na instalação do wallbox (carregador residencial), adequar a rede elétrica da sua casa e até contratar um [seguro residencial](/seguro-residencial) que cubra os equipamentos de recarga. Moradores de [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta), por exemplo, podem adaptar suas garagens com tranquilidade.
+
+### 5. Diversificar investimentos 📊
+
+Com parcelas menores que as do financiamento, sobra mais dinheiro para investir. Se você aplicar a diferença mensal (R$ 1.600 no exemplo acima) em investimentos conservadores rendendo 1% ao mês, terá acumulado mais de **R$ 100 mil** ao fim do consórcio — mais que suficiente para dar um lance e antecipar a contemplação.
+
+## Como escolher a melhor administradora de consórcio
+
+Nem todas as administradoras são iguais. Veja os critérios essenciais:
+
+### ✅ Regulamentação pelo Banco Central
+
+Verifique se a administradora é autorizada pelo Banco Central. Empresas irregulares representam risco de perda total do investimento.
+
+### ✅ Taxa de administração competitiva
+
+Compare as taxas. Boas administradoras cobram entre **12% e 18%** do valor da carta, diluídos nas parcelas. Desconfie de taxas muito abaixo de 10% (podem ter custos ocultos) ou acima de 22%.
+
+### ✅ Fundo de reserva
+
+Algumas administradoras cobram fundo de reserva (1% a 3% adicional). Esse valor é devolvido ao final, mas impacta o fluxo de caixa mensal.
+
+### ✅ Histórico de contemplações
+
+Peça o histórico de contemplações dos grupos. Administradoras sérias compartilham dados sobre sorteios e lances vencedores.
+
+### ✅ Flexibilidade de uso da carta
+
+Confirme que a carta pode ser usada para veículos elétricos de qualquer marca e modelo, e se permite cobrir custos adicionais (IPVA, seguro, transferência).
+
+## Dicas práticas para quem vai fazer consórcio de carro elétrico
+
+1. **Comece com o valor certo**: Pesquise os preços dos modelos desejados e adicione 10-15% de margem para cobrir valorização e custos extras.
+
+2. **Planeje o lance**: Se quiser ser contemplado mais rápido, comece a poupar para ofertar lance. Lances de 20-25% costumam ser competitivos.
+
+3. **Mantenha as parcelas em dia**: Inadimplência pode excluí-lo do grupo e gerar perda dos valores pagos.
+
+4. **Monitore os sorteios**: Participe das assembleias (muitas são online) e acompanhe os resultados.
+
+5. **Já contrate o seguro**: Assim que contemplado, [contrate o seguro auto](/cotacao-seguro-auto) imediatamente. Rodar sem seguro é um risco que não vale a economia.
+
+6. **Considere o consórcio de imóvel para o wallbox**: Se pretende reformar a garagem ou instalar estação de recarga sofisticada, um [consórcio de imóveis](/consorcio-imoveis) pode financiar a obra.
+
+## O mercado de consórcio de elétricos em Guarulhos
+
+Guarulhos, como segunda maior cidade de São Paulo, acompanha a tendência nacional de eletrificação. Os bairros de [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) já concentram pontos de recarga e condomínios com infraestrutura para carros elétricos. Na região de [Cumbica](/seguros-guarulhos/cumbica), frotas de veículos elétricos para logística urbana estão se tornando viáveis economicamente via consórcio.
+
+A [Patro Seguros](/sobre) trabalha com as principais administradoras de consórcio do mercado — Embracon, Porto Seguro Consórcio, Bradesco Consórcios, Itaú Consórcio e outras — e pode orientar você na escolha do melhor plano para seu perfil e objetivo.
+
+## Consórcio + Seguro: a combinação perfeita
+
+Adquirir um veículo elétrico via consórcio é uma decisão financeira inteligente. Mas proteger esse investimento com o [seguro adequado](/blog/seguro-veiculos-eletricos-coberturas-riscos) é igualmente importante. A bateria, os sensores e a tecnologia embarcada representam um patrimônio significativo que precisa de proteção.
+
+Na Patro Seguros, oferecemos consultoria completa: ajudamos você a escolher o consórcio ideal **e** o seguro auto com coberturas específicas para veículos elétricos — tudo em um único atendimento.
+
+---
+
+**Pronto para planejar a compra do seu carro elétrico?** [Solicite uma simulação de consórcio](/consorcio-carro) ou fale conosco pelo [WhatsApp](https://wa.me/551151997500?text=Olá, quero uma simulação de consórcio para veículo elétrico).`,
+    faqs: [
+      { q: "Consórcio de carro elétrico é mais barato que financiamento?", a: "Sim, significativamente. O consórcio não cobra juros, apenas taxa de administração (12% a 18% do valor). Em um veículo de R$ 180 mil, a economia pode chegar a R$ 80 mil comparado ao financiamento bancário tradicional." },
+      { q: "Posso usar a carta de crédito do consórcio para qualquer carro elétrico?", a: "Sim, na maioria das administradoras você pode escolher qualquer modelo de veículo (elétrico, híbrido ou a combustão) desde que o valor esteja dentro da carta de crédito contratada." },
+      { q: "Quanto tempo demora para ser contemplado no consórcio?", a: "Depende do sorteio e de lances. Pode ser no primeiro mês ou no último. Em média, com lances estratégicos de 20-25% do valor da carta, a contemplação costuma ocorrer entre 12 e 24 meses." },
+      { q: "Posso usar parte da carta para pagar o seguro do carro elétrico?", a: "Algumas administradoras permitem usar até 10% da carta para despesas como IPVA, transferência e seguro. Consulte as regras específicas da sua administradora." },
+      { q: "Vale a pena esperar para comprar um carro elétrico via consórcio?", a: "Sim, especialmente porque a tecnologia evolui rápido. Em 2-3 anos, os modelos terão mais autonomia, preços mais acessíveis e melhor infraestrutura de recarga. O consórcio permite comprar o modelo mais atual no momento da contemplação." },
+      { q: "A Patro Seguros trabalha com quais administradoras de consórcio?", a: "Trabalhamos com as principais administradoras do mercado, incluindo Embracon, Porto Seguro Consórcio, Bradesco Consórcios e Itaú Consórcio, entre outras. Fazemos a cotação em várias para encontrar as melhores condições para você." },
+    ],
+  },
 };
 
 const defaultArticle = {
