@@ -1427,7 +1427,9 @@ A maioria das apólices inclui assistências gratuitas como:
 
 Quanto custa o seguro residencial?
 
-O seguro residencial é um dos mais acessíveis do mercado. Um apartamento avaliado em R$ 300.000, por exemplo, pode ter seguro a partir de R$ 200 por ano. Casas em áreas de risco tendem a ser um pouco mais caras.`,
+O seguro residencial é um dos mais acessíveis do mercado. Um apartamento avaliado em R$ 300.000, por exemplo, pode ter seguro a partir de R$ 200 por ano. Casas em áreas de risco tendem a ser um pouco mais caras.
+
+Mora em Guarulhos? Conheça nossas soluções de seguro residencial para os bairros [Jardim Maia — seguros de alto padrão](/seguros-guarulhos/jardim-maia) e [Vila Augusta — proteção para apartamentos e imóveis](/seguros-guarulhos/vila-augusta). Atendimento local e personalizado para proteger seu lar.`,
     faqs: [
       { q: "Seguro residencial cobre celular roubado dentro de casa?", a: "Sim, desde que tenha a cobertura de roubo contratada. A maioria das apólices cobre bens dentro da residência até o limite contratado." },
       { q: "Inquilino pode contratar seguro residencial?", a: "Sim! Inquilinos podem e devem contratar seguro residencial para proteger seus bens dentro do imóvel alugado. O seguro do proprietário cobre a estrutura, não os bens do inquilino." },
