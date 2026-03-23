@@ -81,11 +81,64 @@ const SegurosGuarulhosBairros = () => {
     { label: `Seguros em ${selectedBairro.nome}` },
   ];
 
+  const localBusinessSchema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    "name": "Patro Seguros",
+    "alternateName": `Patro Seguros ${selectedBairro.nome}`,
+    "url": `https://patro-secures-success.lovable.app/seguros-guarulhos-bairros`,
+    "logo": "https://patro-secures-success.lovable.app/favicon.ico",
+    "description": `Corretora de seguros em ${selectedBairro.nome}, Guarulhos. Especialista em ${selectedBairro.foco.toLowerCase()}: seguro auto, residencial, empresarial, saúde e mais.`,
+    "telephone": "+55-11-5199-7500",
+    "email": "contato@patroseguros.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Salgado Filho, 2120 – Sala 219",
+      "addressLocality": "Guarulhos",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.4538,
+      "longitude": -46.5333
+    },
+    "areaServed": {
+      "@type": "Place",
+      "name": `${selectedBairro.nome}, Guarulhos, SP`
+    },
+    "sameAs": [
+      "https://www.instagram.com/patroseguros",
+      "https://www.facebook.com/patroseguros"
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "150",
+      "bestRating": "5"
+    }
+  }), [selectedBairro]);
+
   return (
     <>
       <PageMeta
         title={`Seguros em ${selectedBairro.nome} | Patro Seguros Guarulhos`}
         description={`Corretora de seguros em ${selectedBairro.nome}, Guarulhos. ${selectedBairro.foco}: seguro auto, residencial, empresarial, saúde e mais. Cotação rápida pelo WhatsApp.`}
+      />
+
+      <FAQSchema faqs={selectedBairro.faqs} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
 
       <Header />
