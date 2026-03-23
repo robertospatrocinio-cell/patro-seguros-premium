@@ -1394,7 +1394,11 @@ Contras:
 - Franquia em caso de sinistro parcial
 - Processo de regulação pode levar tempo
 
-A conta é simples: compare o custo anual do seguro com o prejuízo potencial de ficar sem ele. Na grande maioria dos casos, o seguro auto é um investimento que vale cada centavo.`,
+A conta é simples: compare o custo anual do seguro com o prejuízo potencial de ficar sem ele. Na grande maioria dos casos, o seguro auto é um investimento que vale cada centavo.
+
+---
+
+🔋 **Pensando em migrar para um veículo elétrico?** O seguro funciona de forma diferente. Leia nosso artigo sobre [seguro para veículos elétricos: coberturas e riscos](/blog/seguro-veiculos-eletricos-coberturas-riscos).`,
     faqs: [
       { q: "Posso andar sem seguro auto?", a: "Legalmente sim, não é obrigatório. Mas financeiramente é muito arriscado. Um acidente grave pode gerar prejuízos de dezenas de milhares de reais, além de responsabilidade civil por danos a terceiros." },
       { q: "O DPVAT substitui o seguro auto?", a: "Não. O DPVAT (agora SPVAT) cobre apenas danos pessoais a vítimas de acidentes de trânsito com valores limitados. Não cobre danos ao seu veículo nem danos materiais a terceiros." },
