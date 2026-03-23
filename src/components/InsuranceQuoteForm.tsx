@@ -120,6 +120,24 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       event_label: config.type,
     });
 
+    const subject = `Nova Cotação — ${config.type}`;
+    const htmlBody = `
+      <h2>Nova Cotação de ${config.type}</h2>
+      <table style="border-collapse:collapse;width:100%">
+        ${config.fields.map(f => {
+          if (f.type === "checkbox-group") {
+            const vals = checkboxGroups[f.id];
+            return vals?.length ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${vals.join(", ")}</td></tr>` : "";
+          }
+          return formData[f.id]?.trim() ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${formData[f.id].trim()}</td></tr>` : "";
+        }).join("")}
+      </table>
+    `;
+
+    supabase.functions.invoke("send-form-email", {
+      body: { subject, textBody: parts, htmlBody },
+    }).catch(err => console.error("Email send error:", err));
+
     setTimeout(() => {
       setSending(false);
       setSent(true);
