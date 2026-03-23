@@ -51,6 +51,21 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       });
     }
 
+    const subject = `Nova Cotação — ${insuranceType}`;
+    const htmlBody = `
+      <h2>Nova Cotação de ${insuranceType}</h2>
+      <table style="border-collapse:collapse;width:100%">
+        <tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${form.nome.trim()}</td></tr>
+        <tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${form.telefone.trim()}</td></tr>
+        ${form.email?.trim() ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${form.email.trim()}</td></tr>` : ""}
+        ${extraFields.filter(f => form[f.id]?.trim()).map(f => `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${form[f.id].trim()}</td></tr>`).join("")}
+      </table>
+    `;
+
+    supabase.functions.invoke("send-form-email", {
+      body: { subject, textBody: parts, htmlBody },
+    }).catch(err => console.error("Email send error:", err));
+
     setTimeout(() => {
       setSending(false);
       setSent(true);
