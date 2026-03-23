@@ -344,11 +344,19 @@ const InsurancePageTemplate = ({
             <p className="text-base text-white/50 mb-12 max-w-lg mx-auto">Resposta em até 2 horas com as melhores opções do mercado</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               {quoteUrl ? (
-                <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                    <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Fazer Cotação Online
-                  </Button>
-                </a>
+                quoteUrl.startsWith('/') ? (
+                  <Link to={quoteUrl} className="w-full sm:w-auto">
+                    <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Preencher Formulário Completo
+                    </Button>
+                  </Link>
+                ) : (
+                  <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                    <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Fazer Cotação Online
+                    </Button>
+                  </a>
+                )
               ) : (
                 <Link to="/cotacao" className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Pedir Cotação Gratuita</Button>
