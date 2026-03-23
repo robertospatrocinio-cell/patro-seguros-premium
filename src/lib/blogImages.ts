@@ -167,6 +167,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Veículos Elétricos
   "seguro-veiculos-eletricos-coberturas-riscos": blogVeiculosEletricos,
+
+  // Consórcio Elétricos
+  "consorcio-veiculos-eletricos-compra-planejada": blogConsorcioEletricos,
 };
 
 export const getArticleImage = (slug: string): string => {
