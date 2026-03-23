@@ -109,6 +109,7 @@ const NichoEmpresarios = lazy(() => import("./pages/NichoEmpresarios"));
 const NichoProfissionaisLiberais = lazy(() => import("./pages/NichoProfissionaisLiberais"));
 const Depoimentos = lazy(() => import("./pages/Depoimentos"));
 const SegurosQuotePage = lazy(() => import("./pages/SegurosQuotePage"));
+const SegurosGuarulhosBairros = lazy(() => import("./pages/SegurosGuarulhosBairros"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -215,6 +216,7 @@ const App = () => (
             <Route path="/lp/seguro-celular" element={<LandingSeguroCelular />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
+            <Route path="/seguros-guarulhos-bairros" element={<SegurosGuarulhosBairros />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />
             <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
