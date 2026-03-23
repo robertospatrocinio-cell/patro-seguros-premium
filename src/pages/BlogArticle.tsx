@@ -3554,7 +3554,11 @@ A Patro Seguros está em Guarulhos — a 4ª cidade com mais roubos e furtos de 
 
 Não espere ser a próxima estatística. Proteja seu veículo agora. Entre em contato com a Patro Seguros pelo WhatsApp e receba sua cotação personalizada.
 
-Fonte dos dados: Companhia de rastreamento veicular Ituran, com base em dados da Secretaria da Segurança Pública do Governo de SP, conforme divulgado pelo UOL Carros em julho de 2025.`,
+Fonte dos dados: Companhia de rastreamento veicular Ituran, com base em dados da Secretaria da Segurança Pública do Governo de SP, conforme divulgado pelo UOL Carros em julho de 2025.
+
+---
+
+🔋 **Carros elétricos também são alvo de furtos** — e o seguro funciona de forma diferente. Saiba tudo sobre [coberturas e riscos para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos).`,
     faqs: [
       { q: "Qual é o carro mais roubado de São Paulo em 2025?", a: "O Volkswagen Gol lidera o ranking com 1.669 ocorrências de roubo e furto entre janeiro e maio de 2025 na Região Metropolitana de SP. Em seguida vêm o Hyundai HB20 (1.397), Chevrolet Onix (1.322), Fiat Uno (1.232) e Ford Ka (1.212)." },
       { q: "Ter um carro no ranking dos mais roubados encarece o seguro?", a: "Sim, o modelo do veículo é um dos fatores que influenciam o preço do seguro. Carros mais visados tendem a ter taxas mais altas. Porém, com a Patro Seguros, comparamos múltiplas seguradoras para encontrar o melhor custo-benefício — a diferença entre seguradoras pode passar de 40% para o mesmo carro." },
