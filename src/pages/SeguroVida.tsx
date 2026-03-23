@@ -102,6 +102,7 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },
         { title: "Seguro Residencial", link: "/seguro-residencial" },
       ]}
+      quoteUrl="/seguro-vida/formulario"
       quoteFormFields={[
         { id: "nascimento", label: "Data de nascimento", placeholder: "Ex: 15/03/1985" },
         { id: "profissao", label: "Profissão", placeholder: "Ex: Engenheiro, Médico, Autônomo" },
