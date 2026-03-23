@@ -63,15 +63,17 @@ const FormularioSeguroVida = () => {
     return consent;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const { toast } = useToast();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValid()) return;
     setSending(true);
 
     const lines = [
-      `Olá! Gostaria de contratar um *Seguro de Vida*.`,
+      `Seguro de Vida — Novo Lead`,
       ``,
-      `📋 *Dados Pessoais*`,
+      `📋 Dados Pessoais`,
       `Nome: ${form.nomeCompleto}`,
       form.cpf ? `CPF: ${form.cpf}` : null,
       form.rg ? `RG: ${form.rg}` : null,
@@ -79,32 +81,63 @@ const FormularioSeguroVida = () => {
       form.profissao ? `Profissão: ${form.profissao}` : null,
       (form.peso || form.altura) ? `Peso/Altura: ${form.peso || "—"} / ${form.altura || "—"}` : null,
       ``,
-      `📍 *Endereço*`,
+      `📍 Endereço`,
       form.cep ? `CEP: ${form.cep}` : null,
       form.rua ? `Rua: ${form.rua}${form.numero ? `, ${form.numero}` : ""}` : null,
       form.complemento ? `Complemento: ${form.complemento}` : null,
       form.bairro ? `Bairro: ${form.bairro}` : null,
       (form.cidade || form.estado) ? `Cidade/UF: ${form.cidade || ""} - ${form.estado || ""}` : null,
       ``,
-      `💰 *Seguro*`,
+      `💰 Seguro`,
       `Valor desejado: ${form.valorSeguro}`,
       ``,
-      `📞 *Contato*`,
+      `📞 Contato`,
       `Telefone: ${form.telefone}`,
       `Email: ${form.email}`,
     ].filter(Boolean).join("\n");
 
+    const htmlBody = `
+      <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+        <h2 style="color:#1a5632;">🛡️ Novo Lead — Seguro de Vida</h2>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nome</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.nomeCompleto}</td></tr>
+          ${form.cpf ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">CPF</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.cpf}</td></tr>` : ""}
+          ${form.dataNascimento ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nascimento</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.dataNascimento}</td></tr>` : ""}
+          ${form.profissao ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Profissão</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.profissao}</td></tr>` : ""}
+          ${form.telefone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefone</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.telefone}</td></tr>` : ""}
+          ${form.email ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.email}</td></tr>` : ""}
+          ${form.valorSeguro ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Valor Desejado</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.valorSeguro}</td></tr>` : ""}
+          ${form.cep ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">CEP</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.cep}</td></tr>` : ""}
+          ${(form.cidade || form.estado) ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Cidade/UF</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.cidade || ""} - ${form.estado || ""}</td></tr>` : ""}
+        </table>
+        <p style="color:#888;font-size:12px;margin-top:20px;">Enviado pelo formulário do site Patro Seguros</p>
+      </div>
+    `;
+
     trackCotacaoSubmit("Seguro de Vida - Formulário Completo");
-    trackWhatsAppClick("formulario-seguro-vida");
 
     window.fbq?.("track", "Lead", { content_name: "formulario-seguro-vida", content_category: "Seguro de Vida" });
     window.gtag?.("event", "generate_lead", { event_category: "formulario-seguro-vida", event_label: "Seguro de Vida" });
 
-    setTimeout(() => {
+    try {
+      const { data, error } = await supabase.functions.invoke("send-form-email", {
+        body: {
+          subject: `Novo Lead — Seguro de Vida — ${form.nomeCompleto}`,
+          textBody: lines,
+          htmlBody,
+        },
+      });
+
+      if (error) throw error;
+
       setSending(false);
       setSent(true);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`, "_blank");
-    }, 600);
+      toast({ title: "Formulário enviado!", description: "Sua cotação foi recebida com sucesso." });
+    } catch (err) {
+      console.error("Erro ao enviar email:", err);
+      setSending(false);
+      toast({ title: "Erro ao enviar", description: "Tente novamente ou entre em contato pelo WhatsApp.", variant: "destructive" });
+    }
   };
 
   if (sent) {
