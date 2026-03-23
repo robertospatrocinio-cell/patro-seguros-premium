@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
+import { supabase } from "@/integrations/supabase/client";
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -118,6 +119,24 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       event_category: "formulario-especifico",
       event_label: config.type,
     });
+
+    const subject = `Nova Cotação — ${config.type}`;
+    const htmlBody = `
+      <h2>Nova Cotação de ${config.type}</h2>
+      <table style="border-collapse:collapse;width:100%">
+        ${config.fields.map(f => {
+          if (f.type === "checkbox-group") {
+            const vals = checkboxGroups[f.id];
+            return vals?.length ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${vals.join(", ")}</td></tr>` : "";
+          }
+          return formData[f.id]?.trim() ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${formData[f.id].trim()}</td></tr>` : "";
+        }).join("")}
+      </table>
+    `;
+
+    supabase.functions.invoke("send-form-email", {
+      body: { subject, textBody: parts, htmlBody },
+    }).catch(err => console.error("Email send error:", err));
 
     setTimeout(() => {
       setSending(false);
