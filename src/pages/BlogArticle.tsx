@@ -5005,6 +5005,186 @@ A Patro Seguros é especialista em seguros para eventos de todos os portes — d
       { q: "O expositor precisa de seguro próprio?", a: "É recomendável. O seguro do organizador cobre danos gerais do evento, mas cada expositor pode contratar RC próprio para proteger seus equipamentos e sua responsabilidade específica dentro do stand." },
     ],
   },
+  "riscos-sinistros-guarulhos-2026": {
+    title: "Os Riscos de Sinistros Mais Comuns em Guarulhos em 2026",
+    content: `Guarulhos é a segunda maior cidade de São Paulo, com mais de 1,4 milhão de habitantes, um dos maiores aeroportos da América Latina, um polo logístico de relevância nacional e bairros que vão do alto padrão à periferia industrial. Essa diversidade traz também uma diversidade de riscos — e entender quais sinistros são mais comuns na cidade é o primeiro passo para se proteger de forma inteligente.
+
+Neste artigo, a Patro Seguros — com sede na Av. Salgado Filho, no Centro de Guarulhos — apresenta um panorama completo dos riscos de sinistros mais frequentes na cidade em 2026, com dados atualizados e orientações práticas para moradores e empresários.
+
+1. Roubo e Furto de Veículos — O Sinistro Mais Frequente
+
+Guarulhos figura consistentemente entre as 10 cidades com maior índice de roubo e furto de veículos no estado de São Paulo. Em 2025, a Secretaria de Segurança Pública registrou mais de 12.000 ocorrências de roubo e furto de veículos na cidade — uma média de 33 por dia.
+
+Bairros mais afetados:
+- Cumbica e região do Aeroporto: alta circulação de veículos e proximidade com rodovias de fuga (Dutra e Ayrton Senna)
+- Centro e Macedo: grande concentração de comércio e estacionamentos
+- Vila Augusta e Continental: densidade populacional elevada
+
+Modelos mais visados em Guarulhos:
+- Hyundai HB20 e Chevrolet Onix (líderes de roubo)
+- Toyota Corolla Cross e Jeep Compass (furto qualificado)
+- Motos Honda CG 160 e Yamaha Factor (altíssimo índice de furto)
+
+Como se proteger:
+- Contratar seguro auto com cobertura compreensiva (colisão + roubo/furto)
+- Instalar rastreador veicular (muitas seguradoras oferecem desconto)
+- Evitar estacionar em vias públicas em horários de menor movimento
+- Para frotas empresariais: [seguro de frota com gestão de risco](/seguro-frota)
+
+Se você mora no [Jardim Maia](/seguros-guarulhos/jardim-maia) ou [Vila Augusta](/seguros-guarulhos/vila-augusta), regiões de alto padrão e grande concentração de veículos novos, o seguro auto é indispensável.
+
+2. Alagamentos e Enchentes — Risco Climático Crescente
+
+Guarulhos possui diversas áreas de risco de inundação, especialmente nas margens dos rios Baquirivu-Guaçu e Cabuçu. As chuvas de verão provocam alagamentos recorrentes que causam danos a veículos, residências e empresas.
+
+Áreas mais vulneráveis:
+- Bonsucesso e Paraventi: proximidade de córregos e baixadas
+- Cumbica: terrenos planos próximos ao rio Baquirivu
+- Centro e Macedo: impermeabilização excessiva do solo urbano
+
+Dados relevantes:
+- Em 2025, Guarulhos registrou 47 pontos de alagamento recorrente
+- Danos a veículos por enchente representaram 18% dos sinistros auto na cidade
+- Residências atingidas por alagamento tiveram prejuízo médio de R$ 25.000 a R$ 80.000
+
+Seguros que cobrem alagamento:
+- Seguro Auto: com cobertura de "Eventos da Natureza" ou "Alagamento/Enchente"
+- [Seguro Residencial](/seguro-residencial): com cobertura adicional de alagamento e inundação
+- Seguro Empresarial: cobertura de alagamento + lucros cessantes
+
+3. Incêndios em Residências e Empresas
+
+Incêndios são o sinistro mais devastador em termos de dano patrimonial. Em Guarulhos, o Corpo de Bombeiros atendeu mais de 800 ocorrências de incêndio em 2025 — entre residências, comércios, galpões e veículos.
+
+Causas mais comuns:
+- Curto-circuito e sobrecarga elétrica (42% dos casos)
+- Vazamento de gás GLP (18%)
+- Descarte incorreto de materiais inflamáveis em galpões industriais (15%)
+- Incêndio criminoso (8%)
+
+Bairros com maior incidência:
+- Cumbica e Bonsucesso: concentração de galpões logísticos e industriais
+- Centro: imóveis comerciais antigos com instalações elétricas defasadas
+- Gopouva e Macedo: residências antigas com fiação exposta
+
+Proteção essencial:
+- [Seguro Residencial](/seguro-residencial) com cobertura básica (incêndio, raio, explosão)
+- [Seguro Empresarial](/seguro-empresarial) com cobertura de incêndio + lucros cessantes
+- Para galpões: [seguro de galpões industriais](/seguro-galpoes-industriais) com cobertura específica
+- Revisão periódica das instalações elétricas
+
+Moradores do [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) devem ficar atentos: imóveis de alto padrão possuem mais equipamentos eletrônicos, aumentando o risco de danos elétricos.
+
+4. Roubo e Furto a Residências
+
+O roubo a residências é uma preocupação constante em Guarulhos, especialmente em bairros residenciais com casas térreas e condomínios horizontais.
+
+Dados de 2025:
+- Mais de 3.200 ocorrências de furto a residências
+- Bairros mais afetados: Continental, Paraventi, Picanço e Bonsucesso
+- Horário de maior incidência: 8h às 17h (quando moradores estão no trabalho)
+- Itens mais visados: eletrônicos, joias, bicicletas e ferramentas
+
+Como o seguro residencial protege:
+- Cobertura de roubo e furto qualificado cobre bens dentro da residência
+- Limite de indenização geralmente de R$ 20.000 a R$ 100.000 (conforme contratação)
+- Inclui danos ao imóvel causados durante a invasão (portas, janelas, fechaduras)
+
+5. Acidentes de Trânsito — Alto Volume e Gravidade
+
+Guarulhos possui vias de alto fluxo e grande circulação de veículos pesados, o que contribui para um elevado número de acidentes.
+
+Vias mais perigosas:
+- Rodovia Presidente Dutra (trecho Guarulhos): líder em acidentes graves
+- Avenida Transguarulhense: colisões e atropelamentos frequentes
+- Rodovia Ayrton Senna: acidentes com veículos de carga
+- Avenida Salgado Filho: colisões em cruzamentos do Centro
+
+Dados relevantes:
+- Guarulhos registrou mais de 6.500 acidentes de trânsito em 2025
+- 38% envolveram motocicletas
+- Custos médios de sinistro: R$ 8.000 (colisão parcial) a R$ 45.000 (perda total)
+
+Proteção recomendada:
+- Seguro auto com cobertura de colisão, roubo/furto e danos a terceiros
+- Seguro de moto: essencial dado o alto índice de sinistros com motocicletas
+- Seguro de acidentes pessoais para motociclistas e motoristas de aplicativo
+
+6. Danos Elétricos — Sinistro Silencioso e Frequente
+
+Danos elétricos são o tipo de sinistro mais acionado em seguros residenciais em Guarulhos. Oscilações de energia, quedas de raio e curtos-circuitos destroem eletrodomésticos e equipamentos sem aviso.
+
+Estatísticas:
+- Representam 35% dos acionamentos de seguro residencial na região
+- Prejuízo médio por sinistro: R$ 3.000 a R$ 12.000
+- Período de maior incidência: outubro a março (temporada de raios)
+
+Equipamentos mais afetados:
+- Geladeiras e freezers
+- TVs e home theaters
+- Computadores e roteadores
+- Portões eletrônicos e interfones
+- Aparelhos de ar-condicionado
+
+A cobertura de danos elétricos no seguro residencial é extremamente acessível — geralmente custa menos de R$ 50/ano a mais — e se paga com uma única ocorrência.
+
+7. Sinistros em Galpões e Áreas Industriais
+
+Guarulhos é um dos maiores polos logísticos e industriais do Brasil, com milhares de galpões concentrados nas regiões de Cumbica, Bonsucesso e proximidades da Dutra.
+
+Sinistros mais comuns em galpões:
+- Incêndio (principal causa de perda total)
+- Roubo de carga e mercadorias
+- Danos por vendaval e granizo em coberturas metálicas
+- Alagamento em áreas de baixada
+
+Dados do setor:
+- Sinistros em galpões logísticos tiveram ticket médio de R$ 450.000 em 2025
+- 60% das empresas que sofrem incêndio grave sem seguro fecham em até 2 anos
+- Cobertura de lucros cessantes é contratada por apenas 30% das empresas (erro gravíssimo)
+
+Proteção recomendada:
+- [Seguro Empresarial](/seguro-empresarial) com coberturas amplas
+- [Seguro de Galpões Industriais](/seguro-galpoes-industriais) específico
+- Cobertura de lucros cessantes (fundamental)
+- [Seguro de Transporte de Cargas](/seguro-transporte) para mercadorias em trânsito
+
+Ranking dos Sinistros Mais Comuns em Guarulhos (2025-2026)
+
+1º — Roubo/furto de veículos: ~12.000 ocorrências/ano
+2º — Acidentes de trânsito: ~6.500 ocorrências/ano
+3º — Roubo/furto a residências: ~3.200 ocorrências/ano
+4º — Danos elétricos (residencial): ~35% dos acionamentos
+5º — Alagamentos: 47 pontos recorrentes
+6º — Incêndios: ~800 ocorrências/ano
+7º — Sinistros em galpões/indústrias: ticket médio R$ 450.000
+
+O Que Fazer Para Se Proteger
+
+A proteção mais eficaz é a combinação de prevenção + seguro adequado. A Patro Seguros recomenda:
+
+Para moradores:
+- [Seguro Auto](/seguro-auto) com cobertura compreensiva
+- [Seguro Residencial](/seguro-residencial) com danos elétricos e roubo
+- Seguro de Vida para proteção familiar
+
+Para empresários:
+- [Seguro Empresarial](/seguro-empresarial) com lucros cessantes
+- Seguro de Frota (para empresas com veículos)
+- [Seguro de Transporte](/seguro-transporte) para cargas
+
+A Patro Seguros está localizada no coração de Guarulhos — Av. Salgado Filho, 2120, Sala 219, Centro — e conhece de perto os riscos de cada bairro. Nossos especialistas fazem uma análise personalizada da sua exposição a riscos e recomendam as coberturas ideais.
+
+Fale conosco pelo WhatsApp ou solicite uma cotação gratuita e proteja seu patrimônio contra os riscos reais de Guarulhos.`,
+    faqs: [
+      { q: "Qual o bairro mais perigoso para roubo de veículos em Guarulhos?", a: "As regiões de Cumbica (proximidade do Aeroporto e rodovias de fuga), Centro e Vila Augusta concentram os maiores índices de roubo e furto de veículos. A presença de vias de rápido acesso como a Dutra e Ayrton Senna facilita a ação dos criminosos." },
+      { q: "O seguro residencial cobre danos por alagamento em Guarulhos?", a: "Somente se você contratar a cobertura adicional de alagamento/enchente. A cobertura básica do seguro residencial cobre incêndio, raio e explosão. Em áreas de risco como Bonsucesso e Paraventi, a cobertura contra alagamento é altamente recomendada." },
+      { q: "Quanto custa um seguro auto em Guarulhos?", a: "O valor varia conforme o modelo, perfil do condutor e bairro. Em Guarulhos, devido ao alto índice de roubo, os preços são em média 15% a 25% maiores que em cidades menores. Um seguro compreensivo para um carro popular pode custar entre R$ 2.500 e R$ 5.000/ano." },
+      { q: "Meu galpão em Cumbica precisa de seguro?", a: "Sem dúvida. A região de Cumbica concentra riscos de incêndio, roubo de carga e alagamento. Um seguro empresarial com cobertura de incêndio, roubo, alagamento e lucros cessantes é essencial. O custo é relativamente baixo frente ao patrimônio protegido." },
+      { q: "Danos elétricos são cobertos pelo seguro residencial?", a: "Sim, desde que a cobertura de danos elétricos esteja contratada. Ela protege eletrodomésticos e equipamentos contra oscilações de energia, quedas de raio e curtos-circuitos. É uma das coberturas mais acionadas e mais acessíveis do seguro residencial." },
+      { q: "A Patro Seguros atende todos os bairros de Guarulhos?", a: "Sim! Atendemos todos os bairros de Guarulhos com consultoria presencial e remota. Temos especialistas para cada tipo de seguro e conhecemos os riscos específicos de cada região da cidade." },
+    ],
+  },
 };
 
 const defaultArticle = {
