@@ -5185,6 +5185,145 @@ Fale conosco pelo WhatsApp ou solicite uma cotação gratuita e proteja seu patr
       { q: "A Patro Seguros atende todos os bairros de Guarulhos?", a: "Sim! Atendemos todos os bairros de Guarulhos com consultoria presencial e remota. Temos especialistas para cada tipo de seguro e conhecemos os riscos específicos de cada região da cidade." },
     ],
   },
+  "seguro-veiculos-eletricos-coberturas-riscos": {
+    title: "Seguro para Veículos Elétricos: Coberturas, Diferenças e Principais Riscos",
+    content: `O mercado de veículos elétricos e híbridos no Brasil está em franca expansão. Em 2025, as vendas de carros eletrificados cresceram mais de 90% em relação ao ano anterior, e a projeção para 2026 é ainda mais otimista. Modelos como BYD Dolphin, GWM Ora 03, Volvo EX30 e os já consagrados Tesla Model 3 e Model Y estão se tornando cada vez mais comuns nas ruas de São Paulo, Guarulhos e demais capitais.
+
+Com a popularização desses veículos, surge uma dúvida crucial: **como funciona o seguro para carros elétricos?** As coberturas são as mesmas de um carro a combustão? Quais riscos são exclusivos? E o preço — é mais caro?
+
+Neste guia completo, a [Patro Seguros](/sobre) responde todas essas perguntas com dados atualizados e orientação prática.
+
+## O que muda no seguro de um veículo elétrico?
+
+A estrutura básica do seguro auto permanece a mesma: você contrata coberturas para roubo/furto, colisão, incêndio, danos a terceiros e assistência 24h. Porém, a tecnologia embarcada nos veículos elétricos traz particularidades que impactam diretamente o seguro.
+
+### 1. Valor do veículo (e da apólice)
+
+Veículos elétricos costumam ter preço de tabela FIPE mais elevado que equivalentes a combustão. Um BYD Dolphin, por exemplo, custa entre R$ 150 mil e R$ 200 mil, enquanto um hatch popular a combustão fica na faixa de R$ 80 mil a R$ 100 mil. Como o prêmio do seguro é proporcional ao valor do bem, o custo do seguro tende a ser **20% a 40% mais caro**.
+
+### 2. Bateria de alta tensão
+
+A bateria é o componente mais caro de um veículo elétrico — pode representar **30% a 50% do valor total do carro**. Em caso de sinistro que danifique a bateria (colisão forte, alagamento, incêndio), o custo de reparo pode ser tão alto que a seguradora declara perda total. Por isso, é fundamental verificar se a apólice cobre **danos à bateria de forma específica**.
+
+### 3. Peças e mão de obra especializada
+
+Carros elétricos possuem componentes como motores elétricos, inversores de frequência, sistemas de gerenciamento de bateria (BMS) e cabeamento de alta tensão. A mão de obra para reparar esses sistemas exige **técnicos especializados e certificados**, o que eleva o custo de manutenção e, consequentemente, o valor do seguro.
+
+### 4. Tecnologia embarcada (ADAS)
+
+Sensores LiDAR, câmeras 360°, radar, sistemas de piloto automático e frenagem autônoma são comuns em elétricos. A calibração e substituição desses componentes após um sinistro pode custar **R$ 5.000 a R$ 20.000** por sensor.
+
+## Diferenças entre seguro de veículo elétrico e a combustão
+
+| Aspecto | Veículo a Combustão | Veículo Elétrico |
+|---|---|---|
+| **Valor médio do seguro** | R$ 2.500 a R$ 6.000/ano | R$ 4.000 a R$ 12.000/ano |
+| **Peça mais cara** | Motor/câmbio (R$ 8-20 mil) | Bateria (R$ 40-120 mil) |
+| **Mão de obra** | Mecânico convencional | Técnico certificado de alta tensão |
+| **Risco de incêndio** | Combustível inflamável | Thermal runaway da bateria |
+| **Assistência 24h** | Guincho convencional | Guincho plataforma obrigatório |
+| **Risco de alagamento** | Motor pode fundir | Bateria pode sofrer curto-circuito irreversível |
+| **Depreciação** | Gradual e previsível | Mais rápida nos primeiros anos |
+
+### Pontos de atenção na comparação
+
+- **Guincho**: Veículos elétricos **não podem ser rebocados com rodas no chão** na maioria dos casos, pois isso pode danificar o motor elétrico. O guincho deve ser obrigatoriamente do tipo **plataforma (prancha)**.
+- **Tempo de reparo**: Por exigir peças importadas e mão de obra específica, o tempo médio de reparo de um elétrico é **30% a 50% maior** que um carro convencional.
+- **Perda total**: A taxa de perda total em elétricos é significativamente maior. Danos que em um carro a combustão seriam reparáveis podem resultar em PT em um elétrico, especialmente se a bateria for comprometida.
+
+## Os 7 principais riscos exclusivos dos veículos elétricos
+
+### 1. Thermal Runaway (Fuga Térmica da Bateria) 🔥
+
+O risco mais temido. A fuga térmica ocorre quando uma célula da bateria de lítio entra em colapso, gerando calor em cascata que pode resultar em **incêndio de difícil extinção**. Incêndios de baterias de lítio podem durar horas e exigir enormes volumes de água. Embora raro (ocorre em menos de 0,01% dos veículos), as consequências são severas.
+
+**Cobertura necessária**: Incêndio + perda total.
+
+### 2. Danos por alagamento na bateria 🌊
+
+A bateria fica no assoalho do veículo, posição vulnerável a alagamentos. A água, especialmente suja ou salgada, pode causar **curto-circuito irreversível** nas células. Em Guarulhos, bairros como [Cumbica](/seguros-guarulhos/cumbica) e [Centro](/seguros-guarulhos/centro) são particularmente suscetíveis a alagamentos.
+
+**Cobertura necessária**: Alagamento/enchente + danos elétricos.
+
+### 3. Danos no sistema de carregamento ⚡
+
+O carregador embarcado (onboard charger), o cabo de carregamento e a porta de conexão são vulneráveis a **surtos de energia, vandalismo e furto**. Instalar um wallbox (carregador residencial) também gera riscos elétricos na residência.
+
+**Cobertura necessária**: Danos elétricos + [seguro residencial](/seguro-residencial) para o wallbox.
+
+### 4. Furto/roubo de componentes de alta tecnologia 🔒
+
+Módulos de câmera, sensores e até rodas de liga leve especiais são alvos de furto. Em regiões como [Vila Augusta](/seguros-guarulhos/vila-augusta) e [Picanço](/seguros-guarulhos/picanco), o seguro auto com cobertura compreensiva é essencial.
+
+### 5. Depreciação acelerada 📉
+
+A tecnologia de baterias evolui rapidamente, o que faz veículos elétricos de 2-3 anos perderem valor mais rápido que os a combustão. Isso impacta diretamente o valor de indenização em caso de perda total.
+
+**Dica**: Considere contratar a cobertura de **valor de mercado referenciado** ao invés de FIPE, ou negocie uma apólice com valor acordado.
+
+### 6. Custo de reparo em concessionária exclusiva 🔧
+
+Diferente de carros populares que podem ser reparados em qualquer oficina, muitos elétricos **só podem ser consertados em concessionárias autorizadas**. Isso gera filas, peças com prazos longos de importação e custos significativamente maiores.
+
+### 7. Risco cibernético (veículos conectados) 💻
+
+Veículos elétricos modernos são altamente conectados — recebem atualizações OTA (over-the-air), possuem apps de controle remoto e podem ser hackeados. Embora o seguro auto tradicional não cubra ataques cibernéticos, vale considerar um [seguro cyber](/seguro-cyber) complementar para frotas empresariais.
+
+## Como escolher o melhor seguro para seu carro elétrico
+
+### Checklist essencial antes de contratar:
+
+✅ **Cobertura de bateria**: Confirme que danos à bateria estão cobertos, incluindo thermal runaway e alagamento.
+
+✅ **Guincho plataforma**: Verifique se a assistência 24h oferece guincho prancha, e não apenas reboque convencional.
+
+✅ **Oficinas especializadas**: Confirme que a seguradora trabalha com rede referenciada que atende veículos elétricos.
+
+✅ **Carro reserva compatível**: Se precisar de carro reserva, verifique se é possível obter um veículo compatível (elétrico ou similar).
+
+✅ **Cobertura de equipamentos**: Wallbox, cabos de carregamento e adaptadores devem ser incluídos ou cobertos pelo seguro residencial.
+
+✅ **Valor de indenização**: Prefira tabela FIPE atualizada ou valor acordado. Evite apólices com valor de mercado depreciado.
+
+## Quanto custa o seguro de um veículo elétrico em 2026?
+
+Os valores variam muito conforme modelo, perfil e região:
+
+- **BYD Dolphin Mini**: R$ 3.500 a R$ 5.500/ano
+- **BYD Dolphin/Atto 3**: R$ 5.000 a R$ 8.000/ano
+- **Volvo EX30**: R$ 6.000 a R$ 9.000/ano
+- **Tesla Model 3/Model Y**: R$ 8.000 a R$ 14.000/ano
+- **BMW iX / Mercedes EQS**: R$ 12.000 a R$ 25.000/ano
+- **Porsche Taycan**: R$ 18.000 a R$ 35.000/ano
+
+Em Guarulhos, por ser região com alto índice de roubo/furto, os valores tendem a ficar na **faixa superior**.
+
+### Dicas para economizar no seguro de veículo elétrico:
+
+1. **Instale rastreador/bloqueador**: Redução de 5% a 15% no prêmio.
+2. **Garagem fechada**: Tanto em casa quanto no trabalho, reduz o risco e o custo.
+3. **Perfil do condutor**: Quanto mais experiência e menor sinistralidade, menor o preço.
+4. **Compare sempre**: [Solicite cotação](/cotacao) com pelo menos 3 seguradoras diferentes.
+5. **Franquia maior**: Se aceitar pagar mais em caso de sinistro menor, o prêmio anual diminui.
+
+## O futuro do seguro automotivo é elétrico
+
+Com a proibição da venda de carros a combustão prevista para 2035 na Europa e metas agressivas no Brasil, a frota elétrica vai crescer exponencialmente. As seguradoras estão se adaptando com produtos específicos, incluindo coberturas para baterias, estações de carregamento e até seguro paramétrico baseado em telemetria do veículo.
+
+A [Patro Seguros](/sobre) acompanha essa evolução e já trabalha com as principais seguradoras que oferecem produtos especializados para veículos elétricos e híbridos. Nossa equipe está preparada para orientar você na escolha da melhor proteção para seu carro, seja ele elétrico, híbrido ou a combustão.
+
+---
+
+**Proteja seu veículo elétrico com quem entende de seguros.** [Solicite uma cotação gratuita](/cotacao-seguro-auto) ou fale conosco pelo [WhatsApp](https://wa.me/551151997500?text=Olá, quero uma cotação de seguro para meu veículo elétrico).`,
+    faqs: [
+      { q: "O seguro de carro elétrico é mais caro que o de combustão?", a: "Sim, em média 20% a 40% mais caro, devido ao valor mais alto do veículo, custo das peças (especialmente a bateria) e necessidade de mão de obra especializada. Porém, o custo-benefício é excelente considerando os riscos envolvidos." },
+      { q: "A bateria do carro elétrico é coberta pelo seguro?", a: "Depende da apólice. Nem todas as seguradoras incluem cobertura específica para a bateria. É fundamental verificar se danos por colisão, alagamento e thermal runaway estão cobertos. A Patro Seguros orienta você a escolher a apólice certa." },
+      { q: "Posso rebocar meu carro elétrico com guincho comum?", a: "Não é recomendado. A maioria dos veículos elétricos deve ser transportada em guincho plataforma (prancha), pois o reboque convencional pode danificar o motor elétrico. Verifique se sua apólice garante guincho plataforma." },
+      { q: "Incêndio de bateria de lítio é coberto pelo seguro?", a: "Sim, a cobertura de incêndio do seguro auto cobre incêndios causados por thermal runaway da bateria. Porém, é importante informar à seguradora que o veículo é elétrico no momento da contratação." },
+      { q: "Meu wallbox (carregador residencial) está coberto?", a: "O wallbox pode ser coberto pelo seguro residencial como equipamento fixo da casa. Danos elétricos causados pelo carregador também podem ser cobertos. Consulte a Patro para garantir essa proteção." },
+      { q: "Vale a pena fazer seguro de carro elétrico popular como BYD Dolphin Mini?", a: "Sim! Mesmo veículos elétricos mais acessíveis possuem baterias caras e tecnologia sensível. O custo do seguro (a partir de R$ 3.500/ano) é baixo comparado ao risco de arcar com o reparo ou substituição da bateria, que pode custar R$ 40 mil ou mais." },
+    ],
+  },
 };
 
 const defaultArticle = {
