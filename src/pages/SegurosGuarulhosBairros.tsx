@@ -1,5 +1,5 @@
-import { useState, useCallback, useRef, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useState, useCallback, useRef, useMemo, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
