@@ -2741,7 +2741,11 @@ Conclusão
 
 Baratear o seguro auto não significa abrir mão de proteção. Com as estratégias certas — rastreador, perfil correto, franquia adequada, bônus acumulado e uma boa corretora — você pode economizar significativamente e manter seu veículo totalmente protegido.
 
-A Patro Seguros está pronta para fazer uma cotação personalizada e encontrar o melhor seguro auto para o seu perfil. Fale conosco pelo WhatsApp e descubra quanto você pode economizar!`,
+A Patro Seguros está pronta para fazer uma cotação personalizada e encontrar o melhor seguro auto para o seu perfil. Fale conosco pelo WhatsApp e descubra quanto você pode economizar!
+
+---
+
+🔋 **Veículos elétricos e híbridos** têm seguro mais caro, mas existem formas de economizar. Veja nosso guia completo sobre [seguro para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos) e descubra como reduzir o custo. Quer comprar um elétrico sem juros? Conheça o [consórcio de veículos elétricos](/blog/consorcio-veiculos-eletricos-compra-planejada).`,
     faqs: [
       { q: "Qual a dica mais eficiente para baratear o seguro auto?", a: "Comparar cotações com uma corretora especializada é a estratégia com maior impacto. Diferenças de 30% a 50% entre seguradoras são comuns para o mesmo perfil e veículo." },
       { q: "Instalar rastreador realmente reduz o seguro?", a: "Sim! Dependendo do dispositivo e da seguradora, o desconto pode variar de 5% a 25%. Consulte sua corretora antes de instalar para saber quais são aceitos." },
