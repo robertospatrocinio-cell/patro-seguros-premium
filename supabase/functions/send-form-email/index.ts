@@ -1,5 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
+import nodemailer from "npm:nodemailer@6.9.8";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -27,34 +27,37 @@ serve(async (req) => {
     const smtpPass = Deno.env.get("SMTP_PASS");
 
     if (!smtpHost || !smtpUser || !smtpPass) {
-      console.error("Missing SMTP configuration");
+      console.error("Missing SMTP config:", { smtpHost: !!smtpHost, smtpUser: !!smtpUser, smtpPass: !!smtpPass });
       return new Response(
         JSON.stringify({ error: "Email service not configured" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
 
-    const client = new SMTPClient({
-      connection: {
-        hostname: smtpHost,
-        port: 587,
-        tls: false,
-        auth: {
-          username: smtpUser,
-          password: smtpPass,
-        },
+    console.log("Connecting to SMTP:", smtpHost);
+
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+      port: 465,
+      secure: true,
+      auth: {
+        user: smtpUser,
+        pass: smtpPass,
+      },
+      tls: {
+        rejectUnauthorized: false,
       },
     });
 
-    await client.send({
-      from: smtpUser,
-      to: ["contato@patroseguros.com.br", "sandra@patroseguros.com.br"],
+    await transporter.sendMail({
+      from: `"Patro Seguros" <${smtpUser}>`,
+      to: "contato@patroseguros.com.br, sandra@patroseguros.com.br",
       subject,
-      content: textBody,
+      text: textBody,
       html: htmlBody || undefined,
     });
 
-    await client.close();
+    console.log("Email sent successfully");
 
     return new Response(
       JSON.stringify({ success: true }),
@@ -63,7 +66,7 @@ serve(async (req) => {
   } catch (error) {
     console.error("Email send error:", error);
     return new Response(
-      JSON.stringify({ error: "Failed to send email" }),
+      JSON.stringify({ error: "Failed to send email", details: String(error) }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
