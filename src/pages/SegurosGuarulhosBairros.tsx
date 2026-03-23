@@ -360,6 +360,32 @@ const SegurosGuarulhosBairros = () => {
           </div>
         </section>
 
+        {/* FAQ POR BAIRRO */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#003366] text-center mb-2">
+                Perguntas Frequentes — {selectedBairro.nome}
+              </h2>
+              <p className="text-center text-gray-500 mb-8">
+                Dúvidas comuns sobre seguros em {selectedBairro.nome}, Guarulhos
+              </p>
+              <Accordion type="single" collapsible className="w-full">
+                {selectedBairro.faqs.map((faq, idx) => (
+                  <AccordionItem key={`${selectedBairro.id}-${idx}`} value={`faq-${idx}`}>
+                    <AccordionTrigger className="text-left text-[#003366] font-medium">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
+        </section>
+
         {/* RODAPÉ LOCAL */}
         <section className="py-10 bg-[#003366] border-t border-white/10">
           <div className="container mx-auto px-4">
