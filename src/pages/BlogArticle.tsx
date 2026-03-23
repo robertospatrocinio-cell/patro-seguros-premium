@@ -2850,7 +2850,9 @@ Conclusão
 
 O seguro residencial é uma proteção completa e acessível que vai muito além do incêndio. A assistência 24h resolve problemas do dia a dia — chaveiro, encanador, eletricista — sem custo adicional, e as coberturas protegem seu patrimônio contra imprevistos.
 
-A Patro Seguros faz cotações com as melhores seguradoras para encontrar o plano ideal para sua casa ou apartamento. Fale conosco pelo WhatsApp e proteja seu lar!`,
+A Patro Seguros faz cotações com as melhores seguradoras para encontrar o plano ideal para sua casa ou apartamento. Fale conosco pelo WhatsApp e proteja seu lar!
+
+Se você mora em Guarulhos, confira nosso atendimento especializado para os bairros [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta), onde oferecemos consultoria presencial em seguros residenciais de alto padrão.`,
     faqs: [
       { q: "Quantas vezes posso usar a assistência 24h do seguro residencial?", a: "Na maioria das apólices, não há limite de acionamentos durante a vigência. Cada serviço tem um limite de valor ou tempo de mão de obra por chamado, mas você pode acionar quantas vezes precisar." },
       { q: "A assistência 24h cobre materiais ou só mão de obra?", a: "Geralmente cobre mão de obra e materiais básicos (torneira, sifão, disjuntor). Materiais especiais ou de maior valor podem ser cobrados à parte. Consulte as condições da sua apólice." },
