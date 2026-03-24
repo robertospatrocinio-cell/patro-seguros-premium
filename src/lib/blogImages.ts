@@ -8,6 +8,7 @@ import blogCartaVerde from "@/assets/blog/blog-carta-verde.webp";
 import blogCarrosRoubados from "@/assets/blog/blog-carros-roubados.webp";
 import blogAcoesAcidente from "@/assets/blog/blog-acoes-acidente.webp";
 import blogDicasBaratearAuto from "@/assets/blog/blog-dicas-baratear-auto.webp";
+import blogPrecoSeguroAutoFev2026 from "@/assets/blog/blog-preco-seguro-auto-fevereiro-2026.webp";
 import blogVeiculosBlindados from "@/assets/blog/blog-veiculos-blindados.webp";
 import blogSeguroResidencial from "@/assets/blog/blog-seguro-residencial.webp";
 import blogAssistencia24hResidencial from "@/assets/blog/blog-assistencia-24h-residencial.webp";
@@ -170,6 +171,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Consórcio Elétricos
   "consorcio-veiculos-eletricos-compra-planejada": blogConsorcioEletricos,
+
+  // Preço Seguro Auto Fev 2026
+  "preco-seguro-auto-fevereiro-2026": blogPrecoSeguroAutoFev2026,
 };
 
 export const getArticleImage = (slug: string): string => {

@@ -5344,6 +5344,132 @@ A [Patro Seguros](/sobre) acompanha essa evolução e já trabalha com as princi
       { q: "Vale a pena fazer seguro de carro elétrico popular como BYD Dolphin Mini?", a: "Sim! Mesmo veículos elétricos mais acessíveis possuem baterias caras e tecnologia sensível. O custo do seguro (a partir de R$ 3.500/ano) é baixo comparado ao risco de arcar com o reparo ou substituição da bateria, que pode custar R$ 40 mil ou mais." },
     ],
   },
+  "preco-seguro-auto-fevereiro-2026": {
+    title: "Seguro Auto Sobe até 16% em Fevereiro de 2026: Ranking Completo por Modelo e Cidade",
+    content: `O bolso do motorista brasileiro sentiu o peso em fevereiro de 2026. De acordo com o mais recente levantamento da Creditas Seguros, o preço médio das apólices de seguro automotivo registrou um salto considerável: para o perfil masculino, o valor médio subiu de R$ 2.390,32 para **R$ 2.741,67** — uma alta de **14%**. No público feminino, o encarecimento foi ainda mais agudo: **16%**, saltando de R$ 2.908,42 para **R$ 3.395,53**.
+
+O estudo analisa as 11 capitais brasileiras de maior representatividade e detalha o comportamento dos **dez modelos zero-quilômetro mais vendidos no país**, com cotações de 15 seguradoras como Porto Seguro, Allianz, Bradesco, Tokio Marine e Zurich.
+
+---
+
+## 🚗 Os Extremos do Mercado
+
+O elétrico **BYD Dolphin Mini** registrou a **maior apólice média nacional**: R$ 3.974,27 para homens e impressionantes R$ 5.834,30 para mulheres. No extremo oposto, o **VW Polo Comfortline TSI** conquistou o título de seguro mais barato para o perfil masculino (R$ 2.231,06), enquanto o **HB20 Sense Plus 1.0** ficou com o menor custo para mulheres (R$ 2.591,65).
+
+> Quer entender por que veículos elétricos têm seguro mais caro? Confira nosso guia completo sobre [seguro para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos).
+
+---
+
+## 🗺️ Geopolítica do Seguro: Onde é Mais Caro e Mais Barato
+
+O **Rio de Janeiro** permanece isolado como a capital com os maiores valores:
+
+| Capital | Masculino (média) | Feminino (média) |
+|---|---|---|
+| **Rio de Janeiro** | R$ 5.503,79 | R$ 7.961,06 |
+| **São Paulo** | R$ 2.911,61 | R$ 3.308,72 |
+| **Florianópolis** | R$ 2.240,51 | R$ 2.554,49 |
+| **Curitiba** | R$ 2.252,35 | R$ 2.610,88 |
+| **Brasília** | R$ 2.298,44 | R$ 2.450,86 |
+
+As cidades com apólices mais competitivas para homens foram **Florianópolis** e **Curitiba**. Para mulheres, os menores preços foram observados em **Brasília** e **Florianópolis**.
+
+---
+
+## 📊 Raio-X por Modelo: Os 10 Mais Vendidos
+
+### Volkswagen Polo Comfortline TSI
+
+Apesar de ser o mais barato para homens (R$ 2.231,06), subiu **10,89%** em relação a janeiro. Para mulheres, a média ficou em R$ 3.045,59. No RJ, o custo feminino atinge **R$ 8.866,97**.
+
+### Hyundai HB20 Sense Plus 1.0
+
+Para homens, a apólice disparou **17,49%**, passando de R$ 2.052,16 para R$ 2.411,15. O valor feminino fechou em R$ 2.591,65. As cotações mais salgadas estão no Rio: R$ 4.626,41 (homens) e R$ 4.553,60 (mulheres).
+
+### BYD Dolphin Mini AT
+
+Dono da maior apólice do mês. No Rio de Janeiro, o custo para mulheres chega a incríveis **R$ 12.022,39**. Para homens, os maiores valores estão no Rio (R$ 4.991,67), São Paulo (R$ 4.568,84) e Salvador (R$ 4.241,59).
+
+### Fiat Argo 1.0 Flex
+
+Custo médio masculino: R$ 2.872,85. Para mulheres, subiu de R$ 3.165,83 para R$ 3.598,38. Em SP, exige R$ 3.587,67 (homens) e R$ 5.383,24 (mulheres).
+
+### Chevrolet Onix Plus 1.0 Flex
+
+Média de R$ 2.934,96 (masculino) e R$ 4.094,28 (feminino). O RJ lidera com R$ 7.025,60 para homens e R$ 8.153,02 para mulheres.
+
+---
+
+## 🏙️ Ranking de Preços em São Paulo
+
+### Perfil Masculino (SP)
+
+| Modelo | Valor |
+|---|---|
+| Hyundai Creta Action 1.6 | R$ 1.988,92 |
+| VW Polo Comfortline TSI | R$ 2.050,52 |
+| Caoa Chery Tera 1.0 TSI | R$ 2.169,08 |
+| VW T-Cross Sense TSI | R$ 2.206,33 |
+| Hyundai HB20 Sense Plus | R$ 2.360,78 |
+| Chevrolet Onix Plus | R$ 2.505,88 |
+| Renault Kwid Intense | R$ 2.655,08 |
+| Fiat Mobi Like | R$ 3.023,11 |
+| Fiat Argo 1.0 Flex | R$ 3.587,67 |
+| BYD Dolphin Mini EV | R$ 4.568,84 |
+
+### Perfil Feminino (SP)
+
+| Modelo | Valor |
+|---|---|
+| VW Polo Comfortline TSI | R$ 2.121,13 |
+| Caoa Chery Tera 1.0 TSI | R$ 2.302,27 |
+| VW T-Cross Sense TSI | R$ 2.372,61 |
+| Hyundai Creta Action 1.6 | R$ 2.386,08 |
+| Hyundai HB20 Sense Plus | R$ 2.656,59 |
+| Chevrolet Onix Plus | R$ 2.798,85 |
+| Renault Kwid Intense | R$ 2.993,48 |
+| Fiat Mobi Like | R$ 3.668,54 |
+| BYD Dolphin Mini EV | R$ 5.404,48 |
+| Fiat Argo 1.0 Flex | R$ 5.383,24 |
+
+---
+
+## 💡 Como Economizar no Seguro Auto em 2026
+
+1. **Compare cotações**: diferenças de 30% a 50% entre seguradoras são comuns para o mesmo perfil
+2. **Aumente a franquia**: se tem bom histórico, uma franquia maior reduz o prêmio
+3. **Instale rastreador**: desconto de 5% a 20% dependendo da seguradora
+4. **Evite o perfil "jovem"**: adicione um condutor mais experiente como principal
+5. **Garagem fechada**: estacionar em local seguro reduz o risco e o preço
+
+> Confira mais estratégias no nosso artigo [5 Dicas para Baratear o Seguro Auto](/blog/5-dicas-baratear-seguro-auto).
+
+---
+
+## 🏘️ E em Guarulhos?
+
+Se você mora em Guarulhos, a localização influencia diretamente no valor do seu seguro. Bairros como [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) possuem perfis diferentes de risco. Já regiões como [Cumbica](/seguros-guarulhos/cumbica), próxima ao aeroporto e polo logístico, têm foco em frotas e cargas.
+
+Na **Patro Seguros**, nossa sede fica no [Centro de Guarulhos](/seguros-guarulhos/centro) e atendemos todos os bairros com cotação personalizada em mais de 15 seguradoras.
+
+---
+
+## 📞 Faça Sua Cotação Gratuita
+
+Não pague mais caro do que precisa. A Patro Seguros compara as melhores seguradoras do mercado para encontrar o seguro ideal para o seu veículo, seja ele a combustão ou [elétrico](/blog/seguro-veiculos-eletricos-coberturas-riscos).
+
+📱 [Solicite sua cotação pelo WhatsApp](https://wa.me/5511972874847?text=Olá%20Patro,%20quero%20uma%20cotação%20de%20seguro%20auto) ou preencha nosso [formulário de cotação online](/cotacao).
+
+*Fonte dos dados: Levantamento Creditas Seguros — Fevereiro 2026, publicado pela Motor Show.*`,
+    faqs: [
+      { q: "Qual foi a alta média do seguro auto em fevereiro de 2026?", a: "O seguro auto subiu em média 14% para o perfil masculino e 16% para o feminino em fevereiro de 2026, segundo levantamento da Creditas Seguros com 15 seguradoras em 11 capitais." },
+      { q: "Qual o carro com seguro mais caro em 2026?", a: "O BYD Dolphin Mini registrou a maior apólice média nacional: R$ 3.974,27 para homens e R$ 5.834,30 para mulheres. No Rio de Janeiro, o valor feminino chega a R$ 12.022,39." },
+      { q: "Qual o carro com seguro mais barato em 2026?", a: "O VW Polo Comfortline TSI teve a menor apólice masculina (R$ 2.231,06) e o Hyundai HB20 Sense Plus a menor feminina (R$ 2.591,65) entre os 10 modelos mais vendidos." },
+      { q: "Qual a capital mais cara para seguro auto?", a: "O Rio de Janeiro lidera com folga: média de R$ 5.503,79 para homens e R$ 7.961,06 para mulheres. Florianópolis e Curitiba são as mais baratas para o perfil masculino." },
+      { q: "Como economizar no seguro auto em Guarulhos?", a: "Compare cotações em várias seguradoras, instale rastreador, aumente a franquia e mantenha garagem fechada. Na Patro Seguros, fazemos cotação gratuita em mais de 15 seguradoras para encontrar o melhor preço." },
+      { q: "Por que o seguro de carro elétrico é mais caro?", a: "Veículos elétricos possuem baterias de alto valor, peças importadas e exigem guincho plataforma. O custo de reparo é maior, o que eleva o prêmio do seguro em relação a veículos a combustão convencionais." },
+    ],
+  },
   "consorcio-veiculos-eletricos-compra-planejada": {
     title: "Consórcio de Veículos Elétricos: A Alternativa Inteligente de Compra Planejada",
     content: `O sonho de ter um carro elétrico está mais acessível do que você imagina. Enquanto muitos associam veículos elétricos a preços elevados e financiamentos com juros pesados, existe uma alternativa que combina planejamento financeiro, economia real e poder de compra: o **consórcio de veículos elétricos**.
