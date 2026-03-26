@@ -109,6 +109,7 @@ const NichoMedicos = lazy(() => import("./pages/NichoMedicos"));
 const NichoTransportadoras = lazy(() => import("./pages/NichoTransportadoras"));
 const NichoEmpresarios = lazy(() => import("./pages/NichoEmpresarios"));
 const NichoProfissionaisLiberais = lazy(() => import("./pages/NichoProfissionaisLiberais"));
+const NichoMotoristasApp = lazy(() => import("./pages/NichoMotoristasApp"));
 const Depoimentos = lazy(() => import("./pages/Depoimentos"));
 const SegurosQuotePage = lazy(() => import("./pages/SegurosQuotePage"));
 const SegurosGuarulhosBairros = lazy(() => import("./pages/SegurosGuarulhosBairros"));
@@ -229,6 +230,7 @@ const App = () => (
             <Route path="/seguros/transportadoras" element={<NichoTransportadoras />} />
             <Route path="/seguros/empresarios" element={<NichoEmpresarios />} />
             <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
+            <Route path="/seguros/motoristas-app" element={<NichoMotoristasApp />} />
             <Route path="/seguros/:tipo" element={<SegurosQuotePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
