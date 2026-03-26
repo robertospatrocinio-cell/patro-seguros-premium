@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Megaphone, Car, Heart, Building2, Home, Shield, Bike, Warehouse, Trophy, Smartphone } from "lucide-react";
+import { ArrowRight, Megaphone, Car, Heart, Building2, Home, Shield, Bike, Warehouse, Trophy, Smartphone, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -14,6 +14,7 @@ const landingPages = [
   { title: "Seguro Celular", description: "Roubo, quebra acidental e dano por líquido — iPhone e Android.", icon: Smartphone, link: "/lp/seguro-celular", color: "bg-cyan-500/10 text-cyan-600" },
   { title: "Seguro Residencial", description: "Incêndio, roubo, danos elétricos e assistência 24h.", icon: Home, link: "/lp/seguro-residencial", color: "bg-green-500/10 text-green-600" },
   { title: "Seguro Empresarial", description: "PME, comércio e indústria — proteção completa do negócio.", icon: Building2, link: "/lp/seguro-empresarial", color: "bg-slate-500/10 text-slate-600" },
+  { title: "Seguro Motorista App", description: "Uber, 99, inDrive — cobertura durante corridas, RC passageiros e carro reserva.", icon: MapPin, link: "/lp/seguro-motorista-app", color: "bg-violet-500/10 text-violet-600" },
 ];
 
 const LandingPages = () => (
