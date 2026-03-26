@@ -217,6 +217,7 @@ const App = () => (
             <Route path="/lp/seguro-galpoes" element={<LandingSeguroGalpoes />} />
             <Route path="/lp/consorcio" element={<LandingConsorcio />} />
             <Route path="/lp/seguro-celular" element={<LandingSeguroCelular />} />
+            <Route path="/lp/seguro-motorista-app" element={<LandingSeguroMotoristaApp />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
             <Route path="/seguros-guarulhos-bairros" element={<SegurosGuarulhosBairros />} />
