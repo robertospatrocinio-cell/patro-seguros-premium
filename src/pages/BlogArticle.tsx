@@ -5636,6 +5636,124 @@ Na Patro Seguros, oferecemos consultoria completa: ajudamos você a escolher o c
       { q: "A Patro Seguros trabalha com quais administradoras de consórcio?", a: "Trabalhamos com as principais administradoras do mercado, incluindo Embracon, Porto Seguro Consórcio, Bradesco Consórcios e Itaú Consórcio, entre outras. Fazemos a cotação em várias para encontrar as melhores condições para você." },
     ],
   },
+  "seguro-motorista-aplicativo-guia": {
+    title: "Seguro para Motorista de Aplicativo: Guia Completo 2026",
+    content: `Se você é motorista de Uber, 99, inDrive ou qualquer outro aplicativo de transporte em Guarulhos e região, este guia é para você. Rodar por aplicativo sem o seguro correto é um dos maiores riscos financeiros que um motorista pode correr — e a maioria não sabe disso até que seja tarde demais.
+
+Neste artigo, a Patro Seguros explica tudo sobre o seguro para motorista de aplicativo: por que o seguro convencional não serve, quais coberturas são obrigatórias, quanto custa e como economizar sem perder proteção.
+
+## Por Que o Seguro Convencional Não Serve para Motorista de App?
+
+A resposta é simples: **divergência de perfil**. Quando você contrata um seguro auto declarando uso "lazer" ou "ida e volta ao trabalho", está informando à seguradora que o carro roda, em média, 15 a 30 km por dia. Um motorista de aplicativo roda **200 a 300 km por dia** — 10 vezes mais.
+
+As seguradoras calculam o preço do seguro com base no risco. Mais quilômetros rodados significam mais exposição a acidentes, mais desgaste do veículo e mais tempo em regiões de risco. Se você omitir o uso para app e sofrer um sinistro, a seguradora pode:
+
+- **Negar a indenização** por divergência de perfil declarado
+- **Cancelar a apólice** retroativamente
+- **Exigir devolução** de valores já pagos em sinistros anteriores
+
+Isso acontece porque as seguradoras investigam o uso do veículo no momento do sinistro. Verificam o app no celular, GPS, depoimentos de passageiros e até câmeras de segurança. Não vale o risco.
+
+## O Que Muda no Seguro para Motorista de App?
+
+O seguro específico para motoristas de aplicativo contempla todas as particularidades da atividade:
+
+**1. Perfil de uso intensivo declarado**
+A seguradora sabe que o carro roda muito e calcula o preço de forma justa para esse perfil. Sem surpresas na hora do sinistro.
+
+**2. RC Passageiros (APP) — Obrigatória**
+A legislação brasileira exige que transportadores remunerados tenham seguro de Acidentes Pessoais de Passageiros. Essa cobertura protege os passageiros em caso de acidente e protege o motorista de processos judiciais que podem alcançar centenas de milhares de reais.
+
+**3. Carro reserva estendido**
+Para quem depende do carro para gerar renda, cada dia parado é prejuízo direto. O carro reserva estendido (15 ou 30 dias) permite que você continue trabalhando enquanto seu veículo é reparado.
+
+**4. Assistência 24h com quilometragem ampliada**
+Motoristas de app rodam longas distâncias. A assistência com guincho de quilometragem ampliada garante atendimento mesmo longe de casa.
+
+**5. Cobertura válida durante corridas**
+Diferente do seguro convencional, a cobertura é válida com passageiro a bordo e app ativo.
+
+## Quanto Custa o Seguro para Motorista de App em Guarulhos?
+
+O seguro para motoristas de aplicativo custa, em média, **20% a 40% mais** que o seguro convencional. Em Guarulhos e região metropolitana de São Paulo, os valores variam conforme o veículo:
+
+| Categoria | Faixa de preço anual |
+|-----------|---------------------|
+| Hatch popular (Onix, HB20, Argo) | R$ 3.000 a R$ 5.500 |
+| Sedã compacto (Virtus, Cronos) | R$ 3.500 a R$ 6.500 |
+| Sedã médio (Corolla, Civic, Sentra) | R$ 5.000 a R$ 8.000 |
+| SUV compacto (Creta, Tracker, T-Cross) | R$ 4.500 a R$ 7.500 |
+
+Esses valores incluem as coberturas essenciais: colisão, roubo/furto, RC terceiros, RC passageiros e assistência 24h. O carro reserva estendido adiciona cerca de R$ 300 a R$ 800 ao valor anual — um investimento que se paga no primeiro sinistro.
+
+## Coberturas Obrigatórias e Recomendadas
+
+### Obrigatórias por lei:
+- **RC Passageiros (APP)**: cobre despesas médicas, invalidez e morte acidental de passageiros. Limite mínimo recomendado: R$ 50 mil por passageiro.
+
+### Essenciais:
+- **Colisão e capotamento**: com franquia adequada ao uso intensivo
+- **Roubo e furto**: especialmente importante para quem roda à noite ou em regiões de risco
+- **RC Terceiros**: danos materiais e corporais a outros veículos e pessoas. Limite recomendado: R$ 150 mil
+- **Assistência 24h**: com guincho de quilometragem ampliada
+
+### Altamente recomendadas:
+- **Carro reserva estendido**: 15 ou 30 dias
+- **Vidros e retrovisores**: uso intensivo aumenta a exposição
+- **Fenômenos naturais**: especialmente em Guarulhos, onde alagamentos são frequentes
+- **Rastreador**: descontos de 5% a 20% e maior chance de recuperação
+
+## Dicas para Economizar no Seguro de App
+
+1. **Compare com corretora especializada**: na Patro, encontramos diferenças de até 40% entre seguradoras para motoristas de app
+2. **Instale rastreador**: desconto imediato no seguro e mais segurança
+3. **Mantenha o bônus**: cada ano sem sinistro vale até 35% de desconto
+4. **Considere franquia majorada**: se você é motorista experiente e cuidadoso
+5. **Declare corretamente as horas rodadas**: motoristas parciais pagam menos que full-time
+6. **Combine seguros**: auto + vida ou auto + celular podem gerar descontos por pacote
+
+## Motorista Parcial Também Precisa de Seguro para App?
+
+**Sim.** Mesmo que você rode apenas nos finais de semana ou algumas horas por dia para complementar a renda, precisa declarar o uso para aplicativo. Se sofrer um sinistro durante uma corrida com seguro convencional, a cobertura pode ser negada.
+
+A boa notícia é que motoristas parciais geralmente pagam menos que motoristas full-time, pois o perfil de risco é menor.
+
+## Guarulhos e Região: Riscos Específicos
+
+Motoristas de aplicativo em Guarulhos enfrentam riscos específicos:
+
+- **Aeroporto de Guarulhos**: corridas longas para o aeroporto passam por regiões de alto risco nas rodovias Dutra e Ayrton Senna
+- **Alagamentos**: diversas vias de Guarulhos são suscetíveis a alagamentos em temporadas de chuva
+- **Roubo de veículos**: certas regiões da cidade têm índices elevados de roubo, especialmente à noite
+- **Trânsito intenso**: o alto volume de tráfego nas principais vias aumenta o risco de colisões
+
+Para conhecer os riscos específicos do seu bairro, confira nosso guia sobre [seguros por bairro em Guarulhos](/seguros-guarulhos).
+
+## Como Contratar o Seguro para Motorista de App
+
+O processo é simples e rápido:
+
+1. **Fale com a Patro Seguros** pelo [WhatsApp](https://wa.me/551151997500?text=Olá, sou motorista de aplicativo e quero cotar seguro auto) ou solicite uma [cotação online](/seguro-motorista-app)
+2. **Informe seus dados**: veículo, CEP, plataformas que utiliza e horas rodadas por dia
+3. **Receba as melhores opções**: comparamos seguradoras que aceitam motoristas de app
+4. **Escolha e ative**: apólice ativa em até 24h, vistoria por fotos do celular
+
+---
+
+📊 **Quanto custa o seguro do seu carro em 2026?** Confira o [ranking atualizado de preços por modelo e cidade](/blog/preco-seguro-auto-fevereiro-2026) — altas de até 16% foram registradas em fevereiro.
+
+🔋 **Pensando em rodar com carro elétrico?** O seguro tem particularidades importantes. Leia nosso guia sobre [seguro para veículos elétricos](/blog/seguro-veiculos-eletricos-coberturas-riscos).
+
+🚗 **Evite erros na contratação:** Confira os [7 erros que fazem você pagar mais no seguro auto](/blog/seguro-auto-7-erros) — vários se aplicam especialmente a motoristas de app.`,
+    faqs: [
+      { q: "Posso usar seguro convencional para rodar por aplicativo?", a: "Não é recomendado. Se a seguradora constatar uso comercial não declarado no momento do sinistro, pode negar a indenização. A investigação verifica app no celular, GPS e depoimentos de passageiros. O seguro específico para app garante cobertura real." },
+      { q: "Quanto custa o seguro para motorista de Uber em Guarulhos?", a: "Para carros populares (Onix, HB20, Argo), o seguro com declaração de uso para app varia de R$ 3.000 a R$ 5.500/ano em Guarulhos. O valor depende do perfil do motorista, horas rodadas e coberturas escolhidas." },
+      { q: "O seguro cobre acidente com passageiro no carro?", a: "Sim, desde que a cobertura RC-APP (Acidentes Pessoais de Passageiros) esteja contratada. É obrigatória por lei para transporte remunerado e cobre despesas médicas, invalidez e morte acidental do passageiro." },
+      { q: "Todas as seguradoras aceitam motorista de aplicativo?", a: "Não. Apenas parte das seguradoras aceita motoristas de app. Algumas exigem rastreador, outras limitam idade do veículo ou região. Na Patro, trabalhamos com todas as que aceitam e encontramos a melhor opção." },
+      { q: "Motorista parcial (poucas horas) precisa de seguro para app?", a: "Sim. Mesmo rodando poucas horas, se sofrer sinistro durante corrida com seguro convencional, a cobertura pode ser negada. Motoristas parciais geralmente pagam menos que full-time." },
+      { q: "O que é RC Passageiros e por que é obrigatória?", a: "RC Passageiros (APP) é a cobertura de Acidentes Pessoais de Passageiros. É obrigatória por lei para transporte remunerado. Cobre despesas médicas, invalidez e morte acidental dos passageiros transportados, protegendo o motorista de processos judiciais." },
+    ],
+  },
 };
 
 const defaultArticle = {
