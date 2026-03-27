@@ -59,7 +59,7 @@ const TermosDeUso = () => {
             <ul>
               <li><strong>E-mail:</strong> contato@patroseguros.com.br</li>
               <li><strong>Telefone/WhatsApp:</strong> (11) 5199-7500</li>
-              <li><strong>Endereço:</strong> Av. Salgado Filho, 2120 – Sala 219 – Guarulhos/SP</li>
+              <li><strong>Endereço:</strong> Av. Salgado Filho, 2120 – Sala 219 – Jardim Maia, Guarulhos/SP</li>
             </ul>
 
             <p className="text-xs text-muted-foreground mt-8">Patro Corretora de Seguros · CNPJ 41.641.558/0001-33 · SUSEP 212113511</p>

@@ -166,7 +166,7 @@ const SobreGuarulhos = () => (
                 <h3 className="font-semibold mb-3 flex items-center gap-2"><MapPin className="h-5 w-5 text-primary" /> Como Chegar</h3>
                 <p className="text-sm text-muted-foreground mb-3">
                   Av. Salgado Filho, 2120 – Sala 219<br />
-                  Guarulhos/SP – CEP 07115-000
+                  Jardim Maia, Guarulhos/SP – CEP 07115-000
                 </p>
                 <ul className="text-sm text-muted-foreground space-y-1.5">
                   <li>• Próximo ao Aeroporto Internacional de Guarulhos</li>
