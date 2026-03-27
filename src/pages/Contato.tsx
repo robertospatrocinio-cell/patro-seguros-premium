@@ -216,7 +216,7 @@ const Contato = () => {
                       <div>
                         <h3 className="font-semibold mb-1">Nosso Endereço</h3>
                         <p className="text-sm text-muted-foreground">
-                          Avenida Salgado Filho, 2120 – Sala 219<br />Jardim Maia, Guarulhos/SP · CEP 07115-000
+                          Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219<br />Jardim Maia, Guarulhos/SP · CEP 07115-000
                         </p>
                       </div>
                     </div>
