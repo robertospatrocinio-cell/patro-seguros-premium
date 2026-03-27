@@ -113,7 +113,7 @@ const SegurosGuarulhosBairros = () => {
     "email": "contato@patroseguros.com.br",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Av. Salgado Filho, 2120 – Sala 219 – Jardim Maia",
+      "streetAddress": "Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Jardim Maia",
       "addressLocality": "Guarulhos",
       "addressRegion": "SP",
       "addressCountry": "BR"
@@ -399,7 +399,7 @@ const SegurosGuarulhosBairros = () => {
                 <h4 className="text-white font-bold mb-3">Endereço</h4>
                 <p className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-[#F2994A]" />
-                  Av. Salgado Filho, 2120 – Sala 219 – Jardim Maia, Guarulhos/SP
+                  Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Jardim Maia, Guarulhos/SP
                 </p>
               </div>
               <div>

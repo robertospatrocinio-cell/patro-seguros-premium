@@ -72,7 +72,7 @@ export const bairros: BairroData[] = [
     descricao: "O Centro de Guarulhos pulsa com comércio e serviços. Na Av. Salgado Filho — onde fica nossa sede — e nas imediações do Poli Shopping, advogados, dentistas, médicos e comerciantes precisam de proteção profissional. A Patro Seguros oferece RC Profissional, seguro empresarial para lojas e consultórios, além de planos de saúde corporativos, tudo com atendimento presencial a poucos passos de você.",
     image: imgCentro,
     faqs: [
-      { question: "Onde fica a sede da Patro Seguros no Centro de Guarulhos?", answer: "Nossa sede fica na Av. Salgado Filho, 2120 – Sala 219, no Centro de Guarulhos, próximo ao Poli Shopping. Atendemos presencialmente de segunda a sexta, das 8h às 18h." },
+      { question: "Onde fica a sede da Patro Seguros no Centro de Guarulhos?", answer: "Nossa sede fica na Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219, no Jardim Maia, Guarulhos, próximo ao Poli Shopping. Atendemos presencialmente de segunda a sexta, das 8h às 18h." },
       { question: "A Patro faz seguro RC para profissionais liberais do Centro?", answer: "Sim! Oferecemos Responsabilidade Civil Profissional para advogados, médicos, dentistas, engenheiros e outros profissionais que atuam no Centro de Guarulhos." },
       { question: "Quais seguros para lojas no Centro de Guarulhos?", answer: "Para lojistas do Centro e Poli Shopping, oferecemos seguro empresarial completo com cobertura contra incêndio, roubo, danos elétricos, RC e lucros cessantes." },
     ],
