@@ -11,6 +11,7 @@ const LocalBusinessSchema = () => {
     "email": "contato@patroseguros.com.br",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Av. Salgado Filho, 2120 – Sala 219 – Jardim Maia",
       "addressLocality": "Guarulhos",
       "addressRegion": "SP",
       "addressCountry": "BR"

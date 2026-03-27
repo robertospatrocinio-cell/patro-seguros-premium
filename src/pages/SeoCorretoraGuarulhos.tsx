@@ -86,7 +86,7 @@ const SeoCorretoraGuarulhos = () => (
           <h2 className="text-center mb-12">Perguntas Frequentes</h2>
           <div className="space-y-6">
             {[
-              { q: "Onde fica a Patro Seguros?", a: "Estamos na Avenida Salgado Filho, 2120 – Sala 219 – Guarulhos/SP. Atendemos presencialmente e online." },
+              { q: "Onde fica a Patro Seguros?", a: "Estamos na Avenida Salgado Filho, 2120 – Sala 219 – Jardim Maia, Guarulhos/SP. Atendemos presencialmente e online." },
               { q: "A Patro atende outras cidades?", a: "Sim! Embora nossa sede seja em Guarulhos, atendemos clientes de todo o Brasil." },
               { q: "Como funciona a cotação?", a: "Você solicita pelo site, WhatsApp ou telefone. Em até 2 horas enviamos as melhores propostas." },
             ].map((faq, i) => (

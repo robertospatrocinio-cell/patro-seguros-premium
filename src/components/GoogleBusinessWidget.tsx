@@ -74,7 +74,7 @@ const GoogleBusinessWidget = () => {
       <div className="space-y-2 mb-6 pb-6 border-t pt-5">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <MapPin className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-          <span>Av. Salgado Filho, 2120 – Sala 219, Guarulhos/SP</span>
+          <span>Av. Salgado Filho, 2120 – Sala 219 – Jardim Maia, Guarulhos/SP</span>
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Phone className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />

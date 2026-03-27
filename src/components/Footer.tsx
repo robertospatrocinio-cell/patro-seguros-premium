@@ -70,7 +70,7 @@ const Footer = () => {
               <ul className="space-y-3 text-[13px]">
                 <li className="flex items-start gap-2.5 text-white/70">
                   <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0 text-white/60" aria-hidden="true" />
-                  <span>Av. Salgado Filho, 2120<br />Sala 219 — Guarulhos/SP</span>
+                  <span>Av. Salgado Filho, 2120<br />Sala 219 — Jardim Maia, Guarulhos/SP</span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />

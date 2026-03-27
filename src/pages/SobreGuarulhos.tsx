@@ -16,7 +16,7 @@ const faqs = [
   { question: "A Patro Seguros atende apenas Guarulhos?", answer: "Não. Nossa sede fica em Guarulhos, mas atendemos toda a Região Metropolitana de São Paulo, interior do estado e, para seguros Agro, todo o Brasil. O atendimento é presencial, por WhatsApp, telefone e videochamada." },
   { question: "Qual é a melhor corretora de seguros em Guarulhos?", answer: "A Patro Seguros é referência em Guarulhos, com nota 4.9 no Google, mais de 150 avaliações positivas e registro na SUSEP (nº 212113511). Comparamos cotações de 16+ seguradoras para encontrar o melhor custo-benefício." },
   { question: "Vocês fazem seguro para empresas em Guarulhos?", answer: "Sim! Temos ampla experiência com empresas de Guarulhos — desde pequenas lojas até indústrias e transportadoras. Oferecemos Seguro Empresarial, RC, Frota, Cyber, Plano de Saúde Empresarial e mais." },
-  { question: "Como funciona o atendimento presencial?", answer: "Nosso escritório fica na Av. Salgado Filho, 2120 – Sala 219, com fácil acesso e estacionamento. Atendemos de segunda a sexta das 9h às 18h e sábados das 9h às 13h. Recomendamos agendar pelo WhatsApp." },
+  { question: "Como funciona o atendimento presencial?", answer: "Nosso escritório fica na Av. Salgado Filho, 2120 – Sala 219 – Jardim Maia, com fácil acesso e estacionamento. Atendemos de segunda a sexta das 9h às 18h e sábados das 9h às 13h. Recomendamos agendar pelo WhatsApp." },
   { question: "Vocês trabalham com planos de saúde em Guarulhos?", answer: "Sim! Trabalhamos com as principais operadoras que atendem Guarulhos: Amil, Bradesco Saúde, SulAmérica, Hapvida/NotreDame, Prevent Senior, Unimed e mais. Comparamos preços e coberturas para encontrar o ideal." },
   { question: "Quanto custa um seguro auto em Guarulhos?", answer: "O preço varia conforme veículo, perfil do condutor e região de periculosidade. Em Guarulhos, valores médios vão de R$ 1.800 a R$ 5.000/ano. Solicite uma cotação gratuita para seu perfil específico." },
 ];
@@ -166,7 +166,7 @@ const SobreGuarulhos = () => (
                 <h3 className="font-semibold mb-3 flex items-center gap-2"><MapPin className="h-5 w-5 text-primary" /> Como Chegar</h3>
                 <p className="text-sm text-muted-foreground mb-3">
                   Av. Salgado Filho, 2120 – Sala 219<br />
-                  Guarulhos/SP – CEP 07115-000
+                  Jardim Maia, Guarulhos/SP – CEP 07115-000
                 </p>
                 <ul className="text-sm text-muted-foreground space-y-1.5">
                   <li>• Próximo ao Aeroporto Internacional de Guarulhos</li>
