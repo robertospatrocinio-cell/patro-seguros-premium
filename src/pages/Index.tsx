@@ -59,7 +59,7 @@ const Index = () => {
 
   return (
     <>
-      <PageMeta title="Corretora de Seguros em Guarulhos" description="Patro Seguros — corretora de seguros em Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
+      <PageMeta title="Corretora de Seguros em Guarulhos – Jardim Maia" description="Patro Seguros — corretora de seguros no Jardim Maia, Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <Header />
