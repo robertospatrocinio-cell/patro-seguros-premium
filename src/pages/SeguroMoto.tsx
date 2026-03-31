@@ -5,10 +5,10 @@ const SeguroMoto = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Moto"
+      title="Seguro Moto em Guarulhos – Jardim Maia"
       subtitle="Proteção completa para motociclistas com cobertura e assistência 24h especializada"
       icon="🏍️"
-      metaDescription="Seguro Moto com cotação grátis. Cobertura contra roubo, colisão e assistência 24h com guincho para motos. Compare seguradoras. Patro Seguros Guarulhos."
+      metaDescription="Seguro Moto em Guarulhos, Jardim Maia. Cobertura contra roubo, colisão e assistência 24h com guincho para motos. Compare seguradoras. Cotação grátis Patro Seguros."
       description="O Brasil é o quarto maior mercado de motocicletas do mundo, com mais de 30 milhões de motos em circulação. Infelizmente, motos também lideram estatísticas de roubo e acidentes de trânsito. Em grandes centros como São Paulo e Guarulhos, o seguro de moto não é luxo — é proteção essencial."
       detailedDescription={`O seguro de moto tem particularidades importantes que o diferenciam do seguro auto. A taxa de sinistralidade (probabilidade de acionar o seguro) é significativamente maior para motos: elas são mais visadas para roubo e furto, e a exposição a acidentes é naturalmente maior.
 
