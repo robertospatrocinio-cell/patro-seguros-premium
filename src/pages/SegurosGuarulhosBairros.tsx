@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeHtml } from "@/lib/utils";
 import { toast } from "sonner";
 import { bairros, type BairroData } from "@/lib/bairrosData";
 import { trackWhatsAppClick } from "@/lib/tracking";
