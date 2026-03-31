@@ -12,17 +12,51 @@ const resolveSmtpTlsServername = (host: string) => {
   return host;
 };
 
+/** Escape HTML special characters to prevent injection in email bodies */
+const escapeHtml = (str: string): string =>
+  str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
   }
 
   try {
-    const { subject, htmlBody, textBody } = await req.json();
+    const body = await req.json();
+    const { subject, htmlBody, textBody } = body;
 
-    if (!subject || !textBody) {
+    // Input validation
+    if (!subject || typeof subject !== "string" || subject.length > 500) {
       return new Response(
-        JSON.stringify({ error: "subject and textBody are required" }),
+        JSON.stringify({ error: "Invalid or missing subject" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    if (!textBody || (typeof textBody !== "string" && !Array.isArray(textBody))) {
+      return new Response(
+        JSON.stringify({ error: "Invalid or missing textBody" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    if (htmlBody && typeof htmlBody !== "string") {
+      return new Response(
+        JSON.stringify({ error: "Invalid htmlBody" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    // Limit body sizes
+    const textStr = typeof textBody === "string" ? textBody : textBody.join("\n");
+    if (textStr.length > 10000 || (htmlBody && htmlBody.length > 50000)) {
+      return new Response(
+        JSON.stringify({ error: "Request body too large" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
@@ -61,8 +95,8 @@ serve(async (req) => {
     await transporter.sendMail({
       from: `"Patro Seguros" <${smtpUser}>`,
       to: "contato@patroseguros.com.br, sandra@patroseguros.com.br",
-      subject,
-      text: textBody,
+      subject: escapeHtml(subject),
+      text: textStr,
       html: htmlBody || undefined,
     });
 
@@ -75,7 +109,7 @@ serve(async (req) => {
   } catch (error) {
     console.error("Email send error:", error);
     return new Response(
-      JSON.stringify({ error: "Failed to send email", details: String(error) }),
+      JSON.stringify({ error: "Failed to send email" }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }
