@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { CheckCircle, MessageCircle, ArrowRight, Shield, FileWarning, Car, Clock, MapPin, Smartphone, Users, AlertTriangle } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick, trackCotacaoSubmit } from "@/lib/tracking";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeHtml } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20sou%20motorista%20de%20aplicativo%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
