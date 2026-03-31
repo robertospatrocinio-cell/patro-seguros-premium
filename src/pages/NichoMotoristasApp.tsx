@@ -74,7 +74,7 @@ const NichoMotoristasApp = () => {
 
     const subject = `[Nicho Motorista App] Cotação de ${formData.nome}`;
     const textBody = `Nome: ${formData.nome}\nTelefone: ${formData.telefone}\nEmail: ${formData.email}\nVeículo: ${formData.veiculo}\nPlataforma: ${formData.plataforma}\nHoras/dia: ${formData.horas}\nRegião: ${formData.regiao}`;
-    const htmlBody = `<h2>Nova Cotação — Motorista de App</h2><p><strong>Nome:</strong> ${formData.nome}</p><p><strong>Telefone:</strong> ${formData.telefone}</p><p><strong>Email:</strong> ${formData.email || "Não informado"}</p><p><strong>Veículo:</strong> ${formData.veiculo}</p><p><strong>Plataforma:</strong> ${formData.plataforma}</p><p><strong>Horas/dia:</strong> ${formData.horas || "Não informado"}</p><p><strong>Região:</strong> ${formData.regiao || "Não informada"}</p>`;
+    const htmlBody = `<h2>Nova Cotação — Motorista de App</h2><p><strong>Nome:</strong> ${escapeHtml(formData.nome)}</p><p><strong>Telefone:</strong> ${escapeHtml(formData.telefone)}</p><p><strong>Email:</strong> ${escapeHtml(formData.email || "Não informado")}</p><p><strong>Veículo:</strong> ${escapeHtml(formData.veiculo)}</p><p><strong>Plataforma:</strong> ${escapeHtml(formData.plataforma)}</p><p><strong>Horas/dia:</strong> ${escapeHtml(formData.horas || "Não informado")}</p><p><strong>Região:</strong> ${escapeHtml(formData.regiao || "Não informada")}</p>`;
 
     try {
       await supabase.functions.invoke("send-form-email", { body: { subject, textBody, htmlBody } });
