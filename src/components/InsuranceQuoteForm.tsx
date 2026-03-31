@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeHtml } from "@/lib/utils";
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -122,14 +123,14 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
     const subject = `Nova Cotação — ${config.type}`;
     const htmlBody = `
-      <h2>Nova Cotação de ${config.type}</h2>
+      <h2>Nova Cotação de ${escapeHtml(config.type)}</h2>
       <table style="border-collapse:collapse;width:100%">
         ${config.fields.map(f => {
           if (f.type === "checkbox-group") {
             const vals = checkboxGroups[f.id];
-            return vals?.length ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${vals.join(", ")}</td></tr>` : "";
+            return vals?.length ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${escapeHtml(f.label)}</strong></td><td style="padding:6px;border:1px solid #ddd">${vals.map(v => escapeHtml(v)).join(", ")}</td></tr>` : "";
           }
-          return formData[f.id]?.trim() ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${formData[f.id].trim()}</td></tr>` : "";
+          return formData[f.id]?.trim() ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${escapeHtml(f.label)}</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(formData[f.id].trim())}</td></tr>` : "";
         }).join("")}
       </table>
     `;

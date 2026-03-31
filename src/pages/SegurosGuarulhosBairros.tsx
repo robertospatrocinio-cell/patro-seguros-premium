@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeHtml } from "@/lib/utils";
 import { toast } from "sonner";
 import { bairros, type BairroData } from "@/lib/bairrosData";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -72,12 +73,12 @@ const SegurosGuarulhosBairros = () => {
         body: {
           to: ["contato@patroseguros.com.br", "sandra@patroseguros.com.br"],
           subject: `Lead SEO Bairro — ${selectedBairro.nome}`,
-          html: `<h2>Novo Lead — Seguros em ${selectedBairro.nome}</h2>
+          html: `<h2>Novo Lead — Seguros em ${escapeHtml(selectedBairro.nome)}</h2>
 <table style="border-collapse:collapse;width:100%">
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Nome</td><td style="padding:8px;border:1px solid #ddd">${formData.nome}</td></tr>
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Telefone</td><td style="padding:8px;border:1px solid #ddd">${formData.telefone}</td></tr>
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">E-mail</td><td style="padding:8px;border:1px solid #ddd">${formData.email || "Não informado"}</td></tr>
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Interesse</td><td style="padding:8px;border:1px solid #ddd">Seguro - ${selectedBairro.nome} (${selectedBairro.foco})</td></tr>
+<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Nome</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.nome)}</td></tr>
+<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Telefone</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.telefone)}</td></tr>
+<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">E-mail</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.email || "Não informado")}</td></tr>
+<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Interesse</td><td style="padding:8px;border:1px solid #ddd">Seguro - ${escapeHtml(selectedBairro.nome)} (${escapeHtml(selectedBairro.foco)})</td></tr>
 </table>`,
         },
       });

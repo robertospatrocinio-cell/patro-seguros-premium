@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeHtml } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 const WHATSAPP_NUMBER = "551151997500";
@@ -100,15 +101,15 @@ const FormularioSeguroVida = () => {
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
         <h2 style="color:#1a5632;">🛡️ Novo Lead — Seguro de Vida</h2>
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nome</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.nomeCompleto}</td></tr>
-          ${form.cpf ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">CPF</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.cpf}</td></tr>` : ""}
-          ${form.dataNascimento ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nascimento</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.dataNascimento}</td></tr>` : ""}
-          ${form.profissao ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Profissão</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.profissao}</td></tr>` : ""}
-          ${form.telefone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefone</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.telefone}</td></tr>` : ""}
-          ${form.email ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.email}</td></tr>` : ""}
-          ${form.valorSeguro ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Valor Desejado</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.valorSeguro}</td></tr>` : ""}
-          ${form.cep ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">CEP</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.cep}</td></tr>` : ""}
-          ${(form.cidade || form.estado) ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Cidade/UF</td><td style="padding:8px;border-bottom:1px solid #eee;">${form.cidade || ""} - ${form.estado || ""}</td></tr>` : ""}
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nome</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.nomeCompleto)}</td></tr>
+          ${form.cpf ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">CPF</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.cpf)}</td></tr>` : ""}
+          ${form.dataNascimento ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Nascimento</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.dataNascimento)}</td></tr>` : ""}
+          ${form.profissao ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Profissão</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.profissao)}</td></tr>` : ""}
+          ${form.telefone ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Telefone</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.telefone)}</td></tr>` : ""}
+          ${form.email ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.email)}</td></tr>` : ""}
+          ${form.valorSeguro ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Valor Desejado</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.valorSeguro)}</td></tr>` : ""}
+          ${form.cep ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">CEP</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.cep)}</td></tr>` : ""}
+          ${(form.cidade || form.estado) ? `<tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Cidade/UF</td><td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(form.cidade || "")} - ${escapeHtml(form.estado || "")}</td></tr>` : ""}
         </table>
         <p style="color:#888;font-size:12px;margin-top:20px;">Enviado pelo formulário do site Patro Seguros</p>
       </div>

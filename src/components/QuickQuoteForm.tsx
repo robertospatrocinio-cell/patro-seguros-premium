@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Send, CheckCircle, MessageCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeHtml } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -53,12 +54,12 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
     const subject = `Nova Cotação — ${insuranceType}`;
     const htmlBody = `
-      <h2>Nova Cotação de ${insuranceType}</h2>
+      <h2>Nova Cotação de ${escapeHtml(insuranceType)}</h2>
       <table style="border-collapse:collapse;width:100%">
-        <tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${form.nome.trim()}</td></tr>
-        <tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${form.telefone.trim()}</td></tr>
-        ${form.email?.trim() ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${form.email.trim()}</td></tr>` : ""}
-        ${extraFields.filter(f => form[f.id]?.trim()).map(f => `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${f.label}</strong></td><td style="padding:6px;border:1px solid #ddd">${form[f.id].trim()}</td></tr>`).join("")}
+        <tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(form.nome.trim())}</td></tr>
+        <tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(form.telefone.trim())}</td></tr>
+        ${form.email?.trim() ? `<tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(form.email.trim())}</td></tr>` : ""}
+        ${extraFields.filter(f => form[f.id]?.trim()).map(f => `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${escapeHtml(f.label)}</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(form[f.id].trim())}</td></tr>`).join("")}
       </table>
     `;
 
