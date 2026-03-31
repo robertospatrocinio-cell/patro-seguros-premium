@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { supabase } from "@/integrations/supabase/client";
+import { escapeHtml } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 const WHATSAPP_NUMBER = "551151997500";
