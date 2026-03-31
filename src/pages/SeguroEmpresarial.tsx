@@ -5,10 +5,10 @@ const SeguroEmpresarial = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Empresarial"
+      title="Seguro Empresarial em Guarulhos – Jardim Maia"
       subtitle="Proteção completa para o patrimônio e as operações da sua empresa"
       icon="🏢"
-      metaDescription="Seguro Empresarial para comércios, indústrias e serviços. Cobertura contra incêndio, roubo, RC, lucros cessantes e danos elétricos. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Empresarial em Guarulhos, Jardim Maia. Cobertura contra incêndio, roubo, RC, lucros cessantes e danos elétricos. Cotação grátis Patro Seguros."
       description="Uma empresa leva anos para ser construída e pode ser destruída em poucas horas por um incêndio, roubo ou desastre natural. O Seguro Empresarial é a ferramenta que garante que seu negócio sobreviva a imprevistos que, sem proteção, poderiam significar o encerramento das atividades."
       detailedDescription={`Segundo dados da SUSEP, menos de 30% das empresas brasileiras possuem seguro adequado. Dessas que sofrem sinistros graves sem seguro, mais de 60% fecham as portas em até 2 anos. A razão é simples: além dos danos físicos (que já são enormes), a empresa perde faturamento durante a reconstrução — e os custos fixos continuam: aluguel, salários, financiamentos, impostos.
 
