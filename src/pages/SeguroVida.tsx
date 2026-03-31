@@ -5,10 +5,10 @@ const SeguroVida = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro de Vida"
+      title="Seguro de Vida em Guarulhos – Jardim Maia"
       subtitle="Proteção financeira para você e sua família em momentos difíceis"
       icon="❤️"
-      metaDescription="Seguro de Vida individual e familiar. Cobertura por morte, invalidez, doenças graves e assistência funeral. Valores a partir de R$ 30/mês. Cotação grátis Patro Seguros."
+      metaDescription="Seguro de Vida em Guarulhos, Jardim Maia. Cobertura por morte, invalidez, doenças graves e assistência funeral. Valores a partir de R$ 30/mês. Cotação grátis Patro Seguros."
       description="O Seguro de Vida é, paradoxalmente, um seguro para os vivos. Ele garante que as pessoas que dependem de você financeiramente — filhos, cônjuge, pais — terão recursos para manter o padrão de vida caso você venha a faltar ou fique impossibilitado de trabalhar."
       detailedDescription={`Muitos brasileiros associam o seguro de vida apenas à morte, mas as coberturas mais acionadas são as de invalidez e doenças graves — situações em que o segurado está vivo, mas impossibilitado de gerar renda. Um profissional de 40 anos que sofre um acidente grave e fica impossibilitado de trabalhar enfrenta décadas de despesas sem receita.
 
