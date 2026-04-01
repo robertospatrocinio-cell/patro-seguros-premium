@@ -1445,7 +1445,7 @@ Quanto custa o seguro residencial?
 
 O seguro residencial é um dos mais acessíveis do mercado. Um apartamento avaliado em R$ 300.000, por exemplo, pode ter seguro a partir de R$ 200 por ano. Casas em áreas de risco tendem a ser um pouco mais caras.
 
-Mora em Guarulhos? Conheça nossas soluções de seguro residencial para os bairros [Jardim Maia — seguros de alto padrão](/seguros-guarulhos/jardim-maia) e [Vila Augusta — proteção para apartamentos e imóveis](/seguros-guarulhos/vila-augusta). Atendimento local e personalizado para proteger seu lar.`,
+Mora em Guarulhos? Conheça nossas soluções de seguro residencial para os bairros [Cidade Maia — seguros de alto padrão](/seguros-guarulhos/jardim-maia) e [Vila Augusta — proteção para apartamentos e imóveis](/seguros-guarulhos/vila-augusta). Atendimento local e personalizado para proteger seu lar.`,
     faqs: [
       { q: "Seguro residencial cobre celular roubado dentro de casa?", a: "Sim, desde que tenha a cobertura de roubo contratada. A maioria das apólices cobre bens dentro da residência até o limite contratado." },
       { q: "Inquilino pode contratar seguro residencial?", a: "Sim! Inquilinos podem e devem contratar seguro residencial para proteger seus bens dentro do imóvel alugado. O seguro do proprietário cobre a estrutura, não os bens do inquilino." },
@@ -2884,7 +2884,7 @@ O seguro residencial é uma proteção completa e acessível que vai muito além
 
 A Patro Seguros faz cotações com as melhores seguradoras para encontrar o plano ideal para sua casa ou apartamento. Fale conosco pelo WhatsApp e proteja seu lar!
 
-Se você mora em Guarulhos, confira nosso atendimento especializado para os bairros [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta), onde oferecemos consultoria presencial em seguros residenciais de alto padrão.`,
+Se você mora em Guarulhos, confira nosso atendimento especializado para os bairros [Cidade Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta), onde oferecemos consultoria presencial em seguros residenciais de alto padrão.`,
     faqs: [
       { q: "Quantas vezes posso usar a assistência 24h do seguro residencial?", a: "Na maioria das apólices, não há limite de acionamentos durante a vigência. Cada serviço tem um limite de valor ou tempo de mão de obra por chamado, mas você pode acionar quantas vezes precisar." },
       { q: "A assistência 24h cobre materiais ou só mão de obra?", a: "Geralmente cobre mão de obra e materiais básicos (torneira, sifão, disjuntor). Materiais especiais ou de maior valor podem ser cobrados à parte. Consulte as condições da sua apólice." },
@@ -4230,7 +4230,7 @@ A Patro Seguros é especialista em proteção patrimonial completa. Nossa equipe
 
 Não espere a próxima chuva forte para descobrir que não está protegido. Fale com a Patro Seguros pelo WhatsApp e garanta que seus bens, sua empresa e sua família estejam cobertos contra alagamentos.
 
-Moradores de Guarulhos podem contar com atendimento local: veja nossas soluções para o [Jardim Maia](/seguros-guarulhos/jardim-maia) (alto padrão, próximo ao Bosque Maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) (apartamentos e imóveis residenciais).`,
+Moradores de Guarulhos podem contar com atendimento local: veja nossas soluções para o [Cidade Maia](/seguros-guarulhos/jardim-maia) (alto padrão, próximo ao Bosque Maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) (apartamentos e imóveis residenciais).`,
     faqs: [
       { q: "O seguro auto cobre alagamento automaticamente?", a: "Nem sempre. A cobertura compreensiva (colisão + roubo/furto) frequentemente NÃO inclui eventos da natureza. É preciso verificar se 'Alagamento', 'Enchente' ou 'Eventos da Natureza' constam na sua apólice. Na dúvida, consulte a Patro Seguros para revisar sua cobertura." },
       { q: "Qual seguro cobre alagamento em casa?", a: "O seguro residencial com cobertura adicional de alagamento/enchente/inundação. A cobertura básica (incêndio, raio, explosão) não inclui. É necessário contratar essa cobertura expressamente. O custo adicional é bastante acessível — a partir de R$ 300/ano." },
@@ -5069,7 +5069,7 @@ Como se proteger:
 - Evitar estacionar em vias públicas em horários de menor movimento
 - Para frotas empresariais: [seguro de frota com gestão de risco](/seguro-frota)
 
-Se você mora no [Jardim Maia](/seguros-guarulhos/jardim-maia) ou [Vila Augusta](/seguros-guarulhos/vila-augusta), regiões de alto padrão e grande concentração de veículos novos, o seguro auto é indispensável.
+Se você mora no [Cidade Maia](/seguros-guarulhos/jardim-maia) ou [Vila Augusta](/seguros-guarulhos/vila-augusta), regiões de alto padrão e grande concentração de veículos novos, o seguro auto é indispensável.
 
 2. Alagamentos e Enchentes — Risco Climático Crescente
 
@@ -5111,7 +5111,7 @@ Proteção essencial:
 - Para galpões: [seguro de galpões industriais](/seguro-galpoes-industriais) com cobertura específica
 - Revisão periódica das instalações elétricas
 
-Moradores do [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) devem ficar atentos: imóveis de alto padrão possuem mais equipamentos eletrônicos, aumentando o risco de danos elétricos.
+Moradores do [Cidade Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) devem ficar atentos: imóveis de alto padrão possuem mais equipamentos eletrônicos, aumentando o risco de danos elétricos.
 
 4. Roubo e Furto a Residências
 
@@ -5466,7 +5466,7 @@ Média de R$ 2.934,96 (masculino) e R$ 4.094,28 (feminino). O RJ lidera com R$ 7
 
 ## 🏘️ E em Guarulhos?
 
-Se você mora em Guarulhos, a localização influencia diretamente no valor do seu seguro. Bairros como [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) possuem perfis diferentes de risco. Já regiões como [Cumbica](/seguros-guarulhos/cumbica), próxima ao aeroporto e polo logístico, têm foco em frotas e cargas.
+Se você mora em Guarulhos, a localização influencia diretamente no valor do seu seguro. Bairros como [Cidade Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) possuem perfis diferentes de risco. Já regiões como [Cumbica](/seguros-guarulhos/cumbica), próxima ao aeroporto e polo logístico, têm foco em frotas e cargas.
 
 Na **Patro Seguros**, nossa sede fica no [Centro de Guarulhos](/seguros-guarulhos/centro) e atendemos todos os bairros com cotação personalizada em mais de 15 seguradoras.
 
@@ -5576,7 +5576,7 @@ Ao ser contemplado, você recebe o valor integral da carta. Isso permite negocia
 
 ### 4. Planejar a infraestrutura de carregamento ⚡
 
-Enquanto aguarda a contemplação, você pode investir na instalação do wallbox (carregador residencial), adequar a rede elétrica da sua casa e até contratar um [seguro residencial](/seguro-residencial) que cubra os equipamentos de recarga. Moradores de [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta), por exemplo, podem adaptar suas garagens com tranquilidade.
+Enquanto aguarda a contemplação, você pode investir na instalação do wallbox (carregador residencial), adequar a rede elétrica da sua casa e até contratar um [seguro residencial](/seguro-residencial) que cubra os equipamentos de recarga. Moradores de [Cidade Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta), por exemplo, podem adaptar suas garagens com tranquilidade.
 
 ### 5. Diversificar investimentos 📊
 
@@ -5622,7 +5622,7 @@ Confirme que a carta pode ser usada para veículos elétricos de qualquer marca 
 
 ## O mercado de consórcio de elétricos em Guarulhos
 
-Guarulhos, como segunda maior cidade de São Paulo, acompanha a tendência nacional de eletrificação. Os bairros de [Jardim Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) já concentram pontos de recarga e condomínios com infraestrutura para carros elétricos. Na região de [Cumbica](/seguros-guarulhos/cumbica), frotas de veículos elétricos para logística urbana estão se tornando viáveis economicamente via consórcio.
+Guarulhos, como segunda maior cidade de São Paulo, acompanha a tendência nacional de eletrificação. Os bairros de [Cidade Maia](/seguros-guarulhos/jardim-maia) e [Vila Augusta](/seguros-guarulhos/vila-augusta) já concentram pontos de recarga e condomínios com infraestrutura para carros elétricos. Na região de [Cumbica](/seguros-guarulhos/cumbica), frotas de veículos elétricos para logística urbana estão se tornando viáveis economicamente via consórcio.
 
 A [Patro Seguros](/sobre) trabalha com as principais administradoras de consórcio do mercado — Embracon, Porto Seguro Consórcio, Bradesco Consórcios, Itaú Consórcio e outras — e pode orientar você na escolha do melhor plano para seu perfil e objetivo.
 

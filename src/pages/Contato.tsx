@@ -81,7 +81,7 @@ const Contato = () => {
 
   return (
     <>
-      <PageMeta title="Contato – Jardim Maia, Guarulhos" description="Entre em contato com a Patro Seguros no Jardim Maia, Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Tire dúvidas e solicite cotações de seguros." />
+      <PageMeta title="Contato – Cidade Maia, Guarulhos" description="Entre em contato com a Patro Seguros no Cidade Maia, Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Tire dúvidas e solicite cotações de seguros." />
       <FAQSchema faqs={contatoFaqs} />
       <Header />
       <main id="main-content">
@@ -216,7 +216,7 @@ const Contato = () => {
                       <div>
                         <h3 className="font-semibold mb-1">Nosso Endereço</h3>
                         <p className="text-sm text-muted-foreground">
-                          Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219<br />Jardim Maia, Guarulhos/SP · CEP 07115-000
+                          Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219<br />Cidade Maia, Guarulhos/SP · CEP 07115-000
                         </p>
                       </div>
                     </div>

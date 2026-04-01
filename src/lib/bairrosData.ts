@@ -27,15 +27,15 @@ export interface BairroData {
 export const bairros: BairroData[] = [
   {
     id: "jardim-maia",
-    nome: "Jardim Maia",
+    nome: "Cidade Maia",
     foco: "Seguros de Alto Padrão e Vida",
     subtitulo: "Proteção premium para quem vive no coração verde de Guarulhos",
-    descricao: "No Jardim Maia, onde o Bosque Maia e a Av. Paulo Faccini atraem moradores de alto padrão e valorizam imóveis, a Patro Seguros oferece soluções sob medida: seguro residencial completo para apartamentos de luxo, seguro auto para veículos premium e proteção patrimonial à altura do bairro mais nobre de Guarulhos. Nossa equipe conhece a região e atende com a agilidade que você merece.",
+    descricao: "No Cidade Maia, onde o Bosque Maia e a Av. Paulo Faccini atraem moradores de alto padrão e valorizam imóveis, a Patro Seguros oferece soluções sob medida: seguro residencial completo para apartamentos de luxo, seguro auto para veículos premium e proteção patrimonial à altura do bairro mais nobre de Guarulhos. Nossa equipe conhece a região e atende com a agilidade que você merece.",
     image: imgJardimMaia,
     faqs: [
-      { question: "Qual o melhor seguro residencial para o Jardim Maia?", answer: "O Jardim Maia é uma região de alto padrão com imóveis valorizados. Recomendamos seguros residenciais com cobertura ampla incluindo danos elétricos, roubo e responsabilidade civil, adequados ao valor dos imóveis próximos ao Bosque Maia e à Av. Paulo Faccini." },
-      { question: "Seguro auto no Jardim Maia custa mais caro?", answer: "O valor do seguro auto varia conforme o veículo, perfil do motorista e CEP. No Jardim Maia, por ser um bairro com boa infraestrutura e segurança, os valores podem ser competitivos. A Patro compara entre as melhores seguradoras para encontrar o melhor custo-benefício." },
-      { question: "A Patro Seguros atende presencialmente no Jardim Maia?", answer: "Sim! Nossa sede fica na Av. Salgado Filho, a poucos minutos do Jardim Maia. Atendemos presencialmente e também via WhatsApp com resposta em até 2 horas." },
+      { question: "Qual o melhor seguro residencial para o Cidade Maia?", answer: "O Cidade Maia é uma região de alto padrão com imóveis valorizados. Recomendamos seguros residenciais com cobertura ampla incluindo danos elétricos, roubo e responsabilidade civil, adequados ao valor dos imóveis próximos ao Bosque Maia e à Av. Paulo Faccini." },
+      { question: "Seguro auto no Cidade Maia custa mais caro?", answer: "O valor do seguro auto varia conforme o veículo, perfil do motorista e CEP. No Cidade Maia, por ser um bairro com boa infraestrutura e segurança, os valores podem ser competitivos. A Patro compara entre as melhores seguradoras para encontrar o melhor custo-benefício." },
+      { question: "A Patro Seguros atende presencialmente no Cidade Maia?", answer: "Sim! Nossa sede fica na Av. Salgado Filho, a poucos minutos do Cidade Maia. Atendemos presencialmente e também via WhatsApp com resposta em até 2 horas." },
     ],
   },
   {
@@ -72,7 +72,7 @@ export const bairros: BairroData[] = [
     descricao: "O Centro de Guarulhos pulsa com comércio e serviços. Na Av. Salgado Filho — onde fica nossa sede — e nas imediações do Poli Shopping, advogados, dentistas, médicos e comerciantes precisam de proteção profissional. A Patro Seguros oferece RC Profissional, seguro empresarial para lojas e consultórios, além de planos de saúde corporativos, tudo com atendimento presencial a poucos passos de você.",
     image: imgCentro,
     faqs: [
-      { question: "Onde fica a sede da Patro Seguros no Centro de Guarulhos?", answer: "Nossa sede fica na Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219, no Jardim Maia, Guarulhos, próximo ao Poli Shopping. Atendemos presencialmente de segunda a sexta, das 8h às 18h." },
+      { question: "Onde fica a sede da Patro Seguros no Centro de Guarulhos?", answer: "Nossa sede fica na Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219, no Cidade Maia, Guarulhos, próximo ao Poli Shopping. Atendemos presencialmente de segunda a sexta, das 8h às 18h." },
       { question: "A Patro faz seguro RC para profissionais liberais do Centro?", answer: "Sim! Oferecemos Responsabilidade Civil Profissional para advogados, médicos, dentistas, engenheiros e outros profissionais que atuam no Centro de Guarulhos." },
       { question: "Quais seguros para lojas no Centro de Guarulhos?", answer: "Para lojistas do Centro e Poli Shopping, oferecemos seguro empresarial completo com cobertura contra incêndio, roubo, danos elétricos, RC e lucros cessantes." },
     ],

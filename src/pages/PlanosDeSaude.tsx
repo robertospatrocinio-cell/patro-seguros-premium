@@ -25,7 +25,7 @@ const operadoras = [
 const PlanosDeSaude = () => {
   return (
     <>
-      <PageMeta title="Planos de Saúde em Guarulhos – Jardim Maia" description="Compare planos de saúde em Guarulhos, Jardim Maia. Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis para pessoa física e empresas. Patro Seguros." />
+      <PageMeta title="Planos de Saúde em Guarulhos – Cidade Maia" description="Compare planos de saúde em Guarulhos, Cidade Maia. Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis para pessoa física e empresas. Patro Seguros." />
       <Header />
       <main id="main-content">
         <section className="gradient-hero py-20 relative overflow-hidden">

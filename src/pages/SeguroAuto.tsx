@@ -5,10 +5,10 @@ const SeguroAuto = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Auto em Guarulhos – Jardim Maia"
+      title="Seguro Auto em Guarulhos – Cidade Maia"
       subtitle="Proteção completa para seu veículo com as melhores seguradoras do mercado"
       icon="🚗"
-      metaDescription="Seguro Auto em Guarulhos, Jardim Maia. Compare Porto, Tokio Marine, Allianz e mais. Coberturas contra roubo, colisão, incêndio e assistência 24h. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Auto em Guarulhos, Cidade Maia. Compare Porto, Tokio Marine, Allianz e mais. Coberturas contra roubo, colisão, incêndio e assistência 24h. Cotação grátis Patro Seguros."
       description="O Seguro Auto é a principal ferramenta de proteção patrimonial para donos de veículos no Brasil. Em um país com mais de 800 mil ocorrências de roubo e furto de veículos por ano e milhões de acidentes de trânsito, circular sem seguro é um risco financeiro significativo."
       detailedDescription={`Um veículo representa, para a maioria dos brasileiros, o segundo maior investimento patrimonial — atrás apenas do imóvel. Perder esse bem sem proteção pode comprometer anos de economia e planejamento financeiro.
 

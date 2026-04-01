@@ -5,10 +5,10 @@ const SeguroResidencial = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Residencial em Guarulhos – Jardim Maia"
+      title="Seguro Residencial em Guarulhos – Cidade Maia"
       subtitle="Proteção completa para seu lar, seus bens e sua tranquilidade"
       icon="🏠"
-      metaDescription="Seguro Residencial em Guarulhos, Jardim Maia. A partir de R$ 150/ano. Cobertura contra incêndio, roubo, danos elétricos e assistência 24h. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Residencial em Guarulhos, Cidade Maia. A partir de R$ 150/ano. Cobertura contra incêndio, roubo, danos elétricos e assistência 24h. Cotação grátis Patro Seguros."
       description="O Seguro Residencial é o seguro com melhor custo-benefício do mercado brasileiro. Com valores a partir de R$ 150/ano para apartamentos, ele protege o patrimônio que você construiu ao longo de anos — e ainda oferece assistências práticas que se pagam na primeira utilização."
       detailedDescription={`Diferente do que muitos pensam, o seguro residencial vai muito além da proteção contra incêndio. Ele cobre roubo de bens, danos elétricos em eletrodomésticos, vendavais, alagamentos, responsabilidade civil e oferece assistência 24h com encanador, eletricista, chaveiro e vidraceiro — serviços que, se contratados avulsamente, custariam muito mais do que a apólice inteira.
 
