@@ -11,7 +11,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 
 const SeoCorretoraGuarulhos = () => (
   <>
-    <PageMeta title="Corretora de Seguros em Guarulhos – Jardim Maia" description="Patro Seguros — a melhor corretora de seguros no Jardim Maia, Guarulhos. Atendimento consultivo, cotação grátis e parceria com as principais seguradoras do Brasil." />
+    <PageMeta title="Corretora de Seguros em Guarulhos – Cidade Maia" description="Patro Seguros — a melhor corretora de seguros no Cidade Maia, Guarulhos. Atendimento consultivo, cotação grátis e parceria com as principais seguradoras do Brasil." />
     <Header />
     <main id="main-content">
       <section className="gradient-hero py-20">
@@ -86,7 +86,7 @@ const SeoCorretoraGuarulhos = () => (
           <h2 className="text-center mb-12">Perguntas Frequentes</h2>
           <div className="space-y-6">
             {[
-              { q: "Onde fica a Patro Seguros?", a: "Estamos na Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Jardim Maia, Guarulhos/SP. Atendemos presencialmente e online." },
+              { q: "Onde fica a Patro Seguros?", a: "Estamos na Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia, Guarulhos/SP. Atendemos presencialmente e online." },
               { q: "A Patro atende outras cidades?", a: "Sim! Embora nossa sede seja em Guarulhos, atendemos clientes de todo o Brasil." },
               { q: "Como funciona a cotação?", a: "Você solicita pelo site, WhatsApp ou telefone. Em até 2 horas enviamos as melhores propostas." },
             ].map((faq, i) => (

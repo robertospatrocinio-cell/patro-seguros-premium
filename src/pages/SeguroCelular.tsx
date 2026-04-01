@@ -5,11 +5,11 @@ const SeguroCelular = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Celular em Guarulhos – Jardim Maia"
+      title="Seguro Celular em Guarulhos – Cidade Maia"
       subtitle="Cobertura contra roubo, furto, quebra acidental, danos por líquidos e defeitos elétricos. Proteção para iPhone, Samsung, Xiaomi e todos os modelos."
       icon="📱"
       badge="Proteção Imediata"
-      metaDescription="Seguro Celular em Guarulhos, Jardim Maia. Proteção contra roubo, furto, quebra acidental e danos por líquidos. iPhone, Samsung e todos os smartphones. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Celular em Guarulhos, Cidade Maia. Proteção contra roubo, furto, quebra acidental e danos por líquidos. iPhone, Samsung e todos os smartphones. Cotação grátis Patro Seguros."
       description="Seu celular é muito mais do que um telefone: é sua carteira digital, seu banco, seu escritório e sua conexão com o mundo. Um smartphone de R$ 3.000 a R$ 10.000 merece proteção. O Seguro Celular cobre os riscos mais comuns do dia a dia — roubo, furto qualificado, quebra de tela por queda, danos causados por água e problemas elétricos. Com a apólice, você usa seu aparelho com tranquilidade, sabendo que está protegido financeiramente."
       detailedDescription="Na Patro Seguros, comparamos planos de seguradoras especializadas em eletrônicos para encontrar a melhor proteção para o seu smartphone. Analisamos o modelo do aparelho, seu valor de mercado, perfil de uso e os riscos mais relevantes para recomendar a cobertura ideal. Diferente das 'garantias estendidas' de loja, o seguro celular dedicado oferece coberturas reais contra roubo e quebra, com indenização justa e processo de sinistro ágil. Atendemos proprietários de todas as marcas: Apple (iPhone), Samsung (Galaxy), Xiaomi, Motorola e outros."
       howItWorks={[
