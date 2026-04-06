@@ -22,6 +22,7 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "voce", label: "Para Você" },
   { key: "empresa", label: "Para sua Empresa" },
   { key: "agro", label: "Para o Agro" },
+  { key: "consorcio", label: "Consórcio" },
 ];
 
 const cardsByTab: Record<TabKey, InsuranceCard[]> = {
