@@ -5762,6 +5762,99 @@ O processo é simples e rápido:
       { q: "O que é RC Passageiros e por que é obrigatória?", a: "RC Passageiros (APP) é a cobertura de Acidentes Pessoais de Passageiros. É obrigatória por lei para transporte remunerado. Cobre despesas médicas, invalidez e morte acidental dos passageiros transportados, protegendo o motorista de processos judiciais." },
     ],
   },
+  "corretora-de-seguros-em-guarulhos": {
+    title: "Corretora de Seguros em Guarulhos: Tudo o Que Você Precisa Saber Antes de Contratar",
+    content: `Se você mora ou trabalha em Guarulhos e ainda não tem um seguro adequado, saiba que está assumindo um risco desnecessário. Seja o seu carro, a sua casa, a sua empresa ou a sua própria vida — proteger o que você levou anos para construir é uma decisão que começa com a escolha certa de uma corretora de seguros em Guarulhos.
+
+Neste artigo, você vai entender como funciona o mercado de seguros na cidade, quais tipos de cobertura existem, como fazer uma cotação inteligente e por que contar com um corretor especializado faz toda a diferença.
+
+Por Que Contratar um Seguro em Guarulhos é Essencial?
+
+Guarulhos é a segunda maior cidade do estado de São Paulo, com mais de 1,4 milhão de habitantes e um dos maiores aeroportos internacionais da América Latina. Toda essa movimentação traz desenvolvimento — mas também riscos que não podem ser ignorados.
+
+O trânsito intenso aumenta as chances de acidentes com veículos. O crescimento urbano acelera os casos de furto e roubo. Negócios e residências ficam expostos a incêndios, inundações e outros imprevistos. E quando o inesperado acontece, quem não tem seguro arca sozinho com os prejuízos.
+
+Os Riscos Mais Comuns na Região
+
+- Acidentes de trânsito: Guarulhos está entre as cidades com maior índice de sinistros de veículos do Grande ABC Paulista.
+- Furto e roubo de automóveis: A proximidade com vias expressas movimentadas eleva o risco de sinistros.
+- Imprevistos residenciais: Chuvas fortes típicas da região podem causar danos significativos a imóveis.
+- Riscos empresariais: Com um polo industrial ativo, empresas locais precisam de coberturas específicas para seus patrimônios e operações.
+
+Ter um seguro não é luxo — é planejamento. E contratar por meio de uma corretora de seguros em Guarulhos garante que você encontre a melhor cobertura pelo menor preço possível.
+
+O Que Faz Uma Boa Corretora de Seguros?
+
+Uma corretora de seguros funciona como um intermediário independente entre você e as seguradoras. Ela não vende apenas um produto: ela compara opções de diversas companhias para encontrar o que melhor atende às suas necessidades.
+
+Uma boa corretora:
+
+- Analisa o seu perfil e identifica os riscos que você precisa cobrir
+- Compara propostas de múltiplas seguradoras ao mesmo tempo
+- Explica de forma clara o que cada apólice cobre (e o que não cobre)
+- Assessora em caso de sinistro — quando você mais precisa
+
+Corretora x Seguradora: Qual a Diferença?
+
+Muita gente confunde os dois conceitos. A seguradora é quem emite a apólice e paga a indenização em caso de sinistro. A corretora é quem representa os seus interesses na hora de buscar a melhor opção de cobertura no mercado.
+
+Enquanto a seguradora oferece apenas os seus próprios produtos, a corretora tem acesso a várias seguradoras — o que aumenta as suas chances de encontrar o seguro ideal pelo preço mais justo.
+
+Tipos de Seguro Disponíveis em Guarulhos
+
+Independentemente do que você precisa proteger, existe um seguro adequado para a sua situação. Veja os principais disponíveis em Guarulhos:
+
+Seguro Auto
+
+O [seguro auto em Guarulhos](/seguro-auto) é um dos mais procurados. Ele protege o seu veículo contra colisões, roubos, furtos, incêndios e danos a terceiros. Você pode optar por cobertura básica ou completa (compreensiva), dependendo do seu perfil e orçamento.
+
+Dica: ao fazer a cotação, compare não só o preço, mas também a franquia, a rede de oficinas credenciadas e o serviço de assistência 24h.
+
+Seguro de Vida
+
+O [seguro de vida em Guarulhos](/seguro-vida) garante proteção financeira para a sua família em caso de falecimento, invalidez ou doenças graves. É uma das formas mais eficientes de planejamento financeiro familiar — e muitas vezes mais acessível do que as pessoas imaginam.
+
+Seguro Residencial
+
+Protege a sua casa contra incêndios, roubos, danos elétricos, alagamentos e outros imprevistos. O [seguro residencial](/seguro-residencial) pode incluir ainda assistência 24h para encanamento, elétrica e vidraçaria — serviços que fazem muita diferença no dia a dia.
+
+Seguro Empresarial
+
+Para quem tem um negócio em Guarulhos, o [seguro empresarial](/seguro-empresarial) é fundamental. Ele protege o patrimônio da empresa, os estoques, os equipamentos e pode incluir coberturas de responsabilidade civil — essencial para estabelecimentos comerciais e prestadores de serviços.
+
+Como Funciona a Cotação de Seguro em Guarulhos?
+
+Fazer uma [cotação de seguro](/cotacao) é mais simples do que parece. Ao entrar em contato com uma corretora de seguros em Guarulhos como a Patro Seguros, você passa por um processo rápido:
+
+1. Levantamento de informações: Dados do veículo, imóvel ou empresa a ser segurada, além do seu perfil como segurado.
+2. Comparação de seguradoras: A corretora consulta diferentes companhias e apresenta as melhores opções.
+3. Análise das coberturas: Você entende o que cada proposta inclui e pode tirar todas as suas dúvidas.
+4. Contratação: Após escolher a melhor opção, a apólice é emitida e você fica protegido.
+
+E o melhor: a cotação é totalmente gratuita. Você não paga nada para comparar as opções — o corretor é remunerado pela seguradora, não por você.
+
+Por Que Escolher a Patro Seguros?
+
+A Patro Seguros é uma corretora de seguros em Guarulhos dedicada a encontrar a proteção ideal para você, sua família e sua empresa. Com acesso às melhores seguradoras do mercado, a Patro compara as opções disponíveis para garantir o melhor custo-benefício em cada cotação.
+
+Alguns diferenciais da Patro Seguros:
+
+- Comparação entre as principais seguradoras do mercado — você recebe propostas de várias companhias em uma única cotação
+- Atendimento personalizado — cada cliente tem um perfil único, e o atendimento é feito de acordo com as suas necessidades específicas
+- Processo simples e rápido — sem burocracia desnecessária, da cotação à contratação
+- Suporte em caso de sinistro — quando acontece um imprevisto, você não fica sozinho
+
+Seja para segurar o seu carro, proteger a sua casa ou garantir o futuro da sua família, a Patro Seguros está em Guarulhos para te ajudar a fazer a escolha certa.
+
+👉 [Faça agora sua cotação gratuita](/cotacao) e descubra quanto custa proteger o que é seu.`,
+    faqs: [
+      { q: "É obrigatório ter seguro de carro em Guarulhos?", a: "O único seguro obrigatório para veículos no Brasil é o DPVAT (atualmente suspenso) e o RCFV. O seguro auto completo não é obrigatório por lei, mas é altamente recomendado — especialmente em cidades com alto índice de sinistros como Guarulhos." },
+      { q: "Quanto custa um seguro de vida em Guarulhos?", a: "O valor varia de acordo com a idade, estado de saúde e cobertura desejada. Um seguro de vida básico pode sair por menos de R$ 50 por mês. A melhor forma de saber é fazer uma cotação gratuita com a Patro Seguros." },
+      { q: "Posso contratar seguro residencial mesmo se morar de aluguel?", a: "Sim! Inquilinos também podem — e devem — contratar seguro residencial. O seguro cobre os seus bens pessoais dentro do imóvel, independentemente de quem é o proprietário." },
+      { q: "Como funciona o seguro empresarial para pequenas empresas?", a: "O seguro empresarial pode ser adaptado ao tamanho e ao tipo de negócio. Para pequenas empresas, existem coberturas específicas e acessíveis que protegem o estoque, os equipamentos e as instalações contra os principais riscos." },
+      { q: "Qual a diferença entre cobertura básica e cobertura compreensiva no seguro auto?", a: "A cobertura básica protege apenas contra roubo, furto e incêndio. A cobertura compreensiva (também chamada de 'casco completo') inclui ainda colisões, danos a terceiros e eventos climáticos. A escolha depende do valor do veículo e do perfil do motorista." },
+    ],
+  },
 };
 
 const defaultArticle = {
