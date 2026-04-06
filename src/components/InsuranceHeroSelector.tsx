@@ -75,7 +75,7 @@ const InsuranceHeroSelector = () => {
   const [active, setActive] = useState<TabKey>("voce");
   const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
   const tabsRef = useRef<HTMLDivElement>(null);
-  const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null });
+  const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null, consorcio: null });
   const [modalFormKey, setModalFormKey] = useState<string | null>(null);
 
   useEffect(() => {
