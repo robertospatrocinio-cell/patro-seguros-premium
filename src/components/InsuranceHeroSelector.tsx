@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug } from "lucide-react";
+import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
 import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
@@ -8,8 +8,9 @@ import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
 import heroFamilia from "@/assets/hero-familia.jpg";
 import heroEmpresa from "@/assets/hero-empresa.jpg";
 import heroAgro from "@/assets/hero-agro.jpg";
+import heroConsorcio from "@/assets/hero-consorcio.jpg";
 
-type TabKey = "voce" | "empresa" | "agro";
+type TabKey = "voce" | "empresa" | "agro" | "consorcio";
 
 interface InsuranceCard {
   title: string;
@@ -21,6 +22,7 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "voce", label: "Para Você" },
   { key: "empresa", label: "Para sua Empresa" },
   { key: "agro", label: "Para o Agro" },
+  { key: "consorcio", label: "Consórcio" },
 ];
 
 const cardsByTab: Record<TabKey, InsuranceCard[]> = {
@@ -54,19 +56,26 @@ const cardsByTab: Record<TabKey, InsuranceCard[]> = {
     { title: "Equipamentos", icon: Sprout, link: "/seguro-equipamentos-agricolas" },
     { title: "Drone Agrícola", icon: Bug, link: "/seguro-drone-agricola" },
   ],
+  consorcio: [
+    { title: "Consórcio Imóveis", icon: Home, link: "/consorcio-imoveis" },
+    { title: "Consórcio Carro", icon: Car, link: "/consorcio-carro" },
+    { title: "Consórcio Veículos Pesados", icon: Truck, link: "/consorcio-veiculos-pesados" },
+    { title: "Consórcio Geral", icon: Handshake, link: "/consorcio" },
+  ],
 };
 
 const bgByTab: Record<TabKey, string> = {
   voce: heroFamilia,
   empresa: heroEmpresa,
   agro: heroAgro,
+  consorcio: heroConsorcio,
 };
 
 const InsuranceHeroSelector = () => {
   const [active, setActive] = useState<TabKey>("voce");
   const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
   const tabsRef = useRef<HTMLDivElement>(null);
-  const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null });
+  const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null, consorcio: null });
   const [modalFormKey, setModalFormKey] = useState<string | null>(null);
 
   useEffect(() => {
@@ -157,7 +166,7 @@ const InsuranceHeroSelector = () => {
                 className="group transition-opacity duration-500 animate-fade-in"
               >
                 <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="bg-gradient-to-br from-primary to-primary/80 p-4 md:p-6 flex items-center justify-center">
+                  <div className={`p-4 md:p-6 flex items-center justify-center ${active === "consorcio" ? "bg-gradient-to-br from-orange-500 to-orange-600" : "bg-gradient-to-br from-primary to-primary/80"}`}>
                     <card.icon className="h-6 w-6 md:h-8 md:w-8 text-white drop-shadow-md" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <div className="bg-white p-2 md:p-3 text-center">
