@@ -166,7 +166,7 @@ const InsuranceHeroSelector = () => {
                 className="group transition-opacity duration-500 animate-fade-in"
               >
                 <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="bg-gradient-to-br from-primary to-primary/80 p-4 md:p-6 flex items-center justify-center">
+                  <div className={`p-4 md:p-6 flex items-center justify-center ${active === "consorcio" ? "bg-gradient-to-br from-orange-500 to-orange-600" : "bg-gradient-to-br from-primary to-primary/80"}`}>
                     <card.icon className="h-6 w-6 md:h-8 md:w-8 text-white drop-shadow-md" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <div className="bg-white p-2 md:p-3 text-center">
