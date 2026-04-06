@@ -59,6 +59,7 @@ import blogSinistrosGuarulhos from "@/assets/blog/blog-sinistros-guarulhos-2026.
 import blogVeiculosEletricos from "@/assets/blog/blog-seguro-veiculos-eletricos.webp";
 import blogConsorcioEletricos from "@/assets/blog/blog-consorcio-veiculos-eletricos.webp";
 import blogMotoristaApp from "@/assets/blog/blog-seguro-motorista-app.webp";
+import blogCorretoraGuarulhos from "@/assets/blog/blog-corretora-seguros-guarulhos.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
