@@ -38,25 +38,25 @@ const Blog = () => {
         <section className="py-10 bg-muted/30">
           <div className="container mx-auto px-4">
             <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-4 block text-center">📌 Destaque</span>
-            <Link to="/blog/preco-seguro-auto-fevereiro-2026" className="block max-w-4xl mx-auto">
+            <Link to="/blog/corretora-de-seguros-em-guarulhos" className="block max-w-4xl mx-auto">
               <Card className="overflow-hidden group md:flex hover:shadow-xl transition-base">
                 <div className="md:w-1/2 aspect-video md:aspect-auto overflow-hidden">
                   <OptimizedImage
-                    src={getArticleImage("preco-seguro-auto-fevereiro-2026")}
-                    alt="Ranking seguro auto fevereiro 2026"
+                    src={getArticleImage("corretora-de-seguros-em-guarulhos")}
+                    alt="Corretora de seguros em Guarulhos — Patro Seguros cotação online grátis"
                     className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <CardContent className="md:w-1/2 flex flex-col justify-center p-6 md:p-8">
-                  <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded w-fit mb-3">Seguro Auto</span>
+                  <span className="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded w-fit mb-3">Dicas</span>
                   <h2 className="text-xl md:text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    Seguro Auto Sobe até 16% em Fevereiro de 2026: Ranking Completo
+                    Corretora de Seguros em Guarulhos: Como Escolher a Melhor
                   </h2>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Levantamento revela alta de até 16% no seguro automotivo. Confira o ranking dos 10 modelos mais vendidos e os preços por capital.
+                    Procurando corretora de seguros em Guarulhos? Saiba como funciona o mercado, tipos de cobertura e por que contar com um corretor especializado faz toda a diferença.
                   </p>
                   <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                    <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />24 de março de 2026</span>
+                    <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />6 de abril de 2026</span>
                     <span className="flex items-center gap-1"><Clock className="h-3 w-3" />10 min</span>
                     <span className="flex items-center gap-1"><User className="h-3 w-3" />Roberto Patro</span>
                   </div>
