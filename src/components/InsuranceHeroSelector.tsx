@@ -8,8 +8,9 @@ import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
 import heroFamilia from "@/assets/hero-familia.jpg";
 import heroEmpresa from "@/assets/hero-empresa.jpg";
 import heroAgro from "@/assets/hero-agro.jpg";
+import heroConsorcio from "@/assets/hero-consorcio.jpg";
 
-type TabKey = "voce" | "empresa" | "agro";
+type TabKey = "voce" | "empresa" | "agro" | "consorcio";
 
 interface InsuranceCard {
   title: string;
