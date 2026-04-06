@@ -179,6 +179,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Motorista App
   "seguro-motorista-aplicativo-guia": blogMotoristaApp,
+
+  // Corretora Guarulhos
+  "corretora-de-seguros-em-guarulhos": blogCorretoraGuarulhos,
 };
 
 export const getArticleImage = (slug: string): string => {
