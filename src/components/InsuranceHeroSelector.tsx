@@ -56,6 +56,12 @@ const cardsByTab: Record<TabKey, InsuranceCard[]> = {
     { title: "Equipamentos", icon: Sprout, link: "/seguro-equipamentos-agricolas" },
     { title: "Drone Agrícola", icon: Bug, link: "/seguro-drone-agricola" },
   ],
+  consorcio: [
+    { title: "Consórcio Imóveis", icon: Home, link: "/consorcio-imoveis" },
+    { title: "Consórcio Carro", icon: Car, link: "/consorcio-carro" },
+    { title: "Consórcio Veículos Pesados", icon: Truck, link: "/consorcio-veiculos-pesados" },
+    { title: "Consórcio Geral", icon: Handshake, link: "/consorcio" },
+  ],
 };
 
 const bgByTab: Record<TabKey, string> = {
