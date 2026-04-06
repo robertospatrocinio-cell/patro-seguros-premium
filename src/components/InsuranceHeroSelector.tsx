@@ -68,6 +68,7 @@ const bgByTab: Record<TabKey, string> = {
   voce: heroFamilia,
   empresa: heroEmpresa,
   agro: heroAgro,
+  consorcio: heroConsorcio,
 };
 
 const InsuranceHeroSelector = () => {
