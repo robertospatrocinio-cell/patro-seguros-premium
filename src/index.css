@@ -31,12 +31,12 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 10%;
 
-    /* Primary - Deep Professional Blue */
-    --primary: 217 85% 31%;
+    /* Primary - Azul Marinho Profundo #003366 */
+    --primary: 210 100% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 217 85% 26%;
-    --primary-light: 217 50% 97%;
-    --primary-glow: 215 100% 42%;
+    --primary-hover: 210 100% 16%;
+    --primary-light: 210 50% 97%;
+    --primary-glow: 210 100% 35%;
 
     /* Secondary */
     --secondary: 220 14% 96%;
