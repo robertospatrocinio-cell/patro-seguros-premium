@@ -59,7 +59,7 @@ const Index = () => {
 
   return (
     <>
-      <PageMeta title="Corretora de Seguros em Guarulhos – Cidade Maia" description="Patro Seguros — corretora de seguros no Cidade Maia, Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
+      <PageMeta title="Corretora de Seguros em Guarulhos – Cotação Online" description="Corretora de seguros em Guarulhos especializada em seguro auto, residencial, vida e empresarial. Compare cotações das melhores seguradoras e economize. Cotação grátis – Patro Seguros, Cidade Maia." />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <Header />
