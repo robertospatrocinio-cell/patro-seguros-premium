@@ -167,37 +167,63 @@ const Index = () => {
         {/* E-E-A-T Content Section */}
         <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo</h2>
+            <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
               <p>
-                Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Nossa sede no <strong>Cidade Maia</strong> permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil.
+                Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil. Com uma equipe de consultores certificados e experiência em mais de 16 seguradoras e 20 operadoras de saúde, oferecemos a análise mais completa do mercado local.
               </p>
-              <h3 className="text-foreground font-semibold text-base mt-6">Seguro Auto em Guarulhos</h3>
               <p>
-                Guarulhos tem particularidades que influenciam diretamente o preço do <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto</Link>: alto índice de roubo em bairros como Cumbica e Bonsucesso, trânsito intenso na Dutra e Fernão Dias, e alagamentos sazonais. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI e outras para encontrar a melhor proteção.
+                Guarulhos, a segunda maior cidade de São Paulo com mais de 1,4 milhão de habitantes, possui características únicas que exigem uma corretora que conheça profundamente a região. Do polo logístico de Cumbica às residências de alto padrão no Cidade Maia, cada bairro demanda uma estratégia de proteção diferente. É por isso que a Patro se especializou em entender os riscos locais — índices de roubo por região, alagamentos sazonais, perfil de trânsito nas rodovias Dutra e Fernão Dias — para recomendar exatamente as coberturas que fazem sentido para cada perfil.
               </p>
-              <h3 className="text-foreground font-semibold text-base mt-6">Seguro Residencial para Famílias</h3>
+
+              <h2 className="text-foreground font-bold text-lg mt-8">Seguros Auto para Famílias em Guarulhos</h2>
               <p>
-                Proteja sua casa ou apartamento em Guarulhos contra incêndio, roubo, danos elétricos e vendaval. O <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline">seguro residencial em Guarulhos</Link> custa a partir de R$ 150/ano e inclui assistência 24h com chaveiro, encanador e eletricista.
+                Guarulhos registra um dos maiores volumes de circulação de veículos do estado, com trânsito intenso na Dutra, Fernão Dias e vias locais como a Av. Paulo Faccini. Bairros como Cumbica, Bonsucesso e Pimentas apresentam índices elevados de roubo e furto de veículos, tornando o <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto em Guarulhos</Link> essencial. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Mapfre, Liberty e outras seguradoras para garantir a melhor relação custo-benefício. Nosso diferencial: entregamos propostas comparativas em até 2 horas.
               </p>
-              <h3 className="text-foreground font-semibold text-base mt-6">Seguros para PMEs e Empresários</h3>
               <p>
-                Guarulhos é o segundo maior polo empresarial de SP. Oferecemos <Link to="/seguros-empresariais-pme-guarulhos" className="text-primary hover:underline">seguros empresariais para PMEs</Link> incluindo patrimonial, frota, RC profissional, cyber e plano de saúde corporativo. Conheça também nosso <Link to="/seguro-frota-empresas-guarulhos" className="text-primary hover:underline">seguro de frota em Guarulhos</Link>.
+                Para quem tem <Link to="/seguro-moto-guarulhos" className="text-primary hover:underline">moto em Guarulhos</Link>, também oferecemos cotações especializadas com coberturas contra roubo, colisão e assistência 24h — fundamentais para motociclistas que enfrentam o trânsito intenso da cidade diariamente.
               </p>
-              <h3 className="text-foreground font-semibold text-base mt-6">Planos de Saúde e Seguro de Vida</h3>
+
+              <h2 className="text-foreground font-bold text-lg mt-8">Seguro Residencial: Proteção para Casas e Apartamentos</h2>
               <p>
-                Comparamos mais de 20 operadoras para encontrar o <Link to="/seguro-vida-saude-guarulhos" className="text-primary hover:underline">plano de saúde ou seguro de vida ideal</Link> para você, sua família ou sua empresa em Guarulhos. Atendemos desde planos individuais até PMEs com condições especiais.
+                O <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline">seguro residencial em Guarulhos</Link> custa a partir de R$ 150/ano para apartamentos e R$ 300/ano para casas, incluindo cobertura contra incêndio, roubo, danos elétricos (muito comum na região devido às oscilações de energia), vendaval e responsabilidade civil familiar. Moradores da <Link to="/seguros-guarulhos/cidade-maia" className="text-primary hover:underline">Cidade Maia</Link>, <Link to="/seguros-guarulhos/vila-augusta" className="text-primary hover:underline">Vila Augusta</Link>, Picanço e Macedo já contam com a Patro para proteger seus lares. Inclui assistência 24h com chaveiro, encanador, eletricista e vidraceiro sem custo adicional.
               </p>
-              <h3 className="text-foreground font-semibold text-base mt-6">Como Solicitar Cotação</h3>
+
+              <h2 className="text-foreground font-bold text-lg mt-8">Seguros de Frota e Empresariais para PMEs</h2>
               <p>
-                É simples: preencha nosso <Link to="/cotacao" className="text-primary hover:underline">formulário de cotação online</Link>, envie uma mensagem pelo WhatsApp ou ligue para (11) 5199-7500. Em até 2 horas úteis, você recebe propostas comparativas de múltiplas seguradoras. O serviço é 100% gratuito e sem compromisso.
+                Guarulhos é o segundo maior polo empresarial de São Paulo e abriga o maior aeroporto da América Latina, concentrando milhares de empresas de logística, transporte e comércio. Oferecemos <Link to="/seguros-empresariais-pme-guarulhos" className="text-primary hover:underline">seguros empresariais para PMEs em Guarulhos</Link> — incluindo patrimonial, RC profissional, cyber, seguro de <Link to="/seguro-condominio-guarulhos" className="text-primary hover:underline">condomínio</Link> e plano de saúde corporativo — com condições especiais negociadas diretamente com seguradoras.
               </p>
-              <h3 className="text-foreground font-semibold text-base mt-6">3 Erros Comuns ao Contratar Seguros em Guarulhos</h3>
+              <p>
+                Para empresas com veículos, nosso <Link to="/seguro-frota-empresas-guarulhos" className="text-primary hover:underline">seguro de frota em Guarulhos</Link> oferece descontos de 15% a 30% em relação ao seguro individual, com gestão de sinistros ágil e análise de risco personalizada. Atendemos transportadoras, distribuidoras, locadoras e frotas corporativas de todos os portes.
+              </p>
+
+              <h2 className="text-foreground font-bold text-lg mt-8">Planos de Saúde e Seguro de Vida</h2>
+              <p>
+                Comparamos mais de 20 operadoras — Amil, SulAmérica, Bradesco Saúde, Unimed, Hapvida, Prevent Senior — para encontrar o <Link to="/seguro-vida-saude-guarulhos" className="text-primary hover:underline">plano de saúde ou seguro de vida ideal</Link> para você, sua família ou sua empresa em Guarulhos. Atendemos desde planos individuais até PMEs com condições especiais. Nosso <Link to="/plano-saude-guarulhos" className="text-primary hover:underline">guia de planos de saúde em Guarulhos</Link> ajuda a escolher com informações sobre rede credenciada local, carências e reajustes.
+              </p>
+
+              <h2 className="text-foreground font-bold text-lg mt-8">Como Solicitar Sua Cotação Passo a Passo</h2>
               <ol className="list-decimal pl-5 space-y-2">
-                <li><strong>Escolher apenas pelo menor preço</strong> — coberturas insuficientes podem custar caro em um sinistro.</li>
-                <li><strong>Não declarar o perfil corretamente</strong> — informações incorretas podem anular a apólice.</li>
-                <li><strong>Ignorar a assistência 24h</strong> — serviços como guincho e chaveiro têm valor real no dia a dia.</li>
+                <li><strong>Escolha o tipo de seguro</strong> — auto, residencial, vida, empresarial, frota ou saúde.</li>
+                <li><strong>Preencha o <Link to="/cotacao" className="text-primary hover:underline">formulário de cotação online</Link></strong> ou envie uma mensagem pelo <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">WhatsApp (11) 5199-7500</a>.</li>
+                <li><strong>Receba propostas comparativas</strong> — em até 2 horas úteis, com análise de custo-benefício entre as melhores seguradoras.</li>
+                <li><strong>Feche com segurança</strong> — seu consultor Patro cuida de toda documentação e ativação da apólice.</li>
               </ol>
+              <p>O serviço é 100% gratuito e sem compromisso. Você também pode ligar para <a href="tel:1151997500" className="text-primary hover:underline">(11) 5199-7500</a> ou visitar nossa sede no Cidade Maia.</p>
+
+              <h2 className="text-foreground font-bold text-lg mt-8">5 Erros Comuns ao Contratar Seguros em Guarulhos</h2>
+              <ol className="list-decimal pl-5 space-y-2">
+                <li><strong>Escolher apenas pelo menor preço</strong> — coberturas insuficientes podem custar caro em um sinistro. Uma franquia alta no seguro auto pode anular a economia.</li>
+                <li><strong>Não declarar o perfil corretamente</strong> — informações incorretas sobre CEP de pernoite, uso do veículo ou perfil de condutores podem anular a apólice.</li>
+                <li><strong>Ignorar a assistência 24h</strong> — serviços como guincho, chaveiro e troca de pneu têm valor real no dia a dia, especialmente em Guarulhos.</li>
+                <li><strong>Não comparar entre seguradoras</strong> — a diferença de preço entre seguradoras pode chegar a 40% para o mesmo veículo e perfil.</li>
+                <li><strong>Esquecer de avisar mudanças</strong> — troca de endereço, novo condutor ou alteração no veículo devem ser informados à seguradora para manter a cobertura válida.</li>
+              </ol>
+
+              <h2 className="text-foreground font-bold text-lg mt-8">Por que Escolher a Patro Seguros em Guarulhos?</h2>
+              <p>
+                Com sede no Cidade Maia e registro SUSEP nº 212113511, a Patro Seguros combina experiência local com tecnologia para oferecer o melhor serviço de corretagem em Guarulhos. Nossos clientes avaliam nosso atendimento com nota <strong>4.9/5</strong> no Google (150+ avaliações). Cada consultor é especialista em sua categoria — auto, residencial, vida, empresarial ou saúde — garantindo orientação técnica precisa para cada necessidade. <Link to="/corretora-seguros-guarulhos" className="text-primary hover:underline">Conheça mais sobre nossa corretora em Guarulhos</Link>.
+              </p>
             </div>
           </div>
         </section>
