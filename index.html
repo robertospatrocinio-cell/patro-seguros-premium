@@ -44,7 +44,32 @@
         "addressRegion": "SP",
         "addressCountry": "BR"
       },
-      "areaServed": "Guarulhos",
+      "areaServed": {
+        "@type": "City",
+        "name": "Guarulhos",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "São Paulo"
+        }
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }],
+      "priceRange": "$$",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150",
+        "bestRating": "5"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.4538,
+        "longitude": -46.5333
+      },
       "sameAs": [
         "https://www.instagram.com/patroseguros",
         "https://www.facebook.com/patroseguros",
