@@ -157,6 +157,9 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Lead Magnet — E-book */}
+        <LeadMagnetSection />
+
 
         {/* CTA — Cotação Auto */}
         <section className="py-16 md:py-24 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="cotacao-auto-heading">
