@@ -69,7 +69,7 @@ const LandingPageTemplate = ({
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b">
         <div className="container mx-auto px-4 flex items-center justify-between h-14">
           <Link to="/">
-            <img src={logoUrl} alt="Patro Seguros" className="h-10" />
+            <img src={logoUrl} alt="Patro Seguros" width={180} height={40} className="h-10" />
           </Link>
           <a href={`tel:1151997500`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             <Phone className="h-4 w-4" /> (11) 5199-7500
