@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
-import heroImg from "@/assets/lp-seguro-auto-premium.jpg";
+import heroImg from "@/assets/lp-seguro-auto-premium.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Seguro%20Auto%20Premium.%20Gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20exclusiva.";
 

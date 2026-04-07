@@ -5,10 +5,10 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
 import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
 
-import heroFamilia from "@/assets/hero-familia.jpg";
-import heroEmpresa from "@/assets/hero-empresa.jpg";
-import heroAgro from "@/assets/hero-agro.jpg";
-import heroConsorcio from "@/assets/hero-consorcio.jpg";
+import heroFamilia from "@/assets/hero-familia.webp";
+import heroEmpresa from "@/assets/hero-empresa.webp";
+import heroAgro from "@/assets/hero-agro.webp";
+import heroConsorcio from "@/assets/hero-consorcio.webp";
 
 type TabKey = "voce" | "empresa" | "agro" | "consorcio";
 

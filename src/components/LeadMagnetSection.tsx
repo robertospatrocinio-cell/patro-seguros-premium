@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download, CheckCircle } from "lucide-react";
-import ebookMockup from "@/assets/ebook-mockup-seguro-auto.png";
+import ebookMockup from "@/assets/ebook-mockup-seguro-auto.webp";
 
 const EBOOK_URL = "/downloads/guia-seguro-auto-guarulhos.pdf";
 
