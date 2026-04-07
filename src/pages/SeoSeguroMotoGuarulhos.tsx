@@ -32,8 +32,11 @@ const SeoSeguroMotoGuarulhos = () => (
       { question: "Seguro de moto cobre roubo em Guarulhos?", answer: "Sim, a cobertura compreensiva inclui roubo e furto. Guarulhos tem índices elevados, o que torna o seguro essencial." },
     ]}
     relatedInsurances={[
-      { title: "Veja seguro auto Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
       { title: "Seguro Motorista App", link: "/seguro-motorista-app" },
+      { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
+      { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
   />
 );

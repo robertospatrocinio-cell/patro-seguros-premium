@@ -35,9 +35,11 @@ const SeoSeguroResidencialGuarulhos = () => (
       { question: "Preciso de seguro residencial se moro em condomínio?", answer: "Sim. O seguro do condomínio cobre áreas comuns. Seus bens pessoais, eletrônicos e responsabilidade civil precisam de seguro residencial individual." },
     ]}
     relatedInsurances={[
-      { title: "Seguro Condomínio", link: "/seguro-condominio" },
+      { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: "Seguro Condomínio Guarulhos", link: "/seguro-condominio-guarulhos" },
+      { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
       { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
-      { title: "Veja seguro auto Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
   />
 );

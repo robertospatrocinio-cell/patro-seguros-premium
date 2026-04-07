@@ -34,6 +34,9 @@ const SeoSeguroCondominioGuarulhos = () => (
     relatedInsurances={[
       { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
       { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
+      { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
+      { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
   />
 );
