@@ -63,7 +63,7 @@ const Index = () => {
 
   return (
     <>
-      <PageMeta title="Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online" description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas para PMEs/famílias. Cotação grátis online! Experiência local desde 2020. Proteja-se com Patro. (11) 5199-7500." />
+      <PageMeta title="Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online" description="Corretora seguros Guarulhos: auto, residencial, vida, frotas PMEs. Cotação grátis! Experiência local Patro. (11) 5199-7500." />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
