@@ -29,6 +29,7 @@ const Parceiros = () => {
     { name: "Pier", description: "Seguro digital colaborativo e transparente", logo: "/logos/pier.png" },
     { name: "Youse", description: "Seguro digital personalizável para auto, vida e residencial", logo: "/logos/youse.png" },
     { name: "Ezze Seguros", description: "Soluções em seguros patrimoniais e de responsabilidade civil", logo: "/logos/ezze.png" },
+    { name: "Mitsui Sumitomo", description: "Seguradora global com expertise em seguros corporativos e patrimoniais", logo: "/logos/mitsui.png" },
   ];
 
   const healthPartners = [
