@@ -164,6 +164,44 @@ const Index = () => {
           </div>
         </section>
 
+        {/* E-E-A-T Content Section */}
+        <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo</h2>
+            <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
+              <p>
+                Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Nossa sede no <strong>Cidade Maia</strong> permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil.
+              </p>
+              <h3 className="text-foreground font-semibold text-base mt-6">Seguro Auto em Guarulhos</h3>
+              <p>
+                Guarulhos tem particularidades que influenciam diretamente o preço do <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto</Link>: alto índice de roubo em bairros como Cumbica e Bonsucesso, trânsito intenso na Dutra e Fernão Dias, e alagamentos sazonais. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI e outras para encontrar a melhor proteção.
+              </p>
+              <h3 className="text-foreground font-semibold text-base mt-6">Seguro Residencial para Famílias</h3>
+              <p>
+                Proteja sua casa ou apartamento em Guarulhos contra incêndio, roubo, danos elétricos e vendaval. O <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline">seguro residencial em Guarulhos</Link> custa a partir de R$ 150/ano e inclui assistência 24h com chaveiro, encanador e eletricista.
+              </p>
+              <h3 className="text-foreground font-semibold text-base mt-6">Seguros para PMEs e Empresários</h3>
+              <p>
+                Guarulhos é o segundo maior polo empresarial de SP. Oferecemos <Link to="/seguros-empresariais-pme-guarulhos" className="text-primary hover:underline">seguros empresariais para PMEs</Link> incluindo patrimonial, frota, RC profissional, cyber e plano de saúde corporativo. Conheça também nosso <Link to="/seguro-frota-empresas-guarulhos" className="text-primary hover:underline">seguro de frota em Guarulhos</Link>.
+              </p>
+              <h3 className="text-foreground font-semibold text-base mt-6">Planos de Saúde e Seguro de Vida</h3>
+              <p>
+                Comparamos mais de 20 operadoras para encontrar o <Link to="/seguro-vida-saude-guarulhos" className="text-primary hover:underline">plano de saúde ou seguro de vida ideal</Link> para você, sua família ou sua empresa em Guarulhos. Atendemos desde planos individuais até PMEs com condições especiais.
+              </p>
+              <h3 className="text-foreground font-semibold text-base mt-6">Como Solicitar Cotação</h3>
+              <p>
+                É simples: preencha nosso <Link to="/cotacao" className="text-primary hover:underline">formulário de cotação online</Link>, envie uma mensagem pelo WhatsApp ou ligue para (11) 5199-7500. Em até 2 horas úteis, você recebe propostas comparativas de múltiplas seguradoras. O serviço é 100% gratuito e sem compromisso.
+              </p>
+              <h3 className="text-foreground font-semibold text-base mt-6">3 Erros Comuns ao Contratar Seguros em Guarulhos</h3>
+              <ol className="list-decimal pl-5 space-y-2">
+                <li><strong>Escolher apenas pelo menor preço</strong> — coberturas insuficientes podem custar caro em um sinistro.</li>
+                <li><strong>Não declarar o perfil corretamente</strong> — informações incorretas podem anular a apólice.</li>
+                <li><strong>Ignorar a assistência 24h</strong> — serviços como guincho e chaveiro têm valor real no dia a dia.</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
         {/* Lead Magnet — E-book */}
         <LeadMagnetSection />
 

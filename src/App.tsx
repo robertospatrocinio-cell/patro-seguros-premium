@@ -174,6 +174,12 @@ const App = () => (
             <Route path="/plano-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
             <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresarialGuarulhos />} />
             <Route path="/corretora-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
+            <Route path="/seguro-residencial-guarulhos" element={<SeoSeguroResidencialGuarulhos />} />
+            <Route path="/seguro-vida-saude-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
+            <Route path="/seguro-frota-empresas-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
+            <Route path="/seguros-empresariais-pme-guarulhos" element={<SeoSegurosPmeGuarulhos />} />
+            <Route path="/seguro-moto-guarulhos" element={<SeoSeguroMotoGuarulhos />} />
+            <Route path="/seguro-condominio-guarulhos" element={<SeoSeguroCondominioGuarulhos />} />
             <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
             <Route path="/seguro-geada" element={<SeguroGeada />} />
             <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
