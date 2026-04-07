@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import heroImg from "@/assets/hero-seguro-saude.webp";
 
 const SeguroSaude = () => {
