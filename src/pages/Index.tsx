@@ -63,7 +63,7 @@ const Index = () => {
 
   return (
     <>
-      <PageMeta title="Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online" description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas para PMEs/famílias. Cotação grátis online! Experiência local desde 2020. Proteja-se com Patro. (11) 5199-7500." />
+      <PageMeta title="Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online" description="Corretora seguros Guarulhos: auto, residencial, vida, frotas PMEs. Cotação grátis! Experiência local Patro. (11) 5199-7500." />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
@@ -84,7 +84,7 @@ const Index = () => {
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
-                Corretora de Seguros em Guarulhos: Cotação Rápida e Personalizada
+                Corretora de Seguros em Guarulhos | Patro: Cotação Rápida
               </h1>
               <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
                 Atendimento personalizado · Melhores seguradoras · Cotação rápida
@@ -170,7 +170,7 @@ const Index = () => {
             <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
               <p>
-                Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil. Com uma equipe de consultores certificados e experiência em mais de 16 seguradoras e 20 operadoras de saúde, oferecemos a análise mais completa do mercado local.
+                Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Já atendemos <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil. Com uma equipe de consultores certificados e experiência em mais de 16 seguradoras e 20 operadoras de saúde, oferecemos a análise mais completa do mercado local.
               </p>
               <p>
                 Guarulhos, a segunda maior cidade de São Paulo com mais de 1,4 milhão de habitantes, possui características únicas que exigem uma corretora que conheça profundamente a região. Do polo logístico de Cumbica às residências de alto padrão no Cidade Maia, cada bairro demanda uma estratégia de proteção diferente. É por isso que a Patro se especializou em entender os riscos locais — índices de roubo por região, alagamentos sazonais, perfil de trânsito nas rodovias Dutra e Fernão Dias — para recomendar exatamente as coberturas que fazem sentido para cada perfil.

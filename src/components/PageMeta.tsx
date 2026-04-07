@@ -30,7 +30,7 @@ const PageMeta = ({ title, description }: PageMetaProps) => {
       document.title = "Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online";
       const meta = document.querySelector('meta[name="description"]');
       if (meta) {
-        meta.setAttribute("content", "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas para PMEs/famílias. Cotação grátis online! Experiência local desde 2020. Proteja-se com Patro. (11) 5199-7500.");
+        meta.setAttribute("content", "Corretora seguros Guarulhos: auto, residencial, vida, frotas PMEs. Cotação grátis! Experiência local Patro. (11) 5199-7500.");
       }
     };
   }, [title, description]);
