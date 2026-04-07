@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import heroImg from "@/assets/hero-seguro-residencial.webp";
 
 const SeguroResidencial = () => {
   return (
+    <>
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Residencial em Guarulhos – Cidade Maia"
@@ -108,6 +110,8 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { id: "condicao", label: "Condição", placeholder: "Selecione", type: "select", options: ["Próprio (moradia)", "Alugado (inquilino)", "Alugado (proprietário)", "Veraneio / temporada"] },
       ]}
     />
+    <ExitIntentPopup />
+    </>
   );
 };
 

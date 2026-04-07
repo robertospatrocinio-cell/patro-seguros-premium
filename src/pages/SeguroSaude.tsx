@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import heroImg from "@/assets/hero-seguro-saude.webp";
 
 const SeguroSaude = () => {
   return (
+    <>
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Saúde / Plano de Saúde"
@@ -100,6 +102,8 @@ Trabalhamos com as maiores operadoras — Bradesco Saúde, Amil, SulAmérica, Po
         { title: "Seguro Viagem", link: "/seguro-viagem" },
       ]}
     />
+    <ExitIntentPopup />
+    </>
   );
 };
 

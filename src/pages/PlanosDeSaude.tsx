@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import QuickQuoteForm from "@/components/QuickQuoteForm";
 import heroImg from "@/assets/hero-planos-saude.webp";
@@ -140,6 +141,7 @@ const PlanosDeSaude = () => {
         </section>
       </main>
       <Footer />
+      <ExitIntentPopup />
     </>
   );
 };
