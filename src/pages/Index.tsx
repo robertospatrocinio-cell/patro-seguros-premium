@@ -17,6 +17,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "@/components/OptimizedImage";
 import { getArticleImage } from "@/lib/blogImages";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
+import PortoPartnershipSection from "@/components/PortoPartnershipSection";
 import { articles as allBlogArticles, formatDate } from "@/lib/blogData";
 import { Calendar, Clock, User } from "lucide-react";
 const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
@@ -344,6 +345,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* Porto Partnership */}
+        <PortoPartnershipSection />
 
         {/* CTA Final */}
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 350px' }} aria-label="Solicitar cotação">

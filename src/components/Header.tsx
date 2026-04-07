@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const logoFull = "/images/logo-full.webp";
 
@@ -9,12 +9,76 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
+  const [mobileSearch, setMobileSearch] = useState("");
+
+  // All mobile menu links for search filtering
+  const allMobileLinks = useMemo(() => [
+    { label: "Auto", to: "/seguro-auto", section: "pessoal" },
+    { label: "Moto", to: "/seguro-moto", section: "pessoal" },
+    { label: "Caminhão", to: "/seguro-caminhao", section: "pessoal" },
+    { label: "Bike", to: "/seguro-bike", section: "pessoal" },
+    { label: "Carta Verde", to: "/seguro-carta-verde", section: "pessoal" },
+    { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
+    { label: "Vida", to: "/seguro-vida", section: "pessoal" },
+    { label: "Planos de Saúde", to: "/planos-de-saude", section: "pessoal" },
+    { label: "Plano Odonto", to: "/seguro-odonto", section: "pessoal" },
+    { label: "Plano Pet", to: "/plano-pet", section: "pessoal" },
+    { label: "Acidentes Pessoais", to: "/seguro-acidentes-pessoais", section: "pessoal" },
+    { label: "Previdência Privada", to: "/previdencia-privada", section: "pessoal" },
+    { label: "Funeral", to: "/seguro-funeral", section: "pessoal" },
+    { label: "Residencial", to: "/seguro-residencial", section: "pessoal" },
+    { label: "Celular", to: "/seguro-celular", section: "pessoal" },
+    { label: "Viagem", to: "/seguro-viagem", section: "pessoal" },
+    { label: "Fiança", to: "/seguro-fianca", section: "pessoal" },
+    { label: "Fiança Locatícia", to: "/seguro-fianca-locaticia", section: "pessoal" },
+    { label: "Estagiário", to: "/seguro-estagiario", section: "pessoal" },
+    { label: "Jet Ski", to: "/seguro-jetski", section: "pessoal" },
+    { label: "Embarcações", to: "/seguro-embarcacoes", section: "pessoal" },
+    { label: "Aviões", to: "/seguro-avioes", section: "pessoal" },
+    { label: "Helicópteros", to: "/seguro-helicopteros", section: "pessoal" },
+    { label: "Empresarial", to: "/seguro-empresarial", section: "empresarial" },
+    { label: "Condomínio", to: "/seguro-condominio", section: "empresarial" },
+    { label: "Imobiliário", to: "/seguro-imobiliario", section: "empresarial" },
+    { label: "Lojas Shopping", to: "/seguro-lojas-shopping", section: "empresarial" },
+    { label: "Galpões Industriais", to: "/seguro-galpoes-industriais", section: "empresarial" },
+    { label: "Frota", to: "/seguro-frota", section: "empresarial" },
+    { label: "Transporte", to: "/seguro-transporte", section: "empresarial" },
+    { label: "RC Geral", to: "/seguro-rc", section: "empresarial" },
+    { label: "RC Profissional", to: "/seguro-rc-profissional", section: "empresarial" },
+    { label: "RC Médicos", to: "/seguro-rc-medicos", section: "empresarial" },
+    { label: "RC Dentistas", to: "/seguro-rc-dentistas", section: "empresarial" },
+    { label: "RC Advogados", to: "/seguro-rc-advogados", section: "empresarial" },
+    { label: "RC Engenheiros", to: "/seguro-rc-engenheiros", section: "empresarial" },
+    { label: "Cyber", to: "/seguro-cyber", section: "empresarial" },
+    { label: "Engenharia", to: "/seguro-engenharia", section: "empresarial" },
+    { label: "Garantia", to: "/seguro-garantia", section: "empresarial" },
+    { label: "Vida PME", to: "/seguro-vida-pme", section: "empresarial" },
+    { label: "Saúde Empresarial", to: "/plano-saude-empresarial", section: "empresarial" },
+    { label: "Máquinas Agrícolas", to: "/seguro-maquinas-agricolas", section: "agro" },
+    { label: "Equipamentos Agrícolas", to: "/seguro-equipamentos-agricolas", section: "agro" },
+    { label: "Drone Agrícola", to: "/seguro-drone-agricola", section: "agro" },
+    { label: "Placas Solar", to: "/seguro-placa-solar", section: "agro" },
+    { label: "Rural", to: "/seguro-rural", section: "agro" },
+    { label: "Pecuário", to: "/seguro-pecuario", section: "agro" },
+    { label: "Café", to: "/seguro-cafe", section: "agro" },
+    { label: "Consórcio Carro", to: "/consorcio-carro", section: "consorcio" },
+    { label: "Consórcio Imóveis", to: "/consorcio-imoveis", section: "consorcio" },
+    { label: "Consórcio Veículos Pesados", to: "/consorcio-veiculos-pesados", section: "consorcio" },
+  ], []);
+
+  const searchResults = useMemo(() => {
+    if (!mobileSearch.trim()) return [];
+    const q = mobileSearch.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return allMobileLinks.filter(link =>
+      link.label.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(q)
+    );
+  }, [mobileSearch, allMobileLinks]);
 
   const toggleMobileSection = (section: string) => {
     setOpenMobileSection(openMobileSection === section ? null : section);
   };
 
-  const close = () => setIsMenuOpen(false);
+  const close = () => { setIsMenuOpen(false); setMobileSearch(""); };
 
   const MobileSection = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => {
     const isOpen = openMobileSection === id;
@@ -286,6 +350,36 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg animate-fade-in max-h-[80vh] overflow-y-auto" role="navigation" aria-label="Menu mobile">
           <div className="container mx-auto px-4 py-2">
+            {/* Search bar */}
+            <div className="relative mb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/50" aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Buscar seguro…"
+                value={mobileSearch}
+                onChange={(e) => setMobileSearch(e.target.value)}
+                className="w-full pl-9 pr-4 py-2.5 text-[13px] bg-muted rounded-lg border-0 outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-muted-foreground/40"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Search results */}
+            {mobileSearch.trim() ? (
+              <div className="py-2">
+                {searchResults.length > 0 ? (
+                  <div className="grid grid-cols-2 gap-0.5">
+                    {searchResults.map((r) => (
+                      <MobileLink key={r.to} to={r.to}>{r.label}</MobileLink>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-[13px] text-muted-foreground/60 text-center py-4">
+                    Nenhum seguro encontrado para "{mobileSearch}"
+                  </p>
+                )}
+              </div>
+            ) : (
+            <>
             <Link to="/" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>
               Início
             </Link>
@@ -412,6 +506,8 @@ const Header = () => {
                 <Button className="w-full rounded-lg text-[13px] h-10">Solicitar Cotação Grátis</Button>
               </Link>
             </div>
+            </>
+            )}
           </div>
         </div>
       )}
