@@ -158,7 +158,7 @@ const LandingSeguroAutoPremium = () => {
                 </Button>
               </a>
               <a href="tel:+551151997500">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base">
+                <Button size="lg" className="w-full sm:w-auto bg-transparent border border-white/30 text-white hover:bg-white/10 px-8 py-6 text-base">
                   <Phone className="mr-2 h-5 w-5" />
                   (11) 5199-7500
                 </Button>
