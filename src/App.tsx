@@ -92,6 +92,7 @@ const SeguroFuneral = lazy(() => import("./pages/SeguroFuneral"));
 const SeguroMotoristaApp = lazy(() => import("./pages/SeguroMotoristaApp"));
 const LandingPages = lazy(() => import("./pages/LandingPages"));
 const LandingSeguroAuto = lazy(() => import("./pages/LandingSeguroAuto"));
+const LandingSeguroAutoPremium = lazy(() => import("./pages/LandingSeguroAutoPremium"));
 const LandingPlanoSaude = lazy(() => import("./pages/LandingPlanoSaude"));
 const LandingSeguroEmpresarial = lazy(() => import("./pages/LandingSeguroEmpresarial"));
 const LandingSeguroResidencial = lazy(() => import("./pages/LandingSeguroResidencial"));
