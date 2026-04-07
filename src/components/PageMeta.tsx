@@ -27,10 +27,10 @@ const PageMeta = ({ title, description }: PageMetaProps) => {
 
     return () => {
       // Reset to defaults on unmount
-      document.title = "Patro Seguros | Corretora de Seguros no Cidade Maia, Guarulhos - Cotação Online";
+      document.title = "Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online";
       const meta = document.querySelector('meta[name="description"]');
       if (meta) {
-        meta.setAttribute("content", "A Patro Corretora de Seguros no Cidade Maia, Guarulhos, compara as melhores seguradoras do mercado para encontrar a proteção ideal para você, sua família e sua empresa. Cotação grátis.");
+        meta.setAttribute("content", "Corretora de seguros em Guarulhos especializada em seguro auto, residencial, vida e empresarial. Compare cotações das melhores seguradoras e economize. Cotação grátis – Patro Seguros, Cidade Maia.");
       }
     };
   }, [title, description]);

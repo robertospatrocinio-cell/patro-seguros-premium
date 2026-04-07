@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const logoFull = "/images/logo-full.webp";
 
@@ -54,6 +54,10 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-1.5 text-[11px]">
             <div className="flex items-center gap-5">
+              <span className="hidden lg:flex items-center gap-1.5 text-white/60 text-[10px]">
+                <MapPin className="h-3 w-3" aria-hidden="true" />
+                Cidade Maia, Guarulhos/SP
+              </span>
               <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Ligar para (11) 5199-7500">
                 <Phone className="h-3 w-3" aria-hidden="true" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>

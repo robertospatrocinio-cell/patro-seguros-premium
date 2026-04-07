@@ -49,17 +49,19 @@ const diferenciais = [
 
 
 const faqs = [
-  { question: "Quanto tempo leva para receber uma cotação?", answer: "Em até 2 horas úteis você recebe sua cotação personalizada com propostas de múltiplas seguradoras." },
-  { question: "A cotação é realmente gratuita?", answer: "Sim. Todas as nossas cotações são 100% gratuitas e sem compromisso." },
-  { question: "Vocês atendem empresas?", answer: "Sim. Atendemos empresas de todos os portes com seguros empresariais, frota, RC e muito mais." },
-  { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução." },
+  { question: "Por que escolher uma corretora de seguros em Guarulhos?", answer: "Uma corretora local em Guarulhos conhece os riscos da região — alagamentos, índices de roubo por bairro, trânsito — e recomenda coberturas adequadas. A Patro Seguros compara cotações de mais de 16 seguradoras para encontrar o melhor custo-benefício." },
+  { question: "Quanto tempo leva para receber uma cotação?", answer: "Em até 2 horas úteis você recebe sua cotação personalizada com propostas comparativas de múltiplas seguradoras." },
+  { question: "A cotação é realmente gratuita?", answer: "Sim. Todas as nossas cotações de seguro são 100% gratuitas e sem compromisso. Compare à vontade." },
+  { question: "Quais tipos de seguro a Patro Seguros oferece em Guarulhos?", answer: "Seguro auto, seguro residencial, seguro de vida, seguro empresarial, seguro de frota, planos de saúde, consórcio e muito mais. Atendemos pessoas físicas, famílias e empresas de todos os portes." },
+  { question: "Vocês atendem empresas?", answer: "Sim. Somos especializados em seguros empresariais em Guarulhos: seguro patrimonial, frota, RC profissional, seguro cyber e pacotes completos para PMEs." },
+  { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
 ];
 
 const Index = () => {
 
   return (
     <>
-      <PageMeta title="Corretora de Seguros em Guarulhos – Cidade Maia" description="Patro Seguros — corretora de seguros no Cidade Maia, Guarulhos. Compare cotações de auto, vida, saúde, empresarial e mais. Atendimento rápido e consultivo. Cotação grátis!" />
+      <PageMeta title="Corretora de Seguros em Guarulhos – Cotação Online" description="Corretora de seguros em Guarulhos especializada em seguro auto, residencial, vida e empresarial. Compare cotações das melhores seguradoras e economize. Cotação grátis – Patro Seguros, Cidade Maia." />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <Header />
@@ -75,13 +77,13 @@ const Index = () => {
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
-                Proteção inteligente para você, sua família e sua empresa.
+                Corretora de Seguros em Guarulhos — Proteção completa para você e sua família
               </h1>
               <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
-                Sua Corretora de Seguros em Guarulhos
+                Atendimento personalizado · Melhores seguradoras · Cotação rápida
               </p>
               <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
-                Comparamos os melhores custos-benefícios entre as melhores seguradoras do mercado.
+                Comparamos cotações de seguro auto, residencial, vida e empresarial entre as principais seguradoras do mercado em Guarulhos e região.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -138,8 +140,8 @@ const Index = () => {
         <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }} aria-labelledby="diferenciais-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
-              <span className="section-label">Por que a Patro</span>
-              <h2 id="diferenciais-heading" className="mt-3">Você será atendido por especialistas,<br className="hidden sm:block" /> não por robô!</h2>
+              <span className="section-label">Por que escolher a Patro Seguros em Guarulhos</span>
+              <h2 id="diferenciais-heading" className="mt-3">Atendimento especializado<br className="hidden sm:block" /> de gente, não de robô</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
               {diferenciais.map((item, i) => (
@@ -162,9 +164,9 @@ const Index = () => {
             <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-8 md:p-16">
               <img src={cotacaoOnline3d} alt="" width={192} height={192} className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80" aria-hidden="true" loading="lazy" decoding="async" />
               <div className="relative md:max-w-[60%]">
-                <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto Online</h2>
+                <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto em Guarulhos</h2>
                 <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
-                  Auto, moto, caminhão e vans — resultado em minutos pelo nosso sistema.
+                  Auto, moto, caminhão e vans — compare preços das melhores seguradoras em minutos.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
                   <a
@@ -193,12 +195,12 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
-              <h2 id="sobre-heading" className="mt-3 mb-6">Corretora com atendimento<br className="hidden sm:block" /> de gente, não de máquina.</h2>
+              <h2 id="sobre-heading" className="mt-3 mb-6">Sua corretora de seguros<br className="hidden sm:block" /> no Cidade Maia, Guarulhos</h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
-                Registrada na SUSEP (nº 212113511), com sede em Guarulhos/SP. Atendemos pessoas físicas, famílias, empresas e produtores rurais em todo o Brasil.
+                A Patro Seguros é uma corretora de seguros em Guarulhos registrada na SUSEP (nº 212113511), com sede no Cidade Maia. Atendemos pessoas físicas, famílias, empresas e produtores rurais em Guarulhos e em todo o Brasil.
               </p>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-10">
-                Cada cliente conversa direto com um especialista, recebe propostas comparativas e tem suporte completo — da cotação ao sinistro.
+                Cada cliente conversa direto com um consultor especialista, recebe propostas comparativas de múltiplas seguradoras e tem suporte completo — da cotação ao sinistro.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/sobre"><Button variant="outline" className="rounded-lg text-[13px] h-10">Conheça a Patro</Button></Link>
@@ -270,9 +272,9 @@ const Index = () => {
         {/* CTA Final */}
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 350px' }} aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-white mb-4 font-extrabold">Peça sua cotação agora.</h2>
+            <h2 className="text-white mb-4 font-extrabold">Faça sua cotação de seguro em Guarulhos</h2>
             <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
-              Gratuita, sem compromisso. Resposta em até 2 horas com propostas comparativas.
+              Gratuita, sem compromisso. Resposta em até 2 horas com propostas comparativas das melhores seguradoras.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" className="w-full sm:w-auto">

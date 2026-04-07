@@ -13,7 +13,7 @@ const Footer = () => {
               <img src={logoFull} alt="Patro Seguros" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
             </div>
             <p className="text-[13px] text-white/80 mb-6 leading-relaxed max-w-xs">
-              Corretora de seguros em Guarulhos. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.
+              Corretora de seguros em Guarulhos especializada em seguro auto, residencial, vida e empresarial. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.
             </p>
             <div className="flex gap-2">
               {[
@@ -47,16 +47,17 @@ const Footer = () => {
           </nav>
 
           {/* Seguros */}
-          <nav aria-label="Principais seguros">
-            <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros</h3>
+          <nav aria-label="Seguros em Guarulhos">
+            <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros em Guarulhos</h3>
             <ul className="space-y-2.5">
               {[
-                { to: "/seguro-auto", label: "Auto" },
-                { to: "/seguro-vida", label: "Vida" },
-                { to: "/seguro-empresarial", label: "Empresarial" },
-                { to: "/planos-de-saude", label: "Saúde" },
-                { to: "/seguro-frota", label: "Frota" },
-                { to: "/cotacao", label: "Cotação" },
+                { to: "/seguro-auto", label: "Seguro Auto" },
+                { to: "/seguro-residencial", label: "Seguro Residencial" },
+                { to: "/seguro-vida", label: "Seguro de Vida" },
+                { to: "/seguro-empresarial", label: "Seguro Empresarial" },
+                { to: "/planos-de-saude", label: "Plano de Saúde" },
+                { to: "/seguro-frota", label: "Seguro de Frota" },
+                { to: "/cotacao", label: "Cotação Grátis" },
               ].map(l => (
                 <li key={l.to}><Link to={l.to} className="text-[13px] text-white/70 hover:text-white/90 transition-base">{l.label}</Link></li>
               ))}
@@ -75,6 +76,10 @@ const Footer = () => {
                 <li className="flex items-center gap-2.5">
                   <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
                   <a href="tel:1151997500" className="text-white/70 hover:text-white/90 transition-base">(11) 5199-7500</a>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
+                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/90 transition-base">WhatsApp</a>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Mail className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
