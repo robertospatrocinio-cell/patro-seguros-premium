@@ -219,7 +219,7 @@ const SeoSegurosPmeGuarulhos = () => (
               <div key={i} className="bg-muted/50 border rounded-xl p-6">
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground italic mb-3">"{dep.texto}"</p>
