@@ -82,7 +82,7 @@ const Parceiros = () => {
               {partners.map((partner, index) => (
                 <Card key={index} className="hover:shadow-lg transition-base border-2 border-[#C0C0C0] shadow-[0_0_8px_rgba(192,192,192,0.3)]">
                   <CardContent className="pt-6 flex items-start gap-4">
-                    <img src={partner.logo} alt={partner.name} className="h-12 w-12 object-contain flex-shrink-0" loading="lazy" />
+                    <img src={partner.logo} alt={partner.name} width={48} height={48} className="h-12 w-12 object-contain flex-shrink-0" loading="lazy" />
                     <div>
                       <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
                       <p className="text-muted-foreground">{partner.description}</p>
@@ -98,7 +98,7 @@ const Parceiros = () => {
               {healthPartners.map((partner, index) => (
                 <Card key={index} className="hover:shadow-lg transition-base border-2 border-[#C0C0C0] shadow-[0_0_8px_rgba(192,192,192,0.3)]">
                   <CardContent className="pt-6 flex items-start gap-4">
-                    <img src={partner.logo} alt={partner.name} className="h-12 w-12 object-contain flex-shrink-0" loading="lazy" />
+                    <img src={partner.logo} alt={partner.name} width={48} height={48} className="h-12 w-12 object-contain flex-shrink-0" loading="lazy" />
                     <div>
                       <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
                       <p className="text-muted-foreground">{partner.description}</p>

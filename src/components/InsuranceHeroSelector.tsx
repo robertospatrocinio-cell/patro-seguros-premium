@@ -5,10 +5,10 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
 import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
 
-import heroFamilia from "@/assets/hero-familia.jpg";
-import heroEmpresa from "@/assets/hero-empresa.jpg";
-import heroAgro from "@/assets/hero-agro.jpg";
-import heroConsorcio from "@/assets/hero-consorcio.jpg";
+import heroFamilia from "@/assets/hero-familia.webp";
+import heroEmpresa from "@/assets/hero-empresa.webp";
+import heroAgro from "@/assets/hero-agro.webp";
+import heroConsorcio from "@/assets/hero-consorcio.webp";
 
 type TabKey = "voce" | "empresa" | "agro" | "consorcio";
 
@@ -124,7 +124,7 @@ const InsuranceHeroSelector = () => {
             style={{ opacity: active === tab.key ? 1 : 0 }}
             aria-hidden={active !== tab.key}
           >
-            <img src={bgByTab[tab.key]} alt="" className="w-full h-full object-cover" loading={tab.key === "voce" ? "eager" : "lazy"} />
+            <img src={bgByTab[tab.key]} alt="" width={1280} height={720} className="w-full h-full object-cover" loading={tab.key === "voce" ? "eager" : "lazy"} />
           </div>
         ))}
 

@@ -169,6 +169,8 @@ const Depoimentos = () => {
                 <img
                   src={current.avatar}
                   alt={current.name}
+                  width={80}
+                  height={80}
                   className="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-2 border-primary/20"
                 />
                 <div className="flex gap-0.5 justify-center mb-5" role="img" aria-label={`${current.stars} de 5 estrelas`}>
@@ -229,7 +231,7 @@ const Depoimentos = () => {
               {videoTestimonials.map((v, i) => (
                 <div key={i} className="group relative bg-background rounded-xl border overflow-hidden">
                   <div className="aspect-video bg-muted flex items-center justify-center relative">
-                    <img src={v.thumb} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" aria-hidden="true" />
+                    <img src={v.thumb} alt="" width={640} height={360} className="absolute inset-0 w-full h-full object-cover opacity-30" aria-hidden="true" loading="lazy" />
                     <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center relative z-10 group-hover:scale-105 transition-transform">
                       <Play className="h-6 w-6 text-primary-foreground ml-0.5" />
                     </div>
@@ -256,7 +258,7 @@ const Depoimentos = () => {
               {testimonials.map((t, i) => (
                 <article key={i} className="premium-card p-6 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover border" loading="lazy" />
+                    <img src={t.avatar} alt={t.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover border" loading="lazy" />
                     <div>
                       <p className="text-sm font-semibold">{t.name}</p>
                       <p className="text-[11px] text-muted-foreground">{t.role} · {t.location}</p>
