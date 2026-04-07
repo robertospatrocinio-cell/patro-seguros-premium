@@ -109,6 +109,8 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { id: "condicao", label: "Condição", placeholder: "Selecione", type: "select", options: ["Próprio (moradia)", "Alugado (inquilino)", "Alugado (proprietário)", "Veraneio / temporada"] },
       ]}
     />
+    <ExitIntentPopup />
+    </>
   );
 };
 

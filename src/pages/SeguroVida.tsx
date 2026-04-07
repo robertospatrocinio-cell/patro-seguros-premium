@@ -110,6 +110,8 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         { id: "capital", label: "Capital desejado", placeholder: "Selecione", type: "select", options: ["Até R$ 100.000", "R$ 100.000 a R$ 300.000", "R$ 300.000 a R$ 500.000", "Acima de R$ 500.000", "Não sei / quero orientação"] },
       ]}
     />
+    <ExitIntentPopup />
+    </>
   );
 };
 

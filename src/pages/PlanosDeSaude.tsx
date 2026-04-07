@@ -141,6 +141,7 @@ const PlanosDeSaude = () => {
         </section>
       </main>
       <Footer />
+      <ExitIntentPopup />
     </>
   );
 };

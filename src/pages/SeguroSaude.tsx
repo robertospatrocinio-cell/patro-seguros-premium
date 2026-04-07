@@ -101,6 +101,8 @@ Trabalhamos com as maiores operadoras — Bradesco Saúde, Amil, SulAmérica, Po
         { title: "Seguro Viagem", link: "/seguro-viagem" },
       ]}
     />
+    <ExitIntentPopup />
+    </>
   );
 };
 
