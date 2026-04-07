@@ -60,6 +60,7 @@ import blogVeiculosEletricos from "@/assets/blog/blog-seguro-veiculos-eletricos.
 import blogConsorcioEletricos from "@/assets/blog/blog-consorcio-veiculos-eletricos.webp";
 import blogMotoristaApp from "@/assets/blog/blog-seguro-motorista-app.webp";
 import blogCorretoraGuarulhos from "@/assets/blog/blog-corretora-seguros-guarulhos.webp";
+import blogPrecoSeguroAutoGuarulhos2026 from "@/assets/blog/blog-preco-seguro-auto-guarulhos-2026.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
