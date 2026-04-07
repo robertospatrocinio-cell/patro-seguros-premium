@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { Search, Shield, Handshake, CheckCircle, MessageCircle, ArrowRight, Star } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -325,6 +326,7 @@ const SeguroAuto = () => {
         </section>
       </main>
       <Footer />
+      <ExitIntentPopup />
     </>
   );
 };
