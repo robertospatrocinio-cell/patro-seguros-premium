@@ -47,16 +47,17 @@ const Footer = () => {
           </nav>
 
           {/* Seguros */}
-          <nav aria-label="Principais seguros">
-            <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros</h3>
+          <nav aria-label="Seguros em Guarulhos">
+            <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Seguros em Guarulhos</h3>
             <ul className="space-y-2.5">
               {[
-                { to: "/seguro-auto", label: "Auto" },
-                { to: "/seguro-vida", label: "Vida" },
-                { to: "/seguro-empresarial", label: "Empresarial" },
-                { to: "/planos-de-saude", label: "Saúde" },
-                { to: "/seguro-frota", label: "Frota" },
-                { to: "/cotacao", label: "Cotação" },
+                { to: "/seguro-auto", label: "Seguro Auto" },
+                { to: "/seguro-residencial", label: "Seguro Residencial" },
+                { to: "/seguro-vida", label: "Seguro de Vida" },
+                { to: "/seguro-empresarial", label: "Seguro Empresarial" },
+                { to: "/planos-de-saude", label: "Plano de Saúde" },
+                { to: "/seguro-frota", label: "Seguro de Frota" },
+                { to: "/cotacao", label: "Cotação Grátis" },
               ].map(l => (
                 <li key={l.to}><Link to={l.to} className="text-[13px] text-white/70 hover:text-white/90 transition-base">{l.label}</Link></li>
               ))}
