@@ -74,7 +74,7 @@ const Cotacao = () => {
 
   return (
     <>
-      <PageMeta title="Cotação de Seguros em Guarulhos – Cidade Maia" description="Solicite uma cotação gratuita de seguros com a Patro Seguros no Cidade Maia, Guarulhos. Comparamos as melhores seguradoras para encontrar o melhor preço e cobertura para você." />
+      <PageMeta title="Cotação de Seguro em Guarulhos – Grátis e Online" description="Solicite uma cotação gratuita de seguros em Guarulhos com a Patro Seguros. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras para encontrar o melhor preço." />
       <Header />
       <main id="main-content">
         {/* Hero */}
