@@ -108,6 +108,7 @@ const LandingSeguroGalpoes = lazy(() => import("./pages/LandingSeguroGalpoes"));
 const LandingConsorcio = lazy(() => import("./pages/LandingConsorcio"));
 const LandingSeguroCelular = lazy(() => import("./pages/LandingSeguroCelular"));
 const LandingSeguroMotoristaApp = lazy(() => import("./pages/LandingSeguroMotoristaApp"));
+const LandingMedSenior = lazy(() => import("./pages/LandingMedSenior"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const SobreGuarulhos = lazy(() => import("./pages/SobreGuarulhos"));
 const PoliticaPrivacidade = lazy(() => import("./pages/PoliticaPrivacidade"));
