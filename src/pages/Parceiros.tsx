@@ -25,6 +25,7 @@ const Parceiros = () => {
     { name: "SOMPO", description: "Seguros corporativos, agrícolas e soluções especializadas", logo: "/logos/sompo.png" },
     { name: "Itaú Seguros", description: "Solidez e inovação em seguros patrimoniais e de vida", logo: "/logos/itau.png" },
     { name: "AXA", description: "Líder global em seguros e gestão de riscos", logo: "/logos/axa.png" },
+    { name: "MAG Seguros", description: "Especialista em seguros de vida e previdência", logo: "/logos/mag.png" },
   ];
 
   const healthPartners = [
