@@ -193,12 +193,12 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
-              <h2 id="sobre-heading" className="mt-3 mb-6">Corretora com atendimento<br className="hidden sm:block" /> de gente, não de máquina.</h2>
+              <h2 id="sobre-heading" className="mt-3 mb-6">Sua corretora de seguros<br className="hidden sm:block" /> no Cidade Maia, Guarulhos</h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
-                Registrada na SUSEP (nº 212113511), com sede em Guarulhos/SP. Atendemos pessoas físicas, famílias, empresas e produtores rurais em todo o Brasil.
+                A Patro Seguros é uma corretora de seguros em Guarulhos registrada na SUSEP (nº 212113511), com sede no Cidade Maia. Atendemos pessoas físicas, famílias, empresas e produtores rurais em Guarulhos e em todo o Brasil.
               </p>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-10">
-                Cada cliente conversa direto com um especialista, recebe propostas comparativas e tem suporte completo — da cotação ao sinistro.
+                Cada cliente conversa direto com um consultor especialista, recebe propostas comparativas de múltiplas seguradoras e tem suporte completo — da cotação ao sinistro.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/sobre"><Button variant="outline" className="rounded-lg text-[13px] h-10">Conheça a Patro</Button></Link>
