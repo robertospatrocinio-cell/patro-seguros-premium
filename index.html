@@ -32,13 +32,16 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "InsuranceAgency",
+      "@type": ["InsuranceAgency", "LocalBusiness"],
+      "@id": "https://www.patroseguros.com.br/#insurance-agency",
       "name": "Patro Seguros",
-      "image": "https://www.patroseguros.com.br/logo.png",
-      "@id": "https://www.patroseguros.com.br",
+      "alternateName": "Patro Corretora de Seguros",
+      "image": "https://www.patroseguros.com.br/images/logo-full.webp",
       "url": "https://www.patroseguros.com.br",
       "telephone": "+551151997500",
       "email": "contato@patroseguros.com.br",
+      "foundingDate": "2020",
+      "description": "Corretora de seguros em Guarulhos especializada em seguros auto, residencial, vida, saúde, empresarial e frotas. Cotação online grátis.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
@@ -66,6 +69,11 @@
           "closes": "13:00"
         }
       ],
+      "areaServed": [
+        {"@type": "City", "name": "Guarulhos"},
+        {"@type": "State", "name": "São Paulo"},
+        {"@type": "Country", "name": "Brasil"}
+      ],
       "sameAs": [
         "https://www.instagram.com/patroseguros",
         "https://www.facebook.com/patroseguros",
@@ -74,15 +82,17 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "150",
         "reviewCount": "150"
       },
-      "identifier": [
-        {
-          "@type": "PropertyValue",
-          "name": "SUSEP",
-          "value": "212113511"
-        }
-      ],
+      "identifier": [{"@type": "PropertyValue", "name": "SUSEP", "value": "212113511"}],
+      "potentialAction": {
+        "@type": "QuoteAction",
+        "name": "Solicitar Cotação",
+        "target": "https://www.patroseguros.com.br/cotacao"
+      },
       "priceRange": "$$"
     }
     </script>
