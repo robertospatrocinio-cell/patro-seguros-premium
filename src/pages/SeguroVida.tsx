@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-vida.webp";
 
 const SeguroVida = () => {
   return (
+    <>
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro de Vida em Guarulhos – Cidade Maia"

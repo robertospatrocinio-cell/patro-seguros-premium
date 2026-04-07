@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-saude.webp";
 
 const SeguroSaude = () => {
   return (
+    <>
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Saúde / Plano de Saúde"
