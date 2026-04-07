@@ -124,7 +124,7 @@ const InsuranceHeroSelector = () => {
             style={{ opacity: active === tab.key ? 1 : 0 }}
             aria-hidden={active !== tab.key}
           >
-            <img src={bgByTab[tab.key]} alt="" className="w-full h-full object-cover" loading={tab.key === "voce" ? "eager" : "lazy"} />
+            <img src={bgByTab[tab.key]} alt="" width={1280} height={720} className="w-full h-full object-cover" loading={tab.key === "voce" ? "eager" : "lazy"} />
           </div>
         ))}
 

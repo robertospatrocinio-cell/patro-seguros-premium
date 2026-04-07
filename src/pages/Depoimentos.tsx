@@ -258,7 +258,7 @@ const Depoimentos = () => {
               {testimonials.map((t, i) => (
                 <article key={i} className="premium-card p-6 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover border" loading="lazy" />
+                    <img src={t.avatar} alt={t.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover border" loading="lazy" />
                     <div>
                       <p className="text-sm font-semibold">{t.name}</p>
                       <p className="text-[11px] text-muted-foreground">{t.role} · {t.location}</p>
