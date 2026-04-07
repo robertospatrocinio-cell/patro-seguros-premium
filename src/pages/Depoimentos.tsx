@@ -169,6 +169,8 @@ const Depoimentos = () => {
                 <img
                   src={current.avatar}
                   alt={current.name}
+                  width={80}
+                  height={80}
                   className="w-20 h-20 rounded-full object-cover mx-auto mb-4 border-2 border-primary/20"
                 />
                 <div className="flex gap-0.5 justify-center mb-5" role="img" aria-label={`${current.stars} de 5 estrelas`}>
