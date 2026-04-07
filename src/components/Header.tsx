@@ -350,6 +350,36 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg animate-fade-in max-h-[80vh] overflow-y-auto" role="navigation" aria-label="Menu mobile">
           <div className="container mx-auto px-4 py-2">
+            {/* Search bar */}
+            <div className="relative mb-2">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/50" aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Buscar seguro…"
+                value={mobileSearch}
+                onChange={(e) => setMobileSearch(e.target.value)}
+                className="w-full pl-9 pr-4 py-2.5 text-[13px] bg-muted rounded-lg border-0 outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-muted-foreground/40"
+                autoComplete="off"
+              />
+            </div>
+
+            {/* Search results */}
+            {mobileSearch.trim() ? (
+              <div className="py-2">
+                {searchResults.length > 0 ? (
+                  <div className="grid grid-cols-2 gap-0.5">
+                    {searchResults.map((r) => (
+                      <MobileLink key={r.to} to={r.to}>{r.label}</MobileLink>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-[13px] text-muted-foreground/60 text-center py-4">
+                    Nenhum seguro encontrado para "{mobileSearch}"
+                  </p>
+                )}
+              </div>
+            ) : (
+            <>
             <Link to="/" className="block py-3 px-3 text-sm font-semibold text-foreground/90 hover:text-primary border-b border-border/50 transition-base" onClick={close}>
               Início
             </Link>
