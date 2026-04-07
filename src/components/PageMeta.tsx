@@ -27,7 +27,7 @@ const PageMeta = ({ title, description }: PageMetaProps) => {
 
     return () => {
       // Reset to defaults on unmount
-      document.title = "Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online";
+      document.title = "Corretora Seguros Guarulhos | Patro: Auto, Residencial, Vida – Cotação Grátis";
       const meta = document.querySelector('meta[name="description"]');
       if (meta) {
         meta.setAttribute("content", "Corretora de seguros em Guarulhos especializada em seguro auto, residencial, vida e empresarial. Compare cotações das melhores seguradoras e economize. Cotação grátis – Patro Seguros, Cidade Maia.");
