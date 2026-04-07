@@ -35,9 +35,11 @@ const SeoSeguroFrotaGuarulhos = () => (
       { question: "Seguro de frota cobre roubo na Dutra e Fernão Dias?", answer: "Sim. A cobertura compreensiva inclui roubo e furto em qualquer via, incluindo as rodovias Dutra e Fernão Dias, muito utilizadas por frotas de Guarulhos." },
     ]}
     relatedInsurances={[
+      { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
       { title: "Seguro Caminhão", link: "/seguro-caminhao" },
-      { title: "Seguro Transporte", link: "/seguro-transporte" },
+      { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
       { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
+      { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
   />
 );

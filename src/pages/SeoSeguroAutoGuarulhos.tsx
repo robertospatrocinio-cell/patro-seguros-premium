@@ -32,8 +32,11 @@ const SeoSeguroAutoGuarulhos = () => (
       { question: "Qual a melhor seguradora em Guarulhos?", answer: "Depende do perfil. Comparamos Porto, Tokio Marine, Allianz, HDI e outras para encontrar a melhor opção." },
     ]}
     relatedInsurances={[
-      { title: "Seguro Moto", link: "/seguro-moto" },
-      { title: "Seguro Residencial", link: "/seguro-residencial" },
+      { title: "Seguro Moto Guarulhos", link: "/seguro-moto-guarulhos" },
+      { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
+      { title: "Seguro Frota Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
+      { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
+      { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
   />
 );

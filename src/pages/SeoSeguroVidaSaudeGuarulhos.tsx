@@ -35,9 +35,11 @@ const SeoSeguroVidaSaudeGuarulhos = () => (
       { question: "Seguro de vida cobre doenças graves?", answer: "Sim. Muitas apólices incluem cobertura para diagnóstico de doenças graves como câncer, AVC e infarto, com pagamento antecipado da indenização." },
     ]}
     relatedInsurances={[
-      { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },
-      { title: "Plano de Saúde Empresarial", link: "/plano-saude-empresarial" },
-      { title: "Veja seguro auto Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
+      { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
+      { title: "Plano Saúde Empresarial", link: "/plano-saude-empresarial" },
+      { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
+      { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
   />
 );
