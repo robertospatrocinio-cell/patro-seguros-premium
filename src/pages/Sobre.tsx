@@ -97,7 +97,7 @@ const Sobre = () => {
               {/* Roberto */}
               <div className="bg-background rounded-2xl overflow-hidden border shadow-sm">
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  <img src={socioRoberto} alt="Roberto Patrocínio — Sócio-fundador da Patro Seguros" className="w-full h-full object-cover object-top" />
+                  <img src={socioRoberto} alt="Roberto Patrocínio — Sócio-fundador da Patro Seguros" width={400} height={300} className="w-full h-full object-cover object-top" loading="lazy" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Roberto Patrocínio</h3>
