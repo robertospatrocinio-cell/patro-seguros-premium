@@ -272,9 +272,9 @@ const Index = () => {
         {/* CTA Final */}
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 350px' }} aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-white mb-4 font-extrabold">Peça sua cotação agora.</h2>
+            <h2 className="text-white mb-4 font-extrabold">Faça sua cotação de seguro em Guarulhos</h2>
             <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
-              Gratuita, sem compromisso. Resposta em até 2 horas com propostas comparativas.
+              Gratuita, sem compromisso. Resposta em até 2 horas com propostas comparativas das melhores seguradoras.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" className="w-full sm:w-auto">
