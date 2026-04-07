@@ -10,6 +10,7 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
+import WebSiteSchema from "@/components/WebSiteSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -67,6 +68,7 @@ const Index = () => {
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
+      <WebSiteSchema />
       <BreadcrumbSchema items={[
         { name: "Início", url: "https://www.patroseguros.com.br" },
         { name: "Corretora de Seguros Guarulhos", url: "https://www.patroseguros.com.br" },
