@@ -45,6 +45,8 @@ const OptimizedImage = ({
           loading={eager ? "eager" : "lazy"}
           decoding="async"
           onLoad={() => setLoaded(true)}
+          width={props.width}
+          height={props.height}
           className={`w-full h-full object-cover transition-opacity duration-500 ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
