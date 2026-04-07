@@ -78,7 +78,7 @@ const Header = () => {
     setOpenMobileSection(openMobileSection === section ? null : section);
   };
 
-  const close = () => setIsMenuOpen(false);
+  const close = () => { setIsMenuOpen(false); setMobileSearch(""); };
 
   const MobileSection = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => {
     const isOpen = openMobileSection === id;
