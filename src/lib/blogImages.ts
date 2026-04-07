@@ -183,6 +183,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Corretora Guarulhos
   "corretora-de-seguros-em-guarulhos": blogCorretoraGuarulhos,
+
+  // Preço Seguro Auto Guarulhos 2026
+  "quanto-custa-seguro-auto-guarulhos-2026": blogPrecoSeguroAutoGuarulhos2026,
 };
 
 export const getArticleImage = (slug: string): string => {
