@@ -231,7 +231,7 @@ const Depoimentos = () => {
               {videoTestimonials.map((v, i) => (
                 <div key={i} className="group relative bg-background rounded-xl border overflow-hidden">
                   <div className="aspect-video bg-muted flex items-center justify-center relative">
-                    <img src={v.thumb} alt="" className="absolute inset-0 w-full h-full object-cover opacity-30" aria-hidden="true" />
+                    <img src={v.thumb} alt="" width={640} height={360} className="absolute inset-0 w-full h-full object-cover opacity-30" aria-hidden="true" loading="lazy" />
                     <div className="w-14 h-14 rounded-full bg-primary/90 flex items-center justify-center relative z-10 group-hover:scale-105 transition-transform">
                       <Play className="h-6 w-6 text-primary-foreground ml-0.5" />
                     </div>
