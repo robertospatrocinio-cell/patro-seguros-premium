@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import LeadMagnetSection from "@/components/LeadMagnetSection";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
