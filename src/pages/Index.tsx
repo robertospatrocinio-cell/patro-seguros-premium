@@ -346,6 +346,9 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Porto Partnership */}
+        <PortoPartnershipSection />
+
         {/* CTA Final */}
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 350px' }} aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
