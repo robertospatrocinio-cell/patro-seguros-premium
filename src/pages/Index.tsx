@@ -17,6 +17,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "@/components/OptimizedImage";
 import { getArticleImage } from "@/lib/blogImages";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
+import PortoPartnershipSection from "@/components/PortoPartnershipSection";
 import { articles as allBlogArticles, formatDate } from "@/lib/blogData";
 import { Calendar, Clock, User } from "lucide-react";
 const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
