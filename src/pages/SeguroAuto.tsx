@@ -326,6 +326,7 @@ const SeguroAuto = () => {
         </section>
       </main>
       <Footer />
+      <ExitIntentPopup />
     </>
   );
 };
