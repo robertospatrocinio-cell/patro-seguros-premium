@@ -68,6 +68,7 @@ const Index = () => {
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
+      <WebSiteSchema />
       <BreadcrumbSchema items={[
         { name: "Início", url: "https://www.patroseguros.com.br" },
         { name: "Corretora de Seguros Guarulhos", url: "https://www.patroseguros.com.br" },
