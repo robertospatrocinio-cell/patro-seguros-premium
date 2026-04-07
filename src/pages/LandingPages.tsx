@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Megaphone, Car, Heart, Building2, Home, Shield, Bike, Warehouse, Trophy, Smartphone, MapPin } from "lucide-react";
+import { ArrowRight, Megaphone, Car, Heart, Building2, Home, Shield, Bike, Warehouse, Trophy, Smartphone, MapPin, Stethoscope } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
