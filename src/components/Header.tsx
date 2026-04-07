@@ -506,6 +506,8 @@ const Header = () => {
                 <Button className="w-full rounded-lg text-[13px] h-10">Solicitar Cotação Grátis</Button>
               </Link>
             </div>
+            </>
+            )}
           </div>
         </div>
       )}
