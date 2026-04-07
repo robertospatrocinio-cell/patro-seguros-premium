@@ -78,6 +78,10 @@ const Footer = () => {
                   <a href="tel:1151997500" className="text-white/70 hover:text-white/90 transition-base">(11) 5199-7500</a>
                 </li>
                 <li className="flex items-center gap-2.5">
+                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
+                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/90 transition-base">WhatsApp</a>
+                </li>
+                <li className="flex items-center gap-2.5">
                   <Mail className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
                   <a href="mailto:contato@patroseguros.com.br" className="text-white/70 hover:text-white/90 transition-base">contato@patroseguros.com.br</a>
                 </li>

@@ -81,7 +81,7 @@ const Cotacao = () => {
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-white mb-6">Solicitar Cotação</h1>
+              <h1 className="text-white mb-6">Cotação de Seguro em Guarulhos — Grátis e Online</h1>
               <p className="text-xl text-white/70">
                 Preencha o formulário abaixo e receba sua cotação personalizada em até 2 horas
               </p>
