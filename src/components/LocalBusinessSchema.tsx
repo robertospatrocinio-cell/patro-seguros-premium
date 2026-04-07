@@ -3,48 +3,56 @@ const LocalBusinessSchema = () => {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     "name": "Patro Seguros",
-    "alternateName": "Patro Corretora de Seguros",
+    "image": "https://www.patroseguros.com.br/logo.png",
+    "@id": "https://www.patroseguros.com.br",
     "url": "https://www.patroseguros.com.br",
-    "logo": "https://www.patroseguros.com.br/favicon.png",
-    "description": "Corretora de seguros em Guarulhos. Comparamos cotações de auto, vida, saúde, empresarial e mais entre as melhores seguradoras do mercado.",
-    "telephone": "+55-11-5199-7500",
+    "telephone": "+551151997500",
     "email": "contato@patroseguros.com.br",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Av. Salgado Filho, 2120 – Edifício Via Alameda – Sala 219 – Cidade Maia",
+      "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
       "addressLocality": "Guarulhos",
       "addressRegion": "SP",
+      "postalCode": "07115-000",
       "addressCountry": "BR"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -23.4538,
+      "latitude": -23.4550,
       "longitude": -46.5333
     },
-    "areaServed": [
-      { "@type": "City", "name": "Guarulhos" },
-      { "@type": "State", "name": "São Paulo" },
-      { "@type": "Country", "name": "Brasil" }
-    ],
-    "sameAs": [
-      "https://www.instagram.com/patroseguros",
-      "https://www.facebook.com/patroseguros"
-    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
+        "opens": "09:00",
         "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "13:00"
       }
     ],
-    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/patroseguros",
+      "https://www.facebook.com/patroseguros",
+      "https://www.linkedin.com/company/patro-seguros"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "150",
-      "bestRating": "5"
-    }
+      "reviewCount": "150"
+    },
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "name": "SUSEP",
+        "value": "212113511"
+      }
+    ],
+    "priceRange": "$$"
   };
 
   return (
