@@ -79,6 +79,7 @@ const InsurancePageTemplate = ({
   quoteUrl,
   heroImage,
   quoteFormFields,
+  contextualLinks,
 }: InsurancePageProps) => {
   return (
     <>
