@@ -108,30 +108,6 @@ const LocalBusinessSchema = () => {
       "https://www.facebook.com/patroseguros",
       "https://www.linkedin.com/company/patro-seguros"
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "150",
-      "reviewCount": "150"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Cliente Guarulhos" },
-        "datePublished": "2025-01-15",
-        "reviewBody": "Excelente atendimento! A equipe da Patro foi muito atenciosa e conseguiu o melhor preço para meu seguro auto.",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Empresário PME" },
-        "datePublished": "2025-03-10",
-        "reviewBody": "Profissionais competentes que entendem as necessidades de pequenas empresas. Recomendo!",
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }
-      }
-    ],
     "identifier": [
       {
         "@type": "PropertyValue",
