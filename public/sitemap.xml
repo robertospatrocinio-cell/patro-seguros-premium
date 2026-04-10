@@ -115,20 +115,7 @@
   <url><loc>https://www.patroseguros.com.br/seguros/profissionais-liberais</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguros/motoristas-app</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
 
-  <!-- Landing Pages de Campanha -->
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-auto-premium</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/plano-de-saude</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-empresarial</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-residencial</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-vida</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-moto</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-galpoes</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/consorcio</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-celular</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/seguro-motorista-app</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/medsenior</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/lp/alice</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
+  <!-- Landing Pages de Campanha removidas do sitemap (noindex) -->
 
   <!-- Blog - Artigos -->
   <url><loc>https://www.patroseguros.com.br/blog/quanto-custa-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
