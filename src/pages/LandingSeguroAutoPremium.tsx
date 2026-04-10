@@ -114,6 +114,7 @@ const LandingSeguroAutoPremium = () => {
       <PageMeta
         title="Seguro Auto Premium | Proteção Exclusiva para Veículos de Alto Padrão — Patro Seguros"
         description="Seguro auto premium com franquia zero, carro reserva de categoria, reparo em concessionária e cobertura para blindagem. Cotação exclusiva para veículos de alto valor."
+        noindex
       />
 
       {/* Hero */}
