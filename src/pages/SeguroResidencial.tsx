@@ -98,6 +98,21 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { question: "Preciso fazer vistoria para contratar?", answer: "Na grande maioria dos casos, não. O seguro residencial é contratado com base nas informações declaradas, sem necessidade de vistoria prévia. Apenas imóveis de altíssimo valor ou com características especiais podem exigir inspeção. A contratação é rápida e a cobertura começa em 24 horas." },
         { question: "O seguro residencial cobre enchente?", answer: "Sim, desde que a cobertura de alagamento/inundação seja contratada — não é automática na apólice básica. Se você mora em região com histórico de enchentes, essa cobertura é essencial. O custo adicional é relativamente baixo comparado ao potencial de prejuízo de um alagamento." },
       ]}
+      contextualLinks={{
+        heading: "Proteja mais do que sua casa — proteja toda a sua vida",
+        paragraphs: [
+          "O seguro residencial é apenas uma parte da proteção completa que sua família merece. Se você já protege seu lar, considere também proteger quem mora nele com um seguro de vida — que garante estabilidade financeira em caso de imprevistos graves.",
+          "Se você tem veículo, o seguro auto complementa a proteção do patrimônio familiar. E para quem mora em condomínio, o seguro condominial é obrigatório por lei e protege as áreas comuns do prédio. Já pensou também em um plano de saúde para toda a família?",
+        ],
+        links: [
+          { text: "Seguro de Vida", href: "/seguro-vida" },
+          { text: "Seguro Auto", href: "/seguro-auto" },
+          { text: "Seguro Condomínio", href: "/seguro-condominio" },
+          { text: "Planos de Saúde", href: "/planos-de-saude" },
+          { text: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
+          { text: "Cotação Gratuita", href: "/cotacao" },
+        ],
+      }}
       relatedInsurances={[
         { title: "Seguro Condomínio", link: "/seguro-condominio" },
         { title: "Seguro Fiança Locatícia", link: "/seguro-fianca-locaticia" },

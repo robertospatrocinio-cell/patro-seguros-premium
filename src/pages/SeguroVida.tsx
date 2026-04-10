@@ -98,6 +98,21 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         { question: "Posso ter mais de um seguro de vida?", answer: "Sim! Não existe limite. Você pode ter seguros em diferentes seguradoras e, em caso de sinistro, todas pagam integralmente. Muitas pessoas têm seguro pela empresa (em grupo) e complementam com um seguro individual com capitais mais altos." },
         { question: "Seguro de vida em grupo (empresa) é suficiente?", answer: "Geralmente não. O seguro de vida em grupo oferecido pela empresa costuma ter capitais baixos (12 a 24 salários) e você perde a cobertura ao sair da empresa. O ideal é ter um seguro individual com capital adequado como base e considerar o do grupo como complemento." },
       ]}
+      contextualLinks={{
+        heading: "Proteção completa vai além do seguro de vida",
+        paragraphs: [
+          "O seguro de vida protege financeiramente quem você ama. Mas a proteção da família vai além: seu imóvel é provavelmente o maior patrimônio da família — e o seguro residencial protege contra incêndio, roubo e danos elétricos a partir de R$ 150/ano.",
+          "Se você é autônomo ou profissional liberal, considere também o seguro de acidentes pessoais para complementar a cobertura. Para quem busca construir patrimônio a longo prazo, a previdência privada é o complemento ideal ao seguro de vida. E não esqueça: um bom plano de saúde garante acesso rápido a tratamentos que podem salvar vidas.",
+        ],
+        links: [
+          { text: "Seguro Residencial", href: "/seguro-residencial" },
+          { text: "Seguro Acidentes Pessoais", href: "/seguro-acidentes-pessoais" },
+          { text: "Previdência Privada", href: "/previdencia-privada" },
+          { text: "Planos de Saúde", href: "/planos-de-saude" },
+          { text: "Seguro Auto", href: "/seguro-auto" },
+          { text: "Cotação Gratuita", href: "/cotacao" },
+        ],
+      }}
       relatedInsurances={[
         { title: "Previdência Privada", link: "/previdencia-privada" },
         { title: "Seguro Saúde", link: "/seguro-saude" },

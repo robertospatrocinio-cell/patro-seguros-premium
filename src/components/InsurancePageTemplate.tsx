@@ -27,6 +27,17 @@ interface QuoteFormField {
   options?: string[];
 }
 
+interface ContextualLink {
+  text: string;
+  href: string;
+}
+
+interface ContextualSection {
+  heading: string;
+  paragraphs: string[];
+  links: ContextualLink[];
+}
+
 interface InsurancePageProps {
   title: string;
   subtitle: string;
@@ -49,6 +60,7 @@ interface InsurancePageProps {
   quoteUrl?: string;
   heroImage?: string;
   quoteFormFields?: QuoteFormField[];
+  contextualLinks?: ContextualSection;
 }
 
 const InsurancePageTemplate = ({
@@ -67,6 +79,7 @@ const InsurancePageTemplate = ({
   quoteUrl,
   heroImage,
   quoteFormFields,
+  contextualLinks,
 }: InsurancePageProps) => {
   return (
     <>
@@ -136,6 +149,23 @@ const InsurancePageTemplate = ({
                 {detailedDescription.split('\n\n').map((paragraph, i) => (
                   <p key={i} className="text-muted-foreground leading-relaxed text-[15px]">{paragraph}</p>
                 ))}
+              </div>
+            )}
+            {contextualLinks && (
+              <div className="mt-10 premium-card p-6 md:p-8">
+                <h3 className="text-base font-semibold mb-4">{contextualLinks.heading}</h3>
+                <div className="space-y-3">
+                  {contextualLinks.paragraphs.map((p, i) => (
+                    <p key={i} className="text-sm text-muted-foreground leading-relaxed">{p}</p>
+                  ))}
+                </div>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {contextualLinks.links.map((link, i) => (
+                    <Link key={i} to={link.href} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.06] text-primary text-sm font-medium hover:bg-primary/[0.12] transition-colors">
+                      <ArrowRight className="h-3 w-3" aria-hidden="true" /> {link.text}
+                    </Link>
+                  ))}
+                </div>
               </div>
             )}
           </div>

@@ -306,6 +306,40 @@ const SeguroAuto = () => {
           </div>
         </section>
 
+        {/* ===== Linkagem Interna Contextual ===== */}
+        <section className="py-16 gradient-surface" aria-labelledby="protecao-completa-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="premium-card p-6 md:p-8">
+              <h2 id="protecao-completa-heading" className="text-base font-semibold mb-4">Seu carro está protegido — e o resto?</h2>
+              <div className="space-y-3">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Proteger o veículo é fundamental, mas a segurança completa vai além. Sua casa também merece proteção: o <Link to="/seguro-residencial" className="text-primary hover:underline font-medium">seguro residencial</Link> cobre incêndio, roubo e danos elétricos a partir de R$ 150/ano — e muitas seguradoras oferecem desconto de até 15% ao contratar junto com o seguro auto.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Se você tem família, o <Link to="/seguro-vida" className="text-primary hover:underline font-medium">seguro de vida</Link> garante estabilidade financeira em caso de imprevistos graves. Já para quem usa moto como segundo veículo, temos condições especiais no <Link to="/seguro-moto" className="text-primary hover:underline font-medium">seguro de moto</Link>. Empresários com frota podem economizar até 30% com o <Link to="/seguro-frota" className="text-primary hover:underline font-medium">seguro de frota</Link>.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Motoristas de aplicativo precisam de <Link to="/seguro-motorista-app" className="text-primary hover:underline font-medium">cobertura específica para uso profissional</Link>. E não esqueça do <Link to="/planos-de-saude" className="text-primary hover:underline font-medium">plano de saúde</Link> — proteção completa é cuidar do patrimônio e de quem dirige.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 mt-5">
+                {[
+                  { title: "Seguro Residencial", link: "/seguro-residencial" },
+                  { title: "Seguro de Vida", link: "/seguro-vida" },
+                  { title: "Seguro de Moto", link: "/seguro-moto" },
+                  { title: "Seguro de Frota", link: "/seguro-frota" },
+                  { title: "Planos de Saúde", link: "/planos-de-saude" },
+                  { title: "Cotação Gratuita", link: "/cotacao" },
+                ].map((item, i) => (
+                  <Link key={i} to={item.link} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.06] text-primary text-sm font-medium hover:bg-primary/[0.12] transition-colors">
+                    <ArrowRight className="h-3 w-3" aria-hidden="true" /> {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Seguros Relacionados */}
         <section className="py-16" aria-labelledby="relacionados-heading">
           <div className="container mx-auto px-4 max-w-3xl">
