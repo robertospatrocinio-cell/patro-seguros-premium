@@ -27,6 +27,17 @@ interface QuoteFormField {
   options?: string[];
 }
 
+interface ContextualLink {
+  text: string;
+  href: string;
+}
+
+interface ContextualSection {
+  heading: string;
+  paragraphs: string[];
+  links: ContextualLink[];
+}
+
 interface InsurancePageProps {
   title: string;
   subtitle: string;
@@ -49,6 +60,7 @@ interface InsurancePageProps {
   quoteUrl?: string;
   heroImage?: string;
   quoteFormFields?: QuoteFormField[];
+  contextualLinks?: ContextualSection;
 }
 
 const InsurancePageTemplate = ({
