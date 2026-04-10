@@ -21,7 +21,7 @@ const landingPages = [
 
 const LandingPages = () => (
   <>
-    <PageMeta title="Landing Pages — Campanhas" description="Páginas de campanha para anúncios online da Patro Seguros." />
+    <PageMeta title="Landing Pages — Campanhas" description="Páginas de campanha para anúncios online da Patro Seguros." noindex />
     <Header />
     <main id="main-content">
       <section className="py-20">

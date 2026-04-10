@@ -92,6 +92,7 @@ const LandingMedSenior = () => {
       <PageMeta
         title="MedSênior Infinite — Plano Premium 49+ | Patro Seguros"
         description="MedSênior Infinite: plano premium sem coparticipação com Oswaldo Cruz, 9 de Julho e Samaritano. A partir de R$ 1.653/mês. Cotação gratuita. Patro Seguros."
+        noindex
       />
 
       {/* Header */}

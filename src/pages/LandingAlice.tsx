@@ -72,6 +72,7 @@ const LandingAlice = () => {
       <PageMeta
         title="Alice Saúde Empresarial — Plano de Saúde | Patro Seguros"
         description="Alice Saúde: plano empresarial com menor reajuste do mercado. Rede premium Einstein, Oswaldo Cruz, BP. A partir de 1 vida (CNPJ/MEI). Cotação gratuita."
+        noindex
       />
 
       {/* Header */}
