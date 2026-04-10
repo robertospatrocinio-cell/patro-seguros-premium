@@ -9,6 +9,8 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -73,6 +75,8 @@ const InsurancePageTemplate = ({
         description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
       />
       <FAQSchema faqs={faqs} />
+      <LocalBusinessSchema />
+      <OrganizationSchema />
       <Header />
       <main id="main-content">
         <Breadcrumb items={[{ label: title }]} />
