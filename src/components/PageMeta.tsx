@@ -1,39 +1,67 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface PageMetaProps {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const PageMeta = ({ title, description }: PageMetaProps) => {
+const BASE_URL = "https://www.patroseguros.com.br";
+
+const PageMeta = ({ title, description, noindex = false }: PageMetaProps) => {
+  const location = useLocation();
+
   useEffect(() => {
-    document.title = `${title} | Patro Seguros`;
+    const fullTitle = `${title} | Patro Seguros`;
+    document.title = fullTitle;
 
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute("content", description);
-    } else {
-      metaDescription = document.createElement("meta");
-      metaDescription.setAttribute("name", "description");
-      metaDescription.setAttribute("content", description);
-      document.head.appendChild(metaDescription);
-    }
-
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", `${title} | Patro Seguros`);
-
-    let ogDescription = document.querySelector('meta[property="og:description"]');
-    if (ogDescription) ogDescription.setAttribute("content", description);
-
-    return () => {
-      // Reset to defaults on unmount
-      document.title = "Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online";
-      const meta = document.querySelector('meta[name="description"]');
-      if (meta) {
-        meta.setAttribute("content", "Corretora seguros Guarulhos: auto, residencial, vida, frotas PMEs. Cotação grátis! Experiência local Patro. (11) 5199-7500.");
+    // Meta description
+    const setMeta = (selector: string, attr: string, value: string) => {
+      let el = document.querySelector(selector);
+      if (el) {
+        el.setAttribute(attr === "property" ? "content" : attr, value);
       }
     };
-  }, [title, description]);
+
+    const setMetaContent = (selector: string, value: string) => {
+      const el = document.querySelector(selector);
+      if (el) el.setAttribute("content", value);
+    };
+
+    // Description
+    setMetaContent('meta[name="description"]', description);
+
+    // Canonical URL
+    const canonicalUrl = `${BASE_URL}${location.pathname === "/" ? "" : location.pathname}`;
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (canonical) {
+      canonical.setAttribute("href", canonicalUrl);
+    }
+
+    // Open Graph
+    setMetaContent('meta[property="og:title"]', fullTitle);
+    setMetaContent('meta[property="og:description"]', description);
+    setMetaContent('meta[property="og:url"]', canonicalUrl);
+
+    // Twitter
+    setMetaContent('meta[name="twitter:title"]', fullTitle);
+    setMetaContent('meta[name="twitter:description"]', description);
+
+    // Robots
+    let robots = document.querySelector('meta[name="robots"]');
+    if (robots) {
+      robots.setAttribute("content", noindex ? "noindex, nofollow" : "index, follow");
+    }
+
+    return () => {
+      document.title = "Patro Seguros | Corretora de Seguros em Guarulhos – Cotação Online";
+      setMetaContent('meta[name="description"]', "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas para PMEs/famílias. Cotação grátis online! Experiência local desde 2020. Proteja-se com Patro. (11) 5199-7500.");
+      if (canonical) canonical.setAttribute("href", BASE_URL);
+      setMetaContent('meta[property="og:url"]', BASE_URL);
+      if (robots) robots.setAttribute("content", "index, follow");
+    };
+  }, [title, description, location.pathname, noindex]);
 
   return null;
 };
