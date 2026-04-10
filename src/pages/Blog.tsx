@@ -22,7 +22,7 @@ const Blog = () => {
 
   return (
     <>
-      <PageMeta title="Blog" description="Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio." />
+      <PageMeta title="Blog – Dicas e Guias sobre Seguros" description="Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio." />
       <Header />
       <main id="main-content">
         <section className="gradient-hero py-20">
