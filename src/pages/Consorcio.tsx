@@ -69,7 +69,7 @@ const etapas = [
 const Consorcio = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageMeta title="Consórcio" description="Consórcio de carros, motos, imóveis e caminhões com a Patro Seguros. Sem juros, parcelas acessíveis e poder de compra à vista. Simule grátis!" />
+      <PageMeta title="Consórcio de Imóveis, Carros e Veículos Pesados" description="Consórcio sem juros com a Patro Seguros. Carros, motos, imóveis e caminhões. Parcelas acessíveis, poder de compra à vista e uso do FGTS. Simule grátis!" />
       <Header />
 
       {/* Hero */}

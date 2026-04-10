@@ -63,7 +63,7 @@ const LandingPageTemplate = ({
 
   return (
     <>
-      <PageMeta title={`${title} | Patro Seguros`} description={metaDescription} noindex />
+      <PageMeta title={title} description={metaDescription} noindex />
 
       {/* Minimal header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b">

@@ -81,7 +81,7 @@ const Contato = () => {
 
   return (
     <>
-      <PageMeta title="Contato – Cidade Maia, Guarulhos" description="Entre em contato com a Patro Seguros no Cidade Maia, Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Tire dúvidas e solicite cotações de seguros." />
+      <PageMeta title="Contato – Fale com a Corretora no Cidade Maia" description="Entre em contato com a Patro Seguros no Cidade Maia, Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Tire dúvidas e solicite cotações de seguros." />
       <FAQSchema faqs={contatoFaqs} />
       <Header />
       <main id="main-content">
