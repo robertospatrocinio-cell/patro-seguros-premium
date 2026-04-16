@@ -186,6 +186,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Preço Seguro Auto Guarulhos 2026
   "quanto-custa-seguro-auto-guarulhos-2026": blogPrecoSeguroAutoGuarulhos2026,
+
+  // Consórcio Imóveis Guarulhos 2026
+  "consorcio-imoveis-crescimento-patrimonial-guarulhos-2026": blogConsorcio,
 };
 
 export const getArticleImage = (slug: string): string => {
