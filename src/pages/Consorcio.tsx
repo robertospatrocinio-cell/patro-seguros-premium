@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Car, Bike, Home, Truck, CheckCircle, TrendingUp, Shield, Clock, Users, Award, ArrowRight, HelpCircle, Phone } from "lucide-react";
@@ -152,6 +153,8 @@ const Consorcio = () => {
           </div>
         </div>
       </section>
+
+      <EbookConsorcioBanner variant="full" />
 
       {/* Por que Consórcio */}
       <section className="py-16 md:py-24 bg-muted/30">
