@@ -11,6 +11,7 @@ import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
+import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
@@ -6110,6 +6111,12 @@ const BlogArticle = () => {
                 );
               })}
             </div>
+
+            {meta?.category === "Consórcio" && (
+              <div className="mt-10">
+                <EbookConsorcioBanner variant="compact" />
+              </div>
+            )}
 
             {article.faqs.length > 0 && (
               <div className="mt-12 border-t pt-8">
