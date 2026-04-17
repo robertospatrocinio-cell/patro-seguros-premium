@@ -427,6 +427,8 @@ const InsurancePageTemplate = ({
           </div>
         </section>
 
+        {showEbookConsorcio && <EbookConsorcioBanner variant="compact" />}
+
         {/* Artigo em destaque */}
         {featuredArticle && (
           <section className="py-20 bg-background" aria-labelledby="artigo-destaque-heading">
