@@ -424,6 +424,43 @@ const InsurancePageTemplate = ({
           </div>
         </section>
 
+        {/* Artigo em destaque */}
+        {featuredArticle && (
+          <section className="py-20 bg-background" aria-labelledby="artigo-destaque-heading">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <div className="premium-card overflow-hidden grid md:grid-cols-2 gap-0">
+                {featuredArticle.image && (
+                  <div className="relative min-h-[240px] md:min-h-full">
+                    <OptimizedImage
+                      src={featuredArticle.image}
+                      alt={featuredArticle.title}
+                      className="w-full h-full"
+                    />
+                  </div>
+                )}
+                <div className="p-8 md:p-10 flex flex-col justify-center">
+                  {featuredArticle.eyebrow && (
+                    <span className="section-label mb-3">{featuredArticle.eyebrow}</span>
+                  )}
+                  <h2 id="artigo-destaque-heading" className="text-2xl md:text-3xl mb-4">
+                    {featuredArticle.title}
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {featuredArticle.description}
+                  </p>
+                  <Link to={featuredArticle.href} className="inline-block">
+                    <Button size="lg" className="rounded-xl">
+                      <BookOpen className="mr-2 h-4 w-4" aria-hidden="true" />
+                      {featuredArticle.ctaText || "Ler artigo completo"}
+                      <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* FAQ */}
         <section className="py-24 bg-background" aria-labelledby="faq-heading">
           <div className="container mx-auto px-4 max-w-3xl">
