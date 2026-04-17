@@ -50,6 +50,15 @@ const ConsorcioImoveis = () => {
         { title: "Seguro Residencial", link: "/seguro-residencial" },
         { title: "Consórcio Geral", link: "/consorcio" },
       ]}
+      featuredArticle={{
+        eyebrow: "Leitura recomendada",
+        title: "Por que o Consórcio de Imóveis é a Melhor Estratégia para Crescimento Patrimonial em Guarulhos (2026)",
+        description:
+          "Entenda como a linha Porto Imóveis, o uso do FGTS e a baixa taxa de administração superam o financiamento tradicional na valorização da Cidade Maia e região. Guia completo com comparativo de CET, lances e passo a passo.",
+        href: "/blog/consorcio-imoveis-crescimento-patrimonial-guarulhos-2026",
+        ctaText: "Ler o guia completo",
+        image: blogConsorcio,
+      }}
     />
   );
 };
