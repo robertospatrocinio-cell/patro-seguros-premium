@@ -50,6 +50,7 @@ import blogSeguroOdonto from "@/assets/blog/blog-seguro-odonto.webp";
 import blogAcidentesPessoais from "@/assets/blog/blog-acidentes-pessoais.webp";
 import blogSeguroImobiliario from "@/assets/blog/blog-seguro-imobiliario.webp";
 import blogConsorcio from "@/assets/blog/blog-consorcio.webp";
+import blogConsorcioImoveisGuarulhos from "@/assets/blog/blog-consorcio-imoveis-guarulhos.webp";
 import blogDicas from "@/assets/blog/blog-dicas.webp";
 import blogCotacaoSeguros from "@/assets/blog/blog-cotacao-seguros.webp";
 import blogEvitarSinistros from "@/assets/blog/blog-evitar-sinistros.webp";
@@ -188,7 +189,7 @@ export const blogImageMap: Record<string, string> = {
   "quanto-custa-seguro-auto-guarulhos-2026": blogPrecoSeguroAutoGuarulhos2026,
 
   // Consórcio Imóveis Guarulhos 2026
-  "consorcio-imoveis-crescimento-patrimonial-guarulhos-2026": blogConsorcio,
+  "consorcio-imoveis-crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
 };
 
 export const getArticleImage = (slug: string): string => {
