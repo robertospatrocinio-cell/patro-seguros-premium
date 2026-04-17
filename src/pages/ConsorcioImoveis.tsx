@@ -1,6 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-consorcio.webp";
-import blogConsorcio from "@/assets/blog-consorcio.webp";
+import blogConsorcio from "@/assets/blog/blog-consorcio-imoveis-guarulhos.webp";
 
 const ConsorcioImoveis = () => {
   return (
