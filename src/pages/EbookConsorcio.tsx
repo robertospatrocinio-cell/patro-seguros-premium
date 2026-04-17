@@ -75,16 +75,21 @@ const EbookConsorcio = () => {
       const safeEmail = escapeHtml(parsed.data.email);
       const safeWhats = escapeHtml(parsed.data.whatsapp);
 
-      await supabase.functions.invoke("send-form-email", {
-        body: {
-          subject: "📥 Novo Lead E-book Consórcio",
-          textBody: `Novo download de E-book do Consórcio.\n\nNome: ${parsed.data.name}\nE-mail: ${parsed.data.email}\nWhatsApp: ${parsed.data.whatsapp}`,
-          htmlBody: `<h2>📥 Novo lead — E-book Consórcio</h2>
-            <p><strong>Nome:</strong> ${safeName}</p>
-            <p><strong>E-mail:</strong> ${safeEmail}</p>
-            <p><strong>WhatsApp:</strong> ${safeWhats}</p>`,
-        },
-      });
+      try {
+        await supabase.functions.invoke("send-form-email", {
+          body: {
+            subject: "📥 Novo Lead E-book Consórcio",
+            textBody: `Novo download de E-book do Consórcio.\n\nNome: ${parsed.data.name}\nE-mail: ${parsed.data.email}\nWhatsApp: ${parsed.data.whatsapp}`,
+            htmlBody: `<h2>📥 Novo lead — E-book Consórcio</h2>
+              <p><strong>Nome:</strong> ${safeName}</p>
+              <p><strong>E-mail:</strong> ${safeEmail}</p>
+              <p><strong>WhatsApp:</strong> ${safeWhats}</p>`,
+          },
+        });
+      } catch (mailErr) {
+        // Não bloqueia o download se o envio de e-mail falhar (SMTP instável)
+        console.warn("Falha ao notificar lead por e-mail:", mailErr);
+      }
 
       try {
         (window as any).fbq?.("track", "Lead", { content_name: "ebook-consorcio" });
@@ -98,7 +103,7 @@ const EbookConsorcio = () => {
       toast.success("Pronto! Seu e-book está liberado.");
     } catch (err) {
       console.error(err);
-      toast.error("Erro ao enviar. Tente novamente.");
+      toast.error("Erro inesperado. Tente novamente.");
     } finally {
       setSubmitting(false);
     }
