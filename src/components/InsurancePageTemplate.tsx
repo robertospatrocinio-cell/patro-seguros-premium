@@ -90,6 +90,7 @@ const InsurancePageTemplate = ({
   heroImage,
   quoteFormFields,
   contextualLinks,
+  featuredArticle,
 }: InsurancePageProps) => {
   return (
     <>
