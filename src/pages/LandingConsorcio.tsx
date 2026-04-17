@@ -13,6 +13,7 @@ const LandingConsorcio = () => (
     urgencyText="Grupos com vagas limitadas — garanta sua cota"
     priceAnchor="Parcelas a partir de R$ 399/mês* para automóveis"
     guaranteeText="Simulação gratuita e sem compromisso. Apresentamos as melhores administradoras com planos flexíveis. Você escolhe o que faz sentido."
+    ebookUrl="/ebook-consorcio"
     painPoints={[
       "Quer trocar de carro mas não consegue pagar os juros absurdos do financiamento?",
       "Sonha com a casa própria mas não tem o valor da entrada que o banco exige?",

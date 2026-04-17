@@ -71,6 +71,7 @@ const Consorcio = lazy(() => import("./pages/Consorcio"));
 const ConsorcioCarro = lazy(() => import("./pages/ConsorcioCarro"));
 const ConsorcioImoveis = lazy(() => import("./pages/ConsorcioImoveis"));
 const ConsorcioVeiculosPesados = lazy(() => import("./pages/ConsorcioVeiculosPesados"));
+const EbookConsorcio = lazy(() => import("./pages/EbookConsorcio"));
 const SeguroLojasShopping = lazy(() => import("./pages/SeguroLojasShopping"));
 const SeguroDroneAgricola = lazy(() => import("./pages/SeguroDroneAgricola"));
 const SeguroTransporteAgro = lazy(() => import("./pages/SeguroTransporteAgro"));
@@ -197,6 +198,7 @@ const App = () => (
             <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
             <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
             <Route path="/consorcio-veiculos-pesados" element={<ConsorcioVeiculosPesados />} />
+            <Route path="/ebook-consorcio" element={<EbookConsorcio />} />
             <Route path="/seguro-lojas-shopping" element={<SeguroLojasShopping />} />
             <Route path="/seguro-drone-agricola" element={<SeguroDroneAgricola />} />
             <Route path="/seguro-transporte-agro" element={<SeguroTransporteAgro />} />

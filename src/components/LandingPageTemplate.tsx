@@ -29,12 +29,13 @@ interface LandingPageProps {
   heroImage?: string;
   priceAnchor?: string;
   guaranteeText?: string;
+  ebookUrl?: string;
 }
 
 const LandingPageTemplate = ({
   title, headline, subheadline, painPoints, benefits, stats,
   testimonials, objections, ctaText, ctaUrl, urgencyText,
-  metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText,
+  metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText, ebookUrl,
 }: LandingPageProps) => {
 
   const mainCtaLink = ctaUrl || "/cotacao";
@@ -256,7 +257,23 @@ const LandingPageTemplate = ({
           </div>
         </section>
 
-        {/* GUARANTEE */}
+        {/* EBOOK LINK */}
+        {ebookUrl && (
+          <section className="py-10 bg-muted/30">
+            <div className="container mx-auto px-4">
+              <a
+                href={ebookUrl}
+                className="block max-w-3xl mx-auto rounded-2xl bg-primary text-white p-6 shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all text-center"
+              >
+                <span className="inline-block text-xs font-semibold text-amber-400 mb-2">🎁 BÔNUS GRATUITO</span>
+                <p className="font-heading font-bold text-lg md:text-xl">
+                  Baixe o E-book "Guia do Consórcio Desvendado" da Patro Seguros
+                </p>
+                <p className="text-sm text-white/70 mt-1">Material exclusivo — clique aqui para baixar gratuitamente</p>
+              </a>
+            </div>
+          </section>
+        )}
         {guaranteeText && (
           <section className="py-14 bg-background">
             <div className="container mx-auto px-4 max-w-xl text-center">

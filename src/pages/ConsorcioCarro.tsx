@@ -8,6 +8,7 @@ const ConsorcioCarro = () => {
       title="Consórcio de Carro"
       subtitle="Conquiste seu carro novo ou seminovo sem juros e com parcelas que cabem no bolso"
       icon="🚗"
+      showEbookConsorcio
       metaDescription="Consórcio de Carro sem juros com a Patro Seguros. Parcelas acessíveis, poder de compra à vista e economia de até 40% vs financiamento. Simule grátis!"
       description="O Consórcio de Carro é a forma mais inteligente e econômica de adquirir seu veículo. Diferente do financiamento, você não paga juros — apenas uma taxa de administração diluída nas parcelas. Ao ser contemplado por sorteio ou lance, você tem poder de compra à vista, conseguindo os melhores preços e condições nas concessionárias. A Patro Seguros trabalha com as principais administradoras do mercado para encontrar o plano ideal para o seu perfil e orçamento."
       coverages={[

@@ -9,6 +9,7 @@ const ConsorcioImoveis = () => {
       title="Consórcio de Imóveis"
       subtitle="Conquiste a casa própria, terreno ou imóvel comercial sem juros bancários"
       icon="🏠"
+      showEbookConsorcio
       metaDescription="Consórcio de Imóveis sem juros com a Patro Seguros. Use o FGTS para lance, créditos de R$100 mil a R$1 milhão+. Prazos de até 200 meses. Simule grátis!"
       description="O Consórcio de Imóveis é o caminho mais econômico para conquistar seu patrimônio. Sem juros bancários e com parcelas planejadas, você pode adquirir casa, apartamento, terreno, imóvel comercial ou até usar o crédito para construção e reforma. A grande vantagem é poder utilizar o FGTS para dar lance e acelerar a contemplação. A Patro Seguros compara as melhores administradoras para encontrar o plano com o melhor custo-benefício para o seu objetivo imobiliário."
       coverages={[

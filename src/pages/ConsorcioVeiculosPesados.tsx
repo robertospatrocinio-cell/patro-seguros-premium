@@ -8,6 +8,7 @@ const ConsorcioVeiculosPesados = () => {
       title="Consórcio de Veículos Pesados"
       subtitle="Caminhões, ônibus, máquinas e implementos — renove ou amplie sua frota sem juros"
       icon="🚛"
+      showEbookConsorcio
       metaDescription="Consórcio de Veículos Pesados sem juros. Caminhões, ônibus, máquinas e implementos. Ideal para empresas e autônomos. Simule grátis com a Patro Seguros!"
       description="O Consórcio de Veículos Pesados é a solução ideal para caminhoneiros autônomos, transportadoras e empresas que precisam renovar ou ampliar sua frota sem comprometer o fluxo de caixa. Sem juros e com parcelas planejadas, você adquire caminhões, carretas, ônibus, máquinas agrícolas e implementos com poder de compra à vista. A Patro Seguros compara as melhores administradoras especializadas em veículos pesados para garantir as condições mais vantajosas para o seu negócio."
       coverages={[
