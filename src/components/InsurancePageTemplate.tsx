@@ -38,6 +38,15 @@ interface ContextualSection {
   links: ContextualLink[];
 }
 
+interface FeaturedArticle {
+  eyebrow?: string;
+  title: string;
+  description: string;
+  href: string;
+  ctaText?: string;
+  image?: string;
+}
+
 interface InsurancePageProps {
   title: string;
   subtitle: string;
