@@ -70,6 +70,7 @@ interface InsurancePageProps {
   heroImage?: string;
   quoteFormFields?: QuoteFormField[];
   contextualLinks?: ContextualSection;
+  featuredArticle?: FeaturedArticle;
 }
 
 const InsurancePageTemplate = ({
