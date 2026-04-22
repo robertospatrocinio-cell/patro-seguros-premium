@@ -93,10 +93,10 @@ A Patro Seguros atende produtores rurais de todos os estados do Brasil — de Ma
         { question: "Como funciona o seguro agrícola?", answer: "Protege contra perdas na produção por fenômenos como seca, geada, granizo, excesso de chuva, pragas e doenças. A indenização é baseada na produtividade esperada." },
         { question: "Posso segurar animais?", answer: "Sim! O seguro pecuário cobre morte de bovinos, equinos, suínos e outros animais por doenças, acidentes, raios e outros eventos cobertos." },
         { question: "Quanto custa o seguro rural?", answer: "Varia conforme a cultura, localização, histórico da região e nível de cobertura. Com subsídio governamental, fica significativamente mais acessível." },
-        { question: "Como faço a cotação se estou longe de Guarulhos?", answer: "Todo o processo é feito de forma remota — por WhatsApp, telefone ou e-mail. Enviamos a documentação digital e acompanhamos tudo à distância." },
-        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores rurais de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural." },
-        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
-        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo de valores e coberturas." },
+        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto. Basta entrar em contato pelo WhatsApp (11) 5199-7500, telefone ou e-mail. Enviamos a documentação digitalmente e acompanhamos tudo à distância — da cotação à regulação de sinistro." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores rurais e empresas do agronegócio em todos os 26 estados brasileiros e o Distrito Federal — capitais, interior e zona rural. Do Sul (PR, SC, RS) ao Norte (PA, TO, RO), passando por Centro-Oeste (MT, MS, GO), Sudeste (SP, MG, ES, RJ) e Nordeste (BA, PI, MA). Nossa sede é em Guarulhos/SP, mas o atendimento é 100% remoto." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Após o envio das informações sobre o bem ou atividade a ser segurada, retornamos com propostas comparativas de diversas seguradoras em até 24 horas úteis." },
+        { question: "Como recebo a proposta de seguro?", answer: "Enviamos a proposta pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com um resumo comparativo de valores e coberturas das melhores seguradoras do mercado." },
       ]}
       relatedInsurances={[
         { title: "Seguro de Máquinas", link: "/seguro-maquinas" },
