@@ -60,6 +60,7 @@ const Header = () => {
     { label: "Placas Solar", to: "/seguro-placa-solar", section: "agro" },
     { label: "Rural", to: "/seguro-rural", section: "agro" },
     { label: "Pecuário", to: "/seguro-pecuario", section: "agro" },
+    { label: "Granja", to: "/seguro-granja", section: "agro" },
     { label: "Café", to: "/seguro-cafe", section: "agro" },
     { label: "Consórcio Carro", to: "/consorcio-carro", section: "consorcio" },
     { label: "Consórcio Imóveis", to: "/consorcio-imoveis", section: "consorcio" },
@@ -292,6 +293,7 @@ const Header = () => {
                         <div className="space-y-0.5">
                           <Link to="/seguro-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Rural</Link>
                           <Link to="/seguro-pecuario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Pecuário</Link>
+                          <Link to="/seguro-granja" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Granja</Link>
                           <Link to="/seguro-cafe" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Café</Link>
                           <Link to="/seguro-armazenagem" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Armazenagem</Link>
                           <Link to="/seguro-transporte-agro" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Transporte</Link>
@@ -480,6 +482,7 @@ const Header = () => {
               <div className="grid grid-cols-2 gap-0.5">
                 <MobileLink to="/seguro-rural">Rural</MobileLink>
                 <MobileLink to="/seguro-pecuario">Pecuário</MobileLink>
+                <MobileLink to="/seguro-granja">Granja</MobileLink>
                 <MobileLink to="/seguro-cafe">Café</MobileLink>
                 <MobileLink to="/seguro-armazenagem">Armazenagem</MobileLink>
                 <MobileLink to="/seguro-transporte-agro">Transp. Agrícola</MobileLink>

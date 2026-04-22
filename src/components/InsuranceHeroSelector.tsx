@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake } from "lucide-react";
+import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake, Warehouse } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
 import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
@@ -55,6 +55,7 @@ const cardsByTab: Record<TabKey, InsuranceCard[]> = {
     { title: "Transporte Agro", icon: Truck, link: "/seguro-transporte-agro" },
     { title: "Equipamentos", icon: Sprout, link: "/seguro-equipamentos-agricolas" },
     { title: "Drone Agrícola", icon: Bug, link: "/seguro-drone-agricola" },
+    { title: "Seguro Granja", icon: Warehouse, link: "/seguro-granja" },
   ],
   consorcio: [
     { title: "Consórcio Imóveis", icon: Home, link: "/consorcio-imoveis" },
