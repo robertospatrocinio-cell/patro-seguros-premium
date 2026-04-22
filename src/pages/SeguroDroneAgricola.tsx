@@ -98,10 +98,10 @@ Na Patro Seguros, atendemos operadores de drones agrícolas em todos os estados 
         { question: "O seguro cobre queda durante pulverização?", answer: "Sim. A cobertura de danos físicos protege contra quedas e acidentes operacionais durante voos." },
         { question: "Drones DJI Agras são cobertos?", answer: "Sim! Trabalhamos com seguros para todos os modelos, incluindo DJI Agras T10, T16, T20, T30, T40 e T50." },
         { question: "Posso segurar a frota de drones?", answer: "Sim! Condições especiais com descontos progressivos para frotas de drones agrícolas." },
-        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos operadores de drones de todos os 26 estados brasileiros e o DF." },
-        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
-        { question: "Como solicitar cotação remotamente?", answer: "100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
-        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores rurais e empresas do agronegócio em todos os 26 estados brasileiros e o Distrito Federal — capitais, interior e zona rural. Do Sul (PR, SC, RS) ao Norte (PA, TO, RO), passando por Centro-Oeste (MT, MS, GO), Sudeste (SP, MG, ES, RJ) e Nordeste (BA, PI, MA). Nossa sede é em Guarulhos/SP, mas o atendimento é 100% remoto." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Após o envio das informações sobre o bem ou atividade a ser segurada, retornamos com propostas comparativas de diversas seguradoras em até 24 horas úteis." },
+        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto. Basta entrar em contato pelo WhatsApp (11) 5199-7500, telefone ou e-mail. Enviamos a documentação digitalmente e acompanhamos tudo à distância — da cotação à regulação de sinistro." },
+        { question: "Como recebo a proposta de seguro?", answer: "Enviamos a proposta pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com um resumo comparativo de valores e coberturas das melhores seguradoras do mercado." },
       ]}
       relatedInsurances={[
         { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
