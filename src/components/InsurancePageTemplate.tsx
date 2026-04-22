@@ -486,6 +486,34 @@ const InsurancePageTemplate = ({
                 </details>
               ))}
             </div>
+
+            {/* CTA para clientes fora de Guarulhos */}
+            <div className="mt-10 p-6 md:p-8 rounded-2xl border border-primary/10 bg-primary/[0.03] text-center">
+              <p className="text-base md:text-lg font-semibold text-foreground mb-2">
+                Mora fora de Guarulhos? Sem problema!
+              </p>
+              <p className="text-sm text-muted-foreground mb-5 max-w-xl mx-auto">
+                Atendemos produtores rurais de todos os estados do Brasil. Solicite sua cotação personalizada por WhatsApp — retornamos com a melhor proposta em até 24h.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="https://wa.me/551151997500?text=Olá! Sou de fora de Guarulhos e gostaria de uma cotação de seguro."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick(`faq-fora-guarulhos-${title}`)}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 text-sm transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                  Pedir Cotação por WhatsApp
+                </a>
+                <Link to="/cotacao" onClick={() => trackCotacaoClick(`faq-fora-guarulhos-${title}`)}>
+                  <Button variant="outline" className="rounded-xl w-full sm:w-auto">
+                    Preencher formulário online
+                    <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
