@@ -11,6 +11,11 @@ const SeguroGranja = () => {
       icon="🐔"
       metaDescription="Seguro Granja para aviários e suinoculturas em todo o Brasil. Proteção contra incêndio, vendaval, mortalidade de aves e suínos. Cotação grátis Patro Seguros."
       badge="Atendimento em Todo o Brasil"
+      quoteFormFields={[
+        { id: "tipo_granja", label: "Tipo de Granja", placeholder: "Selecione o tipo", type: "select", options: ["Granja de Frangos (Corte)", "Granja de Galinhas (Postura)", "Granja de Suínos", "Granja de Perus", "Granja Mista (Aves e Suínos)", "Outro"] },
+        { id: "quantidade_animais", label: "Quantidade de Animais (aprox.)", placeholder: "Ex: 30.000 aves", type: "text" },
+        { id: "cidade_estado", label: "Cidade / Estado", placeholder: "Ex: Toledo/PR", type: "text" },
+      ]}
       coverages={[
         { title: "Incêndio", description: "Cobertura para danos causados por incêndio às instalações da granja, incluindo barracões, silos e salas de comando." },
         { title: "Raio", description: "Proteção contra danos causados por descarga elétrica atmosférica (raio) às estruturas e equipamentos." },
