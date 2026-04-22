@@ -98,6 +98,10 @@ Na Patro Seguros, atendemos operadores de drones agrícolas em todos os estados 
         { question: "O seguro cobre queda durante pulverização?", answer: "Sim. A cobertura de danos físicos protege contra quedas e acidentes operacionais durante voos." },
         { question: "Drones DJI Agras são cobertos?", answer: "Sim! Trabalhamos com seguros para todos os modelos, incluindo DJI Agras T10, T16, T20, T30, T40 e T50." },
         { question: "Posso segurar a frota de drones?", answer: "Sim! Condições especiais com descontos progressivos para frotas de drones agrícolas." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos operadores de drones de todos os 26 estados brasileiros e o DF." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação remotamente?", answer: "100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo." },
       ]}
       relatedInsurances={[
         { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },

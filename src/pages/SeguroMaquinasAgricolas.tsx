@@ -38,6 +38,10 @@ const SeguroMaquinasAgricolas = () => {
         { question: "Quanto custa o seguro de trator?", answer: "O valor depende do modelo, ano, valor de mercado e coberturas escolhidas. Solicite uma cotação gratuita e personalizada." },
         { question: "O seguro cobre colheitadeira em operação?", answer: "Sim, o seguro pode cobrir danos durante a operação no campo, incluindo colisão e capotamento." },
         { question: "Posso segurar máquinas financiadas?", answer: "Sim, máquinas financiadas podem e devem ser seguradas. O seguro protege tanto o proprietário quanto a instituição financeira." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação remotamente?", answer: "Todo o processo é 100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo de valores e coberturas." },
       ]}
       relatedInsurances={[
         { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },
