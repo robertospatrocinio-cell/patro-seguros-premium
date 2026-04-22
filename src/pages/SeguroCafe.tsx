@@ -38,6 +38,10 @@ const SeguroCafe = () => {
         { question: "O seguro café cobre geada?", answer: "Sim, a geada é uma das principais coberturas do seguro café, protegendo contra perdas na lavoura." },
         { question: "Tem subsídio do governo?", answer: "Sim, o governo federal oferece subsídio de até 40% no prêmio do seguro agrícola para café." },
         { question: "Quanto custa o seguro café?", answer: "O valor varia conforme a área plantada, região, variedade e coberturas escolhidas. Solicite uma cotação gratuita." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos cafeicultores de todos os 26 estados e o DF — de Minas Gerais e São Paulo ao Espírito Santo, Bahia, Paraná e Rondônia." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo de valores e coberturas." },
       ]}
       relatedInsurances={[
         { title: "Seguro Pecuário", link: "/seguro-pecuario" },

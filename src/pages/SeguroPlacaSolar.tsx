@@ -37,6 +37,10 @@ const SeguroPlacaSolar = () => {
         { question: "O seguro cobre placas solares no campo?", answer: "Sim, cobrimos sistemas fotovoltaicos instalados em propriedades rurais contra diversos riscos." },
         { question: "Granizo é coberto?", answer: "Sim, danos causados por granizo aos painéis solares são cobertos pelo seguro." },
         { question: "Quanto custa o seguro de placas solares?", answer: "O valor depende da potência do sistema, localização e coberturas escolhidas. Solicite uma cotação gratuita." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação remotamente?", answer: "100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo." },
       ]}
       relatedInsurances={[
         { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },

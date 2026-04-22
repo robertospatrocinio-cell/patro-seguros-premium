@@ -46,6 +46,10 @@ const SeguroTransporteAgro = () => {
         { question: "O seguro cobre roubo de carga de grãos?", answer: "Sim. O roubo de carga é uma das coberturas mais importantes, especialmente para transporte de soja, milho, café e outros produtos de alto valor." },
         { question: "Quanto custa o seguro de transporte agrícola?", answer: "O valor varia conforme o tipo de carga, valor, trajeto e frequência. Em geral, o custo representa entre 0,1% e 0,5% do valor da carga por viagem." },
         { question: "Posso fazer seguro por viagem ou precisa ser anual?", answer: "As duas modalidades existem: apólice avulsa (por viagem) e apólice aberta (para embarques frequentes). Para transporte recorrente, a apólice aberta é mais vantajosa." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos transportadores de todos os 26 estados brasileiros e o DF." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação remotamente?", answer: "100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo." },
       ]}
       relatedInsurances={[
         { title: "Seguro Armazenagem", link: "/seguro-armazenagem" },

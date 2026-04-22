@@ -94,6 +94,9 @@ A Patro Seguros atende produtores rurais de todos os estados do Brasil — de Ma
         { question: "Posso segurar animais?", answer: "Sim! O seguro pecuário cobre morte de bovinos, equinos, suínos e outros animais por doenças, acidentes, raios e outros eventos cobertos." },
         { question: "Quanto custa o seguro rural?", answer: "Varia conforme a cultura, localização, histórico da região e nível de cobertura. Com subsídio governamental, fica significativamente mais acessível." },
         { question: "Como faço a cotação se estou longe de Guarulhos?", answer: "Todo o processo é feito de forma remota — por WhatsApp, telefone ou e-mail. Enviamos a documentação digital e acompanhamos tudo à distância." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores rurais de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo de valores e coberturas." },
       ]}
       relatedInsurances={[
         { title: "Seguro de Máquinas", link: "/seguro-maquinas" },

@@ -37,6 +37,10 @@ const SeguroArmazenagem = () => {
         { question: "O que o seguro de armazenagem cobre?", answer: "Cobre perdas e danos aos produtos agrícolas armazenados por incêndio, fenômenos naturais, contaminação, roubo e outros riscos cobertos." },
         { question: "Posso segurar grãos em silos de terceiros?", answer: "Sim, é possível contratar seguro para produtos armazenados em instalações de terceiros, mediante comprovação." },
         { question: "Quanto custa o seguro de armazenagem?", answer: "O valor varia conforme o tipo de produto, volume armazenado, local e coberturas escolhidas. Solicite uma cotação personalizada." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores e cooperativas de todos os 26 estados brasileiros e o DF." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação remotamente?", answer: "100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo." },
       ]}
       relatedInsurances={[
         { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },

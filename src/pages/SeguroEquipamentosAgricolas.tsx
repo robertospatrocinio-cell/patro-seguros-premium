@@ -34,6 +34,10 @@ const SeguroEquipamentosAgricolas = () => {
         { question: "A Patro atende produtores de outros estados?", answer: "Sim! Atendemos produtores rurais de todos os estados do Brasil. Todo o processo é feito de forma remota — cotação, emissão e acompanhamento de sinistro." },
         { question: "O seguro cobre drones agrícolas?", answer: "Sim, é possível incluir drones e equipamentos de agricultura de precisão na apólice." },
         { question: "Equipamentos alugados podem ser segurados?", answer: "Sim, equipamentos alugados ou em comodato podem ser incluídos na cobertura." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação remotamente?", answer: "100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo de valores e coberturas." },
       ]}
       relatedInsurances={[
         { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },

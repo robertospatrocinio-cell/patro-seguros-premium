@@ -40,6 +40,10 @@ const SeguroPropriedadeRural = () => {
         { question: "Tem subsídio do governo?", answer: "O seguro de benfeitorias e instalações rurais pode contar com subsídio federal pelo Programa de Subvenção ao Prêmio do Seguro Rural (PSR), conforme disponibilidade." },
         { question: "Quanto custa o seguro propriedade rural?", answer: "O valor varia conforme o tipo de propriedade, valor das benfeitorias, localização e coberturas escolhidas. Solicite uma cotação gratuita para receber uma proposta personalizada." },
         { question: "Posso segurar apenas parte da propriedade?", answer: "Sim, você pode escolher quais estruturas deseja segurar — por exemplo, apenas os galpões e silos, ou toda a propriedade incluindo a sede." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação remotamente?", answer: "100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo." },
       ]}
       relatedInsurances={[
         { title: "Seguro Rural", link: "/seguro-rural" },

@@ -40,6 +40,10 @@ const SeguroGeada = () => {
         { question: "Tem subsídio do governo?", answer: "Sim, o governo federal oferece subsídio no prêmio do seguro agrícola, incluindo cobertura contra geada." },
         { question: "Como é feita a vistoria após a geada?", answer: "A seguradora envia um perito agrícola para avaliar os danos na lavoura e calcular a indenização devida." },
         { question: "Quanto custa o seguro geada?", answer: "O valor varia conforme a cultura, área plantada, região e coberturas escolhidas. Solicite uma cotação gratuita." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Retornamos com propostas comparativas em até 24 horas úteis após o envio das informações." },
+        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Documentação digital e acompanhamento à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo." },
       ]}
       relatedInsurances={[
         { title: "Seguro Café", link: "/seguro-cafe" },
