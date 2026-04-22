@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
 import { Link } from "react-router-dom";
-import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones } from "lucide-react";
+import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
 import Header from "@/components/Header";
@@ -282,6 +282,80 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/sobre"><Button variant="outline" className="rounded-lg text-[13px] h-10">Conheça a Patro</Button></Link>
                 <Link to="/indique-um-amigo"><Button variant="ghost" className="rounded-lg text-primary text-[13px] h-10">Indique um amigo <ArrowRight className="ml-1 h-3 w-3" aria-hidden="true" /></Button></Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Google Meu Negócio */}
+
+        {/* Atendimento em Todo o Brasil */}
+        <section className="py-16 md:py-24 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }} aria-labelledby="atendimento-brasil-heading">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center mb-12">
+              <span className="section-label">Atendimento Nacional</span>
+              <h2 id="atendimento-brasil-heading" className="mt-3">Atendemos clientes de <span className="text-primary">todo o Brasil</span></h2>
+              <p className="text-[14px] text-muted-foreground mt-4 max-w-xl mx-auto">
+                Nossa sede fica em Guarulhos/SP, mas atendemos segurados de qualquer cidade e estado. 
+                Todo o processo é 100% remoto — rápido, seguro e sem burocracia.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+              <Card className="text-center p-6 hover:shadow-md transition-base">
+                <CardContent className="p-0 flex flex-col items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Smartphone className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold">Cotação por WhatsApp</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">
+                    Envie os dados pelo WhatsApp e receba propostas comparativas de diversas seguradoras em até 24h.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="text-center p-6 hover:shadow-md transition-base">
+                <CardContent className="p-0 flex flex-col items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Globe className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold">Emissão 100% Digital</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">
+                    Análise, emissão da apólice e envio de documentos — tudo feito online, sem necessidade de deslocamento.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="text-center p-6 hover:shadow-md transition-base">
+                <CardContent className="p-0 flex flex-col items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Headphones className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold">Sinistro com Suporte Total</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">
+                    Em caso de sinistro, acompanhamos toda a regulação remotamente — do aviso à indenização.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+            <div className="max-w-2xl mx-auto text-center">
+              <p className="text-[13px] text-muted-foreground mb-6">
+                <MapPin className="inline h-3.5 w-3.5 mr-1 text-primary" />
+                Sede: Guarulhos/SP · Atendemos todas as capitais, cidades do interior e zona rural de todos os 26 estados + DF.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro. Sou de outra cidade/estado."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("Atendimento Brasil")}
+                >
+                  <Button className="rounded-lg text-[13px] h-10 bg-[#25D366] hover:bg-[#1fb855] text-white w-full sm:w-auto">
+                    <MessageCircle className="mr-1.5 h-4 w-4" /> Falar no WhatsApp
+                  </Button>
+                </a>
+                <Link to="/cotacao">
+                  <Button variant="outline" className="rounded-lg text-[13px] h-10 w-full sm:w-auto" onClick={() => trackCotacaoClick("Atendimento Brasil")}>
+                    Pedir Cotação Online <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
