@@ -75,6 +75,7 @@ const EbookConsorcio = lazy(() => import("./pages/EbookConsorcio"));
 const SeguroLojasShopping = lazy(() => import("./pages/SeguroLojasShopping"));
 const SeguroDroneAgricola = lazy(() => import("./pages/SeguroDroneAgricola"));
 const SeguroTransporteAgro = lazy(() => import("./pages/SeguroTransporteAgro"));
+const SeguroGranja = lazy(() => import("./pages/SeguroGranja"));
 const SeguroBike = lazy(() => import("./pages/SeguroBike"));
 const SeguroJetSki = lazy(() => import("./pages/SeguroJetSki"));
 const SeguroEmbarcacoes = lazy(() => import("./pages/SeguroEmbarcacoes"));
