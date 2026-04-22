@@ -21,9 +21,9 @@ const SeguroGranja = () => {
         { title: "Animais da Granja (Cobertura Adicional)", description: "É possível contratar cobertura para os animais da granja — aves e suínos — contra mortalidade por doenças, calor excessivo, asfixia e outros eventos cobertos." },
       ]}
       importantDetails={[
-        "Bens segurados: barracão, silo, sala de comando, máquinas e implementos fixos.",
-        "Conteúdo coberto: comedouros, bebedouros e sistema de ventilação.",
-        "Cobertura adicional disponível para os animais da granja (aves e suínos).",
+        { title: "Bens Segurados", content: "Barracão, silo, sala de comando, máquinas e implementos fixos." },
+        { title: "Conteúdo Coberto", content: "Comedouros, bebedouros e sistema de ventilação." },
+        { title: "Cobertura Adicional", content: "É possível contratar cobertura para os animais da granja (aves e suínos)." },
       ]}
       whoNeeds={[
         "Produtores integrados de aves (frango de corte e poedeiras)",
