@@ -38,6 +38,10 @@ const SeguroPecuario = () => {
         { question: "O seguro pecuário tem subsídio do governo?", answer: "Sim, o governo federal subsidia parte do prêmio do seguro pecuário, tornando-o mais acessível aos produtores." },
         { question: "Posso segurar gado de elite?", answer: "Sim, oferecemos coberturas especiais para animais de alto valor genético e reprodutores." },
         { question: "Quanto custa o seguro pecuário?", answer: "O valor depende do tipo de animal, quantidade, valor e coberturas escolhidas. Solicite uma cotação personalizada." },
+        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos pecuaristas de todos os 26 estados brasileiros e o DF — capitais, interior e zona rural. De Mato Grosso do Sul ao Pará, de Goiás ao Rio Grande do Sul." },
+        { question: "Qual o prazo para receber a proposta?", answer: "Após o envio das informações, retornamos com propostas comparativas em até 24 horas úteis." },
+        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto — WhatsApp (11) 5199-7500, telefone ou e-mail. Enviamos documentação digitalmente e acompanhamos tudo à distância." },
+        { question: "A proposta é enviada por e-mail ou WhatsApp?", answer: "Enviamos pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com resumo comparativo de valores e coberturas." },
       ]}
       relatedInsurances={[
         { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
