@@ -12,14 +12,18 @@ const SeguroGranja = () => {
       metaDescription="Seguro Granja para aviários e suinoculturas em todo o Brasil. Proteção contra incêndio, vendaval, mortalidade de aves e suínos. Cotação grátis Patro Seguros."
       badge="Atendimento em Todo o Brasil"
       coverages={[
-        { title: "Incêndio e Explosão", description: "Cobertura para danos causados por incêndio, raio e explosão às instalações da granja, galpões e equipamentos." },
-        { title: "Vendaval, Granizo e Tornado", description: "Proteção contra danos estruturais causados por fenômenos climáticos severos." },
-        { title: "Mortalidade de Aves", description: "Cobertura para perdas por mortalidade de frangos, galinhas poedeiras e outras aves por doenças, asfixia e calor excessivo." },
-        { title: "Mortalidade de Suínos", description: "Proteção contra perdas de suínos por doenças, epidemias e eventos cobertos pela apólice." },
-        { title: "Danos Elétricos", description: "Cobertura para equipamentos de climatização, ventiladores, comedouros e bebedouros automáticos danificados por curto-circuito e sobrecarga." },
-        { title: "Alagamento e Inundação", description: "Proteção contra perdas causadas por alagamento nas instalações da granja." },
-        { title: "Roubo e Furto Qualificado", description: "Cobertura para roubo de equipamentos, insumos e animais." },
-        { title: "Responsabilidade Civil", description: "Proteção contra danos causados a terceiros nas dependências da granja." },
+        { title: "Incêndio", description: "Cobertura para danos causados por incêndio às instalações da granja, incluindo barracões, silos e salas de comando." },
+        { title: "Raio", description: "Proteção contra danos causados por descarga elétrica atmosférica (raio) às estruturas e equipamentos." },
+        { title: "Vendaval e Granizo", description: "Cobertura para danos estruturais aos barracões e instalações causados por vendaval, granizo e tornado." },
+        { title: "Danos Elétricos", description: "Proteção para máquinas e implementos fixos, sistemas de ventilação, comedouros e bebedouros automáticos danificados por curto-circuito e sobrecarga." },
+        { title: "Alagamento e Inundação", description: "Cobertura contra perdas causadas por alagamento nas instalações, silos e salas de comando." },
+        { title: "Acidentes no Transporte", description: "Proteção contra danos aos bens segurados durante o transporte entre unidades ou para manutenção." },
+        { title: "Animais da Granja (Cobertura Adicional)", description: "É possível contratar cobertura para os animais da granja — aves e suínos — contra mortalidade por doenças, calor excessivo, asfixia e outros eventos cobertos." },
+      ]}
+      importantDetails={[
+        { title: "Bens Segurados", content: "Barracão, silo, sala de comando, máquinas e implementos fixos." },
+        { title: "Conteúdo Coberto", content: "Comedouros, bebedouros e sistema de ventilação." },
+        { title: "Cobertura Adicional", content: "É possível contratar cobertura para os animais da granja (aves e suínos)." },
       ]}
       whoNeeds={[
         "Produtores integrados de aves (frango de corte e poedeiras)",
