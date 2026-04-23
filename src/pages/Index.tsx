@@ -87,7 +87,9 @@ const Index = () => {
                 <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
-                Corretora de Seguros em Guarulhos<br className="hidden sm:block" /> Cotação Rápida
+                Corretora de Seguros em Guarulhos
+                <br className="hidden sm:block" />
+                <span className="block mt-2">Cotação Rápida</span>
               </h1>
               <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
                 Atendimento personalizado · Melhores seguradoras · Cotação rápida
