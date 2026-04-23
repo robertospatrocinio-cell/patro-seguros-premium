@@ -55,8 +55,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger(),
     mode === "production" && asyncCssPlugin(),
-    mode === "production" && compression({ algorithm: "gzip", threshold: 1024 }),
-    mode === "production" && compression({ algorithm: "brotliCompress", threshold: 1024 }),
+    mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
   ].filter(Boolean),
   resolve: {
     alias: {
