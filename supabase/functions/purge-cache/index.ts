@@ -201,7 +201,7 @@ Deno.serve(async (req) => {
 
   const allSuccess = results.every(r => r.success)
   await supabase.from("purge_logs").insert({
-    action: "purge_by_tag",
+    action: body.tags && body.tags.length > 0 ? "purge_by_tag" : "purge_by_url",
     tags: body.tags || [],
     total_urls: urls.length,
     purged_urls: urls,
