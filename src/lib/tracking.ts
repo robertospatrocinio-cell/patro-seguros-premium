@@ -3,10 +3,14 @@ declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
+    __loadAnalytics?: () => void;
   }
 }
 
+const ensureAnalytics = () => window.__loadAnalytics?.();
+
 export const trackWhatsAppClick = (source?: string) => {
+  ensureAnalytics();
   window.fbq?.("track", "Contact", {
     content_name: "WhatsApp",
     content_category: source || "geral",
@@ -15,6 +19,7 @@ export const trackWhatsAppClick = (source?: string) => {
 };
 
 export const trackCotacaoSubmit = (tipoSeguro?: string) => {
+  ensureAnalytics();
   window.fbq?.("track", "Lead", {
     content_name: "Cotação",
     content_category: tipoSeguro || "geral",
@@ -23,6 +28,7 @@ export const trackCotacaoSubmit = (tipoSeguro?: string) => {
 };
 
 export const trackCotacaoClick = (source?: string) => {
+  ensureAnalytics();
   window.fbq?.("track", "InitiateCheckout", {
     content_name: "Cotação Click",
     content_category: source || "geral",
