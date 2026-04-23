@@ -374,6 +374,12 @@ export default function PerformanceDiagnostico() {
           )}
 
           {/* Info */}
+          {/* Mitigation Checklist */}
+          {results.some((r) => r.warning) && (
+            <MitigationChecklist results={results} />
+          )}
+
+          {/* Reference */}
           <div className="mt-8 p-4 bg-muted/30 rounded-lg text-sm text-muted-foreground space-y-2">
             <p className="font-semibold text-foreground">
               ℹ️ O que é um Reflow Forçado?
