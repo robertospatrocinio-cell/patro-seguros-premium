@@ -1,8 +1,10 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import fs from "fs";
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
+import { generateSitemap } from "./scripts/generate-sitemap";
 
 // Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
 // to async loading with print/onload trick (critical CSS is already inlined in index.html)
@@ -20,6 +22,28 @@ function asyncCssPlugin(): Plugin {
           '<noscript><link rel="stylesheet" href="$1"></noscript>'
         );
       },
+    },
+  };
+}
+
+// Plugin to auto-generate sitemap.xml at build time
+function sitemapPlugin(): Plugin {
+  return {
+    name: "generate-sitemap",
+    closeBundle() {
+      // Read blog slugs from blogData source
+      const blogDataPath = path.resolve(__dirname, "src/lib/blogData.ts");
+      const blogSrc = fs.readFileSync(blogDataPath, "utf-8");
+      const slugRegex = /slug:\s*"([^"]+)"/g;
+      const slugs: string[] = [];
+      let match: RegExpExecArray | null;
+      while ((match = slugRegex.exec(blogSrc)) !== null) {
+        slugs.push(match[1]);
+      }
+      const xml = generateSitemap(slugs);
+      const outDir = path.resolve(__dirname, "dist");
+      fs.writeFileSync(path.join(outDir, "sitemap.xml"), xml, "utf-8");
+      console.log(`✅ sitemap.xml generated with ${xml.split("<url>").length - 1} URLs`);
     },
   };
 }
@@ -49,6 +73,7 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     mode === "production" && asyncCssPlugin(),
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
+    mode === "production" && sitemapPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {
