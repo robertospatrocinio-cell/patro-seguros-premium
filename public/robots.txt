@@ -20,4 +20,4 @@ Disallow: /ebook-consorcio
 Disallow: /landing-pages
 Crawl-delay: 5
 
-Sitemap: https://www.patroseguros.com.br/sitemap.xml
+Sitemap: https://patroseguros.com.br/sitemap.xml
