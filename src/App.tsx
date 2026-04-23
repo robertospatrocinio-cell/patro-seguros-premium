@@ -1,5 +1,4 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
@@ -132,7 +131,12 @@ const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
 const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
 
-const queryClient = new QueryClient();
+const QueryClientProvider = lazy(() =>
+  import("@tanstack/react-query").then(({ QueryClient, QueryClientProvider }) => {
+    const queryClient = new QueryClient();
+    return { default: ({ children }: { children: React.ReactNode }) => <QueryClientProvider client={queryClient}>{children}</QueryClientProvider> };
+  })
+);
 
 /** Deferred wrapper – renders children after first paint / idle callback */
 function DeferredRender({ children }: { children: React.ReactNode }) {
@@ -149,7 +153,8 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
 }
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+  <Suspense fallback={null}>
+  <QueryClientProvider>
     <Suspense fallback={null}>
       <TooltipProvider>
         <Suspense fallback={null}>
@@ -295,6 +300,7 @@ const App = () => (
       </TooltipProvider>
     </Suspense>
   </QueryClientProvider>
+  </Suspense>
 );
 
 export default App;
