@@ -1,8 +1,10 @@
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
 
 User-agent: Twitterbot
 Allow: /
@@ -14,5 +16,8 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /lp/
+Disallow: /ebook-consorcio
+Disallow: /landing-pages
+Crawl-delay: 5
 
 Sitemap: https://www.patroseguros.com.br/sitemap.xml
