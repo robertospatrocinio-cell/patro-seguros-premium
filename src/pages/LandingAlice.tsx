@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import PageMeta from "@/components/PageMeta";
 import OptimizedImage from "@/components/OptimizedImage";
 import { trackWhatsAppClick } from "@/lib/tracking";
-import heroImg from "@/assets/lp-alice.jpg";
+import heroImg from "@/assets/lp-alice.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20plano%20Alice%20Sa%C3%BAde.";
 const logoUrl = "/images/logo-full.webp";
