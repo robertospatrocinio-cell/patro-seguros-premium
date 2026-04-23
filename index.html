@@ -100,28 +100,21 @@
   <meta name="twitter:card" content="summary_large_image">
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YM02VJN0LZ"></script>
+    <!-- GA4 + Meta Pixel: deferred load after first paint -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YM02VJN0LZ');
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+      function loadAnalytics(){
+        // GA4
+        var g=document.createElement('script');g.src='https://www.googletagmanager.com/gtag/js?id=G-YM02VJN0LZ';g.async=true;document.head.appendChild(g);
+        gtag('js',new Date());gtag('config','G-YM02VJN0LZ');
+        // Meta Pixel
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init','2108358063295698');fbq('track','PageView');
+      }
+      if('requestIdleCallback' in window){requestIdleCallback(loadAnalytics,{timeout:3500})}
+      else{setTimeout(loadAnalytics,2000)}
     </script>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2108358063295698');
-    fbq('track', 'PageView');
-    </script>
-    <!-- End Meta Pixel Code -->
+    <!-- End Analytics -->
 </head>
   <body>
     <noscript><img height="1" width="1" style="display:none"
