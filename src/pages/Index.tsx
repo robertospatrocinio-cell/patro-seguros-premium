@@ -87,7 +87,7 @@ const Index = () => {
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="mb-6 md:mb-8">
-                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
+                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" decoding="sync" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
                 Corretora de Seguros em Guarulhos
