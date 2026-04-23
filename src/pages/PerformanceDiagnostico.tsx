@@ -141,7 +141,6 @@ export default function PerformanceDiagnostico() {
       <PageMeta
         title="Diagnóstico de Performance | Patro Seguros"
         description="Ferramenta interna de diagnóstico de reflows forçados e performance do DOM."
-        canonicalPath="/admin/performance"
       />
 
       <main className="min-h-screen bg-background pt-28 pb-16 px-4">
