@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
-import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
 import Header from "@/components/Header";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
@@ -16,6 +15,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import LazySection from "@/components/LazySection";
 
 // Lazy-load heavy below-fold components
+const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
 const Footer = lazy(() => import("@/components/Footer"));
 const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
 const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
@@ -114,7 +114,9 @@ const Index = () => {
         </section>
 
         {/* Insurance Hero Selector */}
-        <InsuranceHeroSelector />
+        <Suspense fallback={<div className="min-h-[520px] md:min-h-[600px] bg-muted animate-pulse" />}>
+          <InsuranceHeroSelector />
+        </Suspense>
 
         {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">
