@@ -1,11 +1,9 @@
 import { lazy, Suspense } from "react";
-import LeadMagnetSection from "@/components/LeadMagnetSection";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
@@ -15,11 +13,17 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "@/components/OptimizedImage";
+import LazySection from "@/components/LazySection";
 import { getArticleImage } from "@/lib/blogImages";
-import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
-import PortoPartnershipSection from "@/components/PortoPartnershipSection";
 import { articles as allBlogArticles, formatDate } from "@/lib/blogData";
 import { Calendar, Clock, User } from "lucide-react";
+
+// Lazy-load heavy below-fold components
+const Footer = lazy(() => import("@/components/Footer"));
+const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
+const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
+const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
+
 const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
 
 // 3 most recent articles for homepage
