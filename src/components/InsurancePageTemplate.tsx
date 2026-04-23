@@ -139,7 +139,7 @@ const InsurancePageTemplate = ({
                 ) : (
                   <Link to="/cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(title)}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      Pedir Cotação Gratuita
+                      Cotação Rápida
                     </Button>
                   </Link>
                 )}
@@ -415,7 +415,7 @@ const InsurancePageTemplate = ({
                 )
               ) : (
                 <Link to="/cotacao" className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Pedir Cotação Gratuita</Button>
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Cotação Rápida</Button>
                 </Link>
               )}
               <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
@@ -504,7 +504,7 @@ const InsurancePageTemplate = ({
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 text-sm transition-colors"
                 >
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                  Pedir Cotação por WhatsApp
+                  Cotação Rápida por WhatsApp
                 </a>
                 <Link to="/cotacao" onClick={() => trackCotacaoClick(`faq-fora-guarulhos-${title}`)}>
                   <Button variant="outline" className="rounded-xl w-full sm:w-auto">

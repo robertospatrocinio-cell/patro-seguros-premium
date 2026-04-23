@@ -6148,7 +6148,7 @@ const BlogArticle = () => {
               <p className="text-muted-foreground mb-6">Fale com nossos especialistas e encontre a melhor proteção.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/cotacao" onClick={() => trackCotacaoClick("blog-artigo")}>
-                  <Button size="lg">Pedir Cotação</Button>
+                  <Button size="lg">Cotação Rápida</Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("blog-artigo")}>
                   <Button size="lg" variant="cta">

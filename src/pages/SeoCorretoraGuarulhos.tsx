@@ -75,7 +75,7 @@ const SeoCorretoraGuarulhos = () => (
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-6 text-white">Fale com a Melhor Corretora de Guarulhos</h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/cotacao"><Button size="lg" variant="secondary">Pedir Cotação Gratuita</Button></Link>
+            <Link to="/cotacao"><Button size="lg" variant="secondary">Cotação Rápida</Button></Link>
             <a href="tel:1151997500"><Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary"><Phone className="mr-2 h-5 w-5" /> (11) 5199-7500</Button></a>
           </div>
         </div>

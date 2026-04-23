@@ -313,7 +313,7 @@ const Depoimentos = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao">
                 <Button size="lg" className="rounded-lg bg-white text-foreground hover:bg-white/90 h-11 px-7 text-[13px] font-semibold">
-                  Pedir Cotação Gratuita
+                  Cotação Rápida
                 </Button>
               </Link>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("depoimentos")}>
