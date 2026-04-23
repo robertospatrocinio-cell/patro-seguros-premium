@@ -97,6 +97,24 @@ Deno.serve(async (req) => {
   const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
   const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
+  if (req.method === "GET") {
+    const { data, error } = await supabase
+      .from("purge_logs")
+      .select("*")
+      .order("created_at", { ascending: false })
+      .limit(50)
+
+    if (error) {
+      return new Response(JSON.stringify({ error: "Unable to load purge logs" }), {
+        status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      })
+    }
+
+    return new Response(JSON.stringify({ logs: data || [] }), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    })
+  }
+
   const CF_API_TOKEN = Deno.env.get("CLOUDFLARE_API_TOKEN")
   const CF_ZONE_ID = Deno.env.get("CLOUDFLARE_ZONE_ID")
   if (!CF_API_TOKEN || !CF_ZONE_ID) {
