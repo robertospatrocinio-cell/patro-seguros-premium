@@ -4,6 +4,7 @@ import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike,
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
 import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
+import { trackCotacaoClick } from "@/lib/tracking";
 
 import heroFamilia from "@/assets/hero-familia.webp";
 import heroEmpresa from "@/assets/hero-empresa.webp";
@@ -130,7 +131,10 @@ const InsuranceHeroSelector = () => {
     const formKey = cardTitleToFormKey[card.title];
     if (formKey) {
       e.preventDefault();
+      trackCotacaoClick(`hero-selector:${active}:${card.title}`);
       setModalFormKey(formKey);
+    } else {
+      trackCotacaoClick(`hero-selector:${active}:${card.title}`);
     }
     // If no form config, the Link navigates normally
   };

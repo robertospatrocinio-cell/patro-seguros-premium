@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { trackCotacaoClick } from "@/lib/tracking";
 const logoFull = "/images/logo-full.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
@@ -331,7 +332,7 @@ const Header = () => {
             </div>
 
             <div className="hidden lg:flex items-center gap-2">
-              <Link to="/cotacao">
+              <Link to="/cotacao" onClick={() => trackCotacaoClick("header-desktop")}>
                 <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4">Cotação Grátis</Button>
               </Link>
             </div>
@@ -505,7 +506,7 @@ const Header = () => {
             <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
 
             <div className="pt-4 pb-2">
-              <Link to="/cotacao" className="block" onClick={close}>
+              <Link to="/cotacao" className="block" onClick={() => { trackCotacaoClick("header-mobile"); close(); }}>
                 <Button className="w-full rounded-lg text-[13px] h-10">Solicitar Cotação Grátis</Button>
               </Link>
             </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/tracking";
 const logoFull = "/images/logo-full.webp";
 
 const Footer = () => {
@@ -79,7 +80,7 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
-                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/90 transition-base">WhatsApp</a>
+                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/90 transition-base" onClick={() => trackWhatsAppClick("footer")}>WhatsApp</a>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Mail className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
