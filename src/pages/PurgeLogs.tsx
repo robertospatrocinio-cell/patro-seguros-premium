@@ -7,7 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { RefreshCw } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { RefreshCw, Send, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface PurgeLog {
   id: string;
@@ -25,6 +28,51 @@ const PurgeLogs = () => {
   const [logs, setLogs] = useState<PurgeLog[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [urlsInput, setUrlsInput] = useState("");
+  const [purgeSecret, setPurgeSecret] = useState("");
+  const [purging, setPurging] = useState(false);
+
+  const handlePurgeUrls = async () => {
+    if (!purgeSecret.trim()) {
+      toast.error("Informe o token de autenticação (PURGE_SECRET).");
+      return;
+    }
+    const urls = urlsInput
+      .split("\n")
+      .map((u) => u.trim())
+      .filter((u) => u.length > 0);
+    if (urls.length === 0) {
+      toast.error("Informe ao menos uma URL ou path (ex: / ou /seguro-auto).");
+      return;
+    }
+    setPurging(true);
+    try {
+      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      const res = await fetch(
+        `https://${projectId}.supabase.co/functions/v1/purge-cache`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${purgeSecret}`,
+          },
+          body: JSON.stringify({ urls }),
+        }
+      );
+      const data = await res.json();
+      if (res.ok && data.action) {
+        toast.success(`Purga concluída: ${data.total_urls} URL(s) invalidadas.`);
+        setUrlsInput("");
+        fetchLogs();
+      } else {
+        toast.error(data.error || "Erro ao purgar cache.");
+      }
+    } catch (err: any) {
+      toast.error("Falha na requisição: " + (err.message || "erro desconhecido"));
+    } finally {
+      setPurging(false);
+    }
+  };
 
   const fetchLogs = async () => {
     setLoading(true);
@@ -61,6 +109,40 @@ const PurgeLogs = () => {
             Atualizar
           </Button>
         </div>
+
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle className="text-lg">Purgar URLs Específicas</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <label className="text-sm font-medium mb-1 block">Token (PURGE_SECRET)</label>
+              <Input
+                type="password"
+                placeholder="Cole seu PURGE_SECRET aqui"
+                value={purgeSecret}
+                onChange={(e) => setPurgeSecret(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium mb-1 block">URLs / Paths (uma por linha)</label>
+              <Textarea
+                placeholder={"/ \n/seguro-auto\n/planos-de-saude\nhttps://www.patroseguros.com.br/blog"}
+                value={urlsInput}
+                onChange={(e) => setUrlsInput(e.target.value)}
+                rows={5}
+                className="font-mono text-sm"
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                Paths relativos (ex: /seguro-auto) serão prefixados com https://www.patroseguros.com.br
+              </p>
+            </div>
+            <Button onClick={handlePurgeUrls} disabled={purging}>
+              {purging ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
+              {purging ? "Purgando..." : "Purgar Cache"}
+            </Button>
+          </CardContent>
+        </Card>
 
         {logs.length === 0 && !loading && (
           <Card>
