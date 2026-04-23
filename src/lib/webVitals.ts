@@ -175,7 +175,9 @@ export function compareCWV() {
 
 // Expose utilities globally for console access
 if (typeof window !== 'undefined') {
-  (window as Record<string, unknown>).setCWVPhase = setCWVPhase;
-  (window as Record<string, unknown>).saveCWVBaseline = saveCWVBaseline;
-  (window as Record<string, unknown>).compareCWV = compareCWV;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const w = window as any;
+  w.setCWVPhase = setCWVPhase;
+  w.saveCWVBaseline = saveCWVBaseline;
+  w.compareCWV = compareCWV;
 }
