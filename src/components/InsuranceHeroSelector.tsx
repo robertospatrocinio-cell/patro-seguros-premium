@@ -9,6 +9,10 @@ import heroFamilia from "@/assets/hero-familia.webp";
 import heroEmpresa from "@/assets/hero-empresa.webp";
 import heroAgro from "@/assets/hero-agro.webp";
 import heroConsorcio from "@/assets/hero-consorcio.webp";
+import heroFamiliaSm from "@/assets/hero-familia-sm.webp";
+import heroEmpresaSm from "@/assets/hero-empresa-sm.webp";
+import heroAgroSm from "@/assets/hero-agro-sm.webp";
+import heroConsorcioSm from "@/assets/hero-consorcio-sm.webp";
 
 type TabKey = "voce" | "empresa" | "agro" | "consorcio";
 
@@ -72,6 +76,13 @@ const bgByTab: Record<TabKey, string> = {
   consorcio: heroConsorcio,
 };
 
+const bgSmByTab: Record<TabKey, string> = {
+  voce: heroFamiliaSm,
+  empresa: heroEmpresaSm,
+  agro: heroAgroSm,
+  consorcio: heroConsorcioSm,
+};
+
 const InsuranceHeroSelector = () => {
   const [active, setActive] = useState<TabKey>("voce");
   const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
@@ -127,7 +138,16 @@ const InsuranceHeroSelector = () => {
             style={{ opacity: active === tab.key ? 1 : 0 }}
             aria-hidden={active !== tab.key}
           >
-            <img src={bgByTab[tab.key]} alt="" width={1280} height={720} className="w-full h-full object-cover" loading={tab.key === "voce" ? "eager" : "lazy"} />
+            <img
+              src={bgByTab[tab.key]}
+              srcSet={`${bgSmByTab[tab.key]} 768w, ${bgByTab[tab.key]} 1280w`}
+              sizes="100vw"
+              alt=""
+              width={1280}
+              height={720}
+              className="w-full h-full object-cover"
+              loading={tab.key === "voce" ? "eager" : "lazy"}
+            />
           </div>
         ))}
 
