@@ -355,7 +355,7 @@ const Index = () => {
                 </a>
                 <Link to="/cotacao">
                   <Button variant="outline" className="rounded-lg text-[13px] h-10 w-full sm:w-auto" onClick={() => trackCotacaoClick("Atendimento Brasil")}>
-                    Pedir Cotação Online <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
+                    Cotação Rápida <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
                   </Button>
                 </Link>
               </div>
@@ -435,7 +435,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white text-foreground hover:bg-white/90 font-semibold">
-                  Pedir Cotação Gratuita
+                  Cotação Rápida
                 </Button>
               </Link>
               <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">

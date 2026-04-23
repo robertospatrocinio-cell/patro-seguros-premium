@@ -286,7 +286,7 @@ const Sobre = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" onClick={() => trackCotacaoClick("sobre-cta")}>
                 <Button size="lg" className="bg-white text-foreground hover:bg-white/90 font-semibold rounded-lg">
-                  Pedir Cotação Gratuita
+                  Cotação Rápida
                 </Button>
               </Link>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("sobre-cta")}>

@@ -140,7 +140,7 @@ const NichoEmpresarios = () => (
           <p className="text-white/70 mb-8 max-w-lg mx-auto text-sm">Cotação gratuita e sem compromisso. Resposta em até 2 horas.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/cotacao" onClick={() => trackCotacaoClick("nicho-empresarios-cta")}>
-              <Button size="lg" className="bg-white text-foreground hover:bg-white/90 font-semibold rounded-lg">Pedir Cotação Gratuita</Button>
+              <Button size="lg" className="bg-white text-foreground hover:bg-white/90 font-semibold rounded-lg">Cotação Rápida</Button>
             </Link>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("nicho-empresarios-cta")}>
               <Button size="lg" variant="cta" className="rounded-lg"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp</Button>
