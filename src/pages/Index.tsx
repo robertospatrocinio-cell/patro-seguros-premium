@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -62,6 +62,13 @@ const faqs = [
 
 const Index = () => {
 
+  // Hide persistent hero background after React renders (it lives outside #root for LCP)
+  useEffect(() => {
+    const el = document.getElementById('persistent-hero-bg');
+    if (el) el.style.display = 'none';
+    return () => { if (el) el.style.display = ''; };
+  }, []);
+
   return (
     <>
       <PageMeta title="Corretora de Seguros em Guarulhos – Cotação Online Grátis" description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500." />
@@ -77,8 +84,8 @@ const Index = () => {
       <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label="Início">
-          <div className="absolute inset-0">
-             <img src={heroHomeBg} alt="" width={960} height={540} className="w-full h-full object-cover opacity-15" loading="eager" fetchPriority="high" aria-hidden="true" />
+          <div className="absolute inset-0" aria-hidden="true">
+            <img src={heroHomeBg} alt="" width={960} height={540} className="w-full h-full object-cover opacity-15" loading="eager" fetchPriority="high" aria-hidden="true" />
           </div>
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
