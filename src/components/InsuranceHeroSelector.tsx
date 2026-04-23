@@ -82,22 +82,27 @@ const InsuranceHeroSelector = () => {
   useEffect(() => {
     const btn = buttonRefs.current[active];
     const container = tabsRef.current;
-    if (btn && container) {
-      const containerRect = container.getBoundingClientRect();
-      const btnRect = btn.getBoundingClientRect();
-      setPillStyle({ left: btnRect.left - containerRect.left, width: btnRect.width });
-    }
+    const id = requestAnimationFrame(() => {
+      if (btn && container) {
+        const containerRect = container.getBoundingClientRect();
+        const btnRect = btn.getBoundingClientRect();
+        setPillStyle({ left: btnRect.left - containerRect.left, width: btnRect.width });
+      }
+    });
+    return () => cancelAnimationFrame(id);
   }, [active]);
 
   useEffect(() => {
     const handler = () => {
       const btn = buttonRefs.current[active];
       const container = tabsRef.current;
-      if (btn && container) {
-        const containerRect = container.getBoundingClientRect();
-        const btnRect = btn.getBoundingClientRect();
-        setPillStyle({ left: btnRect.left - containerRect.left, width: btnRect.width });
-      }
+      requestAnimationFrame(() => {
+        if (btn && container) {
+          const containerRect = container.getBoundingClientRect();
+          const btnRect = btn.getBoundingClientRect();
+          setPillStyle({ left: btnRect.left - containerRect.left, width: btnRect.width });
+        }
+      });
     };
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
