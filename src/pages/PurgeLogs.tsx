@@ -137,6 +137,9 @@ const PurgeLogs = () => {
                 value={purgeSecret}
                 onChange={(e) => setPurgeSecret(e.target.value)}
               />
+              <p className="text-xs text-muted-foreground mt-1">
+                Necessário para purgar cache e consultar os logs operacionais.
+              </p>
             </div>
             <div>
               <label className="text-sm font-medium mb-1 block">URLs / Paths (uma por linha)</label>
@@ -158,10 +161,18 @@ const PurgeLogs = () => {
           </CardContent>
         </Card>
 
-        {logs.length === 0 && !loading && (
+        {logs.length === 0 && !loading && purgeSecret.trim() && (
           <Card>
             <CardContent className="py-12 text-center text-muted-foreground">
               Nenhum log de purga encontrado. Execute uma purga para ver os resultados aqui.
+            </CardContent>
+          </Card>
+        )}
+
+        {logs.length === 0 && !loading && !purgeSecret.trim() && (
+          <Card>
+            <CardContent className="py-12 text-center text-muted-foreground">
+              Informe o PURGE_SECRET acima e clique em Atualizar para carregar os logs.
             </CardContent>
           </Card>
         )}
