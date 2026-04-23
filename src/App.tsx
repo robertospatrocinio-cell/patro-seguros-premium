@@ -129,6 +129,7 @@ const SegurosQuotePage = lazy(() => import("./pages/SegurosQuotePage"));
 const SegurosGuarulhosBairros = lazy(() => import("./pages/SegurosGuarulhosBairros"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
+const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
 
 const queryClient = new QueryClient();
 
@@ -278,6 +279,7 @@ const App = () => (
             <Route path="/seguros/motoristas-app" element={<NichoMotoristasApp />} />
             <Route path="/seguros/:tipo" element={<SegurosQuotePage />} />
             <Route path="/admin/purge-logs" element={<PurgeLogs />} />
+            <Route path="/admin/performance" element={<PerformanceDiagnostico />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
