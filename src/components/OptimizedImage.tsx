@@ -5,6 +5,10 @@ interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   eager?: boolean;
   /** Low-quality placeholder color or gradient */
   placeholderClass?: string;
+  /** Responsive srcset (e.g. "img-400.webp 400w, img-800.webp 800w") */
+  srcSet?: string;
+  /** Responsive sizes (e.g. "(max-width: 768px) 100vw, 50vw") */
+  sizes?: string;
 }
 
 const OptimizedImage = ({
@@ -13,6 +17,8 @@ const OptimizedImage = ({
   eager = false,
   placeholderClass = "bg-muted",
   className = "",
+  srcSet,
+  sizes,
   ...props
 }: OptimizedImageProps) => {
   const [loaded, setLoaded] = useState(false);
@@ -42,8 +48,11 @@ const OptimizedImage = ({
         <img
           src={src}
           alt={alt}
+          srcSet={srcSet}
+          sizes={sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
           loading={eager ? "eager" : "lazy"}
-          decoding="async"
+          decoding={eager ? "sync" : "async"}
+          fetchPriority={eager ? "high" : "auto"}
           onLoad={() => setLoaded(true)}
           width={props.width}
           height={props.height}
