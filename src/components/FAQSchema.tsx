@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 interface FAQItem {
   question: string;
   answer: string;
@@ -10,32 +8,28 @@ interface FAQSchemaProps {
 }
 
 const FAQSchema = ({ faqs }: FAQSchemaProps) => {
-  useEffect(() => {
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
-    };
+  if (!faqs.length) return null;
 
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.setAttribute("data-faq-schema", "true");
-    script.textContent = JSON.stringify(schema);
-    document.head.appendChild(script);
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
-    return () => {
-      script.remove();
-    };
-  }, [faqs]);
-
-  return null;
+  return (
+    <script
+      type="application/ld+json"
+      data-faq-schema="true"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
 };
 
 export default FAQSchema;
