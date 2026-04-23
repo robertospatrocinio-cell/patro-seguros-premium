@@ -1,13 +1,15 @@
-import { lazy, Suspense } from "react";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
-import CookieBanner from "@/components/CookieBanner";
 import Index from "./pages/Index";
+
+// Lazy-load non-critical layout components to reduce initial JS
+const TooltipProvider = lazy(() => import("@/components/ui/tooltip").then(m => ({ default: m.TooltipProvider })));
+const Toaster = lazy(() => import("@/components/ui/toaster").then(m => ({ default: m.Toaster })));
+const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
@@ -129,14 +131,33 @@ const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 
 const queryClient = new QueryClient();
 
+/** Deferred wrapper – renders children after first paint / idle callback */
+function DeferredRender({ children }: { children: React.ReactNode }) {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    if ("requestIdleCallback" in window) {
+      (window as any).requestIdleCallback(() => setReady(true));
+    } else {
+      setTimeout(() => setReady(true), 100);
+    }
+  }, []);
+  if (!ready) return null;
+  return <>{children}</>;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Suspense fallback={<div className="min-h-screen" />}>
+    <Suspense fallback={null}>
+      <TooltipProvider>
+        <Suspense fallback={null}>
+          <DeferredRender>
+            <Toaster />
+            <Sonner />
+          </DeferredRender>
+        </Suspense>
+        <BrowserRouter>
+          <ScrollToTop />
+          <Suspense fallback={<div className="min-h-screen" />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/sobre" element={<Sobre />} />
@@ -259,10 +280,15 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
-        <WhatsAppButton />
-        <CookieBanner />
-      </BrowserRouter>
-    </TooltipProvider>
+          <Suspense fallback={null}>
+            <DeferredRender>
+              <WhatsAppButton />
+              <CookieBanner />
+            </DeferredRender>
+          </Suspense>
+        </BrowserRouter>
+      </TooltipProvider>
+    </Suspense>
   </QueryClientProvider>
 );
 
