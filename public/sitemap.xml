@@ -1,190 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Páginas Principais -->
-  <url><loc>https://www.patroseguros.com.br/</loc><priority>1.0</priority><lastmod>2026-04-10</lastmod><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/sobre</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/cotacao</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/contato</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/faq</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/depoimentos</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/parceiros</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/indique-um-amigo</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- SEO Local Guarulhos -->
-  <url><loc>https://www.patroseguros.com.br/seguro-auto-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-moto-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-residencial-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-vida-saude-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-empresarial-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-frota-empresas-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguros-empresariais-pme-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-condominio-guarulhos</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/plano-saude-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/corretora-seguros-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/sobre-guarulhos</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Seguros Pessoais -->
-  <url><loc>https://www.patroseguros.com.br/seguro-auto</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-moto</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-vida</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-vida/formulario</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-residencial</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-viagem</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-celular</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-bike</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-acidentes-pessoais</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-funeral</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-decesso</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-odonto</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-motorista-app</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-carta-verde</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Saúde -->
-  <url><loc>https://www.patroseguros.com.br/seguro-saude</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/planos-de-saude</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/plano-saude-empresarial</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/plano-pet</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Seguros Empresariais -->
-  <url><loc>https://www.patroseguros.com.br/seguro-empresarial</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-frota</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-condominio</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-transporte</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-profissional</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-medicos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-dentistas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-advogados</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-engenheiros</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-veterinarios</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-executivos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-obras</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-prestacao-servicos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-rc-eventos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-cyber</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-engenharia</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-garantia</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-vida-pme</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-estagiario</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-fianca</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-fianca-locaticia</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-imobiliario</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-galpoes-industriais</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-lojas-shopping</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-armazenagem</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-placa-solar</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-caminhao</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-maquinas</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-maquinas-industriais</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-maquinas-linha-amarela</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Veículos Especiais -->
-  <url><loc>https://www.patroseguros.com.br/seguro-jetski</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-embarcacoes</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-avioes</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-helicopteros</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Agro -->
+  <url><loc>https://www.patroseguros.com.br/</loc><priority>1.0</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/cotacao</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/cotacao-seguro-auto</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/contato</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-auto-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-moto-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-residencial-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-vida-saude-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-empresarial-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-frota-empresas-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-empresariais-pme-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/plano-saude-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/corretora-seguros-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-condominio-guarulhos</loc><priority>0.9</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-auto</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-moto</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-vida</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-residencial</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-saude</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/planos-de-saude</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-empresarial</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-frota</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-viagem</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-celular</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-odonto</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-motorista-app</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-acidentes-pessoais</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-condominio</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-transporte</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-profissional</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-cyber</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-engenharia</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-fianca</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-fianca-locaticia</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-caminhao</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-vida-pme</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-galpoes-industriais</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-maquinas</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-rural</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-maquinas-agricolas</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-granja</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/consorcio</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/previdencia-privada</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/plano-saude-empresarial</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-vida/formulario</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-bike</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-funeral</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-decesso</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-carta-verde</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-garantia</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-estagiario</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-imobiliario</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-lojas-shopping</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-armazenagem</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-placa-solar</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-maquinas-industriais</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-maquinas-linha-amarela</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-equipamentos-agricolas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-drone-agricola</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-transporte-agro</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-pecuario</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-cafe</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-geada</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-granja</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-ambiental</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
   <url><loc>https://www.patroseguros.com.br/seguro-propriedade-rural</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Consórcio e Previdência -->
-  <url><loc>https://www.patroseguros.com.br/consorcio</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/consorcio-carro</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/consorcio-imoveis</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/consorcio-veiculos-pesados</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/previdencia-privada</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Cotação Seguro Auto -->
-  <url><loc>https://www.patroseguros.com.br/cotacao-seguro-auto</loc><priority>0.8</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Nichos -->
-  <url><loc>https://www.patroseguros.com.br/seguros/medicos-e-clinicas</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguros/transportadoras</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguros/empresarios</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguros/profissionais-liberais</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguros/motoristas-app</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Landing Pages de Campanha removidas do sitemap (noindex) -->
-
-  <!-- Blog - Artigos -->
-  <url><loc>https://www.patroseguros.com.br/blog/quanto-custa-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-auto-vale-a-pena</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/o-que-seguro-residencial-cobre</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/quanto-custa-plano-de-saude</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/melhor-plano-saude-guarulhos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-empresarial-o-que-cobre</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-para-tratores</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-para-colheitadeiras</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-galpoes-industriais-guia</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/7-seguros-proteger-familia</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/como-escolher-seguro-empresa</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-auto-7-erros</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-vida-por-que-ter</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-fianca-vs-caucao</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/o-que-e-responsabilidade-civil</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/como-proteger-frota</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-rural-como-funciona</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/como-funciona-cotacao-seguros</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/dicas-evitar-sinistros</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-moto-vale-a-pena</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/plano-saude-individual-vs-empresarial</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-viagem-internacional</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-condominio-obrigatorio</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-cyber-empresas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/previdencia-privada-vgbl-pgbl</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-celular-como-contratar</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-transporte-cargas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-engenharia-obras</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/como-acionar-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-odontologico-coberturas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-acidentes-pessoais-passageiros-uber-vans</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/cobertura-vidros-retrovisores-farois-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-auto-premium-diferenciais</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-carta-verde-mercosul</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/rc-clinicas-estetica</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-condominio-guia-completo</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-agricola-contra-granizo</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/consorcio-imoveis-casa-propria</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-cobertura-lucros-cessantes</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/5-dicas-baratear-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/coberturas-assistencia-24h-seguro-residencial</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/3-erros-produtor-rural-seguro-maquinas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-veiculos-blindados</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/penhor-rural-seguro-maquinas-agricolas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-pivo-central-equipamentos-irrigacao</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/carros-mais-roubados-furtados-sp-2025</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/5-acoes-apos-acidente-veicular</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-rc-medicos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/rc-geral-profissional-do-diferencas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguros-contra-alagamentos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/saude-mental-seguros-protecao</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/plano-saude-empresarial-pme</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/beneficios-seguro-imobiliario</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-condominio-responsabilidades-sindico</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/fianca-locaticia-guia-inquilinos-proprietarios</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-rc-eventos-exposicoes</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/riscos-sinistros-guarulhos-2026</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-veiculos-eletricos-coberturas-riscos</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/consorcio-veiculos-eletricos-compra-planejada</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/preco-seguro-auto-fevereiro-2026</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/seguro-motorista-aplicativo-guia</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/corretora-de-seguros-em-guarulhos</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/quanto-custa-seguro-auto-guarulhos-2026</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/blog/consorcio-imoveis-crescimento-patrimonial-guarulhos-2026</loc><priority>0.8</priority><lastmod>2026-04-16</lastmod><changefreq>monthly</changefreq></url>
-
-  <!-- Legal -->
-  <url><loc>https://www.patroseguros.com.br/politica-privacidade</loc><priority>0.3</priority><lastmod>2026-04-10</lastmod><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/termos-de-uso</loc><priority>0.3</priority><lastmod>2026-04-10</lastmod><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-jetski</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-embarcacoes</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-avioes</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-helicopteros</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-medicos</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-dentistas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-advogados</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-engenheiros</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-veterinarios</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-executivos</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-obras</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-prestacao-servicos</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rc-eventos</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/plano-pet</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/consorcio-carro</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/consorcio-imoveis</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/consorcio-veiculos-pesados</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros/medicos-e-clinicas</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros/transportadoras</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros/empresarios</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros/profissionais-liberais</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros/motoristas-app</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/faq</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/sobre</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/depoimentos</loc><priority>0.5</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/parceiros</loc><priority>0.5</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/indique-um-amigo</loc><priority>0.5</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/sobre-guarulhos</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos</loc><priority>0.8</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/jardim-maia</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/vila-augusta</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/cumbica</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/centro</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/picanco</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/macedo</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/gopouva</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/bonsucesso</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/paraventi</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguros-guarulhos/continental</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/quanto-custa-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-auto-vale-a-pena</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/o-que-seguro-residencial-cobre</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/quanto-custa-plano-de-saude</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/melhor-plano-saude-guarulhos</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-empresarial-o-que-cobre</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-para-tratores</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-para-colheitadeiras</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-galpoes-industriais-guia</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/7-seguros-proteger-familia</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/como-escolher-seguro-empresa</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-auto-7-erros</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-vida-por-que-ter</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-fianca-vs-caucao</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/o-que-e-responsabilidade-civil</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/como-proteger-frota</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-rural-como-funciona</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/como-funciona-cotacao-seguros</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/dicas-evitar-sinistros</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-moto-vale-a-pena</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/plano-saude-individual-vs-empresarial</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-viagem-internacional</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-condominio-obrigatorio</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-cyber-empresas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/previdencia-privada-vgbl-pgbl</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-celular-como-contratar</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-transporte-cargas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-engenharia-obras</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/como-acionar-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-odontologico-coberturas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-acidentes-pessoais-passageiros-uber-vans</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/cobertura-vidros-retrovisores-farois-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-auto-premium-diferenciais</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-carta-verde-mercosul</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/rc-clinicas-estetica</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-condominio-guia-completo</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-agricola-contra-granizo</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/consorcio-imoveis-casa-propria</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-cobertura-lucros-cessantes</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/5-dicas-baratear-seguro-auto</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/coberturas-assistencia-24h-seguro-residencial</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/3-erros-produtor-rural-seguro-maquinas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-veiculos-blindados</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/penhor-rural-seguro-maquinas-agricolas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-pivo-central-equipamentos-irrigacao</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/carros-mais-roubados-furtados-sp-2025</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/5-acoes-apos-acidente-veicular</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-rc-medicos</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/rc-geral-profissional-do-diferencas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguros-contra-alagamentos</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/saude-mental-seguros-protecao</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/plano-saude-empresarial-pme</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/beneficios-seguro-imobiliario</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-condominio-responsabilidades-sindico</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/fianca-locaticia-guia-inquilinos-proprietarios</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-rc-eventos-exposicoes</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/riscos-sinistros-guarulhos-2026</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-veiculos-eletricos-coberturas-riscos</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/consorcio-veiculos-eletricos-compra-planejada</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/preco-seguro-auto-fevereiro-2026</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/seguro-motorista-aplicativo-guia</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/corretora-de-seguros-em-guarulhos</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/quanto-custa-seguro-auto-guarulhos-2026</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/blog/consorcio-imoveis-crescimento-patrimonial-guarulhos-2026</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/politica-privacidade</loc><priority>0.3</priority><lastmod>2026-04-23</lastmod><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/termos-de-uso</loc><priority>0.3</priority><lastmod>2026-04-23</lastmod><changefreq>yearly</changefreq></url>
 </urlset>
