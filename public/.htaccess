@@ -78,8 +78,52 @@ FileETag None
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Service Worker: no-cache to always get latest version
+  <FilesMatch "sw\.js$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
+</IfModule>
+
+# Route-based HTML caching via Vary + custom env
+<IfModule mod_setenvif.c>
+  # Home page: moderate cache (1h) with revalidation
+  SetEnvIf Request_URI "^/$" PAGE_TYPE=home
+
+  # Insurance/product pages: longer cache (4h) - content rarely changes
+  SetEnvIf Request_URI "^/(seguro|plano|consorcio|previdencia)" PAGE_TYPE=seguro
+
+  # FAQ page: short cache (30min) - may update more often
+  SetEnvIf Request_URI "^/faq" PAGE_TYPE=faq
+
+  # Dynamic pages (cotacao, contato): no cache
+  SetEnvIf Request_URI "^/(cotacao|contato)" PAGE_TYPE=dynamic
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Home: 1 hour browser + 4h CDN
+  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'home'">
+    Header set Cache-Control "public, max-age=3600, s-maxage=14400, stale-while-revalidate=86400"
+  </If>
+
+  # Insurance pages: 4h browser + 12h CDN
+  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'seguro'">
+    Header set Cache-Control "public, max-age=14400, s-maxage=43200, stale-while-revalidate=86400"
+  </If>
+
+  # FAQ: 30min browser + 2h CDN
+  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'faq'">
+    Header set Cache-Control "public, max-age=1800, s-maxage=7200, stale-while-revalidate=3600"
+  </If>
+
+  # Dynamic: no-cache
+  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'dynamic'">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </If>
 </IfModule>
