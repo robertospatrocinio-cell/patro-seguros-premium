@@ -35,7 +35,8 @@
     <!-- Preload critical fonts -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/poppins-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high" />
+    <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -128,7 +129,10 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:bg-white focus:text-blue-800 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-semibold">Ir para o conteúdo principal</a>
     <!-- Persistent LCP hero image - outside #root so React hydration doesn't destroy it -->
     <div id="persistent-hero-bg" style="position:fixed;top:0;left:0;width:100%;height:100vh;z-index:0;pointer-events:none;background:linear-gradient(165deg,hsl(220 30% 8%) 0%,hsl(217 60% 18%) 50%,hsl(215 70% 22%) 100%)">
-      <img src="/images/hero-home.webp" alt="" width="960" height="540" style="width:100%;height:100%;object-fit:cover;opacity:.15" fetchpriority="high" decoding="sync" />
+      <picture>
+        <source media="(max-width: 600px)" srcset="/images/hero-home-sm.webp" type="image/webp" />
+        <img src="/images/hero-home.webp" alt="" width="960" height="540" style="width:100%;height:100%;object-fit:cover;opacity:.15" fetchpriority="high" decoding="sync" />
+      </picture>
     </div>
     <div id="root">
       <!-- SSR-like skeleton for instant FCP -->
