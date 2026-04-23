@@ -151,13 +151,15 @@ const InsuranceHeroSelector = () => {
           >
             <img
               src={bgByTab[tab.key]}
-              srcSet={`${bgSmByTab[tab.key]} 768w, ${bgByTab[tab.key]} 1280w`}
+              srcSet={`${bgSmByTab[tab.key]} 900w, ${bgByTab[tab.key]} 1920w`}
               sizes="100vw"
               alt=""
               width={1280}
               height={720}
               className="w-full h-full object-cover"
               loading={tab.key === "voce" ? "eager" : "lazy"}
+              fetchPriority={tab.key === "voce" ? "high" : "low"}
+              decoding={tab.key === "voce" ? "sync" : "async"}
             />
           </div>
         ))}
