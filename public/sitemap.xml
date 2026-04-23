@@ -87,16 +87,17 @@
   <url><loc>https://www.patroseguros.com.br/seguro-helicopteros</loc><priority>0.5</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
 
   <!-- Agro -->
-  <url><loc>https://www.patroseguros.com.br/seguro-rural</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-maquinas-agricolas</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-equipamentos-agricolas</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-drone-agricola</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-transporte-agro</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-pecuario</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-cafe</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-geada</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-ambiental</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.patroseguros.com.br/seguro-propriedade-rural</loc><priority>0.6</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-rural</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-maquinas-agricolas</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-equipamentos-agricolas</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-drone-agricola</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-transporte-agro</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-pecuario</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-cafe</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-geada</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-granja</loc><priority>0.7</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-ambiental</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.patroseguros.com.br/seguro-propriedade-rural</loc><priority>0.6</priority><lastmod>2026-04-23</lastmod><changefreq>monthly</changefreq></url>
 
   <!-- Consórcio e Previdência -->
   <url><loc>https://www.patroseguros.com.br/consorcio</loc><priority>0.7</priority><lastmod>2026-04-10</lastmod><changefreq>monthly</changefreq></url>
