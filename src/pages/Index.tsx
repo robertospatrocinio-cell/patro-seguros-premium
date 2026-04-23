@@ -84,9 +84,7 @@ const Index = () => {
       <main id="main-content">
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label="Início">
-          <div className="absolute inset-0" aria-hidden="true">
-            <img src={heroHomeBg} alt="" width={960} height={540} className="w-full h-full object-cover opacity-15" loading="eager" fetchPriority="high" aria-hidden="true" />
-          </div>
+          {/* LCP background image is rendered persistently outside #root (see index.html #persistent-hero-bg) to avoid duplicate download and React hydration delay */}
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="mb-6 md:mb-8">
