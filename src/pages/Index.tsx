@@ -172,6 +172,7 @@ const Index = () => {
         </section>
 
         {/* E-E-A-T Content Section */}
+        <LazySection minHeight="600px">
         <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
@@ -234,13 +235,17 @@ const Index = () => {
             </div>
           </div>
         </section>
+        </LazySection>
 
         {/* Lead Magnet — E-book */}
-        <LeadMagnetSection />
+        <LazySection minHeight="300px">
+          <Suspense fallback={null}><LeadMagnetSection /></Suspense>
+        </LazySection>
 
 
         {/* CTA — Cotação Auto */}
-        <section className="py-16 md:py-24 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="cotacao-auto-heading">
+        <LazySection minHeight="400px">
+        <section className="py-16 md:py-24 bg-background" aria-labelledby="cotacao-auto-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-8 md:p-16">
               <img src={cotacaoOnline3d} alt="" width={192} height={192} className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80" aria-hidden="true" loading="lazy" decoding="async" />
@@ -269,10 +274,12 @@ const Index = () => {
             </div>
           </div>
         </section>
+        </LazySection>
 
 
         {/* Sobre */}
-        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="sobre-heading">
+        <LazySection minHeight="400px">
+        <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
@@ -290,11 +297,11 @@ const Index = () => {
             </div>
           </div>
         </section>
-
-        {/* Google Meu Negócio */}
+        </LazySection>
 
         {/* Atendimento em Todo o Brasil */}
-        <section className="py-16 md:py-24 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }} aria-labelledby="atendimento-brasil-heading">
+        <LazySection minHeight="500px">
+        <section className="py-16 md:py-24 bg-background" aria-labelledby="atendimento-brasil-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-12">
               <span className="section-label">Atendimento Nacional</span>
@@ -364,22 +371,26 @@ const Index = () => {
             </div>
           </div>
         </section>
+        </LazySection>
 
         {/* Google Meu Negócio */}
-        <section className="py-16 md:py-24 gradient-surface" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="google-business-heading">
+        <LazySection minHeight="400px">
+        <section className="py-16 md:py-24 gradient-surface" aria-labelledby="google-business-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-10">
               <span className="section-label">Google Meu Negócio</span>
               <h2 id="google-business-heading" className="mt-3">Avaliações reais de clientes reais</h2>
             </div>
             <div className="max-w-md mx-auto">
-              <GoogleBusinessWidget />
+              <Suspense fallback={null}><GoogleBusinessWidget /></Suspense>
             </div>
           </div>
         </section>
+        </LazySection>
 
         {/* Últimos Artigos do Blog */}
-        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 500px' }} aria-labelledby="blog-heading">
+        <LazySection minHeight="500px">
+        <section className="py-16 md:py-32 bg-background" aria-labelledby="blog-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
               <span className="section-label">Blog</span>
@@ -423,12 +434,16 @@ const Index = () => {
             </div>
           </div>
         </section>
+        </LazySection>
 
         {/* Porto Partnership */}
-        <PortoPartnershipSection />
+        <LazySection minHeight="200px">
+          <Suspense fallback={null}><PortoPartnershipSection /></Suspense>
+        </LazySection>
 
         {/* CTA Final */}
-        <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 350px' }} aria-label="Solicitar cotação">
+        <LazySection minHeight="350px">
+        <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-4 font-extrabold">Faça sua cotação de seguro em Guarulhos</h2>
             <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
@@ -449,9 +464,11 @@ const Index = () => {
             </div>
           </div>
         </section>
+        </LazySection>
 
         {/* FAQ */}
-        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 400px' }} aria-labelledby="faq-heading">
+        <LazySection minHeight="400px">
+        <section className="py-16 md:py-32 bg-background" aria-labelledby="faq-heading">
           <div className="container mx-auto px-4 max-w-2xl">
             <div className="text-center mb-16">
               <span className="section-label">FAQ</span>
@@ -472,8 +489,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+        </LazySection>
       </main>
-      <Footer />
+      <Suspense fallback={null}><Footer /></Suspense>
     </>
   );
 };
