@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake, Warehouse } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
