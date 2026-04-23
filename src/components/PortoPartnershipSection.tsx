@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, Shield, Handshake } from "lucide-react";
+import { trackCotacaoClick } from "@/lib/tracking";
 
 const PortoPartnershipSection = () => {
   return (
@@ -102,7 +103,7 @@ const PortoPartnershipSection = () => {
               </li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/cotacao">
+              <Link to="/cotacao" onClick={() => trackCotacaoClick("porto-partnership")}>
                 <Button className="rounded-lg text-[13px] h-10 px-6">
                   Simular Crescimento Patrimonial
                   <ArrowRight className="ml-1.5 h-3.5 w-3.5" aria-hidden="true" />
