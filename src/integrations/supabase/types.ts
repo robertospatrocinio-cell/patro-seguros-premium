@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      purge_logs: {
+        Row: {
+          action: string
+          created_at: string
+          error_message: string | null
+          id: string
+          purged_urls: string[] | null
+          results: Json | null
+          success: boolean
+          tags: string[] | null
+          total_urls: number
+        }
+        Insert: {
+          action: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          purged_urls?: string[] | null
+          results?: Json | null
+          success?: boolean
+          tags?: string[] | null
+          total_urls?: number
+        }
+        Update: {
+          action?: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          purged_urls?: string[] | null
+          results?: Json | null
+          success?: boolean
+          tags?: string[] | null
+          total_urls?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

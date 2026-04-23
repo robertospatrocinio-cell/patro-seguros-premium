@@ -1,4 +1,5 @@
 import { corsHeaders } from '@supabase/supabase-js/cors'
+import { createClient } from '@supabase/supabase-js'
 
 // Tag → URL prefix mapping for cache purging
 const TAG_URL_MAP: Record<string, string[]> = {
@@ -87,6 +88,11 @@ Deno.serve(async (req) => {
     })
   }
 
+  // Supabase client for logging
+  const supabaseUrl = Deno.env.get("SUPABASE_URL")!
+  const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!
+  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+
   const CF_API_TOKEN = Deno.env.get("CLOUDFLARE_API_TOKEN")
   const CF_ZONE_ID = Deno.env.get("CLOUDFLARE_ZONE_ID")
   if (!CF_API_TOKEN || !CF_ZONE_ID) {
@@ -141,11 +147,28 @@ Deno.serve(async (req) => {
         }
       )
       const cfData = await cfRes.json()
+      await supabase.from("purge_logs").insert({
+        action: "purge_all",
+        tags: body.tags || [],
+        total_urls: 0,
+        purged_urls: [],
+        results: cfData,
+        success: cfData.success,
+      })
       return new Response(JSON.stringify({ action: "purge_all", success: cfData.success }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       })
     }
 
+    await supabase.from("purge_logs").insert({
+      action: "error",
+      tags: body.tags || [],
+      total_urls: 0,
+      purged_urls: [],
+      results: null,
+      success: false,
+      error_message: "No valid tags or URLs provided",
+    })
     return new Response(JSON.stringify({ error: "No valid tags or URLs provided", available_tags: Object.keys(TAG_URL_MAP) }), {
       status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
     })
@@ -171,6 +194,17 @@ Deno.serve(async (req) => {
     const cfData = await cfRes.json()
     results.push({ batch: Math.floor(i / 30) + 1, success: cfData.success })
   }
+
+  const allSuccess = results.every(r => r.success)
+  await supabase.from("purge_logs").insert({
+    action: "purge_by_tag",
+    tags: body.tags || [],
+    total_urls: urls.length,
+    purged_urls: urls,
+    results,
+    success: allSuccess,
+    error_message: allSuccess ? null : "Some batches failed",
+  })
 
   return new Response(
     JSON.stringify({
