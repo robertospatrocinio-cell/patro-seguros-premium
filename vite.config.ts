@@ -2,6 +2,7 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { compression } from "vite-plugin-compression2";
 
 // Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
 // to async loading with print/onload trick (critical CSS is already inlined in index.html)
@@ -29,10 +30,25 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  build: {
+    minify: "esbuild",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          "react-vendor": ["react", "react-dom"],
+          "router": ["react-router-dom"],
+          "ui-core": ["@radix-ui/react-accordion", "@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tooltip"],
+        },
+      },
+    },
+    cssMinify: true,
+    reportCompressedSize: true,
+  },
   plugins: [
     react(),
     mode === "development" && componentTagger(),
     mode === "production" && asyncCssPlugin(),
+    mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
   ].filter(Boolean),
   resolve: {
     alias: {
