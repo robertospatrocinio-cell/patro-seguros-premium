@@ -177,7 +177,7 @@ const PurgeLogs = () => {
                           <TableCell className="text-sm">{formatDate(log.created_at)}</TableCell>
                           <TableCell>
                             <Badge variant={log.action === "purge_all" ? "destructive" : "secondary"}>
-                              {log.action === "purge_all" ? "Purge Total" : log.action === "purge_by_tag" ? "Por Tags" : log.action}
+                              {log.action === "purge_all" ? "Purge Total" : log.action === "purge_by_tag" ? "Por Tags" : log.action === "purge_by_url" ? "Por URLs" : log.action}
                             </Badge>
                           </TableCell>
                           <TableCell>
