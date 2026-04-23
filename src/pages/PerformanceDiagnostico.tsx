@@ -379,6 +379,11 @@ export default function PerformanceDiagnostico() {
             <MitigationChecklist results={results} />
           )}
 
+          {/* Auto Recommendations */}
+          {results.some((r) => r.warning) && (
+            <AutoRecommendations results={results} threshold={threshold} />
+          )}
+
           {/* Reference */}
           <div className="mt-8 p-4 bg-muted/30 rounded-lg text-sm text-muted-foreground space-y-2">
             <p className="font-semibold text-foreground">
@@ -413,6 +418,256 @@ export default function PerformanceDiagnostico() {
         </div>
       </main>
     </>
+  );
+}
+
+interface Recommendation {
+  priority: number;
+  severity: Severity;
+  title: string;
+  problem: string;
+  codeBefore: string;
+  codeAfter: string;
+  explanation: string;
+  categories: string[];
+}
+
+function generateRecommendations(results: MeasureResult[], threshold: number): Recommendation[] {
+  const recs: Recommendation[] = [];
+  const warned = results.filter((r) => r.warning);
+  if (warned.length === 0) return recs;
+
+  const maxSev = (cats: string[]): Severity => {
+    const order: Severity[] = ["critical", "high", "medium", "low", "ok"];
+    const matches = warned.filter((r) => cats.includes(r.category));
+    for (const s of order) {
+      if (matches.some((r) => r.severity === s)) return s;
+    }
+    return "ok";
+  };
+
+  const hasCat = (cat: string) => warned.some((r) => r.category === cat);
+
+  if (hasCat("Interleaved")) {
+    const sev = maxSev(["Interleaved"]);
+    const worst = warned.filter((r) => r.category === "Interleaved").sort((a, b) => b.duration - a.duration)[0];
+    recs.push({
+      priority: sev === "critical" ? 1 : sev === "high" ? 2 : 3,
+      severity: sev,
+      title: "Eliminar padrão Write-Read intercalado",
+      problem: `Detectado ${worst.duration.toFixed(2)}ms em operações intercaladas (${worst.severity}). Cada ciclo write→read força um reflow separado, multiplicando o custo.`,
+      codeBefore: `// ❌ Intercalado: 3 reflows forçados
+el.style.padding = '10px';
+const w = el.offsetWidth;   // reflow 1
+el.style.margin = '5px';
+const h = el.offsetHeight;  // reflow 2
+el.style.width = '200px';
+const cw = el.clientWidth;  // reflow 3`,
+      codeAfter: `// ✅ Agrupado: apenas 1 reflow
+// 1) Todas as escritas primeiro
+el.style.padding = '10px';
+el.style.margin = '5px';
+el.style.width = '200px';
+
+// 2) Depois todas as leituras (1 único reflow)
+const w = el.offsetWidth;
+const h = el.offsetHeight;
+const cw = el.clientWidth;`,
+      explanation: "Agrupar todas as escritas antes de qualquer leitura reduz N reflows para 1. O navegador só recalcula o layout uma vez.",
+      categories: ["Interleaved"],
+    });
+  }
+
+  if (hasCat("Write-Read")) {
+    const sev = maxSev(["Write-Read"]);
+    recs.push({
+      priority: sev === "critical" ? 1 : sev === "high" ? 2 : 4,
+      severity: sev,
+      title: "Separar escritas de leituras com requestAnimationFrame",
+      problem: `Padrão write→read detectado com severidade ${SEVERITY_CONFIG[sev].label}. A leitura logo após a escrita força o navegador a recalcular o layout sincronamente.`,
+      codeBefore: `// ❌ Write→Read direto
+element.style.padding = '10px';
+const width = element.offsetWidth; // força reflow
+
+// Em React:
+useEffect(() => {
+  ref.current.style.height = 'auto';
+  const h = ref.current.scrollHeight; // reflow!
+  ref.current.style.height = h + 'px';
+}, [content]);`,
+      codeAfter: `// ✅ Usar rAF para separar write/read
+element.style.padding = '10px';
+requestAnimationFrame(() => {
+  const width = element.offsetWidth; // leitura no próximo frame
+});
+
+// Em React com useRef + rAF:
+useEffect(() => {
+  const el = ref.current;
+  if (!el) return;
+  // Leitura primeiro (antes de qualquer escrita)
+  const h = el.scrollHeight;
+  // Depois a escrita
+  el.style.height = h + 'px';
+}, [content]);`,
+      explanation: "Inverta a ordem: leia primeiro, depois escreva. Ou use requestAnimationFrame para adiar a leitura para o próximo frame de renderização.",
+      categories: ["Write-Read"],
+    });
+  }
+
+  if (hasCat("Batch Read")) {
+    const sev = maxSev(["Batch Read"]);
+    recs.push({
+      priority: 5,
+      severity: sev,
+      title: "Cachear leituras geométricas em variáveis locais",
+      problem: `Múltiplas leituras geométricas detectadas com severidade ${SEVERITY_CONFIG[sev].label}. Mesmo sem escritas, leituras repetidas têm custo.`,
+      codeBefore: `// ❌ Leituras repetidas
+function updateLayout(el: HTMLElement) {
+  if (el.offsetWidth > 500) { /* ... */ }
+  if (el.offsetWidth < 200) { /* ... */ }
+  console.log(el.offsetWidth);
+}`,
+      codeAfter: `// ✅ Cache em variável local
+function updateLayout(el: HTMLElement) {
+  const w = el.offsetWidth; // leitura única
+  if (w > 500) { /* ... */ }
+  if (w < 200) { /* ... */ }
+  console.log(w);
+}
+
+// Em React: memoizar com useRef
+const cachedRect = useRef<DOMRect | null>(null);
+useEffect(() => {
+  cachedRect.current = ref.current?.getBoundingClientRect() ?? null;
+}, [deps]); // só relê quando necessário`,
+      explanation: "Armazene o resultado da leitura geométrica numa variável local e reutilize. Evita chamadas repetidas ao motor de layout.",
+      categories: ["Batch Read"],
+    });
+  }
+
+  if (hasCat("Before/After")) {
+    const sev = maxSev(["Before/After"]);
+    const baResults = warned.filter((r) => r.category === "Before/After");
+    const ratioMatch = baResults[0]?.label.match(/([\d.]+)×/);
+    const ratio = ratioMatch ? ratioMatch[1] : "N";
+    recs.push({
+      priority: sev === "critical" ? 1 : 4,
+      severity: sev,
+      title: "Reduzir custo de mutação (razão Before/After alta)",
+      problem: `Razão de custo ${ratio}× detectada. A leitura pós-mutação está ${ratio}× mais cara que a pré-mutação, indicando reflow pesado.`,
+      codeBefore: `// ❌ Mutação cara seguida de leitura
+element.style.padding = '20px'; // invalida layout
+const rect = element.getBoundingClientRect(); // reflow caro`,
+      codeAfter: `// ✅ Usar classes CSS ao invés de style inline
+element.classList.add('expanded');
+// A leitura pode esperar o próximo frame:
+requestAnimationFrame(() => {
+  const rect = element.getBoundingClientRect();
+});
+
+// Ou usar CSS containment para limitar o escopo do reflow:
+// .component { contain: layout style; }`,
+      explanation: "CSS contain limita o escopo do recálculo de layout. Classes CSS são mais eficientes que style inline porque o browser pode otimizar o batch.",
+      categories: ["Before/After"],
+    });
+  }
+
+  if (hasCat("Long Task")) {
+    const sev = maxSev(["Long Task"]);
+    const worst = warned.filter((r) => r.category === "Long Task").sort((a, b) => b.duration - a.duration)[0];
+    recs.push({
+      priority: sev === "critical" ? 1 : 3,
+      severity: sev,
+      title: "Quebrar Long Tasks em microtarefas",
+      problem: `Long Task de ${worst.duration.toFixed(0)}ms detectada. Tarefas >50ms bloqueiam a thread principal e prejudicam INP/FID.`,
+      codeBefore: `// ❌ Loop pesado na thread principal
+items.forEach(item => {
+  processItem(item);       // CPU-intensivo
+  updateDOM(item);         // escrita no DOM
+  const h = el.offsetHeight; // leitura → reflow
+});`,
+      codeAfter: `// ✅ Quebrar com yield / scheduler
+async function processInChunks(items: Item[]) {
+  for (let i = 0; i < items.length; i++) {
+    processItem(items[i]);
+    updateDOM(items[i]);
+    // Yield a cada 5 itens para não bloquear
+    if (i % 5 === 4) {
+      await new Promise(r => setTimeout(r, 0));
+    }
+  }
+}
+
+// Ou usar scheduler.postTask (quando disponível):
+// scheduler.postTask(() => processItem(item), { priority: 'background' });`,
+      explanation: "Dividir trabalho pesado com setTimeout(0) ou scheduler.postTask permite que o browser processe eventos de input entre as microtarefas.",
+      categories: ["Long Task"],
+    });
+  }
+
+  return recs.sort((a, b) => a.priority - b.priority);
+}
+
+function AutoRecommendations({ results, threshold }: { results: MeasureResult[]; threshold: number }) {
+  const recs = generateRecommendations(results, threshold);
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+
+  if (recs.length === 0) return null;
+
+  const toggle = (i: number) => setExpanded((p) => ({ ...p, [i]: !p[i] }));
+
+  return (
+    <div className="mt-8 rounded-lg border-2 border-blue-300 bg-blue-50/50 p-5">
+      <h2 className="text-lg font-bold text-foreground mb-1">
+        🤖 Recomendações Automáticas
+      </h2>
+      <p className="text-sm text-muted-foreground mb-4">
+        Geradas com base nas {results.filter((r) => r.warning).length} medições com alerta. Ordenadas por prioridade (severidade mais alta primeiro).
+      </p>
+      <div className="space-y-3">
+        {recs.map((rec, i) => {
+          const sev = SEVERITY_CONFIG[rec.severity];
+          const open = expanded[i];
+          return (
+            <div key={i} className="rounded-lg border bg-white overflow-hidden">
+              <button
+                onClick={() => toggle(i)}
+                className="w-full flex items-center gap-3 p-4 text-left hover:bg-muted/30 transition-colors"
+              >
+                <span className="text-lg flex-shrink-0">{sev.emoji}</span>
+                <div className="flex-1 min-w-0">
+                  <div className="font-semibold text-foreground">{rec.title}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{rec.problem}</div>
+                </div>
+                <span className={`text-xs font-bold px-2 py-0.5 rounded ${sev.color}`}>
+                  {sev.label}
+                </span>
+                <span className="text-muted-foreground">{open ? "▲" : "▼"}</span>
+              </button>
+              {open && (
+                <div className="px-4 pb-4 space-y-3 border-t pt-3">
+                  <div>
+                    <div className="text-xs font-bold text-red-600 mb-1">❌ Antes (problema):</div>
+                    <pre className="text-xs bg-red-50 border border-red-200 rounded p-3 overflow-x-auto whitespace-pre-wrap font-mono">{rec.codeBefore}</pre>
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-green-600 mb-1">✅ Depois (solução):</div>
+                    <pre className="text-xs bg-green-50 border border-green-200 rounded p-3 overflow-x-auto whitespace-pre-wrap font-mono">{rec.codeAfter}</pre>
+                  </div>
+                  <div className="text-sm text-muted-foreground bg-muted/30 rounded p-3">
+                    <strong>💡 Por quê:</strong> {rec.explanation}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    Categorias afetadas: {rec.categories.join(", ")}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
