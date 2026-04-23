@@ -374,6 +374,12 @@ export default function PerformanceDiagnostico() {
           )}
 
           {/* Info */}
+          {/* Mitigation Checklist */}
+          {results.some((r) => r.warning) && (
+            <MitigationChecklist results={results} />
+          )}
+
+          {/* Reference */}
           <div className="mt-8 p-4 bg-muted/30 rounded-lg text-sm text-muted-foreground space-y-2">
             <p className="font-semibold text-foreground">
               ℹ️ O que é um Reflow Forçado?
@@ -434,5 +440,121 @@ function StatCard({
         {value}
       </div>
     </div>
+  );
+}
+
+interface CheckItem {
+  id: string;
+  label: string;
+  description: string;
+  trigger: (results: MeasureResult[]) => boolean;
+}
+
+const CHECKLIST_ITEMS: CheckItem[] = [
+  {
+    id: "batch-reads",
+    label: "Agrupar leituras geométricas",
+    description: "Realize todas as leituras (offsetWidth, getBoundingClientRect, getComputedStyle) antes de qualquer escrita no DOM. Evita múltiplos reflows.",
+    trigger: (r) => r.some((x) => x.warning && x.category === "Interleaved"),
+  },
+  {
+    id: "batch-writes",
+    label: "Agrupar escritas antes das leituras",
+    description: "Faça todas as mutações de estilo/classes primeiro, depois leia as propriedades geométricas. Isso reduz reflows de N para 1.",
+    trigger: (r) => r.some((x) => x.warning && x.category === "Write-Read"),
+  },
+  {
+    id: "raf",
+    label: "Usar requestAnimationFrame para mutações",
+    description: "Agende escritas no DOM dentro de rAF para que ocorram no momento ideal do ciclo de renderização, evitando reflows síncronos.",
+    trigger: (r) => r.some((x) => x.warning && x.isReflow),
+  },
+  {
+    id: "debounce-resize",
+    label: "Aplicar debounce/throttle em resize e scroll",
+    description: "Limite a frequência de handlers que leem propriedades geométricas em eventos de alta frequência (resize, scroll, mousemove).",
+    trigger: (r) => r.some((x) => x.warning && x.isReflow),
+  },
+  {
+    id: "refs-memo",
+    label: "Usar refs e memoização (useRef, useMemo, useCallback)",
+    description: "Armazene referências a elementos DOM em refs e memoize cálculos derivados para evitar recálculos e leituras desnecessárias a cada render.",
+    trigger: (r) => r.some((x) => x.warning && (x.category === "Write-Read" || x.category === "Interleaved")),
+  },
+  {
+    id: "reduce-reads",
+    label: "Reduzir leituras geométricas redundantes",
+    description: "Cache o resultado de offsetWidth/getBoundingClientRect em variáveis locais ao invés de ler múltiplas vezes no mesmo ciclo.",
+    trigger: (r) => r.some((x) => x.warning && x.category === "Batch Read"),
+  },
+  {
+    id: "css-transforms",
+    label: "Preferir CSS transforms a propriedades de layout",
+    description: "Use transform: translate() ao invés de top/left/margin para animações. Transforms não disparam reflow, apenas repaint/composite.",
+    trigger: (r) => r.some((x) => x.warning && x.isReflow),
+  },
+  {
+    id: "before-after",
+    label: "Monitorar razão Before/After de leituras",
+    description: "Se a razão entre leitura pós-mutação e pré-mutação for alta (>3×), significa que suas mutações estão forçando reflows caros. Revise o padrão write-read.",
+    trigger: (r) => r.some((x) => x.warning && x.category === "Before/After"),
+  },
+  {
+    id: "long-tasks",
+    label: "Dividir Long Tasks (>50ms)",
+    description: "Quebre tarefas longas em microtarefas usando setTimeout(fn, 0), scheduler.postTask() ou yield para manter a thread principal responsiva.",
+    trigger: (r) => r.some((x) => x.warning && x.category === "Long Task"),
+  },
+];
+
+function MitigationChecklist({ results }: { results: MeasureResult[] }) {
+  const activeItems = CHECKLIST_ITEMS.filter((item) => item.trigger(results));
+  const [checked, setChecked] = useState<Record<string, boolean>>({});
+
+  if (activeItems.length === 0) return null;
+
+  const toggle = (id: string) => setChecked((prev) => ({ ...prev, [id]: !prev[id] }));
+  const doneCount = activeItems.filter((i) => checked[i.id]).length;
+
+  return (
+    <div className="mt-8 rounded-lg border-2 border-orange-300 dark:border-orange-700 bg-orange-50/50 dark:bg-orange-950/20 p-5">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-lg font-bold text-foreground">
+          🛠️ Checklist de Mitigação ({doneCount}/{activeItems.length})
+        </h2>
+        <div className="text-sm text-muted-foreground">
+          Baseado nos {results.filter((r) => r.warning).length} alertas detectados
+        </div>
+      </div>
+      <div className="w-full bg-muted rounded-full h-2 mb-4">
+        <div
+          className="bg-green-500 h-2 rounded-full transition-all duration-300"
+          style={{ width: `${activeItems.length > 0 ? (doneCount / activeItems.length) * 100 : 0}%` }}
+        />
+      </div>
+      <ul className="space-y-3">
+        {activeItems.map((item) => (
+          <li
+            key={item.id}
+            className={`flex gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
+              checked[item.id]
+                ? "bg-green-50 dark:bg-green-950/20 opacity-70"
+                : "bg-white dark:bg-card hover:bg-muted/50"
+            }`}
+            onClick={() => toggle(item.id)}
+          >
+            <div className="mt-0.5 text-lg flex-shrink-0">
+              {checked[item.id] ? "✅" : "⬜"}
+            </div>
+            <div>
+              <div className={`font-semibold ${checked[item.id] ? "line-through text-muted-foreground" : "text-foreground"}`}>
+                {item.label}
+              </div>
+              <div className="text-sm text-muted-foreground mt-0.5">{item.description}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      </div>
   );
 }
