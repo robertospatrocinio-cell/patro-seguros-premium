@@ -1,7 +1,7 @@
 // Build-time sitemap generator — called by Vite plugin
 // Generates sitemap.xml with search-intent priority tiers
 
-const DOMAIN = "https://www.patroseguros.com.br";
+const DOMAIN = "https://patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
 
 interface SitemapEntry {
