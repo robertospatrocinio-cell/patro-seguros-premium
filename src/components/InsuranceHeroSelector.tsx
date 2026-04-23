@@ -111,9 +111,16 @@ const InsuranceHeroSelector = () => {
   }, [updatePill]);
 
   useEffect(() => {
-    const handler = () => requestAnimationFrame(updatePill);
+    let timer: ReturnType<typeof setTimeout>;
+    const handler = () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => requestAnimationFrame(updatePill), 150);
+    };
     window.addEventListener("resize", handler);
-    return () => window.removeEventListener("resize", handler);
+    return () => {
+      window.removeEventListener("resize", handler);
+      clearTimeout(timer);
+    };
   }, [updatePill]);
 
   const cards = cardsByTab[active];
