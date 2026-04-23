@@ -35,15 +35,10 @@ const ConversionDashboard = () => {
 
   useEffect(() => {
     fetchEvents();
-    const channel = supabase
-      .channel("conversion-click-events-dashboard")
-      .on("postgres_changes", { event: "INSERT", schema: "public", table: "conversion_click_events" }, (payload) => {
-        setEvents((current) => [payload.new as ConversionClickEvent, ...current].slice(0, 100));
-      })
-      .subscribe();
+    const intervalId = window.setInterval(fetchEvents, 15000);
 
     return () => {
-      supabase.removeChannel(channel);
+      window.clearInterval(intervalId);
     };
   }, []);
 
