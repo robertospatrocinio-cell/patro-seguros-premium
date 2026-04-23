@@ -226,6 +226,8 @@ export default function PerformanceDiagnostico() {
             timestamp: new Date().toISOString(),
             isReflow: false,
             warning: entry.duration > 50,
+            severity: classifySeverity(entry.duration, 50),
+            category: "Long Task",
           });
         }
       });
