@@ -21,7 +21,7 @@ const OptimizedImage = ({
   sizes,
   ...props
 }: OptimizedImageProps) => {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(eager);
   const [inView, setInView] = useState(eager);
   const imgRef = useRef<HTMLDivElement>(null);
 
@@ -53,10 +53,10 @@ const OptimizedImage = ({
           loading={eager ? "eager" : "lazy"}
           decoding={eager ? "sync" : "async"}
           fetchPriority={eager ? "high" : "auto"}
-          onLoad={() => setLoaded(true)}
+          onLoad={eager ? undefined : () => setLoaded(true)}
           width={props.width}
           height={props.height}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
+          className={`w-full h-full object-cover ${eager ? "" : "transition-opacity duration-500"} ${
             loaded ? "opacity-100" : "opacity-0"
           }`}
           {...props}

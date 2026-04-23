@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
+import { lazy, Suspense } from "react";
 import { Search, Shield, Handshake, CheckCircle, MessageCircle, ArrowRight, Star } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
-import QuickQuoteForm from "@/components/QuickQuoteForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -11,6 +10,9 @@ import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-seguro-auto.webp";
+
+const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
+const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20meu%20seguro%20auto.";
 
@@ -277,15 +279,17 @@ const SeguroAuto = () => {
         {/* ===== Formulário Rápido ===== */}
         <section className="py-24 gradient-surface" aria-labelledby="formulario-heading">
           <div className="container mx-auto px-4 max-w-xl">
-            <QuickQuoteForm
-              insuranceType="Seguro Auto"
-              extraFields={[
-                { id: "veiculo", label: "Veículo (Marca/Modelo/Ano)", placeholder: "Ex: Honda Civic 2023" },
-                { id: "cep", label: "CEP de pernoite", placeholder: "Ex: 07115-000" },
-                { id: "uso", label: "Uso do veículo", placeholder: "Selecione", type: "select" as const, options: ["Lazer e ida ao trabalho", "Visita a clientes", "Motorista de app", "Outro"] },
-              ]}
-              trackingLabel="seguro-auto"
-            />
+            <Suspense fallback={null}>
+              <QuickQuoteForm
+                insuranceType="Seguro Auto"
+                extraFields={[
+                  { id: "veiculo", label: "Veículo (Marca/Modelo/Ano)", placeholder: "Ex: Honda Civic 2023" },
+                  { id: "cep", label: "CEP de pernoite", placeholder: "Ex: 07115-000" },
+                  { id: "uso", label: "Uso do veículo", placeholder: "Selecione", type: "select" as const, options: ["Lazer e ida ao trabalho", "Visita a clientes", "Motorista de app", "Outro"] },
+                ]}
+                trackingLabel="seguro-auto"
+              />
+            </Suspense>
           </div>
         </section>
 
@@ -360,7 +364,9 @@ const SeguroAuto = () => {
         </section>
       </main>
       <Footer />
-      <ExitIntentPopup />
+      <Suspense fallback={null}>
+        <ExitIntentPopup />
+      </Suspense>
     </>
   );
 };

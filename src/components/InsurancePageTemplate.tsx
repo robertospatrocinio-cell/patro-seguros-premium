@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
-import QuickQuoteForm from "@/components/QuickQuoteForm";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -12,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
+
+const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -383,11 +385,13 @@ const InsurancePageTemplate = ({
         {/* Formulário Rápido */}
         <section className="py-24" aria-labelledby="formulario-heading">
           <div className="container mx-auto px-4 max-w-xl">
-            <QuickQuoteForm
-              insuranceType={title}
-              extraFields={quoteFormFields}
-              trackingLabel={title.toLowerCase().replace(/\s+/g, "-")}
-            />
+            <Suspense fallback={null}>
+              <QuickQuoteForm
+                insuranceType={title}
+                extraFields={quoteFormFields}
+                trackingLabel={title.toLowerCase().replace(/\s+/g, "-")}
+              />
+            </Suspense>
           </div>
         </section>
 

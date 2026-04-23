@@ -129,6 +129,7 @@ const LandingPageTemplate = ({
                     width={448}
                     height={336}
                     fetchPriority="high"
+                    decoding="sync"
                   />
                 </div>
               )}
@@ -312,7 +313,7 @@ const LandingPageTemplate = ({
         {/* Mini footer */}
         <footer className="py-8 bg-background border-t">
           <div className="container mx-auto px-4 text-center">
-            <img src={logoUrl} alt="Patro Seguros" width={144} height={32} className="h-8 mx-auto mb-3" />
+            <img src={logoUrl} alt="Patro Seguros" width={144} height={32} loading="lazy" decoding="async" className="h-8 mx-auto mb-3" />
             <p className="text-[11px] text-muted-foreground">
               Patro Corretora de Seguros — SUSEP nº 212113511 — Guarulhos/SP
             </p>
