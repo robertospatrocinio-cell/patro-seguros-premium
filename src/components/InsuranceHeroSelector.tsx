@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake, Warehouse } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -79,34 +79,31 @@ const InsuranceHeroSelector = () => {
   const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null, consorcio: null });
   const [modalFormKey, setModalFormKey] = useState<string | null>(null);
 
-  useEffect(() => {
+  const updatePill = useCallback(() => {
     const btn = buttonRefs.current[active];
     const container = tabsRef.current;
-    const id = requestAnimationFrame(() => {
-      if (btn && container) {
-        const containerRect = container.getBoundingClientRect();
-        const btnRect = btn.getBoundingClientRect();
-        setPillStyle({ left: btnRect.left - containerRect.left, width: btnRect.width });
-      }
-    });
-    return () => cancelAnimationFrame(id);
+    if (btn && container) {
+      const btnRect = btn.getBoundingClientRect();
+      const containerLeft = container.getBoundingClientRect().left;
+      setPillStyle(prev => {
+        const newLeft = btnRect.left - containerLeft;
+        const newWidth = btnRect.width;
+        if (prev.left === newLeft && prev.width === newWidth) return prev;
+        return { left: newLeft, width: newWidth };
+      });
+    }
   }, [active]);
 
   useEffect(() => {
-    const handler = () => {
-      const btn = buttonRefs.current[active];
-      const container = tabsRef.current;
-      requestAnimationFrame(() => {
-        if (btn && container) {
-          const containerRect = container.getBoundingClientRect();
-          const btnRect = btn.getBoundingClientRect();
-          setPillStyle({ left: btnRect.left - containerRect.left, width: btnRect.width });
-        }
-      });
-    };
+    const id = requestAnimationFrame(updatePill);
+    return () => cancelAnimationFrame(id);
+  }, [updatePill]);
+
+  useEffect(() => {
+    const handler = () => requestAnimationFrame(updatePill);
     window.addEventListener("resize", handler);
     return () => window.removeEventListener("resize", handler);
-  }, [active]);
+  }, [updatePill]);
 
   const cards = cardsByTab[active];
   const modalConfig = modalFormKey ? formConfigs[modalFormKey] : null;
