@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -75,20 +74,35 @@ const PurgeLogs = () => {
   };
 
   const fetchLogs = async () => {
+    if (!purgeSecret.trim()) {
+      setLogs([]);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
-    const { data, error } = await supabase
-      .from("purge_logs" as any)
-      .select("*")
-      .order("created_at", { ascending: false })
-      .limit(50);
-    if (!error && data) {
-      setLogs(data as unknown as PurgeLog[]);
+    try {
+      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      const res = await fetch(`https://${projectId}.supabase.co/functions/v1/purge-cache`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${purgeSecret}` },
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setLogs((data.logs || []) as PurgeLog[]);
+      } else {
+        setLogs([]);
+        toast.error(data.error || "Não foi possível carregar os logs.");
+      }
+    } catch (err: any) {
+      setLogs([]);
+      toast.error("Falha ao carregar logs: " + (err.message || "erro desconhecido"));
     }
     setLoading(false);
   };
 
   useEffect(() => {
-    fetchLogs();
+    setLoading(false);
   }, []);
 
   const formatDate = (iso: string) => {
@@ -104,7 +118,7 @@ const PurgeLogs = () => {
           <h1 className="text-2xl font-bold text-[hsl(var(--primary))]">
             Logs de Purga do Cache
           </h1>
-          <Button variant="outline" size="sm" onClick={fetchLogs} disabled={loading}>
+          <Button variant="outline" size="sm" onClick={fetchLogs} disabled={loading || !purgeSecret.trim()}>
             <RefreshCw className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`} />
             Atualizar
           </Button>
