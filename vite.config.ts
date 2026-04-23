@@ -61,6 +61,7 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           "react-vendor": ["react", "react-dom"],
           "router": ["react-router-dom"],
+          "ui-core": ["@radix-ui/react-accordion", "@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tooltip"],
         },
       },
     },
