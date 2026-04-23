@@ -54,6 +54,8 @@
   # Preload critical resources via Link header
   Header add Link "</fonts/inter-latin.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
   Header add Link "</fonts/poppins-latin.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
+  Header add Link "<https://www.googletagmanager.com>; rel=preconnect; crossorigin"
+  Header add Link "<https://connect.facebook.net>; rel=preconnect; crossorigin"
 </IfModule>
 
 # Brotli compression (LiteSpeed native)
