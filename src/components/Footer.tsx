@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
-import logoFull from "@/assets/logo-full.webp";
+const logoFull = "/images/logo-full.webp";
 
 const Footer = () => {
   return (
