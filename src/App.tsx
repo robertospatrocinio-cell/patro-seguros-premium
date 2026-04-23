@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
+import PageSkeleton from "@/components/PageSkeleton";
 
 // Lazy-load non-critical layout components to reduce initial JS
 const TooltipProvider = lazy(() => import("@/components/ui/tooltip").then(m => ({ default: m.TooltipProvider })));
@@ -157,7 +158,7 @@ const App = () => (
         </Suspense>
         <BrowserRouter>
           <ScrollToTop />
-          <Suspense fallback={<div className="min-h-screen" />}>
+          <Suspense fallback={<PageSkeleton />}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/sobre" element={<Sobre />} />
