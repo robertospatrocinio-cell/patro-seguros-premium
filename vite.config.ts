@@ -48,6 +48,21 @@ function sitemapPlugin(): Plugin {
   };
 }
 
+function spaFallbackPlugin(): Plugin {
+  return {
+    name: "spa-fallback-copy",
+    closeBundle() {
+      const outDir = path.resolve(__dirname, "dist");
+      const indexPath = path.join(outDir, "index.html");
+      const fallbackPath = path.join(outDir, "404.html");
+      if (fs.existsSync(indexPath)) {
+        fs.copyFileSync(indexPath, fallbackPath);
+        console.log("✅ 404.html generated from index.html");
+      }
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -85,6 +100,7 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && asyncCssPlugin(),
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
     mode === "production" && sitemapPlugin(),
+    mode === "production" && spaFallbackPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {
