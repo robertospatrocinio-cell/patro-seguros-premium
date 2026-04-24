@@ -123,7 +123,7 @@ Deno.serve(async (req) => {
     })
   }
 
-  let body: { tags?: string[]; urls?: string[] }
+  let body: { tags?: string[]; urls?: string[]; purgeEverything?: boolean }
   try {
     body = await req.json()
   } catch {
@@ -154,8 +154,8 @@ Deno.serve(async (req) => {
   }
 
   if (urlSet.size === 0) {
-    // If tag "all" or no valid tags, purge everything
-    const purgeAll = body.tags?.includes("all")
+    // If tag "all", explicit purgeEverything, or no valid tags, purge everything
+    const purgeAll = body.purgeEverything === true || body.tags?.some((tag) => tag.toLowerCase() === "all")
     if (purgeAll) {
       const cfRes = await fetch(
         `https://api.cloudflare.com/client/v4/zones/${CF_ZONE_ID}/purge_cache`,
