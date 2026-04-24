@@ -1,10 +1,12 @@
-# Enable LiteSpeed Cache
+# Hostinger / LiteSpeed friendly SPA routing
 <IfModule LiteSpeed>
   CacheLookup on
   CacheEngine on
 </IfModule>
 
-# Browser caching for static assets
+DirectoryIndex index.html
+Options -MultiViews
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 1 hour"
@@ -19,128 +21,63 @@
   ExpiresByType application/json "access plus 1 day"
   ExpiresByType application/manifest+json "access plus 1 week"
   ExpiresByType image/x-icon "access plus 1 year"
-  ExpiresByType video/mp4 "access plus 1 year"
 </IfModule>
 
-# Cache-Control headers
 <IfModule mod_headers.c>
-  # HTML - short cache with revalidation
+  <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header unset ETag
+  </FilesMatch>
+
   <FilesMatch "\.(html)$">
-    Header set Cache-Control "public, max-age=3600, s-maxage=86400, must-revalidate"
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
 
-  # CSS/JS with hashed filenames - long cache
-  <FilesMatch "\.(css|js)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
-  </FilesMatch>
-
-  # Images/fonts - long cache
-  <FilesMatch "\.(webp|png|jpg|jpeg|svg|woff2|woff|ttf)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
-  </FilesMatch>
-
-  # Sitemap/robots - moderate cache
-  <FilesMatch "(sitemap\.xml|robots\.txt)$">
+  <FilesMatch "^(sitemap\.xml|robots\.txt)$">
     Header set Cache-Control "public, max-age=86400"
   </FilesMatch>
 
-  # Security headers
+  <FilesMatch "^sw\.js$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
-
-  # Preload critical resources via Link header
-  Header add Link "</fonts/inter-latin.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
-  Header add Link "</fonts/poppins-latin.woff2>; rel=preload; as=font; type=font/woff2; crossorigin"
-  Header add Link "<https://www.googletagmanager.com>; rel=preconnect; crossorigin"
-  Header add Link "<https://connect.facebook.net>; rel=preconnect; crossorigin"
 </IfModule>
 
-# Brotli compression (LiteSpeed native)
 <IfModule mod_brotli.c>
   AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json image/svg+xml text/xml application/xml
 </IfModule>
 
-# Gzip fallback
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml font/woff2
 </IfModule>
 
-# Disable ETags for static assets (Cache-Control is sufficient)
-<IfModule mod_headers.c>
-  <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf)$">
-    Header unset ETag
-  </FilesMatch>
-</IfModule>
 FileETag None
 
-# SPA fallback for Hostinger/LiteSpeed - serve index.html for browser routes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  Options -MultiViews
 
-  # Service Worker: no-cache to always get latest version
-  <FilesMatch "sw\.js$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-  </FilesMatch>
-
-  # Canonical host while www SSL is being finalized at Hostinger
   RewriteCond %{HTTP_HOST} ^www\.patroseguros\.com\.br$ [NC]
   RewriteRule ^ https://patroseguros.com.br%{REQUEST_URI} [R=301,L]
 
-  # Keep SEO/static files served as real files when present
-  RewriteRule ^(sitemap\.xml|robots\.txt|sw\.js|favicon\.(ico|png))$ - [L]
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !\.[A-Za-z0-9]{2,5}$
-  RewriteRule . /index.html [L]
+  RewriteRule ^(sitemap\.xml|robots\.txt|sw\.js|favicon\.(ico|png)|manifest\.webmanifest)$ - [L,NC]
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.html [L]
 </IfModule>
 
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
 
 <IfModule mod_mime.c>
   AddType application/xml .xml
   AddType text/plain .txt
-</IfModule>
-
-# Route-based HTML caching via Vary + custom env
-<IfModule mod_setenvif.c>
-  # Home page: moderate cache (1h) with revalidation
-  SetEnvIf Request_URI "^/$" PAGE_TYPE=home
-
-  # Insurance/product pages: longer cache (4h) - content rarely changes
-  SetEnvIf Request_URI "^/(seguro|plano|consorcio|previdencia)" PAGE_TYPE=seguro
-
-  # FAQ page: short cache (30min) - may update more often
-  SetEnvIf Request_URI "^/faq" PAGE_TYPE=faq
-
-  # Dynamic pages (cotacao, contato): no cache
-  SetEnvIf Request_URI "^/(cotacao|contato)" PAGE_TYPE=dynamic
-</IfModule>
-
-<IfModule mod_headers.c>
-  # Home: 1 hour browser + 4h CDN
-  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'home'">
-    Header set Cache-Control "public, max-age=3600, s-maxage=14400, stale-while-revalidate=86400"
-  </If>
-
-  # Insurance pages: 4h browser + 12h CDN
-  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'seguro'">
-    Header set Cache-Control "public, max-age=14400, s-maxage=43200, stale-while-revalidate=86400"
-  </If>
-
-  # FAQ: 30min browser + 2h CDN
-  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'faq'">
-    Header set Cache-Control "public, max-age=1800, s-maxage=7200, stale-while-revalidate=3600"
-  </If>
-
-  # Dynamic: no-cache
-  <If "-n reqenv('PAGE_TYPE') && reqenv('PAGE_TYPE') == 'dynamic'">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-  </If>
 </IfModule>
