@@ -30,7 +30,15 @@ Options -MultiViews
   </FilesMatch>
 
   <FilesMatch "\.(html)$">
-    Header set Cache-Control "public, max-age=3600, must-revalidate"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+    Header set X-LiteSpeed-Cache-Control "no-cache"
+  </FilesMatch>
+
+  <FilesMatch "^(index|404)\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set X-LiteSpeed-Cache-Control "no-cache"
   </FilesMatch>
 
   <FilesMatch "^(sitemap\.xml|robots\.txt)$">

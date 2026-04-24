@@ -30,6 +30,7 @@ const PurgeLogs = () => {
   const [urlsInput, setUrlsInput] = useState("");
   const [purgeSecret, setPurgeSecret] = useState("");
   const [purging, setPurging] = useState(false);
+  const [purgingAll, setPurgingAll] = useState(false);
 
   const handlePurgeUrls = async () => {
     if (!purgeSecret.trim()) {
@@ -70,6 +71,39 @@ const PurgeLogs = () => {
       toast.error("Falha na requisição: " + (err.message || "erro desconhecido"));
     } finally {
       setPurging(false);
+    }
+  };
+
+  const handlePurgeAll = async () => {
+    if (!purgeSecret.trim()) {
+      toast.error("Informe o token de autenticação (PURGE_SECRET).");
+      return;
+    }
+    setPurgingAll(true);
+    try {
+      const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+      const res = await fetch(
+        `https://${projectId}.supabase.co/functions/v1/purge-cache`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${purgeSecret}`,
+          },
+          body: JSON.stringify({ purgeEverything: true }),
+        }
+      );
+      const data = await res.json();
+      if (res.ok && data.action === "purge_all") {
+        toast.success("Cache limpo: purge total enviado para publicação atualizada.");
+        fetchLogs();
+      } else {
+        toast.error(data.error || "Erro ao limpar todo o cache.");
+      }
+    } catch (err: any) {
+      toast.error("Falha na requisição: " + (err.message || "erro desconhecido"));
+    } finally {
+      setPurgingAll(false);
     }
   };
 
@@ -154,10 +188,16 @@ const PurgeLogs = () => {
                 Paths relativos (ex: /seguro-auto) serão prefixados com https://www.patroseguros.com.br
               </p>
             </div>
-            <Button onClick={handlePurgeUrls} disabled={purging}>
-              {purging ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
-              {purging ? "Purgando..." : "Purgar Cache"}
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button onClick={handlePurgeUrls} disabled={purging || purgingAll}>
+                {purging ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
+                {purging ? "Purgando..." : "Purgar URLs"}
+              </Button>
+              <Button variant="destructive" onClick={handlePurgeAll} disabled={purging || purgingAll}>
+                {purgingAll ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <RefreshCw className="w-4 h-4 mr-2" />}
+                {purgingAll ? "Limpando tudo..." : "Purgar tudo após atualizar site"}
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
