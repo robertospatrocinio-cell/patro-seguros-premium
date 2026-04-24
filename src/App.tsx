@@ -130,6 +130,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
 const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
+const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 
 const QueryClientProvider = lazy(() =>
   import("@tanstack/react-query").then(({ QueryClient, QueryClientProvider }) => {
@@ -286,6 +287,7 @@ const App = () => (
             <Route path="/seguros/:tipo" element={<SegurosQuotePage />} />
             <Route path="/admin/purge-logs" element={<PurgeLogs />} />
             <Route path="/admin/performance" element={<PerformanceDiagnostico />} />
+            <Route path="/admin/seo-tecnico" element={<SeoTechnicalReport />} />
             <Route path="/admin/conversoes" element={<ConversionDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
