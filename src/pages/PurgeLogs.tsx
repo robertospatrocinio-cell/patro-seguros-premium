@@ -188,10 +188,16 @@ const PurgeLogs = () => {
                 Paths relativos (ex: /seguro-auto) serão prefixados com https://www.patroseguros.com.br
               </p>
             </div>
-            <Button onClick={handlePurgeUrls} disabled={purging}>
-              {purging ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
-              {purging ? "Purgando..." : "Purgar Cache"}
-            </Button>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button onClick={handlePurgeUrls} disabled={purging || purgingAll}>
+                {purging ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
+                {purging ? "Purgando..." : "Purgar URLs"}
+              </Button>
+              <Button variant="destructive" onClick={handlePurgeAll} disabled={purging || purgingAll}>
+                {purgingAll ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <RefreshCw className="w-4 h-4 mr-2" />}
+                {purgingAll ? "Limpando tudo..." : "Purgar tudo após atualizar site"}
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
