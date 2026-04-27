@@ -6394,6 +6394,44 @@ const BlogArticle = () => {
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="prose prose-lg max-w-none">
               {article.content.split("\n\n").map((p, i) => {
+                // Inline CTA block para o post Agrishow 2026
+                if (p.trim() === "[[CTA_AGRISHOW]]") {
+                  return (
+                    <div
+                      key={i}
+                      className="my-10 p-6 md:p-8 rounded-xl bg-primary text-primary-foreground shadow-elegant"
+                    >
+                      <div className="text-center">
+                        <span className="inline-block bg-[hsl(var(--cta))]/20 text-[hsl(var(--cta))] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                          Semana Agrishow 2026
+                        </span>
+                        <h3 className="text-xl md:text-2xl font-bold mb-2">
+                          Aproveite as condições especiais em seguro de máquinas agrícolas
+                        </h3>
+                        <p className="text-primary-foreground/80 text-sm md:text-base mb-6 max-w-xl mx-auto">
+                          Cotação prioritária em até 2 horas úteis, comparação entre 6 seguradoras e atendimento em todo o Brasil.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                          <Link to="/cotacao" onClick={() => trackCotacaoClick("blog-agrishow-inline")}>
+                            <Button size="lg" variant="cta" className="w-full sm:w-auto font-semibold">
+                              Pedir Cotação Agora <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+                          <a
+                            href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Agrishow%202026%20e%20quero%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20em%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackWhatsAppClick("blog-agrishow-inline")}
+                          >
+                            <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
+                              <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
+                            </Button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
                 // Parse markdown-style [text](url) links
                 const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
                 return (
