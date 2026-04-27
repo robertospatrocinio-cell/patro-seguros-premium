@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake, Warehouse } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -94,33 +94,37 @@ const InsuranceHeroSelector = () => {
   const updatePill = useCallback(() => {
     const btn = buttonRefs.current[active];
     const container = tabsRef.current;
-    if (btn && container) {
-      const btnRect = btn.getBoundingClientRect();
-      const containerLeft = container.getBoundingClientRect().left;
-      setPillStyle(prev => {
-        const newLeft = btnRect.left - containerLeft;
-        const newWidth = btnRect.width;
-        if (prev.left === newLeft && prev.width === newWidth) return prev;
-        return { left: newLeft, width: newWidth };
-      });
-    }
+    if (!btn || !container) return;
+    // Use offsetLeft/offsetWidth which are cached layout values
+    // and avoid forcing a synchronous getBoundingClientRect reflow.
+    const newLeft = btn.offsetLeft;
+    const newWidth = btn.offsetWidth;
+    setPillStyle(prev =>
+      prev.left === newLeft && prev.width === newWidth ? prev : { left: newLeft, width: newWidth }
+    );
   }, [active]);
 
-  useEffect(() => {
-    const id = requestAnimationFrame(updatePill);
-    return () => cancelAnimationFrame(id);
+  // useLayoutEffect runs after DOM mutations but before paint, so the pill
+  // position is read in the same layout pass — no extra forced reflow.
+  useLayoutEffect(() => {
+    updatePill();
   }, [updatePill]);
 
+  // Watch the tabs container with ResizeObserver instead of window resize.
+  // This only fires when the layout actually changes and runs in its own
+  // batched layout phase, eliminating the previous forced-reflow trace.
   useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    const handler = () => {
-      clearTimeout(timer);
-      timer = setTimeout(() => requestAnimationFrame(updatePill), 150);
-    };
-    window.addEventListener("resize", handler);
+    const container = tabsRef.current;
+    if (!container || typeof ResizeObserver === "undefined") return;
+    let frame = 0;
+    const ro = new ResizeObserver(() => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(updatePill);
+    });
+    ro.observe(container);
     return () => {
-      window.removeEventListener("resize", handler);
-      clearTimeout(timer);
+      cancelAnimationFrame(frame);
+      ro.disconnect();
     };
   }, [updatePill]);
 
