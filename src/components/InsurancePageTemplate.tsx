@@ -76,6 +76,7 @@ interface InsurancePageProps {
   contextualLinks?: ContextualSection;
   featuredArticle?: FeaturedArticle;
   showEbookConsorcio?: boolean;
+  showAgrishowBanner?: boolean;
 }
 
 const InsurancePageTemplate = ({
@@ -97,6 +98,7 @@ const InsurancePageTemplate = ({
   contextualLinks,
   featuredArticle,
   showEbookConsorcio,
+  showAgrishowBanner,
 }: InsurancePageProps) => {
   return (
     <>
