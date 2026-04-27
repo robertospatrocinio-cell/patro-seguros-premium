@@ -15,17 +15,24 @@ const SIZE_MAP = {
 
 const SeloMelhorCorretora = ({ size = "md", className = "", priority = false }: SeloMelhorCorretoraProps) => {
   const { cls, w } = SIZE_MAP[size];
+  const base = "/images/selo-melhor-corretora";
+  const webpSrcSet = `${base}.webp 1x, ${base}@2x.webp 2x, ${base}@3x.webp 3x`;
+  const pngSrcSet = `${base}.png 1x, ${base}@2x.png 2x, ${base}@3x.png 3x`;
   return (
-    <img
-      src="/images/selo-melhor-corretora.png"
-      alt="Selo Melhor Corretora de Seguros de Guarulhos"
-      width={w}
-      height={w}
-      loading={priority ? "eager" : "lazy"}
-      decoding={priority ? "sync" : "async"}
-      {...(priority ? { fetchPriority: "high" as const } : {})}
-      className={`${cls} object-contain transition-transform duration-300 hover:scale-110 ${className}`}
-    />
+    <picture>
+      <source type="image/webp" srcSet={webpSrcSet} />
+      <img
+        src={`${base}.png`}
+        srcSet={pngSrcSet}
+        alt="Selo Melhor Corretora de Seguros de Guarulhos"
+        width={w}
+        height={w}
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        {...(priority ? { fetchPriority: "high" as const } : {})}
+        className={`${cls} object-contain transition-transform duration-300 hover:scale-110 ${className}`}
+      />
+    </picture>
   );
 };
 

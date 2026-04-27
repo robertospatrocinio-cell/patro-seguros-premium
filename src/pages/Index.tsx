@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "@/components/OptimizedImage";
 import LazySection from "@/components/LazySection";
+import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
 // Lazy-load heavy below-fold components
 const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
@@ -21,8 +22,6 @@ const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
 const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
 const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
 const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
-
-const seloMelhorCorretora = "/images/selo-melhor-corretora.png";
 
 // Lazy load below-fold decorative images
 const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
@@ -87,7 +86,7 @@ const Index = () => {
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="mb-6 md:mb-8">
-                <img src={seloMelhorCorretora} alt="Melhor Corretora de Guarulhos" width={112} height={112} fetchPriority="high" decoding="sync" className="w-28 h-28 md:w-36 md:h-36 object-contain mx-auto" />
+                <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
                 Corretora de Seguros em Guarulhos
