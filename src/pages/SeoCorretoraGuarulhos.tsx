@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -16,6 +17,9 @@ const SeoCorretoraGuarulhos = () => (
     <main id="main-content">
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
+          <div className="flex justify-center mb-6">
+            <SeloMelhorCorretora size="lg" priority />
+          </div>
           <h1 className="text-white mb-6">Corretora de Seguros em Guarulhos — Patro Seguros</h1>
           <p className="text-xl text-white/70 mb-8">
             A Patro Seguros é a corretora de seguros mais completa de Guarulhos. Atendimento consultivo, cotação rápida e as melhores seguradoras do mercado.
@@ -33,7 +37,10 @@ const SeoCorretoraGuarulhos = () => (
 
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-center mb-12">Por Que Somos a Melhor Corretora de Guarulhos</h2>
+          <div className="flex flex-col items-center mb-10">
+            <SeloMelhorCorretora size="md" className="mb-4" />
+            <h2 className="text-center">Por Que Somos a Melhor Corretora de Guarulhos</h2>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Clock, title: "Cotação em 2h", desc: "Resposta rápida com as melhores opções." },
