@@ -6326,7 +6326,7 @@ Fale Com a Patro Agora e Garanta as Condições da Semana da Agrishow
 
 A janela é curta: as condições especiais valem durante a semana da feira. Não deixe sua máquina exposta a roubo, incêndio, tombamento ou danos elétricos por mais um dia.
 
-[Falar agora pelo WhatsApp com um especialista em seguro agrícola](https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20semana%20da%20Agrishow%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.) ou faça sua [cotação online de seguro agrícola](/cotacao) — atendemos todo o Brasil, do interior de SP ao MATOPIBA.`,
+[Falar agora pelo WhatsApp com um especialista em seguro agrícola](https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20semana%20da%20Agrishow%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.) ou faça sua [cotação online de seguro agrícola](/cotacao) — atendemos todo o Brasil, do interior de SP ao MATOPIBA.
 
 [[CTA_AGRISHOW]]`,
     faqs: [
