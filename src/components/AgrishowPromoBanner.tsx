@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
+import FAQSchema from "@/components/FAQSchema";
 
 interface Props {
   /** Onde o banner está sendo exibido (para tracking). Ex: 'home', 'seguro-rural'. */
@@ -13,9 +14,34 @@ interface Props {
 const WA_URL =
   "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20quero%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20Semana%20Agrishow%202026%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.";
 
+const AGRISHOW_FAQS = [
+  {
+    question: "Onde encontro o guia completo da Agrishow 2026?",
+    answer:
+      "O guia completo da Agrishow 2026 — com datas, local em Ribeirão Preto, marcas presentes (John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Jacto, Stara e outras) e condições especiais da Patro Seguros — está disponível no nosso blog em /blog/agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas.",
+  },
+  {
+    question: "Como peço cotação de seguro para máquinas agrícolas durante a Agrishow?",
+    answer:
+      "Você pode solicitar a cotação de três formas: (1) preenchendo o formulário em /seguro-maquinas-agricolas, (2) falando direto pelo WhatsApp (11) 5199-7500 ou (3) enviando a nota fiscal e dados da máquina por e-mail para contato@patroseguros.com.br. Devolvemos a comparação entre seguradoras em até 2 horas úteis.",
+  },
+  {
+    question: "Quais condições especiais a Patro Seguros oferece na Semana Agrishow 2026?",
+    answer:
+      "Durante a Semana Agrishow 2026, oferecemos cotação prioritária com retorno em até 2 horas úteis, comparação entre 6 seguradoras simultaneamente, condições diferenciadas em coberturas adicionais (quebra de máquina, danos elétricos e RC do operador), parcelamento facilitado e atendimento consultivo com análise técnica do uso real do equipamento.",
+  },
+  {
+    question: "A Patro Seguros atende produtores rurais de outros estados além de São Paulo?",
+    answer:
+      "Sim. A Patro Seguros atende produtores rurais e empresas do agronegócio em todo o território brasileiro, com cotação 100% online, assinatura digital e suporte humano por WhatsApp e telefone. Já protegemos máquinas em propriedades do Sul ao Norte do país, incluindo MATOPIBA, Mato Grosso, Goiás, Minas Gerais e o cinturão canavieiro paulista.",
+  },
+];
+
 const AgrishowPromoBanner = ({ source, variant = "full" }: Props) => {
   const isCompact = variant === "compact";
   return (
+    <>
+      {variant === "full" && <FAQSchema faqs={AGRISHOW_FAQS} />}
     <section
       aria-labelledby={`agrishow-banner-${source}`}
       className={isCompact ? "py-6 bg-primary" : "py-10 md:py-14 bg-primary"}
