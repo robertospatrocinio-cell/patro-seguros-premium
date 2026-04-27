@@ -109,6 +109,7 @@ const AgrishowPromoBanner = ({ source, variant = "full" }: Props) => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
