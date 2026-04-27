@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 const logoFull = "/images/logo-full.webp";
 
 const Footer = () => {
@@ -16,6 +17,9 @@ const Footer = () => {
             <p className="text-[13px] text-white/80 mb-6 leading-relaxed max-w-xs">
               Corretora de seguros em Guarulhos especializada em seguro auto, residencial, vida e empresarial. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.
             </p>
+            <div className="mb-6 max-w-xs">
+              <FooterReviewsBadge />
+            </div>
             <div className="flex gap-2">
               {[
                 { href: "https://www.instagram.com/patroseguros", icon: Instagram, label: "Instagram" },

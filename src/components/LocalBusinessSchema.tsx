@@ -129,6 +129,34 @@ const LocalBusinessSchema = () => {
       }
     ],
     "priceRange": "$$"
+    ,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Marcos L." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Atendimento rápido e personalizado. Conseguiram o melhor preço para meu seguro auto."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Carla P." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Equipe muito atenciosa. Me ajudaram com o sinistro do começo ao fim, sem burocracia."
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Eduardo S." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Profissionais de confiança. Já renovo meu seguro empresarial há 3 anos com eles."
+      }
+    ]
   };
 
   return (
