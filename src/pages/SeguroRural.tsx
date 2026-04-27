@@ -9,6 +9,7 @@ const SeguroRural = () => {
       subtitle="Proteção completa para o agronegócio em todo o Brasil. Atendemos produtores de todos os estados."
       icon="🚜"
       badge="Atendimento em Todo o Brasil"
+      showAgrishowBanner
       metaDescription="Seguro Rural para lavoura, pecuária e máquinas agrícolas em todo o Brasil. Subsídio do governo federal. Proteção contra seca, granizo e geada. Cotação grátis Patro Seguros."
       description="O Seguro Rural protege produtores contra perdas na lavoura, pecuária, máquinas agrícolas e benfeitorias. Fenômenos climáticos, pragas, doenças e acidentes podem comprometer toda a produção."
       detailedDescription={`O agronegócio brasileiro é um dos mais importantes do mundo, mas também um dos mais expostos a riscos climáticos e biológicos. Secas prolongadas, geadas devastadoras, granizo, excesso de chuvas, pragas e doenças podem destruir safras inteiras em questão de horas. Para o produtor rural, cada safra representa meses de trabalho e investimentos significativos em insumos, combustível e mão de obra.
