@@ -22,6 +22,7 @@ const SeguroResidencial = lazy(() => import("./pages/SeguroResidencial"));
 const SeguroViagem = lazy(() => import("./pages/SeguroViagem"));
 const SeguroFianca = lazy(() => import("./pages/SeguroFianca"));
 const PrevidenciaPrivada = lazy(() => import("./pages/PrevidenciaPrivada"));
+const Investimentos = lazy(() => import("./pages/Investimentos"));
 const SeguroMoto = lazy(() => import("./pages/SeguroMoto"));
 const SeguroSaude = lazy(() => import("./pages/SeguroSaude"));
 const SeguroOdonto = lazy(() => import("./pages/SeguroOdonto"));
