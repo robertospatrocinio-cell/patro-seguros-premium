@@ -7,7 +7,7 @@ const LocalBusinessSchema = () => {
     "alternateName": "Patro Corretora de Seguros",
     "image": [
       "https://www.patroseguros.com.br/images/logo-full.webp",
-      "https://www.patroseguros.com.br/images/selo-melhor-corretora.webp"
+      "https://www.patroseguros.com.br/images/selo-melhor-corretora.png"
     ],
     "url": "https://www.patroseguros.com.br",
     "telephone": "+551151997500",
