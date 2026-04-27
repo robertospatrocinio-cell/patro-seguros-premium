@@ -18,22 +18,22 @@ const AGRISHOW_FAQS = [
   {
     question: "Onde encontro o guia completo da Agrishow 2026?",
     answer:
-      "O guia completo da Agrishow 2026 — com datas, local em Ribeirão Preto, marcas presentes (John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Jacto, Stara e outras) e condições especiais da Patro Seguros — está disponível no nosso blog em /blog/agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas.",
+      "O guia completo está no blog da Patro Seguros, com datas, local em Ribeirão Preto, marcas presentes e condições especiais para seguro de máquinas agrícolas.",
   },
   {
     question: "Como peço cotação de seguro para máquinas agrícolas durante a Agrishow?",
     answer:
-      "Você pode solicitar a cotação de três formas: (1) preenchendo o formulário em /seguro-maquinas-agricolas, (2) falando direto pelo WhatsApp (11) 5199-7500 ou (3) enviando a nota fiscal e dados da máquina por e-mail para contato@patroseguros.com.br. Devolvemos a comparação entre seguradoras em até 2 horas úteis.",
+      "Em 3 passos: (1) envie os dados da máquina (marca, modelo, ano, valor e uso), (2) mande a NF pelo WhatsApp, e-mail ou formulário e (3) receba o comparativo em até 2 horas úteis.",
   },
   {
     question: "Quais condições especiais a Patro Seguros oferece na Semana Agrishow 2026?",
     answer:
-      "Durante a Semana Agrishow 2026, oferecemos cotação prioritária com retorno em até 2 horas úteis, comparação entre 6 seguradoras simultaneamente, condições diferenciadas em coberturas adicionais (quebra de máquina, danos elétricos e RC do operador), parcelamento facilitado e atendimento consultivo com análise técnica do uso real do equipamento.",
+      "Cotação prioritária em até 2 horas úteis, comparação entre 6 seguradoras e atendimento consultivo com condições diferenciadas em coberturas adicionais e parcelamento.",
   },
   {
     question: "A Patro Seguros atende produtores rurais de outros estados além de São Paulo?",
     answer:
-      "Sim. A Patro Seguros atende produtores rurais e empresas do agronegócio em todo o território brasileiro, com cotação 100% online, assinatura digital e suporte humano por WhatsApp e telefone. Já protegemos máquinas em propriedades do Sul ao Norte do país, incluindo MATOPIBA, Mato Grosso, Goiás, Minas Gerais e o cinturão canavieiro paulista.",
+      "Sim. Atendemos produtores e empresas do agronegócio em todo o Brasil, com cotação 100% online, assinatura digital e suporte por WhatsApp e telefone.",
   },
 ];
 
