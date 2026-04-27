@@ -28,9 +28,10 @@
     <meta property="og:locale" content="pt_BR" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <!-- Preconnect to critical third-party origins -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <!-- GTM and Facebook Pixel scripts are deferred until after load/interaction.
+         dns-prefetch resolves DNS early without spending a TLS handshake on origins
+         the page may not contact in the LCP window (avoids "unused preconnect"). -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
     <!-- Preload critical fonts -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
