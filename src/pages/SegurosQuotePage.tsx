@@ -1,10 +1,11 @@
 import { useParams, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
-import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
+const InsuranceQuoteForm = lazy(() => import("@/components/InsuranceQuoteForm"));
 import { formConfigs } from "@/lib/insuranceFormConfigs";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -51,7 +52,9 @@ const SegurosQuotePage = () => {
 
               {/* Right: Form */}
               <div className="md:sticky md:top-24">
-                <InsuranceQuoteForm config={config} />
+                <Suspense fallback={<div className="h-[480px] rounded-xl border bg-muted/30 animate-pulse" />}>
+                  <InsuranceQuoteForm config={config} />
+                </Suspense>
               </div>
             </div>
           </div>
