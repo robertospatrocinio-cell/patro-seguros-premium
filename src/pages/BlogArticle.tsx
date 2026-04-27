@@ -6295,6 +6295,8 @@ Nossa atuação no agro não é restrita a Guarulhos ou ao estado de São Paulo.
 
 Isso significa que, esteja você visitando a Agrishow ou acompanhando os lançamentos pelas redes sociais, pode contar com a gente para proteger qualquer máquina nova adquirida durante (ou depois) da feira.
 
+[[CTA_AGRISHOW]]
+
 Condições Especiais e Imperdíveis Durante a Semana da Agrishow
 
 Aproveitando o momento do agro, estamos com uma semana de condições especiais para fechar seguro de máquinas e equipamentos agrícolas:
@@ -6324,7 +6326,9 @@ Fale Com a Patro Agora e Garanta as Condições da Semana da Agrishow
 
 A janela é curta: as condições especiais valem durante a semana da feira. Não deixe sua máquina exposta a roubo, incêndio, tombamento ou danos elétricos por mais um dia.
 
-[Falar agora pelo WhatsApp com um especialista em seguro agrícola](https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20semana%20da%20Agrishow%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.) ou faça sua [cotação online de seguro agrícola](/cotacao) — atendemos todo o Brasil, do interior de SP ao MATOPIBA.`,
+[Falar agora pelo WhatsApp com um especialista em seguro agrícola](https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20semana%20da%20Agrishow%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.) ou faça sua [cotação online de seguro agrícola](/cotacao) — atendemos todo o Brasil, do interior de SP ao MATOPIBA.
+
+[[CTA_AGRISHOW]]`,
     faqs: [
       { q: "Quando e onde acontece a Agrishow 2026?", a: "A Agrishow 2026 acontece de 27 de abril a 1º de maio de 2026, das 8h às 18h, no parque de exposições em Ribeirão Preto (SP). É a 31ª edição da feira e reúne 800 marcas expositoras de mais de 50 países." },
       { q: "Quais são as principais marcas de máquinas e equipamentos presentes na Agrishow 2026?", a: "Entre as 800 marcas expositoras estão John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Fendt, AGCO, LS Tractor, Yanmar, Kubota e Mahindra (tratores e colheitadeiras); Jacto e Stara (pulverizadores e plantadeiras); Baldan, Tatu Marchesan e Jumil (implementos); Pinhalense (café); Valley, Lindsay e Bauer (irrigação); DJI Agriculture e XAG (drones); Trimble, Topcon e Solinftec (agricultura de precisão); além de Stihl, Husqvarna e as principais montadoras de caminhões." },
@@ -6390,6 +6394,44 @@ const BlogArticle = () => {
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="prose prose-lg max-w-none">
               {article.content.split("\n\n").map((p, i) => {
+                // Inline CTA block para o post Agrishow 2026
+                if (p.trim() === "[[CTA_AGRISHOW]]") {
+                  return (
+                    <div
+                      key={i}
+                      className="my-10 p-6 md:p-8 rounded-xl bg-primary text-primary-foreground shadow-elegant"
+                    >
+                      <div className="text-center">
+                        <span className="inline-block bg-[hsl(var(--cta))]/20 text-[hsl(var(--cta))] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                          Semana Agrishow 2026
+                        </span>
+                        <h3 className="text-xl md:text-2xl font-bold mb-2">
+                          Aproveite as condições especiais em seguro de máquinas agrícolas
+                        </h3>
+                        <p className="text-primary-foreground/80 text-sm md:text-base mb-6 max-w-xl mx-auto">
+                          Cotação prioritária em até 2 horas úteis, comparação entre 6 seguradoras e atendimento em todo o Brasil.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                          <Link to="/cotacao" onClick={() => trackCotacaoClick("blog-agrishow-inline")}>
+                            <Button size="lg" variant="cta" className="w-full sm:w-auto font-semibold">
+                              Pedir Cotação Agora <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+                          <a
+                            href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Agrishow%202026%20e%20quero%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20em%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackWhatsAppClick("blog-agrishow-inline")}
+                          >
+                            <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
+                              <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
+                            </Button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
                 // Parse markdown-style [text](url) links
                 const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
                 return (
