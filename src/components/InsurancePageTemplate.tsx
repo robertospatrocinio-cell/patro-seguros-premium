@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
+import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
@@ -157,6 +158,10 @@ const InsurancePageTemplate = ({
             </div>
           </div>
         </section>
+
+        {showAgrishowBanner && (
+          <AgrishowPromoBanner source={title.toLowerCase().replace(/\s+/g, "-")} variant="compact" />
+        )}
 
         {/* Descrição */}
         <section className="py-20" aria-labelledby="descricao-heading">
