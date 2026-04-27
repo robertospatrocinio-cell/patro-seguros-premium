@@ -6197,14 +6197,16 @@ Para se aprofundar, leia também nosso [guia completo do consórcio de imóveis]
     ],
   },
   "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": {
-    title: "Agrishow 2026 em Ribeirão Preto: Tudo Sobre a Maior Feira do Agro e Condições Especiais em Seguro de Máquinas Agrícolas",
-    content: `De 27 de abril a 1º de maio de 2026, Ribeirão Preto (SP) recebe a 31ª edição da Agrishow — a maior feira de tecnologia agrícola da América Latina e uma das maiores do mundo. São 800 marcas expositoras, mais de 50 países representados e a expectativa de cerca de 200 mil visitantes circulando pelo parque de exposições durante os cinco dias do evento.
+    title: "Agrishow 2026 Ribeirão Preto: Guia da Feira, Marcas Presentes (John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Jacto, Stara) e Condições Especiais em Seguro de Máquinas Agrícolas",
+    content: `De 27 de abril a 1º de maio de 2026, Ribeirão Preto (SP) recebe a 31ª edição da Agrishow — a maior feira de tecnologia agrícola da América Latina e uma das maiores do mundo. A Agrishow 2026 reúne 800 marcas expositoras, mais de 50 países representados e a expectativa de cerca de 200 mil visitantes circulando pelo parque de exposições do Centro Hípico de Ribeirão Preto, das 8h às 18h, durante os cinco dias do evento.
 
 E enquanto o agro brasileiro inteiro está com os olhos voltados para Ribeirão Preto, a Patro Seguros entra no clima da feira com uma semana de condições especiais e imperdíveis para seguro de máquinas e equipamentos agrícolas. Atendemos produtores e empresas em todo o território nacional — não importa se você está no interior de SP, no Mato Grosso, no Sul ou no MATOPIBA.
 
+Palavras-chave principais: Agrishow 2026, Agrishow Ribeirão Preto, feira agrícola Ribeirão Preto, seguro de máquinas agrícolas, seguro de tratores, seguro de colheitadeiras, seguro de pulverizadores, seguro agrícola Brasil.
+
 O Que é a Agrishow e Por Que Ela É Tão Importante
 
-A Agrishow é realizada anualmente em Ribeirão Preto desde 1994 e se consolidou como a vitrine oficial da inovação no agronegócio brasileiro. É na feira que as principais montadoras de máquinas, fabricantes de implementos, empresas de irrigação, biotecnologia, defensivos, fertilizantes e startups do agro lançam seus produtos para a próxima safra.
+A Agrishow é realizada anualmente em Ribeirão Preto, no interior de São Paulo, desde 1994, e se consolidou como a vitrine oficial da inovação no agronegócio brasileiro. É na feira de Ribeirão Preto que as principais montadoras de máquinas agrícolas, fabricantes de implementos, empresas de irrigação, biotecnologia, defensivos, fertilizantes e startups do agro lançam seus produtos para a próxima safra. A Agrishow Ribeirão Preto movimenta bilhões de reais em negócios todos os anos e é referência mundial em tecnologia agrícola.
 
 Em 2026, a edição traz como destaques:
 
@@ -6214,23 +6216,73 @@ Em 2026, a edição traz como destaques:
 - Linhas de crédito rural e novidades do Plano Safra apresentadas pelos principais bancos.
 - Pavilhões internacionais de Estados Unidos, Alemanha, Itália, China, Argentina e outros.
 
+Principais Marcas de Máquinas e Equipamentos Presentes na Agrishow 2026
+
+A Agrishow 2026 reúne praticamente todas as principais marcas de máquinas e equipamentos agrícolas do mundo. Conheça as marcas que estão presentes em Ribeirão Preto:
+
+Tratores e Colheitadeiras
+
+- John Deere — líder global em tratores, colheitadeiras (S-Series, T-Series), pulverizadores autopropelidos (4040, 4730) e plantadeiras de precisão.
+- Case IH (CNH Industrial) — referência em tratores Magnum, Puma, Maxxum e nas colheitadeiras Axial-Flow para grãos e cana.
+- New Holland (CNH Industrial) — tratores T6, T7, T8, colheitadeiras CR, plataformas de cana e equipamentos para pecuária.
+- Valtra (AGCO) — tratores BH, A, BM, S, fabricados em Mogi das Cruzes (SP), com forte presença no agro brasileiro.
+- Massey Ferguson (AGCO) — tratores MF 4700, 5700, 6700, 7700, 8700 e colheitadeiras MF Activa.
+- AGCO — grupo que reúne Valtra, Massey Ferguson, Fendt e Challenger.
+- Fendt (AGCO) — tratores premium de alta potência (série 1000) para grandes propriedades.
+- LS Tractor — montadora coreana com fábrica em Pernambuco, em forte expansão no Brasil.
+- Yanmar — tratores compactos e médios, ideais para olericultura, café e fruticultura.
+- Kubota — tratores compactos, motores e equipamentos para agricultura familiar e fruticultura.
+- Mahindra — montadora indiana presente no Brasil com tratores de média potência.
+- TAFE — fabricante indiano de tratores em ascensão no mercado brasileiro.
+
+Pulverizadores, Plantadeiras e Implementos
+
+- Jacto — referência brasileira em pulverizadores autopropelidos (Uniport), terrestres, aéreos e plantadeiras.
+- Stara — fabricante gaúcha líder em pulverizadores Imperador, plantadeiras Estrela, distribuidores Hércules e tecnologia Telemetria Stara.
+- Máquinas Agrícolas Jacto e Stara concentram boa parte das demonstrações dinâmicas da Agrishow.
+- Lavrale — implementos e plantadeiras.
+- Baldan — plantadeiras, grades, arados, subsoladores e implementos de preparo de solo.
+- Tatu Marchesan — implementos agrícolas (grades aradoras, plantadeiras, distribuidores).
+- Jumil — plantadeiras e semeadoras de precisão.
+- Stihl e Husqvarna — motosserras, roçadeiras, sopradores e equipamentos florestais.
+
+Colheita de Cana, Café e Algodão
+
+- John Deere CH950 e Case IH Austoft — colheitadeiras de cana líderes no Brasil.
+- Pinhalense — equipamentos de pós-colheita de café (lavadores, secadores, descascadores).
+- Miac e Penha — colheitadeiras de café e implementos cafeeiros.
+- Civemasa e Marchesan — pulverizadores e implementos para citros, cana e café.
+
+Irrigação, Drones e Agricultura de Precisão
+
+- Valley, Lindsay, Bauer, Fockink, Carborundum — pivôs centrais e sistemas de irrigação.
+- DJI Agriculture, XAG, SkyDrones — drones agrícolas para pulverização e mapeamento.
+- Trimble, Topcon, Hexagon, Leica Geosystems — agricultura de precisão, GPS e telemetria.
+- Solinftec, Climate FieldView (Bayer), AGRO+ (Stara) — plataformas digitais de gestão de fazenda.
+
+Caminhões e Linha Pesada
+
+- Volvo, Scania, Mercedes-Benz, Iveco, DAF, Volkswagen Caminhões — linha pesada para escoamento da safra.
+
+E muitas outras marcas, totalizando 800 expositores no parque da Agrishow 2026 em Ribeirão Preto.
+
 Por Que Visitar (ou Acompanhar) a Agrishow Importa Para Quem Tem Máquina no Campo
 
 Mesmo que você não vá presencialmente até Ribeirão Preto, é durante a Agrishow que se define boa parte do calendário comercial do agro. Concessionárias preparam ofertas agressivas, montadoras anunciam programas de financiamento exclusivos e muitos produtores fecham a compra ou troca de tratores, colheitadeiras, pulverizadores e implementos. Resultado: nas semanas que seguem a feira, há um aumento expressivo na movimentação de máquinas novas e usadas no Brasil inteiro.
 
 E onde tem máquina nova chegando à propriedade, tem também um ponto de atenção crítico: a proteção desse patrimônio.
 
-Patro Seguros: Especialista em Seguro de Máquinas e Equipamentos Agrícolas
+Patro Seguros: Especialista em Seguro de Máquinas e Equipamentos Agrícolas (Todas as Marcas)
 
-A Patro Seguros é especialista em proteção do agronegócio. Trabalhamos com as principais seguradoras do mercado e estruturamos apólices sob medida para cada tipo de equipamento e cada perfil de operação. Nossa expertise cobre toda a cadeia de máquinas do campo:
+A Patro Seguros é especialista em proteção do agronegócio. Trabalhamos com as principais seguradoras do mercado e estruturamos apólices sob medida para cada tipo de equipamento e cada perfil de operação. Protegemos máquinas de todas as marcas comercializadas no Brasil — John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Fendt, AGCO, LS Tractor, Yanmar, Kubota, Mahindra, Jacto, Stara, Baldan, Tatu Marchesan, Jumil, Pinhalense e muitas outras. Nossa expertise cobre toda a cadeia de máquinas do campo:
 
-- Tratores agrícolas (de pequeno, médio e grande porte)
-- Colheitadeiras (grãos, cana-de-açúcar, café, algodão)
-- Pulverizadores autopropelidos
-- Plantadeiras e semeadoras
+- Tratores agrícolas (John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Fendt, LS Tractor, Yanmar, Kubota, Mahindra)
+- Colheitadeiras de grãos, cana-de-açúcar, café e algodão (John Deere S-Series, Case IH Axial-Flow, New Holland CR, Case Austoft, John Deere CH950)
+- Pulverizadores autopropelidos (Jacto Uniport, Stara Imperador, John Deere 4040/4730, Case Patriot)
+- Plantadeiras e semeadoras (Stara Estrela, John Deere, Jumil, Baldan, Tatu Marchesan)
 - Plataformas de corte e implementos
 - Pivôs centrais e equipamentos de irrigação
-- Drones agrícolas
+- Drones agrícolas (DJI Agras, XAG)
 - Caminhões e máquinas de transporte interno da fazenda
 
 As coberturas vão muito além de roubo e incêndio. Trabalhamos com proteções específicas que o produtor rural realmente precisa: danos elétricos, quebra de máquinas, colisão e tombamento durante operação, RC do operador, danos a terceiros, transporte da máquina entre propriedades e até cobertura para máquinas alugadas ou financiadas com penhor rural.
@@ -6275,8 +6327,9 @@ A janela é curta: as condições especiais valem durante a semana da feira. Nã
 [Falar agora pelo WhatsApp com um especialista em seguro agrícola](https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20semana%20da%20Agrishow%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.) ou faça sua [cotação online de seguro agrícola](/cotacao) — atendemos todo o Brasil, do interior de SP ao MATOPIBA.`,
     faqs: [
       { q: "Quando e onde acontece a Agrishow 2026?", a: "A Agrishow 2026 acontece de 27 de abril a 1º de maio de 2026, das 8h às 18h, no parque de exposições em Ribeirão Preto (SP). É a 31ª edição da feira e reúne 800 marcas expositoras de mais de 50 países." },
+      { q: "Quais são as principais marcas de máquinas e equipamentos presentes na Agrishow 2026?", a: "Entre as 800 marcas expositoras estão John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Fendt, AGCO, LS Tractor, Yanmar, Kubota e Mahindra (tratores e colheitadeiras); Jacto e Stara (pulverizadores e plantadeiras); Baldan, Tatu Marchesan e Jumil (implementos); Pinhalense (café); Valley, Lindsay e Bauer (irrigação); DJI Agriculture e XAG (drones); Trimble, Topcon e Solinftec (agricultura de precisão); além de Stihl, Husqvarna e as principais montadoras de caminhões." },
       { q: "A Patro Seguros atende produtores fora de Guarulhos e do estado de São Paulo?", a: "Sim. A Patro Seguros atende produtores rurais e empresas do agronegócio em todo o território brasileiro, com cotação 100% online, assinatura digital e suporte humano. Já protegemos máquinas em propriedades do Sul ao Norte do país, incluindo MATOPIBA, Mato Grosso, Goiás, Minas Gerais e o cinturão canavieiro paulista." },
-      { q: "Quais máquinas e equipamentos agrícolas a Patro Seguros protege?", a: "Trabalhamos com tratores agrícolas, colheitadeiras (grãos, cana, café, algodão), pulverizadores autopropelidos, plantadeiras, semeadoras, plataformas de corte, implementos, pivôs centrais e equipamentos de irrigação, drones agrícolas e caminhões de transporte interno. Para máquinas industriais e de construção, também temos linhas específicas." },
+      { q: "A Patro Seguros faz seguro para máquinas de qualquer marca (John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Jacto, Stara)?", a: "Sim. Trabalhamos com seguro para todas as marcas comercializadas no Brasil: John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Fendt, AGCO, LS Tractor, Yanmar, Kubota, Mahindra, Jacto, Stara, Baldan, Tatu Marchesan, Jumil, Pinhalense, entre outras. Cobrimos tratores, colheitadeiras (grãos, cana, café, algodão), pulverizadores, plantadeiras, implementos, pivôs de irrigação, drones e caminhões." },
       { q: "Quais são as condições especiais da semana da Agrishow 2026?", a: "Durante a semana da feira, oferecemos cotação prioritária com retorno em até 2 horas úteis, análise simultânea de até 6 seguradoras, condições diferenciadas em coberturas adicionais (quebra de máquina, danos elétricos e RC do operador), parcelamento facilitado e atendimento consultivo com análise técnica do uso real da máquina." },
       { q: "Posso contratar seguro para máquina financiada ou com penhor rural?", a: "Sim. A maioria dos contratos de financiamento agrícola e operações de penhor rural exige seguro da máquina como garantia. A Patro Seguros estrutura apólices que atendem às exigências dos bancos e cooperativas de crédito (Banco do Brasil, Sicredi, Sicoob, Bradesco, Santander e outros) e protegem o produtor durante toda a vigência do financiamento." },
       { q: "Quanto tempo leva para emitir a apólice?", a: "Após o envio da nota fiscal ou ficha técnica da máquina, devolvemos a cotação comparativa em até 2 horas úteis. Com a aprovação, a apólice é emitida no mesmo dia, com assinatura digital — sem necessidade de deslocamento ou papelada física." },
