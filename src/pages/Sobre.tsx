@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import socioRoberto from "@/assets/socio-roberto.webp";
 import sociaSandra from "@/assets/socia-sandra.webp";
 
@@ -39,6 +40,9 @@ const Sobre = () => {
         {/* Hero */}
         <section className="gradient-hero py-20 md:py-28">
           <div className="container mx-auto px-4 max-w-4xl text-center">
+            <div className="flex justify-center mb-6">
+              <SeloMelhorCorretora size="lg" priority />
+            </div>
             <h1 className="text-white mb-4">Corretora de Seguros em Guarulhos — Conheça a Patro Seguros</h1>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Uma corretora feita de pessoas reais, com experiência real, cuidando de famílias e empresas reais em Guarulhos e em todo o Brasil.

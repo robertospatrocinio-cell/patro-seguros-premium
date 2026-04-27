@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
+import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 const logoFull = "/images/logo-full.webp";
 
 const Footer = () => {
@@ -19,6 +20,12 @@ const Footer = () => {
             </p>
             <div className="mb-6 max-w-xs">
               <FooterReviewsBadge />
+            </div>
+            <div className="flex items-center gap-4 mb-6">
+              <SeloMelhorCorretora size="sm" />
+              <p className="text-[12px] text-white/70 leading-snug">
+                Reconhecida como uma das <strong className="text-white/90">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
+              </p>
             </div>
             <div className="flex gap-2">
               {[

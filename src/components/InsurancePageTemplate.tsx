@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
+import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 
@@ -369,6 +370,9 @@ const InsurancePageTemplate = ({
         <section className="py-24 bg-primary/[0.03]" aria-labelledby="por-que-patro-heading">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-16">
+              <div className="flex justify-center mb-6">
+                <SeloMelhorCorretora size="md" />
+              </div>
               <h2 id="por-que-patro-heading">Por que contratar {title} com a Patro?</h2>
             </div>
             <ul className="grid md:grid-cols-2 gap-4 list-none">
