@@ -22,6 +22,7 @@ const SeguroResidencial = lazy(() => import("./pages/SeguroResidencial"));
 const SeguroViagem = lazy(() => import("./pages/SeguroViagem"));
 const SeguroFianca = lazy(() => import("./pages/SeguroFianca"));
 const PrevidenciaPrivada = lazy(() => import("./pages/PrevidenciaPrivada"));
+const Investimentos = lazy(() => import("./pages/Investimentos"));
 const SeguroMoto = lazy(() => import("./pages/SeguroMoto"));
 const SeguroSaude = lazy(() => import("./pages/SeguroSaude"));
 const SeguroOdonto = lazy(() => import("./pages/SeguroOdonto"));
@@ -289,6 +290,8 @@ const App = () => (
             <Route path="/admin/performance" element={<PerformanceDiagnostico />} />
             <Route path="/admin/seo-tecnico" element={<SeoTechnicalReport />} />
             <Route path="/admin/conversoes" element={<ConversionDashboard />} />
+            <Route path="/investimentos" element={<Investimentos />} />
+            <Route path="/planejamento-patrimonial" element={<Investimentos />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
