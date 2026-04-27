@@ -63,6 +63,7 @@ import blogConsorcioEletricos from "@/assets/blog/blog-consorcio-veiculos-eletri
 import blogMotoristaApp from "@/assets/blog/blog-seguro-motorista-app.webp";
 import blogCorretoraGuarulhos from "@/assets/blog/blog-corretora-seguros-guarulhos.webp";
 import blogPrecoSeguroAutoGuarulhos2026 from "@/assets/blog/blog-preco-seguro-auto-guarulhos-2026.webp";
+import blogAgrishow2026 from "@/assets/blog/blog-agrishow-2026.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
@@ -194,6 +195,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Vantagens do Consórcio
   "vantagens-do-consorcio-guia-completo": blogVantagensConsorcio,
+
+  // Agrishow 2026
+  "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": blogAgrishow2026,
 };
 
 export const getArticleImage = (slug: string): string => {

@@ -6196,6 +6196,94 @@ Para se aprofundar, leia também nosso [guia completo do consórcio de imóveis]
       { q: "Quanto custa a consultoria de consórcio na Patro Seguros?", a: "É 100% gratuita e sem compromisso. Fazemos simulação personalizada, comparativo entre financiamento e consórcio, e te orientamos sobre a melhor estratégia de lance — tudo sem custo. Você só paga as parcelas do plano após assinar o contrato com a administradora." },
     ],
   },
+  "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": {
+    title: "Agrishow 2026 em Ribeirão Preto: Tudo Sobre a Maior Feira do Agro e Condições Especiais em Seguro de Máquinas Agrícolas",
+    content: `De 27 de abril a 1º de maio de 2026, Ribeirão Preto (SP) recebe a 31ª edição da Agrishow — a maior feira de tecnologia agrícola da América Latina e uma das maiores do mundo. São 800 marcas expositoras, mais de 50 países representados e a expectativa de cerca de 200 mil visitantes circulando pelo parque de exposições durante os cinco dias do evento.
+
+E enquanto o agro brasileiro inteiro está com os olhos voltados para Ribeirão Preto, a Patro Seguros entra no clima da feira com uma semana de condições especiais e imperdíveis para seguro de máquinas e equipamentos agrícolas. Atendemos produtores e empresas em todo o território nacional — não importa se você está no interior de SP, no Mato Grosso, no Sul ou no MATOPIBA.
+
+O Que é a Agrishow e Por Que Ela É Tão Importante
+
+A Agrishow é realizada anualmente em Ribeirão Preto desde 1994 e se consolidou como a vitrine oficial da inovação no agronegócio brasileiro. É na feira que as principais montadoras de máquinas, fabricantes de implementos, empresas de irrigação, biotecnologia, defensivos, fertilizantes e startups do agro lançam seus produtos para a próxima safra.
+
+Em 2026, a edição traz como destaques:
+
+- Lançamentos de tratores autônomos, colheitadeiras com inteligência artificial e pulverizadores de precisão.
+- Demonstrações dinâmicas a campo com máquinas pesadas em operação real.
+- Soluções de agricultura de precisão, telemetria e gestão remota da frota.
+- Linhas de crédito rural e novidades do Plano Safra apresentadas pelos principais bancos.
+- Pavilhões internacionais de Estados Unidos, Alemanha, Itália, China, Argentina e outros.
+
+Por Que Visitar (ou Acompanhar) a Agrishow Importa Para Quem Tem Máquina no Campo
+
+Mesmo que você não vá presencialmente até Ribeirão Preto, é durante a Agrishow que se define boa parte do calendário comercial do agro. Concessionárias preparam ofertas agressivas, montadoras anunciam programas de financiamento exclusivos e muitos produtores fecham a compra ou troca de tratores, colheitadeiras, pulverizadores e implementos. Resultado: nas semanas que seguem a feira, há um aumento expressivo na movimentação de máquinas novas e usadas no Brasil inteiro.
+
+E onde tem máquina nova chegando à propriedade, tem também um ponto de atenção crítico: a proteção desse patrimônio.
+
+Patro Seguros: Especialista em Seguro de Máquinas e Equipamentos Agrícolas
+
+A Patro Seguros é especialista em proteção do agronegócio. Trabalhamos com as principais seguradoras do mercado e estruturamos apólices sob medida para cada tipo de equipamento e cada perfil de operação. Nossa expertise cobre toda a cadeia de máquinas do campo:
+
+- Tratores agrícolas (de pequeno, médio e grande porte)
+- Colheitadeiras (grãos, cana-de-açúcar, café, algodão)
+- Pulverizadores autopropelidos
+- Plantadeiras e semeadoras
+- Plataformas de corte e implementos
+- Pivôs centrais e equipamentos de irrigação
+- Drones agrícolas
+- Caminhões e máquinas de transporte interno da fazenda
+
+As coberturas vão muito além de roubo e incêndio. Trabalhamos com proteções específicas que o produtor rural realmente precisa: danos elétricos, quebra de máquinas, colisão e tombamento durante operação, RC do operador, danos a terceiros, transporte da máquina entre propriedades e até cobertura para máquinas alugadas ou financiadas com penhor rural.
+
+Para entender melhor cada modalidade, vale ler também nossos guias sobre [seguro para tratores](/blog/seguro-para-tratores), [seguro para colheitadeiras](/blog/seguro-para-colheitadeiras), [penhor rural e seguro de máquinas agrícolas](/blog/penhor-rural-seguro-maquinas-agricolas) e [seguro de pivô central e equipamentos de irrigação](/blog/seguro-pivo-central-equipamentos-irrigacao).
+
+Atendimento em Todo o Território Brasileiro
+
+Nossa atuação no agro não é restrita a Guarulhos ou ao estado de São Paulo. A Patro Seguros atende produtores rurais e empresas do agronegócio em todo o Brasil, com cotação 100% online, assinatura digital e suporte humano por WhatsApp e telefone. Já protegemos máquinas em propriedades do Rio Grande do Sul ao Pará, do oeste baiano ao Mato Grosso, passando por Goiás, Minas Gerais e o cinturão canavieiro paulista.
+
+Isso significa que, esteja você visitando a Agrishow ou acompanhando os lançamentos pelas redes sociais, pode contar com a gente para proteger qualquer máquina nova adquirida durante (ou depois) da feira.
+
+Condições Especiais e Imperdíveis Durante a Semana da Agrishow
+
+Aproveitando o momento do agro, estamos com uma semana de condições especiais para fechar seguro de máquinas e equipamentos agrícolas:
+
+- Cotação prioritária com retorno em até 2 horas úteis.
+- Análise de até 6 seguradoras simultaneamente para garantir o melhor preço.
+- Condições diferenciadas em coberturas adicionais (quebra de máquina, danos elétricos, RC operador).
+- Parcelamento facilitado para a apólice.
+- Atendimento consultivo: nossa equipe técnica analisa o uso real da máquina e monta a cobertura sem desperdício e sem buracos.
+
+As condições valem para máquinas novas, usadas, próprias, financiadas ou em arrendamento — e podem ser combinadas com proteções complementares como seguro de propriedade rural, seguro agrícola e seguro de transporte de cargas agro.
+
+Como Aproveitar a Promoção da Semana da Agrishow
+
+O processo é simples e 100% remoto:
+
+1. Entre em contato conosco pelo WhatsApp ou faça sua [cotação online](/cotacao).
+2. Envie a nota fiscal ou descrição da máquina (modelo, ano, valor, uso).
+3. Em até 2 horas úteis, devolvemos a comparação entre as principais seguradoras com a melhor relação coberturas × preço.
+4. Aprovou? Assinatura digital e apólice emitida no mesmo dia.
+
+Não importa se você fechou negócio no estande de uma montadora em Ribeirão Preto, se já tem a máquina parada na fazenda esperando proteção, ou se quer renovar uma apólice antiga com condições melhores: essa é a semana ideal para falar com a Patro.
+
+Para quem quer evitar erros clássicos na hora de contratar, vale a leitura do nosso artigo [3 coisas que o produtor rural esquece na hora de contratar um seguro de máquinas](/blog/3-erros-produtor-rural-seguro-maquinas) — pequenos detalhes que fazem toda a diferença na hora do sinistro.
+
+Fale Com a Patro Agora e Garanta as Condições da Semana da Agrishow
+
+A janela é curta: as condições especiais valem durante a semana da feira. Não deixe sua máquina exposta a roubo, incêndio, tombamento ou danos elétricos por mais um dia.
+
+[Falar agora pelo WhatsApp com um especialista em seguro agrícola](https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20semana%20da%20Agrishow%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.) ou faça sua [cotação online de seguro agrícola](/cotacao) — atendemos todo o Brasil, do interior de SP ao MATOPIBA.`,
+    faqs: [
+      { q: "Quando e onde acontece a Agrishow 2026?", a: "A Agrishow 2026 acontece de 27 de abril a 1º de maio de 2026, das 8h às 18h, no parque de exposições em Ribeirão Preto (SP). É a 31ª edição da feira e reúne 800 marcas expositoras de mais de 50 países." },
+      { q: "A Patro Seguros atende produtores fora de Guarulhos e do estado de São Paulo?", a: "Sim. A Patro Seguros atende produtores rurais e empresas do agronegócio em todo o território brasileiro, com cotação 100% online, assinatura digital e suporte humano. Já protegemos máquinas em propriedades do Sul ao Norte do país, incluindo MATOPIBA, Mato Grosso, Goiás, Minas Gerais e o cinturão canavieiro paulista." },
+      { q: "Quais máquinas e equipamentos agrícolas a Patro Seguros protege?", a: "Trabalhamos com tratores agrícolas, colheitadeiras (grãos, cana, café, algodão), pulverizadores autopropelidos, plantadeiras, semeadoras, plataformas de corte, implementos, pivôs centrais e equipamentos de irrigação, drones agrícolas e caminhões de transporte interno. Para máquinas industriais e de construção, também temos linhas específicas." },
+      { q: "Quais são as condições especiais da semana da Agrishow 2026?", a: "Durante a semana da feira, oferecemos cotação prioritária com retorno em até 2 horas úteis, análise simultânea de até 6 seguradoras, condições diferenciadas em coberturas adicionais (quebra de máquina, danos elétricos e RC do operador), parcelamento facilitado e atendimento consultivo com análise técnica do uso real da máquina." },
+      { q: "Posso contratar seguro para máquina financiada ou com penhor rural?", a: "Sim. A maioria dos contratos de financiamento agrícola e operações de penhor rural exige seguro da máquina como garantia. A Patro Seguros estrutura apólices que atendem às exigências dos bancos e cooperativas de crédito (Banco do Brasil, Sicredi, Sicoob, Bradesco, Santander e outros) e protegem o produtor durante toda a vigência do financiamento." },
+      { q: "Quanto tempo leva para emitir a apólice?", a: "Após o envio da nota fiscal ou ficha técnica da máquina, devolvemos a cotação comparativa em até 2 horas úteis. Com a aprovação, a apólice é emitida no mesmo dia, com assinatura digital — sem necessidade de deslocamento ou papelada física." },
+      { q: "Quais coberturas adicionais valem a pena contratar para máquinas agrícolas?", a: "As mais recomendadas para o agro são: quebra de máquina (cobre danos mecânicos e elétricos durante a operação), danos elétricos (raios e oscilações), colisão e tombamento, RC do operador (danos a terceiros), transporte da máquina entre propriedades e cobertura em propriedade arrendada. Nossa equipe analisa o uso real para indicar a combinação ideal sem encarecer a apólice." },
+      { q: "Como faço a cotação durante a semana da Agrishow?", a: "Você pode falar diretamente pelo WhatsApp (11) 5199-7500, fazer a cotação online em /cotacao ou enviar e-mail para contato@patroseguros.com.br. Basta informar o modelo, ano, valor e uso da máquina — devolvemos a melhor proposta em até 2 horas úteis." },
+    ],
+  },
 };
 
 const defaultArticle = {
