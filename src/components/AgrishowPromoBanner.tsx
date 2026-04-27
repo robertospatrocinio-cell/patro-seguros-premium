@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle, Sparkles } from "lucide-react";
+import { ArrowRight, MessageCircle, Sparkles, FileText, Send, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 import FAQSchema from "@/components/FAQSchema";
@@ -62,6 +62,29 @@ const AgrishowPromoBanner = ({ source, variant = "full" }: Props) => {
               <p className="text-primary-foreground/80 text-sm md:text-base mb-6 max-w-2xl mx-auto">
                 Cotação prioritária em até 2 horas úteis, comparação entre 6 seguradoras e atendimento em todo o Brasil. Veja o guia completo da feira em Ribeirão Preto.
               </p>
+            )}
+            {!isCompact && (
+              <ol className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-8 text-left">
+                {[
+                  { icon: FileText, step: "1", title: "Dados da máquina", desc: "Marca, modelo, ano, valor e uso (própria, arrendada ou prestação de serviço)." },
+                  { icon: Send, step: "2", title: "Envio da NF", desc: "Mande a nota fiscal pelo WhatsApp, e-mail ou formulário." },
+                  { icon: Clock, step: "3", title: "Resposta em 2h úteis", desc: "Comparativo entre 6 seguradoras com a melhor relação coberturas × preço." },
+                ].map(({ icon: Icon, step, title, desc }) => (
+                  <li
+                    key={step}
+                    className="bg-primary-foreground/10 border border-primary-foreground/15 rounded-lg p-4"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs font-bold">
+                        {step}
+                      </span>
+                      <Icon className="h-4 w-4 text-primary-foreground/80" aria-hidden="true" />
+                      <h3 className="text-sm font-semibold text-primary-foreground">{title}</h3>
+                    </div>
+                    <p className="text-xs text-primary-foreground/70 leading-relaxed">{desc}</p>
+                  </li>
+                ))}
+              </ol>
             )}
           </div>
           <div className={`flex flex-col sm:flex-row gap-3 ${isCompact ? "md:shrink-0" : "justify-center"}`}>
