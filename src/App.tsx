@@ -290,6 +290,8 @@ const App = () => (
             <Route path="/admin/performance" element={<PerformanceDiagnostico />} />
             <Route path="/admin/seo-tecnico" element={<SeoTechnicalReport />} />
             <Route path="/admin/conversoes" element={<ConversionDashboard />} />
+            <Route path="/investimentos" element={<Investimentos />} />
+            <Route path="/planejamento-patrimonial" element={<Investimentos />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
