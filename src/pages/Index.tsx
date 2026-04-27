@@ -22,6 +22,7 @@ const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
 const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
 const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
 const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
+import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
 // Lazy load below-fold decorative images
 const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
@@ -389,6 +390,8 @@ const Index = () => {
         </LazySection>
 
         {/* Últimos Artigos do Blog */}
+        <AgrishowPromoBanner source="home" variant="full" />
+
         <LazySection minHeight="500px">
         <Suspense fallback={null}><HomeBlogSection /></Suspense>
         </LazySection>

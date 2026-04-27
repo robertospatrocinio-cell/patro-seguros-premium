@@ -11,6 +11,7 @@ const SeguroMaquinasAgricolas = () => {
       icon="🚜"
       metaDescription="Seguro de Máquinas Agrícolas em todo o Brasil — tratores, colheitadeiras, plantadeiras e pulverizadores. Proteção contra incêndio, roubo e tombamento. Cotação grátis Patro Seguros."
       badge="Atendimento em Todo o Brasil"
+      showAgrishowBanner
       coverages={[
         { title: "Incêndio e Explosão", description: "Proteção contra danos causados por incêndio, raio e explosão nas máquinas agrícolas." },
         { title: "Roubo e Furto", description: "Cobertura contra roubo e furto qualificado de tratores e colheitadeiras." },
