@@ -6295,6 +6295,8 @@ Nossa atuação no agro não é restrita a Guarulhos ou ao estado de São Paulo.
 
 Isso significa que, esteja você visitando a Agrishow ou acompanhando os lançamentos pelas redes sociais, pode contar com a gente para proteger qualquer máquina nova adquirida durante (ou depois) da feira.
 
+[[CTA_AGRISHOW]]
+
 Condições Especiais e Imperdíveis Durante a Semana da Agrishow
 
 Aproveitando o momento do agro, estamos com uma semana de condições especiais para fechar seguro de máquinas e equipamentos agrícolas:
@@ -6325,6 +6327,8 @@ Fale Com a Patro Agora e Garanta as Condições da Semana da Agrishow
 A janela é curta: as condições especiais valem durante a semana da feira. Não deixe sua máquina exposta a roubo, incêndio, tombamento ou danos elétricos por mais um dia.
 
 [Falar agora pelo WhatsApp com um especialista em seguro agrícola](https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20da%20semana%20da%20Agrishow%20para%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas.) ou faça sua [cotação online de seguro agrícola](/cotacao) — atendemos todo o Brasil, do interior de SP ao MATOPIBA.`,
+
+[[CTA_AGRISHOW]]`,
     faqs: [
       { q: "Quando e onde acontece a Agrishow 2026?", a: "A Agrishow 2026 acontece de 27 de abril a 1º de maio de 2026, das 8h às 18h, no parque de exposições em Ribeirão Preto (SP). É a 31ª edição da feira e reúne 800 marcas expositoras de mais de 50 países." },
       { q: "Quais são as principais marcas de máquinas e equipamentos presentes na Agrishow 2026?", a: "Entre as 800 marcas expositoras estão John Deere, Case IH, New Holland, Valtra, Massey Ferguson, Fendt, AGCO, LS Tractor, Yanmar, Kubota e Mahindra (tratores e colheitadeiras); Jacto e Stara (pulverizadores e plantadeiras); Baldan, Tatu Marchesan e Jumil (implementos); Pinhalense (café); Valley, Lindsay e Bauer (irrigação); DJI Agriculture e XAG (drones); Trimble, Topcon e Solinftec (agricultura de precisão); além de Stihl, Husqvarna e as principais montadoras de caminhões." },
