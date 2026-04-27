@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
+import { useState, useRef, useEffect, useLayoutEffect, useCallback, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake, Warehouse } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
+const InsuranceQuoteForm = lazy(() => import("@/components/InsuranceQuoteForm"));
 import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
 import { trackCotacaoClick } from "@/lib/tracking";
 
@@ -226,7 +226,11 @@ const InsuranceHeroSelector = () => {
         <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
           <DialogTitle className="sr-only">{modalConfig?.title}</DialogTitle>
           <DialogDescription className="sr-only">{modalConfig?.subtitle}</DialogDescription>
-          {modalConfig && <InsuranceQuoteForm config={modalConfig} compact />}
+          {modalConfig && (
+            <Suspense fallback={<div className="py-8 text-center text-sm text-muted-foreground">Carregando…</div>}>
+              <InsuranceQuoteForm config={modalConfig} compact />
+            </Suspense>
+          )}
         </DialogContent>
       </Dialog>
     </>
