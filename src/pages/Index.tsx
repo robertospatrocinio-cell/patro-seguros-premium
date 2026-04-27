@@ -22,7 +22,7 @@ const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidge
 const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
 const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
 
-const seloMelhorCorretora = "/images/selo-melhor-corretora.webp";
+const seloMelhorCorretora = "/images/selo-melhor-corretora.png";
 
 // Lazy load below-fold decorative images
 const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
