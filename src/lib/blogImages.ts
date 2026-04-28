@@ -66,6 +66,7 @@ import blogPrecoSeguroAutoGuarulhos2026 from "@/assets/blog/blog-preco-seguro-au
 import blogAgrishow2026 from "@/assets/blog/blog-agrishow-2026.webp";
 import blogSeguroFrotaLogisticaGuarulhos from "@/assets/blog/blog-seguro-frota-logistica-guarulhos.webp";
 import blogSeguroVidaSucessao from "@/assets/blog/blog-seguro-vida-sucessao-patrimonial.webp";
+import blogSeguroMotoMenorPreco2026 from "@/assets/blog/blog-seguro-moto-menor-preco-2026.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
@@ -134,6 +135,7 @@ export const blogImageMap: Record<string, string> = {
 
   // Seguro Moto
   "seguro-moto-vale-a-pena": blogSeguroMoto,
+  "preco-seguro-moto-menor-nivel-2026": blogSeguroMotoMenorPreco2026,
 
   // Seguro Viagem
   "seguro-viagem-internacional": blogSeguroViagem,
