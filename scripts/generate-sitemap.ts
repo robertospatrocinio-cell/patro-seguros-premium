@@ -38,6 +38,7 @@ const seoLocalGuarulhos: SitemapEntry[] = [
   "/plano-saude-guarulhos",
   "/corretora-seguros-guarulhos",
   "/seguro-condominio-guarulhos",
+  "/seguros-shopping-maia-cidade-maia-guarulhos",
 ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const coreProducts: SitemapEntry[] = [
