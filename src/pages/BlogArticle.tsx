@@ -6947,6 +6947,9 @@ const BlogArticle = () => {
     ...article.faqs,
     ...(extraFaqBlock?.faqs ?? []),
     ...((extraFaqBlock?.timeline?.stages ?? []).map(s => ({ q: s.faqQ, a: s.faqA }))),
+    ...((extraFaqBlock?.comparison?.rows ?? [])
+      .filter(r => r.faqQ && r.faqA)
+      .map(r => ({ q: r.faqQ as string, a: r.faqA as string }))),
   ];
 
   return (
