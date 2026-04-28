@@ -130,8 +130,8 @@ const faqs = artigos.map(a => ({
 const Investimentos = () => (
   <>
     <PageMeta
-      title="Investimentos e Planejamento Patrimonial — Patro Seguros Guarulhos"
-      description="Estrat\u00e9gia financeira para constru\u00e7\u00e3o, prote\u00e7\u00e3o e sucess\u00e3o de patrim\u00f4nio: cons\u00f3rcio, previd\u00eancia privada e seguros estruturantes. Consultoria gratuita em Guarulhos."
+      title="Investimentos e Planejamento Patrimonial"
+      description="Construção, proteção e sucessão de patrimônio: consórcio, previdência privada e seguros estruturantes. Consultoria gratuita em Guarulhos."
     />
     <FAQSchema faqs={faqs} />
     <Header />
