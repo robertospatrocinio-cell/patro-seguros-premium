@@ -1,8 +1,124 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-shopping-maia.webp";
+import { MapPin, Navigation, Building2, Search } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const SEARCH_VARIATIONS = [
+  "Seguros Shopping Maia Guarulhos",
+  "Corretora de seguros Cidade Maia",
+  "Seguro para lojistas do Shopping Maia",
+  "Seguro para quiosques Shopping Maia",
+  "Corretora Via Alameda Guarulhos",
+  "Seguro empresarial Shopping Maia",
+  "Seguro auto estacionamento Shopping Maia",
+  "Seguro RC profissional Via Alameda",
+  "Seguro condomínio Cidade Maia",
+  "Seguro residencial perto do Shopping Maia",
+  "Patro Seguros Avenida Salgado Filho",
+  "Corretora em frente ao Shopping Maia",
+];
+
+const LocalInfoBlock = ({ position }: { position: "top" | "bottom" }) => (
+  <section
+    aria-label={position === "top" ? "Localização da corretora" : "Variações de busca e endereço"}
+    className="bg-secondary/40 border-y border-border py-10"
+  >
+    <div className="container mx-auto px-4 max-w-6xl">
+      <div className="grid lg:grid-cols-2 gap-8 items-start">
+        {/* Address & search variations */}
+        <div className="space-y-6">
+          <div className="flex items-start gap-3">
+            <MapPin className="w-6 h-6 text-accent shrink-0 mt-1" aria-hidden="true" />
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-primary mb-1">
+                {position === "top"
+                  ? "Estamos em frente ao Shopping Maia"
+                  : "Encontre a Patro Seguros no Shopping Maia / Cidade Maia"}
+              </h2>
+              <p className="text-foreground/80 leading-relaxed">
+                <strong>Patro Corretora de Seguros</strong> — Edifício Via Alameda, Sala 219<br />
+                Av. Salgado Filho, 2120 — Cidade Maia, Guarulhos/SP — CEP 07115-000<br />
+                Em frente ao <strong>Shopping Maia</strong>, ao lado do Parque Cidade Maia.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3 text-sm">
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Av.+Salgado+Filho,+2120+-+Cidade+Maia,+Guarulhos+-+SP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-md font-semibold hover:bg-accent/90 transition"
+            >
+              <Navigation className="w-4 h-4" aria-hidden="true" />
+              Como chegar (Google Maps)
+            </a>
+            <a
+              href="https://waze.com/ul?q=Av.+Salgado+Filho,+2120,+Cidade+Maia,+Guarulhos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:bg-primary/90 transition"
+            >
+              <Navigation className="w-4 h-4" aria-hidden="true" />
+              Abrir no Waze
+            </a>
+            <Link
+              to="/contato"
+              className="inline-flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded-md font-semibold hover:bg-primary/5 transition"
+            >
+              <Building2 className="w-4 h-4" aria-hidden="true" />
+              Agendar visita presencial
+            </Link>
+          </div>
+
+          <div>
+            <h3 className="flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-wide mb-3">
+              <Search className="w-4 h-4" aria-hidden="true" />
+              Também conhecidos como
+            </h3>
+            <ul className="flex flex-wrap gap-2">
+              {SEARCH_VARIATIONS.map((term) => (
+                <li
+                  key={term}
+                  className="text-xs md:text-sm bg-background border border-border text-foreground/80 px-3 py-1.5 rounded-full"
+                >
+                  {term}
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-muted-foreground mt-3">
+              Atendemos lojistas, quiosques, moradores, profissionais liberais e clientes que circulam diariamente
+              pelo <strong>Shopping Maia Guarulhos</strong> e pelo <strong>Edifício Via Alameda</strong>.
+            </p>
+          </div>
+        </div>
+
+        {/* Map */}
+        <div className="rounded-lg overflow-hidden border border-border shadow-sm bg-background">
+          <iframe
+            title="Mapa — Patro Seguros em frente ao Shopping Maia, Cidade Maia, Guarulhos"
+            src="https://www.google.com/maps?q=Av.+Salgado+Filho,+2120,+Cidade+Maia,+Guarulhos,+SP&output=embed"
+            width="100%"
+            height="320"
+            style={{ border: 0 }}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <div className="px-4 py-3 text-xs text-muted-foreground border-t border-border">
+            Referências próximas: <strong>Shopping Maia</strong>, Parque Cidade Maia, condomínios Cidade Maia e Maia Premium,
+            Avenida Salgado Filho. Estacionamento próprio no Edifício Via Alameda.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const SeoSegurosShoppingMaiaCidadeMaia = () => (
-  <InsurancePageTemplate
+  <>
+    <LocalInfoBlock position="top" />
+    <InsurancePageTemplate
     heroImage={heroImg}
     title="Seguros no Shopping Maia e Cidade Maia, Guarulhos"
     subtitle="Corretora de seguros ao lado do Shopping Maia, no Edifício Via Alameda — Cidade Maia, Guarulhos/SP. Atendimento presencial para lojistas, frequentadores, moradores e empresas do bairro."
@@ -115,7 +231,9 @@ Nossa equipe técnica acompanha o sinistro do início ao fim. Em caso de furto e
       { title: "Plano de Saúde Guarulhos", link: "/plano-saude-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/corretora-seguros-guarulhos" },
     ]}
-  />
+    />
+    <LocalInfoBlock position="bottom" />
+  </>
 );
 
 export default SeoSegurosShoppingMaiaCidadeMaia;
