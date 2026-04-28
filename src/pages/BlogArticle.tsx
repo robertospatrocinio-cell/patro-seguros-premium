@@ -6730,6 +6730,25 @@ const BlogArticle = () => {
                     </details>
                   ))}
                 </div>
+                {extraFaqBlock.relatedLink && (
+                  <div className="mt-6 rounded-lg border-l-4 border-primary bg-primary/5 p-5">
+                    <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-1">
+                      {extraFaqBlock.relatedLink.label}
+                    </p>
+                    <h3 className="text-lg font-bold text-foreground mb-2">
+                      <Link
+                        to={extraFaqBlock.relatedLink.to}
+                        className="hover:underline"
+                        onClick={() => trackCotacaoClick("blog-frota-faq-internal-link")}
+                      >
+                        {extraFaqBlock.relatedLink.anchor} →
+                      </Link>
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {extraFaqBlock.relatedLink.description}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
