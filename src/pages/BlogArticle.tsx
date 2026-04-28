@@ -6627,6 +6627,7 @@ const BlogArticle = () => {
   const allFaqs = [
     ...article.faqs,
     ...(extraFaqBlock?.faqs ?? []),
+    ...((extraFaqBlock?.timeline?.stages ?? []).map(s => ({ q: s.faqQ, a: s.faqA }))),
   ];
 
   return (
