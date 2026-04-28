@@ -6843,6 +6843,26 @@ const BlogArticle = () => {
                     <p className="text-sm text-muted-foreground">
                       {extraFaqBlock.relatedLink.description}
                     </p>
+                    {extraFaqBlock.relatedLink.variations && extraFaqBlock.relatedLink.variations.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-primary/20">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                          Veja também (páginas relacionadas)
+                        </p>
+                        <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                          {extraFaqBlock.relatedLink.variations.map((v, i) => (
+                            <li key={i}>
+                              <Link
+                                to={v.to}
+                                onClick={() => trackCotacaoClick(v.trackingLabel)}
+                                className="text-primary hover:text-primary/80 underline underline-offset-2"
+                              >
+                                {v.anchor}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
