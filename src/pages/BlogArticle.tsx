@@ -7205,6 +7205,32 @@ const BlogArticle = () => {
 
         <section className="py-12">
           <div className="container mx-auto px-4 max-w-3xl">
+            {/* CTA persistente — TOPO do post */}
+            <div className="mb-10 p-5 md:p-6 rounded-xl border border-primary/20 bg-primary/5 flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex-1 text-center sm:text-left">
+                <p className="text-sm font-semibold text-primary mb-1">Precisa de uma cotação agora?</p>
+                <p className="text-xs text-muted-foreground">Comparamos 16+ seguradoras parceiras. Resposta em até 2h úteis, sem compromisso.</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("blog-article-top")}
+                  className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1ebe57] transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
+                </a>
+                <Link
+                  to="/cotacao"
+                  onClick={() => trackCotacaoClick("blog-article-top")}
+                  className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-sm font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Pedir Cotação <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
             <div className="prose prose-lg max-w-none">
               {article.content.split("\n\n").map((p, i) => {
                 // Inline CTA block para o post Agrishow 2026
@@ -7564,19 +7590,31 @@ const BlogArticle = () => {
               </div>
             )}
 
-            <div className="mt-12 p-8 bg-muted rounded-xl text-center">
-              <h3 className="text-2xl font-bold mb-4">Precisa de Ajuda com Seguros?</h3>
-              <p className="text-muted-foreground mb-6">Fale com nossos especialistas e encontre a melhor proteção.</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/cotacao" onClick={() => trackCotacaoClick("blog-artigo")}>
-                  <Button size="lg">Cotação Rápida</Button>
-                </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("blog-artigo")}>
-                  <Button size="lg" variant="cta">
-                    <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp
-                  </Button>
+            {/* CTA persistente — FINAL do post */}
+            <div className="mt-12 p-8 md:p-10 bg-primary text-primary-foreground rounded-xl text-center shadow-elegant">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3">Pronto para uma cotação personalizada?</h3>
+              <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
+                Comparamos 16+ seguradoras parceiras e devolvemos a melhor proposta em até 2h úteis. Atendimento humano, sem call center.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("blog-article-bottom")}
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[#25D366] text-white text-base font-semibold hover:bg-[#1ebe57] transition-colors"
+                >
+                  <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
                 </a>
+                <Link
+                  to="/cotacao"
+                  onClick={() => trackCotacaoClick("blog-article-bottom")}
+                  className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-base font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Pedir Cotação <ArrowRight className="h-5 w-5" />
+                </Link>
               </div>
+              <p className="text-xs text-primary-foreground/60 mt-4">Seg. a sex., 9h às 18h. Sem compromisso de contratação.</p>
             </div>
 
             {/* Artigos Relacionados */}
