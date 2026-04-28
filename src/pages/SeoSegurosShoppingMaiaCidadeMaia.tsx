@@ -77,7 +77,6 @@ Nossa equipe técnica acompanha o sinistro do início ao fim. Em caso de furto e
       "Atendimento digital paralelo via WhatsApp e formulário online para quem prefere a distância",
     ]}
     faqs={[
-    faqs={[
       // ====== SEGURO AUTO – clientes e funcionários do Shopping Maia ======
       { question: "Seguro auto cobre furto ou roubo no estacionamento do Shopping Maia?", answer: "Sim. A cobertura de roubo/furto da apólice auto vale em qualquer local do território nacional, incluindo o estacionamento do Shopping Maia. Em caso de sinistro: 1) registre o BO online imediatamente; 2) avise a administração do shopping e solicite imagens do CFTV; 3) acione a seguradora pelo app ou pelo seu corretor Patro. Indenização integral costuma sair em 10 a 30 dias corridos." },
       { question: "Tive minha porta amassada no estacionamento do Shopping Maia. O seguro paga?", answer: "Sim, desde que sua apólice tenha cobertura de colisão (cobertura compreensiva). Se o autor for identificado pelas câmeras do shopping, a seguradora pode acionar o terceiro em regresso e devolver sua franquia. Sempre solicite o registro de ocorrência interna na administração e peça as imagens do CFTV nas primeiras 48h." },
