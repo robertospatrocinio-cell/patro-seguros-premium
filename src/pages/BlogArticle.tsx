@@ -7387,6 +7387,56 @@ const BlogArticle = () => {
               </div>
             )}
 
+            {slug === "seguro-vida-sucessao-patrimonial-itcmd" && (
+              <div className="mt-10 rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 via-background to-accent/10 p-6 md:p-8 shadow-sm">
+                <div className="flex items-start gap-3 mb-3">
+                  <Scale className="h-6 w-6 text-primary shrink-0 mt-1" aria-hidden="true" />
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-primary mb-2">
+                      Simule agora seu seguro de vida para sucessão patrimonial
+                    </h3>
+                    <p className="text-foreground/85 leading-relaxed">
+                      Receba em até <strong>2 horas úteis</strong> uma análise patrimonial gratuita: quanto sua família precisa
+                      em capital segurado para cobrir <strong>ITCMD, honorários, custas</strong> e manter o padrão de vida durante
+                      o inventário. Comparamos as <strong>16+ seguradoras</strong> parceiras e enviamos as 3 melhores propostas.
+                    </p>
+                  </div>
+                </div>
+
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-foreground/80 mb-6 mt-4">
+                  <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Cálculo personalizado por estado (alíquota ITCMD)</li>
+                  <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Estruturação de beneficiários (sem inventário)</li>
+                  <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Buy-Sell Agreement para sócios de empresas</li>
+                  <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Atendimento humano com corretor dedicado</li>
+                </ul>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="https://wa.me/551151997500?text=Ol%C3%A1%21%20Li%20o%20artigo%20sobre%20seguro%20de%20vida%20para%20sucess%C3%A3o%20patrimonial%20e%20gostaria%20de%20uma%20simula%C3%A7%C3%A3o%20personalizada%20para%20cobrir%20ITCMD%20e%20invent%C3%A1rio."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackWhatsAppClick("blog_cta_sucessao_patrimonial")}
+                    className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb955] text-white px-5 py-3 rounded-md font-semibold transition shadow-sm"
+                  >
+                    <MessageCircle className="h-5 w-5" aria-hidden="true" />
+                    Pedir simulação no WhatsApp
+                  </a>
+                  <Link
+                    to="/seguro-vida/formulario"
+                    onClick={() => trackCotacaoClick("blog_cta_sucessao_patrimonial")}
+                    className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/90 text-accent-foreground px-5 py-3 rounded-md font-semibold transition shadow-sm"
+                  >
+                    Solicitar cotação online
+                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </div>
+
+                <p className="text-xs text-muted-foreground mt-4">
+                  Atendimento de seg. a sex., 9h às 18h. Resposta inicial em até 2h úteis. Sem compromisso de contratação.
+                </p>
+              </div>
+            )}
+
             {article.faqs.length > 0 && (
               <div className="mt-12 border-t pt-8">
                 <h2 className="mb-6">Perguntas Frequentes</h2>
