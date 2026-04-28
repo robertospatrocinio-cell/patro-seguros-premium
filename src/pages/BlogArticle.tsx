@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
@@ -6491,6 +6492,55 @@ const BlogArticle = () => {
       {article.faqs.length > 0 && (
         <FAQSchema faqs={article.faqs.map(f => ({ question: f.q, answer: f.a }))} />
       )}
+      {meta && slug && (() => {
+        const articleUrl = `https://patroseguros.com.br/blog/${slug}`;
+        const imageUrl = `https://patroseguros.com.br${getArticleImage(slug)}`;
+        const blogPostingSchema = {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
+          "headline": article.title,
+          "description": meta.excerpt,
+          "image": [imageUrl],
+          "datePublished": meta.date,
+          "dateModified": meta.date,
+          "author": {
+            "@type": "Person",
+            "name": meta.author,
+            "url": "https://patroseguros.com.br/sobre",
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Patro Seguros",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://patroseguros.com.br/logo-full.webp",
+            },
+          },
+          "articleSection": meta.category,
+          "keywords": meta.tags.join(", "),
+          "wordCount": article.content.split(/\s+/).length,
+          "timeRequired": `PT${meta.readTime}M`,
+          "inLanguage": "pt-BR",
+          "isAccessibleForFree": true,
+        };
+        return (
+          <>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+            />
+            <BreadcrumbSchema
+              items={[
+                { name: "Início", url: "https://patroseguros.com.br/" },
+                { name: "Blog", url: "https://patroseguros.com.br/blog" },
+                { name: meta.category, url: "https://patroseguros.com.br/blog" },
+                { name: article.title, url: articleUrl },
+              ]}
+            />
+          </>
+        );
+      })()}
       <Header />
       <main id="main-content">
         <section className="gradient-hero py-16 relative overflow-hidden">
