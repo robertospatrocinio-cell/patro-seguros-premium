@@ -9,7 +9,7 @@ const SeguroArmazenagem = () => {
       subtitle="Proteja seus grãos, sementes e produtos armazenados contra perdas e danos. Atendemos produtores de todos os estados do Brasil."
       description="O Seguro de Armazenagem da Patro Seguros garante proteção completa para produtos agrícolas armazenados em silos, armazéns e graneleiros. Cobrimos riscos como incêndio, explosão, fenômenos naturais e contaminação, garantindo a segurança do seu investimento desde a colheita até a comercialização. Atendemos produtores e cooperativas em todos os estados — de Mato Grosso ao Paraná, de Goiás ao Rio Grande do Sul. Cotação e sinistro 100% remotos."
       icon="🏭"
-      metaDescription="Seguro de Armazenagem em todo o Brasil para grãos, sementes e produtos agrícolas em silos e armazéns. Proteção contra incêndio e contaminação. Cotação grátis Patro Seguros."
+      metaDescription="Seguro de Armazenagem para grãos, sementes e produtos agrícolas em silos e armazéns. Proteção contra incêndio e contaminação. Cotação grátis."
       badge="Atendimento em Todo o Brasil"
       coverages={[
         { title: "Incêndio e Explosão", description: "Proteção contra danos por incêndio, raio e explosão nos armazéns e silos." },

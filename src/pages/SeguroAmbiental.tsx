@@ -7,7 +7,7 @@ const SeguroAmbiental = () => (
     title="Seguro Ambiental"
     subtitle="Proteção contra riscos de danos ambientais e responsabilidade por poluição. Atendemos empresas de todos os estados do Brasil."
     icon="🌿"
-    metaDescription="Seguro Ambiental em todo o Brasil para indústrias, transportadoras e postos de combustível. Cobertura contra poluição, contaminação e remediação. Cotação grátis Patro Seguros."
+    metaDescription="Seguro Ambiental para indústrias, transportadoras e postos de combustível em todo o Brasil. Cobertura contra poluição e contaminação. Cotação grátis."
     badge="Atendimento em Todo o Brasil"
     description="O Seguro Ambiental protege empresas contra custos de remediação, danos a terceiros e responsabilidade civil por eventos de poluição e contaminação ambiental."
     detailedDescription={`A legislação ambiental brasileira é uma das mais rigorosas do mundo, e a responsabilidade ambiental é objetiva: a empresa é responsável pelos danos independentemente de culpa. Multas do IBAMA podem chegar a R$ 50 milhões. Custos de remediação (limpeza e descontaminação) podem superar o valor da própria empresa. Processos judiciais por danos ambientais podem se arrastar por décadas.

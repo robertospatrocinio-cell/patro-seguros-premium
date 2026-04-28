@@ -8,7 +8,7 @@ const LandingSeguroMotoristaApp = () => (
     heroEmoji="📱"
     headline="Você roda por app sem seguro? Seu próximo sinistro pode custar seu carro."
     subheadline="Seguro específico para Uber, 99 e inDrive. Cobertura real durante corridas, RC passageiros e carro reserva — para você não ficar parado sem ganhar."
-    metaDescription="Seguro para motorista de aplicativo em Guarulhos e região. Cobertura durante corridas, RC passageiros obrigatório, carro reserva estendido. Cotação grátis na Patro Seguros."
+    metaDescription="Seguro para motorista de aplicativo em Guarulhos: cobertura durante corridas, RC passageiros e carro reserva estendido. Cotação grátis."
     ctaText="Cotar Meu Seguro de App Grátis"
     ctaUrl="/seguro-motorista-app"
     urgencyText="Motoristas de app são os que mais precisam — e os que menos têm seguro"

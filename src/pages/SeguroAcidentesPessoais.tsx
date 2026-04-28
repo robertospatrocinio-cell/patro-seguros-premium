@@ -8,7 +8,7 @@ const SeguroAcidentesPessoais = () => {
       title="Seguro de Acidentes Pessoais"
       subtitle="Proteção financeira para você e sua família em caso de acidentes"
       icon="🛡️"
-      metaDescription="Seguro de Acidentes Pessoais — indenização por morte acidental, invalidez e despesas médicas. Proteção acessível para você e sua família. Cotação grátis Patro Seguros."
+      metaDescription="Seguro de Acidentes Pessoais: indenização por morte acidental, invalidez e despesas médicas. Proteção acessível para você e sua família."
       description="O Seguro de Acidentes Pessoais oferece indenização em casos de morte acidental, invalidez permanente e despesas médico-hospitalares decorrentes de acidentes."
       detailedDescription={`Acidentes são, por definição, eventos imprevisíveis. Uma queda, um acidente de trânsito, um acidente doméstico — situações corriqueiras podem resultar em afastamento do trabalho, despesas médicas elevadas, invalidez permanente ou até morte. O Seguro de Acidentes Pessoais existe para proteger financeiramente você e sua família quando o inesperado acontece.
 

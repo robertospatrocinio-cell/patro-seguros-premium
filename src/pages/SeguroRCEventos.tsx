@@ -8,7 +8,7 @@ const SeguroRCEventos = () => {
       title="Seguro RC Eventos e Exposições"
       subtitle="Proteção para organizadores de eventos contra danos a participantes e ao local"
       icon="🎪"
-      metaDescription="Seguro RC Eventos e Exposições. Proteção contra danos materiais, corporais e morais durante feiras, shows, congressos e eventos corporativos. Cotação grátis Patro Seguros."
+      metaDescription="Seguro RC para Eventos e Exposições: proteção contra danos a terceiros em feiras, shows, congressos e eventos corporativos. Cotação grátis."
       description="O Seguro de Responsabilidade Civil para Eventos e Exposições protege organizadores, promotores e expositores contra reclamações por danos materiais, corporais e morais causados a participantes, visitantes e ao local durante a realização do evento."
       detailedDescription={`Organizar um evento — seja uma feira comercial, congresso, show, exposição, festival, evento corporativo ou casamento de grande porte — envolve riscos significativos. Uma estrutura que desaba, um participante que se machuca, um incêndio no local, danos ao espaço alugado ou intoxicação alimentar são situações que podem gerar processos judiciais com indenizações altíssimas.
 

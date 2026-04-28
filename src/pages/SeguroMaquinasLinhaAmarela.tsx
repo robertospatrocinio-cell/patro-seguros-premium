@@ -16,7 +16,7 @@ O Seguro de Máquinas Linha Amarela cobre danos materiais (colisão, tombamento,
 
 Na Patro Seguros, somos especialistas em seguros para equipamentos pesados. Avaliamos o tipo de operação, frequência de deslocamento entre obras e condições de guarda para dimensionar a cobertura ideal ao menor custo.`}
       icon="🚜"
-      metaDescription="Seguro de Máquinas Linha Amarela — retroescavadeiras, escavadeiras, pás carregadeiras, tratores de esteira. Cobertura contra roubo, tombamento e incêndio. Cotação grátis Patro Seguros."
+      metaDescription="Seguro de Máquinas Linha Amarela: retroescavadeiras, escavadeiras, pás carregadeiras e tratores. Cobertura contra roubo, tombamento e incêndio. Cotação grátis."
       howItWorks={[
         { step: "1", title: "Inventário de Máquinas", description: "Catalogamos marca, modelo, ano, número de série e valor de mercado de cada equipamento" },
         { step: "2", title: "Análise de Risco", description: "Avaliamos tipo de operação, local de guarda, frequência de transporte e condições dos canteiros" },

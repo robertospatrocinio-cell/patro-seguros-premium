@@ -8,7 +8,7 @@ const SeguroDroneAgricola = () => {
       title="Seguro Drone Agrícola"
       subtitle="Proteção completa para drones utilizados na agricultura de precisão. Atendemos operadores de todos os estados do Brasil."
       icon="🚁"
-      metaDescription="Seguro para Drone Agrícola em todo o Brasil — proteção contra quedas, colisões e falhas técnicas em drones de pulverização e mapeamento. Cotação grátis Patro Seguros."
+      metaDescription="Seguro para Drone Agrícola: proteção contra quedas, colisões e falhas técnicas em drones de pulverização e mapeamento. Cotação grátis."
       badge="Atendimento em Todo o Brasil"
       description="Os drones agrícolas revolucionaram o campo, mas são equipamentos de alto valor sujeitos a quedas, colisões e falhas técnicas. Proteja seu investimento."
       detailedDescription={`A agricultura de precisão transformou o agronegócio brasileiro, e os drones estão no centro dessa revolução. Drones de pulverização como o DJI Agras T40 custam de R$ 150.000 a R$ 500.000. Um único equipamento pode cobrir centenas de hectares por dia, gerando economia de insumos e mão de obra.

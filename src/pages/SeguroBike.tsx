@@ -8,7 +8,7 @@ const SeguroBike = () => {
       title="Seguro Bike"
       subtitle="Proteção completa para sua bicicleta contra roubo, furto e acidentes — urbana, speed, MTB, gravel e elétrica"
       icon="🚲"
-      metaDescription="Seguro Bike para bicicletas urbanas, speed, MTB, gravel e elétricas. Proteção contra roubo, furto e danos acidentais. A partir de R$ 12/mês. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Bike para urbanas, speed, MTB, gravel e elétricas. Proteção contra roubo, furto e danos acidentais. A partir de R$ 12/mês. Cotação grátis."
       description="O Seguro Bike protege sua bicicleta — urbana, speed, MTB, gravel ou elétrica — contra roubo, furto qualificado, danos acidentais, acidentes pessoais do ciclista e responsabilidade civil. Com o crescimento do ciclismo no Brasil e o aumento do valor das bicicletas, proteger seu investimento deixou de ser opcional."
       detailedDescription={`O ciclismo no Brasil vive um momento de crescimento acelerado. Segundo a Aliança Bike, o mercado de bicicletas movimentou mais de R$ 3 bilhões em 2024, com aumento expressivo nas categorias premium e elétricas. Bicicletas de alta performance custam entre R$ 5.000 e R$ 80.000, e e-bikes podem ultrapassar R$ 30.000 — investimentos que merecem proteção adequada.
 

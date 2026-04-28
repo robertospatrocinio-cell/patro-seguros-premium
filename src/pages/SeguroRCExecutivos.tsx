@@ -8,7 +8,7 @@ const SeguroRCExecutivos = () => {
       title="Seguro RC Executivos (D&O)"
       subtitle="Proteção patrimonial para diretores, administradores e conselheiros"
       icon="👔"
-      metaDescription="Seguro RC Executivos (D&O) para diretores e administradores. Proteção contra processos, reclamações e indenizações. A Patro Seguros é especialista em RC. Cotação grátis."
+      metaDescription="Seguro RC Executivos (D&O) para diretores e administradores: proteção contra processos, reclamações e indenizações. Especialistas em RC."
       description="O Seguro de Responsabilidade Civil para Executivos — também conhecido como D&O (Directors & Officers) — protege o patrimônio pessoal de diretores, administradores, conselheiros e gestores contra reclamações por atos de gestão. A Patro Seguros é especialista neste tipo de seguro, oferecendo consultoria completa para proteger quem toma as decisões mais importantes da sua empresa."
       detailedDescription={`Em um cenário corporativo cada vez mais regulado e litigioso, executivos estão pessoalmente expostos a processos judiciais, administrativos e regulatórios decorrentes de suas decisões de gestão. O Seguro D&O é a principal ferramenta para blindar o patrimônio pessoal desses profissionais.
 
