@@ -7205,6 +7205,32 @@ const BlogArticle = () => {
 
         <section className="py-12">
           <div className="container mx-auto px-4 max-w-3xl">
+            {/* CTA persistente — TOPO do post */}
+            <div className="mb-10 p-5 md:p-6 rounded-xl border border-primary/20 bg-primary/5 flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex-1 text-center sm:text-left">
+                <p className="text-sm font-semibold text-primary mb-1">Precisa de uma cotação agora?</p>
+                <p className="text-xs text-muted-foreground">Comparamos 16+ seguradoras parceiras. Resposta em até 2h úteis, sem compromisso.</p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("blog-article-top")}
+                  className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1ebe57] transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
+                </a>
+                <Link
+                  to="/cotacao"
+                  onClick={() => trackCotacaoClick("blog-article-top")}
+                  className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-sm font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Pedir Cotação <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
             <div className="prose prose-lg max-w-none">
               {article.content.split("\n\n").map((p, i) => {
                 // Inline CTA block para o post Agrishow 2026
