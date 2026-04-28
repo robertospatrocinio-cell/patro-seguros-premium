@@ -6512,6 +6512,18 @@ const extraFaqsBySlug: Record<string, {
       anchor: "Seguro para Empresas e Frotas",
       to: "/seguro-frota",
       description: "Veja coberturas completas, exemplos de apólice, planos para 5 a 500+ veículos e solicite uma cotação comparativa entre 16+ seguradoras parceiras.",
+      variations: [
+        { anchor: "Seguro de Frota em Guarulhos", to: "/seguro-frota", trackingLabel: "blog-frota-anchor-frota-guarulhos" },
+        { anchor: "Seguro para Empresas (PJ)", to: "/seguros-para-empresas", trackingLabel: "blog-frota-anchor-seguro-empresas" },
+        { anchor: "Seguro Empresarial para Transportadoras", to: "/seguro-empresarial", trackingLabel: "blog-frota-anchor-seguro-empresarial" },
+        { anchor: "Cotação de Seguro de Frota", to: "/cotacao", trackingLabel: "blog-frota-anchor-cotacao-frota" },
+        { anchor: "Corretora de Seguros em Guarulhos", to: "/corretora-seguros-guarulhos", trackingLabel: "blog-frota-anchor-corretora-guarulhos" },
+        { anchor: "Seguro empresarial em Cumbica (polo logístico)", to: "/seguros-guarulhos/cumbica", trackingLabel: "blog-frota-anchor-bairro-cumbica" },
+        { anchor: "Seguro para frotas no Bonsucesso", to: "/seguros-guarulhos/bonsucesso", trackingLabel: "blog-frota-anchor-bairro-bonsucesso" },
+        { anchor: "Seguros no Jardim Maia, Guarulhos", to: "/seguros-guarulhos/jardim-maia", trackingLabel: "blog-frota-anchor-bairro-jardim-maia" },
+        { anchor: "Seguros na Vila Augusta", to: "/seguros-guarulhos/vila-augusta", trackingLabel: "blog-frota-anchor-bairro-vila-augusta" },
+        { anchor: "Seguros no Centro de Guarulhos", to: "/seguros-guarulhos/centro", trackingLabel: "blog-frota-anchor-bairro-centro" },
+      ],
     },
     timeline: {
       title: "Prazos por etapa do sinistro de frota",
