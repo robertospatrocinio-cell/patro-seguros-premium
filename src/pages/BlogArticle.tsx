@@ -6693,6 +6693,35 @@ const BlogArticle = () => {
               </div>
             )}
 
+            {extraFaqBlock && (
+              <div className="mt-12 border-t pt-8">
+                <h2 className="mb-2">{extraFaqBlock.title}</h2>
+                {extraFaqBlock.subtitle && (
+                  <p className="text-muted-foreground mb-6">{extraFaqBlock.subtitle}</p>
+                )}
+                <div className="space-y-5">
+                  {extraFaqBlock.faqs.map((faq, i) => (
+                    <details
+                      key={i}
+                      className="group rounded-lg border border-border bg-card p-4 open:shadow-sm"
+                    >
+                      <summary className="cursor-pointer list-none flex items-start justify-between gap-4">
+                        <h3 className="text-base md:text-lg font-semibold text-foreground">
+                          {faq.q}
+                        </h3>
+                        <span className="text-primary text-xl leading-none transition-transform group-open:rotate-45 shrink-0">
+                          +
+                        </span>
+                      </summary>
+                      <p className="text-muted-foreground mt-3 text-sm md:text-base">
+                        {faq.a}
+                      </p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {article.faqs.length > 0 && (
               <div className="mt-12 border-t pt-8">
                 <h2 className="mb-6">Perguntas Frequentes</h2>
