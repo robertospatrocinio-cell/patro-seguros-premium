@@ -6485,7 +6485,13 @@ const extraFaqsBySlug: Record<string, {
   title: string;
   subtitle?: string;
   faqs: { q: string; a: string }[];
-  relatedLink?: { label: string; anchor: string; to: string; description: string };
+  relatedLink?: {
+    label: string;
+    anchor: string;
+    to: string;
+    description: string;
+    variations?: { anchor: string; to: string; trackingLabel: string }[];
+  };
   timeline?: {
     title: string;
     subtitle?: string;
