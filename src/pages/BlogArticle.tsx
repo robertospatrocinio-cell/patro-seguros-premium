@@ -6485,7 +6485,13 @@ const extraFaqsBySlug: Record<string, {
   title: string;
   subtitle?: string;
   faqs: { q: string; a: string }[];
-  relatedLink?: { label: string; anchor: string; to: string; description: string };
+  relatedLink?: {
+    label: string;
+    anchor: string;
+    to: string;
+    description: string;
+    variations?: { anchor: string; to: string; trackingLabel: string }[];
+  };
   timeline?: {
     title: string;
     subtitle?: string;
@@ -6506,6 +6512,18 @@ const extraFaqsBySlug: Record<string, {
       anchor: "Seguro para Empresas e Frotas",
       to: "/seguro-frota",
       description: "Veja coberturas completas, exemplos de apólice, planos para 5 a 500+ veículos e solicite uma cotação comparativa entre 16+ seguradoras parceiras.",
+      variations: [
+        { anchor: "Seguro de Frota em Guarulhos", to: "/seguro-frota", trackingLabel: "blog-frota-anchor-frota-guarulhos" },
+        { anchor: "Seguro para Empresas (PJ)", to: "/seguros-para-empresas", trackingLabel: "blog-frota-anchor-seguro-empresas" },
+        { anchor: "Seguro Empresarial para Transportadoras", to: "/seguro-empresarial", trackingLabel: "blog-frota-anchor-seguro-empresarial" },
+        { anchor: "Cotação de Seguro de Frota", to: "/cotacao", trackingLabel: "blog-frota-anchor-cotacao-frota" },
+        { anchor: "Corretora de Seguros em Guarulhos", to: "/corretora-seguros-guarulhos", trackingLabel: "blog-frota-anchor-corretora-guarulhos" },
+        { anchor: "Seguro empresarial em Cumbica (polo logístico)", to: "/seguros-guarulhos/cumbica", trackingLabel: "blog-frota-anchor-bairro-cumbica" },
+        { anchor: "Seguro para frotas no Bonsucesso", to: "/seguros-guarulhos/bonsucesso", trackingLabel: "blog-frota-anchor-bairro-bonsucesso" },
+        { anchor: "Seguros no Jardim Maia, Guarulhos", to: "/seguros-guarulhos/jardim-maia", trackingLabel: "blog-frota-anchor-bairro-jardim-maia" },
+        { anchor: "Seguros na Vila Augusta", to: "/seguros-guarulhos/vila-augusta", trackingLabel: "blog-frota-anchor-bairro-vila-augusta" },
+        { anchor: "Seguros no Centro de Guarulhos", to: "/seguros-guarulhos/centro", trackingLabel: "blog-frota-anchor-bairro-centro" },
+      ],
     },
     timeline: {
       title: "Prazos por etapa do sinistro de frota",
@@ -6825,6 +6843,26 @@ const BlogArticle = () => {
                     <p className="text-sm text-muted-foreground">
                       {extraFaqBlock.relatedLink.description}
                     </p>
+                    {extraFaqBlock.relatedLink.variations && extraFaqBlock.relatedLink.variations.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-primary/20">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                          Veja também (páginas relacionadas)
+                        </p>
+                        <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                          {extraFaqBlock.relatedLink.variations.map((v, i) => (
+                            <li key={i}>
+                              <Link
+                                to={v.to}
+                                onClick={() => trackCotacaoClick(v.trackingLabel)}
+                                className="text-primary hover:text-primary/80 underline underline-offset-2"
+                              >
+                                {v.anchor}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
