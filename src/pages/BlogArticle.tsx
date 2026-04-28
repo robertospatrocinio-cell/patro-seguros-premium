@@ -6685,13 +6685,57 @@ const BlogArticle = () => {
           "timeRequired": `PT${meta.readTime}M`,
           "inLanguage": "pt-BR",
           "isAccessibleForFree": true,
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "h2", "h3"],
+          },
+          "about": meta.tags.slice(0, 5).map(t => ({ "@type": "Thing", "name": t })),
         };
+        const howToSchema = extraFaqBlock?.timeline ? {
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": extraFaqBlock.timeline.title,
+          "description": extraFaqBlock.timeline.subtitle ?? extraFaqBlock.timeline.title,
+          "inLanguage": "pt-BR",
+          "totalTime": "P30D",
+          "image": [imageUrl],
+          "supply": [
+            { "@type": "HowToSupply", "name": "Boletim de Ocorrência (BO)" },
+            { "@type": "HowToSupply", "name": "CNH do condutor" },
+            { "@type": "HowToSupply", "name": "CRLV do veículo" },
+            { "@type": "HowToSupply", "name": "CT-e e nota fiscal da carga" },
+            { "@type": "HowToSupply", "name": "Relatório do rastreador" },
+            { "@type": "HowToSupply", "name": "Laudo da gerenciadora de risco" },
+          ],
+          "tool": [
+            { "@type": "HowToTool", "name": "Central 24h da seguradora" },
+            { "@type": "HowToTool", "name": "Corretor de seguros (Patro Seguros)" },
+          ],
+          "step": extraFaqBlock.timeline.stages.map((s, i) => ({
+            "@type": "HowToStep",
+            "position": i + 1,
+            "name": s.label,
+            "text": `${s.eta}. ${s.bullets.join(". ")}.`,
+            "url": `${articleUrl}#etapa-${i + 1}`,
+            "itemListElement": s.bullets.map((b, j) => ({
+              "@type": "HowToDirection",
+              "position": j + 1,
+              "text": b,
+            })),
+          })),
+        } : null;
         return (
           <>
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
             />
+            {howToSchema && (
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+              />
+            )}
             <BreadcrumbSchema
               items={[
                 { name: "Início", url: "https://patroseguros.com.br/" },
