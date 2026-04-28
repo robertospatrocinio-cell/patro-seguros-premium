@@ -58,6 +58,7 @@ const SeoSeguroFrotaGuarulhos = lazy(() => import("./pages/SeoSeguroFrotaGuarulh
 const SeoSegurosPmeGuarulhos = lazy(() => import("./pages/SeoSegurosPmeGuarulhos"));
 const SeoSeguroMotoGuarulhos = lazy(() => import("./pages/SeoSeguroMotoGuarulhos"));
 const SeoSeguroCondominioGuarulhos = lazy(() => import("./pages/SeoSeguroCondominioGuarulhos"));
+const SeoSegurosShoppingMaiaCidadeMaia = lazy(() => import("./pages/SeoSegurosShoppingMaiaCidadeMaia"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
 const SeguroGeada = lazy(() => import("./pages/SeguroGeada"));
 const SeguroPropriedadeRural = lazy(() => import("./pages/SeguroPropriedadeRural"));
@@ -216,6 +217,7 @@ const App = () => (
             <Route path="/seguros-empresariais-pme-guarulhos" element={<SeoSegurosPmeGuarulhos />} />
             <Route path="/seguro-moto-guarulhos" element={<SeoSeguroMotoGuarulhos />} />
             <Route path="/seguro-condominio-guarulhos" element={<SeoSeguroCondominioGuarulhos />} />
+            <Route path="/seguros-shopping-maia-cidade-maia-guarulhos" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
             <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
             <Route path="/seguro-geada" element={<SeguroGeada />} />
             <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />

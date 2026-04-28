@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, Facebook, Linkedin, Send, CheckCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -223,6 +224,7 @@ const Contato = () => {
                     <div className="border-t pt-5">
                       <h4 className="font-semibold text-sm mb-3">Como Chegar</h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
+                        <li>• Em frente ao <Link to="/seguros-shopping-maia-cidade-maia-guarulhos" className="text-primary hover:underline font-medium">Shopping Maia</Link>, na Cidade Maia</li>
                         <li>• Próximo ao Aeroporto Internacional de Guarulhos</li>
                         <li>• Fácil acesso pela Rodovia Dutra</li>
                         <li>• Estacionamento no local</li>
