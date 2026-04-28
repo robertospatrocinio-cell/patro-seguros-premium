@@ -6660,6 +6660,41 @@ const BlogArticle = () => {
         </section>
       </main>
       <Footer />
+      {slug === "como-pagar-menos-seguro-frota-logistica-guarulhos" && (
+        <div
+          className="fixed bottom-0 inset-x-0 z-40 border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.1)]"
+          role="region"
+          aria-label="Cotação de seguro de frota"
+        >
+          <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
+            <p className="text-sm font-semibold text-foreground text-center sm:text-left flex-1">
+              Reduza o custo do seguro da sua frota — fale com um especialista.
+            </p>
+            <div className="flex gap-2 w-full sm:w-auto">
+              <Link
+                to="/seguro-frota"
+                onClick={() => trackCotacaoClick("blog-frota-sticky")}
+                className="flex-1 sm:flex-initial"
+              >
+                <Button size="default" className="w-full font-semibold">
+                  Pedir Cotação
+                </Button>
+              </Link>
+              <a
+                href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20quero%20cota%C3%A7%C3%A3o%20de%20seguro%20de%20frota%20para%20minha%20transportadora%20em%20Guarulhos."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("blog-frota-sticky")}
+                className="flex-1 sm:flex-initial"
+              >
+                <Button size="default" variant="cta" className="w-full font-semibold">
+                  <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
