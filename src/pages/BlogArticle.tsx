@@ -6830,6 +6830,47 @@ const BlogArticle = () => {
               </div>
             )}
 
+            {extraFaqBlock?.timeline && (
+              <div className="mt-12 border-t pt-8">
+                <h2 className="mb-2">{extraFaqBlock.timeline.title}</h2>
+                {extraFaqBlock.timeline.subtitle && (
+                  <p className="text-muted-foreground mb-6">
+                    {extraFaqBlock.timeline.subtitle}
+                  </p>
+                )}
+                <ol className="relative border-l-2 border-primary/30 pl-6 space-y-6">
+                  {extraFaqBlock.timeline.stages.map((stage, i) => (
+                    <li key={i} className="relative">
+                      <span className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+                        <Clock className="h-3.5 w-3.5" />
+                      </span>
+                      <div className="rounded-lg border border-border bg-card p-5">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                          <h3 className="text-base md:text-lg font-semibold text-foreground">
+                            {stage.label}
+                          </h3>
+                          <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                            <Clock className="h-3 w-3" /> {stage.eta}
+                          </span>
+                        </div>
+                        <ul className="space-y-1.5 text-sm md:text-base text-muted-foreground">
+                          {stage.bullets.map((b, j) => (
+                            <li key={j} className="flex gap-2">
+                              <span className="text-primary mt-1 shrink-0">•</span>
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+                <p className="text-xs text-muted-foreground mt-4 italic">
+                  Prazos baseados em normas SUSEP e prática de mercado. Podem variar conforme seguradora, complexidade do sinistro e completude da documentação.
+                </p>
+              </div>
+            )}
+
             {article.faqs.length > 0 && (
               <div className="mt-12 border-t pt-8">
                 <h2 className="mb-6">Perguntas Frequentes</h2>
