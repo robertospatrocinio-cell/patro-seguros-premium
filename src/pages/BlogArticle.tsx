@@ -6486,6 +6486,17 @@ const extraFaqsBySlug: Record<string, {
   subtitle?: string;
   faqs: { q: string; a: string }[];
   relatedLink?: { label: string; anchor: string; to: string; description: string };
+  timeline?: {
+    title: string;
+    subtitle?: string;
+    stages: {
+      label: string;
+      eta: string;
+      bullets: string[];
+      faqQ: string;
+      faqA: string;
+    }[];
+  };
 }> = {
   "como-pagar-menos-seguro-frota-logistica-guarulhos": {
     title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
@@ -6495,6 +6506,72 @@ const extraFaqsBySlug: Record<string, {
       anchor: "Seguro para Empresas e Frotas",
       to: "/seguro-frota",
       description: "Veja coberturas completas, exemplos de apólice, planos para 5 a 500+ veículos e solicite uma cotação comparativa entre 16+ seguradoras parceiras.",
+    },
+    timeline: {
+      title: "Prazos por etapa do sinistro de frota",
+      subtitle: "Linha do tempo realista, da comunicação à indenização — referências SUSEP e prática de mercado.",
+      stages: [
+        {
+          label: "1. Comunicação do sinistro",
+          eta: "Até 24h–48h após o evento",
+          bullets: [
+            "Registrar BO em até 24h (roubo, furto, colisão com vítima ou incêndio)",
+            "Acionar central 24h da seguradora ou corretor para abrir aviso",
+            "Solicitar guincho e veículo reserva no mesmo contato",
+            "Anotar protocolo, nome do atendente e data/hora da abertura",
+          ],
+          faqQ: "Em quanto tempo devo comunicar um sinistro de frota à seguradora?",
+          faqA: "O ideal é comunicar nas primeiras 24h e, no máximo, em 48h. Atrasos sem justificativa podem ser interpretados como agravamento de risco e gerar negativa de cobertura. Em roubo, furto e colisão com vítima, o BO em até 24h é obrigatório.",
+        },
+        {
+          label: "2. Análise inicial e regulação",
+          eta: "1 a 3 dias úteis após a abertura",
+          bullets: [
+            "Seguradora abre o processo e designa o regulador",
+            "Validação de vigência da apólice e enquadramento da cobertura",
+            "Solicitação formal da lista de documentos por e-mail",
+            "Definição se o caso terá vistoria presencial ou remota",
+          ],
+          faqQ: "Quanto tempo a seguradora leva para iniciar a análise do sinistro?",
+          faqA: "Entre 1 e 3 dias úteis após o aviso. Nesse intervalo, a seguradora valida a apólice, abre o processo de regulação e envia a lista oficial de documentos. Frotas com corretor especializado (como a Patro) costumam ter esse prazo reduzido pela mediação direta com o regulador.",
+        },
+        {
+          label: "3. Envio de documentos",
+          eta: "Até 5 dias úteis (envio do segurado)",
+          bullets: [
+            "BO, CNH do condutor, CRLV e CT-e/nota fiscal da carga",
+            "Fotos do local, dos danos e do hodômetro",
+            "Relatório do rastreador e laudo da gerenciadora de risco",
+            "Comprovante de cumprimento do plano de viagem (cargas)",
+          ],
+          faqQ: "Quais documentos enviar e em quanto tempo?",
+          faqA: "Envie a documentação completa em até 5 dias úteis após o pedido formal: BO, CNH, CRLV, CT-e, notas fiscais, fotos, relatório do rastreador e laudo da gerenciadora. Documentação enviada em partes reinicia o prazo de análise — concentre tudo em um único envio.",
+        },
+        {
+          label: "4. Vistoria e laudo técnico",
+          eta: "3 a 10 dias úteis após documentos",
+          bullets: [
+            "Agendamento da vistoria em até 3 dias úteis",
+            "Vistoria presencial em oficina credenciada ou pátio",
+            "Emissão do laudo de danos e orçamento",
+            "Decisão entre conserto, perda parcial ou perda total",
+          ],
+          faqQ: "Quanto tempo demora a vistoria do veículo da frota?",
+          faqA: "A seguradora agenda em até 3 dias úteis e o laudo técnico fica pronto em 3 a 10 dias úteis, dependendo da complexidade. Para perda total, exige-se desmonte e checagem de chassi, o que pode estender o prazo em mais 5 dias úteis.",
+        },
+        {
+          label: "5. Conclusão e pagamento",
+          eta: "Até 30 dias após documentação completa",
+          bullets: [
+            "Reparo em oficina credenciada: 5 a 15 dias úteis",
+            "Perda total de veículo: pagamento em até 30 dias",
+            "Roubo/furto: 30 dias de carência + 30 dias para pagamento",
+            "RCF-DC (carga roubada): até 30 dias após laudo da gerenciadora",
+          ],
+          faqQ: "Em quantos dias a seguradora paga a indenização?",
+          faqA: "O prazo SUSEP é de até 30 dias corridos contados a partir da entrega completa dos documentos. Pedidos de documentos complementares só podem ser feitos uma única vez e reiniciam o prazo. Na Patro, acompanhamos cada etapa para evitar pedidos repetidos e travas no processo.",
+        },
+      ],
     },
     faqs: [
       {
@@ -6550,6 +6627,7 @@ const BlogArticle = () => {
   const allFaqs = [
     ...article.faqs,
     ...(extraFaqBlock?.faqs ?? []),
+    ...((extraFaqBlock?.timeline?.stages ?? []).map(s => ({ q: s.faqQ, a: s.faqA }))),
   ];
 
   return (
@@ -6749,6 +6827,47 @@ const BlogArticle = () => {
                     </p>
                   </div>
                 )}
+              </div>
+            )}
+
+            {extraFaqBlock?.timeline && (
+              <div className="mt-12 border-t pt-8">
+                <h2 className="mb-2">{extraFaqBlock.timeline.title}</h2>
+                {extraFaqBlock.timeline.subtitle && (
+                  <p className="text-muted-foreground mb-6">
+                    {extraFaqBlock.timeline.subtitle}
+                  </p>
+                )}
+                <ol className="relative border-l-2 border-primary/30 pl-6 space-y-6">
+                  {extraFaqBlock.timeline.stages.map((stage, i) => (
+                    <li key={i} className="relative">
+                      <span className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
+                        <Clock className="h-3.5 w-3.5" />
+                      </span>
+                      <div className="rounded-lg border border-border bg-card p-5">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                          <h3 className="text-base md:text-lg font-semibold text-foreground">
+                            {stage.label}
+                          </h3>
+                          <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                            <Clock className="h-3 w-3" /> {stage.eta}
+                          </span>
+                        </div>
+                        <ul className="space-y-1.5 text-sm md:text-base text-muted-foreground">
+                          {stage.bullets.map((b, j) => (
+                            <li key={j} className="flex gap-2">
+                              <span className="text-primary mt-1 shrink-0">•</span>
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+                <p className="text-xs text-muted-foreground mt-4 italic">
+                  Prazos baseados em normas SUSEP e prática de mercado. Podem variar conforme seguradora, complexidade do sinistro e completude da documentação.
+                </p>
               </div>
             )}
 
