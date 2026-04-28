@@ -6481,10 +6481,21 @@ const defaultArticle = {
 };
 
 // FAQs extras por slug — focadas em SEO e conversão (cobertura, franquia, sinistro)
-const extraFaqsBySlug: Record<string, { title: string; subtitle?: string; faqs: { q: string; a: string }[] }> = {
+const extraFaqsBySlug: Record<string, {
+  title: string;
+  subtitle?: string;
+  faqs: { q: string; a: string }[];
+  relatedLink?: { label: string; anchor: string; to: string; description: string };
+}> = {
   "como-pagar-menos-seguro-frota-logistica-guarulhos": {
     title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
     subtitle: "Tire as principais dúvidas técnicas sobre apólice de frota para empresas de logística",
+    relatedLink: {
+      label: "Página principal",
+      anchor: "Seguro para Empresas e Frotas",
+      to: "/seguro-frota",
+      description: "Veja coberturas completas, exemplos de apólice, planos para 5 a 500+ veículos e solicite uma cotação comparativa entre 16+ seguradoras parceiras.",
+    },
     faqs: [
       {
         q: "Quais coberturas são obrigatórias no seguro de frota para transportadoras?",
@@ -6719,6 +6730,25 @@ const BlogArticle = () => {
                     </details>
                   ))}
                 </div>
+                {extraFaqBlock.relatedLink && (
+                  <div className="mt-6 rounded-lg border-l-4 border-primary bg-primary/5 p-5">
+                    <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-1">
+                      {extraFaqBlock.relatedLink.label}
+                    </p>
+                    <h3 className="text-lg font-bold text-foreground mb-2">
+                      <Link
+                        to={extraFaqBlock.relatedLink.to}
+                        className="hover:underline"
+                        onClick={() => trackCotacaoClick("blog-frota-faq-internal-link")}
+                      >
+                        {extraFaqBlock.relatedLink.anchor} →
+                      </Link>
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {extraFaqBlock.relatedLink.description}
+                    </p>
+                  </div>
+                )}
               </div>
             )}
 
