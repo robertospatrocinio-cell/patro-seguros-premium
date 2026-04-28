@@ -6481,10 +6481,21 @@ const defaultArticle = {
 };
 
 // FAQs extras por slug — focadas em SEO e conversão (cobertura, franquia, sinistro)
-const extraFaqsBySlug: Record<string, { title: string; subtitle?: string; faqs: { q: string; a: string }[] }> = {
+const extraFaqsBySlug: Record<string, {
+  title: string;
+  subtitle?: string;
+  faqs: { q: string; a: string }[];
+  relatedLink?: { label: string; anchor: string; to: string; description: string };
+}> = {
   "como-pagar-menos-seguro-frota-logistica-guarulhos": {
     title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
     subtitle: "Tire as principais dúvidas técnicas sobre apólice de frota para empresas de logística",
+    relatedLink: {
+      label: "Página principal",
+      anchor: "Seguro para Empresas e Frotas",
+      to: "/seguro-frota",
+      description: "Veja coberturas completas, exemplos de apólice, planos para 5 a 500+ veículos e solicite uma cotação comparativa entre 16+ seguradoras parceiras.",
+    },
     faqs: [
       {
         q: "Quais coberturas são obrigatórias no seguro de frota para transportadoras?",
