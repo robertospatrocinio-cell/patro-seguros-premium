@@ -7,7 +7,7 @@ import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
+import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -6658,6 +6658,26 @@ const extraFaqsBySlug: Record<string, {
       faqA: string;
     }[];
   };
+  comparison?: {
+    title: string;
+    subtitle?: string;
+    columns: { without: string; with: string };
+    rows: {
+      criterion: string;
+      without: string;
+      with: string;
+      faqQ?: string;
+      faqA?: string;
+    }[];
+    examples?: {
+      title: string;
+      patrimony: string;
+      withoutInsurance: string;
+      withInsurance: string;
+      saved: string;
+    }[];
+    footnote?: string;
+  };
 }> = {
   "como-pagar-menos-seguro-frota-logistica-guarulhos": {
     title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
@@ -6789,6 +6809,132 @@ const extraFaqsBySlug: Record<string, {
       },
     ],
   },
+  "seguro-vida-sucessao-patrimonial-itcmd": {
+    title: "Sucessão Patrimonial: Dúvidas Frequentes sobre ITCMD, Inventário e Seguro de Vida",
+    subtitle: "Tire as principais dúvidas técnicas sobre como o seguro de vida acelera o pagamento de impostos sucessórios e protege o patrimônio da família.",
+    relatedLink: {
+      label: "Página principal",
+      anchor: "Seguro de Vida — Planejamento Sucessório",
+      to: "/seguro-vida",
+      description: "Veja capitais segurados a partir de R$ 100 mil, coberturas combinadas (DG, invalidez, DIH) e solicite uma análise sucessória gratuita com 16+ seguradoras parceiras.",
+      variations: [
+        { anchor: "Seguro de Vida em Guarulhos", to: "/seguro-vida", trackingLabel: "blog-sucessao-anchor-vida-guarulhos" },
+        { anchor: "Seguro de Vida PME (sócios e empresários)", to: "/seguro-vida-pme", trackingLabel: "blog-sucessao-anchor-vida-pme" },
+        { anchor: "Planejamento Patrimonial", to: "/planejamento-patrimonial", trackingLabel: "blog-sucessao-anchor-planejamento" },
+        { anchor: "Investimentos e Previdência", to: "/investimentos", trackingLabel: "blog-sucessao-anchor-investimentos" },
+        { anchor: "Previdência Privada (VGBL/PGBL)", to: "/previdencia-privada", trackingLabel: "blog-sucessao-anchor-previdencia" },
+        { anchor: "Cotação de Seguro de Vida", to: "/cotacao", trackingLabel: "blog-sucessao-anchor-cotacao-vida" },
+        { anchor: "Corretora de Seguros em Guarulhos", to: "/corretora-seguros-guarulhos", trackingLabel: "blog-sucessao-anchor-corretora-guarulhos" },
+        { anchor: "Seguros na Cidade Maia (Shopping Maia)", to: "/seguros-shopping-maia-cidade-maia-guarulhos", trackingLabel: "blog-sucessao-anchor-cidade-maia" },
+      ],
+    },
+    comparison: {
+      title: "Comparativo: Inventário Com vs. Sem Seguro de Vida",
+      subtitle: "Como o seguro de vida acelera o pagamento de ITCMD, custas e honorários — e o que muda concretamente na vida da família.",
+      columns: { without: "Sem seguro de vida", with: "Com seguro de vida estruturado" },
+      rows: [
+        {
+          criterion: "Liquidez para pagar ITCMD",
+          without: "Família precisa vender bens, pegar empréstimo ou parcelar com Receita Estadual (multa + juros)",
+          with: "Beneficiário recebe o capital direto da seguradora em 10 a 30 dias e quita o ITCMD à vista, sem multa",
+          faqQ: "O seguro de vida realmente acelera o pagamento do ITCMD?",
+          faqA: "Sim. O capital segurado é pago em até 30 dias corridos pela seguradora (prazo SUSEP) e cai direto na conta do beneficiário, sem necessidade de alvará judicial. Esse dinheiro pode ser usado imediatamente para quitar o ITCMD, evitando multa por atraso (que varia de 10% a 20% do imposto, conforme estado) e juros de mora.",
+        },
+        {
+          criterion: "Tempo até a partilha começar",
+          without: "Inventário trava por 6 a 24 meses esperando ITCMD ser pago — sem ITCMD, não há partilha",
+          with: "Com ITCMD pago no 1º mês, advogado dá entrada na partilha imediatamente",
+          faqQ: "O seguro de vida diminui o tempo do inventário?",
+          faqA: "Diminui significativamente. O grande gargalo do inventário é justamente o pagamento do ITCMD — sem ele, o juiz ou cartório não homologa a partilha. Com a liquidez do seguro, o ITCMD é pago no primeiro mês e o inventário avança de forma contínua. Em média, isso reduz a duração total do processo em 6 a 18 meses.",
+        },
+        {
+          criterion: "Honorários de advogado",
+          without: "Família adia ou parcela honorários (10% a 20% sobre o valor do espólio), atrasando atos do processo",
+          with: "Honorários quitados em dia, advogado prioriza e acelera as fases do inventário",
+          faqQ: "O seguro de vida pode ser usado para pagar advogado de inventário?",
+          faqA: "Sim. Como o capital segurado cai diretamente na conta do beneficiário sem restrições, ele pode ser usado livremente para qualquer despesa, incluindo honorários advocatícios e adiantamentos exigidos durante o processo. Pagar o advogado em dia evita travas e acelera cada fase.",
+        },
+        {
+          criterion: "Contas correntes e investimentos do falecido",
+          without: "Bloqueados até alvará judicial — pode levar 60 a 180 dias",
+          with: "Família mantém o padrão de vida com a indenização do seguro até a liberação dos demais ativos",
+          faqQ: "A família consegue acessar dinheiro antes da liberação das contas do falecido?",
+          faqA: "Apenas com o seguro de vida. Salvo lei específica para FGTS e PIS/PASEP, todos os demais saldos do falecido (conta corrente, poupança, investimentos, fundos) ficam bloqueados até alvará judicial, que pode levar de 60 a 180 dias. O capital do seguro de vida é a única fonte de liquidez imediata garantida por lei.",
+        },
+        {
+          criterion: "Risco de venda forçada de imóveis",
+          without: "Comum: imóveis vendidos a 60-80% do valor de mercado para gerar caixa rápido",
+          with: "Patrimônio preservado — não há urgência para liquidar bens",
+          faqQ: "Por que tantas famílias acabam vendendo imóveis abaixo do valor depois de uma morte?",
+          faqA: "Porque precisam de caixa rápido para ITCMD, advogado e custo de vida durante o inventário. Sem o seguro, é comum aceitar 60% a 80% do valor de mercado para fechar a venda em poucas semanas. Com o seguro, esse caixa já existe — a família tem tempo para vender pelo preço justo ou simplesmente manter o bem.",
+        },
+        {
+          criterion: "Continuidade da empresa (sócios PME)",
+          without: "Sócios remanescentes ou herdeiros são forçados a vender quotas a preço deprimido",
+          with: "Buy-Sell Agreement com seguro permite compra das quotas pelo valor real",
+          faqQ: "Como o seguro de vida protege a continuidade de uma PME no falecimento de um sócio?",
+          faqA: "Por meio de uma estrutura chamada Buy-Sell Agreement: cada sócio contrata seguro de vida cujo beneficiário é o outro sócio (ou a empresa). No falecimento, o sobrevivente recebe o capital e usa para comprar as quotas dos herdeiros pelo valor real previsto em acordo. Isso garante liquidez justa para a família e continuidade do negócio, evitando entrada de herdeiros sem perfil ou venda da participação a terceiros.",
+        },
+        {
+          criterion: "Tributação sobre o valor recebido",
+          without: "Patrimônio inventariado paga 4% (SP) a 8% (RJ/MG/outros) de ITCMD",
+          with: "Capital do seguro é isento de ITCMD em todos os estados (art. 794 do Código Civil)",
+          faqQ: "O capital do seguro de vida paga ITCMD em algum estado?",
+          faqA: "Não. O capital pago ao beneficiário do seguro de vida é isento de ITCMD em todos os estados brasileiros, conforme entendimento consolidado dos tribunais e a previsão do art. 794 do Código Civil — o seguro não é considerado herança, é um direito próprio do beneficiário.",
+        },
+      ],
+      examples: [
+        {
+          title: "Caso 1 — Família média de Guarulhos (R$ 1,5 mi de patrimônio)",
+          patrimony: "Apartamento de R$ 900 mil + investimentos R$ 400 mil + carro R$ 200 mil",
+          withoutInsurance: "ITCMD SP (4%) = R$ 60 mil; honorários (8%) = R$ 120 mil; custas (2%) = R$ 30 mil. Total a pagar: R$ 210 mil. Sem caixa, família vende o carro e parcela ITCMD em 12x com juros. Inventário leva 28 meses.",
+          withInsurance: "Com capital segurado de R$ 250 mil (custo aprox. R$ 110/mês para chefe de família de 40 anos), ITCMD pago no 1º mês, honorários em dia, custas quitadas. Inventário concluído em 9 meses. Patrimônio entregue 100% intacto.",
+          saved: "≈ R$ 35 mil em multas/juros e 19 meses a menos de inventário",
+        },
+        {
+          title: "Caso 2 — Empresário com sociedade (R$ 4 mi de patrimônio)",
+          patrimony: "Imóvel residencial R$ 1,4 mi + imóvel comercial R$ 900 mil + 50% de quotas de empresa avaliada em R$ 1,2 mi + investimentos R$ 500 mil",
+          withoutInsurance: "ITCMD = R$ 160 mil; honorários = R$ 320 mil; custas = R$ 80 mil. Sócio remanescente pressiona herdeiros a venderem as quotas por 60% do valor (R$ 360 mil em vez de R$ 600 mil) para gerar caixa. Inventário leva 36 meses.",
+          withInsurance: "Buy-Sell Agreement com R$ 700 mil de capital + seguro pessoal de R$ 600 mil para a família. Sócio compra quotas pelo valor real, família recebe R$ 600 mil para custos e manutenção. Inventário concluído em 12 meses.",
+          saved: "≈ R$ 240 mil pela venda justa das quotas + 24 meses a menos de processo",
+        },
+        {
+          title: "Caso 3 — Família com filhos pequenos (R$ 800 mil de patrimônio)",
+          patrimony: "Casa financiada R$ 600 mil (dívida residual R$ 350 mil) + investimentos R$ 200 mil",
+          withoutInsurance: "Família perde renda do provedor, parcelas do financiamento atrasam, banco inicia execução. Inventário leva 18 meses, casa é vendida em leilão por R$ 380 mil. Família muda de bairro e troca filhos de escola.",
+          withInsurance: "Capital de R$ 600 mil (R$ 80/mês aos 35 anos): R$ 350 mil quitam o financiamento via cláusula específica, R$ 100 mil cobrem ITCMD/honorários e R$ 150 mil garantem 24 meses de despesas familiares. Família mantém casa, escola e padrão de vida.",
+          saved: "≈ R$ 220 mil + estabilidade emocional e social dos filhos",
+        },
+      ],
+      footnote: "Valores ilustrativos para o estado de São Paulo (ITCMD 4%). Em RJ, MG, BA e outros, a alíquota chega a 8%, dobrando o impacto do imposto e o ganho relativo do seguro estruturado. A Patro Seguros faz cálculo personalizado conforme o estado e o perfil patrimonial da família.",
+    },
+    faqs: [
+      {
+        q: "Quanto custa um seguro de vida com capital segurado suficiente para cobrir ITCMD e advogado?",
+        a: "Para um adulto saudável de 40 anos, um capital de R$ 500 mil costuma custar entre R$ 180 e R$ 350/mês. Para R$ 1 milhão, entre R$ 350 e R$ 700/mês. O cálculo correto começa pela soma de ITCMD do estado + honorários (8%) + custas (2%) + 12 a 24 meses de despesas familiares. A Patro faz esse diagnóstico patrimonial gratuitamente.",
+      },
+      {
+        q: "É melhor um seguro de vida grande ou vários seguros menores?",
+        a: "Depende da estratégia. Um único seguro com capital alto simplifica a gestão e tende a ter melhor preço por mil. Já múltiplos seguros menores (com beneficiários distintos) ajudam a segregar finalidades — por exemplo: um seguro só para quitar financiamento imobiliário, outro para ITCMD, outro para manutenção familiar. A escolha ideal depende do perfil patrimonial e do número de dependentes.",
+      },
+      {
+        q: "O seguro pode pagar diretamente o ITCMD para a Receita Estadual?",
+        a: "Não diretamente. A seguradora paga o capital ao beneficiário nomeado, e este utiliza o valor para quitar o ITCMD por meio de DARE/GARE estadual. Por isso é fundamental que o beneficiário esteja alinhado com o planejamento sucessório e tenha o suporte de um advogado de confiança para conduzir o processo logo após o recebimento.",
+      },
+      {
+        q: "Em quanto tempo após a morte o ITCMD precisa ser pago?",
+        a: "O prazo legal varia por estado. Em São Paulo é de 60 dias da abertura da sucessão (data do óbito) para protocolar a declaração e 180 dias para pagar, sem multa. Após esse prazo, incidem multa de 10% a 20% e juros mensais. A liquidez do seguro de vida garante o pagamento dentro do prazo legal, evitando multas que podem somar dezenas de milhares de reais em patrimônios médios.",
+      },
+      {
+        q: "Existe risco de o capital do seguro de vida ser questionado judicialmente por herdeiros?",
+        a: "Pode haver questionamento se o segurado fez aportes muito acima da capacidade econômica em vida (caracterizando suposta tentativa de fraudar a legítima dos herdeiros necessários). Para evitar litígios, o capital segurado deve ser dimensionado de forma proporcional ao patrimônio e à renda. A Patro orienta esse equilíbrio na contratação.",
+      },
+      {
+        q: "O cônjuge precisa autorizar a contratação do seguro de vida ou a indicação de beneficiários?",
+        a: "Não. O segurado tem total liberdade para indicar e alterar beneficiários a qualquer momento, sem necessidade de anuência do cônjuge ou de qualquer herdeiro. Essa é uma das características que tornam o seguro de vida um instrumento poderoso e sigiloso de planejamento sucessório.",
+      },
+    ],
+  },
 };
 
 const BlogArticle = () => {
@@ -6801,6 +6947,9 @@ const BlogArticle = () => {
     ...article.faqs,
     ...(extraFaqBlock?.faqs ?? []),
     ...((extraFaqBlock?.timeline?.stages ?? []).map(s => ({ q: s.faqQ, a: s.faqA }))),
+    ...((extraFaqBlock?.comparison?.rows ?? [])
+      .filter(r => r.faqQ && r.faqA)
+      .map(r => ({ q: r.faqQ as string, a: r.faqA as string }))),
   ];
 
   return (
@@ -7105,6 +7254,115 @@ const BlogArticle = () => {
                 <p className="text-xs text-muted-foreground mt-4 italic">
                   Prazos baseados em normas SUSEP e prática de mercado. Podem variar conforme seguradora, complexidade do sinistro e completude da documentação.
                 </p>
+              </div>
+            )}
+
+            {extraFaqBlock?.comparison && (
+              <div className="mt-12 border-t pt-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Scale className="h-5 w-5" />
+                  </span>
+                  <h2 className="m-0">{extraFaqBlock.comparison.title}</h2>
+                </div>
+                {extraFaqBlock.comparison.subtitle && (
+                  <p className="text-muted-foreground mb-6">
+                    {extraFaqBlock.comparison.subtitle}
+                  </p>
+                )}
+
+                {/* Tabela comparativa — desktop */}
+                <div className="hidden md:block overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-muted/60">
+                        <th className="text-left font-semibold p-4 w-1/4 text-foreground">Critério</th>
+                        <th className="text-left font-semibold p-4 w-3/8">
+                          <span className="inline-flex items-center gap-2 text-destructive">
+                            <X className="h-4 w-4" /> {extraFaqBlock.comparison.columns.without}
+                          </span>
+                        </th>
+                        <th className="text-left font-semibold p-4 w-3/8">
+                          <span className="inline-flex items-center gap-2 text-primary">
+                            <Check className="h-4 w-4" /> {extraFaqBlock.comparison.columns.with}
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {extraFaqBlock.comparison.rows.map((row, i) => (
+                        <tr key={i} className="border-t border-border align-top">
+                          <td className="p-4 font-medium text-foreground">{row.criterion}</td>
+                          <td className="p-4 text-muted-foreground">{row.without}</td>
+                          <td className="p-4 text-foreground">{row.with}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Cards comparativos — mobile */}
+                <div className="md:hidden space-y-4">
+                  {extraFaqBlock.comparison.rows.map((row, i) => (
+                    <div key={i} className="rounded-lg border border-border bg-card p-4">
+                      <h3 className="text-base font-semibold text-foreground mb-3">{row.criterion}</h3>
+                      <div className="space-y-3">
+                        <div className="rounded-md bg-destructive/5 border border-destructive/15 p-3">
+                          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-destructive mb-1.5">
+                            <X className="h-3.5 w-3.5" /> {extraFaqBlock.comparison!.columns.without}
+                          </div>
+                          <p className="text-sm text-muted-foreground">{row.without}</p>
+                        </div>
+                        <div className="rounded-md bg-primary/5 border border-primary/15 p-3">
+                          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+                            <Check className="h-3.5 w-3.5" /> {extraFaqBlock.comparison!.columns.with}
+                          </div>
+                          <p className="text-sm text-foreground">{row.with}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Exemplos práticos */}
+                {extraFaqBlock.comparison.examples && extraFaqBlock.comparison.examples.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="text-xl md:text-2xl font-semibold mb-2 flex items-center gap-2">
+                      <TrendingDown className="h-5 w-5 text-primary" />
+                      Exemplos práticos: quanto a família economiza
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      Cenários reais de famílias atendidas pela Patro Seguros (valores e nomes alterados para preservar privacidade).
+                    </p>
+                    <div className="grid gap-4 md:grid-cols-3">
+                      {extraFaqBlock.comparison.examples.map((ex, i) => (
+                        <div key={i} className="rounded-xl border border-border bg-card p-5 flex flex-col">
+                          <h4 className="text-base font-semibold text-foreground mb-2">{ex.title}</h4>
+                          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 mt-2">Patrimônio</p>
+                          <p className="text-sm mb-3">{ex.patrimony}</p>
+                          <p className="text-xs uppercase tracking-wider text-destructive flex items-center gap-1.5 mb-1 mt-2">
+                            <X className="h-3.5 w-3.5" /> Sem seguro
+                          </p>
+                          <p className="text-sm text-muted-foreground mb-3">{ex.withoutInsurance}</p>
+                          <p className="text-xs uppercase tracking-wider text-primary flex items-center gap-1.5 mb-1 mt-2">
+                            <Check className="h-3.5 w-3.5" /> Com seguro
+                          </p>
+                          <p className="text-sm mb-4">{ex.withInsurance}</p>
+                          <div className="mt-auto pt-3 border-t border-border">
+                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Resultado</p>
+                            <p className="text-sm font-semibold text-primary">{ex.saved}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {extraFaqBlock.comparison.footnote && (
+                  <p className="text-xs text-muted-foreground mt-5 italic">
+                    {extraFaqBlock.comparison.footnote}
+                  </p>
+                )}
               </div>
             )}
 
