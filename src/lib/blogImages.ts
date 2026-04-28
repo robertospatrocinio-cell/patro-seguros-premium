@@ -65,6 +65,7 @@ import blogCorretoraGuarulhos from "@/assets/blog/blog-corretora-seguros-guarulh
 import blogPrecoSeguroAutoGuarulhos2026 from "@/assets/blog/blog-preco-seguro-auto-guarulhos-2026.webp";
 import blogAgrishow2026 from "@/assets/blog/blog-agrishow-2026.webp";
 import blogSeguroFrotaLogisticaGuarulhos from "@/assets/blog/blog-seguro-frota-logistica-guarulhos.webp";
+import blogSeguroVidaSucessao from "@/assets/blog/blog-seguro-vida-sucessao-patrimonial.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
@@ -114,6 +115,7 @@ export const blogImageMap: Record<string, string> = {
 
   // Seguro Vida
   "seguro-vida-por-que-ter": blogSeguroVida,
+  "seguro-vida-sucessao-patrimonial-itcmd": blogSeguroVidaSucessao,
 
   // Seguro Fiança
   "seguro-fianca-vs-caucao": blogSeguroFianca,
