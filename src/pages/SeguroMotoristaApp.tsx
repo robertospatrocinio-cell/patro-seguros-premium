@@ -8,7 +8,7 @@ const SeguroMotoristaApp = () => {
       title="Seguro para Motorista de Aplicativo"
       subtitle="Proteção especializada para quem trabalha com Uber, 99, inDrive e outros apps em Guarulhos e região"
       icon="📱"
-      metaDescription="Seguro para motorista de aplicativo em Guarulhos e região. Cobertura completa para Uber, 99, inDrive: colisão, roubo, RC passageiros, assistência 24h. Cotação grátis na Patro Seguros."
+      metaDescription="Seguro para motorista de Uber, 99 e inDrive em Guarulhos: colisão, roubo, RC passageiros e assistência 24h. Cotação grátis Patro Seguros."
       description="O Seguro para Motorista de Aplicativo é uma proteção essencial para quem depende do carro como ferramenta de trabalho. Motoristas de Uber, 99, inDrive e outros apps rodam em média 200 a 300 km por dia, enfrentando riscos significativamente maiores do que motoristas comuns — e o seguro convencional não cobre uso profissional por app."
       detailedDescription={`Em Guarulhos e região metropolitana, motoristas de aplicativo enfrentam desafios únicos: alto volume de trânsito nas marginais e rodovias (Dutra, Ayrton Senna, Fernão Dias), regiões com altos índices de roubo e furto, e o desgaste acelerado do veículo pelo uso intensivo.
 

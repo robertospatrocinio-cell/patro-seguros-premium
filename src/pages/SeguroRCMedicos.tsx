@@ -8,7 +8,7 @@ const SeguroRCMedicos = () => {
       title="Seguro RC Médicos"
       subtitle="Proteção patrimonial contra processos por erro médico"
       icon="🩺"
-      metaDescription="Seguro RC para Médicos — proteção contra processos por erro médico, custos de defesa e indenizações. A Patro Seguros é especialista em RC Profissional. Cotação grátis."
+      metaDescription="Seguro RC para Médicos: proteção contra processos por erro médico, custos de defesa e indenizações. Especialistas em RC Profissional."
       description="O Seguro de Responsabilidade Civil para Médicos protege o patrimônio do profissional contra reclamações de pacientes por alegação de erro, omissão ou negligência. A Patro Seguros é especialista neste tipo de seguro e trabalha com as principais seguradoras do mercado."
       detailedDescription={`O Brasil é o segundo país do mundo em número de processos contra médicos. Condenações podem ultrapassar R$ 500.000, e os custos de defesa durante anos de processo comprometem o patrimônio do profissional mesmo quando ele é absolvido.
 

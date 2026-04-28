@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 const SeoPlanoSaudeGuarulhos = () => (
   <>
-    <PageMeta title="Plano de Saúde em Guarulhos – Cidade Maia" description="Encontre o melhor plano de saúde no Cidade Maia, Guarulhos. Compare Bradesco Saúde, Amil, SulAmérica e mais. Atendimento local e cotação gratuita com a Patro Seguros." />
+    <PageMeta title="Plano de Saúde em Guarulhos – Cidade Maia" description="Plano de saúde no Cidade Maia, Guarulhos. Compare Bradesco Saúde, Amil, SulAmérica e mais. Atendimento local e cotação gratuita." />
     <Header />
     <main id="main-content">
       <section className="gradient-hero py-20">

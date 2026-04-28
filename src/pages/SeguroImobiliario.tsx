@@ -8,7 +8,7 @@ const SeguroImobiliario = () => {
       title="Seguros Imobiliários"
       subtitle="Proteção completa para imóveis residenciais, comerciais, em construção e locação"
       icon="🏢"
-      metaDescription="Seguros Imobiliários com a Patro Seguros — proteção para imóveis residenciais, comerciais, em construção e locação. Cobertura contra incêndio, danos estruturais, responsabilidade civil e mais. Cotação grátis!"
+      metaDescription="Seguros para imóveis residenciais, comerciais, em construção e locação. Cobertura contra incêndio, danos estruturais e RC. Cotação grátis Patro Seguros."
       description="Os Seguros Imobiliários da Patro Seguros protegem o seu patrimônio imobiliário contra os principais riscos: incêndio, danos elétricos, vendaval, alagamento, roubo, responsabilidade civil e muito mais. Seja proprietário, locador, locatário, incorporador ou construtor, temos soluções sob medida para cada perfil e tipo de imóvel — residencial, comercial, industrial ou em construção."
       detailedDescription={`O mercado imobiliário envolve riscos significativos, desde danos físicos à estrutura até responsabilidades legais com terceiros. Um sinistro sem cobertura pode comprometer anos de investimento e planejamento.
 

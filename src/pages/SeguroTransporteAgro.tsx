@@ -8,7 +8,7 @@ const SeguroTransporteAgro = () => {
       title="Seguro Transporte Agrícola"
       subtitle="Proteção completa para o transporte de grãos, insumos e produtos do campo. Atendemos transportadores de todos os estados do Brasil."
       icon="🚛"
-      metaDescription="Seguro Transporte Agrícola em todo o Brasil — proteção para transporte de grãos, insumos e cargas do campo. Cobertura contra roubo e tombamento. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Transporte Agrícola em todo o Brasil: proteção para grãos, insumos e cargas do campo. Cobertura contra roubo e tombamento."
       badge="Atendimento em Todo o Brasil"
       description="O transporte de produtos agrícolas — grãos, sementes, fertilizantes, defensivos, café, frutas e cargas vivas — envolve riscos significativos como tombamento, roubo de carga, acidentes rodoviários e danos por condições climáticas. O Seguro Transporte Agrícola da Patro Seguros garante proteção integral para sua carga do campo até o destino final, seja armazém, porto ou indústria. Atendemos transportadores e produtores de todos os estados do Brasil — todo o processo de cotação e sinistro é feito de forma remota, por WhatsApp, telefone ou e-mail."
       coverages={[

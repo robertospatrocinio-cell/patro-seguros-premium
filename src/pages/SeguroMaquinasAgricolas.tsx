@@ -9,7 +9,7 @@ const SeguroMaquinasAgricolas = () => {
       subtitle="Proteja tratores, colheitadeiras, plantadeiras e todo seu maquinário agrícola. Atendemos produtores de todos os estados do Brasil."
       description="O Seguro de Máquinas Agrícolas da Patro Seguros é a solução completa para proteger o patrimônio do produtor rural. Cobrimos tratores, colheitadeiras, plantadeiras, pulverizadores e outros equipamentos essenciais para a produção agrícola. Com a Patro, você conta com a expertise de quem entende do agronegócio e oferece as melhores condições do mercado. Atendemos produtores em todos os estados — de Mato Grosso ao Paraná, de Goiás à Bahia. Todo o processo de cotação e sinistro é feito de forma remota, com a mesma agilidade e qualidade."
       icon="🚜"
-      metaDescription="Seguro de Máquinas Agrícolas em todo o Brasil — tratores, colheitadeiras, plantadeiras e pulverizadores. Proteção contra incêndio, roubo e tombamento. Cotação grátis Patro Seguros."
+      metaDescription="Seguro de Máquinas Agrícolas em todo o Brasil: tratores, colheitadeiras, plantadeiras e pulverizadores. Proteção contra incêndio, roubo e tombamento."
       badge="Atendimento em Todo o Brasil"
       showAgrishowBanner
       coverages={[

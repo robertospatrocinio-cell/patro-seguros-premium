@@ -8,7 +8,7 @@ const SeguroEstagiario = () => {
       title="Seguro Estagiário"
       subtitle="Proteção obrigatória para estagiários conforme a Lei do Estágio"
       icon="🎓"
-      metaDescription="Seguro Estagiário obrigatório pela Lei 11.788/2008. Contratação simples para empresas de todos os portes. Cobertura de acidentes pessoais. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Estagiário (obrigatório pela Lei 11.788/2008). Contratação simples para empresas de todos os portes. Acidentes pessoais. Cotação grátis."
       description="O Seguro Estagiário é obrigatório por lei (Lei nº 11.788/2008) e garante cobertura de acidentes pessoais para estagiários durante o estágio."
       detailedDescription={`A Lei do Estágio (nº 11.788/2008) é clara: toda empresa que recebe estagiários é obrigada a contratar seguro de acidentes pessoais em favor do estagiário. A não contratação pode resultar em irregularidade do contrato de estágio, multas e responsabilização direta da empresa por acidentes.
 

@@ -9,7 +9,7 @@ const SeguroPecuario = () => {
       subtitle="Proteja bovinos, equinos, suínos e outros animais contra morte por doenças, acidentes e fenômenos naturais. Atendemos pecuaristas de todos os estados do Brasil."
       description="O Seguro Pecuário da Patro Seguros oferece proteção completa para o seu rebanho. Cobrimos morte de animais por doenças, acidentes, raios, afogamento e outros eventos, garantindo a segurança do seu investimento na pecuária. Com subsídio do governo federal, o seguro fica ainda mais acessível. Atendemos pecuaristas em todos os estados — de Mato Grosso do Sul ao Pará, de Goiás ao Rio Grande do Sul. Cotação e acompanhamento de sinistro feitos de forma 100% remota."
       icon="🐄"
-      metaDescription="Seguro Pecuário em todo o Brasil para bovinos, equinos e suínos. Proteção contra morte por doenças, acidentes e raios. Subsídio do governo. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Pecuário em todo o Brasil para bovinos, equinos e suínos. Proteção contra morte por doenças, acidentes e raios. Subsídio do governo."
       badge="Atendimento em Todo o Brasil"
       coverages={[
         { title: "Morte por Doença", description: "Cobertura para morte de animais causada por doenças cobertas pela apólice." },

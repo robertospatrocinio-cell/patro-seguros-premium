@@ -8,7 +8,7 @@ const SeguroFiancaLocaticia = () => {
       title="Seguro Fiança Locatícia"
       subtitle="A substituição inteligente do fiador para aluguel de imóveis residenciais e comerciais"
       icon="🏠"
-      metaDescription="Seguro Fiança Locatícia — substitui fiador e caução no aluguel. Aprovação rápida para residencial e comercial. Proteção para proprietário e inquilino. Cotação grátis."
+      metaDescription="Seguro Fiança Locatícia: substitui fiador e caução no aluguel. Aprovação rápida para residencial e comercial. Proteção para ambas as partes."
       description="O Seguro Fiança Locatícia é a solução moderna e segura que substitui a figura do fiador e a caução em contratos de locação."
       detailedDescription={`O mercado imobiliário brasileiro está mudando: cada vez menos pessoas aceitam ser fiadoras, e a caução (depósito de 3 aluguéis) imobiliza capital precioso. O Seguro Fiança Locatícia é a evolução natural da garantia locatícia, oferecendo vantagens tanto para inquilinos quanto para proprietários.
 

@@ -132,7 +132,7 @@ A Patro Seguros está literalmente na frente do shopping, com atendimento presen
 Nossa equipe técnica acompanha o sinistro do início ao fim. Em caso de furto em loja, alagamento em sala comercial, batida no estacionamento do shopping ou processo contra um profissional liberal, o cliente fala diretamente com seu corretor responsável — sem call center, sem URA, sem sistema de senha. É essa proximidade que nos rendeu a indicação de mais de 500 PMEs e famílias na região.`}
     icon="🏬"
     badge="Atendimento presencial — em frente ao Shopping Maia"
-    metaDescription="Corretora de seguros em frente ao Shopping Maia, Cidade Maia, Guarulhos. Seguro para lojistas, quiosques, consultórios, moradores e clientes do shopping. Cotação grátis com 16+ seguradoras."
+    metaDescription="Corretora em frente ao Shopping Maia, Cidade Maia (Guarulhos). Seguro para lojistas, quiosques, consultórios e moradores. Cotação grátis com 16+ seguradoras."
     coverages={[
       { title: "Seguro Empresarial para Lojas e Quiosques do Shopping Maia", description: "Cobertura completa para incêndio, roubo de mercadorias, danos elétricos, RC do estabelecimento, vidros, lucros cessantes e quebra de equipamentos para lojas, quiosques e operações de food do Shopping Maia." },
       { title: "Seguro Residencial para Moradores da Cidade Maia", description: "Proteção para apartamentos e casas nos condomínios da Cidade Maia, Maia Premium e entorno do Shopping Maia. Inclui assistência 24h, vidros, danos elétricos e RC familiar." },
