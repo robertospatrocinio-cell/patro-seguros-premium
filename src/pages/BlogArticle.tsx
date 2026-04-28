@@ -6480,6 +6480,56 @@ const defaultArticle = {
   faqs: [],
 };
 
+// FAQs extras por slug — focadas em SEO e conversão (cobertura, franquia, sinistro)
+const extraFaqsBySlug: Record<string, { title: string; subtitle?: string; faqs: { q: string; a: string }[] }> = {
+  "como-pagar-menos-seguro-frota-logistica-guarulhos": {
+    title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
+    subtitle: "Tire as principais dúvidas técnicas sobre apólice de frota para empresas de logística",
+    faqs: [
+      {
+        q: "Quais coberturas são obrigatórias no seguro de frota para transportadoras?",
+        a: "Para operações de logística, três coberturas são tratadas como obrigatórias na prática: RCTR-C (Responsabilidade Civil do Transportador Rodoviário de Carga), exigida por lei para quem transporta carga de terceiros; RCF-V (Responsabilidade Civil Facultativa de Veículo), que cobre danos a terceiros causados pelos veículos; e APP (Acidentes Pessoais de Passageiros), que protege motorista e ajudante. O casco e o RCF-DC (roubo de carga) são opcionais, mas altamente recomendados conforme o valor médio das cargas.",
+      },
+      {
+        q: "O seguro de frota cobre danos à carga transportada?",
+        a: "A cobertura básica do veículo (casco) não cobre a carga. Para isso é necessário contratar o RCTR-C (obrigatório por lei para transporte de terceiros) e, idealmente, o RCF-DC (RC Facultativo por Desaparecimento de Carga), que cobre roubo, furto qualificado e desaparecimento. Para cargas de alto valor, a seguradora exige rastreador e gerenciadora de risco homologada como condição da apólice.",
+      },
+      {
+        q: "Como funciona a franquia em apólice de frota?",
+        a: "A franquia é o valor que a empresa assume em cada sinistro de casco. Em frotas, ela pode ser fixada de três formas: franquia individual por veículo (modelo tradicional), franquia única por evento (independente de quantos veículos foram afetados em um mesmo sinistro) ou franquia agregada anual (a empresa assume um teto total no ano e a seguradora cobre tudo acima disso). Para frotas grandes, a franquia agregada costuma reduzir o prêmio em até 25%.",
+      },
+      {
+        q: "Posso ter franquias diferentes para cada tipo de veículo na mesma apólice?",
+        a: "Sim. Em apólice de frota é possível segmentar a franquia por categoria — vans e VUCs com franquia maior (você assume sinistros pequenos e o prêmio cai), e caminhões 3/4, toco e truck com franquia reduzida por carregarem cargas mais valiosas. Essa estratégia, bem dimensionada, economiza de 10% a 20% no prêmio anual sem aumentar exposição real.",
+      },
+      {
+        q: "O que é franquia reduzida ou \"franquia zero\" e vale a pena?",
+        a: "Franquia reduzida é uma cobertura adicional que diminui (ou zera) o valor a pagar em caso de sinistro de casco, mediante pagamento extra no prêmio. Para frotas com baixa sinistralidade histórica, normalmente não compensa — o custo adicional anual supera o que seria pago em franquias. Para frotas com alta rotatividade de motoristas ou operação em zonas críticas, pode fazer sentido para alguns veículos específicos.",
+      },
+      {
+        q: "Como acionar o seguro em caso de sinistro com um veículo da frota?",
+        a: "O processo padrão é: 1) Acionar imediatamente a polícia em caso de roubo, furto, colisão com vítimas ou incêndio (e registrar Boletim de Ocorrência). 2) Comunicar a seguradora em até 48 horas via central 24h ou pelo seu corretor. 3) Enviar BO, fotos do local, dados do condutor e da carga (quando aplicável) e nota fiscal de transporte. 4) A seguradora abre o aviso de sinistro, designa regulador e libera assistência (guincho, carro reserva). Na Patro, centralizamos esse fluxo em um único canal para o gestor da frota.",
+      },
+      {
+        q: "Sinistro com carga roubada: como funciona a indenização?",
+        a: "O roubo de carga é coberto pelo RCF-DC. Para a indenização ser liberada, a seguradora exige: BO registrado em até 24h, comprovação de que o veículo cumpriu o gerenciamento de risco contratado (rastreador ativo, plano de viagem cadastrado, escolta quando obrigatória), nota fiscal da carga, conhecimento de transporte (CT-e) e laudo da gerenciadora de risco. Falhas no cumprimento do plano de gerenciamento são a principal causa de indeferimento — por isso a estrutura prévia é decisiva.",
+      },
+      {
+        q: "Sinistros frequentes aumentam o preço da renovação da frota?",
+        a: "Sim. A sinistralidade (relação entre prêmio pago e indenizações recebidas) dos últimos 12 a 24 meses é o principal fator de precificação na renovação. Frotas com sinistralidade acima de 70% sofrem aumento de 15% a 40% ou podem ter coberturas restringidas. Frotas abaixo de 50% conseguem bônus progressivo de 5% a 10% por renovação. Implementar programa de direção defensiva e gestão de risco é o caminho técnico para baixar esse índice.",
+      },
+      {
+        q: "Em quanto tempo a seguradora paga a indenização de um sinistro de frota?",
+        a: "Para sinistros de pequeno porte (vidros, retrovisores, danos parciais reparáveis em oficina credenciada), o pagamento direto à oficina ocorre em 5 a 15 dias úteis após aprovação do orçamento. Para perda total de veículo, o prazo legal é de até 30 dias após entrega completa da documentação. Para roubo, há um período de 30 dias de carência (aguardando recuperação do bem) antes do início do prazo de pagamento. Roubo de carga depende do laudo da gerenciadora.",
+      },
+      {
+        q: "Posso transferir a apólice de frota para outra seguradora no meio da vigência?",
+        a: "Sim, mas geralmente não compensa. O cancelamento antecipado gera devolução proporcional do prêmio com desconto da chamada \"tabela de curto prazo\" — você recebe menos do que o proporcional ao tempo restante. O ideal é negociar a migração na renovação, com 60 a 90 dias de antecedência, usando cotações concorrentes como contraproposta. A Patro faz essa análise comparativa entre 16+ seguradoras parceiras sem custo.",
+      },
+    ],
+  },
+};
+
 const BlogArticle = () => {
   const { slug } = useParams();
   const article = (slug && articlesContent[slug]) || defaultArticle;
