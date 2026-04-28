@@ -6508,19 +6508,19 @@ const extraFaqsBySlug: Record<string, { title: string; subtitle?: string; faqs: 
       },
       {
         q: "Como acionar o seguro em caso de sinistro com um veículo da frota?",
-        a: "O processo padrão é: 1) Acionar imediatamente a polícia em caso de roubo, furto, colisão com vítimas ou incêndio (e registrar Boletim de Ocorrência). 2) Comunicar a seguradora em até 48 horas via central 24h ou pelo seu corretor. 3) Enviar BO, fotos do local, dados do condutor e da carga (quando aplicável) e nota fiscal de transporte. 4) A seguradora abre o aviso de sinistro, designa regulador e libera assistência (guincho, carro reserva). Na Patro, centralizamos esse fluxo em um único canal para o gestor da frota.",
+        a: "Em até 48h após o evento: 1) Registre Boletim de Ocorrência (obrigatório em roubo, furto, colisão com vítimas ou incêndio). 2) Acione a central 24h da seguradora ou seu corretor para abrir o aviso de sinistro. 3) Envie BO, CNH do condutor, CRLV, fotos do local, CT-e e nota fiscal da carga (se houver). 4) Solicite guincho e veículo reserva pelo mesmo canal. Clientes da Patro acionam por um único WhatsApp: (11) 5199-7500.",
       },
       {
         q: "Sinistro com carga roubada: como funciona a indenização?",
-        a: "O roubo de carga é coberto pelo RCF-DC. Para a indenização ser liberada, a seguradora exige: BO registrado em até 24h, comprovação de que o veículo cumpriu o gerenciamento de risco contratado (rastreador ativo, plano de viagem cadastrado, escolta quando obrigatória), nota fiscal da carga, conhecimento de transporte (CT-e) e laudo da gerenciadora de risco. Falhas no cumprimento do plano de gerenciamento são a principal causa de indeferimento — por isso a estrutura prévia é decisiva.",
+        a: "Coberto pelo RCF-DC. Documentos obrigatórios: BO registrado em até 24h, nota fiscal da carga, CT-e, CNH do motorista, relatório do rastreador e laudo da gerenciadora de risco comprovando cumprimento do plano de viagem. Prazo de pagamento: 30 dias após entrega completa da documentação. Causa #1 de indeferimento: descumprimento do gerenciamento de risco (parada fora de ponto autorizado, rastreador desligado, motorista não cadastrado).",
       },
       {
         q: "Sinistros frequentes aumentam o preço da renovação da frota?",
-        a: "Sim. A sinistralidade (relação entre prêmio pago e indenizações recebidas) dos últimos 12 a 24 meses é o principal fator de precificação na renovação. Frotas com sinistralidade acima de 70% sofrem aumento de 15% a 40% ou podem ter coberturas restringidas. Frotas abaixo de 50% conseguem bônus progressivo de 5% a 10% por renovação. Implementar programa de direção defensiva e gestão de risco é o caminho técnico para baixar esse índice.",
+        a: "Sim. A sinistralidade dos últimos 12 a 24 meses define o preço. Faixas práticas: até 50% = bônus de 5% a 10%; 50% a 70% = renovação na taxa atual; acima de 70% = aumento de 15% a 40% ou restrição de coberturas; acima de 100% = recusa de renovação por algumas seguradoras. Para reduzir: instale rastreador em 100% da frota, implemente direção defensiva e centralize a comunicação de sinistros.",
       },
       {
         q: "Em quanto tempo a seguradora paga a indenização de um sinistro de frota?",
-        a: "Para sinistros de pequeno porte (vidros, retrovisores, danos parciais reparáveis em oficina credenciada), o pagamento direto à oficina ocorre em 5 a 15 dias úteis após aprovação do orçamento. Para perda total de veículo, o prazo legal é de até 30 dias após entrega completa da documentação. Para roubo, há um período de 30 dias de carência (aguardando recuperação do bem) antes do início do prazo de pagamento. Roubo de carga depende do laudo da gerenciadora.",
+        a: "Prazos regulados pela SUSEP, contados a partir da entrega completa dos documentos: danos parciais em oficina credenciada (vidros, retrovisores, lataria) — 5 a 15 dias úteis; perda total de veículo — até 30 dias; roubo ou furto — 30 dias de carência (para tentativa de recuperação) + até 30 dias para pagamento; roubo de carga (RCF-DC) — até 30 dias após laudo da gerenciadora. A seguradora pode pedir documentos complementares uma única vez, reiniciando o prazo.",
       },
       {
         q: "Posso transferir a apólice de frota para outra seguradora no meio da vigência?",
