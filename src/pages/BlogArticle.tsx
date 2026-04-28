@@ -6658,6 +6658,26 @@ const extraFaqsBySlug: Record<string, {
       faqA: string;
     }[];
   };
+  comparison?: {
+    title: string;
+    subtitle?: string;
+    columns: { without: string; with: string };
+    rows: {
+      criterion: string;
+      without: string;
+      with: string;
+      faqQ?: string;
+      faqA?: string;
+    }[];
+    examples?: {
+      title: string;
+      patrimony: string;
+      withoutInsurance: string;
+      withInsurance: string;
+      saved: string;
+    }[];
+    footnote?: string;
+  };
 }> = {
   "como-pagar-menos-seguro-frota-logistica-guarulhos": {
     title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
