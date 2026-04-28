@@ -6734,6 +6734,17 @@ const BlogArticle = () => {
                 href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20quero%20cota%C3%A7%C3%A3o%20de%20seguro%20de%20frota%20para%20minha%20transportadora%20em%20Guarulhos."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("blog-frota-sticky-especialista")}
+                className="flex-1 sm:flex-initial hidden md:block"
+              >
+                <Button size="default" variant="outline" className="w-full font-semibold">
+                  Falar com especialista
+                </Button>
+              </a>
+              <a
+                href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20quero%20cota%C3%A7%C3%A3o%20de%20seguro%20de%20frota%20para%20minha%20transportadora%20em%20Guarulhos."
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("blog-frota-sticky")}
                 className="flex-1 sm:flex-initial"
               >
