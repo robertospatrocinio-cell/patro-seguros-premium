@@ -6535,12 +6535,17 @@ const BlogArticle = () => {
   const article = (slug && articlesContent[slug]) || defaultArticle;
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
+  const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;
+  const allFaqs = [
+    ...article.faqs,
+    ...(extraFaqBlock?.faqs ?? []),
+  ];
 
   return (
     <>
       <PageMeta title={article.title} description={`${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros para você e sua empresa.`} />
-      {article.faqs.length > 0 && (
-        <FAQSchema faqs={article.faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      {allFaqs.length > 0 && (
+        <FAQSchema faqs={allFaqs.map(f => ({ question: f.q, answer: f.a }))} />
       )}
       {meta && slug && (() => {
         const articleUrl = `https://patroseguros.com.br/blog/${slug}`;
