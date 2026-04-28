@@ -5,7 +5,7 @@ const SeguroFianca = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Fiança Locatícia"
+      title="Seguro Fiança — Aluguel sem Fiador"
       subtitle="Alugue seu imóvel sem fiador e sem burocracia"
       icon="🔑"
       metaDescription="Seguro Fiança Locatícia — alugue sem fiador e sem caução. Aprovação rápida para imóveis residenciais e comerciais. Cotação grátis Patro Seguros."

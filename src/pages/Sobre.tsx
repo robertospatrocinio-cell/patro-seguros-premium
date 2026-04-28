@@ -32,7 +32,7 @@ const equipe = [
 const Sobre = () => {
   return (
     <>
-      <PageMeta title="Sobre a Patro Seguros – Corretora de Seguros em Guarulhos" description="Conheça a Patro Seguros, corretora de seguros em Guarulhos no Cidade Maia. Atendimento consultivo, especialistas dedicados e parceria com as melhores seguradoras do Brasil." />
+      <PageMeta title="Sobre a Patro – Corretora em Guarulhos" description="Conheça a Patro Seguros, corretora de seguros em Guarulhos no Cidade Maia. Atendimento consultivo, especialistas dedicados e parceria com as melhores seguradoras do Brasil." />
       <Header />
       <main id="main-content">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />
