@@ -7257,6 +7257,115 @@ const BlogArticle = () => {
               </div>
             )}
 
+            {extraFaqBlock?.comparison && (
+              <div className="mt-12 border-t pt-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Scale className="h-5 w-5" />
+                  </span>
+                  <h2 className="m-0">{extraFaqBlock.comparison.title}</h2>
+                </div>
+                {extraFaqBlock.comparison.subtitle && (
+                  <p className="text-muted-foreground mb-6">
+                    {extraFaqBlock.comparison.subtitle}
+                  </p>
+                )}
+
+                {/* Tabela comparativa — desktop */}
+                <div className="hidden md:block overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-muted/60">
+                        <th className="text-left font-semibold p-4 w-1/4 text-foreground">Critério</th>
+                        <th className="text-left font-semibold p-4 w-3/8">
+                          <span className="inline-flex items-center gap-2 text-destructive">
+                            <X className="h-4 w-4" /> {extraFaqBlock.comparison.columns.without}
+                          </span>
+                        </th>
+                        <th className="text-left font-semibold p-4 w-3/8">
+                          <span className="inline-flex items-center gap-2 text-primary">
+                            <Check className="h-4 w-4" /> {extraFaqBlock.comparison.columns.with}
+                          </span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {extraFaqBlock.comparison.rows.map((row, i) => (
+                        <tr key={i} className="border-t border-border align-top">
+                          <td className="p-4 font-medium text-foreground">{row.criterion}</td>
+                          <td className="p-4 text-muted-foreground">{row.without}</td>
+                          <td className="p-4 text-foreground">{row.with}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Cards comparativos — mobile */}
+                <div className="md:hidden space-y-4">
+                  {extraFaqBlock.comparison.rows.map((row, i) => (
+                    <div key={i} className="rounded-lg border border-border bg-card p-4">
+                      <h3 className="text-base font-semibold text-foreground mb-3">{row.criterion}</h3>
+                      <div className="space-y-3">
+                        <div className="rounded-md bg-destructive/5 border border-destructive/15 p-3">
+                          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-destructive mb-1.5">
+                            <X className="h-3.5 w-3.5" /> {extraFaqBlock.comparison!.columns.without}
+                          </div>
+                          <p className="text-sm text-muted-foreground">{row.without}</p>
+                        </div>
+                        <div className="rounded-md bg-primary/5 border border-primary/15 p-3">
+                          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary mb-1.5">
+                            <Check className="h-3.5 w-3.5" /> {extraFaqBlock.comparison!.columns.with}
+                          </div>
+                          <p className="text-sm text-foreground">{row.with}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Exemplos práticos */}
+                {extraFaqBlock.comparison.examples && extraFaqBlock.comparison.examples.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="text-xl md:text-2xl font-semibold mb-2 flex items-center gap-2">
+                      <TrendingDown className="h-5 w-5 text-primary" />
+                      Exemplos práticos: quanto a família economiza
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-5">
+                      Cenários reais de famílias atendidas pela Patro Seguros (valores e nomes alterados para preservar privacidade).
+                    </p>
+                    <div className="grid gap-4 md:grid-cols-3">
+                      {extraFaqBlock.comparison.examples.map((ex, i) => (
+                        <div key={i} className="rounded-xl border border-border bg-card p-5 flex flex-col">
+                          <h4 className="text-base font-semibold text-foreground mb-2">{ex.title}</h4>
+                          <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1 mt-2">Patrimônio</p>
+                          <p className="text-sm mb-3">{ex.patrimony}</p>
+                          <p className="text-xs uppercase tracking-wider text-destructive flex items-center gap-1.5 mb-1 mt-2">
+                            <X className="h-3.5 w-3.5" /> Sem seguro
+                          </p>
+                          <p className="text-sm text-muted-foreground mb-3">{ex.withoutInsurance}</p>
+                          <p className="text-xs uppercase tracking-wider text-primary flex items-center gap-1.5 mb-1 mt-2">
+                            <Check className="h-3.5 w-3.5" /> Com seguro
+                          </p>
+                          <p className="text-sm mb-4">{ex.withInsurance}</p>
+                          <div className="mt-auto pt-3 border-t border-border">
+                            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Resultado</p>
+                            <p className="text-sm font-semibold text-primary">{ex.saved}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {extraFaqBlock.comparison.footnote && (
+                  <p className="text-xs text-muted-foreground mt-5 italic">
+                    {extraFaqBlock.comparison.footnote}
+                  </p>
+                )}
+              </div>
+            )}
+
             {article.faqs.length > 0 && (
               <div className="mt-12 border-t pt-8">
                 <h2 className="mb-6">Perguntas Frequentes</h2>
