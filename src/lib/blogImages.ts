@@ -64,6 +64,7 @@ import blogMotoristaApp from "@/assets/blog/blog-seguro-motorista-app.webp";
 import blogCorretoraGuarulhos from "@/assets/blog/blog-corretora-seguros-guarulhos.webp";
 import blogPrecoSeguroAutoGuarulhos2026 from "@/assets/blog/blog-preco-seguro-auto-guarulhos-2026.webp";
 import blogAgrishow2026 from "@/assets/blog/blog-agrishow-2026.webp";
+import blogSeguroFrotaLogisticaGuarulhos from "@/assets/blog/blog-seguro-frota-logistica-guarulhos.webp";
 
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
@@ -127,6 +128,7 @@ export const blogImageMap: Record<string, string> = {
 
   // Seguro Frota
   "como-proteger-frota": blogSeguroFrota,
+  "como-pagar-menos-seguro-frota-logistica-guarulhos": blogSeguroFrotaLogisticaGuarulhos,
 
   // Seguro Moto
   "seguro-moto-vale-a-pena": blogSeguroMoto,
