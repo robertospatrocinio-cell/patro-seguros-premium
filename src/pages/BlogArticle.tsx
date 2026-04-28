@@ -6922,7 +6922,7 @@ const BlogArticle = () => {
                 )}
                 <ol className="relative border-l-2 border-primary/30 pl-6 space-y-6">
                   {extraFaqBlock.timeline.stages.map((stage, i) => (
-                    <li key={i} className="relative">
+                    <li key={i} id={`etapa-${i + 1}`} className="relative scroll-mt-24">
                       <span className="absolute -left-[34px] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-sm">
                         <Clock className="h-3.5 w-3.5" />
                       </span>
