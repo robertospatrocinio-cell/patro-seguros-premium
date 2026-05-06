@@ -285,19 +285,3 @@ export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
 
   return { index, files };
 }
-
-// Legacy unused block kept above-removed-below; the original flat array
-// reference is preserved in `flat` inside generateSitemapBundle.
-const _legacyAllEntries = (): SitemapEntry[] => [
-    ...highIntentTransactional,
-    ...seoLocalGuarulhos,
-    ...coreProducts,
-    ...secondaryProducts,
-    ...tertiaryProducts,
-    ...nichos,
-    ...informational,
-    ...investments,
-    ...guarulhosHub,
-    ...bairroEntries,
-    ...legal,
-];
