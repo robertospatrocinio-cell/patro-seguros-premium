@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
 
 interface PageMetaProps {
   title: string;
@@ -7,7 +8,7 @@ interface PageMetaProps {
   noindex?: boolean;
 }
 
-const BASE_URL = "https://www.patroseguros.com.br";
+const BASE_URL = CANONICAL_BASE_URL;
 
 const PageMeta = ({ title, description, noindex = false }: PageMetaProps) => {
   const location = useLocation();
@@ -32,8 +33,8 @@ const PageMeta = ({ title, description, noindex = false }: PageMetaProps) => {
     // Description
     setMetaContent('meta[name="description"]', description);
 
-    // Canonical URL
-    const canonicalUrl = `${BASE_URL}${location.pathname === "/" ? "" : location.pathname}`;
+    // Canonical URL — single source of truth (strips query/hash, normalizes slashes)
+    const canonicalUrl = getCanonicalUrl(location.pathname);
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (canonical) {
       canonical.setAttribute("href", canonicalUrl);

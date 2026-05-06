@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
@@ -102,6 +103,8 @@ const InsurancePageTemplate = ({
   showEbookConsorcio,
   showAgrishowBanner,
 }: InsurancePageProps) => {
+  const location = useLocation();
+  const canonicalUrl = getCanonicalUrl(location.pathname);
   // SEO Local: se o title da página ainda não menciona uma localidade
   // (Guarulhos, São Paulo, SP, Brasil), reforça os H2 com geomodificador
   // para capturar buscas geolocalizadas (ex.: "quanto custa seguro auto em Guarulhos").
@@ -120,7 +123,7 @@ const InsurancePageTemplate = ({
       <OrganizationSchema />
       <AggregateRatingSchema
         serviceName={title}
-        url={typeof window !== "undefined" ? window.location.href : `https://www.patroseguros.com.br`}
+        url={canonicalUrl}
         description={metaDescription || subtitle}
       />
       <Header />
