@@ -18,6 +18,8 @@ const faqs = [
   { question: "Como funciona a cotação de seguros na Patro?", answer: "Você solicita pelo site, WhatsApp ou telefone. Em até 2 horas comparamos as melhores seguradoras parceiras e enviamos as propostas mais vantajosas, com explicação detalhada de coberturas, franquias e preços." },
   { question: "Quanto custa contratar uma corretora de seguros?", answer: "Nada. A corretora não cobra do cliente — somos remunerados via comissão paga pela seguradora. O cliente paga o mesmo valor que pagaria contratando direto, mas com o suporte completo de um corretor especializado." },
   { question: "Quais seguros a Patro Seguros oferece em Guarulhos?", answer: "Auto, Moto, Residencial, Vida, Saúde, Empresarial, Frota, Cyber, RC Profissional, Condomínio, Viagem, Celular, Previdência Privada, Consórcios e seguros Agro/Rural — entre outros." },
+  { question: "A Patro Seguros é corretora Porto Seguro Guarulhos?", answer: "Sim. A Patro Seguros é corretora Porto Seguro Guarulhos credenciada e faz cotação Porto Seguro Guarulhos para auto, moto, residencial, vida, saúde, empresarial e frota. Comparamos a Porto com Tokio, Allianz, HDI, Bradesco e outras para você escolher o melhor preço." },
+  { question: "Como faço cotação Porto Seguro Guarulhos pela Patro?", answer: "Envie seus dados pelo WhatsApp (11) 5199-7500 ou preencha o formulário do site. Em até 2 horas você recebe a cotação Porto Seguro Guarulhos junto com propostas comparativas de outras seguradoras." },
 ];
 
 const SeoCorretoraGuarulhos = () => (
