@@ -100,6 +100,10 @@ const informational: SitemapEntry[] = [
   { loc: "/seguros-guarulhos", priority: "0.8", changefreq: "monthly" },
 ];
 
+const guarulhosHub: SitemapEntry[] = [
+  { loc: "/seguros-em-guarulhos", priority: "0.9", changefreq: "weekly" },
+];
+
 const investments: SitemapEntry[] = [
   { loc: "/investimentos", priority: "0.7", changefreq: "monthly" },
   { loc: "/planejamento-patrimonial", priority: "0.7", changefreq: "monthly" },
@@ -148,6 +152,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...nichos,
     ...informational,
     ...investments,
+    ...guarulhosHub,
     ...bairroEntries,
     ...blogEntries,
     ...legal,
