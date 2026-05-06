@@ -9,6 +9,8 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -75,6 +77,11 @@ const Index = () => {
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
+      <AggregateRatingSchema
+        serviceName="Corretora de Seguros em Guarulhos"
+        url={CANONICAL_BASE_URL}
+        description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. 16+ seguradoras parceiras."
+      />
       <BreadcrumbSchema items={[
         { name: "Início", url: "https://www.patroseguros.com.br" },
         { name: "Corretora de Seguros Guarulhos", url: "https://www.patroseguros.com.br" },
