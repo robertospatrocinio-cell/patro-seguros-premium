@@ -217,6 +217,37 @@ export interface InternalLinkClickMeta {
   placement?: string;
 }
 
+/**
+ * Canonical surfaces. Use `buildInternalLinkSource(surface, slug)` at call sites
+ * so all pages emit `source` in the same `{surface}:{slug}` format.
+ */
+export type InternalLinkSurface =
+  | "faq-product"
+  | "faq-global"
+  | "hub"
+  | "footer"
+  | "header"
+  | "blog"
+  | "404"
+  | "landing"
+  | "sidebar";
+
+/** Canonical placements (UI block where the link is rendered). */
+export type InternalLinkPlacement =
+  | "veja-tambem"
+  | "smart-text"
+  | "hub-grid"
+  | "related-posts"
+  | "footer-links"
+  | "breadcrumb"
+  | "cta-block";
+
+/** Build a normalized `source` string. Always use this at call sites. */
+export const buildInternalLinkSource = (
+  surface: InternalLinkSurface,
+  slug: string,
+): string => normalizeSource(`${surface}:${slug || "geral"}`);
+
 export const trackInternalLinkClick = (meta: InternalLinkClickMeta) => {
   ensureAnalytics();
   const attr = captureAttribution();
