@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ArticleSchema from "@/components/ArticleSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
