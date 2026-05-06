@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
@@ -152,6 +153,15 @@ const InsurancePageTemplate = ({
         serviceName={title}
         url={canonicalUrl}
         description={metaDescription || subtitle}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          ...(breadcrumbCategory
+            ? [{ name: breadcrumbCategory.label, url: breadcrumbCategory.href }]
+            : []),
+          { name: title, url: location.pathname },
+        ]}
       />
       <Header />
       <main id="main-content">
