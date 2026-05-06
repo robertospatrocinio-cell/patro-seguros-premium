@@ -10,6 +10,7 @@ import { ArrowRight, MessageCircle, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import SmartText from "@/components/SmartText";
+import { getRelatedLinks } from "@/lib/relatedFromText";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
@@ -204,6 +205,29 @@ const FAQ = () => {
                           className="text-sm text-muted-foreground leading-relaxed"
                           maxLinks={2}
                         />
+                        {(() => {
+                          const related = getRelatedLinks(`${faq.question} ${faq.answer}`);
+                          if (related.length === 0) return null;
+                          return (
+                            <div className="mt-4 pt-3 border-t border-border/40">
+                              <p className="text-[11px] uppercase tracking-wider text-muted-foreground/70 mb-2">
+                                Veja também
+                              </p>
+                              <ul className="flex flex-wrap gap-1.5 list-none">
+                                {related.map((r) => (
+                                  <li key={r.href}>
+                                    <Link
+                                      to={r.href}
+                                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-primary/[0.06] text-primary text-xs font-medium hover:bg-primary/[0.12] transition-colors"
+                                    >
+                                      {r.label} <ArrowRight className="h-2.5 w-2.5" aria-hidden="true" />
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        })()}
                         <div className="mt-4 pt-3 border-t border-border/50">
                           <Link to="/cotacao" className="text-[13px] font-medium text-primary hover:underline inline-flex items-center gap-1">
                             Solicitar Cotação Grátis <ArrowRight className="h-3 w-3" aria-hidden="true" />
