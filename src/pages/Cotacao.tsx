@@ -74,8 +74,8 @@ const Cotacao = () => {
     }).catch(err => console.error("Email send error:", err));
 
     // Redirecionar para WhatsApp
-    trackCotacaoSubmit(values.insuranceType);
-    trackWhatsAppClick("formulario-cotacao");
+    trackCotacaoSubmit(values.insuranceType, { origin: "formulario-cotacao" });
+    trackWhatsAppClick("formulario-cotacao", { origin: "formulario-cotacao", insuranceType: values.insuranceType });
     window.open(`https://wa.me/551151997500?text=${whatsappMessage}`, "_blank");
     
     toast.success("Redirecionando para WhatsApp...", {
