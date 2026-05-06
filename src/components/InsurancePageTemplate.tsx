@@ -17,6 +17,7 @@ import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
+import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 
 // Map page title keywords to the Cotacao select values
 const inferQuoteType = (title: string): string => {
@@ -579,6 +580,9 @@ const InsurancePageTemplate = ({
             </div>
           </section>
         )}
+
+        {/* Hub completo de links internos para fortalecer crawl & autoridade tópica */}
+        <InsuranceHubLinks />
       </main>
       <Footer />
     </>
