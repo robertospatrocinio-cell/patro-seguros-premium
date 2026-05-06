@@ -19,6 +19,7 @@ import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import SmartText from "@/components/SmartText";
+import { getBreadcrumbCategory } from "@/lib/breadcrumbCategory";
 
 // Map page title keywords to the Cotacao select values
 const inferQuoteType = (title: string): string => {
@@ -122,6 +123,10 @@ const InsurancePageTemplate = ({
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = getCanonicalUrl(location.pathname);
+  const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
+  const breadcrumbItems = breadcrumbCategory
+    ? [{ label: breadcrumbCategory.label, href: breadcrumbCategory.href }, { label: title }]
+    : [{ label: title }];
   // Shared set to dedupe contextual keyword links across all narrative blocks
   // of the page (description, detailedDescription, contextualLinks, importantDetails).
   const linkedKeywords = new Set<string>();
@@ -149,7 +154,7 @@ const InsurancePageTemplate = ({
       />
       <Header />
       <main id="main-content">
-        <Breadcrumb items={[{ label: title }]} />
+        <Breadcrumb items={breadcrumbItems} />
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden" aria-label={`${title} — cotação gratuita`}>
           {heroImage && (
