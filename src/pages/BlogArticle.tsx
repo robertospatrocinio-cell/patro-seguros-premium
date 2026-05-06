@@ -7085,40 +7085,6 @@ const BlogArticle = () => {
       {meta && slug && (() => {
         const articleUrl = `https://patroseguros.com.br/blog/${slug}`;
         const imageUrl = `https://patroseguros.com.br${getArticleImage(slug)}`;
-        const blogPostingSchema = {
-          "@context": "https://schema.org",
-          "@type": "BlogPosting",
-          "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
-          "headline": article.title,
-          "description": meta.excerpt,
-          "image": [imageUrl],
-          "datePublished": meta.date,
-          "dateModified": meta.date,
-          "author": {
-            "@type": "Person",
-            "name": meta.author,
-            "url": "https://patroseguros.com.br/sobre",
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Patro Seguros",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://patroseguros.com.br/logo-full.webp",
-            },
-          },
-          "articleSection": meta.category,
-          "keywords": meta.tags.join(", "),
-          "wordCount": article.content.split(/\s+/).length,
-          "timeRequired": `PT${meta.readTime}M`,
-          "inLanguage": "pt-BR",
-          "isAccessibleForFree": true,
-          "speakable": {
-            "@type": "SpeakableSpecification",
-            "cssSelector": ["h1", "h2", "h3"],
-          },
-          "about": meta.tags.slice(0, 5).map(t => ({ "@type": "Thing", "name": t })),
-        };
         const howToSchema = extraFaqBlock?.timeline ? {
           "@context": "https://schema.org",
           "@type": "HowTo",
@@ -7154,9 +7120,17 @@ const BlogArticle = () => {
         } : null;
         return (
           <>
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+            <ArticleSchema
+              url={articleUrl}
+              headline={article.title}
+              description={meta.excerpt}
+              image={imageUrl}
+              datePublished={meta.date}
+              authorName={meta.author}
+              category={meta.category}
+              tags={meta.tags}
+              wordCount={article.content.split(/\s+/).length}
+              readTimeMinutes={meta.readTime}
             />
             {howToSchema && (
               <script
