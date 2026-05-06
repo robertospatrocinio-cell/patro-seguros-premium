@@ -102,6 +102,13 @@ const InsurancePageTemplate = ({
   showEbookConsorcio,
   showAgrishowBanner,
 }: InsurancePageProps) => {
+  // SEO Local: se o title da página ainda não menciona uma localidade
+  // (Guarulhos, São Paulo, SP, Brasil), reforça os H2 com geomodificador
+  // para capturar buscas geolocalizadas (ex.: "quanto custa seguro auto em Guarulhos").
+  const hasGeo = /(guarulhos|são paulo|sao paulo|\bsp\b|brasil)/i.test(title);
+  const geoSuffix = hasGeo ? "" : " em Guarulhos e Região";
+  const geoTitle = `${title}${geoSuffix}`;
+
   return (
     <>
       <PageMeta
