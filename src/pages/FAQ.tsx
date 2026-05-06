@@ -8,7 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { trackWhatsAppClick, trackInternalLinkClick } from "@/lib/tracking";
+import { trackWhatsAppClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
 import SmartText from "@/components/SmartText";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 
@@ -221,7 +221,7 @@ const FAQ = () => {
                                       onClick={() =>
                                         trackInternalLinkClick({
                                           placement: "veja-tambem",
-                                          source: `faq-global:${category.id}`,
+                                          source: buildInternalLinkSource("faq-global", category.id),
                                           destination: r.href,
                                           label: r.label,
                                         })
