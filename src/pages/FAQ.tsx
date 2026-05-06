@@ -8,7 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { trackWhatsAppClick } from "@/lib/tracking";
+import { trackWhatsAppClick, trackInternalLinkClick } from "@/lib/tracking";
 import SmartText from "@/components/SmartText";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 
@@ -218,6 +218,14 @@ const FAQ = () => {
                                   <li key={r.href}>
                                     <Link
                                       to={r.href}
+                                      onClick={() =>
+                                        trackInternalLinkClick({
+                                          placement: "veja-tambem",
+                                          source: `faq-global:${category.id}`,
+                                          destination: r.href,
+                                          label: r.label,
+                                        })
+                                      }
                                       className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-primary/[0.06] text-primary text-xs font-medium hover:bg-primary/[0.12] transition-colors"
                                     >
                                       {r.label} <ArrowRight className="h-2.5 w-2.5" aria-hidden="true" />
