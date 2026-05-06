@@ -4,11 +4,11 @@ import heroImg from "@/assets/hero-seguro-empresarial.webp";
 const SeoSeguroEmpresarialGuarulhos = () => (
   <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Empresarial em Guarulhos"
-    subtitle="Proteção completa para empresas de Guarulhos e região. Cotação gratuita e personalizada."
-    description="A Patro Seguros é especialista em seguros empresariais em Guarulhos. Protegemos comércios, indústrias, prestadores de serviços e empresas de todos os portes contra incêndio, roubo, responsabilidade civil e muito mais. Atendimento local e presencial."
+    title="Seguro Empresarial Guarulhos e Cumbica — Indústrias e Comércios"
+    subtitle="Seguro empresarial Cumbica e Guarulhos com cotação Porto Seguro, Tokio, Allianz e AIG. Proteção para indústrias, comércios e galpões."
+    description="Seguro empresarial Guarulhos e seguro empresarial Cumbica com a Patro Seguros, especialista em proteção patrimonial para indústrias do polo de Cumbica, Bonsucesso e Vila Galvão, comércios do Cidade Maia, prestadores de serviços e PMEs em geral. Cotação Porto Seguro Guarulhos, Tokio Marine, Allianz, AIG, Bradesco e Sompo para incêndio, roubo, responsabilidade civil, lucros cessantes, equipamentos e cyber. Atendimento presencial e visita técnica gratuita."
     icon="🏢"
-    metaDescription="Seguro Empresarial em Guarulhos para comércios, indústrias e serviços. Proteção contra incêndio, roubo e RC. Atendimento local. Cotação grátis Patro Seguros."
+    metaDescription="Seguro empresarial Guarulhos e Cumbica: cotação Porto Seguro, Tokio, AIG e Allianz para indústrias, galpões e comércios. Cotação grátis Patro Seguros."
     coverages={[
       { title: "Incêndio e Explosão", description: "Cobertura básica para imóvel e conteúdo empresarial." },
       { title: "Roubo e Furto", description: "Proteção para equipamentos, mercadorias e valores." },
@@ -28,8 +28,10 @@ const SeoSeguroEmpresarialGuarulhos = () => (
       "Suporte ágil em sinistros",
     ]}
     faqs={[
-      { question: "Quanto custa seguro empresarial em Guarulhos?", answer: "O valor varia conforme tipo de empresa, localização e coberturas. Solicite cotação gratuita." },
-      { question: "Seguro empresarial cobre roubo de mercadoria?", answer: "Sim, essa é uma das coberturas mais contratadas pelas empresas." },
+      { question: "Quanto custa seguro empresarial em Guarulhos?", answer: "Em Guarulhos, o seguro empresarial parte de R$ 100/mês para PMEs e varia conforme atividade, patrimônio e localização. Indústrias em Cumbica e galpões em Bonsucesso costumam ter taxas específicas. Solicite cotação gratuita personalizada." },
+      { question: "Seguro empresarial cobre roubo de mercadoria?", answer: "Sim, é uma das coberturas mais contratadas. Para o seguro empresarial Cumbica, a cobertura de roubo qualificado é praticamente obrigatória dada a alta sinistralidade da região industrial." },
+      { question: "Faço seguro empresarial Cumbica com a Patro Seguros?", answer: "Sim. A Patro Seguros é a corretora local especializada em seguro empresarial Cumbica, atendendo indústrias, galpões e operações logísticas próximas ao GRU Airport e à Rodovia Hélio Smidt. Visita técnica gratuita." },
+      { question: "Vocês fazem cotação Porto Seguro empresarial em Guarulhos?", answer: "Sim. Somos corretora Porto Seguro Guarulhos credenciada e fazemos cotação Porto Seguro empresarial junto a Tokio, Allianz, AIG, Bradesco e Sompo, comparando para você o melhor custo-benefício." },
     ]}
     relatedInsurances={[
       { title: "Seguro de Frota", link: "/seguro-frota" },
