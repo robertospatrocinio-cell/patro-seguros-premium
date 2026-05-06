@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import SmartText from "@/components/SmartText";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
@@ -198,7 +199,11 @@ const FAQ = () => {
                         <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light flex-shrink-0">+</span>
                       </summary>
                       <div className="px-5 pb-5 -mt-1">
-                        <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                        <SmartText
+                          text={faq.answer}
+                          className="text-sm text-muted-foreground leading-relaxed"
+                          maxLinks={2}
+                        />
                         <div className="mt-4 pt-3 border-t border-border/50">
                           <Link to="/cotacao" className="text-[13px] font-medium text-primary hover:underline inline-flex items-center gap-1">
                             Solicitar Cotação Grátis <ArrowRight className="h-3 w-3" aria-hidden="true" />
