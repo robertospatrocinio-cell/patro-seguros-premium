@@ -132,7 +132,10 @@ const InsuranceHeroSelector = () => {
   const modalConfig = modalFormKey ? formConfigs[modalFormKey] : null;
 
   const handleCardClick = (card: InsuranceCard, e: React.MouseEvent) => {
-    trackCotacaoClick(`hero-selector:${active}:${card.title}`);
+    trackCotacaoClick(`hero-selector:${active}:${card.title}`, {
+      origin: "hero-selector",
+      insuranceType: card.title,
+    });
     // Always navigate to the insurance page; user chooses form or WhatsApp there
   };
 
