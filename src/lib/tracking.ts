@@ -168,35 +168,77 @@ if (typeof window !== "undefined") {
 
 // ---------- Internal link clicks (e.g. "Veja também" related-coverage chips) ----------
 
+/**
+ * Standardized GA4 dimensions for internal link tracking.
+ *
+ * Conventions (enforced via normalization helpers below):
+ *  - `placement`: kebab-case slug describing the UI block (e.g. "veja-tambem", "smart-text", "hub-grid").
+ *  - `source`: "{surface}:{slug}" — both parts kebab-case, lowercased, accent-stripped.
+ *      surfaces in use: "faq-product", "faq-global", "hub", "footer", "404", "blog".
+ *  - `destination`: absolute path, lowercased, no trailing slash, no query/hash.
+ *  - `label`: human readable, trimmed (kept as-is for readability in reports).
+ */
+
+const toSlug = (value: string): string =>
+  (value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const normalizePlacement = (value?: string): string => toSlug(value || "veja-tambem") || "veja-tambem";
+
+const normalizeSource = (value: string): string => {
+  if (!value) return "unknown:unknown";
+  const [rawSurface, ...rest] = value.split(":");
+  const surface = toSlug(rawSurface) || "unknown";
+  const slug = toSlug(rest.join(":")) || "geral";
+  return `${surface}:${slug}`;
+};
+
+const normalizeDestination = (value: string): string => {
+  if (!value) return "/";
+  let path = value.split("#")[0].split("?")[0].toLowerCase().trim();
+  if (!path.startsWith("/")) path = `/${path}`;
+  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
+  return path;
+};
+
 export interface InternalLinkClickMeta {
-  /** Where the link was rendered (e.g. "faq-product:Seguro Auto", "faq-global"). */
+  /** Where the link was rendered. Format "{surface}:{slug}" — normalized automatically. */
   source: string;
   /** The destination URL (relative path). */
   destination: string;
   /** The visible link label (e.g. "Seguro de Vida"). */
   label: string;
-  /** Optional grouping (e.g. "veja-tambem", "smart-text", "hub"). */
+  /** Optional UI block grouping (e.g. "veja-tambem", "smart-text", "hub-grid"). */
   placement?: string;
 }
 
 export const trackInternalLinkClick = (meta: InternalLinkClickMeta) => {
   ensureAnalytics();
   const attr = captureAttribution();
+  const placement = normalizePlacement(meta.placement);
+  const source = normalizeSource(meta.source);
+  const destination = normalizeDestination(meta.destination);
+  const label = (meta.label || "").trim();
   window.gtag?.("event", "internal_link_click", {
     event_category: "navigation",
-    event_label: meta.label,
-    placement: meta.placement || "veja-tambem",
-    source: meta.source,
-    destination: meta.destination,
+    event_label: label,
+    placement,
+    source,
+    destination,
     page_path: typeof window !== "undefined" ? window.location.pathname : undefined,
     utm_source: attr.utm_source,
     utm_medium: attr.utm_medium,
     utm_campaign: attr.utm_campaign,
   });
   window.fbq?.("trackCustom", "InternalLinkClick", {
-    placement: meta.placement || "veja-tambem",
-    source: meta.source,
-    destination: meta.destination,
-    label: meta.label,
+    placement,
+    source,
+    destination,
+    label,
   });
 };
