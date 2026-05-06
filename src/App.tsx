@@ -63,6 +63,7 @@ const SeoSeguroUberGuarulhos = lazy(() => import("./pages/SeoSeguroUberGuarulhos
 const SeoSeguroEmpresaGuarulhos = lazy(() => import("./pages/SeoSeguroEmpresaGuarulhos"));
 const SeoSeguroVidaGuarulhos = lazy(() => import("./pages/SeoSeguroVidaGuarulhos"));
 const SeoSeguroMotoristaAppGuarulhos = lazy(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"));
+const SeoLocalPage = lazy(() => import("./pages/SeoLocalPage"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
 const SeguroGeada = lazy(() => import("./pages/SeguroGeada"));
 const SeguroPropriedadeRural = lazy(() => import("./pages/SeguroPropriedadeRural"));
@@ -227,6 +228,19 @@ const App = () => (
             <Route path="/seguro-empresa-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
             <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaGuarulhos />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
+            {/* SEO local — bairros e páginas comerciais (data-driven) */}
+            <Route path="/cotacao-seguro-auto-guarulhos" element={<SeoLocalPage slug="cotacao-seguro-auto-guarulhos" />} />
+            <Route path="/melhor-corretora-de-seguros-guarulhos" element={<SeoLocalPage slug="melhor-corretora-de-seguros-guarulhos" />} />
+            <Route path="/plano-saude-mei-guarulhos" element={<SeoLocalPage slug="plano-saude-mei-guarulhos" />} />
+            <Route path="/seguro-auto-vila-galvao" element={<SeoLocalPage slug="seguro-auto-vila-galvao" />} />
+            <Route path="/seguro-auto-bonsucesso-guarulhos" element={<SeoLocalPage slug="seguro-auto-bonsucesso-guarulhos" />} />
+            <Route path="/seguro-auto-cumbica" element={<SeoLocalPage slug="seguro-auto-cumbica" />} />
+            <Route path="/seguro-auto-pimentas" element={<SeoLocalPage slug="seguro-auto-pimentas" />} />
+            <Route path="/seguro-auto-maia-guarulhos" element={<SeoLocalPage slug="seguro-auto-maia-guarulhos" />} />
+            <Route path="/seguro-auto-jardim-sao-joao" element={<SeoLocalPage slug="seguro-auto-jardim-sao-joao" />} />
+            <Route path="/seguro-auto-taboao-guarulhos" element={<SeoLocalPage slug="seguro-auto-taboao-guarulhos" />} />
+            <Route path="/seguro-auto-centro-guarulhos" element={<SeoLocalPage slug="seguro-auto-centro-guarulhos" />} />
+            <Route path="/seguro-auto-vila-augusta" element={<SeoLocalPage slug="seguro-auto-vila-augusta" />} />
             <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
             <Route path="/seguro-geada" element={<SeguroGeada />} />
             <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
