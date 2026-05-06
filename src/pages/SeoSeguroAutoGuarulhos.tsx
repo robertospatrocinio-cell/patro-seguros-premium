@@ -4,9 +4,9 @@ import heroImg from "@/assets/hero-seguro-auto.webp";
 const SeoSeguroAutoGuarulhos = () => (
   <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Auto em Guarulhos — A Melhor Cotação da Região"
-    subtitle="Proteja seu carro em Guarulhos com as melhores seguradoras. Cotação gratuita e atendimento local."
-    description="Procurando seguro auto em Guarulhos? A Patro Seguros é a corretora de seguros referência em Guarulhos e região metropolitana de São Paulo. Com mais de 500 clientes atendidos desde 2020, comparamos cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Bradesco Seguros e outras seguradoras líderes para garantir o melhor preço e cobertura para o seu veículo. Nosso atendimento é presencial no Cidade Maia e online para toda Guarulhos."
+    title="Seguro Auto Guarulhos — Melhor Cotação Porto Seguro, Tokio e Allianz"
+    subtitle="Seguro auto Guarulhos com a melhor cotação de Porto Seguro, Tokio Marine, Allianz, HDI e Bradesco. Atendimento local no Cidade Maia."
+    description="Procurando o melhor seguro carro Guarulhos? A Patro Seguros é referência em seguro auto Guarulhos e cotação Porto Seguro Guarulhos, com mais de 500 clientes atendidos desde 2020. Comparamos Porto Seguro, Tokio Marine, Allianz, HDI, Bradesco Seguros e outras seguradoras para garantir o melhor preço e cobertura — seja para carro popular, SUV, importado ou veículo usado em apps. Atendimento presencial no Cidade Maia e online para toda Guarulhos, Cumbica, Vila Augusta, Pimentas e região."
     detailedDescription={`Guarulhos é a segunda maior cidade do estado de São Paulo, com mais de 1,4 milhão de habitantes e uma frota estimada em 650 mil veículos. A cidade é cortada por rodovias de alto fluxo como a Presidente Dutra (BR-116), Fernão Dias (BR-381) e Ayrton Senna, o que eleva significativamente o risco de acidentes e sinistros.
 
 Segundo dados do ISP (Índice de Sinistralidade por Praça), Guarulhos está entre as 10 cidades com maior índice de roubo e furto de veículos do Brasil. Bairros como Cumbica, Bonsucesso e Pimentas apresentam taxas de sinistralidade até 40% superiores à média estadual, enquanto regiões como Cidade Maia e Vila Augusta possuem índices mais favoráveis.
