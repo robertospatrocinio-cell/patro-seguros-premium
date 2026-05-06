@@ -11,20 +11,21 @@ const faqs = [
   { question: "Quanto custa plano de saúde em Guarulhos?", answer: "Em Guarulhos, planos individuais começam em torno de R$ 280/mês para jovens adultos, R$ 600/mês para 40-49 anos e podem chegar a R$ 2.500/mês para 59+. Planos empresariais (PME) costumam ser 30% a 50% mais baratos." },
   { question: "Quais operadoras de plano de saúde têm rede credenciada em Guarulhos?", answer: "Bradesco Saúde, Amil, SulAmérica, Porto Saúde, HapVida/NotreDame Intermédica, Prevent Senior, MedSenior e Omint mantêm rede credenciada robusta em Guarulhos — incluindo Cidade Maia, Macedo, Vila Galvão e bairros próximos ao Aeroporto." },
   { question: "Plano de saúde empresarial em Guarulhos exige quantas vidas?", answer: "A maioria das operadoras aceita PMEs a partir de 2 vidas (CNPJ ativo). Algumas operadoras, como Bradesco e Amil, permitem MEI com 1 titular + 1 dependente. Os preços são significativamente menores que os planos individuais." },
+  { question: "Como contratar plano de saúde MEI Guarulhos?", answer: "O plano de saúde MEI Guarulhos é contratado com CNPJ ativo de MEI e geralmente exige titular + 1 dependente. A Patro Seguros cota Bradesco Saúde, Amil, SulAmérica e Hapvida para MEIs em Guarulhos com preços até 50% menores que planos individuais. Atendimento presencial no Cidade Maia." },
   { question: "A Patro Seguros cobra para cotar plano de saúde?", answer: "Não. A cotação é 100% gratuita. Atendemos presencialmente no escritório da Cidade Maia, em Guarulhos, ou online por WhatsApp. Você paga o mesmo preço de tabela da operadora — recebemos comissão direta dela." },
 ];
 
 const SeoPlanoSaudeGuarulhos = () => (
   <>
-    <PageMeta title="Plano de Saúde em Guarulhos – Cidade Maia" description="Plano de saúde no Cidade Maia, Guarulhos. Compare Bradesco Saúde, Amil, SulAmérica e mais. Atendimento local e cotação gratuita." />
+    <PageMeta title="Plano de Saúde Guarulhos e Plano de Saúde MEI Guarulhos" description="Plano de saúde Guarulhos e plano de saúde MEI Guarulhos: compare Bradesco, Amil, SulAmérica, Hapvida e Porto Saúde. Cotação grátis Patro Seguros." />
     <FAQSchema faqs={faqs} />
     <Header />
     <main id="main-content">
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-white mb-6">Plano de Saúde em Guarulhos — Compare e Contrate</h1>
+          <h1 className="text-white mb-6">Plano de Saúde Guarulhos e Plano de Saúde MEI Guarulhos</h1>
           <p className="text-xl text-white/70 mb-8">
-            Encontre o melhor plano de saúde em Guarulhos com a Patro Seguros. Comparamos Bradesco, Amil, SulAmérica, Porto e outras operadoras.
+            Encontre o melhor plano de saúde em Guarulhos — individual, familiar, empresarial e plano de saúde MEI Guarulhos. Comparamos Bradesco, Amil, SulAmérica, Hapvida, Porto Saúde e mais.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/planos-de-saude">

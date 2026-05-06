@@ -4,9 +4,9 @@ import heroImg from "@/assets/hero-seguro-auto.webp";
 const SeoSeguroAutoGuarulhos = () => (
   <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Auto em Guarulhos — A Melhor Cotação da Região"
-    subtitle="Proteja seu carro em Guarulhos com as melhores seguradoras. Cotação gratuita e atendimento local."
-    description="Procurando seguro auto em Guarulhos? A Patro Seguros é a corretora de seguros referência em Guarulhos e região metropolitana de São Paulo. Com mais de 500 clientes atendidos desde 2020, comparamos cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Bradesco Seguros e outras seguradoras líderes para garantir o melhor preço e cobertura para o seu veículo. Nosso atendimento é presencial no Cidade Maia e online para toda Guarulhos."
+    title="Seguro Auto Guarulhos — Melhor Cotação Porto Seguro, Tokio e Allianz"
+    subtitle="Seguro auto Guarulhos com a melhor cotação de Porto Seguro, Tokio Marine, Allianz, HDI e Bradesco. Atendimento local no Cidade Maia."
+    description="Procurando o melhor seguro carro Guarulhos? A Patro Seguros é referência em seguro auto Guarulhos e cotação Porto Seguro Guarulhos, com mais de 500 clientes atendidos desde 2020. Comparamos Porto Seguro, Tokio Marine, Allianz, HDI, Bradesco Seguros e outras seguradoras para garantir o melhor preço e cobertura — seja para carro popular, SUV, importado ou veículo usado em apps. Atendimento presencial no Cidade Maia e online para toda Guarulhos, Cumbica, Vila Augusta, Pimentas e região."
     detailedDescription={`Guarulhos é a segunda maior cidade do estado de São Paulo, com mais de 1,4 milhão de habitantes e uma frota estimada em 650 mil veículos. A cidade é cortada por rodovias de alto fluxo como a Presidente Dutra (BR-116), Fernão Dias (BR-381) e Ayrton Senna, o que eleva significativamente o risco de acidentes e sinistros.
 
 Segundo dados do ISP (Índice de Sinistralidade por Praça), Guarulhos está entre as 10 cidades com maior índice de roubo e furto de veículos do Brasil. Bairros como Cumbica, Bonsucesso e Pimentas apresentam taxas de sinistralidade até 40% superiores à média estadual, enquanto regiões como Cidade Maia e Vila Augusta possuem índices mais favoráveis.
@@ -15,7 +15,7 @@ A Patro Seguros conhece profundamente a realidade local. Nossa equipe de consult
 
 Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFood), que representam uma parcela significativa da frota de Guarulhos. Para esse público, oferecemos coberturas específicas que incluem proteção durante o uso profissional do veículo, algo que muitas apólices convencionais não cobrem.`}
     icon="🚗"
-    metaDescription="Seguro Auto em Guarulhos — compare cotações de Porto, Tokio Marine, Allianz e mais. Atendimento local e presencial. Cotação grátis Patro Seguros Guarulhos."
+    metaDescription="Seguro auto Guarulhos: cotação Porto Seguro Guarulhos, Tokio, Allianz, HDI. Encontre o melhor seguro carro Guarulhos com a Patro Seguros. Cotação grátis."
     coverages={[
       { title: "Cobertura Compreensiva", description: "Proteção contra roubo, furto, colisão, incêndio e fenômenos naturais. Ideal para veículos novos e seminovos que circulam por Guarulhos." },
       { title: "Responsabilidade Civil", description: "Cobertura para danos materiais e corporais causados a terceiros em acidentes. Essencial nas rodovias Dutra e Fernão Dias." },
@@ -79,8 +79,9 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
       "Especialistas em seguros para motoristas de aplicativo em Guarulhos",
     ]}
     faqs={[
-      { question: "Quanto custa seguro auto em Guarulhos em 2025?", answer: "O valor médio do seguro auto em Guarulhos varia entre R$ 1.800 e R$ 4.500/ano para cobertura compreensiva, dependendo do veículo, perfil do motorista e CEP. Bairros como Cidade Maia e Vila Augusta tendem a ter preços mais baixos que Cumbica e Pimentas. Solicite cotação gratuita para seu perfil específico." },
-      { question: "Qual a melhor seguradora de auto em Guarulhos?", answer: "Depende do perfil. Porto Seguro lidera em assistência 24h e rede de oficinas. Tokio Marine oferece excelente custo-benefício. Allianz tem boas condições para veículos importados. HDI é competitiva para motoristas jovens. A Patro compara todas para encontrar a ideal." },
+      { question: "Quanto custa seguro auto em Guarulhos em 2026?", answer: "O valor médio do seguro auto Guarulhos varia entre R$ 1.800 e R$ 4.500/ano para cobertura compreensiva, dependendo do veículo, perfil do motorista e CEP. Bairros como Cidade Maia e Vila Augusta tendem a ter preços mais baixos que Cumbica e Pimentas. Solicite cotação gratuita para seu perfil específico." },
+      { question: "Qual o melhor seguro carro Guarulhos?", answer: "Depende do perfil. Porto Seguro lidera em assistência 24h e rede de oficinas em Guarulhos. Tokio Marine oferece excelente custo-benefício. Allianz tem boas condições para veículos importados. HDI é competitiva para motoristas jovens. A Patro compara todas para encontrar a melhor seguradora de carro em Guarulhos para você." },
+      { question: "Como fazer cotação Porto Seguro Guarulhos?", answer: "A Patro Seguros é corretora Porto Seguro Guarulhos credenciada e faz a cotação Porto Seguro Guarulhos gratuitamente. Envie modelo, ano, CEP e perfil pelo WhatsApp (11) 5199-7500 e receba a proposta em até 2 horas, com comparativo entre Porto Seguro e outras seguradoras." },
       { question: "Seguro auto cobre motorista de aplicativo em Guarulhos?", answer: "Nem sempre. O seguro convencional pode negar sinistros durante corridas. A Patro trabalha com seguradoras que oferecem cobertura específica para Uber, 99 e iFood, protegendo você durante o uso profissional." },
       { question: "Como funciona o sinistro de seguro auto em Guarulhos?", answer: "A Patro acompanha todo o processo: abertura do sinistro, agendamento de vistoria, escolha da oficina (referenciada ou livre) e acompanhamento até a liberação do veículo ou pagamento da indenização. Nosso prazo médio é 40% menor que a média do mercado." },
       { question: "Seguro auto em Guarulhos cobre enchente?", answer: "Sim, a cobertura compreensiva inclui alagamento e enchente, eventos comuns em regiões baixas de Guarulhos durante o verão. Verifique se sua apólice inclui essa proteção, especialmente se você mora próximo a áreas de risco." },
