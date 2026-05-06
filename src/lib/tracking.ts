@@ -165,3 +165,38 @@ export const trackCotacaoClick = (source?: string, meta?: ConversionMeta) => {
 if (typeof window !== "undefined") {
   try { captureAttribution(); } catch { /* noop */ }
 }
+
+// ---------- Internal link clicks (e.g. "Veja também" related-coverage chips) ----------
+
+export interface InternalLinkClickMeta {
+  /** Where the link was rendered (e.g. "faq-product:Seguro Auto", "faq-global"). */
+  source: string;
+  /** The destination URL (relative path). */
+  destination: string;
+  /** The visible link label (e.g. "Seguro de Vida"). */
+  label: string;
+  /** Optional grouping (e.g. "veja-tambem", "smart-text", "hub"). */
+  placement?: string;
+}
+
+export const trackInternalLinkClick = (meta: InternalLinkClickMeta) => {
+  ensureAnalytics();
+  const attr = captureAttribution();
+  window.gtag?.("event", "internal_link_click", {
+    event_category: "navigation",
+    event_label: meta.label,
+    placement: meta.placement || "veja-tambem",
+    source: meta.source,
+    destination: meta.destination,
+    page_path: typeof window !== "undefined" ? window.location.pathname : undefined,
+    utm_source: attr.utm_source,
+    utm_medium: attr.utm_medium,
+    utm_campaign: attr.utm_campaign,
+  });
+  window.fbq?.("trackCustom", "InternalLinkClick", {
+    placement: meta.placement || "veja-tambem",
+    source: meta.source,
+    destination: meta.destination,
+    label: meta.label,
+  });
+};
