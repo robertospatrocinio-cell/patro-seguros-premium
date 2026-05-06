@@ -71,8 +71,13 @@ FileETag None
   RewriteEngine On
   RewriteBase /
 
-  RewriteCond %{HTTP_HOST} ^www\.patroseguros\.com\.br$ [NC]
-  RewriteRule ^ https://patroseguros.com.br%{REQUEST_URI} [R=301,L]
+  # Force apex -> www (canonical host is www.patroseguros.com.br)
+  RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br$ [NC]
+  RewriteRule ^ https://www.patroseguros.com.br%{REQUEST_URI} [R=301,L]
+
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://www.patroseguros.com.br%{REQUEST_URI} [R=301,L]
 
   RewriteRule ^(sitemap\.xml|robots\.txt|sw\.js|favicon\.(ico|png)|manifest\.webmanifest)$ - [L,NC]
 

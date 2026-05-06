@@ -31,7 +31,7 @@ const ArticleSchema = ({
   datePublished,
   dateModified,
   authorName,
-  authorUrl = "https://patroseguros.com.br/sobre",
+  authorUrl = "https://www.patroseguros.com.br/sobre",
   category,
   tags = [],
   wordCount,
@@ -55,7 +55,7 @@ const ArticleSchema = ({
       worksFor: {
         "@type": "Organization",
         name: "Patro Seguros",
-        url: "https://patroseguros.com.br",
+        url: "https://www.patroseguros.com.br",
       },
     },
     publisher: {
@@ -64,7 +64,7 @@ const ArticleSchema = ({
       name: "Patro Seguros",
       logo: {
         "@type": "ImageObject",
-        url: "https://patroseguros.com.br/logo-full.webp",
+        url: "https://www.patroseguros.com.br/logo-full.webp",
         width: 512,
         height: 512,
       },
