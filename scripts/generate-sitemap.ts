@@ -100,6 +100,11 @@ const informational: SitemapEntry[] = [
   { loc: "/seguros-guarulhos", priority: "0.8", changefreq: "monthly" },
 ];
 
+const investments: SitemapEntry[] = [
+  { loc: "/investimentos", priority: "0.7", changefreq: "monthly" },
+  { loc: "/planejamento-patrimonial", priority: "0.7", changefreq: "monthly" },
+];
+
 const bairroIds = [
   "jardim-maia", "vila-augusta", "cumbica", "centro", "picanco",
   "macedo", "gopouva", "bonsucesso", "paraventi", "continental",
@@ -142,6 +147,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...tertiaryProducts,
     ...nichos,
     ...informational,
+    ...investments,
     ...bairroEntries,
     ...blogEntries,
     ...legal,
