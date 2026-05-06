@@ -204,6 +204,12 @@ export const blogImageMap: Record<string, string> = {
 
   // Agrishow 2026
   "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": blogAgrishow2026,
+
+  // Novos artigos locais Guarulhos 2026
+  "melhores-seguros-motoristas-uber-guarulhos": blogMotoristaApp,
+  "seguro-barato-corolla-guarulhos": blogSeguroAuto,
+  "plano-saude-empresarial-mei-guarulhos": blogPlanoSaudePme,
+  "seguro-residencial-vale-pena-guarulhos": blogSeguroResidencial,
 };
 
 export const getArticleImage = (slug: string): string => {

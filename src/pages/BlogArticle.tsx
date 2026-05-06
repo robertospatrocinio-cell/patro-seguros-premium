@@ -6733,6 +6733,345 @@ Fonte dos dados: IPSA + IPSM, índice desenvolvido pela TEx, parte da Serasa Exp
       { q: "A Patro Seguros atende motociclistas fora de Guarulhos?", a: "Sim. Atendemos em todo o Brasil com cotação online, assinatura digital e suporte humano por WhatsApp e telefone. Nosso escritório fica na Cidade Maia, em Guarulhos/SP, mas a operação é nacional." },
     ],
   },
+  "melhores-seguros-motoristas-uber-guarulhos": {
+    title: "Melhores Seguros para Motoristas Uber em Guarulhos (2026)",
+    content: `Guarulhos concentra uma das maiores populações de motoristas de aplicativo da Grande São Paulo. Com o Aeroporto Internacional GRU, terminais rodoviários e o fluxo intenso entre a cidade e a capital pela Dutra, Fernão Dias e Ayrton Senna, são milhares de motoristas Uber, 99 e InDriver rodando 8 a 12 horas por dia. Mas a pergunta que praticamente todos eles fazem é: **qual é o melhor seguro para motorista Uber em Guarulhos em 2026**?
+
+Neste guia, a **Patro Seguros** — corretora local especializada no Cidade Maia — compara as principais apólices, mostra preços médios reais e explica como evitar o pior cenário possível: ter o sinistro negado por causa do uso para aplicativo.
+
+O Risco Que Quase Ninguém Conta
+
+A maior parte dos seguros tradicionais **exclui o uso remunerado do veículo**. Em caso de sinistro durante uma corrida Uber ou 99, a seguradora pode negar a indenização — deixando o motorista com prejuízo de R$ 30 mil a R$ 80 mil e ainda sem o carro, que é sua ferramenta de trabalho.
+
+Por isso, o primeiro critério para escolher o melhor seguro para Uber em Guarulhos não é preço — é **cláusula expressa de uso por aplicativo** no contrato.
+
+As Melhores Seguradoras para Motorista Uber em Guarulhos
+
+Comparamos as condições praticadas pelas seguradoras que aceitam motoristas de app em Guarulhos:
+
+**1. Porto Seguro — Melhor para Cobertura Completa**
+- Aceita Uber, 99, InDriver e iFood com cláusula contratual.
+- Rede de oficinas referenciadas mais ampla de Guarulhos.
+- Assistência 24h muito bem avaliada (importante para quem trabalha de madrugada).
+- Preço médio: R$ 3.200 a R$ 5.500/ano.
+
+**2. Allianz — Melhor Custo-Benefício**
+- Cláusula clara para uso em aplicativos de transporte e delivery.
+- Boa flexibilidade de franquia (reduz prêmio para motoristas experientes).
+- Carro reserva estendido — fundamental para não ficar sem renda.
+- Preço médio: R$ 2.900 a R$ 5.000/ano.
+
+**3. HDI — Melhor para Motoristas Jovens**
+- Aceita motoristas a partir de 21 anos com 2 anos de CNH.
+- Apólice ajustável conforme quilometragem mensal.
+- Indicada para motoristas que rodam até 5.000 km/mês.
+- Preço médio: R$ 2.800 a R$ 4.700/ano.
+
+**4. Tokio Marine — Melhor para Quem Tem Bônus**
+- Mantém classe de bônus mesmo com mudança de uso para Uber.
+- Boas condições para motoristas com 5+ anos sem sinistro.
+- Preço médio: R$ 3.000 a R$ 5.200/ano.
+
+👉 Quer descobrir qual é o melhor para o **seu perfil** específico? [Faça sua cotação gratuita com a Patro Seguros](/seguro-uber-guarulhos) e receba comparativo entre todas em até 2 horas.
+
+Coberturas Que Não Podem Faltar para Motorista Uber em Guarulhos
+
+Se você roda por aplicativo em Guarulhos, sua apólice precisa incluir:
+
+- **Cobertura durante corridas remuneradas** (cláusula expressa).
+- **Roubo e furto** com indenização integral pelo valor FIPE — fundamental por causa de Cumbica e proximidades do GRU Airport.
+- **Responsabilidade civil para passageiros** (RC e APP).
+- **Carro reserva** por pelo menos 15 dias — sem ele, você fica sem renda.
+- **Assistência 24h** com guincho ilimitado dentro de Guarulhos.
+- **Acidentes pessoais para o motorista** — proteção crítica para o autônomo.
+
+Quanto Custa o Seguro Uber em Guarulhos em 2026?
+
+Para o perfil médio (homem, 35 anos, com Onix ou HB20, garagem em casa, no Cidade Maia), os valores médios em 2026 ficam:
+
+- **Cobertura básica com cláusula app:** R$ 2.800 a R$ 3.500/ano.
+- **Cobertura compreensiva completa:** R$ 3.500 a R$ 4.800/ano.
+- **Compreensiva + carro reserva estendido + APP:** R$ 4.200 a R$ 5.500/ano.
+
+O acréscimo em relação ao seguro convencional é de 15% a 30%, mas garante cobertura **real e jurídica** em sinistro durante corridas.
+
+Como Pagar Menos no Seguro Uber em Guarulhos
+
+1. **Instale rastreador** (Ituran, Suhai, Ônix Sat): desconto de 10-15%.
+2. **Mantenha garagem fechada** no pernoite — bairros como Cidade Maia e Vila Augusta têm taxa menor.
+3. **Compare anualmente** — o mercado de seguro para app muda rápido.
+4. **Aumente a franquia** se você é motorista experiente sem sinistros.
+5. **Use uma corretora local** que cota em várias seguradoras simultaneamente.
+
+Conclusão: Qual o Melhor Seguro para Uber em Guarulhos?
+
+Não existe "o melhor" universal — existe o melhor **para o seu perfil**. Para motoristas full-time, **Porto Seguro** lidera em assistência. Para custo-benefício, **Allianz** é referência. Para jovens, **HDI** costuma ser mais barata. Para quem tem bônus, **Tokio Marine** preserva o desconto.
+
+A **Patro Seguros**, corretora local no Cidade Maia, faz a comparação entre todas elas para o seu perfil em até 2 horas, sem custo. Atendemos motoristas de app de Guarulhos desde 2020.
+
+📲 [Solicite sua cotação no WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20sou%20motorista%20Uber%20em%20Guarulhos%20e%20quero%20cotar%20seguro.) e tenha tranquilidade para trabalhar.`,
+    faqs: [
+      { q: "Qual a melhor seguradora para Uber em Guarulhos em 2026?", a: "Depende do perfil. Porto Seguro lidera em assistência 24h e rede de oficinas. Allianz tem o melhor custo-benefício. HDI é mais competitiva para motoristas jovens. Tokio preserva bônus de motoristas experientes. A Patro compara todas em até 2 horas." },
+      { q: "Seguro comum cobre acidente em corrida Uber em Guarulhos?", a: "Geralmente não. Apólices convencionais excluem o uso remunerado e podem negar sinistros durante corridas. É essencial contratar seguro com cláusula expressa para uso em aplicativo." },
+      { q: "Quanto custa seguro Uber em Guarulhos?", a: "Em média R$ 2.800 a R$ 5.500/ano para cobertura compreensiva, com acréscimo de 15-30% sobre seguro convencional. O valor exato depende de modelo, idade do motorista, CEP e horas trabalhadas." },
+      { q: "Posso usar o mesmo seguro para Uber e iFood em Guarulhos?", a: "Sim, desde que ambas as atividades sejam declaradas na contratação. Algumas seguradoras tratam transporte de passageiros e delivery em categorias diferentes." },
+    ],
+  },
+  "seguro-barato-corolla-guarulhos": {
+    title: "Seguro Barato para Corolla em Guarulhos: Como Pagar Menos em 2026",
+    content: `O **Toyota Corolla** está entre os 5 sedãs mais vendidos do Brasil e é uma das escolhas favoritas dos motoristas de Guarulhos — combina conforto, durabilidade e excelente valor de revenda. Mas, junto com a popularidade, vem um problema: **o Corolla é um dos carros mais visados por roubo e furto** na Grande SP, o que pesa no preço do seguro.
+
+A boa notícia? Dá para conseguir **seguro barato para Corolla em Guarulhos** em 2026 sem abrir mão de cobertura, desde que você saiba o que negociar e com qual seguradora cotar.
+
+Por Que o Seguro do Corolla Costuma Ser Mais Caro em Guarulhos
+
+O preço do seguro é diretamente influenciado pela **sinistralidade** — quanto mais um modelo é roubado ou furtado, mais caro custa segurar. O Corolla aparece consistentemente no top 10 de carros mais visados em São Paulo, especialmente as versões **XEi e Altis**.
+
+Em Guarulhos, três fatores agravam o preço:
+
+1. **Proximidade da Dutra e da Fernão Dias** — rodovias com alto índice de roubo e colisão.
+2. **Alta circulação por Cumbica e bairros do entorno do aeroporto**.
+3. **Demanda de receptação** — o Corolla é facilmente desmontado e tem peças muito procuradas.
+
+Quanto Custa o Seguro de Corolla em Guarulhos em 2026
+
+Simulações Patro Seguros para perfil médio (homem, 35 anos, casado, garagem em casa, Cidade Maia, uso particular):
+
+- **Corolla XEi 2.0 2024:** R$ 3.200 a R$ 4.500/ano (compreensiva).
+- **Corolla Altis Hybrid 2024:** R$ 3.800 a R$ 5.300/ano.
+- **Corolla GR-Sport 2.0:** R$ 4.100 a R$ 5.700/ano.
+- **Corolla XEi 2020 (usado):** R$ 2.600 a R$ 3.700/ano.
+- **Corolla XEi 2018 (usado):** R$ 2.300 a R$ 3.300/ano.
+
+Para motoristas Uber/99 com Corolla, adicione 15% a 30% sobre os valores acima — sempre com **cláusula expressa de uso por aplicativo**.
+
+As Seguradoras Mais Competitivas para Corolla em Guarulhos
+
+- **Tokio Marine:** historicamente competitiva para sedãs médios em SP.
+- **Porto Seguro:** preço justo e melhor rede de oficinas para Toyota em Guarulhos.
+- **HDI:** apólices ajustáveis por quilometragem (boa para quem roda pouco).
+- **Allianz:** boa para versões hybrid e GR-Sport.
+- **Bradesco Auto:** condições atrativas para clientes do banco.
+
+👉 [Cote seu Corolla com a Patro](/seguro-auto-guarulhos) e compare as 5 em até 2 horas, gratuitamente.
+
+7 Estratégias para Pagar Mais Barato no Seguro do Corolla em Guarulhos
+
+**1. Instale rastreador antifurto.** Ituran, Suhai e Ônix Sat são as mais aceitas — desconto médio de 10-15%.
+
+**2. Mantenha o carro em garagem fechada.** Bairros como **Cidade Maia, Vila Augusta e Bosque Maia** têm taxa de pernoite menor do que Cumbica e Pimentas.
+
+**3. Aumente a franquia para "majorada".** Se você é motorista prudente, optar por franquia maior pode reduzir o prêmio em 15-25%.
+
+**4. Use o bônus de outras apólices.** Se o cônjuge tem classe de bônus alta, contratar no nome dele pode reduzir significativamente o valor.
+
+**5. Limite a quilometragem mensal.** Apólices "low mileage" (até 1.000 km/mês) podem ter desconto de 10-20% para quem usa pouco o carro.
+
+**6. Evite renovação automática.** O preço da renovação direta com a seguradora é normalmente 10-25% acima do mercado. **Cote sempre com uma corretora multimarcas.**
+
+**7. Cote em uma corretora local.** A **Patro Seguros**, no Cidade Maia, cota seu Corolla em mais de 8 seguradoras simultaneamente, sem custo.
+
+Vale a Pena Contratar Cobertura Compreensiva no Corolla?
+
+Para Corollas até **8-10 anos de uso**, sim, vale muito a pena. O custo da cobertura compreensiva (que cobre colisão, terceiros e fenômenos da natureza) é proporcionalmente baixo dado o valor do bem. Para Corollas com mais de 10 anos, faz sentido avaliar uma cobertura intermediária ou apenas RC + roubo/furto.
+
+Conclusão: Como Conseguir Seguro Barato para Corolla em Guarulhos
+
+O segredo do **seguro barato para Corolla em Guarulhos** é a combinação de **boa precificação local** + **proteções antifurto** + **comparação multi-seguradora**. Não aceite a primeira proposta nem a renovação automática — em 9 de 10 casos, conseguimos economia de 15% a 30% para clientes da Patro.
+
+📲 [Cote seu Corolla agora pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20cotar%20seguro%20para%20Corolla%20em%20Guarulhos.) e descubra quanto você pode economizar.`,
+    faqs: [
+      { q: "Quanto custa seguro de Corolla em Guarulhos em 2026?", a: "Em média R$ 3.200 a R$ 5.700/ano para versões 0km e R$ 2.300 a R$ 3.700/ano para Corollas usados. O preço varia conforme versão, ano, CEP de pernoite, perfil do motorista e franquia escolhida." },
+      { q: "Qual a melhor seguradora para Corolla em Guarulhos?", a: "Tokio Marine e Porto Seguro são historicamente as mais competitivas para sedãs médios em SP. HDI tem boas opções por quilometragem. A Patro Seguros compara todas para o seu perfil sem custo." },
+      { q: "Por que o seguro do Corolla é caro?", a: "Porque o Corolla é um dos carros mais visados por roubo e furto em São Paulo, e Guarulhos tem alta sinistralidade pela proximidade da Dutra, Fernão Dias e GRU Airport. Rastreador e garagem fechada ajudam a reduzir." },
+      { q: "Vale a pena seguro compreensivo para Corolla usado?", a: "Para Corollas até 8-10 anos, sim, vale muito a pena. Para acima de 10 anos, avalie cobertura intermediária ou apenas RC + roubo/furto, conforme o valor de mercado do veículo." },
+    ],
+  },
+  "plano-saude-empresarial-mei-guarulhos": {
+    title: "Plano de Saúde Empresarial para MEI em Guarulhos: Guia Completo 2026",
+    content: `Se você é **Microempreendedor Individual (MEI)** em Guarulhos, provavelmente já descobriu que os planos de saúde individuais ficaram muito caros — e os reajustes anuais são impiedosos. A boa notícia? Como MEI, você tem direito de contratar um **plano de saúde empresarial** com **preços até 50% menores** e reajustes mais previsíveis.
+
+Neste guia, a **Patro Seguros** — corretora local no Cidade Maia, em Guarulhos — explica como funciona o **plano de saúde empresarial para MEI em Guarulhos** em 2026, quais operadoras aceitam, quanto custa e como contratar sem dor de cabeça.
+
+Por Que MEI Pode Contratar Plano de Saúde Empresarial
+
+Desde 2018, as operadoras de saúde podem aceitar **MEI como pessoa jurídica** para fins de plano coletivo empresarial. Para isso, você precisa apenas:
+
+- CNPJ ativo de MEI há **pelo menos 3 a 6 meses** (varia por operadora).
+- Comprovante de inscrição no CCMEI (CertificaMEI).
+- Documentos pessoais do titular.
+- Em alguns casos, **comprovante de movimentação financeira** (extratos do MEI).
+
+A grande vantagem: o **plano empresarial é até 50% mais barato** que o individual, com **reajustes anuais negociados por massa** (em vez de aplicar o reajuste máximo da ANS).
+
+Operadoras Que Aceitam MEI em Guarulhos em 2026
+
+**1. Bradesco Saúde**
+- Aceita MEI a partir de 1 vida (titular) ou 1 + 1 dependente.
+- Rede credenciada robusta em Guarulhos: **Hospital Bom Clima, Stella Maris, Centro Médico Cidade Maia**.
+- Carência reduzida ou eliminada para muitos procedimentos.
+- Preço médio MEI: R$ 280 a R$ 580/mês (titular individual, conforme idade).
+
+**2. Amil**
+- Planos a partir de 2 vidas (titular + 1).
+- Rede ampla em Guarulhos e Grande SP.
+- Excelente para PMEs e MEIs com filhos.
+- Preço médio MEI: R$ 240 a R$ 540/mês.
+
+**3. SulAmérica**
+- Aceita MEI a partir de 2 vidas.
+- Forte em ambulatorial e exames complexos.
+- Boa rede em Guarulhos para profissionais liberais.
+- Preço médio MEI: R$ 300 a R$ 620/mês.
+
+**4. Hapvida/NotreDame Intermédica**
+- Aceita MEI a partir de 2 vidas.
+- **O mais barato** para MEI em Guarulhos.
+- Rede própria e credenciada na região.
+- Preço médio MEI: R$ 180 a R$ 420/mês.
+
+**5. Porto Saúde**
+- Aceita MEI a partir de 2 vidas.
+- Boa cobertura nacional e parcerias premium.
+- Preço médio MEI: R$ 260 a R$ 540/mês.
+
+👉 [Cote agora seu plano de saúde MEI em Guarulhos](/plano-saude-guarulhos) com a Patro Seguros e veja quanto pode economizar.
+
+Quanto Custa o Plano de Saúde MEI em Guarulhos em 2026
+
+Comparativo de preços médios para MEI titular (sem dependentes), faixa etária 30-39 anos, em Guarulhos:
+
+| Tipo | Preço médio/mês |
+|------|-----------------|
+| Individual com a operadora | R$ 480 a R$ 720 |
+| Empresarial MEI (mesma operadora) | R$ 240 a R$ 420 |
+| **Economia média** | **40% a 50%** |
+
+Para faixa 50-59 anos, a economia pode chegar a **R$ 800 a R$ 1.500 por mês**, comparando com o plano individual equivalente.
+
+Carência: O Que Esperar no Plano MEI
+
+As carências do plano MEI em Guarulhos seguem o padrão ANS:
+
+- **24h:** urgência e emergência.
+- **30 dias:** consultas e exames simples.
+- **180 dias:** internações eletivas e parto.
+- **300 dias:** parto a termo.
+- **24 meses:** doenças e lesões preexistentes.
+
+**Importante:** se você já tem outro plano de saúde, pode usar **portabilidade de carências** ao migrar para o plano MEI — sem precisar cumprir carências novamente. A Patro orienta todo o processo.
+
+Como Contratar Plano de Saúde Empresarial MEI em Guarulhos: Passo a Passo
+
+**1. Tenha CNPJ MEI ativo** há pelo menos 3 meses (algumas operadoras exigem 6).
+**2. Cote com uma corretora local** que compare 4-5 operadoras simultaneamente.
+**3. Escolha o plano** considerando: rede credenciada em Guarulhos, hospitais que você prefere (Bom Clima, Stella Maris), tipo de acomodação (enfermaria ou apartamento) e abrangência (regional, estadual ou nacional).
+**4. Envie a documentação:** CCMEI, RG, CPF, comprovante de endereço e, em alguns casos, declaração de saúde.
+**5. Aguarde a análise** (3 a 7 dias úteis). Plano ativo no início do mês seguinte.
+
+Erros Que Você Deve Evitar
+
+- **Contratar sem corretora.** A operadora não tem incentivo para te dar o melhor preço — uma corretora compara várias para você.
+- **Esquecer da rede credenciada local.** De nada adianta um plano barato se nenhum hospital decente em Guarulhos atende.
+- **Não declarar doenças preexistentes.** Pode levar a cancelamento da apólice por má-fé.
+- **Aceitar o primeiro reajuste sem questionar.** Reajustes em planos MEI podem ser negociados.
+
+Conclusão: Vale a Pena o Plano de Saúde MEI em Guarulhos?
+
+Para a esmagadora maioria dos MEIs em Guarulhos, **sim, vale muito a pena**. A economia de 40-50% em relação ao plano individual, somada à previsibilidade de reajustes, faz do plano empresarial MEI a melhor opção custo-benefício do mercado.
+
+A **Patro Seguros**, no Cidade Maia, é especialista em plano de saúde MEI Guarulhos — atendemos centenas de microempreendedores na região e cuidamos de toda a documentação para você.
+
+📲 [Fale com a Patro pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20sou%20MEI%20em%20Guarulhos%20e%20quero%20cotar%20plano%20de%20sa%C3%BAde%20empresarial.) e receba sua cotação personalizada em até 2 horas.`,
+    faqs: [
+      { q: "MEI pode contratar plano de saúde empresarial em Guarulhos?", a: "Sim. Desde 2018, MEIs com CNPJ ativo (geralmente há pelo menos 3 a 6 meses) podem contratar plano empresarial coletivo, com preços até 50% menores que o individual." },
+      { q: "Quanto custa plano de saúde MEI em Guarulhos em 2026?", a: "Para titular MEI sem dependentes, faixa 30-39 anos, o preço médio fica entre R$ 180 e R$ 580/mês conforme operadora (Hapvida, Bradesco, Amil, SulAmérica, Porto)." },
+      { q: "Quais operadoras aceitam MEI em Guarulhos?", a: "Bradesco Saúde, Amil, SulAmérica, Hapvida/NotreDame e Porto Saúde aceitam MEI em Guarulhos. Hapvida é geralmente o mais barato; Bradesco e SulAmérica têm rede credenciada mais ampla." },
+      { q: "Tem carência no plano de saúde MEI em Guarulhos?", a: "Sim, segue o padrão ANS: 24h para urgência, 30 dias para consultas, 180 dias para internações eletivas e 24 meses para doenças preexistentes. Quem já tem plano pode usar portabilidade de carências." },
+      { q: "MEI com 1 dependente paga mais barato que individual?", a: "Sim. Mesmo incluindo cônjuge ou filho, o plano empresarial MEI continua sendo de 30% a 45% mais barato que o equivalente individual da mesma operadora." },
+    ],
+  },
+  "seguro-residencial-vale-pena-guarulhos": {
+    title: "Seguro Residencial Vale a Pena em Guarulhos? Análise Honesta para 2026",
+    content: `É comum ouvir a pergunta: "**seguro residencial vale a pena em Guarulhos?**" A resposta curta é **sim, e talvez mais do que em outras cidades** — mas vamos explicar com transparência os motivos, mostrando os riscos reais da nossa região, o custo médio em 2026 e em quais bairros a contratação faz **mais diferença**.
+
+Esta análise é da **Patro Seguros**, corretora local no Cidade Maia, baseada em mais de 500 sinistros residenciais acompanhados na região desde 2020.
+
+Os 4 Maiores Riscos Para Imóveis em Guarulhos em 2026
+
+**1. Alagamento e Enchente**
+
+Guarulhos tem áreas baixas críticas (próximas ao **Tanque Grande, Cabuçu, Pimentas, Vila Galvão**) que enfrentam alagamentos recorrentes no verão. Em janeiro de 2024 e fevereiro de 2025, mais de 4.000 imóveis foram atingidos em uma única semana de chuva intensa. O prejuízo médio por residência foi estimado em **R$ 18 mil a R$ 35 mil**.
+
+**2. Furto e Roubo Residencial**
+
+Bairros como **Cumbica, Bonsucesso, Pimentas e Continental** têm índice de furto residencial até 60% acima da média do estado. Mesmo regiões mais valorizadas como **Vila Augusta e Centro** registram ocorrências, especialmente em casas isoladas e apartamentos térreos.
+
+**3. Incêndio e Curto-Circuito**
+
+A Patro registra média de **3 a 5 sinistros de incêndio elétrico por mês** em Guarulhos — boa parte deles causados por sobrecarga em instalações antigas, principalmente em imóveis dos anos 80 e 90.
+
+**4. Danos Elétricos por Oscilação**
+
+Guarulhos tem oscilações frequentes na rede elétrica, especialmente em bairros mais densos. Eletrônicos como TVs, geladeiras e ar-condicionado queimam com frequência — o conjunto de eletrodomésticos perdidos pode passar de **R$ 8 mil**.
+
+Quanto Custa o Seguro Residencial em Guarulhos em 2026
+
+Para um imóvel com **R$ 400 mil de valor segurado** e R$ 80 mil em conteúdo (eletrodomésticos, móveis, eletrônicos), os preços médios em 2026 são:
+
+- **Cobertura básica (incêndio + raio + explosão):** R$ 25 a R$ 45/mês.
+- **Cobertura intermediária (+ roubo + danos elétricos):** R$ 45 a R$ 80/mês.
+- **Cobertura completa (+ alagamento + RC familiar + assistência 24h):** R$ 70 a R$ 130/mês.
+
+Para colocar em perspectiva: o **custo anual de uma cobertura completa** equivale, em média, a **3% do valor de UM único sinistro grave** (R$ 30 mil em alagamento, por exemplo).
+
+👉 [Cote seu seguro residencial Guarulhos com a Patro](/seguro-residencial-guarulhos) gratuitamente.
+
+Em Quais Bairros o Seguro Residencial Vale Mais a Pena
+
+**Bairros onde o seguro residencial é praticamente essencial:**
+- **Tanque Grande, Pimentas, Cabuçu, Vila Galvão** (alto risco de alagamento).
+- **Cumbica, Bonsucesso, Continental** (alto risco de furto residencial).
+- Casas térreas isoladas em **qualquer bairro**.
+
+**Bairros onde o seguro vale a pena pelo conteúdo (eletrônicos, móveis):**
+- **Cidade Maia, Vila Augusta, Bosque Maia, Centro** (apartamentos com bom valor de conteúdo).
+- **Macedo, Jardim Maia, Gopoúva** (residências classe média).
+
+**Quando o seguro pode ser dispensável:**
+- Imóveis muito antigos com valor de mercado baixo, sem conteúdo relevante e em condomínios fechados com segurança 24h.
+
+Mesmo nesses casos, **a cobertura básica (incêndio + raio) por R$ 25/mês costuma valer a pena** apenas pela proteção contra incêndio elétrico.
+
+Coberturas Que Você Não Pode Ignorar em Guarulhos
+
+1. **Alagamento e enchente.** A mais importante para áreas baixas — e infelizmente a que mais gente esquece.
+2. **Roubo e furto qualificado** com indenização para joias, eletrônicos e bicicletas.
+3. **Danos elétricos** para eletrodomésticos e equipamentos.
+4. **Responsabilidade civil familiar** — cobre vazamentos que danifiquem o vizinho de baixo (muito comum em apartamentos).
+5. **Assistência 24h:** chaveiro, encanador, eletricista e vidraceiro com ampla rede em Guarulhos.
+
+E Para Imóveis Alugados? Vale a Pena?
+
+**Sim, e talvez ainda mais.** Como inquilino, você não tem seguro pelo proprietário (que protege apenas a estrutura). Em caso de incêndio causado por curto-circuito ou vazamento que danifique o vizinho, **a responsabilidade é sua**. Por R$ 30 a R$ 50/mês, você protege seus pertences + sua RC familiar.
+
+Conclusão: Seguro Residencial Vale a Pena em Guarulhos?
+
+**Sim — em praticamente todos os perfis e bairros de Guarulhos.** O custo é baixo (a partir de R$ 25/mês), a proteção é alta (R$ 200 mil a R$ 500 mil em coberturas) e os riscos locais (alagamento, furto, danos elétricos) são significativos.
+
+A análise honesta: **um único sinistro paga 10 a 30 anos de prêmio**. Em uma cidade com a sinistralidade de Guarulhos, dispensar o seguro é apostar contra estatística.
+
+A **Patro Seguros**, corretora local no Cidade Maia, cota seu seguro residencial em mais de 8 seguradoras (Porto, Tokio, Allianz, HDI, Bradesco, Mapfre) e encontra a melhor relação custo-cobertura para o seu bairro.
+
+📲 [Fale com a Patro pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20cotar%20seguro%20residencial%20em%20Guarulhos.) e proteja seu lar a partir de R$ 25/mês.`,
+    faqs: [
+      { q: "Seguro residencial vale a pena em Guarulhos em 2026?", a: "Sim, na maioria dos perfis. Com custo a partir de R$ 25/mês para cobertura básica, o seguro protege contra os principais riscos da região: alagamento, furto, incêndio elétrico e danos elétricos. Um único sinistro paga muitos anos de prêmio." },
+      { q: "Quanto custa seguro residencial em Guarulhos?", a: "Para imóvel de R$ 400 mil + conteúdo R$ 80 mil: cobertura básica R$ 25-45/mês, intermediária R$ 45-80/mês e completa R$ 70-130/mês. Varia por bairro, tipo de imóvel e coberturas escolhidas." },
+      { q: "Seguro residencial cobre alagamento em Guarulhos?", a: "Sim, desde que a cobertura de alagamento e enchente esteja contratada (não vem por padrão na cobertura básica). Essencial em bairros como Tanque Grande, Pimentas, Cabuçu e Vila Galvão." },
+      { q: "Vale a pena seguro residencial para imóvel alugado em Guarulhos?", a: "Sim. O seguro do proprietário cobre apenas a estrutura — seus pertences e responsabilidade civil familiar (vazamentos no vizinho, por exemplo) precisam de seguro próprio. A partir de R$ 30/mês." },
+      { q: "Quais bairros de Guarulhos têm maior risco residencial?", a: "Para alagamento: Tanque Grande, Pimentas, Cabuçu, Vila Galvão. Para furto: Cumbica, Bonsucesso, Continental. Casas térreas isoladas têm risco maior em qualquer bairro." },
+    ],
+  },
 };
 
 const defaultArticle = {
