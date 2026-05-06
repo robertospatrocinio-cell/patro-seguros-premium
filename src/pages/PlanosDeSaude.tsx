@@ -8,6 +8,7 @@ import heroImg from "@/assets/hero-planos-saude.webp";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -24,10 +25,20 @@ const operadoras = [
   { name: "Omint", desc: "Planos premium com atendimento diferenciado" },
 ];
 
+const faqs = [
+  { question: "Quanto custa um plano de saúde em Guarulhos?", answer: "Os valores variam conforme operadora, faixa etária e tipo de plano (individual, familiar ou empresarial). Em Guarulhos, planos individuais começam em torno de R$ 280/mês para jovens adultos e podem ultrapassar R$ 2.500/mês para 59+. Solicite cotação gratuita comparando Bradesco, Amil, SulAmérica, Porto, HapVida, Prevent Senior e MedSenior." },
+  { question: "Quais operadoras de plano de saúde atendem Guarulhos?", answer: "A Patro Seguros é parceira de 20+ operadoras, incluindo Bradesco Saúde, Amil, SulAmérica, Porto Saúde, HapVida/NotreDame Intermédica, Prevent Senior, MedSenior, Omint e Alice. Todas com rede credenciada em Guarulhos, Cidade Maia, Aeroporto e região." },
+  { question: "Qual a diferença entre plano individual e empresarial?", answer: "O plano empresarial (PME) costuma ser 30% a 50% mais barato que o individual, exige no mínimo 2 vidas (CNPJ ativo) e tem reajustes coletivos. O individual permite contratação direta pela pessoa física, mas tem reajustes anuais regulados pela ANS, geralmente mais altos." },
+  { question: "Plano de saúde tem carência?", answer: "Sim. As carências padrão da ANS são: 24h para urgência/emergência, 30 dias para consultas e exames simples, 180 dias para internações, exames complexos e cirurgias e 300 dias para parto. Algumas operadoras oferecem isenção parcial em planos empresariais." },
+  { question: "Posso incluir dependentes no plano de saúde?", answer: "Sim. Cônjuge, filhos até 24 anos (se estudantes) e, em alguns planos, pais e enteados podem ser incluídos. Os valores são acrescidos por faixa etária. A inclusão de novo dependente normalmente respeita carências da ANS." },
+  { question: "A Patro Seguros cobra para fazer a cotação?", answer: "Não. A cotação e o atendimento consultivo são 100% gratuitos. Recebemos comissão diretamente da operadora — você paga o mesmo valor que pagaria contratando direto, mas com o suporte completo de uma corretora especializada em Guarulhos." },
+];
+
 const PlanosDeSaude = () => {
   return (
     <>
       <PageMeta title="Planos de Saúde em Guarulhos – Cidade Maia" description="Compare planos de saúde em Guarulhos, Cidade Maia. Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis para pessoa física e empresas. Patro Seguros." />
+      <FAQSchema faqs={faqs} />
       <Header />
       <main id="main-content">
         <section className="gradient-hero py-20 relative overflow-hidden">
