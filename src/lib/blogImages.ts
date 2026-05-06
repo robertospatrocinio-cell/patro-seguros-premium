@@ -210,6 +210,13 @@ export const blogImageMap: Record<string, string> = {
   "seguro-barato-corolla-guarulhos": blogSeguroAuto,
   "plano-saude-empresarial-mei-guarulhos": blogPlanoSaudePme,
   "seguro-residencial-vale-pena-guarulhos": blogSeguroResidencial,
+
+  // Comparativos 2026
+  "porto-seguro-vs-azul-seguros-comparativo-2026": blogSeguroAuto,
+  "melhor-seguro-uber-99-2026": blogMotoristaApp,
+  "seguro-auto-barato-vs-completo-vale-pena": blogSeguroAutoPremium,
+  "bradesco-vs-sulamerica-plano-saude-2026": blogPlanoSaudeGuarulhos,
+  "porto-vs-tokio-marine-residencial-2026": blogSeguroResidencial,
 };
 
 export const getArticleImage = (slug: string): string => {
