@@ -7072,6 +7072,441 @@ A **Patro Seguros**, corretora local no Cidade Maia, cota seu seguro residencial
       { q: "Quais bairros de Guarulhos têm maior risco residencial?", a: "Para alagamento: Tanque Grande, Pimentas, Cabuçu, Vila Galvão. Para furto: Cumbica, Bonsucesso, Continental. Casas térreas isoladas têm risco maior em qualquer bairro." },
     ],
   },
+  "porto-seguro-vs-azul-seguros-comparativo-2026": {
+    title: "Porto Seguro vs Azul Seguros: Comparativo Completo de Seguro Auto em 2026",
+    content: `Porto Seguro e Azul Seguros são as duas maiores marcas de seguro auto do Brasil — e, na prática, fazem parte do mesmo grupo (a Azul é controlada pela Porto). Ainda assim, são produtos diferentes, com posicionamento, preço e perfil de cliente distintos. Em 2026, qual delas vale mais a pena?
+
+Neste comparativo da Patro Seguros analisamos preço, coberturas, assistência 24h, rede referenciada, app, sinistro e perfil ideal de cada uma.
+
+Quem é a Porto Seguro?
+
+A Porto Seguro é líder em seguro auto no Brasil, com mais de 5 milhões de veículos segurados. Posiciona-se como marca premium: rede referenciada robusta (especialmente em SP e RJ), assistência 24h ampla (Porto Pit Stop), Carro Reserva por padrão em vários planos e tecnologia (app Porto, rastreador opcional, score telemetria).
+
+Quem é a Azul Seguros?
+
+A Azul Seguros é o "braço econômico" do grupo Porto. Foi criada para competir em preço com seguradoras como HDI, Allianz e Mapfre, oferecendo o essencial com franquias mais altas e coberturas adicionais opcionais. É distribuída por corretores e tem foco em quem busca o menor prêmio possível com a estrutura do grupo Porto por trás.
+
+Comparativo de Preço (Honda Civic 2023, Guarulhos, perfil 35 anos casado)
+
+- **Porto Seguro Plano Ouro**: R$ 3.800–4.400/ano. Inclui Carro Reserva 30 dias, vidros completos, assistência 24h ampla, RCF R$ 200 mil.
+- **Azul Seguros Plano Total**: R$ 2.900–3.400/ano. Carro Reserva opcional, vidros básicos (parabrisa), franquia ~30% maior, RCF R$ 100 mil.
+- **Diferença média**: Porto custa 25–35% mais que Azul para coberturas similares.
+
+Coberturas: Onde Cada Uma Brilha
+
+**Porto Seguro vence em:**
+- Carro Reserva por padrão (até 30 dias) — Azul cobra à parte.
+- Rede referenciada maior (mais de 4.000 oficinas).
+- Vidros, retrovisores e faróis completos sem custo extra.
+- App com mais funcionalidades (cotação, sinistro, vistoria digital, score).
+- Atendimento 24h com tempo médio de resposta menor.
+
+**Azul Seguros vence em:**
+- Preço final 25–35% menor para o mesmo perfil.
+- Flexibilidade para montar coberturas (paga só pelo que quer).
+- Franquia reduzida disponível como opcional.
+- Mesma estrutura de regulação de sinistros do grupo Porto.
+
+Sinistro: Como Cada Uma se Comporta
+
+Ambas usam a mesma estrutura de regulação (grupo Porto). O tempo médio de pagamento de sinistro é semelhante: 15 a 30 dias para indenização integral em caso de PT/roubo. A diferença está na rede: na Porto você consegue oficina referenciada com mais facilidade; na Azul, em cidades menores, pode haver mais espera.
+
+App e Tecnologia
+
+- **Porto**: app maduro com cotação, vistoria digital, abertura de sinistro, Porto Pit Stop, Carro Fácil, score de direção (telemetria opcional com desconto).
+- **Azul**: app mais enxuto, foca em emissão de apólice e abertura de sinistro. Sem telemetria nativa.
+
+Para Qual Perfil Cada Uma Vale Mais
+
+**Porto Seguro vale mais para:**
+- Quem mora em capital ou cidade grande (rede densa).
+- Quem usa o carro como ferramenta de trabalho (Carro Reserva crítico).
+- Quem quer o pacote completo sem precisar pensar em coberturas.
+- Veículos premium (acima de R$ 100 mil) — rede de oficinas autorizadas é mais confiável.
+
+**Azul Seguros vale mais para:**
+- Quem busca o menor prêmio possível com seguradora confiável.
+- Carros populares e médios (Onix, HB20, Polo, Tracker).
+- Quem aceita franquia maior em troca de prêmio menor.
+- Segundo carro da família ou veículo de uso eventual.
+
+Veredito Patro Seguros
+
+Não existe "melhor seguradora" universal — existe o **melhor encaixe entre perfil, veículo e bolso**. Em 2026, a regra prática é:
+
+- Use Porto se: Carro Reserva é importante, você dirige todos os dias, mora em SP/RJ/grande capital ou tem carro acima de R$ 100 mil.
+- Use Azul se: prioriza preço, aceita franquia maior, tem perfil de risco baixo (mais de 30 anos, garagem em casa e trabalho) ou o carro é popular.
+
+A **Patro Seguros** cota Porto Seguro, Azul Seguros e mais 14 seguradoras simultaneamente. Em 2 horas úteis você recebe as 3 melhores propostas com explicação clara das diferenças.
+
+📲 [Fale com a Patro pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20comparar%20Porto%20Seguro%20e%20Azul%20Seguros%20para%20meu%20carro.) e descubra qual delas é melhor para o seu perfil.`,
+    faqs: [
+      { q: "Porto Seguro e Azul Seguros são da mesma empresa?", a: "Sim. A Azul Seguros é controlada pelo Grupo Porto. Compartilham regulação de sinistros e estrutura de retaguarda, mas têm produtos, preços e redes diferentes." },
+      { q: "Qual é mais barata: Porto Seguro ou Azul Seguros?", a: "A Azul Seguros costuma ser 25 a 35% mais barata que a Porto Seguro para coberturas similares, em troca de franquia maior e algumas coberturas opcionais (Carro Reserva, vidros completos)." },
+      { q: "Porto Seguro tem Carro Reserva incluso?", a: "Sim, nos planos Ouro e Premium o Carro Reserva já vem incluso por 30 dias após sinistro de PT, roubo ou furto. Na Azul Seguros é cobertura opcional paga à parte." },
+      { q: "Azul Seguros é confiável para sinistro?", a: "Sim. Usa a mesma estrutura de regulação do Grupo Porto. O tempo médio de pagamento é semelhante (15 a 30 dias), com diferença pequena na disponibilidade de oficinas referenciadas em cidades menores." },
+      { q: "Para Uber/99 vale mais Porto ou Azul?", a: "Em geral, Azul Seguros oferece cláusula de uso por aplicativo a um custo final menor. Porto também aceita, mas com prêmio mais alto. A Patro cota ambas com a cláusula correta para evitar negativa de sinistro." },
+      { q: "Como cotar Porto Seguro e Azul Seguros ao mesmo tempo?", a: "Pela Patro Seguros você cota Porto, Azul e mais 14 seguradoras com um único formulário. Em até 2h úteis você recebe as 3 melhores propostas comparadas lado a lado." },
+    ],
+  },
+  "melhor-seguro-uber-99-2026": {
+    title: "Melhor Seguro para Uber e 99 em 2026: Comparativo Completo entre Seguradoras",
+    content: `Em 2026, mais de 1,2 milhão de motoristas brasileiros rodam por aplicativos como Uber, 99 e InDrive. E quase metade deles dirige sem seguro adequado — usando apólices comuns que **negam o sinistro** assim que descobrem o uso por aplicativo. Neste guia da Patro Seguros, comparamos as principais seguradoras que oferecem cláusula específica para motorista de app em 2026.
+
+Por Que Seguro Comum Não Serve para Uber/99?
+
+Quase todas as apólices padrão excluem o uso do veículo "para fins comerciais ou transporte remunerado de passageiros". Se você bate o carro rodando por app e a seguradora identifica isso (extrato bancário, redes sociais, depoimento de passageiro), o sinistro pode ser **negado integralmente** — mesmo que você esteja pagando há anos.
+
+A solução é contratar com a **cláusula de uso por aplicativo** (também chamada de "transporte remunerado de passageiros via plataforma digital"). Ela custa entre 10% e 30% mais que o seguro comum, mas garante a indenização.
+
+Comparativo das Melhores Seguradoras para Uber/99 em 2026
+
+**1. Porto Seguro — A mais aceita**
+- Aceita motorista de app desde 2021.
+- Cláusula explícita para Uber, 99 e InDrive.
+- Preço: alto (R$ 4.500–5.500/ano para Onix em Guarulhos).
+- Vantagem: rede referenciada gigante e Carro Reserva incluso (crítico para quem vive da renda).
+- Para quem: motorista profissional, full-time, carro acima de R$ 60 mil.
+
+**2. Azul Seguros — Melhor custo-benefício**
+- Aceita app com cláusula específica.
+- Preço: 25–30% menor que Porto (R$ 3.200–3.800/ano).
+- Estrutura de sinistro do Grupo Porto.
+- Para quem: motorista que busca o melhor preço com seguradora confiável.
+
+**3. HDI — Boa para perfis jovens**
+- Aceita Uber/99 com cláusula adicional.
+- Preço competitivo, principalmente para motoristas até 30 anos.
+- Carro Reserva opcional (10–30 dias).
+- Para quem: motoristas mais jovens (25–35 anos) com carros populares.
+
+**4. Allianz — Cobertura técnica forte**
+- Aceita app, mas com análise de perfil mais rigorosa.
+- RCF e RCF-V em valores altos (até R$ 500 mil).
+- Bom para quem prioriza proteção contra processos de passageiros.
+- Para quem: motorista que valoriza cobertura de Responsabilidade Civil alta.
+
+**5. Mapfre — Aceita part-time**
+- Aceita motoristas que rodam menos de 20h semanais por app.
+- Preço intermediário.
+- Boa rede em cidades médias.
+- Para quem: motorista part-time (renda extra, fim de semana).
+
+**6. Bradesco Auto/RE — Restritiva**
+- Aceita app só em casos específicos, com sobretaxa alta.
+- Costuma ser a opção mais cara para esse perfil.
+- Para quem: clientes que já têm conta Bradesco e querem manter relacionamento bancário.
+
+Coberturas Obrigatórias para Motorista de App
+
+1. **Cláusula de uso por aplicativo**: indispensável.
+2. **RCF-V (Responsabilidade Civil Facultativa de Veículos) mínimo R$ 100 mil**: cobre danos a terceiros.
+3. **APP-V (Acidentes Pessoais de Passageiros)**: indispensável para proteger seu passageiro em caso de acidente.
+4. **Roubo e Furto**: motoristas de app são mais visados.
+5. **Assistência 24h ampla**: guincho ilimitado é essencial — você não pode ficar parado.
+6. **Carro Reserva**: cada dia parado = renda zero. Vale o investimento extra.
+
+Comparativo Rápido de Preço (Onix 2022, Guarulhos, motorista 32 anos)
+
+- Porto Seguro: R$ 4.800/ano
+- Azul Seguros: R$ 3.500/ano (melhor custo-benefício)
+- HDI: R$ 3.700/ano
+- Allianz: R$ 4.200/ano
+- Mapfre: R$ 4.000/ano (aceita part-time)
+- Bradesco: R$ 5.200/ano
+
+Erros que Causam Negativa de Sinistro
+
+- Contratar seguro comum e omitir o uso por app.
+- Não declarar a quilometragem real (motorista de app roda 3–5x mais que motorista comum).
+- Esquecer de incluir APP-V e o passageiro se machucar.
+- Não atualizar a apólice ao começar a rodar por app.
+
+Veredito Patro Seguros para 2026
+
+Para a maioria dos motoristas de Uber e 99 em Guarulhos e SP, a combinação ideal em 2026 é:
+
+1. **Azul Seguros** (melhor custo-benefício) ou **HDI** (jovens) para a base.
+2. **APP-V mínimo R$ 50 mil** por passageiro.
+3. **RCF-V R$ 200 mil** (processos ficam caros).
+4. **Carro Reserva 15 dias** (essencial para a renda).
+
+A **Patro Seguros** cota todas as 6 seguradoras acima com a cláusula correta de motorista de app. Em 2 horas úteis você recebe comparativo lado a lado — sem risco de negativa.
+
+📲 [Fale com a Patro pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20rodo%20por%20Uber%2F99%20e%20quero%20cotar%20seguro%20com%20a%20cl%C3%A1usula%20correta.) e proteja sua renda em 2026.`,
+    faqs: [
+      { q: "Qual a melhor seguradora para Uber e 99 em 2026?", a: "Não há uma única resposta. Em custo-benefício, Azul Seguros lidera. Em rede e Carro Reserva, Porto Seguro. Para motoristas jovens, HDI é competitiva. A Patro Seguros cota as 6 principais para identificar a melhor para o seu perfil." },
+      { q: "Posso usar seguro comum se rodo por Uber só nos fins de semana?", a: "Não recomendamos. A maioria das seguradoras nega o sinistro se identificar uso comercial, independentemente da frequência. Mapfre é uma das poucas que aceita part-time formal. O ideal é sempre contratar com a cláusula correta." },
+      { q: "Quanto a mais paga um motorista de app no seguro?", a: "Em média 10 a 30% a mais que um motorista comum, dependendo da seguradora. A Azul Seguros costuma ter o menor adicional, e o Bradesco o maior." },
+      { q: "O que é APP-V e por que motorista de app precisa?", a: "APP-V é Acidentes Pessoais de Passageiros. Cobre indenização ao passageiro ferido em acidente. Sem essa cobertura, o passageiro pode processar você diretamente, e o RCF-V padrão pode não ser suficiente." },
+      { q: "Seguradora consegue descobrir que rodo por aplicativo?", a: "Sim, facilmente: por extrato bancário (recebimentos da Uber/99), redes sociais, depoimento do passageiro envolvido no acidente ou pelo próprio histórico de quilometragem. Omitir é arriscado." },
+      { q: "Vale a pena contratar Carro Reserva sendo motorista de app?", a: "Vale muito. Cada dia parado significa renda zero. O custo do Carro Reserva (R$ 200–400/ano a mais) é compensado em 3 a 5 dias de uso." },
+    ],
+  },
+  "seguro-auto-barato-vs-completo-vale-pena": {
+    title: "Seguro Auto Barato vs Completo: Vale a Pena Pagar Mais em 2026?",
+    content: `Na hora de cotar seguro auto, surge sempre a mesma dúvida: vale a pena pegar o seguro **mais barato** (apenas RCF + roubo/furto) ou pagar mais pelo **seguro completo** (cobertura compreensiva)? Em 2026, com inflação no setor e aumento médio de 8% no preço médio das apólices, essa decisão pesa no bolso. Veja a análise honesta da Patro Seguros.
+
+O Que É Seguro Auto "Barato"?
+
+Também chamado de "seguro popular" ou "RCF + R/F", é uma apólice que cobre apenas:
+
+- **RCF (Responsabilidade Civil Facultativa)**: danos materiais e corporais a terceiros.
+- **Roubo e Furto** (com franquia ou em PT — perda total).
+- **Assistência 24h básica** (guincho de 100 a 200 km).
+
+**Não cobre:**
+- Colisão (você bate, você paga).
+- Vidros, retrovisores, faróis.
+- Danos da natureza (granizo, alagamento, queda de árvore).
+- Carro Reserva.
+- Vandalismo.
+
+**Preço médio (Onix 2022, Guarulhos)**: R$ 1.400–2.000/ano.
+
+O Que É Seguro Auto Completo (Compreensivo)?
+
+É a apólice tradicional, com proteção total:
+
+- RCF (geralmente R$ 100–300 mil).
+- Roubo, Furto e PT.
+- **Colisão** (com franquia, normal ou reduzida).
+- **Danos da natureza** (granizo, alagamento, vendaval, raio).
+- **Vidros, retrovisores e faróis** (cobertura padrão ou opcional).
+- **Assistência 24h ampla** (guincho ilimitado).
+- **Carro Reserva** (15 a 30 dias).
+- **APP** (acidentes pessoais por passageiro).
+
+**Preço médio (Onix 2022, Guarulhos)**: R$ 2.800–4.200/ano.
+
+Diferença de Preço: Vale a Pena?
+
+A diferença média é de **R$ 1.400 a R$ 2.200 por ano**, ou seja, R$ 117 a R$ 183 por mês. Parece muito — até você sofrer o primeiro sinistro.
+
+Cenários Reais
+
+**Cenário 1 — Colisão simples (você bate em poste)**
+- Reparo médio: R$ 6.000.
+- Seguro barato: você paga 100% (R$ 6.000).
+- Seguro completo: paga só franquia (R$ 1.800–3.000). Economia: R$ 3.000+.
+
+**Cenário 2 — Granizo destrói pintura**
+- Reparo: R$ 8.000.
+- Seguro barato: não cobre. Você paga R$ 8.000.
+- Seguro completo: cobre integralmente.
+
+**Cenário 3 — Quebra de parabrisa**
+- Reparo: R$ 1.200.
+- Seguro barato: não cobre.
+- Seguro completo: paga até R$ 100 (franquia reduzida de vidros).
+
+**Cenário 4 — Roubo**
+- Indenização: 100% Tabela FIPE.
+- **Ambos cobrem.** Não há diferença.
+
+Quando o Seguro Barato Vale a Pena
+
+- Carro **antigo** (acima de 10 anos) onde colisão muitas vezes resulta em PT — não compensa pagar a mais.
+- Veículo de **baixo valor** (até R$ 30 mil) — diferença de prêmio anual fica desproporcional.
+- Motorista **muito experiente** com baixíssimo risco de colisão (idade, histórico limpo, garagem em casa e trabalho, baixa quilometragem).
+- Quem **só quer cobrir o pior cenário** (roubo) e tem reserva financeira para arcar com batidas.
+
+Quando o Seguro Completo Vale a Pena
+
+- Carro **novo ou seminovo** (até 5 anos).
+- Veículo acima de **R$ 50 mil** — qualquer reparo é caro.
+- Motorista **jovem** ou inexperiente — risco de colisão maior.
+- Carro estacionado **na rua** — exposto a vandalismo, granizo, queda de árvore.
+- Quem **depende do carro** para trabalho (motorista de app, vendedor externo, representante).
+- Quem **não tem reserva** para R$ 5–10 mil de reparo emergencial.
+
+A Pergunta Certa
+
+Em vez de "qual é mais barato?", pergunte: **"Quanto eu consigo pagar do bolso se algo acontecer hoje?"**
+
+Se a resposta for menos de R$ 5 mil, vá de **completo**. A diferença mensal de R$ 150 é menor que o risco financeiro de um único sinistro.
+
+Veredito Patro Seguros
+
+Em 2026, para 80% dos motoristas em Guarulhos e SP, o **seguro completo compensa** — porque a probabilidade de pelo menos um sinistro pequeno em 12 meses é alta (granizo, parabrisa quebrado, colisão leve).
+
+A **Patro Seguros** cota as duas modalidades em 16 seguradoras. Em alguns casos, conseguimos preços de seguro completo próximos do "barato" da concorrência — pela negociação direta.
+
+📲 [Fale com a Patro pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20comparar%20seguro%20barato%20e%20completo%20para%20meu%20carro.) e veja a diferença real para o seu perfil.`,
+    faqs: [
+      { q: "Vale a pena seguro auto só com cobertura de roubo?", a: "Vale para carros antigos (acima de 10 anos) ou de baixo valor (até R$ 30 mil), onde o custo de uma apólice completa fica desproporcional ao valor do veículo. Para carros mais novos, o completo compensa." },
+      { q: "Qual a diferença de preço entre seguro barato e completo?", a: "Em média R$ 1.400 a R$ 2.200 por ano, ou R$ 117 a R$ 183 por mês. A diferença se paga em um único sinistro pequeno (parabrisa, batida leve, granizo)." },
+      { q: "Seguro popular cobre granizo e alagamento?", a: "Não. Eventos da natureza são exclusivos do seguro compreensivo (completo). No popular, você arca integralmente com esses danos." },
+      { q: "Posso adicionar coberturas avulsas no seguro barato?", a: "Algumas seguradoras permitem adicionar Carro Reserva, vidros ou assistência ampliada como opcionais. Mas o custo final costuma ficar próximo do seguro completo, sem o benefício da cobertura de colisão." },
+      { q: "Seguro barato compensa para motorista de Uber?", a: "Não. Motorista de app roda 3–5x mais e tem maior risco de colisão. O seguro completo com cláusula de app é praticamente obrigatório para proteger a renda." },
+      { q: "Posso trocar de seguro barato para completo durante a vigência?", a: "Sim, mediante endosso. Mas pode haver carência ou nova vistoria. O ideal é avaliar bem na contratação para evitar custos extras de migração." },
+    ],
+  },
+  "bradesco-vs-sulamerica-plano-saude-2026": {
+    title: "Bradesco Saúde vs SulAmérica: Comparativo de Planos de Saúde em 2026",
+    content: `Bradesco Saúde e SulAmérica estão entre as 5 maiores operadoras de planos de saúde do Brasil, com forte presença em São Paulo e Guarulhos. Em 2026, com o reajuste anual da ANS e a chegada de novas redes credenciadas, qual delas oferece o melhor custo-benefício para você ou sua empresa? Veja o comparativo completo da Patro Seguros.
+
+Quem é a Bradesco Saúde?
+
+Operadora ligada ao Banco Bradesco, é uma das maiores do país com mais de 4 milhões de beneficiários. Forte em **planos empresariais** (PME e grandes empresas), com produtos de reembolso ampliado (Top Nacional, TopPlus, Premium). Rede credenciada extensa, com hospitais como Albert Einstein, Sírio-Libanês, Oswaldo Cruz e HCor (em planos premium).
+
+Quem é a SulAmérica?
+
+Operadora tradicional, hoje sob o controle da Rede D'Or São Luiz. Tem aproximadamente 5 milhões de beneficiários e forte presença no segmento **executivo** e **corporativo**. Planos como Exato, Especial, Prestige e Prevent Senior. Rede credenciada robusta, com integração crescente com hospitais da Rede D'Or (BP — Beneficência Portuguesa, São Luiz, Vila Nova Star).
+
+Comparativo de Rede em São Paulo e Guarulhos
+
+**Bradesco Saúde:**
+- Hospital Bandeirantes, Hospital Alemão Oswaldo Cruz, Albert Einstein (planos premium), Hospital São Camilo, HCor (premium), Hospital São Luiz Itaim/Morumbi, Hospital Stella Maris (Guarulhos).
+- Forte rede em SP capital, ABC e Guarulhos.
+
+**SulAmérica:**
+- Beneficência Portuguesa, Hospital São Luiz (várias unidades), Vila Nova Star, Hospital 9 de Julho, Hospital Santa Catarina, Hospital Sino-Brasileiro (Osasco), Hospital Stella Maris (Guarulhos).
+- Integração crescente com a Rede D'Or — vantagem em hospitais de alta complexidade.
+
+Comparativo de Preço (PME 30 vidas, faixa 30–34 anos, Guarulhos, 2026)
+
+- **Bradesco Top Nacional**: R$ 480–650/vida.
+- **SulAmérica Especial 100**: R$ 510–700/vida.
+- **Bradesco Saúde Empresarial Flex**: R$ 380–500/vida (mais econômico).
+- **SulAmérica Exato**: R$ 360–490/vida (concorrente direto do Flex).
+
+Reembolso
+
+- **Bradesco Top Nacional**: tabela própria, reembolso médio R$ 600–1.500 por consulta dependendo do plano.
+- **SulAmérica Prestige**: tabela mais generosa, reembolso até R$ 2.500 em planos topo de linha.
+- **Veredito**: SulAmérica leva vantagem em reembolso de alto padrão; Bradesco em rede direta.
+
+App e Tecnologia
+
+- **Bradesco Saúde**: app Meu Bradesco Saúde — autorização online, telemedicina (Saúde Digital), 2ª via boleto, rede credenciada por GPS.
+- **SulAmérica**: app SulAmérica Saúde — telemedicina, autorização rápida, programa de bem-estar (Sabin), Doc24 (médico online 24h).
+- Ambos com qualidade similar; SulAmérica leva vantagem na telemedicina 24h integrada.
+
+Coparticipação
+
+- **Bradesco Flex e Saúde Empresarial Flex**: coparticipação de 30% em consultas e exames simples (limitada).
+- **SulAmérica Exato**: coparticipação fixa por evento (R$ 25–60 por consulta).
+- **Veredito**: SulAmérica Exato tem coparticipação mais previsível; Bradesco Flex é melhor para quem usa pouco.
+
+Para Qual Perfil Cada Uma Vale Mais
+
+**Bradesco Saúde vale mais para:**
+- Empresas com **30–500 vidas** que querem rede sólida sem pagar premium.
+- Famílias que valorizam **rede direta forte** em SP e Guarulhos.
+- Quem prefere atendimento via Bradesco Seguros (relacionamento bancário).
+
+**SulAmérica vale mais para:**
+- Empresas que valorizam **rede Rede D'Or** (BP, São Luiz, Vila Nova Star).
+- Profissionais que **usam reembolso** com frequência (médicos, executivos).
+- Quem busca **telemedicina 24h** integrada.
+- PMEs que querem coparticipação **previsível**.
+
+Veredito Patro Seguros para 2026
+
+- **Para PME até 50 vidas em Guarulhos**: SulAmérica Exato leva vantagem em preço e telemedicina.
+- **Para grupos maiores ou planos premium**: Bradesco Top Nacional tem rede direta mais ampla.
+- **Para alto reembolso**: SulAmérica Prestige é referência.
+- **Para custo mais baixo com rede sólida**: Bradesco Saúde Empresarial Flex.
+
+A **Patro Seguros**, hub credenciado em mais de 20 operadoras, cota Bradesco, SulAmérica, Amil, Hapvida, Notredame Intermédica, Porto Saúde e outras simultaneamente. Em até 2h úteis você recebe as 3 melhores propostas para o seu perfil.
+
+📲 [Fale com a Patro pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20comparar%20Bradesco%20Sa%C3%BAde%20e%20SulAm%C3%A9rica%20para%20minha%20empresa%2Ffam%C3%ADlia.) e descubra qual operadora é melhor em 2026.`,
+    faqs: [
+      { q: "Bradesco Saúde ou SulAmérica: qual é melhor em 2026?", a: "Depende do uso. SulAmérica leva vantagem em reembolso, telemedicina 24h e integração com Rede D'Or. Bradesco vence em rede direta robusta e relacionamento bancário. Para PME até 50 vidas, SulAmérica Exato tem ótimo custo-benefício." },
+      { q: "Qual tem maior rede credenciada em Guarulhos?", a: "Ambas têm o Hospital Stella Maris e clínicas locais. SulAmérica tem leve vantagem em hospitais da Rede D'Or em SP capital (importante em alta complexidade); Bradesco tem rede sólida em Guarulhos e ABC." },
+      { q: "Qual oferece melhor reembolso?", a: "SulAmérica Prestige é referência em reembolso (até R$ 2.500/consulta em planos premium). Bradesco Top Nacional reembolsa R$ 600–1.500/consulta." },
+      { q: "Qual é mais barato para PME de 10 vidas?", a: "Em Guarulhos, em 2026, Bradesco Saúde Empresarial Flex e SulAmérica Exato ficam próximos (R$ 360–500/vida). A escolha depende mais da rede preferida do que do preço." },
+      { q: "Bradesco e SulAmérica aceitam MEI?", a: "Sim, ambos aceitam MEI com pelo menos 1 vida (geralmente o titular). Algumas operadoras pedem comprovação de atividade econômica há mais de 6 meses." },
+      { q: "Como cotar Bradesco Saúde e SulAmérica ao mesmo tempo?", a: "Pela Patro Seguros, hub credenciado em mais de 20 operadoras, você cota Bradesco, SulAmérica e mais 18 simultaneamente. Em até 2h úteis recebe as 3 melhores propostas." },
+    ],
+  },
+  "porto-vs-tokio-marine-residencial-2026": {
+    title: "Porto Seguro vs Tokio Marine: Qual o Melhor Seguro Residencial em 2026?",
+    content: `Porto Seguro e Tokio Marine são duas das principais seguradoras do Brasil em **seguro residencial**. Em 2026, com aumento dos sinistros por alagamento, granizo e furto qualificado em Guarulhos e Grande SP, qual delas oferece a melhor proteção para a sua casa ou apartamento? Veja o comparativo da Patro Seguros.
+
+Porto Seguro Residencial — Visão Geral
+
+Líder em seguro residencial no Brasil, com mais de 1 milhão de imóveis segurados. Posiciona-se como marca premium, com **assistência 24h ampla** (Porto Faz, encanador, eletricista, chaveiro), rede de prestadores extensa e app integrado (Porto). Planos: Diamante, Ouro, Prata e Bronze.
+
+Tokio Marine Residencial — Visão Geral
+
+Subsidiária da japonesa Tokio Marine Holdings, é referência em **engenharia de risco e cobertura técnica**. Conhecida por preços competitivos e coberturas adicionais flexíveis. Forte na precificação por região e perfil de imóvel. Planos: Vida Tranquila, Plus e Premium.
+
+Comparativo de Preço (apartamento R$ 500 mil + conteúdo R$ 100 mil em Guarulhos)
+
+- **Porto Seguro Plano Ouro**: R$ 850–1.100/ano. Inclui alagamento, danos elétricos R$ 8 mil, vendaval, RC familiar R$ 30 mil e assistência 24h ampla.
+- **Tokio Marine Plus**: R$ 700–950/ano. Coberturas semelhantes, com assistência 24h boa mas com prestadores próprios menos densos.
+- **Diferença**: Tokio costuma ser 15–20% mais barata para coberturas equivalentes em Guarulhos.
+
+Coberturas: O Que Cada Uma Entrega
+
+**Pontos fortes da Porto:**
+- Assistência 24h Porto Faz com tempo médio de chegada menor.
+- Rede de prestadores referenciados maior em SP e Guarulhos.
+- App Porto unificado (auto, residencial, vida, condomínio).
+- Carro-pipa para falta d'água, troca de fechadura ilimitada em alguns planos.
+- Cobertura padrão de **danos elétricos** mais generosa (R$ 8–15 mil).
+
+**Pontos fortes da Tokio:**
+- Preço final 15–20% menor.
+- Coberturas adicionais a la carte (você paga só pelo que quer).
+- **Engenharia de risco**: vistorias técnicas em imóveis acima de R$ 1 mi (vantagem para casas grandes).
+- Atendimento de sinistro com regulação técnica precisa.
+- Bom para imóveis comerciais residenciais (lofts, kitnets de aluguel).
+
+Sinistro: Tempo Médio de Pagamento
+
+- **Porto Seguro**: 10 a 25 dias para pequenos sinistros (vidros, danos elétricos); 30 a 60 dias para grandes (incêndio, alagamento estrutural).
+- **Tokio Marine**: 12 a 28 dias para pequenos; 40 a 75 dias para grandes — pelas vistorias técnicas mais detalhadas.
+- **Veredito**: Porto leva pequena vantagem em agilidade.
+
+Coberturas para Bairros de Alto Risco em Guarulhos
+
+**Para alagamento (Tanque Grande, Pimentas, Vila Galvão, Cabuçu):**
+- **Porto**: cobertura padrão em planos Ouro e Diamante.
+- **Tokio**: cobertura opcional em todos os planos.
+- **Vantagem**: Porto sai na frente para quem mora em rua com histórico de enchente.
+
+**Para furto qualificado (Cumbica, Bonsucesso, Continental):**
+- Ambos exigem trancas reforçadas e/ou alarme.
+- **Tokio** tem desconto maior para imóveis com câmera/alarme monitorado.
+
+**Para casas térreas isoladas:**
+- **Porto** oferece cobertura mais completa de impacto de veículo e queda de árvore por padrão.
+
+Para Qual Perfil Cada Uma Vale Mais
+
+**Porto Seguro vale mais para:**
+- Imóveis em **áreas de risco de alagamento** (Guarulhos zonas leste e sul).
+- Quem valoriza **assistência 24h rápida** (chaveiro, eletricista, encanador).
+- Famílias com **vários produtos Porto** (auto + residencial — desconto multi-apólice).
+- Apartamentos em condomínios grandes em SP capital.
+
+**Tokio Marine vale mais para:**
+- Quem busca o **menor prêmio** com cobertura essencial.
+- Imóveis acima de **R$ 800 mil** (vistoria técnica gratuita).
+- Casas em condomínios fechados, com baixo risco de furto.
+- Quem prefere montar coberturas a la carte.
+
+Veredito Patro Seguros para 2026
+
+- **Em Guarulhos** (zonas com risco de alagamento): vantagem para Porto pela cobertura padrão de eventos da natureza.
+- **Para imóveis novos em condomínio fechado**: Tokio sai 15–20% mais barata pela mesma proteção essencial.
+- **Para alto valor (acima de R$ 1 mi)**: Tokio leva pela engenharia de risco; Porto leva pela rede de prestadores.
+
+A **Patro Seguros** cota Porto, Tokio Marine, Allianz, HDI, Bradesco, Mapfre e outras 4 seguradoras de residencial em uma única cotação. Em até 2h úteis você recebe as 3 melhores propostas com explicação clara.
+
+📲 [Fale com a Patro pelo WhatsApp](https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20comparar%20Porto%20Seguro%20e%20Tokio%20Marine%20para%20seguro%20residencial.) e proteja seu lar com a melhor relação custo-cobertura.`,
+    faqs: [
+      { q: "Porto Seguro ou Tokio Marine: qual é melhor para seguro residencial?", a: "Porto vence em assistência 24h, rede de prestadores e cobertura para áreas de alagamento. Tokio vence em preço (15–20% menor) e engenharia de risco para imóveis acima de R$ 1 mi. Em Guarulhos, em zonas de enchente, Porto leva vantagem." },
+      { q: "Qual é mais barata em Guarulhos?", a: "Tokio Marine costuma ser 15–20% mais barata que Porto Seguro para coberturas equivalentes em apartamentos de R$ 400–600 mil em Guarulhos." },
+      { q: "Porto cobre alagamento por padrão?", a: "Sim, nos planos Ouro e Diamante a cobertura de alagamento e enchente é padrão. Em planos básicos é opcional. Tokio Marine oferece como opcional em todos os planos." },
+      { q: "Qual paga sinistro mais rápido?", a: "Porto Seguro tem leve vantagem em agilidade (10–25 dias para pequenos sinistros). Tokio leva 12–28 dias para sinistros similares, com vistorias técnicas mais detalhadas." },
+      { q: "Tokio Marine é confiável no Brasil?", a: "Sim. É subsidiária da Tokio Marine Holdings (Japão), uma das maiores seguradoras do mundo. No Brasil opera há mais de 60 anos com solidez financeira reconhecida pela SUSEP." },
+      { q: "Como cotar Porto e Tokio Marine ao mesmo tempo?", a: "Pela Patro Seguros você cota Porto, Tokio Marine e mais 8 seguradoras de residencial em um único formulário. Em até 2h úteis recebe as 3 melhores propostas comparadas." },
+    ],
+  },
 };
 
 const defaultArticle = {
