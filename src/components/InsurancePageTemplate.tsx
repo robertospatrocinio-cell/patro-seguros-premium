@@ -501,7 +501,7 @@ const InsurancePageTemplate = ({
               <span className="section-label">FAQ</span>
               <h2 id="faq-heading" className="mt-4">Perguntas Frequentes sobre {geoTitle}</h2>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-3" data-speakable="faq">
               {faqs.map((faq, i) => (
                 <details key={i} className="premium-card group" open={i === 0}>
                   <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold text-foreground hover:text-primary transition-base select-none list-none [&::-webkit-details-marker]:hidden">
