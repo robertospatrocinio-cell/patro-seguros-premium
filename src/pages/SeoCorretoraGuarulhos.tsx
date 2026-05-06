@@ -4,15 +4,26 @@ import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
+const faqs = [
+  { question: "Onde fica a Patro Seguros em Guarulhos?", answer: "Estamos na Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia, Guarulhos/SP, CEP 07115-000. Atendemos presencialmente, por telefone (11) 5199-7500 e online via WhatsApp." },
+  { question: "Qual a melhor corretora de seguros de Guarulhos?", answer: "A Patro Seguros é uma das corretoras mais bem avaliadas de Guarulhos, com nota 4,9/5 no Google e mais de 500 PMEs atendidas. Trabalhamos com 16+ seguradoras e 20+ operadoras de saúde, oferecendo atendimento consultivo gratuito." },
+  { question: "A Patro atende clientes fora de Guarulhos?", answer: "Sim! Embora nossa sede seja em Guarulhos, atendemos clientes em toda a Grande São Paulo, no estado de SP e em todo o Brasil — especialmente para seguros agro, RC profissional e empresariais." },
+  { question: "Como funciona a cotação de seguros na Patro?", answer: "Você solicita pelo site, WhatsApp ou telefone. Em até 2 horas comparamos as melhores seguradoras parceiras e enviamos as propostas mais vantajosas, com explicação detalhada de coberturas, franquias e preços." },
+  { question: "Quanto custa contratar uma corretora de seguros?", answer: "Nada. A corretora não cobra do cliente — somos remunerados via comissão paga pela seguradora. O cliente paga o mesmo valor que pagaria contratando direto, mas com o suporte completo de um corretor especializado." },
+  { question: "Quais seguros a Patro Seguros oferece em Guarulhos?", answer: "Auto, Moto, Residencial, Vida, Saúde, Empresarial, Frota, Cyber, RC Profissional, Condomínio, Viagem, Celular, Previdência Privada, Consórcios e seguros Agro/Rural — entre outros." },
+];
+
 const SeoCorretoraGuarulhos = () => (
   <>
     <PageMeta title="Corretora de Seguros em Guarulhos – Cidade Maia" description="Patro Seguros — a melhor corretora de seguros no Cidade Maia, Guarulhos. Atendimento consultivo, cotação grátis e parceria com as principais seguradoras do Brasil." />
+    <FAQSchema faqs={faqs} />
     <Header />
     <main id="main-content">
       <section className="gradient-hero py-20">
@@ -90,16 +101,12 @@ const SeoCorretoraGuarulhos = () => (
 
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-center mb-12">Perguntas Frequentes</h2>
-          <div className="space-y-6">
-            {[
-              { q: "Onde fica a Patro Seguros?", a: "Estamos na Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia, Guarulhos/SP. Atendemos presencialmente e online." },
-              { q: "A Patro atende outras cidades?", a: "Sim! Embora nossa sede seja em Guarulhos, atendemos clientes de todo o Brasil." },
-              { q: "Como funciona a cotação?", a: "Você solicita pelo site, WhatsApp ou telefone. Em até 2 horas enviamos as melhores propostas." },
-            ].map((faq, i) => (
+          <h2 id="faq-heading" className="text-center mb-12">Perguntas Frequentes sobre a Corretora em Guarulhos</h2>
+          <div className="space-y-6" data-speakable="faq">
+            {faqs.map((faq, i) => (
               <div key={i}>
-                <h3 className="text-lg font-semibold mb-2">{faq.q}</h3>
-                <p className="text-muted-foreground">{faq.a}</p>
+                <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
+                <p className="text-muted-foreground">{faq.answer}</p>
               </div>
             ))}
           </div>
