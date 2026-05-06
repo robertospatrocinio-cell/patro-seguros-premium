@@ -4,8 +4,8 @@ import heroImg from "@/assets/hero-seguro-motorista-app.webp";
 const SeoSeguroUberGuarulhos = () => (
   <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Uber em Guarulhos — Cobertura para Motoristas de App"
-    subtitle="Proteção especializada para motoristas Uber em Guarulhos. Cobertura durante corridas, sem brechas e com cotação gratuita."
+    title="Seguro para Uber Guarulhos — Cobertura Real para Motoristas"
+    subtitle="Seguro para uber Guarulhos com cláusula expressa de uso por aplicativo. Cotação Porto Seguro Guarulhos, Allianz e HDI para motoristas Uber."
     description="Seguro Uber em Guarulhos com cobertura específica para uso profissional do veículo. A Patro Seguros é referência local em apólices para motoristas de aplicativo, com atendimento presencial no Cidade Maia e mais de 200 motoristas de app já protegidos. Comparamos Porto Seguro, Allianz, HDI, Tokio Marine e outras seguradoras que aceitam motoristas Uber sem aumentar abusivamente o prêmio."
     detailedDescription={`Guarulhos concentra uma das maiores frotas de motoristas Uber da Grande São Paulo, com forte demanda gerada pelo Aeroporto Internacional de Guarulhos (GRU Airport), terminais rodoviários e o intenso fluxo entre a cidade e a capital. Estimativas indicam mais de 8 mil motoristas ativos em Uber, 99 e InDriver na região.
 
@@ -15,7 +15,7 @@ A Patro Seguros trabalha apenas com seguradoras que aceitam expressamente o uso 
 
 Atendemos motoristas de Guarulhos com perfil completo: quem dirige por Uber em tempo integral (8-12h por dia), quem complementa renda em horários alternativos e proprietários de frota que alugam veículos para motoristas de app na região do Cidade Maia, Vila Augusta, Cumbica e Pimentas.`}
     icon="🚕"
-    metaDescription="Seguro Uber em Guarulhos com cobertura para uso em aplicativos. Cotação grátis Patro Seguros para motoristas Uber, 99 e InDriver. Atendimento local."
+    metaDescription="Seguro para uber Guarulhos: cobertura real durante corridas. Cotação Porto Seguro Guarulhos, Allianz e HDI para Uber, 99 e InDriver. Patro Seguros."
     coverages={[
       { title: "Cobertura Durante Corridas", description: "Proteção válida mesmo durante viagens remuneradas por Uber, 99 e demais aplicativos — cláusula contratual expressa." },
       { title: "Roubo e Furto", description: "Indenização integral em caso de roubo ou furto do veículo, inclusive em pontos de alta sinistralidade como Cumbica e proximidades do aeroporto." },
