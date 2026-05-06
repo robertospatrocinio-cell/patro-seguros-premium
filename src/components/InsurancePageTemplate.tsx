@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, type ReactNode } from "react";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -100,6 +100,8 @@ interface InsurancePageProps {
   featuredArticle?: FeaturedArticle;
   showEbookConsorcio?: boolean;
   showAgrishowBanner?: boolean;
+  /** Conteúdo extra renderizado após "Relacionados" e antes do Footer */
+  extraSections?: ReactNode;
 }
 
 const InsurancePageTemplate = ({
@@ -122,6 +124,7 @@ const InsurancePageTemplate = ({
   featuredArticle,
   showEbookConsorcio,
   showAgrishowBanner,
+  extraSections,
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = getCanonicalUrl(location.pathname);
@@ -664,6 +667,7 @@ const InsurancePageTemplate = ({
 
         {/* Hub completo de links internos para fortalecer crawl & autoridade tópica */}
         <InsuranceHubLinks />
+        {extraSections}
       </main>
       <Footer />
     </>

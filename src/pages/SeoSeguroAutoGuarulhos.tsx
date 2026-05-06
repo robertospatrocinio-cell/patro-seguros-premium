@@ -1,8 +1,23 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import NeighborhoodHub, { type NeighborhoodLink } from "@/components/NeighborhoodHub";
+import StickyQuoteBar from "@/components/StickyQuoteBar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
+const NEIGHBORHOODS: NeighborhoodLink[] = [
+  { name: "Cidade Maia", link: "/seguro-auto-maia-guarulhos", riskLevel: "baixo", priceRange: "R$ 2.100 a R$ 4.000/ano" },
+  { name: "Vila Galvão", link: "/seguro-auto-vila-galvao", riskLevel: "baixo", priceRange: "R$ 2.300 a R$ 4.200/ano" },
+  { name: "Vila Augusta", link: "/seguro-auto-vila-augusta", riskLevel: "baixo", priceRange: "R$ 2.200 a R$ 4.100/ano" },
+  { name: "Jardim São João", link: "/seguro-auto-jardim-sao-joao", riskLevel: "médio", priceRange: "R$ 2.600 a R$ 4.900/ano" },
+  { name: "Taboão", link: "/seguro-auto-taboao-guarulhos", riskLevel: "médio", priceRange: "R$ 2.700 a R$ 5.000/ano" },
+  { name: "Bonsucesso", link: "/seguro-auto-bonsucesso-guarulhos", riskLevel: "médio", priceRange: "R$ 2.700 a R$ 5.100/ano" },
+  { name: "Centro de Guarulhos", link: "/seguro-auto-centro-guarulhos", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.500/ano" },
+  { name: "Cumbica", link: "/seguro-auto-cumbica", riskLevel: "médio-alto", priceRange: "R$ 3.100 a R$ 6.200/ano" },
+  { name: "Pimentas", link: "/seguro-auto-pimentas", riskLevel: "alto", priceRange: "R$ 3.400 a R$ 6.800/ano" },
+];
+
 const SeoSeguroAutoGuarulhos = () => (
-  <InsurancePageTemplate
+  <>
+    <InsurancePageTemplate
     heroImage={heroImg}
     title="Seguro Auto Guarulhos — Melhor Cotação Porto Seguro, Tokio e Allianz"
     subtitle="Seguro auto Guarulhos com a melhor cotação de Porto Seguro, Tokio Marine, Allianz, HDI e Bradesco. Atendimento local no Cidade Maia."
@@ -94,7 +109,20 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
       { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
-  />
+    extraSections={
+      <NeighborhoodHub
+        source="seguro-auto-guarulhos:hub-bairros"
+        neighborhoods={NEIGHBORHOODS}
+      />
+    }
+    />
+    <StickyQuoteBar
+      source="seguro-auto-guarulhos"
+      quoteHref="/cotacao?tipo=auto"
+      whatsappMessage="Olá! Vim pela página Seguro Auto Guarulhos e quero uma cotação rápida."
+      ctaLabel="Cotação rápida"
+    />
+  </>
 );
 
 export default SeoSeguroAutoGuarulhos;
