@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
-import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick } from "@/lib/tracking";
+import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -586,7 +586,7 @@ const InsurancePageTemplate = ({
                                   onClick={() =>
                                     trackInternalLinkClick({
                                       placement: "veja-tambem",
-                                      source: `faq-product:${title}`,
+                                      source: buildInternalLinkSource("faq-product", title),
                                       destination: r.href,
                                       label: r.label,
                                     })
