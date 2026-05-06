@@ -1,3 +1,23 @@
+
+## audit-canonical.mjs
+
+Crawls every product/SEO route (from `src/lib/insuranceHubLinks.ts` + `public/sitemap.xml`)
+and validates host/protocol/canonical consistency:
+
+1. `https://patroseguros.com.br/<path>` → must `301` to `https://www.patroseguros.com.br/<path>`
+2. `http://www.patroseguros.com.br/<path>` → must `301` to HTTPS
+3. `https://www.patroseguros.com.br/<path>` → must `200` and serve a `<link rel="canonical">` and `<meta og:url>` pointing to the exact same URL.
+
+### Run
+
+```bash
+node scripts/audit-canonical.mjs
+# or against the preview/staging:
+node scripts/audit-canonical.mjs --base=https://patroseguros.lovable.app
+```
+
+Outputs CSV + JSON reports to `audit-output/canonical-audit-<timestamp>.{csv,json}`
+and exits with code `1` if any URL fails — perfect for CI.
 # Auditoria automatizada de AggregateRating (JSON-LD)
 
 Script Playwright que abre cada página de produto, espera o React injetar os
