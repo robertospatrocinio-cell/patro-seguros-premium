@@ -20,33 +20,60 @@ export type Database = {
           created_at: string
           event_type: string
           id: string
+          insurance_type: string | null
+          landing_page: string | null
+          origin: string | null
           page_path: string | null
+          referrer: string | null
           seconds_since_page_start: number | null
           session_id: string | null
           source: string | null
           user_agent: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
         }
         Insert: {
           analytics_loaded?: boolean
           created_at?: string
           event_type: string
           id?: string
+          insurance_type?: string | null
+          landing_page?: string | null
+          origin?: string | null
           page_path?: string | null
+          referrer?: string | null
           seconds_since_page_start?: number | null
           session_id?: string | null
           source?: string | null
           user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Update: {
           analytics_loaded?: boolean
           created_at?: string
           event_type?: string
           id?: string
+          insurance_type?: string | null
+          landing_page?: string | null
+          origin?: string | null
           page_path?: string | null
+          referrer?: string | null
           seconds_since_page_start?: number | null
           session_id?: string | null
           source?: string | null
           user_agent?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
         }
         Relationships: []
       }
