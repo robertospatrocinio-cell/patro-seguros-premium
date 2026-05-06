@@ -11,6 +11,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
+import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
@@ -110,6 +111,11 @@ const InsurancePageTemplate = ({
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
+      <AggregateRatingSchema
+        serviceName={title}
+        url={typeof window !== "undefined" ? window.location.href : `https://www.patroseguros.com.br`}
+        description={metaDescription || subtitle}
+      />
       <Header />
       <main id="main-content">
         <Breadcrumb items={[{ label: title }]} />
