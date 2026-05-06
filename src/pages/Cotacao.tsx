@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { supabase } from "@/integrations/supabase/client";
 import { escapeHtml } from "@/lib/utils";
@@ -26,6 +27,11 @@ const formSchema = z.object({
 
 const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [searchParams] = useSearchParams();
+
+  const VALID_TYPES = ["auto","vida","residencial","viagem","saude","empresarial","frota","rc","outros"] as const;
+  const tipoParam = (searchParams.get("tipo") || "").toLowerCase();
+  const initialType = (VALID_TYPES as readonly string[]).includes(tipoParam) ? tipoParam : "";
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,10 +39,18 @@ const Cotacao = () => {
       name: "",
       email: "",
       phone: "",
-      insuranceType: "",
+      insuranceType: initialType,
       message: "",
     },
   });
+
+  // Sync if the query param changes after mount (SPA navigation)
+  useEffect(() => {
+    if (initialType && form.getValues("insuranceType") !== initialType) {
+      form.setValue("insuranceType", initialType, { shouldValidate: true });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialType]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
@@ -152,7 +166,7 @@ const Cotacao = () => {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Tipo de Seguro *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Selecione o tipo de seguro" />

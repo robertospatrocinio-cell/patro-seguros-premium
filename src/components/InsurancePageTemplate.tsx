@@ -18,6 +18,20 @@ import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
+// Map page title keywords to the Cotacao select values
+const inferQuoteType = (title: string): string => {
+  const t = title.toLowerCase();
+  if (t.includes("auto") || t.includes("carro") || t.includes("moto")) return "auto";
+  if (t.includes("vida")) return "vida";
+  if (t.includes("residencial") || t.includes("casa") || t.includes("imóvel") || t.includes("condom")) return "residencial";
+  if (t.includes("viagem")) return "viagem";
+  if (t.includes("saúde") || t.includes("saude") || t.includes("odonto") || t.includes("plano de saúde")) return "saude";
+  if (t.includes("frota")) return "frota";
+  if (t.includes("rc") || t.includes("responsabilidade")) return "rc";
+  if (t.includes("empresa") || t.includes("pme") || t.includes("galpão") || t.includes("galpoes") || t.includes("indústria") || t.includes("industria") || t.includes("comercial")) return "empresarial";
+  return "outros";
+};
+
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
@@ -161,7 +175,7 @@ const InsurancePageTemplate = ({
                     </Button>
                   </Link>
                 ) : (
-                  <Link to="/cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(title)}>
+                  <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(title)}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
                       Cotação Rápida
                     </Button>
@@ -447,7 +461,7 @@ const InsurancePageTemplate = ({
                   </a>
                 )
               ) : (
-                <Link to="/cotacao" className="w-full sm:w-auto">
+                <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Cotação Rápida</Button>
                 </Link>
               )}
@@ -539,7 +553,7 @@ const InsurancePageTemplate = ({
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   Cotação Rápida por WhatsApp
                 </a>
-                <Link to="/cotacao" onClick={() => trackCotacaoClick(`faq-fora-guarulhos-${title}`)}>
+                <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} onClick={() => trackCotacaoClick(`faq-fora-guarulhos-${title}`)}>
                   <Button variant="outline" className="rounded-xl w-full sm:w-auto">
                     Preencher formulário online
                     <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
