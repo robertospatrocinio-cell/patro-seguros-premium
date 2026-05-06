@@ -24,6 +24,7 @@ const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
 const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
 const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
 const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
+const InsuranceHubLinks = lazy(() => import("@/components/InsuranceHubLinks"));
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
 // Lazy load below-fold decorative images
@@ -456,6 +457,11 @@ const Index = () => {
             </div>
           </div>
         </section>
+        </LazySection>
+
+        {/* Mapa de seguros — fortalece crawl & autoridade tópica */}
+        <LazySection minHeight="600px">
+          <Suspense fallback={null}><InsuranceHubLinks /></Suspense>
         </LazySection>
       </main>
       <Suspense fallback={null}><Footer /></Suspense>
