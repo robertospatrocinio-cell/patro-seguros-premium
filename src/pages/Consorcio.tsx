@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -71,6 +72,7 @@ const Consorcio = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageMeta title="Consórcio de Imóveis, Carros e Veículos Pesados" description="Consórcio sem juros com a Patro Seguros. Carros, motos, imóveis e caminhões. Parcelas acessíveis, poder de compra à vista e uso do FGTS. Simule grátis!" />
+      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
       <Header />
 
       {/* Hero */}

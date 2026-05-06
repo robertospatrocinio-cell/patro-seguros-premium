@@ -3,11 +3,21 @@ import { CheckCircle, MessageCircle, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
+
+const faqs = [
+  { question: "Qual o melhor plano de saúde em Guarulhos?", answer: "Depende do seu perfil. Para cobertura ampla nacional, Bradesco Saúde e SulAmérica se destacam. Para custo-benefício em Guarulhos, HapVida/NotreDame e Amil têm rede local extensa. Para 59+, Prevent Senior e MedSenior são especialistas. A Patro Seguros compara todas as operadoras gratuitamente." },
+  { question: "Quanto custa plano de saúde em Guarulhos?", answer: "Em Guarulhos, planos individuais começam em torno de R$ 280/mês para jovens adultos, R$ 600/mês para 40-49 anos e podem chegar a R$ 2.500/mês para 59+. Planos empresariais (PME) costumam ser 30% a 50% mais baratos." },
+  { question: "Quais operadoras de plano de saúde têm rede credenciada em Guarulhos?", answer: "Bradesco Saúde, Amil, SulAmérica, Porto Saúde, HapVida/NotreDame Intermédica, Prevent Senior, MedSenior e Omint mantêm rede credenciada robusta em Guarulhos — incluindo Cidade Maia, Macedo, Vila Galvão e bairros próximos ao Aeroporto." },
+  { question: "Plano de saúde empresarial em Guarulhos exige quantas vidas?", answer: "A maioria das operadoras aceita PMEs a partir de 2 vidas (CNPJ ativo). Algumas operadoras, como Bradesco e Amil, permitem MEI com 1 titular + 1 dependente. Os preços são significativamente menores que os planos individuais." },
+  { question: "A Patro Seguros cobra para cotar plano de saúde?", answer: "Não. A cotação é 100% gratuita. Atendemos presencialmente no escritório da Cidade Maia, em Guarulhos, ou online por WhatsApp. Você paga o mesmo preço de tabela da operadora — recebemos comissão direta dela." },
+];
 
 const SeoPlanoSaudeGuarulhos = () => (
   <>
     <PageMeta title="Plano de Saúde em Guarulhos – Cidade Maia" description="Plano de saúde no Cidade Maia, Guarulhos. Compare Bradesco Saúde, Amil, SulAmérica e mais. Atendimento local e cotação gratuita." />
+    <FAQSchema faqs={faqs} />
     <Header />
     <main id="main-content">
       <section className="gradient-hero py-20">
@@ -43,15 +53,12 @@ const SeoPlanoSaudeGuarulhos = () => (
 
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-center mb-12">Perguntas Frequentes</h2>
-          <div className="space-y-6">
-            {[
-              { q: "Qual o melhor plano de saúde em Guarulhos?", a: "Depende do perfil e necessidades. Comparamos todas as operadoras para encontrar a melhor opção para você." },
-              { q: "Quanto custa plano de saúde em Guarulhos?", a: "Os valores variam por operadora, faixa etária e tipo de plano. Simule gratuitamente com a Patro." },
-            ].map((faq, i) => (
+          <h2 id="faq-heading" className="text-center mb-12">Perguntas Frequentes sobre Plano de Saúde em Guarulhos</h2>
+          <div className="space-y-6" data-speakable="faq">
+            {faqs.map((faq, i) => (
               <div key={i}>
-                <h3 className="text-lg font-semibold mb-2">{faq.q}</h3>
-                <p className="text-muted-foreground">{faq.a}</p>
+                <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
+                <p className="text-muted-foreground">{faq.answer}</p>
               </div>
             ))}
           </div>
