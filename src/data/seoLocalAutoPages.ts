@@ -345,6 +345,54 @@ export const seoLocalPages: Record<string, SeoLocalPageConfig> = {
   ...Object.fromEntries(bairros.map((b) => [b.slug, buildBairroConfig(b)])),
 };
 
+/* ---------- OVERRIDES POR BAIRRO (conteúdo único hiperlocal) ---------- */
+
+const vilaGalvaoBase = seoLocalPages["seguro-auto-vila-galvao"];
+seoLocalPages["seguro-auto-vila-galvao"] = {
+  ...vilaGalvaoBase,
+  city: "Guarulhos",
+  neighborhood: "Vila Galvão",
+  geo: { latitude: -23.4361, longitude: -46.5478 },
+  priceRange: { min: 2300, max: 4200 },
+  nearbyAreas: [
+    { name: "Seguro Auto Vila Augusta", link: "/seguro-auto-vila-augusta" },
+    { name: "Seguro Auto Cidade Maia", link: "/seguro-auto-maia-guarulhos" },
+    { name: "Seguro Auto Centro de Guarulhos", link: "/seguro-auto-centro-guarulhos" },
+    { name: "Seguro Auto Taboão", link: "/seguro-auto-taboao-guarulhos" },
+    { name: "Bairros atendidos em Guarulhos", link: "/seguros-guarulhos/vila-augusta" },
+  ],
+  detailedDescription: `O Vila Galvão é um dos bairros mais valorizados de Guarulhos, na divisa com a zona norte de São Paulo (Tremembé e Tucuruvi). A região tem perfil predominantemente residencial de classe média-alta, com ruas arborizadas, condomínios verticais e fluxo intenso pela Avenida Brasil e Estrada Velha de São Paulo. Para o seguro auto, isso se traduz em CEP de baixa sinistralidade — uma das melhores classificações de Guarulhos junto com Cidade Maia e Vila Augusta.\n\nNa prática, moradores do Vila Galvão tendem a receber prêmios entre 15% e 25% mais baratos do que regiões como Pimentas, Cumbica ou Bonsucesso. Mesmo assim, vale comparar: cada seguradora pondera o CEP de forma diferente. Porto Seguro e Allianz costumam ser muito competitivas no Vila Galvão, enquanto HDI e Tokio Marine entregam franquias menores. Bradesco e SulAmérica brilham em coberturas adicionais (vidros, carro reserva premium).\n\nA Patro Seguros atende moradores do Vila Galvão presencialmente no escritório do Cidade Maia (10 minutos de carro) ou 100% por WhatsApp. Cotamos em uma única solicitação as 9 maiores seguradoras do país e devolvemos um comparativo claro em até 2 horas úteis. Se você está renovando e recebeu aumento acima de 12%, quase sempre conseguimos uma alternativa melhor — em mais de 60% dos casos do bairro, encontramos preço inferior ao da renovação automática.`,
+  faqs: [
+    { question: "Quanto custa seguro auto no Vila Galvão, Guarulhos?", answer: "O seguro auto no Vila Galvão fica entre R$ 2.300 e R$ 4.200/ano para cobertura compreensiva (roubo, furto, colisão e terceiros). Veículos populares com garagem coberta e rastreador ficam na faixa inferior; SUVs e premium, na superior. É um dos bairros mais baratos de Guarulhos para seguro auto." },
+    { question: "Por que o Vila Galvão tem seguro auto mais barato que outros bairros de Guarulhos?", answer: "Porque o CEP do Vila Galvão tem baixa sinistralidade segundo as estatísticas das seguradoras: poucos roubos de veículo registrados, perfil residencial e maior incidência de garagem coberta. Em comparação, bairros como Pimentas e Cumbica podem ter prêmios 30% a 45% mais altos." },
+    { question: "Quais seguradoras são mais competitivas no Vila Galvão?", answer: "No Vila Galvão, Porto Seguro e Allianz costumam liderar em preço para perfis padrão. HDI e Tokio Marine entregam franquias menores. Para SUVs e veículos premium, Bradesco Seguros e SulAmérica oferecem coberturas adicionais mais robustas. A Patro compara as 9 em uma única cotação." },
+    { question: "Preciso ter rastreador para contratar seguro auto no Vila Galvão?", answer: "Geralmente não é obrigatório no Vila Galvão por causa da baixa sinistralidade do CEP. Mas instalar rastreador ainda reduz o prêmio entre 8% e 15% e libera coberturas adicionais — para veículos acima de R$ 80 mil costuma compensar." },
+    { question: "Onde fica a corretora Patro Seguros para moradores do Vila Galvão?", answer: "O escritório fica no Cidade Maia, em Guarulhos, a aproximadamente 10 minutos de carro do Vila Galvão pela Avenida Brasil. Atendemos presencialmente com agendamento, ou 100% por WhatsApp (11 5199-7500) se você preferir resolver à distância." },
+    { question: "O seguro auto vale para quem mora no Vila Galvão e trabalha em São Paulo capital?", answer: "Sim. A apólice cobre todo o território nacional. Como muitos moradores do Vila Galvão trabalham na zona norte de SP (Tucuruvi, Santana, Vila Maria), informamos esse trajeto na cotação para que a seguradora calcule corretamente o uso urbano e considere o CEP do trabalho." },
+    { question: "A Patro atende renovações de moradores do Vila Galvão que estão em outra corretora?", answer: "Sim. Basta enviar a apólice atual ou a renovação proposta por WhatsApp. Em até 2 horas úteis devolvemos comparativo entre 9 seguradoras. Mais de 60% dos clientes do Vila Galvão que recotam conosco economizam na primeira renovação." },
+  ],
+  testimonials: [
+    {
+      author: "Cláudia M.",
+      neighborhood: "Vila Galvão",
+      quote: "Pagava R$ 4.150 no seguro do meu HR-V renovando direto na Porto. A Patro recotou e fechei na Allianz por R$ 3.280 com a mesma cobertura. Atendimento super atencioso e tudo por WhatsApp.",
+      rating: 5,
+    },
+    {
+      author: "Eduardo R., engenheiro",
+      neighborhood: "Vila Galvão",
+      quote: "Comprei um Compass usado e fiz a cotação com 3 corretoras. A Patro foi a única que mandou comparativo em quadro com 8 seguradoras. Consegui R$ 900 a menos que a melhor proposta das outras.",
+      rating: 5,
+    },
+    {
+      author: "Renata P., advogada",
+      neighborhood: "Vila Galvão",
+      quote: "Tive um sinistro pequeno (vidro quebrado) e o suporte da Patro fez toda a diferença. Resolveram a autorização com a seguradora em 24h. Já indiquei pra metade do meu prédio.",
+      rating: 5,
+    },
+  ],
+};
+
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
 // Suppress unused-import warning when consumers tree-shake
