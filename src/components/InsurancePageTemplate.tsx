@@ -561,7 +561,12 @@ const InsurancePageTemplate = ({
                     <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light flex-shrink-0">+</span>
                   </summary>
                   <div className="px-5 pb-5 -mt-1">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                    <SmartText
+                      text={faq.answer}
+                      className="text-sm text-muted-foreground leading-relaxed"
+                      linkedKeywords={linkedKeywords}
+                      maxLinks={2}
+                    />
                   </div>
                 </details>
               ))}
