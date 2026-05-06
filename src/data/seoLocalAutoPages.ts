@@ -1,4 +1,5 @@
 import type { ComponentProps } from "react";
+import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTemplate";
 
 export interface SeoLocalPageConfig {
   slug: string;
@@ -18,6 +19,14 @@ export interface SeoLocalPageConfig {
   realScenarios: { title: string; description: string }[];
   tips: string[];
   relatedInsurances: { title: string; link: string }[];
+  /** Opcionais — preenchidos por bairros e páginas comerciais quando relevante */
+  city?: string;
+  neighborhood?: string;
+  geo?: { latitude: number; longitude: number };
+  priceRange?: { min: number; max: number };
+  nearbyAreas?: { name: string; link: string }[];
+  insurers?: LocalInsurer[];
+  testimonials?: LocalTestimonial[];
 }
 
 const partnersLine =
