@@ -6,6 +6,7 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ArticleSchema from "@/components/ArticleSchema";
+import { getCanonicalUrl, CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
@@ -7083,8 +7084,10 @@ const BlogArticle = () => {
         <FAQSchema faqs={allFaqs.map(f => ({ question: f.q, answer: f.a }))} />
       )}
       {meta && slug && (() => {
-        const articleUrl = `https://patroseguros.com.br/blog/${slug}`;
-        const imageUrl = `https://patroseguros.com.br${getArticleImage(slug)}`;
+        // Canonical URL uses the www. host to match the <link rel="canonical">
+        // emitted by PageMeta, keeping JSON-LD `url`/`@id` consistent across signals.
+        const articleUrl = getCanonicalUrl(`/blog/${slug}`);
+        const imageUrl = `${CANONICAL_BASE_URL}${getArticleImage(slug)}`;
         const howToSchema = extraFaqBlock?.timeline ? {
           "@context": "https://schema.org",
           "@type": "HowTo",
