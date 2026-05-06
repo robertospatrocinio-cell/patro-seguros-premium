@@ -18,6 +18,7 @@ import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
+import SmartText from "@/components/SmartText";
 
 // Map page title keywords to the Cotacao select values
 const inferQuoteType = (title: string): string => {
@@ -121,6 +122,9 @@ const InsurancePageTemplate = ({
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = getCanonicalUrl(location.pathname);
+  // Shared set to dedupe contextual keyword links across all narrative blocks
+  // of the page (description, detailedDescription, contextualLinks, importantDetails).
+  const linkedKeywords = new Set<string>();
   // SEO Local: se o title da página ainda não menciona uma localidade
   // (Guarulhos, São Paulo, SP, Brasil), reforça os H2 com geomodificador
   // para capturar buscas geolocalizadas (ex.: "quanto custa seguro auto em Guarulhos").
@@ -200,11 +204,22 @@ const InsurancePageTemplate = ({
         <section className="py-20" aria-labelledby="descricao-heading">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 id="descricao-heading" className="sr-only">Sobre o {title}</h2>
-            <p className="text-[15px] text-muted-foreground leading-relaxed">{description}</p>
+            <SmartText
+              text={description}
+              className="text-[15px] text-muted-foreground leading-relaxed"
+              linkedKeywords={linkedKeywords}
+              maxLinks={2}
+            />
             {detailedDescription && (
               <div className="mt-8 space-y-4">
                 {detailedDescription.split('\n\n').map((paragraph, i) => (
-                  <p key={i} className="text-muted-foreground leading-relaxed text-[15px]">{paragraph}</p>
+                  <SmartText
+                    key={i}
+                    text={paragraph}
+                    className="text-muted-foreground leading-relaxed text-[15px]"
+                    linkedKeywords={linkedKeywords}
+                    maxLinks={2}
+                  />
                 ))}
               </div>
             )}
@@ -213,7 +228,13 @@ const InsurancePageTemplate = ({
                 <h3 className="text-base font-semibold mb-4">{contextualLinks.heading}</h3>
                 <div className="space-y-3">
                   {contextualLinks.paragraphs.map((p, i) => (
-                    <p key={i} className="text-sm text-muted-foreground leading-relaxed">{p}</p>
+                    <SmartText
+                      key={i}
+                      text={p}
+                      className="text-sm text-muted-foreground leading-relaxed"
+                      linkedKeywords={linkedKeywords}
+                      maxLinks={2}
+                    />
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-2 mt-5">
@@ -361,7 +382,13 @@ const InsurancePageTemplate = ({
                     <h3 className="text-base font-semibold mb-3">{detail.title}</h3>
                     <div className="space-y-3">
                       {detail.content.split('\n\n').map((p, j) => (
-                        <p key={j} className="text-muted-foreground leading-relaxed text-[15px]">{p}</p>
+                        <SmartText
+                          key={j}
+                          text={p}
+                          className="text-muted-foreground leading-relaxed text-[15px]"
+                          linkedKeywords={linkedKeywords}
+                          maxLinks={2}
+                        />
                       ))}
                     </div>
                   </div>
