@@ -4,7 +4,7 @@ import path from "path";
 import fs from "fs";
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
-import { generateSitemap } from "./scripts/generate-sitemap";
+import { generateSitemapBundle } from "./scripts/generate-sitemap";
 
 // Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
 // to async loading with print/onload trick (critical CSS is already inlined in index.html)
@@ -40,10 +40,17 @@ function sitemapPlugin(): Plugin {
       while ((match = slugRegex.exec(blogSrc)) !== null) {
         slugs.push(match[1]);
       }
-      const xml = generateSitemap(slugs);
+      const { index, files } = generateSitemapBundle(slugs);
       const outDir = path.resolve(__dirname, "dist");
-      fs.writeFileSync(path.join(outDir, "sitemap.xml"), xml, "utf-8");
-      console.log(`✅ sitemap.xml generated with ${xml.split("<url>").length - 1} URLs`);
+      // Cluster sitemaps + legacy flat sitemap.xml
+      for (const [name, xml] of Object.entries(files)) {
+        fs.writeFileSync(path.join(outDir, name), xml, "utf-8");
+        const count = xml.split("<url>").length - 1;
+        console.log(`✅ ${name} generated with ${count} URLs`);
+      }
+      // Sitemap index referencing all clusters
+      fs.writeFileSync(path.join(outDir, "sitemap-index.xml"), index, "utf-8");
+      console.log(`✅ sitemap-index.xml generated with ${Object.keys(files).length - 1} cluster sitemaps`);
     },
   };
 }

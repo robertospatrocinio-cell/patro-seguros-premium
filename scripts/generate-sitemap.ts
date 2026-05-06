@@ -1,5 +1,15 @@
 // Build-time sitemap generator — called by Vite plugin
-// Generates sitemap.xml with search-intent priority tiers
+//
+// Generates a sitemap-index.xml plus cluster-specific sitemaps so Google can
+// discover and prioritize each topical area independently:
+//   - sitemap-guarulhos.xml   → SEO local + bairros + hub Guarulhos
+//   - sitemap-auto.xml        → veículos (auto, moto, frota, caminhão, etc.)
+//   - sitemap-vida-saude.xml  → vida, saúde, planos, odonto, viagem, etc.
+//   - sitemap-empresarial.xml → empresarial, RC, cyber, engenharia, garantia
+//   - sitemap-geral.xml       → home, agro, consórcio, blog, institucional
+//
+// The legacy public/sitemap.xml is also regenerated as an equivalent flat
+// sitemap for backward compatibility with already-submitted URLs.
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -129,7 +139,28 @@ function entryToXml(e: SitemapEntry): string {
   return `  <url><loc>${DOMAIN}${e.loc}</loc><priority>${e.priority}</priority><lastmod>${lastmod}</lastmod><changefreq>${e.changefreq}</changefreq></url>`;
 }
 
+function urlsetFor(entries: SitemapEntry[]): string {
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...entries.map(entryToXml),
+    '</urlset>',
+  ].join('\n');
+}
+
+export interface SitemapBundle {
+  /** sitemap-index.xml content */
+  index: string;
+  /** filename → xml content (cluster sitemaps + legacy sitemap.xml) */
+  files: Record<string, string>;
+}
+
 export function generateSitemap(blogSlugs: string[]): string {
+  // Backward-compatible API: returns the flat sitemap.xml content.
+  return generateSitemapBundle(blogSlugs).files["sitemap.xml"];
+}
+
+export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
   const blogEntries: SitemapEntry[] = blogSlugs.map(slug => ({
     loc: `/blog/${slug}`,
     priority: "0.6",
@@ -143,7 +174,42 @@ export function generateSitemap(blogSlugs: string[]): string {
     }
   });
 
-  const allEntries = [
+  // ---- Cluster definitions -------------------------------------------------
+
+  const autoRoutes = new Set([
+    "/seguro-auto", "/seguro-moto", "/seguro-caminhao", "/seguro-frota",
+    "/seguro-motorista-app", "/seguro-bike", "/seguro-carta-verde",
+    "/seguro-jetski", "/seguro-embarcacoes", "/seguro-avioes",
+    "/seguro-helicopteros", "/cotacao-seguro-auto",
+  ]);
+
+  const vidaSaudeRoutes = new Set([
+    "/seguro-vida", "/seguro-vida-pme", "/seguro-vida/formulario",
+    "/seguro-saude", "/planos-de-saude", "/plano-saude-empresarial",
+    "/seguro-odonto", "/seguro-acidentes-pessoais", "/seguro-funeral",
+    "/seguro-decesso", "/seguro-viagem", "/previdencia-privada",
+    "/plano-pet",
+  ]);
+
+  const empresarialRoutes = new Set([
+    "/seguro-empresarial", "/seguro-galpoes-industriais",
+    "/seguro-lojas-shopping", "/seguro-maquinas",
+    "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
+    "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
+    "/seguro-garantia", "/seguro-cyber", "/seguro-estagiario",
+    "/seguro-ambiental", "/seguro-rc", "/seguro-rc-profissional",
+    "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
+    "/seguro-rc-engenheiros", "/seguro-rc-veterinarios",
+    "/seguro-rc-executivos", "/seguro-rc-obras",
+    "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
+    "/seguros/empresarios", "/seguros/profissionais-liberais",
+    "/seguros/medicos-e-clinicas", "/seguros/transportadoras",
+    "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
+    "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
+    "/seguro-placa-solar",
+  ]);
+
+  const flat = [
     ...highIntentTransactional,
     ...seoLocalGuarulhos,
     ...coreProducts,
@@ -158,12 +224,64 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...legal,
   ];
 
-  const xml = [
+  // Dedupe by loc, keeping the highest priority entry.
+  const dedup = new Map<string, SitemapEntry>();
+  for (const e of flat) {
+    const prev = dedup.get(e.loc);
+    if (!prev || parseFloat(e.priority) > parseFloat(prev.priority)) {
+      dedup.set(e.loc, e);
+    }
+  }
+  const allEntries = [...dedup.values()];
+
+  // ---- Split by cluster ----------------------------------------------------
+
+  const isGuarulhos = (loc: string) =>
+    loc.includes("guarulhos") || loc === "/seguros-em-guarulhos" ||
+    loc === "/sobre-guarulhos" || loc.startsWith("/seguros-guarulhos/");
+
+  const guarulhosEntries: SitemapEntry[] = [];
+  const autoEntries: SitemapEntry[] = [];
+  const vidaSaudeEntries: SitemapEntry[] = [];
+  const empresarialEntries: SitemapEntry[] = [];
+  const geralEntries: SitemapEntry[] = [];
+
+  for (const e of allEntries) {
+    if (isGuarulhos(e.loc)) guarulhosEntries.push(e);
+    else if (autoRoutes.has(e.loc)) autoEntries.push(e);
+    else if (vidaSaudeRoutes.has(e.loc)) vidaSaudeEntries.push(e);
+    else if (empresarialRoutes.has(e.loc)) empresarialEntries.push(e);
+    else geralEntries.push(e);
+  }
+
+  const files: Record<string, string> = {
+    "sitemap-guarulhos.xml": urlsetFor(guarulhosEntries),
+    "sitemap-auto.xml": urlsetFor(autoEntries),
+    "sitemap-vida-saude.xml": urlsetFor(vidaSaudeEntries),
+    "sitemap-empresarial.xml": urlsetFor(empresarialEntries),
+    "sitemap-geral.xml": urlsetFor(geralEntries),
+    // Legacy flat sitemap kept for backward compatibility with already-submitted URLs
+    "sitemap.xml": urlsetFor(allEntries),
+  };
+
+  // ---- Sitemap index -------------------------------------------------------
+  // Order matters: Guarulhos & Auto first (highest commercial priority).
+  const indexOrder = [
+    "sitemap-guarulhos.xml",
+    "sitemap-auto.xml",
+    "sitemap-vida-saude.xml",
+    "sitemap-empresarial.xml",
+    "sitemap-geral.xml",
+  ];
+
+  const index = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...allEntries.map(entryToXml),
-    '</urlset>',
+    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...indexOrder.map(name =>
+      `  <sitemap><loc>${DOMAIN}/${name}</loc><lastmod>${TODAY}</lastmod></sitemap>`,
+    ),
+    '</sitemapindex>',
   ].join('\n');
 
-  return xml;
+  return { index, files };
 }
