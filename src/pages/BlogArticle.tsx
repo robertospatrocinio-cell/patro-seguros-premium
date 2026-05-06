@@ -6733,335 +6733,6 @@ Fonte dos dados: IPSA + IPSM, índice desenvolvido pela TEx, parte da Serasa Exp
       { q: "A Patro Seguros atende motociclistas fora de Guarulhos?", a: "Sim. Atendemos em todo o Brasil com cotação online, assinatura digital e suporte humano por WhatsApp e telefone. Nosso escritório fica na Cidade Maia, em Guarulhos/SP, mas a operação é nacional." },
     ],
   },
-};
-
-const defaultArticle = {
-  title: "Artigo",
-  content: "Este artigo está sendo preparado. Entre em contato conosco para mais informações sobre este tema.",
-  faqs: [],
-};
-
-// FAQs extras por slug — focadas em SEO e conversão (cobertura, franquia, sinistro)
-const extraFaqsBySlug: Record<string, {
-  title: string;
-  subtitle?: string;
-  faqs: { q: string; a: string }[];
-  relatedLink?: {
-    label: string;
-    anchor: string;
-    to: string;
-    description: string;
-    variations?: { anchor: string; to: string; trackingLabel: string }[];
-  };
-  timeline?: {
-    title: string;
-    subtitle?: string;
-    stages: {
-      label: string;
-      eta: string;
-      bullets: string[];
-      faqQ: string;
-      faqA: string;
-    }[];
-  };
-  comparison?: {
-    title: string;
-    subtitle?: string;
-    columns: { without: string; with: string };
-    rows: {
-      criterion: string;
-      without: string;
-      with: string;
-      faqQ?: string;
-      faqA?: string;
-    }[];
-    examples?: {
-      title: string;
-      patrimony: string;
-      withoutInsurance: string;
-      withInsurance: string;
-      saved: string;
-    }[];
-    footnote?: string;
-  };
-}> = {
-  "como-pagar-menos-seguro-frota-logistica-guarulhos": {
-    title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
-    subtitle: "Tire as principais dúvidas técnicas sobre apólice de frota para empresas de logística",
-    relatedLink: {
-      label: "Página principal",
-      anchor: "Seguro para Empresas e Frotas",
-      to: "/seguro-frota",
-      description: "Veja coberturas completas, exemplos de apólice, planos para 5 a 500+ veículos e solicite uma cotação comparativa entre 16+ seguradoras parceiras.",
-      variations: [
-        { anchor: "Seguro de Frota em Guarulhos", to: "/seguro-frota", trackingLabel: "blog-frota-anchor-frota-guarulhos" },
-        { anchor: "Seguro para Empresas (PJ)", to: "/seguros-para-empresas", trackingLabel: "blog-frota-anchor-seguro-empresas" },
-        { anchor: "Seguro Empresarial para Transportadoras", to: "/seguro-empresarial", trackingLabel: "blog-frota-anchor-seguro-empresarial" },
-        { anchor: "Cotação de Seguro de Frota", to: "/cotacao", trackingLabel: "blog-frota-anchor-cotacao-frota" },
-        { anchor: "Corretora de Seguros em Guarulhos", to: "/corretora-seguros-guarulhos", trackingLabel: "blog-frota-anchor-corretora-guarulhos" },
-        { anchor: "Seguro empresarial em Cumbica (polo logístico)", to: "/seguros-guarulhos/cumbica", trackingLabel: "blog-frota-anchor-bairro-cumbica" },
-        { anchor: "Seguro para frotas no Bonsucesso", to: "/seguros-guarulhos/bonsucesso", trackingLabel: "blog-frota-anchor-bairro-bonsucesso" },
-        { anchor: "Seguros no Jardim Maia, Guarulhos", to: "/seguros-guarulhos/jardim-maia", trackingLabel: "blog-frota-anchor-bairro-jardim-maia" },
-        { anchor: "Seguros na Vila Augusta", to: "/seguros-guarulhos/vila-augusta", trackingLabel: "blog-frota-anchor-bairro-vila-augusta" },
-        { anchor: "Seguros no Centro de Guarulhos", to: "/seguros-guarulhos/centro", trackingLabel: "blog-frota-anchor-bairro-centro" },
-      ],
-    },
-    timeline: {
-      title: "Prazos por etapa do sinistro de frota",
-      subtitle: "Linha do tempo realista, da comunicação à indenização — referências SUSEP e prática de mercado.",
-      stages: [
-        {
-          label: "1. Comunicação do sinistro",
-          eta: "Até 24h–48h após o evento",
-          bullets: [
-            "Registrar BO em até 24h (roubo, furto, colisão com vítima ou incêndio)",
-            "Acionar central 24h da seguradora ou corretor para abrir aviso",
-            "Solicitar guincho e veículo reserva no mesmo contato",
-            "Anotar protocolo, nome do atendente e data/hora da abertura",
-          ],
-          faqQ: "Em quanto tempo devo comunicar um sinistro de frota à seguradora?",
-          faqA: "O ideal é comunicar nas primeiras 24h e, no máximo, em 48h. Atrasos sem justificativa podem ser interpretados como agravamento de risco e gerar negativa de cobertura. Em roubo, furto e colisão com vítima, o BO em até 24h é obrigatório.",
-        },
-        {
-          label: "2. Análise inicial e regulação",
-          eta: "1 a 3 dias úteis após a abertura",
-          bullets: [
-            "Seguradora abre o processo e designa o regulador",
-            "Validação de vigência da apólice e enquadramento da cobertura",
-            "Solicitação formal da lista de documentos por e-mail",
-            "Definição se o caso terá vistoria presencial ou remota",
-          ],
-          faqQ: "Quanto tempo a seguradora leva para iniciar a análise do sinistro?",
-          faqA: "Entre 1 e 3 dias úteis após o aviso. Nesse intervalo, a seguradora valida a apólice, abre o processo de regulação e envia a lista oficial de documentos. Frotas com corretor especializado (como a Patro) costumam ter esse prazo reduzido pela mediação direta com o regulador.",
-        },
-        {
-          label: "3. Envio de documentos",
-          eta: "Até 5 dias úteis (envio do segurado)",
-          bullets: [
-            "BO, CNH do condutor, CRLV e CT-e/nota fiscal da carga",
-            "Fotos do local, dos danos e do hodômetro",
-            "Relatório do rastreador e laudo da gerenciadora de risco",
-            "Comprovante de cumprimento do plano de viagem (cargas)",
-          ],
-          faqQ: "Quais documentos enviar e em quanto tempo?",
-          faqA: "Envie a documentação completa em até 5 dias úteis após o pedido formal: BO, CNH, CRLV, CT-e, notas fiscais, fotos, relatório do rastreador e laudo da gerenciadora. Documentação enviada em partes reinicia o prazo de análise — concentre tudo em um único envio.",
-        },
-        {
-          label: "4. Vistoria e laudo técnico",
-          eta: "3 a 10 dias úteis após documentos",
-          bullets: [
-            "Agendamento da vistoria em até 3 dias úteis",
-            "Vistoria presencial em oficina credenciada ou pátio",
-            "Emissão do laudo de danos e orçamento",
-            "Decisão entre conserto, perda parcial ou perda total",
-          ],
-          faqQ: "Quanto tempo demora a vistoria do veículo da frota?",
-          faqA: "A seguradora agenda em até 3 dias úteis e o laudo técnico fica pronto em 3 a 10 dias úteis, dependendo da complexidade. Para perda total, exige-se desmonte e checagem de chassi, o que pode estender o prazo em mais 5 dias úteis.",
-        },
-        {
-          label: "5. Conclusão e pagamento",
-          eta: "Até 30 dias após documentação completa",
-          bullets: [
-            "Reparo em oficina credenciada: 5 a 15 dias úteis",
-            "Perda total de veículo: pagamento em até 30 dias",
-            "Roubo/furto: 30 dias de carência + 30 dias para pagamento",
-            "RCF-DC (carga roubada): até 30 dias após laudo da gerenciadora",
-          ],
-          faqQ: "Em quantos dias a seguradora paga a indenização?",
-          faqA: "O prazo SUSEP é de até 30 dias corridos contados a partir da entrega completa dos documentos. Pedidos de documentos complementares só podem ser feitos uma única vez e reiniciam o prazo. Na Patro, acompanhamos cada etapa para evitar pedidos repetidos e travas no processo.",
-        },
-      ],
-    },
-    faqs: [
-      {
-        q: "Quais coberturas são obrigatórias no seguro de frota para transportadoras?",
-        a: "Para operações de logística, três coberturas são tratadas como obrigatórias na prática: RCTR-C (Responsabilidade Civil do Transportador Rodoviário de Carga), exigida por lei para quem transporta carga de terceiros; RCF-V (Responsabilidade Civil Facultativa de Veículo), que cobre danos a terceiros causados pelos veículos; e APP (Acidentes Pessoais de Passageiros), que protege motorista e ajudante. O casco e o RCF-DC (roubo de carga) são opcionais, mas altamente recomendados conforme o valor médio das cargas.",
-      },
-      {
-        q: "O seguro de frota cobre danos à carga transportada?",
-        a: "A cobertura básica do veículo (casco) não cobre a carga. Para isso é necessário contratar o RCTR-C (obrigatório por lei para transporte de terceiros) e, idealmente, o RCF-DC (RC Facultativo por Desaparecimento de Carga), que cobre roubo, furto qualificado e desaparecimento. Para cargas de alto valor, a seguradora exige rastreador e gerenciadora de risco homologada como condição da apólice.",
-      },
-      {
-        q: "Como funciona a franquia em apólice de frota?",
-        a: "A franquia é o valor que a empresa assume em cada sinistro de casco. Em frotas, ela pode ser fixada de três formas: franquia individual por veículo (modelo tradicional), franquia única por evento (independente de quantos veículos foram afetados em um mesmo sinistro) ou franquia agregada anual (a empresa assume um teto total no ano e a seguradora cobre tudo acima disso). Para frotas grandes, a franquia agregada costuma reduzir o prêmio em até 25%.",
-      },
-      {
-        q: "Posso ter franquias diferentes para cada tipo de veículo na mesma apólice?",
-        a: "Sim. Em apólice de frota é possível segmentar a franquia por categoria — vans e VUCs com franquia maior (você assume sinistros pequenos e o prêmio cai), e caminhões 3/4, toco e truck com franquia reduzida por carregarem cargas mais valiosas. Essa estratégia, bem dimensionada, economiza de 10% a 20% no prêmio anual sem aumentar exposição real.",
-      },
-      {
-        q: "O que é franquia reduzida ou \"franquia zero\" e vale a pena?",
-        a: "Franquia reduzida é uma cobertura adicional que diminui (ou zera) o valor a pagar em caso de sinistro de casco, mediante pagamento extra no prêmio. Para frotas com baixa sinistralidade histórica, normalmente não compensa — o custo adicional anual supera o que seria pago em franquias. Para frotas com alta rotatividade de motoristas ou operação em zonas críticas, pode fazer sentido para alguns veículos específicos.",
-      },
-      {
-        q: "Como acionar o seguro em caso de sinistro com um veículo da frota?",
-        a: "Em até 48h após o evento: 1) Registre Boletim de Ocorrência (obrigatório em roubo, furto, colisão com vítimas ou incêndio). 2) Acione a central 24h da seguradora ou seu corretor para abrir o aviso de sinistro. 3) Envie BO, CNH do condutor, CRLV, fotos do local, CT-e e nota fiscal da carga (se houver). 4) Solicite guincho e veículo reserva pelo mesmo canal. Clientes da Patro acionam por um único WhatsApp: (11) 5199-7500.",
-      },
-      {
-        q: "Sinistro com carga roubada: como funciona a indenização?",
-        a: "Coberto pelo RCF-DC. Documentos obrigatórios: BO registrado em até 24h, nota fiscal da carga, CT-e, CNH do motorista, relatório do rastreador e laudo da gerenciadora de risco comprovando cumprimento do plano de viagem. Prazo de pagamento: 30 dias após entrega completa da documentação. Causa #1 de indeferimento: descumprimento do gerenciamento de risco (parada fora de ponto autorizado, rastreador desligado, motorista não cadastrado).",
-      },
-      {
-        q: "Sinistros frequentes aumentam o preço da renovação da frota?",
-        a: "Sim. A sinistralidade dos últimos 12 a 24 meses define o preço. Faixas práticas: até 50% = bônus de 5% a 10%; 50% a 70% = renovação na taxa atual; acima de 70% = aumento de 15% a 40% ou restrição de coberturas; acima de 100% = recusa de renovação por algumas seguradoras. Para reduzir: instale rastreador em 100% da frota, implemente direção defensiva e centralize a comunicação de sinistros.",
-      },
-      {
-        q: "Em quanto tempo a seguradora paga a indenização de um sinistro de frota?",
-        a: "Prazos regulados pela SUSEP, contados a partir da entrega completa dos documentos: danos parciais em oficina credenciada (vidros, retrovisores, lataria) — 5 a 15 dias úteis; perda total de veículo — até 30 dias; roubo ou furto — 30 dias de carência (para tentativa de recuperação) + até 30 dias para pagamento; roubo de carga (RCF-DC) — até 30 dias após laudo da gerenciadora. A seguradora pode pedir documentos complementares uma única vez, reiniciando o prazo.",
-      },
-      {
-        q: "Posso transferir a apólice de frota para outra seguradora no meio da vigência?",
-        a: "Sim, mas geralmente não compensa. O cancelamento antecipado gera devolução proporcional do prêmio com desconto da chamada \"tabela de curto prazo\" — você recebe menos do que o proporcional ao tempo restante. O ideal é negociar a migração na renovação, com 60 a 90 dias de antecedência, usando cotações concorrentes como contraproposta. A Patro faz essa análise comparativa entre 16+ seguradoras parceiras sem custo.",
-      },
-    ],
-  },
-  "seguro-vida-sucessao-patrimonial-itcmd": {
-    title: "Sucessão Patrimonial: Dúvidas Frequentes sobre ITCMD, Inventário e Seguro de Vida",
-    subtitle: "Tire as principais dúvidas técnicas sobre como o seguro de vida acelera o pagamento de impostos sucessórios e protege o patrimônio da família.",
-    relatedLink: {
-      label: "Página principal",
-      anchor: "Seguro de Vida — Planejamento Sucessório",
-      to: "/seguro-vida",
-      description: "Veja capitais segurados a partir de R$ 100 mil, coberturas combinadas (DG, invalidez, DIH) e solicite uma análise sucessória gratuita com 16+ seguradoras parceiras.",
-      variations: [
-        { anchor: "Seguro de Vida em Guarulhos", to: "/seguro-vida", trackingLabel: "blog-sucessao-anchor-vida-guarulhos" },
-        { anchor: "Seguro de Vida PME (sócios e empresários)", to: "/seguro-vida-pme", trackingLabel: "blog-sucessao-anchor-vida-pme" },
-        { anchor: "Planejamento Patrimonial", to: "/planejamento-patrimonial", trackingLabel: "blog-sucessao-anchor-planejamento" },
-        { anchor: "Investimentos e Previdência", to: "/investimentos", trackingLabel: "blog-sucessao-anchor-investimentos" },
-        { anchor: "Previdência Privada (VGBL/PGBL)", to: "/previdencia-privada", trackingLabel: "blog-sucessao-anchor-previdencia" },
-        { anchor: "Cotação de Seguro de Vida", to: "/cotacao", trackingLabel: "blog-sucessao-anchor-cotacao-vida" },
-        { anchor: "Corretora de Seguros em Guarulhos", to: "/corretora-seguros-guarulhos", trackingLabel: "blog-sucessao-anchor-corretora-guarulhos" },
-        { anchor: "Seguros na Cidade Maia (Shopping Maia)", to: "/seguros-shopping-maia-cidade-maia-guarulhos", trackingLabel: "blog-sucessao-anchor-cidade-maia" },
-      ],
-    },
-    comparison: {
-      title: "Comparativo: Inventário Com vs. Sem Seguro de Vida",
-      subtitle: "Como o seguro de vida acelera o pagamento de ITCMD, custas e honorários — e o que muda concretamente na vida da família.",
-      columns: { without: "Sem seguro de vida", with: "Com seguro de vida estruturado" },
-      rows: [
-        {
-          criterion: "Liquidez para pagar ITCMD",
-          without: "Família precisa vender bens, pegar empréstimo ou parcelar com Receita Estadual (multa + juros)",
-          with: "Beneficiário recebe o capital direto da seguradora em 10 a 30 dias e quita o ITCMD à vista, sem multa",
-          faqQ: "O seguro de vida realmente acelera o pagamento do ITCMD?",
-          faqA: "Sim. O capital segurado é pago em até 30 dias corridos pela seguradora (prazo SUSEP) e cai direto na conta do beneficiário, sem necessidade de alvará judicial. Esse dinheiro pode ser usado imediatamente para quitar o ITCMD, evitando multa por atraso (que varia de 10% a 20% do imposto, conforme estado) e juros de mora.",
-        },
-        {
-          criterion: "Tempo até a partilha começar",
-          without: "Inventário trava por 6 a 24 meses esperando ITCMD ser pago — sem ITCMD, não há partilha",
-          with: "Com ITCMD pago no 1º mês, advogado dá entrada na partilha imediatamente",
-          faqQ: "O seguro de vida diminui o tempo do inventário?",
-          faqA: "Diminui significativamente. O grande gargalo do inventário é justamente o pagamento do ITCMD — sem ele, o juiz ou cartório não homologa a partilha. Com a liquidez do seguro, o ITCMD é pago no primeiro mês e o inventário avança de forma contínua. Em média, isso reduz a duração total do processo em 6 a 18 meses.",
-        },
-        {
-          criterion: "Honorários de advogado",
-          without: "Família adia ou parcela honorários (10% a 20% sobre o valor do espólio), atrasando atos do processo",
-          with: "Honorários quitados em dia, advogado prioriza e acelera as fases do inventário",
-          faqQ: "O seguro de vida pode ser usado para pagar advogado de inventário?",
-          faqA: "Sim. Como o capital segurado cai diretamente na conta do beneficiário sem restrições, ele pode ser usado livremente para qualquer despesa, incluindo honorários advocatícios e adiantamentos exigidos durante o processo. Pagar o advogado em dia evita travas e acelera cada fase.",
-        },
-        {
-          criterion: "Contas correntes e investimentos do falecido",
-          without: "Bloqueados até alvará judicial — pode levar 60 a 180 dias",
-          with: "Família mantém o padrão de vida com a indenização do seguro até a liberação dos demais ativos",
-          faqQ: "A família consegue acessar dinheiro antes da liberação das contas do falecido?",
-          faqA: "Apenas com o seguro de vida. Salvo lei específica para FGTS e PIS/PASEP, todos os demais saldos do falecido (conta corrente, poupança, investimentos, fundos) ficam bloqueados até alvará judicial, que pode levar de 60 a 180 dias. O capital do seguro de vida é a única fonte de liquidez imediata garantida por lei.",
-        },
-        {
-          criterion: "Risco de venda forçada de imóveis",
-          without: "Comum: imóveis vendidos a 60-80% do valor de mercado para gerar caixa rápido",
-          with: "Patrimônio preservado — não há urgência para liquidar bens",
-          faqQ: "Por que tantas famílias acabam vendendo imóveis abaixo do valor depois de uma morte?",
-          faqA: "Porque precisam de caixa rápido para ITCMD, advogado e custo de vida durante o inventário. Sem o seguro, é comum aceitar 60% a 80% do valor de mercado para fechar a venda em poucas semanas. Com o seguro, esse caixa já existe — a família tem tempo para vender pelo preço justo ou simplesmente manter o bem.",
-        },
-        {
-          criterion: "Continuidade da empresa (sócios PME)",
-          without: "Sócios remanescentes ou herdeiros são forçados a vender quotas a preço deprimido",
-          with: "Buy-Sell Agreement com seguro permite compra das quotas pelo valor real",
-          faqQ: "Como o seguro de vida protege a continuidade de uma PME no falecimento de um sócio?",
-          faqA: "Por meio de uma estrutura chamada Buy-Sell Agreement: cada sócio contrata seguro de vida cujo beneficiário é o outro sócio (ou a empresa). No falecimento, o sobrevivente recebe o capital e usa para comprar as quotas dos herdeiros pelo valor real previsto em acordo. Isso garante liquidez justa para a família e continuidade do negócio, evitando entrada de herdeiros sem perfil ou venda da participação a terceiros.",
-        },
-        {
-          criterion: "Tributação sobre o valor recebido",
-          without: "Patrimônio inventariado paga 4% (SP) a 8% (RJ/MG/outros) de ITCMD",
-          with: "Capital do seguro é isento de ITCMD em todos os estados (art. 794 do Código Civil)",
-          faqQ: "O capital do seguro de vida paga ITCMD em algum estado?",
-          faqA: "Não. O capital pago ao beneficiário do seguro de vida é isento de ITCMD em todos os estados brasileiros, conforme entendimento consolidado dos tribunais e a previsão do art. 794 do Código Civil — o seguro não é considerado herança, é um direito próprio do beneficiário.",
-        },
-      ],
-      examples: [
-        {
-          title: "Caso 1 — Família média de Guarulhos (R$ 1,5 mi de patrimônio)",
-          patrimony: "Apartamento de R$ 900 mil + investimentos R$ 400 mil + carro R$ 200 mil",
-          withoutInsurance: "ITCMD SP (4%) = R$ 60 mil; honorários (8%) = R$ 120 mil; custas (2%) = R$ 30 mil. Total a pagar: R$ 210 mil. Sem caixa, família vende o carro e parcela ITCMD em 12x com juros. Inventário leva 28 meses.",
-          withInsurance: "Com capital segurado de R$ 250 mil (custo aprox. R$ 110/mês para chefe de família de 40 anos), ITCMD pago no 1º mês, honorários em dia, custas quitadas. Inventário concluído em 9 meses. Patrimônio entregue 100% intacto.",
-          saved: "≈ R$ 35 mil em multas/juros e 19 meses a menos de inventário",
-        },
-        {
-          title: "Caso 2 — Empresário com sociedade (R$ 4 mi de patrimônio)",
-          patrimony: "Imóvel residencial R$ 1,4 mi + imóvel comercial R$ 900 mil + 50% de quotas de empresa avaliada em R$ 1,2 mi + investimentos R$ 500 mil",
-          withoutInsurance: "ITCMD = R$ 160 mil; honorários = R$ 320 mil; custas = R$ 80 mil. Sócio remanescente pressiona herdeiros a venderem as quotas por 60% do valor (R$ 360 mil em vez de R$ 600 mil) para gerar caixa. Inventário leva 36 meses.",
-          withInsurance: "Buy-Sell Agreement com R$ 700 mil de capital + seguro pessoal de R$ 600 mil para a família. Sócio compra quotas pelo valor real, família recebe R$ 600 mil para custos e manutenção. Inventário concluído em 12 meses.",
-          saved: "≈ R$ 240 mil pela venda justa das quotas + 24 meses a menos de processo",
-        },
-        {
-          title: "Caso 3 — Família com filhos pequenos (R$ 800 mil de patrimônio)",
-          patrimony: "Casa financiada R$ 600 mil (dívida residual R$ 350 mil) + investimentos R$ 200 mil",
-          withoutInsurance: "Família perde renda do provedor, parcelas do financiamento atrasam, banco inicia execução. Inventário leva 18 meses, casa é vendida em leilão por R$ 380 mil. Família muda de bairro e troca filhos de escola.",
-          withInsurance: "Capital de R$ 600 mil (R$ 80/mês aos 35 anos): R$ 350 mil quitam o financiamento via cláusula específica, R$ 100 mil cobrem ITCMD/honorários e R$ 150 mil garantem 24 meses de despesas familiares. Família mantém casa, escola e padrão de vida.",
-          saved: "≈ R$ 220 mil + estabilidade emocional e social dos filhos",
-        },
-        {
-          title: "Caso 4 — Casal sem filhos com imóveis alugados (R$ 2,2 mi de patrimônio)",
-          patrimony: "2 apartamentos alugados (R$ 1,4 mi) + imóvel próprio R$ 600 mil + reserva R$ 200 mil",
-          withoutInsurance: "ITCMD SP (4%) = R$ 88 mil; honorários (8%) = R$ 176 mil; custas = R$ 44 mil. Aluguéis ficam bloqueados até alvará judicial (8-14 meses). Cônjuge sobrevivente fica sem renda mensal de R$ 9 mil dos aluguéis. Inventário leva 26 meses.",
-          withInsurance: "Capital segurado de R$ 350 mil (≈ R$ 160/mês aos 45 anos) com cônjuge como beneficiária. ITCMD/honorários quitados em 30 dias, advogado contratado para alvará rápido (90 dias), aluguéis liberados no 4º mês. Inventário concluído em 11 meses.",
-          saved: "≈ R$ 28 mil em multas/juros + 10 meses de aluguéis recuperados (R$ 90 mil)",
-        },
-        {
-          title: "Caso 5 — Profissional liberal com consultório próprio (R$ 1,8 mi de patrimônio)",
-          patrimony: "Sala comercial R$ 700 mil + apartamento R$ 800 mil + equipamentos médicos R$ 200 mil + investimentos R$ 100 mil",
-          withoutInsurance: "ITCMD = R$ 72 mil; honorários = R$ 144 mil; custas = R$ 36 mil. Sem caixa, equipamentos médicos depreciam parados, sala comercial fica vazia (perde R$ 6 mil/mês de aluguel). Inventário leva 24 meses, depreciação total estimada em R$ 80 mil.",
-          withInsurance: "Capital de R$ 400 mil (≈ R$ 180/mês aos 42 anos): cobre ITCMD, honorários e custas (R$ 252 mil) e ainda libera R$ 148 mil para manter equipamentos cobertos por seguro de garantia estendida e pagar IPTU/condomínio da sala enquanto família decide. Inventário em 10 meses.",
-          saved: "≈ R$ 80 mil em depreciação evitada + R$ 84 mil em aluguéis recuperados (14 meses)",
-        },
-        {
-          title: "Caso 6 — Aposentado com dependente PCD (R$ 1,2 mi de patrimônio)",
-          patrimony: "Casa própria R$ 700 mil + previdência privada R$ 300 mil + reserva R$ 200 mil",
-          withoutInsurance: "ITCMD = R$ 48 mil; honorários = R$ 96 mil; custas = R$ 24 mil. Filho PCD perde a pensão por idade do segurado e contas bancárias ficam bloqueadas. Família precisa pedir alvará judicial emergencial para cuidador, terapias e medicamentos (R$ 8 mil/mês). Inventário leva 22 meses.",
-          withInsurance: "Capital de R$ 500 mil (≈ R$ 240/mês aos 60 anos) com filho PCD como beneficiário direto via cláusula de inalienabilidade. Recursos pagos em 25 dias, custos médicos e cuidador mantidos sem interrupção. ITCMD quitado e inventário concluído em 8 meses.",
-          saved: "≈ R$ 60 mil em custos jurídicos emergenciais + continuidade integral do tratamento do dependente",
-        },
-      ],
-      footnote: "Valores ilustrativos para o estado de São Paulo (ITCMD 4%). Em RJ, MG, BA e outros, a alíquota chega a 8%, dobrando o impacto do imposto e o ganho relativo do seguro estruturado. A Patro Seguros faz cálculo personalizado conforme o estado e o perfil patrimonial da família.",
-    },
-    faqs: [
-      {
-        q: "Quanto custa um seguro de vida com capital segurado suficiente para cobrir ITCMD e advogado?",
-        a: "Para um adulto saudável de 40 anos, um capital de R$ 500 mil costuma custar entre R$ 180 e R$ 350/mês. Para R$ 1 milhão, entre R$ 350 e R$ 700/mês. O cálculo correto começa pela soma de ITCMD do estado + honorários (8%) + custas (2%) + 12 a 24 meses de despesas familiares. A Patro faz esse diagnóstico patrimonial gratuitamente.",
-      },
-      {
-        q: "É melhor um seguro de vida grande ou vários seguros menores?",
-        a: "Depende da estratégia. Um único seguro com capital alto simplifica a gestão e tende a ter melhor preço por mil. Já múltiplos seguros menores (com beneficiários distintos) ajudam a segregar finalidades — por exemplo: um seguro só para quitar financiamento imobiliário, outro para ITCMD, outro para manutenção familiar. A escolha ideal depende do perfil patrimonial e do número de dependentes.",
-      },
-      {
-        q: "O seguro pode pagar diretamente o ITCMD para a Receita Estadual?",
-        a: "Não diretamente. A seguradora paga o capital ao beneficiário nomeado, e este utiliza o valor para quitar o ITCMD por meio de DARE/GARE estadual. Por isso é fundamental que o beneficiário esteja alinhado com o planejamento sucessório e tenha o suporte de um advogado de confiança para conduzir o processo logo após o recebimento.",
-      },
-      {
-        q: "Em quanto tempo após a morte o ITCMD precisa ser pago?",
-        a: "O prazo legal varia por estado. Em São Paulo é de 60 dias da abertura da sucessão (data do óbito) para protocolar a declaração e 180 dias para pagar, sem multa. Após esse prazo, incidem multa de 10% a 20% e juros mensais. A liquidez do seguro de vida garante o pagamento dentro do prazo legal, evitando multas que podem somar dezenas de milhares de reais em patrimônios médios.",
-      },
-      {
-        q: "Existe risco de o capital do seguro de vida ser questionado judicialmente por herdeiros?",
-        a: "Pode haver questionamento se o segurado fez aportes muito acima da capacidade econômica em vida (caracterizando suposta tentativa de fraudar a legítima dos herdeiros necessários). Para evitar litígios, o capital segurado deve ser dimensionado de forma proporcional ao patrimônio e à renda. A Patro orienta esse equilíbrio na contratação.",
-      },
-      {
-        q: "O cônjuge precisa autorizar a contratação do seguro de vida ou a indicação de beneficiários?",
-        a: "Não. O segurado tem total liberdade para indicar e alterar beneficiários a qualquer momento, sem necessidade de anuência do cônjuge ou de qualquer herdeiro. Essa é uma das características que tornam o seguro de vida um instrumento poderoso e sigiloso de planejamento sucessório.",
-      },
-    ],
-  },
   "melhores-seguros-motoristas-uber-guarulhos": {
     title: "Melhores Seguros para Motoristas Uber em Guarulhos (2026)",
     content: `Guarulhos concentra uma das maiores populações de motoristas de aplicativo da Grande São Paulo. Com o Aeroporto Internacional GRU, terminais rodoviários e o fluxo intenso entre a cidade e a capital pela Dutra, Fernão Dias e Ayrton Senna, são milhares de motoristas Uber, 99 e InDriver rodando 8 a 12 horas por dia. Mas a pergunta que praticamente todos eles fazem é: **qual é o melhor seguro para motorista Uber em Guarulhos em 2026**?
@@ -7399,6 +7070,335 @@ A **Patro Seguros**, corretora local no Cidade Maia, cota seu seguro residencial
       { q: "Seguro residencial cobre alagamento em Guarulhos?", a: "Sim, desde que a cobertura de alagamento e enchente esteja contratada (não vem por padrão na cobertura básica). Essencial em bairros como Tanque Grande, Pimentas, Cabuçu e Vila Galvão." },
       { q: "Vale a pena seguro residencial para imóvel alugado em Guarulhos?", a: "Sim. O seguro do proprietário cobre apenas a estrutura — seus pertences e responsabilidade civil familiar (vazamentos no vizinho, por exemplo) precisam de seguro próprio. A partir de R$ 30/mês." },
       { q: "Quais bairros de Guarulhos têm maior risco residencial?", a: "Para alagamento: Tanque Grande, Pimentas, Cabuçu, Vila Galvão. Para furto: Cumbica, Bonsucesso, Continental. Casas térreas isoladas têm risco maior em qualquer bairro." },
+    ],
+  },
+};
+
+const defaultArticle = {
+  title: "Artigo",
+  content: "Este artigo está sendo preparado. Entre em contato conosco para mais informações sobre este tema.",
+  faqs: [],
+};
+
+// FAQs extras por slug — focadas em SEO e conversão (cobertura, franquia, sinistro)
+const extraFaqsBySlug: Record<string, {
+  title: string;
+  subtitle?: string;
+  faqs: { q: string; a: string }[];
+  relatedLink?: {
+    label: string;
+    anchor: string;
+    to: string;
+    description: string;
+    variations?: { anchor: string; to: string; trackingLabel: string }[];
+  };
+  timeline?: {
+    title: string;
+    subtitle?: string;
+    stages: {
+      label: string;
+      eta: string;
+      bullets: string[];
+      faqQ: string;
+      faqA: string;
+    }[];
+  };
+  comparison?: {
+    title: string;
+    subtitle?: string;
+    columns: { without: string; with: string };
+    rows: {
+      criterion: string;
+      without: string;
+      with: string;
+      faqQ?: string;
+      faqA?: string;
+    }[];
+    examples?: {
+      title: string;
+      patrimony: string;
+      withoutInsurance: string;
+      withInsurance: string;
+      saved: string;
+    }[];
+    footnote?: string;
+  };
+}> = {
+  "como-pagar-menos-seguro-frota-logistica-guarulhos": {
+    title: "Seguro de Frota: Cobertura, Franquia e Sinistro",
+    subtitle: "Tire as principais dúvidas técnicas sobre apólice de frota para empresas de logística",
+    relatedLink: {
+      label: "Página principal",
+      anchor: "Seguro para Empresas e Frotas",
+      to: "/seguro-frota",
+      description: "Veja coberturas completas, exemplos de apólice, planos para 5 a 500+ veículos e solicite uma cotação comparativa entre 16+ seguradoras parceiras.",
+      variations: [
+        { anchor: "Seguro de Frota em Guarulhos", to: "/seguro-frota", trackingLabel: "blog-frota-anchor-frota-guarulhos" },
+        { anchor: "Seguro para Empresas (PJ)", to: "/seguros-para-empresas", trackingLabel: "blog-frota-anchor-seguro-empresas" },
+        { anchor: "Seguro Empresarial para Transportadoras", to: "/seguro-empresarial", trackingLabel: "blog-frota-anchor-seguro-empresarial" },
+        { anchor: "Cotação de Seguro de Frota", to: "/cotacao", trackingLabel: "blog-frota-anchor-cotacao-frota" },
+        { anchor: "Corretora de Seguros em Guarulhos", to: "/corretora-seguros-guarulhos", trackingLabel: "blog-frota-anchor-corretora-guarulhos" },
+        { anchor: "Seguro empresarial em Cumbica (polo logístico)", to: "/seguros-guarulhos/cumbica", trackingLabel: "blog-frota-anchor-bairro-cumbica" },
+        { anchor: "Seguro para frotas no Bonsucesso", to: "/seguros-guarulhos/bonsucesso", trackingLabel: "blog-frota-anchor-bairro-bonsucesso" },
+        { anchor: "Seguros no Jardim Maia, Guarulhos", to: "/seguros-guarulhos/jardim-maia", trackingLabel: "blog-frota-anchor-bairro-jardim-maia" },
+        { anchor: "Seguros na Vila Augusta", to: "/seguros-guarulhos/vila-augusta", trackingLabel: "blog-frota-anchor-bairro-vila-augusta" },
+        { anchor: "Seguros no Centro de Guarulhos", to: "/seguros-guarulhos/centro", trackingLabel: "blog-frota-anchor-bairro-centro" },
+      ],
+    },
+    timeline: {
+      title: "Prazos por etapa do sinistro de frota",
+      subtitle: "Linha do tempo realista, da comunicação à indenização — referências SUSEP e prática de mercado.",
+      stages: [
+        {
+          label: "1. Comunicação do sinistro",
+          eta: "Até 24h–48h após o evento",
+          bullets: [
+            "Registrar BO em até 24h (roubo, furto, colisão com vítima ou incêndio)",
+            "Acionar central 24h da seguradora ou corretor para abrir aviso",
+            "Solicitar guincho e veículo reserva no mesmo contato",
+            "Anotar protocolo, nome do atendente e data/hora da abertura",
+          ],
+          faqQ: "Em quanto tempo devo comunicar um sinistro de frota à seguradora?",
+          faqA: "O ideal é comunicar nas primeiras 24h e, no máximo, em 48h. Atrasos sem justificativa podem ser interpretados como agravamento de risco e gerar negativa de cobertura. Em roubo, furto e colisão com vítima, o BO em até 24h é obrigatório.",
+        },
+        {
+          label: "2. Análise inicial e regulação",
+          eta: "1 a 3 dias úteis após a abertura",
+          bullets: [
+            "Seguradora abre o processo e designa o regulador",
+            "Validação de vigência da apólice e enquadramento da cobertura",
+            "Solicitação formal da lista de documentos por e-mail",
+            "Definição se o caso terá vistoria presencial ou remota",
+          ],
+          faqQ: "Quanto tempo a seguradora leva para iniciar a análise do sinistro?",
+          faqA: "Entre 1 e 3 dias úteis após o aviso. Nesse intervalo, a seguradora valida a apólice, abre o processo de regulação e envia a lista oficial de documentos. Frotas com corretor especializado (como a Patro) costumam ter esse prazo reduzido pela mediação direta com o regulador.",
+        },
+        {
+          label: "3. Envio de documentos",
+          eta: "Até 5 dias úteis (envio do segurado)",
+          bullets: [
+            "BO, CNH do condutor, CRLV e CT-e/nota fiscal da carga",
+            "Fotos do local, dos danos e do hodômetro",
+            "Relatório do rastreador e laudo da gerenciadora de risco",
+            "Comprovante de cumprimento do plano de viagem (cargas)",
+          ],
+          faqQ: "Quais documentos enviar e em quanto tempo?",
+          faqA: "Envie a documentação completa em até 5 dias úteis após o pedido formal: BO, CNH, CRLV, CT-e, notas fiscais, fotos, relatório do rastreador e laudo da gerenciadora. Documentação enviada em partes reinicia o prazo de análise — concentre tudo em um único envio.",
+        },
+        {
+          label: "4. Vistoria e laudo técnico",
+          eta: "3 a 10 dias úteis após documentos",
+          bullets: [
+            "Agendamento da vistoria em até 3 dias úteis",
+            "Vistoria presencial em oficina credenciada ou pátio",
+            "Emissão do laudo de danos e orçamento",
+            "Decisão entre conserto, perda parcial ou perda total",
+          ],
+          faqQ: "Quanto tempo demora a vistoria do veículo da frota?",
+          faqA: "A seguradora agenda em até 3 dias úteis e o laudo técnico fica pronto em 3 a 10 dias úteis, dependendo da complexidade. Para perda total, exige-se desmonte e checagem de chassi, o que pode estender o prazo em mais 5 dias úteis.",
+        },
+        {
+          label: "5. Conclusão e pagamento",
+          eta: "Até 30 dias após documentação completa",
+          bullets: [
+            "Reparo em oficina credenciada: 5 a 15 dias úteis",
+            "Perda total de veículo: pagamento em até 30 dias",
+            "Roubo/furto: 30 dias de carência + 30 dias para pagamento",
+            "RCF-DC (carga roubada): até 30 dias após laudo da gerenciadora",
+          ],
+          faqQ: "Em quantos dias a seguradora paga a indenização?",
+          faqA: "O prazo SUSEP é de até 30 dias corridos contados a partir da entrega completa dos documentos. Pedidos de documentos complementares só podem ser feitos uma única vez e reiniciam o prazo. Na Patro, acompanhamos cada etapa para evitar pedidos repetidos e travas no processo.",
+        },
+      ],
+    },
+    faqs: [
+      {
+        q: "Quais coberturas são obrigatórias no seguro de frota para transportadoras?",
+        a: "Para operações de logística, três coberturas são tratadas como obrigatórias na prática: RCTR-C (Responsabilidade Civil do Transportador Rodoviário de Carga), exigida por lei para quem transporta carga de terceiros; RCF-V (Responsabilidade Civil Facultativa de Veículo), que cobre danos a terceiros causados pelos veículos; e APP (Acidentes Pessoais de Passageiros), que protege motorista e ajudante. O casco e o RCF-DC (roubo de carga) são opcionais, mas altamente recomendados conforme o valor médio das cargas.",
+      },
+      {
+        q: "O seguro de frota cobre danos à carga transportada?",
+        a: "A cobertura básica do veículo (casco) não cobre a carga. Para isso é necessário contratar o RCTR-C (obrigatório por lei para transporte de terceiros) e, idealmente, o RCF-DC (RC Facultativo por Desaparecimento de Carga), que cobre roubo, furto qualificado e desaparecimento. Para cargas de alto valor, a seguradora exige rastreador e gerenciadora de risco homologada como condição da apólice.",
+      },
+      {
+        q: "Como funciona a franquia em apólice de frota?",
+        a: "A franquia é o valor que a empresa assume em cada sinistro de casco. Em frotas, ela pode ser fixada de três formas: franquia individual por veículo (modelo tradicional), franquia única por evento (independente de quantos veículos foram afetados em um mesmo sinistro) ou franquia agregada anual (a empresa assume um teto total no ano e a seguradora cobre tudo acima disso). Para frotas grandes, a franquia agregada costuma reduzir o prêmio em até 25%.",
+      },
+      {
+        q: "Posso ter franquias diferentes para cada tipo de veículo na mesma apólice?",
+        a: "Sim. Em apólice de frota é possível segmentar a franquia por categoria — vans e VUCs com franquia maior (você assume sinistros pequenos e o prêmio cai), e caminhões 3/4, toco e truck com franquia reduzida por carregarem cargas mais valiosas. Essa estratégia, bem dimensionada, economiza de 10% a 20% no prêmio anual sem aumentar exposição real.",
+      },
+      {
+        q: "O que é franquia reduzida ou \"franquia zero\" e vale a pena?",
+        a: "Franquia reduzida é uma cobertura adicional que diminui (ou zera) o valor a pagar em caso de sinistro de casco, mediante pagamento extra no prêmio. Para frotas com baixa sinistralidade histórica, normalmente não compensa — o custo adicional anual supera o que seria pago em franquias. Para frotas com alta rotatividade de motoristas ou operação em zonas críticas, pode fazer sentido para alguns veículos específicos.",
+      },
+      {
+        q: "Como acionar o seguro em caso de sinistro com um veículo da frota?",
+        a: "Em até 48h após o evento: 1) Registre Boletim de Ocorrência (obrigatório em roubo, furto, colisão com vítimas ou incêndio). 2) Acione a central 24h da seguradora ou seu corretor para abrir o aviso de sinistro. 3) Envie BO, CNH do condutor, CRLV, fotos do local, CT-e e nota fiscal da carga (se houver). 4) Solicite guincho e veículo reserva pelo mesmo canal. Clientes da Patro acionam por um único WhatsApp: (11) 5199-7500.",
+      },
+      {
+        q: "Sinistro com carga roubada: como funciona a indenização?",
+        a: "Coberto pelo RCF-DC. Documentos obrigatórios: BO registrado em até 24h, nota fiscal da carga, CT-e, CNH do motorista, relatório do rastreador e laudo da gerenciadora de risco comprovando cumprimento do plano de viagem. Prazo de pagamento: 30 dias após entrega completa da documentação. Causa #1 de indeferimento: descumprimento do gerenciamento de risco (parada fora de ponto autorizado, rastreador desligado, motorista não cadastrado).",
+      },
+      {
+        q: "Sinistros frequentes aumentam o preço da renovação da frota?",
+        a: "Sim. A sinistralidade dos últimos 12 a 24 meses define o preço. Faixas práticas: até 50% = bônus de 5% a 10%; 50% a 70% = renovação na taxa atual; acima de 70% = aumento de 15% a 40% ou restrição de coberturas; acima de 100% = recusa de renovação por algumas seguradoras. Para reduzir: instale rastreador em 100% da frota, implemente direção defensiva e centralize a comunicação de sinistros.",
+      },
+      {
+        q: "Em quanto tempo a seguradora paga a indenização de um sinistro de frota?",
+        a: "Prazos regulados pela SUSEP, contados a partir da entrega completa dos documentos: danos parciais em oficina credenciada (vidros, retrovisores, lataria) — 5 a 15 dias úteis; perda total de veículo — até 30 dias; roubo ou furto — 30 dias de carência (para tentativa de recuperação) + até 30 dias para pagamento; roubo de carga (RCF-DC) — até 30 dias após laudo da gerenciadora. A seguradora pode pedir documentos complementares uma única vez, reiniciando o prazo.",
+      },
+      {
+        q: "Posso transferir a apólice de frota para outra seguradora no meio da vigência?",
+        a: "Sim, mas geralmente não compensa. O cancelamento antecipado gera devolução proporcional do prêmio com desconto da chamada \"tabela de curto prazo\" — você recebe menos do que o proporcional ao tempo restante. O ideal é negociar a migração na renovação, com 60 a 90 dias de antecedência, usando cotações concorrentes como contraproposta. A Patro faz essa análise comparativa entre 16+ seguradoras parceiras sem custo.",
+      },
+    ],
+  },
+  "seguro-vida-sucessao-patrimonial-itcmd": {
+    title: "Sucessão Patrimonial: Dúvidas Frequentes sobre ITCMD, Inventário e Seguro de Vida",
+    subtitle: "Tire as principais dúvidas técnicas sobre como o seguro de vida acelera o pagamento de impostos sucessórios e protege o patrimônio da família.",
+    relatedLink: {
+      label: "Página principal",
+      anchor: "Seguro de Vida — Planejamento Sucessório",
+      to: "/seguro-vida",
+      description: "Veja capitais segurados a partir de R$ 100 mil, coberturas combinadas (DG, invalidez, DIH) e solicite uma análise sucessória gratuita com 16+ seguradoras parceiras.",
+      variations: [
+        { anchor: "Seguro de Vida em Guarulhos", to: "/seguro-vida", trackingLabel: "blog-sucessao-anchor-vida-guarulhos" },
+        { anchor: "Seguro de Vida PME (sócios e empresários)", to: "/seguro-vida-pme", trackingLabel: "blog-sucessao-anchor-vida-pme" },
+        { anchor: "Planejamento Patrimonial", to: "/planejamento-patrimonial", trackingLabel: "blog-sucessao-anchor-planejamento" },
+        { anchor: "Investimentos e Previdência", to: "/investimentos", trackingLabel: "blog-sucessao-anchor-investimentos" },
+        { anchor: "Previdência Privada (VGBL/PGBL)", to: "/previdencia-privada", trackingLabel: "blog-sucessao-anchor-previdencia" },
+        { anchor: "Cotação de Seguro de Vida", to: "/cotacao", trackingLabel: "blog-sucessao-anchor-cotacao-vida" },
+        { anchor: "Corretora de Seguros em Guarulhos", to: "/corretora-seguros-guarulhos", trackingLabel: "blog-sucessao-anchor-corretora-guarulhos" },
+        { anchor: "Seguros na Cidade Maia (Shopping Maia)", to: "/seguros-shopping-maia-cidade-maia-guarulhos", trackingLabel: "blog-sucessao-anchor-cidade-maia" },
+      ],
+    },
+    comparison: {
+      title: "Comparativo: Inventário Com vs. Sem Seguro de Vida",
+      subtitle: "Como o seguro de vida acelera o pagamento de ITCMD, custas e honorários — e o que muda concretamente na vida da família.",
+      columns: { without: "Sem seguro de vida", with: "Com seguro de vida estruturado" },
+      rows: [
+        {
+          criterion: "Liquidez para pagar ITCMD",
+          without: "Família precisa vender bens, pegar empréstimo ou parcelar com Receita Estadual (multa + juros)",
+          with: "Beneficiário recebe o capital direto da seguradora em 10 a 30 dias e quita o ITCMD à vista, sem multa",
+          faqQ: "O seguro de vida realmente acelera o pagamento do ITCMD?",
+          faqA: "Sim. O capital segurado é pago em até 30 dias corridos pela seguradora (prazo SUSEP) e cai direto na conta do beneficiário, sem necessidade de alvará judicial. Esse dinheiro pode ser usado imediatamente para quitar o ITCMD, evitando multa por atraso (que varia de 10% a 20% do imposto, conforme estado) e juros de mora.",
+        },
+        {
+          criterion: "Tempo até a partilha começar",
+          without: "Inventário trava por 6 a 24 meses esperando ITCMD ser pago — sem ITCMD, não há partilha",
+          with: "Com ITCMD pago no 1º mês, advogado dá entrada na partilha imediatamente",
+          faqQ: "O seguro de vida diminui o tempo do inventário?",
+          faqA: "Diminui significativamente. O grande gargalo do inventário é justamente o pagamento do ITCMD — sem ele, o juiz ou cartório não homologa a partilha. Com a liquidez do seguro, o ITCMD é pago no primeiro mês e o inventário avança de forma contínua. Em média, isso reduz a duração total do processo em 6 a 18 meses.",
+        },
+        {
+          criterion: "Honorários de advogado",
+          without: "Família adia ou parcela honorários (10% a 20% sobre o valor do espólio), atrasando atos do processo",
+          with: "Honorários quitados em dia, advogado prioriza e acelera as fases do inventário",
+          faqQ: "O seguro de vida pode ser usado para pagar advogado de inventário?",
+          faqA: "Sim. Como o capital segurado cai diretamente na conta do beneficiário sem restrições, ele pode ser usado livremente para qualquer despesa, incluindo honorários advocatícios e adiantamentos exigidos durante o processo. Pagar o advogado em dia evita travas e acelera cada fase.",
+        },
+        {
+          criterion: "Contas correntes e investimentos do falecido",
+          without: "Bloqueados até alvará judicial — pode levar 60 a 180 dias",
+          with: "Família mantém o padrão de vida com a indenização do seguro até a liberação dos demais ativos",
+          faqQ: "A família consegue acessar dinheiro antes da liberação das contas do falecido?",
+          faqA: "Apenas com o seguro de vida. Salvo lei específica para FGTS e PIS/PASEP, todos os demais saldos do falecido (conta corrente, poupança, investimentos, fundos) ficam bloqueados até alvará judicial, que pode levar de 60 a 180 dias. O capital do seguro de vida é a única fonte de liquidez imediata garantida por lei.",
+        },
+        {
+          criterion: "Risco de venda forçada de imóveis",
+          without: "Comum: imóveis vendidos a 60-80% do valor de mercado para gerar caixa rápido",
+          with: "Patrimônio preservado — não há urgência para liquidar bens",
+          faqQ: "Por que tantas famílias acabam vendendo imóveis abaixo do valor depois de uma morte?",
+          faqA: "Porque precisam de caixa rápido para ITCMD, advogado e custo de vida durante o inventário. Sem o seguro, é comum aceitar 60% a 80% do valor de mercado para fechar a venda em poucas semanas. Com o seguro, esse caixa já existe — a família tem tempo para vender pelo preço justo ou simplesmente manter o bem.",
+        },
+        {
+          criterion: "Continuidade da empresa (sócios PME)",
+          without: "Sócios remanescentes ou herdeiros são forçados a vender quotas a preço deprimido",
+          with: "Buy-Sell Agreement com seguro permite compra das quotas pelo valor real",
+          faqQ: "Como o seguro de vida protege a continuidade de uma PME no falecimento de um sócio?",
+          faqA: "Por meio de uma estrutura chamada Buy-Sell Agreement: cada sócio contrata seguro de vida cujo beneficiário é o outro sócio (ou a empresa). No falecimento, o sobrevivente recebe o capital e usa para comprar as quotas dos herdeiros pelo valor real previsto em acordo. Isso garante liquidez justa para a família e continuidade do negócio, evitando entrada de herdeiros sem perfil ou venda da participação a terceiros.",
+        },
+        {
+          criterion: "Tributação sobre o valor recebido",
+          without: "Patrimônio inventariado paga 4% (SP) a 8% (RJ/MG/outros) de ITCMD",
+          with: "Capital do seguro é isento de ITCMD em todos os estados (art. 794 do Código Civil)",
+          faqQ: "O capital do seguro de vida paga ITCMD em algum estado?",
+          faqA: "Não. O capital pago ao beneficiário do seguro de vida é isento de ITCMD em todos os estados brasileiros, conforme entendimento consolidado dos tribunais e a previsão do art. 794 do Código Civil — o seguro não é considerado herança, é um direito próprio do beneficiário.",
+        },
+      ],
+      examples: [
+        {
+          title: "Caso 1 — Família média de Guarulhos (R$ 1,5 mi de patrimônio)",
+          patrimony: "Apartamento de R$ 900 mil + investimentos R$ 400 mil + carro R$ 200 mil",
+          withoutInsurance: "ITCMD SP (4%) = R$ 60 mil; honorários (8%) = R$ 120 mil; custas (2%) = R$ 30 mil. Total a pagar: R$ 210 mil. Sem caixa, família vende o carro e parcela ITCMD em 12x com juros. Inventário leva 28 meses.",
+          withInsurance: "Com capital segurado de R$ 250 mil (custo aprox. R$ 110/mês para chefe de família de 40 anos), ITCMD pago no 1º mês, honorários em dia, custas quitadas. Inventário concluído em 9 meses. Patrimônio entregue 100% intacto.",
+          saved: "≈ R$ 35 mil em multas/juros e 19 meses a menos de inventário",
+        },
+        {
+          title: "Caso 2 — Empresário com sociedade (R$ 4 mi de patrimônio)",
+          patrimony: "Imóvel residencial R$ 1,4 mi + imóvel comercial R$ 900 mil + 50% de quotas de empresa avaliada em R$ 1,2 mi + investimentos R$ 500 mil",
+          withoutInsurance: "ITCMD = R$ 160 mil; honorários = R$ 320 mil; custas = R$ 80 mil. Sócio remanescente pressiona herdeiros a venderem as quotas por 60% do valor (R$ 360 mil em vez de R$ 600 mil) para gerar caixa. Inventário leva 36 meses.",
+          withInsurance: "Buy-Sell Agreement com R$ 700 mil de capital + seguro pessoal de R$ 600 mil para a família. Sócio compra quotas pelo valor real, família recebe R$ 600 mil para custos e manutenção. Inventário concluído em 12 meses.",
+          saved: "≈ R$ 240 mil pela venda justa das quotas + 24 meses a menos de processo",
+        },
+        {
+          title: "Caso 3 — Família com filhos pequenos (R$ 800 mil de patrimônio)",
+          patrimony: "Casa financiada R$ 600 mil (dívida residual R$ 350 mil) + investimentos R$ 200 mil",
+          withoutInsurance: "Família perde renda do provedor, parcelas do financiamento atrasam, banco inicia execução. Inventário leva 18 meses, casa é vendida em leilão por R$ 380 mil. Família muda de bairro e troca filhos de escola.",
+          withInsurance: "Capital de R$ 600 mil (R$ 80/mês aos 35 anos): R$ 350 mil quitam o financiamento via cláusula específica, R$ 100 mil cobrem ITCMD/honorários e R$ 150 mil garantem 24 meses de despesas familiares. Família mantém casa, escola e padrão de vida.",
+          saved: "≈ R$ 220 mil + estabilidade emocional e social dos filhos",
+        },
+        {
+          title: "Caso 4 — Casal sem filhos com imóveis alugados (R$ 2,2 mi de patrimônio)",
+          patrimony: "2 apartamentos alugados (R$ 1,4 mi) + imóvel próprio R$ 600 mil + reserva R$ 200 mil",
+          withoutInsurance: "ITCMD SP (4%) = R$ 88 mil; honorários (8%) = R$ 176 mil; custas = R$ 44 mil. Aluguéis ficam bloqueados até alvará judicial (8-14 meses). Cônjuge sobrevivente fica sem renda mensal de R$ 9 mil dos aluguéis. Inventário leva 26 meses.",
+          withInsurance: "Capital segurado de R$ 350 mil (≈ R$ 160/mês aos 45 anos) com cônjuge como beneficiária. ITCMD/honorários quitados em 30 dias, advogado contratado para alvará rápido (90 dias), aluguéis liberados no 4º mês. Inventário concluído em 11 meses.",
+          saved: "≈ R$ 28 mil em multas/juros + 10 meses de aluguéis recuperados (R$ 90 mil)",
+        },
+        {
+          title: "Caso 5 — Profissional liberal com consultório próprio (R$ 1,8 mi de patrimônio)",
+          patrimony: "Sala comercial R$ 700 mil + apartamento R$ 800 mil + equipamentos médicos R$ 200 mil + investimentos R$ 100 mil",
+          withoutInsurance: "ITCMD = R$ 72 mil; honorários = R$ 144 mil; custas = R$ 36 mil. Sem caixa, equipamentos médicos depreciam parados, sala comercial fica vazia (perde R$ 6 mil/mês de aluguel). Inventário leva 24 meses, depreciação total estimada em R$ 80 mil.",
+          withInsurance: "Capital de R$ 400 mil (≈ R$ 180/mês aos 42 anos): cobre ITCMD, honorários e custas (R$ 252 mil) e ainda libera R$ 148 mil para manter equipamentos cobertos por seguro de garantia estendida e pagar IPTU/condomínio da sala enquanto família decide. Inventário em 10 meses.",
+          saved: "≈ R$ 80 mil em depreciação evitada + R$ 84 mil em aluguéis recuperados (14 meses)",
+        },
+        {
+          title: "Caso 6 — Aposentado com dependente PCD (R$ 1,2 mi de patrimônio)",
+          patrimony: "Casa própria R$ 700 mil + previdência privada R$ 300 mil + reserva R$ 200 mil",
+          withoutInsurance: "ITCMD = R$ 48 mil; honorários = R$ 96 mil; custas = R$ 24 mil. Filho PCD perde a pensão por idade do segurado e contas bancárias ficam bloqueadas. Família precisa pedir alvará judicial emergencial para cuidador, terapias e medicamentos (R$ 8 mil/mês). Inventário leva 22 meses.",
+          withInsurance: "Capital de R$ 500 mil (≈ R$ 240/mês aos 60 anos) com filho PCD como beneficiário direto via cláusula de inalienabilidade. Recursos pagos em 25 dias, custos médicos e cuidador mantidos sem interrupção. ITCMD quitado e inventário concluído em 8 meses.",
+          saved: "≈ R$ 60 mil em custos jurídicos emergenciais + continuidade integral do tratamento do dependente",
+        },
+      ],
+      footnote: "Valores ilustrativos para o estado de São Paulo (ITCMD 4%). Em RJ, MG, BA e outros, a alíquota chega a 8%, dobrando o impacto do imposto e o ganho relativo do seguro estruturado. A Patro Seguros faz cálculo personalizado conforme o estado e o perfil patrimonial da família.",
+    },
+    faqs: [
+      {
+        q: "Quanto custa um seguro de vida com capital segurado suficiente para cobrir ITCMD e advogado?",
+        a: "Para um adulto saudável de 40 anos, um capital de R$ 500 mil costuma custar entre R$ 180 e R$ 350/mês. Para R$ 1 milhão, entre R$ 350 e R$ 700/mês. O cálculo correto começa pela soma de ITCMD do estado + honorários (8%) + custas (2%) + 12 a 24 meses de despesas familiares. A Patro faz esse diagnóstico patrimonial gratuitamente.",
+      },
+      {
+        q: "É melhor um seguro de vida grande ou vários seguros menores?",
+        a: "Depende da estratégia. Um único seguro com capital alto simplifica a gestão e tende a ter melhor preço por mil. Já múltiplos seguros menores (com beneficiários distintos) ajudam a segregar finalidades — por exemplo: um seguro só para quitar financiamento imobiliário, outro para ITCMD, outro para manutenção familiar. A escolha ideal depende do perfil patrimonial e do número de dependentes.",
+      },
+      {
+        q: "O seguro pode pagar diretamente o ITCMD para a Receita Estadual?",
+        a: "Não diretamente. A seguradora paga o capital ao beneficiário nomeado, e este utiliza o valor para quitar o ITCMD por meio de DARE/GARE estadual. Por isso é fundamental que o beneficiário esteja alinhado com o planejamento sucessório e tenha o suporte de um advogado de confiança para conduzir o processo logo após o recebimento.",
+      },
+      {
+        q: "Em quanto tempo após a morte o ITCMD precisa ser pago?",
+        a: "O prazo legal varia por estado. Em São Paulo é de 60 dias da abertura da sucessão (data do óbito) para protocolar a declaração e 180 dias para pagar, sem multa. Após esse prazo, incidem multa de 10% a 20% e juros mensais. A liquidez do seguro de vida garante o pagamento dentro do prazo legal, evitando multas que podem somar dezenas de milhares de reais em patrimônios médios.",
+      },
+      {
+        q: "Existe risco de o capital do seguro de vida ser questionado judicialmente por herdeiros?",
+        a: "Pode haver questionamento se o segurado fez aportes muito acima da capacidade econômica em vida (caracterizando suposta tentativa de fraudar a legítima dos herdeiros necessários). Para evitar litígios, o capital segurado deve ser dimensionado de forma proporcional ao patrimônio e à renda. A Patro orienta esse equilíbrio na contratação.",
+      },
+      {
+        q: "O cônjuge precisa autorizar a contratação do seguro de vida ou a indicação de beneficiários?",
+        a: "Não. O segurado tem total liberdade para indicar e alterar beneficiários a qualquer momento, sem necessidade de anuência do cônjuge ou de qualquer herdeiro. Essa é uma das características que tornam o seguro de vida um instrumento poderoso e sigiloso de planejamento sucessório.",
+      },
     ],
   },
 };
