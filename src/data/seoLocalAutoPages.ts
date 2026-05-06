@@ -345,6 +345,11 @@ export const seoLocalPages: Record<string, SeoLocalPageConfig> = {
   ...Object.fromEntries(bairros.map((b) => [b.slug, buildBairroConfig(b)])),
 };
 
+// Mescla as páginas de modelos de carro (programmatic SEO).
+// Import dinâmico para evitar dependência circular.
+import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
+Object.assign(seoLocalPages, seoModeloAutoPages);
+
 /* ---------- OVERRIDES POR BAIRRO (conteúdo único hiperlocal) ---------- */
 
 const vilaGalvaoBase = seoLocalPages["seguro-auto-vila-galvao"];

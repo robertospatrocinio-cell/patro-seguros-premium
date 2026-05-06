@@ -241,6 +241,17 @@ const App = () => (
             <Route path="/seguro-auto-taboao-guarulhos" element={<SeoLocalPage slug="seguro-auto-taboao-guarulhos" />} />
             <Route path="/seguro-auto-centro-guarulhos" element={<SeoLocalPage slug="seguro-auto-centro-guarulhos" />} />
             <Route path="/seguro-auto-vila-augusta" element={<SeoLocalPage slug="seguro-auto-vila-augusta" />} />
+            {/* Programmatic SEO — modelos de carro em Guarulhos */}
+            <Route path="/seguro-corolla-guarulhos" element={<SeoLocalPage slug="seguro-corolla-guarulhos" />} />
+            <Route path="/seguro-civic-guarulhos" element={<SeoLocalPage slug="seguro-civic-guarulhos" />} />
+            <Route path="/seguro-hb20-guarulhos" element={<SeoLocalPage slug="seguro-hb20-guarulhos" />} />
+            <Route path="/seguro-onix-guarulhos" element={<SeoLocalPage slug="seguro-onix-guarulhos" />} />
+            <Route path="/seguro-tcross-guarulhos" element={<SeoLocalPage slug="seguro-tcross-guarulhos" />} />
+            <Route path="/seguro-compass-guarulhos" element={<SeoLocalPage slug="seguro-compass-guarulhos" />} />
+            <Route path="/seguro-hilux-guarulhos" element={<SeoLocalPage slug="seguro-hilux-guarulhos" />} />
+            <Route path="/seguro-strada-guarulhos" element={<SeoLocalPage slug="seguro-strada-guarulhos" />} />
+            <Route path="/seguro-renegade-guarulhos" element={<SeoLocalPage slug="seguro-renegade-guarulhos" />} />
+            <Route path="/seguro-mobi-guarulhos" element={<SeoLocalPage slug="seguro-mobi-guarulhos" />} />
             <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
             <Route path="/seguro-geada" element={<SeguroGeada />} />
             <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
