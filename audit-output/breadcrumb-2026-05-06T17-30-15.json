@@ -1,0 +1,926 @@
+{
+  "base": "https://www.patroseguros.com.br",
+  "live": false,
+  "total": 102,
+  "failures": 0,
+  "results": [
+    {
+      "route": "/seguro-auto",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-vida",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-vida/formulario",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-residencial",
+      "category": "Patrimônio e Imóveis",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-viagem",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-fianca",
+      "category": "Patrimônio e Imóveis",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/previdencia-privada",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-moto",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-saude",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-odonto",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-empresarial",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-frota",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-transporte",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rural",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-maquinas",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-profissional",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-condominio",
+      "category": "Patrimônio e Imóveis",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-engenharia",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-cyber",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-celular",
+      "category": "Patrimônio e Imóveis",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/planos-de-saude",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/cotacao-seguro-auto",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-maquinas-agricolas",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-equipamentos-agricolas",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-galpoes-industriais",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-maquinas-industriais",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-maquinas-linha-amarela",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-auto-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/plano-saude-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-empresarial-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/corretora-seguros-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-residencial-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-vida-saude-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-frota-empresas-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros-empresariais-pme-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-moto-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-condominio-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros-shopping-maia-cidade-maia-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-ambiental",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-geada",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-acidentes-pessoais",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-estagiario",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-fianca-locaticia",
+      "category": "Patrimônio e Imóveis",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-caminhao",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-vida-pme",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-armazenagem",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-placa-solar",
+      "category": "Patrimônio e Imóveis",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-pecuario",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-cafe",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/consorcio",
+      "category": "Consórcio",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/consorcio-carro",
+      "category": "Consórcio",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/consorcio-imoveis",
+      "category": "Consórcio",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/consorcio-veiculos-pesados",
+      "category": "Consórcio",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/ebook-consorcio",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-lojas-shopping",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-drone-agricola",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-transporte-agro",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-granja",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-bike",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-jetski",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-embarcacoes",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-avioes",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-helicopteros",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-carta-verde",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-decesso",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-garantia",
+      "category": "Empresarial e Indústria",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-medicos",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-veterinarios",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-advogados",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-dentistas",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-engenheiros",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-executivos",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-obras",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-prestacao-servicos",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-rc-eventos",
+      "category": "Responsabilidade Civil (RC)",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/plano-pet",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/plano-saude-empresarial",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-propriedade-rural",
+      "category": "Agro e Rural",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-imobiliario",
+      "category": "Patrimônio e Imóveis",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-funeral",
+      "category": "Pessoa, Vida e Saúde",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguro-motorista-app",
+      "category": "Veículos",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-auto",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-auto-premium",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/plano-de-saude",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-empresarial",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-residencial",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-vida",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-moto",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-galpoes",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/consorcio",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-celular",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/lp/seguro-motorista-app",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros-guarulhos-bairros",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros-em-guarulhos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros/medicos-e-clinicas",
+      "category": "Soluções por Perfil",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros/transportadoras",
+      "category": "Soluções por Perfil",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros/empresarios",
+      "category": "Soluções por Perfil",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros/profissionais-liberais",
+      "category": "Soluções por Perfil",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/seguros/motoristas-app",
+      "category": "Soluções por Perfil",
+      "expectedDepth": 3,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    },
+    {
+      "route": "/investimentos",
+      "category": null,
+      "expectedDepth": 2,
+      "staticErrs": [],
+      "liveStatus": "skipped",
+      "liveErrs": [],
+      "ok": true
+    }
+  ]
+}
