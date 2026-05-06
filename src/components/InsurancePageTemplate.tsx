@@ -102,6 +102,13 @@ const InsurancePageTemplate = ({
   showEbookConsorcio,
   showAgrishowBanner,
 }: InsurancePageProps) => {
+  // SEO Local: se o title da página ainda não menciona uma localidade
+  // (Guarulhos, São Paulo, SP, Brasil), reforça os H2 com geomodificador
+  // para capturar buscas geolocalizadas (ex.: "quanto custa seguro auto em Guarulhos").
+  const hasGeo = /(guarulhos|são paulo|sao paulo|\bsp\b|brasil)/i.test(title);
+  const geoSuffix = hasGeo ? "" : " em Guarulhos e Região";
+  const geoTitle = `${title}${geoSuffix}`;
+
   return (
     <>
       <PageMeta
@@ -276,7 +283,7 @@ const InsurancePageTemplate = ({
             <div className="container mx-auto px-4 max-w-3xl">
               <div className="text-center mb-12">
                 <DollarSign className="h-7 w-7 text-primary mx-auto mb-3" aria-hidden="true" />
-                <h2 id="preco-heading">Quanto custa o {title}?</h2>
+                <h2 id="preco-heading">Quanto custa o {geoTitle}?</h2>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-8 text-[15px]">{pricingInfo.intro}</p>
               <div className="premium-card p-7">
@@ -367,7 +374,7 @@ const InsurancePageTemplate = ({
         {/* Quem Precisa */}
         <section className="py-20" aria-labelledby="quem-precisa-heading">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 id="quem-precisa-heading" className="mb-10">Quem precisa do {title}?</h2>
+            <h2 id="quem-precisa-heading" className="mb-10">Quem precisa do {geoTitle}?</h2>
             <ul className="grid md:grid-cols-2 gap-3 list-none">
               {whoNeeds.map((item, i) => (
                 <li key={i} className="flex items-center gap-3 bg-muted/50 rounded-xl p-4 border border-transparent hover:border-primary/10 transition-base">
@@ -386,7 +393,7 @@ const InsurancePageTemplate = ({
               <div className="flex justify-center mb-6">
                 <SeloMelhorCorretora size="md" />
               </div>
-              <h2 id="por-que-patro-heading">Por que contratar {title} com a Patro?</h2>
+              <h2 id="por-que-patro-heading">Por que contratar {title} com a Patro{hasGeo ? "" : " em Guarulhos"}?</h2>
             </div>
             <ul className="grid md:grid-cols-2 gap-4 list-none">
               {whyPatro.map((reason, i) => (
@@ -492,7 +499,7 @@ const InsurancePageTemplate = ({
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="text-center mb-16">
               <span className="section-label">FAQ</span>
-              <h2 id="faq-heading" className="mt-4">Perguntas Frequentes sobre {title}</h2>
+              <h2 id="faq-heading" className="mt-4">Perguntas Frequentes sobre {geoTitle}</h2>
             </div>
             <div className="space-y-3">
               {faqs.map((faq, i) => (
