@@ -461,7 +461,7 @@ const InsurancePageTemplate = ({
                   </a>
                 )
               ) : (
-                <Link to="/cotacao" className="w-full sm:w-auto">
+                <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto">
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Cotação Rápida</Button>
                 </Link>
               )}
@@ -553,7 +553,7 @@ const InsurancePageTemplate = ({
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   Cotação Rápida por WhatsApp
                 </a>
-                <Link to="/cotacao" onClick={() => trackCotacaoClick(`faq-fora-guarulhos-${title}`)}>
+                <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} onClick={() => trackCotacaoClick(`faq-fora-guarulhos-${title}`)}>
                   <Button variant="outline" className="rounded-xl w-full sm:w-auto">
                     Preencher formulário online
                     <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
