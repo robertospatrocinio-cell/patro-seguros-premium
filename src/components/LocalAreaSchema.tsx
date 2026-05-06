@@ -2,9 +2,13 @@
  * LocalAreaSchema
  *
  * Extra JSON-LD for hyper-local pages (bairro / cidade / produto + região).
- * Adds a Place + Service schema with explicit `areaServed` for the
- * neighborhood, complementing the global LocalBusinessSchema.
+ * Adds a Service schema with explicit `areaServed` (Place + City), linked
+ * via @id to the global LocalBusinessSchema, plus AggregateRating for
+ * review-snippet stars in the SERP. Pairs with FAQSchema and BreadcrumbSchema
+ * already injected by InsurancePageTemplate to maximize rich results.
  */
+
+import { PATRO_RATING } from "@/components/AggregateRatingSchema";
 
 interface LocalAreaSchemaProps {
   serviceName: string;
@@ -50,6 +54,25 @@ const LocalAreaSchema = ({
     provider: {
       "@type": "InsuranceAgency",
       "@id": "https://www.patroseguros.com.br/#insurance-agency",
+      name: "Patro Seguros",
+      url: "https://www.patroseguros.com.br",
+      telephone: "+551151997500",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
+        addressLocality: "Guarulhos",
+        addressRegion: "SP",
+        postalCode: "07115-000",
+        addressCountry: "BR",
+      },
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: PATRO_RATING.ratingValue,
+      reviewCount: PATRO_RATING.reviewCount,
+      bestRating: PATRO_RATING.bestRating,
+      worstRating: PATRO_RATING.worstRating,
+      itemReviewed: serviceName,
     },
   };
 
