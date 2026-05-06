@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import WebSiteSchema from "@/components/WebSiteSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
 import ArticleSchema from "@/components/ArticleSchema";
 import { getCanonicalUrl, CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
@@ -7143,12 +7145,14 @@ const BlogArticle = () => {
             )}
             <BreadcrumbSchema
               items={[
-                { name: "Início", url: "https://patroseguros.com.br/" },
-                { name: "Blog", url: "https://patroseguros.com.br/blog" },
-                { name: meta.category, url: "https://patroseguros.com.br/blog" },
+                { name: "Início", url: "/" },
+                { name: "Blog", url: "/blog" },
+                { name: meta.category, url: "/blog" },
                 { name: article.title, url: articleUrl },
               ]}
             />
+            <WebSiteSchema />
+            <OrganizationSchema />
           </>
         );
       })()}

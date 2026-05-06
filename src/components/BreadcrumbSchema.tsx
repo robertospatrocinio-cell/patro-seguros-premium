@@ -1,5 +1,8 @@
+import { getCanonicalUrl } from "@/lib/canonical";
+
 interface BreadcrumbItem {
   name: string;
+  /** Full URL or path. Path-only values are normalized to the canonical host. */
   url: string;
 }
 
@@ -15,7 +18,11 @@ const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": item.url,
+      // Normalize: accept both absolute URLs and root-relative paths and
+      // collapse them to the canonical host (https://www.patroseguros.com.br).
+      "item": item.url.startsWith("http")
+        ? getCanonicalUrl(new URL(item.url).pathname)
+        : getCanonicalUrl(item.url),
     })),
   };
 

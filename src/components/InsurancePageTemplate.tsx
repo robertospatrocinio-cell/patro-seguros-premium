@@ -11,6 +11,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
+import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
@@ -121,6 +122,7 @@ const InsurancePageTemplate = ({
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
+      <WebSiteSchema />
       <AggregateRatingSchema
         serviceName={title}
         url={canonicalUrl}

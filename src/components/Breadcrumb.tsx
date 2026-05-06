@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
 
 interface BreadcrumbItem {
   label: string;
@@ -15,12 +16,12 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Início", item: "https://www.patroseguros.com.br" },
+      { "@type": "ListItem", position: 1, name: "Início", item: CANONICAL_BASE_URL },
       ...items.map((item, i) => ({
         "@type": "ListItem",
         position: i + 2,
         name: item.label,
-        ...(item.href ? { item: `https://www.patroseguros.com.br${item.href}` } : {}),
+        ...(item.href ? { item: getCanonicalUrl(item.href) } : {}),
       })),
     ],
   };
