@@ -109,10 +109,12 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
       { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
-    />
-    <NeighborhoodHub
-      source="seguro-auto-guarulhos:hub-bairros"
-      neighborhoods={NEIGHBORHOODS}
+    extraSections={
+      <NeighborhoodHub
+        source="seguro-auto-guarulhos:hub-bairros"
+        neighborhoods={NEIGHBORHOODS}
+      />
+    }
     />
     <StickyQuoteBar
       source="seguro-auto-guarulhos"
