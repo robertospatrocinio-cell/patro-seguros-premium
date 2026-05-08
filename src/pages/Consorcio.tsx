@@ -13,9 +13,9 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 const modalidades = [
   {
     icon: Car,
-    title: "Consórcio de Carro",
-    desc: "Realize o sonho do carro novo ou seminovo sem juros. Parcelas que cabem no seu bolso com poder de compra à vista.",
-    benefits: ["Sem juros abusivos", "Parcelas acessíveis", "Poder de compra à vista", "Lance para antecipar"],
+    title: "Consórcio de Automóveis",
+    desc: "Estratégia de inteligência financeira para trocar de carro ou ampliar frota sem pagar juros bancários. Estudo de lance incluso.",
+    benefits: ["Economia vs Financiamento", "Troca planejada (3 anos)", "Poder de compra à vista", "Estudo estratégico de lance"],
     link: "/consorcio-carro",
   },
   {
