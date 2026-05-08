@@ -1,5 +1,6 @@
 import type { SeoLocalPageConfig } from "./seoLocalAutoPages";
-import { partnersLineSaude } from "./localDefaultsSaude";
+
+const partnersLineSaude = "Bradesco Saúde, Amil, SulAmérica, Porto Saúde, HapVida/NotreDame Intermédica, Prevent Senior e MedSenior — comparamos todas as tabelas em Guarulhos.";
 
 const saudeCoverages = [
   { title: "Consultas e Exames", description: "Acesso a consultas em todas as especialidades médicas e exames laboratoriais e de imagem." },
