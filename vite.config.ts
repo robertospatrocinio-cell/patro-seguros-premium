@@ -56,6 +56,7 @@ function sitemapPlugin(): Plugin {
 
       const { index, files } = generateSitemapBundle(slugs, localSlugs);
       const outDir = path.resolve(__dirname, "dist");
+      fs.mkdirSync(outDir, { recursive: true });
       // Cluster sitemaps + legacy flat sitemap.xml
       for (const [name, xml] of Object.entries(files)) {
         fs.writeFileSync(path.join(outDir, name), xml, "utf-8");
