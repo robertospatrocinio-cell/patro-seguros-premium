@@ -102,6 +102,18 @@ interface InsurancePageProps {
   showAgrishowBanner?: boolean;
   /** Conteúdo extra renderizado após "Relacionados" e antes do Footer */
   extraSections?: ReactNode;
+  /**
+   * Quando true, suprime o `<FAQSchema>` injetado por este template.
+   * Use em páginas locais que já emitem FAQPage via `LocalAreaSchema`
+   * para evitar dois blocos FAQPage no mesmo URL.
+   */
+  skipFAQSchema?: boolean;
+  /**
+   * Quando true, suprime o `<AggregateRatingSchema>` injetado por este template.
+   * Use em páginas locais que já emitem AggregateRating via `LocalAreaSchema`
+   * para evitar nodos de rating duplicados / inconsistentes.
+   */
+  skipAggregateRating?: boolean;
 }
 
 const InsurancePageTemplate = ({
@@ -125,6 +137,8 @@ const InsurancePageTemplate = ({
   showEbookConsorcio,
   showAgrishowBanner,
   extraSections,
+  skipFAQSchema,
+  skipAggregateRating,
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = getCanonicalUrl(location.pathname);
@@ -148,15 +162,17 @@ const InsurancePageTemplate = ({
         title={title}
         description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
       />
-      <FAQSchema faqs={faqs} />
+      {!skipFAQSchema && <FAQSchema faqs={faqs} />}
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
-      <AggregateRatingSchema
-        serviceName={title}
-        url={canonicalUrl}
-        description={metaDescription || subtitle}
-      />
+      {!skipAggregateRating && (
+        <AggregateRatingSchema
+          serviceName={title}
+          url={canonicalUrl}
+          description={metaDescription || subtitle}
+        />
+      )}
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

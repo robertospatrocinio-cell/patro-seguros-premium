@@ -1,11 +1,21 @@
 /**
  * LocalAreaSchema
  *
- * Extra JSON-LD for hyper-local pages (bairro / cidade / produto + região).
- * Adds a Service schema with explicit `areaServed` (Place + City), linked
- * via @id to the global LocalBusinessSchema, plus AggregateRating for
- * review-snippet stars in the SERP. Pairs with FAQSchema and BreadcrumbSchema
- * already injected by InsurancePageTemplate to maximize rich results.
+ * Unified JSON-LD `@graph` for hyper-local pages (bairro / cidade / produto
+ * + região). Emits, in a single `<script>`:
+ *
+ *   1. Service node with explicit `areaServed` (Place + City) and AggregateOffer
+ *   2. AggregateRating node (4.9 / 150 — from PATRO_RATING) referenced via @id
+ *      so Service.aggregateRating, InsuranceAgency.aggregateRating and the
+ *      review snippet all point to the same entity (no duplicate-rating warnings)
+ *   3. FAQPage node (when `faqs` is provided), linked via mainEntityOfPage to
+ *      the page URL — replaces the standalone <FAQSchema> for local pages so
+ *      we never emit two FAQPage blocks on the same URL
+ *
+ * Pairs with `LocalBusinessSchema` and `BreadcrumbSchema` injected by
+ * InsurancePageTemplate. When this component handles ratings/FAQ, the parent
+ * LocalPageTemplate must pass `skipFAQSchema` and `skipAggregateRating` to
+ * InsurancePageTemplate to keep the page's structured data graph consistent.
  */
 
 import { PATRO_RATING } from "@/components/AggregateRatingSchema";
@@ -18,6 +28,8 @@ interface LocalAreaSchemaProps {
   neighborhood?: string;
   geo?: { latitude: number; longitude: number };
   priceRange?: { min: number; max: number; currency?: string };
+  /** When provided, also emits a FAQPage node inside the same graph. */
+  faqs?: { question: string; answer: string }[];
 }
 
 const LocalAreaSchema = ({
@@ -28,6 +40,7 @@ const LocalAreaSchema = ({
   neighborhood,
   geo,
   priceRange,
+  faqs,
 }: LocalAreaSchemaProps) => {
   const areaServed: Record<string, unknown>[] = [
     { "@type": "City", name: city, containedInPlace: { "@type": "State", name: "São Paulo" } },
@@ -42,10 +55,23 @@ const LocalAreaSchema = ({
     });
   }
 
-  const schema: Record<string, unknown> = {
-    "@context": "https://schema.org",
+  const ratingId = "https://www.patroseguros.com.br/#aggregate-rating";
+  const agencyId = "https://www.patroseguros.com.br/#insurance-agency";
+  const serviceId = `${url}#service`;
+
+  const aggregateRatingNode = {
+    "@type": "AggregateRating",
+    "@id": ratingId,
+    ratingValue: PATRO_RATING.ratingValue,
+    reviewCount: PATRO_RATING.reviewCount,
+    bestRating: PATRO_RATING.bestRating,
+    worstRating: PATRO_RATING.worstRating,
+    itemReviewed: { "@id": agencyId },
+  };
+
+  const serviceNode: Record<string, unknown> = {
     "@type": "Service",
-    "@id": `${url}#service`,
+    "@id": serviceId,
     name: serviceName,
     serviceType: serviceName,
     description,
@@ -53,7 +79,7 @@ const LocalAreaSchema = ({
     areaServed,
     provider: {
       "@type": "InsuranceAgency",
-      "@id": "https://www.patroseguros.com.br/#insurance-agency",
+      "@id": agencyId,
       name: "Patro Seguros",
       url: "https://www.patroseguros.com.br",
       telephone: "+551151997500",
@@ -65,19 +91,16 @@ const LocalAreaSchema = ({
         postalCode: "07115-000",
         addressCountry: "BR",
       },
+      // Same rating, referenced — never duplicated.
+      aggregateRating: { "@id": ratingId },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: PATRO_RATING.ratingValue,
-      reviewCount: PATRO_RATING.reviewCount,
-      bestRating: PATRO_RATING.bestRating,
-      worstRating: PATRO_RATING.worstRating,
-      itemReviewed: serviceName,
-    },
+    // Service-level rating reference keeps SERP review snippet eligible
+    // while pointing to the same canonical AggregateRating node.
+    aggregateRating: { "@id": ratingId },
   };
 
   if (priceRange) {
-    schema.offers = {
+    serviceNode.offers = {
       "@type": "AggregateOffer",
       priceCurrency: priceRange.currency ?? "BRL",
       lowPrice: priceRange.min,
@@ -85,6 +108,31 @@ const LocalAreaSchema = ({
       availability: "https://schema.org/InStock",
     };
   }
+
+  const graph: Record<string, unknown>[] = [serviceNode, aggregateRatingNode];
+
+  if (faqs && faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      mainEntityOfPage: url,
+      // Voice-assistant ready (matches `data-speakable="faq"` rendered region).
+      speakable: {
+        "@type": "SpeakableSpecification",
+        cssSelector: ['[data-speakable="faq"]', "#faq-heading"],
+      },
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    });
+  }
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": graph,
+  };
 
   return (
     <script
