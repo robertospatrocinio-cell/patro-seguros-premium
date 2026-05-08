@@ -154,7 +154,7 @@ const AvaliarNoGoogle = () => {
     <>
       <PageMeta
         title="Avaliar Patro Seguros no Google — Corretora em Guarulhos"
-        description="Deixe sua avaliação da Patro Seguros no Google Business em poucos cliques. Modelos prontos com palavras-chave locais (Cidade Maia, Cumbica, Vila Galvão) para apoiar a corretora em Guarulhos."
+        description="Avalie a Patro Seguros no Google Business em poucos cliques. Modelos prontos com palavras-chave locais (Cidade Maia, Cumbica) para apoiar a corretora."
       />
       <FAQSchema faqs={FAQS} />
       <Header />
