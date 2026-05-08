@@ -19,7 +19,8 @@ import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
- const BlogFormCTA = lazy(() => import("@/components/BlogFormCTA"));
+  const BlogFormCTA = lazy(() => import("@/components/BlogFormCTA"));
+  const StickyQuoteBar = lazy(() => import("@/components/StickyQuoteBar"));
 
  const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
    "crescimento-patrimonial-guarulhos-2026": {
@@ -8514,6 +8515,14 @@ const BlogArticle = () => {
           </div>
         </section>
       </main>
+      <Suspense fallback={null}>
+        <StickyQuoteBar 
+          source={`blog:${slug}`} 
+          quoteHref="#cotacao-blog" 
+          ctaLabel="Cotação Rápida" 
+          whatsappMessage={`Olá! Li o artigo sobre ${article.title} e gostaria de uma cotação.`}
+        />
+      </Suspense>
       <Footer />
       {slug === "como-pagar-menos-seguro-frota-logistica-guarulhos" && (
         <div
