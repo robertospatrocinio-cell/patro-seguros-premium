@@ -1,9 +1,11 @@
  const FormCTASection = lazy(() => import("@/components/FormCTASection"));
  
-import { lazy, Suspense, useEffect } from "react";
+ import { lazy, Suspense, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
-import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+ import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
+ import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
+ import SmartText from "@/components/SmartText";
+ import { getRelatedLinks } from "@/lib/relatedFromText";
 import Header from "@/components/Header";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
@@ -65,8 +67,10 @@ const faqs = [
   { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
 ];
 
- const Index = () => {
-   // Hide persistent hero background after React renders (it lives outside #root for LCP)
+  const Index = () => {
+     // Shared set to dedupe contextual keyword links across all FAQ blocks
+     const linkedKeywords = useMemo(() => new Set<string>(), []);
+    // Hide persistent hero background after React renders (it lives outside #root for LCP)
    useEffect(() => {
      const el = document.getElementById('persistent-hero-bg');
      if (el) el.style.display = 'none';
@@ -474,9 +478,39 @@ const faqs = [
                     {faq.question}
                     <span className="text-muted-foreground/30 ml-4 group-open:rotate-45 transition-transform text-base font-light flex-shrink-0">+</span>
                   </summary>
-                  <div className="pt-3">
-                    <p className="text-[13px] text-muted-foreground leading-relaxed">{faq.answer}</p>
-                  </div>
+                   <div className="pt-3 space-y-3">
+                     <SmartText
+                       text={faq.answer}
+                       className="text-[13px] text-muted-foreground leading-relaxed"
+                       linkedKeywords={linkedKeywords}
+                       maxLinks={1}
+                     />
+                     {(() => {
+                        const related = getRelatedLinks(`${faq.question} ${faq.answer}`, { limit: 1 });
+                        if (related.length === 0) return null;
+                        return (
+                          <div className="pt-2 border-t border-border/40">
+                            {related.map((r) => (
+                              <Link
+                                key={r.href}
+                                to={r.href}
+                                onClick={() =>
+                                 trackInternalLinkClick({
+                                   destination: r.href,
+                                   source: buildInternalLinkSource("faq-global", "home"),
+                                   label: r.label,
+                                   placement: "veja-tambem"
+                                 })
+                                }
+                                className="inline-flex items-center gap-1 text-[11px] font-bold text-primary hover:gap-1.5 transition-all uppercase tracking-wider"
+                              >
+                                Saiba mais sobre {r.label} <ArrowRight className="h-2.5 w-2.5" aria-hidden="true" />
+                              </Link>
+                            ))}
+                          </div>
+                        );
+                     })()}
+                   </div>
                 </details>
               ))}
             </div>
