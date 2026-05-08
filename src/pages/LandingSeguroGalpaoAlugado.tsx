@@ -51,7 +51,7 @@ const LandingSeguroGalpaoAlugado = () => (
     stats={[
       { value: "2h", label: "Emissão Rápida" },
       { value: "100%", label: "Aceite Contratual" },
-      { value: "R$0", label: "Análise de Contrato" },
+      { value: "Rbash", label: "Análise de Contrato" },
       { value: "24h", label: "Assistência" },
     ]}
     benefits={[
@@ -77,13 +77,3 @@ const LandingSeguroGalpaoAlugado = () => (
 );
 
 export default LandingSeguroGalpaoAlugado;
-*** Update File: src/App.tsx
-@@
- const LandingSeguroGalpoes = lazy(() => import("./pages/LandingSeguroGalpoes"));
-+const LandingSeguroGalpaoAlugado = lazy(() => import("./pages/LandingSeguroGalpaoAlugado"));
- const LandingConsorcio = lazy(() => import("./pages/LandingConsorcio"));
-@@
-             <Route path="/lp/seguro-galpoes" element={<LandingSeguroGalpoes />} />
-+            <Route path="/lp/seguro-galpao-alugado" element={<LandingSeguroGalpaoAlugado />} />
-             <Route path="/lp/consorcio" element={<LandingConsorcio />} />
-*** End Patch
