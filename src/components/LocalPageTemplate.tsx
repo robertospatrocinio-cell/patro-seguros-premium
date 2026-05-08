@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { MessageCircle, MapPin, Star, Building2, ShieldCheck, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { trackCotacaoClick } from "@/lib/tracking";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
