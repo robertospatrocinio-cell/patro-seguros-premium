@@ -152,17 +152,18 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-paraventi", neighborhood: "Paraventi", product: "vida", priceRange: "a partir de R$ 30/mês", reference: "para proteção familiar básica" }),
      ],
    },
-  {
-    id: "continental",
-    nome: "Continental",
-    foco: "Residencial e Proteção Familiar",
-    subtitulo: "Seguros para a maior densidade populacional de Guarulhos",
-    descricao: "O Continental é um dos bairros mais populosos de Guarulhos. Com alta densidade de condomínios e apartamentos, a demanda por seguro residencial, seguro de condomínio e seguro auto é enorme. A Patro Seguros atende o Continental com agilidade: cotações rápidas, sinistros resolvidos com prioridade e planos que cabem no bolso de quem vive nesta região vibrante.",
-    image: imgContinental,
-    faqs: [
-      { question: "Seguro de condomínio no Continental é obrigatório?", answer: "Sim! O seguro de condomínio é obrigatório por lei (Lei 4.591/64). No Continental, com alta concentração de edifícios, a Patro ajuda síndicos a encontrar a melhor cobertura com preço justo." },
-      { question: "Seguro residencial para apartamento no Continental, quanto custa?", answer: "O seguro residencial para apartamentos costuma ter valores acessíveis. No Continental, cotamos entre diversas seguradoras para encontrar o melhor preço com cobertura completa." },
-      { question: "A Patro atende todo o Continental de Guarulhos?", answer: "Sim! Atendemos todas as regiões do Continental com agilidade via WhatsApp e presencialmente na nossa sede na Av. Salgado Filho, com resposta em até 2 horas." },
-    ],
-  },
+   {
+     id: "continental",
+     nome: "Continental",
+     foco: "Residencial e Proteção Familiar",
+     subtitulo: "Seguros para a maior densidade populacional de Guarulhos",
+     descricao: "O Continental é um dos bairros mais populosos de Guarulhos. Com alta densidade de condomínios e apartamentos, a demanda por seguro residencial, seguro de condomínio e seguro auto é enorme. A Patro Seguros atende o Continental com agilidade: cotações rápidas, sinistros resolvidos com prioridade e planos que cabem no bolso de quem vive nesta região vibrante.",
+     image: imgContinental,
+     faqs: [
+       ...generateLocalFAQs({ slug: "residencial-continental", neighborhood: "Continental", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 25/mês", reference: "específico para apartamentos e condomínios" }),
+       ...generateLocalFAQs({ slug: "auto-continental", neighborhood: "Continental", product: "auto", riskLevel: "médio", priceRange: "R$ 2.600 a R$ 4.900/ano", reference: "com garagem coberta nos edifícios" }),
+       ...generateLocalFAQs({ slug: "vida-continental", neighborhood: "Continental", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para moradores de condomínios verticais" }),
+       ...generateLocalFAQs({ slug: "saude-continental", neighborhood: "Continental", product: "saude", priceRange: "ampla rede de atendimento local", reference: "próximo à região central" }),
+     ],
+   },
 ];
