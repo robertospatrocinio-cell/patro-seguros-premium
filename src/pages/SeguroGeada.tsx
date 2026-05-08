@@ -7,7 +7,7 @@ const SeguroGeada = () => {
       heroImage={heroImg}
       title="Seguro Geada — Proteção para sua Lavoura"
       subtitle="Proteja sua produção agrícola contra perdas causadas por geada. Atendemos produtores de todos os estados do Brasil."
-      description="O Seguro Geada da Patro Seguros é a proteção essencial para produtores rurais que enfrentam risco de geada em suas lavouras. Cobrimos perdas na produção de café, trigo, milho, hortaliças, fruticultura e outras culturas sensíveis à queda brusca de temperatura. Com subsídio do governo federal e análise especializada de riscos climáticos por região, garantimos as melhores condições para proteger sua safra. Atendimento 100% remoto para produtores de todo o Brasil."
+      description="Seguro Geada: proteção essencial para lavouras de café, milho e hortaliças. Atendemos produtores de todo o Brasil com subsídio federal e suporte remoto."
       icon="❄️"
       metaDescription="Seguro Geada em todo o Brasil: proteção da lavoura contra geada, friagem e queda brusca de temperatura. Subsídio federal disponível."
       badge="Atendimento em Todo o Brasil"

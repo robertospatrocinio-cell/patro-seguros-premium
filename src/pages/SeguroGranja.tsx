@@ -7,7 +7,7 @@ const SeguroGranja = () => {
       heroImage={heroImg}
       title="Seguro Granja — Proteção para Aviários e Suinoculturas"
       subtitle="Proteja suas granjas de aves, suínos e outras criações contra incêndios, vendavais, doenças e outros riscos. Atendimento em todo o Brasil."
-      description="O Seguro Granja da Patro Seguros oferece proteção completa para instalações avícolas e suinícolas. Cobrimos danos às estruturas (galpões, comedouros, bebedouros, climatização), mortalidade de animais por doenças, incêndios, fenômenos climáticos e falhas elétricas. Ideal para produtores integrados, granjas independentes e agroindústrias. Atendemos em todos os estados do Brasil — cotação, emissão e sinistro 100% remotos, por WhatsApp, telefone ou e-mail."
+      description="Seguro Granja: proteção para instalações avícolas e suinícolas contra incêndio, doenças e falhas elétricas em todo o Brasil. Atendimento 100% remoto."
       icon="🐔"
       metaDescription="Seguro Granja para aviários e suinoculturas em todo o Brasil. Proteção contra incêndio, vendaval, mortalidade de aves e suínos. Cotação grátis Patro Seguros."
       badge="Atendimento em Todo o Brasil"
