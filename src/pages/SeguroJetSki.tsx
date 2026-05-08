@@ -9,7 +9,7 @@ const SeguroJetSki = () => {
       subtitle="Proteção completa para jet ski, WaveRunner e embarcações pessoais — contra danos, roubo, furto e RC náutica"
       icon="🚤"
       metaDescription="Seguro Jet Ski — proteção contra danos, roubo, naufrágio e RC para jet ski, WaveRunner e Sea-Doo. A partir de R$ 80/mês. Cotação grátis Patro Seguros."
-      description="O Seguro Jet Ski oferece cobertura abrangente para proteger sua embarcação pessoal contra colisão, roubo, furto, naufrágio, incêndio e responsabilidade civil náutica. Com o crescimento dos esportes aquáticos no Brasil e jet skis custando de R$ 40.000 a R$ 200.000, navegar sem seguro é um risco financeiro desnecessário."
+      description="O Seguro Jet Ski protege sua embarcação contra colisão, roubo e naufrágio. Navegue com tranquilidade com cobertura de responsabilidade civil náutica."
       detailedDescription={`O mercado de jet skis no Brasil cresceu significativamente nos últimos anos. Modelos populares como Sea-Doo GTX, Yamaha WaveRunner FX e Kawasaki Ultra custam entre R$ 80.000 e R$ 200.000, tornando a proteção via seguro essencial. Além do valor da embarcação, os riscos de navegação — colisão, naufrágio, afundamento e danos a terceiros — podem gerar prejuízos que ultrapassam o valor do próprio jet ski.
 
 A legislação náutica brasileira (NORMAM da Marinha do Brasil) exige que toda embarcação possua registro e que o condutor tenha Habilitação Náutica (Arrais Amador ou superior). O seguro de jet ski, embora não seja legalmente obrigatório, é altamente recomendado — especialmente a cobertura de Responsabilidade Civil, que protege contra danos causados a outras embarcações, banhistas e infraestruturas portuárias.
