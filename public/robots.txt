@@ -1,9 +1,19 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+Disallow: /lp/
+Disallow: /landing-pages
+Disallow: /ebook-consorcio
+Disallow: /avaliar-no-google
 Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin
+Disallow: /lp/
+Disallow: /landing-pages
+Disallow: /ebook-consorcio
+Disallow: /avaliar-no-google
 Crawl-delay: 2
 
 User-agent: Twitterbot
@@ -18,6 +28,7 @@ Disallow: /admin
 Disallow: /lp/
 Disallow: /ebook-consorcio
 Disallow: /landing-pages
+Disallow: /avaliar-no-google
 Crawl-delay: 5
 
 # Sitemap index (preferred — references all cluster sitemaps)
