@@ -1,16 +1,26 @@
- import { Link } from "react-router-dom";
- import { Home, Building2, Key, Sun, Smartphone, ArrowRight, MessageCircle, ShieldCheck, Heart } from "lucide-react";
+  import { Link, useLocation } from "react-router-dom";
+  import { Home, Building2, Key, Sun, Smartphone, ArrowRight, MessageCircle, ShieldCheck, Heart } from "lucide-react";
  import Header from "@/components/Header";
  import Footer from "@/components/Footer";
  import PageMeta from "@/components/PageMeta";
- import Breadcrumb from "@/components/Breadcrumb";
+  import Breadcrumb from "@/components/Breadcrumb";
+  import FAQSchema from "@/components/FAQSchema";
+  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+  import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
  import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
  import InsuranceHubLinks from "@/components/InsuranceHubLinks";
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro para meu patrimônio.";
  
- const SECTIONS = [
+  const FAQS = [
+    { question: "Seguro residencial em Guarulhos é caro?", answer: "Não, para apartamentos os valores começam em R$ 150/ano. É o seguro com melhor custo-benefício, pois uma única visita de encanador da assistência 24h já paga a apólice." },
+    { question: "Como funciona o seguro fiança locatícia?", answer: "Ele substitui o fiador e o depósito caução no aluguel. A aprovação é rápida e garante o pagamento do aluguel e encargos ao proprietário em caso de inadimplência." },
+    { question: "Seguro celular cobre quebra de tela?", answer: "Sim, se você contratar a cobertura de danos acidentais. Além de quebra, protege contra roubo e furto qualificado em todo o Brasil." },
+    { question: "Vocês atendem condomínios em Guarulhos?", answer: "Sim, atendemos síndicos e administradoras na Cidade Maia e região com o seguro condomínio obrigatório, protegendo as áreas comuns e a responsabilidade civil." }
+  ];
+
+  const SECTIONS = [
    {
      title: "Imóveis e Aluguel",
      links: [
