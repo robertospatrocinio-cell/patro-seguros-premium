@@ -1,9 +1,12 @@
- import { Link } from "react-router-dom";
+ import { Link, useLocation } from "react-router-dom";
  import { Heart, SmilePlus, HeartPulse, Activity, UserPlus, ArrowRight, MessageCircle, CheckCircle, Award } from "lucide-react";
  import Header from "@/components/Header";
  import Footer from "@/components/Footer";
  import PageMeta from "@/components/PageMeta";
  import Breadcrumb from "@/components/Breadcrumb";
+ import FAQSchema from "@/components/FAQSchema";
+ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+ import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
  import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
  import InsuranceHubLinks from "@/components/InsuranceHubLinks";
