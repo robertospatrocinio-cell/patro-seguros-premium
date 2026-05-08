@@ -495,10 +495,12 @@ const faqs = [
                                 key={r.href}
                                 to={r.href}
                                 onClick={() =>
-                                  trackInternalLinkClick(
-                                    r.href,
-                                    buildInternalLinkSource("home-faq", "related-link")
-                                  )
+                                 trackInternalLinkClick({
+                                   destination: r.href,
+                                   source: buildInternalLinkSource("faq-global", "home"),
+                                   label: r.label,
+                                   placement: "veja-tambem"
+                                 })
                                 }
                                 className="inline-flex items-center gap-1 text-[11px] font-bold text-primary hover:gap-1.5 transition-all uppercase tracking-wider"
                               >
