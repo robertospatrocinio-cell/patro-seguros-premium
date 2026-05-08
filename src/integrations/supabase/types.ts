@@ -77,6 +77,48 @@ export type Database = {
         }
         Relationships: []
       }
+      leads: {
+        Row: {
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          insurance_type: string | null
+          phone: string | null
+          raw_data: Json | null
+          source_page: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          insurance_type?: string | null
+          phone?: string | null
+          raw_data?: Json | null
+          source_page?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          insurance_type?: string | null
+          phone?: string | null
+          raw_data?: Json | null
+          source_page?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       pagespeed_audits: {
         Row: {
           accessibility_score: number | null
