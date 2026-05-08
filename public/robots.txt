@@ -25,6 +25,7 @@ Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
 
 # Cluster sitemaps (also exposed individually for prioritized submission)
 Sitemap: https://www.patroseguros.com.br/sitemap-guarulhos.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-auto.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-vida-saude.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-empresarial.xml
