@@ -135,11 +135,13 @@ const InsurancePageTemplate = ({
   contextualLinks,
   featuredArticle,
   showEbookConsorcio,
-  showAgrishowBanner,
-  extraSections,
-  skipFAQSchema,
-  skipAggregateRating,
-}: InsurancePageProps) => {
+   showAgrishowBanner,
+   extraSections,
+   skipFAQSchema,
+   skipAggregateRating,
+   faqs: propsFaqs,
+ }: InsurancePageProps) => {
+   const faqs = propsFaqs || [];
   const location = useLocation();
   const canonicalUrl = getCanonicalUrl(location.pathname);
   const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
@@ -158,11 +160,11 @@ const InsurancePageTemplate = ({
 
   return (
     <>
-      <PageMeta
-        title={title}
-        description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
-      />
-      {!skipFAQSchema && <FAQSchema faqs={faqs} />}
+       <PageMeta
+         title={title}
+         description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
+       />
+       {!skipFAQSchema && faqs.length > 0 && <FAQSchema faqs={faqs} />}
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
