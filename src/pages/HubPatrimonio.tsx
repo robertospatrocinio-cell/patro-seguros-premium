@@ -118,10 +118,33 @@
          </div>
        </section>
  
-       <InsuranceHubLinks />
+        <section className="py-24 bg-background" aria-labelledby="faq-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <span className="section-label">FAQ</span>
+              <h2 id="faq-heading" className="mt-3">Perguntas Frequentes — Patrimônio e Bens</h2>
+            </div>
+            <div className="space-y-3" data-speakable="faq">
+              {FAQS.map((faq, i) => (
+                <details key={i} className="premium-card group">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold hover:text-primary transition-base list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 -mt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <InsuranceHubLinks />
      </main>
      <Footer />
    </div>
- );
- 
- export default HubPatrimonio;
+    );
+  };
+  
+  export default HubPatrimonio;
