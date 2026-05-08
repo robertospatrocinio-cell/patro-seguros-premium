@@ -32,8 +32,8 @@
  const HubPatrimonio = () => (
    <div className="min-h-screen flex flex-col">
      <PageMeta 
-       title="Seguros de Patrimônio e Imóveis | Patro Seguros" 
-       description="Hub de seguros patrimoniais. Seguro residencial, fiança locatícia, celular e placas solares. Proteja seus bens com a consultoria da Patro em Guarulhos." 
+        title="Seguro Residencial e Fiança Locatícia em Guarulhos | Patro" 
+        description="Proteja seu patrimônio com o melhor seguro residencial em Guarulhos. Fiança locatícia, seguro para celular e placas solares com assistência 24h local." 
      />
      <Header />
      <main id="main-content">
@@ -44,9 +44,9 @@
            <div className="flex justify-center mb-6">
              <Home className="h-16 w-16 text-white opacity-20" />
            </div>
-           <h1 className="text-white mb-6">Seguros de Patrimônio — Proteja sua Conquista</h1>
-           <p className="text-xl text-white/70 mb-8">
-             Seu lar, seu aluguel e sua tecnologia. Soluções inteligentes para garantir que pequenos imprevistos não virem grandes dores de cabeça.
+            <h1 className="text-white mb-6">Seguro Residencial em Guarulhos — Proteja sua Conquista</h1>
+            <p className="text-xl text-white/70 mb-8">
+              Seu lar e seu aluguel em Guarulhos protegidos. Soluções inteligentes para garantir que imprevistos não virem grandes problemas financeiros.
            </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-patrimonio")}>
@@ -89,9 +89,9 @@
        <section className="py-20 bg-muted/30">
          <div className="container mx-auto px-4 text-center max-w-3xl">
            <ShieldCheck className="h-10 w-10 text-primary mx-auto mb-4" />
-           <h2 className="mb-4">Mais que um seguro, uma assistência</h2>
-           <p className="text-muted-foreground mb-10">
-             Nossos seguros residenciais e de bens incluem serviços de chaveiro, eletricista, encanador e reparos técnicos que muitas vezes valem mais que o custo da apólice.
+            <h2 className="mb-4">A melhor assistência residencial em Guarulhos</h2>
+            <p className="text-muted-foreground mb-10">
+              Nossos seguros em Guarulhos incluem serviços de chaveiro, eletricista e encanador local, garantindo rapidez no atendimento quando você mais precisa.
            </p>
            <div className="grid sm:grid-cols-3 gap-6">
              {[
