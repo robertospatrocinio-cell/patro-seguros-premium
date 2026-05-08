@@ -117,9 +117,9 @@ interface InsurancePageProps {
 }
 
 const InsurancePageTemplate = ({
-  title, subtitle, description, icon,
-  coverages, whoNeeds, whyPatro, faqs,
-  relatedInsurances = [],
+   title, subtitle, description, icon,
+   coverages, whoNeeds, whyPatro,
+   relatedInsurances = [],
   badge,
   metaDescription,
   detailedDescription,
@@ -139,9 +139,8 @@ const InsurancePageTemplate = ({
    extraSections,
    skipFAQSchema,
    skipAggregateRating,
-   faqs: propsFaqs,
+   faqs = [],
  }: InsurancePageProps) => {
-   const faqs = propsFaqs || [];
   const location = useLocation();
   const canonicalUrl = getCanonicalUrl(location.pathname);
   const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
