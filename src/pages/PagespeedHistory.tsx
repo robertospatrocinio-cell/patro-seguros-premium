@@ -45,6 +45,17 @@ const fmtDate = (iso: string) =>
   });
 
 export default function PagespeedHistory() {
+  useEffect(() => {
+    document.title = "Histórico PageSpeed | Patro Seguros";
+    let m = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!m) {
+      m = document.createElement("meta");
+      m.name = "robots";
+      document.head.appendChild(m);
+    }
+    m.content = "noindex,nofollow";
+  }, []);
+
   const [rows, setRows] = useState<Audit[]>([]);
   const [loading, setLoading] = useState(true);
   const [running, setRunning] = useState(false);
