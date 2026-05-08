@@ -8,7 +8,7 @@
  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
  import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
- import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+   import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
   import InsuranceHubLinks from "@/components/InsuranceHubLinks";
   import StickyQuoteBar from "@/components/StickyQuoteBar";
   import FormCTASection from "@/components/FormCTASection";
@@ -73,12 +73,22 @@ const HubVidaSaude = () => {
                Acesso aos melhores hospitais de Guarulhos. Comparamos 20 operadoras — Amil, Bradesco Saúde, SulAmérica e MedSenior — para encontrar o plano perfeito para você ou sua empresa.
              </p>
              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               <Link to="/planos-de-saude" onClick={() => trackInternalLinkClick("hub-vida-saude:hero", "/planos-de-saude")}>
+               <Link to="/planos-de-saude" onClick={() => trackInternalLinkClick({
+                 source: buildInternalLinkSource("hub", "vida-saude"),
+                 destination: "/planos-de-saude",
+                 label: "Ver Planos de Saúde",
+                 placement: "cta-block"
+               })}>
                  <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
                    Ver Planos de Saúde
                  </Button>
                </Link>
-               <Link to="/seguro-vida" onClick={() => trackInternalLinkClick("hub-vida-saude:hero", "/seguro-vida")}>
+               <Link to="/seguro-vida" onClick={() => trackInternalLinkClick({
+                 source: buildInternalLinkSource("hub", "vida-saude"),
+                 destination: "/seguro-vida",
+                 label: "Seguro de Vida",
+                 placement: "cta-block"
+               })}>
                  <Button size="lg" className="rounded-xl h-12 px-8 text-sm bg-white/10 border border-white/20 text-white hover:bg-white/20">
                    Seguro de Vida
                  </Button>
