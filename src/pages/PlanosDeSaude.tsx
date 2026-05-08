@@ -1,6 +1,121 @@
 import { Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { CheckCircle, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, Phone, MessageCircle, ArrowRight, Building2, FlaskConical, Stethoscope } from "lucide-react";
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-center mb-4">Rede Credenciada em Guarulhos e Região</h2>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Trabalhamos com operadoras que oferecem atendimento nos melhores estabelecimentos de saúde da região. Confira alguns exemplos:
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 text-primary mb-2">
+                  <Building2 className="h-6 w-6" />
+                  <h3 className="text-xl font-bold">Hospitais</h3>
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Hospital Stella Maris</span>
+                      <p className="text-sm text-muted-foreground">Referência em Guarulhos com atendimento completo.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Hospital Carlos Chagas</span>
+                      <p className="text-sm text-muted-foreground">Excelência em pronto-atendimento e internação.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Hospital Ipiranga Guarulhos</span>
+                      <p className="text-sm text-muted-foreground">Rede própria de grandes operadoras como a GNDI.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Hospitais Premium (SP)</span>
+                      <p className="text-sm text-muted-foreground">Sírio-Libanês e Einstein (conforme plano escolhido).</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 text-primary mb-2">
+                  <FlaskConical className="h-6 w-6" />
+                  <h3 className="text-xl font-bold">Laboratórios</h3>
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Laboratório Delboni</span>
+                      <p className="text-sm text-muted-foreground">Unidades modernas em Guarulhos e São Paulo.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Lavoisier</span>
+                      <p className="text-sm text-muted-foreground">Capilaridade com diversas unidades na região.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Fleury</span>
+                      <p className="text-sm text-muted-foreground">Medicina diagnóstica de alta precisão (Planos Premium).</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">CDB / Salomão Zoppi</span>
+                      <p className="text-sm text-muted-foreground">Ampla rede de exames de imagem e laboratoriais.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 text-primary mb-2">
+                  <Stethoscope className="h-6 w-6" />
+                  <h3 className="text-xl font-bold">Clínicas e Especialidades</h3>
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Centros Médicos Próprios</span>
+                      <p className="text-sm text-muted-foreground">Estruturas exclusivas da Amil, GNDI e Porto Saúde.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Clínicas de Especialidades</span>
+                      <p className="text-sm text-muted-foreground">Atendimento em todas as áreas médicas no Cidade Maia.</p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <span className="font-semibold">Telemedicina 24h</span>
+                      <p className="text-sm text-muted-foreground">Consultas online imediatas em qualquer lugar.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { trackWhatsAppClick } from "@/lib/tracking";
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
