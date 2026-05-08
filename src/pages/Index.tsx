@@ -312,8 +312,10 @@ const faqs = [
  
  
          {/* Sobre */}
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center">
+         <LazySection minHeight="400px">
+         <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
+           <div className="container mx-auto px-4">
+             <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
               <h2 id="sobre-heading" className="mt-3 mb-6">Sua corretora de seguros<br className="hidden sm:block" /> no Cidade Maia, Guarulhos</h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
