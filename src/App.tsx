@@ -138,6 +138,7 @@ const NichoMotoristasApp = lazy(() => import("./pages/NichoMotoristasApp"));
 const Depoimentos = lazy(() => import("./pages/Depoimentos"));
 const SegurosQuotePage = lazy(() => import("./pages/SegurosQuotePage"));
 const SegurosGuarulhosBairros = lazy(() => import("./pages/SegurosGuarulhosBairros"));
+const SeoHubBairrosGuarulhos = lazy(() => import("./pages/SeoHubBairrosGuarulhos"));
  const HubSegurosGuarulhos = lazy(() => import("./pages/HubSegurosGuarulhos"));
  const HubVeiculos = lazy(() => import("./pages/HubVeiculos"));
  const HubEmpresarial = lazy(() => import("./pages/HubEmpresarial"));
@@ -245,6 +246,7 @@ const App = () => (
             <Route path="/seguro-empresa-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
             <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaGuarulhos />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
+            <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
             {/* SEO local — bairros e páginas comerciais (data-driven) */}
             <Route path="/cotacao-seguro-auto-guarulhos" element={<SeoLocalPage slug="cotacao-seguro-auto-guarulhos" />} />
             <Route path="/melhor-corretora-de-seguros-guarulhos" element={<SeoLocalPage slug="melhor-corretora-de-seguros-guarulhos" />} />
