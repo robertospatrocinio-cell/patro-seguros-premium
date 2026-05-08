@@ -174,9 +174,20 @@ const LocalPageTemplate = (props: LocalPageProps) => {
   } = props;
 
   const canonicalUrl = `https://www.patroseguros.com.br/${slug}`;
-  const whatsappUrl = buildWhatsAppUrl(
-    whatsappMessage ?? `Olá! Vim pela página ${title} e gostaria de uma cotação.`,
-  );
+  const effectiveWhatsAppMessage =
+    whatsappMessage ?? `Olá! Vim pela página ${title} e gostaria de uma cotação.`;
+  const whatsappUrl = buildWhatsAppUrl(effectiveWhatsAppMessage);
+
+  // Configura o botão flutuante global (`WhatsAppButton`) com a mensagem
+  // pré-preenchida e o tracking label específico desta página local.
+  // Cleanup garante que páginas não-locais voltem ao default ao navegar.
+  useEffect(() => {
+    setWhatsAppOverride({
+      message: effectiveWhatsAppMessage,
+      trackingLabel: `local-page:${slug}:floating`,
+    });
+    return () => clearWhatsAppOverride();
+  }, [slug, effectiveWhatsAppMessage]);
 
   // Dev guardrails (não aparecem em produção)
   useEffect(() => {
