@@ -6,6 +6,7 @@ import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
 import { generateSitemapBundle } from "./scripts/generate-sitemap";
 import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
+import { validatePageMeta } from "./scripts/validate-page-meta.mjs";
 import { loadDataModule } from "./scripts/load-data-module.mjs";
 
 // Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
@@ -99,6 +100,22 @@ function validateLocalPagesPlugin(): Plugin {
   };
 }
 
+// Plugin to validate that every <PageMeta description="..."> across the
+// codebase stays within the 160-char SEO limit. Mirrors validate-local-pages
+// but covers all hand-authored pages (institutional, niche, landing, etc).
+function validatePageMetaPlugin(): Plugin {
+  return {
+    name: "validate-page-meta",
+    async buildStart() {
+      try {
+        await validatePageMeta();
+      } catch (err) {
+        this.error(err instanceof Error ? err.message : String(err));
+      }
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -138,6 +155,7 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && sitemapPlugin(),
     mode === "production" && spaFallbackPlugin(),
     validateLocalPagesPlugin(),
+    validatePageMetaPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {

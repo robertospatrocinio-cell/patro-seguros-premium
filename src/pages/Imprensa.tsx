@@ -118,7 +118,7 @@ const Imprensa = () => {
     <>
       <PageMeta
         title="Sala de Imprensa — Patro Seguros, corretora em Guarulhos/SP"
-        description="Sala de imprensa da Patro Seguros: porta-vozes, pautas sugeridas (galpões, agro, seguro auto Guarulhos, saúde), contato direto e fact-sheet com dados da corretora no Cidade Maia."
+        description="Sala de imprensa Patro Seguros: porta-vozes, pautas (galpões, agro, auto, saúde), contato e fact-sheet da corretora no Cidade Maia."
       />
       <FAQSchema faqs={FAQS} />
       <Header />

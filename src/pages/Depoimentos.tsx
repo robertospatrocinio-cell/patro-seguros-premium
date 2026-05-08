@@ -143,7 +143,7 @@ const Depoimentos = () => {
     <>
       <PageMeta
         title="Depoimentos de Clientes"
-        description="Veja o que nossos clientes dizem sobre a Patro Seguros. Depoimentos reais de empresários, médicos, produtores rurais e famílias protegidas em Guarulhos e região."
+        description="Depoimentos reais de clientes Patro Seguros: empresários, médicos, produtores rurais e famílias protegidas em Guarulhos e região."
       />
       <Header />
       <main id="main-content">

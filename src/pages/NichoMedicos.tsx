@@ -39,7 +39,7 @@ const NichoMedicos = () => (
   <>
     <PageMeta
       title="Seguros para Médicos e Clínicas | Patro Seguros"
-      description="Seguros especializados para médicos, dentistas, clínicas e profissionais da saúde em Guarulhos e SP. RC Médico, Seguro Empresarial, Plano de Saúde. Cotação grátis."
+      description="Seguros para médicos, dentistas e clínicas em Guarulhos e SP: RC Médico, Empresarial e Plano de Saúde. Cotação grátis com a Patro."
     />
     <FAQSchema faqs={faqs} />
     <Header />

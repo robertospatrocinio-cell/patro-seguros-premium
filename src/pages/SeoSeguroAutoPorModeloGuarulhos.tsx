@@ -57,7 +57,7 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
   <>
     <PageMeta
       title="Seguro Auto por Modelo em Guarulhos — Cotação por Carro 2026"
-      description="Cotação de seguro auto por modelo em Guarulhos: Corolla, Civic, HB20, Onix, T-Cross, Compass, Hilux, Strada, Renegade e Mobi. Compare seguradoras por marca/modelo."
+      description="Cotação de seguro auto por modelo em Guarulhos: Corolla, Civic, HB20, Onix, T-Cross, Compass, Hilux, Strada, Renegade e Mobi. Compare seguradoras."
     />
     <FAQSchema faqs={FAQS} />
     <Header />

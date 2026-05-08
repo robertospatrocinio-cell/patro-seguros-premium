@@ -11,7 +11,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 const CotacaoSeguroAuto = () => {
   return (
     <>
-      <PageMeta title="Cotação Seguro Auto – Guarulhos, Cidade Maia" description="Faça sua cotação de seguro auto online com a Patro Seguros no Cidade Maia, Guarulhos. Compare preços de Porto, Tokio Marine, Allianz e mais. Resposta em até 2 horas." />
+      <PageMeta title="Cotação Seguro Auto – Guarulhos, Cidade Maia" description="Cotação de seguro auto online no Cidade Maia, Guarulhos. Compare Porto, Tokio Marine, Allianz e mais. Resposta em até 2h com a Patro Seguros." />
       <Header />
       <main id="main-content">
         <section className="gradient-hero py-20">

@@ -126,7 +126,7 @@ const ParceirosLocais = () => {
     <>
       <PageMeta
         title="Parceiros Locais — Programa de Indicação e Backlinks em Guarulhos"
-        description="Programa Parceiros Locais da Patro Seguros: oficinas, autoescolas, concessionárias, imobiliárias, clínicas e empresas de rastreamento em Guarulhos. Indicação mútua e troca de backlinks contextuais."
+        description="Programa Parceiros Locais Patro Seguros: oficinas, autoescolas, concessionárias, imobiliárias e clínicas em Guarulhos. Indicação mútua e backlinks."
       />
       <FAQSchema faqs={FAQS} />
       <Header />
