@@ -6,10 +6,10 @@ const LandingSeguroGalpoes = () => (
     heroImage={heroImg}
     title="Seguro de Galpões"
     heroEmoji="🏭"
-    headline="Seu galpão vale milhões. E está protegido por quanto?"
-    subheadline="Incêndio, roubo, danos elétricos, RC e lucros cessantes. Proteja seu galpão industrial, logístico ou comercial com as melhores seguradoras."
-    metaDescription="Seguro de Galpões Industriais e Logísticos. Proteção contra incêndio, roubo e RC. Cotação gratuita. Patro Seguros Guarulhos."
-    ctaText="Cotar Seguro do Meu Galpão"
+    headline="Seguro de Galpões: A Blindagem Estratégica para o Coração da sua Logística"
+    subheadline="Em hubs como Guarulhos, um sinistro não interrompe apenas uma operação local, mas compromete toda uma cadeia de suprimentos. Sua operação está realmente protegida?"
+    metaDescription="Seguro de Galpão Logístico em Guarulhos. Blindagem estratégica contra incêndio, roubo, danos elétricos e lucros cessantes. Solicite análise de risco."
+    ctaText="Solicitar Análise de Risco"
     urgencyText="Incêndios em galpões causam prejuízos milionários"
     priceAnchor="Valores sob medida para seu patrimônio"
     guaranteeText="Visitamos seu galpão (se necessário), analisamos os riscos e apresentamos no mínimo 3 propostas comparativas. 100% gratuito."
@@ -28,9 +28,9 @@ const LandingSeguroGalpoes = () => (
     benefits={[
       { icon: "🔥", title: "Incêndio e explosão", description: "Proteção total para estrutura, estoque, máquinas e conteúdo. Cobre reconstrução completa do galpão." },
       { icon: "🔒", title: "Roubo de mercadorias", description: "Estoque, matéria-prima, produtos acabados — tudo protegido contra arrombamento e furto qualificado." },
-      { icon: "⚡", title: "Danos elétricos", description: "Curto-circuito em equipamentos, queima de painéis elétricos, sobrecarga. Proteja seu maquinário." },
-      { icon: "📉", title: "Lucros cessantes", description: "Se o galpão parar por sinistro, o seguro cobre seu faturamento mensal durante a recuperação." },
-      { icon: "⚖️", title: "RC do proprietário", description: "Acidentes com funcionários, visitantes ou vizinhos dentro ou ao redor do galpão? O seguro cobre." },
+      { icon: "⚡", title: "Danos elétricos", description: "Proteção crítica para galpões automatizados: esteiras, servidores, CLPs e painéis elétricos." },
+      { icon: "📉", title: "Lucros cessantes", description: "Garante o pagamento de despesas fixas e o lucro que deixou de ser gerado durante o período de reparo." },
+      { icon: "⚖️", title: "RC Operações", description: "Proteção contra danos a terceiros, prestadores e bens de clientes no perímetro do hub logístico." },
       { icon: "🌊", title: "Vendaval e alagamento", description: "Telhado arrancado pelo vento? Enchente danificou estoque? Coberturas específicas para riscos climáticos." },
     ]}
     testimonials={[

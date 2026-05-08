@@ -61,36 +61,36 @@ const SeguroGalpao = () => {
     <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro de Galpão"
-       subtitle="Seguro de galpão alugado ou próprio: segurança para quem investe e para quem opera. Especialistas em Guarulhos e atendimento nacional via 9 seguradoras."
-       description="O Seguro de Galpão da Patro Seguros é um dos pilares da nossa especialização. No mercado imobiliário logístico, a verdadeira tranquilidade vem de uma apólice que protege tanto o proprietário (locador) quanto o inquilino (locatário). Entendemos que cada lado tem necessidades distintas, mas um objetivo comum: a preservação do patrimônio e a continuidade da operação. Mantemos mais de 140 apólices ativas em polos como Guarulhos e Cumbica, com suporte para galpões industriais e logísticos em todo o Brasil."
+      title="Seguro de Galpão Logístico"
+       subtitle="Blindagem Estratégica para o Coração da sua Logística. Sua operação está realmente protegida contra interrupções?"
+       description="O Seguro de Galpão Logístico da Patro Seguros é desenhado para converter riscos imprevistos em previsibilidade financeira. Para empresas que dependem de armazenagem e distribuição, o galpão é onde o faturamento acontece. Em regiões de alta densidade como Guarulhos, um sinistro não interrompe apenas uma operação local, mas pode comprometer toda uma cadeia de suprimentos."
        icon="🏗️"
-       metaDescription="Seguro de Galpão alugado ou próprio. Proteção para locador (investimento) e locatário (operação). Especialistas em Guarulhos e Cumbica. Cotação grátis em 2h."
-       detailedDescription="O seguro de galpão alugado não é apenas uma obrigação contratual, mas uma ferramenta de segurança jurídica fundamental. Nossa abordagem conciliadora analisa o contrato de locação para garantir que a apólice atenda exatamente ao que foi acordado, eliminando sobreposições ou lacunas de proteção que podem causar prejuízos em sinistros."
-       importantDetails={[
-         {
-           title: "Para o Proprietário (Locador): Proteção do Investimento",
-           content: "O galpão é o seu ativo. Garantimos coberturas de incêndio, queda de raio e explosão para reconstrução do imóvel, além de perda de aluguel para manter seu fluxo de caixa enquanto o imóvel estiver em reforma após um sinistro."
-         },
-         {
-           title: "Para o Inquilino (Locatário): Continuidade e Conformidade",
-           content: "Protegemos seus estoques, móveis e maquinários (conteúdo). Incluímos a Responsabilidade Civil Locatário, salvaguardando sua empresa caso cause danos acidentais à estrutura do galpão, garantindo o cumprimento do contrato de aluguel."
-         },
-         {
-           title: "O Ponto de Equilíbrio da Patro",
-           content: "Ajustamos a Cláusula de Beneficiário: em caso de dano à estrutura, a indenização vai para o dono do imóvel; em caso de dano ao estoque ou interrupção de negócios, a indenização vai para o inquilino. Analisamos seu contrato para validar todas as cláusulas de seguro."
-         }
+       metaDescription="Seguro de Galpão Logístico em Guarulhos. Blindagem estratégica para condomínios logísticos, proprietários e inquilinos. Cotação e análise de risco rápida."
+       detailedDescription="No mercado imobiliário logístico, a verdadeira tranquilidade vem de uma apólice que protege tanto o proprietário (locador) quanto o inquilino (locatário). Nossa consultoria avalia o contrato de locação para garantir que as cláusulas de seguro atendam exatamente ao que foi acordado, evitando multas e lacunas de proteção. Para galpões de grande porte, oferecemos apólices robustas de Riscos Nomeados e Operacionais (All-risks)."
+        importantDetails={[
+          {
+            title: "Análise de Risco em Hubs Logísticos",
+            content: "Estar em Guarulhos exige análise específica: proximidade com o aeroporto (GRU), rodovias Dutra/Fernão Dias e sistemas de combate a incêndio (Sprinklers e Hidrantes) que reduzem o custo da apólice."
+          },
+          {
+            title: "Ponto de Equilíbrio: Proprietário vs Inquilino",
+            content: "Ajustamos a Cláusula de Beneficiário para que indenizações estruturais vão ao locador e indenizações de estoque/lucros ao locatário, validando todas as cláusulas contratuais."
+          },
+          {
+            title: "Nota Técnica: Riscos Operacionais",
+            content: "Para galpões Classe A e operações complexas, implementamos apólices de Riscos Nomeados e Operacionais (All-risks), oferecendo a proteção mais robusta do mercado."
+          }
+        ]}
+       coverages={[
+         { title: "Incêndio, Raio e Explosão", description: "Proteção essencial para garantir a reconstrução física do imóvel e preservação do ativo." },
+         { title: "Lucros Cessantes", description: "Se o galpão parar, o seguro cobre as despesas fixas e o lucro cessante durante o período de reparo." },
+         { title: "Danos Elétricos", description: "Cobertura crítica para galpões automatizados com esteiras, CLPs, servidores e sistemas WMS." },
+         { title: "RC Operações", description: "Proteção contra danos a terceiros, prestadores e bens de clientes no perímetro do imóvel." },
+         { title: "Vendaval e Granizo", description: "Essencial para estruturas de grandes metragens de telhado, comuns em hubs logísticos." },
+         { title: "RC Armazenagem", description: "Indispensável para 3PL e fulfillment. Cobre danos à mercadoria de terceiros sob sua custódia." },
+         { title: "Roubo e Furto Qualificado", description: "Proteção para estoques de alto valor, maquinários e equipamentos contra subtração mediante arrombamento." },
+         { title: "RC Ambiental", description: "Vazamentos ou contaminação por produtos químicos e combustíveis. Cobertura crítica para logística pesada." },
        ]}
-      coverages={[
-        { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória do imóvel e bens. Inclui despesas de combate, salvamento e remoção de escombros após sinistro." },
-        { title: "Roubo e Furto Qualificado", description: "Mercadoria, equipamentos e bens subtraídos mediante arrombamento ou grave ameaça. Cobertura essencial em galpões com mercadoria de alto valor." },
-        { title: "RC Armazenagem (Mercadoria de Terceiros)", description: "Indispensável para 3PL, fulfillment e operadores logísticos. Cobre danos à mercadoria de clientes sob custódia durante o armazenamento." },
-        { title: "Danos Elétricos e Equipamentos", description: "Empilhadeiras elétricas, leitores de código, balanças, servidores, sistemas WMS e CFTV danificados por curto-circuito ou sobretensão." },
-        { title: "RC Operações", description: "Responsabilidade civil por danos materiais e corporais a motoristas de carreta, vistoriadores, prestadores e visitantes dentro do galpão." },
-        { title: "Lucros Cessantes (até 12 meses)", description: "Indenização do faturamento perdido durante reconstrução. Mantém a empresa viva enquanto o galpão é reformado após sinistro coberto." },
-        { title: "Vendaval, Alagamento e Fumaça", description: "Cobertura para danos por vendaval, granizo, fumaça e alagamento por chuva intensa — fenômenos cada vez mais comuns no Brasil." },
-        { title: "RC Ambiental (cargas perigosas)", description: "Vazamentos, derramamentos e contaminação por produtos químicos, combustíveis e cargas perigosas. Multas ambientais podem ultrapassar R$ 50 milhões." },
-      ]}
       whoNeeds={[
         "Operadores logísticos (3PL, 4PL) e empresas de fulfillment em todo o Brasil",
         "Indústrias químicas, alimentícias, metalúrgicas e plásticas com galpão próprio",
@@ -101,13 +101,13 @@ const SeguroGalpao = () => {
         "Construtoras com galpões de obra e canteiros temporários",
       ]}
       whyPatro={[
-        "Mais de 140 apólices de galpão ativas — especialistas no segmento desde 2008",
-        "Especialização hiperlocal em Guarulhos/Cumbica + atendimento nacional via 9 seguradoras",
-        "Vistoria técnica gratuita pré-cotação para galpões acima de R$ 5 mi de LMI",
-        "Comparativo entre 9 seguradoras especializadas em risco patrimonial pesado",
+        "Consultoria para validação de cláusulas de seguro em contratos de locação",
+        "Especialização em hubs como Guarulhos/Cumbica + atendimento nacional via 9 seguradoras",
+        "Análise de risco técnica e vistoria gratuita para galpões de grande porte",
+        "Mais de 140 apólices ativas — especialistas no segmento logístico desde 2008",
         "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
-        "Pacote integrado galpão + transporte (RCTR-C/RCF-DC) para cobrir armazenagem e trânsito",
-        "Dimensionamento técnico de LMI com cláusula de pico sazonal (Black Friday e fim de ano)",
+        "Dimensionamento de LMI com cláusula de pico sazonal (Black Friday e fim de ano)",
+        "Implementação de apólices All-risks para operações de alta complexidade",
       ]}
       faqs={HUB_FAQS}
       relatedInsurances={[
