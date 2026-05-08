@@ -92,6 +92,9 @@ Atendemos motoristas de Guarulhos com perfil completo: quem dirige por Uber em t
       { title: "Seguro Frota Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
       { title: "Seguro Vida Guarulhos", link: "/seguro-vida-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/corretora-seguros-guarulhos" },
+      { title: "Seguro de Frota", link: "/seguro-frota" },
+      { title: "Soluções para Motoristas de App", link: "/seguros/motoristas-app" },
+      { title: "Soluções para Transportadoras", link: "/seguros/transportadoras" },
     ]}
   />
 );

@@ -92,6 +92,9 @@ Para frotas acima de 20 veículos, negociamos condições especiais que incluem 
       { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
       { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/" },
+      { title: "Seguro Uber Guarulhos", link: "/seguro-uber-guarulhos" },
+      { title: "Seguro Motorista de App Guarulhos", link: "/seguro-para-motorista-app-guarulhos" },
+      { title: "Soluções para Transportadoras", link: "/seguros/transportadoras" },
     ]}
   />
 );

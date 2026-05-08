@@ -99,6 +99,9 @@ Na Patro Seguros, analisamos toda a cadeia logística da sua operação para rec
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Seguro Responsabilidade Civil", link: "/seguro-rc" },
         { title: "Seguro Ambiental", link: "/seguro-ambiental" },
+        { title: "Seguro para Motorista de App", link: "/seguro-motorista-app" },
+        { title: "Soluções para Transportadoras", link: "/seguros/transportadoras" },
+        { title: "Soluções para Motoristas de App", link: "/seguros/motoristas-app" },
       ]}
     />
   );

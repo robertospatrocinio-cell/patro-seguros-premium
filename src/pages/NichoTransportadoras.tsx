@@ -25,6 +25,8 @@ const seguros = [
   { title: "RC do Transportador", desc: "Responsabilidade civil por danos a cargas, terceiros e meio ambiente.", link: "/seguro-rc" },
   { title: "Seguro Empresarial", desc: "Proteção do patrimônio: galpões, escritórios e equipamentos.", link: "/seguro-empresarial" },
   { title: "Seguro de Vida para Motoristas", desc: "Proteção para a equipe de motoristas e colaboradores.", link: "/seguro-vida-pme" },
+  { title: "Seguro para Motorista de App", desc: "Para frotistas que também operam Uber, 99 e iFood — declaração de uso correta na apólice.", link: "/seguro-motorista-app" },
+  { title: "Hub Motoristas de Aplicativo", desc: "Soluções específicas para quem dirige por app — auto, vida, RC passageiros e celular.", link: "/seguros/motoristas-app" },
 ];
 
 const dores = [

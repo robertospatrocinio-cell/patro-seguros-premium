@@ -92,6 +92,9 @@ Atendemos motoristas full-time (8-12h/dia), motoristas que complementam renda em
       { title: "Seguro Frota Empresas Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
       { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },
       { title: "Corretora Seguros Guarulhos", link: "/corretora-seguros-guarulhos" },
+      { title: "Seguro de Frota", link: "/seguro-frota" },
+      { title: "Seguro de Transporte (RCTR-C)", link: "/seguro-transporte" },
+      { title: "Soluções para Motoristas de App", link: "/seguros/motoristas-app" },
     ]}
   />
 );
