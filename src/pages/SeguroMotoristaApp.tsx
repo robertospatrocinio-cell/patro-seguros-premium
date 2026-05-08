@@ -115,6 +115,10 @@ Além da proteção patrimonial, o seguro para app inclui coberturas de Responsa
         { title: "Seguro Celular", link: "/seguro-celular" },
         { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },
         { title: "Seguro de Frota", link: "/seguro-frota" },
+        { title: "Seguro de Transporte", link: "/seguro-transporte" },
+        { title: "Soluções para Motoristas de App", link: "/seguros/motoristas-app" },
+        { title: "Soluções para Transportadoras", link: "/seguros/transportadoras" },
+        { title: "Seguro Uber Guarulhos", link: "/seguro-uber-guarulhos" },
       ]}
       quoteFormFields={[
         { id: "veiculo", label: "Veículo (Marca/Modelo/Ano)", placeholder: "Ex: Chevrolet Onix 2023" },
