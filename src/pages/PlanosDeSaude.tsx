@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { CheckCircle, Phone, MessageCircle, ArrowRight, Building2, FlaskConical, Stethoscope } from "lucide-react";
+import { CheckCircle, Phone, MessageCircle, ArrowRight, Building2, FlaskConical, Stethoscope, UserPlus, Users } from "lucide-react";
+import StickyQuoteBar from "@/components/StickyQuoteBar";
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-center mb-4">Rede Credenciada em Guarulhos e Região</h2>
@@ -233,22 +234,37 @@ const PlanosDeSaude = () => {
           </div>
         </section>
 
-        {/* Formulário Rápido */}
-        <section className="py-16">
-          <div className="container mx-auto px-4 max-w-xl">
-            <Suspense fallback={<div className="h-[420px] rounded-xl border bg-muted/30 animate-pulse" />}>
-              <QuickQuoteForm
-                insuranceType="Plano de Saúde"
-                trackingLabel="plano-saude"
-                extraFields={[
-                  { id: "tipo", label: "Tipo de plano", placeholder: "Selecione", type: "select", options: ["Individual / Familiar", "Empresarial (PME)", "Empresarial (grande empresa)", "Adesão"] },
-                  { id: "vidas", label: "Quantidade de vidas", placeholder: "Selecione", type: "select", options: ["1 pessoa", "2 a 5 pessoas", "6 a 29 pessoas", "30 a 99 pessoas", "100+ pessoas"] },
-                  { id: "cidade", label: "Cidade", placeholder: "Ex: Guarulhos" },
-                ]}
-              />
-            </Suspense>
+        {/* Formulário de Cotação Rápida Segmentado */}
+        <section id="cotacao-saude" className="py-16 bg-primary/5">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center justify-center p-3 bg-primary/10 rounded-full mb-4">
+                  <UserPlus className="h-8 w-8 text-primary" />
+                </div>
+                <h2 className="mb-4">Receba um Comparativo Personalizado</h2>
+                <p className="text-muted-foreground text-lg">
+                  Informe o perfil dos beneficiários para recebermos a rede credenciada e os valores exatos em minutos.
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-1 max-w-2xl mx-auto">
+                <Suspense fallback={<div className="h-[500px] rounded-xl border bg-muted/30 animate-pulse" />}>
+                  <QuickQuoteForm
+                    insuranceType="Plano de Saúde Segmentado"
+                    trackingLabel="plano-saude-premium"
+                    extraFields={[
+                      { id: "tipo", label: "Tipo de Plano", placeholder: "Selecione", type: "select", options: ["Individual / Familiar", "Empresarial (MEI / PME)", "Adesão / Profissional Liberal", "Idosos (Sênior)"] },
+                      { id: "bairro", label: "Seu Bairro em Guarulhos ou Cidade", placeholder: "Ex: Cidade Maia, Guarulhos" },
+                      { id: "idades", label: "Faixas Etárias / Composição Familiar", placeholder: "Ex: 1 adulto (35 anos) + 1 criança (5 anos)" },
+                    ]}
+                  />
+                </Suspense>
+              </div>
+            </div>
           </div>
         </section>
+
 
         <section className="py-16 bg-muted">
           <div className="container mx-auto px-4 max-w-3xl">
@@ -269,6 +285,12 @@ const PlanosDeSaude = () => {
           </div>
         </section>
       </main>
+      <StickyQuoteBar 
+        source="planos-saude" 
+        quoteHref="#cotacao-saude" 
+        ctaLabel="Cotação Rápida" 
+        whatsappMessage="Olá! Gostaria de uma cotação de Plano de Saúde em Guarulhos para minha família."
+      />
       <Footer />
       <ExitIntentPopup />
     </>
