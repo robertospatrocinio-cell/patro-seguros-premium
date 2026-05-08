@@ -1076,8 +1076,6 @@ seoLocalPages["seguro-auto-vila-galvao"] = {
   ],
 };
 
-export const seoLocalPageSlugs = Object.keys(seoLocalPages);
-
 /* ---------- CLUSTER EMPRESAS (Sprint Empresas) ---------- */
 
 const seguroRestauranteGuarulhos: SeoLocalPageConfig = {
@@ -1305,9 +1303,7 @@ Object.assign(seoLocalPages, {
   [seguroFrotaPequenaGuarulhos.slug]: seguroFrotaPequenaGuarulhos,
 });
 
-// Refresh slugs export to include the new commercial pages.
-(seoLocalPageSlugs as string[]).length = 0;
-(seoLocalPageSlugs as string[]).push(...Object.keys(seoLocalPages));
+export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
 
 // Suppress unused-import warning when consumers tree-shake
