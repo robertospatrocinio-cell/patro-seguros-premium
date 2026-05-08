@@ -61,12 +61,12 @@ const SeguroGalpao = () => {
     <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro de Galpão"
-       subtitle="Seguro de galpão alugado ou próprio: segurança para quem investe e para quem opera. Especialistas em Guarulhos e atendimento nacional via 9 seguradoras."
-       description="O Seguro de Galpão da Patro Seguros é um dos pilares da nossa especialização. No mercado imobiliário logístico, a verdadeira tranquilidade vem de uma apólice que protege tanto o proprietário (locador) quanto o inquilino (locatário). Entendemos que cada lado tem necessidades distintas, mas um objetivo comum: a preservação do patrimônio e a continuidade da operação. Mantemos mais de 140 apólices ativas em polos como Guarulhos e Cumbica, com suporte para galpões industriais e logísticos em todo o Brasil."
+      title="Seguro de Galpão Logístico"
+       subtitle="Blindagem Estratégica para o Coração da sua Logística. Sua operação está realmente protegida contra interrupções?"
+       description="O Seguro de Galpão Logístico da Patro Seguros é desenhado para converter riscos imprevistos em previsibilidade financeira. Para empresas que dependem de armazenagem e distribuição, o galpão é onde o faturamento acontece. Em regiões de alta densidade como Guarulhos, um sinistro não interrompe apenas uma operação local, mas pode comprometer toda uma cadeia de suprimentos."
        icon="🏗️"
-       metaDescription="Seguro de Galpão alugado ou próprio. Proteção para locador (investimento) e locatário (operação). Especialistas em Guarulhos e Cumbica. Cotação grátis em 2h."
-       detailedDescription="O seguro de galpão alugado não é apenas uma obrigação contratual, mas uma ferramenta de segurança jurídica fundamental. Nossa abordagem conciliadora analisa o contrato de locação para garantir que a apólice atenda exatamente ao que foi acordado, eliminando sobreposições ou lacunas de proteção que podem causar prejuízos em sinistros."
+       metaDescription="Seguro de Galpão Logístico em Guarulhos. Blindagem estratégica para condomínios logísticos, proprietários e inquilinos. Cotação e análise de risco rápida."
+       detailedDescription="No mercado imobiliário logístico, a verdadeira tranquilidade vem de uma apólice que protege tanto o proprietário (locador) quanto o inquilino (locatário). Nossa consultoria avalia o contrato de locação para garantir que as cláusulas de seguro atendam exatamente ao que foi acordado, evitando multas e lacunas de proteção. Para galpões de grande porte, oferecemos apólices robustas de Riscos Nomeados e Operacionais (All-risks)."
        importantDetails={[
          {
            title: "Para o Proprietário (Locador): Proteção do Investimento",
