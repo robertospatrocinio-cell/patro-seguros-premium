@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -107,12 +106,7 @@ export default function PagespeedHistory() {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Histórico PageSpeed | Patro Seguros</title>
-        <meta name="robots" content="noindex,nofollow" />
-      </Helmet>
-      <main className="container mx-auto px-4 py-10 max-w-6xl">
+    <main className="container mx-auto px-4 py-10 max-w-6xl">
         <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
           <div>
             <h1 className="text-3xl font-bold">Histórico PageSpeed Insights</h1>
@@ -216,7 +210,6 @@ export default function PagespeedHistory() {
             </Card>
           </>
         )}
-      </main>
-    </>
+    </main>
   );
 }
