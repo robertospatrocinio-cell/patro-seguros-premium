@@ -95,7 +95,7 @@ const NichoMotoristasApp = () => {
     <>
       <PageMeta
         title="Seguros para Motoristas de Aplicativo | Patro Seguros"
-        description="Seguros especializados para motoristas de Uber, 99 e inDrive em Guarulhos e região. Cobertura durante corridas, RC passageiros, carro reserva. Cotação grátis."
+        description="Seguros para Uber e 99 em Guarulhos. Cobertura durante corridas, RC passageiros e carro reserva. Proteja sua renda com quem entende de motorista de aplicativo."
       />
       <FAQSchema faqs={faqs} />
       <Header />

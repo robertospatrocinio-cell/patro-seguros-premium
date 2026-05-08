@@ -165,7 +165,7 @@ const faqs = [
 const PlanosDeSaude = () => {
   return (
     <>
-      <PageMeta title="Planos de Saúde em Guarulhos – Cidade Maia" description="Compare planos de saúde em Guarulhos, Cidade Maia. Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis para pessoa física e empresas. Patro Seguros." />
+      <PageMeta title="Planos de Saúde em Guarulhos – Cidade Maia" description="Compare planos de saúde em Guarulhos, Cidade Maia. Bradesco, Amil, SulAmérica e mais. Cotação grátis para pessoa física e empresas com a Patro Seguros." />
       <FAQSchema faqs={faqs} />
       <Header />
       <main id="main-content">
