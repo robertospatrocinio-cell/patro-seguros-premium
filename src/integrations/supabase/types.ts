@@ -77,6 +77,54 @@ export type Database = {
         }
         Relationships: []
       }
+      pagespeed_audits: {
+        Row: {
+          accessibility_score: number | null
+          best_practices_score: number | null
+          cls: number | null
+          created_at: string
+          fcp_ms: number | null
+          id: string
+          lcp_ms: number | null
+          performance_score: number | null
+          seo_score: number | null
+          speed_index_ms: number | null
+          strategy: string
+          tbt_ms: number | null
+          url: string
+        }
+        Insert: {
+          accessibility_score?: number | null
+          best_practices_score?: number | null
+          cls?: number | null
+          created_at?: string
+          fcp_ms?: number | null
+          id?: string
+          lcp_ms?: number | null
+          performance_score?: number | null
+          seo_score?: number | null
+          speed_index_ms?: number | null
+          strategy: string
+          tbt_ms?: number | null
+          url: string
+        }
+        Update: {
+          accessibility_score?: number | null
+          best_practices_score?: number | null
+          cls?: number | null
+          created_at?: string
+          fcp_ms?: number | null
+          id?: string
+          lcp_ms?: number | null
+          performance_score?: number | null
+          seo_score?: number | null
+          speed_index_ms?: number | null
+          strategy?: string
+          tbt_ms?: number | null
+          url?: string
+        }
+        Relationships: []
+      }
       purge_logs: {
         Row: {
           action: string
