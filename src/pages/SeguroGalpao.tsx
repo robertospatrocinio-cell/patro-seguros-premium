@@ -62,10 +62,25 @@ const SeguroGalpao = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro de Galpão"
-      subtitle="Hub nacional do Seguro de Galpão da Patro Seguros: especialistas em Guarulhos e Cumbica (maior polo logístico do Brasil) com atendimento em todo o território nacional via 9 seguradoras parceiras."
-      description="O Seguro de Galpão da Patro Seguros é um dos pilares da nossa especialização. Mantemos mais de 140 apólices de galpão ativas — concentradas em Guarulhos e Cumbica (entorno do GRU Airport, maior polo logístico do Brasil) — e atendemos operações em todos os estados via parcerias com Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco Riscos Patrimoniais, Sompo, Mapfre, Liberty e Zurich. Cobertura completa: incêndio, raio, explosão, roubo qualificado de mercadoria, RC operações, RC armazenagem (mercadoria de terceiros), equipamentos eletrônicos, lucros cessantes (até 12 meses), vendaval, alagamento e RC ambiental. Para galpões acima de R$ 5 milhões de LMI, oferecemos vistoria técnica gratuita pré-cotação."
-      icon="🏗️"
-      metaDescription="Seguro de Galpão — hub nacional Patro Seguros. Especialistas em Guarulhos/Cumbica e atendimento em todo o Brasil. Incêndio, roubo, RC armazenagem e lucros cessantes."
+       subtitle="Seguro de galpão alugado ou próprio: segurança para quem investe e para quem opera. Especialistas em Guarulhos e atendimento nacional via 9 seguradoras."
+       description="O Seguro de Galpão da Patro Seguros é um dos pilares da nossa especialização. No mercado imobiliário logístico, a verdadeira tranquilidade vem de uma apólice que protege tanto o proprietário (locador) quanto o inquilino (locatário). Entendemos que cada lado tem necessidades distintas, mas um objetivo comum: a preservação do patrimônio e a continuidade da operação. Mantemos mais de 140 apólices ativas em polos como Guarulhos e Cumbica, com suporte para galpões industriais e logísticos em todo o Brasil."
+       icon="🏗️"
+       metaDescription="Seguro de Galpão alugado ou próprio. Proteção para locador (investimento) e locatário (operação). Especialistas em Guarulhos e Cumbica. Cotação grátis em 2h."
+       detailedDescription="O seguro de galpão alugado não é apenas uma obrigação contratual, mas uma ferramenta de segurança jurídica fundamental. Nossa abordagem conciliadora analisa o contrato de locação para garantir que a apólice atenda exatamente ao que foi acordado, eliminando sobreposições ou lacunas de proteção que podem causar prejuízos em sinistros."
+       importantDetails={[
+         {
+           title: "Para o Proprietário (Locador): Proteção do Investimento",
+           content: "O galpão é o seu ativo. Garantimos coberturas de incêndio, queda de raio e explosão para reconstrução do imóvel, além de perda de aluguel para manter seu fluxo de caixa enquanto o imóvel estiver em reforma após um sinistro."
+         },
+         {
+           title: "Para o Inquilino (Locatário): Continuidade e Conformidade",
+           content: "Protegemos seus estoques, móveis e maquinários (conteúdo). Incluímos a Responsabilidade Civil Locatário, salvaguardando sua empresa caso cause danos acidentais à estrutura do galpão, garantindo o cumprimento do contrato de aluguel."
+         },
+         {
+           title: "O Ponto de Equilíbrio da Patro",
+           content: "Ajustamos a Cláusula de Beneficiário: em caso de dano à estrutura, a indenização vai para o dono do imóvel; em caso de dano ao estoque ou interrupção de negócios, a indenização vai para o inquilino. Analisamos seu contrato para validar todas as cláusulas de seguro."
+         }
+       ]}
       coverages={[
         { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória do imóvel e bens. Inclui despesas de combate, salvamento e remoção de escombros após sinistro." },
         { title: "Roubo e Furto Qualificado", description: "Mercadoria, equipamentos e bens subtraídos mediante arrombamento ou grave ameaça. Cobertura essencial em galpões com mercadoria de alto valor." },
