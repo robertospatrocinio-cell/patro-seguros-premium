@@ -1078,5 +1078,6 @@ seoLocalPages["seguro-auto-vila-galvao"] = {
 
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
+
 // Suppress unused-import warning when consumers tree-shake
 export type _UnusedComponentProps = ComponentProps<"div">;
