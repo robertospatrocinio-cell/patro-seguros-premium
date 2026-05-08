@@ -1,6 +1,85 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import { Building2, UserCircle, CheckCircle2 } from "lucide-react";
 import heroImg from "@/assets/lp-seguro-galpoes.webp";
 import LocalMapSection from "@/components/LocalMapSection";
+
+const LocadorVsLocatario = () => (
+  <section className="py-20 bg-muted/30 border-y">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-16">
+        <span className="section-label">Dualidade de Proteção</span>
+        <h2 className="mt-3">Locador vs. Locatário: Quem deve contratar?</h2>
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          Entenda as responsabilidades e por que ambas as partes precisam de proteção específica para evitar prejuízos catastróficos.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Locador */}
+        <div className="premium-card p-8 bg-background relative overflow-hidden group border-t-4 border-t-primary">
+          <Building2 className="absolute -right-4 -bottom-4 h-24 w-24 text-primary/5 group-hover:text-primary/10 transition-colors" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <Building2 className="h-6 w-6" />
+            </div>
+            <h3 className="text-xl font-bold">O Locador (Proprietário)</h3>
+          </div>
+          <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+            Sua prioridade é proteger o <span className="text-foreground font-semibold">patrimônio físico (prédio)</span> e garantir que a renda do aluguel não seja interrompida por um sinistro.
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3 text-sm">
+              <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+              <span>Cobertura para reconstrução total da estrutura.</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm">
+              <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+              <span>Garantia de perda de aluguel durante reformas.</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm">
+              <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+              <span>Proteção contra danos causados por fenômenos naturais.</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Locatário */}
+        <div className="premium-card p-8 bg-background relative overflow-hidden group border-t-4 border-t-blue-500">
+          <UserCircle className="absolute -right-4 -bottom-4 h-24 w-24 text-blue-500/5 group-hover:text-blue-500/10 transition-colors" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
+              <UserCircle className="h-6 w-6" />
+            </div>
+            <h3 className="text-xl font-bold">O Locatário (Inquilino)</h3>
+          </div>
+          <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+            Sua prioridade é proteger a <span className="text-foreground font-semibold">operação (conteúdo)</span> e cumprir as cláusulas obrigatórias do contrato de locação.
+          </p>
+          <ul className="space-y-3">
+            <li className="flex items-start gap-3 text-sm">
+              <CheckCircle2 className="h-5 w-5 text-blue-500 shrink-0" />
+              <span>Proteção total para estoque, máquinas e móveis.</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm">
+              <CheckCircle2 className="h-5 w-5 text-blue-500 shrink-0" />
+              <span>Responsabilidade Civil por danos ao imóvel locado.</span>
+            </li>
+            <li className="flex items-start gap-3 text-sm">
+              <CheckCircle2 className="h-5 w-5 text-blue-500 shrink-0" />
+              <span>Assistência 24h para manutenção emergencial.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div className="mt-12 text-center">
+        <p className="text-sm font-medium text-muted-foreground italic">
+          * Na maioria dos contratos em Guarulhos, o locatário é obrigado a contratar o seguro em nome do locador. Nós cuidamos dessa conformidade para você.
+        </p>
+      </div>
+    </div>
+  </section>
+);
 
 const warehouseRoutes = [
   {
@@ -36,11 +115,14 @@ const LandingSeguroGalpoes = () => (
     priceAnchor="Valores sob medida para seu patrimônio"
     guaranteeText="Visitamos seu galpão (se necessário), analisamos os riscos e apresentamos no mínimo 3 propostas comparativas. 100% gratuito."
     extraSections={
-      <LocalMapSection 
-        routes={warehouseRoutes} 
-        title="Atendimento Presencial em Hubs Logísticos"
-        description="Nossa proximidade com Cumbica, Vila Augusta e a sede no Maia garante agilidade na análise de risco e suporte em caso de sinistros."
-      />
+      <>
+        <LocadorVsLocatario />
+        <LocalMapSection 
+          routes={warehouseRoutes} 
+          title="Atendimento Presencial em Hubs Logísticos"
+          description="Nossa proximidade com Cumbica, Vila Augusta e a sede no Maia garante agilidade na análise de risco e suporte em caso de sinistros."
+        />
+      </>
     }
     painPoints={[
       "Seu galpão tem estoque de milhões e não tem proteção contra incêndio ou roubo?",
