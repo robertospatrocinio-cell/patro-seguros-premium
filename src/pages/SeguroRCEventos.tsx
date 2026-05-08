@@ -9,7 +9,7 @@ const SeguroRCEventos = () => {
       subtitle="Proteção para organizadores de eventos contra danos a participantes e ao local"
       icon="🎪"
       metaDescription="Seguro RC para Eventos e Exposições: proteção contra danos a terceiros em feiras, shows, congressos e eventos corporativos. Cotação grátis."
-      description="O Seguro de Responsabilidade Civil para Eventos e Exposições protege organizadores, promotores e expositores contra reclamações por danos materiais, corporais e morais causados a participantes, visitantes e ao local durante a realização do evento."
+      description="O Seguro RC Eventos protege organizadores contra danos a participantes e ao local. Garanta segurança jurídica em feiras e congressos com a Patro Seguros."
       detailedDescription={`Organizar um evento — seja uma feira comercial, congresso, show, exposição, festival, evento corporativo ou casamento de grande porte — envolve riscos significativos. Uma estrutura que desaba, um participante que se machuca, um incêndio no local, danos ao espaço alugado ou intoxicação alimentar são situações que podem gerar processos judiciais com indenizações altíssimas.
 
 O Seguro RC Eventos e Exposições é a proteção financeira que garante que o organizador não arque pessoalmente com prejuízos causados a terceiros durante o evento. A seguradora assume custos de defesa e indenizações por danos materiais, corporais e morais — desde a montagem até a desmontagem completa.
