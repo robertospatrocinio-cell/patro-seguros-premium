@@ -8,7 +8,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { trackWhatsAppClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
+ import { trackWhatsAppClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
+ import { useMemo } from "react";
 import SmartText from "@/components/SmartText";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 
@@ -105,10 +106,10 @@ const faqCategories = [
 
 const allFaqs = faqCategories.flatMap(cat => cat.faqs);
 
- const FAQ = () => {
-   const [search, setSearch] = useState("");
-   // Shared set to dedupe contextual keyword links across all FAQ blocks
-   const linkedKeywords = new Set<string>();
+  const FAQ = () => {
+    const [search, setSearch] = useState("");
+    // Shared set to dedupe contextual keyword links across all FAQ blocks
+    const linkedKeywords = useMemo(() => new Set<string>(), []);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const normalizedSearch = search.toLowerCase().trim();
