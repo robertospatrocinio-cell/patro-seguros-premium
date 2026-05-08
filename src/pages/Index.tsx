@@ -17,8 +17,9 @@ import OptimizedImage from "@/components/OptimizedImage";
 import LazySection from "@/components/LazySection";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
-// Lazy-load heavy below-fold components
-const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
+ import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
+ 
+ // Lazy-load heavy below-fold components
 const Footer = lazy(() => import("@/components/Footer"));
 const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
 const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
@@ -62,15 +63,14 @@ const faqs = [
   { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
 ];
 
-const Index = () => {
-
-  // Hide persistent hero background after React renders (it lives outside #root for LCP)
-  useEffect(() => {
-    const el = document.getElementById('persistent-hero-bg');
-    if (el) el.style.display = 'none';
-    return () => { if (el) el.style.display = ''; };
-  }, []);
-
+ const Index = () => {
+   // Hide persistent hero background after React renders (it lives outside #root for LCP)
+   useEffect(() => {
+     const el = document.getElementById('persistent-hero-bg');
+     if (el) el.style.display = 'none';
+     return () => { if (el) el.style.display = ''; };
+   }, []);
+ 
   return (
     <>
       <PageMeta title="Corretora de Seguros em Guarulhos – Cotação Grátis" description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500." />
@@ -89,9 +89,23 @@ const Index = () => {
       ]} />
       <Header />
       <main id="main-content">
-        {/* Hero */}
-        <section className="relative gradient-hero overflow-hidden" aria-label="Início">
-          {/* LCP background image is rendered persistently outside #root (see index.html #persistent-hero-bg) to avoid duplicate download and React hydration delay */}
+         {/* Hero - LCP candidate */}
+         <section className="relative gradient-hero overflow-hidden min-h-[420px] flex items-center" aria-label="Início">
+           {/* Match persistent background for seamless hydration */}
+           <div className="absolute inset-0 z-0">
+             <picture>
+               <source media="(max-width: 600px)" srcSet="/images/hero-home-sm.webp" type="image/webp" />
+               <img
+                 src="/images/hero-home.webp"
+                 alt=""
+                 width={960}
+                 height={540}
+                 className="w-full h-full object-cover opacity-15"
+                 fetchPriority="high"
+                 decoding="sync"
+               />
+             </picture>
+           </div>
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="mb-6 md:mb-8">
@@ -125,10 +139,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Insurance Hero Selector */}
-        <Suspense fallback={<div className="min-h-[520px] md:min-h-[600px] bg-muted animate-pulse" />}>
-          <InsuranceHeroSelector />
-        </Suspense>
+         {/* Insurance Hero Selector (eager loaded to avoid layout shifts on scroll) */}
+         <InsuranceHeroSelector />
 
         {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">
