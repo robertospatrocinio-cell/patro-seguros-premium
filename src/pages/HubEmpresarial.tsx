@@ -51,7 +51,7 @@ const HubEmpresarial = () => {
     <div className="min-h-screen flex flex-col">
       <PageMeta 
         title="Guia de Seguro Empresarial em Guarulhos: Proteção Completa para sua Empresa" 
-        description="Especialistas em seguro empresarial em Guarulhos. Proteção para galpões, indústrias, comércios e PMEs. Consultoria técnica e gestão de riscos em Cumbica e região." 
+        description="Especialistas em seguro empresarial em Guarulhos. Proteção para galpões, indústrias e PMEs. Consultoria técnica e gestão de riscos em Cumbica e região." 
       />
       <FAQSchema faqs={FAQS} />
       <AggregateRatingSchema
