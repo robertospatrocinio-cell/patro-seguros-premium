@@ -190,20 +190,24 @@ const productSpecific: Record<LocalProduct, (c: Ctx) => LocalFAQ[]> = {
   ],
   saude: (c) => [
     {
-      question: `Quais operadoras de ${c.productLabel} atendem o público do ${c.neighborhood}?`,
-      answer: `Trabalhamos com Amil, SulAmérica, Bradesco Saúde, Hapvida, GNDI, Porto Saúde e mais 14 operadoras. Todas oferecem rede credenciada em ${c.city}, incluindo hospitais como Stella Maris e Helios, com opções de atendimento em São Paulo capital para moradores do ${c.neighborhood}.`,
+      question: `Quais são as melhores opções de ${c.productLabel} para jovens no ${c.neighborhood}?`,
+      answer: `Para o público jovem no ${c.neighborhood}, recomendamos planos com foco em custo-benefício e ampla rede de laboratórios em ${c.city}. Operadoras como Amil e Porto Saúde oferecem carência zero para consultas e exames simples, além de programas de bem-estar digital via telemedicina.`,
     },
     {
-      question: `Como funciona o ${c.productLabel} para idosos e famílias no ${c.neighborhood}?`,
-      answer: `Para a terceira idade, priorizamos operadoras com programas de medicina preventiva e hospitais de excelência próximos a ${c.city}. Para famílias com crianças, focamos em planos com pronto-atendimento pediátrico 24h e rede de laboratórios capilarizada.`,
+      question: `Como escolher um ${c.productLabel} para famílias com crianças no ${c.neighborhood}?`,
+      answer: `Famílias do ${c.neighborhood} devem priorizar planos que incluam hospitais com pronto-atendimento pediátrico 24h em ${c.city}, como o Stella Maris. Verificamos carências reduzidas para partos e pediatria especializada nas 20 operadoras parceiras da Patro Seguros.`,
     },
     {
-      question: `Qual a carência para jovens e adultos no ${c.neighborhood}?`,
-      answer: `Jovens e adultos saudáveis no ${c.neighborhood} costumam ter carência zero para consultas e exames simples após a primeira mensalidade. Para cirurgias, internações e partos, as carências seguem o padrão da ANS (até 180 e 300 dias), mas analisamos reduções por portabilidade.`,
+      question: `Existem planos de saúde específicos para idosos no ${c.neighborhood}?`,
+      answer: `Sim, trabalhamos com operadoras especialistas na terceira idade (como MedSenior e Prevent Senior) que possuem rede credenciada focada em geriatria próxima ao ${c.neighborhood}. Esses planos costumam ter programas de medicina preventiva sem coparticipação para moradores de ${c.city}.`,
     },
     {
-      question: `Existe carência mesmo trocando de plano?`,
-      answer: `Em portabilidade entre operadoras o cliente do ${c.neighborhood} pode aproveitar carências já cumpridas — desde que o plano de origem esteja ativo há mais de 24 meses e a faixa de preço seja compatível. A Patro analisa essa elegibilidade gratuitamente.`,
+      question: `Qual é a rede credenciada de hospitais para quem mora no ${c.neighborhood}?`,
+      answer: `Os moradores do ${c.neighborhood} contam com atendimento nos principais hospitais de ${c.city}, como Stella Maris, Carlos Chagas e Hospital Ipiranga. Dependendo do plano escolhido, também há cobertura para hospitais de ponta em São Paulo capital, como o Sírio-Libanês ou Albert Einstein.`,
+    },
+    {
+      question: `Como funciona a carência em portabilidade para moradores do ${c.neighborhood}?`,
+      answer: `Se você já tem um plano há mais de 2 anos, pode migrar para uma nova operadora no ${c.neighborhood} com carência zero para quase todos os procedimentos. A Patro Seguros realiza o estudo de portabilidade gratuitamente para garantir que você não perca suas coberturas atuais.`,
     },
   ],
   "saude-mei": (c) => [
