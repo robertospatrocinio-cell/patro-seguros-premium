@@ -138,19 +138,20 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-bonsucesso", neighborhood: "Bonsucesso", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 35/mês", reference: "nas novas expansões do bairro" }),
      ],
    },
-  {
-    id: "paraventi",
-    nome: "Paraventi",
-    foco: "Auto e Saúde Individual",
-    subtitulo: "Proteção acessível para moradores do Paraventi",
-    descricao: "O Paraventi, com a região do SESI como referência local, reúne famílias trabalhadoras que buscam proteção inteligente. A Patro Seguros oferece seguro auto com excelente custo-benefício, planos de saúde individuais acessíveis e seguro residencial completo. Atendimento ágil via WhatsApp e presencial para toda a comunidade do Paraventi.",
-    image: imgParaventi,
-    faqs: [
-      { question: "Seguro auto barato no Paraventi, como encontrar?", answer: "A Patro Seguros compara cotações entre diversas seguradoras para encontrar o seguro auto mais acessível para moradores do Paraventi, sem abrir mão da qualidade de cobertura." },
-      { question: "Plano de saúde individual acessível no Paraventi existe?", answer: "Sim! Trabalhamos com operadoras que oferecem planos individuais a partir de valores acessíveis, com boa rede de atendimento na região do Paraventi e Guarulhos." },
-      { question: "Como contratar seguro pelo WhatsApp no Paraventi?", answer: "Basta enviar uma mensagem para nosso WhatsApp (11) 5199-7500 informando seu interesse. Respondemos em até 2 horas com uma cotação personalizada para moradores do Paraventi." },
-    ],
-  },
+   {
+     id: "paraventi",
+     nome: "Paraventi",
+     foco: "Auto e Saúde Individual",
+     subtitulo: "Proteção acessível para moradores do Paraventi",
+     descricao: "O Paraventi, com a região do SESI como referência local, reúne famílias trabalhadoras que buscam proteção inteligente. A Patro Seguros oferece seguro auto com excelente custo-benefício, planos de saúde individuais acessíveis e seguro residencial completo. Atendimento ágil via WhatsApp e presencial para toda a comunidade do Paraventi.",
+     image: imgParaventi,
+     faqs: [
+       ...generateLocalFAQs({ slug: "auto-paraventi", neighborhood: "Paraventi", product: "auto", riskLevel: "médio", priceRange: "R$ 2.400 a R$ 4.400/ano", reference: "próximo ao SESI Guarulhos" }),
+       ...generateLocalFAQs({ slug: "saude-paraventi", neighborhood: "Paraventi", product: "saude", priceRange: "planos individuais a partir de R$ 189", reference: "com rede próxima ao bairro" }),
+       ...generateLocalFAQs({ slug: "residencial-paraventi", neighborhood: "Paraventi", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 25/mês", reference: "nas ruas residenciais do Paraventi" }),
+       ...generateLocalFAQs({ slug: "vida-paraventi", neighborhood: "Paraventi", product: "vida", priceRange: "a partir de R$ 30/mês", reference: "para proteção familiar básica" }),
+     ],
+   },
   {
     id: "continental",
     nome: "Continental",
