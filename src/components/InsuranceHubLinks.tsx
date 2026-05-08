@@ -25,9 +25,15 @@ import { INSURANCE_HUB } from "@/lib/insuranceHubLinks";
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
           {INSURANCE_HUB.map((cat) => (
             <nav key={cat.title} aria-label={cat.title}>
-              <h3 className="text-[13px] font-bold uppercase tracking-wider text-primary mb-3">
-                {cat.title}
-              </h3>
+               <h3 className="text-[13px] font-bold uppercase tracking-wider mb-3">
+                 {cat.hubHref ? (
+                   <Link to={cat.hubHref} className="text-primary hover:underline">
+                     {cat.title}
+                   </Link>
+                 ) : (
+                   <span className="text-primary">{cat.title}</span>
+                 )}
+               </h3>
               <ul className="space-y-1.5 list-none">
                 {cat.links.map((link) => {
                   const isCurrent = link.href === pathname;

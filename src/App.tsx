@@ -138,7 +138,12 @@ const NichoMotoristasApp = lazy(() => import("./pages/NichoMotoristasApp"));
 const Depoimentos = lazy(() => import("./pages/Depoimentos"));
 const SegurosQuotePage = lazy(() => import("./pages/SegurosQuotePage"));
 const SegurosGuarulhosBairros = lazy(() => import("./pages/SegurosGuarulhosBairros"));
-const HubSegurosGuarulhos = lazy(() => import("./pages/HubSegurosGuarulhos"));
+ const HubSegurosGuarulhos = lazy(() => import("./pages/HubSegurosGuarulhos"));
+ const HubVeiculos = lazy(() => import("./pages/HubVeiculos"));
+ const HubEmpresarial = lazy(() => import("./pages/HubEmpresarial"));
+ const HubPatrimonio = lazy(() => import("./pages/HubPatrimonio"));
+ const HubRC = lazy(() => import("./pages/HubRC"));
+ const HubVidaSaude = lazy(() => import("./pages/HubVidaSaude"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
@@ -341,7 +346,12 @@ const App = () => (
             <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
             <Route path="/seguros-guarulhos-bairros" element={<SegurosGuarulhosBairros />} />
             <Route path="/seguros-guarulhos" element={<SegurosGuarulhosBairros />} />
-            <Route path="/seguros-em-guarulhos" element={<HubSegurosGuarulhos />} />
+             <Route path="/seguros-em-guarulhos" element={<HubSegurosGuarulhos />} />
+             <Route path="/seguros-de-veiculos" element={<HubVeiculos />} />
+             <Route path="/seguros-empresariais" element={<HubEmpresarial />} />
+             <Route path="/seguros-de-patrimonio" element={<HubPatrimonio />} />
+             <Route path="/seguros-responsabilidade-civil" element={<HubRC />} />
+             <Route path="/vida-e-saude" element={<HubVidaSaude />} />
             <Route path="/seguros-guarulhos/:bairro" element={<SegurosGuarulhosBairros />} />
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-de-uso" element={<TermosDeUso />} />

@@ -172,7 +172,9 @@ const Header = () => {
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="grid grid-cols-3 gap-5">
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Veículos</p>
+                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">
+                           <Link to="/seguros-de-veiculos" className="hover:text-primary transition-colors">Veículos</Link>
+                         </p>
                         <div className="space-y-0.5">
                           <Link to="/seguro-auto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Auto</Link>
                           <Link to="/seguro-moto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Moto</Link>
@@ -190,7 +192,9 @@ const Header = () => {
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Vida e Saúde</p>
+                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">
+                           <Link to="/vida-e-saude" className="hover:text-primary transition-colors">Vida e Saúde</Link>
+                         </p>
                         <div className="space-y-0.5">
                           <Link to="/seguro-vida" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Vida</Link>
                           <Link to="/planos-de-saude" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Saúde</Link>
@@ -202,7 +206,9 @@ const Header = () => {
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Patrimônio</p>
+                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">
+                           <Link to="/seguros-de-patrimonio" className="hover:text-primary transition-colors">Patrimônio</Link>
+                         </p>
                         <div className="space-y-0.5">
                           <Link to="/seguro-residencial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Residencial</Link>
                           <Link to="/seguro-celular" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Celular</Link>
@@ -227,7 +233,9 @@ const Header = () => {
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="grid grid-cols-3 gap-5">
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Empresas</p>
+                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">
+                           <Link to="/seguros-empresariais" className="hover:text-primary transition-colors">Empresas</Link>
+                         </p>
                         <div className="space-y-0.5">
                           <Link to="/seguro-empresarial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Empresarial</Link>
                           <Link to="/seguro-condominio" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Condomínio</Link>
@@ -250,7 +258,9 @@ const Header = () => {
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Responsabilidade</p>
+                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">
+                           <Link to="/seguros-responsabilidade-civil" className="hover:text-primary transition-colors">Responsabilidade</Link>
+                         </p>
                         <div className="space-y-0.5">
                           <Link to="/seguro-rc" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Geral</Link>
                           <Link to="/seguro-rc-profissional" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Profissional</Link>
