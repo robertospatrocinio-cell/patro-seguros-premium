@@ -5,6 +5,7 @@ import LocalPageTemplate, {
   type LocalTestimonial,
 } from "@/components/LocalPageTemplate";
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
+import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
 import GalpaoStickyCTABar from "@/components/GalpaoStickyCTABar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
@@ -28,7 +29,7 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
   const params = useParams();
   const slug = slugProp ?? params.slug;
   if (!slug) return <Navigate to="/404" replace />;
-  const config = seoLocalPages[slug];
+  const config = seoLocalPages[slug] || seoLocalSaudePages[slug];
   if (!config) return <Navigate to="/404" replace />;
 
   // Tipos requerem tuplas mínimas — fazemos cast seguro pois validamos em runtime/dev.
