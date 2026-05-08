@@ -56,10 +56,10 @@ const OptimizedImage = ({
       src={src}
       alt={alt}
       srcSet={srcSet}
-      sizes={sizes || "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
-      loading={eager ? "eager" : "lazy"}
-      decoding={eager ? "sync" : "async"}
-      fetchPriority={eager ? "high" : "auto"}
+       sizes={sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+       loading={eager ? "eager" : "lazy"}
+       decoding="async"
+       fetchPriority={eager ? "high" : "low"}
       onLoad={eager ? undefined : () => setLoaded(true)}
       width={props.width}
       height={props.height}

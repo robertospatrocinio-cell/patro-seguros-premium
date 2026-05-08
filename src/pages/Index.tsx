@@ -19,13 +19,13 @@ import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
  import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
  
- // Lazy-load heavy below-fold components
-const Footer = lazy(() => import("@/components/Footer"));
-const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
-const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
-const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
-const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
-const InsuranceHubLinks = lazy(() => import("@/components/InsuranceHubLinks"));
+ // Componentes internos que serão carregados via intersection (LazySection)
+ const Footer = lazy(() => import("@/components/Footer"));
+ const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
+ const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
+ const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
+ const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
+ const InsuranceHubLinks = lazy(() => import("@/components/InsuranceHubLinks"));
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
 // Lazy load below-fold decorative images
