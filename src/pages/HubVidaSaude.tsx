@@ -13,7 +13,14 @@
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de plano de saúde ou seguro de vida.";
  
- const SECTIONS = [
+  const FAQS = [
+    { question: "Qual o melhor plano de saúde em Guarulhos?", answer: "Para cobertura nacional, Bradesco e SulAmérica são as melhores. Para custo-benefício regional, Hapvida/NotreDame e Amil possuem rede local robusta." },
+    { question: "Quanto custa um seguro de vida?", answer: "Para um adulto jovem, é possível contratar coberturas de R$ 100.000 a partir de R$ 30/mês. O valor varia conforme idade e capital segurado." },
+    { question: "Plano de saúde MEI é mais barato?", answer: "Sim, planos empresariais (PME/MEI) podem ser até 40% mais baratos que planos individuais/familiares." },
+    { question: "Vocês atendem todos os bairros de Guarulhos?", answer: "Sim, atendemos Cidade Maia, Vila Augusta, Cumbica, Macedo e demais regiões com consultoria local." }
+  ];
+
+  const SECTIONS = [
    {
      title: "Assistência Médica e Odonto",
      links: [
@@ -34,13 +41,23 @@
    }
  ];
  
- const HubVidaSaude = () => (
-   <div className="min-h-screen flex flex-col">
-     <PageMeta 
-        title="Plano de Saúde em Guarulhos: Individual, Familiar e Empresarial" 
-        description="Compare os melhores planos de saúde em Guarulhos. Hapvida, Bradesco, Amil e SulAmérica com atendimento nos principais hospitais da região. Cotação online." 
-     />
-     <Header />
+  const HubVidaSaude = () => {
+    const location = useLocation();
+    const canonicalUrl = getCanonicalUrl(location.pathname);
+
+    return (
+    <div className="min-h-screen flex flex-col">
+      <PageMeta 
+         title="Plano de Saúde em Guarulhos: Individual, Familiar e Empresarial" 
+         description="Compare os melhores planos de saúde em Guarulhos. Hapvida, Bradesco, Amil e SulAmérica com atendimento nos principais hospitais da região. Cotação online." 
+      />
+      <FAQSchema faqs={FAQS} />
+      <AggregateRatingSchema
+        serviceName="Vida e Saúde em Guarulhos"
+        url={canonicalUrl}
+        description="Planos de saúde e seguros de vida em Guarulhos."
+      />
+      <Header />
      <main id="main-content">
        <Breadcrumb items={[{ label: "Vida e Saúde" }]} />
        
@@ -113,10 +130,33 @@
          </div>
        </section>
  
-       <InsuranceHubLinks />
+        <section className="py-24 bg-background" aria-labelledby="faq-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <span className="section-label">FAQ</span>
+              <h2 id="faq-heading" className="mt-3">Perguntas Frequentes — Saúde e Vida</h2>
+            </div>
+            <div className="space-y-3" data-speakable="faq">
+              {FAQS.map((faq, i) => (
+                <details key={i} className="premium-card group">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold hover:text-primary transition-base list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 -mt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <InsuranceHubLinks />
      </main>
      <Footer />
    </div>
- );
- 
- export default HubVidaSaude;
+    );
+  };
+  
+  export default HubVidaSaude;
