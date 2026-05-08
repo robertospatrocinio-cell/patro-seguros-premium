@@ -76,7 +76,7 @@ const secondaryProducts: SitemapEntry[] = [
   "/seguro-condominio", "/seguro-transporte", "/seguro-rc",
   "/seguro-rc-profissional", "/seguro-cyber", "/seguro-engenharia",
   "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-caminhao",
-  "/seguro-vida-pme", "/seguro-galpoes-industriais", "/seguro-maquinas",
+  "/seguro-vida-pme", "/seguro-galpao", "/seguro-galpoes-industriais", "/seguro-maquinas",
   "/seguro-rural", "/seguro-maquinas-agricolas", "/seguro-granja",
   "/consorcio", "/previdencia-privada", "/plano-saude-empresarial",
   "/seguro-vida/formulario",
@@ -214,7 +214,7 @@ export function generateSitemapBundle(
   ]);
 
   const empresarialRoutes = new Set([
-    "/seguro-empresarial", "/seguro-galpoes-industriais",
+    "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
     "/seguro-lojas-shopping", "/seguro-maquinas",
     "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
     "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
