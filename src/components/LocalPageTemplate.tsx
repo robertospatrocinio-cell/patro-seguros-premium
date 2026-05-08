@@ -206,6 +206,7 @@ const LocalPageTemplate = (props: LocalPageProps) => {
         neighborhood={neighborhood}
         geo={geo}
         priceRange={pricing.range}
+        faqs={faqs}
       />
 
       <InsurancePageTemplate
@@ -220,6 +221,11 @@ const LocalPageTemplate = (props: LocalPageProps) => {
         whoNeeds={whoNeeds}
         whyPatro={whyPatro}
         faqs={faqs}
+        // Local pages emit FAQPage + AggregateRating via LocalAreaSchema's
+        // unified @graph. Skip the duplicates here to keep the structured
+        // data graph consistent (single AggregateRating @id, single FAQPage).
+        skipFAQSchema
+        skipAggregateRating
         pricingInfo={{
           intro: pricing.intro,
           factors: pricing.factors,
