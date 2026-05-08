@@ -96,19 +96,20 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "empresarial-picanco", neighborhood: "Picanço", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 75/mês", reference: "para o comércio local do bairro" }),
      ],
    },
-  {
-    id: "macedo",
-    nome: "Macedo",
-    foco: "Saúde PME e Clínicas",
-    subtitulo: "Planos de saúde e seguros empresariais para o Macedo",
-    descricao: "Próximo ao Hospital Bom Clima e com forte presença de pequenas e médias empresas, o Macedo é um bairro que une saúde e empreendedorismo. A Patro Seguros é especialista em planos de saúde empresariais para PMEs da região, seguro empresarial sob medida e seguro de vida em grupo para equipes. Proteja sua empresa e seus colaboradores com quem conhece o Macedo.",
-    image: imgMacedo,
-    faqs: [
-      { question: "Qual o melhor plano de saúde empresarial para PMEs do Macedo?", answer: "A Patro trabalha com as principais operadoras (Amil, Bradesco Saúde, SulAmérica, etc.) e encontra o plano ideal para PMEs do Macedo, considerando o número de colaboradores e o orçamento da empresa." },
-      { question: "Seguro empresarial para pequenos negócios no Macedo vale a pena?", answer: "Sim! Protege seu patrimônio contra incêndio, roubo e responsabilidade civil. Para PMEs do Macedo, oferecemos planos acessíveis e personalizados." },
-      { question: "A Patro faz seguro de vida em grupo para empresas do Macedo?", answer: "Sim! O seguro de vida em grupo é um benefício valorizado pelos colaboradores e pode ser contratado a custos acessíveis para empresas de todos os portes no Macedo." },
-    ],
-  },
+   {
+     id: "macedo",
+     nome: "Macedo",
+     foco: "Saúde PME e Clínicas",
+     subtitulo: "Planos de saúde e seguros empresariais para o Macedo",
+     descricao: "Próximo ao Hospital Bom Clima e com forte presença de pequenas e médias empresas, o Macedo é um bairro que une saúde e empreendedorismo. A Patro Seguros é especialista em planos de saúde empresariais para PMEs da região, seguro empresarial sob medida e seguro de vida em grupo para equipes. Proteja sua empresa e seus colaboradores com quem conhece o Macedo.",
+     image: imgMacedo,
+     faqs: [
+       ...generateLocalFAQs({ slug: "saude-macedo", neighborhood: "Macedo", product: "saude", priceRange: "conforme faixa etária e rede", reference: "próximo ao Hospital Bom Clima" }),
+       ...generateLocalFAQs({ slug: "empresarial-macedo", neighborhood: "Macedo", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 85/mês", reference: "para clínicas e escritórios locais" }),
+       ...generateLocalFAQs({ slug: "vida-macedo", neighborhood: "Macedo", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "para sócios e colaboradores de PMEs" }),
+       ...generateLocalFAQs({ slug: "auto-macedo", neighborhood: "Macedo", product: "auto", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 4.800/ano", reference: "na região da Av. Tiradentes" }),
+     ],
+   },
   {
     id: "gopouva",
     nome: "Gopouva",
