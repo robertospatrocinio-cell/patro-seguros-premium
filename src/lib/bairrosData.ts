@@ -68,19 +68,20 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-cumbica", neighborhood: "Cumbica", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 40/mês", reference: "nas áreas residenciais do bairro" }),
      ],
    },
-  {
-    id: "centro",
-    nome: "Centro",
-    foco: "RC Profissional e Comércio",
-    subtitulo: "Sua corretora no coração comercial de Guarulhos",
-    descricao: "O Centro de Guarulhos pulsa com comércio e serviços. Na Av. Salgado Filho — onde fica nossa sede — e nas imediações do Poli Shopping, advogados, dentistas, médicos e comerciantes precisam de proteção profissional. A Patro Seguros oferece RC Profissional, seguro empresarial para lojas e consultórios, além de planos de saúde corporativos, tudo com atendimento presencial a poucos passos de você.",
-    image: imgCentro,
-    faqs: [
-      { question: "Onde fica a sede da Patro Seguros no Centro de Guarulhos?", answer: "Nossa sede fica na Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219, no Cidade Maia, Guarulhos, próximo ao Poli Shopping. Atendemos presencialmente de segunda a sexta, das 8h às 18h." },
-      { question: "A Patro faz seguro RC para profissionais liberais do Centro?", answer: "Sim! Oferecemos Responsabilidade Civil Profissional para advogados, médicos, dentistas, engenheiros e outros profissionais que atuam no Centro de Guarulhos." },
-      { question: "Quais seguros para lojas no Centro de Guarulhos?", answer: "Para lojistas do Centro e Poli Shopping, oferecemos seguro empresarial completo com cobertura contra incêndio, roubo, danos elétricos, RC e lucros cessantes." },
-    ],
-  },
+   {
+     id: "centro",
+     nome: "Centro",
+     foco: "RC Profissional e Comércio",
+     subtitulo: "Sua corretora no coração comercial de Guarulhos",
+     descricao: "O Centro de Guarulhos pulsa com comércio e serviços. Na Av. Salgado Filho — onde fica nossa sede — e nas imediações do Poli Shopping, advogados, dentistas, médicos e comerciantes precisam de proteção profissional. A Patro Seguros oferece RC Profissional, seguro empresarial para lojas e consultórios, além de planos de saúde corporativos, tudo com atendimento presencial a poucos passos de você.",
+     image: imgCentro,
+     faqs: [
+       ...generateLocalFAQs({ slug: "empresarial-centro", neighborhood: "Centro", product: "empresarial", riskLevel: "médio-alto", priceRange: "a partir de R$ 99/mês", reference: "próximo ao Poli Shopping e Av. Salgado Filho" }),
+       ...generateLocalFAQs({ slug: "auto-centro", neighborhood: "Centro", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.500/ano", reference: "na região da Praça Tereza Cristina" }),
+       ...generateLocalFAQs({ slug: "vida-centro", neighborhood: "Centro", product: "vida", priceRange: "a partir de R$ 45/mês", reference: "para profissionais liberais e comerciantes" }),
+       ...generateLocalFAQs({ slug: "residencial-centro", neighborhood: "Centro", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 38/mês", reference: "nos edifícios residenciais centrais" }),
+     ],
+   },
   {
     id: "picanco",
     nome: "Picanço",
