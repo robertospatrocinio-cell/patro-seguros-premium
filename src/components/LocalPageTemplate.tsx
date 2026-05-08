@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { MessageCircle, MapPin, Star, Building2, ShieldCheck } from "lucide-react";
+import { MessageCircle, MapPin, Star, Building2, ShieldCheck, ArrowRight } from "lucide-react";
+import { trackCotacaoClick } from "@/lib/tracking";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -280,12 +281,42 @@ const LocalPageTemplate = (props: LocalPageProps) => {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => trackWhatsAppClick(`local-page:${slug}:sr-link`)}
+        onClick={() => trackWhatsAppClick(`local-page:${slug}:sr-link`, { origin: "local-page-sr", insuranceType: title })}
         className="sr-only"
         aria-label={`Falar com a Patro Seguros sobre ${title} pelo WhatsApp`}
       >
         WhatsApp Patro Seguros — {title}
       </a>
+
+      {/* Adição de Botões de Ação Visíveis com Tracking para Bairros */}
+      <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row gap-4 justify-center items-center border-t border-b bg-muted/20">
+        <div className="text-center sm:text-left mb-4 sm:mb-0">
+          <p className="font-bold text-primary text-lg">Precisa de cotação em {neighborhood || city}?</p>
+          <p className="text-sm text-muted-foreground">Fale com um consultor agora e receba em até 2 horas.</p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <Link 
+            to={`/cotacao?tipo=${localPageIcons.car === icon ? 'auto' : 'outros'}&origem=${slug}`}
+            className="w-full sm:w-auto"
+            onClick={() => trackCotacaoClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
+          >
+            <Button size="lg" className="w-full sm:w-auto rounded-xl bg-primary text-primary-foreground h-12 px-8 text-sm font-bold shadow-lg">
+              <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Pedir Cotação
+            </Button>
+          </Link>
+          <a 
+            href={whatsappUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="w-full sm:w-auto"
+            onClick={() => trackWhatsAppClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
+          >
+            <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm border-primary/20 text-primary hover:bg-primary/5">
+              <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> WhatsApp
+            </Button>
+          </a>
+        </div>
+      </div>
 
       {/* Marker para QA/SEO automático: identifica páginas que usam o template */}
       <meta
