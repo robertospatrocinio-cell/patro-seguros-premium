@@ -1,5 +1,92 @@
 import { lazy, Suspense } from "react";
-import { Check, Info, ArrowRight, Hospital, Building, HeartPulse } from "lucide-react";
+import { Check, Info, ArrowRight, Hospital, Building, HeartPulse, Clock, ShieldCheck, Search, HelpCircle } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-16">
+              <h2 className="mb-4">Guia Prático: Carência e Rede Credenciada</h2>
+              <p className="text-muted-foreground">Tudo o que você precisa saber antes de contratar seu plano em Guarulhos.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 mb-20">
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 text-primary">
+                  <Clock className="h-6 w-6" />
+                  <h3 className="text-2xl font-bold m-0">Entenda as Carências</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  A carência é o tempo que você precisa esperar para usar determinados serviços após contratar o plano. Em Guarulhos, a Patro Seguros negocia a <strong>redução de carências</strong> para empresas e planos vindos de outras operadoras.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-3 bg-muted/30 p-3 rounded-lg">
+                    <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded">24h</span>
+                    <span className="text-sm font-medium">Urgência e Emergência</span>
+                  </li>
+                  <li className="flex items-center gap-3 bg-muted/30 p-3 rounded-lg">
+                    <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded">30 dias</span>
+                    <span className="text-sm font-medium">Consultas e Exames Simples</span>
+                  </li>
+                  <li className="flex items-center gap-3 bg-muted/30 p-3 rounded-lg">
+                    <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded">180 dias</span>
+                    <span className="text-sm font-medium">Exames Complexos e Internações</span>
+                  </li>
+                  <li className="flex items-center gap-3 bg-muted/30 p-3 rounded-lg">
+                    <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded">300 dias</span>
+                    <span className="text-sm font-medium">Parto e Pré-natal</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 text-primary">
+                  <ShieldCheck className="h-6 w-6" />
+                  <h3 className="text-2xl font-bold m-0">Rede Credenciada</h3>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  A rede credenciada são os hospitais, laboratórios e médicos que o seu plano atende. Para quem mora em Guarulhos, é vital conferir a cobertura no <strong>Stella Maris, Carlos Chagas e Ipiranga</strong>.
+                </p>
+                <div className="bg-primary/5 border border-primary/10 p-6 rounded-2xl">
+                  <h4 className="flex items-center gap-2 font-bold mb-4">
+                    <Search className="h-4 w-4" /> Como conferir sua cobertura?
+                  </h4>
+                  <ol className="space-y-4 text-sm list-decimal list-inside">
+                    <li><strong>Defina seu bairro:</strong> A cobertura pode variar por região (Ex: Cidade Maia vs Cumbica).</li>
+                    <li><strong>Acesse o app da operadora:</strong> Use o "Busca de Rede" filtrando por especialidade.</li>
+                    <li><strong>Consulte a Patro Seguros:</strong> Nós temos o livro de rede atualizado de todas as operadoras de Guarulhos.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-muted/30 p-8 md:p-12 rounded-3xl">
+              <div className="flex items-center gap-3 mb-8">
+                <HelpCircle className="h-8 w-8 text-primary" />
+                <h3 className="text-3xl font-bold m-0">FAQ Planos de Saúde</h3>
+              </div>
+              <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger className="text-left font-semibold">Como funciona a portabilidade de carências?</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Você pode trocar de operadora sem cumprir carências se o seu plano atual tiver mais de 2 anos e o novo plano for de preço compatível. Nós cuidamos de todo o processo burocrático para você.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                  <AccordionTrigger className="text-left font-semibold">O que é coparticipação e como ela reduz o valor?</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Na coparticipação, você paga uma mensalidade fixa muito menor e uma pequena taxa apenas quando usar o plano (ex: R$ 25 por consulta). É ideal para quem busca economia mensal.
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                  <AccordionTrigger className="text-left font-semibold">Qual o melhor plano para quem mora no Centro de Guarulhos?</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    Para o Centro, planos como Amil e SulAmérica oferecem a melhor cobertura no Hospital Carlos Chagas e laboratórios como o Delboni, que ficam na região central.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+          </div>
+        </section>
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
