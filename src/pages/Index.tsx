@@ -1,6 +1,6 @@
  const FormCTASection = lazy(() => import("@/components/FormCTASection"));
  
-import { lazy, Suspense, useEffect } from "react";
+ import { lazy, Suspense, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
  import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
  import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
@@ -69,7 +69,7 @@ const faqs = [
 
   const Index = () => {
      // Shared set to dedupe contextual keyword links across all FAQ blocks
-     const linkedKeywords = useEffect(() => { return () => {}; }, []) ? new Set<string>() : new Set<string>(); // Placeholder logic if useMemo is needed
+     const linkedKeywords = useMemo(() => new Set<string>(), []);
     // Hide persistent hero background after React renders (it lives outside #root for LCP)
    useEffect(() => {
      const el = document.getElementById('persistent-hero-bg');
