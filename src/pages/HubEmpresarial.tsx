@@ -1,16 +1,26 @@
- import { Link } from "react-router-dom";
- import { Building2, Warehouse, Laptop, HardHat, ShieldCheck, ArrowRight, MessageCircle, BarChart3, Users } from "lucide-react";
+  import { Link, useLocation } from "react-router-dom";
+  import { Building2, Warehouse, Laptop, HardHat, ShieldCheck, ArrowRight, MessageCircle, BarChart3, Users } from "lucide-react";
  import Header from "@/components/Header";
  import Footer from "@/components/Footer";
  import PageMeta from "@/components/PageMeta";
- import Breadcrumb from "@/components/Breadcrumb";
+  import Breadcrumb from "@/components/Breadcrumb";
+  import FAQSchema from "@/components/FAQSchema";
+  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+  import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
  import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
  import InsuranceHubLinks from "@/components/InsuranceHubLinks";
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro empresarial para meu negócio.";
  
- const SECTIONS = [
+  const FAQS = [
+    { question: "Por que contratar seguro empresarial em Guarulhos?", answer: "Guarulhos é um hub logístico e industrial. Um seguro empresarial protege contra incêndio, roubo e, principalmente, lucros cessantes, garantindo a sobrevivência do negócio em caso de sinistro." },
+    { question: "O seguro empresarial cobre equipamentos de TI?", answer: "Sim, existe cobertura específica para equipamentos eletrônicos, servidores e sistemas, protegendo contra danos elétricos, quedas e roubo." },
+    { question: "O que são lucros cessantes no seguro?", answer: "É uma das coberturas mais importantes: ela repõe o faturamento líquido que a empresa deixa de gerar enquanto está parada para reconstrução após um sinistro coberto." },
+    { question: "Como funciona a vistoria técnica?", answer: "Para empresas de maior porte ou riscos específicos, um perito visita o local para dimensionar as proteções necessárias. A Patro acompanha todo esse processo." }
+  ];
+
+  const SECTIONS = [
    {
      title: "Patrimonial e Operacional",
      links: [
@@ -31,13 +41,23 @@
    }
  ];
  
- const HubEmpresarial = () => (
-   <div className="min-h-screen flex flex-col">
-     <PageMeta 
-        title="Seguro Empresarial em Guarulhos: Proteção Completa para sua Empresa" 
-        description="Especialistas em seguro empresarial em Guarulhos. Proteção para galpões, indústrias, comércios e PMEs. Consultoria técnica e gestão de riscos em Cumbica e região." 
-     />
-     <Header />
+  const HubEmpresarial = () => {
+    const location = useLocation();
+    const canonicalUrl = getCanonicalUrl(location.pathname);
+
+    return (
+    <div className="min-h-screen flex flex-col">
+      <PageMeta 
+         title="Seguro Empresarial em Guarulhos: Proteção Completa para sua Empresa" 
+         description="Especialistas em seguro empresarial em Guarulhos. Proteção para galpões, indústrias, comércios e PMEs. Consultoria técnica e gestão de riscos em Cumbica e região." 
+      />
+      <FAQSchema faqs={FAQS} />
+      <AggregateRatingSchema
+        serviceName="Seguros Empresariais em Guarulhos"
+        url={canonicalUrl}
+        description="Proteção patrimonial e operacional para empresas em Guarulhos."
+      />
+      <Header />
      <main id="main-content">
        <Breadcrumb items={[{ label: "Seguros Empresariais" }]} />
        
@@ -110,10 +130,33 @@
          </div>
        </section>
  
-       <InsuranceHubLinks />
+        <section className="py-24 bg-background" aria-labelledby="faq-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <span className="section-label">FAQ</span>
+              <h2 id="faq-heading" className="mt-3">Perguntas Frequentes — Empresas e Indústrias</h2>
+            </div>
+            <div className="space-y-3" data-speakable="faq">
+              {FAQS.map((faq, i) => (
+                <details key={i} className="premium-card group">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold hover:text-primary transition-base list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 -mt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <InsuranceHubLinks />
      </main>
      <Footer />
    </div>
- );
- 
- export default HubEmpresarial;
+    );
+  };
+  
+  export default HubEmpresarial;
