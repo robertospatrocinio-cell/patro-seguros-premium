@@ -1,5 +1,27 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import heroImg from "@/assets/lp-seguro-galpoes.webp";
+import LocalMapSection from "@/components/LocalMapSection";
+
+const warehouseRoutes = [
+  {
+    neighborhood: "Cumbica",
+    distance: "12km",
+    time: "15 min",
+    description: "Próximo ao Aeroporto de Guarulhos e Dutra. Polo de transportadoras e logística internacional."
+  },
+  {
+    neighborhood: "Vila Augusta",
+    distance: "3.5km",
+    time: "8 min",
+    description: "Acesso privilegiado à Fernão Dias. Região de galpões comerciais e distribuição urbana (Last Mile)."
+  },
+  {
+    neighborhood: "Cidade Maia",
+    distance: "2.1km",
+    time: "5 min",
+    description: "Sede da Patro Seguros. Atendimento imediato e vistorias rápidas para comércios e depósitos locais."
+  }
+];
 
 const LandingSeguroGalpoes = () => (
   <LandingPageTemplate
@@ -13,6 +35,13 @@ const LandingSeguroGalpoes = () => (
     urgencyText="Incêndios em galpões causam prejuízos milionários"
     priceAnchor="Valores sob medida para seu patrimônio"
     guaranteeText="Visitamos seu galpão (se necessário), analisamos os riscos e apresentamos no mínimo 3 propostas comparativas. 100% gratuito."
+    extraSections={
+      <LocalMapSection 
+        routes={warehouseRoutes} 
+        title="Atendimento Presencial em Hubs Logísticos"
+        description="Nossa proximidade com Cumbica, Vila Augusta e a sede no Maia garante agilidade na análise de risco e suporte em caso de sinistros."
+      />
+    }
     painPoints={[
       "Seu galpão tem estoque de milhões e não tem proteção contra incêndio ou roubo?",
       "Já viu notícias de galpões que pegaram fogo e o dono perdeu tudo da noite pro dia?",
