@@ -145,6 +145,8 @@ const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico
 const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
 const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+import RequireAdmin from "@/components/RequireAdmin";
 
 const QueryClientProvider = lazy(() =>
   import("@tanstack/react-query").then(({ QueryClient, QueryClientProvider }) => {
@@ -349,11 +351,12 @@ const App = () => (
             <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
             <Route path="/seguros/motoristas-app" element={<NichoMotoristasApp />} />
             <Route path="/seguros/:tipo" element={<SegurosQuotePage />} />
-            <Route path="/admin/purge-logs" element={<PurgeLogs />} />
-            <Route path="/admin/performance" element={<PerformanceDiagnostico />} />
-            <Route path="/admin/seo-tecnico" element={<SeoTechnicalReport />} />
-            <Route path="/admin/conversoes" element={<ConversionDashboard />} />
-            <Route path="/admin/pagespeed" element={<PagespeedHistory />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/purge-logs" element={<RequireAdmin><PurgeLogs /></RequireAdmin>} />
+            <Route path="/admin/performance" element={<RequireAdmin><PerformanceDiagnostico /></RequireAdmin>} />
+            <Route path="/admin/seo-tecnico" element={<RequireAdmin><SeoTechnicalReport /></RequireAdmin>} />
+            <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
+            <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
             <Route path="/investimentos" element={<Investimentos />} />
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
             <Route path="*" element={<NotFound />} />

@@ -7,6 +7,41 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+// Allowed origins for browser-based callers (defense in depth).
+const ALLOWED_ORIGINS = [
+  "https://www.patroseguros.com.br",
+  "https://patroseguros.com.br",
+  "https://patroseguros.lovable.app",
+];
+const ALLOWED_ORIGIN_SUFFIXES = [".lovable.app", ".lovableproject.com"];
+
+function isAllowedOrigin(origin: string | null): boolean {
+  if (!origin) return true; // non-browser/server callers
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  try {
+    const host = new URL(origin).hostname;
+    return ALLOWED_ORIGIN_SUFFIXES.some((s) => host.endsWith(s));
+  } catch {
+    return false;
+  }
+}
+
+// Simple in-memory per-IP rate limit (per isolate). Best-effort.
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX = 5;
+const rateMap = new Map<string, { count: number; resetAt: number }>();
+function rateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || entry.resetAt < now) {
+    rateMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_MAX) return false;
+  entry.count++;
+  return true;
+}
+
 const resolveSmtpTlsServername = (host: string) => {
   if (host === "webmail.patroseguros.com.br") return "hostgator.com.br";
   return host;
@@ -27,8 +62,31 @@ serve(async (req) => {
   }
 
   try {
+    const origin = req.headers.get("origin");
+    if (!isAllowedOrigin(origin)) {
+      return new Response(JSON.stringify({ error: "Origin not allowed" }), {
+        status: 403,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const ip =
+      req.headers.get("cf-connecting-ip") ||
+      req.headers.get("x-real-ip") ||
+      (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() ||
+      "unknown";
+    if (!rateLimit(ip)) {
+      return new Response(JSON.stringify({ error: "Rate limit exceeded" }), {
+        status: 429,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const body = await req.json();
-    const { subject, htmlBody, textBody } = body;
+    const { subject, textBody } = body;
+    // NOTE: htmlBody from the client is intentionally ignored to prevent
+    // attackers from sending arbitrary HTML/phishing through this relay.
+    // The HTML email body is rebuilt server-side from the plain-text content.
 
     // Input validation
     if (!subject || typeof subject !== "string" || subject.length > 500) {
@@ -45,21 +103,17 @@ serve(async (req) => {
       );
     }
 
-    if (htmlBody && typeof htmlBody !== "string") {
-      return new Response(
-        JSON.stringify({ error: "Invalid htmlBody" }),
-        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
     // Limit body sizes
     const textStr = typeof textBody === "string" ? textBody : textBody.join("\n");
-    if (textStr.length > 10000 || (htmlBody && htmlBody.length > 50000)) {
+    if (textStr.length > 10000) {
       return new Response(
         JSON.stringify({ error: "Request body too large" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
+
+    // Build a safe HTML body server-side from the (escaped) plain text.
+    const safeHtmlBody = `<pre style="font-family:Arial,sans-serif;white-space:pre-wrap;word-wrap:break-word;">${escapeHtml(textStr)}</pre>`;
 
     const smtpHost = Deno.env.get("SMTP_HOST");
     const smtpUser = Deno.env.get("SMTP_USER");
@@ -97,7 +151,7 @@ serve(async (req) => {
       to: "contato@patroseguros.com.br, sandra@patroseguros.com.br",
       subject: escapeHtml(subject),
       text: textStr,
-      html: htmlBody || undefined,
+      html: safeHtmlBody,
     });
 
     console.log("Email sent successfully");
