@@ -1,7 +1,102 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
-import { Building2, UserCircle, CheckCircle2 } from "lucide-react";
+import { Building2, UserCircle, CheckCircle2, ShieldAlert, ShieldCheck, HelpCircle } from "lucide-react";
 import heroImg from "@/assets/lp-seguro-galpoes.webp";
 import LocalMapSection from "@/components/LocalMapSection";
+
+const RiscosNomeadosVsAllRisks = () => (
+  <section className="py-20 bg-background overflow-hidden">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-16">
+        <span className="section-label">Consultoria Técnica</span>
+        <h2 className="mt-3">Riscos Nomeados vs. All-Risks (Riscos Operacionais)</h2>
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          Para galpões Classe A e operações logísticas complexas, a escolha da modalidade define o sucesso da indenização.
+        </p>
+      </div>
+
+      <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+        {/* Riscos Nomeados */}
+        <div className="relative p-8 rounded-3xl border border-border bg-muted/20">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-600">
+              <ShieldAlert className="h-6 w-6" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold">Riscos Nomeados</h3>
+              <p className="text-xs text-amber-600 font-bold uppercase tracking-widest mt-1">Modalidade Tradicional</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
+            Cobre apenas os eventos explicitamente listados na apólice. Se o risco não estiver "nomeado", não há cobertura. Ideal para galpões menores ou depósitos simples.
+          </p>
+          
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-sm font-bold mb-3 flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-green-500" /> Coberturas Comuns
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {["Incêndio", "Raio", "Explosão", "Vendaval", "Danos Elétricos"].map(item => (
+                  <span key={item} className="text-[11px] px-2.5 py-1 rounded-full bg-background border border-border text-muted-foreground">{item}</span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="p-4 rounded-xl bg-amber-500/5 border border-amber-500/10">
+              <h4 className="text-sm font-bold mb-2 text-amber-700 flex items-center gap-2">
+                <HelpCircle className="h-4 w-4" /> Limitações Críticas
+              </h4>
+              <p className="text-xs text-amber-700/80 leading-relaxed">
+                Qualquer evento não listado (como um erro de engenharia ou colapso estrutural por causa não especificada) é automaticamente excluído.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* All-Risks */}
+        <div className="relative p-8 rounded-3xl border-2 border-primary bg-primary/[0.02] shadow-xl shadow-primary/5">
+          <div className="absolute top-4 right-8 px-3 py-1 rounded-full bg-primary text-[10px] font-bold text-primary-foreground uppercase tracking-widest">
+            Recomendado Classe A
+          </div>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+              <ShieldCheck className="h-6 w-6" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold">All-Risks (Riscos Operacionais)</h3>
+              <p className="text-xs text-primary font-bold uppercase tracking-widest mt-1">Proteção de Alta Performance</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground mb-8 leading-relaxed">
+            Inverte a lógica: <span className="text-foreground font-semibold">Tudo está coberto</span>, exceto o que estiver expressamente excluído. É a blindagem máxima para ativos de alto valor.
+          </p>
+
+          <div className="space-y-6">
+            <div>
+              <h4 className="text-sm font-bold mb-3 flex items-center gap-2 text-primary">
+                <CheckCircle2 className="h-4 w-4" /> Vantagens Exclusivas
+              </h4>
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+                {["Danos Acidentais", "Impacto de Veículos", "Quebra de Vidros", "Derrame de Sprinklers", "Queda de Aeronaves", "Alagamento"].map(item => (
+                  <li key={item} className="text-[11px] flex items-center gap-1.5 text-muted-foreground">
+                    <div className="w-1 h-1 rounded-full bg-primary" /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="p-4 rounded-xl bg-primary/5 border border-primary/10">
+              <h4 className="text-sm font-bold mb-2 text-primary">Por que All-Risks?</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Ideal para condomínios logísticos e indústrias onde um sinistro complexo pode envolver múltiplas causas. Garante a continuidade do negócio com menos "letras miúdas".
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const LocadorVsLocatario = () => (
   <section className="py-20 bg-muted/30 border-y">
@@ -117,6 +212,7 @@ const LandingSeguroGalpoes = () => (
     extraSections={
       <>
         <LocadorVsLocatario />
+        <RiscosNomeadosVsAllRisks />
         <LocalMapSection 
           routes={warehouseRoutes} 
           title="Atendimento Presencial em Hubs Logísticos"
