@@ -1,5 +1,55 @@
 import { Link } from "react-router-dom";
-import { CheckCircle, MessageCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, MessageCircle, ArrowRight, Building2, FlaskConical, Stethoscope } from "lucide-react";
+      <section className="py-16">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-center mb-4">Hospitais e Laboratórios Credenciados em Guarulhos</h2>
+          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Ao contratar seu plano com a Patro Seguros, você garante acesso aos melhores estabelecimentos de saúde de Guarulhos e região.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-sm border">
+              <div className="flex items-center gap-3 text-primary mb-4">
+                <Building2 className="h-6 w-6" />
+                <h3 className="text-xl font-bold">Hospitais</h3>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Stella Maris</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Carlos Chagas</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Hospital Ipiranga</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Hospitais de SP (Einstein/Sírio)</span></li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm border">
+              <div className="flex items-center gap-3 text-primary mb-4">
+                <FlaskConical className="h-6 w-6" />
+                <h3 className="text-xl font-bold">Laboratórios</h3>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Delboni Auriemo</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Lavoisier</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Fleury</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>A+ Medicina Diagnóstica</span></li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-sm border">
+              <div className="flex items-center gap-3 text-primary mb-4">
+                <Stethoscope className="h-6 w-6" />
+                <h3 className="text-xl font-bold">Rede Médica</h3>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Centros Médicos Amil</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Clínicas GNDI</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Porto Saúde Med</span></li>
+                <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-primary flex-shrink-0" /> <span>Telemedicina Porto/Alice</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
