@@ -76,7 +76,7 @@ const secondaryProducts: SitemapEntry[] = [
   "/seguro-condominio", "/seguro-transporte", "/seguro-rc",
   "/seguro-rc-profissional", "/seguro-cyber", "/seguro-engenharia",
   "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-caminhao",
-  "/seguro-vida-pme", "/seguro-galpoes-industriais", "/seguro-maquinas",
+  "/seguro-vida-pme", "/seguro-galpao", "/seguro-galpoes-industriais", "/seguro-maquinas",
   "/seguro-rural", "/seguro-maquinas-agricolas", "/seguro-granja",
   "/consorcio", "/previdencia-privada", "/plano-saude-empresarial",
   "/seguro-vida/formulario",
