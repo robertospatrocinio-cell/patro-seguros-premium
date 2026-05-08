@@ -148,6 +148,10 @@ const faqs = [
   { question: "Plano de saúde tem carência?", answer: "Sim. As carências padrão da ANS são: 24h para urgência/emergência, 30 dias para consultas e exames simples, 180 dias para internações, exames complexos e cirurgias e 300 dias para parto. Algumas operadoras oferecem isenção parcial em planos empresariais." },
   { question: "Posso incluir dependentes no plano de saúde?", answer: "Sim. Cônjuge, filhos até 24 anos (se estudantes) e, em alguns planos, pais e enteados podem ser incluídos. Os valores são acrescidos por faixa etária. A inclusão de novo dependente normalmente respeita carências da ANS." },
   { question: "A Patro Seguros cobra para fazer a cotação?", answer: "Não. A cotação e o atendimento consultivo são 100% gratuitos. Recebemos comissão diretamente da operadora — você paga o mesmo valor que pagaria contratando direto, mas com o suporte completo de uma corretora especializada em Guarulhos." },
+  { 
+    question: "Como funciona a portabilidade de carências em Guarulhos?", 
+    answer: "A portabilidade permite trocar de plano de saúde sem cumprir novas carências para consultas, exames e internações. Os requisitos principais são: estar no plano atual há pelo menos 2 anos (ou 3 se tiver doença preexistente), o plano destino deve ter preço compatível com o atual e o contrato deve estar ativo. \n\nExemplos práticos:\n- Jovens (20-30 anos): Ótimo para migrar de um plano individual caro para um empresarial (MEI) mais barato mantendo a rede do Stella Maris.\n- Famílias: Permite unificar planos de operadoras diferentes em um único contrato PME com economia de até 40%.\n- Idosos (60+): Essencial para migrar para operadoras especialistas como Prevent Senior ou MedSenior em Guarulhos mantendo a cobertura imediata para tratamentos contínuos." 
+  },
 ];
 
 const PlanosDeSaude = () => {
