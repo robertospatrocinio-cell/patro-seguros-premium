@@ -214,7 +214,7 @@ export function generateSitemapBundle(
   ]);
 
   const empresarialRoutes = new Set([
-    "/seguro-empresarial", "/seguro-galpoes-industriais",
+    "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
     "/seguro-lojas-shopping", "/seguro-maquinas",
     "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
     "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
