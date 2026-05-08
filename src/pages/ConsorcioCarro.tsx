@@ -59,6 +59,16 @@ const ConsorcioCarro = () => {
         { question: "Posso comprar carro usado com consórcio?", answer: "Sim! A carta de crédito pode ser usada para adquirir veículos novos ou seminovos, desde que atendam aos critérios da administradora (geralmente até 10 anos de fabricação)." },
         { question: "Em quanto tempo sou contemplado?", answer: "Depende da sorte nos sorteios e dos lances oferecidos. Alguns clientes são contemplados nos primeiros meses com lance. Por sorteio, pode ocorrer a qualquer momento. Todos são contemplados até o final do plano." },
       ]}
+      realScenarios={[
+        {
+          title: "Upgrade Programado",
+          description: "Troque seu veículo a cada 3 anos usando o valor da venda do usado como lance, mantendo parcelas baixas e patrimônio sempre novo."
+        },
+        {
+          title: "Expansão de Frota PME",
+          description: "Empresa de Guarulhos adquiriu 3 utilitários via consórcio, economizando R$ 120 mil em juros que foram reinvestidos no marketing do negócio."
+        }
+      ]}
       relatedInsurances={[
         { title: "Consórcio de Imóveis", link: "/consorcio-imoveis" },
         { title: "Consórcio de Veículos Pesados", link: "/consorcio-veiculos-pesados" },
