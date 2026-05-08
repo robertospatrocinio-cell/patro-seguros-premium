@@ -104,10 +104,13 @@ const InsuranceHeroSelector = () => {
     );
   }, [active]);
 
-  // useLayoutEffect runs after DOM mutations but before paint, so the pill
-  // position is read in the same layout pass — no extra forced reflow.
-  useLayoutEffect(() => {
-    updatePill();
+  // Defer the layout read to after first paint via rAF. Reading offsetLeft/
+  // offsetWidth inside useLayoutEffect during hydration forced a synchronous
+  // reflow (~130ms in Lighthouse). The pill starts at width:0 and has a CSS
+  // transition, so the 1-frame delay produces a subtle slide-in instead.
+  useEffect(() => {
+    const frame = requestAnimationFrame(updatePill);
+    return () => cancelAnimationFrame(frame);
   }, [updatePill]);
 
   // Watch the tabs container with ResizeObserver instead of window resize.
