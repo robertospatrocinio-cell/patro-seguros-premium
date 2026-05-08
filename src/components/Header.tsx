@@ -258,7 +258,9 @@ const Header = () => {
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Responsabilidade</p>
+                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">
+                           <Link to="/seguros-responsabilidade-civil" className="hover:text-primary transition-colors">Responsabilidade</Link>
+                         </p>
                         <div className="space-y-0.5">
                           <Link to="/seguro-rc" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Geral</Link>
                           <Link to="/seguro-rc-profissional" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">RC Profissional</Link>
