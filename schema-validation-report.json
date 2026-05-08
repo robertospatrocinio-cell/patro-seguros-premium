@@ -1,0 +1,14 @@
+[
+  {
+    "file": "LocalBusinessSchema.tsx",
+    "type": "InsuranceAgency",
+    "status": "SUCCESS",
+    "errors": []
+  },
+  {
+    "file": "FAQSchema.tsx",
+    "type": "FAQPage",
+    "status": "SUCCESS",
+    "errors": []
+  }
+]
