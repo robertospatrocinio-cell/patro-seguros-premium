@@ -1,4 +1,5 @@
-import imgJardimMaia from "@/assets/bairros/jardim-maia.webp";
+ import { generateLocalFAQs } from "@/data/localFAQGenerator";
+ import imgJardimMaia from "@/assets/bairros/jardim-maia.webp";
 import imgVilaAugusta from "@/assets/bairros/vila-augusta.webp";
 import imgCumbica from "@/assets/bairros/cumbica.webp";
 import imgCentro from "@/assets/bairros/centro.webp";
@@ -25,19 +26,20 @@ export interface BairroData {
 }
 
 export const bairros: BairroData[] = [
-  {
-    id: "jardim-maia",
-    nome: "Cidade Maia",
-    foco: "Seguros de Alto Padrão e Vida",
-    subtitulo: "Proteção premium para quem vive no coração verde de Guarulhos",
-    descricao: "No Cidade Maia, onde o Bosque Maia e a Av. Paulo Faccini atraem moradores de alto padrão e valorizam imóveis, a Patro Seguros oferece soluções sob medida: seguro residencial completo para apartamentos de luxo, seguro auto para veículos premium e proteção patrimonial à altura do bairro mais nobre de Guarulhos. Nossa equipe conhece a região e atende com a agilidade que você merece.",
-    image: imgJardimMaia,
-    faqs: [
-      { question: "Qual o melhor seguro residencial para o Cidade Maia?", answer: "O Cidade Maia é uma região de alto padrão com imóveis valorizados. Recomendamos seguros residenciais com cobertura ampla incluindo danos elétricos, roubo e responsabilidade civil, adequados ao valor dos imóveis próximos ao Bosque Maia e à Av. Paulo Faccini." },
-      { question: "Seguro auto no Cidade Maia custa mais caro?", answer: "O valor do seguro auto varia conforme o veículo, perfil do motorista e CEP. No Cidade Maia, por ser um bairro com boa infraestrutura e segurança, os valores podem ser competitivos. A Patro compara entre as melhores seguradoras para encontrar o melhor custo-benefício." },
-      { question: "A Patro Seguros atende presencialmente no Cidade Maia?", answer: "Sim! Nossa sede fica na Av. Salgado Filho, a poucos minutos do Cidade Maia. Atendemos presencialmente e também via WhatsApp com resposta em até 2 horas." },
-    ],
-  },
+   {
+     id: "jardim-maia",
+     nome: "Cidade Maia",
+     foco: "Seguros de Alto Padrão e Vida",
+     subtitulo: "Proteção premium para quem vive no coração verde de Guarulhos",
+     descricao: "No Cidade Maia, onde o Bosque Maia e a Av. Paulo Faccini atraem moradores de alto padrão e valorizam imóveis, a Patro Seguros oferece soluções sob medida: seguro residencial completo para apartamentos de luxo, seguro auto para veículos premium e proteção patrimonial à altura do bairro mais nobre de Guarulhos. Nossa equipe conhece a região e atende com a agilidade que você merece.",
+     image: imgJardimMaia,
+     faqs: [
+       ...generateLocalFAQs({ slug: "auto-cidade-maia", neighborhood: "Cidade Maia", product: "auto", riskLevel: "baixo", priceRange: "R$ 1.950 a R$ 3.800/ano", reference: "próximo ao Shopping Maia" }),
+       ...generateLocalFAQs({ slug: "vida-cidade-maia", neighborhood: "Cidade Maia", product: "vida", priceRange: "a partir de R$ 45/mês", reference: "na região da Av. Paulo Faccini" }),
+       ...generateLocalFAQs({ slug: "residencial-cidade-maia", neighborhood: "Cidade Maia", product: "residencial", riskLevel: "baixo", priceRange: "a partir de R$ 35/mês", reference: "no entorno do Bosque Maia" }),
+       ...generateLocalFAQs({ slug: "empresarial-cidade-maia", neighborhood: "Cidade Maia", product: "empresarial", riskLevel: "baixo", priceRange: "a partir de R$ 89/mês", reference: "próximo ao Centro de Guarulhos" }),
+     ],
+   },
   {
     id: "vila-augusta",
     nome: "Vila Augusta",
