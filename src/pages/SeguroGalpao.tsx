@@ -81,16 +81,16 @@ const SeguroGalpao = () => {
             content: "Para galpões Classe A e operações complexas, implementamos apólices de Riscos Nomeados e Operacionais (All-risks), oferecendo a proteção mais robusta do mercado."
           }
         ]}
-      coverages={[
-        { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória do imóvel e bens. Inclui despesas de combate, salvamento e remoção de escombros após sinistro." },
-        { title: "Roubo e Furto Qualificado", description: "Mercadoria, equipamentos e bens subtraídos mediante arrombamento ou grave ameaça. Cobertura essencial em galpões com mercadoria de alto valor." },
-        { title: "RC Armazenagem (Mercadoria de Terceiros)", description: "Indispensável para 3PL, fulfillment e operadores logísticos. Cobre danos à mercadoria de clientes sob custódia durante o armazenamento." },
-        { title: "Danos Elétricos e Equipamentos", description: "Empilhadeiras elétricas, leitores de código, balanças, servidores, sistemas WMS e CFTV danificados por curto-circuito ou sobretensão." },
-        { title: "RC Operações", description: "Responsabilidade civil por danos materiais e corporais a motoristas de carreta, vistoriadores, prestadores e visitantes dentro do galpão." },
-        { title: "Lucros Cessantes (até 12 meses)", description: "Indenização do faturamento perdido durante reconstrução. Mantém a empresa viva enquanto o galpão é reformado após sinistro coberto." },
-        { title: "Vendaval, Alagamento e Fumaça", description: "Cobertura para danos por vendaval, granizo, fumaça e alagamento por chuva intensa — fenômenos cada vez mais comuns no Brasil." },
-        { title: "RC Ambiental (cargas perigosas)", description: "Vazamentos, derramamentos e contaminação por produtos químicos, combustíveis e cargas perigosas. Multas ambientais podem ultrapassar R$ 50 milhões." },
-      ]}
+       coverages={[
+         { title: "Incêndio, Raio e Explosão", description: "Proteção essencial para garantir a reconstrução física do imóvel e preservação do ativo." },
+         { title: "Lucros Cessantes", description: "Se o galpão parar, o seguro cobre as despesas fixas e o lucro cessante durante o período de reparo." },
+         { title: "Danos Elétricos", description: "Cobertura crítica para galpões automatizados com esteiras, CLPs, servidores e sistemas WMS." },
+         { title: "RC Operações", description: "Proteção contra danos a terceiros, prestadores e bens de clientes no perímetro do imóvel." },
+         { title: "Vendaval e Granizo", description: "Essencial para estruturas de grandes metragens de telhado, comuns em hubs logísticos." },
+         { title: "RC Armazenagem", description: "Indispensável para 3PL e fulfillment. Cobre danos à mercadoria de terceiros sob sua custódia." },
+         { title: "Roubo e Furto Qualificado", description: "Proteção para estoques de alto valor, maquinários e equipamentos contra subtração mediante arrombamento." },
+         { title: "RC Ambiental", description: "Vazamentos ou contaminação por produtos químicos e combustíveis. Cobertura crítica para logística pesada." },
+       ]}
       whoNeeds={[
         "Operadores logísticos (3PL, 4PL) e empresas de fulfillment em todo o Brasil",
         "Indústrias químicas, alimentícias, metalúrgicas e plásticas com galpão próprio",
