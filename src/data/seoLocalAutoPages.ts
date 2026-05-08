@@ -1390,6 +1390,98 @@ Object.assign(seoLocalPages, {
   [seguroGalpaoGuarulhos.slug]: seguroGalpaoGuarulhos,
 });
 
+const seguroGalpaoCumbica: SeoLocalPageConfig = {
+  slug: "seguro-galpao-cumbica",
+  title: "Seguro de Galpão em Cumbica — Especialistas no Polo do GRU Airport",
+  subtitle: "Seguro para galpão em Cumbica, Guarulhos: incêndio, roubo de carga, RC armazenagem, equipamentos e lucros cessantes para o maior polo logístico do Brasil. Vistoria técnica grátis.",
+  description: `Seguro para galpão em Cumbica, no entorno do GRU Airport e Rodovia Hélio Smidt, cobrindo incêndio, roubo qualificado, RC armazenagem e lucros cessantes para 3PLs, e-commerce, fulfillment e indústrias. ${partnersLine} A Patro Seguros tem mais de 60 apólices ativas no polo logístico de Cumbica.`,
+  detailedDescription: `Cumbica é o coração logístico de Guarulhos — e do Brasil. O polo concentra centenas de galpões de 3PLs (Third-Party Logistics), fulfillment de marketplace (Mercado Livre, Amazon, Magalu, Shopee), distribuidoras farmacêuticas, dark stores de e-commerce, terminais aeroportuários, ground handlers, hangares, indústrias químicas e alimentícias e operadores de carga aérea no entorno do GRU Airport, da Rodovia Hélio Smidt e do Distrito Industrial de Cumbica. Esse perfil único cria exposições patrimoniais que não existem em galpões "comuns" de outras regiões — e que precisam ser explicitamente cobertas na apólice.\n\nOs 5 riscos específicos de galpão em Cumbica que toda apólice precisa endereçar: (1) Roubo e desvio de carga aeroportuária — Cumbica concentra cargas de alto valor agregado (eletrônicos, perfumaria, farmacêuticos, peças aeronáuticas) com estatísticas de roubo qualificado significativamente acima da média de Guarulhos; (2) Concentração extrema de mercadoria nos picos (Black Friday, fim de ano, Prime Day) — galpões de fulfillment podem multiplicar o LMI necessário em 3-5x sem ajuste contratual, criando subseguro grave; (3) Cadeia de frio para farmacêutica e alimentos — perda de refrigeração por 4-6 horas pode invalidar lotes inteiros de medicamentos; (4) Risco de impacto aeronáutico e queda de objetos próximo ao aeroporto — cobertura específica disponível nas seguradoras especializadas; (5) RC ambiental por vazamento — combustíveis aeronáuticos, produtos químicos e perigosos exigem RC ambiental separada do empresarial.\n\nA Patro Seguros é especialista em galpões em Cumbica desde 2008, com mais de 60 apólices ativas no polo: do pequeno depósito de e-commerce de 600m² ao complexo logístico de 25.000m² com LMI acima de R$ 80 milhões. Nosso escritório no Cidade Maia fica a 12 minutos de Cumbica pela Avenida Monteiro Lobato, permitindo vistoria técnica presencial em até 48h após o pedido. Cotamos com Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco Riscos Patrimoniais, Sompo, Mapfre, Liberty e Zurich, especializados em risco logístico/aeroportuário.`,
+  metaDescription: "Seguro para galpão em Cumbica (entorno GRU Airport): incêndio, roubo de carga, RC armazenagem e lucros cessantes. Patro Seguros: 60+ apólices ativas no polo.",
+  icon: "✈️",
+  pricingIntro: "O seguro para galpão em Cumbica varia de R$ 6.500/ano para galpões pequenos (até 600m², mercadoria leve) até R$ 580.000+/ano para grandes complexos logísticos (acima de 15.000m² com LMI acima de R$ 50 milhões). Galpões em Cumbica costumam ter prêmio 12-20% mais alto que o resto de Guarulhos por causa da concentração de carga aeroportuária e da estatística de risco específica do CEP.",
+  pricingFactors: [
+    "Tipo de carga predominante (geral, eletrônicos, farmacêutica, perfumaria, aérea)",
+    "Valor médio de mercadoria no galpão e LMI necessário em pico (Black Friday, fim de ano)",
+    "Distância exata do GRU Airport e da Rodovia Hélio Smidt",
+    "Sistema de proteção: CFTV 24h, controle de acesso eletrônico, brigada certificada, sprinklers",
+    "Gerenciamento de risco (GR) homologado para cargas de alto valor",
+    "Cobertura adicional: cadeia de frio, RC ambiental, impacto aeronáutico",
+    "Histórico de sinistros do galpão e do operador nos últimos 5 anos",
+  ],
+  pricingNote: "Realidade Cumbica: galpões com sprinklers FM-Global, CFTV monitorado 24h, controle de acesso biométrico, brigada certificada e GR contratado para cargas valiosas conseguem reduções de 32% a 48% no prêmio total — em complexos grandes, isso representa centenas de milhares de reais de economia anual.",
+  faqs: [
+    { question: "Quanto custa seguro de galpão em Cumbica para 3PL e fulfillment?", answer: "Para 3PL ou fulfillment com galpão de 3.000m² em Cumbica, mercadoria média de R$ 5 milhões (terceiros) e LMI total de R$ 8 milhões, o pacote completo (empresarial + RC armazenagem + equipamentos + lucros cessantes) fica entre R$ 28.000 e R$ 48.000/ano. Cumbica tem prêmio 12-20% maior que outras regiões de Guarulhos por concentração de carga aeroportuária." },
+    { question: "Por que galpões em Cumbica pagam mais caro de seguro que outras regiões de Guarulhos?", answer: "Por 3 razões: (1) Cumbica concentra o maior fluxo de carga de alto valor do Brasil (entorno GRU Airport), com estatística de roubo qualificado acima da média; (2) Densidade extrema de galpões aumenta exposição em sinistros propagados; (3) Operações de fulfillment têm picos sazonais (Black Friday) que multiplicam o LMI necessário. Mas com proteção adequada, dá para neutralizar boa parte do agravamento." },
+    { question: "Como dimensionar LMI de galpão em Cumbica para Black Friday e pico de fim de ano?", answer: "Crítico: LMI deve cobrir o estoque máximo no pico, não a média anual. Para galpão de fulfillment, o pico de Black Friday/Cyber Week pode chegar a 4-5x a mercadoria média. A Patro dimensiona LMI com clausura de pico sazonal (vigência ampliada de outubro a janeiro) sem aumento proporcional de prêmio anual — economia significativa para operadores de e-commerce em Cumbica." },
+    { question: "Galpão de cargas aeroportuárias em Cumbica precisa de cobertura específica?", answer: "Sim. Cargas com origem/destino aéreo (importação, exportação, doméstico) podem exigir cobertura adicional para impacto aeronáutico, queda de objetos e responsabilidade por carga em pista. Para ground handlers e operadores de carga aérea, vale também incluir RC operações aeroportuárias específica — produto que apenas seguradoras especializadas (Porto, Allianz, Zurich) oferecem." },
+    { question: "Seguro de galpão em Cumbica cobre quebra de cadeia de frio para farmacêutica?", answer: "Apenas com cobertura específica de Quebra de Equipamento Frigorífico + Mercadoria Refrigerada. Cobre perda de mercadoria por queda de refrigeração superior ao tempo crítico (geralmente 4-6h para farmacêuticos sensíveis). Indispensável para distribuidoras farmacêuticas e centros de distribuição de imunobiológicos em Cumbica — sinistros podem ultrapassar R$ 2 milhões em lotes inteiros." },
+    { question: "RC armazenagem é obrigatória para 3PL em Cumbica?", answer: "Não é obrigatória por lei, mas é contratualmente exigida pela quase totalidade dos clientes (embarcadores, marketplaces, indústrias que terceirizam logística). Sem RC armazenagem, o 3PL responde com patrimônio próprio em sinistro com mercadoria de terceiros — em Cumbica, com valores médios altos, isso pode liquidar a operação. Cobertura essencial em todo contrato de 3PL." },
+    { question: "Roubo de carga em Cumbica tem cobertura no seguro de galpão?", answer: "Sim, em duas modalidades: (1) Roubo qualificado dentro do galpão (cobertura padrão de seguro empresarial com cláusula de mercadoria); (2) Roubo de carga em trânsito de/para o galpão — esse exige RCF-DC (Responsabilidade Civil Facultativa por Desaparecimento de Carga) que é parte do seguro de transporte (RCTR-C). A Patro monta pacote integrado galpão + transporte para cobrir os dois cenários." },
+    { question: "Quanto tempo a Patro leva para fazer vistoria técnica e devolver cotação para galpão em Cumbica?", answer: "Vistoria técnica em até 48h úteis após o pedido — saímos do escritório em Cidade Maia (12 min de Cumbica) e fazemos análise presencial de construção, proteção e fluxo. Quadro técnico comparativo entre 9 seguradoras devolvido em até 4h úteis após a vistoria. Para galpões acima de R$ 5 mi de LMI, vistoria é gratuita e fundamenta melhores condições com as seguradoras." },
+    { question: "A Patro atende sinistro grave em galpão de Cumbica no fim de semana?", answer: "Sim. Plantão 24/7 para sinistros graves (incêndio, alagamento, roubo grande, vazamento). Em Cumbica, com a concentração logística da região, a maioria dos sinistros graves acontece fora do horário comercial. Em mais de 60 apólices ativas no polo, a Patro acompanhou perícia, ajustamento e regulação com 92% de indenização integral nos últimos 5 anos." },
+  ],
+  whoNeeds: [
+    "Operadores logísticos (3PL, 4PL) com galpão em Cumbica e entorno do GRU Airport",
+    "E-commerces com fulfillment próprio ou terceirizado para marketplaces (ML, Amazon, Magalu, Shopee)",
+    "Distribuidoras farmacêuticas com cadeia de frio em Cumbica e Distrito Industrial",
+    "Importadoras e exportadoras com armazém de carga aérea próximo ao GRU",
+    "Ground handlers e operadores de carga aeroportuária no entorno do GRU Airport",
+    "Indústrias químicas, alimentícias e plásticas no Distrito Industrial de Cumbica",
+    "Dark stores de quick commerce e last-mile delivery com sede em Cumbica",
+    "Proprietários (locadores) de galpão em Cumbica que querem proteger o imóvel independente do inquilino",
+  ],
+  whyPatro: [
+    "Mais de 60 apólices de galpão ativas em Cumbica e entorno do GRU Airport",
+    "Especialistas no polo logístico aeroportuário desde 2008",
+    "Vistoria técnica gratuita em até 48h úteis (escritório a 12 min de Cumbica)",
+    "Comparativo entre 9 seguradoras especializadas em risco logístico/aeroportuário",
+    "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
+    "Pacote integrado galpão + transporte (RCTR-C/RCF-DC) para cobrir trânsito e armazenagem",
+    "Dimensionamento de LMI com cláusula de pico sazonal para Black Friday e fim de ano",
+    "Pasta digital de risco com gestão de AVCB, brigada e renovações automáticas",
+  ],
+  coverages: [
+    { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória. Indenização integral do imóvel e bens destruídos por fogo, raio direto e explosão. Inclui despesas de combate, salvamento e remoção de escombros." },
+    { title: "Roubo Qualificado de Mercadoria", description: "Cobertura para mercadoria subtraída do galpão mediante arrombamento ou grave ameaça — risco crítico em Cumbica pela concentração de carga aeroportuária de alto valor." },
+    { title: "RC Armazenagem (Mercadoria de Terceiros)", description: "Indispensável para 3PL e fulfillment em Cumbica. Cobre danos materiais e desaparecimento de mercadoria de clientes sob custódia da operadora durante o armazenamento." },
+    { title: "Quebra de Equipamento Frigorífico", description: "Cobertura para câmaras frias, freezers industriais e equipamentos de refrigeração + indenização de mercadoria perdida por quebra de cadeia de frio. Essencial para farmacêutica e alimentos." },
+    { title: "Equipamentos Eletrônicos e WMS", description: "Empilhadeiras elétricas, leitores de código, balanças industriais, servidores, sistemas WMS, CFTV e sistema de pesagem danificados por curto-circuito ou sobretensão." },
+    { title: "RC Operações Logísticas", description: "Responsabilidade civil por danos materiais e corporais a motoristas de carreta, vistoriadores, prestadores e visitantes dentro da operação logística do galpão." },
+    { title: "RC Ambiental (cargas perigosas)", description: "Cobertura para vazamentos, derramamentos e contaminação por produtos químicos, combustíveis aeronáuticos e cargas perigosas. Multas ambientais podem ultrapassar R$ 50 milhões." },
+    { title: "Lucros Cessantes (até 12 meses)", description: "Indenização do faturamento perdido durante reconstrução do galpão. Crítico em Cumbica: parar uma operação de fulfillment por 6 meses pode quebrar a empresa mesmo com indenização do imóvel." },
+    { title: "Impacto Aeronáutico e Queda de Objetos", description: "Cobertura específica para galpões próximos ao GRU Airport: danos por queda de aeronave, peças, fragmentos e objetos em rota de aproximação ou pouso." },
+  ],
+  realScenarios: [
+    { title: "Fulfillment em Cumbica recebeu R$ 2,4 milhões em incêndio elétrico durante a Black Friday", description: "Operador de fulfillment com galpão de 4.200m² em Cumbica teve incêndio em painel elétrico na semana da Black Friday — pior cenário possível, com mercadoria de terceiros 3,5x acima da média anual. Patro havia dimensionado cláusula de pico sazonal 60 dias antes. Indenização integral de R$ 2,4 mi: R$ 1,4 mi em mercadoria de terceiros (RC armazenagem com pico), R$ 720 mil em reforma e R$ 280 mil em lucros cessantes de 75 dias." },
+    { title: "Distribuidora farmacêutica em Cumbica salvou lote de R$ 380 mil em quebra de cadeia de frio", description: "Distribuidora de imunobiológicos teve falha em sistema de refrigeração no fim de semana, com perda de temperatura controlada por 9 horas. Cobertura específica de Quebra de Equipamento Frigorífico + Mercadoria Refrigerada cobriu o conserto do equipamento (R$ 48 mil) e a indenização integral do lote farmacêutico perdido (R$ 380 mil). Sem essa cobertura específica, o sinistro estaria descoberto." },
+    { title: "3PL em Cumbica reduziu prêmio em R$ 78 mil/ano após instalação de sprinklers e CFTV biométrico", description: "Operador logístico com 2 galpões em Cumbica (8.500m² total) pagava R$ 218 mil/ano em seguro empresarial. Após instalação de sprinklers FM-Global, controle de acesso biométrico e CFTV monitorado 24h por empresa especializada, Patro renegociou apólice e reduziu prêmio para R$ 140 mil/ano — investimento se pagou em 4 anos via redução de prêmio." },
+    { title: "Importadora evitou exposição de R$ 6 milhões em subseguro grave", description: "Importadora de eletrônicos com galpão em Cumbica tinha LMI de R$ 4 milhões em apólice antiga, mas mercadoria média havia crescido para R$ 9 milhões com aumento de fluxo de importação chinesa. Patro identificou subseguro de 56% em vistoria técnica gratuita, renegociou LMI proporcional ao risco real e evitou potencial indenização de apenas 44% em sinistro futuro." },
+  ],
+  tips: [
+    "Para galpões de fulfillment em Cumbica, sempre contrate cláusula de pico sazonal (Black Friday + fim de ano) — multiplica LMI sem multiplicar prêmio anual.",
+    "Combine seguro de galpão com RCTR-C/RCF-DC para cobrir tanto armazenagem quanto trânsito de carga — pacote integrado economiza 12-18% no prêmio total.",
+    "Para cargas farmacêuticas e refrigeradas, sempre contrate Quebra de Equipamento Frigorífico + Mercadoria — sinistros podem ultrapassar R$ 2 milhões em lotes inteiros.",
+    "Instale CFTV biométrico, controle de acesso eletrônico e brigada certificada — em Cumbica, isso reduz prêmio em até 25% e libera coberturas adicionais para cargas valiosas.",
+    "Mantenha AVCB vigente e faça inspeção elétrica anual — curto-circuito em painel elétrico é a causa #1 de incêndio em galpões de Cumbica.",
+    "Para operadores próximos à pista do GRU Airport, contrate cobertura de impacto aeronáutico — cobertura barata que cobre cenário catastrófico raro.",
+    "Atualize LMI a cada 6 meses (não anualmente) em galpões com mercadoria de terceiros em Cumbica — picos de operação podem criar subseguro grave em poucas semanas.",
+  ],
+  relatedInsurances: [
+    { title: "Seguro de Galpão Guarulhos", link: "/seguro-galpao-guarulhos" },
+    { title: "Seguro Galpões Industriais", link: "/seguro-galpoes-industriais" },
+    { title: "Seguro Empresarial Cumbica", link: "/seguro-empresarial-cumbica" },
+    { title: "Seguro Logística Guarulhos", link: "/seguro-logistica-guarulhos" },
+    { title: "Seguro Transportadora Guarulhos", link: "/seguro-transportadora-guarulhos" },
+    { title: "Seguro de Transporte (RCTR-C)", link: "/seguro-transporte" },
+    { title: "Seguro de Frota", link: "/seguro-frota" },
+    { title: "Hub de Seguros em Guarulhos", link: "/seguros-em-guarulhos" },
+  ],
+};
+
+Object.assign(seoLocalPages, {
+  [seguroGalpaoCumbica.slug]: seguroGalpaoCumbica,
+});
+
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
 
