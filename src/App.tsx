@@ -1,3 +1,5 @@
+const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
+            <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />
 import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
