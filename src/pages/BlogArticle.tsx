@@ -8388,7 +8388,12 @@ const BlogArticle = () => {
               </div>
             )}
 
-            {/* CTA persistente — FINAL do post */}
+             {/* Inline Form CTA */}
+             <Suspense fallback={null}>
+               <BlogFormCTA />
+             </Suspense>
+ 
+             {/* CTA persistente — FINAL do post */}
             <div className="mt-12 p-8 md:p-10 bg-primary text-primary-foreground rounded-xl text-center shadow-elegant">
               <h3 className="text-2xl md:text-3xl font-bold mb-3">Pronto para uma cotação personalizada?</h3>
               <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
