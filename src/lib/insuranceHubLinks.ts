@@ -66,6 +66,7 @@ export const INSURANCE_HUB: HubCategory[] = [
     title: "Empresarial e Indústria",
     links: [
       { label: "Seguro Empresarial", href: "/seguro-empresarial" },
+      { label: "Seguro de Galpão (Hub Nacional)", href: "/seguro-galpao" },
       { label: "Seguro de Galpões Industriais", href: "/seguro-galpoes-industriais" },
       { label: "Seguro Lojas em Shopping", href: "/seguro-lojas-shopping" },
       { label: "Seguro de Máquinas", href: "/seguro-maquinas" },
