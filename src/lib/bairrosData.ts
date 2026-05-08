@@ -82,19 +82,20 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-centro", neighborhood: "Centro", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 38/mês", reference: "nos edifícios residenciais centrais" }),
      ],
    },
-  {
-    id: "picanco",
-    nome: "Picanço",
-    foco: "Seguro Auto Familiar",
-    subtitulo: "Proteção para famílias no coração residencial de Guarulhos",
-    descricao: "O Picanço é um bairro de famílias. Com acesso fácil pela Avenida Transguarulhense e vizinhança tranquila, quem mora aqui busca segurança no dia a dia. A Patro Seguros entende essa necessidade: seguro auto com assistência 24h, seguro residencial com cobertura ampla e seguro de vida para proteger quem você ama. Atendimento rápido e humano para a família do Picanço.",
-    image: imgPicanco,
-    faqs: [
-      { question: "Seguro auto no Picanço tem bom custo-benefício?", answer: "Sim! O Picanço é um bairro residencial tranquilo, o que pode contribuir para valores competitivos de seguro auto. A Patro compara entre diversas seguradoras para encontrar a melhor proposta." },
-      { question: "Qual seguro de vida indicado para famílias do Picanço?", answer: "Recomendamos seguro de vida individual ou familiar com cobertura por morte, invalidez e assistência funeral. Proteja sua família com planos a partir de valores acessíveis." },
-      { question: "A Patro atende rápido moradores do Picanço?", answer: "Sim! Estamos a poucos minutos do Picanço, com atendimento via WhatsApp em até 2 horas e suporte presencial na nossa sede na Av. Salgado Filho." },
-    ],
-  },
+   {
+     id: "picanco",
+     nome: "Picanço",
+     foco: "Seguro Auto Familiar",
+     subtitulo: "Proteção para famílias no coração residencial de Guarulhos",
+     descricao: "O Picanço é um bairro de famílias. Com acesso fácil pela Avenida Transguarulhense e vizinhança tranquila, quem mora aqui busca segurança no dia a dia. A Patro Seguros entende essa necessidade: seguro auto com assistência 24h, seguro residencial com cobertura ampla e seguro de vida para proteger quem você ama. Atendimento rápido e humano para a família do Picanço.",
+     image: imgPicanco,
+     faqs: [
+       ...generateLocalFAQs({ slug: "auto-picanco", neighborhood: "Picanço", product: "auto", riskLevel: "médio", priceRange: "R$ 2.400 a R$ 4.500/ano", reference: "próximo à Av. Transguarulhense" }),
+       ...generateLocalFAQs({ slug: "residencial-picanco", neighborhood: "Picanço", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 28/mês", reference: "na região da Vila Rosália" }),
+       ...generateLocalFAQs({ slug: "vida-picanco", neighborhood: "Picanço", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para proteção de famílias e casais" }),
+       ...generateLocalFAQs({ slug: "empresarial-picanco", neighborhood: "Picanço", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 75/mês", reference: "para o comércio local do bairro" }),
+     ],
+   },
   {
     id: "macedo",
     nome: "Macedo",
