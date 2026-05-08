@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTemplate";
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
+import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 
 export interface SeoLocalPageConfig {
   slug: string;
@@ -1322,7 +1323,7 @@ const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
     "Coberturas adicionais: RC armazenagem, equipamentos, RC operações",
   ],
   pricingNote: "Dica Patro: galpões em Guarulhos com sprinklers FM-Global homologados, CFTV monitorado 24h por empresa especializada, controle de acesso eletrônico e brigada certificada conseguem reduções de 30% a 45% no prêmio total — em galpões grandes isso representa centenas de milhares de reais por ano.",
-  faqs: [
+  faqs: mergeGalpaoFAQs([
     { question: "Quanto custa seguro de galpão em Guarulhos?", answer: "Para galpão padrão de 2.000m² em Guarulhos, alvenaria com telhado metálico, mercadoria média de R$ 3 milhões e LMI total de R$ 5 milhões, o seguro empresarial completo (incêndio, roubo, RC armazenagem, equipamentos e lucros cessantes) fica entre R$ 18.000 e R$ 32.000/ano dependendo de proteção, franquias e seguradora. A Patro cota com 9 seguradoras." },
     { question: "Galpão com telhado de fibrocimento tem aceitação no seguro em Guarulhos?", answer: "Sim, mas com restrições. Telhado de fibrocimento (Eternit antigo) tem prêmio de incêndio mais alto e pode ter LMI limitado por algumas seguradoras. Recomendamos vistoria técnica para mapear pontos de risco. Em alguns casos vale trocar para telha metálica isolada — investimento se paga em 3-4 anos via redução de prêmio." },
     { question: "Preciso de RC armazenagem se guardo mercadoria de terceiros no galpão?", answer: "Sim, é essencial. RC Armazenagem cobre danos materiais à mercadoria de clientes durante a custódia (incêndio, roubo, dano físico). Sem essa cobertura específica, em sinistro envolvendo mercadoria de terceiros, a operadora responde com patrimônio próprio. Cobertura indispensável para 3PLs, fulfillment, operadores logísticos e armazéns gerais em Guarulhos." },
@@ -1331,7 +1332,7 @@ const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
     { question: "Lucros cessantes valem a pena para galpão logístico em Guarulhos?", answer: "Sim, e em muitos casos é a cobertura que salva a empresa. Lucros cessantes indeniza o faturamento perdido durante reconstrução do galpão (até 12 meses). Para operadores logísticos, dark stores e indústrias, parar a operação por 6 meses pode quebrar a empresa mesmo com indenização do imóvel. A Patro dimensiona com base em DRE e prazo realista de reconstrução." },
     { question: "AVCB vencido pode causar negativa de sinistro em galpão em Guarulhos?", answer: "Sim, em sinistros de incêndio. Algumas seguradoras incluem cláusula de exigência de AVCB vigente — em sinistro com AVCB vencido, a indenização pode ser reduzida ou negada. A Patro mantém pasta digital de risco com prazos de AVCB e brigada e alerta o cliente antes do vencimento para evitar problemas." },
     { question: "Quanto tempo demora a indenização em sinistro grave de galpão em Guarulhos?", answer: "Para sinistros bem documentados (com Patro acompanhando regulação), o prazo médio é 30 a 60 dias para liberação parcial e 90 a 120 dias para indenização final em sinistros grandes. Em mais de 80 apólices ativas em Guarulhos, a taxa de indenização integral em sinistros graves foi de 92% nos últimos 5 anos." },
-  ],
+  ], ["localGuarulhos", "informational", "technical", "comparison", "transactional", "navigational"]),
   whoNeeds: [
     "Galpões logísticos e centros de distribuição em Cumbica e entorno do GRU Airport",
     "3PLs, operadores logísticos e empresas de fulfillment de marketplace",
@@ -1409,7 +1410,7 @@ const seguroGalpaoCumbica: SeoLocalPageConfig = {
     "Histórico de sinistros do galpão e do operador nos últimos 5 anos",
   ],
   pricingNote: "Realidade Cumbica: galpões com sprinklers FM-Global, CFTV monitorado 24h, controle de acesso biométrico, brigada certificada e GR contratado para cargas valiosas conseguem reduções de 32% a 48% no prêmio total — em complexos grandes, isso representa centenas de milhares de reais de economia anual.",
-  faqs: [
+  faqs: mergeGalpaoFAQs([
     { question: "Quanto custa seguro de galpão em Cumbica para 3PL e fulfillment?", answer: "Para 3PL ou fulfillment com galpão de 3.000m² em Cumbica, mercadoria média de R$ 5 milhões (terceiros) e LMI total de R$ 8 milhões, o pacote completo (empresarial + RC armazenagem + equipamentos + lucros cessantes) fica entre R$ 28.000 e R$ 48.000/ano. Cumbica tem prêmio 12-20% maior que outras regiões de Guarulhos por concentração de carga aeroportuária." },
     { question: "Por que galpões em Cumbica pagam mais caro de seguro que outras regiões de Guarulhos?", answer: "Por 3 razões: (1) Cumbica concentra o maior fluxo de carga de alto valor do Brasil (entorno GRU Airport), com estatística de roubo qualificado acima da média; (2) Densidade extrema de galpões aumenta exposição em sinistros propagados; (3) Operações de fulfillment têm picos sazonais (Black Friday) que multiplicam o LMI necessário. Mas com proteção adequada, dá para neutralizar boa parte do agravamento." },
     { question: "Como dimensionar LMI de galpão em Cumbica para Black Friday e pico de fim de ano?", answer: "Crítico: LMI deve cobrir o estoque máximo no pico, não a média anual. Para galpão de fulfillment, o pico de Black Friday/Cyber Week pode chegar a 4-5x a mercadoria média. A Patro dimensiona LMI com clausura de pico sazonal (vigência ampliada de outubro a janeiro) sem aumento proporcional de prêmio anual — economia significativa para operadores de e-commerce em Cumbica." },
@@ -1419,7 +1420,7 @@ const seguroGalpaoCumbica: SeoLocalPageConfig = {
     { question: "Roubo de carga em Cumbica tem cobertura no seguro de galpão?", answer: "Sim, em duas modalidades: (1) Roubo qualificado dentro do galpão (cobertura padrão de seguro empresarial com cláusula de mercadoria); (2) Roubo de carga em trânsito de/para o galpão — esse exige RCF-DC (Responsabilidade Civil Facultativa por Desaparecimento de Carga) que é parte do seguro de transporte (RCTR-C). A Patro monta pacote integrado galpão + transporte para cobrir os dois cenários." },
     { question: "Quanto tempo a Patro leva para fazer vistoria técnica e devolver cotação para galpão em Cumbica?", answer: "Vistoria técnica em até 48h úteis após o pedido — saímos do escritório em Cidade Maia (12 min de Cumbica) e fazemos análise presencial de construção, proteção e fluxo. Quadro técnico comparativo entre 9 seguradoras devolvido em até 4h úteis após a vistoria. Para galpões acima de R$ 5 mi de LMI, vistoria é gratuita e fundamenta melhores condições com as seguradoras." },
     { question: "A Patro atende sinistro grave em galpão de Cumbica no fim de semana?", answer: "Sim. Plantão 24/7 para sinistros graves (incêndio, alagamento, roubo grande, vazamento). Em Cumbica, com a concentração logística da região, a maioria dos sinistros graves acontece fora do horário comercial. Em mais de 60 apólices ativas no polo, a Patro acompanhou perícia, ajustamento e regulação com 92% de indenização integral nos últimos 5 anos." },
-  ],
+  ], ["localCumbica", "localGuarulhos", "technical", "comparison", "informational", "navigational"]),
   whoNeeds: [
     "Operadores logísticos (3PL, 4PL) com galpão em Cumbica e entorno do GRU Airport",
     "E-commerces com fulfillment próprio ou terceirizado para marketplaces (ML, Amazon, Magalu, Shopee)",
