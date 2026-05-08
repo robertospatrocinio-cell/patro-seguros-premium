@@ -34,8 +34,8 @@
  const HubEmpresarial = () => (
    <div className="min-h-screen flex flex-col">
      <PageMeta 
-       title="Seguros Empresariais: Proteção Completa para seu Negócio | Patro" 
-       description="Hub de seguros para empresas. Seguro empresarial, de galpão, cyber, engenharia e frota. Consultoria técnica para PMEs em Guarulhos e todo Brasil." 
+        title="Seguro Empresarial em Guarulhos: Proteção Completa para sua Empresa" 
+        description="Especialistas em seguro empresarial em Guarulhos. Proteção para galpões, indústrias, comércios e PMEs. Consultoria técnica e gestão de riscos em Cumbica e região." 
      />
      <Header />
      <main id="main-content">
@@ -46,9 +46,9 @@
            <div className="flex justify-center mb-6">
              <Building2 className="h-16 w-16 text-white opacity-20" />
            </div>
-           <h1 className="text-white mb-6">Seguros Empresariais — Blindagem Estratégica</h1>
-           <p className="text-xl text-white/70 mb-8">
-             Não deixe seu esforço de anos desprotegido. Consultoria especializada para converter riscos em previsibilidade financeira.
+            <h1 className="text-white mb-6">Seguro Empresarial em Guarulhos — Blindagem Estratégica</h1>
+            <p className="text-xl text-white/70 mb-8">
+              Proteção para empresas em Guarulhos. Consultoria especializada para converter riscos operacionais em previsibilidade financeira.
            </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-empresarial")}>
@@ -91,9 +91,9 @@
        <section className="py-20 bg-muted/30">
          <div className="container mx-auto px-4 text-center max-w-3xl">
            <BarChart3 className="h-10 w-10 text-primary mx-auto mb-4" />
-           <h2 className="mb-4">Especialistas em Continuidade de Negócio</h2>
-           <p className="text-muted-foreground mb-10">
-             Em Guarulhos, um dos maiores polos logísticos da América Latina, um sinistro pode comprometer toda uma cadeia. Proteja seu faturamento com quem entende do mercado B2B.
+            <h2 className="mb-4">Especialistas em Seguros para Empresas em Guarulhos</h2>
+            <p className="text-muted-foreground mb-10">
+              Como um dos maiores polos logísticos da América Latina, as empresas de Guarulhos precisam de seguros robustos. Proteja seu faturamento com quem entende o mercado local.
            </p>
            <div className="grid sm:grid-cols-3 gap-6">
              {[

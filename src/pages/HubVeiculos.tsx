@@ -41,8 +41,8 @@
  const HubVeiculos = () => (
    <div className="min-h-screen flex flex-col">
      <PageMeta 
-       title="Seguro de Veículos: Auto, Moto, Caminhão e Frota | Patro" 
-       description="Hub completo de seguros de veículos. Compare preços de seguro auto, moto, frota e caminhão com especialistas. Cotação em até 2h em Guarulhos." 
+        title="Corretora de Seguros de Veículos em Guarulhos: Auto e Frota | Patro" 
+        description="A melhor corretora de seguros de veículos em Guarulhos. Cotação de seguro auto, moto, caminhão e frota com as 16 principais seguradoras. Resposta em 2h." 
      />
      <Header />
      <main id="main-content">
@@ -53,9 +53,9 @@
            <div className="flex justify-center mb-6">
              <Car className="h-16 w-16 text-white opacity-20" />
            </div>
-           <h1 className="text-white mb-6">Seguros de Veículos — Proteção de Verdade</h1>
-           <p className="text-xl text-white/70 mb-8">
-             Da cotação do seu primeiro carro à gestão de frotas logísticas complexas. Encontramos a melhor seguradora pelo menor custo.
+            <h1 className="text-white mb-6">Seguros de Veículos em Guarulhos — Proteção de Verdade</h1>
+            <p className="text-xl text-white/70 mb-8">
+              Da cotação do seu carro à gestão de frotas logísticas em Guarulhos. Comparamos 16 seguradoras para garantir o menor custo.
            </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-veiculos")}>
@@ -98,9 +98,9 @@
        <section className="py-20 bg-muted/30">
          <div className="container mx-auto px-4 text-center max-w-3xl">
            <Award className="h-10 w-10 text-primary mx-auto mb-4" />
-           <h2 className="mb-4">Por que cotar com a Patro Seguros?</h2>
-           <p className="text-muted-foreground mb-10">
-             Não somos um comparador automático de preços. Somos consultores que analisam seu perfil para evitar pegadinhas e garantir que você receba a indenização em caso de sinistro.
+            <h2 className="mb-4">Por que a Patro é a melhor Corretora de Seguros em Guarulhos?</h2>
+            <p className="text-muted-foreground mb-10">
+              Não somos apenas um comparador. Somos consultores locais em Guarulhos que analisam seu perfil para garantir a melhor indenização em caso de sinistro.
            </p>
            <div className="grid sm:grid-cols-3 gap-6">
              {[

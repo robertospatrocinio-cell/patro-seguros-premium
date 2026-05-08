@@ -34,8 +34,8 @@
  const HubVidaSaude = () => (
    <div className="min-h-screen flex flex-col">
      <PageMeta 
-       title="Vida, Saúde e Bem-estar: Seguros e Planos | Patro" 
-       description="Hub de seguros de vida e planos de saúde. Compare Hapvida, Bradesco, Amil e SulAmérica. Atendimento especializado em Guarulhos para sua família ou empresa." 
+        title="Plano de Saúde em Guarulhos: Individual, Familiar e Empresarial" 
+        description="Compare os melhores planos de saúde em Guarulhos. Hapvida, Bradesco, Amil e SulAmérica com atendimento nos principais hospitais da região. Cotação online." 
      />
      <Header />
      <main id="main-content">
@@ -46,9 +46,9 @@
            <div className="flex justify-center mb-6">
              <HeartPulse className="h-16 w-16 text-white opacity-20" />
            </div>
-           <h1 className="text-white mb-6">Vida, Saúde e Bem-estar — O Que Você Tem de Mais Valioso</h1>
-           <p className="text-xl text-white/70 mb-8">
-             Acesso aos melhores hospitais e segurança financeira para quem você ama. Comparamos 20+ operadoras para encontrar o plano perfeito.
+            <h1 className="text-white mb-6">Plano de Saúde em Guarulhos — O Que Você Tem de Mais Valioso</h1>
+            <p className="text-xl text-white/70 mb-8">
+              Acesso aos melhores hospitais de Guarulhos. Comparamos 20 operadoras para encontrar o plano de saúde perfeito para você ou sua empresa.
            </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-vida-saude")}>
@@ -91,9 +91,9 @@
        <section className="py-20 bg-muted/30">
          <div className="container mx-auto px-4 text-center max-w-3xl">
            <Activity className="h-10 w-10 text-primary mx-auto mb-4" />
-           <h2 className="mb-4">Especialistas em Gestão de Saúde em Guarulhos</h2>
-           <p className="text-muted-foreground mb-10">
-             Nossa equipe acompanha você do fechamento do contrato à utilização do plano, auxiliando em liberações, dúvidas de rede credenciada e reajustes anuais.
+            <h2 className="mb-4">Consultoria de Planos de Saúde em Guarulhos</h2>
+            <p className="text-muted-foreground mb-10">
+              Nossa equipe local em Guarulhos acompanha você do contrato à utilização, auxiliando em liberações e dúvidas sobre a rede credenciada dos hospitais da região.
            </p>
            <div className="grid sm:grid-cols-3 gap-6">
              {[

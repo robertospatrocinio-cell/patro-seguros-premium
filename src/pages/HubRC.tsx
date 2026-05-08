@@ -42,8 +42,8 @@
  const HubRC = () => (
    <div className="min-h-screen flex flex-col">
      <PageMeta 
-       title="Responsabilidade Civil: Seguro para Profissionais e Empresas | Patro" 
-       description="Hub de seguros de Responsabilidade Civil (RC). Proteção para médicos, advogados, engenheiros e executivos. Blindagem jurídica e financeira em Guarulhos." 
+        title="Seguro de Responsabilidade Civil em Guarulhos: Profissional e E&O" 
+        description="Proteção para médicos, advogados e engenheiros em Guarulhos. Seguro de Responsabilidade Civil Profissional para blindagem jurídica e financeira." 
      />
      <Header />
      <main id="main-content">
@@ -54,9 +54,9 @@
            <div className="flex justify-center mb-6">
              <Shield className="h-16 w-16 text-white opacity-20" />
            </div>
-           <h1 className="text-white mb-6">Responsabilidade Civil — Sua Carreira Protegida</h1>
-           <p className="text-xl text-white/70 mb-8">
-             Erros e omissões acontecem com os melhores profissionais. Garanta que uma falha acidental não destrua sua reputação ou seu patrimônio financeiro.
+            <h1 className="text-white mb-6">Responsabilidade Civil em Guarulhos — Carreira Protegida</h1>
+            <p className="text-xl text-white/70 mb-8">
+              Proteção para profissionais de Guarulhos. Garanta que uma falha acidental não destrua sua reputação ou seu patrimônio financeiro.
            </p>
            <div className="flex flex-col sm:flex-row gap-4 justify-center">
              <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-rc")}>
