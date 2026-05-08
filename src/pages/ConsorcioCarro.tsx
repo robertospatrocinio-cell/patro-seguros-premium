@@ -5,12 +5,27 @@ const ConsorcioCarro = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Consórcio de Carro"
-      subtitle="Conquiste seu carro novo ou seminovo sem juros e com parcelas que cabem no bolso"
+      title="Consórcio de Automóveis"
+      subtitle="Como trocar de carro sem pagar dois para o banco? A estratégia de inteligência financeira para seu patrimônio."
       icon="🚗"
       showEbookConsorcio
-      metaDescription="Consórcio de Carro sem juros com a Patro Seguros. Parcelas acessíveis, poder de compra à vista e economia de até 40% vs financiamento. Simule grátis!"
-      description="O Consórcio de Carro é a forma mais inteligente e econômica de adquirir seu veículo. Diferente do financiamento, você não paga juros — apenas uma taxa de administração diluída nas parcelas. Ao ser contemplado por sorteio ou lance, você tem poder de compra à vista, conseguindo os melhores preços e condições nas concessionárias. A Patro Seguros trabalha com as principais administradoras do mercado para encontrar o plano ideal para o seu perfil e orçamento."
+      metaDescription="Consórcio de carros em Guarulhos: troque de veículo sem pagar juros bancários. Estratégia de troca planejada e estudo de lance com a Patro Seguros."
+      description="No cenário econômico atual, o financiamento tradicional tornou-se um dos maiores inimigos do crescimento patrimonial devido às altas taxas de juros. Para o investidor ou profissional que planeja seus passos, o Consórcio de Automóveis surge não como uma alternativa, mas como a estratégia principal para ampliar frota ou trocar de veículo sem queimar capital."
+      detailedDescription="Enquanto no financiamento você paga pelo 'uso imediato do dinheiro' com taxas que podem dobrar o valor do veículo, no consórcio você paga apenas uma taxa de administração diluída. Com a carta de crédito contemplada, você negocia como se tivesse o dinheiro no bolso, extraindo os melhores descontos nas concessionárias (poder de compra à vista)."
+      importantDetails={[
+        {
+          title: "O Custo da Imparcialidade vs. Juros Bancários",
+          content: "A economia direta entre o custo de um financiamento e um consórcio pode ser o valor de entrada para o seu próximo investimento imobiliário ou um aporte significativo em sua previdência privada."
+        },
+        {
+          title: "Ciclo de Troca Planejada (A Estratégia dos 3 Anos)",
+          content: "Adesão com parcelas que cabem no fluxo de caixa -> Contemplação via lance estratégico (usando seu usado) -> Upgrade para carro novo com garantia de fábrica. Repita o ciclo para manter o patrimônio sempre atualizado e com baixa manutenção."
+        },
+        {
+          title: "Alavancagem para Empresas (B2B)",
+          content: "Para o empresário que precisa de utilitários ou veículos executivos, o consórcio permite a expansão da frota sem comprometer as linhas de crédito bancário, que ficam livres para capital de giro ou emergências."
+        }
+      ]}
       coverages={[
         { title: "Sem Juros", description: "Diferente do financiamento, no consórcio você paga apenas taxa de administração — economia de até 40%" },
         { title: "Poder de Compra à Vista", description: "Ao ser contemplado, você negocia como comprador à vista e garante os melhores descontos" },
@@ -30,12 +45,12 @@ const ConsorcioCarro = () => {
         "Quem não tem pressa e quer planejar com inteligência",
       ]}
       whyPatro={[
-        "Comparamos as melhores administradoras do mercado",
-        "Simulação personalizada e gratuita sem compromisso",
-        "Consultoria para escolher o plano ideal para seu perfil",
-        "Orientação sobre estratégias de lance para contemplação rápida",
-        "Acompanhamento durante todo o período do consórcio",
-        "Atendimento humano e consultivo — sem robôs",
+        "Estudo de Lance: Analisamos o histórico do grupo para recomendar o momento exato da oferta",
+        "Consultoria Estratégica: Transformamos o consórcio em ferramenta de inteligência financeira",
+        "Comparativo Real: Mostramos a economia exata do consórcio vs. financiamento",
+        "Foco em B2B: Soluções para ampliação de frota sem queimar capital de giro",
+        "Poder de Negociação: Orientação para extrair os melhores descontos com a carta contemplada",
+        "Atendimento Especialista: Consultores que entendem de patrimônio, não apenas de cotas",
       ]}
       faqs={[
         { question: "Quanto custa o consórcio de carro?", answer: "O valor da parcela depende do crédito escolhido e do prazo do plano. Por exemplo, para um carro de R$80.000, as parcelas podem partir de R$800/mês em planos mais longos. Fazemos uma simulação gratuita para encontrar o valor ideal." },
