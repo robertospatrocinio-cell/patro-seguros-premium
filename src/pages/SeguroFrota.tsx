@@ -94,6 +94,10 @@ Na Patro Seguros, gerenciamos frotas de 5 a 500+ veículos, oferecendo relatóri
         { title: "Seguro de Transporte", link: "/seguro-transporte" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Seguro RC", link: "/seguro-rc" },
+        { title: "Seguro para Motorista de App", link: "/seguro-motorista-app" },
+        { title: "Seguro Uber Guarulhos", link: "/seguro-uber-guarulhos" },
+        { title: "Soluções para Transportadoras", link: "/seguros/transportadoras" },
+        { title: "Soluções para Motoristas de App", link: "/seguros/motoristas-app" },
       ]}
     />
   );
