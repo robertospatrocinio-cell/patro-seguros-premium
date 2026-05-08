@@ -122,9 +122,10 @@ export const INSURANCE_HUB: HubCategory[] = [
     ],
   },
   {
-    title: "Seguros em Guarulhos",
-    links: [
-      { label: "Corretora de Seguros Guarulhos", href: "/corretora-seguros-guarulhos" },
+     title: "Guia Guarulhos (Topic Cluster)",
+     links: [
+       { label: "Guia Completo de Seguros", href: "/seguros-em-guarulhos" },
+       { label: "Corretora de Seguros Guarulhos", href: "/corretora-seguros-guarulhos" },
       { label: "Seguro Auto Guarulhos", href: "/seguro-auto-guarulhos" },
       { label: "Seguro Moto Guarulhos", href: "/seguro-moto-guarulhos" },
       { label: "Seguro Residencial Guarulhos", href: "/seguro-residencial-guarulhos" },

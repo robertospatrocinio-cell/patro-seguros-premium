@@ -8412,7 +8412,16 @@ const BlogArticle = () => {
                   Pedir Cotação <ArrowRight className="h-5 w-5" />
                 </Link>
               </div>
-              <p className="text-xs text-primary-foreground/60 mt-4">Seg. a sex., 9h às 18h. Sem compromisso de contratação.</p>
+               <p className="text-xs text-primary-foreground/60 mt-4">Seg. a sex., 9h às 18h. Sem compromisso de contratação.</p>
+               <div className="mt-8 pt-6 border-t border-white/10">
+                 <p className="text-sm text-white/70 mb-4">A Patro Seguros é a autoridade máxima em seguros na região. Conheça nosso:</p>
+                 <Link to="/seguros-em-guarulhos">
+                   <Button variant="secondary" className="w-full sm:w-auto rounded-xl">
+                     Guia Completo de Seguros em Guarulhos
+                     <ArrowRight className="ml-2 h-4 w-4" />
+                   </Button>
+                 </Link>
+               </div>
             </div>
 
             {/* Artigos Relacionados */}

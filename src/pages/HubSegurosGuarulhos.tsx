@@ -135,8 +135,8 @@ const HubSegurosGuarulhos = () => {
   return (
     <>
       <PageMeta
-        title="Seguros em Guarulhos – Hub Completo de Coberturas | Patro"
-        description="Hub de seguros em Guarulhos: auto, residencial, vida, saúde, empresarial, agro e RC. 16+ seguradoras, atendimento local na Cidade Maia. Cotação grátis em 2h."
+         title="Guia Completo de Seguros em Guarulhos 2026 | Patro Seguros"
+         description="A autoridade máxima em seguros em Guarulhos. Guia completo sobre seguro auto, residencial, vida, empresarial e agrícola. Compare 16+ seguradoras locais."
       />
       <FAQSchema faqs={FAQS} />
       <LocalBusinessSchema />
@@ -159,10 +159,10 @@ const HubSegurosGuarulhos = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/10 text-white/70 text-xs mb-6">
                 <MapPin className="h-3.5 w-3.5" /> Cidade Maia, Guarulhos/SP
               </div>
-              <h1 className="text-white text-balance mb-5">Seguros em Guarulhos — Todas as Coberturas em um Só Lugar</h1>
-              <p className="text-base md:text-lg text-white/60 mb-10 max-w-2xl mx-auto">
-                Corretora local com 30+ anos de experiência. Compare 16 seguradoras, fale com um especialista de Guarulhos e contrate em até 2 horas.
-              </p>
+               <h1 className="text-white text-balance mb-5">Guia Completo de Seguros em Guarulhos — A Sua Referência Local</h1>
+               <p className="text-base md:text-lg text-white/60 mb-10 max-w-2xl mx-auto">
+                 Da proteção do seu carro na Dutra à blindagem estratégica de galpões em Cumbica. Entenda por que a Patro é a autoridade máxima em seguros na região.
+               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-guarulhos:hero", { origin: "hub-guarulhos" })}>
                   <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold">
