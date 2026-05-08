@@ -9,7 +9,7 @@ const SeguroRCAdvogados = () => {
       subtitle="Proteção contra processos por erro profissional na advocacia"
       icon="⚖️"
       metaDescription="Seguro RC para Advogados — proteção contra processos por perda de prazo, erro processual e negligência. A Patro Seguros é especialista em RC. Cotação grátis."
-      description="O Seguro RC para Advogados protege o profissional e o escritório contra reclamações por erros, omissões e negligência na prestação de serviços jurídicos. A Patro Seguros é especialista neste tipo de seguro e trabalha com seguradoras que entendem os riscos da advocacia."
+      description="O Seguro RC Advogados protege o profissional e o escritório contra reclamações por erros ou omissões. Garanta sua defesa jurídica e seu patrimônio."
       detailedDescription={`Perda de prazo, erro processual, orientação jurídica equivocada, falha na produção de provas — a advocacia está repleta de situações que podem gerar responsabilização civil. Um único erro pode resultar em condenação que compromete o patrimônio pessoal do advogado.
 
 O mercado jurídico brasileiro tem mais de 1,3 milhão de advogados ativos, e o número de processos disciplinares na OAB e ações judiciais contra advogados cresce a cada ano. Clientes prejudicados por falhas na prestação de serviços jurídicos têm buscado reparação com cada vez mais frequência.
