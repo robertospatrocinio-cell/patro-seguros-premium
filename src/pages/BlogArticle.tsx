@@ -1,5 +1,5 @@
-import { useParams, Link } from "react-router-dom";
-import { Fragment } from "react";
+ import { useParams, Link } from "react-router-dom";
+ import { Fragment, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -18,7 +18,8 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
+ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
+ const BlogFormCTA = lazy(() => import("@/components/BlogFormCTA"));
 
  const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
    "crescimento-patrimonial-guarulhos-2026": {
@@ -8388,7 +8389,12 @@ const BlogArticle = () => {
               </div>
             )}
 
-            {/* CTA persistente — FINAL do post */}
+             {/* Inline Form CTA */}
+             <Suspense fallback={null}>
+               <BlogFormCTA />
+             </Suspense>
+ 
+             {/* CTA persistente — FINAL do post */}
             <div className="mt-12 p-8 md:p-10 bg-primary text-primary-foreground rounded-xl text-center shadow-elegant">
               <h3 className="text-2xl md:text-3xl font-bold mb-3">Pronto para uma cotação personalizada?</h3>
               <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">

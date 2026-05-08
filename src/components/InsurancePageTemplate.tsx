@@ -488,18 +488,55 @@ const InsurancePageTemplate = ({
           </div>
         </section>
 
-        {/* Formulário Rápido */}
-        <section className="py-24" aria-labelledby="formulario-heading">
-          <div className="container mx-auto px-4 max-w-xl">
-            <Suspense fallback={null}>
-              <QuickQuoteForm
-                insuranceType={title}
-                extraFields={quoteFormFields}
-                trackingLabel={title.toLowerCase().replace(/\s+/g, "-")}
-              />
-            </Suspense>
-          </div>
-        </section>
+         {/* CTA Form Integrado */}
+         <section className="py-24 bg-muted/30" aria-labelledby="formulario-heading">
+           <div className="container mx-auto px-4 max-w-5xl">
+             <div className="grid lg:grid-cols-2 gap-12 items-center">
+               <div>
+                 <span className="section-label mb-4 inline-block">Cotação Gratuita</span>
+                 <h2 id="formulario-heading" className="text-3xl md:text-4xl mb-6">
+                   {title === "Consórcio de Automóveis" 
+                     ? "Simule sua economia real vs. financiamento"
+                     : title.includes("Galpão")
+                     ? "Solicite uma análise de risco estratégica"
+                     : `Solicite sua cotação de ${title}`}
+                 </h2>
+                 <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                   {title === "Consórcio de Automóveis"
+                     ? "Descubra como o consórcio pode acelerar seu crescimento patrimonial sem pagar juros bancários."
+                     : title.includes("Galpão")
+                     ? "Proteja seu ativo logístico com quem conhece profundamente os riscos de Guarulhos e Cumbica."
+                     : "Resposta em até 2 horas úteis com o comparativo das melhores seguradoras do mercado."}
+                 </p>
+                 <div className="space-y-4">
+                   {[
+                     "Consultoria técnica especializada",
+                     "Comparativo entre 16+ seguradoras",
+                     "Atendimento humano e ágil",
+                     "Suporte completo do início ao sinistro"
+                   ].map((item, i) => (
+                     <div key={i} className="flex items-center gap-3">
+                       <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                         <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                       </div>
+                       <span className="text-sm font-medium text-foreground/80">{item}</span>
+                     </div>
+                   ))}
+                 </div>
+               </div>
+ 
+               <div>
+                 <Suspense fallback={<div className="h-[400px] bg-muted animate-pulse rounded-2xl" />}>
+                   <QuickQuoteForm
+                     insuranceType={title}
+                     extraFields={quoteFormFields}
+                     trackingLabel={title.toLowerCase().replace(/\s+/g, "-")}
+                   />
+                 </Suspense>
+               </div>
+             </div>
+           </div>
+         </section>
 
         {/* CTA */}
         <section className="py-28 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
