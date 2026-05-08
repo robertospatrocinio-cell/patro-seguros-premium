@@ -8419,17 +8419,20 @@ const BlogArticle = () => {
             )}
 
             {article.faqs.length > 0 && (
-              <div className="mt-12 border-t pt-8">
-                <h2 className="mb-6">Perguntas Frequentes</h2>
-                <div className="space-y-4">
-                  {article.faqs.map((faq, i) => (
-                    <div key={i}>
-                      <h3 className="text-lg font-semibold mb-1">{faq.q}</h3>
-                      <p className="text-muted-foreground">{faq.a}</p>
-                    </div>
-                  ))}
+              <>
+                <FAQSchema faqs={article.faqs.map(f => ({ question: f.q, answer: f.a }))} />
+                <div className="mt-12 border-t pt-8">
+                  <h2 className="mb-6">Perguntas Frequentes</h2>
+                  <div className="space-y-4">
+                    {article.faqs.map((faq, i) => (
+                      <div key={i}>
+                        <h3 className="text-lg font-semibold mb-1">{faq.q}</h3>
+                        <p className="text-muted-foreground">{faq.a}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </>
             )}
 
             {/* Tags */}
