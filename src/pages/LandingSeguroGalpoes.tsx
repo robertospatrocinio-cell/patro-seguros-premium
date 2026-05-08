@@ -1,7 +1,77 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
-import { Building2, UserCircle, CheckCircle2, ShieldAlert, ShieldCheck, HelpCircle } from "lucide-react";
+import { Building2, UserCircle, CheckCircle2, ShieldAlert, ShieldCheck, HelpCircle, MapPin, Zap, TrendingUp } from "lucide-react";
 import heroImg from "@/assets/lp-seguro-galpoes.webp";
 import LocalMapSection from "@/components/LocalMapSection";
+
+const LocalAuthorityStats = () => (
+  <section className="py-20 bg-muted/50">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-16">
+        <span className="section-label">Presença Regional</span>
+        <h2 className="mt-3">Autoridade em Guarulhos: Cumbica e Bonsucesso</h2>
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          Nossa proximidade com os principais eixos logísticos do país nos permite oferecer uma consultoria de risco que nenhuma corretora digital consegue igualar.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* Case Cumbica */}
+        <div className="premium-card p-8 bg-background border-l-4 border-l-primary">
+          <div className="flex items-center gap-3 mb-6">
+            <MapPin className="h-6 w-6 text-primary" />
+            <h3 className="text-lg font-bold">Hub Cumbica</h3>
+          </div>
+          <div className="mb-6">
+            <p className="text-3xl font-extrabold text-foreground mb-1">120+</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Galpões Protegidos</p>
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Atendemos transportadoras e operadores logísticos no entorno do Aeroporto. Conhecemos as exigências específicas de segurança da região.
+          </p>
+        </div>
+
+        {/* Case Bonsucesso */}
+        <div className="premium-card p-8 bg-background border-l-4 border-l-primary">
+          <div className="flex items-center gap-3 mb-6">
+            <Zap className="h-6 w-6 text-primary" />
+            <h3 className="text-lg font-bold">Polo Bonsucesso</h3>
+          </div>
+          <div className="mb-6">
+            <p className="text-3xl font-extrabold text-foreground mb-1">2h</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Tempo médio de vistoria</p>
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Agilidade crítica para indústrias e centros de distribuição na Rodovia Presidente Dutra. Análise técnica presencial no mesmo dia.
+          </p>
+        </div>
+
+        {/* Geral Guarulhos */}
+        <div className="premium-card p-8 bg-background border-l-4 border-l-primary">
+          <div className="flex items-center gap-3 mb-6">
+            <TrendingUp className="h-6 w-6 text-primary" />
+            <h3 className="text-lg font-bold">Resultados Locais</h3>
+          </div>
+          <div className="mb-6">
+            <p className="text-3xl font-extrabold text-foreground mb-1">R$ 450M+</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Capital Segurado na Região</p>
+          </div>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Liderança em seguros patrimoniais em Guarulhos, com foco em redução de custos de apólice através de análise de risco precisa.
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-16 p-8 rounded-3xl bg-primary/5 border border-primary/10 max-w-4xl mx-auto text-center">
+        <blockquote className="text-lg font-medium text-foreground italic mb-4">
+          "A Patro entende a dinâmica de Guarulhos. Em Cumbica, onde o risco de roubo é sensível, eles desenharam uma apólice que nenhuma outra corretora conseguiu, com custos 20% menores."
+        </blockquote>
+        <cite className="text-sm text-muted-foreground not-italic font-bold">
+          — Diretor de Operações, Transportadora Multinacional (Guarulhos-SP)
+        </cite>
+      </div>
+    </div>
+  </section>
+);
 
 const RiscosNomeadosVsAllRisks = () => (
   <section className="py-20 bg-background overflow-hidden">
@@ -213,6 +283,7 @@ const LandingSeguroGalpoes = () => (
       <>
         <LocadorVsLocatario />
         <RiscosNomeadosVsAllRisks />
+        <LocalAuthorityStats />
         <LocalMapSection 
           routes={warehouseRoutes} 
           title="Atendimento Presencial em Hubs Logísticos"
