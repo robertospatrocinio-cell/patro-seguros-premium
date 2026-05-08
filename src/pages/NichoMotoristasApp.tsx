@@ -33,6 +33,8 @@ const seguros = [
   { title: "Seguro Celular", desc: "Proteja seu smartphone, ferramenta essencial do motorista de app.", link: "/seguro-celular", icon: Smartphone },
   { title: "Seguro de Frota", desc: "Para quem tem mais de um veículo rodando por aplicativo.", link: "/seguro-frota", icon: Car },
   { title: "Seguro Acidentes Pessoais", desc: "Cobertura para o próprio motorista em caso de acidente durante o trabalho.", link: "/seguro-acidentes-pessoais", icon: AlertTriangle },
+  { title: "Seguro de Transporte (RCTR-C)", desc: "Para motoristas que fazem entregas (iFood, Rappi, cargas) — cobertura obrigatória de cargas de terceiros.", link: "/seguro-transporte", icon: Car },
+  { title: "Hub Transportadoras", desc: "Cresceu e virou frota? Veja soluções completas para transportadoras: RCTR-C, RCF-DC e gestão de frota.", link: "/seguros/transportadoras", icon: Car },
 ];
 
 const dores = [
