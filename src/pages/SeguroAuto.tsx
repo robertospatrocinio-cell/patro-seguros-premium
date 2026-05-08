@@ -260,7 +260,7 @@ const SeguroAuto = () => {
               <span className="section-label">Tire suas dúvidas</span>
               <h2 id="faq-heading" className="mt-4">Dúvidas Frequentes sobre Seguro Auto</h2>
             </div>
-            <div className="space-y-4">
+             <div className="space-y-4" data-speakable="faq">
               {faqs.map((faq, i) => (
                 <details key={i} className="group premium-card overflow-hidden">
                   <summary className="flex items-center justify-between p-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">

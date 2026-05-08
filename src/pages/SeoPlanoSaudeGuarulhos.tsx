@@ -53,9 +53,9 @@ const SeoPlanoSaudeGuarulhos = () => (
       </section>
 
       <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <h2 id="faq-heading" className="text-center mb-12">Perguntas Frequentes sobre Plano de Saúde em Guarulhos</h2>
-          <div className="space-y-6" data-speakable="faq">
+       <div className="container mx-auto px-4 max-w-3xl" data-speakable="faq">
+         <h2 id="faq-heading" className="text-center mb-12">Perguntas Frequentes sobre Plano de Saúde em Guarulhos</h2>
+         <div className="space-y-6">
             {faqs.map((faq, i) => (
               <div key={i}>
                 <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>

@@ -122,7 +122,7 @@ const NichoTransportadoras = () => (
       <section className="py-16">
         <div className="container mx-auto px-4 max-w-2xl">
           <h2 className="text-center mb-8">Perguntas Frequentes</h2>
-          <div className="divide-y divide-border">
+           <div className="divide-y divide-border" data-speakable="faq">
             {faqs.map((faq, i) => (
               <details key={i} className="group py-5" open={i === 0}>
                 <summary className="flex items-center justify-between cursor-pointer text-sm font-semibold hover:text-primary transition-colors select-none list-none [&::-webkit-details-marker]:hidden">

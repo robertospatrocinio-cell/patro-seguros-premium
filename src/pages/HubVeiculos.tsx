@@ -1,16 +1,26 @@
- import { Link } from "react-router-dom";
- import { Car, Bike, Truck, Shield, ArrowRight, MessageCircle, MapPin, Award } from "lucide-react";
+  import { Link, useLocation } from "react-router-dom";
+  import { Car, Bike, Truck, Shield, ArrowRight, MessageCircle, MapPin, Award } from "lucide-react";
  import Header from "@/components/Header";
  import Footer from "@/components/Footer";
  import PageMeta from "@/components/PageMeta";
- import Breadcrumb from "@/components/Breadcrumb";
+  import Breadcrumb from "@/components/Breadcrumb";
+  import FAQSchema from "@/components/FAQSchema";
+  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+  import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
  import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
  import InsuranceHubLinks from "@/components/InsuranceHubLinks";
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro para meu veículo.";
  
- const SECTIONS = [
+  const FAQS = [
+    { question: "Qual a melhor seguradora para carros em Guarulhos?", answer: "Porto Seguro, Tokio Marine e Allianz são as líderes em Guarulhos, oferecendo excelente rede de oficinas e assistência 24h rápida nas rodovias Dutra e Fernão Dias." },
+    { question: "Como funciona o seguro de frota para empresas?", answer: "A partir de 5 veículos, sua empresa já pode contratar um seguro de frota com gestão centralizada e descontos de até 30% em relação ao seguro individual." },
+    { question: "O seguro cobre motorista de aplicativo (Uber/99)?", answer: "Sim, mas é necessário declarar o uso profissional no momento da cotação para garantir a cobertura durante as corridas e o RC passageiros." },
+    { question: "Atendem caminhões e veículos pesados?", answer: "Sim, somos especialistas em seguros de caminhão e transporte de carga (RCTR-C), com foco no polo logístico de Cumbica e região." }
+  ];
+
+  const SECTIONS = [
    {
      title: "Automóveis e Motos",
      links: [
@@ -38,13 +48,23 @@
    }
  ];
  
- const HubVeiculos = () => (
-   <div className="min-h-screen flex flex-col">
-     <PageMeta 
-        title="Corretora de Seguros de Veículos em Guarulhos: Auto e Frota | Patro" 
-        description="A melhor corretora de seguros de veículos em Guarulhos. Cotação de seguro auto, moto, caminhão e frota com as 16 principais seguradoras. Resposta em 2h." 
-     />
-     <Header />
+  const HubVeiculos = () => {
+    const location = useLocation();
+    const canonicalUrl = getCanonicalUrl(location.pathname);
+
+    return (
+    <div className="min-h-screen flex flex-col">
+      <PageMeta 
+         title="Corretora de Seguros de Veículos em Guarulhos: Auto e Frota | Patro" 
+         description="A melhor corretora de seguros de veículos em Guarulhos. Cotação de seguro auto, moto, caminhão e frota com as 16 principais seguradoras. Resposta em 2h." 
+      />
+      <FAQSchema faqs={FAQS} />
+      <AggregateRatingSchema
+        serviceName="Seguros de Veículos em Guarulhos"
+        url={canonicalUrl}
+        description="Seguros para carros, motos, caminhões e frotas em Guarulhos."
+      />
+      <Header />
      <main id="main-content">
        <Breadcrumb items={[{ label: "Seguros de Veículos" }]} />
        
@@ -117,10 +137,33 @@
          </div>
        </section>
  
-       <InsuranceHubLinks />
+        <section className="py-24 bg-background" aria-labelledby="faq-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <span className="section-label">FAQ</span>
+              <h2 id="faq-heading" className="mt-3">Perguntas Frequentes — Veículos e Frota</h2>
+            </div>
+            <div className="space-y-3" data-speakable="faq">
+              {FAQS.map((faq, i) => (
+                <details key={i} className="premium-card group">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold hover:text-primary transition-base list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 -mt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <InsuranceHubLinks />
      </main>
      <Footer />
    </div>
- );
- 
- export default HubVeiculos;
+    );
+  };
+  
+  export default HubVeiculos;

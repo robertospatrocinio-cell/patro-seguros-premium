@@ -1,16 +1,26 @@
- import { Link } from "react-router-dom";
- import { Home, Building2, Key, Sun, Smartphone, ArrowRight, MessageCircle, ShieldCheck, Heart } from "lucide-react";
+  import { Link, useLocation } from "react-router-dom";
+  import { Home, Building2, Key, Sun, Smartphone, ArrowRight, MessageCircle, ShieldCheck, Heart } from "lucide-react";
  import Header from "@/components/Header";
  import Footer from "@/components/Footer";
  import PageMeta from "@/components/PageMeta";
- import Breadcrumb from "@/components/Breadcrumb";
+  import Breadcrumb from "@/components/Breadcrumb";
+  import FAQSchema from "@/components/FAQSchema";
+  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+  import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
  import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
  import InsuranceHubLinks from "@/components/InsuranceHubLinks";
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro para meu patrimônio.";
  
- const SECTIONS = [
+  const FAQS = [
+    { question: "Seguro residencial em Guarulhos é caro?", answer: "Não, para apartamentos os valores começam em R$ 150/ano. É o seguro com melhor custo-benefício, pois uma única visita de encanador da assistência 24h já paga a apólice." },
+    { question: "Como funciona o seguro fiança locatícia?", answer: "Ele substitui o fiador e o depósito caução no aluguel. A aprovação é rápida e garante o pagamento do aluguel e encargos ao proprietário em caso de inadimplência." },
+    { question: "Seguro celular cobre quebra de tela?", answer: "Sim, se você contratar a cobertura de danos acidentais. Além de quebra, protege contra roubo e furto qualificado em todo o Brasil." },
+    { question: "Vocês atendem condomínios em Guarulhos?", answer: "Sim, atendemos síndicos e administradoras na Cidade Maia e região com o seguro condomínio obrigatório, protegendo as áreas comuns e a responsabilidade civil." }
+  ];
+
+  const SECTIONS = [
    {
      title: "Imóveis e Aluguel",
      links: [
@@ -29,13 +39,23 @@
    }
  ];
  
- const HubPatrimonio = () => (
-   <div className="min-h-screen flex flex-col">
-     <PageMeta 
-        title="Seguro Residencial e Fiança Locatícia em Guarulhos | Patro" 
-        description="Proteja seu patrimônio com o melhor seguro residencial em Guarulhos. Fiança locatícia, seguro para celular e placas solares com assistência 24h local." 
-     />
-     <Header />
+  const HubPatrimonio = () => {
+    const location = useLocation();
+    const canonicalUrl = getCanonicalUrl(location.pathname);
+
+    return (
+    <div className="min-h-screen flex flex-col">
+      <PageMeta 
+         title="Seguro Residencial e Fiança Locatícia em Guarulhos | Patro" 
+         description="Proteja seu patrimônio com o melhor seguro residencial em Guarulhos. Fiança locatícia, seguro para celular e placas solares com assistência 24h local." 
+      />
+      <FAQSchema faqs={FAQS} />
+      <AggregateRatingSchema
+        serviceName="Seguros de Patrimônio em Guarulhos"
+        url={canonicalUrl}
+        description="Proteção para casas, aluguéis e bens em Guarulhos."
+      />
+      <Header />
      <main id="main-content">
        <Breadcrumb items={[{ label: "Seguros de Patrimônio" }]} />
        
@@ -108,10 +128,33 @@
          </div>
        </section>
  
-       <InsuranceHubLinks />
+        <section className="py-24 bg-background" aria-labelledby="faq-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <span className="section-label">FAQ</span>
+              <h2 id="faq-heading" className="mt-3">Perguntas Frequentes — Patrimônio e Bens</h2>
+            </div>
+            <div className="space-y-3" data-speakable="faq">
+              {FAQS.map((faq, i) => (
+                <details key={i} className="premium-card group">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold hover:text-primary transition-base list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 -mt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <InsuranceHubLinks />
      </main>
      <Footer />
    </div>
- );
- 
- export default HubPatrimonio;
+    );
+  };
+  
+  export default HubPatrimonio;
