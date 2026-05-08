@@ -108,6 +108,7 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
       { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
       { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/" },
+      { title: "Seguro Auto por Modelo (Corolla, HB20, Onix...)", link: "/seguro-auto-por-modelo-guarulhos" },
     ]}
     extraSections={
       <NeighborhoodHub
