@@ -41,9 +41,9 @@ export const INSURANCE_HUB: HubCategory[] = [
      links: [
       { label: "Seguro de Vida", href: "/seguro-vida" },
       { label: "Seguro Vida PME", href: "/seguro-vida-pme" },
-      { label: "Seguro Saúde", href: "/seguro-saude" },
-      { label: "Planos de Saúde", href: "/planos-de-saude" },
-      { label: "Plano de Saúde Empresarial", href: "/plano-saude-empresarial" },
+       { label: "Plano de Saúde", href: "/planos-de-saude" },
+       { label: "Plano de Saúde Empresarial", href: "/plano-saude-empresarial" },
+       { label: "Seguro Saúde", href: "/seguro-saude" },
       { label: "Seguro Odontológico", href: "/seguro-odonto" },
       { label: "Seguro Acidentes Pessoais", href: "/seguro-acidentes-pessoais" },
       { label: "Seguro Funeral", href: "/seguro-funeral" },

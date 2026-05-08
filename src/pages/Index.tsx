@@ -202,7 +202,7 @@ const faqs = [
         <LazySection minHeight="600px">
         <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
+               <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Já atendemos <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil. Com uma equipe de consultores certificados e experiência em mais de 16 seguradoras e 20 operadoras de saúde, oferecemos a análise mais completa do mercado local.
@@ -232,10 +232,10 @@ const faqs = [
                 Para empresas com veículos, nosso <Link to="/seguro-frota-empresas-guarulhos" className="text-primary hover:underline">seguro de frota em Guarulhos</Link> oferece descontos de 15% a 30% em relação ao seguro individual, com gestão de sinistros ágil e análise de risco personalizada. Atendemos transportadoras, distribuidoras, locadoras e frotas corporativas de todos os portes.
               </p>
 
-              <h2 className="text-foreground font-bold text-lg mt-8">Planos de Saúde e Seguro de Vida</h2>
-              <p>
-                Comparamos mais de 20 operadoras — Amil, SulAmérica, Bradesco Saúde, Unimed, Hapvida, Prevent Senior — para encontrar o <Link to="/seguro-vida-saude-guarulhos" className="text-primary hover:underline">plano de saúde ou seguro de vida ideal</Link> para você, sua família ou sua empresa em Guarulhos. Atendemos desde planos individuais até PMEs com condições especiais. Nosso <Link to="/plano-saude-guarulhos" className="text-primary hover:underline">guia de planos de saúde em Guarulhos</Link> ajuda a escolher com informações sobre rede credenciada local, carências e reajustes.
-              </p>
+               <h2 className="text-foreground font-bold text-lg mt-8">Plano de Saúde e Seguro de Vida em Guarulhos</h2>
+               <p>
+                 Comparamos mais de 20 operadoras — Amil, SulAmérica, Bradesco Saúde, Unimed, Hapvida, Prevent Senior e MedSenior — para encontrar o <Link to="/planos-de-saude" className="text-primary hover:underline font-bold">melhor plano de saúde em Guarulhos</Link> ou o seguro de vida ideal para você, sua família ou sua empresa. Atendemos desde planos individuais e familiares até PMEs com condições especiais (MEI pode economizar até 40%). Nosso <Link to="/plano-saude-guarulhos" className="text-primary hover:underline">guia de planos de saúde em Guarulhos</Link> ajuda a escolher com informações precisas sobre a rede credenciada nos hospitais de Guarulhos, carências e portabilidade.
+               </p>
 
               <h2 className="text-foreground font-bold text-lg mt-8">Como Solicitar Sua Cotação Passo a Passo</h2>
               <ol className="list-decimal pl-5 space-y-2">
