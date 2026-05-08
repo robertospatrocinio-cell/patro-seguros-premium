@@ -3,6 +3,7 @@ import { MessageCircle, MapPin, Star, Building2, ShieldCheck } from "lucide-reac
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import { setWhatsAppOverride, clearWhatsAppOverride } from "@/lib/whatsappOverride";
 
 /**
  * LocalPageTemplate
@@ -260,13 +261,15 @@ const LocalPageTemplate = (props: LocalPageProps) => {
         ]}
       />
 
-      {/* === Bloco extra renderizado fora do InsurancePageTemplate === */}
-      {/* Posicionado via portal-like fixed CTA reforçando WhatsApp local */}
+      {/* Link sr-only mantido para crawlers que não executam JS, garantindo
+          que cada página local exponha um WhatsApp link com mensagem
+          slug-específica. O botão flutuante visível é renderizado pelo
+          `WhatsAppButton` global, configurado via override abaixo. */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => trackWhatsAppClick(`local-page:${slug}:floating`)}
+        onClick={() => trackWhatsAppClick(`local-page:${slug}:sr-link`)}
         className="sr-only"
         aria-label={`Falar com a Patro Seguros sobre ${title} pelo WhatsApp`}
       >
