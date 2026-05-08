@@ -1,0 +1,1 @@
+export function loadDataModule(relPath: string): Promise<Record<string, unknown>>;

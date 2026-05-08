@@ -14,42 +14,8 @@
 // Throws (non-zero exit / Vite build failure) when any rule is violated.
 
 import path from "path";
-import { fileURLToPath, pathToFileURL } from "url";
-import fs from "fs";
-import * as esbuild from "esbuild";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, "..");
-
-const EMPTY_LOADERS = {
-  ".css": "empty",
-  ".webp": "empty",
-  ".png": "empty",
-  ".jpg": "empty",
-  ".jpeg": "empty",
-  ".svg": "empty",
-  ".gif": "empty",
-  ".avif": "empty",
-};
-
-async function loadModule(relPath) {
-  const cacheDir = path.join(ROOT, "node_modules/.cache/validate-local-pages");
-  fs.mkdirSync(cacheDir, { recursive: true });
-  const outfile = path.join(cacheDir, path.basename(relPath, ".ts") + ".mjs");
-  await esbuild.build({
-    entryPoints: [path.resolve(ROOT, relPath)],
-    bundle: true,
-    format: "esm",
-    platform: "node",
-    target: "node18",
-    outfile,
-    logLevel: "silent",
-    loader: EMPTY_LOADERS,
-    alias: { "@": path.resolve(ROOT, "src") },
-    external: ["react", "react-dom", "react/jsx-runtime"],
-  });
-  return import(pathToFileURL(outfile).href + "?t=" + Date.now());
-}
+import { fileURLToPath } from "url";
+import { loadDataModule } from "./load-data-module.mjs";
 
 function effective(value, fallback) {
   return Array.isArray(value) && value.length > 0 ? value : fallback;
@@ -57,8 +23,8 @@ function effective(value, fallback) {
 
 export async function validateLocalPages() {
   const [pagesMod, defaultsMod] = await Promise.all([
-    loadModule("src/data/seoLocalAutoPages.ts"),
-    loadModule("src/data/localDefaults.ts"),
+    loadDataModule("src/data/seoLocalAutoPages.ts"),
+    loadDataModule("src/data/localDefaults.ts"),
   ]);
 
   const seoLocalPages = pagesMod.seoLocalPages;

@@ -6,6 +6,7 @@ import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
 import { generateSitemapBundle } from "./scripts/generate-sitemap";
 import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
+import { loadDataModule } from "./scripts/load-data-module.mjs";
 
 // Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
 // to async loading with print/onload trick (critical CSS is already inlined in index.html)
@@ -31,7 +32,7 @@ function asyncCssPlugin(): Plugin {
 function sitemapPlugin(): Plugin {
   return {
     name: "generate-sitemap",
-    closeBundle() {
+    async closeBundle() {
       // Read blog slugs from blogData source
       const blogDataPath = path.resolve(__dirname, "src/lib/blogData.ts");
       const blogSrc = fs.readFileSync(blogDataPath, "utf-8");
@@ -41,7 +42,18 @@ function sitemapPlugin(): Plugin {
       while ((match = slugRegex.exec(blogSrc)) !== null) {
         slugs.push(match[1]);
       }
-      const { index, files } = generateSitemapBundle(slugs);
+
+      // Load local SEO page slugs at build time so sitemap-bairros.xml stays
+      // in sync automatically with `src/data/seoLocalAutoPages.ts`.
+      let localSlugs: string[] = [];
+      try {
+        const mod = await loadDataModule("src/data/seoLocalAutoPages.ts");
+        localSlugs = Array.isArray(mod.seoLocalPageSlugs) ? mod.seoLocalPageSlugs : [];
+      } catch (err) {
+        console.warn("⚠️  sitemap: falha ao carregar seoLocalPageSlugs —", err instanceof Error ? err.message : err);
+      }
+
+      const { index, files } = generateSitemapBundle(slugs, localSlugs);
       const outDir = path.resolve(__dirname, "dist");
       // Cluster sitemaps + legacy flat sitemap.xml
       for (const [name, xml] of Object.entries(files)) {

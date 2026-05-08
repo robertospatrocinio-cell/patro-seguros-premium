@@ -2,7 +2,9 @@
 //
 // Generates a sitemap-index.xml plus cluster-specific sitemaps so Google can
 // discover and prioritize each topical area independently:
-//   - sitemap-guarulhos.xml   → SEO local + bairros + hub Guarulhos
+//   - sitemap-guarulhos.xml   → hubs e páginas comerciais cidade-wide de Guarulhos
+//   - sitemap-bairros.xml     → bairros + páginas locais hyper-segmentadas
+//                               (auto-descoberto a partir de seoLocalPages)
 //   - sitemap-auto.xml        → veículos (auto, moto, frota, caminhão, etc.)
 //   - sitemap-vida-saude.xml  → vida, saúde, planos, odonto, viagem, etc.
 //   - sitemap-empresarial.xml → empresarial, RC, cyber, engenharia, garantia
@@ -157,10 +159,13 @@ export interface SitemapBundle {
 
 export function generateSitemap(blogSlugs: string[]): string {
   // Backward-compatible API: returns the flat sitemap.xml content.
-  return generateSitemapBundle(blogSlugs).files["sitemap.xml"];
+  return generateSitemapBundle(blogSlugs, []).files["sitemap.xml"];
 }
 
-export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
+export function generateSitemapBundle(
+  blogSlugs: string[],
+  localPageSlugs: string[] = [],
+): SitemapBundle {
   const blogEntries: SitemapEntry[] = blogSlugs.map(slug => ({
     loc: `/blog/${slug}`,
     priority: "0.6",
@@ -173,6 +178,15 @@ export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
       e.priority = "0.7";
     }
   });
+
+  // Local SEO pages auto-discovered from `src/data/seoLocalAutoPages.ts`.
+  // Includes bairro pages (seguro-auto-vila-galvao, ...), modelo pages
+  // (seguro-corolla-guarulhos, ...) and city-wide commercial slugs.
+  const localPageEntries: SitemapEntry[] = localPageSlugs.map(slug => ({
+    loc: `/${slug}`,
+    priority: "0.8",
+    changefreq: "weekly",
+  }));
 
   // ---- Cluster definitions -------------------------------------------------
 
@@ -220,6 +234,7 @@ export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
     ...investments,
     ...guarulhosHub,
     ...bairroEntries,
+    ...localPageEntries,
     ...blogEntries,
     ...legal,
   ];
@@ -236,18 +251,26 @@ export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
 
   // ---- Split by cluster ----------------------------------------------------
 
-  const isGuarulhos = (loc: string) =>
+  // Bairros / hyper-local long-tail go to dedicated sitemap-bairros.xml so
+  // Google Search Console can track indexação por cluster local separadamente.
+  const localSlugSet = new Set(localPageSlugs.map(s => `/${s}`));
+  const isBairroOrLocal = (loc: string) =>
+    loc.startsWith("/seguros-guarulhos/") || localSlugSet.has(loc);
+
+  const isGuarulhosHub = (loc: string) =>
     loc.includes("guarulhos") || loc === "/seguros-em-guarulhos" ||
-    loc === "/sobre-guarulhos" || loc.startsWith("/seguros-guarulhos/");
+    loc === "/sobre-guarulhos";
 
   const guarulhosEntries: SitemapEntry[] = [];
+  const bairrosEntries: SitemapEntry[] = [];
   const autoEntries: SitemapEntry[] = [];
   const vidaSaudeEntries: SitemapEntry[] = [];
   const empresarialEntries: SitemapEntry[] = [];
   const geralEntries: SitemapEntry[] = [];
 
   for (const e of allEntries) {
-    if (isGuarulhos(e.loc)) guarulhosEntries.push(e);
+    if (isBairroOrLocal(e.loc)) bairrosEntries.push(e);
+    else if (isGuarulhosHub(e.loc)) guarulhosEntries.push(e);
     else if (autoRoutes.has(e.loc)) autoEntries.push(e);
     else if (vidaSaudeRoutes.has(e.loc)) vidaSaudeEntries.push(e);
     else if (empresarialRoutes.has(e.loc)) empresarialEntries.push(e);
@@ -256,6 +279,7 @@ export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
 
   const files: Record<string, string> = {
     "sitemap-guarulhos.xml": urlsetFor(guarulhosEntries),
+    "sitemap-bairros.xml": urlsetFor(bairrosEntries),
     "sitemap-auto.xml": urlsetFor(autoEntries),
     "sitemap-vida-saude.xml": urlsetFor(vidaSaudeEntries),
     "sitemap-empresarial.xml": urlsetFor(empresarialEntries),
@@ -265,9 +289,10 @@ export function generateSitemapBundle(blogSlugs: string[]): SitemapBundle {
   };
 
   // ---- Sitemap index -------------------------------------------------------
-  // Order matters: Guarulhos & Auto first (highest commercial priority).
+  // Order matters: bairros & Guarulhos first (highest local commercial priority).
   const indexOrder = [
     "sitemap-guarulhos.xml",
+    "sitemap-bairros.xml",
     "sitemap-auto.xml",
     "sitemap-vida-saude.xml",
     "sitemap-empresarial.xml",
