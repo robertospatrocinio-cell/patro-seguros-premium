@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import GalpaoStickyCTABar from "@/components/GalpaoStickyCTABar";
 import heroImg from "@/assets/hero-seguro-galpoes.webp";
 import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 
@@ -23,6 +24,7 @@ const INDUSTRIAL_FAQS = mergeGalpaoFAQs(INDUSTRIAL_BASE_FAQS, [
 
 const SeguroGalpoesIndustriais = () => {
   return (
+    <>
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro de Galpões Industriais"
@@ -56,6 +58,11 @@ const SeguroGalpoesIndustriais = () => {
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
       ]}
     />
+    <GalpaoStickyCTABar
+      source="seguro-galpoes-industriais"
+      whatsappMessage="Olá! Quero uma cotação de Seguro de Galpões Industriais com a Patro Seguros."
+    />
+    </>
   );
 };
 

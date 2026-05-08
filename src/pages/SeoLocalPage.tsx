@@ -6,7 +6,19 @@ import LocalPageTemplate, {
 } from "@/components/LocalPageTemplate";
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
+import GalpaoStickyCTABar from "@/components/GalpaoStickyCTABar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
+
+/**
+ * Slugs do cluster Seguro de Galpão que devem renderizar a barra fixa de
+ * conversão dedicada (Pedir Cotação + WhatsApp visível em todos os
+ * viewports). Mantém o conjunto restrito ao cluster para preservar a
+ * UX de outras páginas locais que já usam o StickyQuoteBar mobile-only.
+ */
+const GALPAO_CLUSTER_SLUGS = new Set<string>([
+  "seguro-galpao-guarulhos",
+  "seguro-galpao-cumbica",
+]);
 
 interface SeoLocalPageProps {
   slug?: string;
@@ -34,6 +46,7 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
   ];
 
   return (
+    <>
     <LocalPageTemplate
       slug={config.slug}
       title={config.title}
@@ -64,6 +77,13 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       heroImage={heroImg}
       whatsappMessage={`Olá! Vim pela página ${config.title} e gostaria de uma cotação rápida.`}
     />
+    {GALPAO_CLUSTER_SLUGS.has(config.slug) && (
+      <GalpaoStickyCTABar
+        source={config.slug}
+        whatsappMessage={`Olá! Vim da página ${config.title} e quero cotar Seguro de Galpão.`}
+      />
+    )}
+    </>
   );
 };
 

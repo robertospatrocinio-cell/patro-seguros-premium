@@ -1,5 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import NeighborhoodHub from "@/components/NeighborhoodHub";
+import GalpaoStickyCTABar from "@/components/GalpaoStickyCTABar";
 import heroImg from "@/assets/hero-seguro-galpoes.webp";
 import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 
@@ -57,6 +58,7 @@ const HUB_FAQS = mergeGalpaoFAQs(HUB_BASE_FAQS, [
 
 const SeguroGalpao = () => {
   return (
+    <>
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro de Galpão"
@@ -110,6 +112,11 @@ const SeguroGalpao = () => {
         />
       }
     />
+    <GalpaoStickyCTABar
+      source="seguro-galpao-hub"
+      whatsappMessage="Olá! Quero uma cotação de Seguro de Galpão (hub nacional Patro Seguros)."
+    />
+    </>
   );
 };
 
