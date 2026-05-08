@@ -69,6 +69,16 @@ const ConsorcioCarro = () => {
           description: "Empresa de Guarulhos adquiriu 3 utilitários via consórcio, economizando R$ 120 mil em juros que foram reinvestidos no marketing do negócio."
         }
       ]}
+      pricingInfo={{
+        intro: "O custo do consórcio é baseado na taxa de administração, que é diluída pelo prazo do grupo. Diferente do banco, você não paga juros compostos.",
+        factors: [
+          "Valor do crédito desejado",
+          "Prazo do grupo (até 100 meses)",
+          "Administradora escolhida",
+          "Estratégia de lance (embutido ou recurso próprio)"
+        ],
+        note: "Quer ver a simulação real da economia do consórcio vs. financiamento para o seu próximo carro? Fale com nossos consultores estratégicos."
+      }}
       relatedInsurances={[
         { title: "Consórcio de Imóveis", link: "/consorcio-imoveis" },
         { title: "Consórcio de Veículos Pesados", link: "/consorcio-veiculos-pesados" },
