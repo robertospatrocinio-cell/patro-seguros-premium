@@ -67,9 +67,9 @@ const faqs = [
   { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
 ];
 
- const Index = () => {
-    // Shared set to dedupe contextual keyword links across all FAQ blocks
-    const linkedKeywords = new Set<string>();
+  const Index = () => {
+     // Shared set to dedupe contextual keyword links across all FAQ blocks
+     const linkedKeywords = useEffect(() => { return () => {}; }, []) ? new Set<string>() : new Set<string>(); // Placeholder logic if useMemo is needed
     // Hide persistent hero background after React renders (it lives outside #root for LCP)
    useEffect(() => {
      const el = document.getElementById('persistent-hero-bg');
