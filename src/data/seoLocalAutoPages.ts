@@ -1,5 +1,6 @@
 import type { ComponentProps } from "react";
 import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTemplate";
+import { generateLocalFAQs } from "@/data/localFAQGenerator";
 
 export interface SeoLocalPageConfig {
   slug: string;
@@ -92,14 +93,14 @@ const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
     "Histórico de sinistros e classe de bônus",
   ],
   pricingNote: `Dica Patro: moradores do ${b.bairro} com garagem coberta e rastreador instalado economizam, em média, 12% a 18% no prêmio anual.`,
-  faqs: [
-    { question: `Quanto custa seguro auto no ${b.bairro}, Guarulhos?`, answer: `O seguro auto no ${b.bairro} fica entre ${b.priceRange} para cobertura compreensiva. O valor exato depende do veículo, perfil do condutor e dispositivos de segurança. Solicite cotação grátis com a Patro para receber o comparativo entre 9 seguradoras.` },
-    { question: `O CEP do ${b.bairro} encarece o seguro auto?`, answer: `O ${b.bairro} tem perfil de risco ${b.riskLevel} segundo as seguradoras. Isso impacta o prêmio em comparação a bairros como Cidade Maia (mais barato) ou Pimentas (mais caro). A Patro identifica qual seguradora trata o CEP do seu bairro de forma mais favorável.` },
-    { question: `Quais seguradoras atendem o ${b.bairro}?`, answer: `Todas as 9 seguradoras parceiras da Patro atendem o ${b.bairro}: Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco Seguros, SulAmérica, Liberty, Mapfre e Azul Seguros. Cada uma precifica o CEP de forma diferente — por isso a comparação é essencial.` },
-    { question: `É melhor contratar com corretora local ou direto pelo site da seguradora?`, answer: `Com corretora local você tem comparativo entre 9 seguradoras em uma única cotação, suporte presencial em sinistro e renovação anual otimizada. A Patro fica no Cidade Maia, atende moradores do ${b.bairro} e não cobra nada pelo serviço — o pagamento da corretora é feito pela seguradora.` },
-    { question: `Preciso ter rastreador morando no ${b.bairro}?`, answer: `${b.riskLevel === "alto" || b.riskLevel === "médio-alto" ? `Sim, na maioria dos casos as seguradoras exigem rastreador para CEPs do ${b.bairro}, especialmente para veículos acima de R$ 60 mil.` : `Geralmente não é obrigatório no ${b.bairro}, mas instalar rastreador reduz o prêmio entre 8% e 15% e libera coberturas adicionais.`}` },
-    { question: `O seguro auto cobre sinistro fora do ${b.bairro}?`, answer: `Sim. A apólice de seguro auto vale em todo o território nacional, sem restrição geográfica. Você está coberto no ${b.bairro}, em qualquer outro bairro de Guarulhos, em São Paulo capital, viagens pela Dutra, Fernão Dias e demais rodovias.` },
-  ],
+  faqs: generateLocalFAQs({
+    slug: b.slug,
+    neighborhood: b.bairro,
+    product: "auto",
+    riskLevel: b.riskLevel,
+    priceRange: b.priceRange,
+    reference: b.reference,
+  }),
   whoNeeds: [
     `Moradores do ${b.bairro} que querem comparar seguradoras em uma única cotação`,
     `Quem mora ${b.reference} e busca corretora com atendimento presencial`,
