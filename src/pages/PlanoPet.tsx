@@ -9,7 +9,7 @@ const PlanoPet = () => {
       subtitle="Plano de saúde para cães e gatos com a maior plataforma pet do Brasil"
       icon="🐶"
       metaDescription="Plano Pet Petlove — plano de saúde para cães e gatos com consultas, exames, cirurgias e emergências. Cotação grátis na Patro Seguros, corretora parceira Petlove."
-      description="O Plano Pet da Petlove é a forma mais inteligente de cuidar da saúde do seu cão ou gato sem sustos financeiros. Com cobertura para consultas, exames, cirurgias, internações e emergências 24h, o plano garante acesso à melhor medicina veterinária com mensalidades acessíveis. A Patro Seguros é parceira Petlove e oferece as melhores condições."
+      description="O Plano Pet da Petlove é a forma inteligente de cuidar da saúde do seu cão ou gato. Cobertura para consultas, exames e cirurgias com mensalidades acessíveis."
       detailedDescription={`O Brasil tem mais de 149 milhões de animais de estimação — o terceiro maior mercado pet do mundo. Cães e gatos são verdadeiros membros da família, mas os custos veterinários podem pegar os tutores de surpresa: uma cirurgia de emergência pode custar de R$ 3.000 a R$ 15.000, e tratamentos oncológicos ultrapassam facilmente R$ 20.000.
 
 O Plano Pet da Petlove funciona como um plano de saúde humano: você paga uma mensalidade fixa e tem acesso a consultas, exames, cirurgias e internações em clínicas e hospitais veterinários credenciados em todo o Brasil.
