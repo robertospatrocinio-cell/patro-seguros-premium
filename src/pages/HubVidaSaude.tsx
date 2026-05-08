@@ -63,29 +63,29 @@ const HubVidaSaude = () => {
       <main id="main-content">
         <Breadcrumb items={[{ label: "Vida e Saúde" }]} />
         
-        <section className="relative gradient-hero py-20 md:py-32 overflow-hidden">
-          <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
-            <div className="flex justify-center mb-6">
-              <HeartPulse className="h-16 w-16 text-white opacity-20" />
-            </div>
-            <h1 className="text-white mb-6">Vida e Saúde em Guarulhos — O Que Você Tem de Mais Valioso</h1>
-            <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
-              Acesso aos melhores hospitais de Guarulhos. Comparamos 20 operadoras para encontrar o plano de saúde perfeito para você ou sua empresa.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/cotacao?tipo=saude" onClick={() => trackCotacaoClick("hub-vida-saude:hero")}>
-                <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                  Simular Plano Online
-                </Button>
-              </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hub-vida-saude:hero")}>
-                <Button size="lg" variant="cta" className="rounded-xl h-12 px-8 text-sm">
-                  <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
-                </Button>
-              </a>
-            </div>
-          </div>
-        </section>
+         <section className="relative gradient-hero py-20 md:py-32 overflow-hidden">
+           <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
+             <div className="flex justify-center mb-6">
+               <HeartPulse className="h-16 w-16 text-white opacity-20" />
+             </div>
+             <h1 className="text-white mb-6">Plano de Saúde e Seguro de Vida em Guarulhos</h1>
+             <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+               Acesso aos melhores hospitais de Guarulhos. Comparamos 20 operadoras — Amil, Bradesco Saúde, SulAmérica e MedSenior — para encontrar o plano perfeito para você ou sua empresa.
+             </p>
+             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+               <Link to="/planos-de-saude" onClick={() => trackInternalLinkClick("hub-vida-saude:hero", "/planos-de-saude")}>
+                 <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                   Ver Planos de Saúde
+                 </Button>
+               </Link>
+               <Link to="/seguro-vida" onClick={() => trackInternalLinkClick("hub-vida-saude:hero", "/seguro-vida")}>
+                 <Button size="lg" className="rounded-xl h-12 px-8 text-sm bg-white/10 border border-white/20 text-white hover:bg-white/20">
+                   Seguro de Vida
+                 </Button>
+               </Link>
+             </div>
+           </div>
+         </section>
 
         <div className="container mx-auto px-4 max-w-5xl py-16">
           <div className="grid gap-12">
