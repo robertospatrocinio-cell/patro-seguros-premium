@@ -190,12 +190,16 @@ const productSpecific: Record<LocalProduct, (c: Ctx) => LocalFAQ[]> = {
   ],
   saude: (c) => [
     {
-      question: `Quais operadoras de ${c.productLabel} atendem o ${c.neighborhood}?`,
-      answer: `Trabalhamos com Amil, SulAmérica, Bradesco Saúde, Hapvida, Notredame Intermédica, Porto Saúde e mais 14 operadoras. A maioria tem rede credenciada ampla no ${c.neighborhood} e em ${c.city}, incluindo hospitais como o Stella Maris e Helios.`,
+      question: `Quais operadoras de ${c.productLabel} atendem o público do ${c.neighborhood}?`,
+      answer: `Trabalhamos com Amil, SulAmérica, Bradesco Saúde, Hapvida, GNDI, Porto Saúde e mais 14 operadoras. Todas oferecem rede credenciada em ${c.city}, incluindo hospitais como Stella Maris e Helios, com opções de atendimento em São Paulo capital para moradores do ${c.neighborhood}.`,
     },
     {
-      question: `Qual o melhor ${c.productLabel} no ${c.neighborhood}?`,
-      answer: `Depende de rede credenciada desejada, faixa etária e orçamento. A Patro envia comparativo personalizado em até 24h com até 6 operadoras, mostrando hospitais credenciados próximos ao ${c.neighborhood} ${c.reference} para você decidir com clareza.`,
+      question: `Como funciona o ${c.productLabel} para idosos e famílias no ${c.neighborhood}?`,
+      answer: `Para a terceira idade, priorizamos operadoras com programas de medicina preventiva e hospitais de excelência próximos a ${c.city}. Para famílias com crianças, focamos em planos com pronto-atendimento pediátrico 24h e rede de laboratórios capilarizada.`,
+    },
+    {
+      question: `Qual a carência para jovens e adultos no ${c.neighborhood}?`,
+      answer: `Jovens e adultos saudáveis no ${c.neighborhood} costumam ter carência zero para consultas e exames simples após a primeira mensalidade. Para cirurgias, internações e partos, as carências seguem o padrão da ANS (até 180 e 300 dias), mas analisamos reduções por portabilidade.`,
     },
     {
       question: `Existe carência mesmo trocando de plano?`,
