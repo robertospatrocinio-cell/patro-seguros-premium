@@ -45,10 +45,10 @@ const PlanosDeSaude = () => {
           <img src={heroImg} alt="" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover opacity-20" aria-hidden="true" loading="eager" />
           <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
             <div className="text-6xl mb-6">🏥</div>
-            <h1 className="text-white mb-6">Planos de Saúde — Compare e Encontre o Melhor</h1>
-            <p className="text-xl text-white/70 mb-8">
-              Trabalhamos com as principais operadoras do Brasil para encontrar o plano de saúde ideal para você, sua família ou sua empresa.
-            </p>
+             <h1 className="text-white mb-6">Planos de Saúde em Guarulhos — Compare e Economize</h1>
+             <p className="text-xl text-white/70 mb-8">
+               Trabalhamos com as principais operadoras de Guarulhos e do Brasil para encontrar o plano de saúde ideal para você, sua família (individual) ou sua empresa (PME/MEI).
+             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("planos-saude-simular")}>
                 <Button size="lg" className="w-full sm:w-auto text-lg px-8">
