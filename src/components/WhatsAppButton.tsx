@@ -1,14 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MessageCircle, FileText } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { inferQuoteTypeFromText } from "@/lib/inferQuoteType";
+import {
+  subscribeWhatsAppOverride,
+  getWhatsAppOverrideSnapshot,
+  getWhatsAppOverrideServerSnapshot,
+} from "@/lib/whatsappOverride";
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
+const WHATSAPP_BASE = "https://wa.me/551151997500?text=";
+const DEFAULT_MESSAGE =
+  "Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.";
+const DEFAULT_TRACKING_LABEL = "botao-fixo";
 
 const WhatsAppButton = () => {
   const [visible, setVisible] = useState(false);
   const location = useLocation();
+
+  // Lê override (mensagem + tracking label) ditado por páginas locais.
+  const override = useSyncExternalStore(
+    subscribeWhatsAppOverride,
+    getWhatsAppOverrideSnapshot,
+    getWhatsAppOverrideServerSnapshot,
+  );
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 300);
@@ -21,6 +36,13 @@ const WhatsAppButton = () => {
   const isCotacaoPage = location.pathname.startsWith("/cotacao");
   const tipo = inferQuoteTypeFromText(location.pathname);
   const cotacaoHref = tipo ? `/cotacao?tipo=${tipo}` : "/cotacao";
+
+  const whatsappMessage = override?.message ?? DEFAULT_MESSAGE;
+  const whatsappHref = WHATSAPP_BASE + encodeURIComponent(whatsappMessage);
+  const trackingLabel = override?.trackingLabel ?? DEFAULT_TRACKING_LABEL;
+  const ariaLabel = override
+    ? `Falar no WhatsApp sobre ${override.trackingLabel.replace(/^local-page:/, "").replace(/:floating$/, "")}`
+    : "Falar no WhatsApp";
 
   return (
     <div
@@ -42,11 +64,16 @@ const WhatsAppButton = () => {
         </Link>
       )}
       <a
-        href={WHATSAPP_URL}
+        href={whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Falar no WhatsApp"
-        onClick={() => trackWhatsAppClick("botao-fixo", { origin: "sticky-cta" })}
+        aria-label={ariaLabel}
+        onClick={() =>
+          trackWhatsAppClick(trackingLabel, {
+            origin: "sticky-cta",
+            ...(override ? { localOverride: true } : {}),
+          })
+        }
         className="group"
       >
         <div className="relative bg-[#25D366] text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
