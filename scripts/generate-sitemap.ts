@@ -51,6 +51,12 @@ const seoLocalGuarulhos: SitemapEntry[] = [
   "/corretora-seguros-guarulhos",
   "/seguro-condominio-guarulhos",
   "/seguros-shopping-maia-cidade-maia-guarulhos",
+  "/seguro-vida-guarulhos",
+  "/seguro-uber-guarulhos",
+  "/seguro-empresa-guarulhos",
+  "/seguro-para-motorista-app-guarulhos",
+  "/seguro-auto-por-modelo-guarulhos",
+  "/seguros-guarulhos-bairros",
 ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const coreProducts: SitemapEntry[] = [
@@ -107,6 +113,8 @@ const informational: SitemapEntry[] = [
   { loc: "/sobre", priority: "0.6", changefreq: "monthly" },
   { loc: "/depoimentos", priority: "0.5", changefreq: "monthly" },
   { loc: "/parceiros", priority: "0.5", changefreq: "monthly" },
+  { loc: "/parceiros-locais", priority: "0.5", changefreq: "monthly" },
+  { loc: "/imprensa", priority: "0.5", changefreq: "monthly" },
   { loc: "/indique-um-amigo", priority: "0.5", changefreq: "monthly" },
   { loc: "/sobre-guarulhos", priority: "0.7", changefreq: "monthly" },
   { loc: "/seguros-guarulhos", priority: "0.8", changefreq: "monthly" },
