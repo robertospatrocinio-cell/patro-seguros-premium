@@ -17,8 +17,9 @@ import OptimizedImage from "@/components/OptimizedImage";
 import LazySection from "@/components/LazySection";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
-// Lazy-load heavy below-fold components
-const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
+ import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
+ 
+ // Lazy-load heavy below-fold components
 const Footer = lazy(() => import("@/components/Footer"));
 const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
 const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
@@ -63,13 +64,6 @@ const faqs = [
 ];
 
 const Index = () => {
-
-  // Hide persistent hero background after React renders (it lives outside #root for LCP)
-  useEffect(() => {
-    const el = document.getElementById('persistent-hero-bg');
-    if (el) el.style.display = 'none';
-    return () => { if (el) el.style.display = ''; };
-  }, []);
 
   return (
     <>
@@ -125,10 +119,8 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Insurance Hero Selector */}
-        <Suspense fallback={<div className="min-h-[520px] md:min-h-[600px] bg-muted animate-pulse" />}>
-          <InsuranceHeroSelector />
-        </Suspense>
+         {/* Insurance Hero Selector (eager loaded to avoid layout shifts on scroll) */}
+         <InsuranceHeroSelector />
 
         {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">
