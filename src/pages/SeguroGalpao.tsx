@@ -67,20 +67,20 @@ const SeguroGalpao = () => {
        icon="🏗️"
        metaDescription="Seguro de Galpão Logístico em Guarulhos. Blindagem estratégica para condomínios logísticos, proprietários e inquilinos. Cotação e análise de risco rápida."
        detailedDescription="No mercado imobiliário logístico, a verdadeira tranquilidade vem de uma apólice que protege tanto o proprietário (locador) quanto o inquilino (locatário). Nossa consultoria avalia o contrato de locação para garantir que as cláusulas de seguro atendam exatamente ao que foi acordado, evitando multas e lacunas de proteção. Para galpões de grande porte, oferecemos apólices robustas de Riscos Nomeados e Operacionais (All-risks)."
-       importantDetails={[
-         {
-           title: "Para o Proprietário (Locador): Proteção do Investimento",
-           content: "O galpão é o seu ativo. Garantimos coberturas de incêndio, queda de raio e explosão para reconstrução do imóvel, além de perda de aluguel para manter seu fluxo de caixa enquanto o imóvel estiver em reforma após um sinistro."
-         },
-         {
-           title: "Para o Inquilino (Locatário): Continuidade e Conformidade",
-           content: "Protegemos seus estoques, móveis e maquinários (conteúdo). Incluímos a Responsabilidade Civil Locatário, salvaguardando sua empresa caso cause danos acidentais à estrutura do galpão, garantindo o cumprimento do contrato de aluguel."
-         },
-         {
-           title: "O Ponto de Equilíbrio da Patro",
-           content: "Ajustamos a Cláusula de Beneficiário: em caso de dano à estrutura, a indenização vai para o dono do imóvel; em caso de dano ao estoque ou interrupção de negócios, a indenização vai para o inquilino. Analisamos seu contrato para validar todas as cláusulas de seguro."
-         }
-       ]}
+        importantDetails={[
+          {
+            title: "Análise de Risco em Hubs Logísticos",
+            content: "Estar em Guarulhos exige análise específica: proximidade com o aeroporto (GRU), rodovias Dutra/Fernão Dias e sistemas de combate a incêndio (Sprinklers e Hidrantes) que reduzem o custo da apólice."
+          },
+          {
+            title: "Ponto de Equilíbrio: Proprietário vs Inquilino",
+            content: "Ajustamos a Cláusula de Beneficiário para que indenizações estruturais vão ao locador e indenizações de estoque/lucros ao locatário, validando todas as cláusulas contratuais."
+          },
+          {
+            title: "Nota Técnica: Riscos Operacionais",
+            content: "Para galpões Classe A e operações complexas, implementamos apólices de Riscos Nomeados e Operacionais (All-risks), oferecendo a proteção mais robusta do mercado."
+          }
+        ]}
       coverages={[
         { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória do imóvel e bens. Inclui despesas de combate, salvamento e remoção de escombros após sinistro." },
         { title: "Roubo e Furto Qualificado", description: "Mercadoria, equipamentos e bens subtraídos mediante arrombamento ou grave ameaça. Cobertura essencial em galpões com mercadoria de alto valor." },
