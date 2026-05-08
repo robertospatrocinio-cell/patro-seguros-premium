@@ -1,16 +1,26 @@
- import { Link } from "react-router-dom";
- import { Shield, Briefcase, Stethoscope, Scale, HardHat, HeartPulse, ArrowRight, MessageCircle, Gavel } from "lucide-react";
+  import { Link, useLocation } from "react-router-dom";
+  import { Shield, Briefcase, Stethoscope, Scale, HardHat, HeartPulse, ArrowRight, MessageCircle, Gavel } from "lucide-react";
  import Header from "@/components/Header";
  import Footer from "@/components/Footer";
  import PageMeta from "@/components/PageMeta";
- import Breadcrumb from "@/components/Breadcrumb";
+  import Breadcrumb from "@/components/Breadcrumb";
+  import FAQSchema from "@/components/FAQSchema";
+  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+  import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
  import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
  import InsuranceHubLinks from "@/components/InsuranceHubLinks";
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro de Responsabilidade Civil Profissional.";
  
- const SECTIONS = [
+  const FAQS = [
+    { question: "O que o seguro de Responsabilidade Civil cobre?", answer: "Ele cobre indenizações por danos materiais ou corporais causados involuntariamente a terceiros, além de todos os custos de defesa jurídica, honorários e perícias." },
+    { question: "RC Profissional vs RC Geral: qual a diferença?", answer: "O RC Profissional (E&O) foca em falhas, erros ou omissões no exercício da profissão. O RC Geral foca em acidentes físicos no estabelecimento ou operações da empresa." },
+    { question: "Médicos e advogados precisam de seguro RC?", answer: "Sim, é fundamental para proteger o patrimônio pessoal e a reputação contra processos judiciais de pacientes ou clientes." },
+    { question: "Como funciona a retroatividade no seguro RC?", answer: "É uma cláusula que cobre reclamações feitas hoje por fatos ocorridos antes do início da apólice, desde que o profissional não tivesse conhecimento do fato no momento da contratação." }
+  ];
+
+  const SECTIONS = [
    {
      title: "Saúde e Bem-estar",
      links: [
@@ -39,13 +49,23 @@
    }
  ];
  
- const HubRC = () => (
-   <div className="min-h-screen flex flex-col">
-     <PageMeta 
-        title="Seguro de Responsabilidade Civil em Guarulhos: Profissional e E&O" 
-        description="Proteção para médicos, advogados e engenheiros em Guarulhos. Seguro de Responsabilidade Civil Profissional para blindagem jurídica e financeira." 
-     />
-     <Header />
+  const HubRC = () => {
+    const location = useLocation();
+    const canonicalUrl = getCanonicalUrl(location.pathname);
+
+    return (
+    <div className="min-h-screen flex flex-col">
+      <PageMeta 
+         title="Seguro de Responsabilidade Civil em Guarulhos: Profissional e E&O" 
+         description="Proteção para médicos, advogados e engenheiros em Guarulhos. Seguro de Responsabilidade Civil Profissional para blindagem jurídica e financeira." 
+      />
+      <FAQSchema faqs={FAQS} />
+      <AggregateRatingSchema
+        serviceName="Responsabilidade Civil em Guarulhos"
+        url={canonicalUrl}
+        description="Proteção profissional e jurídica em Guarulhos."
+      />
+      <Header />
      <main id="main-content">
        <Breadcrumb items={[{ label: "Responsabilidade Civil" }]} />
        
@@ -118,10 +138,33 @@
          </div>
        </section>
  
-       <InsuranceHubLinks />
+        <section className="py-24 bg-background" aria-labelledby="faq-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="text-center mb-12">
+              <span className="section-label">FAQ</span>
+              <h2 id="faq-heading" className="mt-3">Perguntas Frequentes — Responsabilidade Civil</h2>
+            </div>
+            <div className="space-y-3" data-speakable="faq">
+              {FAQS.map((faq, i) => (
+                <details key={i} className="premium-card group">
+                  <summary className="flex items-center justify-between p-5 cursor-pointer text-[15px] font-semibold hover:text-primary transition-base list-none [&::-webkit-details-marker]:hidden">
+                    {faq.question}
+                    <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 -mt-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <InsuranceHubLinks />
      </main>
      <Footer />
    </div>
- );
- 
- export default HubRC;
+    );
+  };
+  
+  export default HubRC;
