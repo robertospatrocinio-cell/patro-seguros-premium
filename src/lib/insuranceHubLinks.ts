@@ -11,15 +11,17 @@ export interface HubLink {
   href: string;
 }
 
-export interface HubCategory {
-  title: string;
-  links: HubLink[];
-}
+ export interface HubCategory {
+   title: string;
+   hubHref?: string;
+   links: HubLink[];
+ }
 
 export const INSURANCE_HUB: HubCategory[] = [
-  {
-    title: "Veículos",
-    links: [
+   {
+     title: "Veículos",
+     hubHref: "/seguros-de-veiculos",
+     links: [
       { label: "Seguro Auto", href: "/seguro-auto" },
       { label: "Seguro Moto", href: "/seguro-moto" },
       { label: "Seguro Caminhão", href: "/seguro-caminhao" },
@@ -33,9 +35,10 @@ export const INSURANCE_HUB: HubCategory[] = [
       { label: "Seguro Helicópteros", href: "/seguro-helicopteros" },
     ],
   },
-  {
-    title: "Pessoa, Vida e Saúde",
-    links: [
+   {
+     title: "Pessoa, Vida e Saúde",
+     hubHref: "/vida-e-saude",
+     links: [
       { label: "Seguro de Vida", href: "/seguro-vida" },
       { label: "Seguro Vida PME", href: "/seguro-vida-pme" },
       { label: "Seguro Saúde", href: "/seguro-saude" },
@@ -50,9 +53,10 @@ export const INSURANCE_HUB: HubCategory[] = [
       { label: "Previdência Privada", href: "/previdencia-privada" },
     ],
   },
-  {
-    title: "Patrimônio e Imóveis",
-    links: [
+   {
+     title: "Patrimônio e Imóveis",
+     hubHref: "/seguros-de-patrimonio",
+     links: [
       { label: "Seguro Residencial", href: "/seguro-residencial" },
       { label: "Seguro Condomínio", href: "/seguro-condominio" },
       { label: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
@@ -62,9 +66,10 @@ export const INSURANCE_HUB: HubCategory[] = [
       { label: "Seguro Celular", href: "/seguro-celular" },
     ],
   },
-  {
-    title: "Empresarial e Indústria",
-    links: [
+   {
+     title: "Empresarial e Indústria",
+     hubHref: "/seguros-empresariais",
+     links: [
       { label: "Seguro Empresarial", href: "/seguro-empresarial" },
       { label: "Seguro de Galpão (Hub Nacional)", href: "/seguro-galpao" },
       { label: "Seguro de Galpões Industriais", href: "/seguro-galpoes-industriais" },
@@ -96,9 +101,10 @@ export const INSURANCE_HUB: HubCategory[] = [
       { label: "Seguro Transporte Agro", href: "/seguro-transporte-agro" },
     ],
   },
-  {
-    title: "Responsabilidade Civil (RC)",
-    links: [
+   {
+     title: "Responsabilidade Civil (RC)",
+     hubHref: "/seguros-responsabilidade-civil",
+     links: [
       { label: "Seguro RC Geral", href: "/seguro-rc" },
       { label: "RC Profissional", href: "/seguro-rc-profissional" },
       { label: "RC Médicos", href: "/seguro-rc-medicos" },
