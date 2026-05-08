@@ -63,7 +63,7 @@ const SeguroGalpao = () => {
       heroImage={heroImg}
       title="Seguro de Galpão Logístico"
        subtitle="Blindagem Estratégica para o Coração da sua Logística. Sua operação está realmente protegida contra interrupções?"
-       description="O Seguro de Galpão Logístico da Patro Seguros é desenhado para converter riscos imprevistos em previsibilidade financeira. Para empresas que dependem de armazenagem e distribuição, o galpão é onde o faturamento acontece. Em regiões de alta densidade como Guarulhos, um sinistro não interrompe apenas uma operação local, mas pode comprometer toda uma cadeia de suprimentos."
+       description="O Seguro de Galpão Logístico da Patro Seguros converte riscos em previsibilidade financeira. Proteja sua operação de armazenagem e distribuição em Guarulhos."
        icon="🏗️"
        metaDescription="Seguro de Galpão Logístico em Guarulhos. Blindagem estratégica para condomínios logísticos, proprietários e inquilinos. Cotação e análise de risco rápida."
        detailedDescription="No mercado imobiliário logístico, a verdadeira tranquilidade vem de uma apólice que protege tanto o proprietário (locador) quanto o inquilino (locatário). Nossa consultoria avalia o contrato de locação para garantir que as cláusulas de seguro atendam exatamente ao que foi acordado, evitando multas e lacunas de proteção. Para galpões de grande porte, oferecemos apólices robustas de Riscos Nomeados e Operacionais (All-risks)."
