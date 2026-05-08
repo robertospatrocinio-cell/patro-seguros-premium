@@ -51,6 +51,8 @@ const FormularioSeguroVida = lazy(() => import("./pages/FormularioSeguroVida"));
 const SeoSeguroAutoGuarulhos = lazy(() => import("./pages/SeoSeguroAutoGuarulhos"));
 const SeoSeguroAutoPorModeloGuarulhos = lazy(() => import("./pages/SeoSeguroAutoPorModeloGuarulhos"));
 const AvaliarNoGoogle = lazy(() => import("./pages/AvaliarNoGoogle"));
+const ParceirosLocais = lazy(() => import("./pages/ParceirosLocais"));
+const Imprensa = lazy(() => import("./pages/Imprensa"));
 const SeoPlanoSaudeGuarulhos = lazy(() => import("./pages/SeoPlanoSaudeGuarulhos"));
 const SeoSeguroEmpresarialGuarulhos = lazy(() => import("./pages/SeoSeguroEmpresarialGuarulhos"));
 const SeoCorretoraGuarulhos = lazy(() => import("./pages/SeoCorretoraGuarulhos"));
@@ -185,6 +187,8 @@ const App = () => (
             <Route path="/contato" element={<Contato />} />
             <Route path="/depoimentos" element={<Depoimentos />} />
             <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
+            <Route path="/parceiros-locais" element={<ParceirosLocais />} />
+            <Route path="/imprensa" element={<Imprensa />} />
             <Route path="/seguro-auto" element={<SeguroAuto />} />
             <Route path="/seguro-vida" element={<SeguroVida />} />
             <Route path="/seguro-vida/formulario" element={<FormularioSeguroVida />} />
