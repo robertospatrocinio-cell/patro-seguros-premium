@@ -146,9 +146,17 @@ const Header = () => {
       <div className="bg-background/95 md:backdrop-blur-xl border-b border-border/40">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
-            <Link to="/" className="flex items-center" aria-label="Patro Seguros — Página inicial">
-              <img src={logoFull} alt="Patro Seguros" width={251} height={140} className="h-20 object-contain -my-2" />
-            </Link>
+             <Link to="/" className="flex items-center" aria-label="Patro Seguros — Página inicial" onClick={() => window.scrollTo(0,0)}>
+               <img
+                 src={logoFull}
+                 alt="Patro Seguros"
+                 width={251}
+                 height={140}
+                 className="h-20 object-contain -my-2"
+                 fetchPriority="high"
+                 decoding="sync"
+               />
+             </Link>
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
