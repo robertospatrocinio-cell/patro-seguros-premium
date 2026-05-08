@@ -57,6 +57,7 @@ const seoLocalGuarulhos: SitemapEntry[] = [
   "/seguro-para-motorista-app-guarulhos",
   "/seguro-auto-por-modelo-guarulhos",
   "/seguros-guarulhos-bairros",
+  "/seguros-em-guarulhos-bairros",
 ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const coreProducts: SitemapEntry[] = [
