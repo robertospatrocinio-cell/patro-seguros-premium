@@ -1,5 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import NeighborhoodHub, { type NeighborhoodLink } from "@/components/NeighborhoodHub";
+import ModelHub, { type ModelLink } from "@/components/ModelHub";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
@@ -13,6 +14,19 @@ const NEIGHBORHOODS: NeighborhoodLink[] = [
   { name: "Centro de Guarulhos", link: "/seguro-auto-centro-guarulhos", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.500/ano" },
   { name: "Cumbica", link: "/seguro-auto-cumbica", riskLevel: "médio-alto", priceRange: "R$ 3.100 a R$ 6.200/ano" },
   { name: "Pimentas", link: "/seguro-auto-pimentas", riskLevel: "alto", priceRange: "R$ 3.400 a R$ 6.800/ano" },
+];
+
+const MODELS: ModelLink[] = [
+  { name: "Toyota Corolla", link: "/seguro-corolla-guarulhos", category: "Sedã médio", priceRange: "R$ 2.800 a R$ 4.800/ano" },
+  { name: "Honda Civic", link: "/seguro-civic-guarulhos", category: "Sedã médio", priceRange: "R$ 3.000 a R$ 5.200/ano" },
+  { name: "Toyota Hilux", link: "/seguro-hilux-guarulhos", category: "Picape grande", priceRange: "R$ 3.500 a R$ 6.500/ano" },
+  { name: "Hyundai HB20", link: "/seguro-hb20-guarulhos", category: "Hatch popular", priceRange: "R$ 1.900 a R$ 3.600/ano" },
+  { name: "Chevrolet Onix", link: "/seguro-onix-guarulhos", category: "Hatch popular", priceRange: "R$ 1.900 a R$ 3.700/ano" },
+  { name: "Fiat Mobi", link: "/seguro-mobi-guarulhos", category: "Hatch entrada", priceRange: "R$ 1.700 a R$ 3.200/ano" },
+  { name: "Fiat Strada", link: "/seguro-strada-guarulhos", category: "Picape leve", priceRange: "R$ 2.300 a R$ 4.300/ano" },
+  { name: "VW T-Cross", link: "/seguro-tcross-guarulhos", category: "SUV compacto", priceRange: "R$ 2.700 a R$ 4.900/ano" },
+  { name: "Jeep Compass", link: "/seguro-compass-guarulhos", category: "SUV médio", priceRange: "R$ 3.000 a R$ 5.400/ano" },
+  { name: "Jeep Renegade", link: "/seguro-renegade-guarulhos", category: "SUV compacto", priceRange: "R$ 2.700 a R$ 4.900/ano" },
 ];
 
 const SeoSeguroAutoGuarulhos = () => (
@@ -111,10 +125,16 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
       { title: "Seguro Auto por Modelo (Corolla, HB20, Onix...)", link: "/seguro-auto-por-modelo-guarulhos" },
     ]}
     extraSections={
-      <NeighborhoodHub
-        source="seguro-auto-guarulhos:hub-bairros"
-        neighborhoods={NEIGHBORHOODS}
-      />
+      <>
+        <NeighborhoodHub
+          source="seguro-auto-guarulhos:hub-bairros"
+          neighborhoods={NEIGHBORHOODS}
+        />
+        <ModelHub
+          source="seguro-auto-guarulhos:hub-modelos"
+          models={MODELS}
+        />
+      </>
     }
     />
     <StickyQuoteBar
