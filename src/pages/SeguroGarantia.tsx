@@ -9,7 +9,7 @@ const SeguroGarantia = () => {
       subtitle="A alternativa inteligente à fiança bancária e ao depósito judicial"
       icon="🔒"
       metaDescription="Seguro Garantia para licitações, contratos, execução fiscal e judicial. Substitui fiança bancária com menor custo. Cotação grátis Patro Seguros."
-      description="O Seguro Garantia é um instrumento que substitui garantias tradicionais — como fiança bancária, depósito caução e penhor — em contratos públicos, privados e processos judiciais. Ele libera o capital de giro da empresa, custa menos que as alternativas e é aceito em licitações, contratos administrativos e ações judiciais em todo o Brasil."
+      description="O Seguro Garantia substitui fiança bancária e caução em contratos e processos judiciais. Libera o capital de giro e é aceito em licitações em todo o Brasil."
       detailedDescription={`Previsto na Lei de Licitações (Lei 14.133/2021) e no Código de Processo Civil, o Seguro Garantia ganhou protagonismo nos últimos anos como a forma mais eficiente de apresentar garantias sem comprometer o caixa da empresa.
 
 Enquanto uma fiança bancária consome o limite de crédito do empresário junto ao banco e um depósito caução imobiliza capital que poderia estar gerando receita, o Seguro Garantia exige apenas o pagamento de um prêmio — geralmente entre 0,5% e 3% do valor garantido por ano.

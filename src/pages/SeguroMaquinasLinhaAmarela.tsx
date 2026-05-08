@@ -7,7 +7,7 @@ const SeguroMaquinasLinhaAmarela = () => {
       heroImage={heroImg}
       title="Seguro de Máquinas Linha Amarela"
       subtitle="Proteção especializada para retroescavadeiras, escavadeiras, pás carregadeiras, tratores de esteira e equipamentos pesados de construção."
-      description="O Seguro de Máquinas Linha Amarela protege equipamentos pesados de construção civil, terraplanagem e mineração contra roubo, incêndio, tombamento e danos operacionais. Cobrimos retroescavadeiras, escavadeiras hidráulicas, pás carregadeiras, motoniveladoras, rolos compactadores e tratores de esteira."
+      description="Seguro Linha Amarela: proteção para retroescavadeiras e pás carregadeiras contra roubo e acidentes em obras em todo o Brasil. Atendimento 100% remoto."
       detailedDescription={`Máquinas linha amarela representam investimentos de R$ 200 mil a R$ 2 milhões ou mais. São equipamentos essenciais para construtoras, empreiteiras, empresas de terraplanagem, mineradoras e locadoras de máquinas pesadas. Operar sem seguro é arriscar o patrimônio e a continuidade dos contratos.
 
 Os riscos são reais e frequentes: tombamento em terrenos irregulares, incêndio no motor, roubo em canteiros de obra sem vigilância, danos por operação inadequada, alagamento e vandalismo. Além do custo de reparo ou reposição, a máquina parada significa contrato atrasado, multas e perda de faturamento.

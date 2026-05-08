@@ -9,7 +9,7 @@ const SeguroFianca = () => {
       subtitle="Alugue seu imóvel sem fiador e sem burocracia"
       icon="🔑"
       metaDescription="Seguro Fiança Locatícia — alugue sem fiador e sem caução. Aprovação rápida para imóveis residenciais e comerciais. Cotação grátis Patro Seguros."
-      description="O Seguro Fiança Locatícia substitui a necessidade de fiador ou caução em contratos de aluguel. É a forma mais moderna e segura de garantir o cumprimento das obrigações locatícias."
+      description="O Seguro Fiança substitui fiador ou caução em aluguéis. É a forma moderna e segura de garantir o cumprimento das obrigações locatícias em Guarulhos."
       detailedDescription={`Encontrar um fiador é uma das maiores dores de cabeça na hora de alugar um imóvel. Pedir para um amigo ou familiar colocar o patrimônio em risco é constrangedor e cada vez mais difícil. A caução, por sua vez, imobiliza 3 aluguéis que poderiam ser usados para mobiliar o imóvel ou investir.
 
 O Seguro Fiança Locatícia resolve ambos os problemas: substitui o fiador e a caução de forma moderna, rápida e aceita pela maioria das imobiliárias. Para o proprietário, é ainda melhor que fiador: a seguradora garante o pagamento de aluguéis atrasados, encargos, danos ao imóvel e até custos de despejo.

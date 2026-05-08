@@ -9,7 +9,7 @@ const SeguroDecesso = () => {
       subtitle="Assistência funeral completa para colaboradores e seus familiares"
       icon="🕊️"
       metaDescription="Seguro Decesso empresarial: assistência funeral completa para colaboradores e familiares. Funeral, traslado e repatriação. Cotação grátis."
-      description="O Seguro Decesso é um benefício corporativo que garante assistência funeral completa aos colaboradores da empresa e seus dependentes. Cobre todas as despesas e providências necessárias no momento mais difícil, oferecendo suporte logístico, emocional e financeiro à família enlutada."
+      description="Seguro Decesso empresarial: assistência funeral completa para colaboradores e familiares. Cobre despesas funerais, suporte logístico e financeiro à família."
       detailedDescription={`A perda de um colaborador ou familiar é um momento de extrema fragilidade emocional. Além da dor, a família precisa lidar com uma série de providências burocráticas e custos elevados: documentação, preparação do corpo, velório, sepultamento ou cremação, traslado — tudo precisa ser resolvido em poucas horas.
 
 O Seguro Decesso empresarial retira esse peso dos ombros da família e da empresa. A seguradora assume toda a logística e os custos do funeral, desde a remoção do corpo até o sepultamento ou cremação, incluindo traslado interestadual quando necessário.

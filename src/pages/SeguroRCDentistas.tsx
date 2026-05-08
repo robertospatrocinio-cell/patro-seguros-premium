@@ -9,7 +9,7 @@ const SeguroRCDentistas = () => {
       subtitle="Proteção contra processos por alegação de erro odontológico"
       icon="🦷"
       metaDescription="Seguro RC para Dentistas — proteção contra processos por erro odontológico, danos estéticos e negligência. A Patro Seguros é especialista em RC. Cotação grátis."
-      description="O Seguro RC para Dentistas protege o profissional e a clínica contra reclamações por alegação de erro, negligência ou resultado insatisfatório em tratamentos odontológicos. A Patro Seguros é especialista neste tipo de seguro e oferece as melhores condições do mercado."
+      description="O Seguro RC Dentistas oferece proteção contra reclamações por erros profissionais. Garanta sua defesa e tranquilidade financeira na odontologia."
       detailedDescription={`A odontologia é uma das profissões com maior crescimento de processos judiciais no Brasil. Procedimentos estéticos (lentes de contato dental, implantes, ortodontia) elevaram as expectativas dos pacientes — e, com elas, as reclamações quando o resultado não atende às expectativas.
 
 Dados do Conselho Federal de Odontologia mostram que processos éticos e judiciais contra dentistas crescem mais de 10% ao ano. Implantes que falham, tratamentos de canal com complicações, próteses mal adaptadas e procedimentos estéticos insatisfatórios lideram as causas.

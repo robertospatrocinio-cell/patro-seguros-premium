@@ -45,7 +45,7 @@ const SeguroAuto = () => {
     <>
       <PageMeta
         title="Seguro Auto em Guarulhos: Cotação Rápida e Melhor Preço"
-        description="Proteja seu veículo com a Patro Seguros. Comparamos preços nas 16 maiores seguradoras do mercado. Cotação rápida, grátis e atendimento humano em Guarulhos."
+        description="Proteja seu veículo com a Patro Seguros. Comparamos preços em 16 seguradoras. Cotação rápida e atendimento humano especializado em Guarulhos."
       />
       <FAQSchema faqs={faqs} />
       <Header />

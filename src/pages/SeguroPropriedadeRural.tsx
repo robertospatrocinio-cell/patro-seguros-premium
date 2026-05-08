@@ -7,7 +7,7 @@ const SeguroPropriedadeRural = () => {
       heroImage={heroImg}
       title="Seguro Propriedade Rural — Proteção Completa para sua Fazenda"
       subtitle="Proteja as estruturas, benfeitorias e instalações da sua propriedade rural contra incêndio, vendaval, raio e outros riscos. Atendimento em todo o Brasil."
-      description="O Seguro Propriedade Rural da Patro Seguros garante proteção para as edificações e benfeitorias da sua fazenda, sítio ou chácara. Cobrimos sedes, galpões, currais, silos, cercas, instalações elétricas, painéis solares e demais estruturas contra incêndio, raio, vendaval, granizo, alagamento, roubo e danos elétricos. Ideal para produtores rurais que investiram em infraestrutura e precisam proteger seu patrimônio. Trabalhamos com as principais seguradoras do agronegócio e garantimos as melhores condições do mercado, com atendimento 100% remoto para produtores de todo o Brasil."
+      description="Seguro Propriedade Rural: proteção para sedes, galpões e cercas contra incêndio e vendaval. Atendemos produtores de todo o Brasil com suporte 100% remoto."
       icon="🏡"
       metaDescription="Seguro Propriedade Rural — proteção para fazendas, sítios e chácaras contra incêndio, vendaval, raio, roubo e mais. Cotação grátis para todo o Brasil. Patro Seguros."
       badge="Atendimento em Todo o Brasil"

@@ -7,7 +7,7 @@ const SeguroEquipamentosAgricolas = () => {
       heroImage={heroImg}
       title="Seguro de Equipamentos Agrícolas"
       subtitle="Proteção completa para implementos, pulverizadores, irrigação e equipamentos de precisão. Atendemos produtores de todos os estados do Brasil."
-      description="O Seguro de Equipamentos Agrícolas protege seus implementos e ferramentas essenciais para a produção. Desde sistemas de irrigação até GPS agrícola e drones, oferecemos coberturas sob medida para garantir a continuidade da sua operação no campo. Atendemos produtores rurais em todos os estados — cotação, emissão e sinistro são feitos de forma 100% remota, com a mesma agilidade e qualidade."
+      description="Seguro de Equipamentos Agrícolas: proteção para implementos, GPS e drones. Garantimos a continuidade da sua operação no campo com suporte 100% remoto."
       icon="⚙️"
       metaDescription="Seguro de Equipamentos Agrícolas: implementos, pulverizadores, irrigação e GPS agrícola. Proteção completa para o campo. Cotação grátis."
       badge="Atendimento em Todo o Brasil"

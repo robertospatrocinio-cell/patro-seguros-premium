@@ -9,7 +9,7 @@ const SeguroEmpresarial = () => {
       subtitle="Proteção completa para o patrimônio e as operações da sua empresa"
       icon="🏢"
       metaDescription="Seguro Empresarial em Guarulhos, Cidade Maia. Cobertura contra incêndio, roubo, RC, lucros cessantes e danos elétricos. Cotação grátis Patro Seguros."
-      description="Uma empresa leva anos para ser construída e pode ser destruída em poucas horas por um incêndio, roubo ou desastre natural. O Seguro Empresarial é a ferramenta que garante que seu negócio sobreviva a imprevistos que, sem proteção, poderiam significar o encerramento das atividades."
+      description="O Seguro Empresarial protege seu negócio contra incêndio, roubo e desastres. Garanta a continuidade da sua empresa em Guarulhos com consultoria especializada."
       detailedDescription={`Segundo dados da SUSEP, menos de 30% das empresas brasileiras possuem seguro adequado. Dessas que sofrem sinistros graves sem seguro, mais de 60% fecham as portas em até 2 anos. A razão é simples: além dos danos físicos (que já são enormes), a empresa perde faturamento durante a reconstrução — e os custos fixos continuam: aluguel, salários, financiamentos, impostos.
 
 O seguro empresarial protege não apenas o patrimônio físico (prédio, equipamentos, estoque), mas também o faturamento (via lucros cessantes), a responsabilidade da empresa perante terceiros (via RC) e até equipamentos eletrônicos específicos como servidores, computadores e sistemas de CFTV.

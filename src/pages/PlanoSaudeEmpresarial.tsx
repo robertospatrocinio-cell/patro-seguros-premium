@@ -9,7 +9,7 @@ const PlanoSaudeEmpresarial = () => {
       subtitle="Cuide dos seus colaboradores com os melhores planos de saúde corporativos"
       icon="🏢"
       metaDescription="Plano de Saúde Empresarial para PMEs e grandes empresas. Compare Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis com a Patro Seguros em Guarulhos."
-      description="O Plano de Saúde Empresarial é a melhor forma de oferecer assistência médica de qualidade para seus colaboradores, com valores significativamente menores que planos individuais. A partir de 2 vidas (incluindo MEI), sua empresa já pode contratar um plano corporativo com ampla cobertura."
+      description="Plano de Saúde Empresarial: assistência médica de qualidade para seus colaboradores com valores menores que o individual. Contrate a partir de 2 vidas (MEI)."
       detailedDescription={`O plano de saúde é o benefício mais valorizado pelos colaboradores brasileiros. Empresas que oferecem assistência médica têm menor rotatividade, maior produtividade e conseguem atrair os melhores talentos do mercado.
 
 Os planos empresariais são, em média, 30% a 50% mais baratos que os individuais, pois o risco é diluído entre todos os beneficiários do grupo. Além disso, empresas podem deduzir os custos do plano de saúde do Imposto de Renda (Lucro Real), gerando economia tributária.

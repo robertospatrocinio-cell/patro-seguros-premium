@@ -9,7 +9,7 @@ const SeguroRCMedicos = () => {
       subtitle="Proteção patrimonial contra processos por erro médico"
       icon="🩺"
       metaDescription="Seguro RC para Médicos: proteção contra processos por erro médico, custos de defesa e indenizações. Especialistas em RC Profissional."
-      description="O Seguro de Responsabilidade Civil para Médicos protege o patrimônio do profissional contra reclamações de pacientes por alegação de erro, omissão ou negligência. A Patro Seguros é especialista neste tipo de seguro e trabalha com as principais seguradoras do mercado."
+      description="O Seguro RC Médicos oferece proteção contra processos por erros profissionais. Garanta sua defesa jurídica e tranquilidade financeira na medicina em Guarulhos."
       detailedDescription={`O Brasil é o segundo país do mundo em número de processos contra médicos. Condenações podem ultrapassar R$ 500.000, e os custos de defesa durante anos de processo comprometem o patrimônio do profissional mesmo quando ele é absolvido.
 
 A Patro Seguros é especialista em Seguro RC para Médicos e conhece as particularidades de cada especialidade — do clínico geral ao cirurgião plástico. Cotamos com seguradoras especializadas para encontrar a melhor proteção ao menor custo.

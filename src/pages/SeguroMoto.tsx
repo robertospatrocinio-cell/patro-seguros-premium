@@ -9,7 +9,7 @@ const SeguroMoto = () => {
       subtitle="Proteção completa para motociclistas com cobertura e assistência 24h especializada"
       icon="🏍️"
       metaDescription="Seguro Moto em Guarulhos, Cidade Maia. Cobertura contra roubo, colisão e assistência 24h com guincho para motos. Compare seguradoras. Cotação grátis Patro Seguros."
-      description="O Brasil é o quarto maior mercado de motocicletas do mundo, com mais de 30 milhões de motos em circulação. Infelizmente, motos também lideram estatísticas de roubo e acidentes de trânsito. Em grandes centros como São Paulo e Guarulhos, o seguro de moto não é luxo — é proteção essencial."
+      description="Seguro Moto em Guarulhos: proteção essencial contra roubo e acidentes. Garanta assistência 24h especializada e cobertura completa para sua motocicleta."
       detailedDescription={`O seguro de moto tem particularidades importantes que o diferenciam do seguro auto. A taxa de sinistralidade (probabilidade de acionar o seguro) é significativamente maior para motos: elas são mais visadas para roubo e furto, e a exposição a acidentes é naturalmente maior.
 
 Por essa razão, o seguro de moto costuma ser proporcionalmente mais caro que o de carro quando comparado ao valor do veículo. Um seguro que custa 3-5% do valor do carro pode custar 8-15% do valor da moto. Ainda assim, é um investimento que se justifica: o preço médio de uma moto roubada sem recuperação gira em torno de R$ 15.000 a R$ 40.000 — dinheiro que o seguro devolve integralmente.

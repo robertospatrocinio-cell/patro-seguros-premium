@@ -10,7 +10,7 @@ const SeguroCelular = () => {
       icon="📱"
       badge="Proteção Imediata"
       metaDescription="Seguro Celular em Guarulhos: proteção contra roubo, furto, quebra acidental e danos por líquidos. iPhone, Samsung e outros. Cotação grátis."
-      description="Seu celular é muito mais do que um telefone: é sua carteira digital, seu banco, seu escritório e sua conexão com o mundo. Um smartphone de R$ 3.000 a R$ 10.000 merece proteção. O Seguro Celular cobre os riscos mais comuns do dia a dia — roubo, furto qualificado, quebra de tela por queda, danos causados por água e problemas elétricos. Com a apólice, você usa seu aparelho com tranquilidade, sabendo que está protegido financeiramente."
+      description="O Seguro Celular cobre roubo, furto qualificado, quebra de tela e danos por água. Proteja seu smartphone e tenha tranquilidade financeira no dia a dia."
       detailedDescription="Na Patro Seguros, comparamos planos de seguradoras especializadas em eletrônicos para encontrar a melhor proteção para o seu smartphone. Analisamos o modelo do aparelho, seu valor de mercado, perfil de uso e os riscos mais relevantes para recomendar a cobertura ideal. Diferente das 'garantias estendidas' de loja, o seguro celular dedicado oferece coberturas reais contra roubo e quebra, com indenização justa e processo de sinistro ágil. Atendemos proprietários de todas as marcas: Apple (iPhone), Samsung (Galaxy), Xiaomi, Motorola e outros."
       howItWorks={[
         {

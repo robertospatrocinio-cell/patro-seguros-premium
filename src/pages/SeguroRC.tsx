@@ -9,7 +9,7 @@ const SeguroRC = () => {
       subtitle="Proteção completa contra danos causados a terceiros nas suas operações"
       icon="⚖️"
       metaDescription="Seguro Responsabilidade Civil Geral para empresas: proteção contra danos a terceiros, processos judiciais e indenizações. Especialistas em RC."
-      description="O Seguro de Responsabilidade Civil Geral (RCG) protege sua empresa contra reclamações por danos materiais, corporais ou morais causados a terceiros durante suas operações. A Patro Seguros é especialista neste tipo de seguro, oferecendo análise de riscos personalizada e coberturas sob medida para garantir a proteção completa do seu patrimônio empresarial."
+      description="O Seguro Responsabilidade Civil protege sua empresa contra danos causados a terceiros. Garanta a defesa judicial e o pagamento de indenizações com a Patro Seguros."
       detailedDescription={`A Responsabilidade Civil é um dos pilares jurídicos do direito brasileiro: quem causa dano a outrem tem o dever de reparar. Para empresas, isso significa que qualquer acidente envolvendo clientes, fornecedores, visitantes ou até transeuntes pode resultar em processos judiciais com indenizações que comprometem seriamente o patrimônio empresarial.
 
 O Seguro RC Geral funciona como um escudo financeiro abrangente: quando sua empresa é responsabilizada por causar danos a terceiros — sejam materiais, corporais ou morais — a seguradora assume os custos de defesa e eventuais indenizações, até o limite contratado. É uma proteção indispensável em um ambiente cada vez mais litigioso, onde um único processo pode custar centenas de milhares de reais.

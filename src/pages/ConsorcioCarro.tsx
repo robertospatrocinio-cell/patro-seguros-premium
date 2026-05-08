@@ -10,7 +10,7 @@ const ConsorcioCarro = () => {
       icon="🚗"
       showEbookConsorcio
       metaDescription="Consórcio de carros em Guarulhos: troque de veículo sem pagar juros bancários. Estratégia de troca planejada e estudo de lance com a Patro Seguros."
-      description="No cenário econômico atual, o financiamento tradicional tornou-se um dos maiores inimigos do crescimento patrimonial devido às altas taxas de juros. Para o investidor ou profissional que planeja seus passos, o Consórcio de Automóveis surge não como uma alternativa, mas como a estratégia principal para ampliar frota ou trocar de veículo sem queimar capital."
+      description="O Consórcio de Automóveis é a estratégia principal para ampliar frotas ou trocar de veículos sem pagar juros bancários e sem queimar o seu capital de giro."
       detailedDescription="Enquanto no financiamento você paga pelo 'uso imediato do dinheiro' com taxas que podem dobrar o valor do veículo, no consórcio você paga apenas uma taxa de administração diluída. Com a carta de crédito contemplada, você negocia como se tivesse o dinheiro no bolso, extraindo os melhores descontos nas concessionárias (poder de compra à vista)."
       importantDetails={[
         {

@@ -9,7 +9,7 @@ const SeguroEngenharia = () => {
       subtitle="Proteção completa para obras e projetos de construção"
       icon="🏗️"
       metaDescription="Seguro de Engenharia e Garantia para obras civis e montagens industriais. Risco de engenharia, RC e seguro garantia. Cotação grátis Patro Seguros."
-      description="Os Seguros de Engenharia protegem obras de construção civil, montagens industriais e projetos de infraestrutura contra diversos riscos durante e após a execução."
+      description="Os Seguros de Engenharia protegem obras de construção, montagens industriais e projetos de infraestrutura contra riscos durante e após a execução."
       detailedDescription={`Obras de construção civil e montagens industriais envolvem investimentos milionários e riscos complexos: desmoronamentos, incêndios, erros de projeto, danos a propriedades vizinhas, acidentes com trabalhadores e fenômenos naturais podem transformar um projeto lucrativo em prejuízo catastrófico.
 
 Os Seguros de Engenharia abrangem diversas modalidades, cada uma com finalidade específica. O Risco de Engenharia (RE) protege a obra física durante a construção. O Seguro Garantia assegura o cumprimento de obrigações contratuais. O RC Obras cobre danos a terceiros durante a execução.
