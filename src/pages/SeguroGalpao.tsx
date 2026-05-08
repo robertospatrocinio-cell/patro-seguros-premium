@@ -101,13 +101,13 @@ const SeguroGalpao = () => {
         "Construtoras com galpões de obra e canteiros temporários",
       ]}
       whyPatro={[
-        "Mais de 140 apólices de galpão ativas — especialistas no segmento desde 2008",
-        "Especialização hiperlocal em Guarulhos/Cumbica + atendimento nacional via 9 seguradoras",
-        "Vistoria técnica gratuita pré-cotação para galpões acima de R$ 5 mi de LMI",
-        "Comparativo entre 9 seguradoras especializadas em risco patrimonial pesado",
+        "Consultoria para validação de cláusulas de seguro em contratos de locação",
+        "Especialização em hubs como Guarulhos/Cumbica + atendimento nacional via 9 seguradoras",
+        "Análise de risco técnica e vistoria gratuita para galpões de grande porte",
+        "Mais de 140 apólices ativas — especialistas no segmento logístico desde 2008",
         "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
-        "Pacote integrado galpão + transporte (RCTR-C/RCF-DC) para cobrir armazenagem e trânsito",
-        "Dimensionamento técnico de LMI com cláusula de pico sazonal (Black Friday e fim de ano)",
+        "Dimensionamento de LMI com cláusula de pico sazonal (Black Friday e fim de ano)",
+        "Implementação de apólices All-risks para operações de alta complexidade",
       ]}
       faqs={HUB_FAQS}
       relatedInsurances={[
