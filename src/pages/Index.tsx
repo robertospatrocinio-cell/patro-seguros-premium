@@ -1,3 +1,5 @@
+ const FormCTASection = lazy(() => import("@/components/FormCTASection"));
+ 
 import { lazy, Suspense, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
@@ -298,9 +300,18 @@ const faqs = [
         </LazySection>
 
 
-        {/* Sobre */}
-        <LazySection minHeight="400px">
-        <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
+         {/* CTA Form Principal */}
+         <LazySection minHeight="600px">
+           <Suspense fallback={null}>
+             <FormCTASection 
+               title="Proteja seu patrimônio com quem entende de Guarulhos"
+               subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
+             />
+           </Suspense>
+         </LazySection>
+ 
+ 
+         {/* Sobre */}
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
