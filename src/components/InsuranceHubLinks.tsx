@@ -8,7 +8,7 @@ import { INSURANCE_HUB } from "@/lib/insuranceHubLinks";
  * InsurancePageTemplate) and on the homepage, to strengthen crawl coverage
  * and topical authority. Excludes the current page from its own list.
  */
-const InsuranceHubLinks = ({ heading = "Explore todos os nossos seguros" }: { heading?: string }) => {
+ const InsuranceHubLinks = ({ heading = "Topic Cluster: Guia Completo de Seguros em Guarulhos" }: { heading?: string }) => {
   const { pathname } = useLocation();
 
   return (
