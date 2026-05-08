@@ -20,8 +20,50 @@ import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
 
-const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
-  "seguro-cobertura-lucros-cessantes": {
+ const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+   "crescimento-patrimonial-guarulhos-2026": {
+     title: "Crescimento Patrimonial: Por que a Proteção é o Acelerador que Poucos Usam?",
+     content: `Muitos acreditam que crescer financeiramente resume-se apenas a investir em renda variável ou imóveis. No entanto, o verdadeiro Crescimento Patrimonial baseia-se em um tripé fundamental: Acumulação, Alavancagem e Proteção.
+ 
+ Sem o terceiro pilar — a Proteção — qualquer imprevisto pode obrigar você a liquidar ativos valiosos a "preços de banana" para cobrir emergências, destruindo anos de esforço em poucos dias.
+ 
+ Na Patro Seguros, atuamos como consultores estratégicos em Guarulhos para garantir que seu trilho de crescimento seja seguro e acelerado.
+ 
+ ### 1. O Papel do Seguro na Estratégia de Crescimento
+ 
+ O seguro não é uma despesa; é a blindagem do seu fluxo de caixa. Ele atua como um acelerador silencioso por dois motivos principais:
+ 
+ - **Liquidez Imediata**: Em caso de sucessão familiar ou doenças graves, o seguro garante capital em dinheiro de forma rápida, sem que a família precise vender imóveis ou máquinas agrícolas às pressas para pagar impostos (ITCMD) ou tratamentos.
+ - **Preservação de Ativos**: Garante que o patrimônio construído não seja corroído por processos judiciais, acidentes de terceiros ou perdas operacionais graves. É a rede de segurança que permite você arriscar mais nos investimentos.
+ 
+ ### 2. Alavancagem com Consórcio Imobiliário e de Pesados
+ 
+ Para quem busca expansão de patrimônio (seja em frotas, máquinas agrícolas ou imóveis), o consórcio é a ferramenta de alavancagem mais barata e inteligente do mercado atual.
+ 
+ - **Custo Final Menor**: Sem as taxas de juros abusivas dos financiamentos tradicionais, você paga apenas uma taxa de administração diluída.
+ - **Poder de Negociação**: Com a carta de crédito em mãos, você compra o bem à vista. Isso permite negociar descontos agressivos, aumentando sua margem de lucro imediata sobre o ativo adquirido.
+ 
+ ### 3. Exemplo Prático: O Caso do Investidor Imobiliário em Guarulhos
+ 
+ Imagine um cliente que deseja adquirir um novo galpão em Guarulhos para gerar renda de aluguel:
+ 
+ - **Via Financiamento**: Ao final de 15 anos, ele teria pago o valor de quase dois galpões devido aos juros compostos.
+ - **Via Consórcio Estruturado**: Ele planeja o lance, contempla em curto ou médio prazo e utiliza o valor do próprio aluguel do galpão para pagar as parcelas mensais.
+ 
+ **Resultado**: Patrimônio quitado utilizando capital de terceiros, preservando o próprio caixa para novos investimentos.
+ 
+ ### Conclusão
+ 
+ Crescer com inteligência significa garantir que o caminho de subida seja seguro. O **Crescimento Patrimonial em Guarulhos** exige visão de longo prazo e o uso das ferramentas certas de alavancagem e proteção.
+ 
+ Na Patro Seguros, nosso foco é desenhar esse trilho de crescimento junto com você. Quer desenhar seu plano de crescimento patrimonial personalizado? Fale com nossos especialistas agora mesmo e mude o patamar da sua segurança financeira.`,
+     faqs: [
+       { q: "O consórcio é considerado um investimento?", a: "Sim, especialmente quando usado como ferramenta de alavancagem para adquirir ativos que geram renda passiva, como imóveis comerciais ou caminhões para frota." },
+       { q: "Qual a importância do seguro no planejamento sucessório?", a: "O seguro de vida fornece liquidez imediata para o pagamento de custos de inventário e impostos, evitando que os herdeiros precisem vender bens do patrimônio para arcar com essas despesas." },
+       { q: "Como o consórcio ajuda na redução de custos de uma empresa?", a: "Ao evitar os juros altos do financiamento, a empresa reduz seu custo fixo e libera linhas de crédito bancário para serem usadas exclusivamente como capital de giro ou em emergências." },
+     ],
+   },
+   "seguro-cobertura-lucros-cessantes": {
     title: "Os Benefícios do Seguro com Cobertura de Lucros Cessantes",
     content: `Imagine que um incêndio atinge sua empresa. O seguro empresarial cobre os danos ao prédio e aos equipamentos — mas quem cobre o faturamento que sua empresa deixou de gerar durante os meses de reconstrução? A resposta é a cobertura de Lucros Cessantes, uma das proteções mais importantes e subestimadas do mercado de seguros.
 

@@ -216,7 +216,8 @@ export const blogImageMap: Record<string, string> = {
   "melhor-seguro-uber-99-2026": blogMotoristaApp,
   "seguro-auto-barato-vs-completo-vale-pena": blogSeguroAutoPremium,
   "bradesco-vs-sulamerica-plano-saude-2026": blogPlanoSaudeGuarulhos,
-  "porto-vs-tokio-marine-residencial-2026": blogSeguroResidencial,
+   "porto-vs-tokio-marine-residencial-2026": blogSeguroResidencial,
+   "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
 };
 
 export const getArticleImage = (slug: string): string => {
