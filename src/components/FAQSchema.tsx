@@ -19,22 +19,20 @@ const FAQSchema = ({ faqs, speakable = true }: FAQSchemaProps) => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    ...(speakable
-      ? {
-          speakable: {
-            "@type": "SpeakableSpecification",
-            cssSelector: ['[data-speakable="faq"]', "#faq-heading"],
-          },
-        }
-      : {}),
-    mainEntity: faqs.map((faq) => ({
+    "mainEntity": faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
+      "name": faq.question.trim(),
+      "acceptedAnswer": {
         "@type": "Answer",
-        text: faq.answer,
-      },
+        "text": faq.answer.trim()
+      }
     })),
+    ...(speakable ? {
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["[data-speakable='faq']", "#faq-heading"]
+      }
+    } : {})
   };
 
   return (
