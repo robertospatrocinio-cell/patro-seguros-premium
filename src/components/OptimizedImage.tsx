@@ -19,7 +19,7 @@ interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
 
 const OptimizedImage = ({
   src,
-  alt = "",
+   alt = "Corretora de Seguros Patro em Guarulhos - Atendimento Presencial",
   eager = false,
   placeholderClass = "bg-muted",
   className = "",
