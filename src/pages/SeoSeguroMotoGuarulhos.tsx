@@ -1,7 +1,15 @@
-import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+  import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+  import FAQSchema from "@/components/FAQSchema";
 import heroImg from "@/assets/hero-seguro-moto.webp";
 
+const faqs = [
+  { question: "Quanto custa seguro de moto em Guarulhos?", answer: "O valor varia conforme modelo, ano e perfil do condutor. Em Guarulhos, a média é de R$ 800 a R$ 2.500/ano. Solicite cotação gratuita." },
+  { question: "Seguro de moto cobre roubo em Guarulhos?", answer: "Sim, a cobertura compreensiva inclui roubo e furto. Guarulhos tem índices elevados, o que torna o seguro essencial." },
+];
+
 const SeoSeguroMotoGuarulhos = () => (
+  <>
+  <FAQSchema faqs={faqs} />
   <InsurancePageTemplate
     heroImage={heroImg}
     title="Seguro Moto Guarulhos — Cotação Porto, Tokio e HDI"
@@ -27,10 +35,7 @@ const SeoSeguroMotoGuarulhos = () => (
       "Cotação rápida e atendimento via WhatsApp",
       "Suporte completo em caso de sinistro",
     ]}
-    faqs={[
-      { question: "Quanto custa seguro de moto em Guarulhos?", answer: "O valor varia conforme modelo, ano e perfil do condutor. Em Guarulhos, a média é de R$ 800 a R$ 2.500/ano. Solicite cotação gratuita." },
-      { question: "Seguro de moto cobre roubo em Guarulhos?", answer: "Sim, a cobertura compreensiva inclui roubo e furto. Guarulhos tem índices elevados, o que torna o seguro essencial." },
-    ]}
+    faqs={faqs}
     relatedInsurances={[
       { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
       { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
@@ -39,6 +44,7 @@ const SeoSeguroMotoGuarulhos = () => (
       { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
   />
+  </>
 );
 
 export default SeoSeguroMotoGuarulhos;
