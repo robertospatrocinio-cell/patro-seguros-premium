@@ -5,6 +5,7 @@ import fs from "fs";
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
 import { generateSitemapBundle } from "./scripts/generate-sitemap";
+import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
 
 // Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
 // to async loading with print/onload trick (critical CSS is already inlined in index.html)
@@ -70,6 +71,22 @@ function spaFallbackPlugin(): Plugin {
   };
 }
 
+// Plugin to validate that every local SEO page has the minimum FAQs,
+// insurers, testimonials, scenarios and unique content. Fails the build
+// if any page violates the LocalPageTemplate editorial contract.
+function validateLocalPagesPlugin(): Plugin {
+  return {
+    name: "validate-local-pages",
+    async buildStart() {
+      try {
+        await validateLocalPages();
+      } catch (err) {
+        this.error(err instanceof Error ? err.message : String(err));
+      }
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -108,6 +125,7 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
     mode === "production" && sitemapPlugin(),
     mode === "production" && spaFallbackPlugin(),
+    validateLocalPagesPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {
