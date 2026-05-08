@@ -73,6 +73,15 @@ const bairros: BairroSeed[] = [
   { slug: "seguro-auto-taboao-guarulhos", bairro: "Taboão", bairroSlugBairros: "centro", riskLevel: "médio", context: "região mista comercial e residencial no centro-norte de Guarulhos, com boa oferta de oficinas referenciadas das grandes seguradoras.", reference: "região da Avenida Salgado Filho e Taboão", priceRange: "R$ 2.700 a R$ 5.000/ano" },
   { slug: "seguro-auto-centro-guarulhos", bairro: "Centro de Guarulhos", bairroSlugBairros: "centro", riskLevel: "médio-alto", context: "área de alto fluxo comercial com grande circulação de pedestres e veículos, índice mais elevado de pequenos sinistros e furtos de acessórios.", reference: "região da Praça Tereza Cristina e Avenida Paulo Faccini", priceRange: "R$ 2.900 a R$ 5.500/ano" },
   { slug: "seguro-auto-vila-augusta", bairro: "Vila Augusta", bairroSlugBairros: "vila-augusta", riskLevel: "baixo", context: "bairro residencial valorizado próximo ao Parque Cecap, com perfil de baixa sinistralidade e prêmios mais competitivos.", reference: "próximo ao Parque Cecap e Vila Galvão", priceRange: "R$ 2.200 a R$ 4.100/ano" },
+  { 
+    slug: "seguro-auto-cidade-maia", 
+    bairro: "Cidade Maia", 
+    bairroSlugBairros: "jardim-maia", 
+    riskLevel: "baixo", 
+    context: "região nobre de Guarulhos, com alto padrão de condomínios e vigilância reforçada, o que reflete em prêmios de seguro auto até 20% menores que a média da cidade.", 
+    reference: "ao lado do Shopping Maia e Parque Shopping Maia", 
+    priceRange: "R$ 1.950 a R$ 3.800/ano" 
+  },
 ];
 
 const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
