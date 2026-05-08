@@ -63,8 +63,14 @@ const faqs = [
   { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
 ];
 
-const Index = () => {
-
+ const Index = () => {
+   // Hide persistent hero background after React renders (it lives outside #root for LCP)
+   useEffect(() => {
+     const el = document.getElementById('persistent-hero-bg');
+     if (el) el.style.display = 'none';
+     return () => { if (el) el.style.display = ''; };
+   }, []);
+ 
   return (
     <>
       <PageMeta title="Corretora de Seguros em Guarulhos – Cotação Grátis" description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500." />
