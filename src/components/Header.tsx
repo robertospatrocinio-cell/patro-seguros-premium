@@ -149,7 +149,7 @@ const Header = () => {
              <Link to="/" className="flex items-center" aria-label="Patro Seguros — Página inicial" onClick={() => window.scrollTo(0,0)}>
                <img
                  src={logoFull}
-                 alt="Patro Seguros"
+                 alt="Corretora de Seguros Patro em Guarulhos - Atendimento Presencial"
                  width={251}
                  height={140}
                  className="h-20 object-contain -my-2"

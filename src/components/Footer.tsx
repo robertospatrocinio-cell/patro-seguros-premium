@@ -13,7 +13,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center mb-5">
-              <img src={logoFull} alt="Patro Seguros" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
+               <img src={logoFull} alt="Corretora de Seguros Patro em Guarulhos - Atendimento Presencial" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
             </div>
             <p className="text-[13px] text-white/80 mb-6 leading-relaxed max-w-xs">
               Corretora de seguros em Guarulhos especializada em seguro auto, residencial, vida e empresarial. Comparamos as principais seguradoras para encontrar a melhor proteção pelo menor preço.

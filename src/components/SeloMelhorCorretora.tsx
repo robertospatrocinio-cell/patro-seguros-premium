@@ -24,7 +24,7 @@ const SeloMelhorCorretora = ({ size = "md", className = "", priority = false }: 
       <img
         src={`${base}.png`}
         srcSet={pngSrcSet}
-        alt="Selo Melhor Corretora de Seguros de Guarulhos"
+         alt="Corretora de Seguros Patro em Guarulhos - Atendimento Presencial - Selo de Qualidade"
         width={w}
         height={w}
         loading={priority ? "eager" : "lazy"}

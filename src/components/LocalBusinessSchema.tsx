@@ -25,11 +25,11 @@ const LocalBusinessSchema = () => {
       "postalCode": "07115-000",
       "addressCountry": "BR"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -23.4550,
-      "longitude": -46.5333
-    },
+     "geo": {
+       "@type": "GeoCoordinates",
+       "latitude": -23.4468661,
+       "longitude": -46.5369463
+     },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
