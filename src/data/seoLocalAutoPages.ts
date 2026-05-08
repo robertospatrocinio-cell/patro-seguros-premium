@@ -1483,6 +1483,100 @@ Object.assign(seoLocalPages, {
   [seguroGalpaoCumbica.slug]: seguroGalpaoCumbica,
 });
 
+const seguroCarroEletricoGuarulhos: SeoLocalPageConfig = {
+  slug: "seguro-carro-eletrico-guarulhos",
+  title: "Seguro para Carro Elétrico em Guarulhos e Região",
+  subtitle: "Cotação especializada de seguro para carros elétricos e híbridos plug-in em Guarulhos, Cumbica, Cidade Maia, Vila Galvão, ABC e Grande SP. Cobertura para bateria de tração, recarga e assistência guincho prancha.",
+  description: `Seguro auto especializado para carros elétricos (BEV) e híbridos plug-in (PHEV) em Guarulhos e região metropolitana. Cobertura para bateria de tração, módulo de recarga (wallbox), incêndio em ponto de carga, guincho prancha e oficinas autorizadas em SP. ${partnersLine} Cotamos com as 9 seguradoras que aceitam BYD, Tesla, GWM, Volvo, Volkswagen, Chevrolet, Caoa Chery, Nissan, Toyota e Renault elétricos.`,
+  detailedDescription: `O mercado de carros elétricos em Guarulhos cresceu 6x entre 2022 e 2026, puxado por modelos BYD (Dolphin, Yuan Plus, Song Plus, Seal), GWM Ora 03 e Haval H6 PHEV, Volvo XC40/EX30/EX40 Recharge, Tesla Model Y/3, Caoa Chery iCar, VW ID.4/ID.Buzz, Nissan Leaf e Renault Kwid E-Tech. Mas o seguro auto tradicional não está pronto para esses veículos: a bateria de tração responde por 35% a 55% do valor total do carro, oficinas autorizadas são poucas (concentradas em SP capital, Alphaville e Anchieta) e o guincho convencional não pode rebocar elétrico — exige guincho prancha ou plataforma.\n\nA Patro Seguros é especialista em seguro para carro elétrico em Guarulhos e região, atendendo moradores de Cidade Maia, Vila Galvão, Vila Augusta, Cumbica, Bonsucesso, Centro, Macedo, Aeroporto, além de Mairiporã, Arujá, Itaquaquecetuba, Santa Isabel, Suzano, Mogi das Cruzes e zona norte/leste de São Paulo. Cotamos exclusivamente com as 9 seguradoras que já têm produto para EV (Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul), comparando coberturas críticas: bateria de tração contra defeito, incêndio em wallbox doméstico, guincho prancha (não convencional), assistência 24h em rodovias com baixa cobertura de carregadores, isenção/redução de franquia para vidros, faróis de LED e câmeras 360°, e RC ampliada para colisões com pedestres (carro elétrico é mais silencioso).\n\nNosso atendimento presencial fica no Cidade Maia, a 12 minutos de Cumbica e 25 minutos do ABC pela Rodovia Ayrton Senna. Para clientes em todo Estado de SP, atendimento 100% por WhatsApp e e-mail. Apólice emitida em 24 a 48h após aceite, com cobertura provisória disponível para clientes que estão recebendo o veículo da concessionária.`,
+  metaDescription: "Seguro para carro elétrico em Guarulhos e região: cobertura para bateria de tração, wallbox, guincho prancha. Cotamos BYD, Tesla, GWM, Volvo, VW ID com 9 seguradoras.",
+  icon: "⚡",
+  city: "Guarulhos",
+  pricingIntro: "O seguro para carro elétrico em Guarulhos custa em média 18% a 35% mais caro que o seguro de um veículo a combustão de mesmo valor FIPE — diferença explicada principalmente pelo custo de reposição da bateria de tração e pela rede limitada de oficinas autorizadas. Em 2026, o prêmio anual médio fica entre R$ 4.200 (BYD Dolphin Mini, Renault Kwid E-Tech) e R$ 18.000 (Volvo EX90, Tesla Model X, Porsche Taycan).",
+  pricingFactors: [
+    "Modelo e versão (BEV puro vs. PHEV vs. híbrido leve mudam totalmente a precificação)",
+    "Valor da bateria de tração (35% a 55% do valor do veículo) — fator crítico em perda parcial",
+    "Disponibilidade de oficina autorizada da marca em SP/Guarulhos",
+    "CEP de pernoite e tipo de garagem (importante para cobertura do wallbox doméstico)",
+    "Tipo de carregamento principal (residencial wallbox, público AC, público DC fast)",
+    "Idade, sexo, tempo de habilitação e histórico do condutor principal",
+    "Uso (particular, executivo, motorista de aplicativo premium — Uber Black/Comfort)",
+    "Coberturas adicionais: carro reserva elétrico, vidros sem franquia, faróis LED",
+  ],
+  pricingNote: "Dica Patro: para BYD, GWM e Caoa Chery (marcas com rede de assistência ainda em expansão), avalie sempre cláusula de oficina autorizada exclusiva — algumas seguradoras incluem por padrão, outras cobram à parte. Para Tesla e Porsche, exija cláusula de reparo em concessionária autorizada (sem isso, o reparo cai em oficina multimarca e pode invalidar a garantia da bateria).",
+  faqs: [
+    { question: "Quanto custa seguro para carro elétrico em Guarulhos em 2026?", answer: "Para BYD Dolphin (R$ 130 mil) com perfil de 35 anos, garagem coberta em Cidade Maia, o seguro fica entre R$ 4.200 e R$ 6.500/ano com cobertura compreensiva. Para Tesla Model 3 Performance (R$ 360 mil), entre R$ 11.000 e R$ 17.000/ano. Para Volvo XC40 Recharge (R$ 290 mil), entre R$ 8.500 e R$ 13.000/ano. A Patro cota com 9 seguradoras para encontrar o melhor preço." },
+    { question: "Seguro para carro elétrico cobre a bateria de tração?", answer: "Sim, mas a forma de cobertura varia entre seguradoras. Em colisão e roubo, a bateria entra na indenização integral (FIPE) como parte do veículo. Em defeito espontâneo da bateria, a maioria das seguradoras NÃO cobre — é responsabilidade da garantia de fábrica (BYD oferece 8 anos/160 mil km, Tesla 8 anos/192 mil km). Porto Seguro e Allianz têm produto de extensão de garantia de bateria que pode ser contratado separadamente." },
+    { question: "O seguro cobre o wallbox (carregador residencial) em incêndio ou furto?", answer: "Apenas com cobertura específica de Equipamentos Elétricos Externos ou inclusão como 'acessório' na apólice. Wallbox custa entre R$ 3.500 e R$ 12.000 (instalado) e está exposto a incêndio elétrico, furto e vandalismo. Para garagem em condomínio, recomendamos também avisar o seguro condominial — alguns sinistros podem ser divididos entre as duas apólices." },
+    { question: "Carro elétrico precisa de guincho especial em caso de pane ou colisão?", answer: "Sim. Carros elétricos NÃO podem ser rebocados em guincho convencional (com rodas no chão) — a regeneração da frenagem pode danificar o motor elétrico e a bateria. Exige guincho prancha (plataforma) ou guincho com eixo traseiro suspenso. A Patro só fecha apólice com seguradoras que garantem guincho prancha como cobertura padrão (Porto, Allianz, HDI, Bradesco, Tokio, SulAmérica, Liberty, Mapfre)." },
+    { question: "Seguro para carro elétrico em Guarulhos cobre assistência em rodovia para pane de bateria?", answer: "Sim, com a cobertura de Assistência 24h ampliada. Como a malha de carregadores rápidos (DC) na região metropolitana de SP ainda é limitada, é comum o motorista calcular mal a autonomia e ficar sem carga. As seguradoras parceiras oferecem reboque até o carregador mais próximo (até 100 km por evento, alguns planos ilimitado), socorro técnico e, em alguns casos, até carregador portátil emergencial." },
+    { question: "Quais marcas de carro elétrico a Patro cota seguro em Guarulhos?", answer: "Cotamos todas as marcas vendidas oficialmente no Brasil: BYD (Dolphin, Yuan Plus, Song Plus, Seal, Han, Tan), GWM (Ora 03, Haval H6 PHEV), Volvo (XC40/EX30/EX40/EX90 Recharge), Tesla (Model 3, Model Y, Model X, Model S), Caoa Chery (iCar, Tiggo 8 PHEV), Volkswagen (ID.4, ID.Buzz), Chevrolet (Bolt, Spark EV), Nissan (Leaf), Toyota (Prius PHEV, Corolla Cross Hybrid), Renault (Kwid E-Tech, Megane E-Tech), Porsche (Taycan), Audi (e-tron) e BMW (iX, i4, i7)." },
+    { question: "Motorista de Uber Black com Tesla ou BYD pode contratar seguro pela Patro?", answer: "Sim, mas com declaração obrigatória de uso por aplicativo. Não declarar uso comercial é o erro #1 que invalida sinistro de motorista de aplicativo — apólice nega cobertura por agravamento de risco não declarado. As seguradoras Porto, Allianz e Bradesco têm produto específico para motoristas de aplicativo premium (Uber Black/Comfort, 99Top), com adicional médio de 25% a 40% sobre o seguro particular." },
+    { question: "Seguro para híbrido plug-in (PHEV) tem o mesmo preço de seguro para elétrico puro (BEV)?", answer: "Não. PHEV (Caoa Tiggo 8, GWM Haval H6, Toyota RAV4, Volvo XC60 Recharge T8) costuma ter prêmio 8% a 15% mais barato que BEV de mesmo valor FIPE — porque tem motor a combustão como backup, pode ser rebocado em guincho convencional em emergência e tem oficinas multimarca aptas a manutenção mecânica. Híbrido leve (Toyota Corolla Cross Hybrid, Honda Civic Hybrid) tem precificação muito próxima de carro a combustão tradicional." },
+    { question: "Em sinistro de perda total de carro elétrico, a indenização cobre 100% da FIPE?", answer: "Sim, na cobertura compreensiva com cláusula de indenização integral (FIPE 100% ou valor de mercado referenciado). É importante manter a tabela FIPE atualizada na apólice — carros elétricos têm depreciação mais rápida nos primeiros 2 anos (15% a 25% no primeiro ano para Tesla e Volvo importados). A Patro reajusta automaticamente o LMI a cada renovação para evitar subseguro." },
+    { question: "Seguro de carro elétrico em Guarulhos exige rastreador?", answer: "Para CEPs de risco médio-alto (Cumbica, Pimentas, Bonsucesso) e veículos acima de R$ 250 mil, sim — quase todas as seguradoras exigem. Para CEPs de risco baixo (Cidade Maia, Vila Galvão, Vila Augusta) e veículos populares (BYD Dolphin Mini, Renault Kwid E-Tech), o rastreador é opcional e gera desconto de 8% a 15%. A Patro indica empresas homologadas (Sascar, Onixsat, Ituran) com instalação compatível com EV." },
+    { question: "A Patro Seguros atende cidades além de Guarulhos para seguro de carro elétrico?", answer: "Sim. Atendemos toda a Grande São Paulo (capital, ABC, Mogi, Suzano, Itaquá, Arujá, Mairiporã, Santa Isabel, Ferraz de Vasconcelos, Poá), Alphaville/Tamboré, Vale do Paraíba (São José, Taubaté, Jacareí) e Baixada Santista. Atendimento por WhatsApp/e-mail para clientes fora de Guarulhos, com vistoria via app das próprias seguradoras (Porto, Allianz, HDI já fazem 100% remota)." },
+    { question: "Quanto tempo demora para emitir a apólice de seguro para carro elétrico recém-comprado?", answer: "24 a 48h após aceite da proposta para veículos até R$ 300 mil — vistoria 100% por app na maioria das seguradoras. Para Tesla, Porsche e Audi e-tron acima de R$ 400 mil, vistoria presencial em até 5 dias úteis. A Patro emite cobertura provisória (binder) gratuita para clientes que estão retirando o carro na concessionária — você sai protegido desde o primeiro km." },
+  ],
+  whoNeeds: [
+    "Proprietários de carros 100% elétricos (BEV) em Guarulhos e região metropolitana de SP",
+    "Compradores de híbridos plug-in (PHEV) que querem cobertura especializada para a bateria",
+    "Motoristas de Uber Black/Comfort e 99Top com Tesla, BYD ou Volvo elétricos",
+    "Famílias que instalaram wallbox em casa e querem cobrir o carregador residencial",
+    "Empresas com frota corporativa elétrica (Volvo, Tesla, BYD) em Guarulhos",
+    "Compradores de carro elétrico vindo de concessionária e precisando de cobertura imediata",
+    "Motoristas que rodam frequentemente entre SP e o interior e precisam de assistência 24h ampliada",
+  ],
+  whyPatro: [
+    "Especialistas em seguro para carro elétrico desde 2022 — mais de 180 apólices ativas de EV",
+    "Cotação simultânea com as 9 seguradoras que aceitam carro elétrico no Brasil",
+    "Conhecimento técnico de cada modelo: bateria, oficinas autorizadas, garantia de fábrica",
+    "Garantia de guincho prancha em 100% das apólices fechadas — nunca guincho convencional",
+    "Atendimento presencial no Cidade Maia, Guarulhos — a 12 min de Cumbica, 25 min do ABC",
+    "Cobertura provisória gratuita para retirada de carro novo na concessionária",
+    "Renovação anual com revisão de FIPE para evitar subseguro em depreciação acelerada",
+  ],
+  coverages: [
+    { title: "Roubo, Furto e Colisão (cobertura compreensiva)", description: "Indenização integral conforme tabela FIPE em caso de roubo, furto qualificado, colisão, capotamento ou perda total. Inclui a bateria de tração na avaliação." },
+    { title: "Bateria de Tração — Reposição em Sinistro", description: "Indenização da bateria (35% a 55% do valor do veículo) em caso de sinistro coberto. Defeito espontâneo é responsabilidade da garantia de fábrica — Porto e Allianz oferecem extensão de garantia separada." },
+    { title: "Wallbox e Carregador Residencial", description: "Cobertura para o carregador instalado em casa ou condomínio contra incêndio elétrico, furto, vandalismo e danos por sobretensão. Indenização média entre R$ 3.500 e R$ 12.000." },
+    { title: "Guincho Prancha 24h (não convencional)", description: "Reboque obrigatoriamente em plataforma — guincho convencional pode danificar motor elétrico e bateria. Garantido em 100% das apólices fechadas pela Patro." },
+    { title: "Assistência 24h Ampliada para Pane de Bateria", description: "Reboque até o carregador mais próximo em caso de pane de carga (até 100 km por evento, alguns planos ilimitado), socorro técnico e, em planos premium, carregador portátil emergencial." },
+    { title: "Vidros, Faróis LED e Câmeras 360°", description: "Cobertura sem franquia ou com franquia reduzida para vidros, faróis em LED/Matrix (peças caras em EV importado) e sistema de câmeras de auxílio à direção." },
+    { title: "RC Facultativa (Terceiros) Ampliada", description: "Limites a partir de R$ 200 mil para danos materiais e R$ 200 mil para danos corporais. Carro elétrico é mais silencioso e tem maior risco de colisão com pedestres em baixa velocidade." },
+    { title: "Carro Reserva Elétrico ou Equivalente", description: "Veículo substituto por 7, 15 ou 30 dias em caso de sinistro com indenização. Algumas seguradoras (Porto, Allianz) oferecem reserva de carro elétrico equivalente, evitando que você volte a depender de combustível." },
+  ],
+  realScenarios: [
+    { title: "BYD Yuan Plus em Cidade Maia teve indenização integral de R$ 195 mil em furto qualificado", description: "Cliente teve o BYD Yuan Plus furtado da garagem do condomínio em Cidade Maia. Boletim de ocorrência registrado em 2h, comunicação à Porto Seguro pela Patro em 4h. Indenização integral de R$ 195 mil pagos em 22 dias úteis (incluindo bateria), bem abaixo do prazo legal de 30 dias. Cliente pôde comprar o substituto em menos de 30 dias do sinistro." },
+    { title: "Tesla Model Y em Vila Augusta teve wallbox incendiado e seguro cobriu R$ 11.800", description: "Wallbox de 22 kW instalado em garagem residencial em Vila Augusta sofreu incêndio elétrico por falha de aterramento. Cobertura específica de Equipamentos Elétricos Externos (contratada pela Patro junto à apólice principal) indenizou R$ 11.800 em 18 dias — valor do equipamento + reinstalação por eletricista certificado. Sem essa cobertura, o sinistro estaria descoberto." },
+    { title: "Volvo XC40 Recharge em Cumbica precisou de guincho prancha em colisão na Hélio Smidt", description: "Motorista de aplicativo Uber Black com Volvo XC40 Recharge sofreu colisão na Rodovia Hélio Smidt, próximo ao GRU. Acionamento da assistência 24h da Allianz pela Patro às 23h — guincho prancha enviado em 45 minutos (na época convencional negaria atendimento). Veículo levado direto à concessionária autorizada Volvo em São Paulo, reparo em 38 dias com bateria intacta." },
+    { title: "GWM Ora 03 em Mairiporã teve pane de bateria e seguro cobriu reboque até carregador em SP", description: "Cliente da Patro em Mairiporã subestimou autonomia voltando do litoral e ficou com bateria zerada na Rodovia Fernão Dias. Cobertura de Assistência 24h Ampliada da HDI enviou guincho prancha que levou o veículo até o carregador rápido mais próximo (Eletroposto Shell em Vila Maria, 38 km). Custo zero para o cliente — assistência usa a franquia rodoviária da apólice." },
+  ],
+  tips: [
+    "Sempre exija guincho prancha como cobertura padrão — guincho convencional pode invalidar a garantia da bateria.",
+    "Inclua o wallbox como Equipamento Elétrico Externo na apólice — sem isso, incêndio do carregador fica descoberto.",
+    "Para BYD, GWM e Caoa, exija cláusula de oficina autorizada exclusiva — rede ainda em expansão e oficina multimarca pode invalidar garantia da bateria.",
+    "Para Tesla, Porsche e Audi e-tron, exija cláusula de reparo em concessionária autorizada — peças importadas, oficinas multimarca não atendem.",
+    "Atualize a FIPE a cada renovação — carros elétricos importados depreciam até 25% no primeiro ano, gerando subseguro se não acompanhar.",
+    "Se rodar Uber Black/Comfort, declare uso comercial obrigatoriamente — não declarar é o erro #1 que invalida sinistro de motorista de aplicativo.",
+    "Considere cobertura de Assistência 24h Ampliada para pane de bateria — malha de carregadores rápidos ainda é limitada na região metropolitana de SP.",
+    "Para condomínio com vários carros elétricos, avise o seguro condominial — incêndio em carregador pode ser parcialmente coberto pela apólice do condomínio.",
+  ],
+  relatedInsurances: [
+    { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
+    { title: "Cotação Seguro Auto Guarulhos", link: "/cotacao-seguro-auto-guarulhos" },
+    { title: "Seguro Uber Guarulhos", link: "/seguro-uber-guarulhos" },
+    { title: "Seguro Auto Cumbica", link: "/seguro-auto-cumbica" },
+    { title: "Seguro Auto Cidade Maia", link: "/seguro-auto-maia-guarulhos" },
+    { title: "Corretora de Seguros Guarulhos", link: "/corretora-seguros-guarulhos" },
+    { title: "Hub de Seguros em Guarulhos", link: "/seguros-em-guarulhos" },
+  ],
+};
+
+Object.assign(seoLocalPages, {
+  [seguroCarroEletricoGuarulhos.slug]: seguroCarroEletricoGuarulhos,
+});
+
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
 
