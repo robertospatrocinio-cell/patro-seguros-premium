@@ -1,6 +1,82 @@
 import { lazy, Suspense } from "react";
 import { Check, Info, ArrowRight, Hospital, Building, HeartPulse, Clock, ShieldCheck, Search, HelpCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import StickyQuoteBar from "@/components/StickyQuoteBar";
+const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
+
+const comparativoData = [
+  {
+    categoria: "Econômico / Regional",
+    precos: "A partir de R$ 280,00",
+    operadoras: "HapVida, GNDI (Intermédica), BioSaúde",
+    hospitais: "Hospital Ipiranga, Hospital 8 de Maio, Rede Própria GNDI",
+    caracteristicas: [
+      "Foco em rede própria",
+      "Atendimento regional Guarulhos/SP",
+      "Melhor custo-benefício",
+      "Ideal para MEI e famílias"
+    ],
+    indicado: "Quem busca o menor preço com atendimento local garantido."
+  },
+  {
+    categoria: "Intermediário / Nacional",
+    precos: "A partir de R$ 450,00",
+    operadoras: "Amil, SulAmérica Direto, Porto Saúde",
+    hospitais: "Hospital Stella Maris, Carlos Chagas, Hospital Luz",
+    caracteristicas: [
+      "Ampla rede credenciada",
+      "Opção de reembolso",
+      "Atendimento nacional para urgências",
+      "Telemedicina 24h inclusa"
+    ],
+    indicado: "Famílias e empresas que buscam equilíbrio entre preço e ampla rede."
+  },
+  {
+    categoria: "Premium / Especial",
+    precos: "A partir de R$ 850,00",
+    operadoras: "Bradesco Saúde, SulAmérica Especial, Omint",
+    hospitais: "Sírio-Libanês, Albert Einstein, Samaritano",
+    caracteristicas: [
+      "Reembolso elevado",
+      "Rede dos melhores hospitais do Brasil",
+      "Coleta domiciliar de exames",
+      "Seguro viagem internacional incluso"
+    ],
+    indicado: "Executivos e famílias que não abrem mão da máxima excelência médica."
+  }
+];
+
+const ComparativoPlanosSaude = () => {
+  return (
+    <>
+      <PageMeta 
+        title="Comparativo de Planos de Saúde Guarulhos | Preços e Hospitais" 
+        description="Compare os melhores planos de saúde em Guarulhos. Veja tabelas de preços e hospitais credenciados (Stella Maris, Carlos Chagas) da Amil, Bradesco e muito mais." 
+      />
+      <Header />
+      <main id="main-content">
+        <section className="bg-primary/5 py-16">
+          <div className="container mx-auto px-4 text-center max-w-4xl">
+            <h1 className="mb-6">Comparativo de Planos de Saúde em Guarulhos</h1>
+            <p className="text-xl text-muted-foreground mb-8">
+              Analisamos as principais operadoras para ajudar você a escolher entre custo-benefício regional ou excelência nacional.
+            </p>
+            <div className="flex justify-center gap-4">
+              <a href="#tabela-comparativa">
+                <Button size="lg">Ver Comparativo</Button>
+              </a>
+              <a href="#cotacao-saude">
+                <Button size="lg" variant="cta">Pedir Cotação Personalizada</Button>
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-16">
@@ -83,82 +159,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-            </div>
-          </div>
-        </section>
-
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import PageMeta from "@/components/PageMeta";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import StickyQuoteBar from "@/components/StickyQuoteBar";
-const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
-
-const comparativoData = [
-  {
-    categoria: "Econômico / Regional",
-    precos: "A partir de R$ 280,00",
-    operadoras: "HapVida, GNDI (Intermédica), BioSaúde",
-    hospitais: "Hospital Ipiranga, Hospital 8 de Maio, Rede Própria GNDI",
-    caracteristicas: [
-      "Foco em rede própria",
-      "Atendimento regional Guarulhos/SP",
-      "Melhor custo-benefício",
-      "Ideal para MEI e famílias"
-    ],
-    indicado: "Quem busca o menor preço com atendimento local garantido."
-  },
-  {
-    categoria: "Intermediário / Nacional",
-    precos: "A partir de R$ 450,00",
-    operadoras: "Amil, SulAmérica Direto, Porto Saúde",
-    hospitais: "Hospital Stella Maris, Carlos Chagas, Hospital Luz",
-    caracteristicas: [
-      "Ampla rede credenciada",
-      "Opção de reembolso",
-      "Atendimento nacional para urgências",
-      "Telemedicina 24h inclusa"
-    ],
-    indicado: "Famílias e empresas que buscam equilíbrio entre preço e ampla rede."
-  },
-  {
-    categoria: "Premium / Especial",
-    precos: "A partir de R$ 850,00",
-    operadoras: "Bradesco Saúde, SulAmérica Especial, Omint",
-    hospitais: "Sírio-Libanês, Albert Einstein, Samaritano",
-    caracteristicas: [
-      "Reembolso elevado",
-      "Rede dos melhores hospitais do Brasil",
-      "Coleta domiciliar de exames",
-      "Seguro viagem internacional incluso"
-    ],
-    indicado: "Executivos e famílias que não abrem mão da máxima excelência médica."
-  }
-];
-
-const ComparativoPlanosSaude = () => {
-  return (
-    <>
-      <PageMeta 
-        title="Comparativo de Planos de Saúde Guarulhos | Preços e Hospitais" 
-        description="Compare os melhores planos de saúde em Guarulhos. Veja tabelas de preços, hospitais credenciados (Stella Maris, Carlos Chagas) e coberturas de Amil, Bradesco e mais." 
-      />
-      <Header />
-      <main id="main-content">
-        <section className="bg-primary/5 py-16">
-          <div className="container mx-auto px-4 text-center max-w-4xl">
-            <h1 className="mb-6">Comparativo de Planos de Saúde em Guarulhos</h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Analisamos as principais operadoras para ajudar você a escolher entre custo-benefício regional ou excelência nacional.
-            </p>
-            <div className="flex justify-center gap-4">
-              <a href="#tabela-comparativa">
-                <Button size="lg">Ver Comparativo</Button>
-              </a>
-              <a href="#cotacao-saude">
-                <Button size="lg" variant="cta">Pedir Cotação Personalizada</Button>
-              </a>
             </div>
           </div>
         </section>

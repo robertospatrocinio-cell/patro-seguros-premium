@@ -45,13 +45,19 @@ function sitemapPlugin(): Plugin {
       }
 
       // Load local SEO page slugs at build time so sitemap-bairros.xml stays
-      // in sync automatically with `src/data/seoLocalAutoPages.ts`.
-      let localSlugs: string[] = [];
-      try {
-        const mod = await loadDataModule("src/data/seoLocalAutoPages.ts");
-        localSlugs = Array.isArray(mod.seoLocalPageSlugs) ? mod.seoLocalPageSlugs : [];
-      } catch (err) {
-        console.warn("⚠️  sitemap: falha ao carregar seoLocalPageSlugs —", err instanceof Error ? err.message : err);
+      // in sync automatically with all local SEO data files.
+      const localSlugs: string[] = [];
+      const dataFiles = ["src/data/seoLocalAutoPages.ts", "src/data/seoLocalSaudePages.ts"];
+      
+      for (const file of dataFiles) {
+        try {
+          const mod = await loadDataModule(file);
+          if (Array.isArray(mod.seoLocalPageSlugs)) {
+            localSlugs.push(...mod.seoLocalPageSlugs);
+          }
+        } catch (err) {
+          console.warn(`⚠️  sitemap: falha ao carregar ${file} —`, err instanceof Error ? err.message : err);
+        }
       }
 
       const { index, files } = generateSitemapBundle(slugs, localSlugs);
