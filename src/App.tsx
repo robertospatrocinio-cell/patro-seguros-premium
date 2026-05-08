@@ -1,3 +1,8 @@
+            {/* SEO Local Planos de Saúde */}
+            <Route path="/plano-saude-centro-guarulhos" element={<SeoLocalPage slug="plano-saude-centro-guarulhos" />} />
+            <Route path="/plano-saude-cidade-maia" element={<SeoLocalPage slug="plano-saude-cidade-maia" />} />
+            <Route path="/plano-saude-picanco" element={<SeoLocalPage slug="plano-saude-picanco" />} />
+            <Route path="/plano-saude-vila-augusta" element={<SeoLocalPage slug="plano-saude-vila-augusta" />} />
 const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
             <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />
 import { lazy, Suspense, useEffect, useState } from "react";
