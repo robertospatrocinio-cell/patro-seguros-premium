@@ -59,17 +59,17 @@ const DEFAULT_INSURERS = 9;
 const DEFAULT_INSURERS_LABEL =
   "Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul Seguros";
 
-const PRODUCT_LABEL: Record<LocalProduct, string> = {
-  auto: "seguro auto",
-  moto: "seguro moto",
-  residencial: "seguro residencial",
-  vida: "seguro de vida",
-  saude: "plano de saúde",
-  "saude-mei": "plano de saúde MEI",
-  empresarial: "seguro empresarial",
-  consorcio: "consórcio",
-  uber: "seguro para Uber/99",
-};
+ export const PRODUCT_LABEL: Record<LocalProduct, string> = {
+   auto: "seguro auto",
+   moto: "seguro moto",
+   residencial: "seguro residencial",
+   vida: "seguro de vida",
+   saude: "plano de saúde",
+   "saude-mei": "plano de saúde MEI",
+   empresarial: "seguro empresarial",
+   consorcio: "consórcio",
+   uber: "seguro para Uber/99",
+ };
 
 /** Resposta condicionada a risco do CEP — só faz sentido para produtos veiculares/patrimoniais. */
 const RISK_PRODUCTS: LocalProduct[] = ["auto", "moto", "uber", "residencial", "empresarial"];
