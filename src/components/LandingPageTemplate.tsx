@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, Phone, CheckCircle, Shield, Clock, Users, Star, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -30,12 +31,14 @@ interface LandingPageProps {
   priceAnchor?: string;
   guaranteeText?: string;
   ebookUrl?: string;
+  extraSections?: ReactNode;
 }
 
 const LandingPageTemplate = ({
   title, headline, subheadline, painPoints, benefits, stats,
   testimonials, objections, ctaText, ctaUrl, urgencyText,
   metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText, ebookUrl,
+  extraSections,
 }: LandingPageProps) => {
 
   const mainCtaLink = ctaUrl || "/cotacao";
@@ -158,6 +161,8 @@ const LandingPageTemplate = ({
         </section>
 
         {/* SOCIAL PROOF — Stats */}
+        {extraSections && <div className="extra-lp-sections">{extraSections}</div>}
+
         <section className="border-y bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
