@@ -1303,6 +1303,93 @@ Object.assign(seoLocalPages, {
   [seguroFrotaPequenaGuarulhos.slug]: seguroFrotaPequenaGuarulhos,
 });
 
+const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
+  slug: "seguro-galpao-guarulhos",
+  title: "Seguro de Galpão em Guarulhos — Riscos Patrimoniais e Lucros Cessantes",
+  subtitle: "Seguro para galpão em Guarulhos: incêndio, roubo, RC operações, RC armazenagem, equipamentos e lucros cessantes. Vistoria técnica grátis e cotação entre 9 seguradoras.",
+  description: `Seguro para galpão em Guarulhos cobrindo incêndio, raio, explosão, roubo qualificado de mercadoria, RC operações, RC armazenagem (mercadoria de terceiros), equipamentos eletrônicos e lucros cessantes. ${partnersLine} Especialistas em galpões na região do GRU Airport, Cumbica, Bonsucesso, Pimentas e Vila Endres.`,
+  detailedDescription: `Guarulhos é o segundo maior parque de galpões logísticos e industriais do Brasil — atrás apenas de Cajamar/Extrema —, com mais de 6 milhões de m² de área construída em galpões classe A, B e C distribuídos por Cumbica (entorno do GRU Airport), Vila Endres, Bonsucesso, Pimentas, Vila Galvão Industrial e ao longo das Rodovias Presidente Dutra e Hélio Smidt. Cada perfil de galpão tem exposição patrimonial específica que precisa ser refletida na apólice — não existe seguro de galpão "padrão" que sirva para qualquer operação.\n\nO seguro para galpão em Guarulhos exige análise técnica de 6 grandes blocos: (1) características construtivas (alvenaria, pré-moldado, estrutura metálica, telhado em metal sanduíche ou fibrocimento — fator decisivo para precificação de incêndio), (2) atividade exata declarada (logística, indústria, e-commerce, fulfillment, distribuição farmacêutica, dark store), (3) valor em risco real (imóvel + mercadoria média + equipamentos + estoque máximo no pico de safra/black friday), (4) sistema de proteção (CFTV monitorado 24h, controle de acesso, brigada, hidrantes, sprinklers, AVCB), (5) coberturas adicionais (RC armazenagem para mercadoria de terceiros, equipamentos eletrônicos, lucros cessantes) e (6) limites máximos de indenização (LMI) corretamente dimensionados para evitar subseguro — principal causa de indenização parcial em sinistro de galpão.\n\nA Patro Seguros é especialista em galpões em Guarulhos com mais de 80 apólices ativas — de pequenos depósitos de 400m² a complexos com 25.000m² e LMI acima de R$ 60 milhões. Cotamos com Porto Seguro Empresarial, Allianz Empresas, HDI Empresarial, Tokio Marine, Bradesco Riscos Patrimoniais, Sompo, Mapfre, Liberty e Zurich, comparando coberturas, franquias e LMI por cobertura em quadro técnico único. Para galpões acima de R$ 5 milhões de LMI, oferecemos vistoria técnica gratuita pré-cotação para fundamentar o risco e evitar surpresas em sinistro.`,
+  metaDescription: "Seguro para galpão em Guarulhos: incêndio, roubo, RC armazenagem e lucros cessantes. Patro Seguros compara 9 seguradoras com vistoria técnica gratuita.",
+  icon: "🏗️",
+  pricingIntro: "O seguro para galpão em Guarulhos varia de R$ 4.800/ano para galpões pequenos (até 500m², mercadoria leve, LMI até R$ 600 mil) até R$ 480.000+/ano para grandes galpões logísticos (acima de 15.000m² e LMI acima de R$ 30 milhões). O cálculo considera atividade, área, construção, valor em risco e sistema de proteção.",
+  pricingFactors: [
+    "Tipo de construção (alvenaria, pré-moldado, metálico, telhado sanduíche ou fibrocimento)",
+    "Atividade exata (logística geral, e-commerce, indústria, farmacêutica, dark store)",
+    "Área construída e pé-direito (galpões altos têm menor LMI por m²)",
+    "Valor em risco: imóvel + mercadoria + equipamentos + lucros cessantes",
+    "Sistema de proteção: hidrantes, sprinklers homologados, brigada, CFTV 24h",
+    "Distância do corpo de bombeiros e do hidrante público mais próximo",
+    "Coberturas adicionais: RC armazenagem, equipamentos, RC operações",
+  ],
+  pricingNote: "Dica Patro: galpões em Guarulhos com sprinklers FM-Global homologados, CFTV monitorado 24h por empresa especializada, controle de acesso eletrônico e brigada certificada conseguem reduções de 30% a 45% no prêmio total — em galpões grandes isso representa centenas de milhares de reais por ano.",
+  faqs: [
+    { question: "Quanto custa seguro de galpão em Guarulhos?", answer: "Para galpão padrão de 2.000m² em Guarulhos, alvenaria com telhado metálico, mercadoria média de R$ 3 milhões e LMI total de R$ 5 milhões, o seguro empresarial completo (incêndio, roubo, RC armazenagem, equipamentos e lucros cessantes) fica entre R$ 18.000 e R$ 32.000/ano dependendo de proteção, franquias e seguradora. A Patro cota com 9 seguradoras." },
+    { question: "Galpão com telhado de fibrocimento tem aceitação no seguro em Guarulhos?", answer: "Sim, mas com restrições. Telhado de fibrocimento (Eternit antigo) tem prêmio de incêndio mais alto e pode ter LMI limitado por algumas seguradoras. Recomendamos vistoria técnica para mapear pontos de risco. Em alguns casos vale trocar para telha metálica isolada — investimento se paga em 3-4 anos via redução de prêmio." },
+    { question: "Preciso de RC armazenagem se guardo mercadoria de terceiros no galpão?", answer: "Sim, é essencial. RC Armazenagem cobre danos materiais à mercadoria de clientes durante a custódia (incêndio, roubo, dano físico). Sem essa cobertura específica, em sinistro envolvendo mercadoria de terceiros, a operadora responde com patrimônio próprio. Cobertura indispensável para 3PLs, fulfillment, operadores logísticos e armazéns gerais em Guarulhos." },
+    { question: "Como dimensionar corretamente o LMI do galpão em Guarulhos?", answer: "O LMI (Limite Máximo de Indenização) deve cobrir: 100% do valor de reconstrução do imóvel + mercadoria média mais 30% para picos de estoque + 100% dos equipamentos + 6 a 12 meses de lucros cessantes. Subseguro (LMI menor que valor real) é a causa #1 de indenização parcial em sinistro de galpão. A Patro faz dimensionamento técnico em vistoria pré-cotação." },
+    { question: "Sprinklers e hidrantes reduzem o seguro de galpão em Guarulhos?", answer: "Sim, significativamente. Galpões com hidrantes prediais conforme NBR 13.714 têm desconto de 8-15%. Sprinklers automáticos homologados FM-Global ou NFPA dão desconto adicional de 15-25%. Combinados com brigada certificada, CFTV 24h e controle de acesso, a redução total pode chegar a 45% — economia que justifica o investimento em proteção em 3-5 anos." },
+    { question: "Lucros cessantes valem a pena para galpão logístico em Guarulhos?", answer: "Sim, e em muitos casos é a cobertura que salva a empresa. Lucros cessantes indeniza o faturamento perdido durante reconstrução do galpão (até 12 meses). Para operadores logísticos, dark stores e indústrias, parar a operação por 6 meses pode quebrar a empresa mesmo com indenização do imóvel. A Patro dimensiona com base em DRE e prazo realista de reconstrução." },
+    { question: "AVCB vencido pode causar negativa de sinistro em galpão em Guarulhos?", answer: "Sim, em sinistros de incêndio. Algumas seguradoras incluem cláusula de exigência de AVCB vigente — em sinistro com AVCB vencido, a indenização pode ser reduzida ou negada. A Patro mantém pasta digital de risco com prazos de AVCB e brigada e alerta o cliente antes do vencimento para evitar problemas." },
+    { question: "Quanto tempo demora a indenização em sinistro grave de galpão em Guarulhos?", answer: "Para sinistros bem documentados (com Patro acompanhando regulação), o prazo médio é 30 a 60 dias para liberação parcial e 90 a 120 dias para indenização final em sinistros grandes. Em mais de 80 apólices ativas em Guarulhos, a taxa de indenização integral em sinistros graves foi de 92% nos últimos 5 anos." },
+  ],
+  whoNeeds: [
+    "Galpões logísticos e centros de distribuição em Cumbica e entorno do GRU Airport",
+    "3PLs, operadores logísticos e empresas de fulfillment de marketplace",
+    "Indústrias químicas, alimentícias, metalúrgicas e plásticas em Vila Endres e Cumbica",
+    "E-commerces e dark stores com galpão próprio em Guarulhos",
+    "Distribuidoras farmacêuticas, eletrônicos e bebidas com armazenagem em Guarulhos",
+    "Empresas que alugam galpão e precisam atender exigência contratual de seguro",
+    "Proprietários de galpão (locador) que querem proteger o imóvel independente do inquilino",
+  ],
+  whyPatro: [
+    "Mais de 80 apólices de galpão ativas em Guarulhos — especialistas no segmento desde 2008",
+    "Vistoria técnica gratuita pré-cotação para galpões acima de R$ 5 mi de LMI",
+    "Comparativo entre 9 seguradoras (Porto, Allianz, HDI, Tokio, Bradesco, Sompo, Mapfre, Liberty, Zurich)",
+    "Plantão 24/7 em sinistros graves de incêndio, alagamento e roubo",
+    "92% de indenização integral em sinistros graves nos últimos 5 anos",
+    "Pasta digital de risco com gestão de AVCB, brigada e renovações",
+    "Atendimento presencial no Cidade Maia, a 10-20 minutos dos principais polos logísticos",
+  ],
+  coverages: [
+    { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória. Indenização integral do imóvel e bens destruídos por fogo, raio direto, descarga elétrica e explosão. Inclui despesas de combate e remoção de escombros." },
+    { title: "Roubo e Furto Qualificado", description: "Cobertura para mercadoria subtraída mediante arrombamento (entrada forçada com vestígios) ou grave ameaça. Cobertura essencial para galpões com mercadoria de alto giro em Guarulhos." },
+    { title: "RC Armazenagem (Mercadoria de Terceiros)", description: "Cobertura indispensável para 3PL, fulfillment e operadores logísticos. Indeniza danos à mercadoria de clientes sob custódia da operadora durante armazenamento." },
+    { title: "Danos Elétricos e Equipamentos", description: "Cobertura para empilhadeiras elétricas, leitores de código de barras, balanças, sistemas WMS, servidores e câmeras danificados por curto-circuito ou sobretensão." },
+    { title: "RC Operações", description: "Responsabilidade civil por danos materiais e corporais a terceiros e visitantes dentro do galpão (motoristas de carreta, vistoriadores, prestadores)." },
+    { title: "Lucros Cessantes", description: "Indenização do faturamento perdido durante reconstrução do galpão após sinistro coberto (até 12 meses). Mantém empresa viva durante o período parado." },
+    { title: "Vendaval, Fumaça e Alagamento", description: "Cobertura para danos causados por vendaval, queda de granizo, fumaça e alagamento por chuva intensa — fenômenos cada vez mais comuns na região metropolitana de SP." },
+    { title: "Despesas Extraordinárias", description: "Custos de aluguel emergencial de galpão alternativo, transferência de mercadoria e horas extras durante reconstrução. Reduz impacto operacional do sinistro." },
+  ],
+  realScenarios: [
+    { title: "Galpão de e-commerce em Cumbica teve indenização integral de R$ 2,4 milhões em incêndio elétrico", description: "Operador de fulfillment com galpão de 4.200m² em Cumbica teve incêndio causado por curto-circuito em painel elétrico durante a madrugada. Patro acompanhou regulação completa e garantiu indenização integral de R$ 2,4 milhões: R$ 1,1 mi em mercadoria de terceiros (via RC armazenagem), R$ 850 mil em reforma do imóvel, R$ 280 mil em equipamentos eletrônicos e R$ 170 mil em lucros cessantes de 90 dias. Operação retomou em 110 dias." },
+    { title: "Indústria alimentícia em Vila Endres economizou R$ 38 mil/ano consolidando coberturas", description: "Indústria com galpão de 3.500m² em Vila Endres tinha 3 corretoras diferentes para empresarial, RC e equipamentos. Patro consolidou em apólice única, recotou em 9 seguradoras e reduziu prêmio total em R$ 38 mil/ano mantendo coberturas e LMI. Renovação anual passou a incluir revisão de inventário e ajuste automático de LMI." },
+    { title: "Distribuidora farmacêutica em Cumbica evitou subseguro grave de R$ 4 milhões", description: "Distribuidora com galpão em Cumbica tinha LMI de R$ 3,5 milhões em apólice antiga, mas mercadoria média havia crescido para R$ 7,5 milhões com aumento de portfólio. Patro identificou subseguro de 53% em vistoria técnica, renegociou LMI proporcional e evitou potencial indenização de apenas 47% em sinistro futuro — economia de prejuízo potencial de R$ 4 milhões." },
+    { title: "3PL em Bonsucesso reduziu prêmio em 32% após instalação de sprinklers", description: "Operador logístico com galpão de 8.000m² em Bonsucesso pagava R$ 142 mil/ano em seguro empresarial. Após instalação de sprinklers FM-Global e melhoria do CFTV, Patro renegociou apólice e reduziu prêmio para R$ 96 mil/ano — investimento em proteção se pagou em 3,5 anos via economia de prêmio." },
+  ],
+  tips: [
+    "Atualize LMI sempre que volume médio de mercadoria crescer mais de 20% — subseguro é a causa #1 de indenização parcial em galpão.",
+    "Sempre contrate RC Armazenagem se guarda mercadoria de terceiros — sem isso, a operadora responde com patrimônio próprio em sinistro.",
+    "Exija cláusula de exoneração de rateio em galpões com mercadoria — economia falsa de prêmio que destrói o valor da indenização.",
+    "Mantenha CFTV monitorado 24h por empresa especializada e gravação remota mínima de 60 dias — desconto direto e prova essencial em sinistro de roubo.",
+    "Treine brigada de incêndio, mantenha AVCB vigente e faça inspeção elétrica anual — curto-circuito é a causa #1 de incêndio em galpões da região.",
+    "Para galpões com pé-direito alto e mezanino, dimensione corretamente lucros cessantes — reconstrução pode levar 8-12 meses em casos graves.",
+    "Faça vistoria técnica pré-cotação para galpões acima de R$ 5 mi de LMI — fundamenta o risco real e abre caminho para coberturas e franquias melhores.",
+  ],
+  relatedInsurances: [
+    { title: "Seguro Galpões Industriais", link: "/seguro-galpoes-industriais" },
+    { title: "Seguro Empresarial Cumbica", link: "/seguro-empresarial-cumbica" },
+    { title: "Seguro Logística Guarulhos", link: "/seguro-logistica-guarulhos" },
+    { title: "Seguro Transportadora Guarulhos", link: "/seguro-transportadora-guarulhos" },
+    { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
+    { title: "Seguros PME Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
+    { title: "Hub de Seguros em Guarulhos", link: "/seguros-em-guarulhos" },
+  ],
+};
+
+Object.assign(seoLocalPages, {
+  [seguroGalpaoGuarulhos.slug]: seguroGalpaoGuarulhos,
+});
+
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
 
