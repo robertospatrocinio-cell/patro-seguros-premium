@@ -20,9 +20,9 @@ const Header = () => {
     { label: "Bike", to: "/seguro-bike", section: "pessoal" },
     { label: "Carta Verde", to: "/seguro-carta-verde", section: "pessoal" },
     { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
-    { label: "Vida", to: "/seguro-vida", section: "pessoal" },
-    { label: "Planos de Saúde", to: "/planos-de-saude", section: "pessoal" },
-    { label: "Plano Odonto", to: "/seguro-odonto", section: "pessoal" },
+     { label: "Vida", to: "/seguro-vida", section: "pessoal" },
+     { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
+     { label: "Plano Odonto", to: "/seguro-odonto", section: "pessoal" },
     { label: "Plano Pet", to: "/plano-pet", section: "pessoal" },
     { label: "Acidentes Pessoais", to: "/seguro-acidentes-pessoais", section: "pessoal" },
     { label: "Previdência Privada", to: "/previdencia-privada", section: "pessoal" },
@@ -195,10 +195,10 @@ const Header = () => {
                          <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">
                            <Link to="/vida-e-saude" className="hover:text-primary transition-colors">Vida e Saúde</Link>
                          </p>
-                        <div className="space-y-0.5">
-                          <Link to="/seguro-vida" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Vida</Link>
-                          <Link to="/planos-de-saude" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Saúde</Link>
-                          <Link to="/seguro-odonto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Odonto</Link>
+                         <div className="space-y-0.5">
+                           <Link to="/planos-de-saude" className="block py-1 text-[13px] text-primary font-bold hover:text-primary/80 transition-base">Plano de Saúde</Link>
+                           <Link to="/seguro-vida" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Seguro de Vida</Link>
+                           <Link to="/seguro-odonto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Odonto</Link>
                           <Link to="/plano-pet" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Plano Pet</Link>
                           <Link to="/seguro-acidentes-pessoais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Acidentes Pessoais</Link>
                           <Link to="/previdencia-privada" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Previdência</Link>
