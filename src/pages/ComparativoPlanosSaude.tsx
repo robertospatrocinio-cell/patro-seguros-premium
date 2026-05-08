@@ -56,7 +56,7 @@ const ComparativoPlanosSaude = () => {
     <>
       <PageMeta 
         title="Comparativo de Planos de Saúde Guarulhos | Preços e Hospitais" 
-        description="Compare os melhores planos de saúde em Guarulhos. Veja tabelas de preços e hospitais credenciados (Stella Maris, Carlos Chagas) da Amil, Bradesco e muito mais." 
+        description="Compare planos de saúde em Guarulhos: tabelas de preços e hospitais credenciados (Stella Maris, Carlos Chagas) da Amil, Bradesco e mais."
       />
       <Header />
       <main id="main-content">
