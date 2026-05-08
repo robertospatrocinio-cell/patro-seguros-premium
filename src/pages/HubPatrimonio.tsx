@@ -29,13 +29,23 @@
    }
  ];
  
- const HubPatrimonio = () => (
-   <div className="min-h-screen flex flex-col">
-     <PageMeta 
-        title="Seguro Residencial e Fiança Locatícia em Guarulhos | Patro" 
-        description="Proteja seu patrimônio com o melhor seguro residencial em Guarulhos. Fiança locatícia, seguro para celular e placas solares com assistência 24h local." 
-     />
-     <Header />
+  const HubPatrimonio = () => {
+    const location = useLocation();
+    const canonicalUrl = getCanonicalUrl(location.pathname);
+
+    return (
+    <div className="min-h-screen flex flex-col">
+      <PageMeta 
+         title="Seguro Residencial e Fiança Locatícia em Guarulhos | Patro" 
+         description="Proteja seu patrimônio com o melhor seguro residencial em Guarulhos. Fiança locatícia, seguro para celular e placas solares com assistência 24h local." 
+      />
+      <FAQSchema faqs={FAQS} />
+      <AggregateRatingSchema
+        serviceName="Seguros de Patrimônio em Guarulhos"
+        url={canonicalUrl}
+        description="Proteção para casas, aluguéis e bens em Guarulhos."
+      />
+      <Header />
      <main id="main-content">
        <Breadcrumb items={[{ label: "Seguros de Patrimônio" }]} />
        
