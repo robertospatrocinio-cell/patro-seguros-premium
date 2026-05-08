@@ -105,8 +105,10 @@ const faqCategories = [
 
 const allFaqs = faqCategories.flatMap(cat => cat.faqs);
 
-const FAQ = () => {
-  const [search, setSearch] = useState("");
+ const FAQ = () => {
+   const [search, setSearch] = useState("");
+   // Shared set to dedupe contextual keyword links across all FAQ blocks
+   const linkedKeywords = new Set<string>();
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const normalizedSearch = search.toLowerCase().trim();
@@ -200,11 +202,12 @@ const FAQ = () => {
                         <span className="text-primary/40 ml-4 group-open:rotate-45 transition-transform text-lg font-light flex-shrink-0">+</span>
                       </summary>
                       <div className="px-5 pb-5 -mt-1">
-                        <SmartText
-                          text={faq.answer}
-                          className="text-sm text-muted-foreground leading-relaxed"
-                          maxLinks={2}
-                        />
+                         <SmartText
+                           text={faq.answer}
+                           className="text-sm text-muted-foreground leading-relaxed"
+                           linkedKeywords={linkedKeywords}
+                           maxLinks={2}
+                         />
                         {(() => {
                           const related = getRelatedLinks(`${faq.question} ${faq.answer}`);
                           if (related.length === 0) return null;
