@@ -6,14 +6,17 @@ const InsuranceQuoteForm = lazy(() => import("@/components/InsuranceQuoteForm"))
 import { formConfigs, cardTitleToFormKey } from "@/lib/insuranceFormConfigs";
 import { trackCotacaoClick } from "@/lib/tracking";
 
-import heroFamilia from "@/assets/hero-familia.webp";
 import heroEmpresa from "@/assets/hero-empresa.webp";
 import heroAgro from "@/assets/hero-agro.webp";
 import heroConsorcio from "@/assets/hero-consorcio.webp";
-import heroFamiliaSm from "@/assets/hero-familia-sm.webp";
 import heroEmpresaSm from "@/assets/hero-empresa-sm.webp";
 import heroAgroSm from "@/assets/hero-agro-sm.webp";
 import heroConsorcioSm from "@/assets/hero-consorcio-sm.webp";
+
+// Served from /public so the URL matches the <link rel="preload"> in index.html
+// (allowing the LCP image to be discovered immediately from the initial HTML).
+const heroFamilia = "/images/hero-familia.webp";
+const heroFamiliaSm = "/images/hero-familia-sm.webp";
 
 type TabKey = "voce" | "empresa" | "agro" | "consorcio";
 
