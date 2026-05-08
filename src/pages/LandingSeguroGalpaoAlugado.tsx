@@ -51,7 +51,7 @@ const LandingSeguroGalpaoAlugado = () => (
     stats={[
       { value: "2h", label: "Emissão Rápida" },
       { value: "100%", label: "Aceite Contratual" },
-      { value: "Rbash", label: "Análise de Contrato" },
+      { value: "R$0", label: "Análise de Contrato" },
       { value: "24h", label: "Assistência" },
     ]}
     benefits={[
