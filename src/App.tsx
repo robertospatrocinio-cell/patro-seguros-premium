@@ -1,12 +1,6 @@
-            {/* SEO Local Planos de Saúde */}
-            <Route path="/plano-saude-centro-guarulhos" element={<SeoLocalPage slug="plano-saude-centro-guarulhos" />} />
-            <Route path="/plano-saude-cidade-maia" element={<SeoLocalPage slug="plano-saude-cidade-maia" />} />
-            <Route path="/plano-saude-picanco" element={<SeoLocalPage slug="plano-saude-picanco" />} />
-            <Route path="/plano-saude-vila-augusta" element={<SeoLocalPage slug="plano-saude-vila-augusta" />} />
-const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
-            <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />
-import { lazy, Suspense, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+ import { lazy, Suspense, useEffect, useState } from "react";
+ import { BrowserRouter, Routes, Route } from "react-router-dom";
+ const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import PageSkeleton from "@/components/PageSkeleton";
@@ -353,8 +347,14 @@ const App = () => (
             <Route path="/lp/seguro-celular" element={<LandingSeguroCelular />} />
             <Route path="/lp/seguro-motorista-app" element={<LandingSeguroMotoristaApp />} />
             <Route path="/lp/medsenior" element={<LandingMedSenior />} />
-            <Route path="/lp/alice" element={<LandingAlice />} />
-            <Route path="/faq" element={<FAQ />} />
+             <Route path="/lp/alice" element={<LandingAlice />} />
+             <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />
+             {/* SEO Local Planos de Saúde */}
+             <Route path="/plano-saude-centro-guarulhos" element={<SeoLocalPage slug="plano-saude-centro-guarulhos" />} />
+             <Route path="/plano-saude-cidade-maia" element={<SeoLocalPage slug="plano-saude-cidade-maia" />} />
+             <Route path="/plano-saude-picanco" element={<SeoLocalPage slug="plano-saude-picanco" />} />
+             <Route path="/plano-saude-vila-augusta" element={<SeoLocalPage slug="plano-saude-vila-augusta" />} />
+             <Route path="/faq" element={<FAQ />} />
             <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
             <Route path="/seguros-guarulhos-bairros" element={<SegurosGuarulhosBairros />} />
             <Route path="/seguros-guarulhos" element={<SegurosGuarulhosBairros />} />
