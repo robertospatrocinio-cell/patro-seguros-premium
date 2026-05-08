@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { CheckCircle, Phone, MessageCircle, ArrowRight, Building2, FlaskConical, Stethoscope, UserPlus } from "lucide-react";
+import { CheckCircle, Phone, MessageCircle, ArrowRight, Building2, FlaskConical, Stethoscope, UserPlus, Users } from "lucide-react";
+import StickyQuoteBar from "@/components/StickyQuoteBar";
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-center mb-4">Rede Credenciada em Guarulhos e Região</h2>
@@ -284,6 +285,12 @@ const PlanosDeSaude = () => {
           </div>
         </section>
       </main>
+      <StickyQuoteBar 
+        source="planos-saude" 
+        quoteHref="#cotacao-saude" 
+        ctaLabel="Cotação Rápida" 
+        whatsappMessage="Olá! Gostaria de uma cotação de Plano de Saúde em Guarulhos para minha família."
+      />
       <Footer />
       <ExitIntentPopup />
     </>
