@@ -161,7 +161,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
           <Label htmlFor={`qq-email-${trackingLabel}`}>E-mail</Label>
           <Input
             id={`qq-email-${trackingLabel}`}
-            type="email"
+            type="text"
             placeholder="seu@email.com"
             value={form.email || ""}
             onChange={e => update("email", e.target.value)}
