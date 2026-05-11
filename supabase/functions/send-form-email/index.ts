@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 import nodemailer from "npm:nodemailer@6.9.8";
 
 const corsHeaders = {
@@ -27,22 +28,6 @@ function isAllowedOrigin(origin: string | null): boolean {
   } catch {
     return false;
   }
-}
-
-// Simple in-memory per-IP rate limit (per isolate). Best-effort.
-const RATE_WINDOW_MS = 60_000;
-const RATE_MAX = 5;
-const rateMap = new Map<string, { count: number; resetAt: number }>();
-function rateLimit(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateMap.get(ip);
-  if (!entry || entry.resetAt < now) {
-    rateMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
-    return true;
-  }
-  if (entry.count >= RATE_MAX) return false;
-  entry.count++;
-  return true;
 }
 
 const resolveSmtpTlsServername = (host: string) => {
@@ -78,7 +63,28 @@ serve(async (req) => {
       req.headers.get("x-real-ip") ||
       (req.headers.get("x-forwarded-for") || "").split(",")[0].trim() ||
       "unknown";
-    if (!rateLimit(ip)) {
+
+    // Initialize Supabase client with service role for rate limiting
+    const supabaseAdmin = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
+    );
+
+    // Check global rate limit (5 requests per 60 seconds)
+    const { data: isAllowed, error: rateLimitError } = await supabaseAdmin.rpc(
+      "check_rate_limit",
+      {
+        p_key: `send-form-email:${ip}`,
+        p_window_seconds: 60,
+        p_max_requests: 5,
+      }
+    );
+
+    if (rateLimitError) {
+      console.error("Rate limit check error:", rateLimitError);
+    }
+
+    if (!isAllowed) {
       return new Response(JSON.stringify({ error: "Rate limit exceeded" }), {
         status: 429,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
@@ -95,10 +101,6 @@ serve(async (req) => {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
-
-    // NOTE: htmlBody from the client is intentionally ignored to prevent
-    // attackers from sending arbitrary HTML/phishing through this relay.
-    // The HTML email body is rebuilt server-side from the plain-text content.
 
     // Input validation
     if (!subject || typeof subject !== "string" || subject.length > 500) {
