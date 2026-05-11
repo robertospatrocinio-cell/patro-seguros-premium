@@ -60,7 +60,10 @@ const OptimizedImage = ({
        loading={eager ? "eager" : "lazy"}
        decoding="async"
        fetchPriority={eager ? "high" : "low"}
-      onLoad={eager ? undefined : () => setLoaded(true)}
+      onLoad={eager ? undefined : () => {
+        setLoaded(true);
+        if (props.onLoad) (props.onLoad as any)();
+      }}
       width={props.width}
       height={props.height}
       className={`w-full h-full object-cover ${eager ? "" : "transition-opacity duration-500"} ${
@@ -73,7 +76,14 @@ const OptimizedImage = ({
   const useSourceWrapper = !!(avifSrc || mobileSrc);
 
   return (
-    <div ref={imgRef} className={`${placeholderClass} ${className}`}>
+    <div 
+      ref={imgRef} 
+      className={`${placeholderClass} ${className}`}
+      style={{ 
+        aspectRatio: props.width && props.height ? `${props.width}/${props.height}` : undefined,
+        contain: "paint"
+      }}
+    >
       {inView && (
         useSourceWrapper ? (
           <picture>
