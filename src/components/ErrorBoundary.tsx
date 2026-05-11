@@ -170,15 +170,6 @@
                       <ArrowLeft className="w-3 h-3 ml-auto rotate-180 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>
-                    <a 
-                      href="tel:1151997500"
-                      className="flex items-center gap-3 p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-700 dark:text-blue-400 rounded-lg transition-colors text-sm font-medium w-full group"
-                    >
-                      <PhoneCall className="w-4 h-4" />
-                      <span>Ligar para (11) 5199-7500</span>
-                      <ArrowLeft className="w-3 h-3 ml-auto rotate-180 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </a>
-                  </div>
                   <p className="text-[11px] text-muted-foreground text-center italic">
                     Informe o código de referência para um suporte mais rápido.
                   </p>
