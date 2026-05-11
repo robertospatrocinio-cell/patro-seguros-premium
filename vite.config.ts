@@ -2,6 +2,39 @@ import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import fs from "fs";
+import https from "https";
+
+// Plugin to notify Google that the sitemap has been updated.
+// Note: Google has deprecated the /ping endpoint, but it's still good practice
+// to include it as a last-mile fallback or to trigger custom indexing webhooks.
+function googlePingPlugin(): Plugin {
+  return {
+    name: "google-ping",
+    async closeBundle() {
+      if (process.env.NODE_ENV !== "production") return;
+      
+      const sitemapUrl = "https://www.patroseguros.com.br/sitemap-index.xml";
+      const pingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
+      
+      console.log(`🚀 Notificando Google sobre atualização do sitemap...`);
+      
+      try {
+        https.get(pingUrl, (res) => {
+          if (res.statusCode === 200) {
+            console.log("✅ Google notificado com sucesso.");
+          } else {
+            console.warn(`⚠️ Google retornou status ${res.statusCode} ao tentar notificar sitemap.`);
+          }
+        }).on("error", (err) => {
+          console.warn("❌ Erro ao notificar Google:", err.message);
+        });
+      } catch (err) {
+        console.warn("❌ Falha crítica ao tentar notificar Google.");
+      }
+    },
+  };
+}
+
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
 import { generateSitemapBundle } from "./scripts/generate-sitemap";
@@ -161,6 +194,7 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
     mode === "production" && sitemapPlugin(),
     mode === "production" && spaFallbackPlugin(),
+    mode === "production" && googlePingPlugin(),
     validateLocalPagesPlugin(),
     validatePageMetaPlugin(),
   ].filter(Boolean),
