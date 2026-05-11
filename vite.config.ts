@@ -7,33 +7,63 @@ import https from "https";
 // Plugin to notify Google that the sitemap has been updated.
 // Note: Google has deprecated the /ping endpoint, but it's still good practice
 // to include it as a last-mile fallback or to trigger custom indexing webhooks.
-function googlePingPlugin(): Plugin {
-  return {
-    name: "google-ping",
-    async closeBundle() {
-      if (process.env.NODE_ENV !== "production") return;
-      
-      const sitemapUrl = "https://www.patroseguros.com.br/sitemap-index.xml";
-      const pingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
-      
-      console.log(`🚀 Notificando Google sobre atualização do sitemap...`);
-      
-      try {
-        https.get(pingUrl, (res) => {
-          if (res.statusCode === 200) {
-            console.log("✅ Google notificado com sucesso.");
-          } else {
-            console.warn(`⚠️ Google retornou status ${res.statusCode} ao tentar notificar sitemap.`);
-          }
-        }).on("error", (err) => {
-          console.warn("❌ Erro ao notificar Google:", err.message);
-        });
-      } catch (err) {
-        console.warn("❌ Falha crítica ao tentar notificar Google.");
-      }
-    },
-  };
-}
+ /**
+  * Plugin to notify Google that the sitemap has been updated.
+  * Implements retries with exponential backoff and timeout to avoid intermittent failures.
+  */
+ function googlePingPlugin(): Plugin {
+   const MAX_RETRIES = 5;
+   const TIMEOUT_MS = 10000; // 10s
+   const INITIAL_DELAY = 1000; // 1s
+ 
+   const notifyGoogle = async (attempt = 0): Promise<void> => {
+     const sitemapUrl = "https://www.patroseguros.com.br/sitemap-index.xml";
+     const pingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
+ 
+     return new Promise((resolve) => {
+       const request = https.get(pingUrl, (res) => {
+         if (res.statusCode === 200) {
+           console.log("✅ Google notificado com sucesso.");
+           resolve();
+         } else {
+           console.warn(`⚠️ Google retornou status ${res.statusCode} (Tentativa ${attempt + 1}/${MAX_RETRIES}).`);
+           retryOrResolve();
+         }
+       });
+ 
+       request.on("error", (err) => {
+         console.warn(`❌ Erro ao notificar Google: ${err.message} (Tentativa ${attempt + 1}/${MAX_RETRIES}).`);
+         retryOrResolve();
+       });
+ 
+       request.setTimeout(TIMEOUT_MS, () => {
+         request.destroy();
+         console.warn(`⏱️ Timeout ao notificar Google (Tentativa ${attempt + 1}/${MAX_RETRIES}).`);
+         retryOrResolve();
+       });
+ 
+       function retryOrResolve() {
+         if (attempt < MAX_RETRIES - 1) {
+           const delay = INITIAL_DELAY * Math.pow(2, attempt);
+           console.log(`🔄 Retentando em ${delay}ms...`);
+           setTimeout(() => notifyGoogle(attempt + 1).then(resolve), delay);
+         } else {
+           console.error("❌ Falha ao notificar Google após o número máximo de tentativas.");
+           resolve();
+         }
+       }
+     });
+   };
+ 
+   return {
+     name: "google-ping",
+     async closeBundle() {
+       if (process.env.NODE_ENV !== "production") return;
+       console.log(`🚀 Notificando Google sobre atualização do sitemap...`);
+       await notifyGoogle();
+     },
+   };
+ }
 
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
