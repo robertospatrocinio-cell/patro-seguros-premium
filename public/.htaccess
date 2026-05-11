@@ -93,7 +93,9 @@ Options -MultiViews +FollowSymLinks
   </FilesMatch>
 
   <FilesMatch "\.(html|xml|json|txt)$">
-    Header set Cache-Control "public, max-age=0, must-revalidate"
+    # Use stale-while-revalidate for faster repeat navigation while ensuring eventual freshness.
+    # HTML/Sitemaps are cached for 10 minutes in the browser, but can serve stale for 1 hour while updating.
+    Header set Cache-Control "public, max-age=600, stale-while-revalidate=3600"
     FileETag MTime Size
   </FilesMatch>
 
