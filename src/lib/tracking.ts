@@ -26,7 +26,11 @@ type Attribution = Partial<Record<UtmKey, string>> & { referrer?: string; landin
 
 const ATTR_KEY = "patro_attribution";
 
-const captureAttribution = (): Attribution => {
+/**
+ * Captures and persists marketing attribution data (UTMs, referrer) to sessionStorage.
+ * Maps common ad-platform click IDs (gclid, fbclid) to utm_source if not explicitly set.
+ */
+ const captureAttribution = (): Attribution => {
   if (typeof window === "undefined") return {};
   try {
     const stored = sessionStorage.getItem(ATTR_KEY);
@@ -59,7 +63,11 @@ export interface ConversionMeta {
   origin?: string; // hero-selector | product-page | faq | sticky | etc.
 }
 
-const recordConversionClick = (
+/**
+ * Persists a conversion event (click) to the Supabase database.
+ * Includes full attribution context, session ID, and performance metrics.
+ */
+ const recordConversionClick = (
   eventType: "cotacao_click" | "whatsapp_click",
   source?: string,
   meta?: ConversionMeta,
@@ -248,7 +256,11 @@ export const buildInternalLinkSource = (
   slug: string,
 ): string => normalizeSource(`${surface}:${slug || "geral"}`);
 
-export const trackInternalLinkClick = (meta: InternalLinkClickMeta) => {
+/**
+ * Tracks navigation via internal high-value links (e.g., related products, contextual keywords).
+ * Dispatches a standard GA4 `internal_link_click` event with normalized dimensions.
+ */
+ export const trackInternalLinkClick = (meta: InternalLinkClickMeta) => {
   ensureAnalytics();
   const attr = captureAttribution();
   const placement = normalizePlacement(meta.placement);
