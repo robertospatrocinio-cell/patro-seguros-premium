@@ -16,7 +16,10 @@ const ALLOWED_ORIGINS = [
 const ALLOWED_ORIGIN_SUFFIXES = [".lovable.app", ".lovableproject.com"];
 
 function isAllowedOrigin(origin: string | null): boolean {
-  if (!origin) return true; // non-browser/server callers
+  // Reject requests without an Origin header — only browsers from allowed
+  // sites should be calling this relay. Server-side / cURL callers must
+  // be blocked to prevent inbox flooding.
+  if (!origin) return false;
   if (ALLOWED_ORIGINS.includes(origin)) return true;
   try {
     const host = new URL(origin).hostname;

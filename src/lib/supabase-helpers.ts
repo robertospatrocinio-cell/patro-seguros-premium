@@ -8,8 +8,13 @@
      if (error) throw error;
      return { data, error: null };
     } catch (err: any) {
-      console.error(`Error invoking ${functionName}:`, err);
-      captureException(err, { functionName, body });
+    console.error(`Error invoking ${functionName}:`, err);
+    // Avoid leaking PII (name/email/phone) to third-party monitoring.
+    const safeContext = {
+      functionName,
+      bodyKeys: body && typeof body === "object" ? Object.keys(body) : [],
+    };
+    captureException(err, safeContext);
       return { data: null, error: err };
     }
  }
