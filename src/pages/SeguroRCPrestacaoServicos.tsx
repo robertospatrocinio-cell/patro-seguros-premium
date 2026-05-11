@@ -8,7 +8,7 @@ const SeguroRCPrestacaoServicos = () => {
       title="Seguro RC Prestação de Serviços em Terceiros"
       subtitle="Proteção para empresas que realizam serviços nas instalações de clientes"
       icon="🔧"
-      metaDescription="Seguro RC Prestação de Serviços em Terceiros. Proteção contra danos causados durante serviços em instalações de clientes. Cotação grátis Patro Seguros Guarulhos."
+      metaDescription="Seguro RC Prestação de Serviços: proteção contra danos causados durante o trabalho na casa ou empresa do cliente. Cotação grátis na Patro Seguros."
       description="O Seguro de Responsabilidade Civil para Prestação de Serviços em Terceiros protege empresas e profissionais que executam trabalhos nas instalações de seus clientes contra danos materiais, corporais e morais causados durante a execução dos serviços."
       detailedDescription={`Empresas que prestam serviços em locais de terceiros — como manutenção, instalação, limpeza, TI, climatização, reformas e reparos — estão constantemente expostas ao risco de causar danos ao patrimônio ou às pessoas presentes no local do cliente. Um cabo mal instalado que causa um incêndio, um vazamento provocado durante uma manutenção hidráulica, ou um acidente com um funcionário do contratante são situações reais que podem gerar processos milionários.
 

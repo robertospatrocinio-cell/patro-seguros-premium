@@ -8,7 +8,7 @@ const PlanoPet = () => {
       title="Plano Pet (Petlove)"
       subtitle="Plano de saúde para cães e gatos com a maior plataforma pet do Brasil"
       icon="🐶"
-      metaDescription="Plano Pet Petlove — plano de saúde para cães e gatos com consultas, exames, cirurgias e emergências. Cotação grátis na Patro Seguros, corretora parceira Petlove."
+      metaDescription="Plano Pet Petlove: plano de saúde para cães e gatos com consultas, exames e cirurgias. Cotação grátis na Patro Seguros, corretora parceira da Petlove."
       description="O Plano Pet da Petlove é a forma inteligente de cuidar da saúde do seu cão ou gato. Cobertura para consultas, exames e cirurgias com mensalidades acessíveis."
       detailedDescription={`O Brasil tem mais de 149 milhões de animais de estimação — o terceiro maior mercado pet do mundo. Cães e gatos são verdadeiros membros da família, mas os custos veterinários podem pegar os tutores de surpresa: uma cirurgia de emergência pode custar de R$ 3.000 a R$ 15.000, e tratamentos oncológicos ultrapassam facilmente R$ 20.000.
 

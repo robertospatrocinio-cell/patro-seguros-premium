@@ -8,7 +8,7 @@ const PlanoSaudeEmpresarial = () => {
       title="Plano de Saúde Empresarial"
       subtitle="Cuide dos seus colaboradores com os melhores planos de saúde corporativos"
       icon="🏢"
-      metaDescription="Plano de Saúde Empresarial para PMEs e grandes empresas. Compare Bradesco, Amil, SulAmérica, Porto Saúde e mais. Cotação grátis com a Patro Seguros em Guarulhos."
+      metaDescription="Plano de Saúde Empresarial para PMEs e grandes empresas. Compare Bradesco, Amil e SulAmérica com até 40% de economia. Cotação grátis na Patro Seguros."
       description="Plano de Saúde Empresarial: assistência médica de qualidade para seus colaboradores com valores menores que o individual. Contrate a partir de 2 vidas (MEI)."
       detailedDescription={`O plano de saúde é o benefício mais valorizado pelos colaboradores brasileiros. Empresas que oferecem assistência médica têm menor rotatividade, maior produtividade e conseguem atrair os melhores talentos do mercado.
 

@@ -8,7 +8,7 @@ const SeguroRCEngenheiros = () => {
       title="Seguro RC Engenheiros"
       subtitle="Proteção profissional para engenheiros e escritórios de engenharia"
       icon="🏗️"
-      metaDescription="Seguro RC para Engenheiros — proteção contra processos por erro de projeto, falha estrutural e negligência. A Patro Seguros é especialista em RC. Cotação grátis."
+      metaDescription="Seguro RC para Engenheiros: proteção contra processos por erro de projeto ou acidentes em obra. Cotação grátis com especialistas na Patro Seguros."
       description="O Seguro RC Engenheiros protege contra reclamações por erros em projetos e obras. Garanta sua defesa judicial e seu patrimônio profissional em Guarulhos."
       detailedDescription={`A engenharia é uma profissão de altíssima responsabilidade. Um erro de cálculo estrutural, uma falha de projeto ou uma supervisão inadequada podem causar desabamentos, acidentes e prejuízos milionários. A responsabilidade civil do engenheiro se estende por até 5 anos após a entrega da obra (garantia legal do Código Civil).
 

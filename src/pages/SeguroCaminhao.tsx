@@ -8,7 +8,7 @@ const SeguroCaminhao = () => {
       title="Seguro de Caminhão"
       subtitle="Proteção completa para caminhões, carretas e veículos pesados"
       icon="🚛"
-      metaDescription="Seguro de Caminhão para autônomos e transportadoras. Cobertura contra roubo, colisão, tombamento e RC. Proteção para carretas e cavalos mecânicos. Cotação grátis."
+      metaDescription="Seguro de Caminhão para autônomos e transportadoras. Cobertura contra roubo, colisão e tombamento. Cotação grátis com as melhores seguradoras do mercado."
       description="O Seguro de Caminhão é fundamental para proteger o patrimônio de caminhoneiros autônomos, transportadoras e empresas que dependem de veículos pesados."
       detailedDescription={`O caminhão não é apenas um veículo — é a ferramenta de trabalho e, muitas vezes, o maior patrimônio de um caminhoneiro autônomo ou de uma transportadora. Um caminhão novo pode custar de R$ 300.000 a R$ 900.000, e sem seguro, um único sinistro pode significar a falência.
 
