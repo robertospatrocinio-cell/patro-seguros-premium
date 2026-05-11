@@ -113,11 +113,13 @@ import react from "@vitejs/plugin-react-swc";
  
    return {
      name: "google-indexing",
-     async closeBundle() {
-       if (process.env.NODE_ENV !== "production") return;
- 
-       const sitemapUrl = "https://www.patroseguros.com.br/sitemap-index.xml";
-       const credentialsRaw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+    async closeBundle() {
+      if (process.env.NODE_ENV !== "production") return;
+
+      // Use VITE_SITE_URL or fall back to production domain
+      const siteUrl = process.env.VITE_SITE_URL || "https://www.patroseguros.com.br";
+      const sitemapUrl = `${siteUrl.replace(/\/$/, "")}/sitemap-index.xml`;
+      const credentialsRaw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
  
        if (credentialsRaw) {
          try {
