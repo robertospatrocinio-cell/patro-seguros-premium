@@ -37,7 +37,12 @@ const WhatsAppButton = () => {
   const tipo = inferQuoteTypeFromText(location.pathname);
   const cotacaoHref = tipo ? `/cotacao?tipo=${tipo}` : "/cotacao";
 
-  const whatsappMessage = override?.message ?? DEFAULT_MESSAGE;
+  const lastErrorId = typeof window !== "undefined" ? (window as any).lastErrorId : null;
+  const baseMessage = override?.message ?? DEFAULT_MESSAGE;
+  const whatsappMessage = lastErrorId 
+    ? `${baseMessage}\n\n_Ref. Erro anterior: ${lastErrorId}_`
+    : baseMessage;
+  
   const whatsappHref = WHATSAPP_BASE + encodeURIComponent(whatsappMessage);
   const trackingLabel = override?.trackingLabel ?? DEFAULT_TRACKING_LABEL;
   const ariaLabel = override
