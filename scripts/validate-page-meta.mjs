@@ -28,23 +28,27 @@ export async function validatePageMeta() {
     throw new Error(`validate-page-meta: src/ not found at ${SRC_ROOT}`);
   }
   const files = walk(SRC_ROOT);
-  const blockRe = /<PageMeta\b[\s\S]*?\/>/g;
-  const descRe = /description\s*=\s*"([^"\\]*(?:\\.[^"\\]*)*)"/;
+  const blockRe = /<(PageMeta|InsurancePageTemplate)\b[\s\S]*?\/>/g;
+  const descRe = /metaDescription\s*=\s*"([^"\\]*(?:\\.[^"\\]*)*)"/;
+  const metaDescRe = /description\s*=\s*"([^"\\]*(?:\\.[^"\\]*)*)"/;
   const errors = [];
   let checked = 0;
 
   for (const f of files) {
     const src = fs.readFileSync(f, "utf8");
-    if (!src.includes("PageMeta")) continue;
+    if (!src.includes("PageMeta") && !src.includes("InsurancePageTemplate")) continue;
     const blocks = src.match(blockRe) || [];
     for (const block of blocks) {
-      const m = descRe.exec(block);
-      if (!m) continue;
-      checked++;
-      const desc = m[1];
-      if (desc.length > MAX_LEN) {
-        const rel = path.relative(process.cwd(), f);
-        errors.push(`${rel}: description com ${desc.length} chars (máx ${MAX_LEN}) → "${desc.slice(0, 80)}…"`);
+      const isTemplate = block.startsWith("<InsurancePageTemplate");
+      const m = isTemplate ? descRe.exec(block) : metaDescRe.exec(block);
+      
+      if (m) {
+        checked++;
+        const desc = m[1];
+        if (desc.length > MAX_LEN) {
+          const rel = path.relative(process.cwd(), f);
+          errors.push(`${rel}: description com ${desc.length} chars (máx ${MAX_LEN}) → "${desc.slice(0, 80)}…"`);
+        }
       }
     }
   }
