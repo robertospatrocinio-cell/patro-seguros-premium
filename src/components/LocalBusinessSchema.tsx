@@ -1,4 +1,9 @@
-const LocalBusinessSchema = () => {
+/**
+ * Componente que renderiza o Schema.org (JSON-LD) para a Agência de Seguros.
+ * Define dados globais como endereço, horário de funcionamento e catálogo de serviços.
+ * Nota: aggregateRating é omitido aqui para evitar avisos de duplicidade com o Service Schema.
+ */
+ const LocalBusinessSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": ["InsuranceAgency", "LocalBusiness"],

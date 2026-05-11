@@ -20,7 +20,11 @@ interface SaudeBairroSeed {
   precoMedio: string;
 }
 
-const saudeBairros: SaudeBairroSeed[] = [
+/**
+ * Bairros foco para campanhas de Planos de Saúde.
+ * Inclui hospitais e clínicas de referência para aumentar a relevância local (E-E-A-T).
+ */
+ const saudeBairros: SaudeBairroSeed[] = [
   {
     slug: "plano-saude-centro-guarulhos",
     bairro: "Centro",
