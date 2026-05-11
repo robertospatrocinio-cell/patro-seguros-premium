@@ -33,9 +33,9 @@ import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
 // Lazy load below-fold decorative images
-const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
-const insuranceGroup3d = new URL("@/assets/3d-insurance-group.webp", import.meta.url).href;
-const cotacaoOnline3d = new URL("@/assets/3d-cotacao-online.webp", import.meta.url).href;
+const shieldHero3d = "/images/3d-shield-hero.webp";
+const insuranceGroup3d = "/images/3d-insurance-group.webp";
+const cotacaoOnline3d = "/images/3d-cotacao-online.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -114,7 +114,7 @@ const faqs = [
            </div>
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
-              <div className="mb-6 md:mb-8">
+              <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center">
                 <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
@@ -198,9 +198,8 @@ const faqs = [
           </div>
         </section>
 
-        {/* E-E-A-T Content Section */}
-        <LazySection minHeight="600px">
-        <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading">
+        {/* E-E-A-T Content Section — Optimized for performance with content-visibility */}
+        <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}>
           <div className="container mx-auto px-4 max-w-3xl">
                <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
@@ -262,45 +261,11 @@ const faqs = [
             </div>
           </div>
         </section>
-        </LazySection>
 
-        {/* Lead Magnet — E-book */}
+
+        {/* Lead Magnet — E-book Section */}
         <LazySection minHeight="300px">
           <Suspense fallback={null}><LeadMagnetSection /></Suspense>
-        </LazySection>
-
-
-        {/* CTA — Cotação Auto */}
-        <LazySection minHeight="400px">
-        <section className="py-16 md:py-24 bg-background" aria-labelledby="cotacao-auto-heading">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-8 md:p-16">
-              <img src={cotacaoOnline3d} alt="" width={192} height={192} className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80" aria-hidden="true" loading="lazy" decoding="async" />
-              <div className="relative md:max-w-[60%]">
-                <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto em Guarulhos</h2>
-                <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
-                  Auto, moto, caminhão e vans — compare preços das melhores seguradoras em minutos.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <a
-                    href="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white text-foreground hover:bg-white/90 font-semibold">
-                      Fazer Cotação Online <ArrowRight className="ml-1.5 h-3.5 w-3.5" aria-hidden="true" />
-                    </Button>
-                  </a>
-                  <Link to="/planos-de-saude">
-                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] font-medium">
-                      Simular Plano de Saúde
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
         </LazySection>
 
 
