@@ -136,15 +136,18 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           "react-vendor": ["react", "react-dom"],
           "router": ["react-router-dom"],
-          "ui-tooltip": ["@radix-ui/react-tooltip"],
-          "ui-dialog": ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu"],
-          "ui-accordion": ["@radix-ui/react-accordion"],
-          "query": ["@tanstack/react-query"],
-          "ui-select": ["@radix-ui/react-select", "@radix-ui/react-popover"],
-          "ui-navigation": ["@radix-ui/react-navigation-menu", "@radix-ui/react-menubar"],
-          "ui-form": ["@radix-ui/react-checkbox", "@radix-ui/react-radio-group", "@radix-ui/react-switch", "@radix-ui/react-label"],
-           "ui-misc": ["@radix-ui/react-tabs", "@radix-ui/react-scroll-area", "@radix-ui/react-separator", "@radix-ui/react-progress", "@radix-ui/react-slider", "@radix-ui/react-alert-dialog", "@radix-ui/react-hover-card", "@radix-ui/react-context-menu", "@radix-ui/react-collapsible", "@radix-ui/react-toast"],
-           "libs": ["@supabase/supabase-js", "lucide-react", "clsx", "tailwind-merge", "date-fns"],
+          "ui-core": [
+            "@radix-ui/react-dialog", 
+            "@radix-ui/react-dropdown-menu",
+            "@radix-ui/react-label",
+            "lucide-react"
+          ],
+          "ui-form": ["@radix-ui/react-checkbox", "@radix-ui/react-radio-group", "@radix-ui/react-select", "@radix-ui/react-switch", "react-hook-form", "zod"],
+          "ui-navigation": ["@radix-ui/react-navigation-menu", "@radix-ui/react-menubar", "@radix-ui/react-tabs"],
+          "ui-feedback": ["@radix-ui/react-tooltip", "@radix-ui/react-popover", "@radix-ui/react-alert-dialog", "@radix-ui/react-hover-card", "@radix-ui/react-toast"],
+          "ui-content": ["@radix-ui/react-accordion", "@radix-ui/react-scroll-area", "@radix-ui/react-collapsible", "@radix-ui/react-aspect-ratio", "@radix-ui/react-avatar", "@radix-ui/react-separator"],
+          "data-query": ["@tanstack/react-query", "@supabase/supabase-js"],
+          "utils": ["clsx", "tailwind-merge", "date-fns", "framer-motion"]
         },
       },
     },
