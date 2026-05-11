@@ -217,6 +217,15 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
     }
   }, [slug, faqs, insurers, testimonials, realScenarios, detailedDescription, metaDescription]);
 
+  const getQuoteType = (iconStr: string) => {
+    if (iconStr === "🚗" || iconStr === "🚕" || iconStr === "🏍️" || iconStr === "🚚") return "auto";
+    if (iconStr === "🩺" || iconStr === "🏥") return "saude";
+    if (iconStr === "🏠") return "residencial";
+    if (iconStr === "🏢") return "empresarial";
+    if (iconStr === "❤️") return "vida";
+    return "outros";
+  };
+
   return (
     <>
       {/* Schema local extra (Service + Place + AggregateOffer) */}
@@ -305,7 +314,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         </div>
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <Link 
-            to={`/cotacao?tipo=${localPageIcons.car === icon ? 'auto' : 'outros'}&origem=${slug}`}
+            to={`/cotacao?tipo=${getQuoteType(icon)}&origem=${encodeURIComponent(slug)}`}
             className="w-full sm:w-auto"
             onClick={() => trackCotacaoClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
           >
