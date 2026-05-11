@@ -10,9 +10,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
-import { escapeHtml } from "@/lib/utils";
-import { toast } from "sonner";
+ import { escapeHtml } from "@/lib/utils";
+ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+ import { toast } from "sonner";
 import { bairros, type BairroData } from "@/lib/bairrosData";
 import { trackWhatsAppClick } from "@/lib/tracking";
 
@@ -68,30 +68,30 @@ const SegurosGuarulhosBairros = () => {
       return;
     }
     setSending(true);
-    try {
-      await supabase.functions.invoke("send-form-email", {
-        body: {
-          to: ["contato@patroseguros.com.br", "sandra@patroseguros.com.br"],
-          subject: `Lead SEO Bairro — ${selectedBairro.nome}`,
-          html: `<h2>Novo Lead — Seguros em ${escapeHtml(selectedBairro.nome)}</h2>
-<table style="border-collapse:collapse;width:100%">
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Nome</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.nome)}</td></tr>
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Telefone</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.telefone)}</td></tr>
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">E-mail</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.email || "Não informado")}</td></tr>
-<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Interesse</td><td style="padding:8px;border:1px solid #ddd">Seguro - ${escapeHtml(selectedBairro.nome)} (${escapeHtml(selectedBairro.foco)})</td></tr>
-</table>`,
-        },
-      });
-      toast.success("Dados enviados! Entraremos em contato em breve.");
-      const msg = encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}.`);
-      trackWhatsAppClick(`bairro_${selectedBairro.id}`);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
-      setFormData({ nome: "", telefone: "", email: "" });
-    } catch {
-      toast.error("Erro ao enviar. Tente pelo WhatsApp.");
-    } finally {
+    const { error } = await safeInvoke("send-form-email", {
+      to: ["contato@patroseguros.com.br", "sandra@patroseguros.com.br"],
+      subject: `Lead SEO Bairro — ${selectedBairro.nome}`,
+      htmlBody: `<h2>Novo Lead — Seguros em ${escapeHtml(selectedBairro.nome)}</h2>
+        <table style="border-collapse:collapse;width:100%">
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Nome</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.nome)}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Telefone</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.telefone)}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">E-mail</td><td style="padding:8px;border:1px solid #ddd">${escapeHtml(formData.email || "Não informado")}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold">Interesse</td><td style="padding:8px;border:1px solid #ddd">Seguro - ${escapeHtml(selectedBairro.nome)} (${escapeHtml(selectedBairro.foco)})</td></tr>
+        </table>`,
+    });
+
+    if (error) {
+      handleSupabaseError(error, "Erro ao enviar seus dados. Por favor, tente pelo WhatsApp.");
       setSending(false);
+      return;
     }
+
+    toast.success("Dados enviados! Entraremos em contato em breve.");
+    const msg = encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}.`);
+    trackWhatsAppClick(`bairro_${selectedBairro.id}`);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+    setFormData({ nome: "", telefone: "", email: "" });
+    setSending(false);
   };
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}`)}`;

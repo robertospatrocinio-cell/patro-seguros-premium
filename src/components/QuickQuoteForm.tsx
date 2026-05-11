@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Send, CheckCircle, MessageCircle } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -78,28 +78,26 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       </table>
     `;
 
-    try {
-      const { error } = await supabase.functions.invoke("send-form-email", {
-        body: { subject, textBody: parts, htmlBody },
-      });
+    const { error } = await safeInvoke("send-form-email", {
+      subject,
+      textBody: parts,
+      htmlBody
+    });
 
-      if (error) throw error;
-
-      setTimeout(() => {
-        setSending(false);
-        setSent(true);
-        window.open(
-          `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
-          "_blank"
-        );
-      }, 500);
-    } catch (err) {
-      console.error("Email send error:", err);
-      toast.error("Ops! Ocorreu um erro ao processar sua solicitação.", {
-        description: "Tente novamente ou entre em contato diretamente pelo WhatsApp."
-      });
+    if (error) {
+      handleSupabaseError(error, "Ops! Ocorreu um erro ao processar seu pedido de cotação.");
       setSending(false);
+      return;
     }
+
+    setTimeout(() => {
+      setSending(false);
+      setSent(true);
+      window.open(
+        `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
+        "_blank"
+      );
+    }, 500);
   };
 
   if (sent) {

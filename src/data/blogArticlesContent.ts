@@ -2,7 +2,7 @@
  * Blog articles detailed content.
  * Extracted from BlogArticle.tsx to reduce file size and improve HMR.
  */
-export const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+ export const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
    "crescimento-patrimonial-guarulhos-2026": {
      title: "Crescimento Patrimonial: Por que a Proteção é o Acelerador que Poucos Usam?",
      content: `Muitos acreditam que crescer financeiramente resume-se apenas a investir em renda variável ou imóveis. No entanto, o verdadeiro Crescimento Patrimonial baseia-se em um tripé fundamental: Acumulação, Alavancagem e Proteção.

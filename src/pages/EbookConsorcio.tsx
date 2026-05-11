@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
+ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import ebookMockup from "@/assets/ebook-mockup-consorcio.webp";
 
 const EBOOK_URL = "/downloads/ebook-consorcio-patro.pdf";
@@ -70,26 +70,25 @@ const EbookConsorcio = () => {
 
     setSubmitting(true);
 
-    try {
-      const safeName = escapeHtml(parsed.data.name);
-      const safeEmail = escapeHtml(parsed.data.email);
-      const safeWhats = escapeHtml(parsed.data.whatsapp);
+    const safeName = escapeHtml(parsed.data.name);
+    const safeEmail = escapeHtml(parsed.data.email);
+    const safeWhats = escapeHtml(parsed.data.whatsapp);
 
-      try {
-        await supabase.functions.invoke("send-form-email", {
-          body: {
-            subject: "📥 Novo Lead E-book Consórcio",
-            textBody: `Novo download de E-book do Consórcio.\n\nNome: ${parsed.data.name}\nE-mail: ${parsed.data.email}\nWhatsApp: ${parsed.data.whatsapp}`,
-            htmlBody: `<h2>📥 Novo lead — E-book Consórcio</h2>
-              <p><strong>Nome:</strong> ${safeName}</p>
-              <p><strong>E-mail:</strong> ${safeEmail}</p>
-              <p><strong>WhatsApp:</strong> ${safeWhats}</p>`,
-          },
-        });
-      } catch (mailErr) {
-        // Não bloqueia o download se o envio de e-mail falhar (SMTP instável)
-        console.warn("Falha ao notificar lead por e-mail:", mailErr);
-      }
+    const { error: mailErr } = await safeInvoke("send-form-email", {
+      subject: "📥 Novo Lead E-book Consórcio",
+      textBody: `Novo download de E-book do Consórcio.\n\nNome: ${parsed.data.name}\nE-mail: ${parsed.data.email}\nWhatsApp: ${parsed.data.whatsapp}`,
+      htmlBody: `<h2>📥 Novo lead — E-book Consórcio</h2>
+        <p><strong>Nome:</strong> ${safeName}</p>
+        <p><strong>E-mail:</strong> ${safeEmail}</p>
+        <p><strong>WhatsApp:</strong> ${safeWhats}</p>`,
+    });
+
+    if (mailErr) {
+      // Não bloqueia o download se o envio de e-mail falhar, mas avisa o log de forma consistente
+      handleSupabaseError(mailErr, "O e-book será liberado, mas houve um problema na notificação interna.");
+    }
+
+    try {
 
       try {
         (window as any).fbq?.("track", "Lead", { content_name: "ebook-consorcio" });
