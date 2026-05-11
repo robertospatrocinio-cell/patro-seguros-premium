@@ -84,6 +84,7 @@ export type Database = {
           full_name: string | null
           id: string
           insurance_type: string | null
+          ip_address: string | null
           phone: string | null
           raw_data: Json | null
           source_page: string | null
@@ -97,6 +98,7 @@ export type Database = {
           full_name?: string | null
           id?: string
           insurance_type?: string | null
+          ip_address?: string | null
           phone?: string | null
           raw_data?: Json | null
           source_page?: string | null
@@ -110,6 +112,7 @@ export type Database = {
           full_name?: string | null
           id?: string
           insurance_type?: string | null
+          ip_address?: string | null
           phone?: string | null
           raw_data?: Json | null
           source_page?: string | null
