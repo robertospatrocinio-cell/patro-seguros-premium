@@ -1,8 +1,9 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import fs from "fs";
-import https from "https";
+ import path from "path";
+ import fs from "fs";
+ import https from "https";
+ import jwt from "jsonwebtoken";
 
 // Plugin to notify Google that the sitemap has been updated.
 // Note: Google has deprecated the /ping endpoint, but it's still good practice
