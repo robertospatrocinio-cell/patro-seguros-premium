@@ -1,4 +1,8 @@
-import { createRoot } from "react-dom/client";
+/**
+ * Ponto de entrada da aplicação.
+ * Inicializa o React, importa estilos globais e registra o Service Worker para suporte a PWA e Cache.
+ */
+ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 import { initWebVitals } from "./lib/webVitals";

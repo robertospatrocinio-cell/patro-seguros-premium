@@ -137,7 +137,10 @@ const WHATSAPP_BASE = "https://wa.me/551151997500?text=";
 
 const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg);
 
-const StarRow = ({ count }: { count: number }) => (
+/**
+ * Renderiza uma linha de estrelas de avaliação (1 a 5).
+ */
+ const StarRow = ({ count }: { count: number }) => (
   <div className="flex gap-0.5" aria-label={`${count} de 5 estrelas`}>
     {Array.from({ length: 5 }).map((_, i) => (
       <Star
@@ -149,7 +152,11 @@ const StarRow = ({ count }: { count: number }) => (
   </div>
 );
 
-const LocalPageTemplate = (props: LocalPageProps) => {
+/**
+ * Template base para todas as páginas de SEO Local e Bairros.
+ * Implementa requisitos estritos de conteúdo único e Schema.org para maximizar o ranking no Google.
+ */
+ const LocalPageTemplate = (props: LocalPageProps) => {
   const {
     slug,
     title,
