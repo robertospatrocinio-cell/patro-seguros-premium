@@ -84,6 +84,15 @@ serve(async (req) => {
 
     const body = await req.json();
     const { subject, textBody } = body;
+
+    // Basic validation to prevent empty spam emails
+    if (textBody && textBody.length < 10) {
+      return new Response(JSON.stringify({ error: "Content too short" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     // NOTE: htmlBody from the client is intentionally ignored to prevent
     // attackers from sending arbitrary HTML/phishing through this relay.
     // The HTML email body is rebuilt server-side from the plain-text content.
