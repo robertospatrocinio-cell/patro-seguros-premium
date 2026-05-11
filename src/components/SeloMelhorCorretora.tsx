@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 
 interface SeloMelhorCorretoraProps {
   /** Tamanho do selo. sm: 80px, md: 112px, lg: 144px, xl: 176px */
@@ -16,6 +16,20 @@ const SIZE_MAP = {
 } as const;
 
 const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = false }: SeloMelhorCorretoraProps) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    // If not high priority, we can wait for hydration to render
+    if (!priority) {
+      setIsClient(true);
+    }
+  }, [priority]);
+
+  if (!priority && !isClient) {
+    const { cls, w } = SIZE_MAP[size];
+    return <div className={`${cls} ${className} bg-muted/10 rounded-full animate-pulse`} style={{ width: w, height: w }} />;
+  }
+
   const { cls, w } = SIZE_MAP[size];
   const base = "/images/selo-melhor-corretora";
   const webpSrcSet = `${base}.webp 1x, ${base}@2x.webp 2x, ${base}@3x.webp 3x`;
