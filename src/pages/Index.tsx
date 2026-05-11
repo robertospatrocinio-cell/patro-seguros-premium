@@ -1,6 +1,6 @@
  const FormCTASection = lazy(() => import("@/components/FormCTASection"));
  
- import { lazy, Suspense, useEffect, useMemo } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
  import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
  import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
@@ -21,9 +21,9 @@ import OptimizedImage from "@/components/OptimizedImage";
 import LazySection from "@/components/LazySection";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
- import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
- 
- // Componentes internos que serão carregados via intersection (LazySection)
+const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
+
+// Componentes internos que serão carregados via intersection (LazySection)
  const Footer = lazy(() => import("@/components/Footer"));
  const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
  const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
@@ -145,8 +145,12 @@ const faqs = [
           </div>
         </section>
 
-         {/* Insurance Hero Selector (eager loaded to avoid layout shifts on scroll) */}
-         <InsuranceHeroSelector />
+         {/* Insurance Hero Selector (lazy loaded to reduce initial bundle) */}
+         <LazySection minHeight="600px">
+           <Suspense fallback={null}>
+             <InsuranceHeroSelector />
+           </Suspense>
+         </LazySection>
 
         {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">

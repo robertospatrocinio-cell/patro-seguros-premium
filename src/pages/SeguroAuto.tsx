@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { Search, Shield, Handshake, CheckCircle, MessageCircle, ArrowRight, Star } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
+import LazySection from "@/components/LazySection";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
@@ -95,45 +96,47 @@ const SeguroAuto = () => {
         </section>
 
         {/* ===== 2. AGITAÇÃO / PROBLEMA ===== */}
-        <section className="py-24" aria-labelledby="problema-heading">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 id="problema-heading">Por que fazer seu Seguro de Carro com uma Corretora de Guarulhos?</h2>
-              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-[15px]">
-                O trânsito da Grande São Paulo é imprevisível. Você não precisa de um 0800 demorado quando ocorre um imprevisto na Dutra ou na Fernão Dias. Você precisa de quem resolve.
-              </p>
+        <LazySection minHeight="400px">
+          <section className="py-24" aria-labelledby="problema-heading">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <div className="text-center mb-12">
+                <h2 id="problema-heading">Por que fazer seu Seguro de Carro com uma Corretora de Guarulhos?</h2>
+                <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-[15px]">
+                  O trânsito da Grande São Paulo é imprevisível. Você não precisa de um 0800 demorado quando ocorre um imprevisto na Dutra ou na Fernão Dias. Você precisa de quem resolve.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="premium-card p-7 text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
+                    <Search className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold mb-2">Análise de 16 Seguradoras</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Porto Seguro, Tokio Marine, Allianz, HDI e muito mais. Nós fazemos o trabalho duro de comparar os preços para você.
+                  </p>
+                </div>
+                <div className="premium-card p-7 text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
+                    <Shield className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold mb-2">Especialistas na Região</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Conhecemos os índices de sinistralidade de Guarulhos e sabemos exatamente qual seguradora oferece o melhor preço para o seu CEP.
+                  </p>
+                </div>
+                <div className="premium-card p-7 text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
+                    <Handshake className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold mb-2">Suporte de Ponta a Ponta</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Bateu o carro? Nós cuidamos de toda a papelada, do guincho até a liberação do carro reserva. Você não fala com robôs, fala com a Patro.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="premium-card p-7 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
-                  <Search className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-[15px] font-semibold mb-2">Análise de 16 Seguradoras</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Porto Seguro, Tokio Marine, Allianz, HDI e muito mais. Nós fazemos o trabalho duro de comparar os preços para você.
-                </p>
-              </div>
-              <div className="premium-card p-7 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
-                  <Shield className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-[15px] font-semibold mb-2">Especialistas na Região</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Conhecemos os índices de sinistralidade de Guarulhos e sabemos exatamente qual seguradora oferece o melhor preço para o seu CEP.
-                </p>
-              </div>
-              <div className="premium-card p-7 text-center">
-                <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
-                  <Handshake className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-[15px] font-semibold mb-2">Suporte de Ponta a Ponta</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Bateu o carro? Nós cuidamos de toda a papelada, do guincho até a liberação do carro reserva. Você não fala com robôs, fala com a Patro.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
+        </LazySection>
 
         {/* ===== 3. COBERTURAS ===== */}
         <section id="coberturas" className="py-24 gradient-surface" aria-labelledby="coberturas-heading">
@@ -199,22 +202,24 @@ const SeguroAuto = () => {
         </section>
 
         {/* ===== 4. AUTORIDADE (Parceiros) ===== */}
-        <section className="py-20" aria-labelledby="autoridade-heading">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h2 id="autoridade-heading" className="mb-3">Trabalhamos apenas com as gigantes do mercado</h2>
-            <p className="text-muted-foreground text-[15px] mb-10">Sua apólice garantida pelas seguradoras mais sólidas do Brasil.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {parceiros.map((nome, i) => (
-                <span
-                  key={i}
-                  className="inline-flex items-center px-5 py-3 rounded-xl bg-muted/60 border border-border text-sm font-medium text-muted-foreground"
-                >
-                  {nome}
-                </span>
-              ))}
+        <LazySection minHeight="250px">
+          <section className="py-20" aria-labelledby="autoridade-heading">
+            <div className="container mx-auto px-4 max-w-4xl text-center">
+              <h2 id="autoridade-heading" className="mb-3">Trabalhamos apenas com as gigantes do mercado</h2>
+              <p className="text-muted-foreground text-[15px] mb-10">Sua apólice garantida pelas seguradoras mais sólidas do Brasil.</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                {parceiros.map((nome, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center px-5 py-3 rounded-xl bg-muted/60 border border-border text-sm font-medium text-muted-foreground"
+                  >
+                    {nome}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </LazySection>
 
         {/* ===== 5. PROCESSO (Como Funciona) ===== */}
         <section className="py-24 gradient-surface" aria-labelledby="processo-heading">

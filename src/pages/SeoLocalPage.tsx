@@ -1,4 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import LocalPageTemplate, {
   type LocalFAQ,
   type LocalInsurer,
@@ -7,8 +8,10 @@ import LocalPageTemplate, {
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
-import GalpaoStickyCTABar from "@/components/GalpaoStickyCTABar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
+import LazySection from "@/components/LazySection";
+
+const GalpaoStickyCTABar = lazy(() => import("@/components/GalpaoStickyCTABar"));
 
 /**
  * Slugs do cluster Seguro de Galpão que devem renderizar a barra fixa de
@@ -79,10 +82,12 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       whatsappMessage={`Olá! Vim pela página ${config.title} e gostaria de uma cotação rápida.`}
     />
     {GALPAO_CLUSTER_SLUGS.has(config.slug) && (
-      <GalpaoStickyCTABar
-        source={config.slug}
-        whatsappMessage={`Olá! Vim da página ${config.title} e quero cotar Seguro de Galpão.`}
-      />
+      <Suspense fallback={null}>
+        <GalpaoStickyCTABar
+          source={config.slug}
+          whatsappMessage={`Olá! Vim da página ${config.title} e quero cotar Seguro de Galpão.`}
+        />
+      </Suspense>
     )}
     </>
   );
