@@ -10,9 +10,8 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
-import { supabase } from "@/integrations/supabase/client";
-import { escapeHtml } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
+ import { escapeHtml } from "@/lib/utils";
+ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -120,25 +119,20 @@ const FormularioSeguroVida = () => {
     window.fbq?.("track", "Lead", { content_name: "formulario-seguro-vida", content_category: "Seguro de Vida" });
     window.gtag?.("event", "generate_lead", { event_category: "formulario-seguro-vida", event_label: "Seguro de Vida" });
 
-    try {
-      const { data, error } = await supabase.functions.invoke("send-form-email", {
-        body: {
-          subject: `Novo Lead — Seguro de Vida — ${form.nomeCompleto}`,
-          textBody: lines,
-          htmlBody,
-        },
-      });
+    const { error } = await safeInvoke("send-form-email", {
+      subject: `Novo Lead — Seguro de Vida — ${form.nomeCompleto}`,
+      textBody: lines,
+      htmlBody,
+    });
 
-      if (error) throw error;
-
+    if (error) {
+      handleSupabaseError(error, "Ops! Ocorreu um erro ao enviar seu formulário de seguro de vida.");
       setSending(false);
-      setSent(true);
-      toast({ title: "Formulário enviado!", description: "Sua cotação foi recebida com sucesso." });
-    } catch (err) {
-      console.error("Erro ao enviar email:", err);
-      setSending(false);
-      toast({ title: "Erro ao enviar", description: "Tente novamente ou entre em contato pelo WhatsApp.", variant: "destructive" });
+      return;
     }
+
+    setSending(false);
+    setSent(true);
   };
 
   if (sent) {
