@@ -1,4 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, beforeAll } from "vitest";
+// Mock ResizeObserver
+beforeAll(() => {
+  global.ResizeObserver = class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+});
+
 import { render, screen, fireEvent } from "@testing-library/react";
 import InsuranceQuoteForm, { InsuranceFormConfig } from "./InsuranceQuoteForm";
 import { toast } from "sonner";
