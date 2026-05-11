@@ -2,8 +2,8 @@ import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download, CheckCircle } from "lucide-react";
-import ebookMockup from "@/assets/ebook-mockup-seguro-auto.webp";
-
+import OptimizedImage from "@/components/OptimizedImage";
+const ebookMockup = "/images/ebook-mockup-seguro-auto.webp";
 const EBOOK_URL = "/downloads/guia-seguro-auto-guarulhos.pdf";
 
 const formatWhatsApp = (value: string): string => {
@@ -95,15 +95,15 @@ const LeadMagnetSection = () => {
               )}
             </div>
 
-            {/* Right — Mockup */}
-            <div className="hidden md:flex items-center justify-center p-8 lg:p-12">
-              <img
+            {/* Right — Mockup — Optimized with lazy load and proper sizing */}
+            <div className="hidden md:flex items-center justify-center p-8 lg:p-12 min-h-[400px]">
+              <OptimizedImage
                 src={ebookMockup}
                 alt="E-book Guia Definitivo - Como Baixar o Preço do Seguro Auto"
                 width={400}
                 height={400}
-                loading="lazy"
-                className="w-full max-w-[340px] drop-shadow-2xl"
+                className="w-full max-w-[340px] drop-shadow-2xl transition-transform duration-500 hover:scale-105"
+                placeholderClass="bg-transparent"
               />
             </div>
           </div>
