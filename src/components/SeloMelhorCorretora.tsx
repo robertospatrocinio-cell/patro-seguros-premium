@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface SeloMelhorCorretoraProps {
   /** Tamanho do selo. sm: 80px, md: 112px, lg: 144px, xl: 176px */
   size?: "sm" | "md" | "lg" | "xl";
@@ -13,7 +15,7 @@ const SIZE_MAP = {
   xl: { cls: "w-32 h-32 md:w-44 md:h-44", w: 176 },
 } as const;
 
-const SeloMelhorCorretora = ({ size = "md", className = "", priority = false }: SeloMelhorCorretoraProps) => {
+const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = false }: SeloMelhorCorretoraProps) => {
   const { cls, w } = SIZE_MAP[size];
   const base = "/images/selo-melhor-corretora";
   const webpSrcSet = `${base}.webp 1x, ${base}@2x.webp 2x, ${base}@3x.webp 3x`;
@@ -34,6 +36,6 @@ const SeloMelhorCorretora = ({ size = "md", className = "", priority = false }: 
       />
     </picture>
   );
-};
+});
 
 export default SeloMelhorCorretora;
