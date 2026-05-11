@@ -33,14 +33,18 @@
       return { hasError: true, error, errorId, copied: false };
     }
  
-    public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-      console.error("Uncaught error:", error, errorInfo);
-      captureException(error, {
-        componentStack: errorInfo.componentStack,
-        url: window.location.href,
-        timestamp: new Date().toISOString()
-      });
-    }
+     public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+       console.error("Uncaught error:", error, errorInfo);
+       // Globalize error ID so forms can pick it up if user navigates back
+       if (typeof window !== "undefined") {
+         (window as any).lastErrorId = this.state.errorId;
+       }
+       captureException(error, {
+         componentStack: errorInfo.componentStack,
+         url: window.location.href,
+         timestamp: new Date().toISOString()
+       });
+     }
  
     private handleReset = () => {
       this.setState({ hasError: false, error: undefined, errorId: "" });

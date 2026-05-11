@@ -90,11 +90,16 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       return;
     }
 
+    const lastErrorId = (window as any).lastErrorId;
+    const finalParts = lastErrorId 
+      ? `${parts}\n\n_Ref. Erro anterior: ${lastErrorId}_`
+      : parts;
+
     setTimeout(() => {
       setSending(false);
       setSent(true);
       window.open(
-        `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
+        `https://wa.me/551151997500?text=${encodeURIComponent(finalParts)}`,
         "_blank"
       );
     }, 500);

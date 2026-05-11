@@ -129,6 +129,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
     trackCotacaoSubmit(config.type);
 
+    const lastErrorId = (window as any).lastErrorId;
+    const finalParts = lastErrorId 
+      ? `${parts}\n\n_Ref. Erro anterior: ${lastErrorId}_`
+      : parts;
+
     window.fbq?.("track", "Lead", {
       content_name: `formulario-${config.type}`,
       content_category: config.type,
@@ -167,7 +172,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     setTimeout(() => {
       setSending(false);
       setSent(true);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(parts)}`, "_blank");
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalParts)}`, "_blank");
     }, 600);
   };
 
