@@ -8,7 +8,7 @@ const SeguroCyber = () => {
       title="Seguro Cyber / Segurança Cibernética"
       subtitle="Proteção contra ataques cibernéticos e vazamento de dados"
       icon="🔒"
-      metaDescription="Seguro Cyber contra ataques hackers, ransomware e vazamento de dados. Proteção LGPD para empresas. Cobertura de custos de recuperação. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Cyber contra ataques hackers e vazamento de dados. Proteção LGPD para empresas. Cobertura de custos de recuperação. Cotação grátis na Patro Seguros."
       description="O Seguro Cyber protege empresas contra riscos digitais: ataques hackers, ransomware, vazamento de dados, invasões de sistemas e violações da LGPD."
       detailedDescription={`O Brasil é o 2º país mais atacado por hackers no mundo. Só em 2023, mais de 100 bilhões de tentativas de ataque cibernético foram registradas no país. Empresas de todos os portes são alvos — e as consequências vão desde paralisação total das operações até multas milionárias pela LGPD.
 

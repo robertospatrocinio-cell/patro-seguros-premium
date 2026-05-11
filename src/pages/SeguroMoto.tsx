@@ -8,7 +8,7 @@ const SeguroMoto = () => {
       title="Seguro Moto em Guarulhos – Cidade Maia"
       subtitle="Proteção completa para motociclistas com cobertura e assistência 24h especializada"
       icon="🏍️"
-      metaDescription="Seguro Moto em Guarulhos, Cidade Maia. Cobertura contra roubo, colisão e assistência 24h com guincho para motos. Compare seguradoras. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Moto em Guarulhos, Cidade Maia. Cobertura contra roubo, colisão e assistência 24h com guincho para motos. Cotação grátis na Patro Seguros."
       description="Seguro Moto em Guarulhos: proteção essencial contra roubo e acidentes. Garanta assistência 24h especializada e cobertura completa para sua motocicleta."
       detailedDescription={`O seguro de moto tem particularidades importantes que o diferenciam do seguro auto. A taxa de sinistralidade (probabilidade de acionar o seguro) é significativamente maior para motos: elas são mais visadas para roubo e furto, e a exposição a acidentes é naturalmente maior.
 

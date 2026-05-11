@@ -15,7 +15,7 @@ A Patro Seguros realiza uma análise detalhada do perfil do imóvel: tipo de con
 
 Um dado importante: o seguro residencial é um dos mais acessíveis do mercado, custando em média menos de R$ 1 por dia para apartamentos em Guarulhos. Mesmo assim, mais de 70% dos imóveis brasileiros não possuem seguro — uma exposição desnecessária a prejuízos que podem chegar a dezenas de milhares de reais.`}
     icon="🏠"
-    metaDescription="Seguro Residencial em Guarulhos para casas e apartamentos. Cobertura contra incêndio, roubo, vendaval e danos elétricos. Cotação grátis – Patro Seguros Guarulhos."
+    metaDescription="Seguro Residencial em Guarulhos para casas e apartamentos. Cobertura contra incêndio e roubo. Cotação grátis na Patro Seguros, sua corretora local."
     coverages={[
       { title: "Incêndio, Raio e Explosão", description: "Cobertura básica obrigatória para danos estruturais ao imóvel. Inclui despesas com salvamento e desentulho." },
       { title: "Roubo e Furto Qualificado", description: "Proteção para bens dentro da residência: eletrônicos, móveis, eletrodomésticos e objetos pessoais de valor." },
