@@ -263,37 +263,9 @@ const faqs = [
         </section>
 
 
-        {/* CTA — Cotação Auto */}
-        <LazySection minHeight="400px">
-        <section className="py-16 md:py-24 bg-background" aria-labelledby="cotacao-auto-heading">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto rounded-2xl gradient-hero relative overflow-hidden p-8 md:p-16">
-              <img src={cotacaoOnline3d} alt="" width={192} height={192} className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 w-48 h-48 object-contain opacity-80" aria-hidden="true" loading="lazy" decoding="async" />
-              <div className="relative md:max-w-[60%]">
-                <h2 id="cotacao-auto-heading" className="text-white mb-3 text-2xl md:text-3xl">Cotação de Seguro Auto em Guarulhos</h2>
-                <p className="text-white/70 mb-8 text-[14px] max-w-md mx-auto">
-                  Auto, moto, caminhão e vans — compare preços das melhores seguradoras em minutos.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <a
-                    href="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white text-foreground hover:bg-white/90 font-semibold">
-                      Fazer Cotação Online <ArrowRight className="ml-1.5 h-3.5 w-3.5" aria-hidden="true" />
-                    </Button>
-                  </a>
-                  <Link to="/planos-de-saude">
-                    <Button size="lg" className="text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] font-medium">
-                      Simular Plano de Saúde
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Lead Magnet — E-book Section */}
+        <LazySection minHeight="300px">
+          <Suspense fallback={null}><LeadMagnetSection /></Suspense>
         </LazySection>
 
 
