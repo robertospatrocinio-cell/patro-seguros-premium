@@ -1,36 +1,48 @@
-import * as Sentry from "@sentry/react";
+/**
+ * Sentry is loaded lazily to reduce initial bundle size and main-thread work.
+ * The SDK is only initialized if VITE_SENTRY_DSN is present.
+ */
+let sentryInstance: typeof import("@sentry/react") | null = null;
 
-export const initMonitoring = () => {
+async function getSentry() {
+  if (sentryInstance) return sentryInstance;
+  if (!import.meta.env.VITE_SENTRY_DSN) return null;
+  
+  sentryInstance = await import("@sentry/react");
+  return sentryInstance;
+}
+
+export const initMonitoring = async () => {
   const dsn = import.meta.env.VITE_SENTRY_DSN;
+  if (!dsn) return;
 
-  if (dsn) {
-    Sentry.init({
-      dsn,
-      integrations: [
-        Sentry.browserTracingIntegration(),
-        Sentry.replayIntegration(),
-      ],
-      // Performance Monitoring
-      tracesSampleRate: 1.0, 
-      // Session Replay
-      replaysSessionSampleRate: 0.1,
-      replaysOnErrorSampleRate: 1.0,
-      environment: import.meta.env.MODE,
-    });
-  } else {
-    console.warn("Sentry DSN not found. Error monitoring is disabled.");
-  }
+  const Sentry = await getSentry();
+  if (!Sentry) return;
+
+  Sentry.init({
+    dsn,
+    integrations: [
+      Sentry.browserTracingIntegration(),
+      Sentry.replayIntegration(),
+    ],
+    tracesSampleRate: 0.2, // Reduced from 1.0 to save resources
+    replaysSessionSampleRate: 0.05,
+    replaysOnErrorSampleRate: 1.0,
+    environment: import.meta.env.MODE,
+  });
 };
 
-export const captureException = (error: any, context?: any) => {
-  console.error("Capturing exception:", error, context);
-  if (import.meta.env.VITE_SENTRY_DSN) {
+export const captureException = async (error: any, context?: any) => {
+  console.error("Error detected:", error, context);
+  const Sentry = await getSentry();
+  if (Sentry) {
     Sentry.captureException(error, { extra: context });
   }
 };
 
-export const setUserContext = (user: { id?: string; email?: string; username?: string }) => {
-  if (import.meta.env.VITE_SENTRY_DSN) {
+export const setUserContext = async (user: { id?: string; email?: string; username?: string }) => {
+  const Sentry = await getSentry();
+  if (Sentry) {
     Sentry.setUser(user);
   }
 };
