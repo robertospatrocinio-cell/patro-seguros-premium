@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -103,17 +104,15 @@ export default function PagespeedHistory() {
   const runNow = async () => {
     setRunning(true);
     toast.info("Auditoria iniciada — pode levar 1-2 minutos.");
-    try {
-      const { data, error } = await supabase.functions.invoke("run-pagespeed-audit");
-      if (error) throw error;
-      toast.success(`Auditoria concluída: ${data?.results?.length ?? 0} sucessos`);
-      await load();
-    } catch (e) {
-      toast.error("Falha ao executar auditoria");
-      console.error(e);
-    } finally {
+    const { data, error } = await safeInvoke("run-pagespeed-audit", {});
+    if (error) {
+      handleSupabaseError(error, "Falha ao executar auditoria.");
       setRunning(false);
+      return;
     }
+    toast.success(`Auditoria concluída: ${data?.results?.length ?? 0} sucessos`);
+    await load();
+    setRunning(false);
   };
 
   return (
