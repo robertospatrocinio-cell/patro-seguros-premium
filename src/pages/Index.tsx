@@ -33,9 +33,9 @@ import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
 // Lazy load below-fold decorative images
-const shieldHero3d = new URL("@/assets/3d-shield-hero.webp", import.meta.url).href;
-const insuranceGroup3d = new URL("@/assets/3d-insurance-group.webp", import.meta.url).href;
-const cotacaoOnline3d = new URL("@/assets/3d-cotacao-online.webp", import.meta.url).href;
+const shieldHero3d = "/images/3d-shield-hero.webp";
+const insuranceGroup3d = "/images/3d-insurance-group.webp";
+const cotacaoOnline3d = "/images/3d-cotacao-online.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -114,7 +114,7 @@ const faqs = [
            </div>
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
-              <div className="mb-6 md:mb-8">
+              <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center">
                 <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
@@ -198,9 +198,8 @@ const faqs = [
           </div>
         </section>
 
-        {/* E-E-A-T Content Section */}
-        <LazySection minHeight="600px">
-        <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading">
+        {/* E-E-A-T Content Section — Optimized for performance with content-visibility */}
+        <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}>
           <div className="container mx-auto px-4 max-w-3xl">
                <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
@@ -262,12 +261,6 @@ const faqs = [
             </div>
           </div>
         </section>
-        </LazySection>
-
-        {/* Lead Magnet — E-book */}
-        <LazySection minHeight="300px">
-          <Suspense fallback={null}><LeadMagnetSection /></Suspense>
-        </LazySection>
 
 
         {/* CTA — Cotação Auto */}
