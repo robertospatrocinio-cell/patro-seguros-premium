@@ -1,4 +1,5 @@
- import React, { Component, ErrorInfo, ReactNode } from "react";
+  import React, { Component, ErrorInfo, ReactNode } from "react";
+  import { captureException } from "@/lib/monitoring";
  import { Button } from "@/components/ui/button";
  import { AlertTriangle, RefreshCcw, Home } from "lucide-react";
  
@@ -21,9 +22,14 @@
      return { hasError: true, error };
    }
  
-   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-     console.error("Uncaught error:", error, errorInfo);
-   }
+    public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+      console.error("Uncaught error:", error, errorInfo);
+      captureException(error, {
+        componentStack: errorInfo.componentStack,
+        url: window.location.href,
+        timestamp: new Date().toISOString()
+      });
+    }
  
    private handleReset = () => {
      this.setState({ hasError: false, error: undefined });
