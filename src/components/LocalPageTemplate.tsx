@@ -314,7 +314,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         </div>
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <Link 
-            to={`/cotacao?tipo=${getQuoteType(icon)}&origem=${slug}`}
+            to={`/cotacao?tipo=${getQuoteType(icon)}&origem=${encodeURIComponent(slug)}`}
             className="w-full sm:w-auto"
             onClick={() => trackCotacaoClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
           >
