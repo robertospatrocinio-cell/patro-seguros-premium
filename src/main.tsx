@@ -1,20 +1,32 @@
-import { initMonitoring } from "./lib/monitoring";
-/**
- * Ponto de entrada da aplicação.
- * Inicializa o React, importa estilos globais e registra o Service Worker para suporte a PWA e Cache.
- */
- import { createRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { initWebVitals } from "./lib/webVitals";
+import "./index.css";
 
-// Initialize error monitoring
-initMonitoring();
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  createRoot(rootElement).render(<App />);
+}
 
-createRoot(document.getElementById("root")!).render(<App />);
-
-// Initialize Core Web Vitals monitoring
-initWebVitals();
+// Initialize performance monitoring utilities lazily to keep the main thread clear
+// during the critical hydration phase.
+if ("requestIdleCallback" in window) {
+  window.requestIdleCallback(async () => {
+    const { initMonitoring } = await import("./lib/monitoring");
+    const { initWebVitals } = await import("./lib/webVitals");
+    
+    initMonitoring();
+    initWebVitals();
+  });
+} else {
+  setTimeout(async () => {
+    const { initMonitoring } = await import("./lib/monitoring");
+    const { initWebVitals } = await import("./lib/webVitals");
+    
+    initMonitoring();
+    initWebVitals();
+  }, 2000);
+}
 
 // Register service worker for route-based caching
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
