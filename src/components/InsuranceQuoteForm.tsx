@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
-import { supabase } from "@/integrations/supabase/client";
+ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -152,23 +152,23 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       </table>
     `;
 
-    try {
-      const { error } = await supabase.functions.invoke("send-form-email", {
-        body: { subject, textBody: parts, htmlBody },
-      });
+    const { error } = await safeInvoke("send-form-email", { 
+      subject, 
+      textBody: parts, 
+      htmlBody 
+    });
 
-      if (error) throw error;
-
-      setTimeout(() => {
-        setSending(false);
-        setSent(true);
-        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(parts)}`, "_blank");
-      }, 600);
-    } catch (err) {
-      console.error("Email send error:", err);
-      toast.error("Ops! Ocorreu um erro ao processar sua solicitação.");
+    if (error) {
+      handleSupabaseError(error, "Ops! Ocorreu um erro ao processar seu pedido de cotação.");
       setSending(false);
+      return;
     }
+
+    setTimeout(() => {
+      setSending(false);
+      setSent(true);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(parts)}`, "_blank");
+    }, 600);
   };
 
   if (sent) {
