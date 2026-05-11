@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Send, CheckCircle, MessageCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import { escapeHtml } from "@/lib/utils";
+import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,9 +24,23 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
   const update = (key: string, value: string) => setForm(prev => ({ ...prev, [key]: value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.nome?.trim() || !form.telefone?.trim()) return;
+    
+    if (!form.nome?.trim()) {
+      toast.error("Por favor, informe seu nome.");
+      return;
+    }
+
+    if (!form.telefone?.trim() || !validatePhone(form.telefone)) {
+      toast.error("Por favor, informe um telefone válido com DDD.");
+      return;
+    }
+
+    if (form.email?.trim() && !validateEmail(form.email)) {
+      toast.error("Por favor, informe um e-mail válido.");
+      return;
+    }
 
     setSending(true);
 
@@ -63,18 +78,28 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       </table>
     `;
 
-    supabase.functions.invoke("send-form-email", {
-      body: { subject, textBody: parts, htmlBody },
-    }).catch(err => console.error("Email send error:", err));
+    try {
+      const { error } = await supabase.functions.invoke("send-form-email", {
+        body: { subject, textBody: parts, htmlBody },
+      });
 
-    setTimeout(() => {
+      if (error) throw error;
+
+      setTimeout(() => {
+        setSending(false);
+        setSent(true);
+        window.open(
+          `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
+          "_blank"
+        );
+      }, 500);
+    } catch (err) {
+      console.error("Email send error:", err);
+      toast.error("Ops! Ocorreu um erro ao processar sua solicitação.", {
+        description: "Tente novamente ou entre em contato diretamente pelo WhatsApp."
+      });
       setSending(false);
-      setSent(true);
-      window.open(
-        `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
-        "_blank"
-      );
-    }, 500);
+    }
   };
 
   if (sent) {

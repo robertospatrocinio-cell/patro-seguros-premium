@@ -155,6 +155,7 @@ const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 import RequireAdmin from "@/components/RequireAdmin";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const QueryClientProvider = lazy(() =>
   import("@tanstack/react-query").then(({ QueryClient, QueryClientProvider }) => {
@@ -178,6 +179,7 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
 }
 
 const App = () => (
+  <ErrorBoundary>
   <Suspense fallback={null}>
   <QueryClientProvider>
     <Suspense fallback={null}>
@@ -395,6 +397,7 @@ const App = () => (
     </Suspense>
   </QueryClientProvider>
   </Suspense>
+  </ErrorBoundary>
 );
 
 export default App;
