@@ -8,7 +8,6 @@ import LocalPageTemplate, {
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
-import GalpaoStickyCTABar from "@/components/GalpaoStickyCTABar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 import LazySection from "@/components/LazySection";
 
