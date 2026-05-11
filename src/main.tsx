@@ -1,3 +1,4 @@
+import { initMonitoring } from "./lib/monitoring";
 /**
  * Ponto de entrada da aplicação.
  * Inicializa o React, importa estilos globais e registra o Service Worker para suporte a PWA e Cache.
@@ -6,6 +7,9 @@
 import App from "./App.tsx";
 import "./index.css";
 import { initWebVitals } from "./lib/webVitals";
+
+// Initialize error monitoring
+initMonitoring();
 
 createRoot(document.getElementById("root")!).render(<App />);
 
