@@ -417,6 +417,7 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
   </QueryClientProvider>
   </Suspense>
   </ErrorBoundary>
-);
+  );
+};
 
 export default App;
