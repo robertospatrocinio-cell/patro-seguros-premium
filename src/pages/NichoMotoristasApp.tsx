@@ -68,7 +68,7 @@ const NichoMotoristasApp = () => {
     e.preventDefault();
 
     if (!formData.nome.trim() || !formData.telefone.trim() || !formData.veiculo.trim() || !formData.plataforma) {
-      toast({ title: "Preencha os campos obrigatórios", variant: "destructive" });
+      toast.error("Preencha os campos obrigatórios");
       return;
     }
 
