@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download, CheckCircle } from "lucide-react";
@@ -25,7 +25,7 @@ const LeadMagnetSection = () => {
 
   const canSubmit = name.trim().length >= 2 && isValidWhatsApp(whatsapp);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
 
@@ -38,7 +38,7 @@ const LeadMagnetSection = () => {
     } catch {}
 
     setSent(true);
-  };
+  }, [canSubmit]);
 
   return (
     <section className="py-16 md:py-24" aria-labelledby="lead-magnet-heading">
