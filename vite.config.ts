@@ -1,66 +1,143 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import path from "path";
-import fs from "fs";
-import https from "https";
+ import path from "path";
+ import fs from "fs";
+ import https from "https";
+ import jwt from "jsonwebtoken";
 
 // Plugin to notify Google that the sitemap has been updated.
 // Note: Google has deprecated the /ping endpoint, but it's still good practice
 // to include it as a last-mile fallback or to trigger custom indexing webhooks.
  /**
-  * Plugin to notify Google that the sitemap has been updated.
-  * Implements retries with exponential backoff and timeout to avoid intermittent failures.
+  * Plugin to notify Google about sitemap updates using both Indexing API and legacy Ping.
+  * Implements retries with exponential backoff and timeout.
   */
- function googlePingPlugin(): Plugin {
-   const MAX_RETRIES = 5;
-   const TIMEOUT_MS = 10000; // 10s
-   const INITIAL_DELAY = 1000; // 1s
+ function googleIndexingPlugin(): Plugin {
+   const MAX_RETRIES = 3;
+   const TIMEOUT_MS = 15000;
+   const INITIAL_DELAY = 2000;
  
-   const notifyGoogle = async (attempt = 0): Promise<void> => {
-     const sitemapUrl = "https://www.patroseguros.com.br/sitemap-index.xml";
+   const getAccessToken = async (credentials: any): Promise<string> => {
+     const iat = Math.floor(Date.now() / 1000);
+     const exp = iat + 3600;
+     const payload = {
+       iss: credentials.client_email,
+       sub: credentials.client_email,
+       aud: "https://oauth2.googleapis.com/token",
+       iat,
+       exp,
+       scope: "https://www.googleapis.com/auth/indexing",
+     };
+ 
+     const token = jwt.sign(payload, credentials.private_key, { algorithm: "RS256" });
+ 
+     return new Promise((resolve, reject) => {
+       const postData = `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${token}`;
+       const req = https.request(
+         "https://oauth2.googleapis.com/token",
+         {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/x-www-form-urlencoded",
+             "Content-Length": Buffer.byteLength(postData),
+           },
+         },
+         (res) => {
+           let body = "";
+           res.on("data", (chunk) => (body += chunk));
+           res.on("end", () => {
+             const data = JSON.parse(body);
+             if (data.access_token) resolve(data.access_token);
+             else reject(new Error("Falha ao obter access token: " + body));
+           });
+         }
+       );
+       req.on("error", reject);
+       req.write(postData);
+       req.end();
+     });
+   };
+ 
+   const notifyIndexingApi = async (url: string, accessToken: string): Promise<boolean> => {
+     return new Promise((resolve) => {
+       const postData = JSON.stringify({ url, type: "URL_UPDATED" });
+       const req = https.request(
+         "https://indexing.googleapis.com/v3/urlNotifications:publish",
+         {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+             Authorization: `Bearer ${accessToken}`,
+             "Content-Length": Buffer.byteLength(postData),
+           },
+         },
+         (res) => {
+           if (res.statusCode === 200) resolve(true);
+           else {
+             console.warn(`⚠️ Indexing API retornou ${res.statusCode}`);
+             resolve(false);
+           }
+         }
+       );
+       req.on("error", () => resolve(false));
+       req.write(postData);
+       req.end();
+     });
+   };
+ 
+   const notifyLegacyPing = async (sitemapUrl: string, attempt = 0): Promise<void> => {
      const pingUrl = `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}`;
- 
      return new Promise((resolve) => {
        const request = https.get(pingUrl, (res) => {
          if (res.statusCode === 200) {
-           console.log("✅ Google notificado com sucesso.");
+           console.log("✅ Google Ping (Legacy) notificado com sucesso.");
            resolve();
          } else {
-           console.warn(`⚠️ Google retornou status ${res.statusCode} (Tentativa ${attempt + 1}/${MAX_RETRIES}).`);
            retryOrResolve();
          }
        });
- 
-       request.on("error", (err) => {
-         console.warn(`❌ Erro ao notificar Google: ${err.message} (Tentativa ${attempt + 1}/${MAX_RETRIES}).`);
-         retryOrResolve();
-       });
- 
+       request.on("error", retryOrResolve);
        request.setTimeout(TIMEOUT_MS, () => {
          request.destroy();
-         console.warn(`⏱️ Timeout ao notificar Google (Tentativa ${attempt + 1}/${MAX_RETRIES}).`);
          retryOrResolve();
        });
  
        function retryOrResolve() {
          if (attempt < MAX_RETRIES - 1) {
            const delay = INITIAL_DELAY * Math.pow(2, attempt);
-           console.log(`🔄 Retentando em ${delay}ms...`);
-           setTimeout(() => notifyGoogle(attempt + 1).then(resolve), delay);
-         } else {
-           console.error("❌ Falha ao notificar Google após o número máximo de tentativas.");
-           resolve();
-         }
+           setTimeout(() => notifyLegacyPing(sitemapUrl, attempt + 1).then(resolve), delay);
+         } else resolve();
        }
      });
    };
  
    return {
-     name: "google-ping",
+     name: "google-indexing",
      async closeBundle() {
        if (process.env.NODE_ENV !== "production") return;
-       console.log(`🚀 Notificando Google sobre atualização do sitemap...`);
-       await notifyGoogle();
+ 
+       const sitemapUrl = "https://www.patroseguros.com.br/sitemap-index.xml";
+       const credentialsRaw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+ 
+       if (credentialsRaw) {
+         try {
+           console.log("🚀 Iniciando Google Indexing API...");
+           const credentials = JSON.parse(credentialsRaw);
+           const token = await getAccessToken(credentials);
+           const success = await notifyIndexingApi(sitemapUrl, token);
+           if (success) {
+             console.log("✅ Google Indexing API notificada com sucesso.");
+             return;
+           }
+         } catch (err) {
+           console.warn("⚠️ Falha na Google Indexing API, usando fallback...");
+         }
+       } else {
+         console.warn("ℹ️ GOOGLE_SERVICE_ACCOUNT_JSON não configurado. Usando apenas legacy ping.");
+       }
+ 
+       console.log("🚀 Notificando Google Ping (Fallback)...");
+       await notifyLegacyPing(sitemapUrl);
      },
    };
  }
@@ -223,9 +300,9 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && asyncCssPlugin(),
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
     mode === "production" && sitemapPlugin(),
-    mode === "production" && spaFallbackPlugin(),
-    mode === "production" && googlePingPlugin(),
-    validateLocalPagesPlugin(),
+     mode === "production" && spaFallbackPlugin(),
+     mode === "production" && googleIndexingPlugin(),
+     validateLocalPagesPlugin(),
     validatePageMetaPlugin(),
   ].filter(Boolean),
   resolve: {
