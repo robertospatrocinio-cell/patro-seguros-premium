@@ -9,7 +9,11 @@
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="canonical" href="https://www.patroseguros.com.br" />
-    
+
+    <!-- Preload critical fonts early to prevent FOIT/FLIT -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/poppins-latin.woff2" as="font" type="font/woff2" crossorigin />
+
     <!-- Critical inline CSS for instant first paint -->
     <style>
       :root{--background:0 0% 100%;--foreground:220 25% 10%;--border:220 13% 91%;--primary:217 85% 31%;--primary-foreground:0 0% 100%;--muted-foreground:220 8% 46%;--gradient-hero:linear-gradient(165deg,hsl(220 30% 8%) 0%,hsl(217 60% 18%) 50%,hsl(215 70% 22%) 100%)}
@@ -45,9 +49,6 @@
          the page may not contact in the LCP window (avoids "unused preconnect"). -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
-    <!-- Preload critical fonts -->
-    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/poppins-latin.woff2" as="font" type="font/woff2" crossorigin />
     <!-- Preload LCP image of Hero Selector (default 'voce' tab = familia) -->
     <link rel="preload" href="/images/hero-familia-sm.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high" />
     <link rel="preload" href="/images/hero-familia.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
