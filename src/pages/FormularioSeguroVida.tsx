@@ -12,6 +12,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
  import { escapeHtml } from "@/lib/utils";
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+ import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -62,8 +63,6 @@ const FormularioSeguroVida = () => {
     }
     return consent;
   };
-
-  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
