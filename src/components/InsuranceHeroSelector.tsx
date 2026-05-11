@@ -94,26 +94,32 @@ const InsuranceHeroSelector = () => {
   const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null, consorcio: null });
   const [modalFormKey, setModalFormKey] = useState<string | null>(null);
 
-  const updatePill = useCallback(() => {
+  const updatePill = useCallback((isHydrating = false) => {
     const btn = buttonRefs.current[active];
     const container = tabsRef.current;
     if (!btn || !container) return;
-    // Use offsetLeft/offsetWidth which are cached layout values
-    // and avoid forcing a synchronous getBoundingClientRect reflow.
-    const newLeft = btn.offsetLeft;
-    const newWidth = btn.offsetWidth;
-    setPillStyle(prev =>
-      prev.left === newLeft && prev.width === newWidth ? prev : { left: newLeft, width: newWidth }
-    );
+
+    const performUpdate = () => {
+      // Use offsetLeft/offsetWidth which are cached layout values
+      // and avoid forcing a synchronous getBoundingClientRect reflow.
+      const newLeft = btn.offsetLeft;
+      const newWidth = btn.offsetWidth;
+      setPillStyle(prev =>
+        prev.left === newLeft && prev.width === newWidth ? prev : { left: newLeft, width: newWidth }
+      );
+    };
+
+    if (isHydrating) {
+      // Defer the layout read to after first paint via rAF to avoid
+      // forcing a synchronous reflow during hydration.
+      requestAnimationFrame(performUpdate);
+    } else {
+      performUpdate();
+    }
   }, [active]);
 
-  // Defer the layout read to after first paint via rAF. Reading offsetLeft/
-  // offsetWidth inside useLayoutEffect during hydration forced a synchronous
-  // reflow (~130ms in Lighthouse). The pill starts at width:0 and has a CSS
-  // transition, so the 1-frame delay produces a subtle slide-in instead.
   useEffect(() => {
-    const frame = requestAnimationFrame(updatePill);
-    return () => cancelAnimationFrame(frame);
+    updatePill(true);
   }, [updatePill]);
 
   // Watch the tabs container with ResizeObserver instead of window resize.
@@ -124,8 +130,10 @@ const InsuranceHeroSelector = () => {
     if (!container || typeof ResizeObserver === "undefined") return;
     let frame = 0;
     const ro = new ResizeObserver(() => {
+      // ResizeObserver callback already runs in a safe phase,
+      // but we use rAF to ensure it doesn't block the current task.
       cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(updatePill);
+      frame = requestAnimationFrame(() => updatePill(false));
     });
     ro.observe(container);
     return () => {
