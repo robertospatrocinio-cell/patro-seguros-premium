@@ -89,37 +89,35 @@ const bgSmByTab: Record<TabKey, string> = {
 
 const InsuranceHeroSelector = () => {
   const [active, setActive] = useState<TabKey>("voce");
-  const [pillStyle, setPillStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
+  const [pillStyle, setPillStyle] = useState<{ left: string | number; width: string | number; opacity: number }>({ 
+    left: "0%", 
+    width: "25%", 
+    opacity: 0 
+  });
   const tabsRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null, consorcio: null });
   const [modalFormKey, setModalFormKey] = useState<string | null>(null);
 
-  const updatePill = useCallback((isHydrating = false) => {
+  const updatePill = useCallback(() => {
     const btn = buttonRefs.current[active];
     const container = tabsRef.current;
     if (!btn || !container) return;
 
-    const performUpdate = () => {
-      // Use offsetLeft/offsetWidth which are cached layout values
-      // and avoid forcing a synchronous getBoundingClientRect reflow.
-      const newLeft = btn.offsetLeft;
-      const newWidth = btn.offsetWidth;
-      setPillStyle(prev =>
-        prev.left === newLeft && prev.width === newWidth ? prev : { left: newLeft, width: newWidth }
-      );
-    };
-
-    if (isHydrating) {
-      // Defer the layout read to after first paint via rAF to avoid
-      // forcing a synchronous reflow during hydration.
-      requestAnimationFrame(performUpdate);
-    } else {
-      performUpdate();
-    }
+    const newLeft = btn.offsetLeft;
+    const newWidth = btn.offsetWidth;
+    
+    setPillStyle(prev =>
+      prev.left === newLeft && prev.width === newWidth && prev.opacity === 1 
+        ? prev 
+        : { left: newLeft, width: newWidth, opacity: 1 }
+    );
   }, [active]);
 
   useEffect(() => {
-    updatePill(true);
+    // Start with a safe default or calculated position if possible
+    // but wait for first paint to measure exact pixels.
+    const frame = requestAnimationFrame(updatePill);
+    return () => cancelAnimationFrame(frame);
   }, [updatePill]);
 
   // Watch the tabs container with ResizeObserver instead of window resize.
@@ -133,7 +131,7 @@ const InsuranceHeroSelector = () => {
       // ResizeObserver callback already runs in a safe phase,
       // but we use rAF to ensure it doesn't block the current task.
       cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => updatePill(false));
+      frame = requestAnimationFrame(() => updatePill());
     });
     ro.observe(container);
     return () => {
@@ -191,7 +189,11 @@ const InsuranceHeroSelector = () => {
           <div ref={tabsRef} className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto">
             <div
               className="absolute top-1 bottom-1 rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out"
-              style={{ left: pillStyle.left, width: pillStyle.width }}
+              style={{ 
+                left: pillStyle.left, 
+                width: pillStyle.width,
+                opacity: pillStyle.opacity 
+              }}
             />
             {tabs.map((tab) => (
               <button
