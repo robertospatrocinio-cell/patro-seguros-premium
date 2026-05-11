@@ -43,9 +43,9 @@ Para empresas de Guarulhos, oferecemos planos de saúde PME a partir de 2 vidas 
       note: "Dica Patro: Famílias com crianças e idosos podem economizar até 25% escolhendo planos com coparticipação — você paga uma pequena taxa por consulta, mas o valor mensal é significativamente menor.",
     }}
     realScenarios={[
-      { title: "Case: PME do Cidade Maia economizou R$ 2.500/mês em plano de saúde", description: "Uma clínica médica com 12 funcionários no Cidade Maia pagava R$ 850/vida/mês no plano empresarial. A Patro renegociou com 3 operadoras e migrou para um plano SulAmérica com rede equivalente por R$ 640/vida/mês — economia de R$ 2.520/mês (R$ 30.240/ano) sem perda de qualidade." },
-      { title: "Case: Seguro de vida salvou família após diagnóstico de doença grave", description: "Um empresário de 45 anos em Guarulhos, cliente da Patro, foi diagnosticado com câncer. Seu seguro de vida com cobertura de doenças graves pagou R$ 200.000 antecipadamente, permitindo que ele fizesse o tratamento no Hospital Sírio-Libanês enquanto mantinha a família financeiramente protegida." },
-      { title: "Case: Migração de plano sem carência para família com idosos", description: "Uma família com 2 idosos (acima de 60 anos) precisava migrar de plano por reajuste abusivo. A Patro encontrou um plano Bradesco Saúde com portabilidade de carências, mantendo todos os direitos adquiridos e reduzindo a mensalidade em 18%." },
+      { title: "Economia em plano PME no Cidade Maia", description: "Clínica com 12 vidas economizou R$ 2.500/mês em plano de saúde com rede equivalente. A economia anual superou R$ 30 mil após consultoria da Patro." },
+      { title: "Seguro de vida em diagnóstico grave", description: "Empresário recebeu R$ 200 mil antecipados do seguro de vida após diagnóstico de câncer. O valor garantiu o melhor tratamento e a proteção da família." },
+      { title: "Migração sem carência para idosos", description: "Família com idosos migrou de plano de saúde com portabilidade total de carências, reduzindo a mensalidade em 18% sem perder benefícios adquiridos." },
     ]}
     tips={[
       "Compare sempre antes de renovar: reajustes podem variar 20-50% entre operadoras para o mesmo perfil.",

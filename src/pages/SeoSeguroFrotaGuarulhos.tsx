@@ -44,9 +44,9 @@ Para frotas acima de 20 veículos, negociamos condições especiais que incluem 
       note: "Dica Patro: Empresas com programa de gestão de risco (telemetria + treinamento de motoristas) obtêm reduções de até 25% no prêmio da frota.",
     }}
     realScenarios={[
-      { title: "Case: Transportadora de Cumbica reduziu sinistralidade em 40%", description: "Uma transportadora com 35 veículos em Cumbica tinha sinistralidade alta (8 ocorrências/ano). A Patro implementou um programa de gestão de risco com telemetria e treinamento de motoristas. Em 12 meses, os sinistros caíram para 5, e o prêmio da renovação foi 22% menor. A economia total foi de R$ 45.000 no ano." },
-      { title: "Case: Distribuidora economizou R$ 80.000 na renovação", description: "Uma distribuidora de alimentos com 50 veículos em Guarulhos renovava com a mesma seguradora há 5 anos. A Patro cotou com 4 concorrentes e encontrou uma proposta 18% mais barata com coberturas superiores, incluindo lucros cessantes e assistência premium. Economia de R$ 80.000/ano." },
-      { title: "Case: Sinistro de carga resolvido em tempo recorde", description: "Um caminhão de uma empresa-cliente foi roubado na Fernão Dias com carga de R$ 200.000. A Patro acionou o seguro de carga (RCF-DC) no mesmo dia, a carga foi indenizada em 30 dias e o veículo, recuperado pelo rastreador em 48 horas. A empresa não perdeu nenhum dia de operação." },
+      { title: "Redução de sinistros em Cumbica", description: "Transportadora reduziu sinistros em 40% com gestão de risco da Patro. A economia gerada na renovação e operação somou R$ 45.000 no primeiro ano." },
+      { title: "Economia de R$ 80 mil em distribuidora", description: "Distribuidora em Guarulhos economizou 18% na renovação da frota com a Patro. O novo plano incluiu assistência premium e lucros cessantes sem custo extra." },
+      { title: "Roubo de carga na Fernão Dias", description: "Carga de R$ 200 mil foi indenizada em 30 dias após roubo. O veículo foi rastreado e recuperado em 48h, minimizando o impacto na operação da empresa." },
     ]}
     coverageExclusions={[
       "Veículos com documentação irregular ou sem CRLV atualizado",
