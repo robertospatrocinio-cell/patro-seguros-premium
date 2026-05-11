@@ -3,11 +3,6 @@
   import { toast } from "sonner";
  import { Button } from "@/components/ui/button";
   import { AlertTriangle, RefreshCcw, Home, ArrowLeft, Copy, Check, MessageSquare, PhoneCall } from "lucide-react";
-    private handleWhatsAppReport = () => {
-      const message = encodeURIComponent(`Olá, encontrei um erro no site da Patro Seguros. ID do Erro: ${this.state.errorId}`);
-      window.open(`https://wa.me/551151997500?text=${message}`, "_blank");
-    };
-
  
  interface Props {
    children: ReactNode;
@@ -21,7 +16,12 @@
     copied: boolean;
   }
  
-  class ErrorBoundary extends Component<Props, State> {
+   class ErrorBoundary extends Component<Props, State> {
+     private handleWhatsAppReport = () => {
+       const message = encodeURIComponent(`Olá, encontrei um erro no site da Patro Seguros. ID do Erro: ${this.state.errorId}`);
+       window.open(`https://wa.me/551151997500?text=${message}`, "_blank");
+     };
+
     public state: State = {
       hasError: false,
       errorId: "",
