@@ -131,7 +131,7 @@ const InsuranceHeroSelector = () => {
       // ResizeObserver callback already runs in a safe phase,
       // but we use rAF to ensure it doesn't block the current task.
       cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => updatePill(false));
+      frame = requestAnimationFrame(() => updatePill());
     });
     ro.observe(container);
     return () => {
