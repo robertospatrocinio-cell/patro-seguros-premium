@@ -58,6 +58,28 @@ serve(async (req) => {
       });
     }
 
+    // Require a valid Supabase-issued JWT (anon or user). This blocks
+    // arbitrary server-side / cURL callers that spoof an allowed Origin.
+    const authHeader = req.headers.get("Authorization") || req.headers.get("authorization");
+    if (!authHeader?.startsWith("Bearer ")) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const jwt = authHeader.replace("Bearer ", "").trim();
+    const supabaseAuthClient = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_ANON_KEY") ?? ""
+    );
+    const { data: claimsData, error: claimsError } = await supabaseAuthClient.auth.getClaims(jwt);
+    if (claimsError || !claimsData?.claims) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const ip =
       req.headers.get("cf-connecting-ip") ||
       req.headers.get("x-real-ip") ||
