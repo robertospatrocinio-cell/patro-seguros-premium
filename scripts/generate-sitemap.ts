@@ -33,8 +33,8 @@ interface SitemapEntry {
 // 0.3 = legal pages
 
 const highIntentTransactional: SitemapEntry[] = [
-  { loc: "/", priority: "1.0", changefreq: "weekly" },
-  { loc: "/cotacao", priority: "0.9", changefreq: "weekly" },
+  { loc: "/", priority: "1.0", changefreq: "daily" },
+  { loc: "/cotacao", priority: "1.0", changefreq: "daily" },
   { loc: "/cotacao-seguro-auto", priority: "0.9", changefreq: "weekly" },
   { loc: "/contato", priority: "0.8", changefreq: "monthly" },
 ];
@@ -69,7 +69,7 @@ const coreProducts: SitemapEntry[] = [
   "/planos-de-saude",
   "/seguro-empresarial",
   "/seguro-frota",
-].map(loc => ({ loc, priority: "0.8", changefreq: "monthly" }));
+].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const secondaryProducts: SitemapEntry[] = [
   "/seguro-viagem", "/seguro-celular", "/seguro-odonto",
