@@ -282,12 +282,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             {field.type === "email" && (
               <Input
                 id={`iq-${field.id}`}
-                type="email"
+                type="text"
                 placeholder={field.placeholder || "seu@email.com"}
                 value={formData[field.id] || ""}
                 onChange={e => update(field.id, e.target.value)}
                 maxLength={255}
-                required={field.required}
               />
             )}
 
