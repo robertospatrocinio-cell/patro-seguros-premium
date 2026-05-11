@@ -5,7 +5,69 @@
 </IfModule>
 
 DirectoryIndex index.html
-Options -MultiViews
+Options -MultiViews +FollowSymLinks
+
+# ----------------------------------------------------------------------
+# | Compression and Pre-compressed Static Assets                       |
+# ----------------------------------------------------------------------
+
+# Serve Brotli-compressed files if they exist and the client supports Brotli.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP:Accept-Encoding} br
+  RewriteCond %{REQUEST_FILENAME}.br -f
+  RewriteRule ^(.*)$ $1.br [L]
+  
+  # Set correct content type and encoding for .br files
+  <FilesMatch "\.js\.br$">
+    Header set Content-Type "application/javascript"
+    Header set Content-Encoding br
+  </FilesMatch>
+  <FilesMatch "\.css\.br$">
+    Header set Content-Type "text/css"
+    Header set Content-Encoding br
+  </FilesMatch>
+  <FilesMatch "\.html\.br$">
+    Header set Content-Type "text/html"
+    Header set Content-Encoding br
+  </FilesMatch>
+  <FilesMatch "\.svg\.br$">
+    Header set Content-Type "image/svg+xml"
+    Header set Content-Encoding br
+  </FilesMatch>
+  <FilesMatch "\.json\.br$">
+    Header set Content-Type "application/json"
+    Header set Content-Encoding br
+  </FilesMatch>
+</IfModule>
+
+# Serve Gzip-compressed files if Brotli is not supported and .gz files exist.
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTP:Accept-Encoding} gzip
+  RewriteCond %{REQUEST_FILENAME}.gz -f
+  RewriteRule ^(.*)$ $1.gz [L]
+  
+  <FilesMatch "\.js\.gz$">
+    Header set Content-Type "application/javascript"
+    Header set Content-Encoding gzip
+  </FilesMatch>
+  <FilesMatch "\.css\.gz$">
+    Header set Content-Type "text/css"
+    Header set Content-Encoding gzip
+  </FilesMatch>
+  <FilesMatch "\.html\.gz$">
+    Header set Content-Type "text/html"
+    Header set Content-Encoding gzip
+  </FilesMatch>
+  <FilesMatch "\.svg\.gz$">
+    Header set Content-Type "image/svg+xml"
+    Header set Content-Encoding gzip
+  </FilesMatch>
+  <FilesMatch "\.json\.gz$">
+    Header set Content-Type "application/json"
+    Header set Content-Encoding gzip
+  </FilesMatch>
+</IfModule>
 
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -24,21 +86,15 @@ Options -MultiViews
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf)$">
+  <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf|avif)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
     Header unset ETag
+    Header set X-Content-Type-Options "nosniff"
   </FilesMatch>
 
-  <FilesMatch "\.(html)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-    Header set Expires "0"
-    Header set X-LiteSpeed-Cache-Control "no-cache"
-  </FilesMatch>
-
-  <FilesMatch "^(index|404)\.html$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set X-LiteSpeed-Cache-Control "no-cache"
+  <FilesMatch "\.(html|xml|json|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+    FileETag MTime Size
   </FilesMatch>
 
   <FilesMatch "^(sitemap\.xml|robots\.txt)$">
@@ -46,8 +102,7 @@ Options -MultiViews
   </FilesMatch>
 
   <FilesMatch "^sw\.js$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
+    Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
 
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
@@ -58,14 +113,12 @@ Options -MultiViews
 </IfModule>
 
 <IfModule mod_brotli.c>
-  AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json image/svg+xml text/xml application/xml
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/css application/javascript application/json image/svg+xml text/xml application/xml application/manifest+json text/plain
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml font/woff2
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml application/manifest+json text/plain font/woff2
 </IfModule>
-
-FileETag None
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
