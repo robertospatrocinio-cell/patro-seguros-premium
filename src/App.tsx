@@ -1,4 +1,6 @@
- import { lazy, Suspense, useEffect, useState } from "react";
+  import { lazy, Suspense, useEffect, useState } from "react";
+  import { setUserContext } from "@/lib/monitoring";
+  import { supabase } from "@/integrations/supabase/client";
  import { BrowserRouter, Routes, Route } from "react-router-dom";
  const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import ScrollToTop from "@/components/ScrollToTop";
@@ -178,7 +180,24 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-const App = () => (
+  const App = () => {
+    useEffect(() => {
+      // Monitor auth state to provide user context to Sentry
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+        if (session?.user) {
+          setUserContext({
+            id: session.user.id,
+            email: session.user.email,
+          });
+        } else {
+          setUserContext({}); // Clear context on sign out
+        }
+      });
+
+      return () => subscription.unsubscribe();
+    }, []);
+
+    return (
   <ErrorBoundary>
   <Suspense fallback={null}>
   <QueryClientProvider>
