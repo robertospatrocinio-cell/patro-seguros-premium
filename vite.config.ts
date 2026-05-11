@@ -142,22 +142,10 @@ export default defineConfig(({ mode }) => ({
             "@radix-ui/react-label",
             "lucide-react"
           ],
-          "ui-form": [
-            "@radix-ui/react-checkbox", 
-            "@radix-ui/react-radio-group", 
-            "@radix-ui/react-select", 
-            "@radix-ui/react-switch",
-            "react-hook-form",
-            "zod"
-          ],
-          "ui-extra": [
-            "@radix-ui/react-accordion",
-            "@radix-ui/react-tabs",
-            "@radix-ui/react-tooltip",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-scroll-area",
-            "@radix-ui/react-hover-card"
-          ],
+          "ui-form": ["@radix-ui/react-checkbox", "@radix-ui/react-radio-group", "@radix-ui/react-select", "@radix-ui/react-switch", "react-hook-form", "zod"],
+          "ui-navigation": ["@radix-ui/react-navigation-menu", "@radix-ui/react-menubar", "@radix-ui/react-tabs"],
+          "ui-feedback": ["@radix-ui/react-tooltip", "@radix-ui/react-popover", "@radix-ui/react-alert-dialog", "@radix-ui/react-hover-card", "@radix-ui/react-toast"],
+          "ui-content": ["@radix-ui/react-accordion", "@radix-ui/react-scroll-area", "@radix-ui/react-collapsible", "@radix-ui/react-aspect-ratio", "@radix-ui/react-avatar", "@radix-ui/react-separator"],
           "data-query": ["@tanstack/react-query", "@supabase/supabase-js"],
           "utils": ["clsx", "tailwind-merge", "date-fns", "framer-motion"]
         },
