@@ -143,7 +143,6 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
               value={form.nome}
               onChange={e => update("nome", e.target.value)}
               maxLength={100}
-              required
             />
           </div>
           <div className="space-y-1.5">
@@ -154,7 +153,6 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
               value={form.telefone}
               onChange={e => update("telefone", e.target.value)}
               maxLength={20}
-              required
             />
           </div>
         </div>
