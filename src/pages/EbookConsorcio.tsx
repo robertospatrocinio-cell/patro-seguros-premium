@@ -20,7 +20,7 @@ const leadSchema = z.object({
   whatsapp: z
     .string()
     .trim()
-    .regex(/^\(\d{2}\)\s9\d{4}-\d{4}$/, "WhatsApp inválido. Use formato (11) 9xxxx-xxxx"),
+    .regex(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, "WhatsApp inválido. Use formato (11) 9xxxx-xxxx"),
 });
 
 const formatWhatsApp = (value: string): string => {
@@ -48,7 +48,7 @@ const publicoAlvo = [
 
 const bensCategorias = [
   { emoji: "🚗", title: "Bens Móveis", items: ["Aquisição de veículos novos e usados", "Aquisição de motocicletas", "Aquisição de pesados como caminhões, tratores, ônibus e implementos agrícolas"] },
-  { emoji: "🏠", title: "Imóveis", items: ["Compra e venda (mover prontoLatransferência patrimonial/terreno/área urbana e rural)", "Compra e venda com garantia substitutiva (móvel na planta)", "Construção", "Reforma", "Quitação de financiamento próprio", "Compra e venda com intervenção bancária (financiamento de terceiros)", "Substituição de garantia"] },
+  { emoji: "🏠", title: "Imóveis", items: ["Compra e venda (imóvel pronto / transferência patrimonial / terreno / área urbana e rural)", "Compra e venda com garantia substitutiva (imóvel na planta)", "Construção", "Reforma", "Quitação de financiamento próprio", "Compra e venda com intervenção bancária (financiamento de terceiros)", "Substituição de garantia"] },
   { emoji: "🛠️", title: "Serviços", items: ["Utilização em cirurgias plásticas", "Casamentos", "Formaturas", "Viagens", "Eventos", "Intercâmbio", "Instalações"] },
 ];
 
