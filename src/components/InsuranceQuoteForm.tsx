@@ -10,7 +10,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { supabase } from "@/integrations/supabase/client";
-import { escapeHtml } from "@/lib/utils";
+import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
+import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -93,9 +94,25 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     return consent;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isValid()) return;
+    
+    if (!isValid()) {
+      toast.error("Por favor, preencha todos os campos obrigatórios e aceite os termos.");
+      return;
+    }
+
+    const emailField = config.fields.find(f => f.type === "email");
+    if (emailField && formData[emailField.id] && !validateEmail(formData[emailField.id])) {
+      toast.error("Por favor, informe um e-mail válido.");
+      return;
+    }
+
+    const phoneField = config.fields.find(f => f.type === "tel");
+    if (phoneField && formData[phoneField.id] && !validatePhone(formData[phoneField.id])) {
+      toast.error("Por favor, informe um telefone válido com DDD.");
+      return;
+    }
 
     setSending(true);
 
@@ -135,15 +152,23 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       </table>
     `;
 
-    supabase.functions.invoke("send-form-email", {
-      body: { subject, textBody: parts, htmlBody },
-    }).catch(err => console.error("Email send error:", err));
+    try {
+      const { error } = await supabase.functions.invoke("send-form-email", {
+        body: { subject, textBody: parts, htmlBody },
+      });
 
-    setTimeout(() => {
+      if (error) throw error;
+
+      setTimeout(() => {
+        setSending(false);
+        setSent(true);
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(parts)}`, "_blank");
+      }, 600);
+    } catch (err) {
+      console.error("Email send error:", err);
+      toast.error("Ops! Ocorreu um erro ao processar sua solicitação.");
       setSending(false);
-      setSent(true);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(parts)}`, "_blank");
-    }, 600);
+    }
   };
 
   if (sent) {
