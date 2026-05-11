@@ -3,7 +3,11 @@ import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTempl
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
 import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 
-export interface SeoLocalPageConfig {
+/**
+ * Configuração de dados para uma página de SEO Local.
+ * Usada pelo template SeoLocalPage para injetar conteúdo dinâmico baseado no slug.
+ */
+ export interface SeoLocalPageConfig {
   slug: string;
   title: string;
   subtitle: string;
@@ -63,7 +67,11 @@ interface BairroSeed {
   priceRange: string;
 }
 
-const bairros: BairroSeed[] = [
+/**
+ * Lista de bairros alvo para campanhas de Seguro Auto em Guarulhos.
+ * Cada entrada gera uma página dedicada focada em SEO geolocalizado.
+ */
+ const bairros: BairroSeed[] = [
   { slug: "seguro-auto-vila-galvao", bairro: "Vila Galvão", bairroSlugBairros: "vila-augusta", riskLevel: "baixo", context: "região predominantemente residencial de classe média-alta na divisa com São Paulo, com baixos índices de roubo de veículo em comparação ao restante de Guarulhos.", reference: "próxima ao Parque Cecap e Avenida Brasil", priceRange: "R$ 2.300 a R$ 4.200/ano" },
   { slug: "seguro-auto-bonsucesso-guarulhos", bairro: "Bonsucesso", bairroSlugBairros: "bonsucesso", riskLevel: "médio", context: "bairro extenso na zona leste de Guarulhos, com forte movimento comercial na Estrada Velha de São Miguel e índices moderados de sinistralidade.", reference: "região da Estrada Velha de São Miguel e Avenida Bonsucesso", priceRange: "R$ 2.700 a R$ 5.100/ano" },
   { slug: "seguro-auto-cumbica", bairro: "Cumbica", bairroSlugBairros: "cumbica", riskLevel: "médio-alto", context: "região do Aeroporto Internacional de Guarulhos (GRU Airport), com alto fluxo de veículos, motoristas de aplicativo e índices de sinistro acima da média da cidade.", reference: "no entorno do GRU Airport e Rodovia Hélio Smidt", priceRange: "R$ 3.100 a R$ 6.200/ano" },

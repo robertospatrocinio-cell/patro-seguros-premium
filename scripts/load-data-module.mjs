@@ -22,7 +22,12 @@ const EMPTY_LOADERS = {
   ".avif": "empty",
 };
 
-export async function loadDataModule(relPath) {
+/**
+ * Loader compartilhado para scripts de build (sitemap, validadores).
+ * Faz o bundle de um módulo TypeScript de `src/data/` para ESM e o importa dinamicamente.
+ * Permite ler dados de configuração do frontend no ambiente Node/Bun do build.
+ */
+ export async function loadDataModule(relPath) {
   const cacheDir = path.join(ROOT, "node_modules/.cache/load-data-module");
   fs.mkdirSync(cacheDir, { recursive: true });
   const outfile = path.join(cacheDir, path.basename(relPath, ".ts") + ".mjs");
