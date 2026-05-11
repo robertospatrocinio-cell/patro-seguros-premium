@@ -8468,7 +8468,7 @@ const BlogArticle = () => {
                   <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
                 </a>
                 <Link
-                  to={`/cotacao?tipo=${article.category?.toLowerCase().includes("saúde") ? "saude" : article.category?.toLowerCase().includes("auto") ? "auto" : "outros"}`}
+                  to={`/cotacao?tipo=${meta?.category?.toLowerCase().includes("saúde") ? "saude" : meta?.category?.toLowerCase().includes("auto") ? "auto" : "outros"}`}
                   onClick={() => trackCotacaoClick("blog-article-bottom")}
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-base font-semibold hover:opacity-90 transition-opacity"
                 >
