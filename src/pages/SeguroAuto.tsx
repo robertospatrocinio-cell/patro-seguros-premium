@@ -202,22 +202,24 @@ const SeguroAuto = () => {
         </section>
 
         {/* ===== 4. AUTORIDADE (Parceiros) ===== */}
-        <section className="py-20" aria-labelledby="autoridade-heading">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h2 id="autoridade-heading" className="mb-3">Trabalhamos apenas com as gigantes do mercado</h2>
-            <p className="text-muted-foreground text-[15px] mb-10">Sua apólice garantida pelas seguradoras mais sólidas do Brasil.</p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {parceiros.map((nome, i) => (
-                <span
-                  key={i}
-                  className="inline-flex items-center px-5 py-3 rounded-xl bg-muted/60 border border-border text-sm font-medium text-muted-foreground"
-                >
-                  {nome}
-                </span>
-              ))}
+        <LazySection minHeight="250px">
+          <section className="py-20" aria-labelledby="autoridade-heading">
+            <div className="container mx-auto px-4 max-w-4xl text-center">
+              <h2 id="autoridade-heading" className="mb-3">Trabalhamos apenas com as gigantes do mercado</h2>
+              <p className="text-muted-foreground text-[15px] mb-10">Sua apólice garantida pelas seguradoras mais sólidas do Brasil.</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                {parceiros.map((nome, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center px-5 py-3 rounded-xl bg-muted/60 border border-border text-sm font-medium text-muted-foreground"
+                  >
+                    {nome}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </LazySection>
 
         {/* ===== 5. PROCESSO (Como Funciona) ===== */}
         <section className="py-24 gradient-surface" aria-labelledby="processo-heading">
