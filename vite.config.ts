@@ -300,9 +300,9 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && asyncCssPlugin(),
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
     mode === "production" && sitemapPlugin(),
-    mode === "production" && spaFallbackPlugin(),
-    mode === "production" && googlePingPlugin(),
-    validateLocalPagesPlugin(),
+     mode === "production" && spaFallbackPlugin(),
+     mode === "production" && googleIndexingPlugin(),
+     validateLocalPagesPlugin(),
     validatePageMetaPlugin(),
   ].filter(Boolean),
   resolve: {
