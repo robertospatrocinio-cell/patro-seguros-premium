@@ -25,7 +25,10 @@ const SeoHubBairrosGuarulhos = () => {
      { name: "Plano de Saúde Cidade Maia", link: "/plano-saude-cidade-maia", riskLevel: "baixo" as any, priceRange: "Premium" },
      { name: "Seguro Empresarial Bonsucesso", link: "/seguro-empresarial-bonsucesso", riskLevel: "médio" as any, priceRange: "Industrial" },
      { name: "Seguro Residencial Jardim Maia", link: "/seguro-residencial-jardim-maia", riskLevel: "baixo" as any, priceRange: "Luxo" },
-     { name: "Seguro Empresarial Pimentas", link: "/seguro-empresarial-pimentas", riskLevel: "alto" as any, priceRange: "Comércio" },
+      { name: "Seguro Empresarial Pimentas", link: "/seguro-empresarial-pimentas", riskLevel: "alto" as any, priceRange: "Comércio" },
+      { name: "Plano de Saúde Taboão", link: "/plano-saude-taboao-guarulhos", riskLevel: "médio" as any, priceRange: "Regional" },
+      { name: "Plano de Saúde Macedo", link: "/plano-saude-macedo-guarulhos", riskLevel: "médio" as any, priceRange: "Centro" },
+      { name: "Seguro Residencial Gopouva", link: "/seguro-residencial-gopouva-guarulhos", riskLevel: "baixo" as any, priceRange: "Tradição" },
      ...selectedBairros.map(b => ({
        name: `Seguros em ${b.nome}`,
        link: `/seguros-guarulhos/${b.id}`,
