@@ -132,7 +132,7 @@ const investments: SitemapEntry[] = [
 
 const bairroIds = [
   "jardim-maia", "vila-augusta", "cumbica", "centro", "picanco",
-  "macedo", "gopouva", "bonsucesso", "paraventi", "continental",
+   "macedo", "gopouva", "bonsucesso", "paraventi", "continental", "taboao", "pimentas",
 ];
 const bairroEntries: SitemapEntry[] = bairroIds.map(b => ({
   loc: `/seguros-guarulhos/${b}`,
