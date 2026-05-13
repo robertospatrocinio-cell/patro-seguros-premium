@@ -443,8 +443,10 @@ interface SaudeBairroSeed {
  /**
   * Exportação consolidada de todas as páginas locais de saúde, residencial e empresarial.
   */
- export const seoLocalSaudePages: Record<string, SeoLocalPageConfig> = {
-   ...saudePagesConfig,
-   ...residencialPagesConfig,
-   ...empresarialPagesConfig
- };
+  export const seoLocalSaudePages: Record<string, SeoLocalPageConfig> = {
+    ...saudePagesConfig,
+    ...residencialPagesConfig,
+    ...empresarialPagesConfig
+  };
+
+  export const seoLocalPageSlugs = Object.keys(seoLocalSaudePages);
