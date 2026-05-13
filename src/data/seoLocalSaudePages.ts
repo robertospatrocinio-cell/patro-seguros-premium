@@ -343,9 +343,33 @@ interface SaudeBairroSeed {
       tipo: "Logístico e Industrial",
       referencia: "em todos os polos industriais e logísticos de Guarulhos",
       foco: "Seguro de Galpão e Riscos Patrimoniais",
-      preco: "R$ 1.500 a R$ 12.000/ano (médio)"
-    }
- ].reduce((acc, e) => {
+       preco: "R$ 1.500 a R$ 12.000/ano (médio)"
+     },
+     {
+       slug: "seguro-empresarial-taboao-guarulhos",
+       bairro: "Taboão",
+       tipo: "Comercial e Logístico",
+       referencia: "proximidade com a Praça Oito e região da Avenida Silvestre Pires de Freitas",
+       foco: "Seguro para Comércio e Depósitos",
+       preco: "R$ 850 a R$ 5.200/ano (PME)"
+     },
+     {
+       slug: "seguro-empresarial-macedo-guarulhos",
+       bairro: "Macedo",
+       tipo: "Clínicas, Escritórios e Serviços",
+       referencia: "região da Avenida Tiradentes e proximidade com o Hospital Bom Clima",
+       foco: "Seguro para Clínicas e Escritórios",
+       preco: "R$ 750 a R$ 4.800/ano (PME)"
+     },
+     {
+       slug: "seguro-empresarial-gopouva-guarulhos",
+       bairro: "Gopouva",
+       tipo: "Comércio e Serviços Tradicionais",
+       referencia: "eixo da Avenida Emílio Ribas e Alameda Yayá",
+       foco: "Seguro para Lojas e Serviços",
+       preco: "R$ 800 a R$ 5.000/ano (PME)"
+     }
+  ].reduce((acc, e) => {
    acc[e.slug] = {
      slug: e.slug,
      title: `Seguro Empresarial ${e.bairro} (Guarulhos) — Cotação para ${e.tipo}`,
