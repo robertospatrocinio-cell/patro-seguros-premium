@@ -65,15 +65,18 @@ const faqs = [
   { question: "A Patro Seguros cobra para cotar plano de saúde?", answer: "Não. A cotação é 100% gratuita. Atendemos presencialmente no escritório da Cidade Maia, em Guarulhos, ou online por WhatsApp. Você paga o mesmo preço de tabela da operadora — recebemos comissão direta dela." },
 ];
 
+ import PrerenderText from "@/components/PrerenderText";
+ 
 const SeoPlanoSaudeGuarulhos = () => (
   <>
-    <PageMeta title="Plano de Saúde Guarulhos e Plano de Saúde MEI Guarulhos" description="Plano de saúde Guarulhos e plano de saúde MEI Guarulhos: compare Bradesco, Amil, SulAmérica, Hapvida e Porto Saúde. Cotação grátis Patro Seguros." />
+     <PrerenderText slug="seguro-saude-guarulhos" />
+    <PageMeta title="Seguro Saúde em Guarulhos | Planos com Cobertura Nacional | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Cobertura ambulatorial, hospitalar e odontológica. Cotação personalizada grátis." />
     <FAQSchema faqs={faqs} />
     <Header />
     <main id="main-content">
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-white mb-6">Plano de Saúde Guarulhos e Plano de Saúde MEI Guarulhos</h1>
+          <h1 className="text-white mb-6">Seguro Saúde em Guarulhos — Cuide da Sua Saúde</h1>
           <p className="text-xl text-white/70 mb-8">
             Encontre o melhor plano de saúde em Guarulhos — individual, familiar, empresarial e plano de saúde MEI Guarulhos. Comparamos Bradesco, Amil, SulAmérica, Hapvida, Porto Saúde e mais.
           </p>
