@@ -274,7 +274,12 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/cotacao-seguro-auto-guarulhos" element={<SeoLocalPage slug="cotacao-seguro-auto-guarulhos" />} />
             <Route path="/melhor-corretora-de-seguros-guarulhos" element={<SeoLocalPage slug="melhor-corretora-de-seguros-guarulhos" />} />
             <Route path="/plano-saude-mei-guarulhos" element={<SeoLocalPage slug="plano-saude-mei-guarulhos" />} />
-            <Route path="/seguro-empresarial-cumbica" element={<SeoLocalPage slug="seguro-empresarial-cumbica" />} />
+             <Route path="/seguro-empresarial-cumbica" element={<SeoLocalPage slug="seguro-empresarial-cumbica" />} />
+             <Route path="/seguro-empresarial-bonsucesso" element={<SeoLocalPage slug="seguro-empresarial-bonsucesso" />} />
+             <Route path="/seguro-empresarial-pimentas" element={<SeoLocalPage slug="seguro-empresarial-pimentas" />} />
+             <Route path="/seguro-residencial-centro-guarulhos" element={<SeoLocalPage slug="seguro-residencial-centro-guarulhos" />} />
+             <Route path="/seguro-residencial-vila-augusta" element={<SeoLocalPage slug="seguro-residencial-vila-augusta" />} />
+             <Route path="/seguro-residencial-jardim-maia" element={<SeoLocalPage slug="seguro-residencial-jardim-maia" />} />
             <Route path="/seguro-transportadora-guarulhos" element={<SeoLocalPage slug="seguro-transportadora-guarulhos" />} />
             <Route path="/seguro-99-guarulhos" element={<SeoLocalPage slug="seguro-99-guarulhos" />} />
             <Route path="/plano-saude-empresarial-guarulhos" element={<SeoLocalPage slug="plano-saude-empresarial-guarulhos" />} />
