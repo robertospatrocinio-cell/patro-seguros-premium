@@ -99,7 +99,8 @@ Para frotas acima de 20 veículos, negociamos condições especiais que incluem 
       { title: "Seguro Motorista de App Guarulhos", link: "/seguro-para-motorista-app-guarulhos" },
       { title: "Soluções para Transportadoras", link: "/seguros/transportadoras" },
     ]}
-  />
+    />
+  </>
 );
 
 export default SeoSeguroFrotaGuarulhos;

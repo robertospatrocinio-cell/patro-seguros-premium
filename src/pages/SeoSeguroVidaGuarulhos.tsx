@@ -96,7 +96,8 @@ Nosso atendimento presencial no Cidade Maia inclui análise gratuita de apólice
       { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },
       { title: "Corretora Seguros Guarulhos", link: "/corretora-seguros-guarulhos" },
     ]}
-  />
+    />
+  </>
 );
 
 export default SeoSeguroVidaGuarulhos;

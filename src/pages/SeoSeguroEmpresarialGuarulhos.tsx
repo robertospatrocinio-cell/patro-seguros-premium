@@ -40,7 +40,8 @@ const SeoSeguroEmpresarialGuarulhos = () => (
       { title: "Seguro de Frota", link: "/seguro-frota" },
       { title: "Seguro Cyber", link: "/seguro-cyber" },
     ]}
-  />
+    />
+  </>
 );
 
 export default SeoSeguroEmpresarialGuarulhos;

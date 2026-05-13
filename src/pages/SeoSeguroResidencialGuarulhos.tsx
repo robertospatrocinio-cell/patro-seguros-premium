@@ -95,7 +95,8 @@ Um dado importante: o seguro residencial é um dos mais acessíveis do mercado, 
       { title: "Seguro Frota Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/" },
     ]}
-  />
+    />
+  </>
 );
 
 export default SeoSeguroResidencialGuarulhos;
