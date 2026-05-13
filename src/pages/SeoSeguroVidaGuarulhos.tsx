@@ -1,12 +1,15 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import PrerenderText from "@/components/PrerenderText";
 import heroImg from "@/assets/hero-seguro-vida.webp";
 
 const SeoSeguroVidaGuarulhos = () => (
-  <InsurancePageTemplate
+  <>
+    <PrerenderText slug="seguro-vida-guarulhos" />
+    <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro de Vida em Guarulhos — Proteção para Sua Família"
-    subtitle="Seguro de vida em Guarulhos a partir de R$ 30/mês. Cobertura para morte, invalidez e doenças graves com cotação gratuita."
-    description="Seguro de vida em Guarulhos com proteção financeira completa para sua família. A Patro Seguros já protege mais de 400 vidas na região, comparando MetLife, Prudential, Bradesco Vida, Icatu, Mongeral, Porto Seguro Vida e outras seguradoras líderes para encontrar o capital segurado e o prêmio ideais ao seu perfil. Atendimento presencial no Cidade Maia."
+    title="Seguro de Vida em Guarulhos | Proteja Sua Família | Patro Seguros"
+    subtitle="Seguro de Vida em Guarulhos — Tranquilidade para Quem Você Ama"
+    description="Seguro de vida em Guarulhos com coberturas completas. Proteja sua família com planos a partir de R$X,XX/mês. Cotação online grátis."
     detailedDescription={`O seguro de vida é, hoje, uma das proteções financeiras mais subutilizadas no Brasil. Estimativas indicam que apenas 15% dos brasileiros têm seguro de vida individual contratado — e em Guarulhos, com 1,4 milhão de habitantes e forte presença de profissionais autônomos, motoristas de aplicativo, comerciantes e trabalhadores em logística, esse índice expõe milhares de famílias a vulnerabilidade financeira em caso de falecimento ou invalidez do provedor.
 
 Apólices modernas vão muito além da indenização por morte. Cobrem invalidez permanente por acidente ou doença, diagnóstico de doenças graves (câncer, AVC, infarto, Alzheimer) com pagamento antecipado, diárias hospitalares, assistência funeral familiar e até renda mensal temporária. Para profissionais liberais — médicos, advogados, dentistas, engenheiros — o seguro de vida funciona como proteção de renda, garantindo que a família mantenha o padrão de vida mesmo em situações graves.
