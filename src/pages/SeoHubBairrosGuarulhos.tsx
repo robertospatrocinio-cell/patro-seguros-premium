@@ -14,16 +14,25 @@ import { getCanonicalUrl } from "@/lib/canonical";
 const SeoHubBairrosGuarulhos = () => {
   const canonicalUrl = getCanonicalUrl("/seguros-em-guarulhos-bairros");
 
-  const selectedBairros = bairros.filter(b => 
-    ["jardim-maia", "vila-augusta", "cumbica"].includes(b.id)
-  );
+   const selectedBairros = bairros.filter(b =>
+     ["jardim-maia", "vila-augusta", "cumbica", "centro", "bonsucesso", "picanco", "macedo"].includes(b.id)
+   );
 
-  const neighborhoodLinks = selectedBairros.map(b => ({
-    name: b.nome,
-    link: `/seguros-guarulhos/${b.id}`,
-    riskLevel: b.id === "cumbica" ? "alto" : "baixo" as any,
-    priceRange: b.id === "jardim-maia" ? "Alto Padrão" : (b.id === "cumbica" ? "Empresarial" : "Residencial")
-  }));
+   const neighborhoodLinks = [
+     { name: "Seguro Empresarial Cumbica", link: "/seguro-empresarial-cumbica", riskLevel: "médio-alto" as any, priceRange: "Logística" },
+     { name: "Seguro Residencial Centro", link: "/seguro-residencial-centro-guarulhos", riskLevel: "médio" as any, priceRange: "Centro" },
+     { name: "Seguro Auto Vila Augusta", link: "/seguro-auto-vila-augusta", riskLevel: "baixo" as any, priceRange: "Residencial" },
+     { name: "Plano de Saúde Cidade Maia", link: "/plano-saude-cidade-maia", riskLevel: "baixo" as any, priceRange: "Premium" },
+     { name: "Seguro Empresarial Bonsucesso", link: "/seguro-empresarial-bonsucesso", riskLevel: "médio" as any, priceRange: "Industrial" },
+     { name: "Seguro Residencial Jardim Maia", link: "/seguro-residencial-jardim-maia", riskLevel: "baixo" as any, priceRange: "Luxo" },
+     { name: "Seguro Empresarial Pimentas", link: "/seguro-empresarial-pimentas", riskLevel: "alto" as any, priceRange: "Comércio" },
+     ...selectedBairros.map(b => ({
+       name: `Seguros em ${b.nome}`,
+       link: `/seguros-guarulhos/${b.id}`,
+       riskLevel: (b.id === "cumbica" || b.id === "pimentas") ? "alto" : "baixo" as any,
+       priceRange: b.id === "jardim-maia" ? "Alto Padrão" : (b.id === "cumbica" ? "Empresarial" : "Residencial")
+     }))
+   ];
 
   const faqs = [
     {
