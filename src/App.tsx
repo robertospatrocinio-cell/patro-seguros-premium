@@ -280,6 +280,11 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
              <Route path="/seguro-residencial-centro-guarulhos" element={<SeoLocalPage slug="seguro-residencial-centro-guarulhos" />} />
              <Route path="/seguro-residencial-vila-augusta" element={<SeoLocalPage slug="seguro-residencial-vila-augusta" />} />
              <Route path="/seguro-residencial-jardim-maia" element={<SeoLocalPage slug="seguro-residencial-jardim-maia" />} />
+             <Route path="/plano-saude-taboao-guarulhos" element={<SeoLocalPage slug="plano-saude-taboao-guarulhos" />} />
+             <Route path="/plano-saude-macedo-guarulhos" element={<SeoLocalPage slug="plano-saude-macedo-guarulhos" />} />
+             <Route path="/plano-saude-gopouva-guarulhos" element={<SeoLocalPage slug="plano-saude-gopouva-guarulhos" />} />
+             <Route path="/seguro-residencial-taboao-guarulhos" element={<SeoLocalPage slug="seguro-residencial-taboao-guarulhos" />} />
+             <Route path="/seguro-residencial-gopouva-guarulhos" element={<SeoLocalPage slug="seguro-residencial-gopouva-guarulhos" />} />
             <Route path="/seguro-transportadora-guarulhos" element={<SeoLocalPage slug="seguro-transportadora-guarulhos" />} />
             <Route path="/seguro-99-guarulhos" element={<SeoLocalPage slug="seguro-99-guarulhos" />} />
             <Route path="/plano-saude-empresarial-guarulhos" element={<SeoLocalPage slug="plano-saude-empresarial-guarulhos" />} />
