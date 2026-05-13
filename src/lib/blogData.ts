@@ -9,7 +9,10 @@ export interface BlogArticleMeta {
   readTime: number; // minutes
 }
 
+import { guarulhosArticles } from "@/data/blogGuarulhosData";
+
 export const articles: BlogArticleMeta[] = [
+  ...guarulhosArticles,
   { slug: "quanto-custa-seguro-auto", title: "Quanto Custa Seguro Auto em 2025?", excerpt: "Descubra os fatores que influenciam o preço do seguro auto e como economizar.", category: "Seguro Auto", tags: ["seguro auto", "preços", "economia"], author: "Roberto Patro", date: "2025-01-15", readTime: 8 },
   { slug: "seguro-auto-vale-a-pena", title: "Seguro Auto Vale a Pena? Entenda os Prós e Contras", excerpt: "Análise completa sobre quando contratar seguro auto e quando não faz sentido.", category: "Seguro Auto", tags: ["seguro auto", "dicas"], author: "Sandra Patro", date: "2025-01-22", readTime: 7 },
   { slug: "o-que-seguro-residencial-cobre", title: "O Que o Seguro Residencial Cobre?", excerpt: "Conheça todas as coberturas do seguro residencial e proteja seu lar.", category: "Seguro Residencial", tags: ["seguro residencial", "coberturas"], author: "Roberto Patro", date: "2025-01-28", readTime: 6 },
