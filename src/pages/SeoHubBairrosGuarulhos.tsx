@@ -29,6 +29,9 @@ const SeoHubBairrosGuarulhos = () => {
       { name: "Plano de Saúde Taboão", link: "/plano-saude-taboao-guarulhos", riskLevel: "médio" as any, priceRange: "Regional" },
       { name: "Plano de Saúde Macedo", link: "/plano-saude-macedo-guarulhos", riskLevel: "médio" as any, priceRange: "Centro" },
       { name: "Seguro Residencial Gopouva", link: "/seguro-residencial-gopouva-guarulhos", riskLevel: "baixo" as any, priceRange: "Tradição" },
+      { name: "Seguro Empresarial Taboão", link: "/seguro-empresarial-taboao-guarulhos", riskLevel: "médio" as any, priceRange: "Comercial" },
+      { name: "Seguro Empresarial Macedo", link: "/seguro-empresarial-macedo-guarulhos", riskLevel: "baixo" as any, priceRange: "Serviços" },
+      { name: "Seguro Empresarial Gopouva", link: "/seguro-empresarial-gopouva-guarulhos", riskLevel: "baixo" as any, priceRange: "Lojas" },
      ...selectedBairros.map(b => ({
        name: `Seguros em ${b.nome}`,
        link: `/seguros-guarulhos/${b.id}`,

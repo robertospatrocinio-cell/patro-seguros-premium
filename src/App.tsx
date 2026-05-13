@@ -285,6 +285,9 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
              <Route path="/plano-saude-gopouva-guarulhos" element={<SeoLocalPage slug="plano-saude-gopouva-guarulhos" />} />
              <Route path="/seguro-residencial-taboao-guarulhos" element={<SeoLocalPage slug="seguro-residencial-taboao-guarulhos" />} />
              <Route path="/seguro-residencial-gopouva-guarulhos" element={<SeoLocalPage slug="seguro-residencial-gopouva-guarulhos" />} />
+             <Route path="/seguro-empresarial-taboao-guarulhos" element={<SeoLocalPage slug="seguro-empresarial-taboao-guarulhos" />} />
+             <Route path="/seguro-empresarial-macedo-guarulhos" element={<SeoLocalPage slug="seguro-empresarial-macedo-guarulhos" />} />
+             <Route path="/seguro-empresarial-gopouva-guarulhos" element={<SeoLocalPage slug="seguro-empresarial-gopouva-guarulhos" />} />
             <Route path="/seguro-transportadora-guarulhos" element={<SeoLocalPage slug="seguro-transportadora-guarulhos" />} />
             <Route path="/seguro-99-guarulhos" element={<SeoLocalPage slug="seguro-99-guarulhos" />} />
             <Route path="/plano-saude-empresarial-guarulhos" element={<SeoLocalPage slug="plano-saude-empresarial-guarulhos" />} />
