@@ -54,10 +54,34 @@ interface SaudeBairroSeed {
     bairro: "Vila Augusta",
     hospitais: ["Hospital Ipiranga", "Hospital Stella Maris", "Hospital Carlos Chagas"],
     clinicas: ["Centro Médico GNDI", "Laboratório Lavoisier Vila Augusta", "CDB Medicina Diagnóstica"],
-    referenciaLocal: "região da Avenida Guarulhos e Parque Cecap",
-    precoMedio: "R$ 300 a R$ 600/mês (individual)"
-  }
-];
+     referenciaLocal: "região da Avenida Guarulhos e Parque Cecap",
+     precoMedio: "R$ 300 a R$ 600/mês (individual)"
+   },
+   {
+     slug: "plano-saude-taboao-guarulhos",
+     bairro: "Taboão",
+     hospitais: ["Hospital Geral de Guarulhos (HGG)", "Hospital Carlos Chagas", "Hospital 8 de Maio"],
+     clinicas: ["Centro Médico Taboão", "Laboratório Lavoisier", "Clínica de Especialidades local"],
+     referenciaLocal: "próximo à Avenida Silvestre Pires de Freitas e Praça Oito",
+     precoMedio: "R$ 270 a R$ 550/mês (individual)"
+   },
+   {
+     slug: "plano-saude-macedo-guarulhos",
+     bairro: "Macedo",
+     hospitais: ["Hospital Bom Clima", "Hospital Carlos Chagas", "Hospital Stella Maris"],
+     clinicas: ["Centro Médico Macedo", "Laboratório Delboni", "Clínica da Cidade"],
+     referenciaLocal: "região da Avenida Tiradentes e proximidade com o Hospital Bom Clima",
+     precoMedio: "R$ 295 a R$ 610/mês (individual)"
+   },
+   {
+     slug: "plano-saude-gopouva-guarulhos",
+     bairro: "Gopouva",
+     hospitais: ["Hospital Stella Maris", "Hospital Carlos Chagas", "Hospital Ipiranga"],
+     clinicas: ["Centro Médico Gopouva", "Laboratório Lavoisier", "CDB Medicina Diagnóstica"],
+     referenciaLocal: "região da Alameda Yayá e Avenida Emílio Ribas",
+     precoMedio: "R$ 305 a R$ 615/mês (individual)"
+   }
+ ];
 
  
  /**
