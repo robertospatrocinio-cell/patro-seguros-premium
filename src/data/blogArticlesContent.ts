@@ -7498,6 +7498,10 @@ A **Patro Seguros**, hub credenciado em mais de 20 operadoras, cota Bradesco, Su
       { q: "Como cotar Bradesco Saúde e SulAmérica ao mesmo tempo?", a: "Pela Patro Seguros, hub credenciado em mais de 20 operadoras, você cota Bradesco, SulAmérica e mais 18 simultaneamente. Em até 2h úteis recebe as 3 melhores propostas." },
     ],
   },
+import { guarulhosArticlesContent } from "./blogGuarulhosContent";
+
+export const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
+  ...guarulhosArticlesContent,
   "porto-vs-tokio-marine-residencial-2026": {
     title: "Porto Seguro vs Tokio Marine: Qual o Melhor Seguro Residencial em 2026?",
     content: `Porto Seguro e Tokio Marine são duas das principais seguradoras do Brasil em **seguro residencial**. Em 2026, com aumento dos sinistros por alagamento, granizo e furto qualificado em Guarulhos e Grande SP, qual delas oferece a melhor proteção para a sua casa ou apartamento? Veja o comparativo da Patro Seguros.
