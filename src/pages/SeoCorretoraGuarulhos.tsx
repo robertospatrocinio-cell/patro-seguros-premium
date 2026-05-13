@@ -146,8 +146,9 @@ const faqs = [
         </div>
       </section>
     </main>
-    <Footer />
-  </>
-);
+       <Footer />
+     </>
+   );
+ };
 
 export default SeoCorretoraGuarulhos;
