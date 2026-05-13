@@ -1,12 +1,15 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import PrerenderText from "@/components/PrerenderText";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
 const SeoSeguroEmpresarialGuarulhos = () => (
-  <InsurancePageTemplate
+  <>
+    <PrerenderText slug="seguro-empresarial-guarulhos" />
+    <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Empresarial Guarulhos e Cumbica — Indústrias e Comércios"
-    subtitle="Seguro empresarial Cumbica e Guarulhos com cotação Porto Seguro, Tokio, Allianz e AIG. Proteção para indústrias, comércios e galpões."
-    description="Seguro empresarial Guarulhos e seguro empresarial Cumbica com a Patro Seguros, especialista em proteção patrimonial para indústrias do polo de Cumbica, Bonsucesso e Vila Galvão, comércios do Cidade Maia, prestadores de serviços e PMEs em geral. Cotação Porto Seguro Guarulhos, Tokio Marine, Allianz, AIG, Bradesco e Sompo para incêndio, roubo, responsabilidade civil, lucros cessantes, equipamentos e cyber. Atendimento presencial e visita técnica gratuita."
+    title="Seguro Empresarial em Guarulhos | Proteja Seu Negócio | Patro Seguros"
+    subtitle="Seguro Empresarial em Guarulhos — Seu Negócio Protegido"
+    description="Seguro empresarial em Guarulhos para proteger seu negócio. Cobertura para incêndio, roubo, responsabilidade civil. Cotação grátis."
     icon="🏢"
     metaDescription="Seguro empresarial Guarulhos e Cumbica: cotação Porto Seguro, Tokio, AIG e Allianz para indústrias, galpões e comércios. Cotação grátis Patro Seguros."
     coverages={[
