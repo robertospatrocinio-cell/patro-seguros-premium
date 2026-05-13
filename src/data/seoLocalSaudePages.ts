@@ -243,14 +243,22 @@ interface SaudeBairroSeed {
      foco: "Seguro para Empresas e Galpões",
      preco: "R$ 950 a R$ 6.200/ano (PME)"
    },
-   {
-     slug: "seguro-empresarial-pimentas",
-     bairro: "Pimentas",
-     tipo: "Comercial e Serviços",
-     referencia: "região da Estrada do Sacramento e entorno do Hospital Pimentas",
-     foco: "Seguro para Comércio e PME",
-     preco: "R$ 800 a R$ 4.500/ano (PME)"
-   }
+    {
+      slug: "seguro-empresarial-pimentas",
+      bairro: "Pimentas",
+      tipo: "Comercial e Serviços",
+      referencia: "região da Estrada do Sacramento e entorno do Hospital Pimentas",
+      foco: "Seguro para Comércio e PME",
+      preco: "R$ 800 a R$ 4.500/ano (PME)"
+    },
+    {
+      slug: "seguro-galpao-guarulhos",
+      bairro: "Guarulhos",
+      tipo: "Logístico e Industrial",
+      referencia: "em todos os polos industriais e logísticos de Guarulhos",
+      foco: "Seguro de Galpão e Riscos Patrimoniais",
+      preco: "R$ 1.500 a R$ 12.000/ano (médio)"
+    }
  ].reduce((acc, e) => {
    acc[e.slug] = {
      slug: e.slug,
