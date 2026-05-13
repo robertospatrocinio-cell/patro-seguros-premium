@@ -245,7 +245,69 @@ interface SaudeBairroSeed {
      city: "Guarulhos"
    };
    return acc;
- }, {} as Record<string, SeoLocalPageConfig>);
+ }, {
+   "seguro-residencial-taboao-guarulhos": {
+     slug: "seguro-residencial-taboao-guarulhos",
+     title: "Seguro Residencial Taboão (Guarulhos) — Cotação Local",
+     subtitle: "Proteja sua casa no Taboão com a Patro Seguros. Compare 9 seguradoras líderes.",
+     description: "Buscando seguro residencial no Taboão, Guarulhos? A Patro Seguros oferece proteção completa para sua residência com assistência 24h na região da Avenida Silvestre Pires de Freitas.",
+     detailedDescription: "O bairro do Taboão é uma região mista com forte presença residencial. Ter um seguro residencial no Taboão garante que seu patrimônio esteja protegido contra incêndios, roubos e danos elétricos, além de contar com serviços emergenciais de chaveiro e encanador.\n\nNa Patro Seguros, conhecemos bem o perfil do Taboão e oferecemos apólices personalizadas que cabem no seu orçamento, garantindo a melhor rede de assistência em Guarulhos.",
+     metaDescription: "Seguro residencial no Taboão, Guarulhos. Proteção contra roubo e incêndio com assistência 24h. Peça sua cotação grátis!",
+     icon: "🏠",
+     pricingIntro: "O seguro residencial no Taboão é acessível e oferece um excelente custo-benefício para proteção familiar.",
+     pricingFactors: ["Valor do imóvel", "Conteúdo segurado", "Tipo de construção", "Sistemas de segurança"],
+     pricingNote: "*Cotações sob medida para o Taboão.",
+     faqs: [
+       { question: "O seguro cobre danos por vazamentos no Taboão?", answer: "Sim, se contratada a cobertura de Danos por Água ou se for um serviço de assistência emergencial." },
+       { question: "Moro em condomínio no Taboão, preciso de seguro individual?", answer: "Sim, para proteger seus móveis e ter cobertura de Responsabilidade Civil dentro da sua unidade." },
+       { question: "Como funciona a assistência 24h?", answer: "Você aciona via telefone ou app e um profissional credenciado vai até sua casa no Taboão para reparos emergenciais." }
+     ],
+     whoNeeds: ["Moradores do Taboão", "Inquilinos", "Proprietários de imóveis para aluguel"],
+     whyPatro: ["Especialistas em Guarulhos", "Comparativo real de preços", "Suporte em sinistros"],
+     coverages: [
+       { title: "Incêndio e Explosão", description: "Proteção básica para o imóvel." },
+       { title: "Roubo e Furto", description: "Proteção contra subtração de bens." },
+       { title: "Danos Elétricos", description: "Cobertura para aparelhos queimados." },
+       { title: "Assistência 24h", description: "Serviços de chaveiro, encanador e eletricista." }
+     ],
+     realScenarios: [
+       { title: "Curto-circuito evitado", description: "Cliente no Taboão usou assistência para reparar fiação antiga, evitando princípio de incêndio." }
+     ],
+     tips: ["Revise sua fiação periodicamente.", "Instale travas de segurança em portões."],
+     relatedInsurances: [{ title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" }],
+     neighborhood: "Taboão",
+     city: "Guarulhos"
+   },
+   "seguro-residencial-gopouva-guarulhos": {
+     slug: "seguro-residencial-gopouva-guarulhos",
+     title: "Seguro Residencial Gopouva (Guarulhos) — Proteção Completa",
+     subtitle: "Cotação local de seguro residencial para o bairro Gopouva. Proteja seu lar com quem conhece a região.",
+     description: "Seguro residencial no Gopouva, Guarulhos, com coberturas amplas contra roubo e danos elétricos. Atendimento especializado na região da Alameda Yayá.",
+     detailedDescription: "O Gopouva é um bairro tradicional e valorizado de Guarulhos. Para manter a segurança da sua família e do seu patrimônio, um seguro residencial é fundamental. Além das coberturas de incêndio e roubo, nossas apólices no Gopouva incluem assistência 24h para pequenos reparos, garantindo comodidade no seu dia a dia.",
+     metaDescription: "Seguro residencial no Gopouva, Guarulhos. Cobertura completa com assistência 24h. Atendimento local Patro Seguros.",
+     icon: "🏠",
+     pricingIntro: "No Gopouva, as seguradoras oferecem taxas competitivas devido ao perfil residencial consolidado do bairro.",
+     pricingFactors: ["Perfil do morador", "Localização exata", "Valor de reconstrução"],
+     pricingNote: "*Consulte opções para casas e apartamentos no Gopouva.",
+     faqs: [
+       { question: "O seguro no Gopouva cobre quebra de vidros?", answer: "Sim, é uma cobertura adicional muito comum para residências com varandas ou grandes vitrines." },
+       { question: "Qual a melhor seguradora para o Gopouva?", answer: "Porto Seguro e Allianz possuem excelentes serviços de assistência na região central de Guarulhos." }
+     ],
+     whoNeeds: ["Famílias no Gopouva", "Proprietários de casas tradicionais"],
+     whyPatro: ["Consultoria técnica", "Atendimento VIP", "Preços de mercado"],
+     coverages: [
+       { title: "Multirrisco Residencial", description: "Várias proteções em uma única apólice." },
+       { title: "Assistência Premium", description: "Serviços ampliados de manutenção residencial." }
+     ],
+     realScenarios: [
+       { title: "Vendaval no Gopouva", description: "Cobertura de vendaval garantiu o reparo rápido do telhado após chuva forte na região." }
+     ],
+     tips: ["Limpe calhas antes do período de chuvas.", "Tenha um inventário de eletrônicos."],
+     relatedInsurances: [{ title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" }],
+     neighborhood: "Gopouva",
+     city: "Guarulhos"
+   }
+ } as Record<string, SeoLocalPageConfig>);
 
  /**
   * Configurações de páginas locais de Seguro Empresarial / Galpão.
