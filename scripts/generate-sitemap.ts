@@ -152,11 +152,10 @@ function entryToXml(e: SitemapEntry): string {
 
 function urlsetFor(entries: SitemapEntry[]): string {
   return [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ...entries.map(entryToXml),
-    '</urlset>',
-  ].join('\n');
+    '</urlset>'
+  ].join('');
 }
 
 export interface SitemapBundle {
@@ -309,13 +308,12 @@ export function generateSitemapBundle(
   ];
 
   const index = [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ...indexOrder.map(name =>
-      `  <sitemap><loc>${DOMAIN}/${name}</loc><lastmod>${TODAY}</lastmod></sitemap>`,
+      `<sitemap><loc>${DOMAIN}/${name}</loc><lastmod>${TODAY}</lastmod></sitemap>`,
     ),
-    '</sitemapindex>',
-  ].join('\n');
+    '</sitemapindex>'
+  ].join('');
 
   return { index, files };
 }
