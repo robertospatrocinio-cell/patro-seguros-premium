@@ -12,9 +12,9 @@ interface LazySectionProps {
 
 const LazySection = ({
   children,
-  minHeight = "200px",
-  rootMargin = "300px",
-  className = "",
+   minHeight = "200px",
+   rootMargin = "600px",
+   className = "",
 }: LazySectionProps) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);

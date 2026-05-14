@@ -145,12 +145,7 @@ const faqs = [
           </div>
         </section>
 
-         {/* Insurance Hero Selector (lazy loaded to reduce initial bundle) */}
-         <LazySection minHeight="600px">
-           <Suspense fallback={null}>
-             <InsuranceHeroSelector />
-           </Suspense>
-         </LazySection>
+          <InsuranceHeroSelector />
 
         {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">
