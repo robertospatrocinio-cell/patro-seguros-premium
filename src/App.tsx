@@ -254,20 +254,20 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/seguro-galpao" element={<SeguroGalpao />} />
             <Route path="/seguro-maquinas-industriais" element={<SeguroMaquinasIndustriais />} />
             <Route path="/seguro-maquinas-linha-amarela" element={<SeguroMaquinasLinhaAmarela />} />
-             <Route path="/seguro-auto-guarulhos/" element={<SeoSeguroAutoGuarulhos />} />
-             <Route path="/seguro-saude-guarulhos/" element={<SeoPlanoSaudeGuarulhos />} />
-             <Route path="/seguro-empresarial-guarulhos/" element={<SeoSeguroEmpresarialGuarulhos />} />
+             <Route path="/seguro-auto-guarulhos" element={<SeoSeguroAutoGuarulhos />} />
+             <Route path="/seguro-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
+             <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresarialGuarulhos />} />
             <Route path="/corretora-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
-             <Route path="/seguro-residencial-guarulhos/" element={<SeoSeguroResidencialGuarulhos />} />
+             <Route path="/seguro-residencial-guarulhos" element={<SeoSeguroResidencialGuarulhos />} />
             <Route path="/seguro-vida-saude-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
-             <Route path="/seguro-frota-guarulhos/" element={<SeoSeguroFrotaGuarulhos />} />
+             <Route path="/seguro-frota-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
             <Route path="/seguros-empresariais-pme-guarulhos" element={<SeoSegurosPmeGuarulhos />} />
             <Route path="/seguro-moto-guarulhos" element={<SeoSeguroMotoGuarulhos />} />
             <Route path="/seguro-condominio-guarulhos" element={<SeoSeguroCondominioGuarulhos />} />
             <Route path="/seguros-shopping-maia-cidade-maia-guarulhos" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
             <Route path="/seguro-uber-guarulhos" element={<SeoSeguroUberGuarulhos />} />
             <Route path="/seguro-empresa-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
-             <Route path="/seguro-vida-guarulhos/" element={<SeoSeguroVidaGuarulhos />} />
+              <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaGuarulhos />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
             <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
             {/* SEO local — bairros e páginas comerciais (data-driven) */}

@@ -105,7 +105,12 @@
      FileETag MTime Size
    </FilesMatch>
  
-   <FilesMatch "^(sitemap[^/]*\.xml|robots\.txt)$">
+    <FilesMatch "^(sitemap[^/]*\.xml)$">
+    <FilesMatch "^robots\.txt$">
+      Header set Cache-Control "public, max-age=86400"
+      Header set Content-Type "text/plain; charset=UTF-8"
+    </FilesMatch>
+
      Header set Cache-Control "public, max-age=86400"
      Header set Content-Type "application/xml; charset=UTF-8"
    </FilesMatch>
