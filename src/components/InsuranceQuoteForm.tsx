@@ -163,11 +163,16 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       htmlBody 
     });
 
-    if (error) {
-      handleSupabaseError(error, "Ops! Ocorreu um erro ao processar seu pedido de cotação.");
-      setSending(false);
-      return;
-    }
+     if (error) {
+       // The user might be frustrated, so we provide a clear path forward
+       handleSupabaseError(error, "Não foi possível registrar seu pedido digitalmente.");
+       
+       // Fallback: invite user to call or try WhatsApp directly
+       toast.info("Você pode ligar para (11) 5199-7500 se o erro persistir.", { duration: 10000 });
+       
+       setSending(false);
+       return;
+     }
 
     setTimeout(() => {
       setSending(false);
