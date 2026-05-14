@@ -205,7 +205,7 @@ const faqs = [
          {/* E-E-A-T Content Section */}
          <LazySection minHeight="800px" className="py-16 md:py-24 bg-muted">
            <div className="container mx-auto px-4 max-w-3xl">
-                <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
+               <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
              <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Já atendemos <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil. Com uma equipe de consultores certificados e experiência em mais de 16 seguradoras e 20 operadoras de saúde, oferecemos a análise mais completa do mercado local.
@@ -258,13 +258,13 @@ const faqs = [
                 <li><strong>Esquecer de avisar mudanças</strong> — troca de endereço, novo condutor ou alteração no veículo devem ser informados à seguradora para manter a cobertura válida.</li>
               </ol>
 
-              <h2 className="text-foreground font-bold text-lg mt-8">Por que Escolher a Patro Seguros em Guarulhos?</h2>
-              <p>
-                Com sede no Cidade Maia e registro SUSEP nº 212113511, a Patro Seguros combina experiência local com tecnologia para oferecer o melhor serviço de corretagem em Guarulhos. Nossos clientes avaliam nosso atendimento com nota <strong>4.9/5</strong> no Google (150+ avaliações). Cada consultor é especialista em sua categoria — auto, residencial, vida, empresarial ou saúde — garantindo orientação técnica precisa para cada necessidade. <Link to="/corretora-seguros-guarulhos" className="text-primary hover:underline">Conheça mais sobre nossa corretora em Guarulhos</Link>.
-              </p>
-            </div>
-          </div>
-        </section>
+               <h2 className="text-foreground font-bold text-lg mt-8">Por que Escolher a Patro Seguros em Guarulhos?</h2>
+               <p>
+                 Com sede no Cidade Maia e registro SUSEP nº 212113511, a Patro Seguros combina experiência local com tecnologia para oferecer o melhor serviço de corretagem em Guarulhos. Nossos clientes avaliam nosso atendimento com nota <strong>4.9/5</strong> no Google (150+ avaliações). Cada consultor é especialista em sua categoria — auto, residencial, vida, empresarial ou saúde — garantindo orientação técnica precisa para cada necessidade. <Link to="/corretora-seguros-guarulhos" className="text-primary hover:underline">Conheça mais sobre nossa corretora em Guarulhos</Link>.
+               </p>
+             </div>
+           </div>
+         </LazySection>
 
 
         {/* Lead Magnet — E-book Section */}
