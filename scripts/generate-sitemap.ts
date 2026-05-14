@@ -145,18 +145,35 @@ const legal: SitemapEntry[] = [
   { loc: "/termos-de-uso", priority: "0.3", changefreq: "yearly" },
 ];
 
-function entryToXml(e: SitemapEntry): string {
-  const lastmod = e.lastmod || TODAY;
-  return `  <url><loc>${DOMAIN}${e.loc}</loc><priority>${e.priority}</priority><lastmod>${lastmod}</lastmod><changefreq>${e.changefreq}</changefreq></url>`;
-}
-
-function urlsetFor(entries: SitemapEntry[]): string {
-  return [
-    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...entries.map(entryToXml),
-    '</urlset>'
-  ].join('');
-}
+ /**
+  * Escapes XML special characters and strips control characters.
+  */
+ function cleanXmlString(str: string): string {
+   return str
+     .replace(/&/g, '&amp;')
+     .replace(/</g, '&lt;')
+     .replace(/>/g, '&gt;')
+     .replace(/"/g, '&quot;')
+     .replace(/'/g, '&apos;')
+     // Strip C0 and C1 control characters (except CR, LF, Tab)
+     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/g, '');
+ }
+ 
+ function entryToXml(e: SitemapEntry): string {
+   const lastmod = e.lastmod || TODAY;
+   const loc = cleanXmlString(`${DOMAIN}${e.loc}`);
+   return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;
+ }
+ 
+ function urlsetFor(entries: SitemapEntry[]): string {
+   return [
+     '<?xml version="1.0" encoding="UTF-8"?>',
+     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+     ...entries.map(entryToXml),
+     '</urlset>',
+     '' // Final newline
+   ].join('\n');
+ }
 
 export interface SitemapBundle {
   /** sitemap-index.xml content */
@@ -307,13 +324,16 @@ export function generateSitemapBundle(
     "sitemap-geral.xml",
   ];
 
-  const index = [
-    '<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...indexOrder.map(name =>
-      `<sitemap><loc>${DOMAIN}/${name}</loc><lastmod>${TODAY}</lastmod></sitemap>`,
-    ),
-    '</sitemapindex>'
-  ].join('');
+   const index = [
+     '<?xml version="1.0" encoding="UTF-8"?>',
+     '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+     ...indexOrder.map(name => {
+       const loc = cleanXmlString(`${DOMAIN}/${name}`);
+       return `  <sitemap>\n    <loc>${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n  </sitemap>`;
+     }),
+     '</sitemapindex>',
+     '' // Final newline
+   ].join('\n');
 
   return { index, files };
 }
