@@ -22,16 +22,5 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 0.5
 
-# Sitemap index (preferred — references all cluster sitemaps)
-Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
-
-# Cluster sitemaps (also exposed individually for prioritized submission)
-Sitemap: https://www.patroseguros.com.br/sitemap-guarulhos.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-auto.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-vida-saude.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-empresarial.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-geral.xml
-
-# Legacy flat sitemap (kept for backward compatibility)
-Sitemap: https://www.patroseguros.com.br/sitemap.xml
+ # Sitemap index
+ Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
