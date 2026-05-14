@@ -219,14 +219,20 @@ function sitemapPlugin(): Plugin {
       // Mirror as sitemap_index.xml (WordPress/Yoast convention)
       fs.writeFileSync(path.join(outDir, "sitemap_index.xml"), index, "utf-8");
 
-      // Final validation step for XML and UTF-8 encoding
-      try {
-        console.log("🚀 Running final sitemap validation...");
-        execSync("bun run scripts/validate-sitemaps.ts", { stdio: "inherit" });
-      } catch (err) {
-        console.error("❌ Sitemap validation failed. Build aborted.");
-        process.exit(1);
-      }
+       // Final validation step for XML and UTF-8 encoding
+       try {
+         console.log("🚀 Running final sitemap validation...");
+         // Try bun first, fall back to node if not available
+         try {
+           execSync("bun run scripts/validate-sitemaps.ts", { stdio: "inherit" });
+         } catch (bunErr) {
+           console.log("ℹ️ bun not found, trying with ts-node/node...");
+           execSync("npx ts-node scripts/validate-sitemaps.ts", { stdio: "inherit" });
+         }
+       } catch (err) {
+         console.error("❌ Sitemap validation failed. Build aborted.");
+         process.exit(1);
+       }
     },
   };
 }
