@@ -8,14 +8,23 @@ async function validateSitemap(filePath: string) {
     return;
   }
 
-  const content = fs.readFileSync(filePath, "utf-8");
-
-  // 1. Validar UTF-8 e Caracteres de Controle (C0/C1)
-  const controlChars = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/;
-  if (controlChars.test(content)) {
-    console.error(`❌ Erro: ${path.basename(filePath)} contém caracteres de controle inválidos.`);
-    process.exit(1);
-  }
+   const buffer = fs.readFileSync(filePath);
+   const content = buffer.toString("utf-8");
+ 
+   // 1. Validar UTF-8 sem BOM e sem Caracteres de Controle (C0/C1)
+   // UTF-8 BOM is \xEF\xBB\xBF
+   if (buffer[0] === 0xEF && buffer[1] === 0xBB && buffer[2] === 0xBF) {
+     console.error(`❌ Erro: ${path.basename(filePath)} contém UTF-8 BOM, que não é recomendado para sitemaps.`);
+     process.exit(1);
+   }
+ 
+   const controlChars = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/;
+   const match = content.match(controlChars);
+   if (match) {
+     const charCode = match[0].charCodeAt(0).toString(16).toUpperCase();
+     console.error(`❌ Erro: ${path.basename(filePath)} contém caractere de controle inválido (U+${charCode.padStart(4, '0')}).`);
+     process.exit(1);
+   }
 
   // 2. Validar Estrutura XML
   const parser = new XMLParser({
