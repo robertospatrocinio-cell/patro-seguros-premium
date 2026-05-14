@@ -33,10 +33,11 @@ interface SitemapEntry {
 // 0.3 = legal pages
 
 const highIntentTransactional: SitemapEntry[] = [
-  { loc: "/", priority: "1.0", changefreq: "daily" },
-  { loc: "/cotacao", priority: "1.0", changefreq: "daily" },
-  { loc: "/cotacao-seguro-auto", priority: "0.9", changefreq: "weekly" },
-  { loc: "/contato", priority: "0.8", changefreq: "monthly" },
+   { loc: "/", priority: "1.0", changefreq: "always" },
+   { loc: "/cotacao", priority: "1.0", changefreq: "daily" },
+   { loc: "/cotacao-seguro-auto", priority: "0.9", changefreq: "daily" },
+   { loc: "/comparativo-planos-saude-guarulhos", priority: "0.9", changefreq: "daily" },
+   { loc: "/contato", priority: "0.8", changefreq: "weekly" },
 ];
 
 const seoLocalGuarulhos: SitemapEntry[] = [
@@ -56,8 +57,9 @@ const seoLocalGuarulhos: SitemapEntry[] = [
   "/seguro-empresa-guarulhos",
   "/seguro-para-motorista-app-guarulhos",
   "/seguro-auto-por-modelo-guarulhos",
-  "/seguros-guarulhos-bairros",
-  "/seguros-em-guarulhos-bairros",
+   "/seguros-em-guarulhos-bairros",
+   "/seguros-guarulhos",
+   "/seguros-guarulhos-bairros",
 ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const coreProducts: SitemapEntry[] = [
@@ -121,9 +123,22 @@ const informational: SitemapEntry[] = [
   { loc: "/seguros-guarulhos", priority: "0.8", changefreq: "monthly" },
 ];
 
-const guarulhosHub: SitemapEntry[] = [
-  { loc: "/seguros-em-guarulhos", priority: "0.9", changefreq: "weekly" },
-];
+ const hubs: SitemapEntry[] = [
+   { loc: "/seguros-em-guarulhos", priority: "0.9", changefreq: "daily" },
+   { loc: "/seguros-de-veiculos", priority: "0.8", changefreq: "weekly" },
+   { loc: "/seguros-empresariais", priority: "0.8", changefreq: "weekly" },
+   { loc: "/seguros-de-patrimonio", priority: "0.8", changefreq: "weekly" },
+   { loc: "/seguros-responsabilidade-civil", priority: "0.8", changefreq: "weekly" },
+   { loc: "/vida-e-saude", priority: "0.8", changefreq: "weekly" },
+ ].map(e => ({ ...e, priority: e.priority || "0.8", changefreq: e.changefreq || "weekly" }));
+ 
+ const landingPages: SitemapEntry[] = [
+   "/lp/seguro-auto", "/lp/seguro-auto-premium", "/lp/plano-de-saude",
+   "/lp/seguro-empresarial", "/lp/seguro-residencial", "/lp/seguro-vida",
+   "/lp/seguro-moto", "/lp/seguro-galpoes", "/lp/seguro-galpao-alugado",
+   "/lp/consorcio", "/lp/seguro-celular", "/lp/seguro-motorista-app",
+   "/lp/medsenior", "/lp/alice"
+ ].map(loc => ({ loc, priority: "0.8", changefreq: "weekly" }));
 
 const investments: SitemapEntry[] = [
   { loc: "/investimentos", priority: "0.7", changefreq: "monthly" },
@@ -257,7 +272,8 @@ export function generateSitemapBundle(
     ...nichos,
     ...informational,
     ...investments,
-    ...guarulhosHub,
+     ...hubs,
+     ...landingPages,
     ...bairroEntries,
     ...localPageEntries,
     ...blogEntries,
