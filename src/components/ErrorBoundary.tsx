@@ -44,18 +44,28 @@
       return { hasError: true, error, errorId, copied: false, isSupportModalOpen: false };
     }
  
-     public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-       console.error("Uncaught error:", error, errorInfo);
-       // Globalize error ID so forms can pick it up if user navigates back
-       if (typeof window !== "undefined") {
-         (window as any).lastErrorId = this.state.errorId;
-       }
-       captureException(error, {
-         componentStack: errorInfo.componentStack,
-         url: window.location.href,
-         timestamp: new Date().toISOString()
+   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+     console.error("Uncaught error caught by ErrorBoundary:", error, errorInfo);
+     
+     // Globalize error ID so forms can pick it up if user navigates back
+     if (typeof window !== "undefined") {
+       (window as any).lastErrorId = this.state.errorId;
+       
+       // Also notify user via toast if they are still on a functional part of the app
+       toast.error("Ocorreu um erro inesperado na interface.", {
+         description: `Código de referência: ${this.state.errorId}. Nossa equipe técnica foi notificada.`,
+         duration: 8000,
        });
      }
+     
+     captureException(error, {
+       componentStack: errorInfo.componentStack,
+       url: window.location.href,
+       timestamp: new Date().toISOString(),
+       errorId: this.state.errorId,
+       boundary: true
+     });
+   }
  
     private handleReset = () => {
       this.setState({ hasError: false, error: undefined, errorId: "" });
