@@ -49,14 +49,13 @@
          the page may not contact in the LCP window (avoids "unused preconnect"). -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
-    <!-- Preload LCP image of Hero Selector (default 'voce' tab = familia) -->
-    <link rel="preload" href="/images/hero-familia-sm.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high" />
-    <link rel="preload" href="/images/hero-familia.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
-    <!-- Preload LCP candidate: trust seal (renders immediately above the fold) -->
-     <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="/images/selo-melhor-corretora.webp 1x, /images/selo-melhor-corretora@2x.webp 2x, /images/selo-melhor-corretora@3x.webp 3x" />
-     <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high" />
-     <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
+     <!-- Preload LCP candidate: logo (it's small and always visible) -->
      <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
+     <!-- Preload LCP candidate: trust seal -->
+     <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="/images/selo-melhor-corretora.webp 1x, /images/selo-melhor-corretora@2x.webp 2x, /images/selo-melhor-corretora@3x.webp 3x" />
+     <!-- Preload Hero Images with strict media queries to avoid downloading both on tablet-range devices -->
+     <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 639px)" fetchpriority="high" />
+     <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 640px)" fetchpriority="high" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

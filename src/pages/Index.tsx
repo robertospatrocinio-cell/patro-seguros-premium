@@ -181,32 +181,32 @@ const faqs = [
           </div>
         </section>
 
-        {/* Diferenciais */}
-        <section className="py-16 md:py-32 bg-background" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 600px' }} aria-labelledby="diferenciais-heading">
-          <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto text-center mb-16">
-              <span className="section-label">Por que escolher a Patro Seguros em Guarulhos</span>
-              <h2 id="diferenciais-heading" className="mt-3">Atendimento especializado<br className="hidden sm:block" /> de gente, não de robô</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
-              {diferenciais.map((item, i) => (
-                <div key={i} className="bg-card p-8 text-center">
-                  <div className="w-10 h-10 rounded-lg bg-primary/[0.05] flex items-center justify-center mx-auto mb-5">
-                    <item.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} aria-hidden="true" />
-                  </div>
-                  <h3 className="text-[15px] font-semibold mb-2 tracking-tight">{item.title}</h3>
-                  <p className="text-[13px] text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+         {/* Diferenciais */}
+         <LazySection minHeight="400px" className="py-16 md:py-32 bg-background">
+           <div className="container mx-auto px-4">
+             <div className="max-w-2xl mx-auto text-center mb-16">
+               <span className="section-label">Por que escolher a Patro Seguros em Guarulhos</span>
+               <h2 id="diferenciais-heading" className="mt-3">Atendimento especializado<br className="hidden sm:block" /> de gente, não de robô</h2>
+             </div>
+             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
+               {diferenciais.map((item, i) => (
+                 <div key={i} className="bg-card p-8 text-center">
+                   <div className="w-10 h-10 rounded-lg bg-primary/[0.05] flex items-center justify-center mx-auto mb-5">
+                     <item.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} aria-hidden="true" />
+                   </div>
+                   <h3 className="text-[15px] font-semibold mb-2 tracking-tight">{item.title}</h3>
+                   <p className="text-[13px] text-muted-foreground leading-relaxed">{item.desc}</p>
+                 </div>
+               ))}
+             </div>
+           </div>
+         </LazySection>
 
-        {/* E-E-A-T Content Section — Optimized for performance with content-visibility */}
-        <section className="py-16 md:py-24 bg-muted" aria-labelledby="eeat-heading" style={{ contentVisibility: 'auto', containIntrinsicSize: '0 800px' }}>
-          <div className="container mx-auto px-4 max-w-3xl">
+         {/* E-E-A-T Content Section */}
+         <LazySection minHeight="800px" className="py-16 md:py-24 bg-muted">
+           <div className="container mx-auto px-4 max-w-3xl">
                <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
-            <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
+             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Já atendemos <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil. Com uma equipe de consultores certificados e experiência em mais de 16 seguradoras e 20 operadoras de saúde, oferecemos a análise mais completa do mercado local.
               </p>
@@ -258,13 +258,13 @@ const faqs = [
                 <li><strong>Esquecer de avisar mudanças</strong> — troca de endereço, novo condutor ou alteração no veículo devem ser informados à seguradora para manter a cobertura válida.</li>
               </ol>
 
-              <h2 className="text-foreground font-bold text-lg mt-8">Por que Escolher a Patro Seguros em Guarulhos?</h2>
-              <p>
-                Com sede no Cidade Maia e registro SUSEP nº 212113511, a Patro Seguros combina experiência local com tecnologia para oferecer o melhor serviço de corretagem em Guarulhos. Nossos clientes avaliam nosso atendimento com nota <strong>4.9/5</strong> no Google (150+ avaliações). Cada consultor é especialista em sua categoria — auto, residencial, vida, empresarial ou saúde — garantindo orientação técnica precisa para cada necessidade. <Link to="/corretora-seguros-guarulhos" className="text-primary hover:underline">Conheça mais sobre nossa corretora em Guarulhos</Link>.
-              </p>
-            </div>
-          </div>
-        </section>
+               <h2 className="text-foreground font-bold text-lg mt-8">Por que Escolher a Patro Seguros em Guarulhos?</h2>
+               <p>
+                 Com sede no Cidade Maia e registro SUSEP nº 212113511, a Patro Seguros combina experiência local com tecnologia para oferecer o melhor serviço de corretagem em Guarulhos. Nossos clientes avaliam nosso atendimento com nota <strong>4.9/5</strong> no Google (150+ avaliações). Cada consultor é especialista em sua categoria — auto, residencial, vida, empresarial ou saúde — garantindo orientação técnica precisa para cada necessidade. <Link to="/corretora-seguros-guarulhos" className="text-primary hover:underline">Conheça mais sobre nossa corretora em Guarulhos</Link>.
+               </p>
+             </div>
+           </div>
+         </LazySection>
 
 
         {/* Lead Magnet — E-book Section */}
