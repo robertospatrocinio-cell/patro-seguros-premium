@@ -75,9 +75,14 @@ const Cotacao = () => {
       htmlBody
     });
 
-    if (mailErr) {
-      handleSupabaseError(mailErr, "Houve um problema ao processar a notificação por e-mail, mas você será redirecionado ao WhatsApp.");
-    }
+     if (mailErr) {
+       // Don't use handleSupabaseError here as we want to manage the redirection flow gracefully
+       console.error("Email notification error:", mailErr);
+       toast.warning("Houve uma instabilidade no sistema de notificações.", {
+         description: "Mas não se preocupe, estamos redirecionando você agora para o WhatsApp para garantir seu atendimento.",
+         duration: 6000,
+       });
+     }
 
     // Redirecionar para WhatsApp
     trackCotacaoSubmit(values.insuranceType, { origin: "formulario-cotacao" });
