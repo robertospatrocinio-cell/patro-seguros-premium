@@ -214,6 +214,11 @@ function sitemapPlugin(): Plugin {
       // Sitemap index referencing all clusters
       fs.writeFileSync(path.join(outDir, "sitemap-index.xml"), index, "utf-8");
       console.log(`✅ sitemap-index.xml generated with ${Object.keys(files).length - 1} cluster sitemaps`);
+      // Mirror as sitemap_index.xml (WordPress/Yoast convention) so URLs
+      // already submitted to Google Search Console with that name don't
+      // fall through the SPA rewrite and return HTML.
+      fs.writeFileSync(path.join(outDir, "sitemap_index.xml"), index, "utf-8");
+      console.log("✅ sitemap_index.xml mirror generated");
     },
   };
 }

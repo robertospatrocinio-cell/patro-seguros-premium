@@ -134,7 +134,13 @@ Options -MultiViews +FollowSymLinks
   RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://www.patroseguros.com.br%{REQUEST_URI} [R=301,L]
 
-  RewriteRule ^(sitemap\.xml|robots\.txt|sw\.js|favicon\.(ico|png)|manifest\.webmanifest)$ - [L,NC]
+  RewriteRule ^(sitemap[^/]*\.xml|robots\.txt|sw\.js|favicon\.(ico|png)|manifest\.webmanifest)$ - [L,NC]
+
+  # Any sitemap*.xml that does not exist on disk must 404 — never fall through
+  # to the SPA index.html (which would make Google see HTML in place of XML).
+  RewriteCond %{REQUEST_URI} ^/sitemap[^/]*\.xml$ [NC]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ - [R=404,L]
 
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
