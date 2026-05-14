@@ -4,8 +4,8 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /~api/
 Disallow: /~flock.js
-Disallow: /lp/
-Disallow: /landing-pages/
+ Allow: /lp/
+ Allow: /landing-pages/
 Disallow: /ebook-consorcio/
 Disallow: /avaliar-no-google/
 Disallow: /performance-diagnostico
@@ -22,5 +22,6 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 0.5
 
- # Sitemap index
+ # Sitemaps
+ Allow: /sitemap*.xml
  Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
