@@ -146,7 +146,8 @@ import react from "@vitejs/plugin-react-swc";
 
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
-import { generateSitemapBundle } from "./scripts/generate-sitemap";
+ import { generateSitemapBundle } from "./scripts/generate-sitemap";
+ import { execSync } from "child_process";
 import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
 import { validatePageMeta } from "./scripts/validate-page-meta.mjs";
 import { loadDataModule } from "./scripts/load-data-module.mjs";
@@ -214,11 +215,18 @@ function sitemapPlugin(): Plugin {
       // Sitemap index referencing all clusters
       fs.writeFileSync(path.join(outDir, "sitemap-index.xml"), index, "utf-8");
       console.log(`✅ sitemap-index.xml generated with ${Object.keys(files).length - 1} cluster sitemaps`);
-      // Mirror as sitemap_index.xml (WordPress/Yoast convention) so URLs
-      // already submitted to Google Search Console with that name don't
-      // fall through the SPA rewrite and return HTML.
+
+      // Mirror as sitemap_index.xml (WordPress/Yoast convention)
       fs.writeFileSync(path.join(outDir, "sitemap_index.xml"), index, "utf-8");
-      console.log("✅ sitemap_index.xml mirror generated");
+
+      // Final validation step for XML and UTF-8 encoding
+      try {
+        console.log("🚀 Running final sitemap validation...");
+        execSync("bun run scripts/validate-sitemaps.ts", { stdio: "inherit" });
+      } catch (err) {
+        console.error("❌ Sitemap validation failed. Build aborted.");
+        process.exit(1);
+      }
     },
   };
 }
