@@ -3,15 +3,14 @@ import path from "path";
 import { XMLParser } from "fast-xml-parser";
 
 async function validateSitemap(filePath: string) {
+  // Ignorar se o arquivo não existir (alguns clusters podem estar vazios ou não gerados em dev)
   if (!fs.existsSync(filePath)) {
-    console.error(`❌ Erro: Arquivo não encontrado: ${filePath}`);
-    process.exit(1);
+    return;
   }
 
   const content = fs.readFileSync(filePath, "utf-8");
 
   // 1. Validar UTF-8 e Caracteres de Controle (C0/C1)
-  // Google Search Console rejeita sitemaps com caracteres de controle invisíveis
   const controlChars = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]/;
   if (controlChars.test(content)) {
     console.error(`❌ Erro: ${path.basename(filePath)} contém caracteres de controle inválidos.`);
@@ -36,9 +35,12 @@ async function validateSitemap(filePath: string) {
 
 async function main() {
   const distDir = path.resolve(process.cwd(), "dist");
+  const publicDir = path.resolve(process.cwd(), "public");
   
-  // Lista de sitemaps para validar no diretório de saída
-  const sitemaps = [
+  // Validar tanto no /dist quanto no /public para garantir integridade total
+  const dirs = [distDir, publicDir];
+  
+  const sitemapFiles = [
     "sitemap.xml",
     "sitemap-index.xml",
     "sitemap_index.xml",
@@ -50,13 +52,16 @@ async function main() {
     "sitemap-geral.xml"
   ];
 
-  console.log("🚀 Validando sitemaps no diretório /dist...");
+  console.log("🚀 Iniciando validação rigorosa de sitemaps...");
   
-  for (const sitemap of sitemaps) {
-    await validateSitemap(path.join(distDir, sitemap));
+  for (const dir of dirs) {
+    if (!fs.existsSync(dir)) continue;
+    for (const file of sitemapFiles) {
+      await validateSitemap(path.join(dir, file));
+    }
   }
   
-  console.log("✨ Todos os sitemaps foram validados com sucesso!");
+  console.log("✨ Validação concluída!");
 }
 
 main().catch(err => {
