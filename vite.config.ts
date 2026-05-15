@@ -218,9 +218,9 @@ function sitemapPlugin(): Plugin {
       const outDir = path.resolve(__dirname, "dist");
       fs.mkdirSync(outDir, { recursive: true });
       // Cluster sitemaps + legacy flat sitemap.xml
-      for (const [name, xml] of Object.entries(files)) {
-        fs.writeFileSync(path.join(outDir, name), xml, "utf-8");
-        const count = xml.split("<url>").length - 1;
+       for (const [name, xml] of Object.entries(files as Record<string, string>)) {
+         fs.writeFileSync(path.join(outDir, name), xml, "utf-8");
+         const count = xml.split("<url>").length - 1;
         console.log(`✅ ${name} generated with ${count} URLs`);
       }
       // Sitemap index referencing all clusters
