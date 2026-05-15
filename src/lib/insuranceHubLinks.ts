@@ -83,7 +83,8 @@ export const INSURANCE_HUB: HubCategory[] = [
       { label: "Seguro Garantia", href: "/seguro-garantia" },
       { label: "Seguro Cyber", href: "/seguro-cyber" },
       { label: "Seguro Estagiário", href: "/seguro-estagiario" },
-      { label: "Seguro Ambiental", href: "/seguro-ambiental" },
+       { label: "Seguro Ambiental", href: "/seguro-ambiental" },
+       { label: "Seguros por Segmento", href: "/seguro-empresarial/segmentos" },
     ],
   },
   {
