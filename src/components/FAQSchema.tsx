@@ -19,7 +19,7 @@ const FAQSchema = ({ faqs, speakable = true }: FAQSchemaProps) => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map((faq) => ({
+     "mainEntity": faqs.slice(0, 10).map((faq) => ({
       "@type": "Question",
       "name": faq.question.trim(),
       "acceptedAnswer": {
