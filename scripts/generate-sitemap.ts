@@ -203,11 +203,18 @@ export function generateSitemap(blogSlugs: string[]): string {
   return generateSitemapBundle(blogSlugs, []).files["sitemap.xml"];
 }
 
-export function generateSitemapBundle(
-  blogSlugs: string[],
-  localPageSlugs: string[] = [],
-): SitemapBundle {
-  const blogEntries: SitemapEntry[] = blogSlugs.map(slug => ({
+ export function generateSitemapBundle(
+   blogSlugs: string[],
+   localPageSlugs: string[] = [],
+   segmentSlugs: string[] = [],
+ ): SitemapBundle {
+   const segmentEntries: SitemapEntry[] = segmentSlugs.map(slug => ({
+     loc: `/seguro-empresarial/${slug}`,
+     priority: "0.8",
+     changefreq: "weekly",
+   }));
+ 
+   const blogEntries: SitemapEntry[] = blogSlugs.map(slug => ({
     loc: `/blog/${slug}`,
     priority: "0.6",
     changefreq: "monthly",
@@ -271,9 +278,10 @@ export function generateSitemapBundle(
     ...coreProducts,
     ...secondaryProducts,
     ...tertiaryProducts,
-    ...nichos,
-    ...informational,
-    ...investments,
+     ...segmentEntries,
+     ...nichos,
+     ...informational,
+     ...investments,
      ...hubs,
      ...landingPages,
     ...bairroEntries,
@@ -296,9 +304,10 @@ export function generateSitemapBundle(
 
   // Bairros / hyper-local long-tail go to dedicated sitemap-bairros.xml so
   // Google Search Console can track indexação por cluster local separadamente.
-  const localSlugSet = new Set(localPageSlugs.map(s => `/${s}`));
-  const isBairroOrLocal = (loc: string) =>
-    loc.startsWith("/seguros-guarulhos/") || localSlugSet.has(loc);
+   const localSlugSet = new Set(localPageSlugs.map(s => `/${s}`));
+   const segmentSlugSet = new Set(segmentSlugs.map(s => `/seguro-empresarial/${s}`));
+   const isBairroOrLocal = (loc: string) =>
+     loc.startsWith("/seguros-guarulhos/") || localSlugSet.has(loc) || segmentSlugSet.has(loc);
 
   const isGuarulhosHub = (loc: string) =>
     loc.includes("guarulhos") || loc === "/seguros-em-guarulhos" ||
