@@ -335,12 +335,10 @@ export const segmentos: SegmentoEmpresarial[] = [
        { question: "Cobre vazamento de tanques (ambiental)?", answer: "Sim, com a cobertura de Responsabilidade Civil Ambiental Poluição Súbita." },
      ],
    },
-   {
-     slug: "hoteis-e-pousadas",
-     nome: "Hotéis e Pousadas",
-
-    nome: "Hotéis e Pousadas",
-    icon: "🏨",
+    {
+      slug: "hoteis-e-pousadas",
+      nome: "Hotéis e Pousadas",
+      icon: "🏨",
     subtitle: "Seguro Empresarial para hotéis, pousadas e hospedagens",
     description: "Proteção para estrutura, mobiliário, hóspedes e RC para acidentes nas dependências.",
     detailedDescription: "Hotéis e pousadas concentram alto valor em mobiliário, eletrodomésticos, roupas de cama e equipamentos de cozinha. Os principais riscos incluem incêndio, roubo, danos por hóspedes e acidentes em piscinas, escadas e áreas comuns.\n\nA RC Hoteleira é fundamental e cobre situações de furto de pertences de hóspedes em quartos e cofres, intoxicação alimentar e acidentes durante a hospedagem.",
