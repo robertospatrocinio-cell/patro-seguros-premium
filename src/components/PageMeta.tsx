@@ -15,7 +15,7 @@ const BASE_URL = CANONICAL_BASE_URL;
   const location = useLocation();
 
    useEffect(() => {
-     const fullTitle = absoluteTitle ? title : `${title} | Patro Seguros`;
+     const fullTitle = absoluteTitle || title.includes("Patro Seguros") ? title : `${title} | Patro Seguros`;
      document.title = fullTitle;
 
     // Meta description
