@@ -614,12 +614,12 @@ const BlogArticle = () => {
         </section>
       </main>
       <Suspense fallback={null}>
-        <StickyQuoteBar 
-          source={`blog:${slug}`} 
-          quoteHref="#cotacao-blog" 
-          ctaLabel="Cotação Rápida" 
-          whatsappMessage={`Olá! Li o artigo sobre ${article.title} e gostaria de uma cotação.`}
-        />
+       <StickyQuoteBar 
+         source={`blog:${slug}`} 
+         quoteHref="/cotacao" 
+         ctaLabel="Pedir Cotação" 
+         whatsappMessage={`Olá! Li o artigo sobre ${article.title} e gostaria de uma cotação.`}
+       />
       </Suspense>
       <Footer />
       {slug === "como-pagar-menos-seguro-frota-logistica-guarulhos" && (

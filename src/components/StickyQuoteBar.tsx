@@ -35,9 +35,9 @@ const StickyQuoteBar = ({
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background/95 backdrop-blur-md shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.15)] transition-transform duration-300 ${
-        visible ? "translate-y-0" : "translate-y-full"
-      } md:hidden`}
+       className={`fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background/95 backdrop-blur-md shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.15)] transition-transform duration-300 ${
+         visible ? "translate-y-0" : "translate-y-full"
+       }`}
       role="region"
       aria-label="Atalhos de cotação"
     >
