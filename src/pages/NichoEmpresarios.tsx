@@ -52,12 +52,12 @@ const NichoEmpresarios = () => (
      <WebSiteSchema />
      <AggregateRatingSchema
        serviceName="Seguros para Empresários e Empresas"
-       url="https://www.patroseguros.com.br/nicho-empresarios"
+       url="https://www.patroseguros.com.br/seguros/empresarios"
        description="Pacote completo de seguros para empresas: Empresarial, Cyber, RC, D&O, Plano de Saúde e Vida em Grupo."
      />
      <BreadcrumbSchema items={[
        { name: "Início", url: "/" },
-       { name: "Empresários", url: "/nicho-empresarios" }
+       { name: "Empresários", url: "/seguros/empresarios" }
      ]} />
      <Header />
     <main id="main-content">
