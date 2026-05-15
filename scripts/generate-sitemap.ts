@@ -60,7 +60,8 @@ const seoLocalGuarulhos: SitemapEntry[] = [
    "/seguros-em-guarulhos-bairros",
    "/seguros-guarulhos",
    "/seguros-guarulhos-bairros",
-].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
+   "/seguro-empresarial/segmentos",
+ ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const coreProducts: SitemapEntry[] = [
   "/seguro-auto",
@@ -246,22 +247,23 @@ export function generateSitemapBundle(
   ]);
 
   const empresarialRoutes = new Set([
-    "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
-    "/seguro-lojas-shopping", "/seguro-maquinas",
-    "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
-    "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
-    "/seguro-garantia", "/seguro-cyber", "/seguro-estagiario",
-    "/seguro-ambiental", "/seguro-rc", "/seguro-rc-profissional",
-    "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
-    "/seguro-rc-engenheiros", "/seguro-rc-veterinarios",
-    "/seguro-rc-executivos", "/seguro-rc-obras",
-    "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
-    "/seguros/empresarios", "/seguros/profissionais-liberais",
-    "/seguros/medicos-e-clinicas", "/seguros/transportadoras",
-    "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
-    "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
-    "/seguro-placa-solar",
-  ]);
+   "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
+   "/seguro-lojas-shopping", "/seguro-maquinas",
+   "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
+   "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
+   "/seguro-garantia", "/seguro-cyber", "/seguro-estagiario",
+   "/seguro-ambiental", "/seguro-rc", "/seguro-rc-profissional",
+   "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
+   "/seguro-rc-engenheiros", "/seguro-rc-veterinarios",
+   "/seguro-rc-executivos", "/seguro-rc-obras",
+   "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
+   "/seguro-empresarial/segmentos",
+   "/seguros/empresarios", "/seguros/profissionais-liberais",
+   "/seguros/medicos-e-clinicas", "/seguros/transportadoras",
+   "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
+   "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
+   "/seguro-placa-solar",
+ ]);
 
   const flat = [
     ...highIntentTransactional,
