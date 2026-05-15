@@ -79,7 +79,11 @@ const faqs = [
  
   return (
     <>
-      <PageMeta title="Corretora de Seguros em Guarulhos – Cotação Grátis" description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500." />
+       <PageMeta 
+         title="Patro Seguros | Corretora em Guarulhos - Auto, Vida, Saúde, Empresarial" 
+         description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500." 
+         absoluteTitle={true}
+       />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
