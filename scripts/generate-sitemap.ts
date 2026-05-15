@@ -319,14 +319,16 @@ export function generateSitemap(blogSlugs: string[]): string {
   const empresarialEntries: SitemapEntry[] = [];
   const geralEntries: SitemapEntry[] = [];
 
-  for (const e of allEntries) {
-    if (isBairroOrLocal(e.loc)) bairrosEntries.push(e);
-    else if (isGuarulhosHub(e.loc)) guarulhosEntries.push(e);
-    else if (autoRoutes.has(e.loc)) autoEntries.push(e);
-    else if (vidaSaudeRoutes.has(e.loc)) vidaSaudeEntries.push(e);
-    else if (empresarialRoutes.has(e.loc)) empresarialEntries.push(e);
-    else geralEntries.push(e);
-  }
+   const segmentSlugSet = new Set(segmentSlugs.map(s => `/seguro-empresarial/${s}`));
+ 
+   for (const e of allEntries) {
+     if (isBairroOrLocal(e.loc)) bairrosEntries.push(e);
+     else if (isGuarulhosHub(e.loc)) guarulhosEntries.push(e);
+     else if (autoRoutes.has(e.loc) || e.loc.startsWith("/seguro-auto") || e.loc.startsWith("/seguro-moto")) autoEntries.push(e);
+     else if (vidaSaudeRoutes.has(e.loc) || e.loc.startsWith("/seguro-vida") || e.loc.startsWith("/seguro-saude")) vidaSaudeEntries.push(e);
+     else if (empresarialRoutes.has(e.loc) || segmentSlugSet.has(e.loc) || e.loc.startsWith("/seguro-empresarial")) empresarialEntries.push(e);
+     else geralEntries.push(e);
+   }
 
   const files: Record<string, string> = {
     "sitemap-guarulhos.xml": urlsetFor(guarulhosEntries),
