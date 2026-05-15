@@ -13,7 +13,7 @@
 // The legacy public/sitemap.xml is also regenerated as an equivalent flat
 // sitemap for backward compatibility with already-submitted URLs.
 
-const DOMAIN = "https://patroseguros.lovable.app";
+const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
 
 interface SitemapEntry {
