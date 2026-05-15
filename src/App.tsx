@@ -90,6 +90,8 @@ const ConsorcioImoveis = lazy(() => import("./pages/ConsorcioImoveis"));
 const ConsorcioVeiculosPesados = lazy(() => import("./pages/ConsorcioVeiculosPesados"));
 const EbookConsorcio = lazy(() => import("./pages/EbookConsorcio"));
 const SeguroLojasShopping = lazy(() => import("./pages/SeguroLojasShopping"));
+const SegurosPorSegmento = lazy(() => import("./pages/SegurosPorSegmento"));
+const SeguroEmpresarialSegmento = lazy(() => import("./pages/SeguroEmpresarialSegmento"));
 const SeguroDroneAgricola = lazy(() => import("./pages/SeguroDroneAgricola"));
 const SeguroTransporteAgro = lazy(() => import("./pages/SeguroTransporteAgro"));
 const SeguroGranja = lazy(() => import("./pages/SeguroGranja"));
@@ -233,6 +235,8 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/seguro-saude" element={<SeguroSaude />} />
             <Route path="/seguro-odonto" element={<SeguroOdonto />} />
             <Route path="/seguro-empresarial" element={<SeguroEmpresarial />} />
+            <Route path="/seguro-empresarial/segmentos" element={<SegurosPorSegmento />} />
+            <Route path="/seguro-empresarial/:segmento" element={<SeguroEmpresarialSegmento />} />
             <Route path="/seguro-frota" element={<SeguroFrota />} />
             <Route path="/seguro-transporte" element={<SeguroTransporte />} />
             <Route path="/seguro-rural" element={<SeguroRural />} />
