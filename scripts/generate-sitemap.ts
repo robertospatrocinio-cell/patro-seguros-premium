@@ -60,7 +60,8 @@ const seoLocalGuarulhos: SitemapEntry[] = [
    "/seguros-em-guarulhos-bairros",
    "/seguros-guarulhos",
    "/seguros-guarulhos-bairros",
-].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
+   "/seguro-empresarial/segmentos",
+ ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
 const coreProducts: SitemapEntry[] = [
   "/seguro-auto",
@@ -202,11 +203,18 @@ export function generateSitemap(blogSlugs: string[]): string {
   return generateSitemapBundle(blogSlugs, []).files["sitemap.xml"];
 }
 
-export function generateSitemapBundle(
-  blogSlugs: string[],
-  localPageSlugs: string[] = [],
-): SitemapBundle {
-  const blogEntries: SitemapEntry[] = blogSlugs.map(slug => ({
+ export function generateSitemapBundle(
+   blogSlugs: string[],
+   localPageSlugs: string[] = [],
+   segmentSlugs: string[] = [],
+ ): SitemapBundle {
+   const segmentEntries: SitemapEntry[] = segmentSlugs.map(slug => ({
+     loc: `/seguro-empresarial/${slug}`,
+     priority: "0.8",
+     changefreq: "weekly",
+   }));
+ 
+   const blogEntries: SitemapEntry[] = blogSlugs.map(slug => ({
     loc: `/blog/${slug}`,
     priority: "0.6",
     changefreq: "monthly",
@@ -246,22 +254,23 @@ export function generateSitemapBundle(
   ]);
 
   const empresarialRoutes = new Set([
-    "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
-    "/seguro-lojas-shopping", "/seguro-maquinas",
-    "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
-    "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
-    "/seguro-garantia", "/seguro-cyber", "/seguro-estagiario",
-    "/seguro-ambiental", "/seguro-rc", "/seguro-rc-profissional",
-    "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
-    "/seguro-rc-engenheiros", "/seguro-rc-veterinarios",
-    "/seguro-rc-executivos", "/seguro-rc-obras",
-    "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
-    "/seguros/empresarios", "/seguros/profissionais-liberais",
-    "/seguros/medicos-e-clinicas", "/seguros/transportadoras",
-    "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
-    "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
-    "/seguro-placa-solar",
-  ]);
+   "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
+   "/seguro-lojas-shopping", "/seguro-maquinas",
+   "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
+   "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
+   "/seguro-garantia", "/seguro-cyber", "/seguro-estagiario",
+   "/seguro-ambiental", "/seguro-rc", "/seguro-rc-profissional",
+   "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
+   "/seguro-rc-engenheiros", "/seguro-rc-veterinarios",
+   "/seguro-rc-executivos", "/seguro-rc-obras",
+   "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
+   "/seguro-empresarial/segmentos",
+   "/seguros/empresarios", "/seguros/profissionais-liberais",
+   "/seguros/medicos-e-clinicas", "/seguros/transportadoras",
+   "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
+   "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
+   "/seguro-placa-solar",
+ ]);
 
   const flat = [
     ...highIntentTransactional,
@@ -269,9 +278,10 @@ export function generateSitemapBundle(
     ...coreProducts,
     ...secondaryProducts,
     ...tertiaryProducts,
-    ...nichos,
-    ...informational,
-    ...investments,
+     ...segmentEntries,
+     ...nichos,
+     ...informational,
+     ...investments,
      ...hubs,
      ...landingPages,
     ...bairroEntries,
@@ -294,9 +304,10 @@ export function generateSitemapBundle(
 
   // Bairros / hyper-local long-tail go to dedicated sitemap-bairros.xml so
   // Google Search Console can track indexação por cluster local separadamente.
-  const localSlugSet = new Set(localPageSlugs.map(s => `/${s}`));
-  const isBairroOrLocal = (loc: string) =>
-    loc.startsWith("/seguros-guarulhos/") || localSlugSet.has(loc);
+   const localSlugSet = new Set(localPageSlugs.map(s => `/${s}`));
+   const segmentSlugSet = new Set(segmentSlugs.map(s => `/seguro-empresarial/${s}`));
+   const isBairroOrLocal = (loc: string) =>
+     loc.startsWith("/seguros-guarulhos/") || localSlugSet.has(loc) || segmentSlugSet.has(loc);
 
   const isGuarulhosHub = (loc: string) =>
     loc.includes("guarulhos") || loc === "/seguros-em-guarulhos" ||

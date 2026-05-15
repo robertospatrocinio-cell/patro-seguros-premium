@@ -203,13 +203,24 @@ function sitemapPlugin(): Plugin {
         }
       }
 
-      const { index, files } = generateSitemapBundle(slugs, localSlugs);
+       // Load business insurance segments
+       const segmentSlugs: string[] = [];
+       try {
+         const segmentosMod = await loadDataModule("src/data/segmentosEmpresariais.ts");
+         if (Array.isArray(segmentosMod.segmentos)) {
+           segmentSlugs.push(...segmentosMod.segmentos.map((s: any) => s.slug));
+         }
+       } catch (err) {
+         console.warn("⚠️  sitemap: falha ao carregar segmentos empresariais —", err instanceof Error ? err.message : err);
+       }
+ 
+       const { index, files } = (generateSitemapBundle as any)(slugs, localSlugs, segmentSlugs);
       const outDir = path.resolve(__dirname, "dist");
       fs.mkdirSync(outDir, { recursive: true });
       // Cluster sitemaps + legacy flat sitemap.xml
-      for (const [name, xml] of Object.entries(files)) {
-        fs.writeFileSync(path.join(outDir, name), xml, "utf-8");
-        const count = xml.split("<url>").length - 1;
+       for (const [name, xml] of Object.entries(files as Record<string, string>)) {
+         fs.writeFileSync(path.join(outDir, name), xml, "utf-8");
+         const count = xml.split("<url>").length - 1;
         console.log(`✅ ${name} generated with ${count} URLs`);
       }
       // Sitemap index referencing all clusters
