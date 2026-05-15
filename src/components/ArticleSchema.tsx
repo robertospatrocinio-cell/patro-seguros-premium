@@ -64,7 +64,7 @@ const ArticleSchema = ({
       name: "Patro Seguros",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.patroseguros.com.br/logo-full.webp",
+       url: "https://www.patroseguros.com.br/images/logo-full.webp",
         width: 512,
         height: 512,
       },

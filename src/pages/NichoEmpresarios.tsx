@@ -1,8 +1,13 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageMeta from "@/components/PageMeta";
-import FAQSchema from "@/components/FAQSchema";
-import Breadcrumb from "@/components/Breadcrumb";
+ import PageMeta from "@/components/PageMeta";
+ import FAQSchema from "@/components/FAQSchema";
+ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+ import OrganizationSchema from "@/components/OrganizationSchema";
+ import WebSiteSchema from "@/components/WebSiteSchema";
+ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+ import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, MessageCircle, ArrowRight, Shield, FileWarning } from "lucide-react";
@@ -41,8 +46,20 @@ const NichoEmpresarios = () => (
       title="Seguros para Empresários e Empresas | Patro Seguros"
       description="Pacote completo de seguros para empresas: Empresarial, Cyber, RC, D&O, Plano de Saúde e Vida em Grupo. Cotação grátis em Guarulhos e SP."
     />
-    <FAQSchema faqs={faqs} />
-    <Header />
+     <FAQSchema faqs={faqs} />
+     <LocalBusinessSchema />
+     <OrganizationSchema />
+     <WebSiteSchema />
+     <AggregateRatingSchema
+       serviceName="Seguros para Empresários e Empresas"
+       url="https://www.patroseguros.com.br/seguros/empresarios"
+       description="Pacote completo de seguros para empresas: Empresarial, Cyber, RC, D&O, Plano de Saúde e Vida em Grupo."
+     />
+     <BreadcrumbSchema items={[
+       { name: "Início", url: "/" },
+       { name: "Empresários", url: "/seguros/empresarios" }
+     ]} />
+     <Header />
     <main id="main-content">
       <Breadcrumb items={[{ label: "Seguros por Nicho" }, { label: "Empresários" }]} />
 
