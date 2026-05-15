@@ -11,7 +11,7 @@ import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
 
 const BASE_URL = CANONICAL_BASE_URL;
 
-const PageMeta = ({ title, description, noindex = false }: PageMetaProps) => {
+ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false }: PageMetaProps) => {
   const location = useLocation();
 
    useEffect(() => {
