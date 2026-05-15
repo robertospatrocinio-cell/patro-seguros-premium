@@ -249,8 +249,9 @@ const Header = memo(() => {
                           <Link to="/seguro-empresarial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Empresarial</Link>
                           <Link to="/seguro-condominio" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Condomínio</Link>
                           <Link to="/seguro-imobiliario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Imobiliário</Link>
-                          <Link to="/seguro-lojas-shopping" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Lojas Shopping</Link>
-                          <Link to="/seguro-galpoes-industriais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Galpões</Link>
+                           <Link to="/seguro-lojas-shopping" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Lojas Shopping</Link>
+                           <Link to="/seguro-galpoes-industriais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Galpões</Link>
+                           <Link to="/seguro-empresarial/segmentos" className="block py-1 text-[13px] text-primary font-semibold hover:text-primary/80 transition-base">Por Segmento</Link>
                         </div>
                       </div>
                       <div>
