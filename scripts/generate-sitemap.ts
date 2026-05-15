@@ -305,9 +305,8 @@ export function generateSitemap(blogSlugs: string[]): string {
   // Bairros / hyper-local long-tail go to dedicated sitemap-bairros.xml so
   // Google Search Console can track indexação por cluster local separadamente.
    const localSlugSet = new Set(localPageSlugs.map(s => `/${s}`));
-   const segmentSlugSet = new Set(segmentSlugs.map(s => `/seguro-empresarial/${s}`));
-   const isBairroOrLocal = (loc: string) =>
-     loc.startsWith("/seguros-guarulhos/") || localSlugSet.has(loc) || segmentSlugSet.has(loc);
+    const isBairroOrLocal = (loc: string) =>
+      loc.startsWith("/seguros-guarulhos/") || localSlugSet.has(loc);
 
   const isGuarulhosHub = (loc: string) =>
     loc.includes("guarulhos") || loc === "/seguros-em-guarulhos" ||
