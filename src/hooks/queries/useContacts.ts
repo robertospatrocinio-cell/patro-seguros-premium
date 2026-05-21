@@ -12,6 +12,7 @@ export interface Contact {
   is_client: boolean;
   notes: string | null;
   marital_status?: string | null;
+  birth_date?: string | null;
   partner_name?: string | null;
   partner_birthday?: string | null;
   has_children?: boolean;
