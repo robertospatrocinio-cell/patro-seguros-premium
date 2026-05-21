@@ -57,12 +57,15 @@ export default function AdminLogin() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-6 bg-background">
-      <div className="w-full max-w-md space-y-6 border rounded-lg p-8 shadow-sm bg-card">
-        <header className="text-center space-y-1">
-          <h1 className="text-2xl font-bold">Painel administrativo</h1>
-          <p className="text-sm text-muted-foreground">
-            {mode === "signin" ? "Entre para acessar o painel" : "Crie sua conta de administrador"}
+    <main className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
+      <div className="w-full max-w-md space-y-6 border border-slate-200 rounded-xl p-8 shadow-lg bg-white">
+        <header className="text-center space-y-2">
+          <div className="flex justify-center mb-4">
+            <img src="/images/logo-full.webp" alt="Patro Seguros" className="h-16" />
+          </div>
+          <h1 className="text-2xl font-bold text-slate-900">Patro CRM PRO</h1>
+          <p className="text-sm text-slate-500">
+            {mode === "signin" ? "Entre para acessar o painel de gestão" : "Crie sua conta de administrador"}
           </p>
         </header>
         <form onSubmit={handleSubmit} className="space-y-4">
