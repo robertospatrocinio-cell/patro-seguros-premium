@@ -58,18 +58,18 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!form.nome?.trim()) {
-      toast.error("Por favor, informe seu nome.");
-      return;
-    }
+    // Mark all as touched to show errors
+    const allTouched = { nome: true, telefone: true, email: true };
+    extraFields.forEach(f => { (allTouched as any)[f.id] = true });
+    setTouched(allTouched);
 
-    if (!form.telefone?.trim() || !validatePhone(form.telefone)) {
-      toast.error("Por favor, informe um telefone válido com DDD.");
-      return;
-    }
+    // Final check
+    const nomeError = validateField("nome", form.nome);
+    const telError = validateField("telefone", form.telefone);
+    const emailError = validateField("email", form.email || "");
 
-    if (form.email?.trim() && !validateEmail(form.email)) {
-      toast.error("Por favor, informe um e-mail válido.");
+    if (nomeError || telError || emailError) {
+      toast.error(nomeError || telError || emailError || "Por favor, corrija os erros no formulário.");
       return;
     }
 
