@@ -244,8 +244,12 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
       <TooltipProvider>
         <Suspense fallback={null}>
           <DeferredRender>
-            <Toaster />
-            <Sonner />
+            <Suspense fallback={null}>
+              <Toaster />
+              <Sonner />
+              <WhatsAppButton />
+              <CookieBanner />
+            </Suspense>
           </DeferredRender>
         </Suspense>
         <BrowserRouter>
@@ -482,12 +486,6 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="*" element={<LegacyWpRedirect />} />
           </Routes>
         </Suspense>
-          <Suspense fallback={null}>
-            <DeferredRender>
-              <WhatsAppButton />
-              <CookieBanner />
-            </DeferredRender>
-          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </Suspense>

@@ -1,4 +1,4 @@
-import { useState, useMemo, memo } from "react";
+import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,19 @@ const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [mobileSearch, setMobileSearch] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // All mobile menu links for search filtering
   const allMobileLinks = useMemo(() => [
@@ -76,11 +89,14 @@ const Header = memo(() => {
     );
   }, [mobileSearch, allMobileLinks]);
 
-  const toggleMobileSection = (section: string) => {
-    setOpenMobileSection(openMobileSection === section ? null : section);
-  };
+  const toggleMobileSection = useCallback((section: string) => {
+    setOpenMobileSection(prev => prev === section ? null : section);
+  }, []);
 
-  const close = () => { setIsMenuOpen(false); setMobileSearch(""); };
+  const close = useCallback(() => { 
+    setIsMenuOpen(false); 
+    setMobileSearch(""); 
+  }, []);
 
   const MobileSection = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => {
     const isOpen = openMobileSection === id;
@@ -114,7 +130,7 @@ const Header = memo(() => {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'translate-y-[-32px] md:translate-y-[-36px]' : 'translate-y-0'}`}>
       {/* Top bar */}
       <div className="bg-foreground">
         <div className="container mx-auto px-4">
