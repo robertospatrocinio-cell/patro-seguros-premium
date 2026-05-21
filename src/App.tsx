@@ -161,6 +161,20 @@ const BradescoSaude = lazy(() => import("./pages/saude/Bradesco"));
 const Sami = lazy(() => import("./pages/saude/Sami"));
 const Unimed = lazy(() => import("./pages/saude/Unimed"));
 const Alice = lazy(() => import("./pages/saude/Alice"));
+
+const PortoSeguro = lazy(() => import("./pages/seguradoras/PortoSeguro"));
+const TokioMarine = lazy(() => import("./pages/seguradoras/TokioMarine"));
+const Allianz = lazy(() => import("./pages/seguradoras/Allianz"));
+const AzulSeguros = lazy(() => import("./pages/seguradoras/AzulSeguros"));
+const Mapfre = lazy(() => import("./pages/seguradoras/Mapfre"));
+const Zurich = lazy(() => import("./pages/seguradoras/Zurich"));
+const Yellum = lazy(() => import("./pages/seguradoras/Yellum"));
+const Suhai = lazy(() => import("./pages/seguradoras/Suhai"));
+const HDI = lazy(() => import("./pages/seguradoras/HDI"));
+const ItauSeguros = lazy(() => import("./pages/seguradoras/Itau"));
+const BradescoSeguros = lazy(() => import("./pages/seguradoras/Bradesco"));
+const Mitsui = lazy(() => import("./pages/seguradoras/Mitsui"));
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 /**
