@@ -5,10 +5,10 @@ const SeguroCartaVerde = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Carta Verde"
-      subtitle="Proteção obrigatória para viagens de carro aos países do Mercosul"
+      title="Seguro Carta Verde Mercosul"
+      subtitle="Carta Verde obrigatória para viajar de carro ao Mercosul: Argentina, Uruguai, Paraguai e Chile"
       icon="🌎"
-      metaDescription="Seguro Carta Verde obrigatório para viagens ao Mercosul (Argentina, Uruguai, Paraguai). Cobertura de RC internacional. Cotação rápida na Patro Seguros."
+      metaDescription="Seguro Carta Verde obrigatório para Mercosul (Argentina, Uruguai, Paraguai, Chile). Saiba o que é, quanto custa e contrate em até 1 hora. Patro Seguros."
       description="O Seguro Carta Verde é obrigatório para todos os veículos brasileiros que cruzam as fronteiras terrestres com países do Mercosul e associados."
       detailedDescription={`Planejar uma viagem de carro para a Argentina, Uruguai, Paraguai ou Chile é empolgante, mas sem o Seguro Carta Verde, seu veículo pode ser impedido de entrar no país — e você pode responder pessoalmente por qualquer acidente que causar no exterior.
 

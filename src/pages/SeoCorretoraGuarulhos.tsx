@@ -25,7 +25,7 @@ const faqs = [
  const SeoCorretoraGuarulhos = () => {
    return (
      <>
-       <PageMeta title="Corretor de Seguros em Guarulhos — Patro Seguros" description="Procurando por um Corretor de Seguros em Guarulhos? A Patro Seguros oferece cotação em 2h para Porto Seguro, Allianz, HDI e Bradesco. Atendimento local." />
+       <PageMeta title="Corretor Porto Seguro em Guarulhos | Atendimento Presencial Cidade Maia" description="Corretor Porto Seguro em Guarulhos com atendimento presencial no Cidade Maia. Cotação em 2h para Porto, Allianz, HDI e Bradesco. Patro Seguros, nota 4,9/5." />
        <FAQSchema faqs={faqs} />
        <Header />
  
@@ -64,9 +64,9 @@ const faqs = [
           <div className="flex justify-center mb-6">
             <SeloMelhorCorretora size="lg" priority />
           </div>
-           <h1 className="text-white mb-6">Corretor de Seguros em Guarulhos</h1>
+           <h1 className="text-white mb-6">Corretor Porto Seguro em Guarulhos — Atendimento Presencial</h1>
            <p className="text-xl text-white/70 mb-8">
-             A Patro Seguros é a sua corretora de seguros em Guarulhos especializada em proteção patrimonial e vida. Comparamos 16+ seguradoras para você em até 2 horas úteis.
+             Atendimento presencial no Cidade Maia com corretor credenciado Porto Seguro, Allianz, HDI, Bradesco e Tokio Marine. Cotação comparativa em até 2 horas úteis.
            </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/cotacao" onClick={() => trackCotacaoClick("seo-corretora-guarulhos")}>
