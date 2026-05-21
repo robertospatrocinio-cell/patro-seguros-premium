@@ -30,8 +30,8 @@ const OptimizedImage = ({
   mobileMedia = "(max-width: 640px)",
   ...props
 }: OptimizedImageProps) => {
-  const [loaded, setLoaded] = useState(eager);
-  const [inView, setInView] = useState(eager);
+  const [loaded, setLoaded] = useState(true);
+  const [inView, setInView] = useState(true);
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

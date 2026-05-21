@@ -5,8 +5,11 @@ import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
 
 // Initialize monitoring immediately to catch early errors
-initMonitoring();
-initWebVitals();
+// Initialize monitoring
+setTimeout(() => {
+  initMonitoring();
+  initWebVitals();
+}, 2000);
 
 const rootElement = document.getElementById("root");
 if (rootElement) {

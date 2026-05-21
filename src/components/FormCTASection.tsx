@@ -18,7 +18,7 @@
    bgClass = "bg-muted/30"
  }: FormCTASectionProps) => {
    return (
-     <section className={`py-20 md:py-32 ${bgClass}`} aria-labelledby="form-cta-heading">
+     <section className={`py-20 md:py-32 relative z-[2] ${bgClass}`} aria-labelledby="form-cta-heading">
        <div className="container mx-auto px-4">
          <div className="max-w-5xl mx-auto">
            <div className="grid lg:grid-cols-2 gap-12 items-center">

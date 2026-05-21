@@ -49,7 +49,7 @@ const LeadMagnetSection = () => {
   }, [canSubmit]);
 
   return (
-    <section className="py-16 md:py-24" aria-labelledby="lead-magnet-heading">
+    <section className="py-16 md:py-24 relative z-[2] bg-white" aria-labelledby="lead-magnet-heading">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-[hsl(210,100%,14%)] to-[hsl(210,100%,22%)] shadow-2xl">
           <div className="grid md:grid-cols-2 items-center">
