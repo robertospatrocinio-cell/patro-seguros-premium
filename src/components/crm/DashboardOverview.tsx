@@ -33,6 +33,8 @@ interface DashboardStats {
   activeCustomers: number;
   avgSatisfactionScore?: string;
   surveyResponsesLastYear?: number;
+  renewalsThisMonthCount?: number;
+  renewedThisMonthCount?: number;
 }
 
 interface BirthdayPerson {
@@ -132,6 +134,17 @@ export const DashboardOverview = ({ stats, birthdays, renewals }: DashboardOverv
           <CardContent>
             <p className="text-2xl font-bold">{stats.surveyResponsesLastYear || 0}</p>
             <p className="text-xs text-muted-foreground mt-1">Contatos ativos no último ano</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+              <RefreshCw className="w-4 h-4 text-green-600" /> Renovações do Mês
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">{stats.renewalsThisMonthCount || 0}</p>
+            <p className="text-xs text-green-600 mt-1">{stats.renewedThisMonthCount || 0} renovados</p>
           </CardContent>
         </Card>
       </div>
