@@ -1,10 +1,12 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-const heroImg = "https://images.unsplash.com/photo-1563514220747-c327283d5485?auto=format&fit=crop&q=80&w=1920";
+import heroImg from "@/assets/hero-agro.webp";
+import heroMobileImg from "@/assets/hero-agro-sm.webp";
 
 const SeguroRural = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
+      mobileHeroImage={heroMobileImg}
       title="Seguro Rural"
       subtitle="Proteção completa para o agronegócio em todo o Brasil. Atendemos produtores de todos os estados."
       icon="🚜"

@@ -21,6 +21,7 @@ const DynamicLandingPage = () => {
       whyPatro={pageData.whyPatro || []}
       faqs={pageData.faqs || []}
       heroImage={pageData.heroImage}
+      mobileHeroImage={pageData.mobileHeroImage}
     />
   );
 };

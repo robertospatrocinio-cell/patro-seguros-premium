@@ -1,12 +1,14 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import heroImg from "@/assets/hero-seguro-vida.webp";
+import heroMobileImg from "@/assets/hero-familia-sm.webp";
 
 const SeguroVida = () => {
   return (
     <>
     <InsurancePageTemplate
       heroImage={heroImg}
+      mobileHeroImage={heroMobileImg}
       title="Seguro de Vida em Guarulhos – Cidade Maia"
       subtitle="Proteção financeira para você e sua família em momentos difíceis"
       icon="❤️"

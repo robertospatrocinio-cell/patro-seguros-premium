@@ -1,10 +1,12 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
+import heroMobileImg from "@/assets/hero-empresa-sm.webp";
 
 const SeguroEmpresarial = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
+      mobileHeroImage={heroMobileImg}
       title="Seguro Empresarial em Guarulhos – Cidade Maia"
       subtitle="Proteção completa para o patrimônio e as operações da sua empresa"
       icon="🏢"

@@ -3,6 +3,7 @@ export interface LandingPageContent {
   description: string;
   metaDescription?: string;
   heroImage: string;
+  mobileHeroImage?: string;
   insuranceType: string;
   icon?: string;
   location?: string;
@@ -19,6 +20,7 @@ export const landingPagesData: Record<string, LandingPageContent> = {
     description: "Compare cotações de 16+ seguradoras e economize até 40% no seu seguro auto em Guarulhos.",
     metaDescription: "Procurando seguro auto em Guarulhos? A Patro Seguros compara Porto, Tokio, Allianz e +16 seguradoras. Cotação grátis em 2h. Economize agora!",
     heroImage: "/images/hero-home.webp",
+    mobileHeroImage: "/images/hero-home-sm.webp",
     insuranceType: "auto",
     icon: "🚗",
     location: "Guarulhos",

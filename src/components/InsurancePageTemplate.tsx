@@ -97,6 +97,7 @@ interface InsurancePageProps {
   tips?: string[];
   quoteUrl?: string;
   heroImage?: string;
+  mobileHeroImage?: string;
   quoteFormFields?: QuoteFormField[];
   contextualLinks?: ContextualSection;
   featuredArticle?: FeaturedArticle;
@@ -133,16 +134,17 @@ const InsurancePageTemplate = ({
   tips,
   quoteUrl,
   heroImage,
+  mobileHeroImage,
   quoteFormFields,
   contextualLinks,
   featuredArticle,
   showEbookConsorcio,
-   showAgrishowBanner,
-   extraSections,
-   skipFAQSchema,
-   skipAggregateRating,
-   faqs = [],
- }: InsurancePageProps) => {
+  showAgrishowBanner,
+  extraSections,
+  skipFAQSchema,
+  skipAggregateRating,
+  faqs = [],
+}: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = getCanonicalUrl(location.pathname);
   const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
@@ -164,6 +166,8 @@ const InsurancePageTemplate = ({
        <PageMeta
          title={title}
          description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
+         preloadImage={heroImage}
+         preloadMobileImage={mobileHeroImage}
        />
        {!skipFAQSchema && faqs.length > 0 && <FAQSchema faqs={faqs} />}
       <LocalBusinessSchema />
@@ -197,10 +201,20 @@ const InsurancePageTemplate = ({
       <main id="main-content">
         <Breadcrumb items={breadcrumbItems} />
         {/* Hero */}
-        <section className="relative gradient-hero overflow-hidden" aria-label={`${title} — cotação gratuita`}>
+        <section className="relative gradient-hero overflow-hidden min-h-[480px] md:min-h-[520px] flex items-center" aria-label={`${title} — cotação gratuita`}>
           {heroImage && (
             <div className="absolute inset-0">
-              <OptimizedImage src={heroImage} alt="" className="w-full h-full" eager aria-hidden="true" placeholderClass="bg-transparent" style={{ opacity: 0.2 }} />
+               <OptimizedImage 
+                src={heroImage} 
+                mobileSrc={mobileHeroImage}
+                alt="" 
+                className="w-full h-full" 
+                eager 
+                aria-hidden="true" 
+                placeholderClass="bg-transparent" 
+                decoding="sync"
+                style={{ opacity: 0.18, objectPosition: 'center center' }} 
+              />
             </div>
           )}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.12),transparent)]" />
