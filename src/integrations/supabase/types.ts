@@ -69,9 +69,11 @@ export type Database = {
           home_insurance_renewal: string | null
           id: string
           is_client: boolean | null
+          last_contact_date: string | null
           life_insurance_carrier: string | null
           life_insurance_renewal: string | null
           marital_status: string | null
+          next_contact_date: string | null
           notes: string | null
           other_insurance_carrier: string | null
           other_insurance_renewal: string | null
@@ -105,9 +107,11 @@ export type Database = {
           home_insurance_renewal?: string | null
           id?: string
           is_client?: boolean | null
+          last_contact_date?: string | null
           life_insurance_carrier?: string | null
           life_insurance_renewal?: string | null
           marital_status?: string | null
+          next_contact_date?: string | null
           notes?: string | null
           other_insurance_carrier?: string | null
           other_insurance_renewal?: string | null
@@ -141,9 +145,11 @@ export type Database = {
           home_insurance_renewal?: string | null
           id?: string
           is_client?: boolean | null
+          last_contact_date?: string | null
           life_insurance_carrier?: string | null
           life_insurance_renewal?: string | null
           marital_status?: string | null
+          next_contact_date?: string | null
           notes?: string | null
           other_insurance_carrier?: string | null
           other_insurance_renewal?: string | null

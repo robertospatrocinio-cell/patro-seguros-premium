@@ -21,7 +21,9 @@ import {
   HeartPulse,
   Home,
   Briefcase,
-  ShieldAlert
+  ShieldAlert,
+  Bell,
+  Clock
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -98,7 +100,9 @@ const ContactsModule = () => {
     business_insurance_renewal: "",
     has_other_insurance: false,
     other_insurance_carrier: "",
-    other_insurance_renewal: ""
+    other_insurance_renewal: "",
+    last_contact_date: "",
+    next_contact_date: ""
   });
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
@@ -163,7 +167,9 @@ const ContactsModule = () => {
         business_insurance_renewal: "",
         has_other_insurance: false,
         other_insurance_carrier: "",
-        other_insurance_renewal: ""
+        other_insurance_renewal: "",
+        last_contact_date: "",
+        next_contact_date: ""
       });
       setSelectedInsurances([]);
     } catch (e) {
@@ -194,6 +200,29 @@ const ContactsModule = () => {
   const openWhatsApp = (phone: string) => {
     const cleanPhone = phone.replace(/\D/g, "");
     window.open(`https://wa.me/55${cleanPhone}`, "_blank");
+  };
+
+  const getContactAlert = (nextDate: string | null) => {
+    if (!nextDate) return null;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const alertDate = new Date(nextDate);
+    alertDate.setHours(0, 0, 0, 0);
+
+    if (alertDate <= today) {
+      return { 
+        color: "text-red-600 bg-red-50 border-red-100", 
+        label: "Entrar em contato HOJE" 
+      };
+    }
+    return null;
+  };
+
+  const calculateNextContactDate = (lastDate: string, days: number) => {
+    if (!lastDate) return "";
+    const date = new Date(lastDate);
+    date.setDate(date.getDate() + days);
+    return date.toISOString().split('T')[0];
   };
 
   return (
@@ -561,6 +590,58 @@ const ContactsModule = () => {
 
               <Separator className="my-2" />
 
+              <div className="grid grid-cols-2 gap-4 p-4 bg-slate-50 rounded-lg border border-slate-100">
+                <div className="space-y-2">
+                  <Label>Último Contato Realizado</Label>
+                  <Input 
+                    type="date"
+                    value={newContact.last_contact_date}
+                    onChange={e => {
+                      const lastDate = e.target.value;
+                      setNewContact({
+                        ...newContact, 
+                        last_contact_date: lastDate,
+                        // Reset next date if last contact changes
+                        next_contact_date: ""
+                      });
+                    }}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Próximo contato em:</Label>
+                  <Select 
+                    onValueChange={(val) => {
+                      if (!newContact.last_contact_date) {
+                        toast.error("Preencha a data do último contato primeiro");
+                        return;
+                      }
+                      const nextDate = calculateNextContactDate(newContact.last_contact_date, parseInt(val));
+                      setNewContact({...newContact, next_contact_date: nextDate});
+                    }}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Escolher intervalo..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="7">7 dias</SelectItem>
+                      <SelectItem value="10">10 dias</SelectItem>
+                      <SelectItem value="15">15 dias</SelectItem>
+                      <SelectItem value="20">20 dias</SelectItem>
+                      <SelectItem value="30">30 dias</SelectItem>
+                      <SelectItem value="60">60 dias</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                {newContact.next_contact_date && (
+                  <div className="col-span-2 text-sm text-primary font-medium flex items-center gap-2">
+                    <Bell className="w-4 h-4" />
+                    Alerta agendado para: {new Date(newContact.next_contact_date).toLocaleDateString('pt-BR')}
+                  </div>
+                )}
+              </div>
+
+              <Separator className="my-2" />
+
               <div className="space-y-2">
                 <Label>Seguros que possui</Label>
                 <div className="grid grid-cols-3 gap-2">
@@ -630,8 +711,24 @@ const ContactsModule = () => {
                 filteredContacts?.map((contact) => (
                   <TableRow key={contact.id} className="hover:bg-slate-50/50">
                     <TableCell>
-                      <div className="font-medium text-slate-900">{contact.full_name}</div>
-                      <div className="text-xs text-muted-foreground">{contact.phone}</div>
+                      <div className="flex flex-col gap-1">
+                        <div className="font-medium text-slate-900">{contact.full_name}</div>
+                        <div className="text-xs text-muted-foreground flex items-center gap-1">
+                          <Phone className="w-3 h-3" /> {contact.phone}
+                        </div>
+                        {contact.last_contact_date && (
+                          <div className="text-[10px] text-slate-500 flex items-center gap-1">
+                            <Clock className="w-3 h-3" /> 
+                            Último contato: {new Date(contact.last_contact_date).toLocaleDateString('pt-BR')}
+                          </div>
+                        )}
+                        {getContactAlert(contact.next_contact_date) && (
+                          <div className={`text-[10px] mt-1 px-2 py-0.5 rounded-full border w-fit flex items-center gap-1 font-semibold ${getContactAlert(contact.next_contact_date)?.color}`}>
+                            <Bell className="w-3 h-3" />
+                            {getContactAlert(contact.next_contact_date)?.label}
+                          </div>
+                        )}
+                      </div>
                     </TableCell>
                     <TableCell>
                       <Badge variant={contact.is_client ? "default" : "outline"} className={contact.is_client ? "bg-green-100 text-green-700 hover:bg-green-100 border-none" : ""}>
