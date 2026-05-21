@@ -131,14 +131,16 @@ import { Card, CardContent } from "@/components/ui/card";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde.";
 
 const operadoras = [
-  { name: "Bradesco Saúde", desc: "Ampla rede credenciada e cobertura nacional" },
-  { name: "Amil Saúde", desc: "Planos individuais e empresariais com excelente custo-benefício" },
-  { name: "SulAmérica Saúde", desc: "Tradição e qualidade em saúde suplementar" },
-  { name: "Porto Saúde", desc: "Inovação e tecnologia em planos de saúde" },
-  { name: "HapVida/NotreDame Intermédica", desc: "Rede própria e preços acessíveis" },
-  { name: "Prevent Senior", desc: "Planos acessíveis com foco no público sênior" },
-  { name: "MedSenior", desc: "Especialista em planos para a terceira idade" },
-  { name: "Omint", desc: "Planos premium com atendimento diferenciado" },
+  { name: "Bradesco Saúde", desc: "Ampla rede credenciada e cobertura nacional", slug: "bradesco-saude-guarulhos" },
+  { name: "Amil Saúde", desc: "Planos individuais e empresariais com excelente custo-benefício", slug: "amil-saude-guarulhos" },
+  { name: "SulAmérica Saúde", desc: "Tradição e qualidade em saúde suplementar", slug: "sulamerica-saude-guarulhos" },
+  { name: "Porto Saúde", desc: "Inovação e tecnologia em planos de saúde", slug: "porto-saude-guarulhos" },
+  { name: "Hapvida", desc: "Rede própria e preços acessíveis em Guarulhos", slug: "hapvida-guarulhos" },
+  { name: "Prevent Senior", desc: "Planos acessíveis com foco no público sênior", slug: "prevent-senior-guarulhos" },
+  { name: "MedSenior", desc: "Especialista em planos para a terceira idade", slug: "medsenior-guarulhos" },
+  { name: "Sami", desc: "Plano digital focado em PME e MEI", slug: "sami-guarulhos" },
+  { name: "Unimed", desc: "Forte atuação regional com hospital próprio", slug: "unimed-guarulhos" },
+  { name: "Alice", desc: "Gestora de saúde com foco em prevenção", slug: "alice-guarulhos" },
 ];
 
 const faqs = [
