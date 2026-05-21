@@ -16,7 +16,7 @@ const LazySection = ({
    rootMargin = "600px",
    className = "",
 }: LazySectionProps) => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
