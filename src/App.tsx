@@ -150,7 +150,17 @@ const SeoHubBairrosGuarulhos = lazy(() => import("./pages/SeoHubBairrosGuarulhos
  const HubEmpresarial = lazy(() => import("./pages/HubEmpresarial"));
  const HubPatrimonio = lazy(() => import("./pages/HubPatrimonio"));
  const HubRC = lazy(() => import("./pages/HubRC"));
- const HubVidaSaude = lazy(() => import("./pages/HubVidaSaude"));
+const HubVidaSaude = lazy(() => import("./pages/HubVidaSaude"));
+const PreventSenior = lazy(() => import("./pages/saude/PreventSenior"));
+const SulAmericaSaude = lazy(() => import("./pages/saude/SulAmerica"));
+const AmilSaude = lazy(() => import("./pages/saude/Amil"));
+const PortoSaude = lazy(() => import("./pages/saude/PortoSaude"));
+const Hapvida = lazy(() => import("./pages/saude/Hapvida"));
+const Medsenior = lazy(() => import("./pages/saude/Medsenior"));
+const BradescoSaude = lazy(() => import("./pages/saude/Bradesco"));
+const Sami = lazy(() => import("./pages/saude/Sami"));
+const Unimed = lazy(() => import("./pages/saude/Unimed"));
+const Alice = lazy(() => import("./pages/saude/Alice"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 /**
@@ -285,6 +295,16 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/seguro-uber-guarulhos" element={<SeoSeguroUberGuarulhos />} />
             <Route path="/seguro-empresa-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
               <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaGuarulhos />} />
+              <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<PreventSenior />} />
+              <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<SulAmericaSaude />} />
+              <Route path="/planos-de-saude/amil-saude-guarulhos" element={<AmilSaude />} />
+              <Route path="/planos-de-saude/porto-saude-guarulhos" element={<PortoSaude />} />
+              <Route path="/planos-de-saude/hapvida-guarulhos" element={<Hapvida />} />
+              <Route path="/planos-de-saude/medsenior-guarulhos" element={<Medsenior />} />
+              <Route path="/planos-de-saude/bradesco-saude-guarulhos" element={<BradescoSaude />} />
+              <Route path="/planos-de-saude/sami-guarulhos" element={<Sami />} />
+              <Route path="/planos-de-saude/unimed-guarulhos" element={<Unimed />} />
+              <Route path="/planos-de-saude/alice-guarulhos" element={<Alice />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
             <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
             {/* SEO local — bairros e páginas comerciais (data-driven) */}
