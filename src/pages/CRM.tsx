@@ -83,6 +83,13 @@ const CRMPage = () => {
 
   useEffect(() => {
     fetchLeads();
+    
+    // Configurar polling para manter os dados atualizados sem congelar
+    const interval = setInterval(() => {
+      fetchLeads();
+    }, 60000); // Atualiza a cada 1 minuto
+    
+    return () => clearInterval(interval);
   }, []);
 
   const filteredLeads = leads.filter((lead) => {
