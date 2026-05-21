@@ -45,38 +45,77 @@ export type Database = {
       }
       contacts: {
         Row: {
+          car_count: number | null
+          children_count: number | null
+          children_data: Json | null
           client_type: string | null
           cpf_cnpj: string | null
           created_at: string | null
           email: string | null
           full_name: string
+          has_business_insurance: boolean | null
+          has_children: boolean | null
+          has_home_insurance: boolean | null
+          has_life_insurance: boolean | null
+          has_motorcycle: boolean | null
+          has_other_insurance: boolean | null
+          health_plan_type: string | null
           id: string
           is_client: boolean | null
+          marital_status: string | null
           notes: string | null
+          partner_birthday: string | null
+          partner_name: string | null
           phone: string | null
           updated_at: string | null
         }
         Insert: {
+          car_count?: number | null
+          children_count?: number | null
+          children_data?: Json | null
           client_type?: string | null
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
           full_name: string
+          has_business_insurance?: boolean | null
+          has_children?: boolean | null
+          has_home_insurance?: boolean | null
+          has_life_insurance?: boolean | null
+          has_motorcycle?: boolean | null
+          has_other_insurance?: boolean | null
+          health_plan_type?: string | null
           id?: string
           is_client?: boolean | null
+          marital_status?: string | null
           notes?: string | null
+          partner_birthday?: string | null
+          partner_name?: string | null
           phone?: string | null
           updated_at?: string | null
         }
         Update: {
+          car_count?: number | null
+          children_count?: number | null
+          children_data?: Json | null
           client_type?: string | null
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
           full_name?: string
+          has_business_insurance?: boolean | null
+          has_children?: boolean | null
+          has_home_insurance?: boolean | null
+          has_life_insurance?: boolean | null
+          has_motorcycle?: boolean | null
+          has_other_insurance?: boolean | null
+          health_plan_type?: string | null
           id?: string
           is_client?: boolean | null
+          marital_status?: string | null
           notes?: string | null
+          partner_birthday?: string | null
+          partner_name?: string | null
           phone?: string | null
           updated_at?: string | null
         }
