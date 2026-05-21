@@ -567,7 +567,7 @@ const BlogArticle = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href={WHATSAPP_URL}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick("blog-article-bottom")}
@@ -576,7 +576,7 @@ const BlogArticle = () => {
                   <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
                 </a>
                 <Link
-                  to={`/cotacao?tipo=${meta?.category?.toLowerCase().includes("saúde") ? "saude" : meta?.category?.toLowerCase().includes("auto") ? "auto" : "outros"}`}
+                  to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-bottom")}
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-base font-semibold hover:opacity-90 transition-opacity"
                 >
