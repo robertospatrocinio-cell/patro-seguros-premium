@@ -1090,6 +1090,8 @@ const ContactsModule = () => {
           </DialogContent>
         </Dialog>
       </div>
+    </div>
+
 
       <Card className="bg-white shadow-sm border-slate-100">
         <CardContent className="p-0">
