@@ -319,6 +319,19 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
               <Route path="/planos-de-saude/sami-guarulhos" element={<Sami />} />
               <Route path="/planos-de-saude/unimed-guarulhos" element={<Unimed />} />
               <Route path="/planos-de-saude/alice-guarulhos" element={<Alice />} />
+
+              <Route path="/seguradoras/porto-seguro-guarulhos" element={<PortoSeguro />} />
+              <Route path="/seguradoras/tokio-marine-guarulhos" element={<TokioMarine />} />
+              <Route path="/seguradoras/allianz-guarulhos" element={<Allianz />} />
+              <Route path="/seguradoras/azul-seguros-guarulhos" element={<AzulSeguros />} />
+              <Route path="/seguradoras/mapfre-guarulhos" element={<Mapfre />} />
+              <Route path="/seguradoras/zurich-guarulhos" element={<Zurich />} />
+              <Route path="/seguradoras/yellum-guarulhos" element={<Yellum />} />
+              <Route path="/seguradoras/suhai-guarulhos" element={<Suhai />} />
+              <Route path="/seguradoras/hdi-guarulhos" element={<HDI />} />
+              <Route path="/seguradoras/itau-seguros-guarulhos" element={<ItauSeguros />} />
+              <Route path="/seguradoras/bradesco-seguros-guarulhos" element={<BradescoSeguros />} />
+              <Route path="/seguradoras/mitsui-guarulhos" element={<Mitsui />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
             <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
             {/* SEO local — bairros e páginas comerciais (data-driven) */}
