@@ -199,12 +199,17 @@ const PlanosDeSaude = () => {
             <h2 className="text-center mb-12">Operadoras Parceiras</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {operadoras.map((op, i) => (
-                <Card key={i} className="hover:shadow-lg transition-base">
-                  <CardContent className="pt-6">
-                    <h3 className="font-semibold text-lg mb-2">{op.name}</h3>
-                    <p className="text-sm text-muted-foreground">{op.desc}</p>
-                  </CardContent>
-                </Card>
+                <Link key={i} to={`/planos-de-saude/${op.slug}`} className="block h-full group">
+                  <Card className="h-full hover:shadow-lg transition-base border-slate-100 group-hover:border-primary/50">
+                    <CardContent className="pt-6">
+                      <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{op.name}</h3>
+                      <p className="text-sm text-muted-foreground">{op.desc}</p>
+                      <div className="mt-4 flex items-center text-[11px] font-bold text-primary uppercase tracking-wider">
+                        Ver detalhes <ArrowRight className="ml-1 h-3 w-3" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
