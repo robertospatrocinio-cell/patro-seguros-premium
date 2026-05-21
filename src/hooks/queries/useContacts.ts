@@ -37,6 +37,15 @@ export interface Contact {
   other_insurance_renewal?: string | null;
   last_contact_date?: string | null;
   next_contact_date?: string | null;
+  profession?: string | null;
+  income_bracket?: string | null;
+  home_ownership?: string | null;
+  lead_source?: string | null;
+  referral_contact_id?: string | null;
+  salesperson_name?: string | null;
+  partner_source_name?: string | null;
+  satisfaction_score?: number | null;
+  last_interaction_type?: string | null;
   created_at: string;
 }
 
@@ -64,6 +73,11 @@ export const useContacts = () => {
     mutationFn: async (newContact: { full_name: string } & Partial<Contact> & { insurances?: string[] }) => {
       const { insurances, ...contactData } = newContact;
       
+      // Sanitize UUID fields
+      if (contactData.referral_contact_id === "") {
+        contactData.referral_contact_id = null;
+      }
+
       const { data: contact, error: contactError } = await supabase
         .from("contacts")
         .insert([contactData as any])

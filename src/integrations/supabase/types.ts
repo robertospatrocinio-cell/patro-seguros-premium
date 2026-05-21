@@ -83,8 +83,11 @@ export type Database = {
           other_insurance_renewal: string | null
           partner_birthday: string | null
           partner_name: string | null
+          partner_source_name: string | null
           phone: string | null
           profession: string | null
+          referral_contact_id: string | null
+          salesperson_name: string | null
           satisfaction_score: number | null
           updated_at: string | null
         }
@@ -127,8 +130,11 @@ export type Database = {
           other_insurance_renewal?: string | null
           partner_birthday?: string | null
           partner_name?: string | null
+          partner_source_name?: string | null
           phone?: string | null
           profession?: string | null
+          referral_contact_id?: string | null
+          salesperson_name?: string | null
           satisfaction_score?: number | null
           updated_at?: string | null
         }
@@ -171,12 +177,23 @@ export type Database = {
           other_insurance_renewal?: string | null
           partner_birthday?: string | null
           partner_name?: string | null
+          partner_source_name?: string | null
           phone?: string | null
           profession?: string | null
+          referral_contact_id?: string | null
+          salesperson_name?: string | null
           satisfaction_score?: number | null
           updated_at?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "contacts_referral_contact_id_fkey"
+            columns: ["referral_contact_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       conversion_click_events: {
         Row: {
