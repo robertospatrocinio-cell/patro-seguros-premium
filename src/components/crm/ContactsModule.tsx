@@ -72,6 +72,7 @@ const ContactsModule = () => {
     email: "",
     phone: "",
     cpf_cnpj: "",
+    birth_date: "",
     client_type: "cliente" as any,
     is_client: true,
     notes: "",
@@ -126,6 +127,7 @@ const ContactsModule = () => {
         email: "",
         phone: "",
         cpf_cnpj: "",
+        birth_date: "",
         client_type: "cliente",
         is_client: true,
         notes: "",
@@ -245,6 +247,15 @@ const ContactsModule = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
+                  <Label htmlFor="birth_date">Data de Nascimento</Label>
+                  <Input 
+                    id="birth_date" 
+                    type="date"
+                    value={newContact.birth_date}
+                    onChange={e => setNewContact({...newContact, birth_date: e.target.value})}
+                  />
+                </div>
+                <div className="space-y-2">
                   <Label>Tipo de Relacionamento</Label>
                   <Select 
                     value={newContact.client_type} 
@@ -260,14 +271,15 @@ const ContactsModule = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="flex items-center space-x-2 pt-8">
-                  <Checkbox 
-                    id="is_client" 
-                    checked={newContact.is_client}
-                    onCheckedChange={(checked) => setNewContact({...newContact, is_client: !!checked})}
-                  />
-                  <Label htmlFor="is_client">Já é cliente ativo?</Label>
-                </div>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <Checkbox 
+                  id="is_client" 
+                  checked={newContact.is_client}
+                  onCheckedChange={(checked) => setNewContact({...newContact, is_client: !!checked})}
+                />
+                <Label htmlFor="is_client">Já é cliente ativo?</Label>
               </div>
 
               <Separator className="my-2" />

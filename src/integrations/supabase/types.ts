@@ -45,6 +45,7 @@ export type Database = {
       }
       contacts: {
         Row: {
+          birth_date: string | null
           car_count: number | null
           children_count: number | null
           children_data: Json | null
@@ -70,6 +71,7 @@ export type Database = {
           updated_at: string | null
         }
         Insert: {
+          birth_date?: string | null
           car_count?: number | null
           children_count?: number | null
           children_data?: Json | null
@@ -95,6 +97,7 @@ export type Database = {
           updated_at?: string | null
         }
         Update: {
+          birth_date?: string | null
           car_count?: number | null
           children_count?: number | null
           children_data?: Json | null
