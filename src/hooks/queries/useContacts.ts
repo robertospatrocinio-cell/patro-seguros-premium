@@ -90,7 +90,7 @@ export const useContacts = () => {
           file_path: filePath,
           file_type: file.type,
           category: category
-        }]);
+        } as any]);
 
       if (docError) throw docError;
     },
