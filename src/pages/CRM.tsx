@@ -221,10 +221,11 @@ const CRMPage = () => {
               <RelationshipModule />
             </TabsContent>
           </Tabs>
-        </div>
-      </main>
-      <Footer />
-    </div>
+            </div>
+          )}
+        </main>
+        <Footer />
+      </div>
     </ErrorBoundary>
   );
 };
