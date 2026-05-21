@@ -39,6 +39,8 @@
         "@tanstack/react-query": "^5.83.0",
         "@types/crypto-js": "^4.2.2",
         "@types/jsonwebtoken": "^9.0.10",
+        "baseline-browser-mapping": "^2.10.31",
+        "caniuse-lite": "^1.0.30001793",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "cmdk": "^1.1.1",
@@ -557,7 +559,7 @@
 
     "balanced-match": ["balanced-match@1.0.2", "", {}, "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="],
 
-    "baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
+    "baseline-browser-mapping": ["baseline-browser-mapping@2.10.31", "https://europe-west1-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.31.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-MujYO3eP72uvmSE0i4wltsodRfIpZATP3jvzRNRGGxgzId7aVocVJJV3nf01qnzzKFGxQVC9bpWxl5cjxTr/7Q=="],
 
     "binary-extensions": ["binary-extensions@2.3.0", "", {}, "sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw=="],
 
@@ -581,7 +583,7 @@
 
     "caniuse-api": ["caniuse-api@3.0.0", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-api/-/caniuse-api-3.0.0.tgz", { "dependencies": { "browserslist": "^4.0.0", "caniuse-lite": "^1.0.0", "lodash.memoize": "^4.1.2", "lodash.uniq": "^4.5.0" } }, "sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw=="],
 
-    "caniuse-lite": ["caniuse-lite@1.0.30001727", "", {}, "sha512-pB68nIHmbN6L/4C6MH1DokyR3bYqFwjaSs/sWDHGj4CTcFtQUQMuJftVwWkXq7mNWOybD3KhUv3oWHoGxgP14Q=="],
+    "caniuse-lite": ["caniuse-lite@1.0.30001793", "https://europe-west1-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001793.tgz", {}, "sha512-iwSsYWaCOoh26cV8NwNRViHlrfUvYsHDfRVcbtmw0Kg6PJIZZXwMkj1442FYLBGkeUf1juAsU3DTfxW579mrPA=="],
 
     "chai": ["chai@5.3.3", "https://europe-west1-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/chai/-/chai-5.3.3.tgz", { "dependencies": { "assertion-error": "^2.0.1", "check-error": "^2.1.1", "deep-eql": "^5.0.1", "loupe": "^3.1.0", "pathval": "^2.0.0" } }, "sha512-4zNhdJD/iOjSH0A05ea+Ke6MU5mmpQcbQsSOkgdaUMJ9zTlDTD/GYlwohmIE2u0gaxHYiVHEn1Fw9mZ/ktJWgw=="],
 
@@ -1325,6 +1327,10 @@
 
     "aria-hidden/tslib": ["tslib@2.8.0", "", {}, "sha512-jWVzBLplnCmoaTr13V9dYbiQ99wvZRd0vNWaDRg+aVYRcjDF3nDksxFDE/+fkXnKhpnUUkmx5pK/v8mCtLVqZA=="],
 
+    "autoprefixer/caniuse-lite": ["caniuse-lite@1.0.30001727", "", {}, "sha512-pB68nIHmbN6L/4C6MH1DokyR3bYqFwjaSs/sWDHGj4CTcFtQUQMuJftVwWkXq7mNWOybD3KhUv3oWHoGxgP14Q=="],
+
+    "browserslist/caniuse-lite": ["caniuse-lite@1.0.30001727", "", {}, "sha512-pB68nIHmbN6L/4C6MH1DokyR3bYqFwjaSs/sWDHGj4CTcFtQUQMuJftVwWkXq7mNWOybD3KhUv3oWHoGxgP14Q=="],
+
     "caniuse-api/browserslist": ["browserslist@4.28.2", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/browserslist/-/browserslist-4.28.2.tgz", { "dependencies": { "baseline-browser-mapping": "^2.10.12", "caniuse-lite": "^1.0.30001782", "electron-to-chromium": "^1.5.328", "node-releases": "^2.0.36", "update-browserslist-db": "^1.2.3" }, "bin": { "browserslist": "cli.js" } }, "sha512-48xSriZYYg+8qXna9kwqjIVzuQxi+KYWp2+5nCYnYKPTr0LvD89Jqk2Or5ogxz0NUMfIjhh2lIUX/LyX9B4oIg=="],
 
     "caniuse-api/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
@@ -1429,11 +1435,15 @@
 
     "@vitest/snapshot/magic-string/@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.5", "https://europe-west1-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.5.5.tgz", {}, "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og=="],
 
+    "caniuse-api/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
+
     "caniuse-api/browserslist/electron-to-chromium": ["electron-to-chromium@1.5.344", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz", {}, "sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg=="],
 
     "caniuse-api/browserslist/node-releases": ["node-releases@2.0.38", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/node-releases/-/node-releases-2.0.38.tgz", {}, "sha512-3qT/88Y3FbH/Kx4szpQQ4HzUbVrHPKTLVpVocKiLfoYvw9XSGOX2FmD2d6DrXbVYyAQTF2HeF6My8jmzx7/CRw=="],
 
     "caniuse-api/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
+
+    "cssnano-preset-default/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
 
     "cssnano-preset-default/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
@@ -1447,6 +1457,8 @@
 
     "glob/minimatch/brace-expansion": ["brace-expansion@2.0.2", "", { "dependencies": { "balanced-match": "^1.0.0" } }, "sha512-Jt0vHyM+jmUBqojB7E1NIYadt0vI0Qxjxd2TErW94wDz+E2LAm5vKMXXwg6ZZBTHPuUlDgQHKXvjGBdfcF1ZDQ=="],
 
+    "postcss-colormin/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
+
     "postcss-colormin/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
     "postcss-colormin/browserslist/electron-to-chromium": ["electron-to-chromium@1.5.344", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz", {}, "sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg=="],
@@ -1454,6 +1466,8 @@
     "postcss-colormin/browserslist/node-releases": ["node-releases@2.0.38", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/node-releases/-/node-releases-2.0.38.tgz", {}, "sha512-3qT/88Y3FbH/Kx4szpQQ4HzUbVrHPKTLVpVocKiLfoYvw9XSGOX2FmD2d6DrXbVYyAQTF2HeF6My8jmzx7/CRw=="],
 
     "postcss-colormin/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
+
+    "postcss-convert-values/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
 
     "postcss-convert-values/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
@@ -1463,6 +1477,8 @@
 
     "postcss-convert-values/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
 
+    "postcss-merge-rules/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
+
     "postcss-merge-rules/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
     "postcss-merge-rules/browserslist/electron-to-chromium": ["electron-to-chromium@1.5.344", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz", {}, "sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg=="],
@@ -1470,6 +1486,8 @@
     "postcss-merge-rules/browserslist/node-releases": ["node-releases@2.0.38", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/node-releases/-/node-releases-2.0.38.tgz", {}, "sha512-3qT/88Y3FbH/Kx4szpQQ4HzUbVrHPKTLVpVocKiLfoYvw9XSGOX2FmD2d6DrXbVYyAQTF2HeF6My8jmzx7/CRw=="],
 
     "postcss-merge-rules/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
+
+    "postcss-minify-params/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
 
     "postcss-minify-params/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
@@ -1479,6 +1497,8 @@
 
     "postcss-minify-params/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
 
+    "postcss-minify-selectors/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
+
     "postcss-minify-selectors/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
     "postcss-minify-selectors/browserslist/electron-to-chromium": ["electron-to-chromium@1.5.344", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz", {}, "sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg=="],
@@ -1486,6 +1506,8 @@
     "postcss-minify-selectors/browserslist/node-releases": ["node-releases@2.0.38", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/node-releases/-/node-releases-2.0.38.tgz", {}, "sha512-3qT/88Y3FbH/Kx4szpQQ4HzUbVrHPKTLVpVocKiLfoYvw9XSGOX2FmD2d6DrXbVYyAQTF2HeF6My8jmzx7/CRw=="],
 
     "postcss-minify-selectors/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
+
+    "postcss-normalize-unicode/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
 
     "postcss-normalize-unicode/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
@@ -1495,6 +1517,8 @@
 
     "postcss-normalize-unicode/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
 
+    "postcss-reduce-initial/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
+
     "postcss-reduce-initial/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
     "postcss-reduce-initial/browserslist/electron-to-chromium": ["electron-to-chromium@1.5.344", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/electron-to-chromium/-/electron-to-chromium-1.5.344.tgz", {}, "sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg=="],
@@ -1502,6 +1526,8 @@
     "postcss-reduce-initial/browserslist/node-releases": ["node-releases@2.0.38", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/node-releases/-/node-releases-2.0.38.tgz", {}, "sha512-3qT/88Y3FbH/Kx4szpQQ4HzUbVrHPKTLVpVocKiLfoYvw9XSGOX2FmD2d6DrXbVYyAQTF2HeF6My8jmzx7/CRw=="],
 
     "postcss-reduce-initial/browserslist/update-browserslist-db": ["update-browserslist-db@1.2.3", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/update-browserslist-db/-/update-browserslist-db-1.2.3.tgz", { "dependencies": { "escalade": "^3.2.0", "picocolors": "^1.1.1" }, "peerDependencies": { "browserslist": ">= 4.21.0" }, "bin": { "update-browserslist-db": "cli.js" } }, "sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w=="],
+
+    "stylehacks/browserslist/baseline-browser-mapping": ["baseline-browser-mapping@2.10.23", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/baseline-browser-mapping/-/baseline-browser-mapping-2.10.23.tgz", { "bin": { "baseline-browser-mapping": "dist/cli.cjs" } }, "sha512-xwVXGqevyKPsiuQdLj+dZMVjidjJV508TBqexND5HrF89cGdCYCJFB3qhcxRHSeMctdCfbR1jrxBajhDy7o29g=="],
 
     "stylehacks/browserslist/caniuse-lite": ["caniuse-lite@1.0.30001791", "https://europe-west4-npm.pkg.dev/lovable-core-prod/sandbox-npm-cache/caniuse-lite/-/caniuse-lite-1.0.30001791.tgz", {}, "sha512-yk0l/YSrOnFZk3UROpDLQD9+kC1l4meK/wed583AXrzoarMGJcbRi2Q4RaUYbKxYAsZ8sWmaSa/DsLmdBeI1vQ=="],
 
