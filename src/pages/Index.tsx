@@ -16,32 +16,24 @@ import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "@/components/OptimizedImage";
-import LazySection from "@/components/LazySection";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LocalSavingsCalculator from "@/components/LocalSavingsCalculator";
 import LocalTestimonials from "@/components/LocalTestimonials";
 
 import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
 import FormCTASection from "@/components/FormCTASection";
-
-// Componentes internos que serão carregados via intersection (LazySection)
- import Footer from "@/components/Footer";
- import LeadMagnetSection from "@/components/LeadMagnetSection";
- import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
- import PortoPartnershipSection from "@/components/PortoPartnershipSection";
- import HomeBlogSection from "@/components/HomeBlogSection";
- import InsuranceHubLinks from "@/components/InsuranceHubLinks";
+import Footer from "@/components/Footer";
+import LeadMagnetSection from "@/components/LeadMagnetSection";
+import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
+import PortoPartnershipSection from "@/components/PortoPartnershipSection";
+import HomeBlogSection from "@/components/HomeBlogSection";
+import InsuranceHubLinks from "@/components/InsuranceHubLinks";
+import HubSegurosGuarulhos from "@/components/HubSegurosGuarulhos";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
-
-// Lazy load below-fold decorative images
-const shieldHero3d = "/images/3d-shield-hero.webp";
-const insuranceGroup3d = "/images/3d-insurance-group.webp";
-const cotacaoOnline3d = "/images/3d-cotacao-online.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
 const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO", "DARWIN", "EZZE", "HAPVIDA/NOTREDAME", "HDI", "ITAÚ", "ITURAN", "JUSTOS", "LIBERTY", "MAG", "MAPFRE", "MEDSENIOR", "MITSUI", "OMINT", "PIER", "PORTO", "PREVENT SENIOR", "SOMPO", "SUHAI", "SULAMERICA", "SURA", "TOKIO MARINE", "UNIMED", "YOUSE", "ZURICH"];
-
 
 const stats = [
   { value: "16+", label: "Seguradoras" },
@@ -57,9 +49,6 @@ const diferenciais = [
   { icon: Headphones, title: "Suporte em sinistro", desc: "Cuidamos de todo o processo: abertura, acompanhamento e resolução." },
 ];
 
-
-
-
 const faqs = [
   { question: "Por que escolher uma corretora de seguros em Guarulhos?", answer: "Uma corretora local em Guarulhos conhece os riscos da região — alagamentos, índices de roubo por bairro, trânsito — e recomenda coberturas adequadas. A Patro Seguros compara cotações de mais de 16 seguradoras para encontrar o melhor custo-benefício." },
   { question: "Quanto tempo leva para receber uma cotação?", answer: "Em até 2 horas úteis você recebe sua cotação personalizada com propostas comparativas de múltiplas seguradoras." },
@@ -68,23 +57,22 @@ const faqs = [
   { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
 ];
 
-  const Index = () => {
-     // Shared set to dedupe contextual keyword links across all FAQ blocks
-     const linkedKeywords = useMemo(() => new Set<string>(), []);
-    // Hide persistent hero background after React renders (it lives outside #root for LCP)
-   useEffect(() => {
-     const el = document.getElementById('persistent-hero-bg');
-     if (el) el.style.display = 'none';
-     return () => { if (el) el.style.display = ''; };
-   }, []);
- 
+const Index = () => {
+  const linkedKeywords = useMemo(() => new Set<string>(), []);
+  
+  useEffect(() => {
+    const el = document.getElementById('persistent-hero-bg');
+    if (el) el.style.display = 'none';
+    return () => { if (el) el.style.display = ''; };
+  }, []);
+
   return (
     <>
-       <PageMeta 
-         title="Corretora de Seguros em Guarulhos | Patro Seguros"
-         description="Corretora de seguros em Guarulhos com nota 4,9/5: auto, residencial, vida, saúde e empresarial. Compare 16+ seguradoras. Cotação grátis em 2h."
-         absoluteTitle={true}
-       />
+      <PageMeta 
+        title="Corretora de Seguros em Guarulhos | Patro Seguros"
+        description="Corretora de seguros em Guarulhos com nota 4,9/5: auto, residencial, vida, saúde e empresarial. Compare 16+ seguradoras. Cotação grátis em 2h."
+        absoluteTitle={true}
+      />
       <FAQSchema faqs={faqs} />
       <LocalBusinessSchema />
       <OrganizationSchema />
@@ -100,29 +88,27 @@ const faqs = [
       ]} />
       <Header />
       <main id="main-content">
-         {/* Hero - LCP candidate */}
-         <section className="relative gradient-hero overflow-hidden min-h-[420px] flex items-center" aria-label="Início">
-           {/* Match persistent background for seamless hydration */}
-           <div className="absolute inset-0 z-0">
-             <picture>
-               <source media="(max-width: 600px)" srcSet="/images/hero-home-sm.webp" type="image/webp" />
-               <img
-                 src="/images/hero-home.webp"
-                 alt=""
-                 width={960}
-                 height={540}
-                 className="w-full h-full object-cover opacity-15"
-                 fetchPriority="high"
-                 decoding="sync"
-               />
-             </picture>
-           </div>
+        <section className="relative gradient-hero overflow-hidden min-h-[420px] flex items-center" aria-label="Início">
+          <div className="absolute inset-0 z-0">
+            <picture>
+              <source media="(max-width: 600px)" srcSet="/images/hero-home-sm.webp" type="image/webp" />
+              <img
+                src="/images/hero-home.webp"
+                alt=""
+                width={960}
+                height={540}
+                className="w-full h-full object-cover opacity-15"
+                fetchPriority="high"
+                decoding="sync"
+              />
+            </picture>
+          </div>
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
               <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center">
                 <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
-            <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
+              <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
                 Patro Seguros: Corretora de Seguros em Guarulhos
               </h1>
               <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
@@ -150,9 +136,8 @@ const faqs = [
           </div>
         </section>
 
-          <InsuranceHeroSelector />
+        <InsuranceHeroSelector />
 
-        {/* Stats strip */}
         <section className="border-b bg-background" aria-label="Números da Patro">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
@@ -166,7 +151,6 @@ const faqs = [
           </div>
         </section>
 
-        {/* Parceiros marquee */}
         <section className="py-8 border-b bg-background overflow-hidden" aria-label="Seguradoras e operadoras parceiras">
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
@@ -181,69 +165,66 @@ const faqs = [
           </div>
         </section>
 
-         {/* Calculator Section */}
-         <section className="py-16 md:py-24 bg-white relative overflow-hidden" aria-label="Simulador de economia">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-            <div className="container mx-auto px-4">
-              <div className="flex flex-col lg:flex-row gap-12 items-center">
-                <div className="lg:w-1/2 space-y-6">
-                  <span className="section-label">Ferramenta Gratuita</span>
-                  <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight">
-                    O seguro em Guarulhos subiu? <span className="text-primary">Nós ajudamos você a pagar menos.</span>
-                  </h2>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Nossa ferramenta analisa o custo médio das seguradoras parceiras com base no índice de risco de cada bairro em Guarulhos. Compare e economize em minutos.
-                  </p>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">1</div>
-                      <p className="text-sm font-medium">Informe quanto paga atualmente</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">2</div>
-                      <p className="text-sm font-medium">Selecione seu bairro em Guarulhos</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">3</div>
-                      <p className="text-sm font-medium">Receba o melhor comparativo do mercado</p>
-                    </div>
+        <section className="py-16 md:py-24 bg-white relative overflow-hidden" aria-label="Simulador de economia">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col lg:flex-row gap-12 items-center">
+              <div className="lg:w-1/2 space-y-6">
+                <span className="section-label">Ferramenta Gratuita</span>
+                <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight">
+                  O seguro em Guarulhos subiu? <span className="text-primary">Nós ajudamos você a pagar menos.</span>
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Nossa ferramenta analisa o custo médio das seguradoras parceiras com base no índice de risco de cada bairro em Guarulhos. Compare e economize em minutos.
+                </p>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">1</div>
+                    <p className="text-sm font-medium">Informe quanto paga atualmente</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">2</div>
+                    <p className="text-sm font-medium">Selecione seu bairro em Guarulhos</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">3</div>
+                    <p className="text-sm font-medium">Receba o melhor comparativo do mercado</p>
                   </div>
                 </div>
-                <div className="lg:w-1/2 w-full">
-                  <LocalSavingsCalculator />
-                </div>
+              </div>
+              <div className="lg:w-1/2 w-full">
+                <LocalSavingsCalculator />
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <LocalTestimonials />
+        <LocalTestimonials />
 
-         {/* Diferenciais */}
-         <div className="py-16 md:py-32 bg-background">
-           <div className="container mx-auto px-4">
-             <div className="max-w-2xl mx-auto text-center mb-16">
-               <span className="section-label">Por que escolher a Patro Seguros em Guarulhos</span>
-               <h2 id="diferenciais-heading" className="mt-3">Atendimento especializado<br className="hidden sm:block" /> de gente, não de robô</h2>
-             </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
-               {diferenciais.map((item, i) => (
-                 <div key={i} className="bg-card p-8 text-center">
-                   <div className="w-10 h-10 rounded-lg bg-primary/[0.05] flex items-center justify-center mx-auto mb-5">
-                     <item.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} aria-hidden="true" />
-                   </div>
-                   <h3 className="text-[15px] font-semibold mb-2 tracking-tight">{item.title}</h3>
-                   <p className="text-[13px] text-muted-foreground leading-relaxed">{item.desc}</p>
-                 </div>
-               ))}
-             </div>
-           </div>
-         </div>
+        <section className="py-16 md:py-32 bg-background">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <span className="section-label">Por que escolher a Patro Seguros em Guarulhos</span>
+              <h2 id="diferenciais-heading" className="mt-3">Atendimento especializado<br className="hidden sm:block" /> de gente, não de robô</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
+              {diferenciais.map((item, i) => (
+                <div key={i} className="bg-card p-8 text-center">
+                  <div className="w-10 h-10 rounded-lg bg-primary/[0.05] flex items-center justify-center mx-auto mb-5">
+                    <item.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} aria-hidden="true" />
+                  </div>
+                  <h3 className="text-[15px] font-semibold mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-         {/* E-E-A-T Content Section */}
-         <div className="py-16 md:py-24 bg-muted">
-           <div className="container mx-auto px-4 max-w-3xl">
-               <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
-             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
+        <section className="py-16 md:py-24 bg-muted">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
+            <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Somos uma das <strong>melhores corretoras de seguros em Guarulhos</strong>, reconhecida pela nota 4,9/5 no Google e por já ter atendido <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil.
               </p>
@@ -253,7 +234,7 @@ const faqs = [
 
               <h2 className="text-foreground font-bold text-lg mt-8">Seguros Auto para Famílias em Guarulhos</h2>
               <p>
-                Guarulhos registra um dos maiores volumes de circulação de veículos do estado, com trânsito intenso na Dutra, Fernão Dias e vias locais como a Av. Paulo Faccini. Bairros como Cumbica, Bonsucesso e Pimentas apresentam índices elevados de roubo e furto de veículos, tornando o <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto em Guarulhos</Link> essencial. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Mapfre, Liberty e outras seguradoras para garantir a melhor relação custo-benefício. Nosso diferencial: entregamos propostas comparativas em até 2 horas.
+                Guarulhos registra um dos maiores volumes de circulação de veículos do estado, com trânsito intenso na Dutra, Fernão Dias e vias locais como a Av. Paulo Faccini. Bairros como Cumbica, Bonsucesso e Pimentas apresentam índices elevados de roubo e furto de veículos, tornando o <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto em Guarulhos</Link> essencial. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Mapfre, Liberty e outras seguradoras para garantir a melhor relation custo-benefício. Nosso diferencial: entregamos propostas comparativas em até 2 horas.
               </p>
               <p>
                 Para quem tem <Link to="/seguro-moto-guarulhos" className="text-primary hover:underline">moto em Guarulhos</Link>, também oferecemos cotações especializadas com coberturas contra roubo, colisão e assistência 24h — fundamentais para motociclistas que enfrentam o trânsito intenso da cidade diariamente.
@@ -264,19 +245,6 @@ const faqs = [
                 O <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline">seguro residencial em Guarulhos</Link> custa a partir de R$ 150/ano para apartamentos e R$ 300/ano para casas, incluindo cobertura contra incêndio, roubo, danos elétricos (muito comum na região devido às oscilações de energia), vendaval e responsabilidade civil familiar. Moradores da <Link to="/seguros-guarulhos/cidade-maia" className="text-primary hover:underline">Cidade Maia</Link>, <Link to="/seguros-guarulhos/vila-augusta" className="text-primary hover:underline">Vila Augusta</Link>, Picanço e Macedo já contam com a Patro para proteger seus lares. Inclui assistência 24h com chaveiro, encanador, eletricista e vidraceiro sem custo adicional.
               </p>
 
-              <h2 className="text-foreground font-bold text-lg mt-8">Seguros de Frota e Empresariais para PMEs</h2>
-              <p>
-                Guarulhos é o segundo maior polo empresarial de São Paulo e abriga o maior aeroporto da América Latina, concentrando milhares de empresas de logística, transporte e comércio. Oferecemos <Link to="/seguros-empresariais-pme-guarulhos" className="text-primary hover:underline">seguros empresariais para PMEs em Guarulhos</Link> — incluindo patrimonial, RC profissional, cyber, seguro de <Link to="/seguro-condominio-guarulhos" className="text-primary hover:underline">condomínio</Link> e plano de saúde corporativo — com condições especiais negociadas diretamente com seguradoras.
-              </p>
-              <p>
-                Para empresas com veículos, nosso <Link to="/seguro-frota-empresas-guarulhos" className="text-primary hover:underline">seguro de frota em Guarulhos</Link> oferece descontos de 15% a 30% em relação ao seguro individual. Atendemos transportadoras próximas à <strong>Rodovia Fernão Dias</strong> e <strong>Via Dutra</strong>, além de distribuidoras no bairro de <strong>Cumbica</strong> e frotas corporativas de todos os portes.
-              </p>
-
-               <h2 className="text-foreground font-bold text-lg mt-8">Plano de Saúde e Seguro de Vida em Guarulhos</h2>
-               <p>
-                 Comparamos mais de 20 operadoras — Amil, SulAmérica, Bradesco Saúde, Unimed, Hapvida, Prevent Senior e MedSenior — para encontrar o <Link to="/planos-de-saude" className="text-primary hover:underline font-bold">melhor plano de saúde em Guarulhos</Link> ou o seguro de vida ideal para você, sua família ou sua empresa. Atendemos desde planos individuais e familiares até PMEs com condições especiais (MEI pode economizar até 40%). Nosso <Link to="/plano-saude-guarulhos" className="text-primary hover:underline">guia de planos de saúde em Guarulhos</Link> ajuda a escolher com informações precisas sobre a rede credenciada nos hospitais de Guarulhos, carências e portabilidade.
-               </p>
-
               <h2 className="text-foreground font-bold text-lg mt-8">Como Solicitar Sua Cotação Passo a Passo</h2>
               <ol className="list-decimal pl-5 space-y-2">
                 <li><strong>Escolha o tipo de seguro</strong> — auto, residencial, vida, empresarial, frota ou saúde.</li>
@@ -286,46 +254,29 @@ const faqs = [
               </ol>
               <p>O serviço é 100% gratuito e sem compromisso. Você também pode ligar para <a href="tel:1151997500" className="text-primary hover:underline">(11) 5199-7500</a> ou visitar nossa sede no Cidade Maia.</p>
 
-              <h2 className="text-foreground font-bold text-lg mt-8">5 Erros Comuns ao Contratar Seguros em Guarulhos</h2>
-              <ol className="list-decimal pl-5 space-y-2">
-                <li><strong>Escolher apenas pelo menor preço</strong> — coberturas insuficientes podem custar caro em um sinistro. Uma franquia alta no seguro auto pode anular a economia.</li>
-                <li><strong>Não declarar o perfil corretamente</strong> — informações incorretas sobre CEP de pernoite, uso do veículo ou perfil de condutores podem anular a apólice.</li>
-                <li><strong>Ignorar a assistência 24h</strong> — serviços como guincho, chaveiro e troca de pneu têm valor real no dia a dia, especialmente em Guarulhos.</li>
-                <li><strong>Não comparar entre seguradoras</strong> — a diferença de preço entre seguradoras pode chegar a 40% para o mesmo veículo e perfil.</li>
-                <li><strong>Esquecer de avisar mudanças</strong> — troca de endereço, novo condutor ou alteração no veículo devem ser informados à seguradora para manter a cobertura válida.</li>
-              </ol>
+              <div className="mt-12 bg-card rounded-xl p-8 border">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-xl font-bold">Principais Bairros Atendidos</h3>
+                </div>
+                <HubSegurosGuarulhos />
+              </div>
+            </div>
+          </div>
+        </section>
 
-               <h2 className="text-foreground font-bold text-lg mt-8">Por que Escolher a Patro Seguros em Guarulhos?</h2>
-               <p>
-                 Com sede no Cidade Maia e registro SUSEP nº 212113511, a Patro Seguros combina experiência local com tecnologia para oferecer o melhor serviço de corretagem em Guarulhos. Nossos clientes avaliam nosso atendimento com nota <strong>4.9/5</strong> no Google (150+ avaliações). Cada consultor é especialista em sua categoria — auto, residencial, vida, empresarial ou saúde — garantindo orientação técnica precisa para cada necessidade. <Link to="/corretora-seguros-guarulhos" className="text-primary hover:underline">Conheça mais sobre nossa corretora em Guarulhos</Link>.
-               </p>
-             </div>
-           </div>
-         </LazySection>
+        <LeadMagnetSection />
 
+        <FormCTASection 
+          title="Proteja seu patrimônio com quem entende de Guarulhos"
+          subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
+        />
 
-        {/* Lead Magnet — E-book Section */}
-        <LazySection minHeight="300px">
-          <Suspense fallback={null}><LeadMagnetSection /></Suspense>
-         </div>
-
-
-         {/* CTA Form Principal */}
-         <LazySection minHeight="600px">
-           <Suspense fallback={null}>
-             <FormCTASection 
-               title="Proteja seu patrimônio com quem entende de Guarulhos"
-               subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
-             />
-           </Suspense>
-         </LazySection>
- 
- 
-         {/* Sobre */}
-         <LazySection minHeight="400px">
-         <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
-           <div className="container mx-auto px-4">
-             <div className="max-w-2xl mx-auto text-center">
+        <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center">
               <span className="section-label">Quem somos</span>
               <h2 id="sobre-heading" className="mt-3 mb-6">Sua corretora de seguros<br className="hidden sm:block" /> no Cidade Maia, Guarulhos</h2>
               <p className="text-[14px] text-muted-foreground leading-relaxed mb-4">
@@ -341,10 +292,7 @@ const faqs = [
             </div>
           </div>
         </section>
-        </LazySection>
 
-        {/* Atendimento em Todo o Brasil */}
-        <LazySection minHeight="500px">
         <section className="py-16 md:py-24 bg-background" aria-labelledby="atendimento-brasil-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-12">
@@ -415,10 +363,7 @@ const faqs = [
             </div>
           </div>
         </section>
-        </LazySection>
 
-        {/* Google Meu Negócio */}
-        <LazySection minHeight="400px">
         <section className="py-16 md:py-24 gradient-surface" aria-labelledby="google-business-heading">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-10">
@@ -426,26 +371,17 @@ const faqs = [
               <h2 id="google-business-heading" className="mt-3">Avaliações reais de clientes reais</h2>
             </div>
             <div className="max-w-md mx-auto">
-              <Suspense fallback={null}><GoogleBusinessWidget /></Suspense>
+              <GoogleBusinessWidget />
             </div>
           </div>
         </section>
-        </LazySection>
 
-        {/* Últimos Artigos do Blog */}
         <AgrishowPromoBanner source="home" variant="full" />
 
-        <LazySection minHeight="500px">
-        <Suspense fallback={null}><HomeBlogSection /></Suspense>
-        </LazySection>
+        <HomeBlogSection />
 
-        {/* Porto Partnership */}
-        <LazySection minHeight="200px">
-          <Suspense fallback={null}><PortoPartnershipSection /></Suspense>
-        </LazySection>
+        <PortoPartnershipSection />
 
-        {/* CTA Final */}
-        <LazySection minHeight="350px">
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-4 font-extrabold">Faça sua cotação de seguro em Guarulhos</h2>
@@ -467,10 +403,7 @@ const faqs = [
             </div>
           </div>
         </section>
-        </LazySection>
 
-        {/* FAQ */}
-        <LazySection minHeight="400px">
         <section className="py-16 md:py-32 bg-background" aria-labelledby="faq-heading">
           <div className="container mx-auto px-4 max-w-2xl">
             <div className="text-center mb-16">
@@ -522,14 +455,10 @@ const faqs = [
             </div>
           </div>
         </section>
-        </LazySection>
 
-        {/* Mapa de seguros — fortalece crawl & autoridade tópica */}
-        <LazySection minHeight="600px">
-          <Suspense fallback={null}><InsuranceHubLinks /></Suspense>
-        </LazySection>
+        <InsuranceHubLinks />
       </main>
-      <Suspense fallback={null}><Footer /></Suspense>
+      <Footer />
     </>
   );
 };
