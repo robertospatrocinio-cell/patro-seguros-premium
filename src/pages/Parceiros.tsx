@@ -1,7 +1,9 @@
-import Header from "@/components/Header";
+import Header from "@/header/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Parceiros = () => {
   const partners = [
