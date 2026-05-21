@@ -60,12 +60,37 @@ interface Props {
 
 const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [formData, setFormData] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [checkboxGroups, setCheckboxGroups] = useState<Record<string, string[]>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const getFieldError = (field: FormFieldConfig) => {
+    if (!touched[field.id]) return "";
+    const value = formData[field.id] || "";
+    
+    if (field.required) {
+      if (field.type === "checkbox-group") {
+        if (!(checkboxGroups[field.id]?.length > 0)) return "Selecione ao menos uma opção";
+      } else if (!value.trim()) {
+        return "Campo obrigatório";
+      }
+    }
+
+    if (value.trim()) {
+      if (field.type === "email" && !validateEmail(value)) return "E-mail inválido";
+      if (field.type === "tel" && !validatePhone(value)) return "Formato: (11) 99999-9999";
+    }
+
+    return "";
+  };
+
   const update = (key: string, value: string) => setFormData(prev => ({ ...prev, [key]: value }));
+
+  const handleBlur = (key: string) => {
+    setTouched(prev => ({ ...prev, [key]: true }));
+  };
 
   const toggleCheckboxOption = (fieldId: string, option: string) => {
     setCheckboxGroups(prev => {
@@ -97,20 +122,18 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!isValid()) {
-      toast.error("Por favor, preencha todos os campos obrigatórios e aceite os termos.");
-      return;
-    }
+    // Mark all as touched
+    const allTouched: Record<string, boolean> = {};
+    config.fields.forEach(f => { allTouched[f.id] = true });
+    setTouched(allTouched);
 
-    const emailField = config.fields.find(f => f.type === "email");
-    if (emailField && formData[emailField.id] && !validateEmail(formData[emailField.id])) {
-      toast.error("Por favor, informe um e-mail válido.");
-      return;
-    }
-
-    const phoneField = config.fields.find(f => f.type === "tel");
-    if (phoneField && formData[phoneField.id] && !validatePhone(formData[phoneField.id])) {
-      toast.error("Por favor, informe um telefone válido com DDD.");
+    const firstError = config.fields.find(f => getFieldError(f));
+    if (firstError || !consent) {
+      toast.error(
+        !consent 
+          ? "Por favor, aceite os termos para continuar." 
+          : `Por favor, corrija o campo: ${firstError?.label}`
+      );
       return;
     }
 
@@ -207,134 +230,171 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       <p className="text-sm text-muted-foreground mb-6">{config.subtitle}</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {config.fields.map(field => (
-          <div key={field.id} className="space-y-1.5">
-            <Label htmlFor={`iq-${field.id}`}>
-              {field.label} {field.required && <span className="text-destructive">*</span>}
-            </Label>
+        {config.fields.map(field => {
+          const error = getFieldError(field);
+          return (
+            <div key={field.id} className="space-y-1.5">
+              <Label htmlFor={`iq-${field.id}`} className={error ? "text-destructive" : ""}>
+                {field.label} {field.required && <span className="text-destructive">*</span>}
+              </Label>
 
-            {field.type === "select" && field.options && (
-              <Select value={formData[field.id] || ""} onValueChange={v => update(field.id, v)}>
-                <SelectTrigger id={`iq-${field.id}`}>
-                  <SelectValue placeholder={field.placeholder || "Selecione"} />
-                </SelectTrigger>
-                <SelectContent>
-                  {field.options.map(opt => (
-                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
-
-            {field.type === "radio" && field.options && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {field.options.map(opt => (
-                  <label
-                    key={opt}
-                    className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-colors text-sm ${
-                      formData[field.id] === opt
-                        ? "border-primary bg-primary/5 text-foreground"
-                        : "border-input hover:border-primary/30"
-                    }`}
+              {field.type === "select" && field.options && (
+                <Select 
+                  value={formData[field.id] || ""} 
+                  onValueChange={v => {
+                    update(field.id, v);
+                    handleBlur(field.id);
+                  }}
+                >
+                  <SelectTrigger 
+                    id={`iq-${field.id}`}
+                    className={error ? "border-destructive focus-visible:ring-destructive" : ""}
                   >
-                    <input
-                      type="radio"
-                      name={field.id}
-                      value={opt}
-                      checked={formData[field.id] === opt}
-                      onChange={() => update(field.id, opt)}
-                      className="sr-only"
-                    />
-                    <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                      formData[field.id] === opt ? "border-primary" : "border-muted-foreground/40"
-                    }`}>
-                      {formData[field.id] === opt && <div className="w-2 h-2 rounded-full bg-primary" />}
-                    </div>
-                    <span>{opt}</span>
-                  </label>
-                ))}
-              </div>
-            )}
+                    <SelectValue placeholder={field.placeholder || "Selecione"} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {field.options.map(opt => (
+                      <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
 
-            {field.type === "checkbox-group" && field.options && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {field.options.map(opt => {
-                  const checked = opt === "Todos"
-                    ? (checkboxGroups[field.id]?.length === (field.options!.filter(o => o !== "Todos").length))
-                    : checkboxGroups[field.id]?.includes(opt);
-                  return (
+              {field.type === "radio" && field.options && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {field.options.map(opt => (
                     <label
                       key={opt}
                       className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-colors text-sm ${
-                        checked ? "border-primary bg-primary/5" : "border-input hover:border-primary/30"
+                        formData[field.id] === opt
+                          ? "border-primary bg-primary/5 text-foreground"
+                          : error 
+                            ? "border-destructive hover:border-destructive/80"
+                            : "border-input hover:border-primary/30"
                       }`}
                     >
-                      <Checkbox checked={checked} onCheckedChange={() => toggleCheckboxOption(field.id, opt)} />
+                      <input
+                        type="radio"
+                        name={field.id}
+                        value={opt}
+                        checked={formData[field.id] === opt}
+                        onChange={() => {
+                          update(field.id, opt);
+                          handleBlur(field.id);
+                        }}
+                        className="sr-only"
+                      />
+                      <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                        formData[field.id] === opt 
+                          ? "border-primary" 
+                          : error ? "border-destructive" : "border-muted-foreground/40"
+                      }`}>
+                        {formData[field.id] === opt && <div className="w-2 h-2 rounded-full bg-primary" />}
+                      </div>
                       <span>{opt}</span>
                     </label>
-                  );
-                })}
-              </div>
-            )}
+                  ))}
+                </div>
+              )}
 
-            {field.type === "tel" && (
-              <Input
-                id={`iq-${field.id}`}
-                type="tel"
-                placeholder={field.placeholder || "(11) 99999-9999"}
-                value={formData[field.id] || ""}
-                onChange={e => update(field.id, formatPhone(e.target.value))}
-                maxLength={16}
-                required={field.required}
-              />
-            )}
+              {field.type === "checkbox-group" && field.options && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {field.options.map(opt => {
+                    const checked = opt === "Todos"
+                      ? (checkboxGroups[field.id]?.length === (field.options!.filter(o => o !== "Todos").length))
+                      : checkboxGroups[field.id]?.includes(opt);
+                    return (
+                      <label
+                        key={opt}
+                        className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-colors text-sm ${
+                          checked 
+                            ? "border-primary bg-primary/5" 
+                            : error 
+                              ? "border-destructive hover:border-destructive/80"
+                              : "border-input hover:border-primary/30"
+                        }`}
+                      >
+                        <Checkbox 
+                          checked={checked} 
+                          onCheckedChange={() => {
+                            toggleCheckboxOption(field.id, opt);
+                            handleBlur(field.id);
+                          }} 
+                        />
+                        <span>{opt}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              )}
 
-            {field.type === "email" && (
-              <Input
-                id={`iq-${field.id}`}
-                type="text"
-                placeholder={field.placeholder || "seu@email.com"}
-                value={formData[field.id] || ""}
-                onChange={e => update(field.id, e.target.value)}
-                maxLength={255}
-              />
-            )}
+              {field.type === "tel" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  type="tel"
+                  placeholder={field.placeholder || "(11) 99999-9999"}
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, formatPhone(e.target.value))}
+                  onBlur={() => handleBlur(field.id)}
+                  maxLength={16}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                />
+              )}
 
-            {field.type === "text" && (
-              <Input
-                id={`iq-${field.id}`}
-                placeholder={field.placeholder}
-                value={formData[field.id] || ""}
-                onChange={e => update(field.id, e.target.value)}
-                maxLength={200}
-                required={field.required}
-              />
-            )}
+              {field.type === "email" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  type="text"
+                  placeholder={field.placeholder || "seu@email.com"}
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  maxLength={255}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                />
+              )}
 
-            {field.type === "date" && (
-              <Input
-                id={`iq-${field.id}`}
-                type="date"
-                value={formData[field.id] || ""}
-                onChange={e => update(field.id, e.target.value)}
-                required={field.required}
-              />
-            )}
+              {field.type === "text" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  placeholder={field.placeholder}
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  maxLength={200}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                />
+              )}
 
-            {field.type === "currency" && (
-              <Input
-                id={`iq-${field.id}`}
-                placeholder={field.placeholder || "R$ 0,00"}
-                value={formData[field.id] || ""}
-                onChange={e => update(field.id, e.target.value)}
-                maxLength={30}
-                required={field.required}
-              />
-            )}
+              {field.type === "date" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  type="date"
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                />
+              )}
 
-            {field.id === "cep" && field.type !== "tel" && field.type !== "text" && null}
-          </div>
-        ))}
+              {field.type === "currency" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  placeholder={field.placeholder || "R$ 0,00"}
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  maxLength={30}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                />
+              )}
+
+              {error && (
+                <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{error}</p>
+              )}
+            </div>
+          );
+        })}
 
         {/* Consent */}
         <label className="flex items-start gap-2 cursor-pointer">
