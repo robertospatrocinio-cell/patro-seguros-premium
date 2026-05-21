@@ -86,7 +86,32 @@ const Footer = memo(() => {
             </ul>
           </nav>
 
+          {/* Local Hub */}
+          <nav aria-label="Bairros atendidos em Guarulhos">
+            <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Bairros em Guarulhos</h3>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+              {[
+                { to: "/seguros-guarulhos/cidade-maia", label: "Cidade Maia" },
+                { to: "/seguros-guarulhos/vila-augusta", label: "Vila Augusta" },
+                { to: "/seguros-guarulhos/jardim-maia", label: "Jardim Maia" },
+                { to: "/seguro-empresarial-cumbica", label: "Cumbica" },
+                { to: "/seguros-guarulhos/bonsucesso", label: "Bonsucesso" },
+                { to: "/seguros-guarulhos/picanco", label: "Picanço" },
+                { to: "/seguros-guarulhos/macedo", label: "Macedo" },
+                { to: "/seguros-guarulhos/centro", label: "Centro" },
+                { to: "/seguros-guarulhos/pimentas", label: "Pimentas" },
+                { to: "/seguros-guarulhos/gopouva", label: "Gopouva" },
+              ].map(l => (
+                <li key={l.to}><Link to={l.to} className="text-[12px] text-white/60 hover:text-white/90 transition-base">{l.label}</Link></li>
+              ))}
+            </ul>
+            <div className="mt-4">
+               <Link to="/seguros-em-guarulhos-bairros" className="text-[11px] text-primary hover:underline font-medium">Ver todos os bairros →</Link>
+            </div>
+          </nav>
+
           {/* Contato */}
+
           <div>
             <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h3>
             <address className="not-italic">

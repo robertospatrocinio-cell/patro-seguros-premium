@@ -11,9 +11,11 @@ import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import LocalAreaSchema from "@/components/LocalAreaSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
@@ -167,6 +169,13 @@ const InsurancePageTemplate = ({
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
+      <LocalAreaSchema
+        serviceName={title}
+        url={canonicalUrl}
+        description={metaDescription || subtitle}
+        city="Guarulhos"
+        faqs={skipFAQSchema ? [] : faqs}
+      />
       {!skipAggregateRating && (
         <AggregateRatingSchema
           serviceName={title}
@@ -174,6 +183,7 @@ const InsurancePageTemplate = ({
           description={metaDescription || subtitle}
         />
       )}
+
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

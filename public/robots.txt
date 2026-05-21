@@ -4,8 +4,8 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /~api/
 Disallow: /~flock.js
- Allow: /lp/
- Allow: /landing-pages/
+Allow: /lp/
+Allow: /blog/
 Disallow: /ebook-consorcio/
 Disallow: /avaliar-no-google/
 Disallow: /performance-diagnostico
@@ -13,7 +13,11 @@ Disallow: /conversion-dashboard
 Disallow: /seo-technical-report
 Disallow: /pagespeed-history
 
-# Optimize crawl budget for major bots
+# Sitemaps
+Sitemap: https://www.patroseguros.com.br/sitemap.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
+
+# Optimization for Search Bots
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0.1
@@ -21,7 +25,3 @@ Crawl-delay: 0.1
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 0.5
-
-# Sitemaps (both apontam para o mesmo sitemapindex de 6 sub-sitemaps / ~220 URLs)
-Sitemap: https://www.patroseguros.com.br/sitemap.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-index.xml

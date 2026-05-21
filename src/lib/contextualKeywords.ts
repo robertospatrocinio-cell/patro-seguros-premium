@@ -132,4 +132,12 @@ export const CONTEXTUAL_KEYWORDS: KeywordLink[] = [
   { keyword: "seguros em guarulhos", href: "/seguros-em-guarulhos", title: "Seguros em Guarulhos" },
   { keyword: "cidade maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos", title: "Seguros Cidade Maia" },
   { keyword: "shopping maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos", title: "Seguros Shopping Maia" },
+  { keyword: "vila augusta", href: "/seguro-auto-vila-augusta", title: "Seguros Vila Augusta" },
+  { keyword: "cumbica", href: "/seguro-empresarial-cumbica", title: "Seguros Cumbica" },
+  { keyword: "jardim maia", href: "/seguro-residencial-jardim-maia", title: "Seguros Jardim Maia" },
+  { keyword: "bonsucesso", href: "/seguro-empresarial-bonsucesso", title: "Seguros Bonsucesso" },
+  { keyword: "pimentas", href: "/seguro-empresarial-pimentas", title: "Seguros Pimentas" },
+  { keyword: "gopouva", href: "/seguro-residencial-gopouva-guarulhos", title: "Seguros Gopouva" },
+  { keyword: "macedo", href: "/plano-saude-macedo-guarulhos", title: "Seguros Macedo" },
+  { keyword: "taboão", href: "/plano-saude-taboao-guarulhos", title: "Seguros Taboão" },
 ];
