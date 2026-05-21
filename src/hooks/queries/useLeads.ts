@@ -32,7 +32,7 @@ export const useLeads = () => {
           throw new Error(error.message || "Erro ao conectar com o banco de dados");
         }
         
-        return data as Lead[];
+        return (data || []) as Lead[];
       } catch (err: any) {
         console.error("Catch error fetching leads:", err);
         toast.error("Erro ao carregar leads", {
