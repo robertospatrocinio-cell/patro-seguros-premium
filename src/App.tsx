@@ -288,6 +288,9 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/seguro-uber-guarulhos" element={<SeoSeguroUberGuarulhos />} />
             <Route path="/seguro-empresa-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
               <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaGuarulhos />} />
+              <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<PreventSenior />} />
+              <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<SulAmericaSaude />} />
+              <Route path="/planos-de-saude/amil-saude-guarulhos" element={<AmilSaude />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
             <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
             {/* SEO local — bairros e páginas comerciais (data-driven) */}
