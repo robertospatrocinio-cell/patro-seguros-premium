@@ -45,9 +45,16 @@ const BlogArticle = () => {
       .map(r => ({ q: r.faqQ as string, a: r.faqA as string }))),
   ];
 
+  const articleImageUrl = slug ? `${CANONICAL_BASE_URL}${getArticleImage(slug)}` : undefined;
+
   return (
     <>
-      <PageMeta title={article.title} description={`${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros para você e sua empresa.`} />
+      <PageMeta
+        title={article.title}
+        description={`${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros para você e sua empresa.`}
+        ogType="article"
+        ogImage={articleImageUrl}
+      />
       {allFaqs.length > 0 && (
         <FAQSchema faqs={allFaqs.map(f => ({ question: f.q, answer: f.a }))} />
       )}
