@@ -35,6 +35,8 @@ export interface Contact {
   has_other_insurance?: boolean;
   other_insurance_carrier?: string | null;
   other_insurance_renewal?: string | null;
+  last_contact_date?: string | null;
+  next_contact_date?: string | null;
   created_at: string;
 }
 

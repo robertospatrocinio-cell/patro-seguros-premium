@@ -98,7 +98,9 @@ const ContactsModule = () => {
     business_insurance_renewal: "",
     has_other_insurance: false,
     other_insurance_carrier: "",
-    other_insurance_renewal: ""
+    other_insurance_renewal: "",
+    last_contact_date: "",
+    next_contact_date: ""
   });
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
@@ -163,7 +165,9 @@ const ContactsModule = () => {
         business_insurance_renewal: "",
         has_other_insurance: false,
         other_insurance_carrier: "",
-        other_insurance_renewal: ""
+        other_insurance_renewal: "",
+        last_contact_date: "",
+        next_contact_date: ""
       });
       setSelectedInsurances([]);
     } catch (e) {
