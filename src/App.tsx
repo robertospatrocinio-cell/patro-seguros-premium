@@ -161,6 +161,20 @@ const BradescoSaude = lazy(() => import("./pages/saude/Bradesco"));
 const Sami = lazy(() => import("./pages/saude/Sami"));
 const Unimed = lazy(() => import("./pages/saude/Unimed"));
 const Alice = lazy(() => import("./pages/saude/Alice"));
+
+const PortoSeguro = lazy(() => import("./pages/seguradoras/PortoSeguro"));
+const TokioMarine = lazy(() => import("./pages/seguradoras/TokioMarine"));
+const Allianz = lazy(() => import("./pages/seguradoras/Allianz"));
+const AzulSeguros = lazy(() => import("./pages/seguradoras/AzulSeguros"));
+const Mapfre = lazy(() => import("./pages/seguradoras/Mapfre"));
+const Zurich = lazy(() => import("./pages/seguradoras/Zurich"));
+const Yellum = lazy(() => import("./pages/seguradoras/Yellum"));
+const Suhai = lazy(() => import("./pages/seguradoras/Suhai"));
+const HDI = lazy(() => import("./pages/seguradoras/HDI"));
+const ItauSeguros = lazy(() => import("./pages/seguradoras/Itau"));
+const BradescoSeguros = lazy(() => import("./pages/seguradoras/Bradesco"));
+const Mitsui = lazy(() => import("./pages/seguradoras/Mitsui"));
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 /**
@@ -305,6 +319,19 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
               <Route path="/planos-de-saude/sami-guarulhos" element={<Sami />} />
               <Route path="/planos-de-saude/unimed-guarulhos" element={<Unimed />} />
               <Route path="/planos-de-saude/alice-guarulhos" element={<Alice />} />
+
+              <Route path="/seguradoras/porto-seguro-guarulhos" element={<PortoSeguro />} />
+              <Route path="/seguradoras/tokio-marine-guarulhos" element={<TokioMarine />} />
+              <Route path="/seguradoras/allianz-guarulhos" element={<Allianz />} />
+              <Route path="/seguradoras/azul-seguros-guarulhos" element={<AzulSeguros />} />
+              <Route path="/seguradoras/mapfre-guarulhos" element={<Mapfre />} />
+              <Route path="/seguradoras/zurich-guarulhos" element={<Zurich />} />
+              <Route path="/seguradoras/yellum-guarulhos" element={<Yellum />} />
+              <Route path="/seguradoras/suhai-guarulhos" element={<Suhai />} />
+              <Route path="/seguradoras/hdi-guarulhos" element={<HDI />} />
+              <Route path="/seguradoras/itau-seguros-guarulhos" element={<ItauSeguros />} />
+              <Route path="/seguradoras/bradesco-seguros-guarulhos" element={<BradescoSeguros />} />
+              <Route path="/seguradoras/mitsui-guarulhos" element={<Mitsui />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
             <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
             {/* SEO local — bairros e páginas comerciais (data-driven) */}
