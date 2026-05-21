@@ -17,7 +17,7 @@ export interface Contact {
   partner_birthday?: string | null;
   has_children?: boolean;
   children_count?: number;
-  children_data?: any[];
+  children_data?: any;
   car_count?: number;
   has_motorcycle?: boolean;
   has_life_insurance?: boolean;
