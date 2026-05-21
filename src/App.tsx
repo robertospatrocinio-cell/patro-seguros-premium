@@ -474,13 +474,13 @@ const App = () => {
             <Route path="/investimentos" element={<Investimentos />} />
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
             <Route path="*" element={<LegacyWpRedirect />} />
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryProviderWrapper>
-</ErrorBoundary>
-);
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryProviderWrapper>
+    </ErrorBoundary>
+  );
 };
 
 export default App;
