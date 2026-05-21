@@ -73,6 +73,11 @@ export const useContacts = () => {
     mutationFn: async (newContact: { full_name: string } & Partial<Contact> & { insurances?: string[] }) => {
       const { insurances, ...contactData } = newContact;
       
+      // Sanitize UUID fields
+      if (contactData.referral_contact_id === "") {
+        contactData.referral_contact_id = null;
+      }
+
       const { data: contact, error: contactError } = await supabase
         .from("contacts")
         .insert([contactData as any])
