@@ -160,6 +160,11 @@ export const KanbanBoard = ({ leads }: KanbanBoardProps) => {
                                       <Badge variant="outline" className="text-[10px] font-medium py-0 h-5 border-slate-200 bg-slate-50">
                                         {lead.insurance_type || "Geral"}
                                       </Badge>
+                                      {lead.client_type && (
+                                        <Badge variant="secondary" className="text-[10px] font-medium py-0 h-5 bg-primary/5 text-primary border-none">
+                                          {lead.client_type}
+                                        </Badge>
+                                      )}
                                     </div>
                                   </div>
                                   <Button variant="ghost" size="icon" className="h-7 w-7 -mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
