@@ -489,13 +489,11 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="*" element={<LegacyWpRedirect />} />
           </Routes>
         </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </Suspense>
-  </QueryClientProvider>
-  </Suspense>
-  </ErrorBoundary>
-  );
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryProviderWrapper>
+</ErrorBoundary>
+);
 };
 
 export default App;
