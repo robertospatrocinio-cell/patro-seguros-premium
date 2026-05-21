@@ -1,6 +1,6 @@
 import { useState, useMemo, memo } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCotacaoClick } from "@/lib/tracking";
 const logoFull = "/images/logo-full.webp";
