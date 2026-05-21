@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
  import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
  import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
@@ -21,16 +21,16 @@ import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LocalSavingsCalculator from "@/components/LocalSavingsCalculator";
 import LocalTestimonials from "@/components/LocalTestimonials";
 
-const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
-const FormCTASection = lazy(() => import("@/components/FormCTASection"));
+import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
+import FormCTASection from "@/components/FormCTASection";
 
 // Componentes internos que serão carregados via intersection (LazySection)
- const Footer = lazy(() => import("@/components/Footer"));
- const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
- const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
- const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
- const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
- const InsuranceHubLinks = lazy(() => import("@/components/InsuranceHubLinks"));
+ import Footer from "@/components/Footer";
+ import LeadMagnetSection from "@/components/LeadMagnetSection";
+ import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
+ import PortoPartnershipSection from "@/components/PortoPartnershipSection";
+ import HomeBlogSection from "@/components/HomeBlogSection";
+ import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
 // Lazy load below-fold decorative images
