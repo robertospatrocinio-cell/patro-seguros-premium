@@ -238,6 +238,7 @@ const CRMPage = () => {
                 stats={stats}
                 birthdays={birthdays}
                 renewals={renewals}
+                contacts={contacts}
               />
             </TabsContent>
 
