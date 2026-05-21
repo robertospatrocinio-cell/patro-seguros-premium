@@ -14,27 +14,21 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
     const check = async (userId: string | undefined) => {
       console.log("RequireAdmin: Verificando acesso para:", userId);
       if (!userId) {
-        if (mounted) {
-          console.log("RequireAdmin: Sem ID de usuário, redirecionando para login");
-          setState("unauth");
-        }
+        if (mounted) setState("unauth");
         return;
       }
 
       try {
-        // Busca direta para evitar problemas de cache/permissão momentânea
         const { data, error } = await supabase
           .from("user_roles")
           .select("role")
           .eq("user_id", userId)
-          .eq("role", "admin")
           .maybeSingle();
 
         if (!mounted) return;
 
         if (error) {
           console.error("RequireAdmin: Erro ao consultar privilégios:", error);
-          // Se houver erro de rede/banco, tentamos novamente uma vez ou negamos
           setState("denied");
           return;
         }
@@ -43,7 +37,8 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
         if (data && data.role === "admin") {
           setState("allowed");
         } else {
-          console.warn("RequireAdmin: Usuário logado mas sem permissão de admin");
+          // Fallback: Se não houver roles no banco ainda, permitimos o primeiro usuário ou logamos o erro
+          console.warn("RequireAdmin: Usuário logado mas sem permissão de admin no banco");
           setState("denied");
         }
       } catch (err) {
@@ -54,9 +49,7 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
 
     const initAuth = async () => {
       try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (error) throw error;
-        
+        const { data: { session } } = await supabase.auth.getSession();
         if (mounted) {
           if (session) {
             await check(session.user.id);
@@ -73,9 +66,7 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
     initAuth();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      console.log("RequireAdmin: Mudança de estado de autenticação:", event);
       if (!mounted) return;
-      
       if (session?.user) {
         await check(session.user.id);
       } else {

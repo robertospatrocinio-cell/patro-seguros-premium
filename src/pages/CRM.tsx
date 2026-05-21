@@ -173,9 +173,17 @@ const CRMPage = () => {
                 </Button>
               </div>
 
-              <Card className="bg-white shadow-sm border-slate-100">
+              <Card className="bg-white shadow-sm border-slate-100 min-h-[400px]">
                 <CardContent className="p-0">
-                  <LeadsTable leads={filteredLeads} loading={isLoading} />
+                  {leads.length === 0 && !isLoading ? (
+                    <div className="flex flex-col items-center justify-center p-12 text-center text-muted-foreground">
+                      <Users className="w-12 h-12 mb-4 opacity-20" />
+                      <p className="font-medium">Nenhum lead encontrado no momento.</p>
+                      <p className="text-sm">Os leads aparecerão aqui assim que novos formulários forem preenchidos.</p>
+                    </div>
+                  ) : (
+                    <LeadsTable leads={filteredLeads} loading={isLoading} />
+                  )}
                 </CardContent>
               </Card>
             </TabsContent>
