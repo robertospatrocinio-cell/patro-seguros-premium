@@ -59,21 +59,31 @@ interface Lead {
 const CRMPage = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const fetchLeads = async (showLoading = true) => {
     try {
-      if (showLoading) setIsRefreshing(true);
-      const { data, error } = await supabase
+      if (showLoading) {
+        setIsRefreshing(true);
+        setError(null);
+      }
+      
+      console.log("CRM: Buscando leads...");
+      const { data, error: supabaseError } = await supabase
         .from("leads")
         .select("*")
         .order("created_at", { ascending: false });
 
-      if (error) throw error;
+      if (supabaseError) throw supabaseError;
+      
+      console.log(`CRM: ${data?.length || 0} leads encontrados.`);
       setLeads(data || []);
-    } catch (error: any) {
-      console.error("Erro ao buscar leads:", error);
+      setError(null);
+    } catch (err: any) {
+      console.error("Erro ao buscar leads:", err);
+      setError("Erro ao carregar dados do banco de dados.");
       toast.error("Não foi possível carregar os leads.");
     } finally {
       setLoading(false);
@@ -152,6 +162,18 @@ const CRMPage = () => {
     <div className="min-h-screen flex flex-col bg-slate-50/50">
       <Header />
       <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
+        {error && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3 text-red-800">
+            <AlertCircle className="w-5 h-5" />
+            <div className="flex-1">
+              <p className="font-medium">Falha na conexão</p>
+              <p className="text-sm opacity-90">{error}</p>
+            </div>
+            <Button size="sm" variant="outline" onClick={() => fetchLeads()} className="bg-white border-red-200 text-red-800 hover:bg-red-50">
+              Tentar novamente
+            </Button>
+          </div>
+        )}
         <div className="flex flex-col gap-8">
           {/* Top Bar */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
