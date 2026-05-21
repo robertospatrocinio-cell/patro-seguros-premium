@@ -216,6 +216,7 @@ const CRMPage = () => {
       </main>
       <Footer />
     </div>
+    </ErrorBoundary>
   );
 };
 
