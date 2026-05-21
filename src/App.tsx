@@ -233,7 +233,6 @@ const App = () => {
   return (
     <ErrorBoundary>
       <QueryProviderWrapper>
-        <ServiceWorkerCheck />
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -241,6 +240,7 @@ const App = () => {
           <CookieBanner />
           <BrowserRouter>
             <ScrollToTop />
+            <ServiceWorkerCheck />
             <Suspense fallback={null}>
               <Routes>
                 <Route path="/" element={<Index />} />

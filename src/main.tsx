@@ -4,7 +4,6 @@ import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
 
-// Initialize monitoring
 initMonitoring();
 initWebVitals();
 

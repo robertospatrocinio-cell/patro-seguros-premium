@@ -2,9 +2,7 @@ import { useEffect } from 'react';
 
 export function ServiceWorkerCheck() {
   useEffect(() => {
-    // Check if we already did the cleanup in this session
-    if (sessionStorage.getItem('cleanup_done')) return;
-
+    // Basic service worker and cache cleanup
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then((registrations) => {
         for (const registration of registrations) {
@@ -20,8 +18,6 @@ export function ServiceWorkerCheck() {
         }
       });
     }
-
-    sessionStorage.setItem('cleanup_done', 'true');
   }, []);
 
   return null;
