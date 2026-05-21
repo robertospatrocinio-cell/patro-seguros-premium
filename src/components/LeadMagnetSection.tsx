@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download, CheckCircle } from "lucide-react";
@@ -18,7 +18,7 @@ const isValidWhatsApp = (value: string): boolean => {
   return digits.length === 11 && digits[2] === "9";
 };
 
-const LeadMagnetSection = () => {
+const LeadMagnetSection = memo(() => {
   const [name, setName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [sent, setSent] = useState(false);
@@ -119,6 +119,6 @@ const LeadMagnetSection = () => {
       </div>
     </section>
   );
-};
+});
 
 export default LeadMagnetSection;

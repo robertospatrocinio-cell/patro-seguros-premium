@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, lazy, Suspense } from "react";
+import { useState, useRef, useEffect, useCallback, lazy, Suspense, memo } from "react";
 import { Link } from "react-router-dom";
 import { Car, Heart, Home, Building2, Shield, Truck, Wheat, Tractor, Beef, Bike, Plane, SmilePlus, Key, Umbrella, Ship, Phone, Laptop, HardHat, Sprout, CloudRain, Bug, Handshake, Warehouse } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -87,7 +87,7 @@ const bgSmByTab: Record<TabKey, string> = {
   consorcio: heroConsorcioSm,
 };
 
-const InsuranceHeroSelector = () => {
+const InsuranceHeroSelector = memo(() => {
   const [active, setActive] = useState<TabKey>("voce");
   const [pillStyle, setPillStyle] = useState<{ left: string | number; width: string | number; opacity: number }>({ 
     left: "0%", 
@@ -247,6 +247,6 @@ const InsuranceHeroSelector = () => {
       </Dialog>
     </>
   );
-};
+});
 
 export default InsuranceHeroSelector;

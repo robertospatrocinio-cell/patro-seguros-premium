@@ -16,10 +16,9 @@ const SIZE_MAP = {
 } as const;
 
 const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = false }: SeloMelhorCorretoraProps) => {
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState(priority);
 
   useEffect(() => {
-    // If not high priority, we can wait for hydration to render
     if (!priority) {
       setIsClient(true);
     }
