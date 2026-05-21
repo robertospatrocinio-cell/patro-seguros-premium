@@ -194,14 +194,16 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="lg:w-1/2 w-full">
+              <LazySection className="lg:w-1/2 w-full" minHeight="400px">
                 <LocalSavingsCalculator />
-              </div>
+              </LazySection>
             </div>
           </div>
         </section>
 
-        <LocalTestimonials />
+        <LazySection minHeight="300px">
+          <LocalTestimonials />
+        </LazySection>
 
         <section className="py-16 md:py-32 bg-background">
           <div className="container mx-auto px-4">
