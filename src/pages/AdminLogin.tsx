@@ -14,7 +14,7 @@ export default function AdminLogin() {
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const next = params.get("next") || "/admin/pagespeed";
+  const next = params.get("next") || "/crm";
 
   useEffect(() => {
     document.title = "Admin · Login | Patro Seguros";

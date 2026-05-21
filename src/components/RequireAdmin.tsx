@@ -12,16 +12,17 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
     let mounted = true;
 
     const check = async (userId: string | undefined) => {
-      console.log("RequireAdmin: Checking access for user:", userId);
+      console.log("RequireAdmin: Verificando acesso para:", userId);
       if (!userId) {
         if (mounted) {
-          console.log("RequireAdmin: No user ID, setting unauth");
+          console.log("RequireAdmin: Sem ID de usuário, redirecionando para login");
           setState("unauth");
         }
         return;
       }
 
       try {
+        // Busca direta para evitar problemas de cache/permissão momentânea
         const { data, error } = await supabase
           .from("user_roles")
           .select("role")
@@ -32,36 +33,54 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
         if (!mounted) return;
 
         if (error) {
-          console.error("RequireAdmin: Error checking admin status:", error);
+          console.error("RequireAdmin: Erro ao consultar privilégios:", error);
+          // Se houver erro de rede/banco, tentamos novamente uma vez ou negamos
           setState("denied");
           return;
         }
 
-        console.log("RequireAdmin: Access check result:", data);
-        if (!data) {
-          setState("denied");
-        } else {
+        console.log("RequireAdmin: Resultado da verificação:", data);
+        if (data && data.role === "admin") {
           setState("allowed");
+        } else {
+          console.warn("RequireAdmin: Usuário logado mas sem permissão de admin");
+          setState("denied");
         }
       } catch (err) {
-        console.error("RequireAdmin: Unexpected error:", err);
+        console.error("RequireAdmin: Erro inesperado:", err);
         if (mounted) setState("denied");
       }
     };
 
-    // Use getSession but also check immediate state if possible
     const initAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (mounted) {
-        check(session?.user?.id);
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) throw error;
+        
+        if (mounted) {
+          if (session) {
+            await check(session.user.id);
+          } else {
+            setState("unauth");
+          }
+        }
+      } catch (err) {
+        console.error("RequireAdmin: Erro ao obter sessão inicial:", err);
+        if (mounted) setState("unauth");
       }
     };
     
     initAuth();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
-      console.log("RequireAdmin: Auth state changed:", _e, session?.user?.id);
-      if (mounted) check(session?.user?.id);
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log("RequireAdmin: Mudança de estado de autenticação:", event);
+      if (!mounted) return;
+      
+      if (session?.user) {
+        await check(session.user.id);
+      } else {
+        setState("unauth");
+      }
     });
 
     return () => {
