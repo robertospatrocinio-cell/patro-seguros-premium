@@ -28,7 +28,6 @@ import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import PortoPartnershipSection from "@/components/PortoPartnershipSection";
 import HomeBlogSection from "@/components/HomeBlogSection";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
-import HubSegurosGuarulhos from "@/components/HubSegurosGuarulhos";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
@@ -261,7 +260,12 @@ const Index = () => {
                   </div>
                   <h3 className="text-xl font-bold">Principais Bairros Atendidos</h3>
                 </div>
-                <HubSegurosGuarulhos />
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  <Link to="/seguros-guarulhos/cidade-maia" className="text-sm hover:text-primary">Cidade Maia</Link>
+                  <Link to="/seguros-guarulhos/vila-augusta" className="text-sm hover:text-primary">Vila Augusta</Link>
+                  <Link to="/seguros-guarulhos/picanço" className="text-sm hover:text-primary">Picanço</Link>
+                  <Link to="/seguros-guarulhos/macedo" className="text-sm hover:text-primary">Macedo</Link>
+                </div>
               </div>
             </div>
           </div>
