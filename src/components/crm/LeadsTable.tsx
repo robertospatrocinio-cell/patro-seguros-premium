@@ -108,7 +108,8 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
                   </div>
                 </TableCell>
               </TableRow>
-            ))
+              );
+            })
           )}
         </TableBody>
       </Table>
