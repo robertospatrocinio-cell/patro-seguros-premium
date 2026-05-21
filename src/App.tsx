@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useMemo } from "react";
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -205,13 +205,15 @@ const queryClient = new QueryClient({
     queries: {
       retry: 1,
       refetchOnWindowFocus: false,
+      staleTime: 5 * 60 * 1000,
     },
   },
 });
 
-const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => (
-  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-);
+const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => {
+  const client = useMemo(() => queryClient, []);
+  return <QueryClientProvider client={client}>{children}</QueryClientProvider>;
+};
 
 
 const App = () => {

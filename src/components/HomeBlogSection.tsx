@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { memo } from "react";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -8,7 +9,7 @@ import { articles as allBlogArticles, formatDate } from "@/lib/blogData";
 
 const blogDestaques = [...allBlogArticles].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
-const HomeBlogSection = () => (
+const HomeBlogSection = memo(() => (
   <section className="py-16 md:py-32 bg-background" aria-labelledby="blog-heading">
     <div className="container mx-auto px-4">
       <div className="max-w-2xl mx-auto text-center mb-16">
@@ -53,6 +54,6 @@ const HomeBlogSection = () => (
       </div>
     </div>
   </section>
-);
+));
 
 export default HomeBlogSection;
