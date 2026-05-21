@@ -736,6 +736,9 @@ const ContactsModule = () => {
                       <SelectItem value="Vendedor">Vendedor</SelectItem>
                       <SelectItem value="Parceiro">Parceiro</SelectItem>
                       <SelectItem value="Instagram">Instagram</SelectItem>
+                      <SelectItem value="Linkedin">Linkedin</SelectItem>
+                      <SelectItem value="Email">Email</SelectItem>
+                      <SelectItem value="Mala Direta">Mala Direta</SelectItem>
                       <SelectItem value="Google">Google</SelectItem>
                       <SelectItem value="Facebook">Facebook</SelectItem>
                       <SelectItem value="Outros">Outros</SelectItem>
