@@ -14,6 +14,74 @@ export type Database = {
   }
   public: {
     Tables: {
+      contact_insurances: {
+        Row: {
+          contact_id: string | null
+          created_at: string | null
+          id: string
+          insurance_type: string
+        }
+        Insert: {
+          contact_id?: string | null
+          created_at?: string | null
+          id?: string
+          insurance_type: string
+        }
+        Update: {
+          contact_id?: string | null
+          created_at?: string | null
+          id?: string
+          insurance_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "contact_insurances_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      contacts: {
+        Row: {
+          client_type: string | null
+          cpf_cnpj: string | null
+          created_at: string | null
+          email: string | null
+          full_name: string
+          id: string
+          is_client: boolean | null
+          notes: string | null
+          phone: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          client_type?: string | null
+          cpf_cnpj?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name: string
+          id?: string
+          is_client?: boolean | null
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          client_type?: string | null
+          cpf_cnpj?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string
+          id?: string
+          is_client?: boolean | null
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       conversion_click_events: {
         Row: {
           analytics_loaded: boolean
@@ -243,6 +311,7 @@ export type Database = {
       documents: {
         Row: {
           category: string | null
+          contact_id: string | null
           created_at: string | null
           customer_id: string | null
           file_name: string
@@ -253,6 +322,7 @@ export type Database = {
         }
         Insert: {
           category?: string | null
+          contact_id?: string | null
           created_at?: string | null
           customer_id?: string | null
           file_name: string
@@ -263,6 +333,7 @@ export type Database = {
         }
         Update: {
           category?: string | null
+          contact_id?: string | null
           created_at?: string | null
           customer_id?: string | null
           file_name?: string
@@ -272,6 +343,13 @@ export type Database = {
           policy_id?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "documents_contact_id_fkey"
+            columns: ["contact_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "documents_customer_id_fkey"
             columns: ["customer_id"]
