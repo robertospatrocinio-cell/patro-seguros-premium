@@ -1146,12 +1146,12 @@ const ContactsModule = () => {
             <TableBody>
               {isLoading ? (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center py-10">Carregando contatos...</TableCell>
+                  <TableCell colSpan={6} className="text-center py-10">Carregando contatos...</TableCell>
 
                 </TableRow>
               ) : filteredContacts?.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center py-10 text-muted-foreground">
+                  <TableCell colSpan={6} className="text-center py-10 text-muted-foreground">
                     <Users className="w-12 h-12 mx-auto mb-4 opacity-20" />
                     Nenhum contato encontrado.
                   </TableCell>
