@@ -12,8 +12,12 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
     let mounted = true;
 
     const check = async (userId: string | undefined) => {
+      console.log("RequireAdmin: Checking access for user:", userId);
       if (!userId) {
-        if (mounted) setState("unauth");
+        if (mounted) {
+          console.log("RequireAdmin: No user ID, setting unauth");
+          setState("unauth");
+        }
         return;
       }
 
@@ -28,28 +32,35 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
         if (!mounted) return;
 
         if (error) {
-          console.error("Error checking admin status:", error);
+          console.error("RequireAdmin: Error checking admin status:", error);
           setState("denied");
           return;
         }
 
+        console.log("RequireAdmin: Access check result:", data);
         if (!data) {
           setState("denied");
         } else {
           setState("allowed");
         }
       } catch (err) {
-        console.error("Unexpected error in RequireAdmin:", err);
+        console.error("RequireAdmin: Unexpected error:", err);
         if (mounted) setState("denied");
       }
     };
 
-    // Initial check
-    supabase.auth.getSession().then(({ data }) => {
-      if (mounted) check(data.session?.user?.id);
-    });
+    // Use getSession but also check immediate state if possible
+    const initAuth = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (mounted) {
+        check(session?.user?.id);
+      }
+    };
+    
+    initAuth();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
+      console.log("RequireAdmin: Auth state changed:", _e, session?.user?.id);
       if (mounted) check(session?.user?.id);
     });
 
