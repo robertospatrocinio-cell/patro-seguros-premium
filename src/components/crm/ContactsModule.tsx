@@ -74,10 +74,40 @@ const ContactsModule = () => {
     cpf_cnpj: "",
     client_type: "cliente" as any,
     is_client: true,
-    notes: ""
+    notes: "",
+    marital_status: "Solteiro",
+    partner_name: "",
+    partner_birthday: "",
+    has_children: false,
+    children_count: 0,
+    children_data: [] as { name: string, birthday: string }[],
+    car_count: 0,
+    has_motorcycle: false,
+    has_life_insurance: false,
+    has_home_insurance: false,
+    health_plan_type: "",
+    has_business_insurance: false,
+    has_other_insurance: false
   });
+  
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
   const [isUploading, setIsUploading] = useState(false);
+
+  // Sync children_data when children_count changes
+  useEffect(() => {
+    const count = Number(newContact.children_count) || 0;
+    setNewContact(prev => {
+      const currentData = [...prev.children_data];
+      if (currentData.length < count) {
+        for (let i = currentData.length; i < count; i++) {
+          currentData.push({ name: "", birthday: "" });
+        }
+      } else if (currentData.length > count) {
+        currentData.splice(count);
+      }
+      return { ...prev, children_data: currentData };
+    });
+  }, [newContact.children_count]);
 
   const handleCreateContact = async () => {
     if (!newContact.full_name) {
@@ -98,7 +128,20 @@ const ContactsModule = () => {
         cpf_cnpj: "",
         client_type: "cliente",
         is_client: true,
-        notes: ""
+        notes: "",
+        marital_status: "Solteiro",
+        partner_name: "",
+        partner_birthday: "",
+        has_children: false,
+        children_count: 0,
+        children_data: [],
+        car_count: 0,
+        has_motorcycle: false,
+        has_life_insurance: false,
+        has_home_insurance: false,
+        health_plan_type: "",
+        has_business_insurance: false,
+        has_other_insurance: false
       });
       setSelectedInsurances([]);
     } catch (e) {
