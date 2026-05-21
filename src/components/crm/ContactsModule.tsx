@@ -117,6 +117,7 @@ const INITIAL_CONTACT_STATE = {
   profession: "",
   income_bracket: "",
   home_ownership: "Própria",
+  property_type: "",
   lead_source: "",
   referral_contact_id: "",
   salesperson_name: "",
