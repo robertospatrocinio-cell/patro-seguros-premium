@@ -298,6 +298,13 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
               <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<PreventSenior />} />
               <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<SulAmericaSaude />} />
               <Route path="/planos-de-saude/amil-saude-guarulhos" element={<AmilSaude />} />
+              <Route path="/planos-de-saude/porto-saude-guarulhos" element={<PortoSaude />} />
+              <Route path="/planos-de-saude/hapvida-guarulhos" element={<Hapvida />} />
+              <Route path="/planos-de-saude/medsenior-guarulhos" element={<Medsenior />} />
+              <Route path="/planos-de-saude/bradesco-saude-guarulhos" element={<BradescoSaude />} />
+              <Route path="/planos-de-saude/sami-guarulhos" element={<Sami />} />
+              <Route path="/planos-de-saude/unimed-guarulhos" element={<Unimed />} />
+              <Route path="/planos-de-saude/alice-guarulhos" element={<Alice />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
             <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
             {/* SEO local — bairros e páginas comerciais (data-driven) */}
