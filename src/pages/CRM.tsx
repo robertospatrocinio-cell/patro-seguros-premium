@@ -57,13 +57,23 @@ const CRMPage = () => {
       <Header />
       <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3 text-red-800">
-            <AlertCircle className="w-5 h-5" />
-            <div className="flex-1">
-              <p className="font-medium">Falha na conexão</p>
-              <p className="text-sm opacity-90">Erro ao carregar dados do banco de dados.</p>
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex flex-col sm:flex-row items-start sm:items-center gap-3 text-red-800 animate-in fade-in slide-in-from-top-4 duration-300">
+            <div className="bg-red-100 p-2 rounded-full">
+              <AlertCircle className="w-5 h-5 text-red-600" />
             </div>
-            <Button size="sm" variant="outline" onClick={() => refetch()} className="bg-white border-red-200 text-red-800 hover:bg-red-50">
+            <div className="flex-1">
+              <p className="font-bold">Ocorreu um problema ao carregar os dados</p>
+              <p className="text-sm opacity-90">
+                {error instanceof Error ? error.message : "Não foi possível estabelecer conexão com o servidor. Verifique sua internet."}
+              </p>
+            </div>
+            <Button 
+              size="sm" 
+              variant="default" 
+              onClick={() => refetch()} 
+              className="bg-red-600 hover:bg-red-700 text-white border-none shrink-0"
+            >
+              <RefreshCw className="w-4 h-4 mr-2" />
               Tentar novamente
             </Button>
           </div>

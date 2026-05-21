@@ -64,14 +64,22 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
             leads.map((lead) => (
               <TableRow key={lead.id} className="hover:bg-slate-50/50">
                 <TableCell className="text-sm">
-                  <span className="font-medium">{format(new Date(lead.created_at), "dd/MM", { locale: ptBR })}</span>
-                  <span className="text-muted-foreground ml-2">{format(new Date(lead.created_at), "HH:mm")}</span>
+                  {lead.created_at ? (
+                    <>
+                      <span className="font-medium">{format(new Date(lead.created_at), "dd/MM", { locale: ptBR })}</span>
+                      <span className="text-muted-foreground ml-2">{format(new Date(lead.created_at), "HH:mm")}</span>
+                    </>
+                  ) : "—"}
                 </TableCell>
-                <TableCell className="font-semibold text-slate-900">{lead.full_name || "—"}</TableCell>
+                <TableCell className="font-semibold text-slate-900 truncate max-w-[200px]">{lead.full_name || "Sem Nome"}</TableCell>
                 <TableCell>
                   <div className="text-xs space-y-0.5">
-                    <div className="flex items-center gap-1.5 text-slate-600"><Phone className="w-3 h-3" /> {lead.phone || "—"}</div>
-                    <div className="flex items-center gap-1.5 text-slate-600"><Mail className="w-3 h-3" /> {lead.email || "—"}</div>
+                    <div className="flex items-center gap-1.5 text-slate-600 truncate max-w-[180px]">
+                      <Phone className="w-3 h-3 shrink-0" /> {lead.phone || "N/A"}
+                    </div>
+                    <div className="flex items-center gap-1.5 text-slate-600 truncate max-w-[180px]">
+                      <Mail className="w-3 h-3 shrink-0" /> {lead.email || "N/A"}
+                    </div>
                   </div>
                 </TableCell>
                 <TableCell>{getInsuranceBadge(lead.insurance_type)}</TableCell>
@@ -80,10 +88,19 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
                   <div className="flex justify-end gap-2">
                     {lead.phone && (
                       <Button size="icon" variant="ghost" className="h-8 w-8 text-green-600 hover:bg-green-50" asChild>
-                        <a href={`https://wa.me/55${lead.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer"><Phone className="w-4 h-4" /></a>
+                        <a 
+                          href={`https://wa.me/55${lead.phone.replace(/\D/g, "")}`} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          aria-label="Contatar via WhatsApp"
+                        >
+                          <Phone className="w-4 h-4" />
+                        </a>
                       </Button>
                     )}
-                    <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400"><ExternalLink className="w-4 h-4" /></Button>
+                    <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400" aria-label="Ver detalhes">
+                      <ExternalLink className="w-4 h-4" />
+                    </Button>
                   </div>
                 </TableCell>
               </TableRow>
