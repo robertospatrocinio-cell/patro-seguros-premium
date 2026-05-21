@@ -21,10 +21,20 @@ export interface Contact {
   car_count?: number;
   has_motorcycle?: boolean;
   has_life_insurance?: boolean;
+  life_insurance_carrier?: string | null;
+  life_insurance_renewal?: string | null;
   has_home_insurance?: boolean;
+  home_insurance_carrier?: string | null;
+  home_insurance_renewal?: string | null;
   health_plan_type?: string | null;
+  health_insurance_carrier?: string | null;
+  health_insurance_renewal?: string | null;
   has_business_insurance?: boolean;
+  business_insurance_carrier?: string | null;
+  business_insurance_renewal?: string | null;
   has_other_insurance?: boolean;
+  other_insurance_carrier?: string | null;
+  other_insurance_renewal?: string | null;
   created_at: string;
 }
 

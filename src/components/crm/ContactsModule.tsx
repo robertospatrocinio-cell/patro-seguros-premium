@@ -85,10 +85,20 @@ const ContactsModule = () => {
     car_count: 0,
     has_motorcycle: false,
     has_life_insurance: false,
+    life_insurance_carrier: "",
+    life_insurance_renewal: "",
     has_home_insurance: false,
+    home_insurance_carrier: "",
+    home_insurance_renewal: "",
     health_plan_type: "",
+    health_insurance_carrier: "",
+    health_insurance_renewal: "",
     has_business_insurance: false,
-    has_other_insurance: false
+    business_insurance_carrier: "",
+    business_insurance_renewal: "",
+    has_other_insurance: false,
+    other_insurance_carrier: "",
+    other_insurance_renewal: ""
   });
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
@@ -140,10 +150,20 @@ const ContactsModule = () => {
         car_count: 0,
         has_motorcycle: false,
         has_life_insurance: false,
+        life_insurance_carrier: "",
+        life_insurance_renewal: "",
         has_home_insurance: false,
+        home_insurance_carrier: "",
+        home_insurance_renewal: "",
         health_plan_type: "",
+        health_insurance_carrier: "",
+        health_insurance_renewal: "",
         has_business_insurance: false,
-        has_other_insurance: false
+        business_insurance_carrier: "",
+        business_insurance_renewal: "",
+        has_other_insurance: false,
+        other_insurance_carrier: "",
+        other_insurance_renewal: ""
       });
       setSelectedInsurances([]);
     } catch (e) {
@@ -404,46 +424,138 @@ const ContactsModule = () => {
               <div className="space-y-3">
                 <Label>Outros Seguros/Planos</Label>
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="has_life" 
-                      checked={newContact.has_life_insurance}
-                      onCheckedChange={(checked) => setNewContact({...newContact, has_life_insurance: !!checked})}
-                    />
-                    <Label htmlFor="has_life" className="text-sm">Seguro de Vida</Label>
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id="has_life" 
+                        checked={newContact.has_life_insurance}
+                        onCheckedChange={(checked) => setNewContact({...newContact, has_life_insurance: !!checked})}
+                      />
+                      <Label htmlFor="has_life" className="text-sm">Seguro de Vida</Label>
+                    </div>
+                    {newContact.has_life_insurance && (
+                      <div className="grid grid-cols-2 gap-2 pl-6">
+                        <Input 
+                          placeholder="Seguradora"
+                          className="h-8 text-xs"
+                          value={newContact.life_insurance_carrier}
+                          onChange={e => setNewContact({...newContact, life_insurance_carrier: e.target.value})}
+                        />
+                        <Input 
+                          type="date"
+                          className="h-8 text-xs"
+                          value={newContact.life_insurance_renewal}
+                          onChange={e => setNewContact({...newContact, life_insurance_renewal: e.target.value})}
+                        />
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="has_home" 
-                      checked={newContact.has_home_insurance}
-                      onCheckedChange={(checked) => setNewContact({...newContact, has_home_insurance: !!checked})}
-                    />
-                    <Label htmlFor="has_home" className="text-sm">Seguro Residencial</Label>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id="has_home" 
+                        checked={newContact.has_home_insurance}
+                        onCheckedChange={(checked) => setNewContact({...newContact, has_home_insurance: !!checked})}
+                      />
+                      <Label htmlFor="has_home" className="text-sm">Seguro Residencial</Label>
+                    </div>
+                    {newContact.has_home_insurance && (
+                      <div className="grid grid-cols-2 gap-2 pl-6">
+                        <Input 
+                          placeholder="Seguradora"
+                          className="h-8 text-xs"
+                          value={newContact.home_insurance_carrier}
+                          onChange={e => setNewContact({...newContact, home_insurance_carrier: e.target.value})}
+                        />
+                        <Input 
+                          type="date"
+                          className="h-8 text-xs"
+                          value={newContact.home_insurance_renewal}
+                          onChange={e => setNewContact({...newContact, home_insurance_renewal: e.target.value})}
+                        />
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="has_business" 
-                      checked={newContact.has_business_insurance}
-                      onCheckedChange={(checked) => setNewContact({...newContact, has_business_insurance: !!checked})}
-                    />
-                    <Label htmlFor="has_business" className="text-sm">Seguro Empresarial</Label>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id="has_business" 
+                        checked={newContact.has_business_insurance}
+                        onCheckedChange={(checked) => setNewContact({...newContact, has_business_insurance: !!checked})}
+                      />
+                      <Label htmlFor="has_business" className="text-sm">Seguro Empresarial</Label>
+                    </div>
+                    {newContact.has_business_insurance && (
+                      <div className="grid grid-cols-2 gap-2 pl-6">
+                        <Input 
+                          placeholder="Seguradora"
+                          className="h-8 text-xs"
+                          value={newContact.business_insurance_carrier}
+                          onChange={e => setNewContact({...newContact, business_insurance_carrier: e.target.value})}
+                        />
+                        <Input 
+                          type="date"
+                          className="h-8 text-xs"
+                          value={newContact.business_insurance_renewal}
+                          onChange={e => setNewContact({...newContact, business_insurance_renewal: e.target.value})}
+                        />
+                      </div>
+                    )}
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Checkbox 
-                      id="has_other" 
-                      checked={newContact.has_other_insurance}
-                      onCheckedChange={(checked) => setNewContact({...newContact, has_other_insurance: !!checked})}
-                    />
-                    <Label htmlFor="has_other" className="text-sm">Outros</Label>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id="has_other" 
+                        checked={newContact.has_other_insurance}
+                        onCheckedChange={(checked) => setNewContact({...newContact, has_other_insurance: !!checked})}
+                      />
+                      <Label htmlFor="has_other" className="text-sm">Outros</Label>
+                    </div>
+                    {newContact.has_other_insurance && (
+                      <div className="grid grid-cols-2 gap-2 pl-6">
+                        <Input 
+                          placeholder="Seguradora"
+                          className="h-8 text-xs"
+                          value={newContact.other_insurance_carrier}
+                          onChange={e => setNewContact({...newContact, other_insurance_carrier: e.target.value})}
+                        />
+                        <Input 
+                          type="date"
+                          className="h-8 text-xs"
+                          value={newContact.other_insurance_renewal}
+                          onChange={e => setNewContact({...newContact, other_insurance_renewal: e.target.value})}
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
+
                 <div className="space-y-2 pt-2">
-                  <Label>Plano de Saúde (Qual?)</Label>
+                  <Label>Plano de Saúde (Se tiver)</Label>
                   <Input 
                     placeholder="Ex: Bradesco, SulAmérica..."
                     value={newContact.health_plan_type}
                     onChange={e => setNewContact({...newContact, health_plan_type: e.target.value})}
                   />
+                  {newContact.health_plan_type && (
+                    <div className="grid grid-cols-2 gap-2">
+                      <Input 
+                        placeholder="Seguradora/Operadora"
+                        className="h-8 text-xs"
+                        value={newContact.health_insurance_carrier}
+                        onChange={e => setNewContact({...newContact, health_insurance_carrier: e.target.value})}
+                      />
+                      <Input 
+                        type="date"
+                        className="h-8 text-xs"
+                        value={newContact.health_insurance_renewal}
+                        onChange={e => setNewContact({...newContact, health_insurance_renewal: e.target.value})}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
