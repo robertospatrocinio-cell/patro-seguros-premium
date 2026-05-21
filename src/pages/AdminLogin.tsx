@@ -67,7 +67,7 @@ export default function AdminLogin() {
         </header>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-slate-700">Email</Label>
             <Input
               id="email"
               type="email"
@@ -75,10 +75,12 @@ export default function AdminLogin() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary"
+              placeholder="seu@email.com"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Senha</Label>
+            <Label htmlFor="password" className="text-slate-700">Senha</Label>
             <Input
               id="password"
               type="password"
@@ -87,10 +89,12 @@ export default function AdminLogin() {
               minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary"
+              placeholder="••••••••"
             />
           </div>
-          <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Aguarde..." : mode === "signin" ? "Entrar" : "Criar conta"}
+          <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white shadow-sm" disabled={loading}>
+            {loading ? "Aguarde..." : mode === "signin" ? "Entrar no CRM" : "Criar conta"}
           </Button>
         </form>
         <button
