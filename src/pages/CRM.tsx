@@ -10,7 +10,8 @@ import {
   TrendingUp,
   UserCheck,
   Heart,
-  AlertCircle
+  AlertCircle,
+  Contact2
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -20,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DashboardOverview } from "@/components/crm/DashboardOverview";
 import RelationshipModule from "@/components/crm/RelationshipModule";
+import ContactsModule from "@/components/crm/ContactsModule";
 import { useLeads } from "@/hooks/queries/useLeads";
 import { LeadsTable } from "@/components/crm/LeadsTable";
 import { exportToCSV } from "@/lib/utils/export";
@@ -151,6 +153,9 @@ const CRMPage = () => {
                 <TabsTrigger value="pipeline" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
                   <TrendingUp className="w-4 h-4 mr-2" /> Pipeline
                 </TabsTrigger>
+                <TabsTrigger value="contacts" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <Contact2 className="w-4 h-4 mr-2" /> Contatos
+                </TabsTrigger>
                 <TabsTrigger value="customers" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
                   <UserCheck className="w-4 h-4 mr-2" /> Clientes
                 </TabsTrigger>
@@ -219,6 +224,10 @@ const CRMPage = () => {
 
             <TabsContent value="relationship" className="mt-0">
               <RelationshipModule />
+            </TabsContent>
+
+            <TabsContent value="contacts" className="mt-0">
+              <ContactsModule />
             </TabsContent>
           </Tabs>
             </div>
