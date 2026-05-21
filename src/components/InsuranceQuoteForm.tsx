@@ -65,6 +65,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [finalMsg, setFinalMsg] = useState("");
   const [showChecklist, setShowChecklist] = useState(false);
   const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
 
@@ -224,23 +225,57 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     setTimeout(() => {
       setSending(false);
       setSent(true);
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalParts)}`, "_blank");
+      setFinalMsg(finalParts);
     }, 600);
   };
 
   if (sent) {
     return (
-      <div className="bg-primary/[0.03] border border-primary/10 rounded-2xl p-8 text-center">
-        <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="h-7 w-7 text-primary" />
+      <div className="bg-primary/[0.03] border border-primary/10 rounded-2xl p-8 text-center animate-in zoom-in-95 duration-300">
+        <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-6">
+          <CheckCircle className="h-8 w-8 text-green-600" />
         </div>
-        <h3 className="font-semibold text-lg mb-2">✓ Cotação recebida!</h3>
-        <p className="text-sm text-muted-foreground mb-6">
-          Você receberá um contato em até 2 horas no WhatsApp (11) 5199-7500
+        <h3 className="font-bold text-2xl mb-3 text-foreground">Solicitação Enviada!</h3>
+        <p className="text-muted-foreground mb-8 max-w-xs mx-auto">
+          Para agilizar sua cotação, você pode continuar o atendimento agora mesmo pelo WhatsApp.
         </p>
-        <Button variant="outline" onClick={() => { setSent(false); setFormData({}); setCheckboxGroups({}); setConsent(false); }}>
-          Solicitar outra cotação
-        </Button>
+        
+        <div className="space-y-4">
+          <Button 
+            className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-6 text-lg h-auto gap-3"
+            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalMsg)}`, "_blank")}
+          >
+            <MessageCircle className="h-6 w-6" />
+            Continuar no WhatsApp
+          </Button>
+
+          <div className="bg-white/50 rounded-xl p-4 border border-dashed border-primary/20">
+            <h4 className="font-semibold text-sm mb-2 text-primary">Próximos Passos:</h4>
+            <ul className="text-xs text-left text-muted-foreground space-y-2">
+              <li className="flex items-start gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1 shrink-0" />
+                <span>Nossa equipe analisará seu perfil em até 2 horas úteis.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1 shrink-0" />
+                <span>Um especialista entrará em contato para apresentar as melhores propostas.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1 shrink-0" />
+                <span>Você poderá tirar todas as suas dúvidas e personalizar seu plano.</span>
+              </li>
+            </ul>
+          </div>
+
+          <Button 
+            variant="ghost" 
+            size="sm"
+            className="text-muted-foreground hover:text-primary"
+            onClick={() => { setSent(false); setFormData({}); setCheckboxGroups({}); setConsent(false); setFinalMsg(""); setShowChecklist(false); setChecklistItems({}); }}
+          >
+            Fazer outra simulação
+          </Button>
+        </div>
       </div>
     );
   }
