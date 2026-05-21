@@ -77,6 +77,85 @@ export type Database = {
         }
         Relationships: []
       }
+      crm_notifications: {
+        Row: {
+          created_at: string | null
+          customer_id: string | null
+          id: string
+          message: string
+          read: boolean | null
+          title: string
+          type: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          customer_id?: string | null
+          id?: string
+          message: string
+          read?: boolean | null
+          title: string
+          type?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          customer_id?: string | null
+          id?: string
+          message?: string
+          read?: boolean | null
+          title?: string
+          type?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "crm_notifications_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      customer_responsible_history: {
+        Row: {
+          changed_at: string | null
+          changed_by: string | null
+          customer_id: string
+          id: string
+          new_user_id: string | null
+          previous_user_id: string | null
+          role: string
+        }
+        Insert: {
+          changed_at?: string | null
+          changed_by?: string | null
+          customer_id: string
+          id?: string
+          new_user_id?: string | null
+          previous_user_id?: string | null
+          role: string
+        }
+        Update: {
+          changed_at?: string | null
+          changed_by?: string | null
+          customer_id?: string
+          id?: string
+          new_user_id?: string | null
+          previous_user_id?: string | null
+          role?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_responsible_history_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       customers: {
         Row: {
           address_city: string | null
@@ -86,15 +165,22 @@ export type Database = {
           address_state: string | null
           address_street: string | null
           address_zip: string | null
+          assigned_attendant_id: string | null
+          assigned_consultant_id: string | null
+          assigned_manager_id: string | null
           birth_date: string | null
+          client_profile: string | null
           client_type: string | null
           cpf_cnpj: string | null
           created_at: string | null
           email: string | null
           full_name: string
           id: string
+          last_interaction_at: string | null
           notes: string | null
           phone: string | null
+          relationship_score: number | null
+          relationship_status: string | null
           updated_at: string | null
           user_id: string | null
         }
@@ -106,15 +192,22 @@ export type Database = {
           address_state?: string | null
           address_street?: string | null
           address_zip?: string | null
+          assigned_attendant_id?: string | null
+          assigned_consultant_id?: string | null
+          assigned_manager_id?: string | null
           birth_date?: string | null
+          client_profile?: string | null
           client_type?: string | null
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
           full_name: string
           id?: string
+          last_interaction_at?: string | null
           notes?: string | null
           phone?: string | null
+          relationship_score?: number | null
+          relationship_status?: string | null
           updated_at?: string | null
           user_id?: string | null
         }
@@ -126,15 +219,22 @@ export type Database = {
           address_state?: string | null
           address_street?: string | null
           address_zip?: string | null
+          assigned_attendant_id?: string | null
+          assigned_consultant_id?: string | null
+          assigned_manager_id?: string | null
           birth_date?: string | null
+          client_profile?: string | null
           client_type?: string | null
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
           full_name?: string
           id?: string
+          last_interaction_at?: string | null
           notes?: string | null
           phone?: string | null
+          relationship_score?: number | null
+          relationship_status?: string | null
           updated_at?: string | null
           user_id?: string | null
         }
@@ -274,6 +374,50 @@ export type Database = {
           used_at?: string | null
         }
         Relationships: []
+      }
+      interactions: {
+        Row: {
+          created_at: string | null
+          customer_id: string
+          id: string
+          interaction_date: string | null
+          next_contact_date: string | null
+          notes: string | null
+          status: string | null
+          type: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          customer_id: string
+          id?: string
+          interaction_date?: string | null
+          next_contact_date?: string | null
+          notes?: string | null
+          status?: string | null
+          type: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          customer_id?: string
+          id?: string
+          interaction_date?: string | null
+          next_contact_date?: string | null
+          notes?: string | null
+          status?: string | null
+          type?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "interactions_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       leads: {
         Row: {
@@ -582,6 +726,33 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      relationship_rules: {
+        Row: {
+          alert_threshold_days: number
+          created_at: string | null
+          id: string
+          interaction_interval_days: number
+          profile: string
+          updated_at: string | null
+        }
+        Insert: {
+          alert_threshold_days: number
+          created_at?: string | null
+          id?: string
+          interaction_interval_days: number
+          profile: string
+          updated_at?: string | null
+        }
+        Update: {
+          alert_threshold_days?: number
+          created_at?: string | null
+          id?: string
+          interaction_interval_days?: number
+          profile?: string
+          updated_at?: string | null
+        }
+        Relationships: []
       }
       suppressed_emails: {
         Row: {

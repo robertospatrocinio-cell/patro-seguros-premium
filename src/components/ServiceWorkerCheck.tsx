@@ -20,6 +20,14 @@ export function ServiceWorkerCheck() {
         }
       });
     }
+
+    // Force reload if we find signs of being stuck (legacy reasons)
+    const lastCleanup = localStorage.getItem('last_cleanup_v2');
+    if (!lastCleanup) {
+      localStorage.setItem('last_cleanup_v2', Date.now().toString());
+      console.log('Forcing clean reload to unfreeze application');
+      window.location.reload();
+    }
   }, []);
 
   return null;
