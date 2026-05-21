@@ -40,7 +40,7 @@ export const useContacts = () => {
       
       const { data: contact, error: contactError } = await supabase
         .from("contacts")
-        .insert([contactData])
+        .insert([contactData as any])
         .select()
         .single();
 
