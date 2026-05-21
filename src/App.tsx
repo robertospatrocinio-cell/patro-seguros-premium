@@ -243,7 +243,7 @@ const App = () => {
           <CookieBanner />
           <BrowserRouter>
             <ScrollToTop />
-            <Suspense fallback={<PageSkeleton />}>
+            <Suspense fallback={<div className="min-h-screen bg-white" />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/sobre" element={<Sobre />} />
