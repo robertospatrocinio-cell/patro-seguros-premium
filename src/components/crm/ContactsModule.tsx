@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   Search, 
   UserPlus, 
@@ -12,7 +12,16 @@ import {
   Users,
   X,
   Plus,
-  Paperclip
+  Paperclip,
+  User,
+  Calendar,
+  Baby,
+  Car,
+  Bike,
+  HeartPulse,
+  Home,
+  Briefcase,
+  ShieldAlert
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -46,6 +55,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useContacts } from "@/hooks/queries/useContacts";
 import { toast } from "sonner";
+import { Separator } from "@/components/ui/separator";
 
 const INSURANCE_TYPES = [
   "Auto", "Vida", "Saúde", "Residencial", "Empresarial", "RC Profissional", "Previdência", "Consórcio"
@@ -64,10 +74,40 @@ const ContactsModule = () => {
     cpf_cnpj: "",
     client_type: "cliente" as any,
     is_client: true,
-    notes: ""
+    notes: "",
+    marital_status: "Solteiro",
+    partner_name: "",
+    partner_birthday: "",
+    has_children: false,
+    children_count: 0,
+    children_data: [] as { name: string, birthday: string }[],
+    car_count: 0,
+    has_motorcycle: false,
+    has_life_insurance: false,
+    has_home_insurance: false,
+    health_plan_type: "",
+    has_business_insurance: false,
+    has_other_insurance: false
   });
+  
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
   const [isUploading, setIsUploading] = useState(false);
+
+  // Sync children_data when children_count changes
+  useEffect(() => {
+    const count = Number(newContact.children_count) || 0;
+    setNewContact(prev => {
+      const currentData = [...prev.children_data];
+      if (currentData.length < count) {
+        for (let i = currentData.length; i < count; i++) {
+          currentData.push({ name: "", birthday: "" });
+        }
+      } else if (currentData.length > count) {
+        currentData.splice(count);
+      }
+      return { ...prev, children_data: currentData };
+    });
+  }, [newContact.children_count]);
 
   const handleCreateContact = async () => {
     if (!newContact.full_name) {
@@ -88,7 +128,20 @@ const ContactsModule = () => {
         cpf_cnpj: "",
         client_type: "cliente",
         is_client: true,
-        notes: ""
+        notes: "",
+        marital_status: "Solteiro",
+        partner_name: "",
+        partner_birthday: "",
+        has_children: false,
+        children_count: 0,
+        children_data: [],
+        car_count: 0,
+        has_motorcycle: false,
+        has_life_insurance: false,
+        has_home_insurance: false,
+        health_plan_type: "",
+        has_business_insurance: false,
+        has_other_insurance: false
       });
       setSelectedInsurances([]);
     } catch (e) {
@@ -216,6 +269,173 @@ const ContactsModule = () => {
                   <Label htmlFor="is_client">Já é cliente ativo?</Label>
                 </div>
               </div>
+
+              <Separator className="my-2" />
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Estado Civil</Label>
+                  <Select 
+                    value={newContact.marital_status} 
+                    onValueChange={(val) => setNewContact({...newContact, marital_status: val})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Solteiro">Solteiro</SelectItem>
+                      <SelectItem value="Casado">Casado</SelectItem>
+                      <SelectItem value="Divorciado">Divorciado</SelectItem>
+                      <SelectItem value="Viúvo">Viúvo</SelectItem>
+                      <SelectItem value="União Estável">União Estável</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                {newContact.marital_status === "Casado" && (
+                  <div className="space-y-2">
+                    <Label>Nome do Cônjuge</Label>
+                    <Input 
+                      placeholder="Nome completo"
+                      value={newContact.partner_name}
+                      onChange={e => setNewContact({...newContact, partner_name: e.target.value})}
+                    />
+                  </div>
+                )}
+                {newContact.marital_status === "Casado" && (
+                  <div className="space-y-2">
+                    <Label>Data Nasc. Cônjuge</Label>
+                    <Input 
+                      type="date"
+                      value={newContact.partner_birthday}
+                      onChange={e => setNewContact({...newContact, partner_birthday: e.target.value})}
+                    />
+                  </div>
+                )}
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center space-x-2">
+                  <Checkbox 
+                    id="has_children" 
+                    checked={newContact.has_children}
+                    onCheckedChange={(checked) => setNewContact({...newContact, has_children: !!checked, children_count: checked ? newContact.children_count : 0})}
+                  />
+                  <Label htmlFor="has_children">Tem filhos?</Label>
+                </div>
+
+                {newContact.has_children && (
+                  <div className="space-y-4 pl-6 border-l-2 border-slate-100">
+                    <div className="space-y-2">
+                      <Label>Quantidade de Filhos</Label>
+                      <Input 
+                        type="number" 
+                        min="0"
+                        value={newContact.children_count}
+                        onChange={e => setNewContact({...newContact, children_count: parseInt(e.target.value) || 0})}
+                      />
+                    </div>
+                    
+                    {newContact.children_data.map((child, index) => (
+                      <div key={index} className="grid grid-cols-2 gap-4 p-3 bg-slate-50 rounded-lg">
+                        <div className="space-y-2">
+                          <Label className="text-xs">Nome do Filho {index + 1}</Label>
+                          <Input 
+                            placeholder="Nome"
+                            value={child.name}
+                            onChange={e => {
+                              const newData = [...newContact.children_data];
+                              newData[index].name = e.target.value;
+                              setNewContact({...newContact, children_data: newData});
+                            }}
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <Label className="text-xs">Data de Nascimento</Label>
+                          <Input 
+                            type="date"
+                            value={child.birthday}
+                            onChange={e => {
+                              const newData = [...newContact.children_data];
+                              newData[index].birthday = e.target.value;
+                              setNewContact({...newContact, children_data: newData});
+                            }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              <Separator className="my-2" />
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Quantos carros na casa?</Label>
+                  <Input 
+                    type="number" 
+                    min="0"
+                    value={newContact.car_count}
+                    onChange={e => setNewContact({...newContact, car_count: parseInt(e.target.value) || 0})}
+                  />
+                </div>
+                <div className="flex items-center space-x-2 pt-8">
+                  <Checkbox 
+                    id="has_motorcycle" 
+                    checked={newContact.has_motorcycle}
+                    onCheckedChange={(checked) => setNewContact({...newContact, has_motorcycle: !!checked})}
+                  />
+                  <Label htmlFor="has_motorcycle">Tem moto?</Label>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <Label>Outros Seguros/Planos</Label>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="has_life" 
+                      checked={newContact.has_life_insurance}
+                      onCheckedChange={(checked) => setNewContact({...newContact, has_life_insurance: !!checked})}
+                    />
+                    <Label htmlFor="has_life" className="text-sm">Seguro de Vida</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="has_home" 
+                      checked={newContact.has_home_insurance}
+                      onCheckedChange={(checked) => setNewContact({...newContact, has_home_insurance: !!checked})}
+                    />
+                    <Label htmlFor="has_home" className="text-sm">Seguro Residencial</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="has_business" 
+                      checked={newContact.has_business_insurance}
+                      onCheckedChange={(checked) => setNewContact({...newContact, has_business_insurance: !!checked})}
+                    />
+                    <Label htmlFor="has_business" className="text-sm">Seguro Empresarial</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Checkbox 
+                      id="has_other" 
+                      checked={newContact.has_other_insurance}
+                      onCheckedChange={(checked) => setNewContact({...newContact, has_other_insurance: !!checked})}
+                    />
+                    <Label htmlFor="has_other" className="text-sm">Outros</Label>
+                  </div>
+                </div>
+                <div className="space-y-2 pt-2">
+                  <Label>Plano de Saúde (Qual?)</Label>
+                  <Input 
+                    placeholder="Ex: Bradesco, SulAmérica..."
+                    value={newContact.health_plan_type}
+                    onChange={e => setNewContact({...newContact, health_plan_type: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <Separator className="my-2" />
 
               <div className="space-y-2">
                 <Label>Seguros que possui</Label>

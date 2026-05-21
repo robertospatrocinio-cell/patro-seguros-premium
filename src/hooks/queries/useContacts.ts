@@ -11,6 +11,19 @@ export interface Contact {
   client_type: 'cliente' | 'amigo' | 'não cliente' | null;
   is_client: boolean;
   notes: string | null;
+  marital_status?: string | null;
+  partner_name?: string | null;
+  partner_birthday?: string | null;
+  has_children?: boolean;
+  children_count?: number;
+  children_data?: any[];
+  car_count?: number;
+  has_motorcycle?: boolean;
+  has_life_insurance?: boolean;
+  has_home_insurance?: boolean;
+  health_plan_type?: string | null;
+  has_business_insurance?: boolean;
+  has_other_insurance?: boolean;
   created_at: string;
 }
 
