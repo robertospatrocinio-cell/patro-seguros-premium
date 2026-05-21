@@ -2,6 +2,38 @@ import { guarulhosArticlesContent } from "./blogGuarulhosContent";
 
 export const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
   ...guarulhosArticlesContent,
+  "melhores-seguradoras-guarulhos-2026": {
+    title: "As 5 Melhores Seguradoras em Guarulhos em 2026",
+    content: "Muitos moradores de Guarulhos buscam o melhor seguro, mas a resposta depende de onde você circula — se é mais pela Rodovia Presidente Dutra, Fernão Dias ou pelas avenidas centrais como a Tiradentes.\n\n## 1. Porto Seguro\nLíder em Guarulhos pela vasta rede de Centros Automotivos Porto Seguro (CAPS) espalhados pela cidade e o excelente atendimento de guincho na região metropolitana.\n\n## 2. Azul Seguros\nA opção ideal para quem busca o selo de qualidade Porto Seguro com um preço mais acessível, especialmente para carros com mais de 5 anos.\n\n## 3. Liberty Seguros\nForte presença no setor empresarial de Guarulhos e excelentes condições para frotas de logística próximas ao Aeroporto de Cumbica.\n\n## 4. Allianz\nReferência em coberturas de alta gama e proteção para condomínios residenciais de alto padrão no bairro Maia.\n\n## 5. Bradesco Seguros\nExcelente para quem já é correntista e busca facilidade no pagamento e integração com outros serviços de saúde e vida.\n\n[Peça uma análise personalizada aqui](/cotacao)",
+    faqs: [
+      { q: "Qual seguradora tem melhor guincho em Guarulhos?", a: "A Porto Seguro é reconhecida pela rapidez no atendimento na Dutra e Fernão Dias." },
+      { q: "Seguro em Guarulhos é mais caro que em SP?", a: "Depende do bairro. O CEP de Guarulhos pode variar bastante entre o Centro e áreas periféricas." }
+    ]
+  },
+  "seguro-uber-99-guarulhos-guia": {
+    title: "Seguro para Uber e 99 em Guarulhos: Como Economizar",
+    content: "Se você é motorista de aplicativo em Guarulhos, sabe que o risco é diferente de um motorista casual. O seguro APP (Acidentes Pessoais de Passageiros) é obrigatório e essencial.\n\n## O que o motorista de Guarulhos precisa saber\nRodar 24h por dia em regiões como Pimentas ou Bonsucesso exige uma cobertura de roubo e furto robusta. Além disso, a assistência 24h precisa ser ilimitada.\n\n## Vantagens Patro para Motoristas\n- Descontos exclusivos para categorias Silver e Gold do Uber.\n- Instalação de rastreador gratuita em algumas seguradoras.\n- Carro reserva por períodos prolongados.\n\n[Cotar Seguro Uber agora](/seguro-auto)",
+    faqs: [
+      { q: "O seguro normal cobre Uber?", a: "Não. É preciso declarar o uso comercial (EAR) na apólice para garantir a indenização." },
+      { q: "Qual o melhor bairro para rodar seguro?", a: "Evite deixar o carro estacionado na rua em bairros com alto índice de furtos; prefira estacionamentos fechados." }
+    ]
+  },
+  "seguro-porsche-luxo-guarulhos": {
+    title: "Seguro para Carros de Luxo e Esportivos em Guarulhos",
+    content: "Ter um Porsche, BMW ou Mercedes em Guarulhos exige uma corretora que entenda de riscos especiais. Não se trata apenas de preço, mas de garantir a reposição de peças originais e oficinas especializadas.\n\n## Diferenciais do Seguro Premium na Patro\n- Atendimento VIP personalizado.\n- Cobertura de blindagem opcional.\n- Assistência residencial de luxo inclusa.\n\n[Fale com nosso consultor Premium](/contato)",
+    faqs: [
+      { q: "O seguro cobre danos em rodas esportivas?", a: "Sim, desde que a cobertura adicional de vidros e acessórios tenha sido contratada." },
+      { q: "Existe limite de valor para o carro?", a: "Trabalhamos com seguradoras que aceitam veículos de até R$ 2 milhões." }
+    ]
+  },
+  "porto-seguro-guarulhos-atendimento": {
+    title: "Porto Seguro em Guarulhos: Onde Encontrar Atendimento e Vantagens",
+    content: "A Porto Seguro possui uma das maiores infraestruturas de atendimento em Guarulhos. Se você é cliente, tem acesso a diversos benefícios na cidade.\n\n## Centros Automotivos em Guarulhos\nExistem unidades no Macedo, Vila Augusta e Centro, facilitando cristalização de vidros, revisão de freios e muito mais.\n\n## Vantagens Locais\n- Descontos em estacionamentos próximos ao Aeroporto de Cumbica.\n- Check-up gratuito antes de viagens longas.\n\n[Saiba mais sobre a Porto Seguro](/seguradoras)",
+    faqs: [
+      { q: "Onde fica o CAPS em Guarulhos?", a: "Há uma unidade principal na Av. Tiradentes e outra na Av. Guarulhos." },
+      { q: "Posso fazer vistoria em casa?", a: "Sim, a Porto Seguro oferece vistoria digital ou domiciliar em quase toda Guarulhos." }
+    ]
+  },
   "crescimento-patrimonial-guarulhos-2026": {
     title: "Crescimento Patrimonial: Por que a Proteção é o Acelerador que Poucos Usam?",
     content: "Muitos acreditam que crescer financeiramente resume-se apenas a investir em renda variável ou imóveis...",

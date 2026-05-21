@@ -219,10 +219,16 @@ export const blogImageMap: Record<string, string> = {
    "porto-vs-tokio-marine-residencial-2026": blogSeguroResidencial,
    "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
 
-   // Tabela FIPE, CNH e Multas (2026)
-   "tabela-fipe-2026": blogSeguroAuto,
-   "documentos-para-cnh": blogComoAcionarSeguroAuto,
-   "multas-guarulhos": blogSinistrosGuarulhos,
+    // Tabela FIPE, CNH e Multas (2026)
+    "tabela-fipe-2026": blogSeguroAuto,
+    "documentos-para-cnh": blogComoAcionarSeguroAuto,
+    "multas-guarulhos": blogSinistrosGuarulhos,
+
+    // Novos artigos estratégicos 2026
+    "melhores-seguradoras-guarulhos-2026": blogCorretoraGuarulhos,
+    "seguro-uber-99-guarulhos-guia": blogMotoristaApp,
+    "seguro-porsche-luxo-guarulhos": blogSeguroAutoPremium,
+    "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
 };
 
 export const getArticleImage = (slug: string): string => {
