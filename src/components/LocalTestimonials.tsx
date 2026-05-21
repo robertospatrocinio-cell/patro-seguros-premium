@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, MapPin, Quote } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
@@ -46,7 +45,6 @@ const LocalTestimonials = () => {
             </h2>
           </div>
           
-          {/* Google Review Widget Placeholder/Style */}
           <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-4">
             <div className="flex flex-col items-center border-r pr-4 border-slate-100">
               <span className="text-2xl font-black text-foreground">5.0</span>
@@ -56,8 +54,8 @@ const LocalTestimonials = () => {
             </div>
             <div>
               <div className="flex items-center gap-1.5 mb-0.5">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_\"G\"_logo.svg" alt="Google" className="w-4 h-4" />
-                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Google Reviews</span>
+                <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-4 object-contain" />
+                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Reviews</span>
               </div>
               <p className="text-[11px] text-muted-foreground font-medium">Baseado em 340+ avaliações reais</p>
             </div>
