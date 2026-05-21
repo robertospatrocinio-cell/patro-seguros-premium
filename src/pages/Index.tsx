@@ -1,5 +1,3 @@
- const FormCTASection = lazy(() => import("@/components/FormCTASection"));
- 
 import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
  import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
@@ -22,6 +20,7 @@ import LazySection from "@/components/LazySection";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 
 const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
+const FormCTASection = lazy(() => import("@/components/FormCTASection"));
 
 // Componentes internos que serão carregados via intersection (LazySection)
  const Footer = lazy(() => import("@/components/Footer"));
