@@ -90,6 +90,7 @@ export type Database = {
           partner_source_name: string | null
           phone: string | null
           profession: string | null
+          property_type: string | null
           referral_contact_id: string | null
           responsible_name: string | null
           salesperson_name: string | null
@@ -142,6 +143,7 @@ export type Database = {
           partner_source_name?: string | null
           phone?: string | null
           profession?: string | null
+          property_type?: string | null
           referral_contact_id?: string | null
           responsible_name?: string | null
           salesperson_name?: string | null
@@ -194,6 +196,7 @@ export type Database = {
           partner_source_name?: string | null
           phone?: string | null
           profession?: string | null
+          property_type?: string | null
           referral_contact_id?: string | null
           responsible_name?: string | null
           salesperson_name?: string | null

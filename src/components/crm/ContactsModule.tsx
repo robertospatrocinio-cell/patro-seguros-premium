@@ -117,6 +117,7 @@ const INITIAL_CONTACT_STATE = {
   profession: "",
   income_bracket: "",
   home_ownership: "Própria",
+  property_type: "",
   lead_source: "",
   referral_contact_id: "",
   salesperson_name: "",
@@ -696,6 +697,23 @@ const ContactsModule = () => {
                 <div className="space-y-2">
                   <Label>Tipo de Imóvel</Label>
                   <Select 
+                    value={(newContact as any).property_type || ""} 
+                    onValueChange={(val) => setNewContact({...newContact, property_type: val} as any)}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Apartamento">Apartamento</SelectItem>
+                      <SelectItem value="Casa de Rua">Casa de Rua</SelectItem>
+                      <SelectItem value="Condomínio">Condomínio</SelectItem>
+                      <SelectItem value="Veraneio">Veraneio</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label>Posse do Imóvel</Label>
+                  <Select 
                     value={newContact.home_ownership} 
                     onValueChange={(val) => setNewContact({...newContact, home_ownership: val})}
                   >
@@ -709,6 +727,9 @@ const ContactsModule = () => {
                     </SelectContent>
                   </Select>
                 </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Nota de Satisfação (0 a 5)</Label>
                   <Select 
