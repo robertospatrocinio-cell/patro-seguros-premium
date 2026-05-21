@@ -3,9 +3,11 @@ import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
+import { memo } from "react";
+
 const logoFull = "/images/logo-full.webp";
 
-const Footer = () => {
+const Footer = memo(() => {
   return (
     <footer className="bg-foreground" role="contentinfo">
       <div className="container mx-auto px-4 py-16">
@@ -123,6 +125,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;

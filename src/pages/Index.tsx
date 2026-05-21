@@ -30,6 +30,8 @@ import HomeBlogSection from "@/components/HomeBlogSection";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 
+import LazySection from "@/components/LazySection";
+
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
 const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO", "DARWIN", "EZZE", "HAPVIDA/NOTREDAME", "HDI", "ITAÚ", "ITURAN", "JUSTOS", "LIBERTY", "MAG", "MAPFRE", "MEDSENIOR", "MITSUI", "OMINT", "PIER", "PORTO", "PREVENT SENIOR", "SOMPO", "SUHAI", "SULAMERICA", "SURA", "TOKIO MARINE", "UNIMED", "YOUSE", "ZURICH"];
@@ -192,14 +194,16 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <div className="lg:w-1/2 w-full">
+              <LazySection className="lg:w-1/2 w-full" minHeight="400px">
                 <LocalSavingsCalculator />
-              </div>
+              </LazySection>
             </div>
           </div>
         </section>
 
-        <LocalTestimonials />
+        <LazySection minHeight="300px">
+          <LocalTestimonials />
+        </LazySection>
 
         <section className="py-16 md:py-32 bg-background">
           <div className="container mx-auto px-4">
@@ -272,7 +276,9 @@ const Index = () => {
           </div>
         </section>
 
-        <LeadMagnetSection />
+        <LazySection minHeight="200px">
+          <LeadMagnetSection />
+        </LazySection>
 
         <FormCTASection 
           title="Proteja seu patrimônio com quem entende de Guarulhos"
@@ -376,16 +382,24 @@ const Index = () => {
               <h2 id="google-business-heading" className="mt-3">Avaliações reais de clientes reais</h2>
             </div>
             <div className="max-w-md mx-auto">
-              <GoogleBusinessWidget />
+              <LazySection minHeight="250px">
+                <GoogleBusinessWidget />
+              </LazySection>
             </div>
           </div>
         </section>
 
-        <AgrishowPromoBanner source="home" variant="full" />
+        <LazySection minHeight="150px">
+          <AgrishowPromoBanner source="home" variant="full" />
+        </LazySection>
 
-        <HomeBlogSection />
+        <LazySection minHeight="400px">
+          <HomeBlogSection />
+        </LazySection>
 
-        <PortoPartnershipSection />
+        <LazySection minHeight="300px">
+          <PortoPartnershipSection />
+        </LazySection>
 
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
@@ -461,7 +475,9 @@ const Index = () => {
           </div>
         </section>
 
-        <InsuranceHubLinks />
+        <LazySection minHeight="200px">
+          <InsuranceHubLinks />
+        </LazySection>
       </main>
       <Footer />
     </>
