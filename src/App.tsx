@@ -1,18 +1,16 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
-import PageSkeleton from "@/components/PageSkeleton";
 
-// Lazy-load non-critical layout components to reduce initial JS
-const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
-const TooltipProvider = lazy(() => import("@/components/ui/tooltip").then(m => ({ default: m.TooltipProvider })));
-const Toaster = lazy(() => import("@/components/ui/toaster").then(m => ({ default: m.Toaster })));
-const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
-const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
-const CookieBanner = lazy(() => import("@/components/CookieBanner"));
+import ComparativoPlanosSaude from "./pages/ComparativoPlanosSaude";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import CookieBanner from "@/components/CookieBanner";
 
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
@@ -235,7 +233,6 @@ const App = () => {
   return (
     <ErrorBoundary>
       <QueryProviderWrapper>
-        <ServiceWorkerCheck />
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -243,7 +240,8 @@ const App = () => {
           <CookieBanner />
           <BrowserRouter>
             <ScrollToTop />
-            <Suspense fallback={<div className="min-h-screen bg-slate-50 flex items-center justify-center"><div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div></div>}>
+            <ServiceWorkerCheck />
+            <Suspense fallback={null}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/sobre" element={<Sobre />} />

@@ -4,12 +4,8 @@ import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
 
-// Initialize monitoring immediately to catch early errors
-// Initialize monitoring
-setTimeout(() => {
-  initMonitoring();
-  initWebVitals();
-}, 2000);
+initMonitoring();
+initWebVitals();
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
