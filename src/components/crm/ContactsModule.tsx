@@ -107,6 +107,9 @@ const ContactsModule = () => {
     income_bracket: "",
     home_ownership: "Própria",
     lead_source: "",
+    referral_contact_id: "",
+    salesperson_name: "",
+    partner_source_name: "",
     satisfaction_score: 10,
     last_interaction_type: "WhatsApp"
   });
@@ -180,6 +183,9 @@ const ContactsModule = () => {
         income_bracket: "",
         home_ownership: "Própria",
         lead_source: "",
+        referral_contact_id: "",
+        salesperson_name: "",
+        partner_source_name: "",
         satisfaction_score: 10,
         last_interaction_type: "WhatsApp"
       });
@@ -492,13 +498,22 @@ const ContactsModule = () => {
                   <Label>Origem do Lead</Label>
                   <Select 
                     value={newContact.lead_source} 
-                    onValueChange={(val) => setNewContact({...newContact, lead_source: val})}
+                    onValueChange={(val) => setNewContact({
+                      ...newContact, 
+                      lead_source: val,
+                      referral_contact_id: val === 'Indicação' ? newContact.referral_contact_id : "",
+                      salesperson_name: val === 'Vendedor' ? newContact.salesperson_name : "",
+                      partner_source_name: val === 'Parceiro' ? newContact.partner_source_name : ""
+                    })}
                   >
                     <SelectTrigger>
                       <SelectValue placeholder="Como nos conheceu?" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="Site">Site</SelectItem>
                       <SelectItem value="Indicação">Indicação</SelectItem>
+                      <SelectItem value="Vendedor">Vendedor</SelectItem>
+                      <SelectItem value="Parceiro">Parceiro</SelectItem>
                       <SelectItem value="Instagram">Instagram</SelectItem>
                       <SelectItem value="Google">Google</SelectItem>
                       <SelectItem value="Facebook">Facebook</SelectItem>
@@ -507,6 +522,49 @@ const ContactsModule = () => {
                   </Select>
                 </div>
               </div>
+
+              {newContact.lead_source === "Indicação" && (
+                <div className="space-y-2">
+                  <Label>Quem indicou?</Label>
+                  <Select 
+                    value={newContact.referral_contact_id} 
+                    onValueChange={(val) => setNewContact({...newContact, referral_contact_id: val})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione o contato..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {contacts?.map(contact => (
+                        <SelectItem key={contact.id} value={contact.id}>
+                          {contact.full_name} {contact.phone ? `(${contact.phone})` : ""}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              )}
+
+              {newContact.lead_source === "Vendedor" && (
+                <div className="space-y-2">
+                  <Label>Nome do Vendedor</Label>
+                  <Input 
+                    placeholder="Nome do vendedor"
+                    value={newContact.salesperson_name}
+                    onChange={e => setNewContact({...newContact, salesperson_name: e.target.value})}
+                  />
+                </div>
+              )}
+
+              {newContact.lead_source === "Parceiro" && (
+                <div className="space-y-2">
+                  <Label>Nome do Parceiro</Label>
+                  <Input 
+                    placeholder="Nome do parceiro"
+                    value={newContact.partner_source_name}
+                    onChange={e => setNewContact({...newContact, partner_source_name: e.target.value})}
+                  />
+                </div>
+              )}
 
               <Separator className="my-2" />
 
