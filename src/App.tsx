@@ -150,7 +150,10 @@ const SeoHubBairrosGuarulhos = lazy(() => import("./pages/SeoHubBairrosGuarulhos
  const HubEmpresarial = lazy(() => import("./pages/HubEmpresarial"));
  const HubPatrimonio = lazy(() => import("./pages/HubPatrimonio"));
  const HubRC = lazy(() => import("./pages/HubRC"));
- const HubVidaSaude = lazy(() => import("./pages/HubVidaSaude"));
+const HubVidaSaude = lazy(() => import("./pages/HubVidaSaude"));
+const PreventSenior = lazy(() => import("./pages/saude/PreventSenior"));
+const SulAmericaSaude = lazy(() => import("./pages/saude/SulAmerica"));
+const AmilSaude = lazy(() => import("./pages/saude/Amil"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 /**
