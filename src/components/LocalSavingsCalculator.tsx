@@ -2,15 +2,27 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Calculator, TrendingDown, CheckCircle2, MapPin } from "lucide-react";
+import { Calculator, TrendingDown, CheckCircle2, Car, Home, Building2, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+const insuranceTypes = [
+  { id: 'auto', label: 'Auto', icon: Car, discount: 0.15, uberBonus: 0.10 },
+  { id: 'residencial', label: 'Residencial', icon: Home, discount: 0.20 },
+  { id: 'empresarial', label: 'Empresarial', icon: Building2, discount: 0.25 },
+  { id: 'vida', label: 'Vida', icon: Heart, discount: 0.12 },
+];
+
 const LocalSavingsCalculator = () => {
+  const [insuranceType, setInsuranceType] = useState('auto');
   const [currentInsurance, setCurrentInsurance] = useState(2500);
   const [hasUber, setHasUber] = useState(false);
   const [region, setRegion] = useState('centro');
   
-  const estimatedSavings = Math.round(currentInsurance * (hasUber ? 0.25 : 0.15));
+  const selectedType = insuranceTypes.find(t => t.id === insuranceType) || insuranceTypes[0];
+  const baseDiscount = selectedType.discount;
+  const uberDiscount = (insuranceType === 'auto' && hasUber) ? selectedType.uberBonus || 0 : 0;
+  
+  const estimatedSavings = Math.round(currentInsurance * (baseDiscount + uberDiscount));
   const newPrice = currentInsurance - estimatedSavings;
 
   return (
