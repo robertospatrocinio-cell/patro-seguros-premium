@@ -1,7 +1,7 @@
   import { lazy, Suspense, useEffect, useState } from "react";
   import { setUserContext } from "@/lib/monitoring";
   import { supabase } from "@/integrations/supabase/client";
- import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
  const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
@@ -152,6 +152,20 @@ const SeoHubBairrosGuarulhos = lazy(() => import("./pages/SeoHubBairrosGuarulhos
  const HubRC = lazy(() => import("./pages/HubRC"));
  const HubVidaSaude = lazy(() => import("./pages/HubVidaSaude"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+
+/**
+ * Fallback client-side para URLs legadas do WordPress no formato `/slug-2/`.
+ * O .htaccess no servidor já faz 301 server-side, mas este componente
+ * garante o redirect caso o .htaccess não esteja propagado ainda.
+ */
+const LegacyWpRedirect = () => {
+  const { pathname, search, hash } = useLocation();
+  const match = pathname.match(/^\/([a-z0-9-]+)-2\/?$/i);
+  if (match) {
+    return <Navigate to={`/${match[1]}${search}${hash}`} replace />;
+  }
+  return <NotFound />;
+};
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
 const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
@@ -419,7 +433,7 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
             <Route path="/investimentos" element={<Investimentos />} />
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<LegacyWpRedirect />} />
           </Routes>
         </Suspense>
           <Suspense fallback={null}>
