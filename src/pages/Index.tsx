@@ -19,6 +19,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import LazySection from "@/components/LazySection";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LocalSavingsCalculator from "@/components/LocalSavingsCalculator";
+import LocalTestimonials from "@/components/LocalTestimonials";
 
 const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
 const FormCTASection = lazy(() => import("@/components/FormCTASection"));
