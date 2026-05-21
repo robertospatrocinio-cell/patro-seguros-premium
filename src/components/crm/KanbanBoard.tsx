@@ -132,7 +132,7 @@ export const KanbanBoard = ({ leads }: KanbanBoardProps) => {
               <Droppable droppableId={stage.id}>
                 {(provided, snapshot) => (
                   <div
-                    {...provided.droppableId}
+                    {...provided.droppableProps}
                     ref={provided.innerRef}
                     className={`flex-1 p-3 overflow-y-auto space-y-3 transition-colors ${
                       snapshot.isDraggingOver ? "bg-slate-100/50" : ""
