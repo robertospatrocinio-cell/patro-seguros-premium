@@ -251,26 +251,77 @@ export function generateSitemap(blogSlugs: string[]): string {
     "/seguro-odonto", "/seguro-acidentes-pessoais", "/seguro-funeral",
     "/seguro-decesso", "/seguro-viagem", "/previdencia-privada",
     "/plano-pet",
+    "/planos-de-saude/prevent-senior-guarulhos",
+    "/planos-de-saude/sulamerica-saude-guarulhos",
+    "/planos-de-saude/amil-saude-guarulhos",
+    "/planos-de-saude/porto-saude-guarulhos",
+    "/planos-de-saude/hapvida-guarulhos",
+    "/planos-de-saude/medsenior-guarulhos",
+    "/planos-de-saude/bradesco-saude-guarulhos",
+    "/planos-de-saude/sami-guarulhos",
+    "/planos-de-saude/unimed-guarulhos",
+    "/planos-de-saude/alice-guarulhos",
   ]);
 
   const empresarialRoutes = new Set([
-   "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
-   "/seguro-lojas-shopping", "/seguro-maquinas",
-   "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
-   "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
-   "/seguro-garantia", "/seguro-cyber", "/seguro-estagiario",
-   "/seguro-ambiental", "/seguro-rc", "/seguro-rc-profissional",
-   "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
-   "/seguro-rc-engenheiros", "/seguro-rc-veterinarios",
-   "/seguro-rc-executivos", "/seguro-rc-obras",
-   "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
-   "/seguro-empresarial/segmentos",
-   "/seguros/empresarios", "/seguros/profissionais-liberais",
-   "/seguros/medicos-e-clinicas", "/seguros/transportadoras",
-   "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
-   "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
-   "/seguro-placa-solar",
- ]);
+    "/seguro-empresarial", "/seguro-galpao", "/seguro-galpoes-industriais",
+    "/seguro-lojas-shopping", "/seguro-maquinas",
+    "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
+    "/seguro-transporte", "/seguro-armazenagem", "/seguro-engenharia",
+    "/seguro-garantia", "/seguro-cyber", "/seguro-estagiario",
+    "/seguro-ambiental", "/seguro-rc", "/seguro-rc-profissional",
+    "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
+    "/seguro-rc-engenheiros", "/seguro-rc-veterinarios",
+    "/seguro-rc-executivos", "/seguro-rc-obras",
+    "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
+    "/seguro-empresarial/segmentos",
+    "/seguros/empresarios", "/seguros/profissionais-liberais",
+    "/seguros/medicos-e-clinicas", "/seguros/transportadoras",
+    "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
+    "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
+    "/seguro-placa-solar",
+  ]);
+
+  autoRoutes.add("/seguradoras/porto-seguro-guarulhos");
+  autoRoutes.add("/seguradoras/tokio-marine-guarulhos");
+  autoRoutes.add("/seguradoras/allianz-guarulhos");
+  autoRoutes.add("/seguradoras/azul-seguros-guarulhos");
+  autoRoutes.add("/seguradoras/mapfre-guarulhos");
+  autoRoutes.add("/seguradoras/zurich-guarulhos");
+  autoRoutes.add("/seguradoras/yellum-guarulhos");
+  autoRoutes.add("/seguradoras/suhai-guarulhos");
+  autoRoutes.add("/seguradoras/hdi-guarulhos");
+  autoRoutes.add("/seguradoras/itau-seguros-guarulhos");
+  autoRoutes.add("/seguradoras/bradesco-seguros-guarulhos");
+  autoRoutes.add("/seguradoras/mitsui-guarulhos");
+
+  const healthPlanEntries: SitemapEntry[] = [
+    "/planos-de-saude/prevent-senior-guarulhos",
+    "/planos-de-saude/sulamerica-saude-guarulhos",
+    "/planos-de-saude/amil-saude-guarulhos",
+    "/planos-de-saude/porto-saude-guarulhos",
+    "/planos-de-saude/hapvida-guarulhos",
+    "/planos-de-saude/medsenior-guarulhos",
+    "/planos-de-saude/bradesco-saude-guarulhos",
+    "/planos-de-saude/sami-guarulhos",
+    "/planos-de-saude/unimed-guarulhos",
+    "/planos-de-saude/alice-guarulhos",
+  ].map(loc => ({ loc, priority: "0.8", changefreq: "weekly" }));
+
+  const insurerEntries: SitemapEntry[] = [
+    "/seguradoras/porto-seguro-guarulhos",
+    "/seguradoras/tokio-marine-guarulhos",
+    "/seguradoras/allianz-guarulhos",
+    "/seguradoras/azul-seguros-guarulhos",
+    "/seguradoras/mapfre-guarulhos",
+    "/seguradoras/zurich-guarulhos",
+    "/seguradoras/yellum-guarulhos",
+    "/seguradoras/suhai-guarulhos",
+    "/seguradoras/hdi-guarulhos",
+    "/seguradoras/itau-seguros-guarulhos",
+    "/seguradoras/bradesco-seguros-guarulhos",
+    "/seguradoras/mitsui-guarulhos",
+  ].map(loc => ({ loc, priority: "0.8", changefreq: "weekly" }));
 
   const flat = [
     ...highIntentTransactional,
@@ -278,12 +329,14 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...coreProducts,
     ...secondaryProducts,
     ...tertiaryProducts,
-     ...segmentEntries,
-     ...nichos,
-     ...informational,
-     ...investments,
-     ...hubs,
-     ...landingPages,
+    ...healthPlanEntries,
+    ...insurerEntries,
+    ...segmentEntries,
+    ...nichos,
+    ...informational,
+    ...investments,
+    ...hubs,
+    ...landingPages,
     ...bairroEntries,
     ...localPageEntries,
     ...blogEntries,
