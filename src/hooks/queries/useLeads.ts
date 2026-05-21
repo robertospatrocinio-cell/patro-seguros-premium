@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 export interface Lead {
   id: string;
@@ -19,16 +20,29 @@ export const useLeads = () => {
   return useQuery({
     queryKey: ["leads"],
     queryFn: async () => {
-      console.log("Fetching leads from Supabase...");
-      const { data, error } = await supabase
-        .from("leads")
-        .select("*")
-        .order("created_at", { ascending: false });
+      try {
+        console.log("Fetching leads from Supabase...");
+        const { data, error } = await supabase
+          .from("leads")
+          .select("*")
+          .order("created_at", { ascending: false });
 
-      if (error) throw error;
-      return data as Lead[];
+        if (error) {
+          console.error("Supabase error fetching leads:", error);
+          throw new Error(error.message || "Erro ao conectar com o banco de dados");
+        }
+        
+        return data as Lead[];
+      } catch (err: any) {
+        console.error("Catch error fetching leads:", err);
+        toast.error("Erro ao carregar leads", {
+          description: err.message || "Verifique sua conexão e tente novamente.",
+        });
+        throw err;
+      }
     },
-    refetchInterval: 60000, // Refresh every minute
-    staleTime: 30000, // Data is fresh for 30 seconds
+    refetchInterval: 60000,
+    staleTime: 30000,
+    retry: 2,
   });
 };
