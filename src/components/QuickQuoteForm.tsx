@@ -172,64 +172,104 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label htmlFor={`qq-nome-${trackingLabel}`}>Nome *</Label>
+            <Label htmlFor={`qq-nome-${trackingLabel}`} className={getFieldError("nome") ? "text-destructive" : ""}>
+              Nome *
+            </Label>
             <Input
               id={`qq-nome-${trackingLabel}`}
               placeholder="Seu nome completo"
               value={form.nome}
               onChange={e => update("nome", e.target.value)}
+              onBlur={() => handleBlur("nome")}
               maxLength={100}
+              className={getFieldError("nome") ? "border-destructive focus-visible:ring-destructive" : ""}
             />
+            {getFieldError("nome") && (
+              <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("nome")}</p>
+            )}
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor={`qq-tel-${trackingLabel}`}>WhatsApp *</Label>
+            <Label htmlFor={`qq-tel-${trackingLabel}`} className={getFieldError("telefone") ? "text-destructive" : ""}>
+              WhatsApp *
+            </Label>
             <Input
               id={`qq-tel-${trackingLabel}`}
               placeholder="(11) 99999-9999"
               value={form.telefone}
               onChange={e => update("telefone", e.target.value)}
+              onBlur={() => handleBlur("telefone")}
               maxLength={20}
+              className={getFieldError("telefone") ? "border-destructive focus-visible:ring-destructive" : ""}
             />
+            {getFieldError("telefone") && (
+              <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("telefone")}</p>
+            )}
           </div>
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor={`qq-email-${trackingLabel}`}>E-mail</Label>
+          <Label htmlFor={`qq-email-${trackingLabel}`} className={getFieldError("email") ? "text-destructive" : ""}>
+            E-mail
+          </Label>
           <Input
             id={`qq-email-${trackingLabel}`}
             type="text"
             placeholder="seu@email.com"
             value={form.email || ""}
             onChange={e => update("email", e.target.value)}
+            onBlur={() => handleBlur("email")}
             maxLength={255}
+            className={getFieldError("email") ? "border-destructive focus-visible:ring-destructive" : ""}
           />
+          {getFieldError("email") && (
+            <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("email")}</p>
+          )}
         </div>
 
-        {extraFields.map(field => (
-          <div key={field.id} className="space-y-1.5">
-            <Label htmlFor={`qq-${field.id}-${trackingLabel}`}>{field.label}</Label>
-            {field.type === "select" && field.options ? (
-              <Select value={form[field.id] || ""} onValueChange={v => update(field.id, v)}>
-                <SelectTrigger id={`qq-${field.id}-${trackingLabel}`}>
-                  <SelectValue placeholder={field.placeholder} />
-                </SelectTrigger>
-                <SelectContent>
-                  {field.options.map(opt => (
-                    <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            ) : (
-              <Input
-                id={`qq-${field.id}-${trackingLabel}`}
-                placeholder={field.placeholder}
-                value={form[field.id] || ""}
-                onChange={e => update(field.id, e.target.value)}
-                maxLength={200}
-              />
-            )}
-          </div>
-        ))}
+        {extraFields.map(field => {
+          const fieldError = getFieldError(field.id);
+          return (
+            <div key={field.id} className="space-y-1.5">
+              <Label htmlFor={`qq-${field.id}-${trackingLabel}`} className={fieldError ? "text-destructive" : ""}>
+                {field.label}
+              </Label>
+              {field.type === "select" && field.options ? (
+                <Select 
+                  value={form[field.id] || ""} 
+                  onValueChange={v => {
+                    update(field.id, v);
+                    handleBlur(field.id);
+                  }}
+                >
+                  <SelectTrigger 
+                    id={`qq-${field.id}-${trackingLabel}`}
+                    className={fieldError ? "border-destructive focus-visible:ring-destructive" : ""}
+                  >
+                    <SelectValue placeholder={field.placeholder} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {field.options.map(opt => (
+                      <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              ) : (
+                <Input
+                  id={`qq-${field.id}-${trackingLabel}`}
+                  placeholder={field.placeholder}
+                  value={form[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  maxLength={200}
+                  className={fieldError ? "border-destructive focus-visible:ring-destructive" : ""}
+                />
+              )}
+              {fieldError && (
+                <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{fieldError}</p>
+              )}
+            </div>
+          );
+        })}
 
         <Button type="submit" variant="cta" className="w-full" disabled={sending}>
           {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Solicitar Cotação Gratuita</>}
