@@ -8,7 +8,7 @@ export interface Contact {
   email: string | null;
   phone: string | null;
   cpf_cnpj: string | null;
-  client_type: 'cliente' | 'amigo' | 'não cliente' | null;
+  client_type: string | null;
   is_client: boolean;
   notes: string | null;
   marital_status?: string | null;
