@@ -9,22 +9,22 @@ if (rootElement) {
 
 // Initialize performance monitoring utilities lazily to keep the main thread clear
 // during the critical hydration phase.
+const initPerf = async () => {
+  try {
+    const { initMonitoring } = await import("./lib/monitoring");
+    const { initWebVitals } = await import("./lib/webVitals");
+    
+    await initMonitoring();
+    initWebVitals();
+  } catch (error) {
+    console.error("Failed to initialize monitoring:", error);
+  }
+};
+
 if ("requestIdleCallback" in window) {
-  window.requestIdleCallback(async () => {
-    const { initMonitoring } = await import("./lib/monitoring");
-    const { initWebVitals } = await import("./lib/webVitals");
-    
-    initMonitoring();
-    initWebVitals();
-  });
+  window.requestIdleCallback(initPerf);
 } else {
-  setTimeout(async () => {
-    const { initMonitoring } = await import("./lib/monitoring");
-    const { initWebVitals } = await import("./lib/webVitals");
-    
-    initMonitoring();
-    initWebVitals();
-  }, 2000);
+  setTimeout(initPerf, 2000);
 }
 
 // Register service worker for route-based caching

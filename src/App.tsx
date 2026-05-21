@@ -1,13 +1,13 @@
-  import { lazy, Suspense, useEffect, useState } from "react";
-  import { setUserContext } from "@/lib/monitoring";
-  import { supabase } from "@/integrations/supabase/client";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { setUserContext } from "@/lib/monitoring";
+import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
- const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import PageSkeleton from "@/components/PageSkeleton";
 
 // Lazy-load non-critical layout components to reduce initial JS
+const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 const TooltipProvider = lazy(() => import("@/components/ui/tooltip").then(m => ({ default: m.TooltipProvider })));
 const Toaster = lazy(() => import("@/components/ui/toaster").then(m => ({ default: m.Toaster })));
 const Sonner = lazy(() => import("@/components/ui/sonner").then(m => ({ default: m.Toaster })));
@@ -200,11 +200,18 @@ const CRM = lazy(() => import("./pages/CRM"));
 import RequireAdmin from "@/components/RequireAdmin";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
-const QueryClientProvider = lazy(() =>
-  import("@tanstack/react-query").then(({ QueryClient, QueryClientProvider }) => {
-    const queryClient = new QueryClient();
-    return { default: ({ children }: { children: React.ReactNode }) => <QueryClientProvider client={queryClient}>{children}</QueryClientProvider> };
-  })
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
+const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => (
+  <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 
 /** Deferred wrapper – renders children after first paint / idle callback */
@@ -239,24 +246,18 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
 
     return (
   <ErrorBoundary>
-  <Suspense fallback={null}>
-  <QueryClientProvider>
-    <Suspense fallback={null}>
+    <QueryProviderWrapper>
       <TooltipProvider>
-        <Suspense fallback={null}>
-          <DeferredRender>
-            <Suspense fallback={null}>
-              <Toaster />
-              <Sonner />
-              <WhatsAppButton />
-              <CookieBanner />
-            </Suspense>
-          </DeferredRender>
-        </Suspense>
+        <DeferredRender>
+          <Toaster />
+          <Sonner />
+          <WhatsAppButton />
+          <CookieBanner />
+        </DeferredRender>
         <BrowserRouter>
           <ScrollToTop />
           <Suspense fallback={<PageSkeleton />}>
-          <Routes>
+            <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/parceiros" element={<Parceiros />} />
@@ -488,13 +489,11 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="*" element={<LegacyWpRedirect />} />
           </Routes>
         </Suspense>
-        </BrowserRouter>
-      </TooltipProvider>
-    </Suspense>
-  </QueryClientProvider>
-  </Suspense>
-  </ErrorBoundary>
-  );
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryProviderWrapper>
+</ErrorBoundary>
+);
 };
 
 export default App;
