@@ -4,7 +4,7 @@
  * route bundle as small as possible.
  */
 const PageSkeleton = () => {
-  const pulse = "animate-pulse rounded-md bg-muted";
+  const pulse = "animate-pulse rounded-md bg-slate-200";
   
   return (
     <div className="min-h-screen">
