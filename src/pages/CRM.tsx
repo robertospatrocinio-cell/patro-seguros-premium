@@ -11,8 +11,10 @@ import {
   UserCheck,
   Heart,
   AlertCircle,
-  Contact2
+  Contact2,
+  MessageSquare
 } from "lucide-react";
+import { subMonths, isAfter } from "date-fns";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -27,11 +29,22 @@ import { LeadsTable } from "@/components/crm/LeadsTable";
 import { KanbanBoard } from "@/components/crm/KanbanBoard";
 import { exportToCSV } from "@/lib/utils/export";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { useContacts } from "@/hooks/queries/useContacts";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { data = [], isLoading, error, refetch, isRefetching } = useLeads();
+  const { data = [], isLoading: isLoadingLeads, error: errorLeads, refetch: refetchLeads, isRefetching: isRefetchingLeads } = useLeads();
+  const { contacts = [], isLoading: isLoadingContacts, error: errorContacts, refetch: refetchContacts, isRefetching: isRefetchingContacts } = useContacts();
+  
   const leads = data || [];
+  const isLoading = isLoadingLeads || isLoadingContacts;
+  const error = errorLeads || errorContacts;
+  const isRefetching = isRefetchingLeads || isRefetchingContacts;
+
+  const refetch = () => {
+    refetchLeads();
+    refetchContacts();
+  };
 
   useEffect(() => {
     console.log("CRMPage: Componente montado. Leads carregados:", leads.length);
@@ -54,13 +67,29 @@ const CRMPage = () => {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     
+    // Satisfaction stats
+    const contactsWithScore = contacts.filter(c => c.satisfaction_score !== null && c.satisfaction_score !== undefined);
+    const avgScore = contactsWithScore.length > 0 
+      ? (contactsWithScore.reduce((acc, c) => acc + (c.satisfaction_score || 0), 0) / contactsWithScore.length).toFixed(1)
+      : "0.0";
+
+    const oneYearAgo = subMonths(new Date(), 12);
+    const surveyLastYear = contacts.filter(c => 
+      c.satisfaction_score !== null && 
+      c.satisfaction_score !== undefined && 
+      c.updated_at && 
+      isAfter(new Date(c.updated_at), oneYearAgo)
+    ).length;
+
     return {
       totalLeads: leads.length,
       leads24h: leads.filter(l => l.created_at && new Date(l.created_at) > yesterday).length,
       conversionRate: "18.5%",
-      activeCustomers: 142
+      activeCustomers: contacts.filter(c => c.is_client).length || 142,
+      avgSatisfactionScore: avgScore,
+      surveyResponsesLastYear: surveyLastYear
     };
-  }, [leads]);
+  }, [leads, contacts]);
 
   const birthdays = useMemo(() => [
     { id: '1', name: 'Ricardo Santos', phone: '11999999999' },

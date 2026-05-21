@@ -30,6 +30,8 @@ interface DashboardStats {
   leads24h: number;
   conversionRate: string;
   activeCustomers: number;
+  avgSatisfactionScore?: string;
+  surveyResponsesLastYear?: number;
 }
 
 interface BirthdayPerson {
@@ -104,6 +106,31 @@ export const DashboardOverview = ({ stats, birthdays, renewals }: DashboardOverv
           <CardContent>
             <p className="text-2xl font-bold">{stats.activeCustomers}</p>
             <p className="text-xs text-green-600 mt-1">Crescimento constante</p>
+          </CardContent>
+        </Card>
+
+        {/* satisfaction score cards */}
+        <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+              <Heart className="w-4 h-4 text-red-500" /> Média de Satisfação
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">{stats.avgSatisfactionScore || "0.0"}/5.0</p>
+            <p className="text-xs text-muted-foreground mt-1">Baseado nas pesquisas</p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+              <MessageSquare className="w-4 h-4 text-blue-500" /> Respostas (12m)
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">{stats.surveyResponsesLastYear || 0}</p>
+            <p className="text-xs text-muted-foreground mt-1">Contatos ativos no último ano</p>
           </CardContent>
         </Card>
       </div>
