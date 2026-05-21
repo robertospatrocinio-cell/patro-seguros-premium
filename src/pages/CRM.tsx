@@ -94,13 +94,37 @@ const CRMPage = () => {
 
   useEffect(() => {
     let mounted = true;
+    let authListener: any = null;
     
     const loadData = async () => {
       console.log("CRM: Iniciando carregamento de dados...");
-      await fetchLeads(true);
+      // Forçar verificação de sessão antes de carregar
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        console.warn("CRM: Usuário não autenticado no loadData");
+        setError("Sessão expirada. Por favor, faça login novamente.");
+        setLoading(false);
+        return;
+      }
+      
+      if (mounted) await fetchLeads(true);
     };
 
     loadData();
+    
+    // Monitorar mudanças de auth para recarregar dados ou tratar logout
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log("CRM: Auth event:", event);
+      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+        if (mounted) loadData();
+      } else if (event === 'SIGNED_OUT') {
+        if (mounted) {
+          setLeads([]);
+          setError("Sessão encerrada.");
+        }
+      }
+    });
+    authListener = subscription;
     
     const interval = setInterval(() => {
       if (mounted) fetchLeads(false);
@@ -109,6 +133,7 @@ const CRMPage = () => {
     return () => {
       mounted = false;
       clearInterval(interval);
+      if (authListener) authListener.unsubscribe();
     };
   }, []);
 
