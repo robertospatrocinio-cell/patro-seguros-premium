@@ -218,7 +218,7 @@ const BlogArticle = () => {
                             </Button>
                           </Link>
                           <a
-                            href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Agrishow%202026%20e%20quero%20aproveitar%20as%20condi%C3%A7%C3%B5es%20especiais%20em%20seguro%20de%20m%C3%A1quinas%20agr%C3%ADcolas."
+                            href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackWhatsAppClick("blog-agrishow-inline")}
