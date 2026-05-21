@@ -179,12 +179,76 @@ export const useContacts = () => {
     }
   });
 
+  const updateContact = useMutation({
+    mutationFn: async (updatedContact: Partial<Contact> & { id: string; insurances?: string[] }) => {
+      const { insurances, id, ...contactData } = updatedContact;
+      
+      const sanitizedData: any = { ...contactData };
+      if (sanitizedData.referral_contact_id === "") {
+        sanitizedData.referral_contact_id = null;
+      }
+
+      const dateFields = [
+        'birth_date', 'partner_birthday', 'life_insurance_renewal', 
+        'home_insurance_renewal', 'health_insurance_renewal', 
+        'business_insurance_renewal', 'other_insurance_renewal',
+        'last_contact_date', 'next_contact_date', 'consortium_renewal'
+      ];
+
+      dateFields.forEach(field => {
+        if (sanitizedData[field] === "") {
+          sanitizedData[field] = null;
+        }
+      });
+
+      const { data: contact, error: contactError } = await supabase
+        .from("contacts")
+        .update(sanitizedData)
+        .eq("id", id)
+        .select()
+        .single();
+
+      if (contactError) throw contactError;
+
+      if (insurances) {
+        // First delete existing insurances
+        await supabase
+          .from("contact_insurances")
+          .delete()
+          .eq("contact_id", id);
+
+        if (insurances.length > 0) {
+          const insuranceInserts = insurances.map(type => ({
+            contact_id: id,
+            insurance_type: type
+          }));
+          
+          const { error: insError } = await supabase
+            .from("contact_insurances")
+            .insert(insuranceInserts);
+            
+          if (insError) throw insError;
+        }
+      }
+
+      return contact;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["contacts"] });
+      toast.success("Contato atualizado com sucesso!");
+    },
+    onError: (error: any) => {
+      toast.error("Erro ao atualizar contato: " + error.message);
+    }
+  });
+
   return {
     contacts: data,
     isLoading,
     error,
     refetch,
     createContact,
+    updateContact,
     uploadDocument
   };
 };
