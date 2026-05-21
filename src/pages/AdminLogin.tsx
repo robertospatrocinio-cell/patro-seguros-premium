@@ -19,9 +19,22 @@ export default function AdminLogin() {
 
   useEffect(() => {
     document.title = "Admin · Login | Patro Seguros";
+    
+    // Garantir que elementos persistentes do index.html não cubram o login
+    const persistentBg = document.getElementById('persistent-hero-bg');
+    if (persistentBg) {
+      persistentBg.style.display = 'none';
+    }
+
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) navigate(next, { replace: true });
     });
+
+    return () => {
+      if (persistentBg) {
+        persistentBg.style.display = '';
+      }
+    };
   }, [navigate, next]);
 
   const handleSubmit = async (e: React.FormEvent) => {
