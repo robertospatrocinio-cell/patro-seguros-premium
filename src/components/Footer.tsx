@@ -3,6 +3,7 @@ import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle } fro
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { memo } from "react";
 
 const logoFull = "/images/logo-full.webp";
