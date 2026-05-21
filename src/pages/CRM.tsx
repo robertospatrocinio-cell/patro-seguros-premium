@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { 
   Search, 
   Users, 
@@ -23,12 +23,19 @@ import RelationshipModule from "@/components/crm/RelationshipModule";
 import { useLeads } from "@/hooks/queries/useLeads";
 import { LeadsTable } from "@/components/crm/LeadsTable";
 import { exportToCSV } from "@/lib/utils/export";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { data: leads = [], isLoading, error, refetch, isRefetching } = useLeads();
+  const { data = [], isLoading, error, refetch, isRefetching } = useLeads();
+  const leads = data || [];
+
+  useEffect(() => {
+    console.log("CRMPage: Componente montado. Leads carregados:", leads.length);
+  }, [leads.length]);
 
   const filteredLeads = useMemo(() => {
+    if (!Array.isArray(leads)) return [];
     return leads.filter((lead) => {
       const searchLower = searchTerm.toLowerCase();
       return (
@@ -46,39 +53,60 @@ const CRMPage = () => {
     
     return {
       totalLeads: leads.length,
-      leads24h: leads.filter(l => new Date(l.created_at) > yesterday).length,
+      leads24h: leads.filter(l => l.created_at && new Date(l.created_at) > yesterday).length,
       conversionRate: "18.5%",
       activeCustomers: 142
     };
   }, [leads]);
 
+  const birthdays = useMemo(() => [
+    { id: '1', name: 'Ricardo Santos', phone: '11999999999' },
+    { id: '2', name: 'Mariana Oliveira' }
+  ], []);
+
+  const renewals = useMemo(() => [
+    { id: 'r1', clientName: 'Empresa ABC Ltda', insuranceType: 'Empresarial', dueDate: '22/05', isCompleted: false },
+    { id: 'r2', clientName: 'João Silva', insuranceType: 'Auto', dueDate: '23/05', isCompleted: true },
+    { id: 'r3', clientName: 'Ana Paula', insuranceType: 'Vida', dueDate: '25/05', isCompleted: false }
+  ], []);
+
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50/50">
-      <Header />
-      <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
-        {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex flex-col sm:flex-row items-start sm:items-center gap-3 text-red-800 animate-in fade-in slide-in-from-top-4 duration-300">
-            <div className="bg-red-100 p-2 rounded-full">
-              <AlertCircle className="w-5 h-5 text-red-600" />
+    <ErrorBoundary>
+      <div className="min-h-screen flex flex-col bg-slate-50/50">
+        <Header />
+        <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
+          {isLoading && (
+            <div className="flex flex-col items-center justify-center py-20 animate-in fade-in duration-500">
+              <RefreshCw className="w-10 h-10 text-primary animate-spin mb-4" />
+              <p className="text-muted-foreground font-medium">Carregando dados do CRM...</p>
             </div>
-            <div className="flex-1">
-              <p className="font-bold">Ocorreu um problema ao carregar os dados</p>
-              <p className="text-sm opacity-90">
-                {error instanceof Error ? error.message : "Não foi possível estabelecer conexão com o servidor. Verifique sua internet."}
-              </p>
+          )}
+
+          {error && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-4 text-red-800 animate-in slide-in-from-top-4 duration-300">
+              <div className="bg-red-100 p-2 rounded-full shrink-0">
+                <AlertCircle className="w-6 h-6 text-red-600" />
+              </div>
+              <div className="flex-1">
+                <p className="font-bold text-lg">Falha na sincronização</p>
+                <p className="text-sm opacity-90">
+                  {error instanceof Error ? error.message : "Não foi possível estabelecer conexão com o banco de dados. Verifique seu acesso ou internet."}
+                </p>
+              </div>
+              <Button 
+                size="sm" 
+                variant="default" 
+                onClick={() => refetch()} 
+                className="bg-red-600 hover:bg-red-700 text-white border-none shadow-md"
+              >
+                <RefreshCw className="w-4 h-4 mr-2" />
+                Tentar Sincronizar
+              </Button>
             </div>
-            <Button 
-              size="sm" 
-              variant="default" 
-              onClick={() => refetch()} 
-              className="bg-red-600 hover:bg-red-700 text-white border-none shrink-0"
-            >
-              <RefreshCw className="w-4 h-4 mr-2" />
-              Tentar novamente
-            </Button>
-          </div>
-        )}
-        <div className="flex flex-col gap-8">
+          )}
+
+          {!isLoading && !error && (
+            <div className="flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
           {/* Top Bar */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -145,15 +173,8 @@ const CRMPage = () => {
             <TabsContent value="dashboard" className="mt-0">
               <DashboardOverview 
                 stats={stats}
-                birthdays={[
-                  { id: '1', name: 'Ricardo Santos', phone: '11999999999' },
-                  { id: '2', name: 'Mariana Oliveira' }
-                ]}
-                renewals={[
-                  { id: 'r1', clientName: 'Empresa ABC Ltda', insuranceType: 'Empresarial', dueDate: '22/05', isCompleted: false },
-                  { id: 'r2', clientName: 'João Silva', insuranceType: 'Auto', dueDate: '23/05', isCompleted: true },
-                  { id: 'r3', clientName: 'Ana Paula', insuranceType: 'Vida', dueDate: '25/05', isCompleted: false }
-                ]}
+                birthdays={birthdays}
+                renewals={renewals}
               />
             </TabsContent>
 
@@ -200,10 +221,12 @@ const CRMPage = () => {
               <RelationshipModule />
             </TabsContent>
           </Tabs>
-        </div>
-      </main>
-      <Footer />
-    </div>
+            </div>
+          )}
+        </main>
+        <Footer />
+      </div>
+    </ErrorBoundary>
   );
 };
 

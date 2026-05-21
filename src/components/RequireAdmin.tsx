@@ -11,18 +11,24 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
   useEffect(() => {
     let mounted = true;
 
-    const check = async (userId: string | undefined) => {
-      console.log("RequireAdmin: Verificando acesso para:", userId);
-      if (!userId) {
-        if (mounted) setState("unauth");
-        return;
-      }
-
+    const check = async () => {
       try {
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (!mounted) return;
+
+        if (!session) {
+          console.log("RequireAdmin: Sem sessão, redirecionando para login");
+          setState("unauth");
+          return;
+        }
+
+        console.log("RequireAdmin: Verificando acesso para:", session.user.id);
+        
         const { data, error } = await supabase
           .from("user_roles")
           .select("role")
-          .eq("user_id", userId)
+          .eq("user_id", session.user.id)
           .maybeSingle();
 
         if (!mounted) return;
@@ -33,12 +39,11 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
           return;
         }
 
-        console.log("RequireAdmin: Resultado da verificação:", data);
         if (data && data.role === "admin") {
+          console.log("RequireAdmin: Acesso concedido");
           setState("allowed");
         } else {
-          // Fallback: Se não houver roles no banco ainda, permitimos o primeiro usuário ou logamos o erro
-          console.warn("RequireAdmin: Usuário logado mas sem permissão de admin no banco");
+          console.warn("RequireAdmin: Usuário logado mas sem permissão de admin");
           setState("denied");
         }
       } catch (err) {
@@ -47,30 +52,15 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
       }
     };
 
-    const initAuth = async () => {
-      try {
-        const { data: { session } } = await supabase.auth.getSession();
-        if (mounted) {
-          if (session) {
-            await check(session.user.id);
-          } else {
-            setState("unauth");
-          }
-        }
-      } catch (err) {
-        console.error("RequireAdmin: Erro ao obter sessão inicial:", err);
-        if (mounted) setState("unauth");
-      }
-    };
-    
-    initAuth();
+    check();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (!mounted) return;
-      if (session?.user) {
-        await check(session.user.id);
-      } else {
-        setState("unauth");
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (mounted) {
+        if (event === 'SIGNED_IN' || event === 'INITIAL_SESSION') {
+          check();
+        } else if (event === 'SIGNED_OUT') {
+          setState("unauth");
+        }
       }
     });
 
