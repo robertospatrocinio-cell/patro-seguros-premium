@@ -224,9 +224,6 @@ const ContactsModule = () => {
     date.setDate(date.getDate() + days);
     return date.toISOString().split('T')[0];
   };
-    const cleanPhone = phone.replace(/\D/g, "");
-    window.open(`https://wa.me/55${cleanPhone}`, "_blank");
-  };
 
   return (
     <div className="space-y-6">
