@@ -1088,11 +1088,10 @@ const ContactsModule = () => {
               </Button>
             </DialogFooter>
           </DialogContent>
-          </DialogContent>
         </Dialog>
       </div>
-    </div>
 
+      <Card className="bg-white shadow-sm border-slate-100">
         <CardContent className="p-0">
           <Table>
             <TableHeader className="bg-slate-50/50">
@@ -1108,6 +1107,7 @@ const ContactsModule = () => {
               {isLoading ? (
                 <TableRow>
                   <TableCell colSpan={5} className="text-center py-10">Carregando contatos...</TableCell>
+
                 </TableRow>
               ) : filteredContacts?.length === 0 ? (
                 <TableRow>
