@@ -433,7 +433,7 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
             <Route path="/investimentos" element={<Investimentos />} />
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<LegacyWpRedirect />} />
           </Routes>
         </Suspense>
           <Suspense fallback={null}>
