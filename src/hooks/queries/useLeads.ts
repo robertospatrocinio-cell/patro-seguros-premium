@@ -17,6 +17,10 @@ export interface Lead {
   lead_status: string | null;
   kanban_stage_id: string | null;
   kanban_order: number;
+  client_type: string | null;
+  cpf_cnpj: string | null;
+  city: string | null;
+  state: string | null;
 }
 
 export const useLeads = () => {
