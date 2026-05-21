@@ -22,7 +22,7 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 0.5
 
- # Sitemaps
- Allow: /sitemap*.xml
- Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
- Sitemap: https://www.patroseguros.com.br/sitemap.xml
+# Sitemaps (both apontam para o mesmo sitemapindex de 6 sub-sitemaps / ~220 URLs)
+Allow: /sitemap*.xml
+Sitemap: https://www.patroseguros.com.br/sitemap.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
