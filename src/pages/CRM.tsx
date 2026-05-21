@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { 
   Search, 
   Users, 
@@ -17,7 +17,8 @@ import {
   UserCheck,
   TrendingUp,
   Award,
-  Heart
+  Heart,
+  AlertCircle
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
