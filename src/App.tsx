@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
