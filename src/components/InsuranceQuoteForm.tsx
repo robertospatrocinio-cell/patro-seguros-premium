@@ -122,20 +122,18 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!isValid()) {
-      toast.error("Por favor, preencha todos os campos obrigatórios e aceite os termos.");
-      return;
-    }
+    // Mark all as touched
+    const allTouched: Record<string, boolean> = {};
+    config.fields.forEach(f => { allTouched[f.id] = true });
+    setTouched(allTouched);
 
-    const emailField = config.fields.find(f => f.type === "email");
-    if (emailField && formData[emailField.id] && !validateEmail(formData[emailField.id])) {
-      toast.error("Por favor, informe um e-mail válido.");
-      return;
-    }
-
-    const phoneField = config.fields.find(f => f.type === "tel");
-    if (phoneField && formData[phoneField.id] && !validatePhone(formData[phoneField.id])) {
-      toast.error("Por favor, informe um telefone válido com DDD.");
+    const firstError = config.fields.find(f => getFieldError(f));
+    if (firstError || !consent) {
+      toast.error(
+        !consent 
+          ? "Por favor, aceite os termos para continuar." 
+          : `Por favor, corrija o campo: ${firstError?.label}`
+      );
       return;
     }
 
