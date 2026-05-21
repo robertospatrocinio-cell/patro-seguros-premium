@@ -497,6 +497,33 @@ export type Database = {
           },
         ]
       }
+      kanban_stages: {
+        Row: {
+          color: string | null
+          created_at: string
+          id: string
+          name: string
+          order_index: number
+          updated_at: string
+        }
+        Insert: {
+          color?: string | null
+          created_at?: string
+          id?: string
+          name: string
+          order_index?: number
+          updated_at?: string
+        }
+        Update: {
+          color?: string | null
+          created_at?: string
+          id?: string
+          name?: string
+          order_index?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           assigned_to: string | null
@@ -509,6 +536,8 @@ export type Database = {
           id: string
           insurance_type: string | null
           ip_address: string | null
+          kanban_order: number | null
+          kanban_stage_id: string | null
           lead_score: number | null
           lead_status: string | null
           notes: string | null
@@ -533,6 +562,8 @@ export type Database = {
           id?: string
           insurance_type?: string | null
           ip_address?: string | null
+          kanban_order?: number | null
+          kanban_stage_id?: string | null
           lead_score?: number | null
           lead_status?: string | null
           notes?: string | null
@@ -557,6 +588,8 @@ export type Database = {
           id?: string
           insurance_type?: string | null
           ip_address?: string | null
+          kanban_order?: number | null
+          kanban_stage_id?: string | null
           lead_score?: number | null
           lead_status?: string | null
           notes?: string | null
@@ -570,7 +603,15 @@ export type Database = {
           utm_medium?: string | null
           utm_source?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "leads_kanban_stage_id_fkey"
+            columns: ["kanban_stage_id"]
+            isOneToOne: false
+            referencedRelation: "kanban_stages"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       pagespeed_audits: {
         Row: {
