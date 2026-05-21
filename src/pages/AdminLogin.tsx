@@ -57,17 +57,20 @@ export default function AdminLogin() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-6 bg-background">
-      <div className="w-full max-w-md space-y-6 border rounded-lg p-8 shadow-sm bg-card">
-        <header className="text-center space-y-1">
-          <h1 className="text-2xl font-bold">Painel administrativo</h1>
-          <p className="text-sm text-muted-foreground">
-            {mode === "signin" ? "Entre para acessar o painel" : "Crie sua conta de administrador"}
+    <main className="min-h-screen flex items-center justify-center p-6 bg-slate-50">
+      <div className="w-full max-w-md space-y-6 border border-slate-200 rounded-xl p-8 shadow-lg bg-white">
+        <header className="text-center space-y-2">
+          <div className="flex justify-center mb-4">
+            <img src="/images/logo-full.webp" alt="Patro Seguros" className="h-16" />
+          </div>
+          <h1 className="text-2xl font-bold text-slate-900">Patro CRM PRO</h1>
+          <p className="text-sm text-slate-500">
+            {mode === "signin" ? "Entre para acessar o painel de gestão" : "Crie sua conta de administrador"}
           </p>
         </header>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" className="text-slate-700">Email</Label>
             <Input
               id="email"
               type="email"
@@ -75,10 +78,12 @@ export default function AdminLogin() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary"
+              placeholder="seu@email.com"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Senha</Label>
+            <Label htmlFor="password" className="text-slate-700">Senha</Label>
             <Input
               id="password"
               type="password"
@@ -87,10 +92,12 @@ export default function AdminLogin() {
               minLength={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="bg-white border-slate-200 text-slate-900 placeholder:text-slate-400 focus:border-primary focus:ring-primary"
+              placeholder="••••••••"
             />
           </div>
-          <Button type="submit" className="w-full" disabled={loading}>
-            {loading ? "Aguarde..." : mode === "signin" ? "Entrar" : "Criar conta"}
+          <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white shadow-sm" disabled={loading}>
+            {loading ? "Aguarde..." : mode === "signin" ? "Entrar no CRM" : "Criar conta"}
           </Button>
         </form>
         <button
