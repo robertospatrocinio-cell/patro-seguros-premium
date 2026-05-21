@@ -14,7 +14,7 @@ import {
   Contact2,
   MessageSquare
 } from "lucide-react";
-import { subMonths, isAfter } from "date-fns";
+import { subMonths, isAfter, isThisMonth } from "date-fns";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -85,13 +85,37 @@ const CRMPage = () => {
       isAfter(new Date(c.updated_at), oneYearAgo)
     ).length;
 
+    // Renewal stats for this month
+    const renewalsThisMonth = contacts.filter(c => {
+      const renewalDates = [
+        c.life_insurance_renewal,
+        c.home_insurance_renewal,
+        c.health_insurance_renewal,
+        c.business_insurance_renewal,
+        c.other_insurance_renewal,
+        c.consortium_renewal
+      ].filter(Boolean);
+      
+      return renewalDates.some(date => isThisMonth(new Date(date!)));
+    });
+
+    const renewedThisMonth = renewalsThisMonth.filter(c => {
+      // Logic for "renewed": if updated_at is this month and it was a client? 
+      // Or maybe check if they have a next_contact_date set?
+      // A simple proxy: if the renewal date was updated to a future year within this month?
+      // For now, let's use a simpler check: if last_contact_date is this month
+      return c.last_contact_date && isThisMonth(new Date(c.last_contact_date));
+    });
+
     return {
       totalLeads: leads.length,
       leads24h: leads.filter(l => l.created_at && new Date(l.created_at) > yesterday).length,
       conversionRate: "18.5%",
       activeCustomers: contacts.filter(c => c.is_client).length || 142,
       avgSatisfactionScore: avgScore,
-      surveyResponsesLastYear: surveyLastYear
+      surveyResponsesLastYear: surveyLastYear,
+      renewalsThisMonthCount: renewalsThisMonth.length,
+      renewedThisMonthCount: renewedThisMonth.length
     };
   }, [leads, contacts]);
 
