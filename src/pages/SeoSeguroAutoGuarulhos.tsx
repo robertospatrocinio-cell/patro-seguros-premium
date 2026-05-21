@@ -4,7 +4,7 @@ import NeighborhoodHub, { type NeighborhoodLink } from "@/components/Neighborhoo
 import ModelHub, { type ModelLink } from "@/components/ModelHub";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
-import heroMobileImg from "@/assets/hero-home-sm.webp"; // Fallback to a relevant mobile image since we don't have auto-sm
+import heroMobileImg from "@/assets/hero-seguro-auto.webp"; // Using desktop image as fallback since home-sm is missing
 
 const NEIGHBORHOODS: NeighborhoodLink[] = [
   { name: "Cidade Maia", link: "/seguro-auto-maia-guarulhos", riskLevel: "baixo", priceRange: "R$ 2.100 a R$ 4.000/ano" },
