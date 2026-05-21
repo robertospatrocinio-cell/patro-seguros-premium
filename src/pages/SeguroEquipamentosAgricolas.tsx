@@ -1,5 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import heroImg from "@/assets/hero-seguro-maquinas.webp";
+const heroImg = "https://images.unsplash.com/photo-1594495894542-a471467e49f1?auto=format&fit=crop&q=80&w=1920";
 
 const SeguroEquipamentosAgricolas = () => {
   return (
