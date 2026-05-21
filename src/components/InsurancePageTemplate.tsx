@@ -97,6 +97,7 @@ interface InsurancePageProps {
   tips?: string[];
   quoteUrl?: string;
   heroImage?: string;
+  mobileHeroImage?: string;
   quoteFormFields?: QuoteFormField[];
   contextualLinks?: ContextualSection;
   featuredArticle?: FeaturedArticle;
