@@ -210,11 +210,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     const { error: crmError } = await supabase
       .from("leads")
       .insert({
-        name: formData.nome || formData.name || "Cliente Interessado",
+        full_name: formData.nome || formData.name || "Cliente Interessado",
         phone: formData.whatsapp || formData.telefone || formData.phone || "",
         email: formData.email || "",
         insurance_type: config.type,
-        form_data: {
+        raw_data: {
           ...formData,
           checkboxGroups
         }
