@@ -81,17 +81,36 @@ const Parceiros = () => {
 
             {/* Grid de Parceiros */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {partners.map((partner, index) => (
-                <Card key={index} className="hover:shadow-lg transition-base border-2 border-[#C0C0C0] shadow-[0_0_8px_rgba(192,192,192,0.3)]">
+              {partners.map((partner, index) => {
+                const content = (
                   <CardContent className="pt-6 flex items-start gap-4">
                     <img src={partner.logo} alt={partner.name} width={48} height={48} className="h-12 w-12 object-contain flex-shrink-0" loading="lazy" />
-                    <div>
-                      <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-xl font-bold mb-2 text-primary">{partner.name}</h3>
+                        {partner.slug && <ArrowRight className="h-4 w-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />}
+                      </div>
                       <p className="text-muted-foreground">{partner.description}</p>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                );
+
+                if (partner.slug) {
+                  return (
+                    <Link key={index} to={`/seguradoras/${partner.slug}`} className="group">
+                      <Card className="h-full hover:shadow-lg transition-base border-2 border-[#C0C0C0] shadow-[0_0_8px_rgba(192,192,192,0.3)] group-hover:border-primary/50">
+                        {content}
+                      </Card>
+                    </Link>
+                  );
+                }
+
+                return (
+                  <Card key={index} className="hover:shadow-lg transition-base border-2 border-[#C0C0C0] shadow-[0_0_8px_rgba(192,192,192,0.3)]">
+                    {content}
+                  </Card>
+                );
+              })}
             </div>
 
             {/* Operadoras de Saúde */}
