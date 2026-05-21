@@ -1137,6 +1137,7 @@ const ContactsModule = () => {
                 <TableHead>Nome</TableHead>
                 <TableHead>Relacionamento</TableHead>
                 <TableHead>Seguros</TableHead>
+                <TableHead>Responsável</TableHead>
                 <TableHead>Documentos</TableHead>
                 <TableHead className="text-right">Ações</TableHead>
               </TableRow>
@@ -1190,6 +1191,15 @@ const ContactsModule = () => {
                           </Badge>
                         ))}
                       </div>
+                    </TableCell>
+                    <TableCell>
+                      {contact.responsible_name ? (
+                        <Badge variant="outline" className="text-[10px] bg-slate-50 border-slate-200">
+                          {contact.responsible_name}
+                        </Badge>
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground italic">Não atribuído</span>
+                      )}
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
