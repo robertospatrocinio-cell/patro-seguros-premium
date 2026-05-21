@@ -14,6 +14,13 @@ export interface Lead {
   utm_medium: string | null;
   utm_campaign: string | null;
   raw_data: any;
+  lead_status: string | null;
+  kanban_stage_id: string | null;
+  kanban_order: number;
+  client_type: string | null;
+  cpf_cnpj: string | null;
+  city: string | null;
+  state: string | null;
 }
 
 export const useLeads = () => {
@@ -25,6 +32,7 @@ export const useLeads = () => {
         const { data, error } = await supabase
           .from("leads")
           .select("*")
+          .order("kanban_order", { ascending: true })
           .order("created_at", { ascending: false });
 
         if (error) {

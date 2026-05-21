@@ -24,6 +24,7 @@ import RelationshipModule from "@/components/crm/RelationshipModule";
 import ContactsModule from "@/components/crm/ContactsModule";
 import { useLeads } from "@/hooks/queries/useLeads";
 import { LeadsTable } from "@/components/crm/LeadsTable";
+import { KanbanBoard } from "@/components/crm/KanbanBoard";
 import { exportToCSV } from "@/lib/utils/export";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
@@ -215,11 +216,7 @@ const CRMPage = () => {
             </TabsContent>
 
             <TabsContent value="pipeline" className="mt-0">
-              <div className="bg-white p-12 rounded-xl border border-dashed border-slate-200 text-center">
-                <TrendingUp className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-                <h3 className="text-lg font-semibold text-slate-900">Módulo Kanban em Desenvolvimento</h3>
-                <p className="text-muted-foreground">O visual estilo Pipedrive/Monday está sendo configurado.</p>
-              </div>
+              <KanbanBoard leads={leads} />
             </TabsContent>
 
             <TabsContent value="relationship" className="mt-0">
