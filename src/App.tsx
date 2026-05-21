@@ -246,8 +246,7 @@ const App = () => {
             <Suspense fallback={<PageSkeleton />}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                {/* ... keep existing routes */}
-            <Route path="/sobre" element={<Sobre />} />
+                <Route path="/sobre" element={<Sobre />} />
             <Route path="/parceiros" element={<Parceiros />} />
             <Route path="/cotacao" element={<Cotacao />} />
             <Route path="/contato" element={<Contato />} />
