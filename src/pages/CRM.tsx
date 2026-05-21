@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { 
   Search, 
   Users, 
@@ -23,6 +23,7 @@ import RelationshipModule from "@/components/crm/RelationshipModule";
 import { useLeads } from "@/hooks/queries/useLeads";
 import { LeadsTable } from "@/components/crm/LeadsTable";
 import { exportToCSV } from "@/lib/utils/export";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
