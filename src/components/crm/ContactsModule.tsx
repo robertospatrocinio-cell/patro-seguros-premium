@@ -534,11 +534,17 @@ const ContactsModule = () => {
                       <SelectValue placeholder="Selecione o contato..." />
                     </SelectTrigger>
                     <SelectContent>
-                      {contacts?.map(contact => (
-                        <SelectItem key={contact.id} value={contact.id}>
-                          {contact.full_name} {contact.phone ? `(${contact.phone})` : ""}
-                        </SelectItem>
-                      ))}
+                      {contacts && contacts.length > 0 ? (
+                        contacts.map(contact => (
+                          <SelectItem key={contact.id} value={contact.id}>
+                            {contact.full_name} {contact.phone ? `(${contact.phone})` : ""}
+                          </SelectItem>
+                        ))
+                      ) : (
+                        <div className="p-2 text-sm text-muted-foreground text-center">
+                          Nenhum contato cadastrado
+                        </div>
+                      )}
                     </SelectContent>
                   </Select>
                 </div>
