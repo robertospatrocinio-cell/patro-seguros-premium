@@ -26,7 +26,8 @@ import {
   Clock,
   ExternalLink,
   Download,
-  Filter
+  Filter,
+  Pencil
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -56,6 +57,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useContacts } from "@/hooks/queries/useContacts";
@@ -73,9 +80,60 @@ const INSURANCE_TYPES = [
   "Auto", "Vida", "Saúde", "Residencial", "Empresarial", "RC Profissional", "Previdência", "Consórcio"
 ];
 
+const INITIAL_CONTACT_STATE = {
+  full_name: "",
+  email: "",
+  phone: "",
+  cpf_cnpj: "",
+  birth_date: "",
+  client_type: "cliente" as any,
+  is_client: true,
+  notes: "",
+  marital_status: "Solteiro",
+  partner_name: "",
+  partner_birthday: "",
+  has_children: false,
+  children_count: 0,
+  children_data: [] as { name: string, birthday: string }[],
+  car_count: 0,
+  has_motorcycle: false,
+  has_life_insurance: false,
+  life_insurance_carrier: "",
+  life_insurance_renewal: "",
+  has_home_insurance: false,
+  home_insurance_carrier: "",
+  home_insurance_renewal: "",
+  health_plan_type: "",
+  health_insurance_carrier: "",
+  health_insurance_renewal: "",
+  has_business_insurance: false,
+  business_insurance_carrier: "",
+  business_insurance_renewal: "",
+  has_other_insurance: false,
+  other_insurance_carrier: "",
+  other_insurance_renewal: "",
+  last_contact_date: "",
+  next_contact_date: "",
+  profession: "",
+  income_bracket: "",
+  home_ownership: "Própria",
+  lead_source: "",
+  referral_contact_id: "",
+  salesperson_name: "",
+  partner_source_name: "",
+  satisfaction_score: 5,
+  last_interaction_type: "WhatsApp",
+  has_consortium: false,
+  consortium_type: "Auto",
+  consortium_carrier: "",
+  consortium_renewal: "",
+  responsible_name: ""
+};
+
 const ContactsModule = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [editingContactId, setEditingContactId] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
   
   // Export filters
@@ -86,59 +144,11 @@ const ContactsModule = () => {
     carrier: ""
   });
 
-  const { contacts, isLoading, createContact, uploadDocument } = useContacts();
+  const { contacts, isLoading, createContact, updateContact, uploadDocument } = useContacts();
 
   
   // New contact form state
-  const [newContact, setNewContact] = useState({
-    full_name: "",
-    email: "",
-    phone: "",
-    cpf_cnpj: "",
-    birth_date: "",
-    client_type: "cliente" as any,
-    is_client: true,
-    notes: "",
-    marital_status: "Solteiro",
-    partner_name: "",
-    partner_birthday: "",
-    has_children: false,
-    children_count: 0,
-    children_data: [] as { name: string, birthday: string }[],
-    car_count: 0,
-    has_motorcycle: false,
-    has_life_insurance: false,
-    life_insurance_carrier: "",
-    life_insurance_renewal: "",
-    has_home_insurance: false,
-    home_insurance_carrier: "",
-    home_insurance_renewal: "",
-    health_plan_type: "",
-    health_insurance_carrier: "",
-    health_insurance_renewal: "",
-    has_business_insurance: false,
-    business_insurance_carrier: "",
-    business_insurance_renewal: "",
-    has_other_insurance: false,
-    other_insurance_carrier: "",
-    other_insurance_renewal: "",
-    last_contact_date: "",
-    next_contact_date: "",
-    profession: "",
-    income_bracket: "",
-    home_ownership: "Própria",
-    lead_source: "",
-    referral_contact_id: "",
-    salesperson_name: "",
-    partner_source_name: "",
-    satisfaction_score: 5,
-    last_interaction_type: "WhatsApp",
-    has_consortium: false,
-    consortium_type: "Auto",
-    consortium_carrier: "",
-    consortium_renewal: "",
-    responsible_name: ""
-  });
+  const [newContact, setNewContact] = useState(INITIAL_CONTACT_STATE);
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
   const [isUploading, setIsUploading] = useState(false);
