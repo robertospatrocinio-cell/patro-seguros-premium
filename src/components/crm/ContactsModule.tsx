@@ -1133,8 +1133,8 @@ const ContactsModule = () => {
             
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsAddModalOpen(false)}>Cancelar</Button>
-              <Button onClick={handleCreateContact} disabled={createContact.isPending}>
-                {createContact.isPending ? "Salvando..." : "Salvar Contato"}
+              <Button onClick={handleSaveContact} disabled={createContact.isPending || updateContact.isPending}>
+                {(createContact.isPending || updateContact.isPending) ? "Salvando..." : "Salvar Contato"}
               </Button>
             </DialogFooter>
           </DialogContent>
