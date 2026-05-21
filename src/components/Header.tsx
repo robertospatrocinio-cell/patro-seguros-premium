@@ -184,14 +184,13 @@ const Header = memo(() => {
                  onClick={() => window.scrollTo(0,0)}
                >
                  <picture>
-                   {/* Serving a smaller logo on mobile to reduce initial payload */}
                    <source media="(max-width: 640px)" srcSet="/images/logo-full.webp" width="180" height="100" />
                    <img
                      src={logoFull}
                      alt="Corretora de Seguros Patro em Guarulhos - Atendimento Presencial"
                      width={251}
                      height={140}
-                     className="h-20 object-contain -my-2"
+                     className="h-20 object-contain -my-2 relative z-50"
                      fetchPriority="high"
                      decoding="sync"
                    />

@@ -153,7 +153,7 @@ const InsuranceHeroSelector = () => {
 
   return (
     <>
-      <section className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden" aria-label="Seguros por perfil">
+      <section className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden bg-slate-900" aria-label="Seguros por perfil">
         {tabs.map((tab) => (
           <div
             key={tab.key}
@@ -178,7 +178,7 @@ const InsuranceHeroSelector = () => {
 
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 flex flex-col items-center">
+        <div className="relative z-[2] container mx-auto px-4 py-16 md:py-24 flex flex-col items-center">
           <h2 className="text-white text-2xl md:text-4xl font-extrabold text-center mb-3 tracking-tight font-heading">
             Encontre o seguro ideal
           </h2>
@@ -215,7 +215,7 @@ const InsuranceHeroSelector = () => {
                 key={card.title}
                 to={card.link}
                 onClick={(e) => handleCardClick(card, e)}
-                className="group transition-opacity duration-500 animate-fade-in"
+                className="group transition-opacity duration-500 animate-fade-in relative z-[3]"
               >
                 <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                   <div className={`p-4 md:p-6 flex items-center justify-center ${active === "consorcio" ? "bg-gradient-to-br from-orange-500 to-orange-600" : "bg-gradient-to-br from-primary to-primary/80"}`}>
