@@ -166,8 +166,17 @@ const ContactsModule = () => {
     }
     
     try {
+      const dateFields = [
+        'birth_date','partner_birthday','last_contact_date','next_contact_date',
+        'life_insurance_renewal','home_insurance_renewal','health_insurance_renewal',
+        'business_insurance_renewal','other_insurance_renewal','consortium_renewal'
+      ];
+      const sanitized: any = { ...newContact };
+      for (const f of dateFields) {
+        if (sanitized[f] === "" || sanitized[f] === undefined) sanitized[f] = null;
+      }
       await createContact.mutateAsync({
-        ...newContact,
+        ...sanitized,
         insurances: selectedInsurances
       });
       setIsAddModalOpen(false);
