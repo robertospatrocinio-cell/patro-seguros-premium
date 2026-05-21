@@ -38,7 +38,7 @@ export const useLeads = () => {
 
         if (error) {
           console.error("Supabase error fetching leads:", error);
-          throw new Error(error.message || "Erro ao conectar com o banco de dados");
+          throw new Error(`Erro Supabase: ${error.message || "Erro ao conectar com o banco de dados"}`);
         }
         
         return (data || []) as Lead[];
