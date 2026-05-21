@@ -12,23 +12,6 @@ const Footer = () => {
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
            {/* Brand */}
            <div className="lg:col-span-2">
-           {/* Hubs */}
-           <nav aria-label="Categorias de Seguros">
-             <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Categorias</h3>
-             <ul className="space-y-2.5">
-               {[
-                 { to: "/seguros-de-veiculos", label: "Veículos" },
-                 { to: "/seguros-empresariais", label: "Empresarial" },
-                 { to: "/seguros-de-patrimonio", label: "Patrimonial" },
-                 { to: "/seguros-responsabilidade-civil", label: "Profissional (RC)" },
-                 { to: "/vida-e-saude", label: "Vida e Saúde" },
-                 { to: "/consorcio", label: "Consórcio" },
-                 { to: "/seguros-em-guarulhos", label: "Guia Guarulhos" },
-               ].map(l => (
-                 <li key={l.to}><Link to={l.to} className="text-[13px] text-white/70 hover:text-white/90 transition-base">{l.label}</Link></li>
-               ))}
-             </ul>
-           </nav>
  
             <div className="flex items-center mb-5">
                <img src={logoFull} alt="Corretora de Seguros Patro em Guarulhos - Atendimento Presencial" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
