@@ -23,5 +23,5 @@ Allow: /
 Crawl-delay: 0.5
 
 # Sitemaps (both apontam para o mesmo sitemapindex de 6 sub-sitemaps / ~220 URLs)
-Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
 Sitemap: https://www.patroseguros.com.br/sitemap.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
