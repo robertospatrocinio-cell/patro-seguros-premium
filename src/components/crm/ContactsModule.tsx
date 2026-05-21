@@ -463,7 +463,14 @@ const ContactsModule = () => {
             </PopoverContent>
           </Popover>
 
-          <Dialog open={isAddModalOpen} onOpenChange={setIsAddModalOpen}>
+          <Dialog open={isAddModalOpen} onOpenChange={(open) => {
+            setIsAddModalOpen(open);
+            if (!open) {
+              setEditingContactId(null);
+              setNewContact(INITIAL_CONTACT_STATE);
+              setSelectedInsurances([]);
+            }
+          }}>
             <DialogTrigger asChild>
               <Button className="bg-primary hover:bg-primary/90">
                 <UserPlus className="w-4 h-4 mr-2" />
@@ -472,9 +479,9 @@ const ContactsModule = () => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
               <DialogHeader>
-                <DialogTitle>Novo Contato</DialogTitle>
+                <DialogTitle>{editingContactId ? "Editar Contato" : "Novo Contato"}</DialogTitle>
                 <DialogDescription>
-                  Cadastre informações do contato, seguros e anexe documentos.
+                  {editingContactId ? "Atualize as informações do contato." : "Cadastre informações do contato, seguros e anexe documentos."}
                 </DialogDescription>
               </DialogHeader>
 
