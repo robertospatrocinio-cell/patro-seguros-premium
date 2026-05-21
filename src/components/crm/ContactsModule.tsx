@@ -24,7 +24,9 @@ import {
   ShieldAlert,
   Bell,
   Clock,
-  ExternalLink
+  ExternalLink,
+  Download,
+  Filter
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -59,6 +61,13 @@ import { Label } from "@/components/ui/label";
 import { useContacts } from "@/hooks/queries/useContacts";
 import { toast } from "sonner";
 import { Separator } from "@/components/ui/separator";
+import * as XLSX from "xlsx";
+import { 
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 
 const INSURANCE_TYPES = [
   "Auto", "Vida", "Saúde", "Residencial", "Empresarial", "RC Profissional", "Previdência", "Consórcio"
@@ -67,7 +76,18 @@ const INSURANCE_TYPES = [
 const ContactsModule = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
+  
+  // Export filters
+  const [exportFilters, setExportFilters] = useState({
+    startDate: "",
+    endDate: "",
+    insuranceType: "all",
+    carrier: ""
+  });
+
   const { contacts, isLoading, createContact, uploadDocument } = useContacts();
+
   
   // New contact form state
   const [newContact, setNewContact] = useState({
@@ -224,7 +244,96 @@ const ContactsModule = () => {
     contact.email?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const handleExportExcel = () => {
+    if (!contacts || contacts.length === 0) {
+      toast.error("Nenhum dado para exportar");
+      return;
+    }
+
+    setIsExporting(true);
+    try {
+      // Apply export filters
+      let filteredData = [...contacts];
+
+      if (exportFilters.startDate) {
+        const start = new Date(exportFilters.startDate);
+        filteredData = filteredData.filter(c => new Date(c.created_at) >= start);
+      }
+      if (exportFilters.endDate) {
+        const end = new Date(exportFilters.endDate);
+        end.setHours(23, 59, 59, 999);
+        filteredData = filteredData.filter(c => new Date(c.created_at) <= end);
+      }
+      
+      if (exportFilters.insuranceType !== "all") {
+        const type = exportFilters.insuranceType.toLowerCase();
+        filteredData = filteredData.filter(c => {
+          if (type === "auto") return c.car_count > 0 || c.has_motorcycle;
+          if (type === "vida") return c.has_life_insurance;
+          if (type === "residencial") return c.has_home_insurance;
+          if (type === "saúde") return c.health_plan_type || c.health_insurance_carrier;
+          if (type === "empresarial") return c.has_business_insurance;
+          if (type === "consórcio") return c.has_consortium;
+          return false;
+        });
+      }
+
+      if (exportFilters.carrier) {
+        const carrier = exportFilters.carrier.toLowerCase();
+        filteredData = filteredData.filter(c => 
+          (c.life_insurance_carrier?.toLowerCase().includes(carrier)) ||
+          (c.home_insurance_carrier?.toLowerCase().includes(carrier)) ||
+          (c.health_insurance_carrier?.toLowerCase().includes(carrier)) ||
+          (c.business_insurance_carrier?.toLowerCase().includes(carrier)) ||
+          (c.other_insurance_carrier?.toLowerCase().includes(carrier)) ||
+          (c.consortium_carrier?.toLowerCase().includes(carrier))
+        );
+      }
+
+      if (filteredData.length === 0) {
+        toast.error("Nenhum contato encontrado com os filtros selecionados");
+        setIsExporting(false);
+        return;
+      }
+
+      // Map to export format
+      const exportRows = filteredData.map(c => ({
+        "Nome Completo": c.full_name,
+        "Email": c.email || "",
+        "Telefone": c.phone || "",
+        "CPF/CNPJ": c.cpf_cnpj || "",
+        "Data Nascimento": c.birth_date || "",
+        "Tipo": c.client_type,
+        "É Cliente": c.is_client ? "Sim" : "Não",
+        "Profissão": c.profession || "",
+        "Renda": c.income_bracket || "",
+        "Origem": c.lead_source || "",
+        "Satisfação": c.satisfaction_score || "",
+        "Data Cadastro": new Date(c.created_at).toLocaleDateString('pt-BR'),
+        "Seguro Vida": c.has_life_insurance ? `Sim (${c.life_insurance_carrier || "N/A"})` : "Não",
+        "Seguro Residencial": c.has_home_insurance ? `Sim (${c.home_insurance_carrier || "N/A"})` : "Não",
+        "Plano Saúde": c.health_plan_type ? `Sim (${c.health_insurance_carrier || "N/A"})` : "Não",
+        "Seguro Empresarial": c.has_business_insurance ? `Sim (${c.business_insurance_carrier || "N/A"})` : "Não",
+        "Consórcio": c.has_consortium ? `Sim (${c.consortium_type} - ${c.consortium_carrier || "N/A"})` : "Não",
+        "Notas": c.notes || ""
+      }));
+
+      const ws = XLSX.utils.json_to_sheet(exportRows);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Contatos CRM");
+      XLSX.writeFile(wb, `crm_contatos_${new Date().toISOString().split('T')[0]}.xlsx`);
+      
+      toast.success("Exportação concluída com sucesso!");
+    } catch (error) {
+      console.error("Export error:", error);
+      toast.error("Erro ao exportar banco de dados");
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   const openWhatsApp = (phone: string) => {
+
     const cleanPhone = phone.replace(/\D/g, "");
     window.open(`https://wa.me/55${cleanPhone}`, "_blank");
   };
@@ -265,13 +374,94 @@ const ContactsModule = () => {
           />
         </div>
         
-        <Dialog open={isAddModalOpen} onOpenChange={setIsAddModalOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-primary hover:bg-primary/90">
-              <UserPlus className="w-4 h-4 mr-2" />
-              Transferir/Adicionar Contato
-            </Button>
-          </DialogTrigger>
+        <div className="flex flex-wrap gap-2">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant="outline" className="border-slate-200">
+                <Filter className="w-4 h-4 mr-2" />
+                Filtros Exportação
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+              <div className="grid gap-4">
+                <div className="space-y-2">
+                  <h4 className="font-medium leading-none">Exportar Banco de Dados</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Filtre os dados antes de baixar o Excel.
+                  </p>
+                </div>
+                <div className="grid gap-2">
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="space-y-1">
+                      <Label className="text-xs">De:</Label>
+                      <Input 
+                        type="date" 
+                        className="h-8 text-xs" 
+                        value={exportFilters.startDate}
+                        onChange={e => setExportFilters({...exportFilters, startDate: e.target.value})}
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <Label className="text-xs">Até:</Label>
+                      <Input 
+                        type="date" 
+                        className="h-8 text-xs" 
+                        value={exportFilters.endDate}
+                        onChange={e => setExportFilters({...exportFilters, endDate: e.target.value})}
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Tipo de Seguro</Label>
+                    <Select 
+                      value={exportFilters.insuranceType}
+                      onValueChange={val => setExportFilters({...exportFilters, insuranceType: val})}
+                    >
+                      <SelectTrigger className="h-8 text-xs">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">Todos</SelectItem>
+                        <SelectItem value="auto">Auto/Moto</SelectItem>
+                        <SelectItem value="vida">Vida</SelectItem>
+                        <SelectItem value="residencial">Residencial</SelectItem>
+                        <SelectItem value="saúde">Saúde</SelectItem>
+                        <SelectItem value="empresarial">Empresarial</SelectItem>
+                        <SelectItem value="consórcio">Consórcio</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Seguradora/Administradora</Label>
+                    <Input 
+                      placeholder="Nome da seguradora..." 
+                      className="h-8 text-xs"
+                      value={exportFilters.carrier}
+                      onChange={e => setExportFilters({...exportFilters, carrier: e.target.value})}
+                    />
+                  </div>
+                </div>
+                <Button 
+                  size="sm" 
+                  className="w-full bg-green-600 hover:bg-green-700" 
+                  onClick={handleExportExcel}
+                  disabled={isExporting}
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  {isExporting ? "Exportando..." : "Baixar Excel"}
+                </Button>
+              </div>
+            </PopoverContent>
+          </Popover>
+
+          <Dialog open={isAddModalOpen} onOpenChange={setIsAddModalOpen}>
+            <DialogTrigger asChild>
+              <Button className="bg-primary hover:bg-primary/90">
+                <UserPlus className="w-4 h-4 mr-2" />
+                Transferir/Adicionar Contato
+              </Button>
+            </DialogTrigger>
+
           <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Novo Contato</DialogTitle>
