@@ -154,6 +154,13 @@ const HubVidaSaude = lazy(() => import("./pages/HubVidaSaude"));
 const PreventSenior = lazy(() => import("./pages/saude/PreventSenior"));
 const SulAmericaSaude = lazy(() => import("./pages/saude/SulAmerica"));
 const AmilSaude = lazy(() => import("./pages/saude/Amil"));
+const PortoSaude = lazy(() => import("./pages/saude/PortoSaude"));
+const Hapvida = lazy(() => import("./pages/saude/Hapvida"));
+const Medsenior = lazy(() => import("./pages/saude/Medsenior"));
+const BradescoSaude = lazy(() => import("./pages/saude/Bradesco"));
+const Sami = lazy(() => import("./pages/saude/Sami"));
+const Unimed = lazy(() => import("./pages/saude/Unimed"));
+const Alice = lazy(() => import("./pages/saude/Alice"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 /**
