@@ -136,7 +136,8 @@ const ContactsModule = () => {
     has_consortium: false,
     consortium_type: "Auto",
     consortium_carrier: "",
-    consortium_renewal: ""
+    consortium_renewal: "",
+    responsible_name: ""
   });
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
@@ -216,7 +217,8 @@ const ContactsModule = () => {
         has_consortium: false,
         consortium_type: "Auto",
         consortium_carrier: "",
-        consortium_renewal: ""
+        consortium_renewal: "",
+        responsible_name: ""
       });
       setSelectedInsurances([]);
     } catch (e) {
@@ -744,6 +746,37 @@ const ContactsModule = () => {
                       <SelectItem value="Outros">Outros</SelectItem>
                     </SelectContent>
                   </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label>Responsável pelo Lead</Label>
+                  <Select 
+                    value={['Sandra', 'Roberto', 'Leticia'].includes(newContact.responsible_name) ? newContact.responsible_name : (newContact.responsible_name ? 'Outros' : '')} 
+                    onValueChange={(val) => {
+                      if (val === 'Outros') {
+                        setNewContact({...newContact, responsible_name: ' '}); // Space to trigger "Outros" mode
+                      } else {
+                        setNewContact({...newContact, responsible_name: val});
+                      }
+                    }}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione o responsável" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Sandra">Sandra</SelectItem>
+                      <SelectItem value="Roberto">Roberto</SelectItem>
+                      <SelectItem value="Leticia">Leticia</SelectItem>
+                      <SelectItem value="Outros">Outros</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {(!['Sandra', 'Roberto', 'Leticia'].includes(newContact.responsible_name) && newContact.responsible_name !== '') && (
+                    <Input 
+                      className="mt-2"
+                      placeholder="Nome do responsável"
+                      value={newContact.responsible_name === ' ' ? '' : newContact.responsible_name}
+                      onChange={e => setNewContact({...newContact, responsible_name: e.target.value})}
+                    />
+                  )}
                 </div>
               </div>
 
