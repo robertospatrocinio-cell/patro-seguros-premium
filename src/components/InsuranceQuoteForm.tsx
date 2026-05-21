@@ -9,8 +9,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
- import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "551151997500";
@@ -205,6 +206,27 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       </table>
     `;
 
+    // 1. Integrar com o CRM (Tabela de Leads do Supabase)
+    const { error: crmError } = await supabase
+      .from("leads")
+      .insert({
+        name: formData.nome || formData.name || "Cliente Interessado",
+        phone: formData.whatsapp || formData.telefone || formData.phone || "",
+        email: formData.email || "",
+        insurance_type: config.type,
+        form_data: {
+          ...formData,
+          checkboxGroups
+        }
+      });
+
+    if (crmError) {
+      console.error("Erro ao registrar lead no CRM:", crmError);
+      // Continuamos o processo mesmo se falhar no CRM, para não bloquear o usuário, 
+      // mas o email servirá de backup.
+    }
+
+    // 2. Enviar e-mail de notificação
     const { error } = await safeInvoke("send-form-email", { 
       subject, 
       textBody: parts, 
@@ -212,12 +234,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     });
 
      if (error) {
-       // The user might be frustrated, so we provide a clear path forward
        handleSupabaseError(error, "Não foi possível registrar seu pedido digitalmente.");
-       
-       // Fallback: invite user to call or try WhatsApp directly
        toast.info("Você pode ligar para (11) 5199-7500 se o erro persistir.", { duration: 10000 });
-       
        setSending(false);
        return;
      }
