@@ -218,6 +218,11 @@ export const blogImageMap: Record<string, string> = {
   "bradesco-vs-sulamerica-plano-saude-2026": blogPlanoSaudeGuarulhos,
    "porto-vs-tokio-marine-residencial-2026": blogSeguroResidencial,
    "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
+
+   // Tabela FIPE, CNH e Multas (2026)
+   "tabela-fipe-2026": blogSeguroAuto,
+   "documentos-para-cnh": blogComoAcionarSeguroAuto,
+   "multas-guarulhos": blogSinistrosGuarulhos,
 };
 
 export const getArticleImage = (slug: string): string => {
