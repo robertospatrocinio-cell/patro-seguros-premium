@@ -1,6 +1,6 @@
 import { useState, useMemo, memo } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCotacaoClick } from "@/lib/tracking";
 const logoFull = "/images/logo-full.webp";
@@ -120,6 +120,16 @@ const Header = memo(() => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-1.5 text-[11px]">
             <div className="flex items-center gap-5">
+              <div className="hidden lg:flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded border border-white/10">
+                <div className="flex text-yellow-400">
+                  <Star className="h-2.5 w-2.5 fill-current" />
+                  <Star className="h-2.5 w-2.5 fill-current" />
+                  <Star className="h-2.5 w-2.5 fill-current" />
+                  <Star className="h-2.5 w-2.5 fill-current" />
+                  <Star className="h-2.5 w-2.5 fill-current" />
+                </div>
+                <span className="text-[10px] text-white font-bold">5.0 no Google</span>
+              </div>
               <span className="hidden lg:flex items-center gap-1.5 text-white/60 text-[10px]">
                 <MapPin className="h-3 w-3" aria-hidden="true" />
                 Cidade Maia, Guarulhos/SP
