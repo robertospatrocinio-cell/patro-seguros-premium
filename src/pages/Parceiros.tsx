@@ -5,17 +5,17 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Parceiros = () => {
   const partners = [
-    { name: "Porto Seguro", description: "Líder em seguros automotivos e residenciais", logo: "/logos/porto.png" },
-    { name: "Tokio Marine", description: "Excelência em seguros empresariais e patrimoniais", logo: "/logos/tokio-marine.png" },
-    { name: "Allianz", description: "Seguradora global com soluções completas", logo: "/logos/allianz.png" },
+    { name: "Porto Seguro", description: "Líder em seguros automotivos e residenciais", logo: "/logos/porto.png", slug: "porto-seguro-guarulhos" },
+    { name: "Tokio Marine", description: "Excelência em seguros empresariais e patrimoniais", logo: "/logos/tokio-marine.png", slug: "tokio-marine-guarulhos" },
+    { name: "Allianz", description: "Seguradora global com soluções completas", logo: "/logos/allianz.png", slug: "allianz-guarulhos" },
     { name: "Azos", description: "Seguro de vida digital, simples e acessível", logo: "/logos/azos.png" },
-    { name: "Azul Seguros", description: "Seguros acessíveis com ampla cobertura", logo: "/logos/azul.png" },
-    { name: "Mapfre", description: "Tradição e confiança em seguros diversos", logo: "/logos/mapfre.png" },
-    { name: "HDI Seguros", description: "Especialista em seguros corporativos", logo: "/logos/hdi.png" },
-    { name: "Zurich", description: "Soluções globais para riscos complexos", logo: "/logos/zurich.png" },
-    { name: "Bradesco Seguros", description: "Solidez e credibilidade nacional", logo: "/logos/bradesco.png" },
-    { name: "Liberty Seguros", description: "Flexibilidade e personalização", logo: "/logos/liberty.png" },
-    { name: "Suhai", description: "Proteção veicular acessível", logo: "/logos/suhai.png" },
+    { name: "Azul Seguros", description: "Seguros acessíveis com ampla cobertura", logo: "/logos/azul.png", slug: "azul-seguros-guarulhos" },
+    { name: "Mapfre", description: "Tradição e confiança em seguros diversos", logo: "/logos/mapfre.png", slug: "mapfre-guarulhos" },
+    { name: "HDI Seguros", description: "Especialista em seguros corporativos", logo: "/logos/hdi.png", slug: "hdi-guarulhos" },
+    { name: "Zurich", description: "Soluções globais para riscos complexos", logo: "/logos/zurich.png", slug: "zurich-guarulhos" },
+    { name: "Bradesco Seguros", description: "Solidez e credibilidade nacional", logo: "/logos/bradesco.png", slug: "bradesco-seguros-guarulhos" },
+    { name: "Yellum", description: "A nova marca da Liberty Seguros", logo: "/logos/liberty.png", slug: "yellum-guarulhos" },
+    { name: "Suhai", description: "Proteção veicular acessível", logo: "/logos/suhai.png", slug: "suhai-guarulhos" },
     { name: "Justos", description: "Seguro auto inteligente e digital", logo: "/logos/justos.png" },
     { name: "Darwin", description: "Inovação em seguros", logo: "/logos/darwin.png" },
     { name: "Ituran", description: "Rastreamento e proteção veicular", logo: "/logos/ituran.png" },
@@ -23,13 +23,13 @@ const Parceiros = () => {
     { name: "Akad", description: "Soluções inovadoras em seguros corporativos e garantias", logo: "/logos/akad.png" },
     { name: "SURA", description: "Seguros corporativos e soluções de gestão de riscos", logo: "/logos/sura.png" },
     { name: "SOMPO", description: "Seguros corporativos, agrícolas e soluções especializadas", logo: "/logos/sompo.png" },
-    { name: "Itaú Seguros", description: "Solidez e inovação em seguros patrimoniais e de vida", logo: "/logos/itau.png" },
+    { name: "Itaú Seguros", description: "Solidez e inovação em seguros patrimoniais e de vida", logo: "/logos/itau.png", slug: "itau-seguros-guarulhos" },
     { name: "AXA", description: "Líder global em seguros e gestão de riscos", logo: "/logos/axa.png" },
     { name: "MAG Seguros", description: "Especialista em seguros de vida e previdência", logo: "/logos/mag.png" },
     { name: "Pier", description: "Seguro digital colaborativo e transparente", logo: "/logos/pier.png" },
     { name: "Youse", description: "Seguro digital personalizável para auto, vida e residencial", logo: "/logos/youse.png" },
     { name: "Ezze Seguros", description: "Soluções em seguros patrimoniais e de responsabilidade civil", logo: "/logos/ezze.png" },
-    { name: "Mitsui Sumitomo", description: "Seguradora global com expertise em seguros corporativos e patrimoniais", logo: "/logos/mitsui.png" },
+    { name: "Mitsui Sumitomo", description: "Seguradora global com expertise em seguros corporativos e patrimoniais", logo: "/logos/mitsui.png", slug: "mitsui-guarulhos" },
   ];
 
   const healthPartners = [
