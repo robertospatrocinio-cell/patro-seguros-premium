@@ -203,7 +203,6 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
         if (session?.user) {
           setUserContext({
             id: session.user.id,
-            email: session.user.email,
           });
         } else {
           setUserContext({}); // Clear context on sign out
