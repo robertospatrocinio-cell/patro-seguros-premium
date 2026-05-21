@@ -21,6 +21,7 @@ export interface Lead {
   cpf_cnpj: string | null;
   city: string | null;
   state: string | null;
+  responsible_name: string | null;
 }
 
 export const useLeads = () => {
