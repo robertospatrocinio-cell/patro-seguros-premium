@@ -79,7 +79,7 @@ const faqs = [
   return (
     <>
        <PageMeta 
-         title="Corretora de Seguros em Guarulhos | Patro Seguros — Cotação em 2h"
+         title="Corretora de Seguros em Guarulhos | Patro Seguros"
          description="Corretora de seguros em Guarulhos com nota 4,9/5: auto, residencial, vida, saúde e empresarial. Compare 16+ seguradoras. Cotação grátis em 2h."
          absoluteTitle={true}
        />

@@ -7,15 +7,29 @@ import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
    description: string;
    noindex?: boolean;
    absoluteTitle?: boolean;
+   /** Open Graph type: "website" (default) for marketing pages, "article" for blog posts. */
+   ogType?: "website" | "article" | "product" | "profile";
+   /** Absolute URL to the social-preview image (per-page). Falls back to the sitewide og:image in index.html. */
+   ogImage?: string;
  }
 
 const BASE_URL = CANONICAL_BASE_URL;
+const DEFAULT_OG_IMAGE = `${CANONICAL_BASE_URL}/images/og-cover.webp`;
+const TITLE_SUFFIX = " | Patro Seguros";
+const MAX_TITLE_LENGTH = 60;
 
- const PageMeta = ({ title, description, noindex = false, absoluteTitle = false }: PageMetaProps) => {
+ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage }: PageMetaProps) => {
   const location = useLocation();
 
    useEffect(() => {
-     const fullTitle = absoluteTitle || title.includes("Patro Seguros") ? title : `${title} | Patro Seguros`;
+     // Brand suffix only if title doesn't already contain "Patro Seguros" AND adding it
+     // would keep the final title within Google's ~60-char display limit. This prevents
+     // truncation in SERPs across all service/local pages that use PageMeta.
+     const shouldAppendBrand =
+       !absoluteTitle &&
+       !title.includes("Patro Seguros") &&
+       title.length + TITLE_SUFFIX.length <= MAX_TITLE_LENGTH;
+     const fullTitle = shouldAppendBrand ? `${title}${TITLE_SUFFIX}` : title;
      document.title = fullTitle;
 
     // Meta description
@@ -45,10 +59,13 @@ const BASE_URL = CANONICAL_BASE_URL;
     setMetaContent('meta[property="og:title"]', fullTitle);
     setMetaContent('meta[property="og:description"]', description);
     setMetaContent('meta[property="og:url"]', canonicalUrl);
+    setMetaContent('meta[property="og:type"]', ogType);
+    setMetaContent('meta[property="og:image"]', ogImage ?? DEFAULT_OG_IMAGE);
 
     // Twitter
     setMetaContent('meta[name="twitter:title"]', fullTitle);
     setMetaContent('meta[name="twitter:description"]', description);
+    setMetaContent('meta[name="twitter:image"]', ogImage ?? DEFAULT_OG_IMAGE);
 
     // Robots
     let robots = document.querySelector('meta[name="robots"]');
@@ -57,13 +74,16 @@ const BASE_URL = CANONICAL_BASE_URL;
     }
 
      return () => {
-       document.title = "Patro Seguros | Corretora em Guarulhos - Auto, Vida, Saúde, Empresarial";
+       document.title = "Patro Seguros | Corretora de Seguros em Guarulhos";
        setMetaContent('meta[name="description"]', "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500.");
       if (canonical) canonical.setAttribute("href", BASE_URL);
       setMetaContent('meta[property="og:url"]', BASE_URL);
+      setMetaContent('meta[property="og:type"]', "website");
+      setMetaContent('meta[property="og:image"]', DEFAULT_OG_IMAGE);
+      setMetaContent('meta[name="twitter:image"]', DEFAULT_OG_IMAGE);
       if (robots) robots.setAttribute("content", "index, follow");
     };
-  }, [title, description, location.pathname, noindex]);
+  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage]);
 
   return null;
 };
