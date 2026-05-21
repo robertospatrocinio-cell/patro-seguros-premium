@@ -174,7 +174,7 @@ const Header = memo(() => {
       </div>
 
       {/* Main nav */}
-      <div className="bg-background/95 md:backdrop-blur-xl border-b border-border/40">
+      <div className="bg-background/95 md:backdrop-blur-xl border-b border-border/40 min-h-[64px]">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
                <Link 
