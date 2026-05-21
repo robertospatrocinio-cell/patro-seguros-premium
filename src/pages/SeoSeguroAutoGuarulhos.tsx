@@ -4,6 +4,7 @@ import NeighborhoodHub, { type NeighborhoodLink } from "@/components/Neighborhoo
 import ModelHub, { type ModelLink } from "@/components/ModelHub";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
+import heroMobileImg from "@/assets/hero-home-sm.webp"; // Fallback to a relevant mobile image since we don't have auto-sm
 
 const NEIGHBORHOODS: NeighborhoodLink[] = [
   { name: "Cidade Maia", link: "/seguro-auto-maia-guarulhos", riskLevel: "baixo", priceRange: "R$ 2.100 a R$ 4.000/ano" },
@@ -35,6 +36,7 @@ const SeoSeguroAutoGuarulhos = () => (
     <PrerenderText slug="seguro-auto-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
+    mobileHeroImage={heroMobileImg}
     title="Seguro Auto em Guarulhos | Cotação Grátis | Patro Seguros"
     subtitle="Seguro Auto em Guarulhos — Cotação Online Grátis"
     description="Faça cotação de seguro auto em Guarulhos com as 16 melhores seguradoras. Resposta em até 2h. Proteja seu carro com a Patro Seguros. (11) 5199-7500"

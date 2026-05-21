@@ -1,10 +1,12 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-consorcio.webp";
+import heroMobileImg from "@/assets/hero-consorcio-sm.webp";
 
 const ConsorcioCarro = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
+      mobileHeroImage={heroMobileImg}
       title="Consórcio de Automóveis"
       subtitle="Como trocar de carro sem pagar dois para o banco? A estratégia de inteligência financeira para seu patrimônio."
       icon="🚗"
