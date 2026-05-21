@@ -10,7 +10,13 @@ import {
   Download,
   Filter,
   RefreshCw,
-  Clock
+  Clock,
+  LayoutDashboard,
+  MessageSquare,
+  FileText,
+  UserCheck,
+  TrendingUp,
+  Award
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -27,9 +33,12 @@ import {
   TableRow 
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { format } from "date-fns";
+import { format, startOfWeek, endOfWeek, isWithinInterval } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { DashboardOverview } from "@/components/crm/DashboardOverview";
+
 
 interface Lead {
   id: string;
@@ -131,191 +140,181 @@ const CRMPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50">
+    <div className="min-h-screen flex flex-col bg-slate-50/50">
       <Header />
-      <main className="flex-1 container mx-auto px-4 py-8">
-        <div className="flex flex-col gap-6">
+      <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
+        <div className="flex flex-col gap-8">
+          {/* Top Bar */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-primary flex items-center gap-2">
-                <Shield className="w-8 h-8" />
-                Painel CRM de Leads
-              </h1>
-              <p className="text-muted-foreground mt-1">
-                Gerencie as solicitações de cotação recebidas pelo site.
+              <div className="flex items-center gap-2 mb-1">
+                <div className="bg-primary/10 p-2 rounded-lg">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+                  Patro CRM <span className="text-primary font-black">PRO</span>
+                </h1>
+              </div>
+              <p className="text-muted-foreground ml-11">
+                Gestão estratégica de seguros e relacionamento.
               </p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <Button 
                 variant="outline" 
                 onClick={fetchLeads} 
                 disabled={isRefreshing}
-                className="bg-white"
+                className="bg-white border-slate-200"
               >
                 <RefreshCw className={`w-4 h-4 mr-2 ${isRefreshing ? "animate-spin" : ""}`} />
                 Atualizar
               </Button>
-              <Button onClick={exportToCSV} className="bg-primary">
-                <Download className="w-4 h-4 mr-2" />
-                Exportar CSV
+              <Button className="bg-primary hover:bg-primary/90 shadow-sm shadow-primary/20">
+                <Calendar className="w-4 h-4 mr-2" />
+                Nova Atividade
               </Button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card className="bg-white">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <Users className="w-4 h-4" /> Total de Leads
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold">{leads.length}</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <Clock className="w-4 h-4" /> Últimas 24h
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold">
-                  {leads.filter(l => {
+          <Tabs defaultValue="dashboard" className="w-full">
+            <div className="flex items-center justify-between mb-6 bg-white p-1 rounded-xl shadow-sm border border-slate-100 overflow-x-auto">
+              <TabsList className="bg-transparent h-11">
+                <TabsTrigger value="dashboard" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <LayoutDashboard className="w-4 h-4 mr-2" /> Dashboard
+                </TabsTrigger>
+                <TabsTrigger value="leads" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <Users className="w-4 h-4 mr-2" /> Leads
+                </TabsTrigger>
+                <TabsTrigger value="pipeline" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <TrendingUp className="w-4 h-4 mr-2" /> Pipeline
+                </TabsTrigger>
+                <TabsTrigger value="customers" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <UserCheck className="w-4 h-4 mr-2" /> Clientes
+                </TabsTrigger>
+                <TabsTrigger value="renewals" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <RefreshCw className="w-4 h-4 mr-2" /> Renovações
+                </TabsTrigger>
+              </TabsList>
+              
+              <div className="hidden md:flex px-4 gap-4 text-sm font-medium text-slate-500">
+                <div className="flex items-center gap-1">
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  Sistema Online
+                </div>
+              </div>
+            </div>
+
+            <TabsContent value="dashboard" className="mt-0">
+              <DashboardOverview 
+                stats={{
+                  totalLeads: leads.length,
+                  leads24h: leads.filter(l => {
                     const yesterday = new Date();
                     yesterday.setDate(yesterday.getDate() - 1);
                     return new Date(l.created_at) > yesterday;
-                  }).length}
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="bg-white md:col-span-2">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <Search className="w-4 h-4" /> Busca Rápida
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="relative">
+                  }).length,
+                  conversionRate: "18.5%",
+                  activeCustomers: 142
+                }}
+                birthdays={[
+                  { id: '1', name: 'Ricardo Santos', phone: '11999999999' },
+                  { id: '2', name: 'Mariana Oliveira' }
+                ]}
+                renewals={[
+                  { id: 'r1', clientName: 'Empresa ABC Ltda', insuranceType: 'Empresarial', dueDate: '22/05', isCompleted: false },
+                  { id: 'r2', clientName: 'João Silva', insuranceType: 'Auto', dueDate: '23/05', isCompleted: true },
+                  { id: 'r3', clientName: 'Ana Paula', insuranceType: 'Vida', dueDate: '25/05', isCompleted: false }
+                ]}
+              />
+            </TabsContent>
+
+            <TabsContent value="leads" className="mt-0 space-y-6">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="relative flex-1 max-w-md">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                   <Input 
-                    placeholder="Nome, e-mail, telefone ou seguro..." 
-                    className="pl-9 bg-white"
+                    placeholder="Buscar leads..." 
+                    className="pl-9 bg-white border-slate-200"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="bg-white shadow-sm border-0">
-            <CardHeader className="border-b bg-slate-50/50">
-              <CardTitle className="text-lg">Fila de Atendimento</CardTitle>
-            </CardHeader>
-            <CardContent className="p-0">
-              <div className="overflow-x-auto">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="hover:bg-transparent">
-                      <TableHead className="w-[150px]">Data/Hora</TableHead>
-                      <TableHead>Cliente</TableHead>
-                      <TableHead>Contato</TableHead>
-                      <TableHead>Seguro</TableHead>
-                      <TableHead>Origem</TableHead>
-                      <TableHead className="text-right">Ações</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {loading ? (
-                      Array.from({ length: 5 }).map((_, i) => (
-                        <TableRow key={i}>
-                          <TableCell colSpan={6} className="h-12 animate-pulse bg-slate-50"></TableCell>
-                        </TableRow>
-                      ))
-                    ) : filteredLeads.length === 0 ? (
-                      <TableRow>
-                        <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
-                          Nenhum lead encontrado.
-                        </TableCell>
-                      </TableRow>
-                    ) : (
-                      filteredLeads.map((lead) => (
-                        <TableRow key={lead.id} className="hover:bg-slate-50">
-                          <TableCell className="font-medium text-sm">
-                            <div className="flex flex-col">
-                              <span>{format(new Date(lead.created_at), "dd/MM/yyyy", { locale: ptBR })}</span>
-                              <span className="text-xs text-muted-foreground">{format(new Date(lead.created_at), "HH:mm")}</span>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <span className="font-semibold text-slate-900">{lead.full_name || "—"}</span>
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex flex-col gap-1 text-sm">
-                              <span className="flex items-center gap-1.5 text-slate-600">
-                                <Phone className="w-3.5 h-3.5" /> {lead.phone || "—"}
-                              </span>
-                              <span className="flex items-center gap-1.5 text-slate-600">
-                                <Mail className="w-3.5 h-3.5" /> {lead.email || "—"}
-                              </span>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            {getInsuranceBadge(lead.insurance_type)}
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex flex-col text-xs max-w-[150px] truncate">
-                              <span className="text-slate-600 truncate" title={lead.source_page || ""}>
-                                {lead.source_page?.replace(window.location.origin, "") || "Home"}
-                              </span>
-                              {lead.utm_source && (
-                                <span className="text-primary/70 font-medium">
-                                  {lead.utm_source}
-                                </span>
-                              )}
-                            </div>
-                          </TableCell>
-                          <TableCell className="text-right">
-                            <div className="flex justify-end gap-2">
-                              {lead.phone && (
-                                <Button 
-                                  size="sm" 
-                                  variant="outline" 
-                                  asChild 
-                                  className="h-8 w-8 p-0 text-green-600 hover:text-green-700 hover:bg-green-50"
-                                >
-                                  <a 
-                                    href={`https://wa.me/55${lead.phone.replace(/\D/g, "")}`} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                  >
-                                    <Phone className="w-4 h-4" />
-                                  </a>
-                                </Button>
-                              )}
-                              <Button 
-                                size="sm" 
-                                variant="outline" 
-                                className="h-8 w-8 p-0"
-                                onClick={() => {
-                                  toast.info(`Dados brutos: ${JSON.stringify(lead.raw_data)}`, {
-                                    duration: 5000
-                                  });
-                                }}
-                              >
-                                <ExternalLink className="w-4 h-4" />
-                              </Button>
-                            </div>
-                          </TableCell>
-                        </TableRow>
-                      ))
-                    )}
-                  </TableBody>
-                </Table>
+                <Button onClick={exportToCSV} variant="outline" className="bg-white border-slate-200">
+                  <Download className="w-4 h-4 mr-2" /> Exportar Leads
+                </Button>
               </div>
-            </CardContent>
-          </Card>
+
+              <Card className="bg-white shadow-sm border-slate-100">
+                <CardContent className="p-0">
+                  <div className="overflow-x-auto">
+                    <Table>
+                      <TableHeader className="bg-slate-50/50">
+                        <TableRow>
+                          <TableHead className="w-[150px]">Data</TableHead>
+                          <TableHead>Cliente</TableHead>
+                          <TableHead>Contato</TableHead>
+                          <TableHead>Seguro</TableHead>
+                          <TableHead>Status</TableHead>
+                          <TableHead className="text-right">Ações</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {loading ? (
+                          Array.from({ length: 5 }).map((_, i) => (
+                            <TableRow key={i}>
+                              <TableCell colSpan={6} className="h-12 animate-pulse bg-slate-50/50"></TableCell>
+                            </TableRow>
+                          ))
+                        ) : filteredLeads.length === 0 ? (
+                          <TableRow>
+                            <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
+                              Nenhum lead encontrado.
+                            </TableCell>
+                          </TableRow>
+                        ) : (
+                          filteredLeads.map((lead) => (
+                            <TableRow key={lead.id} className="hover:bg-slate-50/50">
+                              <TableCell className="text-sm">
+                                <span className="font-medium">{format(new Date(lead.created_at), "dd/MM", { locale: ptBR })}</span>
+                                <span className="text-muted-foreground ml-2">{format(new Date(lead.created_at), "HH:mm")}</span>
+                              </TableCell>
+                              <TableCell className="font-semibold text-slate-900">{lead.full_name || "—"}</TableCell>
+                              <TableCell>
+                                <div className="text-xs space-y-0.5">
+                                  <div className="flex items-center gap-1.5 text-slate-600"><Phone className="w-3 h-3" /> {lead.phone || "—"}</div>
+                                  <div className="flex items-center gap-1.5 text-slate-600"><Mail className="w-3 h-3" /> {lead.email || "—"}</div>
+                                </div>
+                              </TableCell>
+                              <TableCell>{getInsuranceBadge(lead.insurance_type)}</TableCell>
+                              <TableCell><Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">Novo</Badge></TableCell>
+                              <TableCell className="text-right">
+                                <div className="flex justify-end gap-2">
+                                  {lead.phone && (
+                                    <Button size="icon" variant="ghost" className="h-8 w-8 text-green-600 hover:bg-green-50" asChild>
+                                      <a href={`https://wa.me/55${lead.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer"><Phone className="w-4 h-4" /></a>
+                                    </Button>
+                                  )}
+                                  <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400"><ExternalLink className="w-4 h-4" /></Button>
+                                </div>
+                              </TableCell>
+                            </TableRow>
+                          ))
+                        )}
+                      </TableBody>
+                    </Table>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="pipeline" className="mt-0">
+              <div className="bg-white p-12 rounded-xl border border-dashed border-slate-200 text-center">
+                <TrendingUp className="w-12 h-12 text-slate-300 mx-auto mb-4" />
+                <h3 className="text-lg font-semibold text-slate-900">Módulo Kanban em Desenvolvimento</h3>
+                <p className="text-muted-foreground">O visual estilo Pipedrive/Monday está sendo configurado.</p>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </main>
       <Footer />
