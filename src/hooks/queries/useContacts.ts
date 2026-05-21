@@ -37,6 +37,15 @@ export interface Contact {
   other_insurance_renewal?: string | null;
   last_contact_date?: string | null;
   next_contact_date?: string | null;
+  profession?: string | null;
+  income_bracket?: string | null;
+  home_ownership?: string | null;
+  lead_source?: string | null;
+  referral_contact_id?: string | null;
+  salesperson_name?: string | null;
+  partner_source_name?: string | null;
+  satisfaction_score?: number | null;
+  last_interaction_type?: string | null;
   created_at: string;
 }
 
