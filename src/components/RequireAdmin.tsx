@@ -10,30 +10,52 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     let mounted = true;
+
     const check = async (userId: string | undefined) => {
       if (!userId) {
         if (mounted) setState("unauth");
         return;
       }
-      const { data, error } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", userId)
-        .eq("role", "admin")
-        .maybeSingle();
-      if (!mounted) return;
-      if (error || !data) setState("denied");
-      else setState("allowed");
+
+      try {
+        const { data, error } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", userId)
+          .eq("role", "admin")
+          .maybeSingle();
+
+        if (!mounted) return;
+
+        if (error) {
+          console.error("Error checking admin status:", error);
+          setState("denied");
+          return;
+        }
+
+        if (!data) {
+          setState("denied");
+        } else {
+          setState("allowed");
+        }
+      } catch (err) {
+        console.error("Unexpected error in RequireAdmin:", err);
+        if (mounted) setState("denied");
+      }
     };
 
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
-      check(session?.user?.id);
+    // Initial check
+    supabase.auth.getSession().then(({ data }) => {
+      if (mounted) check(data.session?.user?.id);
     });
-    supabase.auth.getSession().then(({ data }) => check(data.session?.user?.id));
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
+      if (mounted) check(session?.user?.id);
+    });
 
     return () => {
       mounted = false;
-      sub.subscription.unsubscribe();
+      subscription.unsubscribe();
     };
   }, []);
 
