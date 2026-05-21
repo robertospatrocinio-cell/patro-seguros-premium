@@ -9,16 +9,20 @@ import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
    absoluteTitle?: boolean;
    /** Open Graph type: "website" (default) for marketing pages, "article" for blog posts. */
    ogType?: "website" | "article" | "product" | "profile";
-   /** Absolute URL to the social-preview image (per-page). Falls back to the sitewide og:image in index.html. */
-   ogImage?: string;
- }
+    /** Absolute URL to the social-preview image (per-page). Falls back to the sitewide og:image in index.html. */
+    ogImage?: string;
+    /** URL of the hero image to preload for performance (LCP) */
+    preloadImage?: string;
+    /** URL of the mobile hero image to preload with media query */
+    preloadMobileImage?: string;
+  }
 
 const BASE_URL = CANONICAL_BASE_URL;
 const DEFAULT_OG_IMAGE = `${CANONICAL_BASE_URL}/images/og-cover.webp`;
 const TITLE_SUFFIX = " | Patro Seguros";
 const MAX_TITLE_LENGTH = 60;
 
- const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage }: PageMetaProps) => {
+ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, preloadImage, preloadMobileImage }: PageMetaProps) => {
   const location = useLocation();
 
    useEffect(() => {
@@ -73,6 +77,29 @@ const MAX_TITLE_LENGTH = 60;
       robots.setAttribute("content", noindex ? "noindex, nofollow" : "index, follow");
     }
 
+    // Image preloads
+    const managePreload = (id: string, href?: string, media?: string) => {
+      let link = document.getElementById(id) as HTMLLinkElement;
+      if (href) {
+        if (!link) {
+          link = document.createElement('link');
+          link.id = id;
+          link.rel = 'preload';
+          link.as = 'image';
+          link.fetchPriority = 'high';
+          document.head.appendChild(link);
+        }
+        link.href = href;
+        if (media) link.media = media;
+        else link.removeAttribute('media');
+      } else if (link) {
+        link.remove();
+      }
+    };
+
+    managePreload('dynamic-hero-preload', preloadImage, preloadMobileImage ? '(min-width: 641px)' : undefined);
+    managePreload('dynamic-hero-mobile-preload', preloadMobileImage, '(max-width: 640px)');
+
      return () => {
        document.title = "Patro Seguros | Corretora de Seguros em Guarulhos";
        setMetaContent('meta[name="description"]', "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500.");
@@ -83,7 +110,7 @@ const MAX_TITLE_LENGTH = 60;
       setMetaContent('meta[name="twitter:image"]', DEFAULT_OG_IMAGE);
       if (robots) robots.setAttribute("content", "index, follow");
     };
-  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage]);
+  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, preloadImage, preloadMobileImage]);
 
   return null;
 };
