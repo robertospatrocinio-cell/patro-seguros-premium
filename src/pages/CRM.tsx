@@ -164,15 +164,8 @@ const CRMPage = () => {
             <TabsContent value="dashboard" className="mt-0">
               <DashboardOverview 
                 stats={stats}
-                birthdays={[
-                  { id: '1', name: 'Ricardo Santos', phone: '11999999999' },
-                  { id: '2', name: 'Mariana Oliveira' }
-                ]}
-                renewals={[
-                  { id: 'r1', clientName: 'Empresa ABC Ltda', insuranceType: 'Empresarial', dueDate: '22/05', isCompleted: false },
-                  { id: 'r2', clientName: 'João Silva', insuranceType: 'Auto', dueDate: '23/05', isCompleted: true },
-                  { id: 'r3', clientName: 'Ana Paula', insuranceType: 'Vida', dueDate: '25/05', isCompleted: false }
-                ]}
+                birthdays={birthdays}
+                renewals={renewals}
               />
             </TabsContent>
 
