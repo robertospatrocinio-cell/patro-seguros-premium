@@ -1,0 +1,28 @@
+import { useParams, Navigate } from "react-router-dom";
+import { landingPagesData } from "@/data/landingPages";
+import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+
+const DynamicLandingPage = () => {
+  const { slug } = useParams();
+  const pageData = slug ? landingPagesData[slug] : null;
+
+  if (!pageData) {
+    return <Navigate to="/404" replace />;
+  }
+
+  return (
+    <InsurancePageTemplate 
+      title={pageData.title}
+      subtitle={pageData.description}
+      description={pageData.description}
+      icon={pageData.icon || "🛡️"}
+      coverages={pageData.coverages || []}
+      whoNeeds={pageData.whoNeeds || []}
+      whyPatro={pageData.whyPatro || []}
+      faqs={pageData.faqs || []}
+      heroImage={pageData.heroImage}
+    />
+  );
+};
+
+export default DynamicLandingPage;

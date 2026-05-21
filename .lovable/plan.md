@@ -1,36 +1,47 @@
-# Plano de Refatoração e Otimização em Etapas
+Este plano visa transformar a estrutura atual do sistema para garantir escalabilidade, performance superior e facilidade de manutenção, especialmente considerando o grande volume de páginas de SEO e a complexidade do CRM.
 
-Este plano visa transformar a arquitetura atual em um sistema mais escalável, performático e seguro, priorizando a experiência do usuário (UX) e a eficiência do desenvolvimento (DX).
+### Etapa 1: Estabilização e Gestão de Dados (TanStack Query)
+*   **Problema**: O CRM e diversas páginas utilizam `useEffect` manuais para busca de dados, o que causa estados de "congelamento", falta de cache e dificuldade em lidar com erros de rede.
+*   **Solução**: Migrar todas as chamadas ao Supabase para o **TanStack Query (React Query)**.
+*   **Detalhes Técnicos**:
+    *   Criar hooks customizados em `src/hooks/queries/useLeads.ts`, `useDashboardStats.ts`, etc.
+    *   Implementar `staleTime` e `cacheTime` para reduzir chamadas desnecessárias ao banco.
+    *   Utilizar os estados nativos `isLoading`, `isError` e `isFetching` para melhorar o feedback visual ao usuário.
 
-### Etapa 1: Arquitetura de Dados e DX (Curto Prazo)
-*   **Centralização de Dados**: Migrar os arrays estáticos massivos de `BlogArticle.tsx` e `seoLocalAutoPages.ts` para arquivos JSON ou módulos de dados puros. Isso reduz o tempo de parse do TypeScript e melhora o HMR.
-*   **Abstração de Formulários**: Criar um hook único `useInsuranceForm` para centralizar a lógica de envio, tracking e validação que hoje está duplicada em `QuickQuoteForm`, `InsuranceQuoteForm` e `LeadMagnetSection`.
+### Etapa 2: Unificação Arquitetural (Páginas Programáticas)
+*   **Problema**: Existem mais de 100 arquivos de páginas individuais (`Seo...`, `Landing...`), o que torna a manutenção insustentável e aumenta o tamanho do bundle.
+*   **Solução**: Implementar **Rotas Dinâmicas** para landing pages de SEO.
+*   **Detalhes Técnicos**:
+    *   Criar um componente `DynamicInsurancePage.tsx` que recebe o conteúdo via arquivo de configuração (JSON) baseado no slug da URL.
+    *   Consolidar dezenas de rotas no `App.tsx` em padrões como `/seguro/:tipo` ou `/guarulhos/:bairro`.
+    *   Redução drástica na duplicação de código e facilidade para criar novas páginas em segundos via dados, não via código.
 
-### Etapa 2: Performance e Web Vitals (Médio Prazo)
-*   **Image Pipeline**: Implementar um componente `StandardImage` que use o serviço de Edge Functions para redimensionar imagens on-the-fly, garantindo o menor peso possível para dispositivos móveis.
-*   **Component Splitting**: Quebrar o `InsurancePageTemplate` em micro-componentes (Hero, FeatureList, FaqAccordion) carregados via `lazy` quando estiverem abaixo da dobra (fold).
-*   **Font Optimization**: Mudar o carregamento de fontes para auto-hospedagem com `font-display: optional` para eliminar o Layout Shift durante o carregamento de fontes.
+### Etapa 3: Modularização do CRM
+*   **Problema**: O arquivo `CRM.tsx` é um componente "gigante" (Fat Component) que contém dashboard, tabelas, filtros e lógica de exportação, dificultando a depuração.
+*   **Solução**: Decompor o CRM em componentes especializados e menores.
+*   **Detalhes Técnicos**:
+    *   Extrair `LeadsTable.tsx`, `DashboardStats.tsx` e `CRMActions.tsx`.
+    *   Mover funções utilitárias (como `exportToCSV`) para `src/lib/utils/export.ts`.
+    *   Implementar o módulo de Pipeline (Kanban) como um componente lazy-loaded independente.
 
-### Etapa 3: Resiliência e Monitoramento (Longo Prazo)
-*   **Global Error Tracking**: Integrar um serviço de log (como Sentry ou similar via Edge Functions) para capturar erros que o `ErrorBoundary` detecta em produção.
-*   **Teste de Regressão de SEO**: Expandir os scripts de validação para verificar automaticamente a presença de tags OpenGraph e Twitter Cards em cada nova rota criada.
-*   **PWA Advanced**: Configurar o Service Worker para cache agressivo de ativos estáticos e fallback offline para páginas já visitadas.
+### Etapa 4: Otimização de Performance e Core Web Vitals
+*   **Problema**: Grande volume de assets e componentes UI podem impactar o LCP (Largest Contentful Paint) e o FID (First Input Delay).
+*   **Solução**: Otimização agressiva de recursos.
+*   **Detalhes Técnicos**:
+    *   Implementar `React.lazy` em nível de componente para elementos pesados (gráficos, mapas, modais).
+    *   Padronizar o uso do `OptimizedImage` em todo o site com políticas de `priority` para heros e `lazy` para o restante.
+    *   Remover dependências redundantes e otimizar o carregamento de fontes.
+
+### Etapa 5: Automação de SEO e Metadados
+*   **Problema**: Metadados e Schemas JSON-LD estão espalhados por diversos componentes.
+*   **Solução**: Centralizar a gestão de SEO.
+*   **Detalhes Técnicos**:
+    *   Criar um provedor de contexto ou hook `useSEO` que injeta automaticamente as tags meta e schemas baseados no tipo de página.
+    *   Automatizar a geração de Breadcrumbs e FAQ Schemas para todas as páginas de serviço.
 
 ---
 
-### Detalhes Técnicos para Implementação
-
-````text
-Arquitetura Proposta:
-src/
-  ├── components/      # Componentes UI puros e reutilizáveis
-  ├── features/        # Lógica de negócio (ex: lead-capture, blog-engine)
-  ├── hooks/           # Reutilização de lógica (useAttribution, useForm)
-  ├── data/            # Apenas definições de tipos e dados JSON
-  └── lib/             # Infraestrutura (supabase, tracking, utilities)
-````
-
-**Impacto Esperado**:
-1. Redução de ~30% no tamanho do bundle principal (Main Chunk).
-2. Tempo de inicialização do servidor de desenvolvimento (Boot) estável abaixo de 2s.
-3. Nota 95+ estável no Lighthouse para Mobile e Desktop.
+**Cronograma Recomendado**:
+1.  **Semana 1**: Etapa 1 e 3 (Foco total na estabilidade do CRM).
+2.  **Semana 2**: Etapa 2 (Limpeza das rotas e consolidação de SEO).
+3.  **Semana 3**: Etapa 4 e 5 (Refinamento de performance e visibilidade orgânica).

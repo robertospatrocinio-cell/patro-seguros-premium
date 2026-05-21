@@ -196,7 +196,9 @@ const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const CRM = lazy(() => import("./pages/CRM"));
+const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 import RequireAdmin from "@/components/RequireAdmin";
+
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 
@@ -289,7 +291,8 @@ const App = () => {
             <Route path="/seguro-galpao" element={<SeguroGalpao />} />
             <Route path="/seguro-maquinas-industriais" element={<SeguroMaquinasIndustriais />} />
             <Route path="/seguro-maquinas-linha-amarela" element={<SeguroMaquinasLinhaAmarela />} />
-             <Route path="/seguro-auto-guarulhos" element={<SeoSeguroAutoGuarulhos />} />
+             <Route path="/seguro-auto-guarulhos" element={<Navigate to="/lp/seguro-auto-guarulhos" replace />} />
+             <Route path="/lp/:slug" element={<DynamicLandingPage />} />
              <Route path="/seguro-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
              <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresarialGuarulhos />} />
             <Route path="/corretora-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
