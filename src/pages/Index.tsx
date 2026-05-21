@@ -87,7 +87,7 @@ const Index = () => {
       ]} />
       <Header />
       <main id="main-content">
-        <section className="relative gradient-hero overflow-hidden min-h-[420px] flex items-center" aria-label="Início">
+        <section className="relative gradient-hero overflow-hidden min-h-[500px] flex items-center" aria-label="Início">
           <div className="absolute inset-0 z-0">
             <picture>
               <source media="(max-width: 600px)" srcSet="/images/hero-home-sm.webp" type="image/webp" />
