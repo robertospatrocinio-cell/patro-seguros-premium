@@ -244,8 +244,12 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
       <TooltipProvider>
         <Suspense fallback={null}>
           <DeferredRender>
-            <Toaster />
-            <Sonner />
+            <Suspense fallback={null}>
+              <Toaster />
+              <Sonner />
+              <WhatsAppButton />
+              <CookieBanner />
+            </Suspense>
           </DeferredRender>
         </Suspense>
         <BrowserRouter>
