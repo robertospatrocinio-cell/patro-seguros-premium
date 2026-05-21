@@ -248,9 +248,11 @@ const App = () => {
             <ServiceWorkerCheck />
             <Suspense fallback={<PageSkeleton />}>
               <Routes>
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
                 <Route path="/" element={<Index />} />
                 <Route path="/sobre" element={<Sobre />} />
-            <Route path="/parceiros" element={<Parceiros />} />
+                <Route path="/parceiros" element={<Parceiros />} />
             <Route path="/cotacao" element={<Cotacao />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/depoimentos" element={<Depoimentos />} />
