@@ -17,7 +17,8 @@ import {
   History,
   FileText,
   UserCheck,
-  Zap
+  Zap,
+  ExternalLink
 } from "lucide-react";
 import { 
   Card, 
@@ -120,6 +121,18 @@ const RelationshipModule = () => {
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 will-change-transform">
+      {/* Google Drive Connection Info */}
+      <Card className="bg-blue-50 border-blue-100 shadow-none border">
+        <CardHeader className="py-4">
+          <CardTitle className="text-sm font-semibold text-blue-800 flex items-center gap-2">
+            <ExternalLink className="w-4 h-4" /> Conexão com Google Drive Ativa
+          </CardTitle>
+          <CardDescription className="text-blue-700/80">
+            As apólices estão sendo sincronizadas das pastas mensais. Você pode vincular os links diretamente aos documentos dos contatos.
+          </CardDescription>
+        </CardHeader>
+      </Card>
+
       {/* Resumo de Relacionamento (Dashboard Relacionamento) */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="bg-white shadow-sm border-none">
