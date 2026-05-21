@@ -151,6 +151,16 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       return;
     }
 
+    if (!showChecklist) {
+      setShowChecklist(true);
+      return;
+    }
+
+    if (!isChecklistComplete) {
+      toast.error("Por favor, confirme todos os itens do checklist antes de enviar.");
+      return;
+    }
+
     setSending(true);
 
     const parts = [
