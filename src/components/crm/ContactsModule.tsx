@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   Search, 
   UserPlus, 
@@ -12,7 +12,16 @@ import {
   Users,
   X,
   Plus,
-  Paperclip
+  Paperclip,
+  User,
+  Calendar,
+  Baby,
+  Car,
+  Bike,
+  HeartPulse,
+  Home,
+  Briefcase,
+  ShieldAlert
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -46,6 +55,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useContacts } from "@/hooks/queries/useContacts";
 import { toast } from "sonner";
+import { Separator } from "@/components/ui/separator";
 
 const INSURANCE_TYPES = [
   "Auto", "Vida", "Saúde", "Residencial", "Empresarial", "RC Profissional", "Previdência", "Consórcio"
