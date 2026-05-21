@@ -64,7 +64,20 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [checkboxGroups, setCheckboxGroups] = useState<Record<string, string[]>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [showChecklist, setShowChecklist] = useState(false);
+  const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
+
+  const checklistOptions = [
+    { id: "correct_phone", label: "Meu WhatsApp está correto para receber a cotação." },
+    { id: "essential_info", label: "Forneci as informações básicas necessárias." },
+    { id: "ready_to_talk", label: "Estou pronto para conversar com um especialista." }
+  ];
+
+  const isChecklistComplete = checklistOptions.every(item => checklistItems[item.id]);
+
+  const toggleChecklistItem = (id: string) => {
+    setChecklistItems(prev => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const getFieldError = (field: FormFieldConfig) => {
     if (!touched[field.id]) return "";
