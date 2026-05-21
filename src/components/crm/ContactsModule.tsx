@@ -169,7 +169,7 @@ const ContactsModule = () => {
     });
   }, [newContact.children_count]);
 
-  const handleCreateContact = async () => {
+  const handleSaveContact = async () => {
     if (!newContact.full_name) {
       toast.error("O nome completo é obrigatório");
       return;
@@ -185,64 +185,51 @@ const ContactsModule = () => {
       for (const f of dateFields) {
         if (sanitized[f] === "" || sanitized[f] === undefined) sanitized[f] = null;
       }
-      await createContact.mutateAsync({
-        ...sanitized,
-        insurances: selectedInsurances
-      });
+
+      if (editingContactId) {
+        await updateContact.mutateAsync({
+          ...sanitized,
+          id: editingContactId,
+          insurances: selectedInsurances
+        });
+      } else {
+        await createContact.mutateAsync({
+          ...sanitized,
+          insurances: selectedInsurances
+        });
+      }
+
       setIsAddModalOpen(false);
-      setNewContact({
-        full_name: "",
-        email: "",
-        phone: "",
-        cpf_cnpj: "",
-        birth_date: "",
-        client_type: "cliente",
-        is_client: true,
-        notes: "",
-        marital_status: "Solteiro",
-        partner_name: "",
-        partner_birthday: "",
-        has_children: false,
-        children_count: 0,
-        children_data: [],
-        car_count: 0,
-        has_motorcycle: false,
-        has_life_insurance: false,
-        life_insurance_carrier: "",
-        life_insurance_renewal: "",
-        has_home_insurance: false,
-        home_insurance_carrier: "",
-        home_insurance_renewal: "",
-        health_plan_type: "",
-        health_insurance_carrier: "",
-        health_insurance_renewal: "",
-        has_business_insurance: false,
-        business_insurance_carrier: "",
-        business_insurance_renewal: "",
-        has_other_insurance: false,
-        other_insurance_carrier: "",
-        other_insurance_renewal: "",
-        last_contact_date: "",
-        next_contact_date: "",
-        profession: "",
-        income_bracket: "",
-        home_ownership: "Própria",
-        lead_source: "",
-        referral_contact_id: "",
-        salesperson_name: "",
-        partner_source_name: "",
-        satisfaction_score: 5,
-        last_interaction_type: "WhatsApp",
-        has_consortium: false,
-        consortium_type: "Auto",
-        consortium_carrier: "",
-        consortium_renewal: "",
-        responsible_name: ""
-      });
+      setEditingContactId(null);
+      setNewContact(INITIAL_CONTACT_STATE);
       setSelectedInsurances([]);
     } catch (e) {
       // toast handled in hook
     }
+  };
+
+  const handleEditClick = (contact: any) => {
+    setEditingContactId(contact.id);
+    
+    // Fill the form with contact data
+    const contactData = { ...INITIAL_CONTACT_STATE };
+    Object.keys(INITIAL_CONTACT_STATE).forEach(key => {
+      if (contact[key] !== undefined && contact[key] !== null) {
+        // @ts-ignore
+        contactData[key] = contact[key];
+      }
+    });
+    
+    setNewContact(contactData);
+    
+    // Set selected insurances
+    if (contact.contact_insurances) {
+      setSelectedInsurances(contact.contact_insurances.map((ci: any) => ci.insurance_type));
+    } else {
+      setSelectedInsurances([]);
+    }
+    
+    setIsAddModalOpen(true);
   };
 
   const handleFileUpload = async (contactId: string, e: React.ChangeEvent<HTMLInputElement>, category: string) => {
