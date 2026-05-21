@@ -92,7 +92,7 @@ const Index = () => {
         <section className="relative gradient-hero overflow-hidden min-h-[500px] flex items-center" aria-label="Apresentação da Patro Seguros em Guarulhos">
           <div className="absolute inset-0 z-0">
             <picture>
-              <source media="(max-width: 600px)" srcSet="/images/hero-home-sm.webp" type="image/webp" />
+              <source media="(max-width: 600px)" srcSet="/images/hero-familia-sm.webp" type="image/webp" />
               <img
                 src="/images/hero-home.webp"
                 alt="Consultor da Patro Seguros realizando atendimento especializado em Guarulhos"
