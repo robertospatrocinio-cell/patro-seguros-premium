@@ -245,12 +245,14 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
   <ErrorBoundary>
     <QueryProviderWrapper>
       <TooltipProvider>
-        <DeferredRender>
-          <Toaster />
-          <Sonner />
-          <WhatsAppButton />
-          <CookieBanner />
-        </DeferredRender>
+        <Suspense fallback={null}>
+          <DeferredRender>
+            <Toaster />
+            <Sonner />
+            <WhatsAppButton />
+            <CookieBanner />
+          </DeferredRender>
+        </Suspense>
         <BrowserRouter>
           <ScrollToTop />
           <Suspense fallback={<PageSkeleton />}>
