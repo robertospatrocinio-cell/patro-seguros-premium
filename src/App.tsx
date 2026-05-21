@@ -486,12 +486,6 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="*" element={<LegacyWpRedirect />} />
           </Routes>
         </Suspense>
-          <Suspense fallback={null}>
-            <DeferredRender>
-              <WhatsAppButton />
-              <CookieBanner />
-            </DeferredRender>
-          </Suspense>
         </BrowserRouter>
       </TooltipProvider>
     </Suspense>
