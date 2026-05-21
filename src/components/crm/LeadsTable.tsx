@@ -52,12 +52,12 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
           {loading ? (
             Array.from({ length: 5 }).map((_, i) => (
               <TableRow key={i}>
-                <TableCell colSpan={6} className="h-12 animate-pulse bg-slate-50/50"></TableCell>
+                <TableCell colSpan={7} className="h-12 animate-pulse bg-slate-50/50"></TableCell>
               </TableRow>
             ))
           ) : leads.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
+              <TableCell colSpan={7} className="h-24 text-center text-muted-foreground">
                 Nenhum lead encontrado.
               </TableCell>
             </TableRow>
