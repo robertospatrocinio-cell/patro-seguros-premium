@@ -61,16 +61,20 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
               </TableCell>
             </TableRow>
           ) : (
-            leads.map((lead) => (
-              <TableRow key={lead.id} className="hover:bg-slate-50/50">
-                <TableCell className="text-sm">
-                  {lead.created_at ? (
-                    <>
-                      <span className="font-medium">{format(new Date(lead.created_at), "dd/MM", { locale: ptBR })}</span>
-                      <span className="text-muted-foreground ml-2">{format(new Date(lead.created_at), "HH:mm")}</span>
-                    </>
-                  ) : "—"}
-                </TableCell>
+            leads.map((lead) => {
+              const dateObj = lead.created_at ? new Date(lead.created_at) : null;
+              const isValidDate = dateObj && !isNaN(dateObj.getTime());
+              
+              return (
+                <TableRow key={lead.id} className="hover:bg-slate-50/50">
+                  <TableCell className="text-sm">
+                    {isValidDate ? (
+                      <>
+                        <span className="font-medium">{format(dateObj!, "dd/MM", { locale: ptBR })}</span>
+                        <span className="text-muted-foreground ml-2">{format(dateObj!, "HH:mm")}</span>
+                      </>
+                    ) : "—"}
+                  </TableCell>
                 <TableCell className="font-semibold text-slate-900 truncate max-w-[200px]">{lead.full_name || "Sem Nome"}</TableCell>
                 <TableCell>
                   <div className="text-xs space-y-0.5">
