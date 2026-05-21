@@ -91,6 +91,7 @@ export type Database = {
           phone: string | null
           profession: string | null
           referral_contact_id: string | null
+          responsible_name: string | null
           salesperson_name: string | null
           satisfaction_score: number | null
           updated_at: string | null
@@ -142,6 +143,7 @@ export type Database = {
           phone?: string | null
           profession?: string | null
           referral_contact_id?: string | null
+          responsible_name?: string | null
           salesperson_name?: string | null
           satisfaction_score?: number | null
           updated_at?: string | null
@@ -193,6 +195,7 @@ export type Database = {
           phone?: string | null
           profession?: string | null
           referral_contact_id?: string | null
+          responsible_name?: string | null
           salesperson_name?: string | null
           satisfaction_score?: number | null
           updated_at?: string | null
@@ -671,6 +674,7 @@ export type Database = {
           notes: string | null
           phone: string | null
           raw_data: Json | null
+          responsible_name: string | null
           source_origin: string | null
           source_page: string | null
           state: string | null
@@ -697,6 +701,7 @@ export type Database = {
           notes?: string | null
           phone?: string | null
           raw_data?: Json | null
+          responsible_name?: string | null
           source_origin?: string | null
           source_page?: string | null
           state?: string | null
@@ -723,6 +728,7 @@ export type Database = {
           notes?: string | null
           phone?: string | null
           raw_data?: Json | null
+          responsible_name?: string | null
           source_origin?: string | null
           source_page?: string | null
           state?: string | null
