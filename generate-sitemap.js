@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const domain = "https://www.patroseguros.com.br";
 const date = "2026-05-21";
@@ -103,7 +103,6 @@ const appRoutes = [
 
 const allUrls = new Set([...existingUrls]);
 appRoutes.forEach(r => {
-  // Normalize: ensure no double slashes and correct protocol
   const fullUrl = domain + (r.startsWith('/') ? r : '/' + r);
   allUrls.add(fullUrl);
 });
