@@ -461,8 +461,10 @@ const ContactsModule = () => {
                 Transferir/Adicionar Contato
               </Button>
             </DialogTrigger>
+          </Dialog>
+        </div>
+      </div>
 
-          <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Novo Contato</DialogTitle>
               <DialogDescription>
