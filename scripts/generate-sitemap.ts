@@ -295,18 +295,48 @@ export function generateSitemap(blogSlugs: string[]): string {
   autoRoutes.add("/seguradoras/bradesco-seguros-guarulhos");
   autoRoutes.add("/seguradoras/mitsui-guarulhos");
 
+  const healthPlanEntries: SitemapEntry[] = [
+    "/planos-de-saude/prevent-senior-guarulhos",
+    "/planos-de-saude/sulamerica-saude-guarulhos",
+    "/planos-de-saude/amil-saude-guarulhos",
+    "/planos-de-saude/porto-saude-guarulhos",
+    "/planos-de-saude/hapvida-guarulhos",
+    "/planos-de-saude/medsenior-guarulhos",
+    "/planos-de-saude/bradesco-saude-guarulhos",
+    "/planos-de-saude/sami-guarulhos",
+    "/planos-de-saude/unimed-guarulhos",
+    "/planos-de-saude/alice-guarulhos",
+  ].map(loc => ({ loc, priority: "0.8", changefreq: "weekly" }));
+
+  const insurerEntries: SitemapEntry[] = [
+    "/seguradoras/porto-seguro-guarulhos",
+    "/seguradoras/tokio-marine-guarulhos",
+    "/seguradoras/allianz-guarulhos",
+    "/seguradoras/azul-seguros-guarulhos",
+    "/seguradoras/mapfre-guarulhos",
+    "/seguradoras/zurich-guarulhos",
+    "/seguradoras/yellum-guarulhos",
+    "/seguradoras/suhai-guarulhos",
+    "/seguradoras/hdi-guarulhos",
+    "/seguradoras/itau-seguros-guarulhos",
+    "/seguradoras/bradesco-seguros-guarulhos",
+    "/seguradoras/mitsui-guarulhos",
+  ].map(loc => ({ loc, priority: "0.8", changefreq: "weekly" }));
+
   const flat = [
     ...highIntentTransactional,
     ...seoLocalGuarulhos,
     ...coreProducts,
     ...secondaryProducts,
     ...tertiaryProducts,
-     ...segmentEntries,
-     ...nichos,
-     ...informational,
-     ...investments,
-     ...hubs,
-     ...landingPages,
+    ...healthPlanEntries,
+    ...insurerEntries,
+    ...segmentEntries,
+    ...nichos,
+    ...informational,
+    ...investments,
+    ...hubs,
+    ...landingPages,
     ...bairroEntries,
     ...localPageEntries,
     ...blogEntries,
