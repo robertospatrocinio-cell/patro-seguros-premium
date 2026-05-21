@@ -121,7 +121,7 @@ const faqs = [
                 <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
             <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
-                Corretora de Seguros em Guarulhos
+                Patro Seguros: Corretora de Seguros em Guarulhos
               </h1>
               <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
                 Atendimento personalizado · Melhores seguradoras · Cotação rápida
