@@ -23,6 +23,14 @@ const LeadMagnetSection = () => {
   const [whatsapp, setWhatsapp] = useState("");
   const [sent, setSent] = useState(false);
 
+  const handleNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  }, []);
+
+  const handleWhatsappChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setWhatsapp(formatWhatsApp(e.target.value));
+  }, []);
+
   const canSubmit = name.trim().length >= 2 && isValidWhatsApp(whatsapp);
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
