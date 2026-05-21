@@ -102,7 +102,13 @@ const ContactsModule = () => {
     other_insurance_carrier: "",
     other_insurance_renewal: "",
     last_contact_date: "",
-    next_contact_date: ""
+    next_contact_date: "",
+    profession: "",
+    income_bracket: "",
+    home_ownership: "Própria",
+    lead_source: "",
+    satisfaction_score: 10,
+    last_interaction_type: "WhatsApp"
   });
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
@@ -169,7 +175,13 @@ const ContactsModule = () => {
         other_insurance_carrier: "",
         other_insurance_renewal: "",
         last_contact_date: "",
-        next_contact_date: ""
+        next_contact_date: "",
+        profession: "",
+        income_bracket: "",
+        home_ownership: "Própria",
+        lead_source: "",
+        satisfaction_score: 10,
+        last_interaction_type: "WhatsApp"
       });
       setSelectedInsurances([]);
     } catch (e) {
@@ -429,6 +441,75 @@ const ContactsModule = () => {
               </div>
 
               <Separator className="my-2" />
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="profession">Profissão</Label>
+                  <Input 
+                    id="profession" 
+                    placeholder="Ex: Advogado, Médico..."
+                    value={newContact.profession}
+                    onChange={e => setNewContact({...newContact, profession: e.target.value})}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Renda Estimada</Label>
+                  <Select 
+                    value={newContact.income_bracket} 
+                    onValueChange={(val) => setNewContact({...newContact, income_bracket: val})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione a faixa..." />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Até 5k">Até R$ 5.000</SelectItem>
+                      <SelectItem value="5k-10k">R$ 5.000 - R$ 10.000</SelectItem>
+                      <SelectItem value="10k-20k">R$ 10.000 - R$ 20.000</SelectItem>
+                      <SelectItem value="Acima 20k">Acima de R$ 20.000</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Tipo de Imóvel</Label>
+                  <Select 
+                    value={newContact.home_ownership} 
+                    onValueChange={(val) => setNewContact({...newContact, home_ownership: val})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Própria">Própria</SelectItem>
+                      <SelectItem value="Alugada">Alugada</SelectItem>
+                      <SelectItem value="Financiada">Financiada</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label>Origem do Lead</Label>
+                  <Select 
+                    value={newContact.lead_source} 
+                    onValueChange={(val) => setNewContact({...newContact, lead_source: val})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Como nos conheceu?" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Indicação">Indicação</SelectItem>
+                      <SelectItem value="Instagram">Instagram</SelectItem>
+                      <SelectItem value="Google">Google</SelectItem>
+                      <SelectItem value="Facebook">Facebook</SelectItem>
+                      <SelectItem value="Outros">Outros</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <Separator className="my-2" />
+
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
