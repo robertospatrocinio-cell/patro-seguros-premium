@@ -1,7 +1,5 @@
 import { useParams, Navigate } from "react-router-dom";
 import { landingPagesData } from "@/data/landingPages";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 
 const DynamicLandingPage = () => {
@@ -13,17 +11,17 @@ const DynamicLandingPage = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1">
-        <InsurancePageTemplate 
-          title={pageData.title}
-          description={pageData.description}
-          insuranceType={pageData.insuranceType}
-        />
-      </main>
-      <Footer />
-    </div>
+    <InsurancePageTemplate 
+      title={pageData.title}
+      subtitle={pageData.description}
+      description={pageData.description}
+      icon={pageData.icon || "🛡️"}
+      coverages={pageData.coverages || []}
+      whoNeeds={pageData.whoNeeds || []}
+      whyPatro={pageData.whyPatro || []}
+      faqs={pageData.faqs || []}
+      heroImage={pageData.heroImage}
+    />
   );
 };
 
