@@ -119,7 +119,7 @@ const RelationshipModule = () => {
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <div className="space-y-8 animate-in fade-in duration-500 will-change-transform">
       {/* Resumo de Relacionamento (Dashboard Relacionamento) */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="bg-white shadow-sm border-none">
