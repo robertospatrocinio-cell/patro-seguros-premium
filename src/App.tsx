@@ -243,7 +243,7 @@ const App = () => {
           <BrowserRouter>
             <ScrollToTop />
             <ServiceWorkerCheck />
-            <Suspense fallback={null}>
+            <Suspense fallback={<PageSkeleton />}>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/sobre" element={<Sobre />} />

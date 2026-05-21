@@ -61,7 +61,7 @@ const Index = () => {
   
   useEffect(() => {
     const el = document.getElementById('persistent-hero-bg');
-    if (el) el.style.display = 'none';
+    if (el) el.style.setProperty('display', 'none', 'important');
     return () => { if (el) el.style.display = ''; };
   }, []);
 

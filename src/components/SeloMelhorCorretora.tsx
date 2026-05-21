@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useState, useLayoutEffect } from "react";
 
 interface SeloMelhorCorretoraProps {
   /** Tamanho do selo. sm: 80px, md: 112px, lg: 144px, xl: 176px */
@@ -18,7 +18,7 @@ const SIZE_MAP = {
 const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = false }: SeloMelhorCorretoraProps) => {
   const [isClient, setIsClient] = useState(priority);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!priority) {
       setIsClient(true);
     }
