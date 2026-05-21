@@ -8,7 +8,7 @@ export interface Contact {
   email: string | null;
   phone: string | null;
   cpf_cnpj: string | null;
-  client_type: 'cliente' | 'amigo' | 'não cliente' | null;
+  client_type: string | null;
   is_client: boolean;
   notes: string | null;
   marital_status?: string | null;
@@ -17,7 +17,7 @@ export interface Contact {
   partner_birthday?: string | null;
   has_children?: boolean;
   children_count?: number;
-  children_data?: any[];
+  children_data?: any;
   car_count?: number;
   has_motorcycle?: boolean;
   has_life_insurance?: boolean;
