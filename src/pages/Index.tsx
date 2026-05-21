@@ -276,7 +276,9 @@ const Index = () => {
           </div>
         </section>
 
-        <LeadMagnetSection />
+        <LazySection minHeight="200px">
+          <LeadMagnetSection />
+        </LazySection>
 
         <FormCTASection 
           title="Proteja seu patrimônio com quem entende de Guarulhos"
@@ -380,16 +382,24 @@ const Index = () => {
               <h2 id="google-business-heading" className="mt-3">Avaliações reais de clientes reais</h2>
             </div>
             <div className="max-w-md mx-auto">
-              <GoogleBusinessWidget />
+              <LazySection minHeight="250px">
+                <GoogleBusinessWidget />
+              </LazySection>
             </div>
           </div>
         </section>
 
-        <AgrishowPromoBanner source="home" variant="full" />
+        <LazySection minHeight="150px">
+          <AgrishowPromoBanner source="home" variant="full" />
+        </LazySection>
 
-        <HomeBlogSection />
+        <LazySection minHeight="400px">
+          <HomeBlogSection />
+        </LazySection>
 
-        <PortoPartnershipSection />
+        <LazySection minHeight="300px">
+          <PortoPartnershipSection />
+        </LazySection>
 
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
@@ -465,7 +475,9 @@ const Index = () => {
           </div>
         </section>
 
-        <InsuranceHubLinks />
+        <LazySection minHeight="200px">
+          <InsuranceHubLinks />
+        </LazySection>
       </main>
       <Footer />
     </>
