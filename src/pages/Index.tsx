@@ -18,6 +18,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import OptimizedImage from "@/components/OptimizedImage";
 import LazySection from "@/components/LazySection";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
+import LocalSavingsCalculator from "@/components/LocalSavingsCalculator";
 
 const InsuranceHeroSelector = lazy(() => import("@/components/InsuranceHeroSelector"));
 const FormCTASection = lazy(() => import("@/components/FormCTASection"));
@@ -178,6 +179,41 @@ const faqs = [
             </div>
           </div>
         </section>
+
+         {/* Calculator Section */}
+         <section className="py-16 md:py-24 bg-white relative overflow-hidden" aria-label="Simulador de economia">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col lg:flex-row gap-12 items-center">
+                <div className="lg:w-1/2 space-y-6">
+                  <span className="section-label">Ferramenta Gratuita</span>
+                  <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight">
+                    O seguro em Guarulhos subiu? <span className="text-primary">Nós ajudamos você a pagar menos.</span>
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Nossa ferramenta analisa o custo médio das seguradoras parceiras com base no índice de risco de cada bairro em Guarulhos. Compare e economize em minutos.
+                  </p>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">1</div>
+                      <p className="text-sm font-medium">Informe quanto paga atualmente</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">2</div>
+                      <p className="text-sm font-medium">Selecione seu bairro em Guarulhos</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">3</div>
+                      <p className="text-sm font-medium">Receba o melhor comparativo do mercado</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="lg:w-1/2 w-full">
+                  <LocalSavingsCalculator />
+                </div>
+              </div>
+            </div>
+         </section>
 
          {/* Diferenciais */}
          <LazySection minHeight="400px" className="py-16 md:py-32 bg-background">
