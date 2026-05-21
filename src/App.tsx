@@ -1,7 +1,7 @@
   import { lazy, Suspense, useEffect, useState } from "react";
   import { setUserContext } from "@/lib/monitoring";
   import { supabase } from "@/integrations/supabase/client";
- import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
  const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
