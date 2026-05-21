@@ -29,9 +29,25 @@ const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [searchParams] = useSearchParams();
 
-  const VALID_TYPES = ["auto","vida","residencial","viagem","saude","empresarial","frota","rc","outros"] as const;
+  const VALID_TYPES = ["auto","vida","residencial","viagem","saude","empresarial","frota","rc","outros", "planos-de-saude", "agronegocio", "seguro-celular", "seguro-transporte", "seguro-fianca"] as const;
   const tipoParam = (searchParams.get("tipo") || "").toLowerCase();
-  const initialType = (VALID_TYPES as readonly string[]).includes(tipoParam) ? tipoParam : "";
+  
+  // Mapeamento de slugs de categoria do blog para valores do select
+  const categoryToValue: Record<string, string> = {
+    "seguro-auto": "auto",
+    "seguro-vida": "vida",
+    "seguro-residencial": "residencial",
+    "seguro-viagem": "viagem",
+    "planos-de-saude": "saude",
+    "seguro-empresarial": "empresarial",
+    "seguro-frota": "frota",
+    "agronegocio": "outros",
+    "seguro-transporte": "frota", // ou novo valor se disponível
+    "seguro-fianca": "residencial", // ou novo valor
+    "rc": "rc"
+  };
+
+  const initialType = categoryToValue[tipoParam] || ((VALID_TYPES as readonly string[]).includes(tipoParam) ? tipoParam : "");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
