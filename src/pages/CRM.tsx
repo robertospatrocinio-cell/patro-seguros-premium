@@ -62,9 +62,9 @@ const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isRefreshing, setIsRefreshing] = useState(false);
 
-  const fetchLeads = async () => {
+  const fetchLeads = async (showLoading = true) => {
     try {
-      setIsRefreshing(true);
+      if (showLoading) setIsRefreshing(true);
       const { data, error } = await supabase
         .from("leads")
         .select("*")
@@ -84,10 +84,10 @@ const CRMPage = () => {
   useEffect(() => {
     fetchLeads();
     
-    // Configurar polling para manter os dados atualizados sem congelar
+    // Polling interval de 1 minuto para manter os dados atualizados
     const interval = setInterval(() => {
-      fetchLeads();
-    }, 60000); // Atualiza a cada 1 minuto
+      fetchLeads(false); // Background update
+    }, 60000);
     
     return () => clearInterval(interval);
   }, []);
@@ -171,7 +171,7 @@ const CRMPage = () => {
             <div className="flex items-center gap-3">
               <Button 
                 variant="outline" 
-                onClick={fetchLeads} 
+                onClick={() => fetchLeads()} 
                 disabled={isRefreshing}
                 className="bg-white border-slate-200"
               >
