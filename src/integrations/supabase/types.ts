@@ -46,6 +46,8 @@ export type Database = {
       contacts: {
         Row: {
           birth_date: string | null
+          business_insurance_carrier: string | null
+          business_insurance_renewal: string | null
           car_count: number | null
           children_count: number | null
           children_data: Json | null
@@ -60,11 +62,19 @@ export type Database = {
           has_life_insurance: boolean | null
           has_motorcycle: boolean | null
           has_other_insurance: boolean | null
+          health_insurance_carrier: string | null
+          health_insurance_renewal: string | null
           health_plan_type: string | null
+          home_insurance_carrier: string | null
+          home_insurance_renewal: string | null
           id: string
           is_client: boolean | null
+          life_insurance_carrier: string | null
+          life_insurance_renewal: string | null
           marital_status: string | null
           notes: string | null
+          other_insurance_carrier: string | null
+          other_insurance_renewal: string | null
           partner_birthday: string | null
           partner_name: string | null
           phone: string | null
@@ -72,6 +82,8 @@ export type Database = {
         }
         Insert: {
           birth_date?: string | null
+          business_insurance_carrier?: string | null
+          business_insurance_renewal?: string | null
           car_count?: number | null
           children_count?: number | null
           children_data?: Json | null
@@ -86,11 +98,19 @@ export type Database = {
           has_life_insurance?: boolean | null
           has_motorcycle?: boolean | null
           has_other_insurance?: boolean | null
+          health_insurance_carrier?: string | null
+          health_insurance_renewal?: string | null
           health_plan_type?: string | null
+          home_insurance_carrier?: string | null
+          home_insurance_renewal?: string | null
           id?: string
           is_client?: boolean | null
+          life_insurance_carrier?: string | null
+          life_insurance_renewal?: string | null
           marital_status?: string | null
           notes?: string | null
+          other_insurance_carrier?: string | null
+          other_insurance_renewal?: string | null
           partner_birthday?: string | null
           partner_name?: string | null
           phone?: string | null
@@ -98,6 +118,8 @@ export type Database = {
         }
         Update: {
           birth_date?: string | null
+          business_insurance_carrier?: string | null
+          business_insurance_renewal?: string | null
           car_count?: number | null
           children_count?: number | null
           children_data?: Json | null
@@ -112,11 +134,19 @@ export type Database = {
           has_life_insurance?: boolean | null
           has_motorcycle?: boolean | null
           has_other_insurance?: boolean | null
+          health_insurance_carrier?: string | null
+          health_insurance_renewal?: string | null
           health_plan_type?: string | null
+          home_insurance_carrier?: string | null
+          home_insurance_renewal?: string | null
           id?: string
           is_client?: boolean | null
+          life_insurance_carrier?: string | null
+          life_insurance_renewal?: string | null
           marital_status?: string | null
           notes?: string | null
+          other_insurance_carrier?: string | null
+          other_insurance_renewal?: string | null
           partner_birthday?: string | null
           partner_name?: string | null
           phone?: string | null
