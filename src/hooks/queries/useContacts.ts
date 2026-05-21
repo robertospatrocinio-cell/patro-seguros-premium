@@ -46,6 +46,10 @@ export interface Contact {
   partner_source_name?: string | null;
   satisfaction_score?: number | null;
   last_interaction_type?: string | null;
+  has_consortium?: boolean;
+  consortium_type?: string | null;
+  consortium_carrier?: string | null;
+  consortium_renewal?: string | null;
   created_at: string;
 }
 

@@ -110,8 +110,12 @@ const ContactsModule = () => {
     referral_contact_id: "",
     salesperson_name: "",
     partner_source_name: "",
-    satisfaction_score: 10,
-    last_interaction_type: "WhatsApp"
+    satisfaction_score: 5,
+    last_interaction_type: "WhatsApp",
+    has_consortium: false,
+    consortium_type: "Auto",
+    consortium_carrier: "",
+    consortium_renewal: ""
   });
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
@@ -186,8 +190,12 @@ const ContactsModule = () => {
         referral_contact_id: "",
         salesperson_name: "",
         partner_source_name: "",
-        satisfaction_score: 10,
-        last_interaction_type: "WhatsApp"
+        satisfaction_score: 5,
+        last_interaction_type: "WhatsApp",
+        has_consortium: false,
+        consortium_type: "Auto",
+        consortium_carrier: "",
+        consortium_renewal: ""
       });
       setSelectedInsurances([]);
     } catch (e) {
@@ -495,6 +503,28 @@ const ContactsModule = () => {
                   </Select>
                 </div>
                 <div className="space-y-2">
+                  <Label>Nota de Satisfação (0 a 5)</Label>
+                  <Select 
+                    value={String(newContact.satisfaction_score)} 
+                    onValueChange={(val) => setNewContact({...newContact, satisfaction_score: parseInt(val)})}
+                  >
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="0">0 - Muito Insatisfeito</SelectItem>
+                      <SelectItem value="1">1 - Insatisfeito</SelectItem>
+                      <SelectItem value="2">2 - Regular</SelectItem>
+                      <SelectItem value="3">3 - Bom</SelectItem>
+                      <SelectItem value="4">4 - Muito Bom</SelectItem>
+                      <SelectItem value="5">5 - Excelente</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
                   <Label>Origem do Lead</Label>
                   <Select 
                     value={newContact.lead_source} 
@@ -702,6 +732,48 @@ const ContactsModule = () => {
                           value={newContact.other_insurance_renewal}
                           onChange={e => setNewContact({...newContact, other_insurance_renewal: e.target.value})}
                         />
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <Checkbox 
+                        id="has_consortium" 
+                        checked={newContact.has_consortium}
+                        onCheckedChange={(checked) => setNewContact({...newContact, has_consortium: !!checked})}
+                      />
+                      <Label htmlFor="has_consortium" className="text-sm">Consórcio</Label>
+                    </div>
+                    {newContact.has_consortium && (
+                      <div className="space-y-2 pl-6">
+                        <Select 
+                          value={newContact.consortium_type || "Auto"} 
+                          onValueChange={(val) => setNewContact({...newContact, consortium_type: val})}
+                        >
+                          <SelectTrigger className="h-8 text-xs">
+                            <SelectValue placeholder="Tipo" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Auto">Automóveis</SelectItem>
+                            <SelectItem value="Imóveis">Imóveis</SelectItem>
+                            <SelectItem value="Pesados">Pesados</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <div className="grid grid-cols-2 gap-2">
+                          <Input 
+                            placeholder="Administradora"
+                            className="h-8 text-xs"
+                            value={newContact.consortium_carrier}
+                            onChange={e => setNewContact({...newContact, consortium_carrier: e.target.value})}
+                          />
+                          <Input 
+                            type="date"
+                            className="h-8 text-xs"
+                            value={newContact.consortium_renewal}
+                            onChange={e => setNewContact({...newContact, consortium_renewal: e.target.value})}
+                          />
+                        </div>
                       </div>
                     )}
                   </div>

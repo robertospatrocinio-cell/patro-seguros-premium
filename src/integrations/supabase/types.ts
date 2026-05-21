@@ -52,12 +52,16 @@ export type Database = {
           children_count: number | null
           children_data: Json | null
           client_type: string | null
+          consortium_carrier: string | null
+          consortium_renewal: string | null
+          consortium_type: string | null
           cpf_cnpj: string | null
           created_at: string | null
           email: string | null
           full_name: string
           has_business_insurance: boolean | null
           has_children: boolean | null
+          has_consortium: boolean | null
           has_home_insurance: boolean | null
           has_life_insurance: boolean | null
           has_motorcycle: boolean | null
@@ -99,12 +103,16 @@ export type Database = {
           children_count?: number | null
           children_data?: Json | null
           client_type?: string | null
+          consortium_carrier?: string | null
+          consortium_renewal?: string | null
+          consortium_type?: string | null
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
           full_name: string
           has_business_insurance?: boolean | null
           has_children?: boolean | null
+          has_consortium?: boolean | null
           has_home_insurance?: boolean | null
           has_life_insurance?: boolean | null
           has_motorcycle?: boolean | null
@@ -146,12 +154,16 @@ export type Database = {
           children_count?: number | null
           children_data?: Json | null
           client_type?: string | null
+          consortium_carrier?: string | null
+          consortium_renewal?: string | null
+          consortium_type?: string | null
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
           full_name?: string
           has_business_insurance?: boolean | null
           has_children?: boolean | null
+          has_consortium?: boolean | null
           has_home_insurance?: boolean | null
           has_life_insurance?: boolean | null
           has_motorcycle?: boolean | null
