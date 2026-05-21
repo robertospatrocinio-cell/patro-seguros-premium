@@ -167,6 +167,13 @@ const InsurancePageTemplate = ({
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
+      <LocalAreaSchema
+        serviceName={title}
+        url={canonicalUrl}
+        description={metaDescription || subtitle}
+        city="Guarulhos"
+        faqs={skipFAQSchema ? [] : faqs}
+      />
       {!skipAggregateRating && (
         <AggregateRatingSchema
           serviceName={title}
@@ -174,6 +181,7 @@ const InsurancePageTemplate = ({
           description={metaDescription || subtitle}
         />
       )}
+
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },
