@@ -2,6 +2,7 @@ import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 const logoFull = "/images/logo-full.webp";
 
