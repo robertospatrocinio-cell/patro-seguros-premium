@@ -16,7 +16,8 @@ import {
   FileText,
   UserCheck,
   TrendingUp,
-  Award
+  Award,
+  Heart
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -38,6 +39,7 @@ import { toast } from "sonner";
 import { format, startOfWeek, endOfWeek, isWithinInterval } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { DashboardOverview } from "@/components/crm/DashboardOverview";
+import RelationshipModule from "@/components/crm/RelationshipModule";
 
 
 interface Lead {
@@ -194,6 +196,9 @@ const CRMPage = () => {
                 <TabsTrigger value="renewals" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
                   <RefreshCw className="w-4 h-4 mr-2" /> Renovações
                 </TabsTrigger>
+                <TabsTrigger value="relationship" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <Heart className="w-4 h-4 mr-2" /> Relacionamento
+                </TabsTrigger>
               </TabsList>
               
               <div className="hidden md:flex px-4 gap-4 text-sm font-medium text-slate-500">
@@ -313,6 +318,10 @@ const CRMPage = () => {
                 <h3 className="text-lg font-semibold text-slate-900">Módulo Kanban em Desenvolvimento</h3>
                 <p className="text-muted-foreground">O visual estilo Pipedrive/Monday está sendo configurado.</p>
               </div>
+            </TabsContent>
+
+            <TabsContent value="relationship" className="mt-0">
+              <RelationshipModule />
             </TabsContent>
           </Tabs>
         </div>
