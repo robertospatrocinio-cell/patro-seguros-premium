@@ -5,10 +5,10 @@ const SeguroLojasShopping = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro para Lojas de Shopping"
-      subtitle="Proteção especializada para lojistas e operações dentro de shopping centers"
+      title="Seguro para Loja em Shopping"
+      subtitle="Seguro loja: proteção para lojistas em shopping contra incêndio, roubo, RC e lucros cessantes"
       icon="🏬"
-      metaDescription="Seguro para Lojas de Shopping — proteção contra incêndio, roubo, RC e lucros cessantes para lojistas em centros comerciais. Cotação grátis Patro Seguros."
+      metaDescription="Seguro para loja em shopping: incêndio, roubo, RC, lucros cessantes e danos elétricos. Cotação grátis em 2h para lojistas. Patro Seguros."
       description="O Seguro para Lojas de Shopping é essencial para proteger o patrimônio, estoque e operação de lojistas em centros comerciais."
       detailedDescription={`Operar uma loja de shopping envolve investimentos significativos: estoque, equipamentos, mobiliário, decoração e ponto comercial premium. Um incêndio, roubo ou alagamento pode destruir tudo em questão de horas — e o seguro do condomínio do shopping NÃO cobre o interior da sua loja.
 
