@@ -81,18 +81,36 @@ export const useContacts = () => {
     mutationFn: async (newContact: { full_name: string } & Partial<Contact> & { insurances?: string[] }) => {
       const { insurances, ...contactData } = newContact;
       
-      // Sanitize UUID fields
-      if (contactData.referral_contact_id === "") {
-        contactData.referral_contact_id = null;
+      // Sanitize fields
+      const sanitizedData: any = { ...contactData };
+      if (sanitizedData.referral_contact_id === "") {
+        sanitizedData.referral_contact_id = null;
       }
+
+      // Convert empty strings to null for date fields to avoid Postgres errors
+      const dateFields = [
+        'birth_date', 'partner_birthday', 'life_insurance_renewal', 
+        'home_insurance_renewal', 'health_insurance_renewal', 
+        'business_insurance_renewal', 'other_insurance_renewal',
+        'last_contact_date', 'next_contact_date', 'consortium_renewal'
+      ];
+
+      dateFields.forEach(field => {
+        if (sanitizedData[field] === "") {
+          sanitizedData[field] = null;
+        }
+      });
 
       const { data: contact, error: contactError } = await supabase
         .from("contacts")
-        .insert([contactData as any])
+        .insert([sanitizedData])
         .select()
         .single();
 
-      if (contactError) throw contactError;
+      if (contactError) {
+        console.error("Error creating contact:", contactError);
+        throw contactError;
+      }
 
       if (insurances && insurances.length > 0) {
         const insuranceInserts = insurances.map(type => ({
