@@ -11,6 +11,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
+import PageSkeleton from "@/components/PageSkeleton";
 
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
