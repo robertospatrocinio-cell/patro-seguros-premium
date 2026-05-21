@@ -77,6 +77,117 @@ export type Database = {
         }
         Relationships: []
       }
+      customers: {
+        Row: {
+          address_city: string | null
+          address_complement: string | null
+          address_neighborhood: string | null
+          address_number: string | null
+          address_state: string | null
+          address_street: string | null
+          address_zip: string | null
+          birth_date: string | null
+          client_type: string | null
+          cpf_cnpj: string | null
+          created_at: string | null
+          email: string | null
+          full_name: string
+          id: string
+          notes: string | null
+          phone: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          address_city?: string | null
+          address_complement?: string | null
+          address_neighborhood?: string | null
+          address_number?: string | null
+          address_state?: string | null
+          address_street?: string | null
+          address_zip?: string | null
+          birth_date?: string | null
+          client_type?: string | null
+          cpf_cnpj?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name: string
+          id?: string
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          address_city?: string | null
+          address_complement?: string | null
+          address_neighborhood?: string | null
+          address_number?: string | null
+          address_state?: string | null
+          address_street?: string | null
+          address_zip?: string | null
+          birth_date?: string | null
+          client_type?: string | null
+          cpf_cnpj?: string | null
+          created_at?: string | null
+          email?: string | null
+          full_name?: string
+          id?: string
+          notes?: string | null
+          phone?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      documents: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          customer_id: string | null
+          file_name: string
+          file_path: string
+          file_type: string | null
+          id: string
+          policy_id: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          customer_id?: string | null
+          file_name: string
+          file_path: string
+          file_type?: string | null
+          id?: string
+          policy_id?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          customer_id?: string | null
+          file_name?: string
+          file_path?: string
+          file_type?: string | null
+          id?: string
+          policy_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "documents_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "documents_policy_id_fkey"
+            columns: ["policy_id"]
+            isOneToOne: false
+            referencedRelation: "policies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       email_send_log: {
         Row: {
           created_at: string
@@ -166,43 +277,73 @@ export type Database = {
       }
       leads: {
         Row: {
+          assigned_to: string | null
+          city: string | null
+          client_type: string | null
+          cpf_cnpj: string | null
           created_at: string
           email: string | null
           full_name: string | null
           id: string
           insurance_type: string | null
           ip_address: string | null
+          lead_score: number | null
+          lead_status: string | null
+          notes: string | null
           phone: string | null
           raw_data: Json | null
+          source_origin: string | null
           source_page: string | null
+          state: string | null
+          updated_at: string | null
           utm_campaign: string | null
           utm_medium: string | null
           utm_source: string | null
         }
         Insert: {
+          assigned_to?: string | null
+          city?: string | null
+          client_type?: string | null
+          cpf_cnpj?: string | null
           created_at?: string
           email?: string | null
           full_name?: string | null
           id?: string
           insurance_type?: string | null
           ip_address?: string | null
+          lead_score?: number | null
+          lead_status?: string | null
+          notes?: string | null
           phone?: string | null
           raw_data?: Json | null
+          source_origin?: string | null
           source_page?: string | null
+          state?: string | null
+          updated_at?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
           utm_source?: string | null
         }
         Update: {
+          assigned_to?: string | null
+          city?: string | null
+          client_type?: string | null
+          cpf_cnpj?: string | null
           created_at?: string
           email?: string | null
           full_name?: string | null
           id?: string
           insurance_type?: string | null
           ip_address?: string | null
+          lead_score?: number | null
+          lead_status?: string | null
+          notes?: string | null
           phone?: string | null
           raw_data?: Json | null
+          source_origin?: string | null
           source_page?: string | null
+          state?: string | null
+          updated_at?: string | null
           utm_campaign?: string | null
           utm_medium?: string | null
           utm_source?: string | null
@@ -256,6 +397,84 @@ export type Database = {
           url?: string
         }
         Relationships: []
+      }
+      policies: {
+        Row: {
+          commission_amount: number | null
+          created_at: string | null
+          customer_id: string | null
+          end_date: string | null
+          id: string
+          installments_paid: number | null
+          installments_total: number | null
+          insurance_type: string
+          insurer_name: string | null
+          is_renewal: boolean | null
+          notes: string | null
+          payment_status: string | null
+          policy_number: string | null
+          premium_amount: number | null
+          renewal_from_id: string | null
+          start_date: string | null
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          commission_amount?: number | null
+          created_at?: string | null
+          customer_id?: string | null
+          end_date?: string | null
+          id?: string
+          installments_paid?: number | null
+          installments_total?: number | null
+          insurance_type: string
+          insurer_name?: string | null
+          is_renewal?: boolean | null
+          notes?: string | null
+          payment_status?: string | null
+          policy_number?: string | null
+          premium_amount?: number | null
+          renewal_from_id?: string | null
+          start_date?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          commission_amount?: number | null
+          created_at?: string | null
+          customer_id?: string | null
+          end_date?: string | null
+          id?: string
+          installments_paid?: number | null
+          installments_total?: number | null
+          insurance_type?: string
+          insurer_name?: string | null
+          is_renewal?: boolean | null
+          notes?: string | null
+          payment_status?: string | null
+          policy_number?: string | null
+          premium_amount?: number | null
+          renewal_from_id?: string | null
+          start_date?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "policies_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "policies_renewal_from_id_fkey"
+            columns: ["renewal_from_id"]
+            isOneToOne: false
+            referencedRelation: "policies"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       purge_logs: {
         Row: {
@@ -317,6 +536,53 @@ export type Database = {
         }
         Relationships: []
       }
+      referrals: {
+        Row: {
+          conversion_date: string | null
+          created_at: string | null
+          id: string
+          insurance_type_interest: string | null
+          referred_email: string | null
+          referred_name: string
+          referred_phone: string | null
+          referrer_customer_id: string | null
+          reward_given: boolean | null
+          status: string | null
+        }
+        Insert: {
+          conversion_date?: string | null
+          created_at?: string | null
+          id?: string
+          insurance_type_interest?: string | null
+          referred_email?: string | null
+          referred_name: string
+          referred_phone?: string | null
+          referrer_customer_id?: string | null
+          reward_given?: boolean | null
+          status?: string | null
+        }
+        Update: {
+          conversion_date?: string | null
+          created_at?: string | null
+          id?: string
+          insurance_type_interest?: string | null
+          referred_email?: string | null
+          referred_name?: string
+          referred_phone?: string | null
+          referrer_customer_id?: string | null
+          reward_given?: boolean | null
+          status?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "referrals_referrer_customer_id_fkey"
+            columns: ["referrer_customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       suppressed_emails: {
         Row: {
           created_at: string
@@ -341,6 +607,73 @@ export type Database = {
         }
         Relationships: []
       }
+      tasks: {
+        Row: {
+          assigned_to: string | null
+          created_at: string | null
+          customer_id: string | null
+          description: string | null
+          due_date: string | null
+          id: string
+          lead_id: string | null
+          policy_id: string | null
+          priority: string | null
+          status: string | null
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          assigned_to?: string | null
+          created_at?: string | null
+          customer_id?: string | null
+          description?: string | null
+          due_date?: string | null
+          id?: string
+          lead_id?: string | null
+          policy_id?: string | null
+          priority?: string | null
+          status?: string | null
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          assigned_to?: string | null
+          created_at?: string | null
+          customer_id?: string | null
+          description?: string | null
+          due_date?: string | null
+          id?: string
+          lead_id?: string | null
+          policy_id?: string | null
+          priority?: string | null
+          status?: string | null
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tasks_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "tasks_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "tasks_policy_id_fkey"
+            columns: ["policy_id"]
+            isOneToOne: false
+            referencedRelation: "policies"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -361,6 +694,54 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      whatsapp_history: {
+        Row: {
+          attachment_url: string | null
+          customer_id: string | null
+          direction: string
+          id: string
+          lead_id: string | null
+          message_body: string | null
+          message_type: string | null
+          sent_at: string | null
+        }
+        Insert: {
+          attachment_url?: string | null
+          customer_id?: string | null
+          direction: string
+          id?: string
+          lead_id?: string | null
+          message_body?: string | null
+          message_type?: string | null
+          sent_at?: string | null
+        }
+        Update: {
+          attachment_url?: string | null
+          customer_id?: string | null
+          direction?: string
+          id?: string
+          lead_id?: string | null
+          message_body?: string | null
+          message_type?: string | null
+          sent_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "whatsapp_history_customer_id_fkey"
+            columns: ["customer_id"]
+            isOneToOne: false
+            referencedRelation: "customers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "whatsapp_history_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
