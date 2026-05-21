@@ -89,11 +89,14 @@ const Header = memo(() => {
     );
   }, [mobileSearch, allMobileLinks]);
 
-  const toggleMobileSection = (section: string) => {
-    setOpenMobileSection(openMobileSection === section ? null : section);
-  };
+  const toggleMobileSection = useCallback((section: string) => {
+    setOpenMobileSection(prev => prev === section ? null : section);
+  }, []);
 
-  const close = () => { setIsMenuOpen(false); setMobileSearch(""); };
+  const close = useCallback(() => { 
+    setIsMenuOpen(false); 
+    setMobileSearch(""); 
+  }, []);
 
   const MobileSection = ({ id, label, children }: { id: string; label: string; children: React.ReactNode }) => {
     const isOpen = openMobileSection === id;
