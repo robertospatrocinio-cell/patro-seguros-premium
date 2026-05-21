@@ -68,7 +68,7 @@ const LeadMagnetSection = () => {
                   <Input
                     placeholder="Seu nome"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={handleNameChange}
                     className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-amber-400"
                     required
                     maxLength={80}
@@ -76,7 +76,7 @@ const LeadMagnetSection = () => {
                   <Input
                     placeholder="WhatsApp (DDD + número)"
                     value={whatsapp}
-                    onChange={(e) => setWhatsapp(formatWhatsApp(e.target.value))}
+                    onChange={handleWhatsappChange}
                     className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-amber-400"
                     required
                     inputMode="tel"
