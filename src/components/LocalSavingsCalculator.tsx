@@ -39,43 +39,79 @@ const LocalSavingsCalculator = () => {
       <CardContent className="space-y-8">
         {/* Input Section */}
         <div className="space-y-6">
+          {/* Insurance Type Selector */}
+          <div className="space-y-2">
+            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">O que você quer proteger?</label>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {insuranceTypes.map((type) => {
+                const Icon = type.icon;
+                return (
+                  <Button
+                    key={type.id}
+                    variant={insuranceType === type.id ? "default" : "outline"}
+                    className={cn(
+                      "flex flex-col items-center gap-1 h-auto py-3 px-1",
+                      insuranceType === type.id ? "bg-primary border-primary" : "hover:border-primary/50"
+                    )}
+                    onClick={() => {
+                      setInsuranceType(type.id);
+                      if (type.id !== 'auto') setHasUber(false);
+                    }}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span className="text-[10px] font-bold">{type.label}</span>
+                  </Button>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <label className="text-sm font-semibold text-foreground">Quanto você paga hoje (Ano)?</label>
+              <label className="text-sm font-semibold text-foreground">Valor atual do seguro (Ano)</label>
               <span className="text-primary font-bold">R$ {currentInsurance.toLocaleString()}</span>
             </div>
             <Slider
               value={[currentInsurance]}
               onValueChange={(v) => setCurrentInsurance(v[0])}
-              max={15000}
-              min={800}
+              max={insuranceType === 'empresarial' ? 50000 : 15000}
+              min={insuranceType === 'vida' ? 300 : 800}
               step={100}
               className="py-4"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Tipo de Uso</label>
-              <div className="flex gap-2">
-                <Button 
-                  variant={!hasUber ? "default" : "outline"} 
-                  size="sm"
-                  className="flex-1 text-xs"
-                  onClick={() => setHasUber(false)}
-                >
-                  Passeio
-                </Button>
-                <Button 
-                  variant={hasUber ? "default" : "outline"} 
-                  size="sm"
-                  className="flex-1 text-xs"
-                  onClick={() => setHasUber(true)}
-                >
-                  Uber / 99
-                </Button>
+            {insuranceType === 'auto' ? (
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Tipo de Uso</label>
+                <div className="flex gap-2">
+                  <Button 
+                    variant={!hasUber ? "default" : "outline"} 
+                    size="sm"
+                    className="flex-1 text-xs"
+                    onClick={() => setHasUber(false)}
+                  >
+                    Passeio
+                  </Button>
+                  <Button 
+                    variant={hasUber ? "default" : "outline"} 
+                    size="sm"
+                    className="flex-1 text-xs"
+                    onClick={() => setHasUber(true)}
+                  >
+                    Uber / 99
+                  </Button>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Perfil</label>
+                <div className="flex items-center h-9 px-3 rounded-md border border-input bg-muted/30 text-xs text-muted-foreground italic">
+                  Análise personalizada para Guarulhos
+                </div>
+              </div>
+            )}
 
             <div className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Sua Região em Guarulhos</label>
