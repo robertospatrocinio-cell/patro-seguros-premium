@@ -60,12 +60,37 @@ interface Props {
 
 const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [formData, setFormData] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [checkboxGroups, setCheckboxGroups] = useState<Record<string, string[]>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const getFieldError = (field: FormFieldConfig) => {
+    if (!touched[field.id]) return "";
+    const value = formData[field.id] || "";
+    
+    if (field.required) {
+      if (field.type === "checkbox-group") {
+        if (!(checkboxGroups[field.id]?.length > 0)) return "Selecione ao menos uma opção";
+      } else if (!value.trim()) {
+        return "Campo obrigatório";
+      }
+    }
+
+    if (value.trim()) {
+      if (field.type === "email" && !validateEmail(value)) return "E-mail inválido";
+      if (field.type === "tel" && !validatePhone(value)) return "Formato: (11) 99999-9999";
+    }
+
+    return "";
+  };
+
   const update = (key: string, value: string) => setFormData(prev => ({ ...prev, [key]: value }));
+
+  const handleBlur = (key: string) => {
+    setTouched(prev => ({ ...prev, [key]: true }));
+  };
 
   const toggleCheckboxOption = (fieldId: string, option: string) => {
     setCheckboxGroups(prev => {
