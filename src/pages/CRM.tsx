@@ -1,197 +1,56 @@
-import { useEffect, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { 
   Search, 
   Users, 
-  Phone, 
-  Mail, 
   Shield, 
   Calendar, 
-  ExternalLink,
-  Download,
-  Filter,
+  Download, 
   RefreshCw,
-  Clock,
   LayoutDashboard,
-  MessageSquare,
-  FileText,
-  UserCheck,
   TrendingUp,
-  Award,
+  UserCheck,
   Heart,
   AlertCircle
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { supabase } from "@/integrations/supabase/client";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
-} from "@/components/ui/table";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { toast } from "sonner";
-import { format, startOfWeek, endOfWeek, isWithinInterval } from "date-fns";
-import { ptBR } from "date-fns/locale";
 import { DashboardOverview } from "@/components/crm/DashboardOverview";
 import RelationshipModule from "@/components/crm/RelationshipModule";
-
-
-interface Lead {
-  id: string;
-  created_at: string;
-  full_name: string | null;
-  email: string | null;
-  phone: string | null;
-  insurance_type: string | null;
-  source_page: string | null;
-  utm_source: string | null;
-  utm_medium: string | null;
-  utm_campaign: string | null;
-  raw_data: any;
-}
+import { useLeads } from "@/hooks/queries/useLeads";
+import { LeadsTable } from "@/components/crm/LeadsTable";
+import { exportToCSV } from "@/lib/utils/export";
 
 const CRMPage = () => {
-  const [leads, setLeads] = useState<Lead[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const { data: leads = [], isLoading, error, refetch, isRefetching } = useLeads();
 
-  const fetchLeads = async (showLoading = true) => {
-    try {
-      if (showLoading) {
-        setIsRefreshing(true);
-        setError(null);
-      }
-      
-      console.log("CRM: Buscando leads...");
-      const { data, error: supabaseError } = await supabase
-        .from("leads")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (supabaseError) throw supabaseError;
-      
-      console.log(`CRM: ${data?.length || 0} leads encontrados.`);
-      setLeads(data || []);
-      setError(null);
-    } catch (err: any) {
-      console.error("Erro ao buscar leads:", err);
-      setError("Erro ao carregar dados do banco de dados.");
-      toast.error("Não foi possível carregar os leads.");
-    } finally {
-      if (showLoading) setLoading(false);
-      setIsRefreshing(false);
-    }
-  };
-
-  useEffect(() => {
-    let mounted = true;
-    let authListener: any = null;
-    
-    const loadData = async () => {
-      console.log("CRM: Iniciando carregamento de dados...");
-      // Forçar verificação de sessão antes de carregar
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
-        console.warn("CRM: Usuário não autenticado no loadData");
-        setError("Sessão expirada. Por favor, faça login novamente.");
-        setLoading(false);
-        return;
-      }
-      
-      if (mounted) await fetchLeads(true);
-    };
-
-    loadData();
-    
-    // Monitorar mudanças de auth para recarregar dados ou tratar logout
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log("CRM: Auth event:", event);
-      if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-        if (mounted) loadData();
-      } else if (event === 'SIGNED_OUT') {
-        if (mounted) {
-          setLeads([]);
-          setError("Sessão encerrada.");
-        }
-      }
+  const filteredLeads = useMemo(() => {
+    return leads.filter((lead) => {
+      const searchLower = searchTerm.toLowerCase();
+      return (
+        lead.full_name?.toLowerCase().includes(searchLower) ||
+        lead.email?.toLowerCase().includes(searchLower) ||
+        lead.phone?.includes(searchTerm) ||
+        lead.insurance_type?.toLowerCase().includes(searchLower)
+      );
     });
-    authListener = subscription;
+  }, [leads, searchTerm]);
+
+  const stats = useMemo(() => {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
     
-    const interval = setInterval(() => {
-      if (mounted) fetchLeads(false);
-    }, 60000);
-    
-    return () => {
-      mounted = false;
-      clearInterval(interval);
-      if (authListener) authListener.unsubscribe();
+    return {
+      totalLeads: leads.length,
+      leads24h: leads.filter(l => new Date(l.created_at) > yesterday).length,
+      conversionRate: "18.5%",
+      activeCustomers: 142
     };
-  }, []);
-
-  const filteredLeads = leads.filter((lead) => {
-    const searchLower = searchTerm.toLowerCase();
-    return (
-      lead.full_name?.toLowerCase().includes(searchLower) ||
-      lead.email?.toLowerCase().includes(searchLower) ||
-      lead.phone?.includes(searchTerm) ||
-      lead.insurance_type?.toLowerCase().includes(searchLower)
-    );
-  });
-
-  const exportToCSV = () => {
-    if (leads.length === 0) {
-      toast.error("Não há dados para exportar.");
-      return;
-    }
-
-    const headers = ["Data", "Nome", "E-mail", "Telefone", "Tipo de Seguro", "Página de Origem"];
-    const csvContent = [
-      headers.join(","),
-      ...leads.map((lead) => [
-        format(new Date(lead.created_at), "dd/MM/yyyy HH:mm"),
-        `"${lead.full_name || ""}"`,
-        lead.email || "",
-        lead.phone || "",
-        `"${lead.insurance_type || ""}"`,
-        lead.source_page || ""
-      ].join(","))
-    ].join("\n");
-
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const link = document.createElement("a");
-    const url = URL.createObjectURL(blob);
-    link.setAttribute("href", url);
-    link.setAttribute("download", `leads_patro_seguros_${format(new Date(), "yyyy-MM-dd")}.csv`);
-    link.style.visibility = "hidden";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    toast.success("CSV exportado com sucesso!");
-  };
-
-  const getInsuranceBadge = (type: string | null) => {
-    if (!type) return <Badge variant="secondary">N/A</Badge>;
-    
-    const types: Record<string, string> = {
-      'auto': 'Automóvel',
-      'vida': 'Vida',
-      'residencial': 'Residencial',
-      'saude': 'Saúde',
-      'frota': 'Frota',
-      'empresarial': 'Empresarial'
-    };
-
-    return <Badge className="bg-primary hover:bg-primary/90">{types[type.toLowerCase()] || type}</Badge>;
-  };
+  }, [leads]);
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50/50">
@@ -202,9 +61,9 @@ const CRMPage = () => {
             <AlertCircle className="w-5 h-5" />
             <div className="flex-1">
               <p className="font-medium">Falha na conexão</p>
-              <p className="text-sm opacity-90">{error}</p>
+              <p className="text-sm opacity-90">Erro ao carregar dados do banco de dados.</p>
             </div>
-            <Button size="sm" variant="outline" onClick={() => fetchLeads()} className="bg-white border-red-200 text-red-800 hover:bg-red-50">
+            <Button size="sm" variant="outline" onClick={() => refetch()} className="bg-white border-red-200 text-red-800 hover:bg-red-50">
               Tentar novamente
             </Button>
           </div>
@@ -228,11 +87,11 @@ const CRMPage = () => {
             <div className="flex items-center gap-3">
               <Button 
                 variant="outline" 
-                onClick={() => fetchLeads()} 
-                disabled={isRefreshing}
+                onClick={() => refetch()} 
+                disabled={isRefetching}
                 className="bg-white border-slate-200"
               >
-                <RefreshCw className={`w-4 h-4 mr-2 ${isRefreshing ? "animate-spin" : ""}`} />
+                <RefreshCw className={`w-4 h-4 mr-2 ${isRefetching ? "animate-spin" : ""}`} />
                 Atualizar
               </Button>
               <Button className="bg-primary hover:bg-primary/90 shadow-sm shadow-primary/20">
@@ -267,24 +126,15 @@ const CRMPage = () => {
               
               <div className="hidden md:flex px-4 gap-4 text-sm font-medium text-slate-500">
                 <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                  Sistema Online
+                  <div className={`w-2 h-2 rounded-full ${isLoading ? "bg-yellow-500 animate-pulse" : "bg-green-500"}`}></div>
+                  {isLoading ? "Sincronizando..." : "Sistema Online"}
                 </div>
               </div>
             </div>
 
             <TabsContent value="dashboard" className="mt-0">
               <DashboardOverview 
-                stats={{
-                  totalLeads: leads.length,
-                  leads24h: leads.filter(l => {
-                    const yesterday = new Date();
-                    yesterday.setDate(yesterday.getDate() - 1);
-                    return new Date(l.created_at) > yesterday;
-                  }).length,
-                  conversionRate: "18.5%",
-                  activeCustomers: 142
-                }}
+                stats={stats}
                 birthdays={[
                   { id: '1', name: 'Ricardo Santos', phone: '11999999999' },
                   { id: '2', name: 'Mariana Oliveira' }
@@ -308,70 +158,14 @@ const CRMPage = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                 </div>
-                <Button onClick={exportToCSV} variant="outline" className="bg-white border-slate-200">
+                <Button onClick={() => exportToCSV(leads)} variant="outline" className="bg-white border-slate-200">
                   <Download className="w-4 h-4 mr-2" /> Exportar Leads
                 </Button>
               </div>
 
               <Card className="bg-white shadow-sm border-slate-100">
                 <CardContent className="p-0">
-                  <div className="overflow-x-auto">
-                    <Table>
-                      <TableHeader className="bg-slate-50/50">
-                        <TableRow>
-                          <TableHead className="w-[150px]">Data</TableHead>
-                          <TableHead>Cliente</TableHead>
-                          <TableHead>Contato</TableHead>
-                          <TableHead>Seguro</TableHead>
-                          <TableHead>Status</TableHead>
-                          <TableHead className="text-right">Ações</TableHead>
-                        </TableRow>
-                      </TableHeader>
-                      <TableBody>
-                        {loading ? (
-                          Array.from({ length: 5 }).map((_, i) => (
-                            <TableRow key={i}>
-                              <TableCell colSpan={6} className="h-12 animate-pulse bg-slate-50/50"></TableCell>
-                            </TableRow>
-                          ))
-                        ) : filteredLeads.length === 0 ? (
-                          <TableRow>
-                            <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
-                              Nenhum lead encontrado.
-                            </TableCell>
-                          </TableRow>
-                        ) : (
-                          filteredLeads.map((lead) => (
-                            <TableRow key={lead.id} className="hover:bg-slate-50/50">
-                              <TableCell className="text-sm">
-                                <span className="font-medium">{format(new Date(lead.created_at), "dd/MM", { locale: ptBR })}</span>
-                                <span className="text-muted-foreground ml-2">{format(new Date(lead.created_at), "HH:mm")}</span>
-                              </TableCell>
-                              <TableCell className="font-semibold text-slate-900">{lead.full_name || "—"}</TableCell>
-                              <TableCell>
-                                <div className="text-xs space-y-0.5">
-                                  <div className="flex items-center gap-1.5 text-slate-600"><Phone className="w-3 h-3" /> {lead.phone || "—"}</div>
-                                  <div className="flex items-center gap-1.5 text-slate-600"><Mail className="w-3 h-3" /> {lead.email || "—"}</div>
-                                </div>
-                              </TableCell>
-                              <TableCell>{getInsuranceBadge(lead.insurance_type)}</TableCell>
-                              <TableCell><Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">Novo</Badge></TableCell>
-                              <TableCell className="text-right">
-                                <div className="flex justify-end gap-2">
-                                  {lead.phone && (
-                                    <Button size="icon" variant="ghost" className="h-8 w-8 text-green-600 hover:bg-green-50" asChild>
-                                      <a href={`https://wa.me/55${lead.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer"><Phone className="w-4 h-4" /></a>
-                                    </Button>
-                                  )}
-                                  <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400"><ExternalLink className="w-4 h-4" /></Button>
-                                </div>
-                              </TableCell>
-                            </TableRow>
-                          ))
-                        )}
-                      </TableBody>
-                    </Table>
-                  </div>
+                  <LeadsTable leads={filteredLeads} loading={isLoading} />
                 </CardContent>
               </Card>
             </TabsContent>
