@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
  import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
  import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
@@ -219,7 +219,7 @@ const faqs = [
           <LocalTestimonials />
 
          {/* Diferenciais */}
-         <LazySection minHeight="400px" className="py-16 md:py-32 bg-background">
+         <div className="py-16 md:py-32 bg-background">
            <div className="container mx-auto px-4">
              <div className="max-w-2xl mx-auto text-center mb-16">
                <span className="section-label">Por que escolher a Patro Seguros em Guarulhos</span>
@@ -237,10 +237,10 @@ const faqs = [
                ))}
              </div>
            </div>
-         </LazySection>
+         </div>
 
          {/* E-E-A-T Content Section */}
-         <LazySection minHeight="800px" className="py-16 md:py-24 bg-muted">
+         <div className="py-16 md:py-24 bg-muted">
            <div className="container mx-auto px-4 max-w-3xl">
                <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
              <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
@@ -307,7 +307,7 @@ const faqs = [
         {/* Lead Magnet — E-book Section */}
         <LazySection minHeight="300px">
           <Suspense fallback={null}><LeadMagnetSection /></Suspense>
-        </LazySection>
+         </div>
 
 
          {/* CTA Form Principal */}
