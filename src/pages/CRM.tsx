@@ -30,7 +30,12 @@ const CRMPage = () => {
   const { data = [], isLoading, error, refetch, isRefetching } = useLeads();
   const leads = data || [];
 
+  useEffect(() => {
+    console.log("CRMPage: Componente montado. Leads carregados:", leads.length);
+  }, [leads.length]);
+
   const filteredLeads = useMemo(() => {
+    if (!Array.isArray(leads)) return [];
     return leads.filter((lead) => {
       const searchLower = searchTerm.toLowerCase();
       return (
@@ -48,14 +53,26 @@ const CRMPage = () => {
     
     return {
       totalLeads: leads.length,
-      leads24h: leads.filter(l => new Date(l.created_at) > yesterday).length,
+      leads24h: leads.filter(l => l.created_at && new Date(l.created_at) > yesterday).length,
       conversionRate: "18.5%",
       activeCustomers: 142
     };
   }, [leads]);
 
+  const birthdays = useMemo(() => [
+    { id: '1', name: 'Ricardo Santos', phone: '11999999999' },
+    { id: '2', name: 'Mariana Oliveira' }
+  ], []);
+
+  const renewals = useMemo(() => [
+    { id: 'r1', clientName: 'Empresa ABC Ltda', insuranceType: 'Empresarial', dueDate: '22/05', isCompleted: false },
+    { id: 'r2', clientName: 'João Silva', insuranceType: 'Auto', dueDate: '23/05', isCompleted: true },
+    { id: 'r3', clientName: 'Ana Paula', insuranceType: 'Vida', dueDate: '25/05', isCompleted: false }
+  ], []);
+
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50/50">
+    <ErrorBoundary>
+      <div className="min-h-screen flex flex-col bg-slate-50/50">
       <Header />
       <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
         {error && (
