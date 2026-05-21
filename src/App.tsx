@@ -199,6 +199,7 @@ const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const CRM = lazy(() => import("./pages/CRM"));
 import RequireAdmin from "@/components/RequireAdmin";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient({
@@ -218,10 +219,19 @@ const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => (
 function DeferredRender({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
   useEffect(() => {
-    const timeout = setTimeout(() => setReady(true), 10);
+    // Check if we are in a browser environment
+    if (typeof window === 'undefined') return;
+    
+    // Increased delay and added a fallback to ensure it doesn't stay locked
+    const timeout = setTimeout(() => {
+      setReady(true);
+    }, 100);
+    
     return () => clearTimeout(timeout);
   }, []);
-  if (!ready) return null;
+  
+  // Return children directly if not ready to avoid complete UI blankness
+  // or a fallback skeleton if preferred
   return <>{children}</>;
 }
 
@@ -244,6 +254,7 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
     return (
   <ErrorBoundary>
     <QueryProviderWrapper>
+      <ServiceWorkerCheck />
       <TooltipProvider>
         <Suspense fallback={null}>
           <DeferredRender>
