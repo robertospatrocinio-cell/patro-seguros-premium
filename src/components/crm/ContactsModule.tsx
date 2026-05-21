@@ -136,7 +136,8 @@ const ContactsModule = () => {
     has_consortium: false,
     consortium_type: "Auto",
     consortium_carrier: "",
-    consortium_renewal: ""
+    consortium_renewal: "",
+    responsible_name: ""
   });
   
   const [selectedInsurances, setSelectedInsurances] = useState<string[]>([]);
@@ -216,7 +217,8 @@ const ContactsModule = () => {
         has_consortium: false,
         consortium_type: "Auto",
         consortium_carrier: "",
-        consortium_renewal: ""
+        consortium_renewal: "",
+        responsible_name: ""
       });
       setSelectedInsurances([]);
     } catch (e) {
@@ -315,6 +317,7 @@ const ContactsModule = () => {
         "Plano Saúde": c.health_plan_type ? `Sim (${c.health_insurance_carrier || "N/A"})` : "Não",
         "Seguro Empresarial": c.has_business_insurance ? `Sim (${c.business_insurance_carrier || "N/A"})` : "Não",
         "Consórcio": c.has_consortium ? `Sim (${c.consortium_type} - ${c.consortium_carrier || "N/A"})` : "Não",
+        "Responsável": c.responsible_name || "",
         "Notas": c.notes || ""
       }));
 
@@ -745,6 +748,37 @@ const ContactsModule = () => {
                     </SelectContent>
                   </Select>
                 </div>
+                <div className="space-y-2">
+                  <Label>Responsável pelo Lead</Label>
+                  <Select 
+                    value={['Sandra', 'Roberto', 'Leticia'].includes(newContact.responsible_name) ? newContact.responsible_name : (newContact.responsible_name ? 'Outros' : '')} 
+                    onValueChange={(val) => {
+                      if (val === 'Outros') {
+                        setNewContact({...newContact, responsible_name: ' '}); // Space to trigger "Outros" mode
+                      } else {
+                        setNewContact({...newContact, responsible_name: val});
+                      }
+                    }}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione o responsável" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Sandra">Sandra</SelectItem>
+                      <SelectItem value="Roberto">Roberto</SelectItem>
+                      <SelectItem value="Leticia">Leticia</SelectItem>
+                      <SelectItem value="Outros">Outros</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  {(!['Sandra', 'Roberto', 'Leticia'].includes(newContact.responsible_name) && newContact.responsible_name !== '') && (
+                    <Input 
+                      className="mt-2"
+                      placeholder="Nome do responsável"
+                      value={newContact.responsible_name === ' ' ? '' : newContact.responsible_name}
+                      onChange={e => setNewContact({...newContact, responsible_name: e.target.value})}
+                    />
+                  )}
+                </div>
               </div>
 
               {newContact.lead_source === "Indicação" && (
@@ -1104,6 +1138,7 @@ const ContactsModule = () => {
                 <TableHead>Nome</TableHead>
                 <TableHead>Relacionamento</TableHead>
                 <TableHead>Seguros</TableHead>
+                <TableHead>Responsável</TableHead>
                 <TableHead>Documentos</TableHead>
                 <TableHead className="text-right">Ações</TableHead>
               </TableRow>
@@ -1111,12 +1146,12 @@ const ContactsModule = () => {
             <TableBody>
               {isLoading ? (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center py-10">Carregando contatos...</TableCell>
+                  <TableCell colSpan={6} className="text-center py-10">Carregando contatos...</TableCell>
 
                 </TableRow>
               ) : filteredContacts?.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={5} className="text-center py-10 text-muted-foreground">
+                  <TableCell colSpan={6} className="text-center py-10 text-muted-foreground">
                     <Users className="w-12 h-12 mx-auto mb-4 opacity-20" />
                     Nenhum contato encontrado.
                   </TableCell>
@@ -1157,6 +1192,15 @@ const ContactsModule = () => {
                           </Badge>
                         ))}
                       </div>
+                    </TableCell>
+                    <TableCell>
+                      {contact.responsible_name ? (
+                        <Badge variant="outline" className="text-[10px] bg-slate-50 border-slate-200">
+                          {contact.responsible_name}
+                        </Badge>
+                      ) : (
+                        <span className="text-[10px] text-muted-foreground italic">Não atribuído</span>
+                      )}
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">

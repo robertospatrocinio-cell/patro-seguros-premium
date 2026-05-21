@@ -50,6 +50,7 @@ export interface Contact {
   consortium_type?: string | null;
   consortium_carrier?: string | null;
   consortium_renewal?: string | null;
+  responsible_name?: string | null;
   created_at: string;
 }
 

@@ -182,10 +182,17 @@ export const KanbanBoard = ({ leads }: KanbanBoardProps) => {
                                 </div>
 
                                 <div className="pt-2 flex items-center justify-between border-t border-slate-100">
-                                  <div className="flex -space-x-2">
+                                  <div className="flex items-center gap-2">
                                     <div className="h-6 w-6 rounded-full bg-primary/10 border-2 border-white flex items-center justify-center text-[10px] font-bold text-primary">
-                                      <User className="h-3 w-3" />
+                                      {lead.responsible_name ? (
+                                        <span>{lead.responsible_name.substring(0, 1).toUpperCase()}</span>
+                                      ) : (
+                                        <User className="h-3 w-3" />
+                                      )}
                                     </div>
+                                    {lead.responsible_name && (
+                                      <span className="text-[10px] text-slate-500 font-medium">{lead.responsible_name}</span>
+                                    )}
                                   </div>
                                   <div className="flex gap-1">
                                     <Button 

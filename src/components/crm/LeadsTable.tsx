@@ -44,6 +44,7 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
             <TableHead>Contato</TableHead>
             <TableHead>Seguro</TableHead>
             <TableHead>Status</TableHead>
+            <TableHead>Responsável</TableHead>
             <TableHead className="text-right">Ações</TableHead>
           </TableRow>
         </TableHeader>
@@ -51,12 +52,12 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
           {loading ? (
             Array.from({ length: 5 }).map((_, i) => (
               <TableRow key={i}>
-                <TableCell colSpan={6} className="h-12 animate-pulse bg-slate-50/50"></TableCell>
+                <TableCell colSpan={7} className="h-12 animate-pulse bg-slate-50/50"></TableCell>
               </TableRow>
             ))
           ) : leads.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={6} className="h-24 text-center text-muted-foreground">
+              <TableCell colSpan={7} className="h-24 text-center text-muted-foreground">
                 Nenhum lead encontrado.
               </TableCell>
             </TableRow>
@@ -88,6 +89,15 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
                 </TableCell>
                 <TableCell>{getInsuranceBadge(lead.insurance_type)}</TableCell>
                 <TableCell><Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-100">Novo</Badge></TableCell>
+                <TableCell>
+                  {lead.responsible_name ? (
+                    <Badge variant="secondary" className="bg-slate-100 text-slate-600 border-none">
+                      {lead.responsible_name}
+                    </Badge>
+                  ) : (
+                    <span className="text-muted-foreground text-xs italic">Não atribuído</span>
+                  )}
+                </TableCell>
                 <TableCell className="text-right">
                   <div className="flex justify-end gap-2">
                     {lead.phone && (
