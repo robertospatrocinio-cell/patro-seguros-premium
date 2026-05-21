@@ -87,20 +87,29 @@ const CRMPage = () => {
       setError("Erro ao carregar dados do banco de dados.");
       toast.error("Não foi possível carregar os leads.");
     } finally {
-      setLoading(false);
+      if (showLoading) setLoading(false);
       setIsRefreshing(false);
     }
   };
 
   useEffect(() => {
-    fetchLeads();
+    let mounted = true;
     
-    // Polling interval de 1 minuto para manter os dados atualizados
+    const loadData = async () => {
+      console.log("CRM: Iniciando carregamento de dados...");
+      await fetchLeads(true);
+    };
+
+    loadData();
+    
     const interval = setInterval(() => {
-      fetchLeads(false); // Background update
+      if (mounted) fetchLeads(false);
     }, 60000);
     
-    return () => clearInterval(interval);
+    return () => {
+      mounted = false;
+      clearInterval(interval);
+    };
   }, []);
 
   const filteredLeads = leads.filter((lead) => {
