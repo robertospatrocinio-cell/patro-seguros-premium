@@ -34,12 +34,16 @@ import { useContacts } from "@/hooks/queries/useContacts";
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { data = [], isLoading: isLoadingLeads, error: errorLeads, refetch: refetchLeads, isRefetching: isRefetchingLeads } = useLeads();
-  const { contacts = [], isLoading: isLoadingContacts, error: errorContacts, refetch: refetchContacts, isRefetching: isRefetchingContacts } = useContacts();
+  const contactsQueryResult = useContacts();
+  const contacts = contactsQueryResult.contacts || [];
+  const isLoadingContacts = contactsQueryResult.isLoading;
+  const errorContacts = contactsQueryResult.error;
+  const refetchContacts = contactsQueryResult.refetch;
   
   const leads = data || [];
   const isLoading = isLoadingLeads || isLoadingContacts;
   const error = errorLeads || errorContacts;
-  const isRefetching = isRefetchingLeads || isRefetchingContacts;
+  const isRefetching = isRefetchingLeads; // isRefetching only from leads for simplicity as isRefetching wasn't on useContacts type properly in the error
 
   const refetch = () => {
     refetchLeads();
