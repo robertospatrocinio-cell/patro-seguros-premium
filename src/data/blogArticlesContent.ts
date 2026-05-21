@@ -2,6 +2,22 @@ import { guarulhosArticlesContent } from "./blogGuarulhosContent";
 
 export const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
   ...guarulhosArticlesContent,
+  "seguradoras-que-mais-pagam-sinistro-guarulhos": {
+    title: "Quais Seguradoras Mais Pagam Sinistro em Guarulhos?",
+    content: "Quando você contrata um seguro em Guarulhos, a pergunta mais importante não é 'quem é mais barato', mas sim 'quem paga o sinistro mais rápido'.\n\n## Ranking de Satisfação em Guarulhos\nCom base em nossa experiência de 4 anos atendendo a região, as seguradoras com maior índice de resolução positiva são:\n\n1. **Porto Seguro**: Referência absoluta em agilidade e rede de oficinas em Guarulhos.\n2. **Tokio Marine**: Excelente suporte digital e pagamento rápido de indenizações integrais.\n3. **Allianz**: Muito forte no atendimento de danos a terceiros.\n\n[Veja como acionar seu seguro](/como-acionar-seguro-auto)",
+    faqs: [
+      { q: "Qual seguradora paga mais rápido?", a: "Porto Seguro e Tokio Marine costumam liberar indenizações em tempo recorde." },
+      { q: "O que fazer se a seguradora negar o pagamento?", a: "A Patro Seguros auxilia em todo o processo de recurso e documentação adicional." }
+    ]
+  },
+  "seguro-caminhao-carreta-cumbica-guarulhos": {
+    title: "Seguro para Caminhões e Carretas em Cumbica e Região",
+    content: "Cumbica é o coração logístico de Guarulhos e do Brasil. Para transportadoras e motoristas autônomos que operam no Aeroporto e arredores, o seguro de carga e o seguro do cavalo mecânico são vitais.\n\n## Proteção para o Polo Logístico de Guarulhos\n- Cobertura RCTR-C (Obrigatória).\n- Seguro contra roubo em trânsito (essencial na Dutra/Fernão Dias).\n- Assistência 24h para veículos pesados.\n\n[Cotar Seguro Frota ou Caminhão](/seguro-frota)",
+    faqs: [
+      { q: "O seguro cobre carga roubada no pátio?", a: "Sim, desde que a cobertura de 'Pátio' esteja contratada na apólice de transportes." },
+      { q: "Existe desconto para frotas de Guarulhos?", a: "Sim, negociamos condições especiais para empresas baseadas no polo industrial de Cumbica." }
+    ]
+  },
   "melhores-seguradoras-guarulhos-2026": {
     title: "As 5 Melhores Seguradoras em Guarulhos em 2026",
     content: "Muitos moradores de Guarulhos buscam o melhor seguro, mas a resposta depende de onde você circula — se é mais pela Rodovia Presidente Dutra, Fernão Dias ou pelas avenidas centrais como a Tiradentes.\n\n## 1. Porto Seguro\nLíder em Guarulhos pela vasta rede de Centros Automotivos Porto Seguro (CAPS) espalhados pela cidade e o excelente atendimento de guincho na região metropolitana.\n\n## 2. Azul Seguros\nA opção ideal para quem busca o selo de qualidade Porto Seguro com um preço mais acessível, especialmente para carros com mais de 5 anos.\n\n## 3. Liberty Seguros\nForte presença no setor empresarial de Guarulhos e excelentes condições para frotas de logística próximas ao Aeroporto de Cumbica.\n\n## 4. Allianz\nReferência em coberturas de alta gama e proteção para condomínios residenciais de alto padrão no bairro Maia.\n\n## 5. Bradesco Seguros\nExcelente para quem já é correntista e busca facilidade no pagamento e integração com outros serviços de saúde e vida.\n\n[Peça uma análise personalizada aqui](/cotacao)",

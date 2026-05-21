@@ -229,6 +229,8 @@ export const blogImageMap: Record<string, string> = {
     "seguro-uber-99-guarulhos-guia": blogMotoristaApp,
     "seguro-porsche-luxo-guarulhos": blogSeguroAutoPremium,
     "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
+    "seguradoras-que-mais-pagam-sinistro-guarulhos": blogDicas,
+    "seguro-caminhao-carreta-cumbica-guarulhos": blogSeguroTransporte,
 };
 
 export const getArticleImage = (slug: string): string => {
