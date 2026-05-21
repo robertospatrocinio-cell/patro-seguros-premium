@@ -67,9 +67,13 @@ export type Database = {
           health_plan_type: string | null
           home_insurance_carrier: string | null
           home_insurance_renewal: string | null
+          home_ownership: string | null
           id: string
+          income_bracket: string | null
           is_client: boolean | null
           last_contact_date: string | null
+          last_interaction_type: string | null
+          lead_source: string | null
           life_insurance_carrier: string | null
           life_insurance_renewal: string | null
           marital_status: string | null
@@ -80,6 +84,8 @@ export type Database = {
           partner_birthday: string | null
           partner_name: string | null
           phone: string | null
+          profession: string | null
+          satisfaction_score: number | null
           updated_at: string | null
         }
         Insert: {
@@ -105,9 +111,13 @@ export type Database = {
           health_plan_type?: string | null
           home_insurance_carrier?: string | null
           home_insurance_renewal?: string | null
+          home_ownership?: string | null
           id?: string
+          income_bracket?: string | null
           is_client?: boolean | null
           last_contact_date?: string | null
+          last_interaction_type?: string | null
+          lead_source?: string | null
           life_insurance_carrier?: string | null
           life_insurance_renewal?: string | null
           marital_status?: string | null
@@ -118,6 +128,8 @@ export type Database = {
           partner_birthday?: string | null
           partner_name?: string | null
           phone?: string | null
+          profession?: string | null
+          satisfaction_score?: number | null
           updated_at?: string | null
         }
         Update: {
@@ -143,9 +155,13 @@ export type Database = {
           health_plan_type?: string | null
           home_insurance_carrier?: string | null
           home_insurance_renewal?: string | null
+          home_ownership?: string | null
           id?: string
+          income_bracket?: string | null
           is_client?: boolean | null
           last_contact_date?: string | null
+          last_interaction_type?: string | null
+          lead_source?: string | null
           life_insurance_carrier?: string | null
           life_insurance_renewal?: string | null
           marital_status?: string | null
@@ -156,6 +172,8 @@ export type Database = {
           partner_birthday?: string | null
           partner_name?: string | null
           phone?: string | null
+          profession?: string | null
+          satisfaction_score?: number | null
           updated_at?: string | null
         }
         Relationships: []
