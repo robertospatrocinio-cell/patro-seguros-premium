@@ -26,7 +26,8 @@ import { exportToCSV } from "@/lib/utils/export";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { data: leads = [], isLoading, error, refetch, isRefetching } = useLeads();
+  const { data = [], isLoading, error, refetch, isRefetching } = useLeads();
+  const leads = data || [];
 
   const filteredLeads = useMemo(() => {
     return leads.filter((lead) => {
