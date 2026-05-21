@@ -237,11 +237,11 @@ const App = () => {
     <ErrorBoundary>
       <QueryProviderWrapper>
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <WhatsAppButton />
-          <CookieBanner />
           <BrowserRouter>
+            <Toaster />
+            <Sonner />
+            <WhatsAppButton />
+            <CookieBanner />
             <ScrollToTop />
             <ServiceWorkerCheck />
             <Suspense fallback={<PageSkeleton />}>
