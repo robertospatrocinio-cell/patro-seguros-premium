@@ -19,10 +19,41 @@ interface QuickQuoteFormProps {
 
 const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: QuickQuoteFormProps) => {
   const [form, setForm] = useState<Record<string, string>>({ nome: "", telefone: "", email: "" });
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const update = (key: string, value: string) => setForm(prev => ({ ...prev, [key]: value }));
+  const validateField = (key: string, value: string) => {
+    if (key === "nome") {
+      if (!value.trim()) return "Nome é obrigatório";
+      if (value.trim().length < 3) return "Nome muito curto";
+    }
+    if (key === "telefone") {
+      if (!value.trim()) return "WhatsApp é obrigatório";
+      if (!validatePhone(value)) return "Formato: (11) 99999-9999";
+    }
+    if (key === "email" && value.trim()) {
+      if (!validateEmail(value)) return "E-mail inválido";
+    }
+    return "";
+  };
+
+  const getFieldError = (key: string) => {
+    if (!touched[key]) return "";
+    return validateField(key, form[key] || "");
+  };
+
+  const update = (key: string, value: string) => {
+    let finalValue = value;
+    if (key === "telefone") {
+      finalValue = maskPhone(value);
+    }
+    setForm(prev => ({ ...prev, [key]: finalValue }));
+  };
+
+  const handleBlur = (key: string) => {
+    setTouched(prev => ({ ...prev, [key]: true }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
