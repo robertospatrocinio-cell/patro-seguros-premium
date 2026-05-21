@@ -215,60 +215,38 @@ const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => (
   <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 );
 
-/** Deferred wrapper – renders children after first paint / idle callback */
-function DeferredRender({ children }: { children: React.ReactNode }) {
-  const [ready, setReady] = useState(false);
+
+const App = () => {
   useEffect(() => {
-    // Check if we are in a browser environment
-    if (typeof window === 'undefined') return;
-    
-    // Increased delay and added a fallback to ensure it doesn't stay locked
-    const timeout = setTimeout(() => {
-      setReady(true);
-    }, 100);
-    
-    return () => clearTimeout(timeout);
+    // Monitor auth state to provide user context to monitoring
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session?.user) {
+        setUserContext({
+          id: session.user.id,
+        });
+      } else {
+        setUserContext({}); // Clear context on sign out
+      }
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
-  
-  // Return children directly if not ready to avoid complete UI blankness
-  // or a fallback skeleton if preferred
-  return <>{children}</>;
-}
 
-  const App = () => {
-    useEffect(() => {
-      // Monitor auth state to provide user context to Sentry
-      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-        if (session?.user) {
-          setUserContext({
-            id: session.user.id,
-          });
-        } else {
-          setUserContext({}); // Clear context on sign out
-        }
-      });
-
-      return () => subscription.unsubscribe();
-    }, []);
-
-    return (
-  <ErrorBoundary>
-    <QueryProviderWrapper>
-      <ServiceWorkerCheck />
-      <TooltipProvider>
-        <Suspense fallback={null}>
-          <DeferredRender>
-            <Toaster />
-            <Sonner />
-            <WhatsAppButton />
-            <CookieBanner />
-          </DeferredRender>
-        </Suspense>
-        <BrowserRouter>
-          <ScrollToTop />
-          <Suspense fallback={<PageSkeleton />}>
-            <Routes>
-            <Route path="/" element={<Index />} />
+  return (
+    <ErrorBoundary>
+      <QueryProviderWrapper>
+        <ServiceWorkerCheck />
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <WhatsAppButton />
+          <CookieBanner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <Suspense fallback={<PageSkeleton />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                {/* ... keep existing routes */}
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/parceiros" element={<Parceiros />} />
             <Route path="/cotacao" element={<Cotacao />} />
