@@ -11,9 +11,11 @@ import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import LocalAreaSchema from "@/components/LocalAreaSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
