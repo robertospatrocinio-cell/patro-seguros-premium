@@ -15,6 +15,8 @@ interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   mobileSrc?: string;
   /** Media query that triggers mobileSrc (default: max-width: 640px) */
   mobileMedia?: string;
+  /** Image decoding strategy */
+  decoding?: "async" | "auto" | "sync";
 }
 
 const OptimizedImage = ({
@@ -28,6 +30,7 @@ const OptimizedImage = ({
   avifSrc,
   mobileSrc,
   mobileMedia = "(max-width: 640px)",
+  decoding = "async",
   ...props
 }: OptimizedImageProps) => {
   const [loaded, setLoaded] = useState(eager);
@@ -58,7 +61,7 @@ const OptimizedImage = ({
       srcSet={srcSet}
        sizes={sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
        loading={eager ? "eager" : "lazy"}
-       decoding="async"
+       decoding={decoding}
        fetchPriority={eager ? "high" : "low"}
       onLoad={eager ? undefined : () => {
         setLoaded(true);

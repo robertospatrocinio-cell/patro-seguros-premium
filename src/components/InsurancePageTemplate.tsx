@@ -212,6 +212,7 @@ const InsurancePageTemplate = ({
                 eager 
                 aria-hidden="true" 
                 placeholderClass="bg-transparent" 
+                decoding="sync"
                 style={{ opacity: 0.18, objectPosition: 'center center' }} 
               />
             </div>
