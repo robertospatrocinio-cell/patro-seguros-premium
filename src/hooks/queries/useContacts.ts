@@ -115,32 +115,45 @@ export const useContacts = () => {
   });
 
   const uploadDocument = useMutation({
-    mutationFn: async ({ contactId, file, category }: { contactId: string, file: File, category: string }) => {
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${contactId}/${Math.random()}.${fileExt}`;
-      const filePath = `${fileName}`;
+    mutationFn: async ({ contactId, file, category, externalLink }: { contactId: string, file?: File, category: string, externalLink?: string }) => {
+      if (file) {
+        const fileExt = file.name.split('.').pop();
+        const fileName = `${contactId}/${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
 
-      const { error: uploadError } = await supabase.storage
-        .from('crm_documents')
-        .upload(filePath, file);
+        const { error: uploadError } = await supabase.storage
+          .from('crm_documents')
+          .upload(filePath, file);
 
-      if (uploadError) throw uploadError;
+        if (uploadError) throw uploadError;
 
-      const { error: docError } = await supabase
-        .from('documents')
-        .insert([{
-          contact_id: contactId,
-          file_name: file.name,
-          file_path: filePath,
-          file_type: file.type,
-          category: category
-        } as any]);
+        const { error: docError } = await supabase
+          .from('documents')
+          .insert([{
+            contact_id: contactId,
+            file_name: file.name,
+            file_path: filePath,
+            file_type: file.type,
+            category: category
+          } as any]);
 
-      if (docError) throw docError;
+        if (docError) throw docError;
+      } else if (externalLink) {
+        const { error: docError } = await supabase
+          .from('documents')
+          .insert([{
+            contact_id: contactId,
+            file_name: "Google Drive Policy",
+            external_drive_link: externalLink,
+            category: category
+          } as any]);
+
+        if (docError) throw docError;
+      }
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["contacts"] });
-      toast.success("Documento enviado com sucesso!");
+      toast.success("Documento registrado com sucesso!");
     }
   });
 

@@ -23,7 +23,8 @@ import {
   Briefcase,
   ShieldAlert,
   Bell,
-  Clock
+  Clock,
+  ExternalLink
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -978,7 +979,37 @@ const ContactsModule = () => {
                             className="hidden" 
                             onChange={(e) => handleFileUpload(contact.id, e, 'apólice')}
                           />
+                          <Button 
+                            variant="ghost" 
+                            size="icon" 
+                            className="h-6 w-6 p-0"
+                            onClick={() => {
+                              const url = prompt("Insira o link da apólice no Google Drive:");
+                              if (url) {
+                                uploadDocument.mutate({
+                                  contactId: contact.id,
+                                  externalLink: url,
+                                  category: 'apólice'
+                                });
+                              }
+                            }}
+                          >
+                            <ExternalLink className="w-3.5 h-3.5 text-blue-500" />
+                          </Button>
                         </div>
+                      </div>
+                      <div className="flex flex-col gap-1 mt-1">
+                        {contact.documents?.filter((d: any) => d.external_drive_link).map((doc: any) => (
+                          <a 
+                            key={doc.id}
+                            href={doc.external_drive_link} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-[10px] text-blue-600 hover:underline flex items-center gap-1"
+                          >
+                            <ExternalLink className="w-2.5 h-2.5" /> Google Drive Link
+                          </a>
+                        ))}
                       </div>
                     </TableCell>
                     <TableCell className="text-right">

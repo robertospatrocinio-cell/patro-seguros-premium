@@ -439,6 +439,7 @@ export type Database = {
           contact_id: string | null
           created_at: string | null
           customer_id: string | null
+          external_drive_link: string | null
           file_name: string
           file_path: string
           file_type: string | null
@@ -450,6 +451,7 @@ export type Database = {
           contact_id?: string | null
           created_at?: string | null
           customer_id?: string | null
+          external_drive_link?: string | null
           file_name: string
           file_path: string
           file_type?: string | null
@@ -461,6 +463,7 @@ export type Database = {
           contact_id?: string | null
           created_at?: string | null
           customer_id?: string | null
+          external_drive_link?: string | null
           file_name?: string
           file_path?: string
           file_type?: string | null
