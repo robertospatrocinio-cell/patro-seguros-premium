@@ -171,7 +171,7 @@ const CRMPage = () => {
             <div className="flex items-center gap-3">
               <Button 
                 variant="outline" 
-                onClick={fetchLeads} 
+                onClick={() => fetchLeads()} 
                 disabled={isRefreshing}
                 className="bg-white border-slate-200"
               >
