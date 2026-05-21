@@ -461,16 +461,14 @@ const ContactsModule = () => {
                 Transferir/Adicionar Contato
               </Button>
             </DialogTrigger>
-          </Dialog>
-        </div>
-      </div>
+            <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>Novo Contato</DialogTitle>
+                <DialogDescription>
+                  Cadastre informações do contato, seguros e anexe documentos.
+                </DialogDescription>
+              </DialogHeader>
 
-            <DialogHeader>
-              <DialogTitle>Novo Contato</DialogTitle>
-              <DialogDescription>
-                Cadastre informações do contato, seguros e anexe documentos.
-              </DialogDescription>
-            </DialogHeader>
             
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-2 gap-4">
