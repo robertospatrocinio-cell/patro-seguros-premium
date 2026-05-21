@@ -161,24 +161,55 @@ const Header = memo(() => {
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <a 
-                href={WHATSAPP_URL} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white/60 hover:text-green-400 transition-base" 
-                aria-label="WhatsApp"
-                onClick={() => trackWhatsAppClick("header_top")}
-              >
-                <MessageCircle className="h-3 w-3" aria-hidden="true" />
-              </a>
-              <a href="https://www.tiktok.com/@patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="TikTok">
-                <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
-              <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
-              <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" /></a>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a 
+                      href={WHATSAPP_URL} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-white/60 hover:text-green-400 transition-base" 
+                      aria-label="WhatsApp"
+                      onClick={() => trackWhatsAppClick("header_top")}
+                    >
+                      <MessageCircle className="h-3 w-3" aria-hidden="true" />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="text-[10px] py-1 px-2">WhatsApp</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a href="https://www.tiktok.com/@patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="TikTok">
+                      <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
+                      </svg>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="text-[10px] py-1 px-2">TikTok</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="text-[10px] py-1 px-2">Instagram</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="text-[10px] py-1 px-2">Facebook</TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" /></a>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="text-[10px] py-1 px-2">LinkedIn</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
           </div>
         </div>
