@@ -1277,9 +1277,19 @@ const ContactsModule = () => {
                             <MessageCircle className="w-4 h-4" />
                           </Button>
                         )}
-                        <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400">
-                          <MoreVertical className="w-4 h-4" />
-                        </Button>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button size="icon" variant="ghost" className="h-8 w-8 text-slate-400">
+                              <MoreVertical className="w-4 h-4" />
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuItem onClick={() => handleEditClick(contact)}>
+                              <Pencil className="w-4 h-4 mr-2" />
+                              Editar Contato
+                            </DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
                       </div>
                     </TableCell>
                   </TableRow>
