@@ -196,6 +196,7 @@ const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
 const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
+const CRM = lazy(() => import("./pages/CRM"));
 import RequireAdmin from "@/components/RequireAdmin";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
@@ -479,7 +480,8 @@ function DeferredRender({ children }: { children: React.ReactNode }) {
             <Route path="/admin/purge-logs" element={<RequireAdmin><PurgeLogs /></RequireAdmin>} />
             <Route path="/admin/performance" element={<RequireAdmin><PerformanceDiagnostico /></RequireAdmin>} />
             <Route path="/admin/seo-tecnico" element={<RequireAdmin><SeoTechnicalReport /></RequireAdmin>} />
-            <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
+             <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
+             <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
             <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
             <Route path="/investimentos" element={<Investimentos />} />
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
