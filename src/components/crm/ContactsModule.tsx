@@ -317,6 +317,7 @@ const ContactsModule = () => {
         "Plano Saúde": c.health_plan_type ? `Sim (${c.health_insurance_carrier || "N/A"})` : "Não",
         "Seguro Empresarial": c.has_business_insurance ? `Sim (${c.business_insurance_carrier || "N/A"})` : "Não",
         "Consórcio": c.has_consortium ? `Sim (${c.consortium_type} - ${c.consortium_carrier || "N/A"})` : "Não",
+        "Responsável": c.responsible_name || "",
         "Notas": c.notes || ""
       }));
 
