@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle, MessageCircle } from "lucide-react";
+import { Send, CheckCircle, MessageCircle, ListChecks } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -65,6 +65,20 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [showChecklist, setShowChecklist] = useState(false);
+  const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
+
+  const checklistOptions = [
+    { id: "correct_phone", label: "Meu WhatsApp está correto para receber a cotação." },
+    { id: "essential_info", label: "Forneci as informações básicas necessárias." },
+    { id: "ready_to_talk", label: "Estou pronto para conversar com um especialista." }
+  ];
+
+  const isChecklistComplete = checklistOptions.every(item => checklistItems[item.id]);
+
+  const toggleChecklistItem = (id: string) => {
+    setChecklistItems(prev => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const getFieldError = (field: FormFieldConfig) => {
     if (!touched[field.id]) return "";
@@ -134,6 +148,16 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
           ? "Por favor, aceite os termos para continuar." 
           : `Por favor, corrija o campo: ${firstError?.label}`
       );
+      return;
+    }
+
+    if (!showChecklist) {
+      setShowChecklist(true);
+      return;
+    }
+
+    if (!isChecklistComplete) {
+      toast.error("Por favor, confirme todos os itens do checklist antes de enviar.");
       return;
     }
 
@@ -396,14 +420,37 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
           );
         })}
 
+        {/* Checklist de Validação */}
+        {showChecklist && (
+          <div className="bg-white/80 border border-primary/20 rounded-xl p-4 space-y-3 animate-in fade-in slide-in-from-top-2">
+            <div className="flex items-center gap-2 text-primary font-semibold text-sm mb-1">
+              <ListChecks className="h-4 w-4" />
+              <span>Confirme seus dados antes de enviar:</span>
+            </div>
+            {checklistOptions.map(item => (
+              <label key={item.id} className="flex items-start gap-3 cursor-pointer group">
+                <Checkbox 
+                  id={item.id}
+                  checked={checklistItems[item.id] || false}
+                  onCheckedChange={() => toggleChecklistItem(item.id)}
+                  className="mt-1"
+                />
+                <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                  {item.label}
+                </span>
+              </label>
+            ))}
+          </div>
+        )}
+
         {/* Consent */}
         <label className="flex items-start gap-2 cursor-pointer">
           <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-0.5" />
           <span className="text-xs text-muted-foreground">Concordo em receber contato via WhatsApp/Email</span>
         </label>
 
-        <Button type="submit" variant="cta" className="w-full h-12 text-base" disabled={sending || !isValid()}>
-          {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Receber Cotação Grátis</>}
+        <Button type="submit" variant="cta" className="w-full h-12 text-base" disabled={sending || !isValid() || (showChecklist && !isChecklistComplete)}>
+          {sending ? "Enviando..." : showChecklist ? <><Send className="mr-2 h-4 w-4" /> Confirmar e Enviar</> : <><Send className="mr-2 h-4 w-4" /> Receber Cotação Grátis</>}
         </Button>
         <p className="text-xs text-muted-foreground text-center">
           100% gratuito · Resposta em até 2 horas · Sem compromisso
