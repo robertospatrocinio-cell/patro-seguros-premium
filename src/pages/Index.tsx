@@ -214,7 +214,9 @@ const faqs = [
                 </div>
               </div>
             </div>
-         </section>
+          </section>
+
+          <LocalTestimonials />
 
          {/* Diferenciais */}
          <LazySection minHeight="400px" className="py-16 md:py-32 bg-background">
