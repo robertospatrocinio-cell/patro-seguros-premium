@@ -35,7 +35,7 @@ export const useContacts = () => {
   });
 
   const createContact = useMutation({
-    mutationFn: async (newContact: Partial<Contact> & { insurances?: string[] }) => {
+    mutationFn: async (newContact: { full_name: string } & Partial<Contact> & { insurances?: string[] }) => {
       const { insurances, ...contactData } = newContact;
       
       const { data: contact, error: contactError } = await supabase
