@@ -218,11 +218,8 @@ const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => (
 function DeferredRender({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
   useEffect(() => {
-    if ("requestIdleCallback" in window) {
-      (window as any).requestIdleCallback(() => setReady(true));
-    } else {
-      setTimeout(() => setReady(true), 100);
-    }
+    const timeout = setTimeout(() => setReady(true), 10);
+    return () => clearTimeout(timeout);
   }, []);
   if (!ready) return null;
   return <>{children}</>;
