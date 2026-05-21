@@ -20,7 +20,8 @@ import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { articlesContent } from "@/data/blogArticlesContent";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20blog%20da%20Patro%20Seguros%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.";
+const PHONE = "551151997500";
+const WHATSAPP_BASE_URL = `https://wa.me/${PHONE}`;
 const BlogFormCTA = lazy(() => import("@/components/BlogFormCTA"));
 const StickyQuoteBar = lazy(() => import("@/components/StickyQuoteBar"));
 
@@ -46,6 +47,11 @@ const BlogArticle = () => {
   ];
 
   const articleImageUrl = slug ? `${CANONICAL_BASE_URL}${getArticleImage(slug)}` : undefined;
+
+  const insuranceType = meta?.category || "Seguro";
+  const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
+  const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
+  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}&origem=blog-${slug}`;
 
   return (
     <>
@@ -168,7 +174,7 @@ const BlogArticle = () => {
               </div>
               <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto shrink-0">
                 <a
-                  href={WHATSAPP_URL}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick("blog-article-top")}
@@ -177,7 +183,7 @@ const BlogArticle = () => {
                   <MessageCircle className="h-4 w-4" /> WhatsApp
                 </a>
                 <Link
-                  to="/cotacao"
+                  to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-top")}
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-sm font-semibold hover:opacity-90 transition-opacity"
                 >
