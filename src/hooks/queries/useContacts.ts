@@ -69,7 +69,10 @@ export const useContacts = () => {
         `)
         .order("created_at", { ascending: false });
 
-      if (error) throw error;
+      if (error) {
+        console.error("Supabase error fetching contacts:", error);
+        throw new Error(`Erro Supabase (Contatos): ${error.message}`);
+      }
       return data;
     },
   });

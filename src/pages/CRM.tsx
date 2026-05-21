@@ -150,7 +150,7 @@ const CRMPage = () => {
               <div className="flex-1">
                 <p className="font-bold text-lg">Falha na sincronização</p>
                 <p className="text-sm opacity-90">
-                  {error instanceof Error ? error.message : "Não foi possível estabelecer conexão com o banco de dados. Verifique seu acesso ou internet."}
+                  {error instanceof Error ? `Erro: ${error.message}` : "Não foi possível estabelecer conexão com o banco de dados. Verifique seu acesso ou internet."}
                 </p>
               </div>
               <Button 
