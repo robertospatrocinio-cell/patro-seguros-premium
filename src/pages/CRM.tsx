@@ -39,16 +39,23 @@ const CRMPage = () => {
   const isLoadingContacts = contactsQueryResult.isLoading;
   const errorContacts = contactsQueryResult.error;
   const refetchContacts = contactsQueryResult.refetch;
+  const isRefetchingContacts = contactsQueryResult.isRefetching;
   
   const leads = data || [];
   const isLoading = isLoadingLeads || isLoadingContacts;
   const error = errorLeads || errorContacts;
-  const isRefetching = isRefetchingLeads; // isRefetching only from leads for simplicity as isRefetching wasn't on useContacts type properly in the error
+  const isRefetching = isRefetchingLeads || isRefetchingContacts;
 
   const refetch = () => {
-    refetchLeads();
-    refetchContacts();
+    return Promise.all([refetchLeads(), refetchContacts()]);
   };
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      refetchContacts();
+    }, 5 * 60 * 1000);
+    return () => window.clearInterval(id);
+  }, [refetchContacts]);
 
   useEffect(() => {
     console.log("CRMPage: Componente montado. Leads carregados:", leads.length);
