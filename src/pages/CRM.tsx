@@ -35,12 +35,14 @@ import { toast } from "sonner";
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { data = [], isLoading: isLoadingLeads, error: errorLeads, refetch: refetchLeads, isRefetching: isRefetchingLeads } = useLeads();
-  const contactsQueryResult = useContacts();
-  const contacts = contactsQueryResult.contacts || [];
-  const isLoadingContacts = contactsQueryResult.isLoading;
-  const errorContacts = contactsQueryResult.error;
-  const refetchContacts = contactsQueryResult.refetch;
-  const isRefetchingContacts = contactsQueryResult.isRefetching;
+  const { 
+    contacts = [], 
+    isLoading: isLoadingContacts, 
+    error: errorContacts, 
+    refetch: refetchContacts, 
+    isRefetching: isRefetchingContacts,
+    forceRefetch: forceRefetchContacts
+  } = useContacts();
   
   const leads = data || [];
   const isLoading = isLoadingLeads || isLoadingContacts;
@@ -53,8 +55,8 @@ const CRMPage = () => {
 
   const refreshRelationshipAgenda = async () => {
     try {
-      await refetchContacts();
-      toast.success("Agenda de relacionamento atualizada com sucesso!");
+      await forceRefetchContacts();
+      toast.success("Agenda de relacionamento atualizada e cache limpo com sucesso!");
     } catch (err: any) {
       toast.error("Erro ao atualizar agenda: " + (err?.message || "tente novamente"));
     }
