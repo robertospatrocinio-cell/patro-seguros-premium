@@ -53,7 +53,17 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const RelationshipModule = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { contacts = [], isLoading } = useContacts();
+  const { contacts = [], isLoading, refetch } = useContacts();
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const handleRefreshAgenda = async () => {
+    setIsRefreshing(true);
+    try {
+      await refetch();
+    } finally {
+      setTimeout(() => setIsRefreshing(false), 500);
+    }
+  };
 
   const scheduledToday = useMemo(() => {
     return contacts.filter(contact => {
@@ -127,7 +137,18 @@ const RelationshipModule = () => {
               <Calendar className="w-5 h-5" />
               <CardTitle className="text-lg font-bold">Agenda de Contatos - Hoje</CardTitle>
             </div>
-            <Badge className="bg-emerald-600">{scheduledToday.length} agendados</Badge>
+            <div className="flex items-center gap-2">
+              <Badge className="bg-emerald-600">{scheduledToday.length} agendados</Badge>
+              <Button
+                size="sm"
+                onClick={handleRefreshAgenda}
+                disabled={isRefreshing || isLoading}
+                className="h-8 bg-emerald-600 hover:bg-emerald-700 text-white"
+              >
+                <RefreshCw className={`w-3.5 h-3.5 mr-2 ${isRefreshing ? "animate-spin" : ""}`} />
+                {isRefreshing ? "Atualizando..." : "Atualizar Agenda"}
+              </Button>
+            </div>
           </div>
           <CardDescription className="text-emerald-700/80">
             Estes são os clientes que você deve contatar hoje conforme o planejamento.
