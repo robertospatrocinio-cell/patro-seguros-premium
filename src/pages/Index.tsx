@@ -195,11 +195,11 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-                <LazySection className="lg:w-1/2 w-full" minHeight="400px">
-                  <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse rounded-xl" />}>
-                    <LocalSavingsCalculator />
-                  </Suspense>
-                </LazySection>
+              <LazySection className="lg:w-1/2 w-full" minHeight="400px">
+                <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse rounded-xl" />}>
+                  <LocalSavingsCalculator />
+                </Suspense>
+              </LazySection>
             </div>
           </div>
         </section>
@@ -273,7 +273,7 @@ const Index = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <Link to="/seguros-guarulhos/cidade-maia" className="text-sm hover:text-primary">Cidade Maia</Link>
                   <Link to="/seguros-guarulhos/vila-augusta" className="text-sm hover:text-primary">Vila Augusta</Link>
-                  <Link to="/seguros-guarulhos/picanço" className="text-sm hover:text-primary">Picanço</Link>
+                  <Link to="/seguros-guarulhos/picanco" className="text-sm hover:text-primary">Picanço</Link>
                   <Link to="/seguros-guarulhos/macedo" className="text-sm hover:text-primary">Macedo</Link>
                 </div>
               </div>
@@ -281,14 +281,20 @@ const Index = () => {
           </div>
         </section>
 
-        <LazySection minHeight="200px">
-          <LeadMagnetSection />
+        <LazySection minHeight="400px">
+          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+            <LeadMagnetSection />
+          </Suspense>
         </LazySection>
 
-        <FormCTASection 
-          title="Proteja seu patrimônio com quem entende de Guarulhos"
-          subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
-        />
+        <LazySection minHeight="400px">
+          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+            <FormCTASection 
+              title="Proteja seu patrimônio com quem entende de Guarulhos"
+              subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
+            />
+          </Suspense>
+        </LazySection>
 
         <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
@@ -322,7 +328,7 @@ const Index = () => {
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
               <Card className="text-center p-6 hover:shadow-md transition-base">
                 <CardContent className="p-0 flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <Smartphone className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-[15px] font-semibold">Cotação por WhatsApp</h3>
@@ -333,7 +339,7 @@ const Index = () => {
               </Card>
               <Card className="text-center p-6 hover:shadow-md transition-base">
                 <CardContent className="p-0 flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <Globe className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-[15px] font-semibold">Emissão 100% Digital</h3>
@@ -344,7 +350,7 @@ const Index = () => {
               </Card>
               <Card className="text-center p-6 hover:shadow-md transition-base">
                 <CardContent className="p-0 flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <Headphones className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-[15px] font-semibold">Sinistro com Suporte Total</h3>
@@ -388,22 +394,30 @@ const Index = () => {
             </div>
             <div className="max-w-md mx-auto">
               <LazySection minHeight="250px">
-                <GoogleBusinessWidget />
+                <Suspense fallback={<div className="h-[250px] w-full bg-muted animate-pulse" />}>
+                  <GoogleBusinessWidget />
+                </Suspense>
               </LazySection>
             </div>
           </div>
         </section>
 
         <LazySection minHeight="150px">
-          <AgrishowPromoBanner source="home" variant="full" />
+          <Suspense fallback={<div className="h-[150px] w-full bg-muted animate-pulse" />}>
+            <AgrishowPromoBanner source="home" variant="full" />
+          </Suspense>
         </LazySection>
 
         <LazySection minHeight="400px">
-          <HomeBlogSection />
+          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+            <HomeBlogSection />
+          </Suspense>
         </LazySection>
 
         <LazySection minHeight="300px">
-          <PortoPartnershipSection />
+          <Suspense fallback={<div className="h-[300px] w-full bg-muted animate-pulse" />}>
+            <PortoPartnershipSection />
+          </Suspense>
         </LazySection>
 
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
@@ -481,7 +495,9 @@ const Index = () => {
         </section>
 
         <LazySection minHeight="200px">
-          <InsuranceHubLinks />
+          <Suspense fallback={<div className="h-[200px] w-full bg-muted animate-pulse" />}>
+            <InsuranceHubLinks />
+          </Suspense>
         </LazySection>
       </main>
       <Footer />
