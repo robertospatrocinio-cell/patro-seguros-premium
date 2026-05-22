@@ -54,12 +54,7 @@ const CRMPage = () => {
   };
 
   const refreshRelationshipAgenda = async () => {
-    try {
-      await forceRefetchContacts();
-      toast.success("Agenda de relacionamento atualizada e cache limpo com sucesso!");
-    } catch (err: any) {
-      toast.error("Erro ao atualizar agenda: " + (err?.message || "tente novamente"));
-    }
+    await forceRefetchContacts();
   };
 
   useEffect(() => {
