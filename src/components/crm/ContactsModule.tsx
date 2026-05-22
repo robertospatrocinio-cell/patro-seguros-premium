@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { 
   Search, 
   UserPlus, 
@@ -28,7 +28,9 @@ import {
   Download,
   Filter,
   Pencil,
-  RefreshCw
+  RefreshCw,
+  Smartphone,
+  FileSpreadsheet
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -77,6 +79,7 @@ import {
 } from "@/components/ui/popover";
 import { formatContactDate, parseContactDate } from "@/lib/crmDates";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { parseCSV, parseExcel, parseVCF, ImportedContact } from "@/lib/contactImport";
 
 
 const INSURANCE_TYPES = [
@@ -139,6 +142,9 @@ const ContactsModule = () => {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingContactId, setEditingContactId] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
+  const [isImporting, setIsImporting] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const vcfInputRef = useRef<HTMLInputElement>(null);
   
   // Export filters
   const [exportFilters, setExportFilters] = useState({
@@ -345,6 +351,63 @@ const ContactsModule = () => {
     }
   };
 
+  const handleImportFile = async (e: React.ChangeEvent<HTMLInputElement>, type: 'excel' | 'vcf') => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setIsImporting(true);
+    const loadingToast = toast.loading(`Importando contatos de ${type === 'excel' ? 'Excel/CSV' : 'Celular (VCF)'}...`);
+
+    try {
+      let imported: ImportedContact[] = [];
+      if (type === 'excel') {
+        if (file.name.endsWith('.csv')) {
+          imported = await parseCSV(file);
+        } else {
+          imported = await parseExcel(file);
+        }
+      } else {
+        imported = await parseVCF(file);
+      }
+
+      if (imported.length === 0) {
+        toast.dismiss(loadingToast);
+        toast.error("Nenhum contato válido encontrado no arquivo.");
+        return;
+      }
+
+      let successCount = 0;
+      for (const contact of imported) {
+        try {
+          await createContact.mutateAsync({
+            full_name: contact.full_name,
+            email: contact.email || null,
+            phone: contact.phone || null,
+            birth_date: contact.birth_date || null,
+            notes: contact.notes || "Importado",
+            is_client: contact.is_client ?? false,
+            client_type: "lead"
+          });
+          successCount++;
+        } catch (err) {
+          console.error("Error importing single contact:", err);
+        }
+      }
+
+      toast.dismiss(loadingToast);
+      toast.success(`${successCount} contatos importados com sucesso!`);
+      forceRefetch();
+    } catch (error) {
+      console.error("Import error:", error);
+      toast.dismiss(loadingToast);
+      toast.error("Erro ao processar arquivo de importação.");
+    } finally {
+      setIsImporting(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+
   const getContactAlert = (nextDate: string | null) => {
     if (!nextDate) return null;
     const today = new Date();
@@ -387,6 +450,40 @@ const ContactsModule = () => {
         </div>
         
         <div className="flex flex-wrap gap-2">
+          <input
+            type="file"
+            ref={fileInputRef}
+            className="hidden"
+            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+            onChange={(e) => handleImportFile(e, 'excel')}
+          />
+          <input
+            type="file"
+            ref={vcfInputRef}
+            className="hidden"
+            accept=".vcf"
+            onChange={(e) => handleImportFile(e, 'vcf')}
+          />
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="border-slate-200" disabled={isImporting}>
+                <Upload className="w-4 h-4 mr-2" />
+                Importar Contatos
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => fileInputRef.current?.click()}>
+                <FileSpreadsheet className="w-4 h-4 mr-2" />
+                Excel ou CSV
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => vcfInputRef.current?.click()}>
+                <Smartphone className="w-4 h-4 mr-2" />
+                iPhone / Android (VCF)
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Button 
             variant="outline" 
             className="border-slate-200"
@@ -396,6 +493,7 @@ const ContactsModule = () => {
             <RefreshCw className={`w-4 h-4 mr-2 ${isRefetching ? "animate-spin" : ""}`} />
             Sincronizar Banco
           </Button>
+
 
           <Popover>
             <PopoverTrigger asChild>
