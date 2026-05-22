@@ -74,6 +74,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { formatContactDate, parseContactDate } from "@/lib/crmDates";
 
 
 const INSURANCE_TYPES = [
@@ -352,7 +353,8 @@ const ContactsModule = () => {
     if (!nextDate) return null;
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const alertDate = new Date(nextDate);
+    const alertDate = parseContactDate(nextDate);
+    if (!alertDate) return null;
     alertDate.setHours(0, 0, 0, 0);
 
     if (alertDate <= today) {
@@ -366,9 +368,13 @@ const ContactsModule = () => {
 
   const calculateNextContactDate = (lastDate: string, days: number) => {
     if (!lastDate) return "";
-    const date = new Date(lastDate);
+    const date = parseContactDate(lastDate);
+    if (!date) return "";
     date.setDate(date.getDate() + days);
-    return date.toISOString().split('T')[0];
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
   };
 
   return (
@@ -1114,7 +1120,7 @@ const ContactsModule = () => {
                 {newContact.next_contact_date && (
                   <div className="col-span-2 text-sm text-primary font-medium flex items-center gap-2">
                     <Bell className="w-4 h-4" />
-                    Alerta agendado para: {new Date(newContact.next_contact_date).toLocaleDateString('pt-BR')}
+                    Alerta agendado para: {formatContactDate(newContact.next_contact_date, "dd/MM/yyyy")}
                   </div>
                 )}
               </div>
@@ -1202,7 +1208,7 @@ const ContactsModule = () => {
                         {contact.last_contact_date && (
                           <div className="text-[10px] text-slate-500 flex items-center gap-1">
                             <Clock className="w-3 h-3" /> 
-                            Último contato: {new Date(contact.last_contact_date).toLocaleDateString('pt-BR')}
+                            Último contato: {formatContactDate(contact.last_contact_date, "dd/MM/yyyy")}
                           </div>
                         )}
                         {getContactAlert(contact.next_contact_date) && (

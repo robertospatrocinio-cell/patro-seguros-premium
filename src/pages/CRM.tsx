@@ -30,6 +30,7 @@ import { KanbanBoard } from "@/components/crm/KanbanBoard";
 import { exportToCSV } from "@/lib/utils/export";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useContacts } from "@/hooks/queries/useContacts";
+import { toast } from "sonner";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -39,16 +40,32 @@ const CRMPage = () => {
   const isLoadingContacts = contactsQueryResult.isLoading;
   const errorContacts = contactsQueryResult.error;
   const refetchContacts = contactsQueryResult.refetch;
+  const isRefetchingContacts = contactsQueryResult.isRefetching;
   
   const leads = data || [];
   const isLoading = isLoadingLeads || isLoadingContacts;
   const error = errorLeads || errorContacts;
-  const isRefetching = isRefetchingLeads; // isRefetching only from leads for simplicity as isRefetching wasn't on useContacts type properly in the error
+  const isRefetching = isRefetchingLeads || isRefetchingContacts;
 
   const refetch = () => {
-    refetchLeads();
-    refetchContacts();
+    return Promise.all([refetchLeads(), refetchContacts()]);
   };
+
+  const refreshRelationshipAgenda = async () => {
+    try {
+      await refetchContacts();
+      toast.success("Agenda de relacionamento atualizada com sucesso!");
+    } catch (err: any) {
+      toast.error("Erro ao atualizar agenda: " + (err?.message || "tente novamente"));
+    }
+  };
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      refetchContacts();
+    }, 5 * 60 * 1000);
+    return () => window.clearInterval(id);
+  }, [refetchContacts]);
 
   useEffect(() => {
     console.log("CRMPage: Componente montado. Leads carregados:", leads.length);
@@ -239,6 +256,8 @@ const CRMPage = () => {
                 birthdays={birthdays}
                 renewals={renewals}
                 contacts={contacts}
+                onRefreshAgenda={refreshRelationshipAgenda}
+                isRefreshingAgenda={isRefetchingContacts}
               />
             </TabsContent>
 
