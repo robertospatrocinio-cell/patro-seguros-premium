@@ -75,6 +75,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { formatContactDate, parseContactDate } from "@/lib/crmDates";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 
 const INSURANCE_TYPES = [
@@ -341,12 +342,6 @@ const ContactsModule = () => {
     } finally {
       setIsExporting(false);
     }
-  };
-
-  const openWhatsApp = (phone: string) => {
-
-    const cleanPhone = phone.replace(/\D/g, "");
-    window.open(`https://wa.me/55${cleanPhone}`, "_blank");
   };
 
   const getContactAlert = (nextDate: string | null) => {
@@ -1302,7 +1297,7 @@ const ContactsModule = () => {
                             asChild
                           >
                             <a
-                              href={`https://wa.me/55${contact.phone.replace(/\D/g, "")}`}
+                              href={getWhatsAppUrl(contact.phone)}
                               target="_blank"
                               rel="noopener noreferrer"
                               aria-label="Abrir WhatsApp"
