@@ -1,9 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
- import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
- import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
- import SmartText from "@/components/SmartText";
- import { getRelatedLinks } from "@/lib/relatedFromText";
+import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
@@ -14,23 +12,23 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import OptimizedImage from "@/components/OptimizedImage";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
-import LocalSavingsCalculator from "@/components/LocalSavingsCalculator";
-import LocalTestimonials from "@/components/LocalTestimonials";
-
-import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
-import FormCTASection from "@/components/FormCTASection";
-import Footer from "@/components/Footer";
-import LeadMagnetSection from "@/components/LeadMagnetSection";
-import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
-import PortoPartnershipSection from "@/components/PortoPartnershipSection";
-import HomeBlogSection from "@/components/HomeBlogSection";
-import InsuranceHubLinks from "@/components/InsuranceHubLinks";
-import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
-
 import LazySection from "@/components/LazySection";
+
+// Static components
+import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
+import Footer from "@/components/Footer";
+
+// Lazy-loaded components for better FCP
+const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalculator"));
+const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
+const FormCTASection = lazy(() => import("@/components/FormCTASection"));
+const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
+const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
+const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
+const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
+const InsuranceHubLinks = lazy(() => import("@/components/InsuranceHubLinks"));
+const AgrishowPromoBanner = lazy(() => import("@/components/AgrishowPromoBanner"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -194,15 +192,19 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <LazySection className="lg:w-1/2 w-full" minHeight="400px">
-                <LocalSavingsCalculator />
-              </LazySection>
+                <LazySection className="lg:w-1/2 w-full" minHeight="400px">
+                  <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse rounded-xl" />}>
+                    <LocalSavingsCalculator />
+                  </Suspense>
+                </LazySection>
             </div>
           </div>
         </section>
 
         <LazySection minHeight="300px">
-          <LocalTestimonials />
+          <Suspense fallback={<div className="h-[300px] w-full bg-muted animate-pulse" />}>
+            <LocalTestimonials />
+          </Suspense>
         </LazySection>
 
         <section className="py-16 md:py-32 bg-background">
