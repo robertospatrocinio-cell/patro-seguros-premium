@@ -376,26 +376,44 @@ const ContactsModule = () => {
         return;
       }
 
+      const BATCH_SIZE = 5; // Process in small batches to avoid overloading
       let successCount = 0;
-      for (const contact of imported) {
-        try {
-          await createContact.mutateAsync({
-            full_name: contact.full_name,
-            email: contact.email || null,
-            phone: contact.phone || null,
-            birth_date: contact.birth_date || null,
-            notes: contact.notes || "Importado",
-            is_client: contact.is_client ?? false,
-            client_type: "lead"
-          });
-          successCount++;
-        } catch (err) {
-          console.error("Error importing single contact:", err);
-        }
+      let errorCount = 0;
+
+      for (let i = 0; i < imported.length; i += BATCH_SIZE) {
+        const batch = imported.slice(i, i + BATCH_SIZE);
+        
+        await Promise.all(batch.map(async (contact) => {
+          try {
+            await createContact.mutateAsync({
+              full_name: contact.full_name,
+              email: contact.email || null,
+              phone: contact.phone || null,
+              birth_date: contact.birth_date || null,
+              notes: contact.notes || "Importado",
+              is_client: contact.is_client ?? false,
+              client_type: "lead"
+            });
+            successCount++;
+          } catch (err) {
+            console.error("Error importing single contact:", err);
+            errorCount++;
+          }
+        }));
+
+        // Optional: Update toast with progress
+        toast.loading(`Importando... ${Math.min(i + BATCH_SIZE, imported.length)} de ${imported.length}`, {
+          id: loadingToast,
+        });
       }
 
       toast.dismiss(loadingToast);
-      toast.success(`${successCount} contatos importados com sucesso!`);
+      
+      if (errorCount > 0) {
+        toast.warning(`${successCount} importados, ${errorCount} falharam.`);
+      } else {
+        toast.success(`${successCount} contatos importados com sucesso!`);
+      }
       forceRefetch();
     } catch (error) {
       console.error("Import error:", error);
