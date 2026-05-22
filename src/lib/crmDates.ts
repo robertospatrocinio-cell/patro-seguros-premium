@@ -26,25 +26,16 @@ export const parseContactDate = (dateStr?: string | null): Date | null => {
   return null;
 };
 
-const parseLegacyDisplayedDate = (dateStr?: string | null): Date | null => {
-  const parsed = parseContactDate(dateStr);
-  if (!parsed) return null;
-  return new Date(Date.UTC(parsed.getFullYear(), parsed.getMonth(), parsed.getDate()));
-};
-
 export const isContactDueForAgenda = (dateStr?: string | null, targetDate = new Date(), includeOverdue = true) => {
   const scheduledDate = parseContactDate(dateStr);
   if (!scheduledDate) return false;
 
   const target = startOfDay(targetDate);
   const exactDate = startOfDay(scheduledDate);
-  const legacyDate = parseLegacyDisplayedDate(dateStr);
-  const legacyLocalDate = legacyDate ? startOfDay(legacyDate) : null;
 
   return (
     isSameDay(exactDate, target) ||
-    (legacyLocalDate ? isSameDay(legacyLocalDate, target) : false) ||
-    (includeOverdue && (isBefore(exactDate, target) || (legacyLocalDate ? isBefore(legacyLocalDate, target) : false)))
+    (includeOverdue && isBefore(exactDate, target))
   );
 };
 
