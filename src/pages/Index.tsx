@@ -1,9 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
- import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
- import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
- import SmartText from "@/components/SmartText";
- import { getRelatedLinks } from "@/lib/relatedFromText";
+import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
+import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
+import SmartText from "@/components/SmartText";
+import { getRelatedLinks } from "@/lib/relatedFromText";
 import Header from "@/components/Header";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
@@ -15,22 +15,23 @@ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import OptimizedImage from "@/components/OptimizedImage";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
-import LocalSavingsCalculator from "@/components/LocalSavingsCalculator";
-import LocalTestimonials from "@/components/LocalTestimonials";
-
-import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
-import FormCTASection from "@/components/FormCTASection";
-import Footer from "@/components/Footer";
-import LeadMagnetSection from "@/components/LeadMagnetSection";
-import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
-import PortoPartnershipSection from "@/components/PortoPartnershipSection";
-import HomeBlogSection from "@/components/HomeBlogSection";
-import InsuranceHubLinks from "@/components/InsuranceHubLinks";
-import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
-
 import LazySection from "@/components/LazySection";
+
+// Static components
+import InsuranceHeroSelector from "@/components/InsuranceHeroSelector";
+import Footer from "@/components/Footer";
+
+// Lazy-loaded components for better FCP
+const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalculator"));
+const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
+const FormCTASection = lazy(() => import("@/components/FormCTASection"));
+const LeadMagnetSection = lazy(() => import("@/components/LeadMagnetSection"));
+const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
+const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
+const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
+const InsuranceHubLinks = lazy(() => import("@/components/InsuranceHubLinks"));
+const AgrishowPromoBanner = lazy(() => import("@/components/AgrishowPromoBanner"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -195,14 +196,18 @@ const Index = () => {
                 </div>
               </div>
               <LazySection className="lg:w-1/2 w-full" minHeight="400px">
-                <LocalSavingsCalculator />
+                <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse rounded-xl" />}>
+                  <LocalSavingsCalculator />
+                </Suspense>
               </LazySection>
             </div>
           </div>
         </section>
 
         <LazySection minHeight="300px">
-          <LocalTestimonials />
+          <Suspense fallback={<div className="h-[300px] w-full bg-muted animate-pulse" />}>
+            <LocalTestimonials />
+          </Suspense>
         </LazySection>
 
         <section className="py-16 md:py-32 bg-background">
@@ -268,7 +273,7 @@ const Index = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <Link to="/seguros-guarulhos/cidade-maia" className="text-sm hover:text-primary">Cidade Maia</Link>
                   <Link to="/seguros-guarulhos/vila-augusta" className="text-sm hover:text-primary">Vila Augusta</Link>
-                  <Link to="/seguros-guarulhos/picanço" className="text-sm hover:text-primary">Picanço</Link>
+                  <Link to="/seguros-guarulhos/picanco" className="text-sm hover:text-primary">Picanço</Link>
                   <Link to="/seguros-guarulhos/macedo" className="text-sm hover:text-primary">Macedo</Link>
                 </div>
               </div>
@@ -276,14 +281,20 @@ const Index = () => {
           </div>
         </section>
 
-        <LazySection minHeight="200px">
-          <LeadMagnetSection />
+        <LazySection minHeight="400px">
+          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+            <LeadMagnetSection />
+          </Suspense>
         </LazySection>
 
-        <FormCTASection 
-          title="Proteja seu patrimônio com quem entende de Guarulhos"
-          subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
-        />
+        <LazySection minHeight="400px">
+          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+            <FormCTASection 
+              title="Proteja seu patrimônio com quem entende de Guarulhos"
+              subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
+            />
+          </Suspense>
+        </LazySection>
 
         <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
@@ -317,7 +328,7 @@ const Index = () => {
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
               <Card className="text-center p-6 hover:shadow-md transition-base">
                 <CardContent className="p-0 flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <Smartphone className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-[15px] font-semibold">Cotação por WhatsApp</h3>
@@ -328,7 +339,7 @@ const Index = () => {
               </Card>
               <Card className="text-center p-6 hover:shadow-md transition-base">
                 <CardContent className="p-0 flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <Globe className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-[15px] font-semibold">Emissão 100% Digital</h3>
@@ -339,7 +350,7 @@ const Index = () => {
               </Card>
               <Card className="text-center p-6 hover:shadow-md transition-base">
                 <CardContent className="p-0 flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                     <Headphones className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="text-[15px] font-semibold">Sinistro com Suporte Total</h3>
@@ -383,22 +394,30 @@ const Index = () => {
             </div>
             <div className="max-w-md mx-auto">
               <LazySection minHeight="250px">
-                <GoogleBusinessWidget />
+                <Suspense fallback={<div className="h-[250px] w-full bg-muted animate-pulse" />}>
+                  <GoogleBusinessWidget />
+                </Suspense>
               </LazySection>
             </div>
           </div>
         </section>
 
         <LazySection minHeight="150px">
-          <AgrishowPromoBanner source="home" variant="full" />
+          <Suspense fallback={<div className="h-[150px] w-full bg-muted animate-pulse" />}>
+            <AgrishowPromoBanner source="home" variant="full" />
+          </Suspense>
         </LazySection>
 
         <LazySection minHeight="400px">
-          <HomeBlogSection />
+          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+            <HomeBlogSection />
+          </Suspense>
         </LazySection>
 
         <LazySection minHeight="300px">
-          <PortoPartnershipSection />
+          <Suspense fallback={<div className="h-[300px] w-full bg-muted animate-pulse" />}>
+            <PortoPartnershipSection />
+          </Suspense>
         </LazySection>
 
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
@@ -476,7 +495,9 @@ const Index = () => {
         </section>
 
         <LazySection minHeight="200px">
-          <InsuranceHubLinks />
+          <Suspense fallback={<div className="h-[200px] w-full bg-muted animate-pulse" />}>
+            <InsuranceHubLinks />
+          </Suspense>
         </LazySection>
       </main>
       <Footer />

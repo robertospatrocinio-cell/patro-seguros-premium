@@ -186,7 +186,7 @@ const InsuranceHeroSelector = memo(() => {
             Selecione seu perfil e descubra as melhores opções
           </p>
 
-          <div ref={tabsRef} className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto">
+          <div ref={tabsRef} className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto contain-layout">
             <div
               className="absolute top-1 bottom-1 rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out"
               style={{ 
