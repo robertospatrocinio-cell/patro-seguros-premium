@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
-import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
+import SmartText from "@/components/SmartText";
+import { getRelatedLinks } from "@/lib/relatedFromText";
 import Header from "@/components/Header";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
@@ -12,6 +14,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
 
