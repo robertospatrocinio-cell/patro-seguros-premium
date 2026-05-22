@@ -1299,9 +1299,16 @@ const ContactsModule = () => {
                             size="icon" 
                             variant="ghost" 
                             className="h-8 w-8 text-green-600 hover:bg-green-50"
-                            onClick={() => openWhatsApp(contact.phone!)}
+                            asChild
                           >
-                            <MessageCircle className="w-4 h-4" />
+                            <a
+                              href={`https://wa.me/55${contact.phone.replace(/\D/g, "")}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Abrir WhatsApp"
+                            >
+                              <MessageCircle className="w-4 h-4" />
+                            </a>
                           </Button>
                         )}
                         <DropdownMenu>
