@@ -30,6 +30,7 @@ import { KanbanBoard } from "@/components/crm/KanbanBoard";
 import { exportToCSV } from "@/lib/utils/export";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useContacts } from "@/hooks/queries/useContacts";
+import { toast } from "sonner";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -48,6 +49,15 @@ const CRMPage = () => {
 
   const refetch = () => {
     return Promise.all([refetchLeads(), refetchContacts()]);
+  };
+
+  const refreshRelationshipAgenda = async () => {
+    try {
+      await refetchContacts();
+      toast.success("Agenda de relacionamento atualizada com sucesso!");
+    } catch (err: any) {
+      toast.error("Erro ao atualizar agenda: " + (err?.message || "tente novamente"));
+    }
   };
 
   useEffect(() => {
@@ -246,6 +256,8 @@ const CRMPage = () => {
                 birthdays={birthdays}
                 renewals={renewals}
                 contacts={contacts}
+                onRefreshAgenda={refreshRelationshipAgenda}
+                isRefreshingAgenda={isRefetchingContacts}
               />
             </TabsContent>
 
