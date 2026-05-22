@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { 
   Users, 
   Search, 
@@ -19,11 +20,14 @@ import {
   LayoutDashboard,
   Filter,
   Heart,
-  PhoneCall
+  PhoneCall,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Contact } from "@/hooks/queries/useContacts";
 import { formatContactDate, isContactDueForAgenda, isContactOverdue } from "@/lib/crmDates";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
@@ -63,9 +67,30 @@ interface DashboardOverviewProps {
 }
 
 export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false }: DashboardOverviewProps) => {
-  const scheduledToday = contacts.filter(contact => {
-    return isContactDueForAgenda(contact.next_contact_date, new Date(), true);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const scheduledForDate = contacts.filter(contact => {
+    return isContactDueForAgenda(contact.next_contact_date, selectedDate, true);
   });
+
+  const isToday = (date: Date) => {
+    const today = new Date();
+    return date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear();
+  };
+
+  const changeDate = (days: number) => {
+    const newDate = new Date(selectedDate);
+    newDate.setDate(newDate.getDate() + days);
+    setSelectedDate(newDate);
+  };
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value) {
+      setSelectedDate(new Date(e.target.value + 'T12:00:00'));
+    }
+  };
   return (
     <div className="space-y-6">
       {/* KPI Cards */}
@@ -160,13 +185,51 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
       {/* Contatos Agendados para Hoje (Agenda de Relacionamento) */}
       <Card className="bg-emerald-50 border-emerald-100 shadow-sm border">
         <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-emerald-800">
               <Calendar className="w-5 h-5" />
-              <CardTitle className="text-lg font-bold">Agenda de Relacionamento - Hoje</CardTitle>
+              <CardTitle className="text-lg font-bold">
+                Agenda de Relacionamento - {isToday(selectedDate) ? "Hoje" : formatContactDate(selectedDate.toISOString().split('T')[0], "dd/MM/yyyy")}
+              </CardTitle>
             </div>
-            <div className="flex items-center gap-2">
-              <Badge className="bg-emerald-600">{scheduledToday.length} agendados</Badge>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="flex items-center bg-white rounded-lg border border-emerald-200 p-0.5 shadow-sm">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-8 w-8 text-emerald-700 hover:bg-emerald-50"
+                  onClick={() => changeDate(-1)}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </Button>
+                <Input 
+                  type="date" 
+                  className="h-8 border-none focus-visible:ring-0 bg-transparent text-xs text-emerald-800 w-[130px]"
+                  value={selectedDate.toISOString().split('T')[0]}
+                  onChange={handleDateChange}
+                />
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-8 w-8 text-emerald-700 hover:bg-emerald-50"
+                  onClick={() => changeDate(1)}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              </div>
+              
+              {!isToday(selectedDate) && (
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="h-8 text-xs border-emerald-200 text-emerald-700 hover:bg-emerald-50"
+                  onClick={() => setSelectedDate(new Date())}
+                >
+                  Hoje
+                </Button>
+              )}
+
+              <Badge className="bg-emerald-600 h-8 px-3">{scheduledForDate.length} agendados</Badge>
               {onRefreshAgenda && (
                 <Button
                   size="sm"
@@ -175,19 +238,21 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
                   className="h-8 bg-emerald-600 hover:bg-emerald-700 text-white"
                 >
                   <RefreshCw className={`w-3.5 h-3.5 mr-2 ${isRefreshingAgenda ? "animate-spin" : ""}`} />
-                  Atualizar
+                  Sincronizar
                 </Button>
               )}
             </div>
           </div>
           <CardDescription className="text-emerald-700/80">
-            Estes são os clientes que você deve contatar hoje conforme o planejamento.
+            {isToday(selectedDate) 
+              ? "Estes são os clientes que você deve contatar hoje conforme o planejamento."
+              : `Visualizando agendamentos para ${formatContactDate(selectedDate.toISOString().split('T')[0], "dd/MM")}.`}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {scheduledToday.length > 0 ? (
+          {scheduledForDate.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {scheduledToday.slice(0, 8).map(contact => (
+              {scheduledForDate.slice(0, 8).map(contact => (
                 <div key={contact.id} className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm flex flex-col justify-between group hover:border-emerald-300 transition-colors">
                   <div>
                     <div className="flex justify-between items-start mb-2">
@@ -219,17 +284,17 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
                   </div>
                 </div>
               ))}
-              {scheduledToday.length > 8 && (
+              {scheduledForDate.length > 8 && (
                 <div className="flex items-center justify-center p-4 border border-dashed border-emerald-200 rounded-xl bg-emerald-50/50">
-                   <p className="text-xs text-emerald-700 font-medium">E mais {scheduledToday.length - 8} contatos...</p>
+                   <p className="text-xs text-emerald-700 font-medium">E mais {scheduledForDate.length - 8} contatos...</p>
                 </div>
               )}
             </div>
           ) : (
             <div className="text-center py-6 bg-emerald-100/30 rounded-lg border border-dashed border-emerald-200">
               <CheckCircle2 className="w-8 h-8 text-emerald-500 mx-auto mb-2 opacity-50" />
-              <p className="text-emerald-800 font-medium">Nenhum contato agendado para hoje!</p>
-              <p className="text-xs text-emerald-700/70">Mantenha sua carteira aquecida prospectando novos leads.</p>
+              <p className="text-emerald-800 font-medium">Nenhum contato agendado para {isToday(selectedDate) ? "hoje" : "este dia"}!</p>
+              <p className="text-xs text-emerald-700/70">{isToday(selectedDate) ? "Mantenha sua carteira aquecida prospectando novos leads." : "Selecione outro dia ou retorne para hoje."}</p>
             </div>
           )}
         </CardContent>
