@@ -27,7 +27,8 @@ import {
   ExternalLink,
   Download,
   Filter,
-  Pencil
+  Pencil,
+  RefreshCw
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -147,7 +148,7 @@ const ContactsModule = () => {
     carrier: ""
   });
 
-  const { contacts, isLoading, createContact, updateContact, uploadDocument } = useContacts();
+  const { contacts, isLoading, createContact, updateContact, uploadDocument, forceRefetch, isRefetching } = useContacts();
 
   
   // New contact form state
@@ -386,6 +387,16 @@ const ContactsModule = () => {
         </div>
         
         <div className="flex flex-wrap gap-2">
+          <Button 
+            variant="outline" 
+            className="border-slate-200"
+            onClick={() => forceRefetch()}
+            disabled={isRefetching}
+          >
+            <RefreshCw className={`w-4 h-4 mr-2 ${isRefetching ? "animate-spin" : ""}`} />
+            Sincronizar Banco
+          </Button>
+
           <Popover>
             <PopoverTrigger asChild>
               <Button variant="outline" className="border-slate-200">

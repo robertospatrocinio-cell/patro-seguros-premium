@@ -242,12 +242,21 @@ export const useContacts = () => {
     }
   });
 
+  const forceRefetch = async () => {
+    // Clear cache for this query
+    queryClient.removeQueries({ queryKey: ["contacts"] });
+    // Refetch from database
+    await refetch();
+    toast.info("Agenda e contatos sincronizados com o servidor.");
+  };
+
   return {
     contacts: data,
     isLoading,
     error,
     refetch,
     isRefetching,
+    forceRefetch,
     createContact,
     updateContact,
     uploadDocument
