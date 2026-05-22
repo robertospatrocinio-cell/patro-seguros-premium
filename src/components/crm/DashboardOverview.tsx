@@ -26,6 +26,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Contact } from "@/hooks/queries/useContacts";
 import { formatContactDate, isContactDueForAgenda, isContactOverdue } from "@/lib/crmDates";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 interface DashboardStats {
   totalLeads: number;
@@ -204,9 +205,17 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
                     <Button size="sm" className="flex-1 bg-emerald-600 hover:bg-emerald-700 h-8 text-[11px]">
                       <PhoneCall className="w-3 h-3 mr-1" /> Ligar
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1 border-emerald-200 text-emerald-700 hover:bg-emerald-50 h-8 text-[11px]">
-                      <MessageSquare className="w-3 h-3 mr-1" /> Whats
-                    </Button>
+                    {contact.phone ? (
+                      <Button asChild size="sm" variant="outline" className="flex-1 border-emerald-200 text-emerald-700 hover:bg-emerald-50 h-8 text-[11px]">
+                        <a href={getWhatsAppUrl(contact.phone)} target="_blank" rel="noopener noreferrer" aria-label={`Abrir WhatsApp de ${contact.full_name}`}>
+                          <MessageSquare className="w-3 h-3 mr-1" /> Whats
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button size="sm" variant="outline" disabled className="flex-1 border-emerald-200 text-emerald-700 hover:bg-emerald-50 h-8 text-[11px]">
+                        <MessageSquare className="w-3 h-3 mr-1" /> Whats
+                      </Button>
+                    )}
                   </div>
                 </div>
               ))}
