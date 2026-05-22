@@ -47,7 +47,7 @@ import {
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu";
 import { Progress } from "@/components/ui/progress";
-import { format, isSameDay, parseISO, isPast } from "date-fns";
+import { format, isSameDay } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useContacts } from "@/hooks/queries/useContacts";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -56,6 +56,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { formatContactDate, isContactDueForAgenda, isContactOverdue } from "@/lib/crmDates";
 
 const AUTO_REFRESH_OPTIONS = [
   { value: "0", label: "Desligado" },
@@ -98,11 +99,7 @@ const RelationshipModule = () => {
 
   const scheduledToday = useMemo(() => {
     return contacts.filter(contact => {
-      if (!contact.next_contact_date) return false;
-      const contactDate = parseISO(contact.next_contact_date);
-      if (isSameDay(contactDate, selectedDate)) return true;
-      if (isToday && isPast(contactDate)) return true;
-      return false;
+      return isContactDueForAgenda(contact.next_contact_date, selectedDate, isToday);
     });
   }, [contacts, selectedDate, isToday]);
 
@@ -245,13 +242,13 @@ const RelationshipModule = () => {
                   <div>
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-bold text-slate-900">{contact.full_name}</h4>
-                      {isPast(parseISO(contact.next_contact_date!)) && !isSameDay(parseISO(contact.next_contact_date!), new Date()) && (
+                      {isContactOverdue(contact.next_contact_date) && (
                         <Badge variant="destructive" className="text-[10px] h-5">Atrasado</Badge>
                       )}
                     </div>
                     <div className="text-sm text-slate-500 space-y-1 mb-4">
                       <div className="flex items-center gap-2"><Phone className="w-3.5 h-3.5" /> {contact.phone || 'Sem telefone'}</div>
-                      <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" /> {contact.last_contact_date ? `Último em: ${format(parseISO(contact.last_contact_date), "dd/MM")}` : 'Sem contato anterior'}</div>
+                      <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" /> {contact.last_contact_date ? `Último em: ${formatContactDate(contact.last_contact_date)}` : 'Sem contato anterior'}</div>
                     </div>
                   </div>
                   <div className="flex gap-2">
@@ -392,7 +389,7 @@ const RelationshipModule = () => {
                           </div>
                         </TableCell>
                         <TableCell className="text-sm">
-                          {contact.next_contact_date ? format(parseISO(contact.next_contact_date), "dd MMM", { locale: ptBR }) : 'Não agendado'}
+                          {contact.next_contact_date ? formatContactDate(contact.next_contact_date, "dd MMM") : 'Não agendado'}
                         </TableCell>
                         <TableCell>
                            {contact.is_client ? (
