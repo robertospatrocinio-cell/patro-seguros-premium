@@ -57,7 +57,7 @@ export interface Contact {
 export const useContacts = () => {
   const queryClient = useQueryClient();
 
-  const { data, isLoading, error, refetch } = useQuery({
+  const { data, isLoading, error, refetch, isRefetching } = useQuery({
     queryKey: ["contacts"],
     queryFn: async () => {
       const { data, error } = await supabase
@@ -247,6 +247,7 @@ export const useContacts = () => {
     isLoading,
     error,
     refetch,
+    isRefetching,
     createContact,
     updateContact,
     uploadDocument
