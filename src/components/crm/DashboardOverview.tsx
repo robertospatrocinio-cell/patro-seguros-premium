@@ -57,9 +57,11 @@ interface DashboardOverviewProps {
   birthdays: BirthdayPerson[];
   renewals: RenewalItem[];
   contacts?: Contact[];
+  onRefreshAgenda?: () => void | Promise<unknown>;
+  isRefreshingAgenda?: boolean;
 }
 
-export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [] }: DashboardOverviewProps) => {
+export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false }: DashboardOverviewProps) => {
   const scheduledToday = contacts.filter(contact => {
     return isContactDueForAgenda(contact.next_contact_date, new Date(), true);
   });
@@ -162,7 +164,20 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [] }:
               <Calendar className="w-5 h-5" />
               <CardTitle className="text-lg font-bold">Agenda de Relacionamento - Hoje</CardTitle>
             </div>
-            <Badge className="bg-emerald-600">{scheduledToday.length} agendados</Badge>
+            <div className="flex items-center gap-2">
+              <Badge className="bg-emerald-600">{scheduledToday.length} agendados</Badge>
+              {onRefreshAgenda && (
+                <Button
+                  size="sm"
+                  onClick={onRefreshAgenda}
+                  disabled={isRefreshingAgenda}
+                  className="h-8 bg-emerald-600 hover:bg-emerald-700 text-white"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 mr-2 ${isRefreshingAgenda ? "animate-spin" : ""}`} />
+                  Atualizar
+                </Button>
+              )}
+            </div>
           </div>
           <CardDescription className="text-emerald-700/80">
             Estes são os clientes que você deve contatar hoje conforme o planejamento.
