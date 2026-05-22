@@ -243,11 +243,16 @@ export const useContacts = () => {
   });
 
   const forceRefetch = async () => {
-    // Clear cache for this query
-    queryClient.removeQueries({ queryKey: ["contacts"] });
-    // Refetch from database
-    await refetch();
-    toast.info("Agenda e contatos sincronizados com o servidor.");
+    try {
+      // Clear cache for this query
+      queryClient.removeQueries({ queryKey: ["contacts"] });
+      // Refetch from database
+      await refetch();
+      toast.success("Agenda e contatos sincronizados com o servidor.");
+    } catch (error: any) {
+      toast.error("Erro ao sincronizar dados: " + (error?.message || "Erro desconhecido"));
+      throw error;
+    }
   };
 
   return {
