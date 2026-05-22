@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Phone, Mail, ExternalLink } from "lucide-react";
 import { Lead } from "@/hooks/queries/useLeads";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 interface LeadsTableProps {
   leads: Lead[];
@@ -103,7 +104,7 @@ export const LeadsTable = ({ leads, loading }: LeadsTableProps) => {
                     {lead.phone && (
                       <Button size="icon" variant="ghost" className="h-8 w-8 text-green-600 hover:bg-green-50" asChild>
                         <a 
-                          href={`https://wa.me/55${lead.phone.replace(/\D/g, "")}`} 
+                          href={getWhatsAppUrl(lead.phone)} 
                           target="_blank" 
                           rel="noopener noreferrer"
                           aria-label="Contatar via WhatsApp"

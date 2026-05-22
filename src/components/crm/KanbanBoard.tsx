@@ -17,6 +17,7 @@ import { KanbanStage, useKanbanStages } from "@/hooks/queries/useKanbanStages";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 interface KanbanBoardProps {
   leads: Lead[];
@@ -100,12 +101,6 @@ export const KanbanBoard = ({ leads }: KanbanBoardProps) => {
       // Revert if error
       queryClient.invalidateQueries({ queryKey: ["leads"] });
     }
-  };
-
-  const openWhatsApp = (phone: string | null) => {
-    if (!phone) return;
-    const cleanPhone = phone.replace(/\D/g, "");
-    window.open(`https://wa.me/55${cleanPhone}`, "_blank");
   };
 
   return (
@@ -195,17 +190,24 @@ export const KanbanBoard = ({ leads }: KanbanBoardProps) => {
                                     )}
                                   </div>
                                   <div className="flex gap-1">
-                                    <Button 
-                                      variant="ghost" 
-                                      size="icon" 
-                                      className="h-8 w-8 text-green-600 hover:text-green-700 hover:bg-green-50"
-                                      onClick={(e) => {
-                                        e.stopPropagation();
-                                        openWhatsApp(lead.phone);
-                                      }}
-                                    >
-                                      <MessageSquare className="h-4 w-4" />
-                                    </Button>
+                                    {lead.phone && (
+                                      <Button 
+                                        variant="ghost" 
+                                        size="icon" 
+                                        className="h-8 w-8 text-green-600 hover:text-green-700 hover:bg-green-50"
+                                        asChild
+                                      >
+                                        <a
+                                          href={getWhatsAppUrl(lead.phone)}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          aria-label="Abrir WhatsApp"
+                                          onClick={(event) => event.stopPropagation()}
+                                        >
+                                          <MessageSquare className="h-4 w-4" />
+                                        </a>
+                                      </Button>
+                                    )}
                                     <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400">
                                       <Mail className="h-4 w-4" />
                                     </Button>
