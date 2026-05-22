@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { 
   Users, 
   MessageSquare, 
@@ -19,7 +19,8 @@ import {
   UserCheck,
   Zap,
   ExternalLink,
-  PhoneCall
+  PhoneCall,
+  CalendarIcon
 } from "lucide-react";
 import { 
   Card, 
@@ -50,28 +51,60 @@ import { format, isSameDay, parseISO, isPast } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useContacts } from "@/hooks/queries/useContacts";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Calendar as CalendarPicker } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { toast } from "sonner";
+import { cn } from "@/lib/utils";
+
+const AUTO_REFRESH_OPTIONS = [
+  { value: "0", label: "Desligado" },
+  { value: "60", label: "1 min" },
+  { value: "300", label: "5 min" },
+  { value: "600", label: "10 min" },
+  { value: "1800", label: "30 min" },
+];
 
 const RelationshipModule = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { contacts = [], isLoading, refetch } = useContacts();
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [autoRefreshSeconds, setAutoRefreshSeconds] = useState<string>("300");
 
-  const handleRefreshAgenda = async () => {
+  const handleRefreshAgenda = async (silent = false) => {
     setIsRefreshing(true);
     try {
       await refetch();
+      if (!silent) toast.success("Agenda atualizada com sucesso!");
+    } catch (err: any) {
+      toast.error("Erro ao atualizar agenda: " + (err?.message || "tente novamente"));
     } finally {
       setTimeout(() => setIsRefreshing(false), 500);
     }
   };
 
+  // Auto-refresh interval
+  useEffect(() => {
+    const seconds = parseInt(autoRefreshSeconds, 10);
+    if (!seconds || seconds <= 0) return;
+    const id = setInterval(() => {
+      handleRefreshAgenda(true);
+    }, seconds * 1000);
+    return () => clearInterval(id);
+  }, [autoRefreshSeconds]);
+
+  const isToday = isSameDay(selectedDate, new Date());
+
   const scheduledToday = useMemo(() => {
     return contacts.filter(contact => {
       if (!contact.next_contact_date) return false;
       const contactDate = parseISO(contact.next_contact_date);
-      return isSameDay(contactDate, new Date()) || (isPast(contactDate) && !isSameDay(contactDate, new Date()));
+      if (isSameDay(contactDate, selectedDate)) return true;
+      if (isToday && isPast(contactDate)) return true;
+      return false;
     });
-  }, [contacts]);
+  }, [contacts, selectedDate, isToday]);
 
   const stats = useMemo(() => {
     const clients = contacts.filter(c => c.is_client);
@@ -132,26 +165,76 @@ const RelationshipModule = () => {
       {/* Contatos Agendados para Hoje */}
       <Card className="bg-emerald-50 border-emerald-100 shadow-sm border">
         <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             <div className="flex items-center gap-2 text-emerald-800">
               <Calendar className="w-5 h-5" />
-              <CardTitle className="text-lg font-bold">Agenda de Contatos - Hoje</CardTitle>
+              <CardTitle className="text-lg font-bold">
+                Agenda de Contatos - {isToday ? "Hoje" : format(selectedDate, "dd 'de' MMMM", { locale: ptBR })}
+              </CardTitle>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Badge className="bg-emerald-600">{scheduledToday.length} agendados</Badge>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="h-8 border-emerald-200 bg-white text-emerald-800 hover:bg-emerald-100"
+                  >
+                    <CalendarIcon className="w-3.5 h-3.5 mr-2" />
+                    {format(selectedDate, "dd/MM/yyyy")}
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="end">
+                  <CalendarPicker
+                    mode="single"
+                    selected={selectedDate}
+                    onSelect={(d) => d && setSelectedDate(d)}
+                    initialFocus
+                    locale={ptBR}
+                    className={cn("p-3 pointer-events-auto")}
+                  />
+                  {!isToday && (
+                    <div className="p-2 border-t">
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="w-full h-8 text-xs"
+                        onClick={() => setSelectedDate(new Date())}
+                      >
+                        Voltar para Hoje
+                      </Button>
+                    </div>
+                  )}
+                </PopoverContent>
+              </Popover>
+              <Select value={autoRefreshSeconds} onValueChange={setAutoRefreshSeconds}>
+                <SelectTrigger className="h-8 w-[140px] bg-white border-emerald-200 text-emerald-800 text-xs">
+                  <SelectValue placeholder="Auto-atualizar" />
+                </SelectTrigger>
+                <SelectContent>
+                  {AUTO_REFRESH_OPTIONS.map(opt => (
+                    <SelectItem key={opt.value} value={opt.value} className="text-xs">
+                      Auto: {opt.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
               <Button
                 size="sm"
-                onClick={handleRefreshAgenda}
+                onClick={() => handleRefreshAgenda(false)}
                 disabled={isRefreshing || isLoading}
                 className="h-8 bg-emerald-600 hover:bg-emerald-700 text-white"
               >
                 <RefreshCw className={`w-3.5 h-3.5 mr-2 ${isRefreshing ? "animate-spin" : ""}`} />
-                {isRefreshing ? "Atualizando..." : "Atualizar Agenda"}
+                {isRefreshing ? "Atualizando..." : "Atualizar"}
               </Button>
             </div>
           </div>
           <CardDescription className="text-emerald-700/80">
-            Estes são os clientes que você deve contatar hoje conforme o planejamento.
+            {isToday
+              ? "Clientes a contatar hoje (inclui agendamentos em atraso)."
+              : `Clientes agendados para ${format(selectedDate, "dd/MM/yyyy")}.`}
           </CardDescription>
         </CardHeader>
         <CardContent>
