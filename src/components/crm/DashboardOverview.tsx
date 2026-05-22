@@ -24,9 +24,8 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { format, parseISO, isSameDay, isPast } from "date-fns";
-import { ptBR } from "date-fns/locale";
 import { Contact } from "@/hooks/queries/useContacts";
+import { formatContactDate, isContactDueForAgenda, isContactOverdue } from "@/lib/crmDates";
 
 interface DashboardStats {
   totalLeads: number;
@@ -62,9 +61,7 @@ interface DashboardOverviewProps {
 
 export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [] }: DashboardOverviewProps) => {
   const scheduledToday = contacts.filter(contact => {
-    if (!contact.next_contact_date) return false;
-    const contactDate = parseISO(contact.next_contact_date);
-    return isSameDay(contactDate, new Date()) || (isPast(contactDate) && !isSameDay(contactDate, new Date()));
+    return isContactDueForAgenda(contact.next_contact_date, new Date(), true);
   });
   return (
     <div className="space-y-6">
@@ -179,13 +176,13 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [] }:
                   <div>
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-bold text-slate-900 truncate pr-2">{contact.full_name}</h4>
-                      {isPast(parseISO(contact.next_contact_date!)) && !isSameDay(parseISO(contact.next_contact_date!), new Date()) && (
+                      {isContactOverdue(contact.next_contact_date) && (
                         <Badge variant="destructive" className="text-[10px] h-5 shrink-0">Atrasado</Badge>
                       )}
                     </div>
                     <div className="text-sm text-slate-500 space-y-1 mb-4">
                       <div className="flex items-center gap-2"><Phone className="w-3.5 h-3.5" /> {contact.phone || 'Sem telefone'}</div>
-                      <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" /> {contact.last_contact_date ? `Último: ${format(parseISO(contact.last_contact_date), "dd/MM")}` : 'Sem contato anterior'}</div>
+                      <div className="flex items-center gap-2"><Clock className="w-3.5 h-3.5" /> {contact.last_contact_date ? `Último: ${formatContactDate(contact.last_contact_date)}` : 'Sem contato anterior'}</div>
                     </div>
                   </div>
                   <div className="flex gap-2">
