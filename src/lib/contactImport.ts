@@ -62,23 +62,43 @@ export const parseExcel = (file: File): Promise<ImportedContact[]> => {
 };
 
 export const parseVCF = async (file: File): Promise<ImportedContact[]> => {
-  const text = await file.text();
-  const parsed = parse(text);
-  
-  return parsed.map((entry: any) => {
-    const fullName = entry.fn?.[0]?.value || 
-                   (entry.n?.[0]?.value ? `${entry.n[0].value.surname || ""} ${entry.n[0].value.givenName || ""}`.trim() : "");
-    const email = entry.email?.[0]?.value || "";
-    const phone = entry.tel?.[0]?.value || "";
-    const bday = entry.bday?.[0]?.value || ""; // VCF birthday is often YYYYMMDD or YYYY-MM-DD
+  try {
+    const text = await file.text();
+    // Use a more robust regex to split individual VCARDs if parse fails
+    const vcards = text.split(/END:VCARD/i).filter(v => v.trim().length > 0).map(v => v + "END:VCARD");
     
-    return {
-      full_name: fullName,
-      email,
-      phone,
-      birth_date: bday,
-      notes: "Importado via VCF",
-      is_client: false
-    };
-  }).filter(c => c.full_name);
+    const results: ImportedContact[] = [];
+    
+    for (const vcard of vcards) {
+      try {
+        const parsed = parse(vcard);
+        if (parsed && parsed.length > 0) {
+          const entry = parsed[0];
+          const fullName = entry.fn?.[0]?.value || 
+                         (entry.n?.[0]?.value ? `${entry.n[0].value.givenName || ""} ${entry.n[0].value.surname || ""}`.trim() : "");
+          const email = entry.email?.[0]?.value || "";
+          const phone = entry.tel?.[0]?.value || "";
+          const bday = entry.bday?.[0]?.value || "";
+          
+          if (fullName || phone || email) {
+            results.push({
+              full_name: fullName || "Contato Sem Nome",
+              email,
+              phone,
+              birth_date: bday,
+              notes: "Importado via VCF",
+              is_client: false
+            });
+          }
+        }
+      } catch (err) {
+        console.warn("Failed to parse individual VCARD:", err);
+      }
+    }
+    
+    return results;
+  } catch (error) {
+    console.error("VCF Import error:", error);
+    throw new Error("Não foi possível ler o arquivo VCF. Verifique o formato.");
+  }
 };
