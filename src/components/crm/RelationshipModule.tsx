@@ -418,9 +418,10 @@ const RelationshipModule = () => {
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
-                              <DropdownMenuItem><MessageSquare className="w-4 h-4 mr-2" /> Nova Interação</DropdownMenuItem>
+                              <DropdownMenuItem onClick={() => handleOpenHistory(contact)}>
+                                <MessageSquare className="w-4 h-4 mr-2" /> Nova Interação / Histórico
+                              </DropdownMenuItem>
                               <DropdownMenuItem><UserPlus className="w-4 h-4 mr-2" /> Trocar Responsável</DropdownMenuItem>
-                              <DropdownMenuItem><History className="w-4 h-4 mr-2" /> Ver Timeline</DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </TableCell>
