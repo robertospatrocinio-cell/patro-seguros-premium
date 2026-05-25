@@ -445,7 +445,7 @@ const RelationshipModule = () => {
           <Card className="bg-white shadow-sm border-none">
             <CardHeader>
               <CardTitle className="text-lg flex items-center gap-2">
-                <History className="w-5 h-5 text-primary" />
+                <HistoryIcon className="w-5 h-5 text-primary" />
                 Atividade Recente
               </CardTitle>
             </CardHeader>
