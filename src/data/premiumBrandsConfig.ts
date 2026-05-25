@@ -116,7 +116,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro atende o I-PACE elétrico?", a: "Com certeza, temos planos específicos para a linha elétrica da Jaguar." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1621348335072-463273463991?q=80&w=2070&auto=format&fit=crop",
   },
   volvo: {
     name: "Volvo",
