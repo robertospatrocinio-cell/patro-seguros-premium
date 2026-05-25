@@ -8,7 +8,7 @@ const SeguroCondominioEmpresarial = () => {
       title="Seguro de Condomínio Empresarial"
       subtitle="Proteção sob medida para edifícios comerciais, escritórios e centros de negócios"
       icon="🏢"
-      metaDescription="Seguro Condomínio Empresarial: proteção para edifícios comerciais, escritórios e consultórios. Cobertura completa de RC, incêndio e danos elétricos em Guarulhos."
+      metaDescription="Seguro Condomínio Empresarial: proteção para edifícios comerciais, escritórios e consultórios. Cobertura de RC, incêndio e danos elétricos."
       description="O Seguro Condomínio Empresarial é focado nas necessidades específicas de edifícios comerciais, protegendo o patrimônio comum e garantindo a continuidade dos negócios."
       detailedDescription={`Edifícios comerciais e centros empresariais possuem dinâmicas de risco muito diferentes de condomínios residenciais. O fluxo intenso de pessoas (clientes e prestadores), a presença de equipamentos eletrônicos de alto valor, servidores, centrais de ar-condicionado e a responsabilidade civil perante empresas condôminas exigem uma apólice mais robusta.
 
