@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-case-ih-guarulhos",
+    modelo: "Case IH",
+    modeloShort: "Case IH",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 5.500.000+",
+    priceRange: { min: 2800, max: 48000, label: "R$ 2.800 a R$ 48.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Liderança em automação com a tecnologia AFS Connect",
+      "Alta produtividade e eficiência nos modelos Magnum e Steiger",
+      "Rede de suporte global focada na máxima disponibilidade da máquina"
+    ],
+    cons: [
+      "Custo elevado de sensores de precisão e eletrônica avançada",
+      "Modelos de grande porte exigem logística de transporte especializada",
+      "Necessidade de manutenção preventiva rigorosa para evitar quebras"
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "rede referenciada e peças originais para a linha Case IH" },
+      { name: "Allianz", reason: "referência mundial em cobertura para máquinas de colheita" },
+      { name: "Tokio Marine", reason: "atendimento prioritário e guincho para carga pesada" },
+      { name: "Mapfre", reason: "produtos exclusivos para o setor sucroenergético e grãos" }
+    ],
+    context:
+      "A Case IH é a marca de quem busca produtividade sem limites. Dos tratores Farmall aos gigantes Steiger, passando pelas colheitadeiras Axial-Flow, o proprietário Case IH exige uma proteção que acompanhe o ritmo da safra. A Patro Seguros oferece consultoria premium para garantir que seu Case esteja protegido contra incêndio, roubo e quebra de máquinas, com garantia de reposição de peças originais e suporte técnico total."
+  },
+  {
     slug: "seguro-valtra-guarulhos",
     modelo: "Valtra",
     modeloShort: "Valtra",
