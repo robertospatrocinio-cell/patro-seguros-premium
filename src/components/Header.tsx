@@ -292,8 +292,7 @@ const Header = memo(() => {
                            <Link to="/seguros-de-veiculos" className="hover:text-primary transition-colors">Veículos</Link>
                          </p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-auto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Auto</Link>
-                          <Link to="/seguro-bmw" className="block py-1 text-[13px] text-blue-500 font-bold hover:text-blue-400 transition-base italic">Seguro BMW</Link>
+                           <Link to="/seguro-auto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Seguro Auto</Link>
                           <Link to="/seguro-moto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Moto</Link>
                           <Link to="/seguro-caminhao" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Caminhão</Link>
                           <Link to="/seguro-micro-onibus" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Micro-ônibus</Link>
