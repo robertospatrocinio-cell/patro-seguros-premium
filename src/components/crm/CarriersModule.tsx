@@ -102,6 +102,17 @@ const CarriersModule = () => {
     }).sort((a, b) => b.currentMonth - a.currentMonth);
   }, [sales]);
 
+  const topProducts = useMemo(() => {
+    const products: Record<string, number> = {};
+    sales.forEach(sale => {
+      products[sale.insurance_type] = (products[sale.insurance_type] || 0) + 1;
+    });
+    return Object.entries(products)
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+  }, [sales]);
+
   if (isLoading) {
     return (
       <div className="space-y-6">
@@ -157,6 +168,23 @@ const CarriersModule = () => {
             ) : (
               <p className="text-sm text-muted-foreground">Sem dados</p>
             )}
+          </CardContent>
+        </Card>
+        <Card className="bg-white shadow-sm border-none">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground">Top Seguros Vendidos</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-2">
+              {topProducts.map((product, idx) => (
+                <div key={idx} className="flex items-center justify-between text-sm">
+                  <span className="text-slate-600">{product.name}</span>
+                  <Badge variant="secondary" className="bg-slate-100 text-slate-700 border-none h-5">
+                    {product.count} vendas
+                  </Badge>
+                </div>
+              ))}
+            </div>
           </CardContent>
         </Card>
       </div>

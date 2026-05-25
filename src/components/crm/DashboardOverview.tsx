@@ -66,9 +66,10 @@ interface DashboardOverviewProps {
   onRefreshAgenda?: () => void | Promise<unknown>;
    isRefreshingAgenda?: boolean;
   onContactClick?: (contact: Contact) => void;
+  onCarriersClick?: () => void;
 }
 
-export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false, onContactClick }: DashboardOverviewProps) => {
+export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false, onContactClick, onCarriersClick }: DashboardOverviewProps) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const scheduledForDate = contacts.filter(contact => {
@@ -183,9 +184,12 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
           </CardContent>
         </Card>
 
-        <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+        <Card 
+          className="bg-white border-none shadow-sm hover:shadow-md transition-shadow cursor-pointer group"
+          onClick={onCarriersClick}
+        >
           <CardHeader className="pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2 group-hover:text-primary transition-colors">
               <Building2 className="w-4 h-4 text-primary" /> Top Seguradora
             </CardTitle>
           </CardHeader>
