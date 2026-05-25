@@ -332,6 +332,95 @@ const MODELOS: ModeloSeed[] = [
     ],
     context:
       "A BMW é a definição do prazer de dirigir. Em Guarulhos, proprietários de Série 3, X1, X5 e da linha M buscam uma proteção que acompanhe a sofisticação de seu veículo. A Patro Seguros oferece consultoria premium para garantir que sua BMW esteja protegida contra roubo, furto e danos elétricos, com garantia de reparo em concessionária autorizada e peças originais."
+  {
+    slug: "seguro-auto-toyota-guarulhos",
+    modelo: "Toyota",
+    modeloShort: "Toyota",
+    categoria: "popular",
+    fipeRange: "R$ 60.000 a R$ 350.000",
+    priceRange: { min: 2200, max: 7500, label: "R$ 2.200 a R$ 7.500/ano" },
+    theftProfile: "médio",
+    pros: ["Alta confiabilidade", "Valor de revenda"],
+    cons: ["Seguro pode ser caro para Corolla"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Excelente aceitação" },
+      { name: "Tokio Marine", reason: "Preços competitivos" },
+      { name: "Allianz", reason: "Ótima cobertura" },
+      { name: "HDI", reason: "Boa opção para Hilux" }
+    ],
+    context: "A Toyota é sinônimo de robustez e confiança em Guarulhos."
+  },
+  {
+    slug: "seguro-auto-honda-guarulhos",
+    modelo: "Honda",
+    modeloShort: "Honda",
+    categoria: "popular",
+    fipeRange: "R$ 65.000 a R$ 280.000",
+    priceRange: { min: 2400, max: 8000, label: "R$ 2.400 a R$ 8.000/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Mecânica confiável", "Conforto"],
+    cons: ["Civic é muito visado"],
+    bestInsurers: [
+      { name: "Tokio Marine", reason: "Referência para Honda" },
+      { name: "Porto Seguro", reason: "Serviços premium" },
+      { name: "Allianz", reason: "Bom custo-benefício" },
+      { name: "Liberty", reason: "Aceitação facilitada" }
+    ],
+    context: "Veículos Honda são extremamente populares e valorizados em Guarulhos."
+  },
+  {
+    slug: "seguro-auto-jeep-guarulhos",
+    modelo: "Jeep",
+    modeloShort: "Jeep",
+    categoria: "suv",
+    fipeRange: "R$ 90.000 a R$ 450.000",
+    priceRange: { min: 3200, max: 12000, label: "R$ 3.200 a R$ 12.000/ano" },
+    theftProfile: "alto",
+    pros: ["Presença de mercado", "Tecnologia"],
+    cons: ["Índice de roubo de Compass/Renegade"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Líder em SUVs" },
+      { name: "Allianz", reason: "Preços agressivos" },
+      { name: "Tokio Marine", reason: "Ótima assistência" },
+      { name: "Bradesco", reason: "Forte aceitação" }
+    ],
+    context: "A Jeep domina o segmento de SUVs em Guarulhos com Compass e Renegade."
+  },
+  {
+    slug: "seguro-auto-peugeot-guarulhos",
+    modelo: "Peugeot",
+    modeloShort: "Peugeot",
+    categoria: "popular",
+    fipeRange: "R$ 50.000 a R$ 220.000",
+    priceRange: { min: 2100, max: 6500, label: "R$ 2.100 a R$ 6.500/ano" },
+    theftProfile: "baixo",
+    pros: ["Design moderno", "Tecnologia embarcada"],
+    cons: ["Desvalorização histórica"],
+    bestInsurers: [
+      { name: "Azul Seguros", reason: "Excelente custo" },
+      { name: "Porto Seguro", reason: "Aceitação total" },
+      { name: "HDI", reason: "Preços competitivos" },
+      { name: "Tokio Marine", reason: "Boa assistência" }
+    ],
+    context: "A Peugeot vive um novo momento no Brasil com modelos como o 208 e 2008."
+  },
+  {
+    slug: "seguro-auto-citroen-guarulhos",
+    modelo: "Citroën",
+    modeloShort: "Citroën",
+    categoria: "popular",
+    fipeRange: "R$ 45.000 a R$ 200.000",
+    priceRange: { min: 2000, max: 6000, label: "R$ 2.000 a R$ 6.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Conforto de suspensão", "Estilo"],
+    cons: ["Rede de assistência menor"],
+    bestInsurers: [
+      { name: "Azul Seguros", reason: "Foco em custo-benefício" },
+      { name: "Porto Seguro", reason: "Segurança e tradição" },
+      { name: "Allianz", reason: "Ótimas taxas" },
+      { name: "Tokio Marine", reason: "Suporte eficiente" }
+    ],
+    context: "Os veículos Citroën são conhecidos pelo conforto e design diferenciado."
   },
 
 ];
