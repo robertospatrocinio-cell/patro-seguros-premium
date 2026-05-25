@@ -423,7 +423,238 @@ const MODELOS: ModeloSeed[] = [
     ],
     context: "Os veículos Citroën são conhecidos pelo conforto e design diferenciado."
   },
-
+  {
+    slug: "seguro-auto-mitsubishi-guarulhos",
+    modelo: "Mitsubishi",
+    modeloShort: "Mitsubishi",
+    categoria: "suv",
+    fipeRange: "R$ 80.000 a R$ 450.000",
+    priceRange: { min: 2800, max: 11000, label: "R$ 2.800 a R$ 11.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Robustez 4x4", "Durabilidade"],
+    cons: ["Peças caras", "Consumo"],
+    bestInsurers: [
+      { name: "Tokio Marine", reason: "Excelente aceitação 4x4" },
+      { name: "Porto Seguro", reason: "Assistência completa" },
+      { name: "Allianz", reason: "Preços competitivos para SUVs" },
+      { name: "Mapfre", reason: "Foco em veículos robustos" }
+    ],
+    context: "A Mitsubishi é a escolha de quem busca aventura e robustez em Guarulhos."
+  },
+  {
+    slug: "seguro-auto-nissan-guarulhos",
+    modelo: "Nissan",
+    modeloShort: "Nissan",
+    categoria: "popular",
+    fipeRange: "R$ 50.000 a R$ 250.000",
+    priceRange: { min: 2100, max: 6800, label: "R$ 2.100 a R$ 6.800/ano" },
+    theftProfile: "médio",
+    pros: ["Tecnologia japonesa", "Conforto"],
+    cons: ["Revenda um pouco mais lenta"],
+    bestInsurers: [
+      { name: "Tokio Marine", reason: "Referência japonesa" },
+      { name: "Porto Seguro", reason: "Serviços premium" },
+      { name: "Allianz", reason: "Ótimas taxas" },
+      { name: "Azul Seguros", reason: "Custo-benefício" }
+    ],
+    context: "A Nissan oferece tecnologia e confiabilidade com modelos como Kicks e Versa."
+  },
+  {
+    slug: "seguro-auto-renault-guarulhos",
+    modelo: "Renault",
+    modeloShort: "Renault",
+    categoria: "popular",
+    fipeRange: "R$ 40.000 a R$ 180.000",
+    priceRange: { min: 1800, max: 5500, label: "R$ 1.800 a R$ 5.500/ano" },
+    theftProfile: "médio",
+    pros: ["Custo de manutenção", "Espaço interno"],
+    cons: ["Acabamento simples"],
+    bestInsurers: [
+      { name: "Azul Seguros", reason: "Melhor custo-benefício" },
+      { name: "HDI", reason: "Preços agressivos" },
+      { name: "Porto Seguro", reason: "Aceitação ampla" },
+      { name: "Tokio Marine", reason: "Boa assistência" }
+    ],
+    context: "A Renault é conhecida pela praticidade e baixo custo de manutenção."
+  },
+  {
+    slug: "seguro-auto-caoa-chery-guarulhos",
+    modelo: "Caoa Chery",
+    modeloShort: "Chery",
+    categoria: "suv",
+    fipeRange: "R$ 60.000 a R$ 220.000",
+    priceRange: { min: 2500, max: 8500, label: "R$ 2.500 a R$ 8.500/ano" },
+    theftProfile: "baixo",
+    pros: ["Custo-benefício imbatível", "Tecnologia"],
+    cons: ["Desvalorização", "Rede em expansão"],
+    bestInsurers: [
+      { name: "Allianz", reason: "Ótima aceitação da marca" },
+      { name: "Tokio Marine", reason: "Preços competitivos" },
+      { name: "Porto Seguro", reason: "Garantia de serviços" },
+      { name: "Liberty", reason: "Boas condições" }
+    ],
+    context: "A Caoa Chery revolucionou o mercado de SUVs com a linha Tiggo."
+  },
+  {
+    slug: "seguro-auto-volvo-guarulhos",
+    modelo: "Volvo",
+    modeloShort: "Volvo",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 800.000",
+    priceRange: { min: 3800, max: 15000, label: "R$ 3.800 a R$ 15.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Segurança máxima", "Tecnologia híbrida"],
+    cons: ["Manutenção caríssima"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Especialista em premium" },
+      { name: "Allianz", reason: "Referência em híbridos" },
+      { name: "Tokio Marine", reason: "Atendimento VIP" },
+      { name: "Liberty", reason: "Produtos exclusivos" }
+    ],
+    context: "Volvo é o padrão mundial em segurança veicular, agora líder em eletrificados."
+  },
+  {
+    slug: "seguro-auto-land-rover-guarulhos",
+    modelo: "Land Rover",
+    modeloShort: "Land Rover",
+    categoria: "premium",
+    fipeRange: "R$ 180.000 a R$ 1.200.000",
+    priceRange: { min: 5500, max: 25000, label: "R$ 5.500 a R$ 25.000/ano" },
+    theftProfile: "alto",
+    pros: ["Status", "Capacidade Off-road"],
+    cons: ["Seguro caro", "Visado para roubo"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Melhor rede premium" },
+      { name: "Tokio Marine", reason: "Assistência especializada" },
+      { name: "Allianz", reason: "Cobertura robusta" },
+      { name: "Liberty", reason: "Aceitação de alto valor" }
+    ],
+    context: "Land Rover une o luxo britânico à capacidade off-road extrema."
+  },
+  {
+    slug: "seguro-auto-audi-guarulhos",
+    modelo: "Audi",
+    modeloShort: "Audi",
+    categoria: "premium",
+    fipeRange: "R$ 120.000 a R$ 900.000",
+    priceRange: { min: 4000, max: 18000, label: "R$ 4.000 a R$ 18.000/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Tecnologia Quattro", "Performance"],
+    cons: ["Manutenção especializada"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Rede referenciada" },
+      { name: "Tokio Marine", reason: "Agilidade no suporte" },
+      { name: "Allianz", reason: "Preços competitivos" },
+      { name: "Liberty", reason: "Condições premium" }
+    ],
+    context: "Vorsprung durch Technik: a Audi é a vanguarda da tecnologia alemã."
+  },
+  {
+    slug: "seguro-auto-mercedes-guarulhos",
+    modelo: "Mercedes-Benz",
+    modeloShort: "Mercedes",
+    categoria: "premium",
+    fipeRange: "R$ 130.000 a R$ 1.500.000",
+    priceRange: { min: 4200, max: 22000, label: "R$ 4.200 a R$ 22.000/ano" },
+    theftProfile: "médio",
+    pros: ["Conforto absoluto", "Prestígio"],
+    cons: ["Custo de peças"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Tradição em luxo" },
+      { name: "Tokio Marine", reason: "VIP Service" },
+      { name: "Allianz", reason: "Ótimas coberturas" },
+      { name: "Liberty", reason: "Foco no cliente premium" }
+    ],
+    context: "Mercedes-Benz é o símbolo máximo de sofisticação e engenharia automotiva."
+  },
+  {
+    slug: "seguro-auto-porsche-guarulhos",
+    modelo: "Porsche",
+    modeloShort: "Porsche",
+    categoria: "premium",
+    fipeRange: "R$ 350.000 a R$ 2.500.000+",
+    priceRange: { min: 8000, max: 45000, label: "R$ 8.000 a R$ 45.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Performance lendária", "Exclusividade"],
+    cons: ["Aceitação restrita", "Preço do seguro"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Líder em superesportivos" },
+      { name: "Liberty", reason: "Produto sob medida" },
+      { name: "Tokio Marine", reason: "Atendimento diferenciado" },
+      { name: "Allianz", reason: "Cobertura internacional" }
+    ],
+    context: "Porsche é a realização de um sonho de performance e precisão."
+  },
+  {
+    slug: "seguro-auto-ferrari-guarulhos",
+    modelo: "Ferrari",
+    modeloShort: "Ferrari",
+    categoria: "premium",
+    fipeRange: "R$ 1.500.000 a R$ 8.000.000+",
+    priceRange: { min: 25000, max: 120000, label: "R$ 25.000 a R$ 120.000/ano" },
+    theftProfile: "baixo",
+    pros: ["O ápice automotivo", "Valorização"],
+    cons: ["Manutenção em SP capital", "Aceitação rigorosa"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Divisão de Riscos Especiais" },
+      { name: "Liberty", reason: "Apólices customizadas" },
+      { name: "Chubb", reason: "Especialista em alto valor" }
+    ],
+    context: "Ferrari é mais que um carro, é uma obra de arte da engenharia italiana."
+  },
+  {
+    slug: "seguro-auto-byd-guarulhos",
+    modelo: "BYD",
+    modeloShort: "BYD",
+    categoria: "premium",
+    fipeRange: "R$ 100.000 a R$ 1.000.000",
+    priceRange: { min: 3500, max: 18000, label: "R$ 3.500 a R$ 18.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Tecnologia elétrica", "Baixo IPVA"],
+    cons: ["Incerteza de revenda", "Rede nova"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Parceira oficial BYD" },
+      { name: "Allianz", reason: "Expert em elétricos" },
+      { name: "Tokio Marine", reason: "Condições especiais" },
+      { name: "Azul Seguros", reason: "Preços competitivos" }
+    ],
+    context: "A BYD lidera a revolução elétrica com tecnologia de baterias Blade."
+  },
+  {
+    slug: "seguro-auto-gwm-guarulhos",
+    modelo: "GWM",
+    modeloShort: "GWM",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 350.000",
+    priceRange: { min: 4500, max: 12000, label: "R$ 4.500 a R$ 12.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Híbridos potentes", "Equipamentos"],
+    cons: ["Marca nova no país"],
+    bestInsurers: [
+      { name: "Allianz", reason: "Líder em tecnologia híbrida" },
+      { name: "Porto Seguro", reason: "Assistência completa" },
+      { name: "Tokio Marine", reason: "Ótima aceitação" },
+      { name: "Bradesco", reason: "Parcerias locais" }
+    ],
+    context: "GWM chegou ao Brasil para dominar o segmento de híbridos premium."
+  },
+  {
+    slug: "seguro-auto-gac-guarulhos",
+    modelo: "GAC",
+    modeloShort: "GAC",
+    categoria: "premium",
+    fipeRange: "R$ 180.000 a R$ 400.000",
+    priceRange: { min: 5000, max: 15000, label: "R$ 5.000 a R$ 15.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Luxo chinês", "Design"],
+    cons: ["Marca estreante"],
+    bestInsurers: [
+      { name: "Allianz", reason: "Global Partner" },
+      { name: "Porto Seguro", reason: "Segurança na cotação" },
+      { name: "Tokio Marine", reason: "Suporte especializado" }
+    ],
+    context: "A GAC traz luxo e tecnologia de ponta para o mercado brasileiro."
+  },
 ];
 
 
