@@ -63,10 +63,11 @@ interface DashboardOverviewProps {
   renewals: RenewalItem[];
   contacts?: Contact[];
   onRefreshAgenda?: () => void | Promise<unknown>;
-  isRefreshingAgenda?: boolean;
+   isRefreshingAgenda?: boolean;
+  onContactClick?: (contact: Contact) => void;
 }
 
-export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false }: DashboardOverviewProps) => {
+export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false, onContactClick }: DashboardOverviewProps) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const scheduledForDate = contacts.filter(contact => {
@@ -253,7 +254,7 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
           {scheduledForDate.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {scheduledForDate.slice(0, 8).map(contact => (
-                <div key={contact.id} className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm flex flex-col justify-between group hover:border-emerald-300 transition-colors">
+                <div key={contact.id} className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm flex flex-col justify-between group hover:border-emerald-300 transition-colors cursor-pointer" onClick={() => onContactClick?.(contact)}>
                   <div>
                     <div className="flex justify-between items-start mb-2">
                       <h4 className="font-bold text-slate-900 truncate pr-2">{contact.full_name}</h4>
