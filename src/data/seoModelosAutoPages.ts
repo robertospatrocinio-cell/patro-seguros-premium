@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-geely-guarulhos",
+    modelo: "Geely",
+    modeloShort: "Geely",
+    categoria: "premium",
+    fipeRange: "R$ 130.000 a R$ 450.000+",
+    priceRange: { min: 4100, max: 13500, label: "R$ 4.100 a R$ 13.500/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Proprietária da Volvo, herda altos padrões de segurança e engenharia",
+      "Modelos com design global e tecnologia de eletrificação avançada",
+      "Baixíssima sinistralidade por roubo devido à exclusividade da marca",
+    ],
+    cons: [
+      "Rede de assistência técnica ainda restrita em algumas regiões",
+      "Possível demora na reposição de componentes estéticos importados",
+      "Avaliação de risco criteriosa por parte das seguradoras tradicionais",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "especialista em marcas premium e importados com guincho ilimitado" },
+      { name: "Allianz", reason: "excelente aceitação para veículos com tecnologia híbrida" },
+      { name: "SulAmérica", reason: "atendimento diferenciado para proprietários de veículos exclusivos" },
+      { name: "Tokio Marine", reason: "flexibilidade na contratação para modelos de importação oficial" },
+    ],
+    context:
+      "A Geely, gigante global proprietária de marcas como Volvo e Lotus, traz para o Brasil veículos que combinam sofisticação e tecnologia sustentável. Em Guarulhos, a Patro Seguros oferece consultoria exclusiva para proteger seu Geely, garantindo coberturas que respeitam a alta engenharia do veículo. Nossas apólices são desenhadas para oferecer tranquilidade, com foco em reparos qualificados e assistência técnica 24h preparada para atender o público premium.",
+  },
+  {
     slug: "seguro-auto-gwm-guarulhos",
     modelo: "GWM",
     modeloShort: "GWM",
