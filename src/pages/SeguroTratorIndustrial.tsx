@@ -72,7 +72,8 @@ Com atendimento especializado e ágil, garantimos que seu maquinário industrial
         "Locadoras de Máquinas Pesadas",
       ]}
       whyPatro={[
-        "Especialização em Riscos de Engenharia e Máquinas",
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Consultoria para frotas de locadoras e construtoras",
         "Comparativo entre seguradoras focadas em Linha Amarela",
         "Suporte técnico em regulação de sinistros complexos",

@@ -73,7 +73,8 @@ Atendemos desde pequenos silos em fazendas familiares até grandes complexos arm
         "Locadoras de Estruturas de Armazenamento",
       ]}
       whyPatro={[
-        "Especialistas em ativos fixos do agronegócio",
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Consultoria técnica para dimensionamento de verbas de reconstrução",
         "Acesso às melhores seguradoras de riscos nomeados e operacionais",
         "Suporte em regulação de sinistros complexos com engenheiros especializados",

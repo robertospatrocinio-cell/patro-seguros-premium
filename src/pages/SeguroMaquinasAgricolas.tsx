@@ -27,6 +27,8 @@ const SeguroMaquinasAgricolas = () => {
         "Proprietários de tratores e colheitadeiras em todas as regiões",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Atendemos produtores de todos os estados do Brasil",
         "Especialistas em seguros para o agronegócio",
         "Parceria com seguradoras líderes no segmento rural",

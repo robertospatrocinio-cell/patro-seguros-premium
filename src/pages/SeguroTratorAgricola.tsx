@@ -73,7 +73,8 @@ Com atendimento 100% remoto, a Patro Seguros facilita a vida do homem do campo: 
         "Usinas e Grandes Grupos do Agro",
       ]}
       whyPatro={[
-        "Especialistas reais no setor rural brasileiro",
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Consultoria técnica para evitar coberturas desnecessárias",
         "Parceria direta com John Deere, Case, Massey Ferguson e Valtra",
         "Agilidade total na emissão de certificados para financiamentos",

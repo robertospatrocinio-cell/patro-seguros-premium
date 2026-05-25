@@ -24,6 +24,8 @@ const SeguroEquipamentosAgricolas = () => {
         "Prestadores de serviços agrícolas",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Atendemos produtores de todos os estados do Brasil",
         "Conhecimento profundo do setor agrícola",
         "Coberturas específicas para cada tipo de equipamento",

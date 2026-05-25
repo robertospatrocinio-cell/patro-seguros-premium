@@ -23,7 +23,8 @@ const SeguroMaquinasIndustriais = () => {
         "Empresas que não podem parar a produção",
       ]}
       whyPatro={[
-        "Especialização em seguros industriais",
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Análise técnica do maquinário",
         "Coberturas complementares personalizadas",
         "Parceria com seguradoras especializadas",
