@@ -71,7 +71,8 @@ O seguro especializado da Patro Seguros cobre desde danos elétricos por variaç
         "Hotéis e Shopping Centers",
       ]}
       whyPatro={[
-        "Especialistas em riscos industriais e equipamentos pesados",
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Consultoria para dimensionamento de verbas técnicas",
         "Acesso a seguradoras globais especializadas em engenharia",
         "Agilidade no processo de regulação de sinistros corporativos",

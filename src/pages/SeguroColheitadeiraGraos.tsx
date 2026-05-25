@@ -73,8 +73,9 @@ Com atendimento 100% remoto, atendemos produtores de grãos em todas as fronteir
         "Produtores de Sementes com Maquinário Especializado",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Especialistas em riscos rurais com foco em grãos",
-        "Parceria com seguradoras líderes mundiais no agronegócio",
         "Consultoria para correta valoração de máquinas usadas",
         "Suporte em sinistros com foco na rapidez operacional",
         "Atendimento 100% remoto para todas as regiões do Brasil",

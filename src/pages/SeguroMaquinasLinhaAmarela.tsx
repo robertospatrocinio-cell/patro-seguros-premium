@@ -71,8 +71,8 @@ Na Patro Seguros, somos especialistas em seguros para equipamentos pesados. Aval
         "Empresas de saneamento e infraestrutura",
       ]}
       whyPatro={[
-        "Especialistas em seguros de equipamentos pesados e construção",
-        "Comparamos seguradoras especializadas em linha amarela",
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Suporte completo em sinistros — do guincho à indenização",
         "Experiência com locadoras, construtoras e mineradoras",
         "Atendimento em todo o Brasil — seus equipamentos podem estar em qualquer obra",

@@ -11,12 +11,12 @@ const SeguroMaquinas = () => {
       metaDescription="Seguro de Máquinas e Equipamentos industriais e agrícolas. Cobertura contra quebra, incêndio e lucros cessantes. Cotação grátis Patro Seguros."
       description="O Seguro de Máquinas e Equipamentos protege contra danos, quebras e paralisações de maquinário industrial, agrícola e de construção."
       detailedDescription={`Máquinas e equipamentos são o coração de qualquer operação industrial. Um torno CNC pode custar R$ 500.000. Uma impressora industrial, R$ 800.000. Uma linha de produção completa, milhões. Quando uma máquina crítica quebra, os prejuízos vão muito além do reparo: parada de produção, pedidos não atendidos, multas contratuais e perda de clientes.
-
+      
 O Seguro de Máquinas cobre danos súbitos e imprevistos: quebra mecânica, curto-circuito, erro de operação, queda de objetos, tentativa de roubo e muito mais. A cobertura de lucros cessantes é igualmente importante — indeniza a perda de receita durante o período de reparo ou substituição.
 
 Uma peculiaridade importante: o seguro de máquinas geralmente cobre danos ao equipamento por causas internas (defeito, quebra), enquanto o seguro empresarial cobre causas externas (incêndio, roubo). Idealmente, ambos devem ser contratados para proteção completa.
 
-Na Patro Seguros, avaliamos seu parque de máquinas, identificamos os equipamentos críticos e dimensionamos coberturas adequadas ao valor de reposição e ao impacto operacional de cada máquina.`}
+Na Patro Seguros, somos especialistas em máquinas e equipamentos, com parcerias estratégicas junto a fabricantes e concessionárias em todo o Brasil. Avaliamos seu parque de máquinas, identificamos os equipamentos críticos e dimensionamos coberturas adequadas ao valor de reposição e ao impacto operacional de cada máquina.`}
       howItWorks={[
         { step: "1", title: "Inventário de Máquinas", description: "Mapeamos todas as máquinas e equipamentos, com marca, modelo, ano e valor de reposição" },
         { step: "2", title: "Análise de Criticidade", description: "Identificamos quais equipamentos são mais críticos para a operação e dimensionamos coberturas" },
@@ -79,6 +79,8 @@ Na Patro Seguros, avaliamos seu parque de máquinas, identificamos os equipament
         "Empresas com servidores e equipamentos de TI",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Avaliação correta do valor de reposição dos equipamentos",
         "Análise de riscos específicos da operação",
         "Orientação sobre lucros cessantes adequados",

@@ -73,8 +73,9 @@ Com atendimento 100% remoto, a Patro Seguros facilita a emissão de apólices pa
         "Investidores do Agronegócio com Ativos Imobilizados",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Especialistas em máquinas de altíssimo valor e complexidade",
-        "Parceria com seguradoras líderes mundiais no ramo de algodão",
         "Consultoria para dimensionamento de verbas em frotas de fardos cilíndricos",
         "Suporte em sinistros com foco na retomada imediata da colheita",
         "Atendimento em todas as fronteiras agrícolas (MT, BA, MS, GO, PI, MA)",
