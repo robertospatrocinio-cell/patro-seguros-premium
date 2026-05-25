@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-bmw-guarulhos",
+    modelo: "Moto BMW",
+    modeloShort: "BMW Motorrad",
+    categoria: "premium",
+    fipeRange: "R$ 45.000 a R$ 250.000+",
+    priceRange: { min: 1800, max: 8500, label: "R$ 1.800 a R$ 8.500/ano" },
+    theftProfile: "médio-alto",
+    pros: [
+      "Referência mundial em tecnologia e segurança em duas rodas",
+      "Modelos com alta valorização e facilidade de revenda",
+      "Rede de assistência premium focada em alta cilindrada",
+    ],
+    cons: [
+      "Modelos visados para roubo, especialmente a linha GS",
+      "Custo elevado de peças originais e acessórios eletrônicos",
+      "Exigência de rastreador e perfil de condutor experiente",
+    ],
+    bestInsurers: [
+      { name: "Suhai Seguradora", reason: "líder em aceitação para motos de alta cilindrada com rastreador" },
+      { name: "Porto Seguro", reason: "assistência 24h completa e cobertura para acessórios/vestuário" },
+      { name: "Tokio Marine", reason: "excelente precificação para a linha Big Trail (F850 e R1250)" },
+      { name: "Allianz", reason: "cobertura robusta para viagens internacionais (Mercosul)" },
+    ],
+    context:
+      "A BMW Motorrad é o desejo de todo motociclista que busca performance e aventura. Em Guarulhos, proprietários de modelos icônicos como R 1250 GS, F 850 GS, S 1000 RR e G 310 R precisam de um seguro que entenda a liberdade sem abrir mão da proteção. A Patro Seguros oferece consultoria para garantir que sua jornada esteja sempre segura, com coberturas para acessórios, vestuário de proteção e guincho sem limite de quilometragem.",
+  },
+  {
     slug: "seguro-auto-geely-guarulhos",
     modelo: "Geely",
     modeloShort: "Geely",
