@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-caminhonete-premium-guarulhos",
+    modelo: "Caminhonete e Pick-up Premium",
+    modeloShort: "Pick-ups",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 850.000+",
+    priceRange: { min: 3800, max: 18500, label: "R$ 3.800 a R$ 18.500/ano" },
+    theftProfile: "alto",
+    pros: [
+      "Versatilidade para uso urbano, lazer e off-road pesado",
+      "Alta retenção de valor de mercado e robustez mecânica",
+      "Tecnologia embarcada de última geração e segurança ativa",
+    ],
+    cons: [
+      "Índice de furto extremamente elevado para a categoria em Guarulhos",
+      "Custo de reparo e peças de carroceria com valores premium",
+      "Exigência rigorosa de rastreador via satélite e monitoramento",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "rede especializada em pick-ups com guincho para carga pesada" },
+      { name: "Tokio Marine", reason: "excelente precificação para a linha Hilux, S10 e Amarok" },
+      { name: "Allianz", reason: "cobertura robusta para uso em estradas e transporte de carga leve" },
+      { name: "Mapfre", reason: "atendimento VIP focado no setor agro e corporativo" },
+    ],
+    context:
+      "A caminhonete premium é o símbolo de força e sucesso. Em Guarulhos, proprietários de modelos como Hilux, Amarok, Ranger, RAM e Silverado buscam uma proteção que acompanhe a grandiosidade de seu veículo. A Patro Seguros oferece consultoria exclusiva para garantir que sua pick-up esteja protegida contra roubo, furto e danos em terrenos acidentados, com assistência 24h preparada para veículos de grande porte e suporte total em todo o Brasil.",
+  },
+  {
     slug: "seguro-moto-triumph-guarulhos",
     modelo: "Moto Triumph",
     modeloShort: "Triumph",
