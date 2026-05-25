@@ -152,6 +152,10 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
   const vcfInputRef = useRef<HTMLInputElement>(null);
   const [selectedContactForHistory, setSelectedContactForHistory] = useState<any>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [activeFilters, setActiveFilters] = useState({
+    opportunity: "all",
+    insuranceType: "all"
+  });
   
   useEffect(() => {
     if (initialEditContact) {
@@ -279,11 +283,18 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
     }
   };
 
-  const filteredContacts = contacts?.filter(contact => 
-    contact.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    contact.phone?.includes(searchTerm) ||
-    contact.email?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredContacts = contacts?.filter(contact => {
+    const matchesSearch = contact.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      contact.phone?.includes(searchTerm) ||
+      contact.email?.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    const matchesOpportunity = activeFilters.opportunity === "all" || 
+      (contact.opportunities && contact.opportunities.includes(activeFilters.opportunity));
+    
+    const matchesInsurance = activeFilters.insuranceType === "all" || contact.contact_insurances?.some((ci: any) => ci.insurance_type === activeFilters.insuranceType);
+
+    return matchesSearch && matchesOpportunity && matchesInsurance;
+  });
 
   const handleExportExcel = () => {
     if (!contacts || contacts.length === 0) {
@@ -601,9 +612,9 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
 
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="outline" className="border-slate-200">
-                <Filter className="w-4 h-4 mr-2" />
-                Filtros Exportação
+              <Button variant="outline" className="border-slate-200 bg-white">
+                <FileText className="w-4 h-4 mr-2" />
+                Relatórios / Exportação
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-80">
