@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-byd-guarulhos",
+    modelo: "BYD",
+    modeloShort: "BYD",
+    categoria: "premium",
+    fipeRange: "R$ 140.000 a R$ 550.000+",
+    priceRange: { min: 3800, max: 12000, label: "R$ 3.800 a R$ 12.000/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Líder mundial em tecnologia de baterias e eletrificação",
+      "Modelos com altíssimo nível de equipamentos e segurança ativa",
+      "Baixo índice de roubo por ser uma marca nova e tecnológica",
+    ],
+    cons: [
+      "Incerteza sobre custo de peças de reposição a longo prazo",
+      "Rede de oficinas especializadas em elétricos ainda em expansão",
+      "Necessidade de cobertura específica para baterias e cabos de carregamento",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura dedicada a carros elétricos com assistência para falta de carga" },
+      { name: "Allianz", reason: "excelente precificação para os modelos Dolphin e Song Plus" },
+      { name: "Tokio Marine", reason: "produtos específicos para veículos eletrificados com guincho sem limite de KM" },
+      { name: "Bradesco Seguros", reason: "condições facilitadas para frotas e veículos sustentáveis" },
+    ],
+    context:
+      "A BYD revolucionou o mercado automotivo com seus veículos elétricos e híbridos plug-in de alta performance. Em Guarulhos, proprietários de modelos como Dolphin, Seal, Song Plus e Tan buscam uma proteção que acompanhe essa inovação. A Patro Seguros é especialista em seguros para carros elétricos, oferecendo apólices que cobrem desde o conjunto de baterias até os acessórios de carregamento, com guincho especializado para veículos eletrificados.",
+  },
+  {
     slug: "seguro-auto-audi-guarulhos",
     modelo: "Audi",
     modeloShort: "Audi",
