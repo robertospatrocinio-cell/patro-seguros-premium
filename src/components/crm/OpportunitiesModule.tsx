@@ -49,10 +49,10 @@ const INSURANCE_TYPES = [
   "Auto", "Vida", "Saúde", "Residencial", "Empresarial", "RC Profissional", "Previdência", "Consórcio"
 ];
 
-const OpportunitiesModule = () => {
+const OpportunitiesModule = ({ initialTab = "opportunities" }: { initialTab?: string }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [insuranceFilter, setInsuranceFilter] = useState("all");
-  const [activeTab, setActiveTab] = useState("opportunities");
+  const [activeTab, setActiveTab] = useState(initialTab);
   const { contacts = [], isLoading } = useContacts();
 
   const filteredContacts = useMemo(() => {
