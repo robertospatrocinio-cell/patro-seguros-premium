@@ -52,7 +52,7 @@ const Header = memo(() => {
     { label: "Aviões", to: "/seguro-avioes", section: "pessoal" },
     { label: "Helicópteros", to: "/seguro-helicopteros", section: "pessoal" },
     { label: "Empresarial", to: "/seguro-empresarial", section: "empresarial" },
-    { label: "Condomínio Residencial", to: "/seguro-condominio", section: "empresarial" },
+    { label: "Condomínio Residencial", to: "/seguro-condominio-residencial", section: "empresarial" },
     { label: "Condomínio Empresarial", to: "/seguro-condominio-empresarial", section: "empresarial" },
     { label: "Imobiliário", to: "/seguro-imobiliario", section: "empresarial" },
     { label: "Lojas Shopping", to: "/seguro-lojas-shopping", section: "empresarial" },
@@ -321,7 +321,7 @@ const Header = memo(() => {
                          </p>
                         <div className="space-y-0.5">
                           <Link to="/seguro-empresarial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Empresarial</Link>
-                          <Link to="/seguro-condominio" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Condomínio Res.</Link>
+                          <Link to="/seguro-condominio-residencial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Condomínio Res.</Link>
                           <Link to="/seguro-condominio-empresarial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Condomínio Emp.</Link>
                           <Link to="/seguro-imobiliario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Imobiliário</Link>
                            <Link to="/seguro-lojas-shopping" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Lojas Shopping</Link>
