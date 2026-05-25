@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-suzuki-guarulhos",
+    modelo: "Moto Suzuki",
+    modeloShort: "Suzuki",
+    categoria: "premium",
+    fipeRange: "R$ 20.000 a R$ 130.000+",
+    priceRange: { min: 1100, max: 7200, label: "R$ 1.100 a R$ 7.200/ano" },
+    theftProfile: "médio-alto",
+    pros: [
+      "Engenharia japonesa focada em performance e durabilidade mecânica",
+      "Modelos icônicos como Hayabusa, V-Strom e a linha GSX de alta performance",
+      "Rede de assistência técnica especializada em modelos de alta cilindrada",
+    ],
+    cons: [
+      "Modelos esportivos da linha GSX-R são visados para roubo",
+      "Custo de componentes eletrônicos e carenagens originais em modelos importados",
+      "Exigência de rastreador para modelos com alto valor FIPE",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "assistência 24h completa e rede de oficinas premium" },
+      { name: "Suhai Seguradora", reason: "líder em aceitação para modelos esportivos e Big Trail" },
+      { name: "Tokio Marine", reason: "excelente precificação para a linha V-Strom e modelos clássicos" },
+      { name: "Allianz", reason: "cobertura robusta para danos a terceiros e viagens longas" },
+    ],
+    context:
+      "A Suzuki é referência em engenharia de precisão e velocidade. Em Guarulhos, proprietários de modelos que vão da versátil V-Strom até a lendária Hayabusa buscam uma proteção que acompanhe a tradição da marca. A Patro Seguros oferece consultoria exclusiva para garantir que sua Suzuki esteja protegida com coberturas sofisticadas e suporte técnico especializado, garantindo tranquilidade em cada aceleração.",
+  },
+  {
     slug: "seguro-moto-kawasaki-guarulhos",
     modelo: "Moto Kawasaki",
     modeloShort: "Kawasaki",
