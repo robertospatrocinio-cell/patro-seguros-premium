@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-harley-guarulhos",
+    modelo: "Moto Harley-Davidson",
+    modeloShort: "Harley",
+    categoria: "premium",
+    fipeRange: "R$ 50.000 a R$ 300.000+",
+    priceRange: { min: 1600, max: 7500, label: "R$ 1.600 a R$ 7.500/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Ícone mundial de estilo de vida e liberdade sobre duas rodas",
+      "Modelos com baixa desvalorização e grande comunidade de entusiastas",
+      "Baixo índice de roubo em comparação com modelos super esportivos",
+    ],
+    cons: [
+      "Alto valor de acessórios e customizações (exige cobertura específica)",
+      "Peso elevado demanda assistência 24h com guincho especializado",
+      "Peças de reposição originais com valores de importação",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura completa para acessórios e vestuário de couro" },
+      { name: "Suhai Seguradora", reason: "excelente aceitação para modelos customizados e clássicos" },
+      { name: "Tokio Marine", reason: "assistência 24h VIP e preços competitivos para a linha Softail" },
+      { name: "Liberty", reason: "boa cobertura para viagens longas e eventos da marca" },
+    ],
+    context:
+      "Uma Harley-Davidson não é apenas uma moto, é um estilo de vida. Em Guarulhos, proprietários de modelos como Iron 883, Fat Boy, Heritage Classic e a linha Touring buscam uma proteção que respeite a história e a personalização de sua máquina. A Patro Seguros oferece consultoria exclusiva para garantir que sua Harley e todos os seus acessórios estejam protegidos, com guincho em plataforma e atendimento diferenciado em todo o Brasil.",
+  },
+  {
     slug: "seguro-moto-ducati-guarulhos",
     modelo: "Moto Ducati",
     modeloShort: "Ducati",
@@ -573,7 +600,7 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
     description: `Procurando seguro para ${m.modelo} em Guarulhos? A Patro Seguros é especialista em cotações por modelo e compara as 9 maiores seguradoras do país em uma única solicitação. Para o ${m.modeloShort}, o prêmio anual fica em média ${m.priceRange.label} para cobertura compreensiva, considerando perfil de risco ${m.theftProfile} de furto/roubo. Faixa FIPE: ${m.fipeRange}.`,
     detailedDescription: `${m.context}\n\nCada seguradora precifica modelos específicos de forma diferente. Para o ${m.modelo}, a Patro identifica quais companhias entregam melhor preço, melhor franquia e melhor cobertura adicional. ${m.bestInsurers[0].name}: ${m.bestInsurers[0].reason}. ${m.bestInsurers[1].name}: ${m.bestInsurers[1].reason}. Em vez de cotar em 9 sites diferentes, fazemos uma única cotação padronizada e devolvemos comparativo claro em até 2 horas úteis.\n\nPontos fortes do ${m.modeloShort} para o seguro: ${m.pros.join("; ")}. Pontos de atenção: ${m.cons.join("; ")}. Nossa orientação combina perfil do veículo, CEP de pernoite em Guarulhos, idade do condutor e uso (particular, profissional ou aplicativo) para entregar a apólice mais adequada e mais barata possível.`,
     metaDescription: `Seguro ${m.modelo} Guarulhos: cotação online e comparativo entre 9 seguradoras. Patro Seguros — ${m.priceRange.label}.`,
-    icon: m.categoria === "suv" ? "🚙" : m.categoria === "premium" ? "🛻" : "🚗",
+    icon: m.slug.includes("moto") ? "🏍️" : m.categoria === "suv" ? "🚙" : m.categoria === "premium" ? "🛻" : "🚗",
     pricingIntro: `O seguro do ${m.modelo} em Guarulhos custa em média ${m.priceRange.label} para cobertura compreensiva (roubo, furto, colisão e terceiros). Versões de entrada ficam na faixa inferior; versões topo de linha, na superior. CEP de pernoite, idade do condutor e uso do veículo também alteram significativamente o preço.`,
     pricingFactors: [
       `Versão e ano do ${m.modeloShort} (FIPE: ${m.fipeRange})`,
