@@ -155,9 +155,17 @@ export const INSURANCE_HUB: HubCategory[] = [
       { label: "Seguro Frota Guarulhos", href: "/seguro-frota-empresas-guarulhos" },
       { label: "Seguro Condomínio Guarulhos", href: "/seguro-condominio-guarulhos" },
       { label: "Shopping Maia / Cidade Maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos" },
-      { label: "Bairros de Guarulhos", href: "/seguros-guarulhos" },
-    ],
-  },
+       { label: "Bairros de Guarulhos", href: "/seguros-guarulhos" },
+       { label: "Seguro John Deere", href: "/seguro-john-deere-guarulhos" },
+       { label: "Seguro Valtra", href: "/seguro-valtra-guarulhos" },
+       { label: "Seguro CASE IH", href: "/seguro-case-ih-guarulhos" },
+       { label: "Seguro New Holland", href: "/seguro-new-holland-guarulhos" },
+       { label: "Seguro Mahindra", href: "/seguro-mahindra-guarulhos" },
+       { label: "Seguro Massey Ferguson", href: "/seguro-massey-ferguson-guarulhos" },
+       { label: "Seguro JACTO", href: "/seguro-jacto-guarulhos" },
+     ],
+   },
+
   {
     title: "Soluções por Perfil",
     links: [
