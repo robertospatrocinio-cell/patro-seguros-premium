@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-dafra-guarulhos",
+    modelo: "Moto Dafra",
+    modeloShort: "Dafra",
+    categoria: "premium",
+    fipeRange: "R$ 10.000 a R$ 45.000+",
+    priceRange: { min: 800, max: 2800, label: "R$ 800 a R$ 2.800/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Parcerias globais com SYM e TVS garantindo tecnologia e design",
+      "Modelos urbanos como Citycom e Maxsym referência em conforto e agilidade",
+      "Ótimo custo-benefício no seguro para o segmento de scooters e média cilindrada",
+    ],
+    cons: [
+      "Rede de assistência técnica mais enxuta que as líderes de mercado",
+      "Desvalorização superior a marcas tradicionais em alguns modelos",
+      "Modelos como a Citycom são visados por serem ideais para o dia a dia",
+    ],
+    bestInsurers: [
+      { name: "Suhai Seguradora", reason: "excelente aceitação para toda a linha Dafra com o melhor preço" },
+      { name: "Porto Seguro", reason: "assistência 24h completa para scooters urbanas" },
+      { name: "Tokio Marine", reason: "cobertura robusta para danos a terceiros e colisão" },
+      { name: "Allianz", reason: "condições competitivas para motociclistas experientes" },
+    ],
+    context:
+      "A Dafra se consolidou no Brasil através de parcerias estratégicas que trazem o melhor das scooters mundiais para as ruas de Guarulhos. Proprietários de modelos como Citycom 300i, Maxsym 400 e NH 190 buscam uma proteção que acompanhe seu ritmo urbano. A Patro Seguros oferece consultoria especializada para garantir que sua Dafra esteja protegida com coberturas eficientes e assistência 24h ágil, garantindo que sua rotina nunca pare.",
+  },
+  {
     slug: "seguro-auto-gac-guarulhos",
     modelo: "GAC Motor",
     modeloShort: "GAC",
