@@ -678,7 +678,7 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-lexus-guarulhos",
     modelo: "Lexus",
-    modeloShort: "Lexus",
+    modeloShort: "Lexus RX 500h",
     categoria: "premium",
     fipeRange: "R$ 150.000 a R$ 800.000",
     priceRange: { min: 3500, max: 15000, label: "R$ 3.500 a R$ 15.000/ano" },
