@@ -850,4 +850,5 @@ export const MODELO_LIST = MODELOS.map((m) => ({
   modeloShort: m.modeloShort,
   categoria: m.categoria,
   priceRange: m.priceRange.label,
+  heroImg: m.heroImg,
 }));
