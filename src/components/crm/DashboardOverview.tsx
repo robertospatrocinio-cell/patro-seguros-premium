@@ -68,9 +68,10 @@ interface DashboardOverviewProps {
    isRefreshingAgenda?: boolean;
   onContactClick?: (contact: Contact) => void;
   onCarriersClick?: () => void;
+  surveyDueContacts?: Contact[];
 }
 
-export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false, onContactClick, onCarriersClick }: DashboardOverviewProps) => {
+export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], onRefreshAgenda, isRefreshingAgenda = false, onContactClick, onCarriersClick, surveyDueContacts = [] }: DashboardOverviewProps) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const scheduledForDate = contacts.filter(contact => {
@@ -369,6 +370,60 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
               <div className="p-8 text-center text-muted-foreground">
                 <Calendar className="w-12 h-12 mx-auto mb-2 opacity-20" />
                 <p>Nenhum aniversariante hoje.</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Pesquisa de Satisfação (Pós-Venda 1 Ano) */}
+        <Card className="bg-white border-none shadow-sm">
+          <CardHeader className="border-b border-slate-50 flex flex-row items-center justify-between">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Heart className="w-5 h-5 text-red-500" />
+              Pesquisa de Satisfação (1 Ano)
+            </CardTitle>
+            <Badge variant="secondary" className="bg-red-50 text-red-700 hover:bg-red-50 border-none">
+              {surveyDueContacts.length} Pendentes
+            </Badge>
+          </CardHeader>
+          <CardContent className="p-0">
+            {surveyDueContacts.length > 0 ? (
+              <ul className="divide-y divide-slate-50">
+                {surveyDueContacts.map((contact) => (
+                  <li key={contact.id} className="p-4 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500 font-medium text-sm">
+                        {contact.full_name.substring(0, 1).toUpperCase()}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-slate-900">{contact.full_name}</p>
+                        <p className="text-xs text-muted-foreground">Última: {contact.updated_at ? formatContactDate(contact.updated_at) : 'Nunca'}</p>
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button 
+                        size="sm" 
+                        variant="ghost" 
+                        className="h-8 text-red-600 hover:bg-red-50"
+                        onClick={() => onContactClick?.(contact)}
+                      >
+                        Ver Detalhes
+                      </Button>
+                      {contact.phone && (
+                        <Button size="sm" variant="outline" className="h-8 text-green-600 border-green-100 hover:bg-green-50" asChild>
+                          <a href={getWhatsAppUrl(contact.phone)} target="_blank" rel="noopener noreferrer">
+                            WhatsApp
+                          </a>
+                        </Button>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="p-8 text-center text-muted-foreground">
+                <CheckCircle2 className="w-12 h-12 mx-auto mb-2 opacity-20" />
+                <p>Nenhuma pesquisa pendente hoje.</p>
               </div>
             )}
           </CardContent>
