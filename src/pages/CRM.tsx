@@ -144,10 +144,59 @@ const CRMPage = () => {
     };
   }, [leads, contacts]);
 
-  const birthdays = useMemo(() => [
-    { id: '1', name: 'Ricardo Santos', phone: '11999999999' },
-    { id: '2', name: 'Mariana Oliveira' }
-  ], []);
+  const birthdays = useMemo(() => {
+    const today = new Date();
+    const todayDay = today.getDate();
+    const todayMonth = today.getMonth() + 1;
+    
+    const results: any[] = [];
+    
+    contacts.forEach(contact => {
+      // Check contact birthday
+      if (contact.birth_date) {
+        const bd = new Date(contact.birth_date);
+        if (bd.getDate() === todayDay && (bd.getMonth() + 1) === todayMonth) {
+          results.push({
+            id: contact.id,
+            name: contact.full_name,
+            phone: contact.phone
+          });
+        }
+      }
+      
+      // Check partner birthday
+      if (contact.partner_birthday) {
+        const pbd = new Date(contact.partner_birthday);
+        if (pbd.getDate() === todayDay && (pbd.getMonth() + 1) === todayMonth) {
+          results.push({
+            id: `${contact.id}-partner`,
+            name: contact.partner_name || `Cônjuge de ${contact.full_name}`,
+            phone: contact.phone,
+            relation: "Cônjuge"
+          });
+        }
+      }
+      
+      // Check children birthdays
+      if (contact.children_data && Array.isArray(contact.children_data)) {
+        contact.children_data.forEach((child: any, idx: number) => {
+          if (child.birthday) {
+            const cbd = new Date(child.birthday);
+            if (cbd.getDate() === todayDay && (cbd.getMonth() + 1) === todayMonth) {
+              results.push({
+                id: `${contact.id}-child-${idx}`,
+                name: child.name || `Filho(a) de ${contact.full_name}`,
+                phone: contact.phone,
+                relation: "Filho(a)"
+              });
+            }
+          }
+        });
+      }
+    });
+    
+    return results;
+  }, [contacts]);
 
   const renewals = useMemo(() => [
     { id: 'r1', clientName: 'Empresa ABC Ltda', insuranceType: 'Empresarial', dueDate: '22/05', isCompleted: false },
