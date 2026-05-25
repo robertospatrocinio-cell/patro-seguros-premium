@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { lazy, Suspense, useState, useEffect } from "react";
-import { Search, Shield, Handshake, CheckCircle, MessageCircle, ArrowRight, Star } from "lucide-react";
+import { Search, Shield, Handshake, CheckCircle, MessageCircle, ArrowRight, Star, Gem } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
 import Header from "@/components/Header";
