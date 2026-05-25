@@ -10,7 +10,7 @@ const SeguroColhedoraAlgodao = () => {
       subtitle="Proteção premium para colhedoras de fardos e cestos. Cobertura nacional para o 'Ouro Branco' do agronegócio."
       icon="🚜"
       badge="Especialista em Colheita de Alta Tecnologia"
-      metaDescription="Seguro para Colhedoras de Algodão: proteção contra incêndio, roubo, quebra de máquinas e eletrônica embarcada. Atendimento em todo o Brasil. Cotação Patro Seguros."
+      metaDescription="Seguro para Colhedoras de Algodão: proteção contra incêndio, roubo, quebra de máquinas e eletrônica embarcada. Cotação nacional Patro Seguros."
       description="A colhedora de algodão é uma das máquinas mais complexas e caras do mundo agrícola. O seguro da Patro Seguros oferece a robustez necessária para proteger esse investimento de milhões de reais contra imprevistos na safra."
       detailedDescription={`Colher algodão exige precisão cirúrgica e equipamentos de altíssimo valor agregado. Uma colhedora de fardos cilíndricos (como a John Deere CP770 ou Case IH Module Express) representa um dos maiores ativos de uma fazenda, e qualquer parada operacional por incêndio em resíduos, falha eletrônica ou tombamento gera prejuízos em escala exponencial.
 
