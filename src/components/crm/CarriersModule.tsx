@@ -31,6 +31,7 @@ import {
   SelectTrigger, 
   SelectValue 
 } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useInsuranceSales } from "@/hooks/queries/useInsuranceSales";
 
