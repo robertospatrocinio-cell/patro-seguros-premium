@@ -606,7 +606,7 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-byd-guarulhos",
     modelo: "BYD",
-    modeloShort: "BYD",
+    modeloShort: "BYD Seal",
     categoria: "premium",
     fipeRange: "R$ 100.000 a R$ 1.000.000",
     priceRange: { min: 3500, max: 18000, label: "R$ 3.500 a R$ 18.000/ano" },
