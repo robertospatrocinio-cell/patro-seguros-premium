@@ -19,14 +19,24 @@ export const parseCSV = (file: File): Promise<ImportedContact[]> => {
       skipEmptyLines: true,
       complete: (results) => {
         const mapped = results.data.map((row: any) => ({
-          full_name: row.Nome || row["Nome Completo"] || row.Name || row.full_name || "",
-          email: row.Email || row.email || "",
-          phone: row.Telefone || row.Phone || row.phone || row.Mobile || "",
+          full_name: 
+            row.Nome || row["Nome Completo"] || row.Name || row["First Name"] || row["Last Name"] ? 
+            `${row["First Name"] || ""} ${row["Last Name"] || ""}`.trim() : 
+            row.full_name || row["Display Name"] || "",
+          email: row.Email || row["E-mail Address"] || row["Email 1 - Value"] || row.email || "",
+          phone: row.Telefone || row.Phone || row["Mobile Phone"] || row["Phone 1 - Value"] || row.phone || row.Mobile || "",
           birth_date: row["Data Nascimento"] || row.Birthday || row.birth_date || "",
           notes: row.Notas || row.Notes || row.notes || "",
-          profession: row["Profissão"] || row.Profession || row.profession || "",
-        })).filter(c => c.full_name);
-        resolve(mapped);
+          profession: row["Profissão"] || row.Profession || row.profession || row.Job || "",
+        })).filter((c: any) => c.full_name || c.phone || c.email);
+        
+        // Handle rows where full_name was constructed but empty
+        const final = mapped.map((c: any) => ({
+          ...c,
+          full_name: c.full_name || "Contato Sem Nome"
+        }));
+        
+        resolve(final);
       },
       error: (error) => reject(error),
     });
@@ -90,17 +100,22 @@ export const parseVCF = async (file: File): Promise<ImportedContact[]> => {
           const entry = parsed[0];
           const fullName = entry.fn?.[0]?.value || 
                          (entry.n?.[0]?.value ? `${entry.n[0].value.givenName || ""} ${entry.n[0].value.surname || ""}`.trim() : "");
-          const email = entry.email?.[0]?.value || "";
-          const phone = entry.tel?.[0]?.value || "";
+          // iPhone specific fields often use different property names or multiple values
+          const emails = entry.email?.map((e: any) => e.value).join(", ") || "";
+          const phones = entry.tel?.map((t: any) => t.value).join(", ") || "";
           const bday = entry.bday?.[0]?.value || "";
+          const note = entry.note?.[0]?.value || "Importado via VCF";
+          const title = entry.title?.[0]?.value || "";
+          const org = entry.org?.[0]?.value?.organization || "";
           
-          if (fullName || phone || email) {
+          if (fullName || phones || emails) {
             results.push({
               full_name: fullName || "Contato Sem Nome",
-              email,
-              phone,
+              email: emails,
+              phone: phones,
               birth_date: bday,
-              notes: "Importado via VCF",
+              notes: note,
+              profession: [title, org].filter(Boolean).join(" - "),
               is_client: false
             });
           }
