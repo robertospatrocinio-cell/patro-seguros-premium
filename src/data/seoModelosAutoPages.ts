@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-jacto-guarulhos",
+    modelo: "Jacto",
+    modeloShort: "Jacto",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 3.500.000+",
+    priceRange: { min: 2800, max: 35000, label: "R$ 2.800 a R$ 35.000/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Liderança mundial em tecnologia de pulverização e adubação",
+      "Ecossistema Jacto Connect para gestão precisa da propriedade",
+      "Robustez e precisão incomparáveis com assistência técnica ágil"
+    ],
+    cons: [
+      "Alto custo de bicos eletrônicos, sensores e tecnologia embarcada",
+      "Modelos autopropelidos exigem apólices com quebra de máquinas",
+      "Necessidade de treinamento constante para operadores da linha Uniport"
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "excelente aceitação para marcas nacionais líderes e peças originais" },
+      { name: "Allianz", reason: "condições competitivas para a linha Uniport e pulverizadores" },
+      { name: "Tokio Marine", reason: "assistência 24h rural com guincho para carga pesada" },
+      { name: "Sompo", reason: "especialista em agronegócio com foco em tecnologia de precisão" }
+    ],
+    context:
+      "A Jacto é o orgulho da tecnologia agrícola brasileira presente em mais de 100 países. Dos pulverizadores de arrasto aos gigantes autopropelidos Uniport, o proprietário Jacto busca uma proteção que respeite a precisão da sua máquina. A Patro Seguros oferece consultoria exclusiva para garantir que seu Jacto esteja protegido contra incêndio, roubo e danos elétricos, garantindo que sua safra seja impecável."
+  },
+  {
     slug: "seguro-massey-ferguson-guarulhos",
     modelo: "Massey Ferguson",
     modeloShort: "Massey",
