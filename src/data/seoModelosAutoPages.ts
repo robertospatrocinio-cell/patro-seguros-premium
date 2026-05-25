@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-mahindra-guarulhos",
+    modelo: "Mahindra",
+    modeloShort: "Mahindra",
+    categoria: "premium",
+    fipeRange: "R$ 85.000 a R$ 350.000+",
+    priceRange: { min: 1800, max: 8500, label: "R$ 1.800 a R$ 8.500/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Líder mundial em volume de tratores com foco em economia e força",
+      "Garantia de fábrica estendida e baixo custo de manutenção",
+      "Simplicidade mecânica aliada a alta durabilidade no campo"
+    ],
+    cons: [
+      "Rede de assistência técnica em plena expansão no mercado brasileiro",
+      "Modelos compactos exigem vistorias para uso em prestação de serviços",
+      "Custo de eletrônica embarcada em modelos de nova geração"
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "excelente aceitação para marcas globais e suporte 24h rural" },
+      { name: "Allianz", reason: "referência em precificação para tratores de pequena e média potência" },
+      { name: "Tokio Marine", reason: "atendimento ágil e guincho especializado em todo o Brasil" },
+      { name: "Sompo", reason: "tradição em seguros rurais com foco em produtores familiares" }
+    ],
+    context:
+      "A Mahindra é a força que move milhões de produtores ao redor do mundo e ganha cada vez mais espaço no agronegócio brasileiro. Dos tratores compactos da série 2000 aos potentes modelos da série 8000 e 9000, o proprietário Mahindra busca uma proteção que acompanhe a durabilidade de sua máquina. A Patro Seguros oferece consultoria premium para garantir que seu Mahindra esteja protegido contra incêndio, roubo e tombamento, com foco na agilidade do seu trabalho."
+  },
+  {
     slug: "seguro-new-holland-guarulhos",
     modelo: "New Holland",
     modeloShort: "New Holland",
