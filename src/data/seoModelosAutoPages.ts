@@ -372,7 +372,7 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-jeep-guarulhos",
     modelo: "Jeep",
-    modeloShort: "Jeep",
+    modeloShort: "Jeep Compass",
     categoria: "suv",
     fipeRange: "R$ 90.000 a R$ 450.000",
     priceRange: { min: 3200, max: 12000, label: "R$ 3.200 a R$ 12.000/ano" },
