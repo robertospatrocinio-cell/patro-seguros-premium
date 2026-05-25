@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-kawasaki-guarulhos",
+    modelo: "Moto Kawasaki",
+    modeloShort: "Kawasaki",
+    categoria: "premium",
+    fipeRange: "R$ 30.000 a R$ 180.000+",
+    priceRange: { min: 1200, max: 7800, label: "R$ 1.200 a R$ 7.800/ano" },
+    theftProfile: "alto",
+    pros: [
+      "Alta performance esportiva com a lendária linha Ninja e Z-Series",
+      "Tecnologia de ponta em eletrônica e sistemas de assistência ao piloto",
+      "Rede de assistência técnica especializada em alta cilindrada",
+    ],
+    cons: [
+      "Modelos esportivos são extremamente visados para furto em Guarulhos",
+      "Custo elevado de carenagens e componentes eletrônicos originais",
+      "Exigência de rastreador e perfil de condutor experiente",
+    ],
+    bestInsurers: [
+      { name: "Suhai Seguradora", reason: "líder em aceitação para modelos Ninja e Z com rastreador" },
+      { name: "Porto Seguro", reason: "assistência 24h completa e cobertura para acessórios esportivos" },
+      { name: "Tokio Marine", reason: "excelente precificação para a linha Versys e Vulcan" },
+      { name: "Allianz", reason: "cobertura robusta para danos a terceiros e viagens" },
+    ],
+    context:
+      "A Kawasaki é sinônimo de potência e vitórias nas pistas. Em Guarulhos, proprietários de modelos icônicos como a Ninja, a versátil Versys, a imponente Vulcan e a agressiva linha Z buscam uma proteção que acompanhe o DNA 'Let the Good Times Roll'. A Patro Seguros oferece consultoria exclusiva para garantir que sua Kawasaki esteja protegida com as melhores coberturas de roubo, furto e colisão, garantindo que sua adrenalina nunca seja interrompida.",
+  },
+  {
     slug: "seguro-moto-dafra-guarulhos",
     modelo: "Moto Dafra",
     modeloShort: "Dafra",
