@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-harley-guarulhos",
+    modelo: "Moto Harley-Davidson",
+    modeloShort: "Harley",
+    categoria: "premium",
+    fipeRange: "R$ 50.000 a R$ 300.000+",
+    priceRange: { min: 1600, max: 7500, label: "R$ 1.600 a R$ 7.500/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Ícone mundial de estilo de vida e liberdade sobre duas rodas",
+      "Modelos com baixa desvalorização e grande comunidade de entusiastas",
+      "Baixo índice de roubo em comparação com modelos super esportivos",
+    ],
+    cons: [
+      "Alto valor de acessórios e customizações (exige cobertura específica)",
+      "Peso elevado demanda assistência 24h com guincho especializado",
+      "Peças de reposição originais com valores de importação",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura completa para acessórios e vestuário de couro" },
+      { name: "Suhai Seguradora", reason: "excelente aceitação para modelos customizados e clássicos" },
+      { name: "Tokio Marine", reason: "assistência 24h VIP e preços competitivos para a linha Softail" },
+      { name: "Liberty", reason: "boa cobertura para viagens longas e eventos da marca" },
+    ],
+    context:
+      "Uma Harley-Davidson não é apenas uma moto, é um estilo de vida. Em Guarulhos, proprietários de modelos como Iron 883, Fat Boy, Heritage Classic e a linha Touring buscam uma proteção que respeite a história e a personalização de sua máquina. A Patro Seguros oferece consultoria exclusiva para garantir que sua Harley e todos os seus acessórios estejam protegidos, com guincho em plataforma e atendimento diferenciado em todo o Brasil.",
+  },
+  {
     slug: "seguro-moto-ducati-guarulhos",
     modelo: "Moto Ducati",
     modeloShort: "Ducati",
