@@ -16,46 +16,67 @@ export type Database = {
     Tables: {
       claims: {
         Row: {
+          carrier: string | null
           claim_date: string
+          claim_number: string | null
           client_id: string | null
           created_at: string
+          deductible_amount: number | null
           description: string | null
           has_third_party: boolean | null
           id: string
+          location: string | null
+          notification_date: string | null
+          policy_number: string | null
           status: string | null
           third_party_count: number | null
           third_party_name: string | null
           third_party_phone: string | null
           tracking_notes: string | null
           updated_at: string
+          workshop: string | null
         }
         Insert: {
+          carrier?: string | null
           claim_date?: string
+          claim_number?: string | null
           client_id?: string | null
           created_at?: string
+          deductible_amount?: number | null
           description?: string | null
           has_third_party?: boolean | null
           id?: string
+          location?: string | null
+          notification_date?: string | null
+          policy_number?: string | null
           status?: string | null
           third_party_count?: number | null
           third_party_name?: string | null
           third_party_phone?: string | null
           tracking_notes?: string | null
           updated_at?: string
+          workshop?: string | null
         }
         Update: {
+          carrier?: string | null
           claim_date?: string
+          claim_number?: string | null
           client_id?: string | null
           created_at?: string
+          deductible_amount?: number | null
           description?: string | null
           has_third_party?: boolean | null
           id?: string
+          location?: string | null
+          notification_date?: string | null
+          policy_number?: string | null
           status?: string | null
           third_party_count?: number | null
           third_party_name?: string | null
           third_party_phone?: string | null
           tracking_notes?: string | null
           updated_at?: string
+          workshop?: string | null
         }
         Relationships: [
           {
