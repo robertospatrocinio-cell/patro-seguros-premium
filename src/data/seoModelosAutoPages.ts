@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-gwm-guarulhos",
+    modelo: "GWM",
+    modeloShort: "GWM",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 480.000+",
+    priceRange: { min: 3900, max: 11500, label: "R$ 3.900 a R$ 11.500/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Tecnologia híbrida e elétrica de última geração (Haval e Ora)",
+      "Pacote de segurança ativa (ADAS) extremamente completo de série",
+      "Garantia de fábrica extensa e rede de concessionárias moderna",
+    ],
+    cons: [
+      "Dependência de peças importadas para reparos de colisão",
+      "Marca nova no mercado brasileiro, gerando cautela em algumas seguradoras",
+      "Necessidade de oficinas com certificação para alta tensão",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura específica para baterias e assistência dedicada a elétricos" },
+      { name: "Allianz", reason: "excelente precificação para a linha Haval H6" },
+      { name: "SulAmérica", reason: "produtos voltados para mobilidade sustentável e VIP" },
+      { name: "Tokio Marine", reason: "condições competitivas para o modelo Ora 03" },
+    ],
+    context:
+      "A GWM chegou ao Brasil para redefinir o conceito de SUV e veículos eletrificados com as linhas Haval e Ora. Em Guarulhos, onde a mobilidade inteligente ganha cada vez mais espaço, a Patro Seguros oferece consultoria especializada para proteger seu GWM. Nossas apólices contemplam desde a cobertura para o conjunto de baterias até assistência técnica especializada, garantindo que a tecnologia do seu veículo esteja sempre amparada por quem entende de inovação.",
+  },
+  {
     slug: "seguro-auto-byd-guarulhos",
     modelo: "BYD",
     modeloShort: "BYD",
