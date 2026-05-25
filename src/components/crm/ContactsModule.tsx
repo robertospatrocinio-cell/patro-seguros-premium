@@ -95,6 +95,9 @@ const INITIAL_CONTACT_STATE = {
   phone: "",
   cpf_cnpj: "",
   birth_date: "",
+  first_license_date: "",
+  zip_code: "",
+  address: "",
   client_type: "cliente" as any,
   is_client: true,
   notes: "",
@@ -216,7 +219,8 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
       const dateFields = [
         'birth_date','partner_birthday','last_contact_date','next_contact_date',
         'life_insurance_renewal','home_insurance_renewal','health_insurance_renewal',
-        'business_insurance_renewal','other_insurance_renewal','consortium_renewal'
+        'business_insurance_renewal','other_insurance_renewal','consortium_renewal',
+        'first_license_date'
       ];
       const sanitized: any = { ...newContact };
       for (const f of dateFields) {
@@ -365,6 +369,9 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
         "É Cliente": c.is_client ? "Sim" : "Não",
         "Profissão": c.profession || "",
         "Renda": c.income_bracket || "",
+        "CEP": c.zip_code || "",
+        "Endereço": c.address || "",
+        "Data 1ª Habilitação": c.first_license_date || "",
         "Origem": c.lead_source || "",
         "Satisfação": c.satisfaction_score || "",
         "Data Cadastro": new Date(c.created_at).toLocaleDateString('pt-BR'),
