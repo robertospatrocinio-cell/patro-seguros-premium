@@ -5,50 +5,89 @@ const SeguroPropriedadeRural = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Propriedade Rural — Proteção Completa para sua Fazenda"
-      subtitle="Proteja as estruturas, benfeitorias e instalações da sua propriedade rural contra incêndio, vendaval, raio e outros riscos. Atendimento em todo o Brasil."
-      description="Seguro Propriedade Rural: proteção para sedes, galpões e cercas contra incêndio e vendaval. Atendemos produtores de todo o Brasil com suporte 100% remoto."
+      title="Seguro Propriedade Rural"
+      subtitle="Proteção de alto nível para o seu maior patrimônio. Segurança total para sedes, benfeitorias e instalações."
       icon="🏡"
-      metaDescription="Seguro Propriedade Rural: proteção para fazendas, sítios e chácaras contra incêndio e roubo. Cobertura para máquinas e gado. Cotação na Patro Seguros."
-      badge="Atendimento em Todo o Brasil"
+      badge="Especialista em Patrimônio Agro"
+      metaDescription="Seguro Propriedade Rural: proteção completa para sedes, galpões, armazéns e cercas contra incêndio e vendaval em todo o Brasil. Atendimento 100% remoto Patro Seguros."
+      description="A propriedade rural é a base de toda a produção. O Seguro de Propriedade Rural da Patro Seguros oferece a proteção robusta que as estruturas físicas e benfeitorias da sua fazenda exigem."
+      detailedDescription={`Investir em infraestrutura rural exige capital e planejamento. De sedes imponentes a galpões de máquinas e silos de armazenamento, cada estrutura é vital para a operação. O risco de eventos climáticos, como vendavais e granizos, ou acidentes como incêndios e quedas de raios, pode gerar prejuízos que comprometem gerações de trabalho.
+
+Nossa consultoria para Seguro de Propriedade Rural foca na blindagem patrimonial completa. Desenvolvemos apólices que cobrem desde a casa sede até cercas, currais e sistemas de irrigação. Atendemos proprietários em todas as regiões do Brasil, oferecendo um atendimento consultivo que entende a geografia e os riscos específicos de cada estado.
+
+Com a Patro Seguros, você tem a garantia de que cada benfeitoria da sua propriedade está amparada pelas maiores seguradoras rurais do mundo, com suporte total para renovações e gestão ágil de sinistros catastróficos.`}
+      howItWorks={[
+        { step: "1", title: "Mapeamento Patrimonial", description: "Catalogamos todas as construções, benfeitorias e instalações fixas da propriedade." },
+        { step: "2", title: "Avaliação de Risco Local", description: "Analisamos a incidência de ventos, raios e a proximidade de áreas de risco na região." },
+        { step: "3", title: "Customização de Verbas", description: "Definimos o valor de reconstrução para cada estrutura, evitando o risco de seguro insuficiente." },
+        { step: "4", title: "Emissão Digital", description: "Apólice emitida com rapidez e validade nacional, ideal para garantias bancárias." },
+      ]}
       coverages={[
-        { title: "Incêndio e Explosão", description: "Proteção contra incêndio, explosão e fumaça nas edificações e benfeitorias da propriedade." },
-        { title: "Vendaval e Granizo", description: "Cobertura contra danos causados por vendaval, granizo, ciclone, tornado e furacão." },
-        { title: "Raio e Danos Elétricos", description: "Proteção contra quedas de raio e danos elétricos em instalações e equipamentos fixos." },
-        { title: "Alagamento e Inundação", description: "Cobertura contra danos causados por alagamento, inundação e transbordamento de rios." },
-        { title: "Roubo e Furto Qualificado", description: "Proteção contra roubo e furto qualificado de bens no interior das edificações." },
-        { title: "Responsabilidade Civil", description: "Cobertura para danos causados a terceiros dentro da propriedade rural." },
+        { title: "Incêndio e Explosão", description: "Cobre danos térmicos na sede, casas de funcionários, galpões e silos." },
+        { title: "Vendaval, Ciclone e Granizo", description: "Proteção indispensável contra ventos fortes que atingem telhados e estruturas." },
+        { title: "Raio e Danos Elétricos", description: "Garante instalações elétricas e transformadores próprios contra descargas atmosféricas." },
+        { title: "Alagamento e Inundação", description: "Cobre danos causados por entrada de água em edificações e depósitos." },
+        { title: "Roubo e Furto Qualificado", description: "Segurança para móveis, utensílios e insumos estocados no interior das construções." },
+        { title: "Responsabilidade Civil Familiar", description: "Proteção contra danos a terceiros ocorridos dentro dos limites da propriedade." },
+        { title: "Instalações de Energia Solar", description: "Cobertura específica para usinas fotovoltaicas e painéis solares da fazenda." },
+      ]}
+      coverageExclusions={[
+        "Danos a culturas e plantações (cobertos pelo Seguro Agrícola)",
+        "Veículos e máquinas móveis (exigem Seguro de Máquinas Agrícolas)",
+        "Desgaste natural das edificações ou falta de conservação",
+        "Vazamentos de tubulações internas por má manutenção",
+        "Danos estéticos em cercas ou muros sem comprometimento estrutural",
+      ]}
+      pricingInfo={{
+        intro: "O custo é dimensionado pelo valor de reposição das estruturas e pelos limites de coberturas climáticas escolhidos.",
+        factors: [
+          "Material de construção das edificações (Alvenaria, Madeira, Metálica)",
+          "Valor total das benfeitorias declaradas",
+          "Localização geográfica e histórico climático da região",
+          "Existência de sistemas de vigilância e combate a incêndio",
+          "Finalidade da propriedade (Lazer, Criação, Cultivo)",
+        ],
+        note: "O seguro de benfeitorias rurais é fundamental para quem busca financiamento de infraestrutura em bancos.",
+      }}
+      realScenarios={[
+        { title: "Vendaval em Galpão de Máquinas", description: "Um vendaval de 85km/h arrancou o telhado metálico do galpão principal. O seguro cobriu os R$ 65.000 da reconstrução em tempo recorde." },
+        { title: "Raio no Transformador da Sede", description: "Uma descarga elétrica queimou o transformador e toda a rede de uma casa sede. A reposição de R$ 22.000 foi paga integralmente." },
+        { title: "Incêndio em Curral e Cerca", description: "Um incêndio em pastagem atingiu as cercas e o curral de manejo. A cobertura de incêndio indenizou os materiais e a mão de obra para reparo." },
+      ]}
+      importantDetails={[
+        { title: "Valor de Reconstrução", content: "Sempre oriente-se pelo custo de reconstruir a estrutura hoje, e não pelo valor de venda. Isso garante que a indenização seja suficiente em caso de perda total." },
+        { title: "Seguro Rural vs Seguro Residencial", content: "Propriedades rurais exigem apólices específicas que permitem cobrir benfeitorias produtivas, algo que o seguro residencial urbano comum não aceita." },
+      ]}
+      tips={[
+        "Mantenha sempre os para-raios da sede e silos com manutenção e laudo em dia",
+        "Digitalize as notas fiscais de reformas e novos galpões construídos",
+        "Informe corretamente o uso da propriedade para evitar negativas em sinistros",
+        "Instale aceiros em torno das construções para mitigar o risco de incêndios em pastagens",
       ]}
       whoNeeds={[
-        "Fazendeiros e produtores rurais com estruturas de alto valor",
-        "Proprietários de sítios e chácaras com benfeitorias",
-        "Produtores com galpões, silos e armazéns na propriedade",
-        "Propriedades com instalações de energia solar e equipamentos fixos",
-        "Cooperativas e associações rurais",
+        "Produtores Rurais de todos os portes",
+        "Proprietários de Sítios, Chácaras e Haras",
+        "Investidores com Patrimônio Imobiliário Rural",
+        "Empresas Agroindustriais",
+        "Cooperativas com Sedes Administrativas no Campo",
       ]}
       whyPatro={[
-        "Atendimento remoto para produtores de todo o Brasil",
-        "Trabalhamos com as principais seguradoras do agronegócio",
-        "Análise personalizada de riscos para cada tipo de propriedade",
-        "Experiência em sinistros rurais — vendaval, incêndio, raio",
-        "Cotação 100% gratuita por WhatsApp, telefone ou e-mail",
-        "Suporte completo na regulação de sinistros",
+        "Consultoria técnica para dimensionamento patrimonial",
+        "Agilidade na emissão de certificados para penhor e hipoteca rural",
+        "Atendimento em todos os estados brasileiros de forma remota",
+        "Parceria com seguradoras líderes em riscos rurais",
+        "Suporte humanizado em casos de eventos climáticos severos",
       ]}
       faqs={[
-        { question: "O que o seguro propriedade rural cobre?", answer: "Cobre as edificações e benfeitorias da propriedade — sede, galpões, currais, silos, cercas e instalações — contra incêndio, raio, vendaval, granizo, alagamento, roubo e danos elétricos." },
-        { question: "Cobre máquinas e equipamentos?", answer: "O seguro propriedade rural foca nas estruturas fixas. Para máquinas e equipamentos móveis, recomendamos o Seguro de Máquinas Agrícolas ou Equipamentos Agrícolas." },
-        { question: "Tem subsídio do governo?", answer: "O seguro de benfeitorias e instalações rurais pode contar com subsídio federal pelo Programa de Subvenção ao Prêmio do Seguro Rural (PSR), conforme disponibilidade." },
-        { question: "Quanto custa o seguro propriedade rural?", answer: "O valor varia conforme o tipo de propriedade, valor das benfeitorias, localização e coberturas escolhidas. Solicite uma cotação gratuita para receber uma proposta personalizada." },
-        { question: "Posso segurar apenas parte da propriedade?", answer: "Sim, você pode escolher quais estruturas deseja segurar — por exemplo, apenas os galpões e silos, ou toda a propriedade incluindo a sede." },
-        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores rurais e empresas do agronegócio em todos os 26 estados brasileiros e o Distrito Federal — capitais, interior e zona rural. Do Sul (PR, SC, RS) ao Norte (PA, TO, RO), passando por Centro-Oeste (MT, MS, GO), Sudeste (SP, MG, ES, RJ) e Nordeste (BA, PI, MA). Nossa sede é em Guarulhos/SP, mas o atendimento é 100% remoto." },
-        { question: "Qual o prazo para receber a proposta?", answer: "Após o envio das informações sobre o bem ou atividade a ser segurada, retornamos com propostas comparativas de diversas seguradoras em até 24 horas úteis." },
-        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto. Basta entrar em contato pelo WhatsApp (11) 5199-7500, telefone ou e-mail. Enviamos a documentação digitalmente e acompanhamos tudo à distância — da cotação à regulação de sinistro." },
-        { question: "Como recebo a proposta de seguro?", answer: "Enviamos a proposta pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com um resumo comparativo de valores e coberturas das melhores seguradoras do mercado." },
+        { question: "O seguro cobre as cercas da propriedade?", answer: "Sim, é possível incluir a cobertura para cercas contra incêndio, raio e impacto de veículos." },
+        { question: "Cobre a casa do caseiro?", answer: "Sim, todas as moradias de funcionários e dependências de serviço podem ser incluídas na apólice." },
+        { question: "O seguro é aceito para garantia de empréstimos?", answer: "Sim, emitimos apólices com a cláusula de beneficiário exigida pelos bancos para liberação de crédito rural." },
+        { question: "Quanto tempo dura a apólice?", answer: "Geralmente a vigência é de 1 ano, com renovação automática analisada pela nossa equipe." },
       ]}
       relatedInsurances={[
-        { title: "Seguro Rural", link: "/seguro-rural" },
-        { title: "Seguro Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
-        { title: "Seguro Armazenagem", link: "/seguro-armazenagem" },
+        { title: "Seguro Rural (Culturas)", link: "/seguro-rural" },
+        { title: "Seguro de Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
+        { title: "Seguro de Silo Agrícola", link: "/seguro-silo-agricola" },
         { title: "Seguro Placa Solar", link: "/seguro-placa-solar" },
       ]}
     />
