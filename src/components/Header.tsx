@@ -34,6 +34,7 @@ const Header = memo(() => {
     { label: "Micro-ônibus", to: "/seguro-micro-onibus", section: "pessoal" },
     { label: "Bike", to: "/seguro-bike", section: "pessoal" },
     { label: "Carta Verde", to: "/seguro-carta-verde", section: "pessoal" },
+    { label: "Seguro BMW", to: "/seguro-bmw", section: "pessoal" },
     { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
     { label: "Vida", to: "/seguro-vida", section: "pessoal" },
     { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
