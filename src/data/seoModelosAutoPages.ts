@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-jeep-guarulhos",
+    modelo: "Jeep",
+    modeloShort: "Jeep",
+    categoria: "suv",
+    fipeRange: "R$ 110.000 a R$ 480.000+",
+    priceRange: { min: 2800, max: 12500, label: "R$ 2.800 a R$ 12.500/ano" },
+    theftProfile: "médio-alto",
+    pros: [
+      "Marca ícone de aventura com altíssima liquidez em modelos Compass e Renegade",
+      "Robustez mecânica e sistemas 4x4 de referência (Wrangler e Commander)",
+      "Rede de concessionárias e oficinas especializadas amplamente disponível",
+    ],
+    cons: [
+      "Modelos urbanos (Compass/Renegade) estão entre os mais visados para furto",
+      "Exigência frequente de rastreador em CEPs de risco em Guarulhos",
+      "Custo de reparo em peças de carroceria e tecnologia embarcada (ADAS)",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "líder em apólices Jeep com rede referenciada exclusiva" },
+      { name: "Allianz", reason: "excelente precificação para o perfil familiar da linha Compass" },
+      { name: "Tokio Marine", reason: "condições competitivas para modelos flex e diesel" },
+      { name: "Bradesco Seguros", reason: "boa aceitação para frotas de empresas e PJ" },
+    ],
+    context:
+      "A Jeep não vende apenas carros, vende o espírito de liberdade e aventura. Em Guarulhos, onde os SUVs dominam as ruas, proprietários de modelos como Renegade, Compass, Commander e o lendário Wrangler buscam uma proteção que acompanhe seu estilo de vida. A Patro Seguros oferece consultoria especializada para garantir que seu Jeep esteja protegido tanto na cidade quanto em trilhas, com coberturas que contemplam desde o uso urbano intenso até assistência 24h com guincho especializado para veículos 4x4.",
+  },
+  {
     slug: "seguro-moto-estradeira-guarulhos",
     modelo: "Moto Estradeira e Big Trail",
     modeloShort: "Estradeiras",
