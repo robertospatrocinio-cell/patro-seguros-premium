@@ -138,7 +138,7 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
                             <p className="text-sm font-semibold text-foreground truncate">
                               Seguro {m.modelo} {m.modeloShort !== m.modelo ? m.modeloShort.replace(m.modelo, "").trim() : ""} em Guarulhos
                             </p>
-                            <p className="text-xs text-muted-foreground truncate">{m.priceRange.label}</p>
+                            <p className="text-xs text-muted-foreground truncate">{m.priceRange}</p>
                           </div>
                         </div>
                         <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
