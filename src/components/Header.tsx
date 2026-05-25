@@ -552,12 +552,25 @@ const Header = memo(() => {
               <MobileSubLabel>Veículos</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
                 <MobileLink to="/seguro-auto">Auto</MobileLink>
+                <MobileLink to="/seguro-bmw">Seguro BMW</MobileLink>
                 <MobileLink to="/seguro-moto">Moto</MobileLink>
                 <MobileLink to="/seguro-caminhao">Caminhão</MobileLink>
                 <MobileLink to="/seguro-bike">Bike</MobileLink>
                 <MobileLink to="/seguro-carta-verde">Carta Verde</MobileLink>
-                <MobileLink to="/seguro-bmw">Seguro BMW</MobileLink>
                 <MobileLink to="/seguro-motorista-app">Motorista App</MobileLink>
+              </div>
+              <MobileSubLabel>Seguro por Marca</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-auto-bmw-guarulhos">BMW</MobileLink>
+                <MobileLink to="/seguro-auto-mercedes-guarulhos">Mercedes</MobileLink>
+                <MobileLink to="/seguro-auto-porsche-guarulhos">Porsche</MobileLink>
+                <MobileLink to="/seguro-auto-ferrari-guarulhos">Ferrari</MobileLink>
+                <MobileLink to="/seguro-auto-fiat-guarulhos">Fiat</MobileLink>
+                <MobileLink to="/seguro-auto-ford-guarulhos">Ford</MobileLink>
+                <MobileLink to="/seguro-auto-volkswagen-guarulhos">Volkswagen</MobileLink>
+                <MobileLink to="/seguro-auto-byd-guarulhos">BYD</MobileLink>
+                <MobileLink to="/seguro-auto-gwm-guarulhos">GWM</MobileLink>
+                <MobileLink to="/seguro-auto-gac-guarulhos">GAC</MobileLink>
               </div>
               <MobileSubLabel>Vida e Saúde</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
