@@ -382,7 +382,10 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
       const ws = XLSX.utils.json_to_sheet(exportRows);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Contatos CRM");
-      XLSX.writeFile(wb, `crm_contatos_${new Date().toISOString().split('T')[0]}.xlsx`);
+      const filename = exportFilters.opportunity !== "all" 
+        ? `relatorio_oportunidades_${exportFilters.opportunity.toLowerCase()}_${new Date().toISOString().split('T')[0]}.xlsx`
+        : `crm_contatos_${new Date().toISOString().split('T')[0]}.xlsx`;
+      XLSX.writeFile(wb, filename);
       
       toast.success("Exportação concluída com sucesso!");
     } catch (error) {
