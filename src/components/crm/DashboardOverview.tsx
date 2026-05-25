@@ -48,6 +48,7 @@ interface BirthdayPerson {
   id: string;
   name: string;
   phone?: string;
+  relation?: string;
 }
 
 interface RenewalItem {
