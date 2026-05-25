@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-royal-enfield-guarulhos",
+    modelo: "Moto Royal Enfield",
+    modeloShort: "Royal Enfield",
+    categoria: "premium",
+    fipeRange: "R$ 20.000 a R$ 55.000+",
+    priceRange: { min: 950, max: 3200, label: "R$ 950 a R$ 3.200/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Estilo retrô clássico com mecânica robusta e confiável",
+      "Ótimo custo-benefício para seguro de média cilindrada",
+      "Comunidade de proprietários engajada e baixa desvalorização",
+    ],
+    cons: [
+      "Peças de acabamento exclusivas podem ter tempo de espera",
+      "Rede de concessionárias em expansão, exigindo guincho de maior alcance",
+      "Modelos como a Himalayan são visados para uso em trilhas e viagens",
+    ],
+    bestInsurers: [
+      { name: "Suhai Seguradora", reason: "excelente aceitação para modelos clássicos com preço competitivo" },
+      { name: "Porto Seguro", reason: "assistência 24h completa e rede de oficinas de confiança" },
+      { name: "Tokio Marine", reason: "condições especiais para a linha 650cc (Interceptor e Continental GT)" },
+      { name: "Mapfre", reason: "boa cobertura para danos a terceiros e acessórios originais" },
+    ],
+    context:
+      "A Royal Enfield é a marca de motocicletas mais antiga do mundo em produção contínua, trazendo o puro motociclismo para as ruas de Guarulhos. Proprietários de modelos como Classic 350, Himalayan, Interceptor 650 e a nova Super Meteor 650 buscam uma proteção que respeite o estilo clássico de suas máquinas. A Patro Seguros oferece consultoria especializada para garantir que sua Royal Enfield esteja protegida com coberturas sob medida, garantindo tranquilidade em cada quilômetro rodado.",
+  },
+  {
     slug: "seguro-auto-land-rover-guarulhos",
     modelo: "Land Rover",
     modeloShort: "Land Rover",
