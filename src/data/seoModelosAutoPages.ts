@@ -264,7 +264,8 @@ const MODELOS: ModeloSeed[] = [
     bestInsurers: [
       { name: "Porto Seguro", reason: "Tradicional" },
       { name: "Tokio Marine", reason: "Competitiva" },
-      { name: "Azul Seguros", reason: "Bom custo-benefício" }
+      { name: "Azul Seguros", reason: "Bom custo-benefício" },
+      { name: "Allianz", reason: "Boa aceitação para linha Chevrolet" }
     ],
     context: "A Chevrolet possui uma linha completa de veículos no Brasil."
   },
@@ -281,7 +282,8 @@ const MODELOS: ModeloSeed[] = [
     bestInsurers: [
       { name: "HDI", reason: "Competitiva" },
       { name: "Azul Seguros", reason: "Bom custo" },
-      { name: "Porto Seguro", reason: "Aceitação ampla para modelos Fiat" }
+      { name: "Porto Seguro", reason: "Aceitação ampla para modelos Fiat" },
+      { name: "Tokio Marine", reason: "Boas condições para linha Fiat" }
     ],
     context: "A Fiat é líder em diversos segmentos populares no Brasil."
   },
@@ -298,7 +300,8 @@ const MODELOS: ModeloSeed[] = [
     bestInsurers: [
       { name: "Tokio Marine", reason: "Tradicional" },
       { name: "Allianz", reason: "Bom preço" },
-      { name: "Porto Seguro", reason: "Boa aceitação para HB20 e Creta" }
+      { name: "Porto Seguro", reason: "Boa aceitação para HB20 e Creta" },
+      { name: "HDI", reason: "Competitiva para Hyundai" }
     ],
     context: "A Hyundai se destaca pelo HB20 e Creta em Guarulhos."
   },
