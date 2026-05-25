@@ -51,6 +51,8 @@ export interface Contact {
   consortium_carrier?: string | null;
   consortium_renewal?: string | null;
   responsible_name?: string | null;
+  opportunities?: string[] | null;
+  opportunity_notes?: string | null;
   created_at: string;
 }
 
