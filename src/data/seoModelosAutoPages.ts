@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-massey-ferguson-guarulhos",
+    modelo: "Massey Ferguson",
+    modeloShort: "Massey",
+    categoria: "premium",
+    fipeRange: "R$ 100.000 a R$ 4.800.000+",
+    priceRange: { min: 2100, max: 43000, label: "R$ 2.100 a R$ 43.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Tradição secular e confiabilidade absoluta no campo brasileiro",
+      "Alta tecnologia de transmissão Dyna-VT e motores AGCO Power",
+      "Rede de concessionárias mais ampla e capilarizada do país"
+    ],
+    cons: [
+      "Modelos de alta tecnologia exigem seguro com quebra de máquinas",
+      "Valorização de usados elevada, impactando o prêmio da apólice",
+      "Exigência de sistemas de telemetria em frotas corporativas"
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "parceria de longo prazo com rede AGCO e peças genuínas" },
+      { name: "Allianz", reason: "referência em coberturas para a linha de tratores e colheitadeiras" },
+      { name: "Tokio Marine", reason: "atendimento ágil e guincho especializado em áreas remotas" },
+      { name: "Sompo", reason: "especialista em agronegócio com taxas competitivas para o produtor" }
+    ],
+    context:
+      "A Massey Ferguson é a marca que faz parte da história do agronegócio brasileiro. De tratores compactos a colheitadeiras de alta performance, o proprietário Massey busca uma proteção que respeite a tradição e o valor do seu equipamento. A Patro Seguros oferece consultoria exclusiva para garantir que seu Massey esteja protegido contra incêndio, roubo e imprevistos mecânicos, garantindo a continuidade da sua produção."
+  },
+  {
     slug: "seguro-mahindra-guarulhos",
     modelo: "Mahindra",
     modeloShort: "Mahindra",

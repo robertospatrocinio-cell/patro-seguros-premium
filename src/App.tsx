@@ -395,6 +395,7 @@ const App = () => {
             <Route path="/seguro-auto-vila-augusta" element={<SeoLocalPage slug="seguro-auto-vila-augusta" />} />
             <Route path="/seguro-auto-cidade-maia" element={<SeoLocalPage slug="seguro-auto-cidade-maia" />} />
             {/* Programmatic SEO — modelos de carro em Guarulhos */}
+            <Route path="/seguro-massey-ferguson-guarulhos" element={<SeoLocalPage slug="seguro-massey-ferguson-guarulhos" />} />
             <Route path="/seguro-auto-land-rover-guarulhos" element={<SeoLocalPage slug="seguro-auto-land-rover-guarulhos" />} />
             <Route path="/seguro-auto-toyota-guarulhos" element={<SeoLocalPage slug="seguro-auto-toyota-guarulhos" />} />
             <Route path="/seguro-auto-jeep-guarulhos" element={<SeoLocalPage slug="seguro-auto-jeep-guarulhos" />} />
