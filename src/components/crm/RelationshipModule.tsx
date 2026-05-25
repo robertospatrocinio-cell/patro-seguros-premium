@@ -14,7 +14,7 @@ import {
   CheckCircle2,
   Clock,
   AlertTriangle,
-  History,
+  History as HistoryIcon,
   FileText,
   UserCheck,
   Zap,
