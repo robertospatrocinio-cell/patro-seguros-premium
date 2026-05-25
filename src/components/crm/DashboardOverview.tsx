@@ -343,8 +343,17 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
                         {person.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                       </div>
                       <div>
-                        <p className="font-semibold text-slate-900">{person.name}</p>
-                        <p className="text-xs text-muted-foreground">Parabenize seu cliente!</p>
+                        <div className="flex items-center gap-2">
+                          <p className="font-semibold text-slate-900">{person.name}</p>
+                          {person.relation && (
+                            <Badge variant="outline" className="text-[10px] py-0 px-1.5 h-4 font-normal bg-slate-50 text-slate-500 border-slate-200">
+                              {person.relation}
+                            </Badge>
+                          )}
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                          {person.relation ? `Aniversário de familiar!` : `Parabenize seu cliente!`}
+                        </p>
                       </div>
                     </div>
                     {person.phone && (
