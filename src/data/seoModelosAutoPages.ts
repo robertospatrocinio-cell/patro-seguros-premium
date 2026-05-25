@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-ford-guarulhos",
+    modelo: "Ford",
+    modeloShort: "Ford",
+    categoria: "premium",
+    fipeRange: "R$ 45.000 a R$ 650.000+",
+    priceRange: { min: 1400, max: 15500, label: "R$ 1.400 a R$ 15.500/ano" },
+    theftProfile: "médio-alto",
+    pros: [
+      "Alta tecnologia de conectividade com o sistema FordPass",
+      "Performance superior nos modelos Mustang e na linha Ranger",
+      "Rede de assistência técnica tradicional em Guarulhos e região",
+    ],
+    cons: [
+      "Modelos como Ranger e Territory possuem prêmios elevados",
+      "Descontinuação da produção nacional gera impacto em peças de modelos antigos",
+      "Exigência de rastreador para picapes de alto valor FIPE",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "excelente rede referenciada e peças originais para a linha Ranger" },
+      { name: "Allianz", reason: "condições competitivas para o perfil familiar do Territory e Bronco" },
+      { name: "Tokio Marine", reason: "referência em seguros para picapes e utilitários de luxo" },
+      { name: "Bradesco Seguros", reason: "atendimento ágil e parcelamento facilitado em Guarulhos" },
+    ],
+    context:
+      "A Ford se reposicionou como uma marca de nicho focada em tecnologia e performance. Em Guarulhos, proprietários de modelos como a robusta Ranger, o tecnológico Territory e o icônico Mustang buscam uma proteção que acompanhe esse novo momento da marca. A Patro Seguros oferece consultoria especializada para garantir que seu Ford esteja protegido com coberturas exclusivas e assistência técnica qualificada, preservando o valor e a integridade do seu veículo.",
+  },
+  {
     slug: "seguro-moto-royal-enfield-guarulhos",
     modelo: "Moto Royal Enfield",
     modeloShort: "Royal Enfield",
