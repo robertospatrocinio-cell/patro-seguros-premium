@@ -234,7 +234,42 @@ const MODELOS: ModeloSeed[] = [
     context:
       "A caminhonete premium é o símbolo de força e sucesso. Em Guarulhos, proprietários de modelos como Hilux, Amarok, Ranger, RAM e Silverado buscam uma proteção que acompanhe a grandiosidade de seu veículo. A Patro Seguros oferece consultoria exclusiva para garantir que sua pick-up esteja protegida contra roubo, furto e danos em terrenos acidentados, com assistência 24h preparada para veículos de grande porte e suporte total em todo o Brasil.",
   },
+  {
+    slug: "seguro-volkswagen-guarulhos",
+    modelo: "Volkswagen",
+    modeloShort: "VW",
+    categoria: "popular",
+    fipeRange: "R$ 40.000 a R$ 250.000",
+    priceRange: { min: 1800, max: 5500, label: "R$ 1.800 a R$ 5.500/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Rede ampla", "Peças acessíveis"],
+    cons: ["Modelos visados"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Tradicional" },
+      { name: "Allianz", reason: "Competitiva" },
+      { name: "HDI", reason: "Boa aceitação" }
+    ],
+    context: "A Volkswagen é uma das marcas mais queridas no Brasil."
+  },
+  {
+    slug: "seguro-chevrolet-guarulhos",
+    modelo: "Chevrolet",
+    modeloShort: "GM",
+    categoria: "popular",
+    fipeRange: "R$ 45.000 a R$ 280.000",
+    priceRange: { min: 1900, max: 5800, label: "R$ 1.900 a R$ 5.800/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Confiabilidade", "Manutenção simples"],
+    cons: ["Modelos visados"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Tradicional" },
+      { name: "Tokio Marine", reason: "Competitiva" },
+      { name: "Azul Seguros", reason: "Bom custo-benefício" }
+    ],
+    context: "A Chevrolet possui uma linha completa de veículos no Brasil."
+  },
 ];
+
 
 const baseRelated = [
   { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
