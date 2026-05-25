@@ -182,14 +182,14 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "BYD",
     slug: "byd",
     slogan: "Build Your Dreams",
-    heroImage: "https://images.unsplash.com/photo-1695661603598-f22262cc26a8?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1718042457813-f4702f2323e2?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-500",
-    description: "A revolução elétrica protegida pela Patro Seguros. Parceiros das melhores seguradoras para a linha BYD.",
+    description: "A revolução elétrica protegida pela Patro Seguros. Parceiros das melhores seguradoras para a linha BYD, garantindo que seu Seal ou qualquer modelo da marca esteja sempre em segurança.",
     diferenciais: [
       { icon: Shield, title: "Proteção de Baterias", description: "Cobertura exclusiva para a bateria Blade e sistemas elétricos." },
       { icon: Sparkles, title: "Rede Homologada", description: "Garantia de reparo em oficinas especializadas em tecnologia elétrica." },
     ],
-    modelos: ["Dolphin", "Seal", "Yuan Plus", "Song Plus", "Tan", "Han"],
+    modelos: ["Seal", "Dolphin", "Yuan Plus", "Song Plus", "Tan", "Han"],
     depoimentos: [
       { name: "Marcelo Andrade", role: "Proprietário — BYD Seal", content: "Fiquei surpreso com as taxas competitivas para o meu elétrico.", stars: 5 },
     ],
