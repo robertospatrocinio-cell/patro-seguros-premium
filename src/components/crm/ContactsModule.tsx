@@ -151,6 +151,7 @@ const ContactsModule = () => {
   const [selectedContactForHistory, setSelectedContactForHistory] = useState<any>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [importProgress, setImportProgress] = useState<{ current: number; total: number } | null>(null);
+  const [importPreview, setImportPreview] = useState<{ contacts: ImportedContact[], type: 'excel' | 'vcf', duplicates: number } | null>(null);
   const abortImportRef = useRef(false);
   
   const handleOpenHistory = (contact: any) => {
@@ -369,10 +370,8 @@ const ContactsModule = () => {
     if (!file) return;
 
     setIsImporting(true);
-    setImportProgress(null);
-    abortImportRef.current = false;
-    const loadingToastId = "import-loading-toast";
-    toast.loading(`Preparando importação de ${type === 'excel' ? 'Excel/CSV' : 'Celular (VCF)'}...`, { id: loadingToastId });
+    const loadingToastId = "import-parse-toast";
+    toast.loading(`Lendo arquivo...`, { id: loadingToastId });
 
     try {
       let rawImported: ImportedContact[] = [];
@@ -388,16 +387,33 @@ const ContactsModule = () => {
 
       const { toImport: imported, duplicates } = deduplicateContacts(rawImported, contacts || []);
 
-      if (imported.length === 0) {
+      if (imported.length === 0 && duplicates === 0) {
         toast.dismiss(loadingToastId);
-        if (duplicates > 0) {
-          toast.info(`Nenhum contato novo. ${duplicates} duplicados ignorados.`);
-        } else {
-          toast.error("Nenhum contato válido encontrado no arquivo.");
-        }
+        toast.error("Nenhum contato válido encontrado no arquivo.");
+        setIsImporting(false);
         return;
       }
 
+      toast.dismiss(loadingToastId);
+      setImportPreview({ contacts: imported, type, duplicates });
+    } catch (error: any) {
+      console.error("Parse error:", error);
+      toast.dismiss(loadingToastId);
+      toast.error(error.message || "Erro ao ler arquivo.");
+      setIsImporting(false);
+    } finally {
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const processImport = async (imported: ImportedContact[], duplicates: number) => {
+    setIsImporting(true);
+    setImportPreview(null);
+    abortImportRef.current = false;
+    const loadingToastId = "import-loading-toast";
+    toast.loading(`Iniciando importação...`, { id: loadingToastId });
+
+    try {
       setImportProgress({ current: 0, total: imported.length });
       
       const BATCH_SIZE = 3; 
@@ -475,7 +491,6 @@ const ContactsModule = () => {
     } finally {
       setIsImporting(false);
       setImportProgress(null);
-      if (e.target) e.target.value = '';
     }
   };
 
@@ -1519,6 +1534,98 @@ const ContactsModule = () => {
         open={isHistoryOpen} 
         onOpenChange={setIsHistoryOpen} 
       />
+
+      <Dialog open={!!importPreview} onOpenChange={(open) => !open && setImportPreview(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] flex flex-col">
+          <DialogHeader>
+            <DialogTitle>Prévia da Importação</DialogTitle>
+            <DialogDescription>
+              Revise os contatos antes de salvar. {importPreview?.duplicates ? `${importPreview.duplicates} duplicados foram ocultados.` : ""}
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="flex-1 overflow-auto my-4 border rounded-md">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Nome</TableHead>
+                  <TableHead>E-mail</TableHead>
+                  <TableHead>Telefone</TableHead>
+                  <TableHead className="w-[80px]">Ações</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {importPreview?.contacts.map((contact, idx) => (
+                  <TableRow key={idx}>
+                    <TableCell>
+                      <Input 
+                        value={contact.full_name} 
+                        onChange={(e) => {
+                          if (!importPreview) return;
+                          const newContacts = [...importPreview.contacts];
+                          newContacts[idx] = { ...newContacts[idx], full_name: e.target.value };
+                          setImportPreview({ ...importPreview, contacts: newContacts });
+                        }}
+                        className="h-8"
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Input 
+                        value={contact.email || ""} 
+                        onChange={(e) => {
+                          if (!importPreview) return;
+                          const newContacts = [...importPreview.contacts];
+                          newContacts[idx] = { ...newContacts[idx], email: e.target.value };
+                          setImportPreview({ ...importPreview, contacts: newContacts });
+                        }}
+                        className="h-8"
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Input 
+                        value={contact.phone || ""} 
+                        onChange={(e) => {
+                          if (!importPreview) return;
+                          const newContacts = [...importPreview.contacts];
+                          newContacts[idx] = { ...newContacts[idx], phone: e.target.value };
+                          setImportPreview({ ...importPreview, contacts: newContacts });
+                        }}
+                        className="h-8"
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <Button 
+                        variant="ghost" 
+                        size="icon"
+                        className="h-8 w-8"
+                        onClick={() => {
+                          if (!importPreview) return;
+                          const newContacts = importPreview.contacts.filter((_, i) => i !== idx);
+                          setImportPreview({ ...importPreview, contacts: newContacts });
+                        }}
+                      >
+                        <X className="w-4 h-4 text-red-500" />
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+
+          <DialogFooter className="gap-2">
+            <Button variant="outline" onClick={() => setImportPreview(null)}>
+              Cancelar
+            </Button>
+            <Button 
+              onClick={() => importPreview && processImport(importPreview.contacts, importPreview.duplicates)}
+              disabled={!importPreview?.contacts.length}
+            >
+              Confirmar Importação ({importPreview?.contacts.length})
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
