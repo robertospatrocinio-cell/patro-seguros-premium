@@ -82,6 +82,7 @@ const Header = memo(() => {
     { label: "Drone Agrícola", to: "/seguro-drone-agricola", section: "agro" },
     { label: "Placas Solar", to: "/seguro-placa-solar", section: "agro" },
     { label: "Rural", to: "/seguro-rural", section: "agro" },
+    { label: "Silo Agrícola", to: "/seguro-silo-agricola", section: "agro" },
     { label: "Pecuário", to: "/seguro-pecuario", section: "agro" },
     { label: "Granja", to: "/seguro-granja", section: "agro" },
     { label: "Café", to: "/seguro-cafe", section: "agro" },
@@ -409,7 +410,8 @@ const Header = memo(() => {
                       <div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Produção</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Rural</Link>
+                           <Link to="/seguro-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Rural</Link>
+                           <Link to="/seguro-silo-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Silo Agrícola</Link>
                           <Link to="/seguro-pecuario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Pecuário</Link>
                           <Link to="/seguro-granja" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Granja</Link>
                           <Link to="/seguro-cafe" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Café</Link>
