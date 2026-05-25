@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-ferrari-guarulhos",
+    modelo: "Ferrari",
+    modeloShort: "Ferrari",
+    categoria: "premium",
+    fipeRange: "R$ 1.500.000 a R$ 8.000.000+",
+    priceRange: { min: 25000, max: 150000, label: "R$ 25.000 a R$ 150.000/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Exclusividade absoluta e engenharia de Fórmula 1",
+      "Alta valorização e status de item de coleção (Heritage)",
+      "Atendimento VIP com guincho em plataforma fechada e climatizada",
+    ],
+    cons: [
+      "Custo de peças e manutenção extremamente elevados",
+      "Exigência de rastreamento via satélite e vistorias rigorosas",
+      "Limitação de oficinas com certificação oficial para reparos estruturais",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura premium com serviço de transporte exclusivo e concierge" },
+      { name: "Sompo", reason: "especialista em riscos diferenciados e veículos de altíssimo valor" },
+      { name: "Liberty", reason: "produtos desenhados para o mercado de luxo e colecionadores" },
+      { name: "Chubb", reason: "referência mundial em seguros para patrimônios de alto padrão" },
+    ],
+    context:
+      "Uma Ferrari é muito mais que um automóvel; é uma obra de arte da engenharia italiana. Em Guarulhos e nos principais condomínios de luxo da região, proprietários de modelos como Roma, F8 Tributo, Portofino e a clássica linhagem 458 necessitam de um seguro que entenda a singularidade da marca. A Patro Seguros oferece consultoria de alto nível para garantir que sua Ferrari esteja protegida com o que há de mais moderno em seguros globais, garantindo peças 100% originais e atendimento exclusivo em centros técnicos certificados.",
+  },
+  {
     slug: "seguro-moto-yamaha-guarulhos",
     modelo: "Moto Yamaha",
     modeloShort: "Yamaha",
