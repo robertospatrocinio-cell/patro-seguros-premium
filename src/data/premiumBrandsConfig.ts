@@ -57,7 +57,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Audi",
     slug: "audi",
     slogan: "Vorsprung durch Technik",
-    heroImage: "https://images.unsplash.com/photo-1541348263662-e0c8de4259ba?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2070&auto=format&fit=crop",
     accentColor: "red-600",
     description: "A vanguarda da tecnologia alemã merece a melhor proteção. Somos especialistas em Audi e oferecemos coberturas que acompanham a performance do seu Quattro.",
     diferenciais: [
@@ -75,7 +75,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre o sistema Quattro?", a: "Sim, a cobertura abrange todo o sistema de tração integral e componentes mecânicos avançados." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1606148633266-d0690b509181?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1621348335345-d86b9762497e?q=80&w=2070&auto=format&fit=crop",
   },
   landrover: {
     name: "Land Rover",
