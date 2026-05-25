@@ -102,7 +102,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Jaguar",
     slug: "jaguar",
     slogan: "The Art of Performance",
-    heroImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1574044536224-037048a609d0?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-900",
     description: "Design e performance britânica protegidos com exclusividade. Cuidamos do seu Jaguar com a mesma paixão que você o dirige.",
     diferenciais: [
