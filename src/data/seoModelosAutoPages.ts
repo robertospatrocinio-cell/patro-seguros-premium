@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-gac-guarulhos",
+    modelo: "GAC Motor",
+    modeloShort: "GAC",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 450.000+",
+    priceRange: { min: 4200, max: 12500, label: "R$ 4.200 a R$ 12.500/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Tecnologia de eletrificação de última geração e design futurista",
+      "Alto padrão de acabamento e segurança ativa (ADAS) de série",
+      "Exclusividade no mercado brasileiro com baixíssima sinistralidade",
+    ],
+    cons: [
+      "Marca em fase de expansão no Brasil, rede de peças em estruturação",
+      "Exigência de vistorias técnicas detalhadas para novos modelos",
+      "Necessidade de oficinas com certificação específica para alta tensão",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura específica para baterias e assistência para veículos elétricos" },
+      { name: "Allianz", reason: "excelente precificação para a linha de SUVs tecnológicos" },
+      { name: "SulAmérica", reason: "atendimento VIP focado em marcas de nicho e tecnologia" },
+      { name: "Tokio Marine", reason: "condições competitivas para mobilidade sustentável" },
+    ],
+    context:
+      "A GAC Motor representa a nova fronteira da sofisticação automotiva global. Em Guarulhos, proprietários de modelos que trazem o futuro para as ruas buscam uma proteção que acompanhe esse nível de inovação. A Patro Seguros oferece consultoria especializada para garantir que seu GAC esteja protegido com coberturas exclusivas para sistemas elétricos e baterias, garantindo assistência técnica 24h preparada para o que há de mais moderno no setor.",
+  },
+  {
     slug: "seguro-auto-volkswagen-guarulhos",
     modelo: "Volkswagen",
     modeloShort: "VW",
