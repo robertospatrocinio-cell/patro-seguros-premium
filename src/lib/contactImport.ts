@@ -19,14 +19,24 @@ export const parseCSV = (file: File): Promise<ImportedContact[]> => {
       skipEmptyLines: true,
       complete: (results) => {
         const mapped = results.data.map((row: any) => ({
-          full_name: row.Nome || row["Nome Completo"] || row.Name || row.full_name || "",
-          email: row.Email || row.email || "",
-          phone: row.Telefone || row.Phone || row.phone || row.Mobile || "",
+          full_name: 
+            row.Nome || row["Nome Completo"] || row.Name || row["First Name"] || row["Last Name"] ? 
+            `${row["First Name"] || ""} ${row["Last Name"] || ""}`.trim() : 
+            row.full_name || row["Display Name"] || "",
+          email: row.Email || row["E-mail Address"] || row["Email 1 - Value"] || row.email || "",
+          phone: row.Telefone || row.Phone || row["Mobile Phone"] || row["Phone 1 - Value"] || row.phone || row.Mobile || "",
           birth_date: row["Data Nascimento"] || row.Birthday || row.birth_date || "",
           notes: row.Notas || row.Notes || row.notes || "",
-          profession: row["Profissão"] || row.Profession || row.profession || "",
-        })).filter(c => c.full_name);
-        resolve(mapped);
+          profession: row["Profissão"] || row.Profession || row.profession || row.Job || "",
+        })).filter((c: any) => c.full_name || c.phone || c.email);
+        
+        // Handle rows where full_name was constructed but empty
+        const final = mapped.map((c: any) => ({
+          ...c,
+          full_name: c.full_name || "Contato Sem Nome"
+        }));
+        
+        resolve(final);
       },
       error: (error) => reject(error),
     });
