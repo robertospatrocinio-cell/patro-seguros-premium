@@ -1629,5 +1629,6 @@ const ContactsModule = () => {
       </Dialog>
     </div>
   );
+};
 
 export default ContactsModule;
