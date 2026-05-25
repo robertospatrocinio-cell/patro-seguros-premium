@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-toyota-guarulhos",
+    modelo: "Toyota",
+    modeloShort: "Toyota",
+    categoria: "premium",
+    fipeRange: "R$ 80.000 a R$ 450.000+",
+    priceRange: { min: 2200, max: 10500, label: "R$ 2.200 a R$ 10.500/ano" },
+    theftProfile: "médio-alto",
+    pros: [
+      "Líder em confiabilidade mecânica e baixíssima manutenção corretiva",
+      "Alta liquidez em modelos Corolla e Hilux com valorização sólida",
+      "Pioneirismo em tecnologia híbrida com baixo custo operacional",
+    ],
+    cons: [
+      "Modelos visados para furto em Guarulhos, especialmente Corolla e Hilux",
+      "Custo de reparo em sistemas híbridos exige mão de obra especializada",
+      "Exigência de rastreadores para aceitação em modelos de alto valor FIPE",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "parceria histórica com rede referenciada Toyota e peças originais" },
+      { name: "Tokio Marine", reason: "excelente precificação para a linha Hilux e SW4" },
+      { name: "Allianz", reason: "condições competitivas para o perfil familiar do Corolla Cross" },
+      { name: "Bradesco Seguros", reason: "atendimento ágil e rede de oficinas ampla em Guarulhos" },
+    ],
+    context:
+      "A Toyota é sinônimo de durabilidade e tecnologia consciente. Em Guarulhos, proprietários de modelos como Corolla, Hilux, SW4 e a moderna linha Corolla Cross buscam um seguro que honre a qualidade japonesa do veículo. A Patro Seguros oferece consultoria especializada para garantir que seu Toyota esteja protegido contra imprevistos, com foco em reparos qualificados e garantia de peças genuínas, preservando o valor do seu patrimônio.",
+  },
+  {
     slug: "seguro-auto-jeep-guarulhos",
     modelo: "Jeep",
     modeloShort: "Jeep",
