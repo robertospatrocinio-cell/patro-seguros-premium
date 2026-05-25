@@ -37,7 +37,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     diferenciais: [
       { icon: Crown, title: "Cobertura Total sem Franquia", description: "Opção de franquia zero para reparos — sua Mercedes merece atendimento sem burocracia nem custos surpresa." },
       { icon: Car, title: "Carro Reserva Premium", description: "Veículo reserva de categoria equivalente à sua Mercedes, por até 30 dias." },
-      { icon: Sparkles, title: "Reparo em Concessionária Oficial", description: "Garantimos reparos exclusivamente em concessionárias autorizadas Mercedes-Benz." },
+      { icon: Sparkles, title: "Reparo em Concessionária Oficial", description: "Garantiamas reparos exclusivamente em concessionárias autorizadas Mercedes-Benz." },
       { icon: Shield, title: "Cobertura para Blindagem", description: "Proteção completa para blindagem e acessórios originais." },
       { icon: Clock, title: "Assistência 24h Dedicada", description: "Linha exclusiva com atendimento prioritário e guincho especializado." },
       { icon: Gem, title: "Valor de Mercado Garantido", description: "Proteção total do seu investimento com base na tabela FIPE ou valor acordado." },
@@ -51,13 +51,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
       { q: "O seguro cobre a linha elétrica EQ?", a: "Sim, temos coberturas específicas para veículos elétricos, incluindo o sistema de baterias e cabos de carregamento." },
       { q: "Posso escolher qualquer concessionária Mercedes?", a: "Sim, nosso plano premium permite a livre escolha de oficinas, com foco nas autorizadas." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1629203922931-3244f5c4fcee?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=2115&auto=format&fit=crop",
   },
   audi: {
     name: "Audi",
     slug: "audi",
     slogan: "Vorsprung durch Technik",
-    heroImage: "https://images.unsplash.com/photo-1541348263662-e0c8de4259ba?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2070&auto=format&fit=crop",
     accentColor: "red-600",
     description: "A vanguarda da tecnologia alemã merece a melhor proteção. Somos especialistas em Audi e oferecemos coberturas que acompanham a performance do seu Quattro.",
     diferenciais: [
@@ -75,13 +75,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre o sistema Quattro?", a: "Sim, a cobertura abrange todo o sistema de tração integral e componentes mecânicos avançados." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1606148633266-d0690b509181?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1621348335345-d86b9762497e?q=80&w=2070&auto=format&fit=crop",
   },
   landrover: {
     name: "Land Rover",
     slug: "land-rover",
     slogan: "Above & Beyond",
-    heroImage: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1594976612316-aa97f0653d61?q=80&w=2070&auto=format&fit=crop",
     accentColor: "green-800",
     description: "Proteção robusta para o luxo off-road definitivo. Seguros especializados para Range Rover, Discovery e Defender.",
     diferenciais: [
@@ -96,7 +96,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre uso fora de estrada?", a: "Sim, temos planos que incluem cobertura para uso off-road leve e moderado." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1620248430635-f0cc71871239?q=80&w=2070&auto=format&fit=crop",
   },
   jaguar: {
     name: "Jaguar",
@@ -116,13 +116,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro atende o I-PACE elétrico?", a: "Com certeza, temos planos específicos para a linha elétrica da Jaguar." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1621348335072-463273463991?q=80&w=2070&auto=format&fit=crop",
   },
   volvo: {
     name: "Volvo",
     slug: "volvo",
     slogan: "For Life",
-    heroImage: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-700",
     description: "A marca mais segura do mundo exige o seguro mais completo. Especialistas em proteção para a linha Volvo Recharge.",
     diferenciais: [
@@ -136,7 +136,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "Como funciona a cobertura da bateria?", a: "A bateria tem cobertura específica contra danos externos e curtos-circuitos acidentais." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1621251914299-e688849405f6?q=80&w=2071&auto=format&fit=crop",
   },
   ferrari: {
     name: "Ferrari",
@@ -182,7 +182,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "BYD",
     slug: "byd",
     slogan: "Build Your Dreams",
-    heroImage: "https://images.unsplash.com/photo-1704285810006-21876a445f1b?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1695661603598-f22262cc26a8?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-500",
     description: "A revolução elétrica protegida pela Patro Seguros. Parceiros das melhores seguradoras para a linha BYD.",
     diferenciais: [
@@ -196,13 +196,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre o carregador Wallbox?", a: "Sim, oferecemos cobertura adicional para o equipamento de carregamento residencial." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1704285810006-21876a445f1b?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1691230485303-99933857597f?q=80&w=2070&auto=format&fit=crop",
   },
   gwm: {
     name: "GWM",
     slug: "gwm",
     slogan: "Hello Tomorrow",
-    heroImage: "https://images.unsplash.com/photo-1705603770176-78716b94e339?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1702525790471-ef6652c42171?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-600",
     description: "Sua jornada híbrida começa protegida. Seguros especializados para a linha Haval e Ora da GWM.",
     diferenciais: [
@@ -216,13 +216,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "A marca é bem aceita pelas seguradoras?", a: "Sim, trabalhamos com seguradoras que possuem parcerias e aceitação total para GWM." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1705603770176-78716b94e339?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1691230491321-72993857597f?q=80&w=2070&auto=format&fit=crop",
   },
   lexus: {
     name: "Lexus",
     slug: "lexus",
     slogan: "Experience Amazing",
-    heroImage: "https://images.unsplash.com/photo-1625729580690-aa997edb09ad?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1549416878-b9ca95e26903?q=80&w=2070&auto=format&fit=crop",
     accentColor: "zinc-600",
     description: "O luxo japonês e a confiabilidade híbrida protegidos pela Patro Seguros. Experiência Omotenashi em seguros.",
     diferenciais: [
@@ -236,6 +236,6 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro é similar ao da Toyota?", a: "Sim, aproveitamos a excelente aceitação da marca Toyota para oferecer condições exclusivas Lexus." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1629891465239-010e964b387e?q=80&w=2070&auto=format&fit=crop",
   },
 };
