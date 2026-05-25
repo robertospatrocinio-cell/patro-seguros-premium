@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-land-rover-guarulhos",
+    modelo: "Land Rover",
+    modeloShort: "Land Rover",
+    categoria: "premium",
+    fipeRange: "R$ 180.000 a R$ 1.500.000+",
+    priceRange: { min: 5500, max: 32000, label: "R$ 5.500 a R$ 32.000/ano" },
+    theftProfile: "alto",
+    pros: [
+      "Referência mundial em luxo fora-de-estrada e capacidade off-road",
+      "Design britânico icônico com altíssima tecnologia e conforto",
+      "Sistemas de segurança ativa e passiva de última geração",
+    ],
+    cons: [
+      "Índice de furto elevado para a linha Range Rover em Guarulhos",
+      "Manutenção especializada e peças de alto custo e importação",
+      "Exigência rigorosa de dispositivos de rastreamento avançados",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "líder em veículos de luxo com assistência premium e guincho especializado" },
+      { name: "Allianz", reason: "excelente precificação para modelos como Evoque e Discovery Sport" },
+      { name: "SulAmérica", reason: "atendimento VIP e cobertura robusta para acessórios originais" },
+      { name: "Liberty", reason: "boa aceitação para modelos de importação oficial e blindados" },
+    ],
+    context:
+      "A Land Rover é a marca definitiva para quem não aceita limites entre o luxo e a aventura. Em Guarulhos, proprietários de modelos como Evoque, Velar, Discovery e o imponente Range Rover Vogue buscam uma proteção que acompanhe a sofisticação britânica do veículo. A Patro Seguros oferece consultoria exclusiva para garantir que seu Land Rover esteja protegido com peças genuínas, reparo em centros técnicos autorizados e assistência 24h diferenciada, preservando a essência e o valor do seu patrimônio.",
+  },
+  {
     slug: "seguro-auto-toyota-guarulhos",
     modelo: "Toyota",
     modeloShort: "Toyota",
