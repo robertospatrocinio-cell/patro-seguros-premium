@@ -45,6 +45,7 @@ export type Database = {
       }
       contacts: {
         Row: {
+          address: string | null
           birth_date: string | null
           business_insurance_carrier: string | null
           business_insurance_renewal: string | null
@@ -58,6 +59,7 @@ export type Database = {
           cpf_cnpj: string | null
           created_at: string | null
           email: string | null
+          first_license_date: string | null
           full_name: string
           has_business_insurance: boolean | null
           has_children: boolean | null
@@ -98,8 +100,10 @@ export type Database = {
           salesperson_name: string | null
           satisfaction_score: number | null
           updated_at: string | null
+          zip_code: string | null
         }
         Insert: {
+          address?: string | null
           birth_date?: string | null
           business_insurance_carrier?: string | null
           business_insurance_renewal?: string | null
@@ -113,6 +117,7 @@ export type Database = {
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
+          first_license_date?: string | null
           full_name: string
           has_business_insurance?: boolean | null
           has_children?: boolean | null
@@ -153,8 +158,10 @@ export type Database = {
           salesperson_name?: string | null
           satisfaction_score?: number | null
           updated_at?: string | null
+          zip_code?: string | null
         }
         Update: {
+          address?: string | null
           birth_date?: string | null
           business_insurance_carrier?: string | null
           business_insurance_renewal?: string | null
@@ -168,6 +175,7 @@ export type Database = {
           cpf_cnpj?: string | null
           created_at?: string | null
           email?: string | null
+          first_license_date?: string | null
           full_name?: string
           has_business_insurance?: boolean | null
           has_children?: boolean | null
@@ -208,6 +216,7 @@ export type Database = {
           salesperson_name?: string | null
           satisfaction_score?: number | null
           updated_at?: string | null
+          zip_code?: string | null
         }
         Relationships: [
           {

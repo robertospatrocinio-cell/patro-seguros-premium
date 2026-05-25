@@ -95,6 +95,9 @@ const INITIAL_CONTACT_STATE = {
   phone: "",
   cpf_cnpj: "",
   birth_date: "",
+  first_license_date: "",
+  zip_code: "",
+  address: "",
   client_type: "cliente" as any,
   is_client: true,
   notes: "",
@@ -216,7 +219,8 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
       const dateFields = [
         'birth_date','partner_birthday','last_contact_date','next_contact_date',
         'life_insurance_renewal','home_insurance_renewal','health_insurance_renewal',
-        'business_insurance_renewal','other_insurance_renewal','consortium_renewal'
+        'business_insurance_renewal','other_insurance_renewal','consortium_renewal',
+        'first_license_date'
       ];
       const sanitized: any = { ...newContact };
       for (const f of dateFields) {
@@ -365,6 +369,9 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
         "É Cliente": c.is_client ? "Sim" : "Não",
         "Profissão": c.profession || "",
         "Renda": c.income_bracket || "",
+        "CEP": c.zip_code || "",
+        "Endereço": c.address || "",
+        "Data 1ª Habilitação": c.first_license_date || "",
         "Origem": c.lead_source || "",
         "Satisfação": c.satisfaction_score || "",
         "Data Cadastro": new Date(c.created_at).toLocaleDateString('pt-BR'),
@@ -819,6 +826,39 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                     onChange={e => setNewContact({...newContact, birth_date: e.target.value})}
                   />
                 </div>
+                <div className="space-y-2">
+                  <Label htmlFor="first_license">Data 1ª Habilitação</Label>
+                  <Input 
+                    id="first_license" 
+                    type="date"
+                    value={newContact.first_license_date}
+                    onChange={e => setNewContact({...newContact, first_license_date: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-4 gap-4">
+                <div className="space-y-2 col-span-1">
+                  <Label htmlFor="zip_code">CEP</Label>
+                  <Input 
+                    id="zip_code" 
+                    placeholder="00000-000"
+                    value={newContact.zip_code}
+                    onChange={e => setNewContact({...newContact, zip_code: e.target.value})}
+                  />
+                </div>
+                <div className="space-y-2 col-span-3">
+                  <Label htmlFor="address">Endereço Completo</Label>
+                  <Input 
+                    id="address" 
+                    placeholder="Rua, número, complemento, bairro, cidade..."
+                    value={newContact.address}
+                    onChange={e => setNewContact({...newContact, address: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Tipo de Relacionamento</Label>
                   <Select 
