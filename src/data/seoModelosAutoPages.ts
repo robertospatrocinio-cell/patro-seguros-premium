@@ -280,7 +280,8 @@ const MODELOS: ModeloSeed[] = [
     cons: ["Visado"],
     bestInsurers: [
       { name: "HDI", reason: "Competitiva" },
-      { name: "Azul Seguros", reason: "Bom custo" }
+      { name: "Azul Seguros", reason: "Bom custo" },
+      { name: "Porto Seguro", reason: "Aceitação ampla para modelos Fiat" }
     ],
     context: "A Fiat é líder em diversos segmentos populares no Brasil."
   },
@@ -296,7 +297,8 @@ const MODELOS: ModeloSeed[] = [
     cons: ["Peças caras"],
     bestInsurers: [
       { name: "Tokio Marine", reason: "Tradicional" },
-      { name: "Allianz", reason: "Bom preço" }
+      { name: "Allianz", reason: "Bom preço" },
+      { name: "Porto Seguro", reason: "Boa aceitação para HB20 e Creta" }
     ],
     context: "A Hyundai se destaca pelo HB20 e Creta em Guarulhos."
   },
