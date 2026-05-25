@@ -150,6 +150,8 @@ const ContactsModule = () => {
   const vcfInputRef = useRef<HTMLInputElement>(null);
   const [selectedContactForHistory, setSelectedContactForHistory] = useState<any>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [importProgress, setImportProgress] = useState<{ current: number; total: number } | null>(null);
+  const abortImportRef = useRef(false);
   
   const handleOpenHistory = (contact: any) => {
     setSelectedContactForHistory(contact);
@@ -367,7 +369,10 @@ const ContactsModule = () => {
     if (!file) return;
 
     setIsImporting(true);
-    const loadingToast = toast.loading(`Importando contatos de ${type === 'excel' ? 'Excel/CSV' : 'Celular (VCF)'}...`);
+    setImportProgress(null);
+    abortImportRef.current = false;
+    const loadingToastId = "import-loading-toast";
+    toast.loading(`Preparando importação de ${type === 'excel' ? 'Excel/CSV' : 'Celular (VCF)'}...`, { id: loadingToastId });
 
     try {
       let rawImported: ImportedContact[] = [];
@@ -384,16 +389,28 @@ const ContactsModule = () => {
       const { toImport: imported, duplicates } = deduplicateContacts(rawImported, contacts || []);
 
       if (imported.length === 0) {
-        toast.dismiss(loadingToast);
-        toast.error("Nenhum contato válido encontrado no arquivo.");
+        toast.dismiss(loadingToastId);
+        if (duplicates > 0) {
+          toast.info(`Nenhum contato novo. ${duplicates} duplicados ignorados.`);
+        } else {
+          toast.error("Nenhum contato válido encontrado no arquivo.");
+        }
         return;
       }
 
-      const BATCH_SIZE = 5; // Process in small batches to avoid overloading
+      setImportProgress({ current: 0, total: imported.length });
+      
+      const BATCH_SIZE = 3; 
       let successCount = 0;
       let errorCount = 0;
 
       for (let i = 0; i < imported.length; i += BATCH_SIZE) {
+        if (abortImportRef.current) {
+          toast.dismiss(loadingToastId);
+          toast.warning(`Importação cancelada. ${successCount} contatos importados.`);
+          break;
+        }
+
         const batch = imported.slice(i, i + BATCH_SIZE);
         
         await Promise.all(batch.map(async (contact) => {
@@ -414,34 +431,50 @@ const ContactsModule = () => {
           }
         }));
 
-        // Optional: Update toast with progress
-        toast.loading(`Importando... ${Math.min(i + BATCH_SIZE, imported.length)} de ${imported.length}`, {
-          id: loadingToast,
-        });
+        const currentProgress = Math.min(i + BATCH_SIZE, imported.length);
+        setImportProgress({ current: currentProgress, total: imported.length });
+        
+        toast.loading(
+          <div className="flex flex-col gap-2">
+            <span>Importando: {currentProgress} de {imported.length}</span>
+            <Button 
+              size="sm" 
+              variant="destructive" 
+              className="h-7 text-xs"
+              onClick={() => { abortImportRef.current = true; }}
+            >
+              Cancelar
+            </Button>
+          </div>, 
+          { id: loadingToastId }
+        );
       }
 
-      toast.dismiss(loadingToast);
+      toast.dismiss(loadingToastId);
       
-      let finalMsg = `${successCount} contatos importados com sucesso!`;
-      if (duplicates > 0) {
-        finalMsg += ` (${duplicates} duplicados ignorados)`;
-      }
+      if (!abortImportRef.current) {
+        let finalMsg = `${successCount} contatos importados com sucesso!`;
+        if (duplicates > 0) {
+          finalMsg += ` (${duplicates} duplicados ignorados)`;
+        }
 
-      if (errorCount > 0) {
-        toast.warning(`${successCount} importados, ${errorCount} falharam.${duplicates > 0 ? ` ${duplicates} duplicados ignorados.` : ""}`);
-      } else {
-        toast.success(finalMsg);
+        if (errorCount > 0) {
+          toast.warning(`${successCount} importados, ${errorCount} falharam.${duplicates > 0 ? ` ${duplicates} duplicados ignorados.` : ""}`);
+        } else {
+          toast.success(finalMsg);
+        }
       }
       forceRefetch();
     } catch (error: any) {
       console.error("Import error:", error);
-      toast.dismiss(loadingToast);
+      toast.dismiss(loadingToastId);
       const errorMessage = error.message || "Erro ao processar arquivo de importação.";
       toast.error(errorMessage, {
         duration: 5000
       });
     } finally {
       setIsImporting(false);
+      setImportProgress(null);
       if (e.target) e.target.value = '';
     }
   };
