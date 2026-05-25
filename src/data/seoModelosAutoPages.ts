@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-carro-antigo-guarulhos",
+    modelo: "Carro Antigo e de Coleção",
+    modeloShort: "Antigos",
+    categoria: "premium",
+    fipeRange: "R$ 50.000 a R$ 2.000.000+",
+    priceRange: { min: 1200, max: 25000, label: "R$ 1.200 a R$ 25.000/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Preservação do valor histórico e sentimental do veículo",
+      "Aceitação de veículos com placa preta e modificações de época",
+      "Cobertura para participação em encontros, desfiles e exposições",
+    ],
+    cons: [
+      "Dificuldade de precificação por tabela FIPE (exige valor acordado)",
+      "Exigência de estado de conservação rigoroso e originalidade",
+      "Limitação de oficinas aptas a realizar restauros e reparos de época",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "líder em seguros para colecionadores com guincho especializado" },
+      { name: "Sompo", reason: "produtos desenhados para veículos com alto valor histórico" },
+      { name: "Liberty", reason: "aceitação de modelos clássicos com coberturas personalizadas" },
+      { name: "Suhai Seguradora", reason: "excelente para proteção contra roubo em clássicos de menor valor" },
+    ],
+    context:
+      "Um carro antigo não é apenas um meio de transporte, é uma cápsula do tempo. Em Guarulhos, colecionadores de modelos clássicos, desde Opalas e Fuscas impecáveis até Mercedes e Porsches de época, precisam de um seguro que entenda o valor real de mercado (valor acordado) e não apenas a depreciação de uma tabela comum. A Patro Seguros oferece consultoria para garantir que sua relíquia esteja protegida com guincho em plataforma e assistência 24h que respeita a integridade do seu clássico.",
+  },
+  {
     slug: "seguro-auto-ferrari-guarulhos",
     modelo: "Ferrari",
     modeloShort: "Ferrari",
