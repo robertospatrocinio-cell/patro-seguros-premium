@@ -592,7 +592,7 @@ const MODELOS: ModeloSeed[] = [
     categoria: "premium",
     fipeRange: "R$ 1.500.000 a R$ 8.000.000+",
     priceRange: { min: 25000, max: 120000, label: "R$ 25.000 a R$ 120.000/ano" },
-    theftProfile: "baixíssimo",
+    theftProfile: "baixo",
     pros: ["O ápice automotivo", "Valorização"],
     cons: ["Manutenção em SP capital", "Aceitação rigorosa"],
     bestInsurers: [
