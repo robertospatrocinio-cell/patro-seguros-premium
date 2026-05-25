@@ -151,6 +151,7 @@ const ContactsModule = () => {
   const [selectedContactForHistory, setSelectedContactForHistory] = useState<any>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [importProgress, setImportProgress] = useState<{ current: number; total: number } | null>(null);
+  const [importPreview, setImportPreview] = useState<{ contacts: ImportedContact[], type: 'excel' | 'vcf', duplicates: number } | null>(null);
   const abortImportRef = useRef(false);
   
   const handleOpenHistory = (contact: any) => {
@@ -369,10 +370,8 @@ const ContactsModule = () => {
     if (!file) return;
 
     setIsImporting(true);
-    setImportProgress(null);
-    abortImportRef.current = false;
-    const loadingToastId = "import-loading-toast";
-    toast.loading(`Preparando importação de ${type === 'excel' ? 'Excel/CSV' : 'Celular (VCF)'}...`, { id: loadingToastId });
+    const loadingToastId = "import-parse-toast";
+    toast.loading(`Lendo arquivo...`, { id: loadingToastId });
 
     try {
       let rawImported: ImportedContact[] = [];
@@ -388,15 +387,28 @@ const ContactsModule = () => {
 
       const { toImport: imported, duplicates } = deduplicateContacts(rawImported, contacts || []);
 
-      if (imported.length === 0) {
+      if (imported.length === 0 && duplicates === 0) {
         toast.dismiss(loadingToastId);
-        if (duplicates > 0) {
-          toast.info(`Nenhum contato novo. ${duplicates} duplicados ignorados.`);
-        } else {
-          toast.error("Nenhum contato válido encontrado no arquivo.");
-        }
+        toast.error("Nenhum contato válido encontrado no arquivo.");
+        setIsImporting(false);
         return;
       }
+
+      toast.dismiss(loadingToastId);
+      setImportPreview({ contacts: imported, type, duplicates });
+    } catch (error: any) {
+      console.error("Parse error:", error);
+      toast.dismiss(loadingToastId);
+      toast.error(error.message || "Erro ao ler arquivo.");
+      setIsImporting(false);
+    } finally {
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const processImport = async (imported: ImportedContact[], duplicates: number) => {
+    setIsImporting(true);
+    setImportPreview(null);
 
       setImportProgress({ current: 0, total: imported.length });
       
