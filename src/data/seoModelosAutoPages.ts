@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-mercedes-guarulhos",
+    modelo: "Mercedes-Benz",
+    modeloShort: "Mercedes",
+    categoria: "premium",
+    fipeRange: "R$ 190.000 a R$ 1.200.000+",
+    priceRange: { min: 4800, max: 22000, label: "R$ 4.800 a R$ 22.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Referência mundial em luxo, segurança e durabilidade",
+      "Sistemas de assistência ao condutor que reduzem o risco de colisão",
+      "Valor de revenda sólido e alta aceitação em seguradoras premium",
+    ],
+    cons: [
+      "Manutenção especializada e peças de alto custo",
+      "Variação de prêmio conforme o modelo (Classe A vs Classe S)",
+      "Exigência de dispositivos de rastreamento avançados",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "serviço de concierge e rede de oficinas Star (Mercedes) certificadas" },
+      { name: "Allianz", reason: "condições exclusivas para modelos Classe C e GLA" },
+      { name: "SulAmérica", reason: "atendimento VIP e cobertura para acessórios originais" },
+      { name: "Liberty", reason: "boa aceitação para modelos seminovos e importação direta" },
+    ],
+    context:
+      "A Mercedes-Benz é o símbolo máximo de prestígio automotivo. Em Guarulhos, proprietários de modelos como Classe C, GLC, GLE e a icônica Classe G buscam uma proteção que preserve a integridade e o valor do veículo. A Patro Seguros entende as particularidades da marca alemã e oferece apólices com garantia de reposição de peças originais e atendimento em rede autorizada.",
+  },
+  {
     slug: "seguro-auto-bmw-guarulhos",
     modelo: "BMW",
     modeloShort: "BMW",
