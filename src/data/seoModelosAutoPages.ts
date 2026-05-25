@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-fiat-guarulhos",
+    modelo: "Fiat",
+    modeloShort: "Fiat",
+    categoria: "premium",
+    fipeRange: "R$ 40.000 a R$ 180.000+",
+    priceRange: { min: 1300, max: 6800, label: "R$ 1.300 a R$ 6.800/ano" },
+    theftProfile: "alto",
+    pros: [
+      "Marca líder em vendas com a rede de oficinas mais capilarizada do Brasil",
+      "Modelos com excelente custo-benefício e peças de reposição acessíveis",
+      "Tecnologia e design italiano presentes nos modelos Pulse, Fastback e Toro",
+    ],
+    cons: [
+      "Índice de furto elevado em Guarulhos, especialmente para as linhas Argo e Strada",
+      "Prêmios de seguro podem variar bruscamente conforme o CEP de pernoite",
+      "Exigência de rastreador para picapes Toro e modelos topo de linha",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "excelente aceitação para toda a linha Fiat com rede autorizada" },
+      { name: "Azul Seguros", reason: "preços agressivos para os modelos Mobi, Argo e Cronos" },
+      { name: "Tokio Marine", reason: "referência em seguros para a linha Toro e Fastback" },
+      { name: "HDI Seguros", reason: "condições competitivas para uso comercial e motoristas de app" },
+    ],
+    context:
+      "A Fiat combina a emoção do design italiano com a praticidade exigida pelo mercado brasileiro. Em Guarulhos, proprietários de modelos que vão desde o ágil Mobi até a sofisticada Toro e o esportivo Fastback buscam uma proteção que acompanhe seu dinamismo. A Patro Seguros oferece consultoria especializada para garantir que seu Fiat esteja protegido com coberturas sob medida, garantindo agilidade no atendimento e suporte total em qualquer situação.",
+  },
+  {
     slug: "seguro-auto-ford-guarulhos",
     modelo: "Ford",
     modeloShort: "Ford",
