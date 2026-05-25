@@ -93,9 +93,9 @@ const Footer = memo(() => {
                 { to: "/seguro-residencial", label: "Seguro Residencial" },
                 { to: "/seguro-vida", label: "Seguro de Vida" },
                 { to: "/seguro-empresarial", label: "Seguro Empresarial" },
+                { to: "/seguro-maquinas-agricolas", label: "Seguro Agrícola" },
                 { to: "/planos-de-saude", label: "Plano de Saúde" },
                 { to: "/seguro-frota", label: "Seguro de Frota" },
-                { to: "/cotacao", label: "Cotação Grátis" },
               ].map(l => (
                 <li key={l.to}><Link to={l.to} className="text-[13px] text-white/70 hover:text-white/90 transition-base">{l.label}</Link></li>
               ))}

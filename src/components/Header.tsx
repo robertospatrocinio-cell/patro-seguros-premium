@@ -35,9 +35,9 @@ const Header = memo(() => {
     { label: "Bike", to: "/seguro-bike", section: "pessoal" },
     { label: "Carta Verde", to: "/seguro-carta-verde", section: "pessoal" },
     { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
-     { label: "Vida", to: "/seguro-vida", section: "pessoal" },
-     { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
-     { label: "Plano Odonto", to: "/seguro-odonto", section: "pessoal" },
+    { label: "Vida", to: "/seguro-vida", section: "pessoal" },
+    { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
+    { label: "Plano Odonto", to: "/seguro-odonto", section: "pessoal" },
     { label: "Plano Pet", to: "/plano-pet", section: "pessoal" },
     { label: "Acidentes Pessoais", to: "/seguro-acidentes-pessoais", section: "pessoal" },
     { label: "Previdência Privada", to: "/previdencia-privada", section: "pessoal" },
@@ -62,6 +62,8 @@ const Header = memo(() => {
     { label: "Lojas Shopping", to: "/seguro-lojas-shopping", section: "empresarial" },
     { label: "Galpões Industriais", to: "/seguro-galpoes-industriais", section: "empresarial" },
     { label: "Trator Industrial", to: "/seguro-trator-industrial", section: "empresarial" },
+    { label: "Maquinários Industriais", to: "/seguro-maquinas-industriais", section: "empresarial" },
+    { label: "Linha Amarela", to: "/seguro-maquinas-linha-amarela", section: "empresarial" },
     { label: "Frota", to: "/seguro-frota", section: "empresarial" },
     { label: "Transporte", to: "/seguro-transporte", section: "empresarial" },
     { label: "RC Geral", to: "/seguro-rc", section: "empresarial" },
@@ -86,12 +88,20 @@ const Header = memo(() => {
     { label: "Placas Solar", to: "/seguro-placa-solar", section: "agro" },
     { label: "Rural", to: "/seguro-rural", section: "agro" },
     { label: "Silo Agrícola", to: "/seguro-silo-agricola", section: "agro" },
+    { label: "Propriedade Rural", to: "/seguro-propriedade-rural", section: "agro" },
     { label: "Pecuário", to: "/seguro-pecuario", section: "agro" },
     { label: "Granja", to: "/seguro-granja", section: "agro" },
     { label: "Café", to: "/seguro-cafe", section: "agro" },
     { label: "Consórcio Carro", to: "/consorcio-carro", section: "consorcio" },
     { label: "Consórcio Imóveis", to: "/consorcio-imoveis", section: "consorcio" },
     { label: "Consórcio Veículos Pesados", to: "/consorcio-veiculos-pesados", section: "consorcio" },
+    { label: "John Deere", to: "/seguro-john-deere", section: "agro" },
+    { label: "Valtra", to: "/seguro-valtra", section: "agro" },
+    { label: "CASE", to: "/seguro-case", section: "agro" },
+    { label: "New Holland", to: "/seguro-new-holland", section: "agro" },
+    { label: "Mahindra", to: "/seguro-mahindra", section: "agro" },
+    { label: "Massey Ferguson", to: "/seguro-massey-ferguson", section: "agro" },
+    { label: "JACTO", to: "/seguro-jacto", section: "agro" },
   ], []);
 
   const searchResults = useMemo(() => {
@@ -396,9 +406,9 @@ const Header = memo(() => {
                   Agro
                   <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
                 </button>
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[380px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[520px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                   <div className="bg-card rounded-xl shadow-xl border p-5">
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-3 gap-5">
                       <div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Máquinas</p>
                         <div className="space-y-0.5">
@@ -410,22 +420,31 @@ const Header = memo(() => {
                           <Link to="/seguro-maquinas-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Máquinas Agrícolas</Link>
                           <Link to="/seguro-equipamentos-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Equipamentos</Link>
                           <Link to="/seguro-drone-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Drone</Link>
-                          <Link to="/seguro-placa-solar" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Placa Solar</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Marcas Premium</p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguro-john-deere" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">John Deere</Link>
+                          <Link to="/seguro-valtra" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Valtra</Link>
+                          <Link to="/seguro-case" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">CASE</Link>
+                          <Link to="/seguro-new-holland" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">New Holland</Link>
+                          <Link to="/seguro-mahindra" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Mahindra</Link>
+                          <Link to="/seguro-massey-ferguson" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Massey Ferguson</Link>
+                          <Link to="/seguro-jacto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">JACTO</Link>
                         </div>
                       </div>
                       <div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Produção</p>
                         <div className="space-y-0.5">
-                           <Link to="/seguro-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Rural</Link>
-                           <Link to="/seguro-silo-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Silo Agrícola</Link>
+                          <Link to="/seguro-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Seguro Rural</Link>
+                          <Link to="/seguro-propriedade-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Propriedade Rural</Link>
+                          <Link to="/seguro-silo-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Silo Agrícola</Link>
                           <Link to="/seguro-pecuario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Pecuário</Link>
                           <Link to="/seguro-granja" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Granja</Link>
                           <Link to="/seguro-cafe" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Café</Link>
-                          <Link to="/seguro-armazenagem" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Armazenagem</Link>
                           <Link to="/seguro-transporte-agro" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Transporte</Link>
-                          <Link to="/seguro-ambiental" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Ambiental</Link>
-                          <Link to="/seguro-geada" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Geada</Link>
-                          <Link to="/seguro-propriedade-rural" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Propriedade Rural</Link>
+                          <Link to="/seguro-placa-solar" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Placa Solar</Link>
                         </div>
                       </div>
                     </div>
@@ -596,25 +615,38 @@ const Header = memo(() => {
               </div>
             </MobileSection>
 
-            <MobileSection id="agro" label="Agro — Todo o Brasil">
+            <MobileSection id="agro" label="Agro — Especialistas">
               <MobileSubLabel>Máquinas e Equipamentos</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-trator-agricola">Trator Agrícola</MobileLink>
+                <MobileLink to="/seguro-colhedora-cana">Colhedora Cana</MobileLink>
+                <MobileLink to="/seguro-colheitadeira-graos">Colheitadeira Grãos</MobileLink>
+                <MobileLink to="/seguro-colhedora-algodao">Colhedora Algodão</MobileLink>
+                <MobileLink to="/seguro-pulverizador-agricola">Pulverizador</MobileLink>
                 <MobileLink to="/seguro-maquinas-agricolas">Máq. Agrícolas</MobileLink>
                 <MobileLink to="/seguro-equipamentos-agricolas">Equip. Agrícolas</MobileLink>
                 <MobileLink to="/seguro-drone-agricola">Drone Agrícola</MobileLink>
-                <MobileLink to="/seguro-placa-solar">Placas Solar</MobileLink>
               </div>
-              <MobileSubLabel>Produção e Transporte</MobileSubLabel>
+              <MobileSubLabel>Marcas Premium</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-john-deere">John Deere</MobileLink>
+                <MobileLink to="/seguro-valtra">Valtra</MobileLink>
+                <MobileLink to="/seguro-case">CASE</MobileLink>
+                <MobileLink to="/seguro-new-holland">New Holland</MobileLink>
+                <MobileLink to="/seguro-mahindra">Mahindra</MobileLink>
+                <MobileLink to="/seguro-massey-ferguson">Massey Ferguson</MobileLink>
+                <MobileLink to="/seguro-jacto">JACTO</MobileLink>
+              </div>
+              <MobileSubLabel>Produção e Rural</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
                 <MobileLink to="/seguro-rural">Rural</MobileLink>
+                <MobileLink to="/seguro-propriedade-rural">Propriedade Rural</MobileLink>
+                <MobileLink to="/seguro-silo-agricola">Silo Agrícola</MobileLink>
                 <MobileLink to="/seguro-pecuario">Pecuário</MobileLink>
                 <MobileLink to="/seguro-granja">Granja</MobileLink>
                 <MobileLink to="/seguro-cafe">Café</MobileLink>
-                <MobileLink to="/seguro-armazenagem">Armazenagem</MobileLink>
                 <MobileLink to="/seguro-transporte-agro">Transp. Agrícola</MobileLink>
-                <MobileLink to="/seguro-ambiental">Ambiental</MobileLink>
-                <MobileLink to="/seguro-geada">Geada</MobileLink>
-                <MobileLink to="/seguro-propriedade-rural">Propriedade Rural</MobileLink>
+                <MobileLink to="/seguro-placa-solar">Placas Solar</MobileLink>
               </div>
             </MobileSection>
 
