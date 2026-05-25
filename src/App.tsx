@@ -394,6 +394,7 @@ const App = () => {
             <Route path="/seguro-carro-antigo-guarulhos" element={<SeoLocalPage slug="seguro-carro-antigo-guarulhos" />} />
             <Route path="/seguro-auto-ferrari-guarulhos" element={<SeoLocalPage slug="seguro-auto-ferrari-guarulhos" />} />
             <Route path="/seguro-moto-royal-enfield-guarulhos" element={<SeoLocalPage slug="seguro-moto-royal-enfield-guarulhos" />} />
+            <Route path="/seguro-moto-triumph-guarulhos" element={<SeoLocalPage slug="seguro-moto-triumph-guarulhos" />} />
             <Route path="/seguro-moto-suzuki-guarulhos" element={<SeoLocalPage slug="seguro-moto-suzuki-guarulhos" />} />
             <Route path="/seguro-moto-kawasaki-guarulhos" element={<SeoLocalPage slug="seguro-moto-kawasaki-guarulhos" />} />
             <Route path="/seguro-moto-dafra-guarulhos" element={<SeoLocalPage slug="seguro-moto-dafra-guarulhos" />} />
