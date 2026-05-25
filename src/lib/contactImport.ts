@@ -100,17 +100,22 @@ export const parseVCF = async (file: File): Promise<ImportedContact[]> => {
           const entry = parsed[0];
           const fullName = entry.fn?.[0]?.value || 
                          (entry.n?.[0]?.value ? `${entry.n[0].value.givenName || ""} ${entry.n[0].value.surname || ""}`.trim() : "");
-          const email = entry.email?.[0]?.value || "";
-          const phone = entry.tel?.[0]?.value || "";
+          // iPhone specific fields often use different property names or multiple values
+          const emails = entry.email?.map((e: any) => e.value).join(", ") || "";
+          const phones = entry.tel?.map((t: any) => t.value).join(", ") || "";
           const bday = entry.bday?.[0]?.value || "";
+          const note = entry.note?.[0]?.value || "Importado via VCF";
+          const title = entry.title?.[0]?.value || "";
+          const org = entry.org?.[0]?.value?.organization || "";
           
-          if (fullName || phone || email) {
+          if (fullName || phones || emails) {
             results.push({
               full_name: fullName || "Contato Sem Nome",
-              email,
-              phone,
+              email: emails,
+              phone: phones,
               birth_date: bday,
-              notes: "Importado via VCF",
+              notes: note,
+              profession: [title, org].filter(Boolean).join(" - "),
               is_client: false
             });
           }
