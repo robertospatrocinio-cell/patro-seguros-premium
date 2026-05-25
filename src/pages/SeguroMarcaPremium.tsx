@@ -8,11 +8,14 @@ import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { PREMIUM_BRANDS } from "@/data/premiumBrandsConfig";
 
-const SeguroMarcaPremium = () => {
-  const { brand } = useParams();
+const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
+  const { brand: brandParam } = useParams();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const config = brand ? PREMIUM_BRANDS[brand.toLowerCase().replace(/-/g, "")] : null;
+  const brandSlug = brandProp || brandParam || window.location.pathname.split("/").pop()?.replace("seguro-", "").replace(/-/g, "");
+  
+  const config = brandSlug ? PREMIUM_BRANDS[brandSlug.toLowerCase()] : null;
+
 
   if (!config) {
     return <Navigate to="/404" replace />;
