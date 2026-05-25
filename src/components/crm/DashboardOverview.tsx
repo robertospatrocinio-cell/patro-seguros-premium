@@ -3,6 +3,7 @@ import {
   Users, 
   Search, 
   Shield, 
+  Building2,
   Calendar, 
   Phone, 
   Mail, 
@@ -179,6 +180,20 @@ export const DashboardOverview = ({ stats, birthdays, renewals, contacts = [], o
           <CardContent>
             <p className="text-2xl font-bold">{stats.renewalsThisMonthCount || 0}</p>
             <p className="text-xs text-green-600 mt-1">{stats.renewedThisMonthCount || 0} renovados</p>
+          </CardContent>
+        </Card>
+
+        <Card className="bg-white border-none shadow-sm hover:shadow-md transition-shadow">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+              <Building2 className="w-4 h-4 text-primary" /> Top Seguradora
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-2xl font-bold">Porto Seguro</p>
+            <p className="text-xs text-green-600 mt-1 flex items-center gap-1">
+              <TrendingUp className="w-3 h-3" /> +15% vs mês ant.
+            </p>
           </CardContent>
         </Card>
       </div>

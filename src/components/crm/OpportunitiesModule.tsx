@@ -9,6 +9,7 @@ import {
   Phone,
   FileSpreadsheet,
   TrendingUp,
+  Building2,
   User
 } from "lucide-react";
 import { 
@@ -42,6 +43,8 @@ import { toast } from "sonner";
 import * as XLSX from "xlsx";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 
+import CarriersModule from "./CarriersModule";
+
 const INSURANCE_TYPES = [
   "Auto", "Vida", "Saúde", "Residencial", "Empresarial", "RC Profissional", "Previdência", "Consórcio"
 ];
@@ -49,6 +52,7 @@ const INSURANCE_TYPES = [
 const OpportunitiesModule = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [insuranceFilter, setInsuranceFilter] = useState("all");
+  const [activeTab, setActiveTab] = useState("opportunities");
   const { contacts = [], isLoading } = useContacts();
 
   const filteredContacts = useMemo(() => {
@@ -110,7 +114,30 @@ const OpportunitiesModule = () => {
 
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="flex border-b border-slate-200">
+        <button 
+          className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 ${activeTab === "opportunities" ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}
+          onClick={() => setActiveTab("opportunities")}
+        >
+          <div className="flex items-center gap-2">
+            <Briefcase className="w-4 h-4" />
+            Oportunidades
+          </div>
+        </button>
+        <button 
+          className={`px-4 py-2 text-sm font-medium transition-colors border-b-2 ${activeTab === "carriers" ? "border-primary text-primary" : "border-transparent text-muted-foreground hover:text-foreground"}`}
+          onClick={() => setActiveTab("carriers")}
+        >
+          <div className="flex items-center gap-2">
+            <Building2 className="w-4 h-4" />
+            Seguradoras
+          </div>
+        </button>
+      </div>
+
+      {activeTab === "opportunities" ? (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="bg-white shadow-sm border-none">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Total de Oportunidades</CardTitle>
@@ -227,7 +254,11 @@ const OpportunitiesModule = () => {
             </Table>
           </div>
         </CardContent>
-      </Card>
+        </Card>
+        </>
+      ) : (
+        <CarriersModule />
+      )}
     </div>
   );
 };

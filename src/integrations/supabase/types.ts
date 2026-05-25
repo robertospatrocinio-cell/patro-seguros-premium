@@ -602,6 +602,36 @@ export type Database = {
         }
         Relationships: []
       }
+      insurance_sales: {
+        Row: {
+          amount: number
+          carrier: string
+          created_at: string
+          id: string
+          insurance_type: string
+          sale_date: string
+          updated_at: string
+        }
+        Insert: {
+          amount?: number
+          carrier: string
+          created_at?: string
+          id?: string
+          insurance_type: string
+          sale_date?: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number
+          carrier?: string
+          created_at?: string
+          id?: string
+          insurance_type?: string
+          sale_date?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       interactions: {
         Row: {
           created_at: string | null
