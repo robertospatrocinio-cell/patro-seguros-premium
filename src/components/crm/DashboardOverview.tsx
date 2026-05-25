@@ -3,6 +3,7 @@ import {
   Users, 
   Search, 
   Shield, 
+  Building2,
   Calendar, 
   Phone, 
   Mail, 
