@@ -186,6 +186,7 @@ const HDI = lazy(() => import("./pages/seguradoras/HDI"));
 const ItauSeguros = lazy(() => import("./pages/seguradoras/Itau"));
 const BradescoSeguros = lazy(() => import("./pages/seguradoras/Bradesco"));
 const Mitsui = lazy(() => import("./pages/seguradoras/Mitsui"));
+const SeguroBMW = lazy(() => import("./pages/SeguroBMW"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -489,6 +490,7 @@ const App = () => {
             <Route path="/seguro-pulverizador-agricola" element={<SeguroPulverizadorAgricola />} />
             <Route path="/seguro-silo-agricola" element={<SeguroSiloAgricola />} />
             <Route path="/seguro-imobiliario" element={<SeguroImobiliario />} />
+            <Route path="/seguro-bmw" element={<SeguroBMW />} />
             <Route path="/seguro-funeral" element={<SeguroFuneral />} />
             <Route path="/seguro-micro-onibus" element={<SeguroMicroOnibus />} />
             <Route path="/seguro-motorista-app" element={<SeguroMotoristaApp />} />

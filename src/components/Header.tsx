@@ -34,6 +34,7 @@ const Header = memo(() => {
     { label: "Micro-ônibus", to: "/seguro-micro-onibus", section: "pessoal" },
     { label: "Bike", to: "/seguro-bike", section: "pessoal" },
     { label: "Carta Verde", to: "/seguro-carta-verde", section: "pessoal" },
+    { label: "Seguro BMW", to: "/seguro-bmw", section: "pessoal" },
     { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
     { label: "Vida", to: "/seguro-vida", section: "pessoal" },
     { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
@@ -286,6 +287,7 @@ const Header = memo(() => {
                           <Link to="/seguro-micro-onibus" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Micro-ônibus</Link>
                           <Link to="/seguro-bike" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Bike</Link>
                           <Link to="/seguro-carta-verde" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Carta Verde</Link>
+                          <Link to="/seguro-bmw" className="block py-1 text-[13px] text-blue-500 font-bold hover:text-blue-400 transition-base italic">Seguro BMW</Link>
                           <Link to="/seguro-motorista-app" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Motorista App</Link>
                         </div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2 mt-4">Lazer</p>
@@ -539,6 +541,7 @@ const Header = memo(() => {
                 <MobileLink to="/seguro-caminhao">Caminhão</MobileLink>
                 <MobileLink to="/seguro-bike">Bike</MobileLink>
                 <MobileLink to="/seguro-carta-verde">Carta Verde</MobileLink>
+                <MobileLink to="/seguro-bmw">Seguro BMW</MobileLink>
                 <MobileLink to="/seguro-motorista-app">Motorista App</MobileLink>
               </div>
               <MobileSubLabel>Vida e Saúde</MobileSubLabel>
