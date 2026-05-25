@@ -74,6 +74,7 @@ const Header = memo(() => {
     { label: "Saúde Empresarial", to: "/plano-saude-empresarial", section: "empresarial" },
     { label: "Trator Agrícola", to: "/seguro-trator-agricola", section: "agro" },
     { label: "Colhedora de Cana", to: "/seguro-colhedora-cana", section: "agro" },
+    { label: "Colheitadeira de Grãos", to: "/seguro-colheitadeira-graos", section: "agro" },
     { label: "Máquinas Agrícolas", to: "/seguro-maquinas-agricolas", section: "agro" },
     { label: "Equipamentos Agrícolas", to: "/seguro-equipamentos-agricolas", section: "agro" },
     { label: "Drone Agrícola", to: "/seguro-drone-agricola", section: "agro" },
@@ -394,6 +395,7 @@ const Header = memo(() => {
                         <div className="space-y-0.5">
                           <Link to="/seguro-trator-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Trator Agrícola</Link>
                           <Link to="/seguro-colhedora-cana" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Colhedora de Cana</Link>
+                          <Link to="/seguro-colheitadeira-graos" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Colheitadeira de Grãos</Link>
                           <Link to="/seguro-maquinas-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Máquinas Agrícolas</Link>
                           <Link to="/seguro-equipamentos-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Equipamentos</Link>
                           <Link to="/seguro-drone-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Drone</Link>
