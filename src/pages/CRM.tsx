@@ -204,6 +204,23 @@ const CRMPage = () => {
     { id: 'r3', clientName: 'Ana Paula', insuranceType: 'Vida', dueDate: '25/05', isCompleted: false }
   ], []);
 
+  const surveyDueContacts = useMemo(() => {
+    const oneYearAgo = subMonths(new Date(), 12);
+    
+    return contacts
+      .filter(contact => {
+        // Needs a survey if:
+        // 1. Is a client
+        // 2. Updated date (proxy for last survey) is more than 1 year ago
+        // 3. Or created date is more than 1 year ago and has no score
+        if (!contact.is_client) return false;
+        
+        const lastAction = contact.updated_at ? new Date(contact.updated_at) : new Date(contact.created_at);
+        return isAfter(oneYearAgo, lastAction);
+      })
+      .slice(0, 10);
+  }, [contacts]);
+
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col bg-slate-50/50">
@@ -329,6 +346,7 @@ const CRMPage = () => {
                   setOpportunitySubTab("carriers");
                   setActiveTab("opportunities");
                 }}
+                surveyDueContacts={surveyDueContacts}
               />
             </TabsContent>
 

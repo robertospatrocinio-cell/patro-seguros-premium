@@ -54,6 +54,7 @@ export interface Contact {
   opportunities?: string[] | null;
   opportunity_notes?: string | null;
   created_at: string;
+  updated_at?: string;
 }
 
 export const useContacts = () => {
