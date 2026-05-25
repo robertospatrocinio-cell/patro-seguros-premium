@@ -58,6 +58,7 @@ const Header = memo(() => {
     { label: "Imobiliário", to: "/seguro-imobiliario", section: "empresarial" },
     { label: "Lojas Shopping", to: "/seguro-lojas-shopping", section: "empresarial" },
     { label: "Galpões Industriais", to: "/seguro-galpoes-industriais", section: "empresarial" },
+    { label: "Trator Industrial", to: "/seguro-trator-industrial", section: "empresarial" },
     { label: "Frota", to: "/seguro-frota", section: "empresarial" },
     { label: "Transporte", to: "/seguro-transporte", section: "empresarial" },
     { label: "RC Geral", to: "/seguro-rc", section: "empresarial" },
@@ -342,6 +343,7 @@ const Header = memo(() => {
                         <div className="space-y-0.5">
                           <Link to="/seguro-maquinas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Máquinas</Link>
                           <Link to="/seguro-maquinas-industriais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Máq. Industriais</Link>
+                          <Link to="/seguro-trator-industrial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Trator Industrial</Link>
                           <Link to="/seguro-maquinas-linha-amarela" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Linha Amarela</Link>
                         </div>
                       </div>
