@@ -57,6 +57,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { formatContactDate, isContactDueForAgenda, isContactOverdue } from "@/lib/crmDates";
+import ContactInteractionDialog from "./ContactInteractionDialog";
+
 
 const AUTO_REFRESH_OPTIONS = [
   { value: "0", label: "Desligado" },
@@ -72,6 +74,14 @@ const RelationshipModule = () => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [autoRefreshSeconds, setAutoRefreshSeconds] = useState<string>("300");
+  const [selectedContact, setSelectedContact] = useState<any>(null);
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+
+  const handleOpenHistory = (contact: any) => {
+    setSelectedContact(contact);
+    setIsHistoryOpen(true);
+  };
+
 
   const handleRefreshAgenda = async (silent = false) => {
     setIsRefreshing(true);
@@ -239,9 +249,10 @@ const RelationshipModule = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {scheduledToday.map(contact => (
                 <div key={contact.id} className="bg-white p-4 rounded-xl border border-emerald-100 shadow-sm flex flex-col justify-between group hover:border-emerald-300 transition-colors">
-                  <div>
+                  <div className="cursor-pointer" onClick={() => handleOpenHistory(contact)}>
                     <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-bold text-slate-900">{contact.full_name}</h4>
+                      <h4 className="font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">{contact.full_name}</h4>
+
                       {isContactOverdue(contact.next_contact_date) && (
                         <Badge variant="destructive" className="text-[10px] h-5">Atrasado</Badge>
                       )}
@@ -370,8 +381,9 @@ const RelationshipModule = () => {
                     filteredContacts.slice(0, 10).map((contact) => (
                       <TableRow key={contact.id}>
                         <TableCell>
-                          <div className="flex flex-col">
-                            <span className="font-medium text-slate-900">{contact.full_name}</span>
+                          <div className="flex flex-col cursor-pointer" onClick={() => handleOpenHistory(contact)}>
+                            <span className="font-medium text-slate-900 hover:text-emerald-600 transition-colors">{contact.full_name}</span>
+
                             <div className="flex gap-1">
                               {getProfileLabel(null)}
                             </div>
@@ -482,8 +494,14 @@ const RelationshipModule = () => {
           </Card>
         </div>
       </div>
+      <ContactInteractionDialog 
+        contact={selectedContact} 
+        open={isHistoryOpen} 
+        onOpenChange={setIsHistoryOpen} 
+      />
     </div>
   );
 };
 
 export default RelationshipModule;
+
