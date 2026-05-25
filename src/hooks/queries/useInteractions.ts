@@ -34,7 +34,7 @@ export const useInteractions = (contactId?: string) => {
   });
 
   const createInteraction = useMutation({
-    mutationFn: async (newInteraction: Partial<Interaction>) => {
+    mutationFn: async (newInteraction: Omit<Interaction, "id" | "created_at">) => {
       const { data, error } = await supabase
         .from("interactions")
         .insert([newInteraction])
