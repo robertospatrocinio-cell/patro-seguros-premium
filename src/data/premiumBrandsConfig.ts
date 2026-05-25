@@ -51,7 +51,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
       { q: "O seguro cobre a linha elétrica EQ?", a: "Sim, temos coberturas específicas para veículos elétricos, incluindo o sistema de baterias e cabos de carregamento." },
       { q: "Posso escolher qualquer concessionária Mercedes?", a: "Sim, nosso plano premium permite a livre escolha de oficinas, com foco nas autorizadas." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1974&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1629203922931-3244f5c4fcee?q=80&w=2070&auto=format&fit=crop",
   },
   audi: {
     name: "Audi",
@@ -116,7 +116,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro atende o I-PACE elétrico?", a: "Com certeza, temos planos específicos para a linha elétrica da Jaguar." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
   },
   volvo: {
     name: "Volvo",
@@ -162,7 +162,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Porsche",
     slug: "porsche",
     slogan: "There is no substitute",
-    heroImage: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop",
     accentColor: "red-700",
     description: "Performance e precisão protegidas com rigor alemão. Especialistas em 911, Cayenne, Macan e Taycan.",
     diferenciais: [
@@ -222,7 +222,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Lexus",
     slug: "lexus",
     slogan: "Experience Amazing",
-    heroImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1625729580690-aa997edb09ad?q=80&w=2070&auto=format&fit=crop",
     accentColor: "zinc-600",
     description: "O luxo japonês e a confiabilidade híbrida protegidos pela Patro Seguros. Experiência Omotenashi em seguros.",
     diferenciais: [
@@ -236,6 +236,6 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro é similar ao da Toyota?", a: "Sim, aproveitamos a excelente aceitação da marca Toyota para oferecer condições exclusivas Lexus." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=2070&auto=format&fit=crop",
   },
 };
