@@ -493,7 +493,6 @@ const ContactsModule = () => {
       setImportProgress(null);
     }
   };
-  };
 
 
   const getContactAlert = (nextDate: string | null) => {
