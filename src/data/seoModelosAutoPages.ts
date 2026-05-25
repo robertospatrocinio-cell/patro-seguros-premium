@@ -238,20 +238,21 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-volkswagen-guarulhos",
     modelo: "Volkswagen",
-    modeloShort: "VW",
+    modeloShort: "T-Cross",
     categoria: "popular",
+    heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 40.000 a R$ 250.000",
     priceRange: { min: 1800, max: 5500, label: "R$ 1.800 a R$ 5.500/ano" },
     theftProfile: "médio-alto",
-    pros: ["Rede ampla", "Peças acessíveis"],
-    cons: ["Modelos visados"],
+    pros: ["Rede ampla", "Peças acessíveis", "Tecnologia e Segurança"],
+    cons: ["Modelos visados", "Custo de seguro em algumas regiões"],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "Tradicional" },
-      { name: "Allianz", reason: "Competitiva" },
-      { name: "HDI", reason: "Boa aceitação" },
-      { name: "Tokio Marine", reason: "Boas condições para linha Volkswagen" }
+      { name: "Porto Seguro", reason: "Tradicional com excelente rede referenciada" },
+      { name: "Allianz", reason: "Competitiva para linha SUV" },
+      { name: "HDI", reason: "Boa aceitação e rede de reparos" },
+      { name: "Tokio Marine", reason: "Boas condições para a linha T-Cross e Nivus" }
     ],
-    context: "A Volkswagen é uma das marcas mais queridas no Brasil."
+    context: "A Volkswagen é referência em robustez e tecnologia. Em Guarulhos, modelos como T-Cross, Nivus e Polo são escolhas inteligentes que exigem uma proteção completa."
   },
   {
     slug: "seguro-chevrolet-guarulhos",
