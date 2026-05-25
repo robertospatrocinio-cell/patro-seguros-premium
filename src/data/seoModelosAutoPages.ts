@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-bmw-guarulhos",
+    modelo: "BMW",
+    modeloShort: "BMW",
+    categoria: "premium",
+    fipeRange: "R$ 180.000 a R$ 950.000+",
+    priceRange: { min: 4500, max: 18500, label: "R$ 4.500 a R$ 18.500/ano" },
+    theftProfile: "médio-alto",
+    pros: [
+      "Veículos com tecnologia de ponta e sistemas de segurança ativos",
+      "Rede de concessionárias premium em Guarulhos e São Paulo",
+      "Alta liquidez para modelos Série 3 e X1",
+    ],
+    cons: [
+      "Alto custo de peças importadas e eletrônica embarcada",
+      "Exigência de rastreador e oficina premium na maioria das apólices",
+      "Sinistros de colisão leve podem ter prêmio elevado pela peças",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "líder em seguro premium com serviço de concierge e guincho especializado" },
+      { name: "Allianz", reason: "excelente precificação para SUVs como X1, X3 e X5" },
+      { name: "SulAmérica", reason: "forte em veículos importados com oficinas de alto padrão" },
+      { name: "Tokio Marine", reason: "preço competitivo para Série 3 e modelos seminovos" },
+    ],
+    context:
+      "Proprietários de BMW em Guarulhos (concentrados em bairros como Cidade Maia e Jardim Maia) exigem um seguro que acompanhe o nível de sofisticação da marca. A Patro Seguros oferece consultoria exclusiva para modelos como 320i, X1, X5 e a linha esportiva M, garantindo reparos em concessionárias autorizadas e peças 100% originais.",
+  },
+  {
     slug: "seguro-corolla-guarulhos",
     modelo: "Toyota Corolla",
     modeloShort: "Corolla",
