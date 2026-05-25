@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-yamaha-guarulhos",
+    modelo: "Moto Yamaha",
+    modeloShort: "Yamaha",
+    categoria: "premium",
+    fipeRange: "R$ 15.000 a R$ 160.000+",
+    priceRange: { min: 950, max: 7200, label: "R$ 950 a R$ 7.200/ano" },
+    theftProfile: "alto",
+    pros: [
+      "Inovação tecnológica e performance esportiva (R-Series e MT-Series)",
+      "Rede de assistência técnica qualificada em Guarulhos e Grande SP",
+      "Alta liquidez para modelos de alta cilindrada (MT-09, Tracer 900GT)",
+    ],
+    cons: [
+      "Índice de furto elevado, especialmente para a linha Fazer e MT",
+      "Custo de peças de acabamento e eletrônica em modelos esportivos",
+      "Exigência de dispositivos de rastreamento avançados",
+    ],
+    bestInsurers: [
+      { name: "Suhai Seguradora", reason: "líder em aceitação para modelos visados com custo-benefício imbatível" },
+      { name: "Porto Seguro", reason: "assistência 24h completa e cobertura para acessórios esportivos" },
+      { name: "Tokio Marine", reason: "excelente para a linha Adventure (Ténéré e Tracer)" },
+      { name: "Allianz", reason: "cobertura robusta para danos a terceiros e viagens" },
+    ],
+    context:
+      "A Yamaha é sinônimo de adrenalina e confiabilidade japonesa. Em Guarulhos, proprietários de modelos que vão da ágil NMAX e a robusta Fazer até as potentes MT-07 e Tracer 900GT buscam uma proteção que acompanhe o 'Revs Your Heart'. A Patro Seguros oferece consultoria exclusiva para garantir que sua Yamaha esteja protegida com as melhores coberturas de roubo, furto e colisão do mercado.",
+  },
+  {
     slug: "seguro-moto-honda-guarulhos",
     modelo: "Moto Honda",
     modeloShort: "Honda",
