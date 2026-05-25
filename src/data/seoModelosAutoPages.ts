@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-ducati-guarulhos",
+    modelo: "Moto Ducati",
+    modeloShort: "Ducati",
+    categoria: "premium",
+    fipeRange: "R$ 60.000 a R$ 350.000+",
+    priceRange: { min: 2500, max: 12000, label: "R$ 2.500 a R$ 12.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Puro design italiano e performance de pista (Superbike)",
+      "Exclusividade tecnológica e sistemas de segurança Bosch IMU",
+      "Alta valorização e desejo entre colecionadores e entusiastas",
+    ],
+    cons: [
+      "Manutenção de altíssimo custo e peças exclusivamente importadas",
+      "Rede de assistência técnica muito restrita fora das capitais",
+      "Exigência de rastreador e vistorias rigorosas em modelos Panigale",
+    ],
+    bestInsurers: [
+      { name: "Suhai Seguradora", reason: "especialista em aceitação de modelos super esportivos e exclusivos" },
+      { name: "Porto Seguro", reason: "assistência 24h VIP com transporte especializado para motos de luxo" },
+      { name: "Tokio Marine", reason: "cobertura robusta para modelos Multistrada e Diavel" },
+      { name: "Sompo", reason: "tradição em seguros de alto valor e riscos diferenciados" },
+    ],
+    context:
+      "A Ducati é a personificação da paixão italiana por velocidade e design. Em Guarulhos, proprietários de máquinas como a Panigale, Multistrada, Monster e Diavel exigem uma proteção que esteja à altura da engenharia de Borgo Panigale. A Patro Seguros oferece consultoria exclusiva para garantir que sua Ducati tenha cobertura total, com assistência técnica especializada e guincho em plataforma fechada, preservando cada detalhe dessa obra de arte sobre duas rodas.",
+  },
+  {
     slug: "seguro-moto-bmw-guarulhos",
     modelo: "Moto BMW",
     modeloShort: "BMW Motorrad",
