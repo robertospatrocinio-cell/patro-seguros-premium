@@ -577,6 +577,9 @@ const Header = memo(() => {
               <div className="grid grid-cols-2 gap-0.5">
                 <MobileLink to="/seguro-auto-bmw-guarulhos">BMW</MobileLink>
                 <MobileLink to="/seguro-auto-mercedes-guarulhos">Mercedes</MobileLink>
+                <MobileLink to="/seguro-auto-audi-guarulhos">Audi</MobileLink>
+                <MobileLink to="/seguro-auto-volvo-guarulhos">Volvo</MobileLink>
+                <MobileLink to="/seguro-auto-land-rover-guarulhos">Land Rover</MobileLink>
                 <MobileLink to="/seguro-auto-porsche-guarulhos">Porsche</MobileLink>
                 <MobileLink to="/seguro-auto-ferrari-guarulhos">Ferrari</MobileLink>
                 <MobileLink to="/seguro-auto-jeep-guarulhos">Jeep</MobileLink>
@@ -585,8 +588,14 @@ const Header = memo(() => {
                 <MobileLink to="/seguro-auto-volkswagen-guarulhos">Volkswagen</MobileLink>
                 <MobileLink to="/seguro-auto-fiat-guarulhos">Fiat</MobileLink>
                 <MobileLink to="/seguro-auto-ford-guarulhos">Ford</MobileLink>
+                <MobileLink to="/seguro-auto-chevrolet-guarulhos">Chevrolet</MobileLink>
+                <MobileLink to="/seguro-auto-hyundai-guarulhos">Hyundai</MobileLink>
+                <MobileLink to="/seguro-auto-nissan-guarulhos">Nissan</MobileLink>
+                <MobileLink to="/seguro-auto-mitsubishi-guarulhos">Mitsubishi</MobileLink>
+                <MobileLink to="/seguro-auto-renault-guarulhos">Renault</MobileLink>
                 <MobileLink to="/seguro-auto-peugeot-guarulhos">Peugeot</MobileLink>
                 <MobileLink to="/seguro-auto-citroen-guarulhos">Citroën</MobileLink>
+                <MobileLink to="/seguro-auto-caoa-chery-guarulhos">Caoa Chery</MobileLink>
                 <MobileLink to="/seguro-auto-byd-guarulhos">BYD</MobileLink>
                 <MobileLink to="/seguro-auto-gwm-guarulhos">GWM</MobileLink>
                 <MobileLink to="/seguro-auto-gac-guarulhos">GAC</MobileLink>
