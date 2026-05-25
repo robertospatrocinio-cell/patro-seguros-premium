@@ -65,9 +65,12 @@ export const useClaims = () => {
 
   const updateClaim = useMutation({
     mutationFn: async ({ id, ...updates }: Partial<Claim> & { id: string }) => {
+      // Remove 'contacts' from updates to avoid TS errors and Postgres errors
+      const { contacts, ...dbUpdates } = updates as any;
+      
       const { data, error } = await supabase
         .from("claims")
-        .update(updates)
+        .update(dbUpdates)
         .eq("id", id)
         .select()
         .single();
