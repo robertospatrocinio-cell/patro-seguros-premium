@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-honda-guarulhos",
+    modelo: "Moto Honda",
+    modeloShort: "Honda",
+    categoria: "premium",
+    fipeRange: "R$ 15.000 a R$ 180.000+",
+    priceRange: { min: 900, max: 7500, label: "R$ 900 a R$ 7.500/ano" },
+    theftProfile: "alto",
+    pros: [
+      "Marca líder absoluta de mercado com a maior rede de assistência do Brasil",
+      "Alta liquidez e peças de reposição com valores competitivos",
+      "Modelos de alta cilindrada (CB 650, Africa Twin, Gold Wing) com tecnologia de ponta",
+    ],
+    cons: [
+      "Marca extremamente visada para roubo e furto em toda Guarulhos",
+      "Modelos populares (CG, Biz) possuem prêmio proporcionalmente elevado pelo risco",
+      "Exigência de rastreador obrigatório na maioria das apólices e CEPs",
+    ],
+    bestInsurers: [
+      { name: "Suhai Seguradora", reason: "especialista em aceitação para modelos visados com preço imbatível" },
+      { name: "Porto Seguro", reason: "assistência 24h completa e cobertura para modelos de alta cilindrada" },
+      { name: "Allianz", reason: "excelente precificação para a linha Africa Twin e NC 750X" },
+      { name: "Tokio Marine", reason: "cobertura robusta para uso profissional e lazer" },
+    ],
+    context:
+      "A Honda é a marca que move o Brasil sobre duas rodas. Em Guarulhos, onde a agilidade é fundamental, proprietários de modelos que vão desde a versátil PCX e a robusta CB 500X até a lendária Africa Twin buscam uma proteção que não os deixe na mão. A Patro Seguros oferece consultoria especializada para garantir que sua Honda esteja protegida contra roubo, furto e colisão, com as melhores taxas do mercado e suporte total em sinistros.",
+  },
+  {
     slug: "seguro-moto-harley-guarulhos",
     modelo: "Moto Harley-Davidson",
     modeloShort: "Harley",
