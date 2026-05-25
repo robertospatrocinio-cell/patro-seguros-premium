@@ -10,7 +10,7 @@ const SeguroTratorAgricola = () => {
       subtitle="Proteção premium para o motor da sua produtividade. Cobertura completa em todo o território nacional."
       icon="🚜"
       badge="Especialista no Agronegócio"
-      metaDescription="Seguro para Tratores Agrícolas: proteção contra roubo, incêndio, colisão e tombamento em todo o Brasil. Cotação rápida e consultoria especializada Patro Seguros."
+      metaDescription="Seguro para Tratores Agrícolas: proteção contra roubo, incêndio, colisão e tombamento em todo o Brasil. Cotação rápida com a Patro Seguros."
       description="O trator é o coração da operação no campo. O Seguro de Trator Agrícola da Patro Seguros oferece a proteção robusta que o seu patrimônio exige, garantindo que imprevistos não paralisem sua safra."
       detailedDescription={`Sabemos que um trator parado é sinônimo de prejuízo. Seja por um defeito mecânico súbito, um acidente durante a operação ou a ação de terceiros, os riscos no campo são constantes e de alto impacto financeiro.
 
