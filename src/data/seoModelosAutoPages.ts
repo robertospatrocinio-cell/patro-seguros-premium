@@ -336,8 +336,9 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-toyota-guarulhos",
     modelo: "Toyota",
-    modeloShort: "Toyota",
-    categoria: "popular",
+    modeloShort: "Corolla Cross",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 60.000 a R$ 350.000",
     priceRange: { min: 2200, max: 7500, label: "R$ 2.200 a R$ 7.500/ano" },
     theftProfile: "médio",
