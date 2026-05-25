@@ -102,3 +102,51 @@ export const parseVCF = async (file: File): Promise<ImportedContact[]> => {
     throw new Error("Não foi possível ler o arquivo VCF. Verifique o formato.");
   }
 };
+
+export const deduplicateContacts = (imported: ImportedContact[], existingContacts: any[]): { 
+  toImport: ImportedContact[], 
+  duplicates: number 
+} => {
+  const normalize = (val: string | undefined | null) => 
+    val?.toString().toLowerCase().trim().replace(/\s+/g, '') || "";
+  
+  const normalizePhone = (val: string | undefined | null) => 
+    val?.toString().replace(/\D/g, '') || "";
+
+  const existingMap = new Set();
+  
+  existingContacts.forEach(c => {
+    if (c.full_name) existingMap.add(`name:${normalize(c.full_name)}`);
+    if (c.email) existingMap.add(`email:${normalize(c.email)}`);
+    if (c.phone) existingMap.add(`phone:${normalizePhone(c.phone)}`);
+  });
+
+  const toImport: ImportedContact[] = [];
+  let duplicates = 0;
+  const seenInCurrentBatch = new Set();
+
+  for (const contact of imported) {
+    const nameKey = `name:${normalize(contact.full_name)}`;
+    const emailKey = contact.email ? `email:${normalize(contact.email)}` : null;
+    const phoneKey = contact.phone ? `phone:${normalizePhone(contact.phone)}` : null;
+
+    const isDuplicate = 
+      existingMap.has(nameKey) || 
+      (emailKey && existingMap.has(emailKey)) || 
+      (phoneKey && existingMap.has(phoneKey)) ||
+      seenInCurrentBatch.has(nameKey) ||
+      (emailKey && seenInCurrentBatch.has(emailKey)) ||
+      (phoneKey && seenInCurrentBatch.has(phoneKey));
+
+    if (isDuplicate) {
+      duplicates++;
+    } else {
+      toImport.push(contact);
+      seenInCurrentBatch.add(nameKey);
+      if (emailKey) seenInCurrentBatch.add(emailKey);
+      if (phoneKey) seenInCurrentBatch.add(phoneKey);
+    }
+  }
+
+  return { toImport, duplicates };
+};

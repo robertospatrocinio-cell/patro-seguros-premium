@@ -80,7 +80,7 @@ import {
 } from "@/components/ui/popover";
 import { formatContactDate, parseContactDate } from "@/lib/crmDates";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-import { parseCSV, parseExcel, parseVCF, ImportedContact } from "@/lib/contactImport";
+import { parseCSV, parseExcel, parseVCF, ImportedContact, deduplicateContacts } from "@/lib/contactImport";
 import ContactInteractionDialog from "./ContactInteractionDialog";
 
 
@@ -370,16 +370,18 @@ const ContactsModule = () => {
     const loadingToast = toast.loading(`Importando contatos de ${type === 'excel' ? 'Excel/CSV' : 'Celular (VCF)'}...`);
 
     try {
-      let imported: ImportedContact[] = [];
+      let rawImported: ImportedContact[] = [];
       if (type === 'excel') {
         if (file.name.endsWith('.csv')) {
-          imported = await parseCSV(file);
+          rawImported = await parseCSV(file);
         } else {
-          imported = await parseExcel(file);
+          rawImported = await parseExcel(file);
         }
       } else {
-        imported = await parseVCF(file);
+        rawImported = await parseVCF(file);
       }
+
+      const { toImport: imported, duplicates } = deduplicateContacts(rawImported, contacts || []);
 
       if (imported.length === 0) {
         toast.dismiss(loadingToast);
@@ -420,10 +422,15 @@ const ContactsModule = () => {
 
       toast.dismiss(loadingToast);
       
+      let finalMsg = `${successCount} contatos importados com sucesso!`;
+      if (duplicates > 0) {
+        finalMsg += ` (${duplicates} duplicados ignorados)`;
+      }
+
       if (errorCount > 0) {
-        toast.warning(`${successCount} importados, ${errorCount} falharam.`);
+        toast.warning(`${successCount} importados, ${errorCount} falharam.${duplicates > 0 ? ` ${duplicates} duplicados ignorados.` : ""}`);
       } else {
-        toast.success(`${successCount} contatos importados com sucesso!`);
+        toast.success(finalMsg);
       }
       forceRefetch();
     } catch (error) {
