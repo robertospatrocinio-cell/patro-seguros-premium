@@ -247,7 +247,8 @@ const MODELOS: ModeloSeed[] = [
     bestInsurers: [
       { name: "Porto Seguro", reason: "Tradicional" },
       { name: "Allianz", reason: "Competitiva" },
-      { name: "HDI", reason: "Boa aceitação" }
+      { name: "HDI", reason: "Boa aceitação" },
+      { name: "Tokio Marine", reason: "Boas condições para linha Volkswagen" }
     ],
     context: "A Volkswagen é uma das marcas mais queridas no Brasil."
   },
