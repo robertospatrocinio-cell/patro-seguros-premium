@@ -81,7 +81,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Land Rover",
     slug: "land-rover",
     slogan: "Above & Beyond",
-    heroImage: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1594976612316-aa97f0653d61?q=80&w=2070&auto=format&fit=crop",
     accentColor: "green-800",
     description: "Proteção robusta para o luxo off-road definitivo. Seguros especializados para Range Rover, Discovery e Defender.",
     diferenciais: [
@@ -96,7 +96,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre uso fora de estrada?", a: "Sim, temos planos que incluem cobertura para uso off-road leve e moderado." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1620248430635-f0cc71871239?q=80&w=2070&auto=format&fit=crop",
   },
   jaguar: {
     name: "Jaguar",
