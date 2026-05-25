@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-porsche-guarulhos",
+    modelo: "Porsche",
+    modeloShort: "Porsche",
+    categoria: "premium",
+    fipeRange: "R$ 350.000 a R$ 2.500.000+",
+    priceRange: { min: 8500, max: 45000, label: "R$ 8.500 a R$ 45.000/ano" },
+    theftProfile: "baixo",
+    pros: [
+      "Engenharia de alta performance e sistemas de segurança ativos",
+      "Modelos com altíssima valorização e desejo de mercado",
+      "Assistência 24h exclusiva para veículos de luxo",
+    ],
+    cons: [
+      "Peças de reposição extremamente caras e importação demorada",
+      "Exigência de vistorias técnicas rigorosas e dispositivos de segurança",
+      "Limitação de oficinas aptas a realizar reparos estruturais",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura premium com serviço de transporte em plataforma fechada" },
+      { name: "Allianz", reason: "excelente para modelos SUV como Macan e Cayenne" },
+      { name: "SulAmérica", reason: "atendimento exclusivo para a linha 911 e esportivos" },
+      { name: "Sompo", reason: "especialista em seguros de alto valor e riscos diferenciados" },
+    ],
+    context:
+      "Possuir um Porsche é uma experiência única de engenharia e performance. Em Guarulhos, proprietários de modelos como 911, Boxster, Macan e Cayenne necessitam de um seguro que entenda que cada detalhe importa. A Patro Seguros oferece consultoria especializada para garantir que seu Porsche tenha cobertura total, com reparo exclusivo em centros técnicos autorizados e garantia de peças genuínas vindas da Alemanha.",
+  },
+  {
     slug: "seguro-auto-mercedes-guarulhos",
     modelo: "Mercedes-Benz",
     modeloShort: "Mercedes",
