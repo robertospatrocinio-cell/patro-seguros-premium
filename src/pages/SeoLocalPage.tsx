@@ -7,6 +7,8 @@ import LocalPageTemplate, {
 } from "@/components/LocalPageTemplate";
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
+import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
+
 import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 import LazySection from "@/components/LazySection";
@@ -32,7 +34,7 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
   const params = useParams();
   const slug = slugProp ?? params.slug;
   if (!slug) return <Navigate to="/404" replace />;
-  const config = seoLocalPages[slug] || seoLocalSaudePages[slug];
+  const config = seoLocalPages[slug] || seoLocalSaudePages[slug] || seoModeloAutoPages[slug];
   if (!config) return <Navigate to="/404" replace />;
 
   // Tipos requerem tuplas mínimas — fazemos cast seguro pois validamos em runtime/dev.

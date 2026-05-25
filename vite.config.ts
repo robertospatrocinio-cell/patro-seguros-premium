@@ -190,7 +190,12 @@ function sitemapPlugin(): Plugin {
       // Load local SEO page slugs at build time so sitemap-bairros.xml stays
       // in sync automatically with all local SEO data files.
       const localSlugs: string[] = [];
-      const dataFiles = ["src/data/seoLocalAutoPages.ts", "src/data/seoLocalSaudePages.ts"];
+      const dataFiles = [
+        "src/data/seoLocalAutoPages.ts", 
+        "src/data/seoLocalSaudePages.ts",
+        "src/data/seoModelosAutoPages.ts"
+      ];
+
       
       for (const file of dataFiles) {
         try {
