@@ -37,7 +37,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     diferenciais: [
       { icon: Crown, title: "Cobertura Total sem Franquia", description: "Opção de franquia zero para reparos — sua Mercedes merece atendimento sem burocracia nem custos surpresa." },
       { icon: Car, title: "Carro Reserva Premium", description: "Veículo reserva de categoria equivalente à sua Mercedes, por até 30 dias." },
-      { icon: Sparkles, title: "Reparo em Concessionária Oficial", description: "Garantimos reparos exclusivamente em concessionárias autorizadas Mercedes-Benz." },
+      { icon: Sparkles, title: "Reparo em Concessionária Oficial", description: "Garantiamas reparos exclusivamente em concessionárias autorizadas Mercedes-Benz." },
       { icon: Shield, title: "Cobertura para Blindagem", description: "Proteção completa para blindagem e acessórios originais." },
       { icon: Clock, title: "Assistência 24h Dedicada", description: "Linha exclusiva com atendimento prioritário e guincho especializado." },
       { icon: Gem, title: "Valor de Mercado Garantido", description: "Proteção total do seu investimento com base na tabela FIPE ou valor acordado." },
@@ -51,7 +51,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
       { q: "O seguro cobre a linha elétrica EQ?", a: "Sim, temos coberturas específicas para veículos elétricos, incluindo o sistema de baterias e cabos de carregamento." },
       { q: "Posso escolher qualquer concessionária Mercedes?", a: "Sim, nosso plano premium permite a livre escolha de oficinas, com foco nas autorizadas." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1629203922931-3244f5c4fcee?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=2115&auto=format&fit=crop",
   },
   audi: {
     name: "Audi",
