@@ -570,9 +570,14 @@ const Header = memo(() => {
                 <MobileLink to="/seguro-auto-mercedes-guarulhos">Mercedes</MobileLink>
                 <MobileLink to="/seguro-auto-porsche-guarulhos">Porsche</MobileLink>
                 <MobileLink to="/seguro-auto-ferrari-guarulhos">Ferrari</MobileLink>
+                <MobileLink to="/seguro-auto-jeep-guarulhos">Jeep</MobileLink>
+                <MobileLink to="/seguro-auto-toyota-guarulhos">Toyota</MobileLink>
+                <MobileLink to="/seguro-auto-honda-guarulhos">Honda</MobileLink>
+                <MobileLink to="/seguro-auto-volkswagen-guarulhos">Volkswagen</MobileLink>
                 <MobileLink to="/seguro-auto-fiat-guarulhos">Fiat</MobileLink>
                 <MobileLink to="/seguro-auto-ford-guarulhos">Ford</MobileLink>
-                <MobileLink to="/seguro-auto-volkswagen-guarulhos">Volkswagen</MobileLink>
+                <MobileLink to="/seguro-auto-peugeot-guarulhos">Peugeot</MobileLink>
+                <MobileLink to="/seguro-auto-citroen-guarulhos">Citroën</MobileLink>
                 <MobileLink to="/seguro-auto-byd-guarulhos">BYD</MobileLink>
                 <MobileLink to="/seguro-auto-gwm-guarulhos">GWM</MobileLink>
                 <MobileLink to="/seguro-auto-gac-guarulhos">GAC</MobileLink>
