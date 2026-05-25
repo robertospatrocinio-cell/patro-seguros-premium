@@ -584,8 +584,7 @@ const Header = memo(() => {
             <MobileSection id="pessoal" label="Seguros Pessoais">
               <MobileSubLabel>Veículos</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
-                <MobileLink to="/seguro-auto">Auto</MobileLink>
-                <MobileLink to="/seguro-bmw">Seguro BMW</MobileLink>
+                <MobileLink to="/seguro-auto">Seguro Auto</MobileLink>
                 <MobileLink to="/seguro-moto">Moto</MobileLink>
                 <MobileLink to="/seguro-caminhao">Caminhão</MobileLink>
                 <MobileLink to="/seguro-bike">Bike</MobileLink>
