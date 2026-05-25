@@ -140,7 +140,7 @@ const INITIAL_CONTACT_STATE = {
   responsible_name: ""
 };
 
-const ContactsModule = () => {
+const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingContactId, setEditingContactId] = useState<string | null>(null);
@@ -150,6 +150,12 @@ const ContactsModule = () => {
   const vcfInputRef = useRef<HTMLInputElement>(null);
   const [selectedContactForHistory, setSelectedContactForHistory] = useState<any>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  
+  useEffect(() => {
+    if (initialEditContact) {
+      handleEditClick(initialEditContact);
+    }
+  }, [initialEditContact]);
   const [importProgress, setImportProgress] = useState<{ current: number; total: number } | null>(null);
   const [importPreview, setImportPreview] = useState<{ contacts: ImportedContact[], type: 'excel' | 'vcf', duplicates: number } | null>(null);
   const abortImportRef = useRef(false);

@@ -34,6 +34,8 @@ import { toast } from "sonner";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [activeTab, setActiveTab] = useState("dashboard");
+  const [selectedContact, setSelectedContact] = useState<any>(null);
   const { data = [], isLoading: isLoadingLeads, error: errorLeads, refetch: refetchLeads, isRefetching: isRefetchingLeads } = useLeads();
   const { 
     contacts = [], 
@@ -217,7 +219,7 @@ const CRMPage = () => {
             </div>
           </div>
 
-          <Tabs defaultValue="dashboard" className="w-full">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="flex items-center justify-between mb-6 bg-white p-1 rounded-xl shadow-sm border border-slate-100 overflow-x-auto">
               <TabsList className="bg-transparent h-11">
                 <TabsTrigger value="dashboard" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
@@ -259,6 +261,10 @@ const CRMPage = () => {
                 contacts={contacts}
                 onRefreshAgenda={refreshRelationshipAgenda}
                 isRefreshingAgenda={isRefetchingContacts}
+                onContactClick={(contact) => {
+                  setSelectedContact(contact);
+                  setActiveTab("contacts");
+                }}
               />
             </TabsContent>
 
@@ -302,7 +308,7 @@ const CRMPage = () => {
             </TabsContent>
 
             <TabsContent value="contacts" className="mt-0">
-              <ContactsModule />
+              <ContactsModule initialEditContact={selectedContact} />
             </TabsContent>
           </Tabs>
             </div>
