@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-new-holland-guarulhos",
+    modelo: "New Holland",
+    modeloShort: "New Holland",
+    categoria: "premium",
+    fipeRange: "R$ 130.000 a R$ 5.000.000+",
+    priceRange: { min: 2400, max: 42000, label: "R$ 2.400 a R$ 42.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Inovação constante com o sistema PLM (Precision Land Management)",
+      "Alta versatilidade e eficiência nos modelos T6, T7 e T8",
+      "Rede de concessionárias global focada na agilidade operacional"
+    ],
+    cons: [
+      "Alto custo de sensores de agricultura de precisão e eletrônica",
+      "Modelos de alta cilindrada exigem planos de manutenção rigorosos",
+      "Exigência de vistorias técnicas detalhadas para apólices corporativas"
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "rede referenciada CNH Industrial e peças originais New Holland" },
+      { name: "Allianz", reason: "excelente precificação para a linha de colheitadeiras CR e tratores" },
+      { name: "Tokio Marine", reason: "atendimento especializado com guincho para carga pesada" },
+      { name: "Sompo", reason: "tradição em seguros para o agronegócio e riscos de engenharia" }
+    ],
+    context:
+      "A New Holland é a marca que move o agronegócio com tecnologia azul e amarela. De tratores versáteis às gigantes colheitadeiras CR, o proprietário New Holland busca uma proteção que acompanhe a inovação e o desempenho de sua máquina. A Patro Seguros oferece consultoria premium para garantir que seu New Holland esteja protegido contra incêndio, roubo e quebra de máquinas, com garantia de reposição de peças originais e suporte técnico total."
+  },
+  {
     slug: "seguro-case-ih-guarulhos",
     modelo: "Case IH",
     modeloShort: "Case IH",
