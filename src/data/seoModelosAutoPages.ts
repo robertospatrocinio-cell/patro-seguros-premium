@@ -268,7 +268,40 @@ const MODELOS: ModeloSeed[] = [
     ],
     context: "A Chevrolet possui uma linha completa de veículos no Brasil."
   },
+  {
+    slug: "seguro-fiat-guarulhos",
+    modelo: "Fiat",
+    modeloShort: "Fiat",
+    categoria: "popular",
+    fipeRange: "R$ 40.000 a R$ 130.000",
+    priceRange: { min: 1700, max: 4800, label: "R$ 1.700 a R$ 4.800/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Líder de mercado", "Peças baratas"],
+    cons: ["Visado"],
+    bestInsurers: [
+      { name: "HDI", reason: "Competitiva" },
+      { name: "Azul Seguros", reason: "Bom custo" }
+    ],
+    context: "A Fiat é líder em diversos segmentos populares no Brasil."
+  },
+  {
+    slug: "seguro-hyundai-guarulhos",
+    modelo: "Hyundai",
+    modeloShort: "Hyundai",
+    categoria: "popular",
+    fipeRange: "R$ 55.000 a R$ 180.000",
+    priceRange: { min: 2100, max: 5500, label: "R$ 2.100 a R$ 5.500/ano" },
+    theftProfile: "médio",
+    pros: ["Garantia", "Design"],
+    cons: ["Peças caras"],
+    bestInsurers: [
+      { name: "Tokio Marine", reason: "Tradicional" },
+      { name: "Allianz", reason: "Bom preço" }
+    ],
+    context: "A Hyundai se destaca pelo HB20 e Creta em Guarulhos."
+  },
 ];
+
 
 
 const baseRelated = [
