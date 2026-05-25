@@ -498,7 +498,7 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-volvo-guarulhos",
     modelo: "Volvo",
-    modeloShort: "Volvo",
+    modeloShort: "Volvo XC60",
     categoria: "premium",
     fipeRange: "R$ 150.000 a R$ 800.000",
     priceRange: { min: 3800, max: 15000, label: "R$ 3.800 a R$ 15.000/ano" },
