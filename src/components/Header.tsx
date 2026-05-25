@@ -335,9 +335,11 @@ const Header = memo(() => {
                           <Link to="/seguro-auto-peugeot-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Peugeot</Link>
                           <Link to="/seguro-auto-citroen-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Citroën</Link>
                           <Link to="/seguro-auto-caoa-chery-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Caoa Chery</Link>
-                          <Link to="/seguro-auto-byd-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">BYD</Link>
-                          <Link to="/seguro-auto-gwm-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">GWM</Link>
+                          <Link to="/seguro-byd" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">BYD</Link>
+                          <Link to="/seguro-gwm" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">GWM</Link>
+                          <Link to="/seguro-lexus" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Lexus</Link>
                           <Link to="/seguro-auto-gac-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">GAC</Link>
+
                         </div>
                       </div>
                       <div>
