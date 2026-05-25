@@ -187,6 +187,8 @@ const ItauSeguros = lazy(() => import("./pages/seguradoras/Itau"));
 const BradescoSeguros = lazy(() => import("./pages/seguradoras/Bradesco"));
 const Mitsui = lazy(() => import("./pages/seguradoras/Mitsui"));
 const SeguroBMW = lazy(() => import("./pages/SeguroBMW"));
+const SeguroMarcaPremium = lazy(() => import("./pages/SeguroMarcaPremium"));
+
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -271,6 +273,21 @@ const App = () => {
             <Route path="/cotacao" element={<Cotacao />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/depoimentos" element={<Depoimentos />} />
+            <Route path="/seguro-bmw" element={<SeguroBMW />} />
+            <Route path="/seguro-mercedes" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-audi" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-land-rover" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-jaguar" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-volvo" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-ferrari" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-porsche" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-byd" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-gwm" element={<SeguroMarcaPremium />} />
+            <Route path="/seguro-gmw" element={<Navigate to="/seguro-gwm" replace />} />
+            <Route path="/seguro-lexus" element={<SeguroMarcaPremium />} />
+            {/* Adicionando variantes com parametro para o componente genérico */}
+            <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
+
             <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
             <Route path="/parceiros-locais" element={<ParceirosLocais />} />
             <Route path="/imprensa" element={<Imprensa />} />
@@ -399,7 +416,10 @@ const App = () => {
             {/* Programmatic SEO — modelos de carro em Guarulhos */}
             <Route path="/seguro-massey-ferguson-guarulhos" element={<SeoLocalPage slug="seguro-massey-ferguson-guarulhos" />} />
             <Route path="/seguro-auto-land-rover-guarulhos" element={<SeoLocalPage slug="seguro-auto-land-rover-guarulhos" />} />
+            <Route path="/seguro-auto-jaguar-guarulhos" element={<SeoLocalPage slug="seguro-auto-jaguar-guarulhos" />} />
+            <Route path="/seguro-auto-lexus-guarulhos" element={<SeoLocalPage slug="seguro-auto-lexus-guarulhos" />} />
             <Route path="/seguro-auto-toyota-guarulhos" element={<SeoLocalPage slug="seguro-auto-toyota-guarulhos" />} />
+
             <Route path="/seguro-auto-jeep-guarulhos" element={<SeoLocalPage slug="seguro-auto-jeep-guarulhos" />} />
             <Route path="/seguro-moto-estradeira-guarulhos" element={<SeoLocalPage slug="seguro-moto-estradeira-guarulhos" />} />
             <Route path="/seguro-auto-gac-guarulhos" element={<SeoLocalPage slug="seguro-auto-gac-guarulhos" />} />

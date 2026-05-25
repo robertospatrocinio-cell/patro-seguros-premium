@@ -35,7 +35,18 @@ const Header = memo(() => {
     { label: "Bike", to: "/seguro-bike", section: "pessoal" },
     { label: "Carta Verde", to: "/seguro-carta-verde", section: "pessoal" },
     { label: "Seguro BMW", to: "/seguro-bmw", section: "pessoal" },
+    { label: "Seguro Mercedes", to: "/seguro-mercedes", section: "pessoal" },
+    { label: "Seguro Audi", to: "/seguro-audi", section: "pessoal" },
+    { label: "Seguro Land Rover", to: "/seguro-land-rover", section: "pessoal" },
+    { label: "Seguro Jaguar", to: "/seguro-jaguar", section: "pessoal" },
+    { label: "Seguro Volvo", to: "/seguro-volvo", section: "pessoal" },
+    { label: "Seguro Ferrari", to: "/seguro-ferrari", section: "pessoal" },
+    { label: "Seguro Porsche", to: "/seguro-porsche", section: "pessoal" },
+    { label: "Seguro BYD", to: "/seguro-byd", section: "pessoal" },
+    { label: "Seguro GWM", to: "/seguro-gwm", section: "pessoal" },
+    { label: "Seguro Lexus", to: "/seguro-lexus", section: "pessoal" },
     { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
+
     { label: "Vida", to: "/seguro-vida", section: "pessoal" },
     { label: "Plano de Saúde", to: "/planos-de-saude", section: "pessoal" },
     { label: "Plano Odonto", to: "/seguro-odonto", section: "pessoal" },
@@ -301,13 +312,15 @@ const Header = memo(() => {
                       <div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Seguro por Marca</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-auto-bmw-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">BMW</Link>
-                          <Link to="/seguro-auto-mercedes-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Mercedes</Link>
-                          <Link to="/seguro-auto-audi-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Audi</Link>
-                          <Link to="/seguro-auto-volvo-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Volvo</Link>
-                          <Link to="/seguro-auto-land-rover-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Land Rover</Link>
-                          <Link to="/seguro-auto-porsche-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Porsche</Link>
-                          <Link to="/seguro-auto-ferrari-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Ferrari</Link>
+                          <Link to="/seguro-bmw" className="block py-1 text-[12px] text-blue-500 font-bold hover:text-blue-400 transition-base italic">BMW</Link>
+                          <Link to="/seguro-mercedes" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Mercedes</Link>
+                          <Link to="/seguro-audi" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Audi</Link>
+                          <Link to="/seguro-volvo" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Volvo</Link>
+                          <Link to="/seguro-land-rover" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Land Rover</Link>
+                          <Link to="/seguro-jaguar" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Jaguar</Link>
+                          <Link to="/seguro-porsche" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Porsche</Link>
+                          <Link to="/seguro-ferrari" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Ferrari</Link>
+
                           <Link to="/seguro-auto-jeep-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Jeep</Link>
                           <Link to="/seguro-auto-toyota-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Toyota</Link>
                           <Link to="/seguro-auto-honda-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Honda</Link>
@@ -322,9 +335,11 @@ const Header = memo(() => {
                           <Link to="/seguro-auto-peugeot-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Peugeot</Link>
                           <Link to="/seguro-auto-citroen-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Citroën</Link>
                           <Link to="/seguro-auto-caoa-chery-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Caoa Chery</Link>
-                          <Link to="/seguro-auto-byd-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">BYD</Link>
-                          <Link to="/seguro-auto-gwm-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">GWM</Link>
+                          <Link to="/seguro-byd" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">BYD</Link>
+                          <Link to="/seguro-gwm" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">GWM</Link>
+                          <Link to="/seguro-lexus" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Lexus</Link>
                           <Link to="/seguro-auto-gac-guarulhos" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">GAC</Link>
+
                         </div>
                       </div>
                       <div>
@@ -575,13 +590,15 @@ const Header = memo(() => {
               </div>
               <MobileSubLabel>Seguro por Marca</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
-                <MobileLink to="/seguro-auto-bmw-guarulhos">BMW</MobileLink>
-                <MobileLink to="/seguro-auto-mercedes-guarulhos">Mercedes</MobileLink>
-                <MobileLink to="/seguro-auto-audi-guarulhos">Audi</MobileLink>
-                <MobileLink to="/seguro-auto-volvo-guarulhos">Volvo</MobileLink>
-                <MobileLink to="/seguro-auto-land-rover-guarulhos">Land Rover</MobileLink>
-                <MobileLink to="/seguro-auto-porsche-guarulhos">Porsche</MobileLink>
-                <MobileLink to="/seguro-auto-ferrari-guarulhos">Ferrari</MobileLink>
+                <MobileLink to="/seguro-bmw">BMW</MobileLink>
+                <MobileLink to="/seguro-mercedes">Mercedes</MobileLink>
+                <MobileLink to="/seguro-audi">Audi</MobileLink>
+                <MobileLink to="/seguro-volvo">Volvo</MobileLink>
+                <MobileLink to="/seguro-land-rover">Land Rover</MobileLink>
+                <MobileLink to="/seguro-jaguar">Jaguar</MobileLink>
+                <MobileLink to="/seguro-porsche">Porsche</MobileLink>
+                <MobileLink to="/seguro-ferrari">Ferrari</MobileLink>
+
                 <MobileLink to="/seguro-auto-jeep-guarulhos">Jeep</MobileLink>
                 <MobileLink to="/seguro-auto-toyota-guarulhos">Toyota</MobileLink>
                 <MobileLink to="/seguro-auto-honda-guarulhos">Honda</MobileLink>
@@ -596,9 +613,11 @@ const Header = memo(() => {
                 <MobileLink to="/seguro-auto-peugeot-guarulhos">Peugeot</MobileLink>
                 <MobileLink to="/seguro-auto-citroen-guarulhos">Citroën</MobileLink>
                 <MobileLink to="/seguro-auto-caoa-chery-guarulhos">Caoa Chery</MobileLink>
-                <MobileLink to="/seguro-auto-byd-guarulhos">BYD</MobileLink>
-                <MobileLink to="/seguro-auto-gwm-guarulhos">GWM</MobileLink>
+                <MobileLink to="/seguro-byd">BYD</MobileLink>
+                <MobileLink to="/seguro-gwm">GWM</MobileLink>
+                <MobileLink to="/seguro-lexus">Lexus</MobileLink>
                 <MobileLink to="/seguro-auto-gac-guarulhos">GAC</MobileLink>
+
               </div>
               <MobileSubLabel>Vida e Saúde</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">

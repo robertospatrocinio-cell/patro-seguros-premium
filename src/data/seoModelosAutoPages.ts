@@ -657,7 +657,44 @@ const MODELOS: ModeloSeed[] = [
     ],
     context: "A GAC traz luxo e tecnologia de ponta para o mercado brasileiro."
   },
+  {
+    slug: "seguro-auto-jaguar-guarulhos",
+    modelo: "Jaguar",
+    modeloShort: "Jaguar",
+    categoria: "premium",
+    fipeRange: "R$ 160.000 a R$ 1.200.000",
+    priceRange: { min: 4800, max: 24000, label: "R$ 4.800 a R$ 24.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Design britânico icônico", "Performance dinâmica"],
+    cons: ["Desvalorização", "Custo de manutenção"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Excelente rede premium" },
+      { name: "Tokio Marine", reason: "Atendimento especializado" },
+      { name: "Allianz", reason: "Cobertura robusta" },
+      { name: "Liberty", reason: "Condições exclusivas" }
+    ],
+    context: "Jaguar combina luxo, beleza e poder em uma experiência de direção única."
+  },
+  {
+    slug: "seguro-auto-lexus-guarulhos",
+    modelo: "Lexus",
+    modeloShort: "Lexus",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 800.000",
+    priceRange: { min: 3500, max: 15000, label: "R$ 3.500 a R$ 15.000/ano" },
+    theftProfile: "baixo",
+    pros: ["Confiabilidade extrema", "Tecnologia híbrida"],
+    cons: ["Rede menor que concorrentes alemãs"],
+    bestInsurers: [
+      { name: "Tokio Marine", reason: "Referência japonesa" },
+      { name: "Porto Seguro", reason: "Serviços premium" },
+      { name: "Allianz", reason: "Expert em híbridos" },
+      { name: "Mitsui", reason: "Forte aceitação da marca" }
+    ],
+    context: "Lexus é a perfeição em hospitalidade e engenharia japonesa (Omotenashi)."
+  },
 ];
+
 
 
 
