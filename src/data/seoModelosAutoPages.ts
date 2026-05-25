@@ -25,7 +25,7 @@ const MODELOS: ModeloSeed[] = [
     categoria: "premium",
     fipeRange: "R$ 350.000 a R$ 2.500.000+",
     priceRange: { min: 8500, max: 45000, label: "R$ 8.500 a R$ 45.000/ano" },
-    theftProfile: "baixo-médio",
+    theftProfile: "baixo",
     pros: [
       "Engenharia de alta performance e sistemas de segurança ativos",
       "Modelos com altíssima valorização e desejo de mercado",
