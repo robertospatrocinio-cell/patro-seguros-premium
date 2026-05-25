@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-estradeira-guarulhos",
+    modelo: "Moto Estradeira e Big Trail",
+    modeloShort: "Estradeiras",
+    categoria: "premium",
+    fipeRange: "R$ 35.000 a R$ 280.000+",
+    priceRange: { min: 1400, max: 8800, label: "R$ 1.400 a R$ 8.800/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Conforto excepcional para longas viagens e ergonomia superior",
+      "Alta tecnologia de navegação e controle de cruzeiro de série",
+      "Ótimo valor de revenda e comunidade de viajantes ativa",
+    ],
+    cons: [
+      "Alto valor de acessórios como baús, GPS e protetores (exige cobertura)",
+      "Peso elevado exige assistência 24h com guincho em plataforma",
+      "Custo de pneus e manutenção preventiva para viagens longas",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura completa para acessórios, vestuário e extensão de perímetro (Mercosul)" },
+      { name: "Suhai Seguradora", reason: "excelente custo-benefício para proteção contra roubo em viagens" },
+      { name: "Tokio Marine", reason: "assistência 24h VIP com quilometragem de guincho ilimitada" },
+      { name: "Allianz", reason: "produtos específicos para a linha Big Trail e Touring de luxo" },
+    ],
+    context:
+      "Viajar de moto é a expressão máxima de liberdade. Em Guarulhos, proprietários de modelos Estradeiros e Big Trails como BMW GS, Honda Africa Twin, Triumph Tiger e as Touring da Harley-Davidson precisam de um seguro que não conheça fronteiras. A Patro Seguros oferece consultoria para garantir que sua viagem esteja protegida, com coberturas para malas laterais, vestuário de proteção e assistência técnica em todo o Mercosul.",
+  },
+  {
     slug: "seguro-carro-antigo-guarulhos",
     modelo: "Carro Antigo e de Coleção",
     modeloShort: "Antigos",
