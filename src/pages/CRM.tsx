@@ -12,7 +12,8 @@ import {
   Heart,
   AlertCircle,
   Contact2,
-  MessageSquare
+  MessageSquare,
+  Briefcase
 } from "lucide-react";
 import { subMonths, isAfter, isThisMonth } from "date-fns";
 import Header from "@/components/Header";
@@ -24,6 +25,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { DashboardOverview } from "@/components/crm/DashboardOverview";
 import RelationshipModule from "@/components/crm/RelationshipModule";
 import ContactsModule from "@/components/crm/ContactsModule";
+import OpportunitiesModule from "@/components/crm/OpportunitiesModule";
 import { useLeads } from "@/hooks/queries/useLeads";
 import { LeadsTable } from "@/components/crm/LeadsTable";
 import { KanbanBoard } from "@/components/crm/KanbanBoard";
@@ -240,6 +242,9 @@ const CRMPage = () => {
                 <TabsTrigger value="renewals" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
                   <RefreshCw className="w-4 h-4 mr-2" /> Renovações
                 </TabsTrigger>
+                <TabsTrigger value="opportunities" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
+                  <Briefcase className="w-4 h-4 mr-2" /> Oportunidades
+                </TabsTrigger>
                 <TabsTrigger value="relationship" className="data-[state=active]:bg-slate-100 data-[state=active]:shadow-none h-9 px-6 rounded-lg">
                   <Heart className="w-4 h-4 mr-2" /> Relacionamento
                 </TabsTrigger>
@@ -305,6 +310,10 @@ const CRMPage = () => {
 
             <TabsContent value="relationship" className="mt-0">
               <RelationshipModule />
+            </TabsContent>
+
+            <TabsContent value="opportunities" className="mt-0">
+              <OpportunitiesModule />
             </TabsContent>
 
             <TabsContent value="contacts" className="mt-0">
