@@ -1,6 +1,11 @@
 import type { SeoLocalPageConfig } from "@/data/seoLocalAutoPages";
 import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTemplate";
 
+const INSURERS_LIST = [
+  "AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO", "DARWIN", "EZZE", "HAPVIDA/NOTREDAME", "HDI", "ITAÚ", "ITURAN", "JUSTOS", "LIBERTY", "MAG", "MAPFRE", "MEDSENIOR", "MITSUI", "OMINT", "PIER", "PORTO", "PREVENT SENIOR", "SOMPO", "SUHAI", "SULAMERICA", "SURA", "TOKIO MARINE", "UNIMED", "YOUSE", "ZURICH"
+];
+
+
 type Categoria = "popular" | "sedan" | "suv" | "premium";
 
 interface ModeloSeed {
@@ -1247,8 +1252,9 @@ const baseCoverages = [
 const fmtBRL = (v: number) =>
   v.toLocaleString("pt-BR", { style: "currency", currency: "BRL", maximumFractionDigits: 0 });
 
-const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
+export const SEO_MODELOS_AUTO_PAGES: SeoLocalPageConfig[] = MODELOS.map((m) => {
   const insurers: LocalInsurer[] = m.bestInsurers.map((i) => ({
+
     name: i.name,
     highlight: i.reason,
   }));
@@ -1305,6 +1311,21 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
       },
       {
         question: `O seguro do ${m.modeloShort} cobre uso em aplicativo (Uber/99) em Guarulhos?`,
+        answer: `Depende da apólice contratada. Se você for usar seu ${m.modeloShort} profissionalmente, é obrigatório contratar com cláusula de "Uso Profissional" ou "Aplicativo". Caso contrário, em caso de sinistro em corrida, a seguradora negará a indenização. A Patro ajuda você a configurar isso corretamente.`,
+      },
+    ],
+    coverages: baseCoverages,
+    relatedLinks: baseRelated,
+    schemaConfig: {
+      type: "Service",
+      name: `Seguro Auto ${m.modelo} — Patro Seguros`,
+      description: `Cotação de seguro para o modelo ${m.modelo} com comparativo entre seguradoras em Guarulhos.`,
+      areaServed: "Guarulhos, SP",
+      provider: "Patro Seguros",
+    },
+  };
+});
+
         answer: `Apenas se a apólice tiver cláusula expressa para uso profissional. Apólices padrão recusam o sinistro se o veículo estava em corrida no momento do acidente. A Patro trabalha com seguradoras que oferecem essa cláusula para o ${m.modeloShort} — informe na cotação que você usa o veículo em apps.`,
       },
       {
