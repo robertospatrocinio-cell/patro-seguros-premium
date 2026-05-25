@@ -244,7 +244,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         heroImage={heroImage}
         title={title}
         subtitle={subtitle}
-        badge={slug.includes("bmw") || slug.includes("mercedes") || slug.includes("audi") || slug.includes("porsche") ? "Especialista Premium" : undefined}
+        badge={slug.includes("bmw") || slug.includes("mercedes") || slug.includes("audi") || slug.includes("porsche") || slug.includes("moto-bmw") ? "Especialista Premium" : undefined}
         description={description}
         detailedDescription={detailedDescription}
         metaDescription={metaDescription}
