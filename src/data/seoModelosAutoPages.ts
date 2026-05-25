@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-moto-triumph-guarulhos",
+    modelo: "Moto Triumph",
+    modeloShort: "Triumph",
+    categoria: "premium",
+    fipeRange: "R$ 45.000 a R$ 220.000+",
+    priceRange: { min: 1400, max: 7800, label: "R$ 1.400 a R$ 7.800/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Sofisticação britânica e engenharia de precisão com motores de 3 cilindros",
+      "Modelos com alta valorização e forte presença em Guarulhos (Tiger e Bonneville)",
+      "Rede de assistência premium e tecnologia de pilotagem de última geração",
+    ],
+    cons: [
+      "A linha Big Trail (Tiger) é visada para furto em grandes centros urbanos",
+      "Custo de peças e acessórios originais em modelos exclusivamente importados",
+      "Exigência de rastreador para modelos com FIPE acima de R$ 80 mil",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "assistência 24h completa e rede de oficinas premium certificadas" },
+      { name: "Tokio Marine", reason: "excelente precificação para a linha Tiger 900 e 1200" },
+      { name: "Suhai Seguradora", reason: "líder em aceitação para modelos de alta cilindrada com rastreador" },
+      { name: "Allianz", reason: "cobertura robusta para danos a terceiros e viagens internacionais" },
+    ],
+    context:
+      "A Triumph combina o charme clássico britânico com uma performance moderna avassaladora. Em Guarulhos, proprietários de modelos icônicos como a Tiger, a estilosa Bonneville, a potente Street Triple e a lendária Rocket 3 buscam uma proteção que acompanhe o nível de engenharia da marca. A Patro Seguros oferece consultoria exclusiva para garantir que sua Triumph esteja protegida com coberturas sofisticadas e assistência 24h diferenciada, garantindo tranquilidade em cada estrada.",
+  },
+  {
     slug: "seguro-moto-suzuki-guarulhos",
     modelo: "Moto Suzuki",
     modeloShort: "Suzuki",

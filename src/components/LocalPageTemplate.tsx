@@ -244,7 +244,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         heroImage={heroImage}
         title={title}
         subtitle={subtitle}
-        badge={slug.includes("bmw") || slug.includes("mercedes") || slug.includes("audi") || slug.includes("porsche") || slug.includes("ferrari") || slug.includes("antigo") || slug.includes("estradeira") || slug.includes("jeep") || slug.includes("toyota") || slug.includes("land-rover") || slug.includes("ford") || slug.includes("fiat") || slug.includes("volkswagen") || slug.includes("gac") || slug.includes("moto-bmw") || slug.includes("ducati") || slug.includes("harley") || slug.includes("moto-honda") || slug.includes("moto-yamaha") || slug.includes("royal-enfield") || slug.includes("dafra") || slug.includes("kawasaki") || slug.includes("suzuki") ? "Especialista Premium" : undefined}
+        badge={slug.includes("bmw") || slug.includes("mercedes") || slug.includes("audi") || slug.includes("porsche") || slug.includes("ferrari") || slug.includes("antigo") || slug.includes("estradeira") || slug.includes("jeep") || slug.includes("toyota") || slug.includes("land-rover") || slug.includes("ford") || slug.includes("fiat") || slug.includes("volkswagen") || slug.includes("gac") || slug.includes("moto-bmw") || slug.includes("ducati") || slug.includes("harley") || slug.includes("moto-honda") || slug.includes("moto-yamaha") || slug.includes("royal-enfield") || slug.includes("dafra") || slug.includes("kawasaki") || slug.includes("suzuki") || slug.includes("triumph") ? "Especialista Premium" : undefined}
         description={description}
         detailedDescription={detailedDescription}
         metaDescription={metaDescription}
