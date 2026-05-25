@@ -80,6 +80,8 @@ import {
 import { formatContactDate, parseContactDate } from "@/lib/crmDates";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import { parseCSV, parseExcel, parseVCF, ImportedContact } from "@/lib/contactImport";
+import ContactInteractionDialog from "./ContactInteractionDialog";
+
 
 
 const INSURANCE_TYPES = [
@@ -145,6 +147,14 @@ const ContactsModule = () => {
   const [isImporting, setIsImporting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const vcfInputRef = useRef<HTMLInputElement>(null);
+  const [selectedContactForHistory, setSelectedContactForHistory] = useState<any>(null);
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  
+  const handleOpenHistory = (contact: any) => {
+    setSelectedContactForHistory(contact);
+    setIsHistoryOpen(true);
+  };
+
   
   // Export filters
   const [exportFilters, setExportFilters] = useState({
@@ -1323,7 +1333,7 @@ const ContactsModule = () => {
                   <TableRow key={contact.id} className="hover:bg-slate-50/50">
                     <TableCell>
                       <div className="flex flex-col gap-1">
-                        <div className="font-medium text-slate-900">{contact.full_name}</div>
+                        <div className="font-medium text-slate-900 cursor-pointer hover:text-primary transition-colors" onClick={() => handleOpenHistory(contact)}>{contact.full_name}</div>
                         <div className="text-xs text-muted-foreground flex items-center gap-1">
                           <Phone className="w-3 h-3" /> {contact.phone}
                         </div>
@@ -1444,6 +1454,10 @@ const ContactsModule = () => {
                               <Pencil className="w-4 h-4 mr-2" />
                               Editar Contato
                             </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => handleOpenHistory(contact)}>
+                              <History className="w-4 h-4 mr-2" />
+                              Histórico de Conversas
+                            </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </div>
@@ -1455,6 +1469,12 @@ const ContactsModule = () => {
           </Table>
         </CardContent>
       </Card>
+
+      <ContactInteractionDialog 
+        contact={selectedContactForHistory} 
+        open={isHistoryOpen} 
+        onOpenChange={setIsHistoryOpen} 
+      />
     </div>
   );
 };
