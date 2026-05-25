@@ -222,7 +222,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Lexus",
     slug: "lexus",
     slogan: "Experience Amazing",
-    heroImage: "https://images.unsplash.com/photo-1625729580690-aa997edb09ad?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1549416878-b9ca95e26903?q=80&w=2070&auto=format&fit=crop",
     accentColor: "zinc-600",
     description: "O luxo japonês e a confiabilidade híbrida protegidos pela Patro Seguros. Experiência Omotenashi em seguros.",
     diferenciais: [
@@ -236,6 +236,6 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro é similar ao da Toyota?", a: "Sim, aproveitamos a excelente aceitação da marca Toyota para oferecer condições exclusivas Lexus." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1629891465239-010e964b387e?q=80&w=2070&auto=format&fit=crop",
   },
 };
