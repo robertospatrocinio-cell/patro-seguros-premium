@@ -827,6 +827,39 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                   />
                 </div>
                 <div className="space-y-2">
+                  <Label htmlFor="first_license">Data 1ª Habilitação</Label>
+                  <Input 
+                    id="first_license" 
+                    type="date"
+                    value={newContact.first_license_date}
+                    onChange={e => setNewContact({...newContact, first_license_date: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-4 gap-4">
+                <div className="space-y-2 col-span-1">
+                  <Label htmlFor="zip_code">CEP</Label>
+                  <Input 
+                    id="zip_code" 
+                    placeholder="00000-000"
+                    value={newContact.zip_code}
+                    onChange={e => setNewContact({...newContact, zip_code: e.target.value})}
+                  />
+                </div>
+                <div className="space-y-2 col-span-3">
+                  <Label htmlFor="address">Endereço Completo</Label>
+                  <Input 
+                    id="address" 
+                    placeholder="Rua, número, complemento, bairro, cidade..."
+                    value={newContact.address}
+                    onChange={e => setNewContact({...newContact, address: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
                   <Label>Tipo de Relacionamento</Label>
                   <Select 
                     value={newContact.client_type} 
