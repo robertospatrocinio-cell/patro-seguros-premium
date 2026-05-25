@@ -541,6 +541,7 @@ const Header = memo(() => {
                 <MobileLink to="/seguro-caminhao">Caminhão</MobileLink>
                 <MobileLink to="/seguro-bike">Bike</MobileLink>
                 <MobileLink to="/seguro-carta-verde">Carta Verde</MobileLink>
+                <MobileLink to="/seguro-bmw">Seguro BMW</MobileLink>
                 <MobileLink to="/seguro-motorista-app">Motorista App</MobileLink>
               </div>
               <MobileSubLabel>Vida e Saúde</MobileSubLabel>
