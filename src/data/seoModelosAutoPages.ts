@@ -598,7 +598,8 @@ const MODELOS: ModeloSeed[] = [
     bestInsurers: [
       { name: "Porto Seguro", reason: "Divisão de Riscos Especiais" },
       { name: "Liberty", reason: "Apólices customizadas" },
-      { name: "Chubb", reason: "Especialista em alto valor" }
+      { name: "Chubb", reason: "Especialista em alto valor" },
+      { name: "Allianz", reason: "Cobertura internacional para superesportivos" }
     ],
     context: "Ferrari é mais que um carro, é uma obra de arte da engenharia italiana."
   },
@@ -651,7 +652,8 @@ const MODELOS: ModeloSeed[] = [
     bestInsurers: [
       { name: "Allianz", reason: "Global Partner" },
       { name: "Porto Seguro", reason: "Segurança na cotação" },
-      { name: "Tokio Marine", reason: "Suporte especializado" }
+      { name: "Tokio Marine", reason: "Suporte especializado" },
+      { name: "Liberty", reason: "Condições para marcas premium chinesas" }
     ],
     context: "A GAC traz luxo e tecnologia de ponta para o mercado brasileiro."
   },
