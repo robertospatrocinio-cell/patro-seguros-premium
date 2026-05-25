@@ -433,10 +433,13 @@ const ContactsModule = () => {
         toast.success(finalMsg);
       }
       forceRefetch();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Import error:", error);
       toast.dismiss(loadingToast);
-      toast.error("Erro ao processar arquivo de importação.");
+      const errorMessage = error.message || "Erro ao processar arquivo de importação.";
+      toast.error(errorMessage, {
+        duration: 5000
+      });
     } finally {
       setIsImporting(false);
       if (e.target) e.target.value = '';

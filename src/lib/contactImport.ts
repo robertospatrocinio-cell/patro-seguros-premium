@@ -64,12 +64,26 @@ export const parseExcel = (file: File): Promise<ImportedContact[]> => {
 export const parseVCF = async (file: File): Promise<ImportedContact[]> => {
   try {
     const text = await file.text();
+    if (!text || text.trim().length === 0) {
+      throw new Error("O arquivo VCF está vazio.");
+    }
+
+    if (!text.includes("BEGIN:VCARD")) {
+      throw new Error("O arquivo não parece ser um formato de contato (VCF) válido.");
+    }
+
     // Use a more robust regex to split individual VCARDs if parse fails
     const vcards = text.split(/END:VCARD/i).filter(v => v.trim().length > 0).map(v => v + "END:VCARD");
     
+    if (vcards.length === 0) {
+      throw new Error("Nenhum contato encontrado no arquivo VCF.");
+    }
+
     const results: ImportedContact[] = [];
+    const errors: string[] = [];
     
-    for (const vcard of vcards) {
+    for (let index = 0; index < vcards.length; index++) {
+      const vcard = vcards[index];
       try {
         const parsed = parse(vcard);
         if (parsed && parsed.length > 0) {
@@ -90,15 +104,23 @@ export const parseVCF = async (file: File): Promise<ImportedContact[]> => {
               is_client: false
             });
           }
+        } else {
+          errors.push(`Contato #${index + 1}: Dados insuficientes.`);
         }
       } catch (err) {
-        console.warn("Failed to parse individual VCARD:", err);
+        console.warn(`Failed to parse individual VCARD at index ${index}:`, err);
+        errors.push(`Contato #${index + 1}: Erro de formatação.`);
       }
     }
     
+    if (results.length === 0 && errors.length > 0) {
+      throw new Error(`Falha ao processar contatos: ${errors.slice(0, 3).join(", ")}${errors.length > 3 ? "..." : ""}`);
+    }
+
     return results;
   } catch (error) {
     console.error("VCF Import error:", error);
+    if (error instanceof Error) throw error;
     throw new Error("Não foi possível ler o arquivo VCF. Verifique o formato.");
   }
 };
