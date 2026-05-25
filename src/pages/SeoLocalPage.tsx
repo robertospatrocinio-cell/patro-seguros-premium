@@ -80,7 +80,9 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       tips={config.tips}
       nearbyAreas={config.nearbyAreas}
       relatedInsurances={config.relatedInsurances}
-      heroImage={config.slug.includes("land-rover") 
+      heroImage={config.slug.includes("volvo")
+        ? "https://images.unsplash.com/photo-1628151474536-3ec6dfd86927?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("land-rover") 
         ? "https://images.unsplash.com/photo-1549430635-f09f874c7764?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("jaguar")
         ? "https://images.unsplash.com/photo-1574044536224-037048a609d0?q=80&w=2070&auto=format&fit=crop"
