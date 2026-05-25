@@ -137,7 +137,9 @@ const INITIAL_CONTACT_STATE = {
   consortium_type: "Auto",
   consortium_carrier: "",
   consortium_renewal: "",
-  responsible_name: ""
+  responsible_name: "",
+  opportunities: [] as string[],
+  opportunity_notes: ""
 };
 
 const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) => {

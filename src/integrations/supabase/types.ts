@@ -83,6 +83,8 @@ export type Database = {
           marital_status: string | null
           next_contact_date: string | null
           notes: string | null
+          opportunities: string[] | null
+          opportunity_notes: string | null
           other_insurance_carrier: string | null
           other_insurance_renewal: string | null
           partner_birthday: string | null
@@ -136,6 +138,8 @@ export type Database = {
           marital_status?: string | null
           next_contact_date?: string | null
           notes?: string | null
+          opportunities?: string[] | null
+          opportunity_notes?: string | null
           other_insurance_carrier?: string | null
           other_insurance_renewal?: string | null
           partner_birthday?: string | null
@@ -189,6 +193,8 @@ export type Database = {
           marital_status?: string | null
           next_contact_date?: string | null
           notes?: string | null
+          opportunities?: string[] | null
+          opportunity_notes?: string | null
           other_insurance_carrier?: string | null
           other_insurance_renewal?: string | null
           partner_birthday?: string | null
