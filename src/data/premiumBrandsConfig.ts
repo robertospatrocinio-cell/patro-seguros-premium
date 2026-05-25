@@ -122,7 +122,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Volvo",
     slug: "volvo",
     slogan: "For Life",
-    heroImage: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-700",
     description: "A marca mais segura do mundo exige o seguro mais completo. Especialistas em proteção para a linha Volvo Recharge.",
     diferenciais: [
@@ -136,7 +136,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "Como funciona a cobertura da bateria?", a: "A bateria tem cobertura específica contra danos externos e curtos-circuitos acidentais." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1621251914299-e688849405f6?q=80&w=2071&auto=format&fit=crop",
   },
   ferrari: {
     name: "Ferrari",
