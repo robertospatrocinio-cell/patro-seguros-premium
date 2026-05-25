@@ -152,6 +152,10 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
   const vcfInputRef = useRef<HTMLInputElement>(null);
   const [selectedContactForHistory, setSelectedContactForHistory] = useState<any>(null);
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
+  const [activeFilters, setActiveFilters] = useState({
+    opportunity: "all",
+    insuranceType: "all"
+  });
   
   useEffect(() => {
     if (initialEditContact) {
@@ -173,7 +177,8 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
     startDate: "",
     endDate: "",
     insuranceType: "all",
-    carrier: ""
+    carrier: "",
+    opportunity: "all"
   });
 
   const { contacts, isLoading, createContact, updateContact, uploadDocument, forceRefetch, isRefetching } = useContacts();
@@ -278,11 +283,18 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
     }
   };
 
-  const filteredContacts = contacts?.filter(contact => 
-    contact.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    contact.phone?.includes(searchTerm) ||
-    contact.email?.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredContacts = contacts?.filter(contact => {
+    const matchesSearch = contact.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      contact.phone?.includes(searchTerm) ||
+      contact.email?.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    const matchesOpportunity = activeFilters.opportunity === "all" || 
+      (contact.opportunities && contact.opportunities.includes(activeFilters.opportunity));
+    
+    const matchesInsurance = activeFilters.insuranceType === "all" || contact.contact_insurances?.some((ci: any) => ci.insurance_type === activeFilters.insuranceType);
+
+    return matchesSearch && matchesOpportunity && matchesInsurance;
+  });
 
   const handleExportExcel = () => {
     if (!contacts || contacts.length === 0) {
@@ -316,6 +328,12 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
           if (type === "consórcio") return c.has_consortium;
           return false;
         });
+      }
+
+      if (exportFilters.opportunity !== "all") {
+        filteredData = filteredData.filter(c => 
+          c.opportunities && c.opportunities.includes(exportFilters.opportunity)
+        );
       }
 
       if (exportFilters.carrier) {
@@ -355,14 +373,19 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
         "Plano Saúde": c.health_plan_type ? `Sim (${c.health_insurance_carrier || "N/A"})` : "Não",
         "Seguro Empresarial": c.has_business_insurance ? `Sim (${c.business_insurance_carrier || "N/A"})` : "Não",
         "Consórcio": c.has_consortium ? `Sim (${c.consortium_type} - ${c.consortium_carrier || "N/A"})` : "Não",
+        "Oportunidades": (c.opportunities || []).join(", "),
+        "Notas Oportunidade": c.opportunity_notes || "",
         "Responsável": c.responsible_name || "",
-        "Notas": c.notes || ""
+        "Notas Gerais": c.notes || ""
       }));
 
       const ws = XLSX.utils.json_to_sheet(exportRows);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Contatos CRM");
-      XLSX.writeFile(wb, `crm_contatos_${new Date().toISOString().split('T')[0]}.xlsx`);
+      const filename = exportFilters.opportunity !== "all" 
+        ? `relatorio_oportunidades_${exportFilters.opportunity.toLowerCase()}_${new Date().toISOString().split('T')[0]}.xlsx`
+        : `crm_contatos_${new Date().toISOString().split('T')[0]}.xlsx`;
+      XLSX.writeFile(wb, filename);
       
       toast.success("Exportação concluída com sucesso!");
     } catch (error) {
@@ -533,16 +556,52 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex flex-col md:flex-row gap-4 mb-2">
+        <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input 
-            placeholder="Buscar contatos..." 
+            placeholder="Buscar por nome, telefone ou email..." 
             className="pl-9 bg-white border-slate-200"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
+
+        <div className="flex gap-2">
+          <Select 
+            value={activeFilters.opportunity}
+            onValueChange={val => setActiveFilters({...activeFilters, opportunity: val})}
+          >
+            <SelectTrigger className="w-[180px] bg-white border-orange-200 focus:ring-orange-500">
+              <SelectValue placeholder="Oportunidade" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todas Oportunidades</SelectItem>
+              {INSURANCE_TYPES.map(type => (
+                <SelectItem key={type} value={type}>{type}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          <Select 
+            value={activeFilters.insuranceType}
+            onValueChange={val => setActiveFilters({...activeFilters, insuranceType: val})}
+          >
+            <SelectTrigger className="w-[180px] bg-white border-slate-200">
+              <SelectValue placeholder="Seguro Atual" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos Seguros</SelectItem>
+              {INSURANCE_TYPES.map(type => (
+                <SelectItem key={type} value={type}>{type}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center justify-end gap-4">
+
         
         <div className="flex flex-wrap gap-2">
           <input
@@ -592,9 +651,9 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
 
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="outline" className="border-slate-200">
-                <Filter className="w-4 h-4 mr-2" />
-                Filtros Exportação
+              <Button variant="outline" className="border-slate-200 bg-white">
+                <FileText className="w-4 h-4 mr-2" />
+                Relatórios / Exportação
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-80">
@@ -643,6 +702,23 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                         <SelectItem value="saúde">Saúde</SelectItem>
                         <SelectItem value="empresarial">Empresarial</SelectItem>
                         <SelectItem value="consórcio">Consórcio</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Oportunidade de Venda</Label>
+                    <Select 
+                      value={exportFilters.opportunity}
+                      onValueChange={val => setExportFilters({...exportFilters, opportunity: val})}
+                    >
+                      <SelectTrigger className="h-8 text-xs border-orange-200 focus:ring-orange-500">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">Todas</SelectItem>
+                        {INSURANCE_TYPES.map(type => (
+                          <SelectItem key={type} value={type}>{type}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
