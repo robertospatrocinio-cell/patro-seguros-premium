@@ -332,6 +332,7 @@ const MODELOS: ModeloSeed[] = [
     ],
     context:
       "A BMW é a definição do prazer de dirigir. Em Guarulhos, proprietários de Série 3, X1, X5 e da linha M buscam uma proteção que acompanhe a sofisticação de seu veículo. A Patro Seguros oferece consultoria premium para garantir que sua BMW esteja protegida contra roubo, furto e danos elétricos, com garantia de reparo em concessionária autorizada e peças originais."
+  },
   {
     slug: "seguro-auto-toyota-guarulhos",
     modelo: "Toyota",
