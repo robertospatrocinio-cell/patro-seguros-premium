@@ -388,7 +388,8 @@ const Header = memo(() => {
                       <div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Máquinas</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-maquinas-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Agrícolas</Link>
+                          <Link to="/seguro-trator-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Trator Agrícola</Link>
+                          <Link to="/seguro-maquinas-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Máquinas Agrícolas</Link>
                           <Link to="/seguro-equipamentos-agricolas" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Equipamentos</Link>
                           <Link to="/seguro-drone-agricola" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Drone</Link>
                           <Link to="/seguro-placa-solar" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Placa Solar</Link>
