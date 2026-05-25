@@ -13,6 +13,13 @@ export interface Claim {
   third_party_name: string;
   third_party_phone: string;
   tracking_notes: string;
+  claim_number: string;
+  carrier: string;
+  policy_number: string;
+  location: string;
+  workshop: string;
+  notification_date: string;
+  deductible_amount: number;
   created_at: string;
   updated_at: string;
   contacts?: {

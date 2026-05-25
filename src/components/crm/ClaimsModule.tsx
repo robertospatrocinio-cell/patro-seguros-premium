@@ -61,7 +61,14 @@ const ClaimsModule = () => {
     third_party_count: 0,
     third_party_name: "",
     third_party_phone: "",
-    tracking_notes: ""
+    tracking_notes: "",
+    claim_number: "",
+    carrier: "",
+    policy_number: "",
+    location: "",
+    workshop: "",
+    notification_date: "",
+    deductible_amount: 0
   });
 
   const filteredClaims = claims.filter(claim => 
@@ -96,7 +103,14 @@ const ClaimsModule = () => {
       third_party_count: 0,
       third_party_name: "",
       third_party_phone: "",
-      tracking_notes: ""
+      tracking_notes: "",
+      claim_number: "",
+      carrier: "",
+      policy_number: "",
+      location: "",
+      workshop: "",
+      notification_date: "",
+      deductible_amount: 0
     });
   };
 
@@ -208,10 +222,80 @@ const ClaimsModule = () => {
                 </div>
               )}
 
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Número do Sinistro (Processo)</Label>
+                  <Input 
+                    placeholder="Ex: 2024000123" 
+                    value={formData.claim_number}
+                    onChange={(e) => setFormData({...formData, claim_number: e.target.value})}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Seguradora</Label>
+                  <Input 
+                    placeholder="Nome da Seguradora" 
+                    value={formData.carrier}
+                    onChange={(e) => setFormData({...formData, carrier: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Número da Apólice</Label>
+                  <Input 
+                    placeholder="Ex: 01.02.000345" 
+                    value={formData.policy_number}
+                    onChange={(e) => setFormData({...formData, policy_number: e.target.value})}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Data de Aviso</Label>
+                  <Input 
+                    type="date" 
+                    value={formData.notification_date} 
+                    onChange={(e) => setFormData({...formData, notification_date: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Local do Ocorrido</Label>
+                  <Input 
+                    placeholder="Rua, Cidade, Estado..." 
+                    value={formData.location}
+                    onChange={(e) => setFormData({...formData, location: e.target.value})}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Oficina / Local de Reparo</Label>
+                  <Input 
+                    placeholder="Nome da oficina ou local" 
+                    value={formData.workshop}
+                    onChange={(e) => setFormData({...formData, workshop: e.target.value})}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Valor da Franquia (R$)</Label>
+                  <Input 
+                    type="number" 
+                    placeholder="0,00" 
+                    value={formData.deductible_amount}
+                    onChange={(e) => setFormData({...formData, deductible_amount: parseFloat(e.target.value) || 0})}
+                  />
+                </div>
+              </div>
+
               <div className="space-y-2">
                 <Label>Acompanhamento na Seguradora / Notas de Rastreio</Label>
-                <Input 
-                  placeholder="Número do processo, status atual, etc."
+                <textarea 
+                  className="w-full min-h-[100px] p-3 text-sm rounded-md border border-input bg-background"
+                  placeholder="Status detalhado, pendências, documentos solicitados..."
                   value={formData.tracking_notes}
                   onChange={(e) => setFormData({...formData, tracking_notes: e.target.value})}
                 />
@@ -263,7 +347,8 @@ const ClaimsModule = () => {
                     <TableCell>
                       <div className="flex flex-col">
                         <span className="font-medium">{claim.contacts?.full_name}</span>
-                        <span className="text-xs text-muted-foreground">{claim.contacts?.phone}</span>
+                        <span className="text-xs text-muted-foreground">{claim.carrier || "Seguradora não inf."}</span>
+                        <span className="text-[10px] text-muted-foreground">Proc: {claim.claim_number || "S/N"}</span>
                       </div>
                     </TableCell>
                     <TableCell className="max-w-[200px] truncate">
@@ -296,7 +381,14 @@ const ClaimsModule = () => {
                             third_party_count: claim.third_party_count,
                             third_party_name: claim.third_party_name || "",
                             third_party_phone: claim.third_party_phone || "",
-                            tracking_notes: claim.tracking_notes || ""
+                            tracking_notes: claim.tracking_notes || "",
+                            claim_number: claim.claim_number || "",
+                            carrier: claim.carrier || "",
+                            policy_number: claim.policy_number || "",
+                            location: claim.location || "",
+                            workshop: claim.workshop || "",
+                            notification_date: claim.notification_date || "",
+                            deductible_amount: claim.deductible_amount || 0
                           });
                         }}
                       >
@@ -342,6 +434,69 @@ const ClaimsModule = () => {
                   type="date" 
                   value={formData.claim_date} 
                   onChange={(e) => setFormData({...formData, claim_date: e.target.value})}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label>Número do Sinistro (Processo)</Label>
+                <Input 
+                  value={formData.claim_number}
+                  onChange={(e) => setFormData({...formData, claim_number: e.target.value})}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>Seguradora</Label>
+                <Input 
+                  value={formData.carrier}
+                  onChange={(e) => setFormData({...formData, carrier: e.target.value})}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label>Número da Apólice</Label>
+                <Input 
+                  value={formData.policy_number}
+                  onChange={(e) => setFormData({...formData, policy_number: e.target.value})}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>Data de Aviso</Label>
+                <Input 
+                  type="date" 
+                  value={formData.notification_date} 
+                  onChange={(e) => setFormData({...formData, notification_date: e.target.value})}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label>Local do Ocorrido</Label>
+                <Input 
+                  value={formData.location}
+                  onChange={(e) => setFormData({...formData, location: e.target.value})}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>Oficina / Local de Reparo</Label>
+                <Input 
+                  value={formData.workshop}
+                  onChange={(e) => setFormData({...formData, workshop: e.target.value})}
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="space-y-2">
+                <Label>Valor da Franquia</Label>
+                <Input 
+                  type="number"
+                  value={formData.deductible_amount}
+                  onChange={(e) => setFormData({...formData, deductible_amount: parseFloat(e.target.value) || 0})}
                 />
               </div>
             </div>
