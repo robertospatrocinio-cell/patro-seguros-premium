@@ -553,16 +553,52 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex flex-col md:flex-row gap-4 mb-2">
+        <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input 
-            placeholder="Buscar contatos..." 
+            placeholder="Buscar por nome, telefone ou email..." 
             className="pl-9 bg-white border-slate-200"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
+
+        <div className="flex gap-2">
+          <Select 
+            value={activeFilters.opportunity}
+            onValueChange={val => setActiveFilters({...activeFilters, opportunity: val})}
+          >
+            <SelectTrigger className="w-[180px] bg-white border-orange-200 focus:ring-orange-500">
+              <SelectValue placeholder="Oportunidade" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todas Oportunidades</SelectItem>
+              {INSURANCE_TYPES.map(type => (
+                <SelectItem key={type} value={type}>{type}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+
+          <Select 
+            value={activeFilters.insuranceType}
+            onValueChange={val => setActiveFilters({...activeFilters, insuranceType: val})}
+          >
+            <SelectTrigger className="w-[180px] bg-white border-slate-200">
+              <SelectValue placeholder="Seguro Atual" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">Todos Seguros</SelectItem>
+              {INSURANCE_TYPES.map(type => (
+                <SelectItem key={type} value={type}>{type}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center justify-end gap-4">
+
         
         <div className="flex flex-wrap gap-2">
           <input
