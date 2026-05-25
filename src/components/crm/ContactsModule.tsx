@@ -173,7 +173,8 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
     startDate: "",
     endDate: "",
     insuranceType: "all",
-    carrier: ""
+    carrier: "",
+    opportunity: "all"
   });
 
   const { contacts, isLoading, createContact, updateContact, uploadDocument, forceRefetch, isRefetching } = useContacts();
@@ -318,6 +319,12 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
         });
       }
 
+      if (exportFilters.opportunity !== "all") {
+        filteredData = filteredData.filter(c => 
+          c.opportunities && c.opportunities.includes(exportFilters.opportunity)
+        );
+      }
+
       if (exportFilters.carrier) {
         const carrier = exportFilters.carrier.toLowerCase();
         filteredData = filteredData.filter(c => 
@@ -355,8 +362,10 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
         "Plano Saúde": c.health_plan_type ? `Sim (${c.health_insurance_carrier || "N/A"})` : "Não",
         "Seguro Empresarial": c.has_business_insurance ? `Sim (${c.business_insurance_carrier || "N/A"})` : "Não",
         "Consórcio": c.has_consortium ? `Sim (${c.consortium_type} - ${c.consortium_carrier || "N/A"})` : "Não",
+        "Oportunidades": (c.opportunities || []).join(", "),
+        "Notas Oportunidade": c.opportunity_notes || "",
         "Responsável": c.responsible_name || "",
-        "Notas": c.notes || ""
+        "Notas Gerais": c.notes || ""
       }));
 
       const ws = XLSX.utils.json_to_sheet(exportRows);
@@ -643,6 +652,23 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                         <SelectItem value="saúde">Saúde</SelectItem>
                         <SelectItem value="empresarial">Empresarial</SelectItem>
                         <SelectItem value="consórcio">Consórcio</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-1">
+                    <Label className="text-xs">Oportunidade de Venda</Label>
+                    <Select 
+                      value={exportFilters.opportunity}
+                      onValueChange={val => setExportFilters({...exportFilters, opportunity: val})}
+                    >
+                      <SelectTrigger className="h-8 text-xs border-orange-200 focus:ring-orange-500">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="all">Todas</SelectItem>
+                        {INSURANCE_TYPES.map(type => (
+                          <SelectItem key={type} value={type}>{type}</SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
