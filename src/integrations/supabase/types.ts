@@ -14,6 +14,59 @@ export type Database = {
   }
   public: {
     Tables: {
+      claims: {
+        Row: {
+          claim_date: string
+          client_id: string | null
+          created_at: string
+          description: string | null
+          has_third_party: boolean | null
+          id: string
+          status: string | null
+          third_party_count: number | null
+          third_party_name: string | null
+          third_party_phone: string | null
+          tracking_notes: string | null
+          updated_at: string
+        }
+        Insert: {
+          claim_date?: string
+          client_id?: string | null
+          created_at?: string
+          description?: string | null
+          has_third_party?: boolean | null
+          id?: string
+          status?: string | null
+          third_party_count?: number | null
+          third_party_name?: string | null
+          third_party_phone?: string | null
+          tracking_notes?: string | null
+          updated_at?: string
+        }
+        Update: {
+          claim_date?: string
+          client_id?: string | null
+          created_at?: string
+          description?: string | null
+          has_third_party?: boolean | null
+          id?: string
+          status?: string | null
+          third_party_count?: number | null
+          third_party_name?: string | null
+          third_party_phone?: string | null
+          tracking_notes?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "claims_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "contacts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       contact_insurances: {
         Row: {
           contact_id: string | null
