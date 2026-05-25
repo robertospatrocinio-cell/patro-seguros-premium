@@ -81,7 +81,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Land Rover",
     slug: "land-rover",
     slogan: "Above & Beyond",
-    heroImage: "https://images.unsplash.com/photo-1594976612316-aa97f0653d61?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1734364147225-19185de620e4?q=80&w=2070&auto=format&fit=crop",
     accentColor: "green-800",
     description: "Proteção robusta para o luxo off-road definitivo. Seguros especializados para Range Rover, Discovery e Defender.",
     diferenciais: [
