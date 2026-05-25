@@ -182,7 +182,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "BYD",
     slug: "byd",
     slogan: "Build Your Dreams",
-    heroImage: "https://images.unsplash.com/photo-1704285810006-21876a445f1b?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1695661603598-f22262cc26a8?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-500",
     description: "A revolução elétrica protegida pela Patro Seguros. Parceiros das melhores seguradoras para a linha BYD.",
     diferenciais: [
@@ -196,13 +196,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre o carregador Wallbox?", a: "Sim, oferecemos cobertura adicional para o equipamento de carregamento residencial." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1704285810006-21876a445f1b?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1691230485303-99933857597f?q=80&w=2070&auto=format&fit=crop",
   },
   gwm: {
     name: "GWM",
     slug: "gwm",
     slogan: "Hello Tomorrow",
-    heroImage: "https://images.unsplash.com/photo-1705603770176-78716b94e339?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1702525790471-ef6652c42171?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-600",
     description: "Sua jornada híbrida começa protegida. Seguros especializados para a linha Haval e Ora da GWM.",
     diferenciais: [
@@ -216,7 +216,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "A marca é bem aceita pelas seguradoras?", a: "Sim, trabalhamos com seguradoras que possuem parcerias e aceitação total para GWM." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1705603770176-78716b94e339?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1691230491321-72993857597f?q=80&w=2070&auto=format&fit=crop",
   },
   lexus: {
     name: "Lexus",
