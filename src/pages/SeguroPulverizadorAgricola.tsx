@@ -73,8 +73,9 @@ Com atendimento 100% remoto, facilitamos a contratação para produtores de todo
         "Produtores de Fruticultura Mechanizada",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Especialistas em riscos rurais e alta tecnologia no campo",
-        "Parceria com as maiores seguradoras de pulverizadores do mundo",
         "Consultoria para correta valoração de tecnologia embarcada",
         "Suporte em sinistros com foco na agilidade de aplicação",
         "Atendimento nacional para todas as fronteiras agrícolas",

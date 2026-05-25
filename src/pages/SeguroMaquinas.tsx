@@ -79,6 +79,8 @@ Na Patro Seguros, avaliamos seu parque de máquinas, identificamos os equipament
         "Empresas com servidores e equipamentos de TI",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Avaliação correta do valor de reposição dos equipamentos",
         "Análise de riscos específicos da operação",
         "Orientação sobre lucros cessantes adequados",

@@ -73,8 +73,9 @@ Com atendimento 100% remoto e agilidade na regulação de sinistros, a Patro Seg
         "Locadoras de Maquinário Pesado para o Agro",
       ]}
       whyPatro={[
+        "Especialista em seguros de máquinas e equipamentos",
+        "Parceria com fabricantes e concessionárias pelo Brasil",
         "Profundo conhecimento técnico do setor sucroenergético",
-        "Parceria com as maiores seguradoras de riscos rurais do mundo",
         "Consultoria para dimensionamento de verbas em frotas complexas",
         "Suporte em sinistros com foco na mínima parada operacional",
         "Atendimento nacional para todas as regiões produtoras do Brasil",
