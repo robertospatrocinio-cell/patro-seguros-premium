@@ -222,7 +222,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "Lexus",
     slug: "lexus",
     slogan: "Experience Amazing",
-    heroImage: "https://images.unsplash.com/photo-1549416878-b9ca95e26903?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1707026563720-40e8a7da0e8f?q=80&w=2070&auto=format&fit=crop",
     accentColor: "zinc-600",
     description: "O luxo japonês e a confiabilidade híbrida protegidos pela Patro Seguros. Experiência Omotenashi em seguros.",
     diferenciais: [
