@@ -37,6 +37,7 @@ import { toast } from "sonner";
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [opportunitySubTab, setOpportunitySubTab] = useState("opportunities");
   const [selectedContact, setSelectedContact] = useState<any>(null);
   const { data = [], isLoading: isLoadingLeads, error: errorLeads, refetch: refetchLeads, isRefetching: isRefetchingLeads } = useLeads();
   const { 
@@ -270,6 +271,10 @@ const CRMPage = () => {
                   setSelectedContact(contact);
                   setActiveTab("contacts");
                 }}
+                onCarriersClick={() => {
+                  setOpportunitySubTab("carriers");
+                  setActiveTab("opportunities");
+                }}
               />
             </TabsContent>
 
@@ -313,7 +318,7 @@ const CRMPage = () => {
             </TabsContent>
 
             <TabsContent value="opportunities" className="mt-0">
-              <OpportunitiesModule />
+              <OpportunitiesModule initialTab={opportunitySubTab} />
             </TabsContent>
 
             <TabsContent value="contacts" className="mt-0">
