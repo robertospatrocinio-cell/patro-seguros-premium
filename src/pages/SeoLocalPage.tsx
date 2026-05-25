@@ -92,6 +92,8 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
         ? "https://images.unsplash.com/photo-1718042457850-705d8f6f5923?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("gwm")
         ? "https://images.unsplash.com/photo-1707172798935-773a4b910e97?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("jeep")
+        ? "https://images.unsplash.com/photo-1620248430635-f0cc71871239?q=80&w=2070&auto=format&fit=crop"
         : heroImg}
       whatsappMessage={`Olá! Vim pela página ${config.title} e gostaria de uma cotação rápida.`}
     />

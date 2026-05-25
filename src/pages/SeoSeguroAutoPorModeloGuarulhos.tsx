@@ -136,7 +136,7 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
                           <Car className="h-5 w-5 text-primary shrink-0" aria-hidden="true" />
                           <div className="min-w-0">
                             <p className="text-sm font-semibold text-foreground truncate">
-                              Seguro {m.modelo} em Guarulhos
+                              Seguro {m.modelo} {m.modeloShort !== m.modelo ? m.modeloShort.replace(m.modelo, "").trim() : ""} em Guarulhos
                             </p>
                             <p className="text-xs text-muted-foreground truncate">{m.priceRange}</p>
                           </div>
