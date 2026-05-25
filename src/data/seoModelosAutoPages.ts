@@ -624,7 +624,7 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-gwm-guarulhos",
     modelo: "GWM",
-    modeloShort: "GWM",
+    modeloShort: "Haval",
     categoria: "premium",
     fipeRange: "R$ 150.000 a R$ 350.000",
     priceRange: { min: 4500, max: 12000, label: "R$ 4.500 a R$ 12.000/ano" },
