@@ -14,6 +14,7 @@ import {
   Plus,
   Paperclip,
   User,
+  History as HistoryIcon,
   Calendar,
   Baby,
   Car,
@@ -1455,7 +1456,7 @@ const ContactsModule = () => {
                               Editar Contato
                             </DropdownMenuItem>
                             <DropdownMenuItem onClick={() => handleOpenHistory(contact)}>
-                              <History className="w-4 h-4 mr-2" />
+                              <HistoryIcon className="w-4 h-4 mr-2" />
                               Histórico de Conversas
                             </DropdownMenuItem>
                           </DropdownMenuContent>
