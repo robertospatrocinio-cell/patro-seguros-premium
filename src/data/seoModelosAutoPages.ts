@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-john-deere-guarulhos",
+    modelo: "John Deere",
+    modeloShort: "John Deere",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 5.000.000+",
+    priceRange: { min: 2500, max: 45000, label: "R$ 2.500 a R$ 45.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Tecnologia de ponta com o ecossistema JDLink de telemetria",
+      "Alta valorização e a maior rede de assistência técnica no campo",
+      "Sistemas de agricultura de precisão integrados de fábrica",
+    ],
+    cons: [
+      "Custo elevado de componentes eletrônicos e sensores de bico",
+      "Desejo de mercado por quadrilhas especializadas em peças",
+      "Exigência de monitoramento e vistorias técnicas rigorosas",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "excelente rede referenciada e peças genuínas John Deere" },
+      { name: "Allianz", reason: "referência mundial em seguros para máquinas de alto valor" },
+      { name: "Tokio Marine", reason: "atendimento VIP com guincho especializado para máquinas pesadas" },
+      { name: "Sompo", reason: "especialista em agronegócio e riscos de alta tecnologia" },
+    ],
+    context:
+      "John Deere é o padrão ouro do agronegócio mundial. Em todo o Brasil, proprietários de tratores Série 5 a 9, colheitadeiras S700 e pulverizadores buscam uma proteção que acompanhe o nível de tecnologia do cervo saltante. A Patro Seguros oferece consultoria exclusiva para garantir que seu John Deere esteja protegido contra incêndio, roubo e quebra de máquinas, garantindo peças 100% originais e suporte total na regulação de sinistros complexos.",
+  },
+  {
     slug: "seguro-caminhonete-premium-guarulhos",
     modelo: "Caminhonete e Pick-up Premium",
     modeloShort: "Pick-ups",
