@@ -257,20 +257,21 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-chevrolet-guarulhos",
     modelo: "Chevrolet",
-    modeloShort: "GM",
-    categoria: "popular",
+    modeloShort: "Tracker",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 45.000 a R$ 280.000",
     priceRange: { min: 1900, max: 5800, label: "R$ 1.900 a R$ 5.800/ano" },
     theftProfile: "médio-alto",
-    pros: ["Confiabilidade", "Manutenção simples"],
-    cons: ["Modelos visados"],
+    pros: ["Confiabilidade", "Manutenção simples", "Tecnologia OnStar", "Líder de categoria"],
+    cons: ["Modelos visados", "Seguro de SUV pode oscilar"],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "Tradicional" },
-      { name: "Tokio Marine", reason: "Competitiva" },
+      { name: "Porto Seguro", reason: "Tradicional com benefícios OnStar" },
+      { name: "Tokio Marine", reason: "Competitiva para a linha Tracker e Onix" },
       { name: "Azul Seguros", reason: "Bom custo-benefício" },
       { name: "Allianz", reason: "Boa aceitação para linha Chevrolet" }
     ],
-    context: "A Chevrolet possui uma linha completa de veículos no Brasil."
+    context: "A Chevrolet é uma das marcas mais vendidas do Brasil. Em Guarulhos, modelos como a Tracker, Onix e Spin dominam as ruas, exigindo uma proteção completa e inteligente."
   },
   {
     slug: "seguro-fiat-guarulhos",
