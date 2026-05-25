@@ -2,6 +2,8 @@ import type { ComponentProps } from "react";
 import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTemplate";
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
 import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
+import { DEFAULT_INSURERS } from "@/data/localDefaults";
+
 
 /**
  * Configuração de dados para uma página de SEO Local.

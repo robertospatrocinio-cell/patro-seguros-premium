@@ -306,6 +306,34 @@ const MODELOS: ModeloSeed[] = [
     ],
     context: "A Hyundai se destaca pelo HB20 e Creta em Guarulhos."
   },
+  {
+    slug: "seguro-auto-bmw-guarulhos",
+    modelo: "BMW",
+    modeloShort: "BMW",
+    categoria: "premium",
+    fipeRange: "R$ 180.000 a R$ 1.500.000+",
+    priceRange: { min: 4200, max: 28000, label: "R$ 4.200 a R$ 28.000/ano" },
+    theftProfile: "médio-alto",
+    pros: [
+      "Engenharia alemã de alta performance",
+      "Alta tecnologia embarcada e segurança ativa",
+      "Valorização de mercado e prestígio da marca"
+    ],
+    cons: [
+      "Custo elevado de manutenção e peças genuínas",
+      "Modelos M e SUVs X5/X6 são altamente visados",
+      "Exigência de rastreador e vistorias rigorosas"
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "melhor rede de concessionárias e serviços premium" },
+      { name: "Allianz", reason: "excelente precificação para SUVs e linha iPerformance" },
+      { name: "Tokio Marine", reason: "assistência 24h VIP e guincho prancha" },
+      { name: "Liberty", reason: "condições exclusivas para veículos de alto padrão" }
+    ],
+    context:
+      "A BMW é a definição do prazer de dirigir. Em Guarulhos, proprietários de Série 3, X1, X5 e da linha M buscam uma proteção que acompanhe a sofisticação de seu veículo. A Patro Seguros oferece consultoria premium para garantir que sua BMW esteja protegida contra roubo, furto e danos elétricos, com garantia de reparo em concessionária autorizada e peças originais."
+  },
+
 ];
 
 
