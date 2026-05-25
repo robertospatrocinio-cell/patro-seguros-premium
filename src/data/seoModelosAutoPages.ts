@@ -8,6 +8,7 @@ interface ModeloSeed {
   modelo: string;
   modeloShort: string;
   categoria: Categoria;
+  heroImg?: string;
   fipeRange: string;
   priceRange: { min: number; max: number; label: string };
   theftProfile: "baixo" | "médio" | "médio-alto" | "alto";
@@ -336,8 +337,9 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-toyota-guarulhos",
     modelo: "Toyota",
-    modeloShort: "Toyota",
-    categoria: "popular",
+    modeloShort: "Corolla Cross",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 60.000 a R$ 350.000",
     priceRange: { min: 2200, max: 7500, label: "R$ 2.200 a R$ 7.500/ano" },
     theftProfile: "médio",
@@ -848,4 +850,5 @@ export const MODELO_LIST = MODELOS.map((m) => ({
   modeloShort: m.modeloShort,
   categoria: m.categoria,
   priceRange: m.priceRange.label,
+  heroImg: m.heroImg,
 }));

@@ -6,6 +6,7 @@ import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import FAQSchema from "@/components/FAQSchema";
+import OptimizedImage from "@/components/OptimizedImage";
 import { MODELO_LIST } from "@/data/seoModelosAutoPages";
 import { trackInternalLinkClick, trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
@@ -130,18 +131,29 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
                             label: m.modelo,
                           })
                         }
-                        className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-card px-4 py-4 hover:border-primary hover:shadow-md transition-all"
+                        className="group flex flex-col gap-0 rounded-xl border border-border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all"
                       >
-                        <div className="flex items-center gap-3 min-w-0">
-                          <Car className="h-5 w-5 text-primary shrink-0" aria-hidden="true" />
-                          <div className="min-w-0">
-                            <p className="text-sm font-semibold text-foreground truncate">
-                              Seguro {m.modelo} {m.modeloShort !== m.modelo ? m.modeloShort.replace(m.modelo, "").trim() : ""} em Guarulhos
-                            </p>
-                            <p className="text-xs text-muted-foreground truncate">{m.priceRange}</p>
+                        {m.heroImg && (
+                          <div className="w-full h-32 overflow-hidden bg-muted">
+                            <OptimizedImage
+                              src={m.heroImg}
+                              alt={`Seguro ${m.modelo} ${m.modeloShort}`}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
                           </div>
+                        )}
+                        <div className="flex items-center justify-between gap-3 px-4 py-4">
+                          <div className="flex items-center gap-3 min-w-0">
+                            <Car className="h-5 w-5 text-primary shrink-0" aria-hidden="true" />
+                            <div className="min-w-0">
+                              <p className="text-sm font-semibold text-foreground truncate">
+                                Seguro {m.modelo} {m.modeloShort !== m.modelo ? m.modeloShort.replace(m.modelo, "").trim() : ""} em Guarulhos
+                              </p>
+                              <p className="text-xs text-muted-foreground truncate">{m.priceRange}</p>
+                            </div>
+                          </div>
+                          <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
                         </div>
-                        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" aria-hidden="true" />
                       </Link>
                     </li>
                   ))}
