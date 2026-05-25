@@ -80,7 +80,9 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       tips={config.tips}
       nearbyAreas={config.nearbyAreas}
       relatedInsurances={config.relatedInsurances}
-      heroImage={heroImg}
+      heroImage={config.slug.includes("land-rover") 
+        ? "https://images.unsplash.com/photo-1549430635-f09f874c7764?q=80&w=2070&auto=format&fit=crop"
+        : heroImg}
       whatsappMessage={`Olá! Vim pela página ${config.title} e gostaria de uma cotação rápida.`}
     />
     {GALPAO_CLUSTER_SLUGS.has(config.slug) && (
