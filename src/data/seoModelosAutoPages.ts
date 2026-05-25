@@ -698,6 +698,25 @@ const MODELOS: ModeloSeed[] = [
     ],
     context: "Lexus é a perfeição em hospitalidade e engenharia japonesa (Omotenashi)."
   },
+  {
+    slug: "seguro-auto-ford-guarulhos",
+    modelo: "Ford",
+    modeloShort: "Ford F-150",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1707255198045-814ca55260f9?q=80&w=2070&auto=format&fit=crop",
+    fipeRange: "R$ 60.000 a R$ 550.000",
+    priceRange: { min: 2800, max: 18000, label: "R$ 2.800 a R$ 18.000/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Performance extrema", "Ícone de robustez", "Tecnologia avançada"],
+    cons: ["Tamanho desafiador em cidades", "Consumo elevado"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Excelente aceitação para a linha F-150 e Ranger" },
+      { name: "Tokio Marine", reason: "Assistência 24h robusta para pick-ups" },
+      { name: "Allianz", reason: "Condições competitivas para veículos premium" },
+      { name: "Bradesco", reason: "Ampla rede de atendimento em Guarulhos" }
+    ],
+    context: "A Ford é sinônimo de força e inovação. Em Guarulhos, a F-150 e a Ranger são os destaques para quem busca o máximo em performance e capacidade."
+  },
 ];
 
 
