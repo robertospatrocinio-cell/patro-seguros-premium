@@ -8,6 +8,7 @@ interface ModeloSeed {
   modelo: string;
   modeloShort: string;
   categoria: Categoria;
+  heroImg?: string;
   fipeRange: string;
   priceRange: { min: number; max: number; label: string };
   theftProfile: "baixo" | "médio" | "médio-alto" | "alto";
