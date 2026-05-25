@@ -236,6 +236,6 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro é similar ao da Toyota?", a: "Sim, aproveitamos a excelente aceitação da marca Toyota para oferecer condições exclusivas Lexus." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1625729580690-aa997edb09ad?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1551522435-a13afa10f103?q=80&w=2070&auto=format&fit=crop",
   },
 };
