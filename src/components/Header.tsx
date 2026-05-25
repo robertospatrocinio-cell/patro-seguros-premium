@@ -613,9 +613,11 @@ const Header = memo(() => {
                 <MobileLink to="/seguro-auto-peugeot-guarulhos">Peugeot</MobileLink>
                 <MobileLink to="/seguro-auto-citroen-guarulhos">Citroën</MobileLink>
                 <MobileLink to="/seguro-auto-caoa-chery-guarulhos">Caoa Chery</MobileLink>
-                <MobileLink to="/seguro-auto-byd-guarulhos">BYD</MobileLink>
-                <MobileLink to="/seguro-auto-gwm-guarulhos">GWM</MobileLink>
+                <MobileLink to="/seguro-byd">BYD</MobileLink>
+                <MobileLink to="/seguro-gwm">GWM</MobileLink>
+                <MobileLink to="/seguro-lexus">Lexus</MobileLink>
                 <MobileLink to="/seguro-auto-gac-guarulhos">GAC</MobileLink>
+
               </div>
               <MobileSubLabel>Vida e Saúde</MobileSubLabel>
               <div className="grid grid-cols-2 gap-0.5">
