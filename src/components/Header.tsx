@@ -71,6 +71,7 @@ const Header = memo(() => {
     { label: "Garantia", to: "/seguro-garantia", section: "empresarial" },
     { label: "Vida PME", to: "/seguro-vida-pme", section: "empresarial" },
     { label: "Saúde Empresarial", to: "/plano-saude-empresarial", section: "empresarial" },
+    { label: "Trator Agrícola", to: "/seguro-trator-agricola", section: "agro" },
     { label: "Máquinas Agrícolas", to: "/seguro-maquinas-agricolas", section: "agro" },
     { label: "Equipamentos Agrícolas", to: "/seguro-equipamentos-agricolas", section: "agro" },
     { label: "Drone Agrícola", to: "/seguro-drone-agricola", section: "agro" },
