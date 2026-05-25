@@ -9,7 +9,7 @@ const SeguroGeradorEnergia = () => {
       subtitle="Proteção de alto nível para garantir a continuidade energética do seu negócio"
       icon="⚡"
       badge="Especialista Corporativo"
-      metaDescription="Seguro para Geradores de Energia em Guarulhos: proteção contra danos elétricos, quebra de maquinário e incêndio. Garanta a energia do seu negócio com a Patro Seguros."
+      metaDescription="Seguro para Geradores de Energia: proteção contra danos elétricos, quebra de maquinário e incêndio. Garanta a energia do seu negócio com a Patro Seguros."
       description="O Seguro de Gerador de Energia é uma proteção técnica especializada para equipamentos cruciais que sustentam operações em indústrias, condomínios, hospitais e centros de dados."
       detailedDescription={`Em um cenário de instabilidade energética, o gerador não é apenas um acessório, mas o coração da continuidade operacional. Uma falha crítica, um curto-circuito ou um dano mecânico acidental pode paralisar produções inteiras, comprometer estoques refrigerados ou colocar em risco a segurança de condomínios e centros médicos.
 

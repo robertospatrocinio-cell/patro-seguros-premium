@@ -9,7 +9,7 @@ const SeguroTratorIndustrial = () => {
       subtitle="Proteção premium para tratores de esteira, pás carregadeiras e escavadeiras. Segurança total para o seu canteiro de obras e operações industriais."
       icon="🚜"
       badge="Especialista em Máquinas Pesadas"
-      metaDescription="Seguro para Trator Industrial e Linha Amarela: proteção contra roubo, tombamento e incêndio em obras e indústrias. Cotação rápida e consultoria técnica Patro Seguros."
+      metaDescription="Seguro para Trator Industrial e Linha Amarela: proteção contra roubo, tombamento e incêndio em obras e indústrias. Cotação rápida Patro Seguros."
       description="O Trator Industrial é a força motriz de grandes obras e operações logísticas. O Seguro de Linha Amarela da Patro Seguros oferece a robustez necessária para proteger equipamentos de alto valor contra os riscos severos do ambiente de trabalho pesado."
       detailedDescription={`Equipamentos da Linha Amarela, como tratores de esteira, escavadeiras e retroescavadeiras, representam um capital imobilizado significativo. Um incidente operacional, como um tombamento em terreno instável ou uma falha elétrica no sistema hidráulico, pode gerar custos de reparo proibitivos e paralisar cronogramas contratuais.
 

@@ -9,7 +9,7 @@ const SeguroPropriedadeRural = () => {
       subtitle="Proteção de alto nível para o seu maior patrimônio. Segurança total para sedes, benfeitorias e instalações."
       icon="🏡"
       badge="Especialista em Patrimônio Agro"
-      metaDescription="Seguro Propriedade Rural: proteção completa para sedes, galpões, armazéns e cercas contra incêndio e vendaval em todo o Brasil. Atendimento 100% remoto Patro Seguros."
+      metaDescription="Seguro Propriedade Rural: proteção para sedes, galpões, armazéns e cercas contra incêndio e vendaval em todo o Brasil. Atendimento remoto Patro Seguros."
       description="A propriedade rural é a base de toda a produção. O Seguro de Propriedade Rural da Patro Seguros oferece a proteção robusta que as estruturas físicas e benfeitorias da sua fazenda exigem."
       detailedDescription={`Investir em infraestrutura rural exige capital e planejamento. De sedes imponentes a galpões de máquinas e silos de armazenamento, cada estrutura é vital para a operação. O risco de eventos climáticos, como vendavais e granizos, ou acidentes como incêndios e quedas de raios, pode gerar prejuízos que comprometem gerações de trabalho.
 

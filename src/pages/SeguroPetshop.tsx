@@ -9,7 +9,7 @@ const SeguroPetshop = () => {
       subtitle="Proteção completa para o seu negócio, os animais sob seus cuidados e sua responsabilidade civil."
       icon="🐾"
       badge="Especialista em Negócios Pet"
-      metaDescription="Seguro para Petshops e Clínicas Veterinárias em Guarulhos: proteção contra incêndio, roubo e RC Profissional para banho, tosa e atendimento. Cotação Patro Seguros."
+      metaDescription="Seguro para Petshops e Clínicas Veterinárias: proteção contra incêndio, roubo e RC Profissional para banho, tosa e atendimento. Cotação Patro Seguros."
       description="Gerenciar um petshop ou clínica veterinária envolve cuidar do patrimônio e da vida dos animais de seus clientes. O seguro especializado da Patro Seguros oferece a tranquilidade que você precisa para operar."
       detailedDescription={`O mercado pet cresce exponencialmente, mas os riscos também aumentam. Além dos danos físicos ao imóvel (incêndio, elétrica), um petshop lida com a responsabilidade sobre seres vivos. Um acidente durante o banho e tosa, uma fuga ou um erro em procedimento clínico pode gerar prejuízos financeiros e danos imensuráveis à reputação do seu negócio.
 
