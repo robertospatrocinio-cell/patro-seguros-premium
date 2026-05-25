@@ -1355,6 +1355,44 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                   onChange={e => setNewContact({...newContact, notes: e.target.value})}
                 />
               </div>
+
+              <Separator className="my-4" />
+              
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <Label className="text-primary font-bold">Oportunidades de Venda</Label>
+                  <p className="text-[10px] text-muted-foreground mb-2">Selecione produtos que este cliente ainda não tem, mas possui perfil para adquirir.</p>
+                  <div className="grid grid-cols-2 gap-2 p-3 border rounded-lg bg-slate-50/50">
+                    {INSURANCE_TYPES.map((type) => (
+                      <div key={type} className="flex items-center space-x-2">
+                        <Checkbox 
+                          id={`opt-${type}`} 
+                          checked={newContact.opportunities?.includes(type)}
+                          onCheckedChange={(checked) => {
+                            const current = newContact.opportunities || [];
+                            const updated = checked 
+                              ? [...current, type]
+                              : current.filter(t => t !== type);
+                            setNewContact({ ...newContact, opportunities: updated });
+                          }}
+                        />
+                        <Label htmlFor={`opt-${type}`} className="text-xs cursor-pointer">{type}</Label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="opportunity_notes">Notas de Estratégia Comercial</Label>
+                  <textarea
+                    id="opportunity_notes"
+                    className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    placeholder="Ex: Tem interesse em seguro residencial quando mudar de casa em Julho..."
+                    value={newContact.opportunity_notes || ""}
+                    onChange={(e) => setNewContact({ ...newContact, opportunity_notes: e.target.value })}
+                  />
+                </div>
+              </div>
             </div>
             
             <DialogFooter>
@@ -1424,12 +1462,24 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                       </Badge>
                     </TableCell>
                     <TableCell>
-                      <div className="flex flex-wrap gap-1">
-                        {contact.contact_insurances?.map((ci: any, idx: number) => (
-                          <Badge key={idx} variant="secondary" className="text-[10px] px-1.5 h-5">
-                            {ci.insurance_type}
-                          </Badge>
-                        ))}
+                      <div className="flex flex-col gap-2">
+                        <div className="flex flex-wrap gap-1">
+                          {contact.contact_insurances?.map((ci: any, idx: number) => (
+                            <Badge key={idx} variant="secondary" className="text-[10px] px-1.5 h-5">
+                              {ci.insurance_type}
+                            </Badge>
+                          ))}
+                        </div>
+                        {contact.opportunities && contact.opportunities.length > 0 && (
+                          <div className="flex flex-wrap gap-1">
+                            <span className="text-[9px] font-bold text-orange-600 uppercase w-full">Oportunidades:</span>
+                            {contact.opportunities.map((opt: string, idx: number) => (
+                              <Badge key={idx} variant="outline" className="text-[10px] px-1.5 h-5 border-orange-200 text-orange-600 bg-orange-50">
+                                {opt}
+                              </Badge>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </TableCell>
                     <TableCell>
