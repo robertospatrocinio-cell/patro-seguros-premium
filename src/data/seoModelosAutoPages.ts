@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-volkswagen-guarulhos",
+    modelo: "Volkswagen",
+    modeloShort: "VW",
+    categoria: "premium",
+    fipeRange: "R$ 45.000 a R$ 380.000+",
+    priceRange: { min: 1400, max: 9500, label: "R$ 1.400 a R$ 9.500/ano" },
+    theftProfile: "alto",
+    pros: [
+      "Engenharia alemã com foco em segurança e performance (TSI)",
+      "Maior rede de assistência e facilidade de reposição de peças",
+      "Alta liquidez para modelos como Polo, T-Cross, Nivus e Tiguan",
+    ],
+    cons: [
+      "Modelos da linha Polo e T-Cross são extremamente visados para furto",
+      "Custo de eletrônica embarcada e faróis de LED em sinistros",
+      "Exigência de rastreador obrigatório em diversos CEPs de Guarulhos",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "tradição com a marca e benefícios em oficinas autorizadas VW" },
+      { name: "Allianz", reason: "excelente precificação para SUVs Nivus, T-Cross e Taos" },
+      { name: "Tokio Marine", reason: "produtos competitivos para o perfil familiar da linha Tiguan" },
+      { name: "Azul Seguros", reason: "preços agressivos para modelos Polo e Virtus" },
+    ],
+    context:
+      "A Volkswagen é a marca que combina a precisão alemã com o coração brasileiro. Em Guarulhos, proprietários de modelos tecnológicos como o Nivus, a robusta Amarok ou o sofisticado Taos buscam uma proteção que acompanhe a inovação da marca. A Patro Seguros oferece consultoria especializada para garantir que seu VW esteja protegido com peças originais e assistência técnica 24h ágil, preservando a performance e a segurança que só um Volkswagen oferece.",
+  },
+  {
     slug: "seguro-auto-fiat-guarulhos",
     modelo: "Fiat",
     modeloShort: "Fiat",
