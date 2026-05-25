@@ -356,7 +356,8 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-honda-guarulhos",
     modelo: "Honda",
-    modeloShort: "Honda",
+    modeloShort: "Honda HR-V",
+    heroImg: "https://images.unsplash.com/photo-1707172798935-773a4b910e97?q=80&w=2070&auto=format&fit=crop",
     categoria: "popular",
     fipeRange: "R$ 65.000 a R$ 280.000",
     priceRange: { min: 2400, max: 8000, label: "R$ 2.400 a R$ 8.000/ano" },
