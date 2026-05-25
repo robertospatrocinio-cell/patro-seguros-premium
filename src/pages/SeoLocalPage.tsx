@@ -82,6 +82,10 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       relatedInsurances={config.relatedInsurances}
       heroImage={config.slug.includes("land-rover") 
         ? "https://images.unsplash.com/photo-1549430635-f09f874c7764?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("jaguar")
+        ? "https://images.unsplash.com/photo-1574044536224-037048a609d0?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("audi")
+        ? "https://images.unsplash.com/photo-1549416878-b9ca95e26903?q=80&w=2070&auto=format&fit=crop"
         : heroImg}
       whatsappMessage={`Olá! Vim pela página ${config.title} e gostaria de uma cotação rápida.`}
     />
