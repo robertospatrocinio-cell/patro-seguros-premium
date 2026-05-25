@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-auto-audi-guarulhos",
+    modelo: "Audi",
+    modeloShort: "Audi",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 1.800.000+",
+    priceRange: { min: 4200, max: 28000, label: "R$ 4.200 a R$ 28.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Vanguarda tecnológica com o sistema de tração Quattro",
+      "Design progressivo e acabamento interno de referência premium",
+      "Sistemas de segurança ativa avançados e alto valor de revenda",
+    ],
+    cons: [
+      "Manutenção especializada e custos de eletrônica embarcada",
+      "Peças de reposição importadas que podem elevar o prêmio",
+      "Exigência de rastreadores em modelos de performance (RS)",
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "cobertura premium com serviço de concierge e assistência 24h exclusiva" },
+      { name: "Allianz", reason: "excelente custo-benefício para modelos SUV da linha Q (Q3, Q5, Q7)" },
+      { name: "SulAmérica", reason: "rede de oficinas referenciadas de alto padrão para modelos importados" },
+      { name: "Tokio Marine", reason: "preço competitivo para modelos de entrada como A3 e Q3" },
+    ],
+    context:
+      "A Audi representa o equilíbrio perfeito entre luxo, tecnologia e performance. Em Guarulhos, proprietários de modelos como A3, A4, Q3 e a linha de alta performance RS buscam uma proteção que acompanhe a sofisticação da marca das quatro argolas. A Patro Seguros oferece consultoria especializada para garantir reparos com peças genuínas e atendimento em rede autorizada, preservando a garantia e a segurança do seu Audi.",
+  },
+  {
     slug: "seguro-auto-porsche-guarulhos",
     modelo: "Porsche",
     modeloShort: "Porsche",
