@@ -31,6 +31,7 @@ const Header = memo(() => {
     { label: "Auto", to: "/seguro-auto", section: "pessoal" },
     { label: "Moto", to: "/seguro-moto", section: "pessoal" },
     { label: "Caminhão", to: "/seguro-caminhao", section: "pessoal" },
+    { label: "Micro-ônibus", to: "/seguro-micro-onibus", section: "pessoal" },
     { label: "Bike", to: "/seguro-bike", section: "pessoal" },
     { label: "Carta Verde", to: "/seguro-carta-verde", section: "pessoal" },
     { label: "Motorista App", to: "/seguro-motorista-app", section: "pessoal" },
@@ -272,6 +273,7 @@ const Header = memo(() => {
                           <Link to="/seguro-auto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Auto</Link>
                           <Link to="/seguro-moto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Moto</Link>
                           <Link to="/seguro-caminhao" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Caminhão</Link>
+                          <Link to="/seguro-micro-onibus" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Micro-ônibus</Link>
                           <Link to="/seguro-bike" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Bike</Link>
                           <Link to="/seguro-carta-verde" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Carta Verde</Link>
                           <Link to="/seguro-motorista-app" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Motorista App</Link>

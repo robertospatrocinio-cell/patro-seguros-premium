@@ -118,7 +118,7 @@ const Index = () => {
                 Atendimento personalizado · Melhores seguradoras · Cotação rápida
               </p>
               <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
-                Comparamos cotações de seguro auto, residencial, vida, empresarial e plano de saúde entre as principais seguradoras do mercado em Guarulhos e região.
+                Comparamos cotações de seguro auto, residencial, vida, empresarial, máquinas e equipamentos, e plano de saúde entre as principais seguradoras do mercado em Guarulhos e região.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">

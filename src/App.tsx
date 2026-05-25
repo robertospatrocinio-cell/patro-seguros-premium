@@ -79,6 +79,7 @@ const SeguroAcidentesPessoais = lazy(() => import("./pages/SeguroAcidentesPessoa
 const SeguroEstagiario = lazy(() => import("./pages/SeguroEstagiario"));
 const SeguroFiancaLocaticia = lazy(() => import("./pages/SeguroFiancaLocaticia"));
 const SeguroCaminhao = lazy(() => import("./pages/SeguroCaminhao"));
+const SeguroMicroOnibus = lazy(() => import("./pages/SeguroMicroOnibus"));
 const SeguroVidaPME = lazy(() => import("./pages/SeguroVidaPME"));
 const SeguroArmazenagem = lazy(() => import("./pages/SeguroArmazenagem"));
 const SeguroPlacaSolar = lazy(() => import("./pages/SeguroPlacaSolar"));
@@ -489,6 +490,7 @@ const App = () => {
             <Route path="/seguro-silo-agricola" element={<SeguroSiloAgricola />} />
             <Route path="/seguro-imobiliario" element={<SeguroImobiliario />} />
             <Route path="/seguro-funeral" element={<SeguroFuneral />} />
+            <Route path="/seguro-micro-onibus" element={<SeguroMicroOnibus />} />
             <Route path="/seguro-motorista-app" element={<SeguroMotoristaApp />} />
             <Route path="/landing-pages" element={<LandingPages />} />
             <Route path="/lp/seguro-auto" element={<LandingSeguroAuto />} />
