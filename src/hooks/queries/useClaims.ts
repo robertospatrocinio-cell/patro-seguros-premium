@@ -45,9 +45,10 @@ export const useClaims = () => {
 
   const createClaim = useMutation({
     mutationFn: async (newClaim: Partial<Claim>) => {
+      const { contacts, ...dbClaim } = newClaim as any;
       const { data, error } = await supabase
         .from("claims")
-        .insert([newClaim])
+        .insert([dbClaim])
         .select()
         .single();
 
