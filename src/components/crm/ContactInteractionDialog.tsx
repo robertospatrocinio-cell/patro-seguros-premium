@@ -22,7 +22,7 @@ import { useInteractions } from "@/hooks/queries/useInteractions";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { 
-  History, 
+  History as HistoryIcon, 
   MessageSquare, 
   Phone, 
   Mail, 
@@ -77,7 +77,7 @@ const ContactInteractionDialog = ({ contact, open, onOpenChange }: ContactIntera
       case "WhatsApp": return <MessageSquare className="w-4 h-4 text-green-500" />;
       case "Ligação": return <Phone className="w-4 h-4 text-blue-500" />;
       case "Email": return <Mail className="w-4 h-4 text-purple-500" />;
-      default: return <History className="w-4 h-4 text-slate-500" />;
+      default: return <HistoryIcon className="w-4 h-4 text-slate-500" />;
     }
   };
 
@@ -103,7 +103,7 @@ const ContactInteractionDialog = ({ contact, open, onOpenChange }: ContactIntera
           <div className="flex-1 p-6 overflow-hidden flex flex-col border-r border-slate-100">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-slate-900 flex items-center gap-2">
-                <History className="w-4 h-4" /> Histórico
+                <HistoryIcon className="w-4 h-4" /> Histórico
               </h3>
               <Badge variant="secondary" className="text-[10px]">
                 {interactions?.length || 0} registros
@@ -140,7 +140,7 @@ const ContactInteractionDialog = ({ contact, open, onOpenChange }: ContactIntera
                 </div>
               ) : (
                 <div className="text-center py-10 opacity-40">
-                  <History className="w-12 h-12 mx-auto mb-2" />
+                  <HistoryIcon className="w-12 h-12 mx-auto mb-2" />
                   <p className="text-sm">Nenhum histórico encontrado</p>
                 </div>
               )}
