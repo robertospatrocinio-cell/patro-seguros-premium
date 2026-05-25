@@ -19,6 +19,33 @@ interface ModeloSeed {
 
 const MODELOS: ModeloSeed[] = [
   {
+    slug: "seguro-valtra-guarulhos",
+    modelo: "Valtra",
+    modeloShort: "Valtra",
+    categoria: "premium",
+    fipeRange: "R$ 120.000 a R$ 4.500.000+",
+    priceRange: { min: 2200, max: 40000, label: "R$ 2.200 a R$ 40.000/ano" },
+    theftProfile: "médio",
+    pros: [
+      "Robustez escandinava e tecnologia de precisão com motores AGCO Power",
+      "Alta durabilidade em condições severas de trabalho no campo",
+      "Sistemas de telemetria Valtra Connect para gestão de frota"
+    ],
+    cons: [
+      "Custo elevado de componentes hidráulicos e eletrônica embarcada",
+      "Modelos de alta cilindrada exigem vistorias técnicas rigorosas",
+      "Necessidade de monitoramento preventivo contra incêndios"
+    ],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "rede referenciada AGCO e reposição de peças originais Valtra" },
+      { name: "Allianz", reason: "excelente precificação para a linha de tratores e colheitadeiras" },
+      { name: "Tokio Marine", reason: "atendimento VIP e guincho especializado para máquinas de grande porte" },
+      { name: "Sompo", reason: "tradição em seguros para o agronegócio e riscos de engenharia" }
+    ],
+    context:
+      "A Valtra é reconhecida pela força e tecnologia que movem as maiores safras do Brasil. De tratores da linha A a S, passando pelas colheitadeiras e pulverizadores, o proprietário Valtra busca uma proteção que acompanhe a durabilidade da sua máquina. A Patro Seguros oferece consultoria premium para garantir que seu Valtra esteja protegido contra incêndio, roubo e quebra de máquinas, preservando a integridade do seu investimento no campo."
+  },
+  {
     slug: "seguro-john-deere-guarulhos",
     modelo: "John Deere",
     modeloShort: "John Deere",
