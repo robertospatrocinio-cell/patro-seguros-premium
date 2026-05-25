@@ -319,6 +319,29 @@ const SeguroAuto = () => {
         <section className="py-16 gradient-surface" aria-labelledby="protecao-completa-heading">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="premium-card p-6 md:p-8">
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <div className="w-20 h-20 rounded-2xl bg-blue-600/10 flex items-center justify-center flex-shrink-0">
+                  <Gem className="h-10 w-10 text-blue-600" />
+                </div>
+                <div className="flex-grow text-center md:text-left">
+                  <h3 className="text-xl font-bold mb-2">Possui um veículo Premium?</h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Conheça nosso seguro exclusivo para proprietários de BMW, com coberturas sob medida e atendimento de elite.
+                  </p>
+                  <Link to="/seguro-bmw">
+                    <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
+                      Explorar Seguro BMW <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16" aria-labelledby="links-relacionados-heading">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="premium-card p-6 md:p-8">
               <h2 id="protecao-completa-heading" className="text-base font-semibold mb-4">Seu carro está protegido — e o resto?</h2>
               <div className="space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
