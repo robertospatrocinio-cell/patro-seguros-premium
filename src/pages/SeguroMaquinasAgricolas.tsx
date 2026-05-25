@@ -7,7 +7,7 @@ const SeguroMaquinasAgricolas = () => {
       heroImage={heroImg}
       title="Seguro de Máquinas Agrícolas"
       subtitle="Proteja tratores, colheitadeiras, plantadeiras e todo seu maquinário agrícola. Atendemos produtores de todos os estados do Brasil."
-      description="Seguro de Máquinas Agrícolas: proteção para tratores e colheitadeiras contra incêndio, roubo e acidentes em todo o Brasil com atendimento 100% remoto."
+      description="Somos especialistas em seguros de máquinas e equipamentos agrícolas, com parcerias junto a fabricantes e concessionárias pelo Brasil. Protegemos tratores e colheitadeiras contra incêndio, roubo e acidentes em todo o Brasil com atendimento 100% remoto."
       icon="🚜"
       metaDescription="Seguro de Máquinas Agrícolas em todo o Brasil: tratores, colheitadeiras, plantadeiras e pulverizadores. Proteção contra incêndio, roubo e tombamento."
       badge="Atendimento em Todo o Brasil"
@@ -18,7 +18,7 @@ const SeguroMaquinasAgricolas = () => {
         { title: "Colisão e Capotamento", description: "Proteção contra acidentes durante operação e transporte das máquinas." },
         { title: "Danos Elétricos", description: "Cobertura para danos causados por curto-circuito e oscilação de energia." },
         { title: "Fenômenos Naturais", description: "Proteção contra vendaval, granizo, inundação e alagamento." },
-        { title: "Responsabilidade Civil", description: "Cobertura para danos causados a terceiros durante a operação." },
+        { title: "Responsabilidade Civil", description: "Cobertura para danos causados a terceiros durante la operação." },
       ]}
       whoNeeds={[
         "Produtores rurais de pequeno, médio e grande porte em qualquer estado",

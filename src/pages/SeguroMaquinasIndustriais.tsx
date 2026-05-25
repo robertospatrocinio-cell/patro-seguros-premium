@@ -7,7 +7,7 @@ const SeguroMaquinasIndustriais = () => {
       heroImage={heroImg}
       title="Seguro de Máquinas Industriais"
       subtitle="Proteção para máquinas, equipamentos e linhas de produção contra quebra, incêndio e danos operacionais."
-      description="Seguro de Máquinas Industriais: proteção para tornos CNC, injetoras e prensas contra quebra e danos elétricos. Garanta que sua produção não pare em Guarulhos."
+      description="Somos especialistas em seguros de máquinas e equipamentos industriais, com parcerias junto a fabricantes e concessionárias pelo Brasil. Protegemos tornos CNC, injetoras e prensas contra quebra e danos elétricos em Guarulhos."
       icon="⚙️"
       metaDescription="Seguro de Máquinas Industriais: tornos, prensas e injetoras. Cobertura contra quebra, incêndio e danos elétricos. Cotação grátis na Patro Seguros."
       coverages={[
