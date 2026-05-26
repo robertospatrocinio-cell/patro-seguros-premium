@@ -111,27 +111,27 @@ const Index = () => {
               <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center">
                 <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
-              <h1 className="text-white text-balance mb-4 md:mb-6 font-extrabold">
-                Patro Seguros: Corretora de Seguros em Guarulhos
+              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
+                Corretora de Seguros em Guarulhos: Proteção Completa e Cotação em até 2h
               </h1>
               <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
-                Atendimento personalizado · Melhores seguradoras · Cotação rápida
+                +30 anos de experiência | +16 seguradoras parceiras | Nota 4.9 no Google
               </p>
               <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
-                Comparamos cotações de seguro auto, residencial, vida, empresarial, máquinas e equipamentos, e plano de saúde entre as principais seguradoras do mercado em Guarulhos e região.
+                Atendimento humanizado e personalizado. Compare cotações de seguro auto, residencial, vida e empresarial entre as melhores seguradoras do mercado.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/cotacao" className="w-full sm:w-auto" onClick={() => trackCotacaoClick("homepage")}>
                   <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg bg-white text-foreground hover:bg-white/90 h-11 font-semibold tracking-tight">
-                    Solicitar Cotação Grátis
+                    Cotar meu seguro agora
                     <ArrowRight className="ml-1 h-3.5 w-3.5" aria-hidden="true" />
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("homepage-hero")}>
                   <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] hover:text-white font-medium tracking-tight">
                     <MessageCircle className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
-                    WhatsApp
+                    Falar com especialista no WhatsApp
                   </Button>
                 </a>
               </div>
