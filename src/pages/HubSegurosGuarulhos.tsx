@@ -301,12 +301,12 @@ const HubSegurosGuarulhos = () => {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-guarulhos:final", { origin: "hub-guarulhos" })}>
                 <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold">
-                  Cotação Rápida
+                  Cotar agora
                 </Button>
               </Link>
-              <a href="tel:1151997500">
-                <Button size="lg" className="rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
-                  <Phone className="mr-2 h-4 w-4" /> (11) 5199-7500
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hub-guarulhos:final", { origin: "hub-guarulhos" })}>
+                <Button size="lg" variant="cta" className="rounded-xl h-12 px-8 text-sm">
+                  <MessageCircle className="mr-2 h-4 w-4" /> Falar com especialista no WhatsApp
                 </Button>
               </a>
             </div>
@@ -321,7 +321,7 @@ const HubSegurosGuarulhos = () => {
           onClick={() => trackCotacaoClick("hub-guarulhos:sticky", { origin: "hub-guarulhos" })}
           className="pointer-events-auto flex-1 md:flex-none inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-3 text-sm font-semibold shadow-xl shadow-primary/30"
         >
-          Pedir Cotação <ArrowRight className="h-4 w-4" />
+          Cotar agora <ArrowRight className="h-4 w-4" />
         </Link>
         <a
           href={WHATSAPP_URL}
