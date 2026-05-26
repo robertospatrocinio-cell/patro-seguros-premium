@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -165,10 +166,12 @@ const LocalSavingsCalculator = () => {
           ))}
         </div>
 
-        <Button className="w-full py-6 text-lg font-bold shadow-lg shadow-primary/20 group">
-          Garantir este Desconto Agora
-          <TrendingDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
-        </Button>
+        <Link to="/cotacao?tipo=auto" className="block w-full">
+          <Button className="w-full py-6 text-lg font-bold shadow-lg shadow-primary/20 group">
+            Cotar meu seguro agora
+            <TrendingDown className="ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );

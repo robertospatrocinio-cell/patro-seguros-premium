@@ -91,7 +91,7 @@ const LocalTestimonials = () => {
         
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground font-medium">
-            Junte-se a 2.000+ segurados protegidos pela Patro em Guarulhos.
+            Junte-se a mais de 2.500 segurados protegidos pela Patro em Guarulhos.
           </p>
         </div>
       </div>

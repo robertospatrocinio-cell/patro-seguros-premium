@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, CheckCircle, MessageCircle } from "lucide-react";
+import { Send, CheckCircle, MessageCircle, TrendingDown } from "lucide-react";
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
 import { toast } from "sonner";
@@ -271,12 +271,13 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
           );
         })}
 
-        <Button type="submit" variant="cta" className="w-full" disabled={sending}>
-          {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Solicitar Cotação Gratuita</>}
+        <Button type="submit" variant="cta" className="w-full h-12 font-bold text-sm" disabled={sending}>
+          {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Cotar meu seguro agora</>}
         </Button>
-        <p className="text-xs text-muted-foreground text-center">
-          Ao enviar, você será redirecionado ao WhatsApp para atendimento imediato.
-        </p>
+        <div className="flex items-center justify-center gap-2 text-[10px] text-muted-foreground mt-4">
+          <TrendingDown className="h-3 w-3 text-green-500" />
+          <span>Nota 4.9 no Google | Comparativo de 16+ seguradoras</span>
+        </div>
       </form>
     </div>
   );

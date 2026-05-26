@@ -180,14 +180,14 @@ const BlogArticle = () => {
                   onClick={() => trackWhatsAppClick("blog-article-top")}
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[#25D366] text-white text-sm font-semibold hover:bg-[#1ebe57] transition-colors"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp
+                  <MessageCircle className="h-4 w-4" /> Falar com Especialista
                 </a>
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-top")}
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-sm font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Pedir Cotação <ArrowRight className="h-4 w-4" />
+                  Cotar meu seguro agora <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
@@ -556,7 +556,10 @@ const BlogArticle = () => {
 
              {/* Inline Form CTA */}
              <Suspense fallback={null}>
-               <BlogFormCTA />
+              <BlogFormCTA 
+                title="Compare preços em 16+ seguradoras agora"
+                description="Receba seu comparativo personalizado em até 2 horas úteis. Nossos especialistas em Guarulhos ajudam você a economizar sem perder cobertura."
+              />
              </Suspense>
  
              {/* CTA persistente — FINAL do post */}

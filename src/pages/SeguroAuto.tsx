@@ -65,15 +65,15 @@ const SeguroAuto = () => {
             <div className="py-24 md:py-32 max-w-3xl mx-auto text-center">
               <div className="text-5xl mb-6 animate-fade-up" role="img" aria-label="Seguro Auto">🚗</div>
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
-                Seguro Auto em Guarulhos: Proteção Completa com o Melhor Custo-Benefício
+                Corretora de Seguro Auto em Guarulhos: Melhor Preço e Cotação em 2h
               </h1>
               <p className="text-base md:text-lg text-white/60 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">
-                Pare de perder tempo ligando para várias seguradoras. Nossos especialistas comparam o seu perfil nas 16 maiores seguradoras do Brasil e entregam a melhor proposta em até 2 horas. Sem robôs, sem burocracia.
+                Compare seu perfil nas 16 maiores seguradoras do Brasil e economize até 35% no seguro do seu carro. Atendimento humano especializado em Guarulhos.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("seguro-auto-hero")}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                    📲 Simular Meu Seguro Agora
+                    📲 Cotar meu seguro agora
                   </Button>
                 </a>
                 <a href="#coberturas" className="w-full sm:w-auto">
@@ -89,7 +89,7 @@ const SeguroAuto = () => {
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span>4.9/5 no Google | +150 clientes protegidos em Guarulhos e região</span>
+                <span>Nota 4.9/5 no Google | Mais de 2.500 clientes protegidos em Guarulhos</span>
               </div>
             </div>
           </div>
@@ -194,7 +194,7 @@ const SeguroAuto = () => {
             <div className="text-center mt-12">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("seguro-auto-coberturas")}>
                 <Button size="lg" variant="cta" className="rounded-xl h-12 px-8 text-sm">
-                  💬 Quero Cotar Minhas Coberturas
+                  💬 Falar com especialista no WhatsApp
                 </Button>
               </a>
             </div>
@@ -309,7 +309,7 @@ const SeguroAuto = () => {
             </p>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("seguro-auto-rodape")}>
               <Button size="lg" variant="cta" className="rounded-xl h-14 px-10 text-base animate-pulse">
-                <MessageCircle className="mr-2 h-5 w-5" /> Falar com um Especialista no WhatsApp
+                <MessageCircle className="mr-2 h-5 w-5" /> Falar com Especialista no WhatsApp
               </Button>
             </a>
           </div>
