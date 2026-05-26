@@ -229,8 +229,10 @@ export const blogImageMap: Record<string, string> = {
 
   // Corretora Guarulhos
   "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
+  "maior-portal-conteudo-seguros-guarulhos": blogCorretoraGuarulhos,
 
   // Consultoria
+
   "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
 };
 
