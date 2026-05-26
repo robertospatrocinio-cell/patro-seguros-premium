@@ -81,19 +81,43 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       nearbyAreas={config.nearbyAreas}
       relatedInsurances={config.relatedInsurances}
       heroImage={config.slug.includes("volvo")
-        ? "https://images.unsplash.com/photo-1628151474536-3ec6dfd86927?q=80&w=2070&auto=format&fit=crop"
+        ? "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("land-rover") 
-        ? "https://images.unsplash.com/photo-1549430635-f09f874c7764?q=80&w=2070&auto=format&fit=crop"
+        ? "https://images.unsplash.com/photo-1734364147225-19185de620e4?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("jaguar")
         ? "https://images.unsplash.com/photo-1574044536224-037048a609d0?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("audi")
         ? "https://images.unsplash.com/photo-1549416878-b9ca95e26903?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("byd")
-        ? "https://images.unsplash.com/photo-1718042457850-705d8f6f5923?q=80&w=2070&auto=format&fit=crop"
+        ? "https://images.unsplash.com/photo-1718042457813-f4702f2323e2?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("gwm")
-        ? "https://images.unsplash.com/photo-1707172798935-773a4b910e97?q=80&w=2070&auto=format&fit=crop"
+        ? "https://images.unsplash.com/photo-1702525790471-ef6652c42171?q=80&w=2070&auto=format&fit=crop"
         : config.slug.includes("jeep")
         ? "https://images.unsplash.com/photo-1620248430635-f0cc71871239?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("bmw")
+        ? "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("mercedes")
+        ? "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("porsche")
+        ? "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("ferrari")
+        ? "https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("lexus")
+        ? "https://images.unsplash.com/photo-1707026563720-40e8a7da0e8f?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("ford")
+        ? "https://images.unsplash.com/photo-1707255198045-814ca55260f9?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("honda")
+        ? "https://images.unsplash.com/photo-1707172798935-773a4b910e97?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("toyota")
+        ? "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("volkswagen")
+        ? "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2070&auto=format&fit=crop"
+        : config.slug.includes("chevrolet")
+        ? "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop"
+        : config.slug.includes("fiat")
+        ? "https://images.unsplash.com/photo-1621285853634-713b8dd1b2ff?q=80&w=2000&auto=format&fit=crop"
+        : config.slug.includes("hyundai")
+        ? "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop"
         : heroImg}
       whatsappMessage={`Olá! Vim pela página ${config.title} e gostaria de uma cotação rápida.`}
     />

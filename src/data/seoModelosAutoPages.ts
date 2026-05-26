@@ -263,15 +263,15 @@ const MODELOS: ModeloSeed[] = [
     fipeRange: "R$ 45.000 a R$ 280.000",
     priceRange: { min: 1900, max: 5800, label: "R$ 1.900 a R$ 5.800/ano" },
     theftProfile: "médio-alto",
-    pros: ["Confiabilidade", "Manutenção simples", "Tecnologia OnStar", "Líder de categoria"],
-    cons: ["Modelos visados", "Seguro de SUV pode oscilar"],
+    pros: ["Alta confiabilidade mecânica e facilidade de revenda", "Manutenção simples com peças disponíveis em todo o país", "Tecnologia OnStar exclusiva para segurança e conveniência", "Líder de categoria com modelos modernos e eficientes"],
+    cons: ["Modelos como Onix e Tracker são visados por quadrilhas de peças", "Valor do seguro para SUVs pode oscilar conforme o perfil do condutor"],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "Tradicional com benefícios OnStar" },
-      { name: "Tokio Marine", reason: "Competitiva para a linha Tracker e Onix" },
-      { name: "Azul Seguros", reason: "Bom custo-benefício" },
-      { name: "Allianz", reason: "Boa aceitação para linha Chevrolet" }
+      { name: "Porto Seguro", reason: "Tradição em seguros Chevrolet com benefícios integrados ao OnStar" },
+      { name: "Tokio Marine", reason: "Altamente competitiva para a linha Tracker e Onix" },
+      { name: "Azul Seguros", reason: "Excelente custo-benefício para modelos Chevrolet seminovos" },
+      { name: "Allianz", reason: "Boa aceitação e rede de oficinas para toda a linha GM" }
     ],
-    context: "A Chevrolet é uma das marcas mais vendidas do Brasil. Em Guarulhos, modelos como a Tracker, Onix e Spin dominam as ruas, exigindo uma proteção completa e inteligente."
+    context: "A Chevrolet é uma das marcas favoritas do brasileiro por sua durabilidade. Em Guarulhos, a Tracker, o Onix e a Spin dominam as ruas, exigindo uma proteção completa que entenda as necessidades de cada modelo."
   },
   {
     slug: "seguro-fiat-guarulhos",
@@ -282,116 +282,119 @@ const MODELOS: ModeloSeed[] = [
     fipeRange: "R$ 40.000 a R$ 135.000",
     priceRange: { min: 1700, max: 5200, label: "R$ 1.700 a R$ 5.200/ano" },
     theftProfile: "médio-alto",
-    pros: ["Líder de mercado", "Peças baratas", "Alta versatilidade"],
-    cons: ["Visado para furtos", "Custo de reparo da tampa traseira"],
+    pros: ["Líder absoluta de mercado com baixíssima desvalorização", "Manutenção e peças com valores extremamente competitivos", "Alta versatilidade para uso urbano, lazer e trabalho pesado"],
+    cons: ["Extremamente visada para furtos e roubos em grandes cidades", "Custo de reparo de componentes específicos (ex: tampa traseira) elevado"],
     bestInsurers: [
-      { name: "HDI", reason: "Competitiva" },
-      { name: "Azul Seguros", reason: "Bom custo" },
-      { name: "Porto Seguro", reason: "Aceitação ampla para modelos Fiat" },
-      { name: "Tokio Marine", reason: "Boas condições para linha Fiat" }
+      { name: "HDI", reason: "Excelente aceitação para utilitários e modelos populares" },
+      { name: "Azul Seguros", reason: "Melhor custo para quem busca proteção essencial e barata" },
+      { name: "Porto Seguro", reason: "Aceitação ampla para todos os modelos da marca Fiat" },
+      { name: "Tokio Marine", reason: "Condições comerciais diferenciadas para a linha Fiat Strada e Toro" }
     ],
-    context: "A Fiat é líder em diversos segmentos populares no Brasil."
+    context: "A Fiat é sinônimo de versatilidade e economia. Em Guarulhos, modelos como Strada, Mobi e Toro são ferramentas essenciais para muitos, exigindo um seguro que não falhe nos momentos mais críticos."
   },
   {
     slug: "seguro-hyundai-guarulhos",
     modelo: "Hyundai",
-    modeloShort: "Hyundai",
-    categoria: "popular",
+    modeloShort: "Creta",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 55.000 a R$ 180.000",
     priceRange: { min: 2100, max: 5500, label: "R$ 2.100 a R$ 5.500/ano" },
     theftProfile: "médio",
-    pros: ["Garantia", "Design"],
-    cons: ["Peças caras"],
+    pros: ["Garantia de 5 anos", "Design moderno e arrojado", "Amplo espaço interno e tecnologia"],
+    cons: ["Peças de reposição com valor elevado", "Consumo em modelos 2.0"],
     bestInsurers: [
-      { name: "Tokio Marine", reason: "Tradicional" },
-      { name: "Allianz", reason: "Bom preço" },
-      { name: "Porto Seguro", reason: "Boa aceitação para HB20 e Creta" },
-      { name: "HDI", reason: "Competitiva para Hyundai" }
+      { name: "Tokio Marine", reason: "Referência em aceitação para a linha HB20 e Creta" },
+      { name: "Allianz", reason: "Condições competitivas para SUVs compactos" },
+      { name: "Porto Seguro", reason: "Excelente rede de oficinas referenciadas em Guarulhos" },
+      { name: "HDI", reason: "Preços agressivos para o perfil familiar" }
     ],
-    context: "A Hyundai se destaca pelo HB20 e Creta em Guarulhos."
+    context: "A Hyundai se destaca com o HB20 e o Creta, modelos extremamente desejados em Guarulhos pela confiabilidade e design. Proteja seu Hyundai com quem entende da marca."
   },
   {
     slug: "seguro-auto-bmw-guarulhos",
     modelo: "BMW",
-    modeloShort: "BMW",
+    modeloShort: "BMW Série 3",
     categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 180.000 a R$ 1.500.000+",
     priceRange: { min: 4200, max: 28000, label: "R$ 4.200 a R$ 28.000/ano" },
     theftProfile: "médio-alto",
     pros: [
-      "Engenharia alemã de alta performance",
-      "Alta tecnologia embarcada e segurança ativa",
-      "Valorização de mercado e prestígio da marca"
+      "Engenharia alemã de alta performance e precisão",
+      "Tecnologia BMW Live Cockpit e segurança ativa de ponta",
+      "Valorização de mercado superior e prestígio inigualável"
     ],
     cons: [
-      "Custo elevado de manutenção e peças genuínas",
-      "Modelos M e SUVs X5/X6 são altamente visados",
-      "Exigência de rastreador e vistorias rigorosas"
+      "Manutenção e peças genuínas com custo premium",
+      "Modelos M e SUVs X5/X6 são visados em grandes centros",
+      "Exigência de sistemas de rastreamento avançados"
     ],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "melhor rede de concessionárias e serviços premium" },
-      { name: "Allianz", reason: "excelente precificação para SUVs e linha iPerformance" },
-      { name: "Tokio Marine", reason: "assistência 24h VIP e guincho prancha" },
-      { name: "Liberty", reason: "condições exclusivas para veículos de alto padrão" }
+      { name: "Porto Seguro", reason: "Líder em serviços premium e rede de concessionárias autorizadas" },
+      { name: "Allianz", reason: "Excelência em precificação para SUVs e veículos de alto desempenho" },
+      { name: "Tokio Marine", reason: "Atendimento VIP com assistência 24h e guincho prancha especializado" },
+      { name: "Liberty", reason: "Soluções exclusivas para o segmento de luxo automotivo" }
     ],
     context:
-      "A BMW é a definição do prazer de dirigir. Em Guarulhos, proprietários de Série 3, X1, X5 e da linha M buscam uma proteção que acompanhe a sofisticação de seu veículo. A Patro Seguros oferece consultoria premium para garantir que sua BMW esteja protegida contra roubo, furto e danos elétricos, com garantia de reparo em concessionária autorizada e peças originais."
+      "A BMW representa o 'Puro Prazer de Dirigir'. Em Guarulhos, proprietários de Série 3, X1, X5 e da prestigiada linha M buscam uma proteção que esteja à altura da engenharia alemã. A Patro Seguros oferece consultoria especializada para garantir que sua BMW tenha cobertura total, incluindo reparos em concessionárias oficiais com peças 100% originais."
   },
   {
     slug: "seguro-auto-toyota-guarulhos",
     modelo: "Toyota",
-    modeloShort: "Corolla Cross",
-    categoria: "suv",
+    modeloShort: "Corolla",
+    categoria: "sedan",
     heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 60.000 a R$ 350.000",
     priceRange: { min: 2200, max: 7500, label: "R$ 2.200 a R$ 7.500/ano" },
     theftProfile: "médio",
-    pros: ["Alta confiabilidade", "Valor de revenda"],
-    cons: ["Seguro pode ser caro para Corolla"],
+    pros: ["Insuperável confiabilidade mecânica e durabilidade", "Melhor valor de revenda do mercado nacional", "Sistemas de segurança ativa Toyota Safety Sense"],
+    cons: ["Custo do seguro para o Corolla costuma ser mais alto para jovens", "Peças genuínas para modelos híbridos têm valor elevado"],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "Excelente aceitação" },
-      { name: "Tokio Marine", reason: "Preços competitivos" },
-      { name: "Allianz", reason: "Ótima cobertura" },
-      { name: "HDI", reason: "Boa opção para Hilux" }
+      { name: "Porto Seguro", reason: "Excelente aceitação e rede dedicada para a marca" },
+      { name: "Tokio Marine", reason: "Preços altamente competitivos para o perfil Corolla" },
+      { name: "Allianz", reason: "Ótima cobertura para SUVs e modelos híbridos da marca" },
+      { name: "HDI", reason: "Excelente opção de cobertura para a linha Hilux e SW4" }
     ],
-    context: "A Toyota é sinônimo de robustez e confiança em Guarulhos."
+    context: "A Toyota é sinônimo de paz de espírito. Em Guarulhos, proprietários de Corolla, Hilux e Creta buscam a confiabilidade que só a marca japonesa oferece, e nós garantimos a melhor proteção para esse patrimônio."
   },
   {
     slug: "seguro-auto-honda-guarulhos",
     modelo: "Honda",
-    modeloShort: "Honda HR-V",
+    modeloShort: "HR-V",
     heroImg: "https://images.unsplash.com/photo-1707172798935-773a4b910e97?q=80&w=2070&auto=format&fit=crop",
-    categoria: "popular",
+    categoria: "suv",
     fipeRange: "R$ 65.000 a R$ 280.000",
     priceRange: { min: 2400, max: 8000, label: "R$ 2.400 a R$ 8.000/ano" },
     theftProfile: "médio-alto",
-    pros: ["Mecânica confiável", "Conforto"],
-    cons: ["Civic é muito visado"],
+    pros: ["Mecânica extremamente confiável e de baixo custo operacional", "Conforto interno e versatilidade com o sistema Magic Seat", "Design moderno e presença de mercado consolidada"],
+    cons: ["O modelo Civic é muito visado para furtos de rodas e acessórios", "Valor do seguro tende a ser acima da média para perfis jovens"],
     bestInsurers: [
-      { name: "Tokio Marine", reason: "Referência para Honda" },
-      { name: "Porto Seguro", reason: "Serviços premium" },
-      { name: "Allianz", reason: "Bom custo-benefício" },
-      { name: "Liberty", reason: "Aceitação facilitada" }
+      { name: "Tokio Marine", reason: "A maior especialista em aceitação de modelos Honda" },
+      { name: "Porto Seguro", reason: "Serviços premium e assistência VIP para proprietários de Honda" },
+      { name: "Allianz", reason: "Melhor custo-benefício para a linha HR-V e City" },
+      { name: "Liberty", reason: "Facilidade de contratação e boas taxas comerciais" }
     ],
-    context: "Veículos Honda são extremamente populares e valorizados em Guarulhos."
+    context: "Os veículos Honda são extremamente valorizados em Guarulhos. Modelos como HR-V, Civic e Fit exigem um seguro que respeite o valor de mercado e a precisão da engenharia japonesa."
   },
   {
     slug: "seguro-auto-jeep-guarulhos",
     modelo: "Jeep",
-    modeloShort: "Jeep Compass",
+    modeloShort: "Compass",
     categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1620248430635-f0cc71871239?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 90.000 a R$ 450.000",
     priceRange: { min: 3200, max: 12000, label: "R$ 3.200 a R$ 12.000/ano" },
     theftProfile: "alto",
-    pros: ["Presença de mercado", "Tecnologia"],
-    cons: ["Índice de roubo de Compass/Renegade"],
+    pros: ["Maior presença de mercado no segmento SUV Premium", "Tecnologia embarcada e sistemas 4x4 de alta performance", "Estilo icônico e alto valor de revenda"],
+    cons: ["Índice de roubo elevado para os modelos Compass e Renegade", "Manutenção preventiva com custo acima dos modelos populares"],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "Líder em SUVs" },
-      { name: "Allianz", reason: "Preços agressivos" },
-      { name: "Tokio Marine", reason: "Ótima assistência" },
-      { name: "Bradesco", reason: "Forte aceitação" }
+      { name: "Porto Seguro", reason: "Líder em coberturas para SUVs com benefícios exclusivos" },
+      { name: "Allianz", reason: "Preços agressivos para a linha Compass Diesel e Turbo" },
+      { name: "Tokio Marine", reason: "Excelente assistência e guincho especializado" },
+      { name: "Bradesco", reason: "Forte aceitação e rede referenciada em Guarulhos" }
     ],
-    context: "A Jeep domina o segmento de SUVs em Guarulhos com Compass e Renegade."
+    context: "A Jeep domina o segmento de SUVs em Guarulhos. Com modelos como Compass e Renegade, a necessidade de um seguro robusto e com rastreador é fundamental para sua tranquilidade."
   },
   {
     slug: "seguro-auto-peugeot-guarulhos",
@@ -702,21 +705,21 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-auto-ford-guarulhos",
     modelo: "Ford",
-    modeloShort: "Ford F-150",
+    modeloShort: "F-150",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1707255198045-814ca55260f9?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 60.000 a R$ 550.000",
     priceRange: { min: 2800, max: 18000, label: "R$ 2.800 a R$ 18.000/ano" },
     theftProfile: "médio-alto",
-    pros: ["Performance extrema", "Ícone de robustez", "Tecnologia avançada"],
-    cons: ["Tamanho desafiador em cidades", "Consumo elevado"],
+    pros: ["Performance extrema com motores V6 e V8 potentes", "Ícone mundial de robustez e durabilidade off-road", "Tecnologia avançada de condução e conectividade"],
+    cons: ["Tamanho desafiador para manobras e garagens em centros urbanos", "Consumo de combustível elevado em modelos a gasolina"],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "Excelente aceitação para a linha F-150 e Ranger" },
-      { name: "Tokio Marine", reason: "Assistência 24h robusta para pick-ups" },
-      { name: "Allianz", reason: "Condições competitivas para veículos premium" },
-      { name: "Bradesco", reason: "Ampla rede de atendimento em Guarulhos" }
+      { name: "Porto Seguro", reason: "Líder em aceitação para a linha F-150, Ranger e Maverick" },
+      { name: "Tokio Marine", reason: "Assistência 24h robusta preparada para pick-ups de grande porte" },
+      { name: "Allianz", reason: "Condições altamente competitivas para veículos utilitários premium" },
+      { name: "Bradesco", reason: "Ampla rede de atendimento e oficinas credenciadas em Guarulhos" }
     ],
-    context: "A Ford é sinônimo de força e inovação. Em Guarulhos, a F-150 e a Ranger são os destaques para quem busca o máximo em performance e capacidade."
+    context: "A Ford é sinônimo de força e inovação constante. Em Guarulhos, modelos como a F-150, Ranger e Bronco são os destaques para quem busca performance sem limites, exigindo uma proteção sob medida."
   },
 ];
 
