@@ -166,12 +166,12 @@ const HubSegurosGuarulhos = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link to="/cotacao" onClick={() => trackCotacaoClick("hub-guarulhos:hero", { origin: "hub-guarulhos" })}>
                   <Button size="lg" className="rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold">
-                    Solicitar Cotação Gratuita
+                    Cotar meu seguro agora
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hub-guarulhos:hero", { origin: "hub-guarulhos" })}>
                   <Button size="lg" className="rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
-                    <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
+                    <MessageCircle className="mr-2 h-4 w-4" /> Falar com especialista no WhatsApp
                   </Button>
                 </a>
               </div>
