@@ -144,7 +144,7 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
     <StickyQuoteBar
       source="seguro-auto-guarulhos"
       quoteHref="/cotacao?tipo=auto"
-      whatsappMessage="Olá! Vim pela página Seguro Auto Guarulhos e quero uma cotação rápida."
+      whatsappMessage="Olá! Vim pela página Seguro Auto Guarulhos e gostaria de falar com um especialista sobre meu seguro."
       ctaLabel="Cotação rápida"
     />
   </>

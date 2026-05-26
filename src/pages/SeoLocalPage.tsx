@@ -119,7 +119,7 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
         : config.slug.includes("hyundai")
         ? "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop"
         : heroImg}
-      whatsappMessage={`Olá! Vim pela página ${config.title} e gostaria de uma cotação rápida.`}
+      whatsappMessage={`Olá! Vim pela página "${config.title}" e gostaria de falar com um especialista sobre meu seguro.`}
     />
     {GALPAO_CLUSTER_SLUGS.has(config.slug) && (
       <Suspense fallback={null}>
