@@ -220,6 +220,12 @@ export const blogImageMap: Record<string, string> = {
 
   // Motorista App
   "seguro-motorista-aplicativo-guia": blogMotoristaApp,
+  "seguro-motorista-uber-guarulhos-guia": blogMotoristaApp,
+
+  // Guarulhos Específico
+  "bairros-guarulhos-seguro-auto-caro": blogPrecoSeguroAutoGuarulhos2026,
+  "carros-mais-roubados-guarulhos-2026": blogCarrosRoubados,
+  "seguro-cobre-enchente-guarulhos": blogAlagamentos,
 
   // Corretora Guarulhos
   "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
@@ -227,6 +233,7 @@ export const blogImageMap: Record<string, string> = {
   // Consultoria
   "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
 };
+
 
 export const getArticleImage = (slug: string): string => {
   return blogImageMap[slug] || blogDicas;
