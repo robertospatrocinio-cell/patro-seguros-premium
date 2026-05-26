@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, CheckCircle, MessageCircle } from "lucide-react";
+import { Send, CheckCircle, MessageCircle, TrendingDown } from "lucide-react";
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
 import { toast } from "sonner";
