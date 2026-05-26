@@ -68,6 +68,17 @@ import blogSeguroFrotaLogisticaGuarulhos from "@/assets/blog/blog-seguro-frota-l
 import blogSeguroVidaSucessao from "@/assets/blog/blog-seguro-vida-sucessao-patrimonial.webp";
 import blogSeguroMotoMenorPreco2026 from "@/assets/blog/blog-seguro-moto-menor-preco-2026.webp";
 
+// Novas imagens para Guarulhos
+import blogBairrosGuarulhos from "@/assets/blog/blog-bairros-guarulhos.webp";
+import blogUberGuarulhos from "@/assets/blog/blog-uber-guarulhos.webp";
+import blogRoubosGuarulhos from "@/assets/blog/blog-roubos-guarulhos.webp";
+import blogEnchenteGuarulhos from "@/assets/blog/blog-enchente-guarulhos.webp";
+import blogPortalGuarulhos from "@/assets/blog/blog-portal-guarulhos.webp";
+import blogComparativoPlanos from "@/assets/blog/blog-comparativo-planos-saude.webp";
+import blogReducaoSaude from "@/assets/blog/blog-reducao-plano-saude.webp";
+import blogCnhDocumentos from "@/assets/blog/blog-documentos-cnh.webp";
+import blogSeguradorasSinistro from "@/assets/blog/blog-seguradoras-sinistro.webp";
+
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
   // Seguro Auto
@@ -111,9 +122,9 @@ export const blogImageMap: Record<string, string> = {
   "saude-mental-seguros-protecao": blogSaudeMental,
   "plano-saude-empresarial-pme": blogPlanoSaudePme,
   "plano-saude-empresarial-mei-guarulhos": blogPlanoSaudePme,
-  "bradesco-vs-sulamerica-plano-saude-2026": blogPlanoSaudeGuarulhos,
+  "bradesco-vs-sulamerica-plano-saude-2026": blogComparativoPlanos,
   "como-escolher-plano-saude-empresarial": blogPlanoSaudePme,
-  "como-reduzir-valor-plano-saude": blogPlanoSaude,
+  "como-reduzir-valor-plano-saude": blogReducaoSaude,
 
   // Seguro Empresarial
   "seguro-empresarial-o-que-cobre": blogSeguroEmpresarial,
@@ -137,10 +148,10 @@ export const blogImageMap: Record<string, string> = {
   "dicas-evitar-sinistros": blogEvitarSinistros,
   "seguros-contra-alagamentos": blogAlagamentos,
   "melhor-corretora-seguros-guarulhos": blogCorretoraGuarulhos,
-  "documentos-para-cnh": blogComoAcionarSeguroAuto,
+  "documentos-para-cnh": blogCnhDocumentos,
   "multas-guarulhos": blogSinistrosGuarulhos,
   "corretora-de-seguros-em-guarulhos": blogCorretoraGuarulhos,
-  "seguradoras-que-mais-pagam-sinistro-guarulhos": blogDicas,
+  "seguradoras-que-mais-pagam-sinistro-guarulhos": blogSeguradorasSinistro,
 
   // Seguro Vida
   "seguro-vida-por-que-ter": blogSeguroVida,
@@ -220,19 +231,18 @@ export const blogImageMap: Record<string, string> = {
 
   // Motorista App
   "seguro-motorista-aplicativo-guia": blogMotoristaApp,
-  "seguro-motorista-uber-guarulhos-guia": blogMotoristaApp,
+  "seguro-motorista-uber-guarulhos-guia": blogUberGuarulhos,
 
   // Guarulhos Específico
-  "bairros-guarulhos-seguro-auto-caro": blogPrecoSeguroAutoGuarulhos2026,
-  "carros-mais-roubados-guarulhos-2026": blogCarrosRoubados,
-  "seguro-cobre-enchente-guarulhos": blogAlagamentos,
+  "bairros-guarulhos-seguro-auto-caro": blogBairrosGuarulhos,
+  "carros-mais-roubados-guarulhos-2026": blogRoubosGuarulhos,
+  "seguro-cobre-enchente-guarulhos": blogEnchenteGuarulhos,
 
   // Corretora Guarulhos
   "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
-  "maior-portal-conteudo-seguros-guarulhos": blogCorretoraGuarulhos,
+  "maior-portal-conteudo-seguros-guarulhos": blogPortalGuarulhos,
 
   // Consultoria
-
   "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
 };
 
