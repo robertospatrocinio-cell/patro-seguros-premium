@@ -231,6 +231,24 @@ export const blogImageMap: Record<string, string> = {
     "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
     "seguradoras-que-mais-pagam-sinistro-guarulhos": blogDicas,
     "seguro-caminhao-carreta-cumbica-guarulhos": blogSeguroTransporte,
+
+    // Blog Articles 2026 missing images
+    "vai-alugar-imovel-seguro-fianca-sem-fiador": blogSeguroFianca,
+    "como-funciona-franquia-seguro-auto-perda-parcial": blogComoAcionarSeguroAuto,
+    "vale-a-pena-usar-consorcio-para-investir-em-imoveis": blogConsorcio,
+    "como-escolher-plano-saude-empresarial": blogPlanoSaudePme,
+    "como-reduzir-valor-plano-saude": blogPlanoSaude,
+    "documentos-seguro-carro-guarulhos": blogComoAcionarSeguroAuto,
+    "seguro-residencial-guarulhos-proteja-imovel": blogSeguroResidencial,
+    "melhores-corretoras-seguros-guarulhos": blogCorretoraGuarulhos,
+    "seguro-empresarial-guarulhos-guia-completo": blogSeguroEmpresarial,
+    "diferenca-seguro-compreensivo-terceiros": blogSeguroAutoPremium,
+    "seguro-vida-guarulhos-por-contratar": blogSeguroVida,
+    "beneficios-seguro-imobiliario": blogSeguroImobiliario,
+    "seguro-condominio-responsabilidades-sindico": blogCondominioSindico,
+    "fianca-locaticia-guia-inquilinos-proprietarios": blogFiancaLocaticia,
+    "seguro-rc-eventos-exposicoes": blogRCEventos,
+    "quanto-custa-seguro-auto-guarulhos": blogPrecoSeguroAutoGuarulhos2026,
 };
 
 export const getArticleImage = (slug: string): string => {
