@@ -556,7 +556,10 @@ const BlogArticle = () => {
 
              {/* Inline Form CTA */}
              <Suspense fallback={null}>
-               <BlogFormCTA />
+              <BlogFormCTA 
+                title="Compare preços em 16+ seguradoras agora"
+                description="Receba seu comparativo personalizado em até 2 horas úteis. Nossos especialistas em Guarulhos ajudam você a economizar sem perder cobertura."
+              />
              </Suspense>
  
              {/* CTA persistente — FINAL do post */}
