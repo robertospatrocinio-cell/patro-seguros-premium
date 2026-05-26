@@ -207,13 +207,13 @@ const SegurosGuarulhosBairros = () => {
                   className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"
                 >
                   <MessageCircle className="h-5 w-5" />
-                  Cotação pelo WhatsApp
+                  Falar com especialista no WhatsApp
                 </a>
                 <button
                   onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-2 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"
                 >
-                  Solicitar Cotação Online
+                  Cotar meu seguro agora
                   <ChevronRight className="h-4 w-4" />
                 </button>
               </div>
@@ -356,7 +356,7 @@ const SegurosGuarulhosBairros = () => {
                   disabled={sending}
                   className="w-full h-12 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-bold text-base"
                 >
-                  {sending ? "Enviando..." : "Solicitar Cotação Gratuita"}
+                  {sending ? "Enviando..." : "Cotar meu seguro agora"}
                 </Button>
                 <p className="text-xs text-center text-gray-400">
                   Ao enviar, você será redirecionado para o WhatsApp para agilizar o atendimento.

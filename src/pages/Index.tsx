@@ -115,7 +115,7 @@ const Index = () => {
                 Corretora de Seguros em Guarulhos: Proteção Completa e Cotação em até 2h
               </h1>
               <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
-                +30 anos de experiência | +16 seguradoras parceiras | Nota 4.9 no Google
+                Nota 4.9 no Google | +16 seguradoras parceiras | Cotação em 2h
               </p>
               <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
                 Atendimento humanizado e personalizado. Compare cotações de seguro auto, residencial, vida e empresarial entre as melhores seguradoras do mercado.
@@ -213,8 +213,8 @@ const Index = () => {
         <section className="py-16 md:py-32 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
-              <span className="section-label">Por que escolher a Patro Seguros em Guarulhos</span>
-              <h2 id="diferenciais-heading" className="mt-3">Atendimento especializado<br className="hidden sm:block" /> de gente, não de robô</h2>
+              <span className="section-label">Diferenciais Patro Seguros</span>
+              <h2 id="diferenciais-heading" className="mt-3">Por que escolher a Patro Seguros?</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden">
               {diferenciais.map((item, i) => (
