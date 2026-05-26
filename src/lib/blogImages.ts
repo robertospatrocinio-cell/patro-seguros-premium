@@ -82,10 +82,27 @@ export const blogImageMap: Record<string, string> = {
   "5-acoes-apos-acidente-veicular": blogAcoesAcidente,
   "5-dicas-baratear-seguro-auto": blogDicasBaratearAuto,
   "seguro-veiculos-blindados": blogVeiculosBlindados,
+  "preco-seguro-auto-fevereiro-2026": blogPrecoSeguroAutoFev2026,
+  "quanto-custa-seguro-auto-guarulhos-2026": blogPrecoSeguroAutoGuarulhos2026,
+  "melhores-seguros-motoristas-uber-guarulhos": blogMotoristaApp,
+  "seguro-barato-corolla-guarulhos": blogSeguroAuto,
+  "porto-seguro-vs-azul-seguros-comparativo-2026": blogSeguroAuto,
+  "melhor-seguro-uber-99-2026": blogMotoristaApp,
+  "seguro-auto-barato-vs-completo-vale-pena": blogSeguroAutoPremium,
+  "tabela-fipe-2026": blogSeguroAuto,
+  "seguro-porsche-luxo-guarulhos": blogSeguroAutoPremium,
+  "quanto-custa-seguro-auto-guarulhos": blogPrecoSeguroAutoGuarulhos2026,
+  "documentos-seguro-carro-guarulhos": blogComoAcionarSeguroAuto,
+  "diferenca-seguro-compreensivo-terceiros": blogSeguroAutoPremium,
+  "como-funciona-franquia-seguro-auto-perda-parcial": blogComoAcionarSeguroAuto,
 
   // Seguro Residencial
   "o-que-seguro-residencial-cobre": blogSeguroResidencial,
   "coberturas-assistencia-24h-seguro-residencial": blogAssistencia24hResidencial,
+  "seguro-residencial-vale-a-pena-guarulhos": blogSeguroResidencial,
+  "porto-vs-tokio-marine-residencial-2026": blogSeguroResidencial,
+  "seguro-residencial-vale-a-pena": blogSeguroResidencial,
+  "seguro-residencial-guarulhos-proteja-imovel": blogSeguroResidencial,
 
   // Planos de Saúde
   "quanto-custa-plano-de-saude": blogPlanoSaude,
@@ -93,11 +110,16 @@ export const blogImageMap: Record<string, string> = {
   "plano-saude-individual-vs-empresarial": blogPlanoIndividualVsEmpresarial,
   "saude-mental-seguros-protecao": blogSaudeMental,
   "plano-saude-empresarial-pme": blogPlanoSaudePme,
+  "plano-saude-empresarial-mei-guarulhos": blogPlanoSaudePme,
+  "bradesco-vs-sulamerica-plano-saude-2026": blogPlanoSaudeGuarulhos,
+  "como-escolher-plano-saude-empresarial": blogPlanoSaudePme,
+  "como-reduzir-valor-plano-saude": blogPlanoSaude,
 
   // Seguro Empresarial
   "seguro-empresarial-o-que-cobre": blogSeguroEmpresarial,
   "como-escolher-seguro-empresa": blogEscolherSeguroEmpresa,
   "seguro-cobertura-lucros-cessantes": blogLucrosCessantes,
+  "seguro-empresarial-guarulhos-guia-completo": blogSeguroEmpresarial,
 
   // Agronegócio
   "seguro-para-tratores": blogAgronegocio,
@@ -107,20 +129,28 @@ export const blogImageMap: Record<string, string> = {
   "3-erros-produtor-rural-seguro-maquinas": blogErrosProdutorRural,
   "penhor-rural-seguro-maquinas-agricolas": blogPenhorRural,
   "seguro-pivo-central-equipamentos-irrigacao": blogPivoCentral,
+  "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": blogAgrishow2026,
 
   // Dicas
   "7-seguros-proteger-familia": blogDicas,
   "como-funciona-cotacao-seguros": blogCotacaoSeguros,
   "dicas-evitar-sinistros": blogEvitarSinistros,
   "seguros-contra-alagamentos": blogAlagamentos,
+  "melhor-corretora-seguros-guarulhos": blogCorretoraGuarulhos,
+  "documentos-para-cnh": blogComoAcionarSeguroAuto,
+  "multas-guarulhos": blogSinistrosGuarulhos,
+  "corretora-de-seguros-em-guarulhos": blogCorretoraGuarulhos,
+  "seguradoras-que-mais-pagam-sinistro-guarulhos": blogDicas,
 
   // Seguro Vida
   "seguro-vida-por-que-ter": blogSeguroVida,
   "seguro-vida-sucessao-patrimonial-itcmd": blogSeguroVidaSucessao,
+  "seguro-vida-guarulhos-por-contratar": blogSeguroVida,
 
   // Seguro Fiança
   "seguro-fianca-vs-caucao": blogSeguroFianca,
   "fianca-locaticia-guia-inquilinos-proprietarios": blogFiancaLocaticia,
+  "vai-alugar-imovel-seguro-fianca-sem-fiador": blogSeguroFianca,
 
   // RC
   "o-que-e-responsabilidade-civil": blogRC,
@@ -132,6 +162,7 @@ export const blogImageMap: Record<string, string> = {
   // Seguro Frota
   "como-proteger-frota": blogSeguroFrota,
   "como-pagar-menos-seguro-frota-logistica-guarulhos": blogSeguroFrotaLogisticaGuarulhos,
+  "seguro-caminhao-carreta-cumbica-guarulhos": blogSeguroTransporte,
 
   // Seguro Moto
   "seguro-moto-vale-a-pena": blogSeguroMoto,
@@ -171,6 +202,9 @@ export const blogImageMap: Record<string, string> = {
 
   // Consórcio
   "consorcio-imoveis-casa-propria": blogConsorcio,
+  "vale-a-pena-usar-consorcio-para-investir-em-imoveis": blogConsorcio,
+  "consorcio-imoveis-crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
+  "vantagens-do-consorcio-guia-completo": blogVantagensConsorcio,
 
   // Galpões
   "seguro-galpoes-industriais-guia": blogSeguroGalpoes,
@@ -184,71 +218,14 @@ export const blogImageMap: Record<string, string> = {
   // Consórcio Elétricos
   "consorcio-veiculos-eletricos-compra-planejada": blogConsorcioEletricos,
 
-  // Preço Seguro Auto Fev 2026
-  "preco-seguro-auto-fevereiro-2026": blogPrecoSeguroAutoFev2026,
-
   // Motorista App
   "seguro-motorista-aplicativo-guia": blogMotoristaApp,
 
   // Corretora Guarulhos
-  "corretora-de-seguros-em-guarulhos": blogCorretoraGuarulhos,
+  "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
 
-  // Preço Seguro Auto Guarulhos 2026
-  "quanto-custa-seguro-auto-guarulhos-2026": blogPrecoSeguroAutoGuarulhos2026,
-
-  // Consórcio Imóveis Guarulhos 2026
-  "consorcio-imoveis-crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
-
-  // Vantagens do Consórcio
-  "vantagens-do-consorcio-guia-completo": blogVantagensConsorcio,
-
-  // Agrishow 2026
-  "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": blogAgrishow2026,
-
-  // Novos artigos locais Guarulhos 2026
-  "melhores-seguros-motoristas-uber-guarulhos": blogMotoristaApp,
-  "seguro-barato-corolla-guarulhos": blogSeguroAuto,
-  "plano-saude-empresarial-mei-guarulhos": blogPlanoSaudePme,
-  "seguro-residencial-vale-pena-guarulhos": blogSeguroResidencial,
-
-  // Comparativos 2026
-  "porto-seguro-vs-azul-seguros-comparativo-2026": blogSeguroAuto,
-  "melhor-seguro-uber-99-2026": blogMotoristaApp,
-  "seguro-auto-barato-vs-completo-vale-pena": blogSeguroAutoPremium,
-  "bradesco-vs-sulamerica-plano-saude-2026": blogPlanoSaudeGuarulhos,
-   "porto-vs-tokio-marine-residencial-2026": blogSeguroResidencial,
-   "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
-
-    // Tabela FIPE, CNH e Multas (2026)
-    "tabela-fipe-2026": blogSeguroAuto,
-    "documentos-para-cnh": blogComoAcionarSeguroAuto,
-    "multas-guarulhos": blogSinistrosGuarulhos,
-
-    // Novos artigos estratégicos 2026
-    "melhores-seguradoras-guarulhos-2026": blogCorretoraGuarulhos,
-    "seguro-uber-99-guarulhos-guia": blogMotoristaApp,
-    "seguro-porsche-luxo-guarulhos": blogSeguroAutoPremium,
-    "porto-seguro-guarulhos-atendimento": blogCorretoraGuarulhos,
-    "seguradoras-que-mais-pagam-sinistro-guarulhos": blogDicas,
-    "seguro-caminhao-carreta-cumbica-guarulhos": blogSeguroTransporte,
-
-    // Blog Articles 2026 missing images
-    "vai-alugar-imovel-seguro-fianca-sem-fiador": blogSeguroFianca,
-    "como-funciona-franquia-seguro-auto-perda-parcial": blogComoAcionarSeguroAuto,
-    "vale-a-pena-usar-consorcio-para-investir-em-imoveis": blogConsorcio,
-    "como-escolher-plano-saude-empresarial": blogPlanoSaudePme,
-    "como-reduzir-valor-plano-saude": blogPlanoSaude,
-    "documentos-seguro-carro-guarulhos": blogComoAcionarSeguroAuto,
-    "seguro-residencial-guarulhos-proteja-imovel": blogSeguroResidencial,
-    "melhores-corretoras-seguros-guarulhos": blogCorretoraGuarulhos,
-    "seguro-empresarial-guarulhos-guia-completo": blogSeguroEmpresarial,
-    "diferenca-seguro-compreensivo-terceiros": blogSeguroAutoPremium,
-    "seguro-vida-guarulhos-por-contratar": blogSeguroVida,
-    "beneficios-seguro-imobiliario": blogSeguroImobiliario,
-    "seguro-condominio-responsabilidades-sindico": blogCondominioSindico,
-    "fianca-locaticia-guia-inquilinos-proprietarios": blogFiancaLocaticia,
-    "seguro-rc-eventos-exposicoes": blogRCEventos,
-    "quanto-custa-seguro-auto-guarulhos": blogPrecoSeguroAutoGuarulhos2026,
+  // Consultoria
+  "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
 };
 
 export const getArticleImage = (slug: string): string => {
