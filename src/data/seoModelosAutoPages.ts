@@ -295,47 +295,49 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-hyundai-guarulhos",
     modelo: "Hyundai",
-    modeloShort: "Hyundai",
-    categoria: "popular",
+    modeloShort: "Creta",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 55.000 a R$ 180.000",
     priceRange: { min: 2100, max: 5500, label: "R$ 2.100 a R$ 5.500/ano" },
     theftProfile: "médio",
-    pros: ["Garantia", "Design"],
-    cons: ["Peças caras"],
+    pros: ["Garantia de 5 anos", "Design moderno e arrojado", "Amplo espaço interno e tecnologia"],
+    cons: ["Peças de reposição com valor elevado", "Consumo em modelos 2.0"],
     bestInsurers: [
-      { name: "Tokio Marine", reason: "Tradicional" },
-      { name: "Allianz", reason: "Bom preço" },
-      { name: "Porto Seguro", reason: "Boa aceitação para HB20 e Creta" },
-      { name: "HDI", reason: "Competitiva para Hyundai" }
+      { name: "Tokio Marine", reason: "Referência em aceitação para a linha HB20 e Creta" },
+      { name: "Allianz", reason: "Condições competitivas para SUVs compactos" },
+      { name: "Porto Seguro", reason: "Excelente rede de oficinas referenciadas em Guarulhos" },
+      { name: "HDI", reason: "Preços agressivos para o perfil familiar" }
     ],
-    context: "A Hyundai se destaca pelo HB20 e Creta em Guarulhos."
+    context: "A Hyundai se destaca com o HB20 e o Creta, modelos extremamente desejados em Guarulhos pela confiabilidade e design. Proteja seu Hyundai com quem entende da marca."
   },
   {
     slug: "seguro-auto-bmw-guarulhos",
     modelo: "BMW",
-    modeloShort: "BMW",
+    modeloShort: "BMW Série 3",
     categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop",
     fipeRange: "R$ 180.000 a R$ 1.500.000+",
     priceRange: { min: 4200, max: 28000, label: "R$ 4.200 a R$ 28.000/ano" },
     theftProfile: "médio-alto",
     pros: [
-      "Engenharia alemã de alta performance",
-      "Alta tecnologia embarcada e segurança ativa",
-      "Valorização de mercado e prestígio da marca"
+      "Engenharia alemã de alta performance e precisão",
+      "Tecnologia BMW Live Cockpit e segurança ativa de ponta",
+      "Valorização de mercado superior e prestígio inigualável"
     ],
     cons: [
-      "Custo elevado de manutenção e peças genuínas",
-      "Modelos M e SUVs X5/X6 são altamente visados",
-      "Exigência de rastreador e vistorias rigorosas"
+      "Manutenção e peças genuínas com custo premium",
+      "Modelos M e SUVs X5/X6 são visados em grandes centros",
+      "Exigência de sistemas de rastreamento avançados"
     ],
     bestInsurers: [
-      { name: "Porto Seguro", reason: "melhor rede de concessionárias e serviços premium" },
-      { name: "Allianz", reason: "excelente precificação para SUVs e linha iPerformance" },
-      { name: "Tokio Marine", reason: "assistência 24h VIP e guincho prancha" },
-      { name: "Liberty", reason: "condições exclusivas para veículos de alto padrão" }
+      { name: "Porto Seguro", reason: "Líder em serviços premium e rede de concessionárias autorizadas" },
+      { name: "Allianz", reason: "Excelência em precificação para SUVs e veículos de alto desempenho" },
+      { name: "Tokio Marine", reason: "Atendimento VIP com assistência 24h e guincho prancha especializado" },
+      { name: "Liberty", reason: "Soluções exclusivas para o segmento de luxo automotivo" }
     ],
     context:
-      "A BMW é a definição do prazer de dirigir. Em Guarulhos, proprietários de Série 3, X1, X5 e da linha M buscam uma proteção que acompanhe a sofisticação de seu veículo. A Patro Seguros oferece consultoria premium para garantir que sua BMW esteja protegida contra roubo, furto e danos elétricos, com garantia de reparo em concessionária autorizada e peças originais."
+      "A BMW representa o 'Puro Prazer de Dirigir'. Em Guarulhos, proprietários de Série 3, X1, X5 e da prestigiada linha M buscam uma proteção que esteja à altura da engenharia alemã. A Patro Seguros oferece consultoria especializada para garantir que sua BMW tenha cobertura total, incluindo reparos em concessionárias oficiais com peças 100% originais."
   },
   {
     slug: "seguro-auto-toyota-guarulhos",
