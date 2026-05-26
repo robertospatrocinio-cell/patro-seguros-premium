@@ -45,7 +45,10 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
   const testimonials = (config.testimonials ?? DEFAULT_TESTIMONIALS).slice(0, 4) as unknown as [
     LocalTestimonial, LocalTestimonial, ...LocalTestimonial[],
   ];
-  const realScenarios = config.realScenarios as unknown as [
+  const realScenarios = (config.realScenarios ?? [
+    { title: "Case de Sucesso", description: "Atendimento ágil com cotação em 2 horas." },
+    { title: "Suporte em Sinistro", description: "Acompanhamento completo até a indenização." }
+  ]) as unknown as [
     { title: string; description: string },
     { title: string; description: string },
     ...{ title: string; description: string }[],
@@ -75,9 +78,9 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       testimonials={testimonials}
       realScenarios={realScenarios}
       coverages={config.coverages}
-      whoNeeds={config.whoNeeds}
-      whyPatro={config.whyPatro}
-      tips={config.tips}
+      whoNeeds={config.whoNeeds ?? ["Moradores de Guarulhos", "Empresários locais"]}
+      whyPatro={config.whyPatro ?? ["Nota 4.9 no Google", "Comparativo de 16+ seguradoras"]}
+      tips={config.tips ?? ["Compare sempre", "Fale com um especialista"]}
       nearbyAreas={config.nearbyAreas}
       relatedInsurances={config.relatedInsurances}
       heroImage={config.slug.includes("volvo")
