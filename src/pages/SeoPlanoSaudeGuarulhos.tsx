@@ -70,13 +70,13 @@ const faqs = [
 const SeoPlanoSaudeGuarulhos = () => (
   <>
      <PrerenderText slug="seguro-saude-guarulhos" />
-    <PageMeta title="Plano de Saúde em Guarulhos | Compare Opções | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Cobertura ambulatorial, hospitalar e odontológica. Cotação personalizada grátis." />
+    <PageMeta title="Plano de Saúde em Guarulhos | Patro" description="Planos de saúde em Guarulhos com as melhores operadoras. Cobertura ambulatorial, hospitalar e odontológica. Cotação personalizada grátis." />
     <FAQSchema faqs={faqs} />
     <Header />
     <main id="main-content">
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-white mb-6">Seguro Saúde em Guarulhos — Cuide da Sua Saúde</h1>
+          <h1 className="text-white mb-6">Plano de Saúde em Guarulhos</h1>
           <p className="text-xl text-white/70 mb-8">
             Encontre o melhor plano de saúde em Guarulhos — individual, familiar, empresarial e plano de saúde MEI Guarulhos. Comparamos Bradesco, Amil, SulAmérica, Hapvida, Porto Saúde e mais.
           </p>

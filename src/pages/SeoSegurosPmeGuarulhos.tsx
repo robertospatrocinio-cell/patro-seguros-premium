@@ -61,7 +61,7 @@ const estatisticas = [
 const SeoSegurosPmeGuarulhos = () => (
   <>
     <PageMeta
-      title="Seguros para PMEs em Guarulhos"
+      title="Seguros Empresariais para PME em Guarulhos | Patro"
       description="Pacote completo de seguros para PMEs em Guarulhos: empresarial, frota, vida grupo, saúde e RC. Cotação gratuita e consultoria personalizada. Patro Seguros."
     />
     <FAQSchema faqs={faqs} />
@@ -77,7 +77,7 @@ const SeoSegurosPmeGuarulhos = () => (
       {/* Hero */}
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-white mb-6">Seguros para PMEs e Empresas em Guarulhos</h1>
+          <h1 className="text-white mb-6">Seguros Empresariais para PME em Guarulhos</h1>
           <p className="text-lg text-white/80 mb-4 max-w-2xl mx-auto">
             Guarulhos é o segundo maior polo empresarial do estado de São Paulo, com mais de 80 mil empresas ativas. A Patro Seguros oferece consultoria especializada em seguros corporativos para proteger seu patrimônio, sua equipe e sua operação.
           </p>
