@@ -40,13 +40,13 @@ const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = fals
          src={`${base}.png`}
          srcSet={pngSrcSet}
          alt="Selo de avaliação da Patro Seguros"
-        width={w}
-        height={w}
-        loading={priority ? "eager" : "lazy"}
-        decoding={priority ? "sync" : "async"}
-        {...(priority ? { fetchPriority: "high" as const } : {})}
-        className={`${cls} object-contain transition-transform duration-300 hover:scale-110 ${className}`}
-      />
+         width={w}
+         height={w}
+         loading={priority ? "eager" : "lazy"}
+         decoding={priority ? "sync" : "async"}
+         {...(priority ? { fetchPriority: "high" as const } : {})}
+         className={`${cls} object-contain transition-transform duration-300 hover:scale-110 ${className}`}
+       />
     </picture>
   );
 });

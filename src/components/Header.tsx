@@ -182,15 +182,15 @@ const Header = memo(() => {
                 <span className="text-[10px] text-white font-bold">5.0 no Google</span>
               </div>
               <span className="hidden lg:flex items-center gap-1.5 text-white/60 text-[10px]">
-                <MapPin className="h-3 w-3" aria-hidden="true" />
+                <MapPin className="h-3 w-3" aria-hidden="true" role="presentation" />
                 Cidade Maia, Guarulhos/SP
               </span>
               <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Ligar para (11) 5199-7500">
-                <Phone className="h-3 w-3" aria-hidden="true" />
+                <Phone className="h-3 w-3" aria-hidden="true" role="presentation" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>
               </a>
               <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Enviar e-mail">
-                <Mail className="h-3 w-3" aria-hidden="true" />
+                <Mail className="h-3 w-3" aria-hidden="true" role="presentation" />
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
             </div>
@@ -206,7 +206,7 @@ const Header = memo(() => {
                       aria-label="WhatsApp"
                       onClick={() => trackWhatsAppClick("header_top")}
                     >
-                      <MessageCircle className="h-3 w-3" aria-hidden="true" />
+                      <MessageCircle className="h-3 w-3" aria-hidden="true" role="presentation" />
                     </a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">WhatsApp</TooltipContent>
@@ -216,6 +216,7 @@ const Header = memo(() => {
                   <TooltipTrigger asChild>
                     <a href="https://www.tiktok.com/@patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="TikTok">
                       <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                        <title>TikTok</title>
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
                       </svg>
                     </a>
@@ -225,21 +226,21 @@ const Header = memo(() => {
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
+                    <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" role="presentation" /></a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">Instagram</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
+                    <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" role="presentation" /></a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">Facebook</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" /></a>
+                    <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" role="presentation" /></a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">LinkedIn</TooltipContent>
                 </Tooltip>
@@ -261,9 +262,10 @@ const Header = memo(() => {
                >
                  <picture>
                    <source media="(max-width: 640px)" srcSet="/images/logo-full.webp" width="180" height="100" />
-                     <img
-                       src={logoFull}
-                       alt="Patro Seguros"
+                      <img
+                        src={logoFull}
+                        alt="Patro Seguros"
+                        aria-hidden="false"
                        width={251}
                        height={140}
                       className="h-20 object-contain -my-2 relative z-50"
@@ -282,7 +284,7 @@ const Header = memo(() => {
               <div className="relative group">
                 <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
                   Pessoal
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" role="presentation" />
                 </button>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[580px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                   <div className="bg-card rounded-xl shadow-xl border p-5">
