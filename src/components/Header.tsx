@@ -262,9 +262,10 @@ const Header = memo(() => {
                >
                  <picture>
                    <source media="(max-width: 640px)" srcSet="/images/logo-full.webp" width="180" height="100" />
-                     <img
-                       src={logoFull}
-                       alt="Patro Seguros"
+                      <img
+                        src={logoFull}
+                        alt="Patro Seguros"
+                        aria-hidden="false"
                        width={251}
                        height={140}
                       className="h-20 object-contain -my-2 relative z-50"
