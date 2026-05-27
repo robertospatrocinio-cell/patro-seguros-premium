@@ -181,14 +181,20 @@
     RewriteCond %{REQUEST_URI} ^/(admin|crm|purge-logs|performance-diagnostico|conversion-dashboard|seo-technical-report|pagespeed-history|preview) [NC]
     RewriteRule ^ index.html [L]
 
-    # 2. Existing files/directories (including pre-rendered ones)
+    # 2. Specific commercial pages that might be dynamic/LPs
+    RewriteCond %{REQUEST_URI} ^/(lp|seguro-auto-guarulhos) [NC]
+    RewriteRule ^ index.html [L]
+
+    # 3. Existing files/directories (including pre-rendered ones)
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
   
-    # 3. If we reach here, and it's NOT a static file, it's a real 404
-    # Note: Since we pre-render ALL valid SEO routes, anything else is indeed invalid.
-    RewriteRule ^ - [R=404,L]
+    # 4. Fallback to index.html for ANY route that doesn't exist as a file
+    # This restores the 200 status for valid React routes that might have failed prerender
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
   </IfModule>
   
   ErrorDocument 404 /404.html
