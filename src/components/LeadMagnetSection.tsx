@@ -112,6 +112,7 @@ const LeadMagnetSection = memo(() => {
                 height={400}
                 className="w-full max-w-[340px] drop-shadow-2xl transition-transform duration-500 hover:scale-105"
                 placeholderClass="bg-transparent"
+                aria-hidden="false"
               />
             </div>
           </div>
