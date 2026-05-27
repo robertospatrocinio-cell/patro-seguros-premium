@@ -1598,6 +1598,8 @@ const seguroCarroEletricoGuarulhos: SeoLocalPageConfig = {
 
 Object.assign(seoLocalPages, {
   [seguroCarroEletricoGuarulhos.slug]: seguroCarroEletricoGuarulhos,
+  [cotacaoSeguroAuto.slug]: cotacaoSeguroAuto,
+  [seguroRestauranteGuarulhos.slug]: seguroRestauranteGuarulhos,
 });
 
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);

@@ -60,9 +60,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const localConfig = seoLocalPages[slug] || seoLocalSaudePages[slug] || seoModeloAutoPages[slug];
   if (localConfig) {
     const rawTitle = localConfig.title.includes("Patro Seguros") ? localConfig.title : `${localConfig.title} | Patro Seguros`;
-    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57).trim() + "..." : rawTitle;
+    const title = rawTitle.length > 60 ? rawTitle.slice(0, 58).trim() + ".." : rawTitle;
     const rawDesc = localConfig.metaDescription || localConfig.description;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = rawDesc.length > 155 ? rawDesc.slice(0, 152).trim() + "..." : rawDesc;
     
     return {
       title,
@@ -96,9 +96,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const lpConfig = landingPagesData[slug];
   if (lpConfig) {
     const rawTitle = `${lpConfig.title} | Patro Seguros`;
-    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57).trim() + "..." : rawTitle;
+    const title = rawTitle.length > 60 ? rawTitle.slice(0, 58).trim() + ".." : rawTitle;
     const rawDesc = lpConfig.metaDescription || lpConfig.description;
-    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    const description = rawDesc.length > 155 ? rawDesc.slice(0, 152).trim() + "..." : rawDesc;
 
     return {
       title,

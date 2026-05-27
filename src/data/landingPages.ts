@@ -135,5 +135,33 @@ export const landingPagesData: Record<string, LandingPageContent> = {
     icon: "📋",
     detailedDescription: "Economize tempo e dinheiro comparando as melhores seguradoras do mercado em um único lugar. Nossa cotação é rápida, gratuita e sem compromisso.\n\nPreencha os dados e, em até 2 horas úteis, enviamos um quadro comparativo entre Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul, para que você escolha com clareza a melhor proteção.",
   },
+  "seguro-galpao-alugado": {
+    title: "Seguro para Galpão Alugado",
+    description: "Proteção específica para inquilinos de galpões comerciais e industriais.",
+    metaDescription: "Seguro para galpão alugado: proteção contra incêndio, danos elétricos e responsabilidade civil para o locatário. Garanta seu contrato de aluguel.",
+    heroImage: "/images/hero-home.webp",
+    insuranceType: "empresarial",
+    icon: "🏭",
+    detailedDescription: "A maioria dos contratos de locação de galpões exige um seguro contra incêndio. Nossa apólice para galpão alugado garante o cumprimento do contrato e protege o seu negócio contra imprevistos.\n\nAlém da cobertura básica, incluímos proteção para benfeitorias, mercadorias e responsabilidade civil, garantindo que você e o proprietário estejam seguros.",
+  },
+  "seguro-celular": {
+    title: "Seguro de Celular",
+    description: "Proteja seu smartphone contra roubo, furto qualificado e quebra acidental.",
+    metaDescription: "Seguro para celular contra roubo e quebra. Cobertura nacional e internacional para seu smartphone. Cotação rápida com a Patro Seguros.",
+    heroImage: "/images/hero-home.webp",
+    insuranceType: "residencial",
+    icon: "📱",
+    detailedDescription: "Seu celular é essencial no dia a dia. Oferecemos proteção contra roubo, furto qualificado e danos acidentais, como quebra de tela ou derramamento de líquidos.\n\nCom o seguro de celular da Patro, você garante que não ficará desconectado e terá o suporte necessário para reposição ou reparo do seu aparelho.",
+  },
+  "seguro-motorista-app": {
+    title: "Seguro para Motorista de Aplicativo",
+    description: "Seguro auto especializado para quem trabalha com Uber, 99 e outros aplicativos.",
+    metaDescription: "Seguro para motorista de aplicativo em Guarulhos. Cobertura completa, APP (Acidentes Pessoais a Passageiros) e assistência 24h. Saiba mais!",
+    heroImage: "/images/hero-home.webp",
+    insuranceType: "auto",
+    icon: "🚗",
+    detailedDescription: "Quem trabalha no volante precisa de proteção extra. Nosso seguro para motorista de aplicativo inclui a cobertura APP (Acidentes Pessoais a Passageiros), essencial para operar nas plataformas.\n\nOferecemos coberturas para roubo, colisão, danos a terceiros e assistência 24h com guincho e carro reserva, garantindo que seu instrumento de trabalho esteja sempre protegido.",
+  },
 };
+
 

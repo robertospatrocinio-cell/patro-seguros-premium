@@ -178,22 +178,23 @@
     # | SPA Fallback and Real 404 Handling                                 |
     # ----------------------------------------------------------------------
 
-    # 1. Internal/Admin routes should ALWAYS use index.html (SPA mode)
-    RewriteCond %{REQUEST_URI} ^/(admin|crm|purge-logs|performance-diagnostico|conversion-dashboard|seo-technical-report|pagespeed-history|preview) [NC]
-    RewriteRule ^ index.html [L]
-
-    # 2. Specific landing pages / commercial pages that might not be pre-rendered yet
-    RewriteCond %{REQUEST_URI} ^/(lp|landing|cotacao-seguro|promocao) [NC]
-    RewriteRule ^ index.html [L]
-
-    # 3. If the file exists, serve it
+    # 1. If the exact file or directory exists (including pre-rendered index.html), serve it
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
+
+    # 2. Internal/Admin routes should ALWAYS use index.html (SPA mode)
+    # These routes are NOT pre-rendered.
+    RewriteCond %{REQUEST_URI} ^/(admin|crm|purge-logs|performance-diagnostico|conversion-dashboard|seo-technical-report|pagespeed-history|preview) [NC]
+    RewriteRule ^ index.html [L]
+
+    # 3. Specific landing pages / commercial pages fallback
+    # ONLY if the pre-rendered file does not exist (safety net).
+    RewriteCond %{REQUEST_URI} ^/(lp|landing|cotacao-seguro|promocao) [NC]
+    RewriteRule ^ index.html [L]
   
-    # 4. For everything else that is NOT a file: 
+    # 4. For everything else that is NOT a file and NOT an internal route:
     # Since we are pre-rendering everything in the sitemap, if it's not a file, it's a 404.
-    # Exception: The root directory "/" is handled by DirectoryIndex.
     RewriteCond %{REQUEST_URI} !^/$
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
