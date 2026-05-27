@@ -10,6 +10,7 @@ export interface Metadata {
   h1: string;
   ogUrl: string;
   ogType: "website" | "article";
+  schema?: any;
 }
 
 const DOMAIN = "https://www.patroseguros.com.br";
@@ -27,6 +28,20 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       h1: "Patro Seguros: Corretora de Seguros em Guarulhos",
       ogUrl: DOMAIN,
       ogType: "website",
+      schema: {
+        "@context": "https://schema.org",
+        "@type": ["InsuranceAgency", "LocalBusiness"],
+        "name": "Patro Seguros",
+        "description": "Corretora de seguros em Guarulhos especializada em seguros auto, residenciais e empresariais.",
+        "url": DOMAIN,
+        "telephone": "+55-11-5199-7500",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Guarulhos",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        }
+      }
     };
   }
 
@@ -41,6 +56,19 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       h1: localConfig.title,
       ogUrl: `${DOMAIN}${cleanPath}`,
       ogType: "website",
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": localConfig.title,
+        "provider": {
+          "@type": "InsuranceAgency",
+          "name": "Patro Seguros"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": localConfig.city || "Guarulhos"
+        }
+      }
     };
   }
 
@@ -56,6 +84,17 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         h1: post.title,
         ogUrl: `${DOMAIN}${cleanPath}`,
         ogType: "article",
+        schema: {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.excerpt,
+          "datePublished": post.date,
+          "author": {
+            "@type": "Person",
+            "name": post.author
+          }
+        }
       };
     }
   }
