@@ -72,7 +72,7 @@ const Index = () => {
     <>
       <PageMeta 
         title="Corretora de Seguros em Guarulhos | Patro Seguros"
-        description="Corretora de seguros em Guarulhos com nota 4,9/5: auto, residencial, vida, saúde e empresarial. Compare 16+ seguradoras. Cotação grátis em 2h."
+        description="Patro Seguros: A melhor corretora de seguros em Guarulhos. Compare cotações de 16+ seguradoras para Seguro Auto, Uber, Residencial e Saúde. Cotação em 2h!"
         absoluteTitle={true}
       />
       <FAQSchema faqs={faqs} />
@@ -232,7 +232,7 @@ const Index = () => {
 
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Guia Completo para Proteger o que Importa</h2>
+            <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Proteção e Economia</h2>
             <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Somos uma das <strong>melhores corretoras de seguros em Guarulhos</strong>, reconhecida pela nota 4,9/5 no Google e por já ter atendido <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil.
@@ -241,7 +241,7 @@ const Index = () => {
                 Guarulhos, a segunda maior cidade de São Paulo com mais de 1,4 milhão de habitantes, possui características únicas que exigem uma corretora que conheça profundamente a região. Do polo logístico de Cumbica às residências de alto padrão no Cidade Maia, cada bairro demanda uma estratégia de proteção diferente. É por isso que a Patro se especializou em entender os riscos locais — índices de roubo por região, alagamentos sazonais, perfil de trânsito nas rodovias Dutra e Fernão Dias — para recomendar exatamente as coberturas que fazem sentido para cada perfil.
               </p>
 
-              <h2 className="text-foreground font-bold text-lg mt-8">Seguros Auto para Famílias em Guarulhos</h2>
+              <h2 className="text-foreground font-bold text-lg mt-8">Seguro Auto em Guarulhos</h2>
               <p>
                 Guarulhos registra um dos maiores volumes de circulação de veículos do estado, com trânsito intenso na Dutra, Fernão Dias e vias locais como a Av. Paulo Faccini. Bairros como Cumbica, Bonsucesso e Pimentas apresentam índices elevados de roubo e furto de veículos, tornando o <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto em Guarulhos</Link> essencial. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Mapfre, Liberty e outras seguradoras para garantir a melhor relation custo-benefício. Nosso diferencial: entregamos propostas comparativas em até 2 horas.
               </p>
@@ -422,7 +422,7 @@ const Index = () => {
 
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-white mb-4 font-extrabold">Faça sua cotação de seguro em Guarulhos</h2>
+            <h2 className="text-white mb-4 font-extrabold">Cotação de Seguro em Guarulhos</h2>
             <p className="text-[14px] text-white/70 mb-12 max-w-md mx-auto">
               Gratuita, sem compromisso. Resposta em até 2 horas com propostas comparativas das melhores seguradoras.
             </p>

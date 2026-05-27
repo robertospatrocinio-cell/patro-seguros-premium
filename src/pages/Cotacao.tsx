@@ -115,14 +115,14 @@ const Cotacao = () => {
 
   return (
     <>
-      <PageMeta title="Cotação de Seguro em Guarulhos – Grátis" description="Cotação gratuita de seguros em Guarulhos. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras." />
+      <PageMeta title="Cotação de Seguro em Guarulhos | Patro Seguros" description="Solicite sua cotação de seguro em Guarulhos gratuitamente. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras do Brasil." />
       <Header />
       <main id="main-content">
         {/* Hero */}
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-white mb-6">Cotação de Seguro em Guarulhos — Grátis e Online</h1>
+              <h1 className="text-white mb-6">Cotação de Seguro em Guarulhos</h1>
               <p className="text-xl text-white/70">
                 Preencha o formulário abaixo e receba sua cotação personalizada em até 2 horas
               </p>

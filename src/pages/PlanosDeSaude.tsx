@@ -167,7 +167,7 @@ const faqs = [
 const PlanosDeSaude = () => {
   return (
     <>
-      <PageMeta title="Planos de Saúde em Guarulhos – Cidade Maia" description="Compare planos de saúde em Guarulhos, Cidade Maia. Bradesco, Amil, SulAmérica e mais. Cotação grátis para pessoa física e empresas com a Patro Seguros." />
+      <PageMeta title="Plano de Saúde em Guarulhos | Compare Opções | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Compare Bradesco, Amil, SulAmérica e mais. Cotação grátis para pessoa física e empresas." />
       <FAQSchema faqs={faqs} />
       <Header />
       <main id="main-content">
@@ -175,7 +175,7 @@ const PlanosDeSaude = () => {
           <img src={heroImg} alt="" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover opacity-20" aria-hidden="true" loading="eager" />
           <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
             <div className="text-6xl mb-6">🏥</div>
-             <h1 className="text-white mb-6">Planos de Saúde em Guarulhos — Compare e Economize</h1>
+             <h1 className="text-white mb-6">Plano de Saúde em Guarulhos</h1>
              <p className="text-xl text-white/70 mb-8">
                Trabalhamos com as principais operadoras de Guarulhos e do Brasil para encontrar o plano de saúde ideal para você, sua família (individual) ou sua empresa (PME/MEI).
              </p>
