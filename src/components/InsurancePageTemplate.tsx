@@ -207,12 +207,13 @@ const InsurancePageTemplate = ({
                <OptimizedImage 
                 src={heroImage} 
                 mobileSrc={mobileHeroImage}
-                alt="" 
+                alt={title} 
                 className="w-full h-full" 
                 eager 
-                aria-hidden="true" 
+                aria-hidden="false" 
                 placeholderClass="bg-transparent" 
                 decoding="sync"
+
                 style={{ opacity: 0.18, objectPosition: 'center center' }} 
               />
             </div>
