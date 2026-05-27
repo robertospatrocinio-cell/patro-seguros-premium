@@ -165,7 +165,10 @@ const InsuranceHeroSelector = memo(() => {
               src={bgByTab[tab.key]}
               srcSet={`${bgSmByTab[tab.key]} 900w, ${bgByTab[tab.key]} 1920w`}
               sizes="100vw"
-              alt=""
+              alt={tab.key === "voce" ? "Seguro auto e vida em Guarulhos para sua família" : 
+                   tab.key === "empresa" ? "Seguro empresarial e frotas para empresas em Guarulhos" :
+                   tab.key === "agro" ? "Seguro agrícola e de máquinas para o produtor rural" :
+                   "Consórcio de imóveis e veículos com a Patro Seguros"}
               width={1280}
               height={720}
               className="w-full h-full object-cover"
