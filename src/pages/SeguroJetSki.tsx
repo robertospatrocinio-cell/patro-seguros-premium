@@ -127,7 +127,7 @@ const SeguroJetSki = () => {
         <section className="relative min-h-[90vh] flex items-center overflow-hidden">
           <img
             src={heroImg}
-            alt="Jet Ski premium navegando em águas cristalinas - Seguro Jet Ski Patro Seguros"
+            alt="Seguro Jet Ski em Guarulhos com cotação online pela Patro Seguros"
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
           />
