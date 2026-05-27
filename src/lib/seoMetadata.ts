@@ -60,11 +60,13 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const localConfig = seoLocalPages[slug] || seoLocalSaudePages[slug] || seoModeloAutoPages[slug];
   if (localConfig) {
     const rawTitle = localConfig.title.includes("Patro Seguros") ? localConfig.title : `${localConfig.title} | Patro Seguros`;
-    const title = rawTitle.length > 60 ? rawTitle.split("|")[0].trim().slice(0, 57) + "..." : rawTitle;
+    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57).trim() + "..." : rawTitle;
+    const rawDesc = localConfig.metaDescription || localConfig.description;
+    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
     
     return {
       title,
-      description: localConfig.metaDescription.slice(0, 157) + (localConfig.metaDescription.length > 160 ? "..." : ""),
+      description,
       canonical: `${DOMAIN}${cleanPath}`,
       h1: localConfig.title,
       ogUrl: `${DOMAIN}${cleanPath}`,
@@ -73,6 +75,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       faqs: localConfig.faqs,
       whoNeeds: localConfig.whoNeeds,
       whyPatro: localConfig.whyPatro,
+
       schema: {
         "@context": "https://schema.org",
         "@type": "Service",
