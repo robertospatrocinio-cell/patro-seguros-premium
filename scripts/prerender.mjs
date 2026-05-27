@@ -76,6 +76,12 @@ async function run() {
     html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${metadata.title}"`);
     html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${metadata.description}"`);
 
+    // Inject Schema JSON-LD
+    if (metadata.schema) {
+      const schemaScript = `\n    <script type="application/ld+json">\n      ${JSON.stringify(metadata.schema, null, 2)}\n    </script>`;
+      html = html.replace("</head>", `${schemaScript}\n</head>`);
+    }
+
     // Inject H1 and Basic Content for Crawlers
     const crawlerContent = `
       <div id="crawler-content" style="display:none">
