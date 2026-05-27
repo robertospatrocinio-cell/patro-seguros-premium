@@ -3,6 +3,7 @@ import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { articles as blogArticles } from "@/lib/blogData";
 import { landingPagesData } from "@/data/landingPages";
+import { servicePagesContent } from "@/data/seoServiceContent";
 
 export interface Metadata {
   title: string;
@@ -81,7 +82,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     };
   }
 
-  // 3. Landing Pages / Commercial Pages (the "166 pages" mentioned)
+  // 3. Landing Pages / Commercial Pages
   const lpConfig = landingPagesData[slug];
   if (lpConfig) {
     return {
@@ -98,8 +99,109 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     };
   }
 
-  // 4. Blog Posts
+  // 4. Service Content Pages
+  const serviceContent = (servicePagesContent as any)[slug];
+  if (serviceContent) {
+    const title = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    return {
+      title: `${title} | Patro Seguros Guarulhos`,
+      description: serviceContent.content.slice(0, 160),
+      canonical: `${DOMAIN}${cleanPath}`,
+      h1: title,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "website",
+      detailedDescription: serviceContent.content,
+    };
+  }
+
+  // 5. Blog Posts
   if (cleanPath.startsWith("/blog/")) {
+    const blogSlug = cleanPath.replace("/blog/", "");
+    const post = blogArticles.find(p => p.slug === blogSlug);
+    if (post) {
+      return {
+        title: `${post.title} | Blog Patro Seguros`,
+        description: post.excerpt,
+        canonical: `${DOMAIN}${cleanPath}`,
+        h1: post.title,
+        ogUrl: `${DOMAIN}${cleanPath}`,
+        ogType: "article",
+        schema: {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": post.excerpt,
+          "datePublished": post.date,
+          "author": {
+            "@type": "Person",
+            "name": post.author
+          }
+        }
+      };
+    }
+  }
+
+  // 6. Static Pages Mapping
+  const staticPages: Record<string, { title: string; description: string; h1: string }> = {
+    "/blog": {
+      title: "Blog Patro Seguros | Notícias e Dicas sobre Seguros",
+      description: "Acompanhe as últimas notícias, dicas e novidades sobre o mercado de seguros em Guarulhos e no Brasil.",
+      h1: "Blog Patro Seguros",
+    },
+    "/cotacao": {
+      title: "Cotação de Seguro em Guarulhos | Patro Seguros",
+      description: "Solicite uma cotação de seguro auto, residencial, vida ou saúde em Guarulhos. Receba comparativo em até 2h.",
+      h1: "Solicitar Cotação de Seguro",
+    },
+    "/contato": {
+      title: "Contato Patro Seguros | Atendimento em Guarulhos",
+      description: "Fale com nossos especialistas em seguros via WhatsApp, telefone ou presencial no Cidade Maia.",
+      h1: "Fale Conosco",
+    },
+    "/politica-privacidade": {
+      title: "Política de Privacidade | Patro Seguros",
+      description: "Saiba como a Patro Seguros trata e protege seus dados pessoais conforme a LGPD.",
+      h1: "Política de Privacidade",
+    },
+    "/termos-de-uso": {
+      title: "Termos de Uso | Patro Seguros",
+      description: "Termos e condições de uso do site da Patro Seguros.",
+      h1: "Termos de Uso",
+    }
+  };
+
+  const staticPage = staticPages[cleanPath];
+  if (staticPage) {
+    return {
+      title: staticPage.title,
+      description: staticPage.description,
+      canonical: `${DOMAIN}${cleanPath}`,
+      h1: staticPage.h1,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "website",
+    };
+  }
+
+  // 7. Generic Fallback for all other sitemap routes to avoid duplicate home metadata
+  // Generates metadata based on the slug to ensure uniqueness
+  if (slug && slug !== "/") {
+    const titleParts = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1));
+    const pageTitle = titleParts.join(" ");
+    const isGuarulhos = slug.includes("guarulhos");
+    
+    return {
+      title: `${pageTitle}${isGuarulhos ? "" : " em Guarulhos"} | Patro Seguros`,
+      description: `Procurando por ${pageTitle.toLowerCase()}? A Patro Seguros é especialista em soluções de proteção em Guarulhos. Cotação rápida e atendimento local.`,
+      canonical: `${DOMAIN}${cleanPath}`,
+      h1: pageTitle,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "website",
+    };
+  }
+
+  return null;
+}
+
 
     const blogSlug = cleanPath.replace("/blog/", "");
     const post = blogArticles.find(p => p.slug === blogSlug);
