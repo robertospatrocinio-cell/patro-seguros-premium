@@ -182,15 +182,15 @@ const Header = memo(() => {
                 <span className="text-[10px] text-white font-bold">5.0 no Google</span>
               </div>
               <span className="hidden lg:flex items-center gap-1.5 text-white/60 text-[10px]">
-                <MapPin className="h-3 w-3" aria-hidden="true" />
+                <MapPin className="h-3 w-3" aria-hidden="true" role="presentation" />
                 Cidade Maia, Guarulhos/SP
               </span>
               <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Ligar para (11) 5199-7500">
-                <Phone className="h-3 w-3" aria-hidden="true" />
+                <Phone className="h-3 w-3" aria-hidden="true" role="presentation" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>
               </a>
               <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Enviar e-mail">
-                <Mail className="h-3 w-3" aria-hidden="true" />
+                <Mail className="h-3 w-3" aria-hidden="true" role="presentation" />
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
             </div>
@@ -206,7 +206,7 @@ const Header = memo(() => {
                       aria-label="WhatsApp"
                       onClick={() => trackWhatsAppClick("header_top")}
                     >
-                      <MessageCircle className="h-3 w-3" aria-hidden="true" />
+                      <MessageCircle className="h-3 w-3" aria-hidden="true" role="presentation" />
                     </a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">WhatsApp</TooltipContent>
@@ -226,21 +226,21 @@ const Header = memo(() => {
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" /></a>
+                    <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Instagram"><Instagram className="h-3 w-3" aria-hidden="true" role="presentation" /></a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">Instagram</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" /></a>
+                    <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="Facebook"><Facebook className="h-3 w-3" aria-hidden="true" role="presentation" /></a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">Facebook</TooltipContent>
                 </Tooltip>
 
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" /></a>
+                    <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="LinkedIn"><Linkedin className="h-3 w-3" aria-hidden="true" role="presentation" /></a>
                   </TooltipTrigger>
                   <TooltipContent side="bottom" className="text-[10px] py-1 px-2">LinkedIn</TooltipContent>
                 </Tooltip>
@@ -283,7 +283,7 @@ const Header = memo(() => {
               <div className="relative group">
                 <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
                   Pessoal
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" role="presentation" />
                 </button>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[580px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                   <div className="bg-card rounded-xl shadow-xl border p-5">
