@@ -7,9 +7,9 @@ const SeoSeguroResidencialGuarulhos = () => (
     <PrerenderText slug="seguro-residencial-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Residencial em Guarulhos | Proteja Sua Casa | Patro Seguros"
+    title="Seguro Residencial em Guarulhos | Sua Casa Protegida | Patro Seguros"
     subtitle="Seguro Residencial em Guarulhos — Sua Casa Protegida"
-    description="Proteja sua residência em Guarulhos com seguro residencial completo. Cobertura contra incêndio, roubo, danos elétricos. Cotação grátis em 2h."
+    description="Proteja sua residência em Guarulhos com seguro residencial completo. Cobertura contra incêndio, roubo e danos elétricos. Cotação grátis em 2h."
     detailedDescription={`Guarulhos possui mais de 400 mil domicílios, entre casas, apartamentos e condomínios, cada um com riscos específicos que variam conforme o bairro e tipo de imóvel. A cidade registra milhares de ocorrências anuais de roubo residencial, danos elétricos por oscilação de rede e problemas causados por vendavais e chuvas fortes durante o verão.
 
 Moradores da Cidade Maia e Vila Augusta, por exemplo, tendem a ter imóveis de maior valor agregado e necessitam de coberturas robustas para eletrônicos, joias e obras de arte. Já em bairros como Picanço e Macedo, os riscos de alagamento e danos elétricos são mais relevantes, exigindo coberturas específicas.

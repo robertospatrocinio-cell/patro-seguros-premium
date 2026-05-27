@@ -32,7 +32,7 @@ const equipe = [
 const Sobre = () => {
   return (
     <>
-      <PageMeta title="Sobre a Patro – Corretora em Guarulhos" description="Conheça a Patro Seguros, corretora em Guarulhos (Cidade Maia). Atendimento consultivo, especialistas e parceria com as melhores seguradoras." />
+      <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
       <Header />
       <main id="main-content">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />
@@ -43,7 +43,7 @@ const Sobre = () => {
             <div className="flex justify-center mb-6">
               <SeloMelhorCorretora size="lg" priority />
             </div>
-            <h1 className="text-white mb-4">Corretora de Seguros em Guarulhos — Conheça a Patro Seguros</h1>
+            <h1 className="text-white mb-4">Corretora de Seguros em Guarulhos</h1>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Uma corretora feita de pessoas reais, com experiência real, cuidando de famílias e empresas reais em Guarulhos e em todo o Brasil.
             </p>

@@ -7,9 +7,9 @@ const SeoSeguroEmpresarialGuarulhos = () => (
     <PrerenderText slug="seguro-empresarial-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Empresarial em Guarulhos | Proteja Seu Negócio | Patro Seguros"
+    title="Seguro Empresarial em Guarulhos | PME e Empresas | Patro Seguros"
     subtitle="Seguro Empresarial em Guarulhos — Seu Negócio Protegido"
-    description="Seguro empresarial em Guarulhos para proteger seu negócio. Cobertura para incêndio, roubo, responsabilidade civil. Cotação grátis."
+    description="Seguro empresarial em Guarulhos para proteger seu negócio. Cobertura para incêndio, roubo e responsabilidade civil. Cotação grátis."
     icon="🏢"
     metaDescription="Seguro empresarial Guarulhos e Cumbica: cotação Porto Seguro, Tokio, AIG e Allianz para indústrias, galpões e comércios. Cotação grátis Patro Seguros."
     coverages={[

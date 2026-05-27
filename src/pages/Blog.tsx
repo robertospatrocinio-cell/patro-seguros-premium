@@ -41,9 +41,9 @@ const Blog = () => {
             <Link to="/blog/corretora-de-seguros-em-guarulhos" className="block max-w-4xl mx-auto">
               <Card className="overflow-hidden group md:flex hover:shadow-xl transition-base">
                 <div className="md:w-1/2 aspect-video md:aspect-auto overflow-hidden">
-                  <OptimizedImage
+                   <OptimizedImage
                     src={getArticleImage("corretora-de-seguros-em-guarulhos")}
-                    alt="Corretora de seguros em Guarulhos — Patro Seguros cotação online grátis"
+                    alt="Corretora de Seguros em Guarulhos"
                     className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>

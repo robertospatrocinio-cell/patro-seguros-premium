@@ -55,6 +55,11 @@ const MAX_TITLE_LENGTH = 60;
     // Canonical URL — single source of truth (strips query/hash, normalizes slashes)
     const canonicalUrl = getCanonicalUrl(location.pathname);
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
     if (canonical) {
       canonical.setAttribute("href", canonicalUrl);
     }

@@ -37,9 +37,9 @@ const SeoSeguroAutoGuarulhos = () => (
     <InsurancePageTemplate
     heroImage={heroImg}
     mobileHeroImage={heroMobileImg}
-    title="Seguro Auto em Guarulhos | Cotação Grátis | Patro Seguros"
+    title="Seguro Auto em Guarulhos | Cotação em 2h | Patro Seguros"
     subtitle="Seguro Auto em Guarulhos — Cotação Online Grátis"
-    description="Faça cotação de seguro auto em Guarulhos com as 16 melhores seguradoras. Resposta em até 2h. Proteja seu carro com a Patro Seguros. (11) 5199-7500"
+    description="Faça cotação de seguro auto em Guarulhos com as 16 melhores seguradoras. Resposta em até 2h. Proteja seu carro com a Patro Seguros."
     detailedDescription={`Guarulhos é a segunda maior cidade do estado de São Paulo, com mais de 1,4 milhão de habitantes e uma frota estimada em 650 mil veículos. A cidade é cortada por rodovias de alto fluxo como a Presidente Dutra (BR-116), Fernão Dias (BR-381) e Ayrton Senna, o que eleva significativamente o risco de acidentes e sinistros.
 
 Segundo dados do ISP (Índice de Sinistralidade por Praça), Guarulhos está entre as 10 cidades com maior índice de roubo e furto de veículos do Brasil. Bairros como Cumbica, Bonsucesso e Pimentas apresentam taxas de sinistralidade até 40% superiores à média estadual, enquanto regiões como Cidade Maia e Vila Augusta possuem índices mais favoráveis.
