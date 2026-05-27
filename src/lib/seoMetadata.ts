@@ -118,6 +118,21 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         title: "Planos de Saúde em Guarulhos | Compare Operadoras",
         description: "Encontre o melhor plano de saúde em Guarulhos para você, sua família ou empresa.",
         h1: "Planos de Saúde em Guarulhos",
+      },
+      "/seguro-celular": {
+        title: "Seguro de Celular | Coberturas e Proteção",
+        description: "Conheça o seguro de celular contra roubo, furto qualificado e danos acidentais. Veja coberturas e como contratar com a Patro.",
+        h1: "Seguro de Celular",
+      },
+      "/seguro-motorista-app": {
+        title: "Seguro Para Motorista de App | Guia Completo",
+        description: "Entenda como funciona o seguro para Uber, 99 e motoristas de aplicativo, com cobertura para veículo, terceiros e passageiros.",
+        h1: "Seguro Para Motorista de App",
+      },
+      "/consorcio": {
+        title: "Consórcio | Como Funciona e Vantagens",
+        description: "Entenda como funciona o consórcio para carro, imóvel e caminhão, suas vantagens, regras e quando vale a pena contratar.",
+        h1: "Consórcio: Como Funciona",
       }
     };
 
