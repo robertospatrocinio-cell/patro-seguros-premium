@@ -4,14 +4,18 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /~api/
 Disallow: /~flock.js
-Allow: /lp/
-Allow: /blog/
 Disallow: /ebook-consorcio/
 Disallow: /avaliar-no-google/
 Disallow: /performance-diagnostico
 Disallow: /conversion-dashboard
 Disallow: /seo-technical-report
 Disallow: /pagespeed-history
+
+# Allow public high-value paths
+Allow: /lp/
+Allow: /blog/
+Allow: /seguros-guarulhos/
+Allow: /planos-de-saude/
 
 # Sitemaps
 Sitemap: https://www.patroseguros.com.br/sitemap.xml
