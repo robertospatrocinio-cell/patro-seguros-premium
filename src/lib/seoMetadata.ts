@@ -203,8 +203,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const staticPage = staticPages[cleanPath];
   if (staticPage) {
     return {
-      title: staticPage.title,
-      description: staticPage.description,
+      title: staticPage.title.slice(0, 57) + (staticPage.title.length > 60 ? "..." : ""),
+      description: staticPage.description.slice(0, 157) + (staticPage.description.length > 160 ? "..." : ""),
       canonical: `${DOMAIN}${cleanPath}`,
       h1: staticPage.h1,
       ogUrl: `${DOMAIN}${cleanPath}`,
@@ -218,15 +218,19 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const pageTitle = titleParts.join(" ");
     const isGuarulhos = slug.includes("guarulhos");
     
+    const rawTitle = `${pageTitle}${isGuarulhos ? "" : " em Guarulhos"} | Patro Seguros`;
+    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57) + "..." : rawTitle;
+
     return {
-      title: `${pageTitle}${isGuarulhos ? "" : " em Guarulhos"} | Patro Seguros`,
-      description: `Procurando por ${pageTitle.toLowerCase()}? A Patro Seguros é especialista em soluções de proteção em Guarulhos.`,
+      title,
+      description: `Procurando por ${pageTitle.toLowerCase()}? A Patro Seguros é especialista em soluções de proteção em Guarulhos.`.slice(0, 160),
       canonical: `${DOMAIN}${cleanPath}`,
       h1: pageTitle,
       ogUrl: `${DOMAIN}${cleanPath}`,
       ogType: "website",
     };
   }
+
 
   return null;
 }
