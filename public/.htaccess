@@ -198,4 +198,9 @@
     RewriteRule ^ index.html [L]
   </IfModule>
   
+  # Ensure the error page itself returns 404 for truly invalid resources (like missing images)
+  <Files "404.html">
+    Header set Status "404 Not Found"
+  </Files>
+  
   ErrorDocument 404 /404.html
