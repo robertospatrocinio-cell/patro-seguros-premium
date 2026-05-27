@@ -54,27 +54,27 @@ async function run() {
     let html = indexContent;
 
     // Replace Title
-    html = html.replace(/<title>[^<]*<\/title>/, `<title>${metadata.title}</title>`);
+    html = html.replace(/<title>[^<]*<\/title>/g, `<title>${metadata.title}</title>`);
     
     // Replace Meta Description
-    html = html.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="${metadata.description}"`);
+    html = html.replace(/<meta name="description" content="[^"]*"/g, `<meta name="description" content="${metadata.description}"`);
 
     // Replace Canonical
     const canonicalTag = `<link rel="canonical" href="${metadata.canonical}">`;
     if (html.includes('rel="canonical"')) {
-      html = html.replace(/<link rel="canonical" href="[^"]*">/, canonicalTag);
+      html = html.replace(/<link rel="canonical" href="[^"]*">/g, canonicalTag);
     } else {
       html = html.replace("</head>", `  ${canonicalTag}\n</head>`);
     }
 
     // Replace Open Graph & Twitter
-    html = html.replace(/<meta property="og:title" content="[^"]*"/, `<meta property="og:title" content="${metadata.title}"`);
-    html = html.replace(/<meta property="og:description" content="[^"]*"/, `<meta property="og:description" content="${metadata.description}"`);
-    html = html.replace(/<meta property="og:url" content="[^"]*"/, `<meta property="og:url" content="${metadata.ogUrl}"`);
-    html = html.replace(/<meta property="og:type" content="[^"]*"/, `<meta property="og:type" content="${metadata.ogType}"`);
+    html = html.replace(/<meta property="og:title" content="[^"]*"/g, `<meta property="og:title" content="${metadata.title}"`);
+    html = html.replace(/<meta property="og:description" content="[^"]*"/g, `<meta property="og:description" content="${metadata.description}"`);
+    html = html.replace(/<meta property="og:url" content="[^"]*"/g, `<meta property="og:url" content="${metadata.ogUrl}"`);
+    html = html.replace(/<meta property="og:type" content="[^"]*"/g, `<meta property="og:type" content="${metadata.ogType}"`);
     
-    html = html.replace(/<meta name="twitter:title" content="[^"]*"/, `<meta name="twitter:title" content="${metadata.title}"`);
-    html = html.replace(/<meta name="twitter:description" content="[^"]*"/, `<meta name="twitter:description" content="${metadata.description}"`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*"/g, `<meta name="twitter:title" content="${metadata.title}"`);
+    html = html.replace(/<meta name="twitter:description" content="[^"]*"/g, `<meta name="twitter:description" content="${metadata.description}"`);
 
     // Inject Schema JSON-LD
     if (metadata.schema) {
