@@ -158,6 +158,7 @@
     # Specific redirects requested
     RewriteRule ^seguro-valores/?$ /cotacao [R=301,L]
     RewriteRule ^nossos-parceiros/?$ /parceiros [R=301,L]
+    RewriteRule ^politica-de-privacidade/?$ /politica-privacidade [R=301,L]
 
     # Strip trailing slash on non-asset URLs
     RewriteCond %{REQUEST_FILENAME} !-d
