@@ -154,6 +154,25 @@ const InsurancePageTemplate = ({
   // Shared set to dedupe contextual keyword links across all narrative blocks
   // of the page (description, detailedDescription, contextualLinks, importantDetails).
   const linkedKeywords = new Set<string>();
+
+  // Determine descriptive alt for hero image based on product type
+  const getHeroAlt = () => {
+    const t = title.toLowerCase();
+    if (t.includes("auto") || t.includes("carro") || t.includes("veículo") || t.includes("frota") || t.includes("moto")) 
+      return "Seguro auto em Guarulhos com cotação online pela Patro Seguros";
+    if (t.includes("saúde") || t.includes("saude") || t.includes("médico") || t.includes("plano")) 
+      return "Consultoria para plano de saúde em Guarulhos";
+    if (t.includes("residencial") || t.includes("casa") || t.includes("apartamento") || t.includes("imóvel")) 
+      return "Seguro residencial para proteger casa e apartamento";
+    if (t.includes("empresa") || t.includes("pme") || t.includes("negócio") || t.includes("empresarial")) 
+      return "Seguro empresarial para pequenas e médias empresas";
+    if (t.includes("vida")) 
+      return "Seguro de vida para proteção familiar";
+    if (t.includes("consórcio") || t.includes("consorcio")) 
+      return "Consórcio para carro, imóvel ou caminhão";
+    return `${title} em Guarulhos com a Patro Seguros`;
+  };
+
   // SEO Local: se o title da página ainda não menciona uma localidade
   // (Guarulhos, São Paulo, SP, Brasil), reforça os H2 com geomodificador
   // para capturar buscas geolocalizadas (ex.: "quanto custa seguro auto em Guarulhos").
@@ -207,7 +226,7 @@ const InsurancePageTemplate = ({
                <OptimizedImage 
                 src={heroImage} 
                 mobileSrc={mobileHeroImage}
-                alt={`${title} em Guarulhos com a Patro Seguros`} 
+                alt={getHeroAlt()} 
                 className="w-full h-full" 
                 eager 
                 aria-hidden="false" 
