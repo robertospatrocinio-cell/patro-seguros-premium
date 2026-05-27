@@ -87,6 +87,14 @@ async function run() {
       <div id="crawler-content" style="display:none">
         <h1>${metadata.h1}</h1>
         <p>${metadata.description}</p>
+        <p>Patro Seguros - Especialista em Seguros em Guarulhos. Atendimento presencial no Cidade Maia e cotação em até 2 horas úteis.</p>
+        <nav>
+          <a href="/">Home</a> | 
+          <a href="/seguro-auto">Seguro Auto</a> | 
+          <a href="/planos-de-saude">Planos de Saúde</a> | 
+          <a href="/seguro-empresarial">Seguro Empresarial</a> | 
+          <a href="/cotacao">Solicitar Cotação</a>
+        </nav>
       </div>
     `;
     html = html.replace('<div id="root">', `${crawlerContent}\n    <div id="root">`);
