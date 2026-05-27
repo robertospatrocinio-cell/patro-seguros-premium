@@ -162,61 +162,6 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     }
   }
 
-  // 6. Static Pages Mapping
-  const staticPages: Record<string, { title: string; description: string; h1: string }> = {
-    "/blog": {
-      title: "Blog Patro Seguros | Notícias e Dicas sobre Seguros",
-      description: "Acompanhe as últimas notícias, dicas e novidades sobre o mercado de seguros em Guarulhos e no Brasil.",
-      h1: "Blog Patro Seguros",
-    },
-    "/cotacao": {
-      title: "Cotação de Seguro em Guarulhos | Patro Seguros",
-      description: "Solicite uma cotação de seguro auto, residencial, vida ou saúde em Guarulhos. Receba comparativo em até 2h.",
-      h1: "Solicitar Cotação de Seguro",
-    },
-    "/sobre": {
-      title: "Sobre a Patro Seguros | Sua Corretora em Guarulhos",
-      description: "Conheça a história da Patro Seguros, uma corretora especializada em oferecer as melhores soluções em seguros.",
-      h1: "Sobre a Patro Seguros",
-    },
-    "/contato": {
-      title: "Contato Patro Seguros | Atendimento em Guarulhos",
-      description: "Fale com nossos especialistas em seguros via WhatsApp, telefone ou presencial no Cidade Maia.",
-      h1: "Fale Conosco",
-    },
-    "/politica-privacidade": {
-      title: "Política de Privacidade | Patro Seguros",
-      description: "Saiba como a Patro Seguros trata e protege seus dados pessoais conforme a LGPD.",
-      h1: "Política de Privacidade",
-    },
-    "/termos-de-uso": {
-      title: "Termos de Uso | Patro Seguros",
-      description: "Termos e condições de uso do site da Patro Seguros.",
-      h1: "Termos de Uso",
-    },
-    "/seguro-auto": {
-      title: "Seguro Auto em Guarulhos | Proteção para seu Veículo",
-      description: "Compare seguro auto em Guarulhos com a Patro Seguros. Coberturas contra roubo, furto, colisão e assistência 24h.",
-      h1: "Seguro Auto em Guarulhos",
-    },
-    "/planos-de-saude": {
-      title: "Planos de Saúde em Guarulhos | Compare Operadoras",
-      description: "Encontre o melhor plano de saúde em Guarulhos para você, sua família ou empresa.",
-      h1: "Planos de Saúde em Guarulhos",
-    }
-  };
-
-  const staticPage = staticPages[cleanPath];
-  if (staticPage) {
-    return {
-      title: staticPage.title.length > 60 ? staticPage.title.slice(0, 57).trim() + "..." : staticPage.title,
-      description: staticPage.description.length > 160 ? staticPage.description.slice(0, 157).trim() + "..." : staticPage.description,
-      canonical: `${DOMAIN}${cleanPath}`,
-      h1: staticPage.h1,
-      ogUrl: `${DOMAIN}${cleanPath}`,
-      ogType: "website",
-    };
-  }
 
   // 7. Generic Fallback for all other sitemap routes
   if (slug && slug !== "/") {
