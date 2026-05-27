@@ -60,9 +60,10 @@ async function run() {
     html = html.replace(/<meta name="description" content="[^"]*"/g, `<meta name="description" content="${metadata.description}"`);
 
     // Replace Canonical
-    const canonicalTag = `<link rel="canonical" href="${metadata.canonical}">`;
+    const canonicalTag = `<link rel="canonical" href="${metadata.canonical}" />`;
     if (html.includes('rel="canonical"')) {
-      html = html.replace(/<link rel="canonical" href="[^"]*">/g, canonicalTag);
+      // Robust regex to match various canonical tag formats
+      html = html.replace(/<link rel="canonical" href="[^"]*"[^>]*>/g, canonicalTag);
     } else {
       html = html.replace("</head>", `  ${canonicalTag}\n</head>`);
     }
@@ -70,6 +71,7 @@ async function run() {
     // Replace Open Graph & Twitter
     html = html.replace(/<meta property="og:title" content="[^"]*"/g, `<meta property="og:title" content="${metadata.title}"`);
     html = html.replace(/<meta property="og:description" content="[^"]*"/g, `<meta property="og:description" content="${metadata.description}"`);
+    // Robust regex for og:url
     html = html.replace(/<meta property="og:url" content="[^"]*"/g, `<meta property="og:url" content="${metadata.ogUrl}"`);
     html = html.replace(/<meta property="og:type" content="[^"]*"/g, `<meta property="og:type" content="${metadata.ogType}"`);
     
@@ -82,12 +84,21 @@ async function run() {
       html = html.replace("</head>", `${schemaScript}\n</head>`);
     }
 
-    // Inject H1 and Basic Content for Crawlers
+    // Inject Extensive Content for Crawlers
+    const detailedDesc = metadata.detailedDescription ? `<p>${metadata.detailedDescription.replace(/\n/g, '<br>')}</p>` : '';
+    const faqs = (metadata.faqs || []).map(f => `<h3>${f.question}</h3><p>${f.answer}</p>`).join('');
+    const whoNeeds = (metadata.whoNeeds || []).length > 0 ? `<h2>Quem precisa?</h2><ul>${metadata.whoNeeds.map(i => `<li>${i}</li>`).join('')}</ul>` : '';
+    const whyPatro = (metadata.whyPatro || []).length > 0 ? `<h2>Por que a Patro Seguros?</h2><ul>${metadata.whyPatro.map(i => `<li>${i}</li>`).join('')}</ul>` : '';
+
     const crawlerContent = `
       <div id="crawler-content" style="display:none">
         <h1>${metadata.h1}</h1>
         <p>${metadata.description}</p>
-        <p>Patro Seguros - Especialista em Seguros em Guarulhos. Atendimento presencial no Cidade Maia e cotação em até 2 horas úteis.</p>
+        ${detailedDesc}
+        ${whoNeeds}
+        ${whyPatro}
+        ${faqs}
+        <p>Patro Seguros - Especialista em Seguros em Guarulhos. Atendimento presencial no Cidade Maia e cotação em até 2 horas úteis. Compare Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul.</p>
         <nav>
           <a href="/">Home</a> | 
           <a href="/seguro-auto">Seguro Auto</a> | 
@@ -98,6 +109,7 @@ async function run() {
       </div>
     `;
     html = html.replace('<div id="root">', `${crawlerContent}\n    <div id="root">`);
+
 
     // Write file
     if (route === "/") {

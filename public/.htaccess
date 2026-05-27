@@ -182,25 +182,23 @@
     RewriteCond %{REQUEST_URI} ^/(admin|crm|purge-logs|performance-diagnostico|conversion-dashboard|seo-technical-report|pagespeed-history|preview) [NC]
     RewriteRule ^ index.html [L]
 
-    # 2. Specific commercial pages that might be dynamic/LPs
-    RewriteCond %{REQUEST_URI} ^/(lp|seguro-auto-guarulhos) [NC]
+    # 2. Specific landing pages / commercial pages that might not be pre-rendered yet
+    RewriteCond %{REQUEST_URI} ^/(lp|landing|cotacao-seguro|promocao) [NC]
     RewriteRule ^ index.html [L]
 
-    # 3. Existing files/directories (including pre-rendered ones)
+    # 3. If the file exists, serve it
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
   
-    # 4. Fallback to index.html for ANY route that doesn't exist as a file
-    # This restores the 200 status for valid React routes that might have failed prerender
+    # 4. For everything else that is NOT a file: 
+    # Since we are pre-rendering everything in the sitemap, if it's not a file, it's a 404.
+    # Exception: The root directory "/" is handled by DirectoryIndex.
+    RewriteCond %{REQUEST_URI} !^/$
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.html [L]
+    RewriteRule ^ - [R=404,L]
   </IfModule>
   
-  # Ensure the error page itself returns 404 for truly invalid resources (like missing images)
-  <Files "404.html">
-    Header set Status "404 Not Found"
-  </Files>
-  
+  # Ensure the error page itself returns 404 status
   ErrorDocument 404 /404.html
