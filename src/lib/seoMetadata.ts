@@ -59,8 +59,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 2. Local Pages (Auto, Saúde, Modelos)
   const localConfig = seoLocalPages[slug] || seoLocalSaudePages[slug] || seoModeloAutoPages[slug];
   if (localConfig) {
-    const rawTitle = localConfig.title.includes("Patro Seguros") ? localConfig.title : `${localConfig.title} | Patro Seguros`;
-    const title = rawTitle.length > 60 ? rawTitle.slice(0, 58).trim() + ".." : rawTitle;
+    const rawTitle = localConfig.title.includes("Patro") ? localConfig.title : `${localConfig.title} | Patro`;
+    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
     const rawDesc = localConfig.metaDescription || localConfig.description;
     const description = rawDesc.length > 155 ? rawDesc.slice(0, 152).trim() + "..." : rawDesc;
     
@@ -95,8 +95,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 3. Landing Pages / Commercial Pages
   const lpConfig = landingPagesData[slug];
   if (lpConfig) {
-    const rawTitle = `${lpConfig.title} | Patro Seguros`;
-    const title = rawTitle.length > 60 ? rawTitle.slice(0, 58).trim() + ".." : rawTitle;
+    const rawTitle = `${lpConfig.title} | Patro`;
+    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
     const rawDesc = lpConfig.metaDescription || lpConfig.description;
     const description = rawDesc.length > 155 ? rawDesc.slice(0, 152).trim() + "..." : rawDesc;
 
@@ -118,8 +118,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const serviceContent = (servicePagesContent as any)[slug];
   if (serviceContent) {
     const baseTitle = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-    const rawTitle = `${baseTitle} | Patro Seguros Guarulhos`;
-    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57).trim() + "..." : rawTitle;
+    const rawTitle = `${baseTitle} | Patro`;
+    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
     const description = serviceContent.content.length > 160 ? serviceContent.content.slice(0, 157).trim() + "..." : serviceContent.content;
 
     return {
@@ -141,7 +141,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const post = blogArticles.find(p => p.slug === blogSlug);
     if (post) {
       return {
-        title: `${post.title} | Blog Patro Seguros`,
+        title: `${post.title.length > 50 ? post.title.slice(0, 47) + "..." : post.title} | Patro`,
         description: post.excerpt,
         canonical: `${DOMAIN}${cleanPath}`,
         h1: post.title,
