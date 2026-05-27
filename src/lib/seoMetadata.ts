@@ -1,7 +1,7 @@
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
-import { blogData } from "@/lib/blogData";
+import { articles as blogArticles } from "@/lib/blogData";
 
 export interface Metadata {
   title: string;
@@ -47,7 +47,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 3. Blog Posts
   if (cleanPath.startsWith("/blog/")) {
     const blogSlug = cleanPath.replace("/blog/", "");
-    const post = blogData.find(p => p.slug === blogSlug);
+    const post = blogArticles.find(p => p.slug === blogSlug);
     if (post) {
       return {
         title: `${post.title} | Blog Patro Seguros`,
