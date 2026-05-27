@@ -23,13 +23,18 @@ const DOMAIN = "https://www.patroseguros.com.br";
 
 export function getMetadataForRoute(pathname: string): Metadata | null {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
-  const slug = cleanPath.startsWith("/") ? cleanPath.slice(1) : cleanPath;
+  // For slugs, we handle /lp/ prefix separately to match landingPagesData keys
+  let slug = cleanPath.startsWith("/") ? cleanPath.slice(1) : cleanPath;
+  
+  if (slug.startsWith("lp/")) {
+    slug = slug.replace("lp/", "");
+  }
 
   // 1. Home
   if (cleanPath === "/") {
     return {
       title: "Patro Seguros | Corretora de Seguros em Guarulhos",
-      description: "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação grátis em 2h. Patro Seguros (11) 5199-7500.",
+      description: "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação em 2h. Patro Seguros (11) 5199-7500.",
       canonical: DOMAIN,
       h1: "Patro Seguros: Corretora de Seguros em Guarulhos",
       ogUrl: DOMAIN,
@@ -54,10 +59,12 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 2. Local Pages (Auto, Saúde, Modelos)
   const localConfig = seoLocalPages[slug] || seoLocalSaudePages[slug] || seoModeloAutoPages[slug];
   if (localConfig) {
-    const title = localConfig.title.includes("Patro Seguros") ? localConfig.title : `${localConfig.title} | Patro Seguros`;
+    const rawTitle = localConfig.title.includes("Patro Seguros") ? localConfig.title : `${localConfig.title} | Patro Seguros`;
+    const title = rawTitle.length > 60 ? rawTitle.split("|")[0].trim().slice(0, 57) + "..." : rawTitle;
+    
     return {
       title,
-      description: localConfig.metaDescription,
+      description: localConfig.metaDescription.slice(0, 157) + (localConfig.metaDescription.length > 160 ? "..." : ""),
       canonical: `${DOMAIN}${cleanPath}`,
       h1: localConfig.title,
       ogUrl: `${DOMAIN}${cleanPath}`,
@@ -85,9 +92,13 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 3. Landing Pages / Commercial Pages
   const lpConfig = landingPagesData[slug];
   if (lpConfig) {
+    const rawTitle = `${lpConfig.title} | Patro Seguros`;
+    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57) + "..." : rawTitle;
+    const description = (lpConfig.metaDescription || lpConfig.description).slice(0, 157) + ((lpConfig.metaDescription || lpConfig.description).length > 160 ? "..." : "");
+
     return {
-      title: `${lpConfig.title} | Patro Seguros`,
-      description: lpConfig.metaDescription || lpConfig.description,
+      title,
+      description,
       canonical: `${DOMAIN}${cleanPath}`,
       h1: lpConfig.title,
       ogUrl: `${DOMAIN}${cleanPath}`,
@@ -102,17 +113,21 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 4. Service Content Pages
   const serviceContent = (servicePagesContent as any)[slug];
   if (serviceContent) {
-    const title = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    const baseTitle = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    const rawTitle = `${baseTitle} | Patro Seguros Guarulhos`;
+    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57) + "..." : rawTitle;
+
     return {
-      title: `${title} | Patro Seguros Guarulhos`,
-      description: serviceContent.content.slice(0, 160),
+      title,
+      description: serviceContent.content.slice(0, 157) + (serviceContent.content.length > 160 ? "..." : ""),
       canonical: `${DOMAIN}${cleanPath}`,
-      h1: title,
+      h1: baseTitle,
       ogUrl: `${DOMAIN}${cleanPath}`,
       ogType: "website",
       detailedDescription: serviceContent.content,
     };
   }
+
 
   // 5. Blog Posts
   if (cleanPath.startsWith("/blog/")) {
