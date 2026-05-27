@@ -145,7 +145,7 @@ export const landingPagesData: Record<string, LandingPageContent> = {
     detailedDescription: "A maioria dos contratos de locação de galpões exige um seguro contra incêndio. Nossa apólice para galpão alugado garante o cumprimento do contrato e protege o seu negócio contra imprevistos.\n\nAlém da cobertura básica, incluímos proteção para benfeitorias, mercadorias e responsabilidade civil, garantindo que você e o proprietário estejam seguros.",
   },
   "seguro-celular": {
-    title: "Cotação Seguro Celular Online",
+    title: "Cotação de Seguro Celular Online",
     description: "Proteja seu smartphone com seguro celular. Solicite cotação online e compare opções para roubo, furto e quebra.",
     metaDescription: "Proteja seu smartphone com seguro celular. Solicite cotação online e compare opções para roubo, furto e quebra de tela. Proteção nacional e internacional.",
     heroImage: "/images/hero-home.webp",
