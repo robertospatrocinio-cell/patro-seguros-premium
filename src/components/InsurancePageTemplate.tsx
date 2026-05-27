@@ -207,7 +207,7 @@ const InsurancePageTemplate = ({
                <OptimizedImage 
                 src={heroImage} 
                 mobileSrc={mobileHeroImage}
-                alt={title} 
+                alt={`${title} em Guarulhos com a Patro Seguros`} 
                 className="w-full h-full" 
                 eager 
                 aria-hidden="false" 
