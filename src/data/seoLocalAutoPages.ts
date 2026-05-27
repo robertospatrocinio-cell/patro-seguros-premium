@@ -55,6 +55,7 @@ const baseRelated = [
   { title: "Corretora de Seguros Guarulhos", link: "/corretora-seguros-guarulhos" },
   { title: "Seguro Uber Guarulhos", link: "/seguro-uber-guarulhos" },
   { title: "Seguro Moto Guarulhos", link: "/seguro-moto-guarulhos" },
+  { title: "Seguros Empresariais para PME em Guarulhos", link: "/seguros-empresariais-pme-guarulhos" },
 ];
 
 /* ---------- BAIRROS ---------- */

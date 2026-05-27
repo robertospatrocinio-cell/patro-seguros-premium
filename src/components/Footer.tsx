@@ -18,7 +18,7 @@ const Footer = memo(() => {
  
             <div className="flex items-center mb-5">
                <Link to="/">
-                 <img src={logoFull} alt="Patro Seguros — Corretora em Guarulhos" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
+                 <img src={logoFull} alt="Patro Seguros — Corretora de Seguros em Guarulhos" width={251} height={140} className="h-20 object-contain brightness-200" loading="lazy" />
                </Link>
             </div>
             <p className="text-[13px] text-white/80 mb-6 leading-relaxed max-w-xs">
