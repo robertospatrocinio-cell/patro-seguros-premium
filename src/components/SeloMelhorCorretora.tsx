@@ -39,7 +39,7 @@ const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = fals
        <img
          src={`${base}.png`}
          srcSet={pngSrcSet}
-         alt="Selo de Qualidade Patro Seguros"
+         alt="Selo de avaliação da Patro Seguros"
         width={w}
         height={w}
         loading={priority ? "eager" : "lazy"}
