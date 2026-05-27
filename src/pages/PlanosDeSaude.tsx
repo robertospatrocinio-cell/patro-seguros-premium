@@ -172,7 +172,7 @@ const PlanosDeSaude = () => {
       <Header />
       <main id="main-content">
         <section className="gradient-hero py-20 relative overflow-hidden">
-          <img src={heroImg} alt="" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover opacity-20" aria-hidden="true" loading="eager" />
+          <img src={heroImg} alt="Consultoria para plano de saúde em Guarulhos" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover opacity-20" loading="eager" />
           <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
             <div className="text-6xl mb-6">🏥</div>
              <h1 className="text-white mb-6">Plano de Saúde em Guarulhos</h1>

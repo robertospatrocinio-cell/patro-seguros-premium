@@ -121,7 +121,7 @@ const LandingSeguroAutoPremium = () => {
       <section className="relative min-h-[100vh] flex items-center overflow-hidden">
         <img
           src={heroImg}
-          alt="Veículo premium protegido pelo Seguro Auto Premium da Patro Seguros"
+          alt="Seguro auto premium em Guarulhos com cotação online pela Patro Seguros"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
         />

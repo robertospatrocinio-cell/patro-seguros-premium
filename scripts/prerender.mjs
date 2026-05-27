@@ -94,8 +94,8 @@ async function run() {
       <div id="crawler-content" style="display:none" aria-hidden="true">
         <h1>${metadata.h1}</h1>
         <p>${metadata.description}</p>
-        <img src="/images/logo-full.webp" alt="Patro Seguros - Corretora de Seguros em Guarulhos" />
-        <img src="/images/selo-melhor-corretora@2x.webp" alt="Selo Melhor Corretora de Seguros de Guarulhos" />
+        <img src="/images/logo-full.webp" alt="Patro Seguros" />
+        <img src="/images/selo-melhor-corretora@2x.webp" alt="Selo de avaliação da Patro Seguros" />
         
         <div class="seo-text-boost">
           <h2>Sobre a Patro Seguros em Guarulhos</h2>
