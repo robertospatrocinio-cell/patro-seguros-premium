@@ -96,7 +96,7 @@ const Index = () => {
               <source media="(max-width: 600px)" srcSet="/images/hero-familia-sm.webp" type="image/webp" />
               <img
                 src="/images/hero-home.webp"
-                alt="Atendimento Patro Seguros"
+                alt="Seguro auto em Guarulhos com cotação online pela Patro Seguros"
                 width={960}
                 height={540}
                 className="w-full h-full object-cover opacity-15"
