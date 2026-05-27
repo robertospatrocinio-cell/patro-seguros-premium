@@ -70,7 +70,7 @@ const faqs = [
 const SeoPlanoSaudeGuarulhos = () => (
   <>
      <PrerenderText slug="seguro-saude-guarulhos" />
-    <PageMeta title="Seguro Saúde em Guarulhos | Planos com Cobertura Nacional | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Cobertura ambulatorial, hospitalar e odontológica. Cotação personalizada grátis." />
+    <PageMeta title="Plano de Saúde em Guarulhos | Compare Opções | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Cobertura ambulatorial, hospitalar e odontológica. Cotação personalizada grátis." />
     <FAQSchema faqs={faqs} />
     <Header />
     <main id="main-content">

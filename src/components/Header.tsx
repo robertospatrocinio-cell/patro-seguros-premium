@@ -261,11 +261,11 @@ const Header = memo(() => {
                >
                  <picture>
                    <source media="(max-width: 640px)" srcSet="/images/logo-full.webp" width="180" height="100" />
-                    <img
-                      src={logoFull}
-                      alt="Logo da Patro Seguros - Especialista em Seguros e Planos de Saúde em Guarulhos"
-                      width={251}
-                      height={140}
+                     <img
+                       src={logoFull}
+                       alt="Patro Seguros"
+                       width={251}
+                       height={140}
                       className="h-20 object-contain -my-2 relative z-50"
                       fetchPriority="high"
                       decoding="async"

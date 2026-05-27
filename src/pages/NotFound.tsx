@@ -73,11 +73,9 @@ const NotFound = () => {
   return (
     <>
       <PageMeta
-        title="Página Não Encontrada (404)"
+        title="Página Não Encontrada (404) | Patro Seguros"
         description="A página que você está procurando não existe. Encontre o seguro ideal por categoria ou solicite uma cotação gratuita com a Patro Seguros."
       />
-      {/* Sinaliza para crawlers que esta resposta é 404 */}
-      <meta name="robots" content="noindex,follow" />
       <Header />
       <main id="main-content">
         {/* Hero */}

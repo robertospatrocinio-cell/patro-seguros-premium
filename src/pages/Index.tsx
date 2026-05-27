@@ -96,7 +96,7 @@ const Index = () => {
               <source media="(max-width: 600px)" srcSet="/images/hero-familia-sm.webp" type="image/webp" />
               <img
                 src="/images/hero-home.webp"
-                alt="Consultor da Patro Seguros realizando atendimento especializado em Guarulhos"
+                alt="Atendimento Patro Seguros"
                 width={960}
                 height={540}
                 className="w-full h-full object-cover opacity-15"

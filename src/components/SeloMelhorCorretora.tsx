@@ -36,10 +36,10 @@ const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = fals
   return (
     <picture>
       <source type="image/webp" srcSet={webpSrcSet} />
-      <img
-        src={`${base}.png`}
-        srcSet={pngSrcSet}
-         alt="Corretora de Seguros Patro em Guarulhos - Atendimento Presencial - Selo de Qualidade"
+       <img
+         src={`${base}.png`}
+         srcSet={pngSrcSet}
+         alt="Selo de Qualidade Patro Seguros"
         width={w}
         height={w}
         loading={priority ? "eager" : "lazy"}
