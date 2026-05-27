@@ -2,6 +2,7 @@ import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { articles as blogArticles } from "@/lib/blogData";
+import { landingPagesData } from "@/data/landingPages";
 
 export interface Metadata {
   title: string;
@@ -11,6 +12,10 @@ export interface Metadata {
   ogUrl: string;
   ogType: "website" | "article";
   schema?: any;
+  detailedDescription?: string;
+  faqs?: { question: string; answer: string }[];
+  whoNeeds?: string[];
+  whyPatro?: string[];
 }
 
 const DOMAIN = "https://www.patroseguros.com.br";
@@ -56,6 +61,10 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       h1: localConfig.title,
       ogUrl: `${DOMAIN}${cleanPath}`,
       ogType: "website",
+      detailedDescription: localConfig.detailedDescription,
+      faqs: localConfig.faqs,
+      whoNeeds: localConfig.whoNeeds,
+      whyPatro: localConfig.whyPatro,
       schema: {
         "@context": "https://schema.org",
         "@type": "Service",
@@ -72,8 +81,26 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     };
   }
 
-  // 3. Blog Posts
+  // 3. Landing Pages / Commercial Pages (the "166 pages" mentioned)
+  const lpConfig = landingPagesData[slug];
+  if (lpConfig) {
+    return {
+      title: `${lpConfig.title} | Patro Seguros`,
+      description: lpConfig.metaDescription || lpConfig.description,
+      canonical: `${DOMAIN}${cleanPath}`,
+      h1: lpConfig.title,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "website",
+      detailedDescription: lpConfig.detailedDescription,
+      faqs: lpConfig.faqs,
+      whoNeeds: lpConfig.whoNeeds,
+      whyPatro: lpConfig.whyPatro,
+    };
+  }
+
+  // 4. Blog Posts
   if (cleanPath.startsWith("/blog/")) {
+
     const blogSlug = cleanPath.replace("/blog/", "");
     const post = blogArticles.find(p => p.slug === blogSlug);
     if (post) {
