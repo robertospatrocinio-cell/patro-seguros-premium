@@ -81,7 +81,7 @@ const LandingPageTemplate = ({
         </div>
       </header>
 
-      <main className="pt-14">
+      <main id="main-content" className="pt-14">
         {/* HERO — Above the fold */}
         <section className="relative gradient-hero overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.15),transparent)]" />
