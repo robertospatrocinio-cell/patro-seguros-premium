@@ -233,7 +233,7 @@ const Index = () => {
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Proteção e Economia</h2>
-            <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
+            <div className="prose prose-sm max-w-none text-foreground/80 space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Somos uma das <strong>melhores corretoras de seguros em Guarulhos</strong>, reconhecida pela nota 4,9/5 no Google e por já ter atendido <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil.
               </p>
