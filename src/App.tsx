@@ -8,7 +8,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
-import PageSkeleton from "@/components/PageSkeleton";
+ import PageSkeleton from "@/components/PageSkeleton";
+import PageLoader from "@/components/PageLoader";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -264,7 +265,7 @@ const App = () => {
             <CookieBanner />
             <ScrollToTop />
             <ServiceWorkerCheck />
-            <Suspense fallback={<PageSkeleton />}>
+            <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />

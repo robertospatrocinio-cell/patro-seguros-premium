@@ -10,9 +10,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { trackCotacaoSubmit } from "@/lib/tracking";
- import { escapeHtml } from "@/lib/utils";
- import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
- import { toast } from "sonner";
+import { escapeHtml } from "@/lib/utils";
+import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { toast } from "sonner";
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -49,24 +49,46 @@ const valoresSeguro = [
 
 const FormularioSeguroVida = () => {
   const [form, setForm] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
   const u = (key: string, value: string) => setForm(p => ({ ...p, [key]: value }));
+  const handleBlur = (key: string) => setTouched(p => ({ ...p, [key]: true }));
 
   const requiredFields = ["nomeCompleto", "cpf", "dataNascimento", "telefone", "email", "profissao", "valorSeguro"];
+
+  const getFieldError = (key: string) => {
+    if (!touched[key]) return "";
+    const value = form[key] || "";
+    if (requiredFields.includes(key) && !value.trim()) return "Campo obrigatório";
+    if (key === "email" && value.trim() && !/^\S+@\S+\.\S+$/.test(value)) return "E-mail inválido";
+    if (key === "cpf" && value.trim() && value.replace(/\D/g, "").length < 11) return "CPF incompleto";
+    if (key === "telefone" && value.trim() && value.replace(/\D/g, "").length < 10) return "Telefone inválido";
+    return "";
+  };
 
   const isValid = () => {
     for (const f of requiredFields) {
       if (!form[f]?.trim()) return false;
+      if (getFieldError(f)) return false;
     }
     return consent;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isValid()) return;
+
+    // Mark all as touched
+    const allTouched: Record<string, boolean> = {};
+    requiredFields.forEach(f => { allTouched[f] = true });
+    setTouched(allTouched);
+
+    if (!isValid()) {
+      toast.error("Por favor, preencha todos os campos obrigatórios corretamente.");
+      return;
+    }
     setSending(true);
 
     const lines = [
@@ -185,40 +207,87 @@ const FormularioSeguroVida = () => {
                 </h2>
                 <div className="grid gap-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="nomeCompleto">Nome Completo <span className="text-destructive">*</span></Label>
-                    <Input id="nomeCompleto" placeholder="Seu nome completo" value={form.nomeCompleto || ""} onChange={e => u("nomeCompleto", e.target.value)} maxLength={120} required />
+                    <Label htmlFor="nomeCompleto" className={getFieldError("nomeCompleto") ? "text-destructive" : ""}>Nome Completo <span className="text-destructive">*</span></Label>
+                    <Input 
+                      id="nomeCompleto" 
+                      placeholder="Seu nome completo" 
+                      value={form.nomeCompleto || ""} 
+                      onChange={e => u("nomeCompleto", e.target.value)} 
+                      onBlur={() => handleBlur("nomeCompleto")}
+                      maxLength={120} 
+                      required 
+                      className={getFieldError("nomeCompleto") ? "border-destructive focus-visible:ring-destructive" : ""}
+                      aria-invalid={!!getFieldError("nomeCompleto")}
+                      aria-describedby={getFieldError("nomeCompleto") ? "error-nomeCompleto" : undefined}
+                    />
+                    {getFieldError("nomeCompleto") && <p id="error-nomeCompleto" className="text-xs text-destructive">{getFieldError("nomeCompleto")}</p>}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="cpf">CPF <span className="text-destructive">*</span></Label>
-                      <Input id="cpf" placeholder="000.000.000-00" value={form.cpf || ""} onChange={e => u("cpf", formatCPF(e.target.value))} maxLength={14} required />
+                      <Label htmlFor="cpf" className={getFieldError("cpf") ? "text-destructive" : ""}>CPF <span className="text-destructive">*</span></Label>
+                      <Input 
+                        id="cpf" 
+                        placeholder="000.000.000-00" 
+                        value={form.cpf || ""} 
+                        onChange={e => u("cpf", formatCPF(e.target.value))} 
+                        onBlur={() => handleBlur("cpf")}
+                        maxLength={14} 
+                        required 
+                        className={getFieldError("cpf") ? "border-destructive focus-visible:ring-destructive" : ""}
+                        aria-invalid={!!getFieldError("cpf")}
+                        aria-describedby={getFieldError("cpf") ? "error-cpf" : undefined}
+                      />
+                      {getFieldError("cpf") && <p id="error-cpf" className="text-xs text-destructive">{getFieldError("cpf")}</p>}
                     </div>
                     <div className="space-y-1.5">
                       <Label htmlFor="rg">RG</Label>
-                      <Input id="rg" placeholder="00.000.000-0" value={form.rg || ""} onChange={e => u("rg", e.target.value)} maxLength={20} />
+                      <Input id="rg" placeholder="00.000.000-0" value={form.rg || ""} onChange={e => u("rg", e.target.value)} onBlur={() => handleBlur("rg")} maxLength={20} />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <Label htmlFor="dataNascimento">Data de Nascimento <span className="text-destructive">*</span></Label>
-                      <Input id="dataNascimento" type="date" value={form.dataNascimento || ""} onChange={e => u("dataNascimento", e.target.value)} required />
+                      <Label htmlFor="dataNascimento" className={getFieldError("dataNascimento") ? "text-destructive" : ""}>Data de Nascimento <span className="text-destructive">*</span></Label>
+                      <Input 
+                        id="dataNascimento" 
+                        type="date" 
+                        value={form.dataNascimento || ""} 
+                        onChange={e => u("dataNascimento", e.target.value)} 
+                        onBlur={() => handleBlur("dataNascimento")}
+                        required 
+                        className={getFieldError("dataNascimento") ? "border-destructive focus-visible:ring-destructive" : ""}
+                        aria-invalid={!!getFieldError("dataNascimento")}
+                        aria-describedby={getFieldError("dataNascimento") ? "error-dataNascimento" : undefined}
+                      />
+                      {getFieldError("dataNascimento") && <p id="error-dataNascimento" className="text-xs text-destructive">{getFieldError("dataNascimento")}</p>}
                     </div>
                     <div className="space-y-1.5">
-                      <Label htmlFor="profissao">Profissão <span className="text-destructive">*</span></Label>
-                      <Input id="profissao" placeholder="Ex: Engenheiro" value={form.profissao || ""} onChange={e => u("profissao", e.target.value)} maxLength={80} required />
+                      <Label htmlFor="profissao" className={getFieldError("profissao") ? "text-destructive" : ""}>Profissão <span className="text-destructive">*</span></Label>
+                      <Input 
+                        id="profissao" 
+                        placeholder="Ex: Engenheiro" 
+                        value={form.profissao || ""} 
+                        onChange={e => u("profissao", e.target.value)} 
+                        onBlur={() => handleBlur("profissao")}
+                        maxLength={80} 
+                        required 
+                        className={getFieldError("profissao") ? "border-destructive focus-visible:ring-destructive" : ""}
+                        aria-invalid={!!getFieldError("profissao")}
+                        aria-describedby={getFieldError("profissao") ? "error-profissao" : undefined}
+                      />
+                      {getFieldError("profissao") && <p id="error-profissao" className="text-xs text-destructive">{getFieldError("profissao")}</p>}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <Label htmlFor="peso">Peso (kg)</Label>
-                      <Input id="peso" placeholder="Ex: 75" value={form.peso || ""} onChange={e => u("peso", e.target.value)} maxLength={6} />
+                      <Input id="peso" placeholder="Ex: 75" value={form.peso || ""} onChange={e => u("peso", e.target.value)} onBlur={() => handleBlur("peso")} maxLength={6} />
                     </div>
                     <div className="space-y-1.5">
                       <Label htmlFor="altura">Altura (cm)</Label>
-                      <Input id="altura" placeholder="Ex: 175" value={form.altura || ""} onChange={e => u("altura", e.target.value)} maxLength={6} />
+                      <Input id="altura" placeholder="Ex: 175" value={form.altura || ""} onChange={e => u("altura", e.target.value)} onBlur={() => handleBlur("altura")} maxLength={6} />
                     </div>
                   </div>
                 </div>
@@ -234,37 +303,37 @@ const FormularioSeguroVida = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="space-y-1.5">
                       <Label htmlFor="cep">CEP</Label>
-                      <Input id="cep" placeholder="00000-000" value={form.cep || ""} onChange={e => u("cep", formatCEP(e.target.value))} maxLength={9} />
+                      <Input id="cep" placeholder="00000-000" value={form.cep || ""} onChange={e => u("cep", formatCEP(e.target.value))} onBlur={() => handleBlur("cep")} maxLength={9} />
                     </div>
                     <div className="space-y-1.5 sm:col-span-2">
                       <Label htmlFor="rua">Rua / Logradouro</Label>
-                      <Input id="rua" placeholder="Nome da rua" value={form.rua || ""} onChange={e => u("rua", e.target.value)} maxLength={150} />
+                      <Input id="rua" placeholder="Nome da rua" value={form.rua || ""} onChange={e => u("rua", e.target.value)} onBlur={() => handleBlur("rua")} maxLength={150} />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="space-y-1.5">
                       <Label htmlFor="numero">Número</Label>
-                      <Input id="numero" placeholder="Nº" value={form.numero || ""} onChange={e => u("numero", e.target.value)} maxLength={10} />
+                      <Input id="numero" placeholder="Nº" value={form.numero || ""} onChange={e => u("numero", e.target.value)} onBlur={() => handleBlur("numero")} maxLength={10} />
                     </div>
                     <div className="space-y-1.5 sm:col-span-2">
                       <Label htmlFor="complemento">Complemento</Label>
-                      <Input id="complemento" placeholder="Apto, bloco, etc." value={form.complemento || ""} onChange={e => u("complemento", e.target.value)} maxLength={80} />
+                      <Input id="complemento" placeholder="Apto, bloco, etc." value={form.complemento || ""} onChange={e => u("complemento", e.target.value)} onBlur={() => handleBlur("complemento")} maxLength={80} />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="space-y-1.5">
                       <Label htmlFor="bairro">Bairro</Label>
-                      <Input id="bairro" placeholder="Bairro" value={form.bairro || ""} onChange={e => u("bairro", e.target.value)} maxLength={80} />
+                      <Input id="bairro" placeholder="Bairro" value={form.bairro || ""} onChange={e => u("bairro", e.target.value)} onBlur={() => handleBlur("bairro")} maxLength={80} />
                     </div>
                     <div className="space-y-1.5">
                       <Label htmlFor="cidade">Cidade</Label>
-                      <Input id="cidade" placeholder="Cidade" value={form.cidade || ""} onChange={e => u("cidade", e.target.value)} maxLength={80} />
+                      <Input id="cidade" placeholder="Cidade" value={form.cidade || ""} onChange={e => u("cidade", e.target.value)} onBlur={() => handleBlur("cidade")} maxLength={80} />
                     </div>
                     <div className="space-y-1.5">
                       <Label htmlFor="estado">Estado</Label>
-                      <Select value={form.estado || ""} onValueChange={v => u("estado", v)}>
+                      <Select value={form.estado || ""} onValueChange={v => { u("estado", v); handleBlur("estado"); }}>
                         <SelectTrigger id="estado"><SelectValue placeholder="UF" /></SelectTrigger>
                         <SelectContent>
                           {estadosBR.map(uf => <SelectItem key={uf} value={uf}>{uf}</SelectItem>)}
@@ -282,13 +351,19 @@ const FormularioSeguroVida = () => {
                   Valor do Seguro
                 </h2>
                 <div className="space-y-1.5">
-                  <Label htmlFor="valorSeguro">Capital Segurado Desejado <span className="text-destructive">*</span></Label>
-                  <Select value={form.valorSeguro || ""} onValueChange={v => u("valorSeguro", v)}>
-                    <SelectTrigger id="valorSeguro"><SelectValue placeholder="Selecione o valor" /></SelectTrigger>
+                  <Label htmlFor="valorSeguro" className={getFieldError("valorSeguro") ? "text-destructive" : ""}>Capital Segurado Desejado <span className="text-destructive">*</span></Label>
+                  <Select value={form.valorSeguro || ""} onValueChange={v => { u("valorSeguro", v); handleBlur("valorSeguro"); }}>
+                    <SelectTrigger 
+                      id="valorSeguro"
+                      className={getFieldError("valorSeguro") ? "border-destructive focus-visible:ring-destructive" : ""}
+                      aria-invalid={!!getFieldError("valorSeguro")}
+                      aria-describedby={getFieldError("valorSeguro") ? "error-valorSeguro" : undefined}
+                    ><SelectValue placeholder="Selecione o valor" /></SelectTrigger>
                     <SelectContent>
                       {valoresSeguro.map(v => <SelectItem key={v} value={v}>{v}</SelectItem>)}
                     </SelectContent>
                   </Select>
+                  {getFieldError("valorSeguro") && <p id="error-valorSeguro" className="text-xs text-destructive">{getFieldError("valorSeguro")}</p>}
                 </div>
               </div>
 
@@ -300,12 +375,38 @@ const FormularioSeguroVida = () => {
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <Label htmlFor="telefone">Telefone / WhatsApp <span className="text-destructive">*</span></Label>
-                    <Input id="telefone" type="tel" placeholder="(11) 99999-9999" value={form.telefone || ""} onChange={e => u("telefone", formatPhone(e.target.value))} maxLength={16} required />
+                    <Label htmlFor="telefone" className={getFieldError("telefone") ? "text-destructive" : ""}>Telefone / WhatsApp <span className="text-destructive">*</span></Label>
+                    <Input 
+                      id="telefone" 
+                      type="tel" 
+                      placeholder="(11) 99999-9999" 
+                      value={form.telefone || ""} 
+                      onChange={e => u("telefone", formatPhone(e.target.value))} 
+                      onBlur={() => handleBlur("telefone")}
+                      maxLength={16} 
+                      required 
+                      className={getFieldError("telefone") ? "border-destructive focus-visible:ring-destructive" : ""}
+                      aria-invalid={!!getFieldError("telefone")}
+                      aria-describedby={getFieldError("telefone") ? "error-telefone" : undefined}
+                    />
+                    {getFieldError("telefone") && <p id="error-telefone" className="text-xs text-destructive">{getFieldError("telefone")}</p>}
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="email">E-mail <span className="text-destructive">*</span></Label>
-                    <Input id="email" type="email" placeholder="seu@email.com" value={form.email || ""} onChange={e => u("email", e.target.value)} maxLength={255} required />
+                    <Label htmlFor="email" className={getFieldError("email") ? "text-destructive" : ""}>E-mail <span className="text-destructive">*</span></Label>
+                    <Input 
+                      id="email" 
+                      type="email" 
+                      placeholder="seu@email.com" 
+                      value={form.email || ""} 
+                      onChange={e => u("email", e.target.value)} 
+                      onBlur={() => handleBlur("email")}
+                      maxLength={255} 
+                      required 
+                      className={getFieldError("email") ? "border-destructive focus-visible:ring-destructive" : ""}
+                      aria-invalid={!!getFieldError("email")}
+                      aria-describedby={getFieldError("email") ? "error-email" : undefined}
+                    />
+                    {getFieldError("email") && <p id="error-email" className="text-xs text-destructive">{getFieldError("email")}</p>}
                   </div>
                 </div>
               </div>

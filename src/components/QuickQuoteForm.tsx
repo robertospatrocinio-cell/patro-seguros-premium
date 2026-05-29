@@ -183,9 +183,12 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
               onBlur={() => handleBlur("nome")}
               maxLength={100}
               className={getFieldError("nome") ? "border-destructive focus-visible:ring-destructive" : ""}
+              aria-invalid={!!getFieldError("nome")}
+              aria-describedby={getFieldError("nome") ? `error-qq-nome-${trackingLabel}` : undefined}
+              aria-required="true"
             />
             {getFieldError("nome") && (
-              <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("nome")}</p>
+              <p id={`error-qq-nome-${trackingLabel}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("nome")}</p>
             )}
           </div>
           <div className="space-y-1.5">
@@ -198,11 +201,14 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
               value={form.telefone}
               onChange={e => update("telefone", e.target.value)}
               onBlur={() => handleBlur("telefone")}
-              maxLength={20}
+               maxLength={20}
               className={getFieldError("telefone") ? "border-destructive focus-visible:ring-destructive" : ""}
+              aria-invalid={!!getFieldError("telefone")}
+              aria-describedby={getFieldError("telefone") ? `error-qq-tel-${trackingLabel}` : undefined}
+              aria-required="true"
             />
             {getFieldError("telefone") && (
-              <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("telefone")}</p>
+              <p id={`error-qq-tel-${trackingLabel}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("telefone")}</p>
             )}
           </div>
         </div>
@@ -217,12 +223,14 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
             placeholder="seu@email.com"
             value={form.email || ""}
             onChange={e => update("email", e.target.value)}
-            onBlur={() => handleBlur("email")}
+             onBlur={() => handleBlur("email")}
             maxLength={255}
             className={getFieldError("email") ? "border-destructive focus-visible:ring-destructive" : ""}
+            aria-invalid={!!getFieldError("email")}
+            aria-describedby={getFieldError("email") ? `error-qq-email-${trackingLabel}` : undefined}
           />
           {getFieldError("email") && (
-            <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("email")}</p>
+            <p id={`error-qq-email-${trackingLabel}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{getFieldError("email")}</p>
           )}
         </div>
 
@@ -241,9 +249,11 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
                     handleBlur(field.id);
                   }}
                 >
-                  <SelectTrigger 
+                   <SelectTrigger 
                     id={`qq-${field.id}-${trackingLabel}`}
                     className={fieldError ? "border-destructive focus-visible:ring-destructive" : ""}
+                    aria-invalid={!!fieldError}
+                    aria-describedby={fieldError ? `error-qq-${field.id}-${trackingLabel}` : undefined}
                   >
                     <SelectValue placeholder={field.placeholder} />
                   </SelectTrigger>
@@ -259,13 +269,15 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
                   placeholder={field.placeholder}
                   value={form[field.id] || ""}
                   onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
+                   onBlur={() => handleBlur(field.id)}
                   maxLength={200}
                   className={fieldError ? "border-destructive focus-visible:ring-destructive" : ""}
+                  aria-invalid={!!fieldError}
+                  aria-describedby={fieldError ? `error-qq-${field.id}-${trackingLabel}` : undefined}
                 />
               )}
               {fieldError && (
-                <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{fieldError}</p>
+                <p id={`error-qq-${field.id}-${trackingLabel}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{fieldError}</p>
               )}
             </div>
           );

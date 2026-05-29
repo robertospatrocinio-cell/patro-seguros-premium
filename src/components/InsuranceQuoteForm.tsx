@@ -326,6 +326,9 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   <SelectTrigger 
                     id={`iq-${field.id}`}
                     className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                    aria-invalid={!!error}
+                    aria-describedby={error ? `error-iq-${field.id}` : undefined}
+                    aria-required={field.required}
                   >
                     <SelectValue placeholder={field.placeholder || "Selecione"} />
                   </SelectTrigger>
@@ -360,6 +363,9 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                           handleBlur(field.id);
                         }}
                         className="sr-only"
+                        aria-invalid={!!error}
+                        aria-describedby={error ? `error-iq-${field.id}` : undefined}
+                        aria-required={field.required}
                       />
                       <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
                         formData[field.id] === opt 
@@ -397,6 +403,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                             toggleCheckboxOption(field.id, opt);
                             handleBlur(field.id);
                           }} 
+                          aria-invalid={!!error}
+                          aria-describedby={error ? `error-iq-${field.id}` : undefined}
                         />
                         <span>{opt}</span>
                       </label>
@@ -413,9 +421,62 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   value={formData[field.id] || ""}
                   onChange={e => update(field.id, formatPhone(e.target.value))}
                   onBlur={() => handleBlur(field.id)}
-                  maxLength={16}
+                   maxLength={16}
                   className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                  aria-invalid={!!error}
+                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
+                  aria-required={field.required}
                 />
+              )}
+
+              {field.type === "email" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  type="text"
+                  placeholder={field.placeholder || "seu@email.com"}
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  maxLength={255}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                  aria-invalid={!!error}
+                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
+                  aria-required={field.required}
+                />
+              )}
+
+              {field.type === "text" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  placeholder={field.placeholder}
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                  aria-invalid={!!error}
+                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
+                  aria-required={field.required}
+                />
+              )}
+
+              {field.type === "date" && (
+                <Input
+                  id={`iq-${field.id}`}
+                  type="date"
+                  value={formData[field.id] || ""}
+                  onChange={e => update(field.id, e.target.value)}
+                  onBlur={() => handleBlur(field.id)}
+                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
+                  aria-invalid={!!error}
+                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
+                  aria-required={field.required}
+                />
+              )}
+
+              {error && (
+                <p id={`error-iq-${field.id}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">
+                  {error}
+                </p>
               )}
 
               {field.type === "email" && (
