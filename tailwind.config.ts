@@ -57,13 +57,20 @@ export default {
     float: false,
     clear: false,
     objectPosition: false,
-    overflow: false, // We use standard only
     overscrollBehavior: false,
     placeholderColor: false,
     placeholderOpacity: false,
-    rotate: false, // We use specific ones only or none
+    rotate: false,
     scale: false,
     sepia: false,
+    skew: false,
+    tableLayout: false,
+    textOpacity: false,
+    textTransform: false,
+    verticalAlign: false,
+    visibility: false,
+    whitespace: false,
+    wordBreak: false,
   },
   theme: {
     container: {
