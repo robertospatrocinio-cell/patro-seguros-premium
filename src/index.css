@@ -71,90 +71,18 @@
 /* The current file looks mostly lean, but we ensure base components are optimized */
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  .glass-card {
-    background: hsla(0, 0%, 100%, 0.05);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsla(0, 0%, 100%, 0.08);
-  }
-
-  .premium-card {
-    @apply bg-card rounded-xl border;
-    box-shadow: var(--shadow-xs);
-    transition: var(--transition-smooth);
-  }
-
-  @media (hover: hover) {
-    .premium-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-1px);
-      border-color: hsl(var(--border));
-    }
-  }
-
-  .section-label {
-    @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-primary;
-  }
-
-  /* Marquee for logo strip */
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
-  }
-
-  .animate-marquee:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .animate-fade-up {
-    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .animate-fade-up-delay-1 {
-    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
-    opacity: 0;
-  }
-
-  .animate-fade-up-delay-2 {
-    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.16s forwards;
-    opacity: 0;
-  }
-
-  .animate-fade-up-delay-3 {
-    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
-    opacity: 0;
-  }
-
-  /* Respect reduced motion preferences */
+  .text-balance { text-wrap: balance; }
+  .section-label { @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-primary; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .animate-marquee { animation: marquee 30s linear infinite; }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-fade-up { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .animate-fade-up-delay-1 { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards; opacity: 0; }
+  .animate-fade-up-delay-2 { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.16s forwards; opacity: 0; }
+  .animate-fade-up-delay-3 { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards; opacity: 0; }
   @media (prefers-reduced-motion: reduce) {
-    .animate-marquee,
-    .animate-fade-up,
-    .animate-fade-up-delay-1,
-    .animate-fade-up-delay-2,
-    .animate-fade-up-delay-3 {
-      animation: none !important;
-      opacity: 1 !important;
-    }
-
-    .transition-base,
-    .transition-smooth {
-      transition: none !important;
+    .animate-marquee, .animate-fade-up, .animate-fade-up-delay-1, .animate-fade-up-delay-2, .animate-fade-up-delay-3 {
+      animation: none !important; opacity: 1 !important;
     }
   }
 }
