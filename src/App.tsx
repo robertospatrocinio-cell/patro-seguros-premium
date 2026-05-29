@@ -276,19 +276,12 @@ const App = () => {
             <Route path="/contato" element={<Contato />} />
             <Route path="/depoimentos" element={<Depoimentos />} />
             <Route path="/seguro-bmw" element={<SeguroBMW />} />
-            <Route path="/seguro-auto-bmw" element={<Navigate to="/seguro-bmw" replace />} />
             <Route path="/seguro-mercedes" element={<SeguroMarcaPremium brand="mercedes" />} />
-            <Route path="/seguro-auto-mercedes" element={<Navigate to="/seguro-mercedes" replace />} />
             <Route path="/seguro-audi" element={<SeguroMarcaPremium brand="audi" />} />
-            <Route path="/seguro-auto-audi" element={<Navigate to="/seguro-audi" replace />} />
             <Route path="/seguro-land-rover" element={<SeguroMarcaPremium brand="land-rover" />} />
-            <Route path="/seguro-auto-land-rover" element={<Navigate to="/seguro-land-rover" replace />} />
             <Route path="/seguro-jaguar" element={<SeguroMarcaPremium brand="jaguar" />} />
-            <Route path="/seguro-auto-jaguar" element={<Navigate to="/seguro-jaguar" replace />} />
             <Route path="/seguro-volvo" element={<SeguroMarcaPremium brand="volvo" />} />
-            <Route path="/seguro-auto-volvo" element={<Navigate to="/seguro-volvo" replace />} />
             <Route path="/seguro-ferrari" element={<SeguroMarcaPremium brand="ferrari" />} />
-            <Route path="/seguro-auto-ferrari" element={<Navigate to="/seguro-ferrari" replace />} />
             <Route path="/seguro-porsche" element={<SeguroMarcaPremium brand="porsche" />} />
             <Route path="/seguro-auto-porsche" element={<Navigate to="/seguro-porsche" replace />} />
             <Route path="/seguro-byd" element={<SeguroMarcaPremium brand="byd" />} />
