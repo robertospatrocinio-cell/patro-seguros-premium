@@ -71,20 +71,8 @@
 /* The current file looks mostly lean, but we ensure base components are optimized */
 
 @layer utilities {
-  .gradient-cta {
-    background: var(--gradient-cta);
-  }
-
-  .gradient-surface {
-    background: var(--gradient-surface);
-  }
-
-  .transition-base {
-    transition: var(--transition-base);
-  }
-
-  .transition-smooth {
-    transition: var(--transition-smooth);
+  .text-balance {
+    text-wrap: balance;
   }
 
   .text-balance {
