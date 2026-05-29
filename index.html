@@ -26,7 +26,8 @@
       *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:hsl(var(--border))}
       body{margin:0;background-color:white;color:hsl(var(--foreground));font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;min-height:100vh}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
-      .sr-only:focus{position:fixed;top:1rem;left:1rem;z-index:9999;padding:1rem 2rem;background:hsl(210 100% 20%);color:white;border-radius:0.5rem;text-decoration:none;clip:auto;width:auto;height:auto;margin:0;overflow:visible;box-shadow:0 20px 50px -12px rgba(0,0,0,0.25)}
+      .skip-link{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+      .skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:9999;padding:1rem 2rem;background:hsl(210 100% 20%);color:white;border-radius:0.5rem;text-decoration:none;clip:auto;width:auto;height:auto;margin:0;overflow:visible;box-shadow:0 20px 50px -12px rgba(0,0,0,0.25)}
       #root{min-height:100vh;display:block}
       .gradient-hero{background:var(--gradient-hero)}
       .container{width:100%;margin-right:auto;margin-left:auto;padding-right:1rem;padding-left:1rem}
@@ -173,7 +174,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2108358063295698&ev=PageView&noscript=1"
     alt="" /></noscript>
-    <a href="#main-content" class="sr-only">Ir para o conteúdo principal</a>
+    <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
     <div id="root" style="min-height: 100vh;">
       <main id="main-content" style="display:flex;justify-content:center;align-items:center;height:100vh;background-color:#001a33;color:white;font-family:sans-serif;">
         <div style="text-align:center;">
