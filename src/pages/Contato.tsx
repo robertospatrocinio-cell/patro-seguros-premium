@@ -81,7 +81,7 @@ const Contato = () => {
   const update = (field: string, value: string) => setFormState(prev => ({ ...prev, [field]: value }));
 
   return (
-    <>
+    <Fragment>
       <PageMeta title="Contato | Fale com a Patro Seguros em Guarulhos" description="Fale com a Patro Seguros em Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Solicite cotações e tire suas dúvidas com nossos especialistas." />
       <FAQSchema faqs={contatoFaqs} />
       <Header />

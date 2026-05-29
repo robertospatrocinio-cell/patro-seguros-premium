@@ -114,7 +114,7 @@ const Cotacao = () => {
   };
 
   return (
-    <>
+    <Fragment>
       <PageMeta title="Cotação de Seguro em Guarulhos | Patro Seguros" description="Solicite sua cotação de seguro em Guarulhos gratuitamente. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras do Brasil." />
       <Header />
       <main id="main-content">
