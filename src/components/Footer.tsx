@@ -124,7 +124,7 @@ const Footer = memo(() => {
               ))}
             </ul>
             <div className="mt-4">
-               <Link to="/seguros-em-guarulhos-bairros" className="text-[11px] text-primary hover:underline font-medium">Ver todos os bairros →</Link>
+               <Link to="/seguros-em-guarulhos-bairros" className="text-[12px] text-white/80 underline font-medium">Ver todos os bairros →</Link>
             </div>
           </nav>
 
