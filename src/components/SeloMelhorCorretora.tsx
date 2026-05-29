@@ -18,7 +18,7 @@ const SIZE_MAP = {
 const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = false }: SeloMelhorCorretoraProps) => {
   const [isClient, setIsClient] = useState(priority);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!priority) {
       setIsClient(true);
     }
