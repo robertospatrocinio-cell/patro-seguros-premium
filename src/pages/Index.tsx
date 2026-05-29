@@ -114,7 +114,7 @@ const Index = () => {
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
                 Corretora de Seguros em Guarulhos: Proteção Completa e Cotação em até 2h
               </h1>
-              <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
+              <p className="text-[15px] md:text-lg text-white mb-1.5 font-semibold">
                 Nota 4.9 no Google | +16 seguradoras parceiras | Cotação em 2h
               </p>
               <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
