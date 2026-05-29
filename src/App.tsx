@@ -48,8 +48,6 @@ const SeguroCelular = lazy(() => import("./pages/SeguroCelular"));
 const PlanosDeSaude = lazy(() => import("./pages/PlanosDeSaude"));
 const IndiqueAmigo = lazy(() => import("./pages/IndiqueAmigo"));
 const CotacaoSeguroAuto = lazy(() => import("./pages/CotacaoSeguroAuto"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const SeguroMaquinasAgricolas = lazy(() => import("./pages/SeguroMaquinasAgricolas"));
 const SeguroEquipamentosAgricolas = lazy(() => import("./pages/SeguroEquipamentosAgricolas"));
 const SeguroGalpoesIndustriais = lazy(() => import("./pages/SeguroGalpoesIndustriais"));
