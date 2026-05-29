@@ -22,7 +22,7 @@ const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Parceiros = lazy(() => import("./pages/Parceiros"));
-const Cotacao = lazy(() => import("./pages/Cotacao"));
+
 const Contato = lazy(() => import("./pages/Contato"));
 const SeguroAuto = lazy(() => import("./pages/SeguroAuto"));
 const SeguroVida = lazy(() => import("./pages/SeguroVida"));
