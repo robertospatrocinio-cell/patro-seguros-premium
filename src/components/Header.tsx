@@ -256,7 +256,7 @@ const Header = memo(() => {
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
                <Link 
                  to="/" 
-                 className="flex items-center" 
+                 className="flex items-center relative z-[60]" 
                  aria-label="Patro Seguros — Página inicial" 
                  onClick={() => window.scrollTo(0,0)}
                >

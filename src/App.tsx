@@ -9,16 +9,20 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Index from "./pages/Index";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import Cotacao from "./pages/Cotacao";
 
 const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 const CRM = lazy(() => import("./pages/CRM"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-// Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Parceiros = lazy(() => import("./pages/Parceiros"));
-const Cotacao = lazy(() => import("./pages/Cotacao"));
 const Contato = lazy(() => import("./pages/Contato"));
 const SeguroAuto = lazy(() => import("./pages/SeguroAuto"));
 const SeguroVida = lazy(() => import("./pages/SeguroVida"));
@@ -44,8 +48,6 @@ const SeguroCelular = lazy(() => import("./pages/SeguroCelular"));
 const PlanosDeSaude = lazy(() => import("./pages/PlanosDeSaude"));
 const IndiqueAmigo = lazy(() => import("./pages/IndiqueAmigo"));
 const CotacaoSeguroAuto = lazy(() => import("./pages/CotacaoSeguroAuto"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const SeguroMaquinasAgricolas = lazy(() => import("./pages/SeguroMaquinasAgricolas"));
 const SeguroEquipamentosAgricolas = lazy(() => import("./pages/SeguroEquipamentosAgricolas"));
 const SeguroGalpoesIndustriais = lazy(() => import("./pages/SeguroGalpoesIndustriais"));
@@ -216,11 +218,6 @@ const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 import RequireAdmin from "@/components/RequireAdmin";
-
-import ErrorBoundary from "@/components/ErrorBoundary";
-import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
