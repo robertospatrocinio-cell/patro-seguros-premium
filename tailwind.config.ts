@@ -66,7 +66,7 @@ export default {
     skew: false,
     tableLayout: false,
     textOpacity: false,
-    textTransform: false,
+    textTransform: true,
     verticalAlign: false,
     visibility: false,
     whitespace: false,
