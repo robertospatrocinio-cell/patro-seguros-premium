@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, useLayoutEffect } from "react";
+import { memo, useEffect, useState } from "react";
 
 interface SeloMelhorCorretoraProps {
   /** Tamanho do selo. sm: 80px, md: 112px, lg: 144px, xl: 176px */
