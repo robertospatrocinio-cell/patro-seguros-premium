@@ -1,8 +1,10 @@
 import { createRoot } from "react-dom/client";
+import { Suspense } from "react";
 import App from "./App.tsx";
 import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
+import PageSkeleton from "./components/PageSkeleton";
 
 const rootElement = document.getElementById("root");
 
