@@ -136,13 +136,10 @@
  </IfModule>
  
   <IfModule mod_rewrite.c>
-    # Force apex -> www (canonical host is www.patroseguros.com.br)
-    RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br$ [NC]
-    RewriteRule ^ https://www.patroseguros.com.br%{REQUEST_URI} [R=301,L]
-  
-    # Force HTTPS
+    # Force apex -> www and HTTPS in one go for efficiency
+    RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br$ [NC,OR]
     RewriteCond %{HTTPS} !=on
-    RewriteRule ^ https://www.patroseguros.com.br%{REQUEST_URI} [R=301,L]
+    RewriteRule ^(.*)$ https://www.patroseguros.com.br/$1 [R=301,L]
   
     # ----------------------------------------------------------------------
     # | Redirects for legacy / non-canonical URLs                          |
