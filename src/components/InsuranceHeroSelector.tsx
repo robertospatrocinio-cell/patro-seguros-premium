@@ -89,11 +89,6 @@ const bgSmByTab: Record<TabKey, string> = {
 
 const InsuranceHeroSelector = memo(() => {
   const [active, setActive] = useState<TabKey>("voce");
-  const [pillStyle, setPillStyle] = useState<{ left: string | number; width: string | number; opacity: number }>({ 
-    left: "0%", 
-    width: "25%", 
-    opacity: 0 
-  });
   const tabsRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Record<TabKey, HTMLButtonElement | null>>({ voce: null, empresa: null, agro: null, consorcio: null });
   const [modalFormKey, setModalFormKey] = useState<string | null>(null);
@@ -103,14 +98,14 @@ const InsuranceHeroSelector = memo(() => {
     const container = tabsRef.current;
     if (!btn || !container) return;
 
+    // Use direct DOM manipulation for the decorative pill to avoid 
+    // React state re-renders during layout-critical phases.
     const newLeft = btn.offsetLeft;
     const newWidth = btn.offsetWidth;
     
-    setPillStyle(prev =>
-      prev.left === newLeft && prev.width === newWidth && prev.opacity === 1 
-        ? prev 
-        : { left: newLeft, width: newWidth, opacity: 1 }
-    );
+    container.style.setProperty('--pill-left', `${newLeft}px`);
+    container.style.setProperty('--pill-width', `${newWidth}px`);
+    container.style.setProperty('--pill-opacity', '1');
   }, [active]);
 
   useEffect(() => {
