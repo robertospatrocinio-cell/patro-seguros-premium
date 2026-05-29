@@ -8,13 +8,13 @@
     <meta name="description" content="Patro Seguros: A melhor corretora de seguros em Guarulhos. Compare cotações de 16+ seguradoras para Seguro Auto, Uber, Residencial e Saúde. Cotação grátis em 2h!">
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
-    <meta http-equiv="Pragma" content="cache">
-    <meta http-equiv="Expires" content="31536000">
+    <meta http-equiv="Cache-Control" content="public, max-age=3600, stale-while-revalidate=86400">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="canonical" href="https://www.patroseguros.com.br" />
     <link rel="preconnect" href="https://vjzsekwkeixbbpldiqmd.supabase.co" crossorigin />
     <link rel="dns-prefetch" href="https://vjzsekwkeixbbpldiqmd.supabase.co" />
-    <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
+    <script type="module" src="/src/main.tsx" fetchpriority="high" crossorigin></script>
 
     <!-- Preload critical fonts with low priority -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low" />
@@ -33,6 +33,7 @@
     <meta property="og:url" content="https://www.patroseguros.com.br" />
     <meta property="og:locale" content="pt_BR" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.webmanifest">
     <!-- Preconnect to critical third-party origins -->
     <!-- GTM and Facebook Pixel scripts are deferred until after load/interaction.
          dns-prefetch resolves DNS early without spending a TLS handshake on origins
