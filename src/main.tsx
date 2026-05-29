@@ -30,11 +30,5 @@ if (rootElement) {
     setTimeout(deferInit, 1);
   }
 } else {
-  const errorMsg = "Critical Error: Root element not found";
-  console.error(errorMsg);
-  const fallback = document.createElement("div");
-  fallback.style.padding = "20px";
-  fallback.style.textAlign = "center";
-  fallback.innerHTML = `<h1>Erro Crítico</h1><p>${errorMsg}</p><button onclick="location.reload()">Recarregar Página</button>`;
-  document.body.appendChild(fallback);
+  console.error("Critical Error: Root element not found");
 }
