@@ -62,7 +62,7 @@ const WhatsAppButton = () => {
           onClick={() =>
             trackCotacaoClick("botao-fixo", { origin: "sticky-cta", insuranceType: tipo || undefined })
           }
-          className="group inline-flex items-center gap-2 rounded-full bg-[hsl(var(--primary))] text-white pl-3 pr-4 py-2.5 shadow-xl transition-base hover:scale-105 hover:shadow-2xl text-sm font-semibold"
+          className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground pl-3 pr-4 py-2.5 shadow-xl transition-base hover:scale-105 hover:shadow-2xl text-sm font-semibold"
         >
           <FileText className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
           Pedir Cotação
