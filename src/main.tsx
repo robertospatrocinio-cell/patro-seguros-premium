@@ -8,7 +8,7 @@ const rootElement = document.getElementById("root");
 
 if (rootElement) {
   const root = createRoot(rootElement);
-  root.render(<App />);
+  root.render(<Suspense fallback={<PageSkeleton />}><App /></Suspense>);
   
   const deferInit = () => {
     initMonitoring();
