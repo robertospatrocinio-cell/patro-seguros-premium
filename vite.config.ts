@@ -319,8 +319,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: {
-          "vendor-core": ["react", "react-dom", "react-router-dom"],
-          "vendor-data": ["@tanstack/react-query", "@supabase/supabase-js"],
+          "vendor-core": ["react", "react-dom", "react-router-dom", "@tanstack/react-query", "@supabase/supabase-js"],
           "vendor-ui": [
             "@radix-ui/react-dialog", 
             "@radix-ui/react-dropdown-menu",
@@ -328,9 +327,12 @@ export default defineConfig(({ mode }) => ({
             "@radix-ui/react-tooltip",
             "@radix-ui/react-popover",
             "@radix-ui/react-navigation-menu",
-            "lucide-react"
+            "lucide-react",
+            "clsx", 
+            "tailwind-merge", 
+            "framer-motion", 
+            "date-fns"
           ],
-          "vendor-utils": ["clsx", "tailwind-merge", "framer-motion", "date-fns"]
         },
       },
     },
