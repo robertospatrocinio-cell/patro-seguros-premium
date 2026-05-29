@@ -357,12 +357,12 @@ const Header = memo(() => {
                          </p>
                          <div className="space-y-0.5">
                            <Link to="/planos-de-saude" className="block py-1 text-[13px] text-primary font-bold hover:text-primary/80 transition-base">Plano de Saúde</Link>
-                           <Link to="/seguro-vida" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Seguro de Vida</Link>
-                           <Link to="/seguro-odonto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Odonto</Link>
-                          <Link to="/plano-pet" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Plano Pet</Link>
-                          <Link to="/seguro-acidentes-pessoais" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Acidentes Pessoais</Link>
-                          <Link to="/previdencia-privada" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Previdência</Link>
-                          <Link to="/seguro-funeral" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Funeral</Link>
+                            <Link to="/seguro-vida" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Seguro de Vida</Link>
+                            <Link to="/seguro-odonto" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Odonto</Link>
+                           <Link to="/plano-pet" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Plano Pet</Link>
+                           <Link to="/seguro-acidentes-pessoais" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Acidentes Pessoais</Link>
+                           <Link to="/previdencia-privada" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Previdência</Link>
+                           <Link to="/seguro-funeral" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Funeral</Link>
                         </div>
                       </div>
                       <div>
@@ -370,12 +370,12 @@ const Header = memo(() => {
                            <Link to="/seguros-de-patrimonio" className="hover:text-primary transition-colors">Patrimônio</Link>
                          </p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-residencial" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Residencial</Link>
-                          <Link to="/seguro-celular" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Celular</Link>
-                          <Link to="/seguro-viagem" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Viagem</Link>
-                          <Link to="/seguro-fianca" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Fiança</Link>
-                          <Link to="/seguro-fianca-locaticia" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Fiança Locatícia</Link>
-                          <Link to="/seguro-estagiario" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Estagiário</Link>
+                           <Link to="/seguro-residencial" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Residencial</Link>
+                          <Link to="/seguro-celular" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Celular</Link>
+                          <Link to="/seguro-viagem" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Viagem</Link>
+                          <Link to="/seguro-fianca" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Fiança</Link>
+                          <Link to="/seguro-fianca-locaticia" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Fiança Locatícia</Link>
+                          <Link to="/seguro-estagiario" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Estagiário</Link>
                         </div>
                       </div>
                     </div>
