@@ -54,7 +54,7 @@ const LocalTestimonials = () => {
             </div>
             <div>
               <div className="flex items-center gap-1.5 mb-0.5">
-                <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-4 object-contain" />
+                <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" width={46} height={15} className="h-4 w-auto object-contain" />
                 <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Reviews</span>
               </div>
               <p className="text-[11px] text-muted-foreground font-medium">Baseado em 340+ avaliações reais</p>
