@@ -101,6 +101,26 @@ export function initWebVitals() {
   onLCP(handleMetric);
   onCLS(handleMetric);
   onINP(handleMetric);
+
+  // Monitor total rendering performance
+  if (typeof window !== 'undefined' && window.performance && window.performance.mark) {
+    window.performance.mark('app-init');
+    
+    // Check if navigation takes too long (detecting slow render or white screens)
+    window.addEventListener('load', () => {
+      const timing = window.performance.timing;
+      const loadTime = timing.loadEventEnd - timing.navigationStart;
+      
+      if (loadTime > 10000) { // 10s threshold for critical performance issues
+        window.gtag?.('event', 'performance_critical', {
+          event_category: 'Performance',
+          event_label: 'Critical Load Time',
+          value: loadTime,
+          non_interaction: true
+        });
+      }
+    });
+  }
 }
 
 /**
