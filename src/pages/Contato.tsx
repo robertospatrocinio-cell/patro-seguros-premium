@@ -43,17 +43,34 @@ const socials = [
 ];
 
 const Contato = () => {
-  const { toast } = useToast();
+   const { toast } = useToast();
   const [formState, setFormState] = useState({ nome: "", email: "", telefone: "", servico: "", mensagem: "" });
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const getFieldError = (key: string) => {
+    if (!touched[key]) return "";
+    const value = (formState as any)[key] || "";
+    if (key === "nome" && !value.trim()) return "Nome é obrigatório";
+    if (key === "telefone" && !value.trim()) return "WhatsApp é obrigatório";
+    if (key === "email" && value.trim() && !/^\S+@\S+\.\S+$/.test(value)) return "E-mail inválido";
+    return "";
+  };
+
+  const handleBlur = (key: string) => setTouched(prev => ({ ...prev, [key]: true }));
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formState.nome.trim() || !formState.telefone.trim()) {
-      toast({ title: "Preencha pelo menos seu nome e telefone.", variant: "destructive" });
+    
+    // Mark all as touched
+    setTouched({ nome: true, email: true, telefone: true, servico: true, mensagem: true });
+
+    if (getFieldError("nome") || getFieldError("telefone") || getFieldError("email")) {
+      toast({ title: "Por favor, corrija os erros no formulário.", variant: "destructive" });
       return;
     }
+    
     setSending(true);
 
     // Build WhatsApp message with form data
@@ -155,17 +172,53 @@ const Contato = () => {
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div className="grid sm:grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                          <Label htmlFor="nome">Nome *</Label>
-                          <Input id="nome" placeholder="Seu nome completo" value={formState.nome} onChange={e => update("nome", e.target.value)} maxLength={100} required />
+                           <Label htmlFor="nome" className={getFieldError("nome") ? "text-destructive" : ""}>Nome *</Label>
+                          <Input 
+                            id="nome" 
+                            placeholder="Seu nome completo" 
+                            value={formState.nome} 
+                            onChange={e => update("nome", e.target.value)} 
+                            onBlur={() => handleBlur("nome")}
+                            maxLength={100} 
+                            required 
+                            className={getFieldError("nome") ? "border-destructive focus-visible:ring-destructive" : ""}
+                            aria-invalid={!!getFieldError("nome")}
+                            aria-describedby={getFieldError("nome") ? "error-nome" : undefined}
+                          />
+                          {getFieldError("nome") && <p id="error-nome" className="text-xs text-destructive">{getFieldError("nome")}</p>}
                         </div>
                         <div className="space-y-1.5">
-                          <Label htmlFor="telefone">Telefone / WhatsApp *</Label>
-                          <Input id="telefone" placeholder="(11) 99999-9999" value={formState.telefone} onChange={e => update("telefone", e.target.value)} maxLength={20} required />
+                          <Label htmlFor="telefone" className={getFieldError("telefone") ? "text-destructive" : ""}>Telefone / WhatsApp *</Label>
+                          <Input 
+                            id="telefone" 
+                            placeholder="(11) 99999-9999" 
+                            value={formState.telefone} 
+                            onChange={e => update("telefone", e.target.value)} 
+                            onBlur={() => handleBlur("telefone")}
+                            maxLength={20} 
+                            required 
+                            className={getFieldError("telefone") ? "border-destructive focus-visible:ring-destructive" : ""}
+                            aria-invalid={!!getFieldError("telefone")}
+                            aria-describedby={getFieldError("telefone") ? "error-telefone" : undefined}
+                          />
+                          {getFieldError("telefone") && <p id="error-telefone" className="text-xs text-destructive">{getFieldError("telefone")}</p>}
                         </div>
                       </div>
                       <div className="space-y-1.5">
-                        <Label htmlFor="email">E-mail</Label>
-                        <Input id="email" type="email" placeholder="seu@email.com" value={formState.email} onChange={e => update("email", e.target.value)} maxLength={255} />
+                        <Label htmlFor="email" className={getFieldError("email") ? "text-destructive" : ""}>E-mail</Label>
+                        <Input 
+                          id="email" 
+                          type="email" 
+                          placeholder="seu@email.com" 
+                          value={formState.email} 
+                          onChange={e => update("email", e.target.value)} 
+                          onBlur={() => handleBlur("email")}
+                          maxLength={255} 
+                          className={getFieldError("email") ? "border-destructive focus-visible:ring-destructive" : ""}
+                          aria-invalid={!!getFieldError("email")}
+                          aria-describedby={getFieldError("email") ? "error-email" : undefined}
+                        />
+                        {getFieldError("email") && <p id="error-email" className="text-xs text-destructive">{getFieldError("email")}</p>}
                       </div>
                       <div className="space-y-1.5">
                         <Label htmlFor="servico">Tipo de Serviço</Label>
