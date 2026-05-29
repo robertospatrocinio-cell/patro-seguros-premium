@@ -7,11 +7,8 @@ import { initWebVitals } from "./lib/webVitals";
 import PageSkeleton from "./components/PageSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
-console.log("main.tsx script execution started");
-
 const Main = () => {
   useEffect(() => {
-    console.log("React application mounted");
     const deferInit = () => {
       initMonitoring();
       initWebVitals();
@@ -36,7 +33,6 @@ const Main = () => {
 const rootElement = document.getElementById("root");
 
 if (rootElement) {
-  console.log("Root element found, creating root");
   const root = createRoot(rootElement);
   root.render(<Main />);
 } else {

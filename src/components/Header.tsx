@@ -260,21 +260,18 @@ const Header = memo(() => {
                  aria-label="Patro Seguros — Página inicial" 
                  onClick={() => window.scrollTo(0,0)}
                >
-                  <picture>
-                    <source media="(max-width: 640px)" srcSet="/images/logo-full.webp" width="160" height="80" />
-                       <img
-                         src={logoFull}
-                         alt="Patro Seguros"
-                         aria-hidden="false"
-                        width={160}
-                        height={80}
-                       className="h-20 w-auto object-contain -my-2 relative z-50"
-                       fetchPriority="high"
-                       decoding="async"
-                       loading="eager"
-                     />
-                 </picture>
+                  <img
+                    src={logoFull}
+                    alt="Patro Seguros"
+                    width={160}
+                    height={80}
+                    className="h-20 w-auto object-contain -my-2 relative z-50"
+                    fetchPriority="high"
+                    decoding="async"
+                    loading="eager"
+                  />
                </Link>
+
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
