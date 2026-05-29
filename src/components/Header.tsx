@@ -268,7 +268,7 @@ const Header = memo(() => {
                          aria-hidden="false"
                         width={160}
                         height={80}
-                       className="h-20 w-auto object-contain -my-2 brightness-0 invert"
+                       className="h-20 w-auto object-contain -my-2 relative z-50"
                        fetchPriority="high"
                        decoding="async"
                        loading="eager"
