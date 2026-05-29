@@ -4,6 +4,16 @@
    CacheEngine on
  </IfModule>
  
+ <IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteBase /
+   
+   # Force apex -> www and HTTPS in one go for maximum efficiency
+   RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br$ [NC,OR]
+   RewriteCond %{HTTPS} !=on
+   RewriteRule ^(.*)$ https://www.patroseguros.com.br/$1 [R=301,L]
+ </IfModule>
+ 
  DirectoryIndex index.html
  Options -MultiViews +FollowSymLinks
  
@@ -151,12 +161,6 @@
    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml application/manifest+json text/plain font/woff2
  </IfModule>
  
-  <IfModule mod_rewrite.c>
-    # Force apex -> www and HTTPS in one go for efficiency
-    RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br$ [NC,OR]
-    RewriteCond %{HTTPS} !=on
-    RewriteRule ^(.*)$ https://www.patroseguros.com.br/$1 [R=301,L]
-  
     # ----------------------------------------------------------------------
     # | Redirects for legacy / non-canonical URLs                          |
     # ----------------------------------------------------------------------
