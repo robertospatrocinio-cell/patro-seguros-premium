@@ -53,6 +53,7 @@ export default {
     gridAutoRows: false,
     gridTemplateColumns: false,
     gridTemplateRows: false,
+    container: false,
     float: false,
     clear: false,
     objectPosition: false,
