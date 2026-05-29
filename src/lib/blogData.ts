@@ -14,6 +14,56 @@ export interface BlogArticleMeta {
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
   { 
+    slug: "seguro-auto-guarulhos-preco-bairro-2026", 
+    title: "Seguro Auto em Guarulhos: Preço por Bairro em 2026", 
+    excerpt: "Descubra quanto custa o seguro auto nos principais bairros de Guarulhos e por que o CEP influencia tanto no valor.", 
+    category: "Seguro Auto", 
+    tags: ["guarulhos", "seguro auto", "preços", "bairros"], 
+    author: "Roberto Patro", 
+    date: "2026-06-05", 
+    readTime: 10 
+  },
+  { 
+    slug: "seguro-uber-99-guarulhos-evitar-sinistro-negado", 
+    title: "Seguro para Uber e 99 em Guarulhos: Como Evitar Sinistro Negado", 
+    excerpt: "Guia prático para motoristas de app em Guarulhos não terem problemas na hora de acionar o seguro.", 
+    category: "Seguro Auto", 
+    tags: ["uber", "99", "guarulhos", "sinistro"], 
+    author: "Sandra Patro", 
+    date: "2026-06-04", 
+    readTime: 9 
+  },
+  { 
+    slug: "seguro-moto-guarulhos-precos-riscos-coberturas", 
+    title: "Seguro de Moto em Guarulhos: Preços, Riscos e Coberturas", 
+    excerpt: "Tudo o que você precisa saber para proteger sua moto em Guarulhos com o melhor custo-benefício.", 
+    category: "Seguro Moto", 
+    tags: ["moto", "guarulhos", "seguro moto", "preços"], 
+    author: "Roberto Patro", 
+    date: "2026-06-03", 
+    readTime: 8 
+  },
+  { 
+    slug: "plano-saude-mei-guarulhos-tabelas-regras", 
+    title: "Plano de Saúde MEI em Guarulhos: Tabelas, Regras e Operadoras", 
+    excerpt: "Guia completo para microempreendedores de Guarulhos contratarem plano de saúde com até 40% de economia.", 
+    category: "Planos de Saúde", 
+    tags: ["mei", "guarulhos", "plano de saúde", "economia"], 
+    author: "Sandra Patro", 
+    date: "2026-06-02", 
+    readTime: 11 
+  },
+  { 
+    slug: "seguro-transportadoras-cumbica-frota-carga-rc", 
+    title: "Seguro para Transportadoras em Cumbica: Frota, Carga e RC", 
+    excerpt: "Proteção completa para o polo logístico de Cumbica. Entenda as coberturas essenciais para sua frota.", 
+    category: "Seguro Frota", 
+    tags: ["cumbica", "logística", "transportadoras", "seguro carga"], 
+    author: "Roberto Patro", 
+    date: "2026-06-01", 
+    readTime: 12 
+  },
+  { 
     slug: "carros-mais-roubados-guarulhos-2026-seguro-precos", 
     title: "Carros Mais Roubados em Guarulhos 2026: Seguro e Preços", 
     excerpt: "Quanto custa o seguro dos carros mais roubados em Guarulhos em 2026? Veja preço por modelo, bairro e perfil.", 
