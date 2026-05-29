@@ -13,6 +13,7 @@ import PageSkeleton from "@/components/PageSkeleton";
 // Static import of critical home page to ensure it's available immediately
 import Index from "./pages/Index";
 
+const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Parceiros = lazy(() => import("./pages/Parceiros"));
