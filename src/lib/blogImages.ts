@@ -106,6 +106,7 @@ export const blogImageMap: Record<string, string> = {
   "documentos-seguro-carro-guarulhos": blogComoAcionarSeguroAuto,
   "diferenca-seguro-compreensivo-terceiros": blogSeguroAutoPremium,
   "como-funciona-franquia-seguro-auto-perda-parcial": blogComoAcionarSeguroAuto,
+  "carros-mais-roubados-guarulhos-2026-seguro-precos": blogRoubosGuarulhos,
 
   // Seguro Residencial
   "o-que-seguro-residencial-cobre": blogSeguroResidencial,

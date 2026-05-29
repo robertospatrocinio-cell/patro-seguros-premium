@@ -13,6 +13,16 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
+  { 
+    slug: "carros-mais-roubados-guarulhos-2026-seguro-precos", 
+    title: "Carros Mais Roubados em Guarulhos 2026: Seguro e Preços", 
+    excerpt: "Quanto custa o seguro dos carros mais roubados em Guarulhos em 2026? Veja preço por modelo, bairro e perfil.", 
+    category: "Seguro Auto", 
+    tags: ["guarulhos", "seguro auto", "roubo de veículos", "preços"], 
+    author: "Roberto Patro", 
+    date: "2026-05-29", 
+    readTime: 12 
+  },
   { slug: "vai-alugar-imovel-seguro-fianca-sem-fiador", title: "Seguro Fiança Sem Fiador | Patro Seguros", excerpt: "Descubra como alugar de forma rápida e segura sem depender de terceiros ou deixar caução em dinheiro.", category: "Seguro Fiança", tags: ["aluguel", "seguro fiança", "imobiliário", "dicas"], author: "Sandra Patro", date: "2026-05-25", readTime: 7 },
   { slug: "como-funciona-franquia-seguro-auto-perda-parcial", title: "Franquia do Seguro Auto: Como Funciona", excerpt: "Entenda detalhadamente o que é franquia, quando você paga e como funciona o conserto do carro em perdas parciais.", category: "Seguro Auto", tags: ["franquia", "seguro auto", "sinistro", "dicas"], author: "Roberto Patro", date: "2026-05-22", readTime: 8 },
   { slug: "vale-a-pena-usar-consorcio-para-investir-em-imoveis", title: "Consórcio Para Investir em Imóveis | Patro", excerpt: "Descubra como investidores usam o consórcio como alavancagem financeira para construir patrimônio imobiliário sem juros bancários.", category: "Consórcio", tags: ["consórcio", "investimentos", "imóveis", "patrimônio"], author: "Sandra Patro", date: "2026-05-22", readTime: 10 },
