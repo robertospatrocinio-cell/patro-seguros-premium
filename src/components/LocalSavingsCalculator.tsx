@@ -33,7 +33,7 @@ const LocalSavingsCalculator = () => {
           <Calculator className="w-6 h-6 text-primary" />
         </div>
         <CardTitle className="text-2xl font-bold font-heading">Simulador de Economia Local</CardTitle>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-foreground/70">
           Descubra quanto você pode economizar comparando 16+ seguradoras em Guarulhos.
         </p>
       </CardHeader>
@@ -42,7 +42,7 @@ const LocalSavingsCalculator = () => {
         <div className="space-y-6">
           {/* Insurance Type Selector */}
           <div className="space-y-2">
-            <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">O que você quer proteger?</label>
+            <label className="text-xs font-bold uppercase tracking-wider text-foreground/60">O que você quer proteger?</label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {insuranceTypes.map((type) => {
                 const Icon = type.icon;
@@ -85,7 +85,7 @@ const LocalSavingsCalculator = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {insuranceType === 'auto' ? (
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Tipo de Uso</label>
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/60">Tipo de Uso</label>
                 <div className="flex gap-2">
                   <Button 
                     variant={!hasUber ? "default" : "outline"} 
@@ -107,15 +107,15 @@ const LocalSavingsCalculator = () => {
               </div>
             ) : (
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Perfil</label>
-                <div className="flex items-center h-9 px-3 rounded-md border border-input bg-muted/30 text-xs text-muted-foreground italic">
+                <label className="text-xs font-bold uppercase tracking-wider text-foreground/60">Perfil</label>
+                <div className="flex items-center h-9 px-3 rounded-md border border-input bg-muted/30 text-xs text-foreground/60 italic">
                   Análise personalizada para Guarulhos
                 </div>
               </div>
             )}
 
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Sua Região em Guarulhos</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-foreground/60">Sua Região em Guarulhos</label>
               <select 
                 className="w-full h-9 rounded-md border border-input bg-background px-3 py-1 text-xs shadow-sm"
                 value={region}
@@ -138,7 +138,7 @@ const LocalSavingsCalculator = () => {
           </div>
           
           <div className="relative z-10 text-center space-y-4">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-[0.2em]">Economia Estimada</p>
+            <p className="text-sm font-medium text-foreground/60 uppercase tracking-[0.2em]">Economia Estimada</p>
             <div className="flex items-center justify-center gap-2">
               <span className="text-4xl md:text-5xl font-black text-primary tracking-tighter">
                 R$ {estimatedSavings.toLocaleString()}
@@ -159,7 +159,7 @@ const LocalSavingsCalculator = () => {
             "Desconto para Motorista APP",
             "Atendimento Humano VIP"
           ].map((text) => (
-            <div key={text} className="flex items-center gap-2 text-[11px] font-medium text-muted-foreground">
+            <div key={text} className="flex items-center gap-2 text-[11px] font-medium text-foreground/80">
               <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
               {text}
             </div>
