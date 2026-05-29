@@ -155,7 +155,7 @@ const Header = memo(() => {
   };
 
   const MobileSubLabel = ({ children }: { children: React.ReactNode }) => (
-    <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mt-3 mb-1 px-2">{children}</p>
+    <p className="text-[10px] font-medium text-foreground/60 uppercase tracking-[0.1em] mt-3 mb-1 px-2">{children}</p>
   );
 
   const MobileLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
@@ -517,17 +517,17 @@ const Header = memo(() => {
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2">Produtos</p>
                     <div className="space-y-0.5">
-                      <Link to="/consorcio" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Visão Geral</Link>
-                      <Link to="/consorcio-carro" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Carro</Link>
-                      <Link to="/consorcio-imoveis" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Imóveis</Link>
-                      <Link to="/consorcio-veiculos-pesados" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Veículos Pesados</Link>
+                      <Link to="/consorcio" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Visão Geral</Link>
+                      <Link to="/consorcio-carro" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Carro</Link>
+                      <Link to="/consorcio-imoveis" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Imóveis</Link>
+                      <Link to="/consorcio-veiculos-pesados" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Veículos Pesados</Link>
                     </div>
                   </div>
                 </div>
               </div>
-              <Link to="/blog" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Blog</Link>
-              <Link to="/sobre" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Sobre</Link>
-              <Link to="/contato" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Contato</Link>
+              <Link to="/blog" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Blog</Link>
+              <Link to="/sobre" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Sobre</Link>
+              <Link to="/contato" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Contato</Link>
             </div>
 
             <div className="hidden lg:flex items-center gap-2">
