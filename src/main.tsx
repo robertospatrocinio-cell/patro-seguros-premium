@@ -11,7 +11,13 @@ const rootElement = document.getElementById("root");
 
 if (rootElement) {
   const root = createRoot(rootElement);
-  root.render(<Suspense fallback={<PageSkeleton />}><App /></Suspense>);
+  root.render(
+    <ErrorBoundary>
+      <Suspense fallback={<PageSkeleton />}>
+        <App />
+      </Suspense>
+    </ErrorBoundary>
+  );
   
   const deferInit = () => {
     initMonitoring();
