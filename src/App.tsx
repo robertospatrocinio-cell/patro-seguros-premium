@@ -283,14 +283,9 @@ const App = () => {
             <Route path="/seguro-volvo" element={<SeguroMarcaPremium brand="volvo" />} />
             <Route path="/seguro-ferrari" element={<SeguroMarcaPremium brand="ferrari" />} />
             <Route path="/seguro-porsche" element={<SeguroMarcaPremium brand="porsche" />} />
-            <Route path="/seguro-auto-porsche" element={<Navigate to="/seguro-porsche" replace />} />
             <Route path="/seguro-byd" element={<SeguroMarcaPremium brand="byd" />} />
-            <Route path="/seguro-auto-byd" element={<Navigate to="/seguro-byd" replace />} />
             <Route path="/seguro-gwm" element={<SeguroMarcaPremium brand="gwm" />} />
-            <Route path="/seguro-auto-gwm" element={<Navigate to="/seguro-gwm" replace />} />
-            <Route path="/seguro-gmw" element={<Navigate to="/seguro-gwm" replace />} />
             <Route path="/seguro-lexus" element={<SeguroMarcaPremium brand="lexus" />} />
-            <Route path="/seguro-auto-lexus" element={<Navigate to="/seguro-lexus" replace />} />
             {/* Adicionando variantes com parametro para o componente genérico */}
             <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
 
