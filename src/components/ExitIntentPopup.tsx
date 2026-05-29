@@ -92,9 +92,10 @@ const ExitIntentPopup = () => {
                 Descubra como motoristas de Guarulhos estão <strong className="text-white/80">economizando até 30%</strong> na renovação.
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-3">
+               <form onSubmit={handleSubmit} className="space-y-3">
                 <Input
                   placeholder="Seu WhatsApp (DDD + número)"
+                  aria-label="Seu WhatsApp (DDD + número)"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(formatWhatsApp(e.target.value))}
                   className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/40 text-center focus-visible:ring-amber-400"

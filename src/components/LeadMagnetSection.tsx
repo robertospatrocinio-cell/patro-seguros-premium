@@ -64,9 +64,10 @@ const LeadMagnetSection = memo(() => {
               </p>
 
               {!sent ? (
-                <form onSubmit={handleSubmit} className="space-y-3">
+                 <form onSubmit={handleSubmit} className="space-y-3">
                   <Input
                     placeholder="Seu nome"
+                    aria-label="Seu nome"
                     value={name}
                     onChange={handleNameChange}
                     className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-amber-500"
@@ -75,6 +76,7 @@ const LeadMagnetSection = memo(() => {
                   />
                   <Input
                     placeholder="WhatsApp (DDD + número)"
+                    aria-label="WhatsApp (DDD + número)"
                     value={whatsapp}
                     onChange={handleWhatsappChange}
                     className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-amber-500"
