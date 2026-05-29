@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import App from "./App.tsx";
 import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
@@ -7,28 +7,35 @@ import { initWebVitals } from "./lib/webVitals";
 import PageSkeleton from "./components/PageSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
-const rootElement = document.getElementById("root");
+const Main = () => {
+  useEffect(() => {
+    console.log("React application mounted");
+    const deferInit = () => {
+      initMonitoring();
+      initWebVitals();
+    };
 
-if (rootElement) {
-  const root = createRoot(rootElement);
-  root.render(
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(deferInit);
+    } else {
+      setTimeout(deferInit, 1);
+    }
+  }, []);
+
+  return (
     <ErrorBoundary>
       <Suspense fallback={<PageSkeleton />}>
         <App />
       </Suspense>
     </ErrorBoundary>
   );
-  
-  const deferInit = () => {
-    initMonitoring();
-    initWebVitals();
-  };
+};
 
-  if ("requestIdleCallback" in window) {
-    window.requestIdleCallback(deferInit);
-  } else {
-    setTimeout(deferInit, 1);
-  }
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  const root = createRoot(rootElement);
+  root.render(<Main />);
 } else {
   console.error("Critical Error: Root element not found");
 }
