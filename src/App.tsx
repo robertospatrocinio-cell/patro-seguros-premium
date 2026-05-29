@@ -9,6 +9,15 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+// Static imports to avoid blank screens
+import Index from "./pages/Index";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import Cotacao from "./pages/Cotacao";
 
 // Static imports of critical pages to ensure they are available immediately
 import Index from "./pages/Index";
