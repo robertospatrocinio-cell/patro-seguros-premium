@@ -108,7 +108,7 @@ const Index = () => {
           </div>
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
-              <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center">
+              <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center relative z-20">
                 <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
