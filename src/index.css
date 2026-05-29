@@ -91,25 +91,8 @@
     font-feature-settings: "cv01" 1, "cv03" 1, "cv04" 1;
   }
 
-  /* Skip link accessibility - visible on keyboard focus */
-  .sr-only:focus {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 9999;
-    padding: 0.75rem 1.5rem;
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    clip: auto;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    box-shadow: var(--shadow-xl);
-  }
+  /* Skip link accessibility handled inline in index.html for immediate availability */
+
 
 
   h1, h2, h3, h4, h5, h6 {
