@@ -9,10 +9,12 @@
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="canonical" href="https://www.patroseguros.com.br" />
+    <link rel="dns-prefetch" href="https://vjzsekwkeixbbpldiqmd.supabase.co" />
+    <link rel="modulepreload" href="/src/main.tsx" fetchpriority="high" />
 
-    <!-- Preload critical fonts early to prevent FOIT/FLIT -->
-    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/poppins-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Preload critical fonts with low priority -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low" />
+    <link rel="preload" href="/fonts/poppins-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low" />
 
     <!-- Critical inline CSS for instant first paint -->
     <style>
@@ -33,13 +35,10 @@
          the page may not contact in the LCP window (avoids "unused preconnect"). -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
-     <!-- Preload LCP candidate: logo (it's small and always visible) -->
+     <!-- Preload LCP candidates with auto priority (browser knows best) -->
      <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
-     <!-- Preload LCP candidate: trust seal -->
-     <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" fetchpriority="high" imagesrcset="/images/selo-melhor-corretora.webp 1x, /images/selo-melhor-corretora@2x.webp 2x, /images/selo-melhor-corretora@3x.webp 3x" />
-     <!-- Preload Hero Images with strict media queries to avoid downloading both on tablet-range devices -->
-     <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 639px)" fetchpriority="high" />
-     <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 640px)" fetchpriority="high" />
+     <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 640px)" fetchpriority="auto" />
+     <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 639px)" fetchpriority="auto" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -172,6 +171,6 @@
         </div>
       </div>
     </div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" fetchpriority="high"></script>
   </body>
 </html>
