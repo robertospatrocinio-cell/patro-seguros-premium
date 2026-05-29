@@ -29,8 +29,8 @@ const Footer = memo(() => {
             </div>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
-              <p className="text-[12px] text-white/70 leading-snug">
-                Reconhecida como uma das <strong className="text-white/90">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
+              <p className="text-[13px] text-white leading-snug">
+                Reconhecida como uma das <strong className="text-white">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
               </p>
             </div>
             <div className="flex gap-2">
@@ -120,11 +120,11 @@ const Footer = memo(() => {
                 { to: "/seguros-guarulhos/pimentas", label: "Pimentas" },
                 { to: "/seguros-guarulhos/gopouva", label: "Gopouva" },
               ].map(l => (
-                <li key={l.to}><Link to={l.to} className="text-[12px] text-white/60 hover:text-white/90 transition-base">{l.label}</Link></li>
+                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/80 hover:text-white transition-base">{l.label}</Link></li>
               ))}
             </ul>
             <div className="mt-4">
-               <Link to="/seguros-em-guarulhos-bairros" className="text-[11px] text-primary hover:underline font-medium">Ver todos os bairros →</Link>
+               <Link to="/seguros-em-guarulhos-bairros" className="text-[12px] text-white/80 underline font-medium">Ver todos os bairros →</Link>
             </div>
           </nav>
 
@@ -136,7 +136,7 @@ const Footer = memo(() => {
               <ul className="space-y-3 text-[13px]">
                 <li className="flex items-start gap-2.5 text-white/70">
                   <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0 text-white/60" aria-hidden="true" />
-                  <span>Av. Salgado Filho, 2120<br />Ed. Via Alameda – Sala 219 — Cidade Maia, Guarulhos/SP<br /><Link to="/seguros-em-guarulhos" className="text-[11px] underline opacity-50 hover:opacity-100">Ver todas as regiões atendidas em Guarulhos</Link></span>
+                  <span>Av. Salgado Filho, 2120<br />Ed. Via Alameda – Sala 219 — Cidade Maia, Guarulhos/SP<br /><Link to="/seguros-em-guarulhos" className="text-[12px] text-white/80 underline opacity-70 hover:opacity-100">Ver todas as regiões atendidas em Guarulhos</Link></span>
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />

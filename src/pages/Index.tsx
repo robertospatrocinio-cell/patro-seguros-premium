@@ -108,16 +108,16 @@ const Index = () => {
           </div>
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-40 max-w-[680px] mx-auto text-center">
-              <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center">
+              <div className="mb-6 md:mb-8 h-28 md:h-36 flex items-center justify-center relative z-20">
                 <SeloMelhorCorretora size="lg" priority className="mx-auto" />
               </div>
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
                 Corretora de Seguros em Guarulhos: Proteção Completa e Cotação em até 2h
               </h1>
-              <p className="text-[15px] md:text-lg text-white/90 mb-1.5 font-medium">
+              <p className="text-[15px] md:text-lg text-white mb-1.5 font-semibold">
                 Nota 4.9 no Google | +16 seguradoras parceiras | Cotação em 2h
               </p>
-              <p className="text-[14px] md:text-base text-white/70 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
+              <p className="text-[14px] md:text-base text-white/90 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
                 Atendimento humanizado e personalizado. Compare cotações de seguro auto, residencial, vida e empresarial entre as melhores seguradoras do mercado.
               </p>
 
@@ -129,7 +129,7 @@ const Index = () => {
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("homepage-hero")}>
-                  <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] hover:text-white font-medium tracking-tight">
+                  <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.12] border border-white/[0.2] text-white hover:bg-white/[0.18] hover:text-white font-semibold tracking-tight">
                     <MessageCircle className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
                     Falar com especialista no WhatsApp
                   </Button>
@@ -147,7 +147,7 @@ const Index = () => {
               {stats.map((s) => (
                 <div key={s.label} className="py-8 md:py-10 text-center">
                   <p className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight font-heading">{s.value}</p>
-                  <p className="text-[11px] text-muted-foreground mt-1 uppercase tracking-[0.1em] font-medium">{s.label}</p>
+                  <p className="text-[11px] text-foreground mt-1 uppercase tracking-[0.1em] font-bold">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -160,7 +160,7 @@ const Index = () => {
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
             <div className="flex animate-marquee whitespace-nowrap">
               {[...parceiros, ...parceiros].map((name, i) => (
-                <span key={i} className="mx-6 text-[12px] font-medium text-muted-foreground/70 whitespace-nowrap select-none">
+                <span key={i} className="mx-6 text-[12px] font-semibold text-muted-foreground whitespace-nowrap select-none">
                   {name}
                 </span>
               ))}
@@ -177,7 +177,7 @@ const Index = () => {
                 <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight">
                   O seguro em Guarulhos subiu? <span className="text-primary">Nós ajudamos você a pagar menos.</span>
                 </h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-foreground/80 leading-relaxed font-medium">
                   Nossa ferramenta analisa o custo médio das seguradoras parceiras com base no índice de risco de cada bairro em Guarulhos. Compare e economize em minutos.
                 </p>
                 <div className="flex flex-col gap-4">
@@ -233,7 +233,7 @@ const Index = () => {
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Proteção e Economia</h2>
-            <div className="prose prose-sm max-w-none text-muted-foreground space-y-4">
+            <div className="prose prose-sm max-w-none text-foreground/80 space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Somos uma das <strong>melhores corretoras de seguros em Guarulhos</strong>, reconhecida pela nota 4,9/5 no Google e por já ter atendido <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil.
               </p>
@@ -243,25 +243,25 @@ const Index = () => {
 
               <h2 className="text-foreground font-bold text-lg mt-8">Seguro Auto em Guarulhos</h2>
               <p>
-                Guarulhos registra um dos maiores volumes de circulação de veículos do estado, com trânsito intenso na Dutra, Fernão Dias e vias locais como a Av. Paulo Faccini. Bairros como Cumbica, Bonsucesso e Pimentas apresentam índices elevados de roubo e furto de veículos, tornando o <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto em Guarulhos</Link> essencial. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Mapfre, Liberty e outras seguradoras para garantir a melhor relation custo-benefício. Nosso diferencial: entregamos propostas comparativas em até 2 horas.
+                Guarulhos registra um dos maiores volumes de circulação de veículos do estado, com trânsito intenso na Dutra, Fernão Dias e vias locais como a Av. Paulo Faccini. Bairros como Cumbica, Bonsucesso e Pimentas apresentam índices elevados de roubo e furto de veículos, tornando o <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline underline">seguro auto em Guarulhos</Link> essencial. A Patro compara cotações de Porto Seguro, Tokio Marine, Allianz, HDI, Mapfre, Liberty e outras seguradoras para garantir a melhor relation custo-benefício. Nosso diferencial: entregamos propostas comparativas em até 2 horas.
               </p>
               <p>
-                Para quem tem <Link to="/seguro-moto-guarulhos" className="text-primary hover:underline">moto em Guarulhos</Link>, também oferecemos cotações especializadas com coberturas contra roubo, colisão e assistência 24h — fundamentais para motociclistas que enfrentam o trânsito intenso da cidade diariamente.
+                Para quem tem <Link to="/seguro-moto-guarulhos" className="text-primary hover:underline underline">moto em Guarulhos</Link>, também oferecemos cotações especializadas com coberturas contra roubo, colisão e assistência 24h — fundamentais para motociclistas que enfrentam o trânsito intenso da cidade diariamente.
               </p>
 
               <h2 className="text-foreground font-bold text-lg mt-8">Seguro Residencial: Proteção para Casas e Apartamentos</h2>
               <p>
-                O <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline">seguro residencial em Guarulhos</Link> custa a partir de R$ 150/ano para apartamentos e R$ 300/ano para casas, incluindo cobertura contra incêndio, roubo, danos elétricos (muito comum na região devido às oscilações de energia), vendaval e responsabilidade civil familiar. Moradores da <Link to="/seguros-guarulhos/cidade-maia" className="text-primary hover:underline">Cidade Maia</Link>, <Link to="/seguros-guarulhos/vila-augusta" className="text-primary hover:underline">Vila Augusta</Link>, Picanço e Macedo já contam com a Patro para proteger seus lares. Inclui assistência 24h com chaveiro, encanador, eletricista e vidraceiro sem custo adicional.
+                O <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline underline">seguro residencial em Guarulhos</Link> custa a partir de R$ 150/ano para apartamentos e R$ 300/ano para casas, incluindo cobertura contra incêndio, roubo, danos elétricos (muito comum na região devido às oscilações de energia), vendaval e responsabilidade civil familiar. Moradores da <Link to="/seguros-guarulhos/cidade-maia" className="text-primary hover:underline underline">Cidade Maia</Link>, <Link to="/seguros-guarulhos/vila-augusta" className="text-primary hover:underline underline">Vila Augusta</Link>, Picanço e Macedo já contam com a Patro para proteger seus lares. Inclui assistência 24h com chaveiro, encanador, eletricista e vidraceiro sem custo adicional.
               </p>
 
               <h2 className="text-foreground font-bold text-lg mt-8">Como Solicitar Sua Cotação Passo a Passo</h2>
               <ol className="list-decimal pl-5 space-y-2">
                 <li><strong>Escolha o tipo de seguro</strong> — auto, residencial, vida, empresarial, frota ou saúde.</li>
-                <li><strong>Preencha o <Link to="/cotacao" className="text-primary hover:underline">formulário de cotação online</Link></strong> ou envie uma mensagem pelo <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">WhatsApp (11) 5199-7500</a>.</li>
+                <li><strong>Preencha o <Link to="/cotacao" className="text-primary hover:underline underline">formulário de cotação online</Link></strong> ou envie uma mensagem pelo <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline">WhatsApp (11) 5199-7500</a>.</li>
                 <li><strong>Receba propostas comparativas</strong> — em até 2 horas úteis, com análise de custo-benefício entre as melhores seguradoras.</li>
                 <li><strong>Feche com segurança</strong> — seu consultor Patro cuida de toda documentação e ativação da apólice.</li>
               </ol>
-              <p>O serviço é 100% gratuito e sem compromisso. Você também pode ligar para <a href="tel:1151997500" className="text-primary hover:underline">(11) 5199-7500</a> ou visitar nossa sede no Cidade Maia.</p>
+              <p>O serviço é 100% gratuito e sem compromisso. Você também pode ligar para <a href="tel:1151997500" className="text-primary hover:underline underline">(11) 5199-7500</a> ou visitar nossa sede no Cidade Maia.</p>
 
               <div className="mt-12 bg-card rounded-xl p-8 border">
                 <div className="flex items-center gap-3 mb-6">
