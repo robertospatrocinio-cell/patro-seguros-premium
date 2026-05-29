@@ -99,6 +99,26 @@
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .text-balance { text-wrap: balance; }
+  .glass-card {
+    background: hsla(0, 0%, 100%, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(0, 0%, 100%, 0.08);
+  }
+
+  .premium-card {
+    @apply bg-card rounded-xl border;
+    box-shadow: var(--shadow-xs);
+    transition: var(--transition-smooth);
+  }
+
+  @media (hover: hover) {
+    .premium-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-1px);
+      border-color: hsl(var(--border));
+    }
+  }
+
   .section-label { @apply text-[11px] font-bold uppercase tracking-[0.12em] text-primary; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .animate-marquee { animation: marquee 30s linear infinite; }
