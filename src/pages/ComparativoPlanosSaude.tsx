@@ -59,7 +59,7 @@ const ComparativoPlanosSaude = () => {
         description="Compare planos de saúde em Guarulhos: tabelas de preços e hospitais credenciados (Stella Maris, Carlos Chagas) da Amil, Bradesco e muito mais."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <section className="bg-primary/5 py-16">
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <h1 className="mb-6">Comparativo de Planos de Saúde em Guarulhos</h1>

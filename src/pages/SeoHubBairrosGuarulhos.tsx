@@ -67,7 +67,7 @@ const SeoHubBairrosGuarulhos = () => {
       <FAQSchema faqs={faqs} />
       <Header />
       
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-slate-950">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50" />
           <div className="container mx-auto px-4 relative z-10">

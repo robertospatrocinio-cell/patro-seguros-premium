@@ -8,7 +8,7 @@ const PoliticaPrivacidade = () => {
     <>
       <PageMeta title="Política de Privacidade" description="Política de Privacidade da Patro Seguros — saiba como tratamos seus dados pessoais em conformidade com a LGPD." />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Política de Privacidade" }]} />
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl prose prose-sm prose-headings:font-heading prose-headings:tracking-tight">

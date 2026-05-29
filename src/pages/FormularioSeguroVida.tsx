@@ -165,7 +165,7 @@ const FormularioSeguroVida = () => {
         description="Preencha o formulário completo para cotação de Seguro de Vida. Receba uma proposta personalizada da Patro Seguros."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Início", href: "/" }, { label: "Seguro de Vida", href: "/seguro-vida" }, { label: "Formulário" }]} />
 
         <section className="py-12 md:py-20 bg-background">

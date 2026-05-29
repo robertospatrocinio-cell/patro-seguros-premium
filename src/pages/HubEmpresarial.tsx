@@ -60,7 +60,7 @@ const HubEmpresarial = () => {
         description="Proteção patrimonial e operacional para empresas em Guarulhos."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Seguros Empresariais" }]} />
         
         <section className="relative gradient-hero py-20 md:py-32 overflow-hidden">

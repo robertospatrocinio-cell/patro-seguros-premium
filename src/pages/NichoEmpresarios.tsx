@@ -60,7 +60,7 @@ const NichoEmpresarios = () => (
        { name: "Empresários", url: "/seguros/empresarios" }
      ]} />
      <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Seguros por Nicho" }, { label: "Empresários" }]} />
 
       <section className="gradient-hero py-20 md:py-28">

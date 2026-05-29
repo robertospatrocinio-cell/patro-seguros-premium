@@ -146,7 +146,7 @@ const Depoimentos = () => {
         description="Depoimentos reais de clientes Patro Seguros: empresários, médicos, produtores rurais e famílias protegidas em Guarulhos e região."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Depoimentos" }]} />
 
         {/* Hero */}

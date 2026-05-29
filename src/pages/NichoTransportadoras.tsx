@@ -45,7 +45,7 @@ const NichoTransportadoras = () => (
     />
     <FAQSchema faqs={faqs} />
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Seguros por Nicho" }, { label: "Transportadoras e Frotistas" }]} />
 
       <section className="gradient-hero py-20 md:py-28">

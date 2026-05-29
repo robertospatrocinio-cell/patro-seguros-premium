@@ -71,7 +71,7 @@ const SeoSegurosPmeGuarulhos = () => (
       { name: "Seguros para Empresas", url: "https://www.patroseguros.com.br/seguros-empresariais-pme-guarulhos" },
     ]} />
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Início", href: "/" }, { label: "Seguros PME Guarulhos" }]} />
 
       {/* Hero */}

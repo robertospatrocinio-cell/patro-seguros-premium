@@ -43,7 +43,7 @@ const NichoProfissionaisLiberais = () => (
     />
     <FAQSchema faqs={faqs} />
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Seguros por Nicho" }, { label: "Profissionais Liberais" }]} />
 
       <section className="gradient-hero py-20 md:py-28">

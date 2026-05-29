@@ -13,7 +13,7 @@ const CotacaoSeguroAuto = () => {
     <>
       <PageMeta title="Cotação Seguro Auto – Guarulhos, Cidade Maia" description="Cotação de seguro auto online no Cidade Maia, Guarulhos. Compare Porto, Tokio Marine, Allianz e mais. Resposta em até 2h com a Patro Seguros." />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
             <div className="text-6xl mb-6">🚗</div>

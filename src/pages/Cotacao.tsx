@@ -117,7 +117,7 @@ const Cotacao = () => {
     <Fragment>
       <PageMeta title="Cotação de Seguro em Guarulhos | Patro Seguros" description="Solicite sua cotação de seguro em Guarulhos gratuitamente. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras do Brasil." />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         {/* Hero */}
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">

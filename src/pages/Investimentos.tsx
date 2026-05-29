@@ -135,7 +135,7 @@ const Investimentos = () => (
     />
     <FAQSchema faqs={faqs} />
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       {/* Hero */}
       <section className="relative overflow-hidden bg-foreground text-white">
         <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{

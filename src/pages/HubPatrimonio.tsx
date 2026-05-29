@@ -58,7 +58,7 @@ const HubPatrimonio = () => {
         description="Proteção para casas, aluguéis e bens em Guarulhos."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Seguros de Patrimônio" }]} />
         
         <section className="relative gradient-hero py-20 md:py-32 overflow-hidden">

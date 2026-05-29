@@ -67,7 +67,7 @@ const HubVeiculos = () => {
         description="Seguros para carros, motos, caminhões e frotas em Guarulhos."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Seguros de Veículos" }]} />
         
         <section className="relative gradient-hero py-20 md:py-32 overflow-hidden">
