@@ -7,9 +7,12 @@ import { initWebVitals } from "./lib/webVitals";
 import PageSkeleton from "./components/PageSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
+console.log("Main module starting...");
+
 const rootElement = document.getElementById("root");
 
 if (rootElement) {
+  console.log("Root element found, rendering...");
   const root = createRoot(rootElement);
   root.render(
     <ErrorBoundary>
@@ -20,6 +23,7 @@ if (rootElement) {
   );
   
   const deferInit = () => {
+    console.log("Initializing monitoring and web vitals...");
     initMonitoring();
     initWebVitals();
   };
