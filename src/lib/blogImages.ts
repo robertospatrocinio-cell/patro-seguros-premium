@@ -106,6 +106,11 @@ export const blogImageMap: Record<string, string> = {
   "documentos-seguro-carro-guarulhos": blogComoAcionarSeguroAuto,
   "diferenca-seguro-compreensivo-terceiros": blogSeguroAutoPremium,
   "como-funciona-franquia-seguro-auto-perda-parcial": blogComoAcionarSeguroAuto,
+  "seguro-auto-guarulhos-preco-bairro-2026": blogBairrosGuarulhos,
+  "seguro-uber-99-guarulhos-evitar-sinistro-negado": blogUberGuarulhos,
+  "seguro-moto-guarulhos-precos-riscos-coberturas": blogSeguroMoto,
+  "plano-saude-mei-guarulhos-tabelas-regras": blogPlanoSaudePme,
+  "seguro-transportadoras-cumbica-frota-carga-rc": blogSeguroFrotaLogisticaGuarulhos,
   "carros-mais-roubados-guarulhos-2026-seguro-precos": blogRoubosGuarulhos,
 
   // Seguro Residencial
