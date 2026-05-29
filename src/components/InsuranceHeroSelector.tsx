@@ -185,7 +185,7 @@ const InsuranceHeroSelector = memo(() => {
             Selecione seu perfil e descubra as melhores opções
           </p>
 
-          <div ref={tabsRef} className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto" style={{ "--pill-left": "0px", "--pill-width": "0px", "--pill-opacity": "0" } as any}>
+          <div ref={tabsRef} role="tablist" aria-label="Opções de seguros por categoria" className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto" style={{ "--pill-left": "0px", "--pill-width": "0px", "--pill-opacity": "0" } as any}>
             <div
               className="absolute top-1 bottom-1 rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out"
               style={{ 
@@ -199,9 +199,11 @@ const InsuranceHeroSelector = memo(() => {
                 key={tab.key}
                 ref={(el) => { buttonRefs.current[tab.key] = el; }}
                 onClick={() => setActive(tab.key)}
-                className={`relative z-10 flex-1 sm:flex-none px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-colors duration-300 whitespace-nowrap ${
+                className={`relative z-10 flex-1 sm:flex-none px-4 sm:px-6 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-colors duration-300 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                   active === tab.key ? "text-foreground" : "text-white/80 hover:text-white"
                 }`}
+                aria-selected={active === tab.key}
+                role="tab"
               >
                 {tab.label}
               </button>

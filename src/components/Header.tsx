@@ -139,14 +139,15 @@ const Header = memo(() => {
       <div className="border-b border-border/50 last:border-0">
         <button
           onClick={() => toggleMobileSection(id)}
-          className="flex items-center justify-between w-full py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary transition-base"
+          className="flex items-center justify-between w-full py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary transition-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           aria-expanded={isOpen}
+          aria-controls={`mobile-section-${id}`}
         >
           {label}
           <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground/50 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
         </button>
         {isOpen && (
-          <div className="pb-3 px-3">
+          <div id={`mobile-section-${id}`} className="pb-3 px-3" role="region" aria-labelledby={`mobile-label-${id}`}>
             {children}
           </div>
         )}
@@ -155,7 +156,7 @@ const Header = memo(() => {
   };
 
   const MobileSubLabel = ({ children }: { children: React.ReactNode }) => (
-    <p className="text-[10px] font-medium text-foreground/60 uppercase tracking-[0.1em] mt-3 mb-1 px-2">{children}</p>
+    <p id={`mobile-label-${children?.toString().toLowerCase().replace(/\s+/g, '-')}`} className="text-[10px] font-medium text-foreground/60 uppercase tracking-[0.1em] mt-3 mb-1 px-2">{children}</p>
   );
 
   const MobileLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
@@ -278,9 +279,9 @@ const Header = memo(() => {
 
               {/* Pessoal — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-haspopup="menu" aria-expanded="false">
                   Pessoal
-                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" role="presentation" />
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
                 </button>
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[580px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                   <div className="bg-card rounded-xl shadow-xl border p-5">
