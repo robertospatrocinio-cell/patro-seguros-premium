@@ -256,7 +256,7 @@ const Header = memo(() => {
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
                <Link 
                  to="/" 
-                 className="flex items-center" 
+                 className="flex items-center relative z-[60]" 
                  aria-label="Patro Seguros — Página inicial" 
                  onClick={() => window.scrollTo(0,0)}
                >
@@ -268,7 +268,7 @@ const Header = memo(() => {
                          aria-hidden="false"
                         width={160}
                         height={80}
-                       className="h-20 w-auto object-contain -my-2 relative z-50"
+                       className="h-20 w-auto object-contain -my-2 brightness-0 invert"
                        fetchPriority="high"
                        decoding="async"
                        loading="eager"
