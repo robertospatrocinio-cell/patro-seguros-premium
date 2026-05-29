@@ -191,11 +191,11 @@ const Header = memo(() => {
                 <MapPin className="h-3 w-3" aria-hidden="true" role="presentation" />
                 Cidade Maia, Guarulhos/SP
               </span>
-              <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Ligar para (11) 5199-7500">
+              <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-base" aria-label="Ligar para (11) 5199-7500">
                 <Phone className="h-3 w-3" aria-hidden="true" role="presentation" />
                 <span className="hidden sm:inline">(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/70 hover:text-white/90 transition-base" aria-label="Enviar e-mail">
+              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-base" aria-label="Enviar e-mail">
                 <Mail className="h-3 w-3" aria-hidden="true" role="presentation" />
                 <span className="hidden md:inline">contato@patroseguros.com.br</span>
               </a>
@@ -281,11 +281,11 @@ const Header = memo(() => {
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
-              <Link to="/" className="text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base px-3 py-2">Início</Link>
+              <Link to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Início</Link>
 
               {/* Pessoal — mega menu */}
               <div className="relative group">
-                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
                   Pessoal
                   <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" role="presentation" />
                 </button>
