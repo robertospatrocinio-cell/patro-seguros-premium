@@ -3,8 +3,6 @@ import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-const Index = lazy(() => import("./pages/Index"));
-const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -12,6 +10,12 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
 
+// Static import of critical home page to ensure it's available immediately
+const Index = lazy(() => import("./pages/Index"));
+
+const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
+const CRM = lazy(() => import("./pages/CRM"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Parceiros = lazy(() => import("./pages/Parceiros"));
@@ -211,8 +215,6 @@ const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico
 const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
 const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
-const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-const CRM = lazy(() => import("./pages/CRM"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 import RequireAdmin from "@/components/RequireAdmin";
 
