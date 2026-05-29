@@ -88,11 +88,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     font-feature-settings: "cv01" 1, "cv03" 1, "cv04" 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -0.011em;
   }
 
   /* Skip link accessibility - visible on keyboard focus */
@@ -140,10 +136,6 @@
 }
 
 @layer utilities {
-  .gradient-hero {
-    background: var(--gradient-hero);
-  }
-
   .gradient-cta {
     background: var(--gradient-cta);
   }
