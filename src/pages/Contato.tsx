@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, Facebook, Linkedin, Send, CheckCircle } from "lucide-react";
 import Header from "@/components/Header";
@@ -81,7 +81,7 @@ const Contato = () => {
   const update = (field: string, value: string) => setFormState(prev => ({ ...prev, [field]: value }));
 
   return (
-    <>
+    <Fragment>
       <PageMeta title="Contato | Fale com a Patro Seguros em Guarulhos" description="Fale com a Patro Seguros em Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Solicite cotações e tire suas dúvidas com nossos especialistas." />
       <FAQSchema faqs={contatoFaqs} />
       <Header />
@@ -302,7 +302,7 @@ const Contato = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

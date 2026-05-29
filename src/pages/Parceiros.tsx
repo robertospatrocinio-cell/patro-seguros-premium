@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -47,7 +48,7 @@ const Parceiros = () => {
   ];
 
   return (
-    <>
+    <Fragment>
       <PageMeta title="Seguradoras Parceiras" description="Conheça as seguradoras parceiras da Patro Seguros: Porto, Tokio Marine, Allianz, Bradesco, HDI, Mapfre e mais. As melhores opções do mercado para você." />
       <Header />
       <main id="main-content">
@@ -219,7 +220,7 @@ const Parceiros = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

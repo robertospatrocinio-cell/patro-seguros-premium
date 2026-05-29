@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, Fragment } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -21,7 +21,7 @@ const Blog = () => {
   }, [selectedCategory, selectedTag]);
 
   return (
-    <>
+    <Fragment>
       <PageMeta title="Blog – Dicas e Guias sobre Seguros" description="Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio." />
       <Header />
       <main id="main-content">
@@ -139,8 +139,7 @@ const Blog = () => {
           </div>
         </section>
       </main>
-      <Footer />
-    </>
+    </Fragment>
   );
 };
 

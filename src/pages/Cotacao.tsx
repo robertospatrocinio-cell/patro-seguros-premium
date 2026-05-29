@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useSearchParams } from "react-router-dom";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
  import { escapeHtml } from "@/lib/utils";
@@ -114,7 +114,7 @@ const Cotacao = () => {
   };
 
   return (
-    <>
+    <Fragment>
       <PageMeta title="Cotação de Seguro em Guarulhos | Patro Seguros" description="Solicite sua cotação de seguro em Guarulhos gratuitamente. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras do Brasil." />
       <Header />
       <main id="main-content">
@@ -286,7 +286,7 @@ const Cotacao = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

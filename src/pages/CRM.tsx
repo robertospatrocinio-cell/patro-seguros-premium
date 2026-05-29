@@ -227,7 +227,7 @@ const CRMPage = () => {
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col bg-slate-50/50">
         <Header />
-        <main className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
+        <main id="main-content" className="flex-1 container mx-auto px-4 py-8 max-w-7xl">
           {isLoading && (
             <div className="flex flex-col items-center justify-center py-20 animate-in fade-in duration-500">
               <RefreshCw className="w-10 h-10 text-primary animate-spin mb-4" />

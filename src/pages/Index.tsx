@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, lazy, Suspense } from "react";
+import { useEffect, useMemo, useState, lazy, Suspense, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";

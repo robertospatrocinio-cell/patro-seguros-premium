@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Fragment } from "react";
 import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -31,7 +32,7 @@ const equipe = [
 
 const Sobre = () => {
   return (
-    <>
+    <Fragment>
       <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
       <Header />
       <main id="main-content">
@@ -303,7 +304,7 @@ const Sobre = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 
