@@ -261,7 +261,7 @@ const Index = () => {
                 <li><strong>Receba propostas comparativas</strong> — em até 2 horas úteis, com análise de custo-benefício entre as melhores seguradoras.</li>
                 <li><strong>Feche com segurança</strong> — seu consultor Patro cuida de toda documentação e ativação da apólice.</li>
               </ol>
-              <p>O serviço é 100% gratuito e sem compromisso. Você também pode ligar para <a href="tel:1151997500" className="text-primary hover:underline">(11) 5199-7500</a> ou visitar nossa sede no Cidade Maia.</p>
+              <p>O serviço é 100% gratuito e sem compromisso. Você também pode ligar para <a href="tel:1151997500" className="text-primary hover:underline underline">(11) 5199-7500</a> ou visitar nossa sede no Cidade Maia.</p>
 
               <div className="mt-12 bg-card rounded-xl p-8 border">
                 <div className="flex items-center gap-3 mb-6">
