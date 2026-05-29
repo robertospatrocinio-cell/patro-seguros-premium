@@ -6,7 +6,8 @@ import { initWebVitals } from "./lib/webVitals";
 
 const rootElement = document.getElementById("root");
 if (rootElement) {
-  createRoot(rootElement).render(<App />);
+  const root = createRoot(rootElement);
+  root.render(<App />);
   
   const deferInit = () => {
     initMonitoring();
