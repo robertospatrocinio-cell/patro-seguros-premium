@@ -5,7 +5,7 @@ export default {
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   corePlugins: {
-    // Disable only truly niche utilities never used
+    // Disable unused features to reduce CSS payload
     backdropBrightness: false,
     backdropContrast: false,
     backdropGrayscale: false,
@@ -21,6 +21,11 @@ export default {
     sepia: false,
     mixBlendMode: false,
     backgroundBlendMode: false,
+    float: false,
+    clear: false,
+    skew: false,
+    fontVariantNumeric: false,
+    verticalAlign: false,
   },
   theme: {
     container: {
