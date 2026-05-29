@@ -120,7 +120,7 @@ const Footer = memo(() => {
                 { to: "/seguros-guarulhos/pimentas", label: "Pimentas" },
                 { to: "/seguros-guarulhos/gopouva", label: "Gopouva" },
               ].map(l => (
-                <li key={l.to}><Link to={l.to} className="text-[12px] text-white/60 hover:text-white/90 transition-base">{l.label}</Link></li>
+                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/80 hover:text-white transition-base">{l.label}</Link></li>
               ))}
             </ul>
             <div className="mt-4">
