@@ -108,12 +108,12 @@
  </IfModule>
  
  <IfModule mod_headers.c>
-   # Static assets with hashes (immutable)
-   <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf|avif)$">
-     Header set Cache-Control "public, max-age=31536000, immutable"
-     Header unset ETag
-     Header set X-Content-Type-Options "nosniff"
-   </FilesMatch>
+    # Static assets with hashes (immutable) - including compressed versions
+    <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf|avif)(\.(br|gz))?$">
+      Header set Cache-Control "public, max-age=31536000, immutable"
+      Header unset ETag
+      Header set X-Content-Type-Options "nosniff"
+    </FilesMatch>
  
    # HTML and data files
    <FilesMatch "\.(html|json|txt)$">
