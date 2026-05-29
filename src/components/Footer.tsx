@@ -18,7 +18,7 @@ const Footer = memo(() => {
  
             <div className="flex items-center mb-5">
                <Link to="/">
-                 <img src={logoFull} alt="Patro Seguros" width={160} height={80} className="h-20 w-auto object-contain brightness-200" loading="lazy" />
+                 <img src={logoFull} alt="Patro Seguros — Voltar para página inicial" width={160} height={80} className="h-20 w-auto object-contain brightness-200" loading="lazy" />
                </Link>
             </div>
             <p className="text-[13px] text-white/80 mb-6 leading-relaxed max-w-xs">
@@ -33,7 +33,7 @@ const Footer = memo(() => {
                 Reconhecida como uma das <strong className="text-white">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
               </p>
             </div>
-            <div className="flex gap-2" aria-label="Redes sociais">
+            <div className="flex gap-2" aria-label="Nossas redes sociais">
               <TooltipProvider>
                 {[
                   { href: "https://wa.me/551151997500", icon: MessageCircle, label: "WhatsApp", color: "hover:bg-green-500/20", iconColor: "hover:text-green-500" },
