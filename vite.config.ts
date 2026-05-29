@@ -317,22 +317,13 @@ export default defineConfig(({ mode }) => ({
   build: {
     minify: "esbuild",
     rollupOptions: {
-      output: {
-        manualChunks: {
-          "vendor-core": ["react", "react-dom", "react-router-dom"],
-          "vendor-data": ["@tanstack/react-query", "@supabase/supabase-js"],
-          "vendor-ui": [
-            "@radix-ui/react-dialog", 
-            "@radix-ui/react-dropdown-menu",
-            "@radix-ui/react-label",
-            "@radix-ui/react-tooltip",
-            "@radix-ui/react-popover",
-            "@radix-ui/react-navigation-menu",
-            "lucide-react"
-          ],
-          "vendor-utils": ["clsx", "tailwind-merge", "framer-motion", "date-fns"]
+        output: {
+          manualChunks: (id) => {
+            if (id.includes("node_modules")) {
+              return "vendor";
+            }
+          },
         },
-      },
     },
     cssMinify: true,
     reportCompressedSize: true,
