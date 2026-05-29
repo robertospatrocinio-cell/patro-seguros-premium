@@ -4,12 +4,11 @@ import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
 
-// Initialize non-critical tracking after the initial render to avoid blocking the main thread
 const rootElement = document.getElementById("root");
 if (rootElement) {
-  createRoot(rootElement).render(<App />);
+  const root = createRoot(rootElement);
+  root.render(<App />);
   
-  // Use requestIdleCallback or setTimeout to defer non-essential initialization
   const deferInit = () => {
     initMonitoring();
     initWebVitals();
@@ -21,5 +20,3 @@ if (rootElement) {
     setTimeout(deferInit, 1);
   }
 }
-
-
