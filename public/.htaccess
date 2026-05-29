@@ -145,13 +145,28 @@
     # | Redirects for legacy / non-canonical URLs                          |
     # ----------------------------------------------------------------------
     
-    # Legacy WordPress URL cleanup
+    # Legacy WordPress and SEO URL cleanup (Redirecting to final canonical path)
     RewriteRule ^seguro-maquinas-e-equipamentos-2/?$ /seguro-maquinas-industriais [R=301,L]
     RewriteRule ^seguro-residencial-2/?$ /seguro-residencial [R=301,L]
     RewriteRule ^seguro-empresarial-2/?$ /seguro-empresarial [R=301,L]
     RewriteRule ^seguro-auto-2/?$ /seguro-auto [R=301,L]
     RewriteRule ^seguro-vida-2/?$ /seguro-vida [R=301,L]
     RewriteRule ^([a-z0-9-]+)-2/?$ /$1 [R=301,L,NC]
+
+    # Specific SEO-friendly redirects (Moved from client-side to server-side)
+    RewriteRule ^seguro-auto-bmw/?$ /seguro-bmw [R=301,L,NC]
+    RewriteRule ^seguro-auto-mercedes/?$ /seguro-mercedes [R=301,L,NC]
+    RewriteRule ^seguro-auto-audi/?$ /seguro-audi [R=301,L,NC]
+    RewriteRule ^seguro-auto-land-rover/?$ /seguro-land-rover [R=301,L,NC]
+    RewriteRule ^seguro-auto-jaguar/?$ /seguro-jaguar [R=301,L,NC]
+    RewriteRule ^seguro-auto-volvo/?$ /seguro-volvo [R=301,L,NC]
+    RewriteRule ^seguro-auto-ferrari/?$ /seguro-ferrari [R=301,L,NC]
+    RewriteRule ^seguro-auto-porsche/?$ /seguro-porsche [R=301,L,NC]
+    RewriteRule ^seguro-auto-byd/?$ /seguro-byd [R=301,L,NC]
+    RewriteRule ^seguro-auto-gwm/?$ /seguro-gwm [R=301,L,NC]
+    RewriteRule ^seguro-gmw/?$ /seguro-gwm [R=301,L,NC]
+    RewriteRule ^seguro-auto-lexus/?$ /seguro-lexus [R=301,L,NC]
+    RewriteRule ^seguro-auto-guarulhos/?$ /lp/seguro-auto-guarulhos [R=301,L,NC]
 
     # Specific redirects requested (Direct 301 to final canonical URL)
     RewriteRule ^seguro-valores/?$ https://www.patroseguros.com.br/cotacao/ [R=301,L]
