@@ -332,7 +332,7 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger(),
     mode === "production" && asyncCssPlugin(),
-    mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
+    // mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
     mode === "production" && sitemapPlugin(),
      mode === "production" && spaFallbackPlugin(),
      mode === "production" && googleIndexingPlugin(),
