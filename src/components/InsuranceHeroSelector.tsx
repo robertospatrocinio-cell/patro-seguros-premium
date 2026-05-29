@@ -184,13 +184,13 @@ const InsuranceHeroSelector = memo(() => {
             Selecione seu perfil e descubra as melhores opções
           </p>
 
-          <div ref={tabsRef} className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto contain-layout">
+          <div ref={tabsRef} className="relative inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 mb-12 w-full sm:w-auto" style={{ "--pill-left": "0px", "--pill-width": "0px", "--pill-opacity": "0" } as any}>
             <div
               className="absolute top-1 bottom-1 rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out"
               style={{ 
-                left: pillStyle.left, 
-                width: pillStyle.width,
-                opacity: pillStyle.opacity 
+                left: "var(--pill-left)", 
+                width: "var(--pill-width)",
+                opacity: "var(--pill-opacity)" 
               }}
             />
             {tabs.map((tab) => (
