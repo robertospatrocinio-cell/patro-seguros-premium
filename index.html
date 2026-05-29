@@ -21,34 +21,12 @@
     <!-- Critical inline CSS for instant first paint -->
     <style>
       :root{--background:0 0% 100%;--foreground:220 25% 10%;--border:220 13% 91%;--primary:210 100% 20%;--primary-foreground:0 0% 100%;--muted-foreground:220 8% 46%;--gradient-hero:linear-gradient(165deg,hsl(210 30% 6%) 0%,hsl(210 60% 14%) 50%,hsl(210 70% 18%) 100%)}
-      *,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:hsl(var(--border))}
       body{margin:0;background-color:white;color:hsl(var(--foreground));font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;min-height:100vh}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
-      .skip-link{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
-      .skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:9999;padding:1rem 2rem;background:hsl(210 100% 20%);color:white;border-radius:0.5rem;text-decoration:none;clip:auto;width:auto;height:auto;margin:0;overflow:visible;box-shadow:0 20px 50px -12px rgba(0,0,0,0.25)}
-      #root{min-height:100vh;display:block}
-      .gradient-hero{background:var(--gradient-hero)}
-      .container{width:100%;margin-right:auto;margin-left:auto;padding-right:1rem;padding-left:1rem}
-      @media (min-width:640px){.container{max-width:640px;padding-right:2rem;padding-left:2rem}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}
-      header{position:sticky;top:0;z-index:50;width:100%}
-      .bg-foreground{background-color:hsl(220 25% 10%)}
-      .bg-background\/95{background-color:hsla(0,0%,100%,.95)}
-      .h-16{height:4rem}
-      .flex{display:flex}
-      .items-center{align-items:center}
-      .justify-between{justify-content:space-between}
+      .skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:9999;padding:1rem 2rem;background:hsl(210 100% 20%);color:white;border-radius:0.5rem;text-decoration:none}
+      #root{min-height:100vh}
       .container{width:100%;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
-      .h-20{height:5rem}
-      .w-auto{width:auto}
-      .object-contain{object-fit:contain}
-      .z-50{z-index:50}
-      .relative{position:relative}
-      .hidden{display:none}
-      @media (min-width:1024px){.lg\:flex{display:flex}}
-      .transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}
-      .duration-300{transition-duration:.3s}
-      .sticky{position:sticky}
-      .top-0{top:0}
+      header{position:sticky;top:0;z-index:50}
     </style>
 
     <meta property="og:type" content="website" />
