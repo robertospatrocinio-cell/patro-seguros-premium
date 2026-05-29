@@ -7,13 +7,15 @@
  DirectoryIndex index.html
  Options -MultiViews +FollowSymLinks
  
- # Set MIME types
- <IfModule mod_mime.c>
-   AddType application/xml .xml
-   AddType text/plain .txt
-   AddType image/svg+xml .svg
-   AddCharset UTF-8 .xml .txt .html .js .css .json
- </IfModule>
+  # Set MIME types
+  <IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType application/json .json
+    AddType application/xml .xml
+    AddType text/plain .txt
+    AddType image/svg+xml .svg
+    AddCharset UTF-8 .xml .txt .html .js .css .json
+  </IfModule>
  
  # ----------------------------------------------------------------------
  # | Compression and Pre-compressed Static Assets                       |
