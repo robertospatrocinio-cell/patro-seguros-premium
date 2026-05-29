@@ -97,7 +97,7 @@ const Index = () => {
         { name: "Corretora de Seguros Guarulhos", url: "https://www.patroseguros.com.br" },
       ]} />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <section className="relative gradient-hero overflow-hidden min-h-[500px] flex items-center bg-slate-900" aria-label="Apresentação da Patro Seguros em Guarulhos">
           <div className="absolute inset-0 z-0">
             <picture>
