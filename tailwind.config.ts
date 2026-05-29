@@ -51,8 +51,18 @@ export default {
     strokeWidth: false,
     gridAutoColumns: false,
     gridAutoRows: false,
-    gridTemplateColumns: false, // Explicitly false as we use custom ones or standard only
+    gridTemplateColumns: false,
     gridTemplateRows: false,
+    float: false,
+    clear: false,
+    objectPosition: false,
+    overflow: false, // We use standard only
+    overscrollBehavior: false,
+    placeholderColor: false,
+    placeholderOpacity: false,
+    rotate: false, // We use specific ones only or none
+    scale: false,
+    sepia: false,
   },
   theme: {
     container: {
