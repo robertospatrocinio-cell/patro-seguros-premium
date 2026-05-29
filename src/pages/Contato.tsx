@@ -302,7 +302,7 @@ const Contato = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

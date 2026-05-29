@@ -286,7 +286,7 @@ const Cotacao = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

@@ -219,7 +219,7 @@ const Parceiros = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 

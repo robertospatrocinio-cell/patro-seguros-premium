@@ -303,7 +303,7 @@ const Sobre = () => {
         </section>
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 
