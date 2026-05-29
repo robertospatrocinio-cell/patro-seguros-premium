@@ -14,6 +14,8 @@ import PageSkeleton from "@/components/PageSkeleton";
 import Index from "./pages/Index";
 
 const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
+const CRM = lazy(() => import("./pages/CRM"));
+const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Parceiros = lazy(() => import("./pages/Parceiros"));
