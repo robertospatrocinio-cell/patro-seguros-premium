@@ -257,7 +257,7 @@ const Index = () => {
               <h2 className="text-foreground font-bold text-lg mt-8">Como Solicitar Sua Cotação Passo a Passo</h2>
               <ol className="list-decimal pl-5 space-y-2">
                 <li><strong>Escolha o tipo de seguro</strong> — auto, residencial, vida, empresarial, frota ou saúde.</li>
-                <li><strong>Preencha o <Link to="/cotacao" className="text-primary hover:underline">formulário de cotação online</Link></strong> ou envie uma mensagem pelo <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">WhatsApp (11) 5199-7500</a>.</li>
+                <li><strong>Preencha o <Link to="/cotacao" className="text-primary hover:underline underline">formulário de cotação online</Link></strong> ou envie uma mensagem pelo <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline underline">WhatsApp (11) 5199-7500</a>.</li>
                 <li><strong>Receba propostas comparativas</strong> — em até 2 horas úteis, com análise de custo-benefício entre as melhores seguradoras.</li>
                 <li><strong>Feche com segurança</strong> — seu consultor Patro cuida de toda documentação e ativação da apólice.</li>
               </ol>
