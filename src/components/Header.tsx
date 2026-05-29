@@ -297,20 +297,20 @@ const Header = memo(() => {
                            <Link to="/seguros-de-veiculos" className="hover:text-primary transition-colors">Veículos</Link>
                          </p>
                         <div className="space-y-0.5">
-                           <Link to="/seguro-auto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Seguro Auto</Link>
-                          <Link to="/seguro-moto" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Moto</Link>
-                          <Link to="/seguro-caminhao" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Caminhão</Link>
-                          <Link to="/seguro-micro-onibus" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Micro-ônibus</Link>
-                          <Link to="/seguro-bike" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Bike</Link>
-                          <Link to="/seguro-carta-verde" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Carta Verde</Link>
-                          <Link to="/seguro-motorista-app" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Motorista App</Link>
+                           <Link to="/seguro-auto" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Seguro Auto</Link>
+                          <Link to="/seguro-moto" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Moto</Link>
+                          <Link to="/seguro-caminhao" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Caminhão</Link>
+                          <Link to="/seguro-micro-onibus" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Micro-ônibus</Link>
+                          <Link to="/seguro-bike" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Bike</Link>
+                          <Link to="/seguro-carta-verde" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Carta Verde</Link>
+                          <Link to="/seguro-motorista-app" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Motorista App</Link>
                         </div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2 mt-4">Lazer</p>
                         <div className="space-y-0.5">
-                          <Link to="/seguro-jetski" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Jet Ski</Link>
-                          <Link to="/seguro-embarcacoes" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Embarcações</Link>
-                          <Link to="/seguro-avioes" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Aviões</Link>
-                          <Link to="/seguro-helicopteros" className="block py-1 text-[13px] text-foreground/50 hover:text-foreground transition-base">Helicópteros</Link>
+                          <Link to="/seguro-jetski" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Jet Ski</Link>
+                          <Link to="/seguro-embarcacoes" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Embarcações</Link>
+                          <Link to="/seguro-avioes" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Aviões</Link>
+                          <Link to="/seguro-helicopteros" className="block py-1 text-[13px] text-foreground/70 hover:text-foreground transition-base">Helicópteros</Link>
                         </div>
                       </div>
                       <div>
@@ -320,16 +320,16 @@ const Header = memo(() => {
                         </p>
                         <div className="space-y-0.5 mb-4">
                           <Link to="/seguro-bmw" className="block py-1 text-[12px] text-blue-500 font-bold hover:text-blue-400 transition-base italic">BMW</Link>
-                          <Link to="/seguro-mercedes" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Mercedes-Benz</Link>
-                          <Link to="/seguro-audi" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Audi</Link>
-                          <Link to="/seguro-porsche" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Porsche</Link>
-                          <Link to="/seguro-land-rover" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Land Rover</Link>
-                          <Link to="/seguro-jaguar" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Jaguar</Link>
-                          <Link to="/seguro-volvo" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Volvo</Link>
-                          <Link to="/seguro-ferrari" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Ferrari</Link>
-                          <Link to="/seguro-byd" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">BYD</Link>
-                          <Link to="/seguro-gwm" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">GWM</Link>
-                          <Link to="/seguro-lexus" className="block py-1 text-[12px] text-foreground/50 hover:text-foreground transition-base">Lexus</Link>
+                          <Link to="/seguro-mercedes" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Mercedes-Benz</Link>
+                          <Link to="/seguro-audi" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Audi</Link>
+                          <Link to="/seguro-porsche" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Porsche</Link>
+                          <Link to="/seguro-land-rover" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Land Rover</Link>
+                          <Link to="/seguro-jaguar" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Jaguar</Link>
+                          <Link to="/seguro-volvo" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Volvo</Link>
+                          <Link to="/seguro-ferrari" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Ferrari</Link>
+                          <Link to="/seguro-byd" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">BYD</Link>
+                          <Link to="/seguro-gwm" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">GWM</Link>
+                          <Link to="/seguro-lexus" className="block py-1 text-[12px] text-foreground/70 hover:text-foreground transition-base">Lexus</Link>
                         </div>
 
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-2 mt-4">Marcas Populares</p>
