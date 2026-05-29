@@ -215,8 +215,6 @@ const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico
 const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
 const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
-const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-const CRM = lazy(() => import("./pages/CRM"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 import RequireAdmin from "@/components/RequireAdmin";
 
