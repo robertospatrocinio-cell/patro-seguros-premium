@@ -29,8 +29,8 @@ const Footer = memo(() => {
             </div>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
-              <p className="text-[12px] text-white/70 leading-snug">
-                Reconhecida como uma das <strong className="text-white/90">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
+              <p className="text-[13px] text-white leading-snug">
+                Reconhecida como uma das <strong className="text-white">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
               </p>
             </div>
             <div className="flex gap-2">
