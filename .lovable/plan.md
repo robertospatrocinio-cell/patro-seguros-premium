@@ -1,24 +1,35 @@
-I will perform a comprehensive SEO overhaul to fix the 16 remaining routes, increase word counts, and resolve server-side routing issues.
+### Objective
+Implement accessible labels and validation messages in all project forms, including clear error indications using ARIA attributes.
 
-### 1. Data Completion & Mapping
-*   **Missing Landing Pages**: Add detailed metadata for `/lp/seguro-galpao-alugado`, `/lp/seguro-celular`, and `/lp/seguro-motorista-app` in `src/data/landingPages.ts`.
-*   **Route Registration**: Ensure the `cotacao-seguro-auto-guarulhos` route is correctly registered in the SEO local pages mapping.
-*   **Metadata Tuning**: Shorten titles to < 60 chars and descriptions to < 160 chars in `seoMetadata.ts` and data files to avoid truncation in search results.
+### Implementation Plan
 
-### 2. Server-Side Routing Fix (Apache)
-*   **Correct .htaccess Priority**: Move the Single Page Application (SPA) catch-all rule below the file-exists check. This ensures that pre-rendered static HTML files for routes like `/lp/seguro-auto` are served directly instead of falling back to the generic home page shell.
+#### 1. Form Component Enhancements
+*   **src/components/InsuranceQuoteForm.tsx**: 
+    *   Add `aria-invalid` to inputs/selects based on the `error` state.
+    *   Add `aria-describedby` linking to a new inline error message `<p>`.
+    *   Add `aria-required="true"` for required fields.
+    *   Render inline error messages below each field when `touched` and invalid.
 
-### 3. Prerender Optimization (Initial HTML)
-*   **Word Count Boost**: Expand the hidden crawler content in `prerender.mjs` with ~500 words of high-quality, semantically relevant text about insurance in Guarulhos, ensuring all pages meet the > 300 words requirement.
-*   **Accessibility (Alt Tags)**: Inject explicit `alt` tags for critical images like the logo and trust seals in the pre-rendered HTML.
-*   **Content Extraction**: Ensure the `detailedDescription` and other relevant fields are fully injected into the HTML for every route.
+*   **src/components/QuickQuoteForm.tsx**:
+    *   Add `aria-invalid` and `aria-describedby` to inputs.
+    *   Ensure all inputs have `aria-required`.
 
-### 4. Verification
-*   Execute the prerender script and verify the generated directory structure.
-*   Check a sample of the 16 target files to ensure they contain unique titles, H1s, and canonical tags.
+*   **src/pages/Contato.tsx**:
+    *   Implement inline validation messages instead of just a generic toast.
+    *   Add `aria-invalid`, `aria-describedby`, and `aria-required` to fields.
 
-### Technical Details
-*   Modify `src/data/landingPages.ts` to include missing slugs.
-*   Update `src/data/seoLocalAutoPages.ts` to export all relevant slugs.
-*   Adjust `public/.htaccess` rewrite rules.
-*   Update `scripts/prerender.mjs` logic for better content injection.
+*   **src/pages/FormularioSeguroVida.tsx**:
+    *   Implement logic to track `touched` states for fields.
+    *   Add inline error messages and ARIA attributes (`aria-invalid`, `aria-describedby`, `aria-required`).
+
+*   **src/components/LeadMagnetSection.tsx** and **src/components/ExitIntentPopup.tsx**:
+    *   Review and apply similar accessibility improvements to these smaller forms.
+
+#### 2. Technical Details
+*   Use `useId` for stable IDs when linking labels/errors to inputs if not already using unique field IDs.
+*   Ensure error messages have a unique ID that matches the `aria-describedby` value of the input.
+*   Validation logic should trigger on blur or change as appropriate to maintain a good user experience.
+
+### Verification
+*   Audit forms using browser tools to verify `aria-` attributes are correctly applied when errors occur.
+*   Manually test forms to ensure inline errors appear as expected.
