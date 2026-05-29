@@ -227,11 +227,6 @@ const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 import RequireAdmin from "@/components/RequireAdmin";
-
-import ErrorBoundary from "@/components/ErrorBoundary";
-import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
