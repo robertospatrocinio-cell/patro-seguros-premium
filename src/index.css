@@ -71,6 +71,12 @@
 /* The current file looks mostly lean, but we ensure base components are optimized */
 
 @layer utilities {
+  .gradient-cta {
+    background: linear-gradient(135deg, hsl(210 100% 35%) 0%, hsl(210 100% 25%) 100%);
+  }
+  .transition-base {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
   .text-balance { text-wrap: balance; }
   .section-label { @apply text-[11px] font-bold uppercase tracking-[0.12em] text-primary; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
