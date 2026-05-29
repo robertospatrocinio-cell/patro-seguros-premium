@@ -320,6 +320,12 @@ export default defineConfig(({ mode }) => ({
         output: {
           manualChunks: (id) => {
             if (id.includes("node_modules")) {
+              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom")) {
+                return "vendor-core";
+              }
+              if (id.includes("lucide-react") || id.includes("@radix-ui")) {
+                return "vendor-ui";
+              }
               return "vendor";
             }
           },
