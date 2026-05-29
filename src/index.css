@@ -83,57 +83,13 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 210 100% 20%;
-
-    --radius: 0.625rem;
-
-    --cta: 27 87% 62%;
-    --cta-foreground: 0 0% 100%;
-
-    --gradient-hero: linear-gradient(165deg, hsl(210 30% 6%) 0%, hsl(210 60% 14%) 50%, hsl(210 70% 18%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(210 100% 35%) 0%, hsl(210 100% 25%) 100%);
-    --gradient-glass: linear-gradient(135deg, hsla(0 0% 100% / 0.08) 0%, hsla(0 0% 100% / 0.03) 100%);
-    --gradient-surface: linear-gradient(180deg, hsl(220 14% 97.5%) 0%, hsl(220 14% 96%) 100%);
-
-    --shadow-xs: 0 1px 2px 0 hsl(220 25% 10% / 0.03);
-    --shadow-sm: 0 1px 3px 0 hsl(220 25% 10% / 0.04), 0 1px 2px -1px hsl(220 25% 10% / 0.03);
-    --shadow-md: 0 4px 12px -2px hsl(220 25% 10% / 0.06);
-    --shadow-lg: 0 10px 30px -6px hsl(220 25% 10% / 0.08);
-    --shadow-xl: 0 20px 50px -12px hsl(220 25% 10% / 0.12);
-
-    --transition-base: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-@layer base {
-  * { @apply border-border; }
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    @apply font-bold text-foreground;
-  }
-  h1 { @apply text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1]; }
-  h2 { @apply text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.15]; }
-  h3 { @apply text-lg md:text-xl leading-snug; }
-  p { line-height: 1.65; }
-}
-
-/* Purge unused non-standard animation rules and complex unused shadows if any */
-/* The current file looks mostly lean, but we ensure base components are optimized */
-
 @layer utilities {
-  .gradient-cta {
-    background: linear-gradient(135deg, hsl(210 100% 35%) 0%, hsl(210 100% 25%) 100%);
-  }
-  .transition-base {
-    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  .gradient-hero { background: linear-gradient(165deg, hsl(210 30% 6%) 0%, hsl(210 60% 14%) 50%, hsl(210 70% 18%) 100%); }
+  .gradient-cta { background: linear-gradient(135deg, hsl(210 100% 35%) 0%, hsl(210 100% 25%) 100%); }
+  .gradient-glass { background: linear-gradient(135deg, hsla(0 0% 100% / 0.08) 0%, hsla(0 0% 100% / 0.03) 100%); }
+  .gradient-surface { background: linear-gradient(180deg, hsl(220 14% 97.5%) 0%, hsl(220 14% 96%) 100%); }
+  .transition-base { transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
+  .transition-smooth { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   .text-balance { text-wrap: balance; }
   .glass-card {
     background: hsla(0, 0%, 100%, 0.05);
