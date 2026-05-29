@@ -9,9 +9,7 @@ const rootElement = document.getElementById("root");
 if (rootElement) {
   const root = createRoot(rootElement);
   root.render(
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <App />
-    </div>
+    <App />
   );
   
   const deferInit = () => {
