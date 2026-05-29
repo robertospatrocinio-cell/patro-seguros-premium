@@ -29,7 +29,7 @@ const Footer = memo(() => {
             </div>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
-              <p className="text-[13px] text-white leading-snug">
+              <p className="text-[13px] text-white/90 leading-snug">
                 Reconhecida como uma das <strong className="text-white">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
               </p>
             </div>
@@ -81,7 +81,7 @@ const Footer = memo(() => {
                 { to: "/depoimentos", label: "Depoimentos" },
                 { to: "/contato", label: "Contato" },
               ].map(l => (
-                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/70 hover:text-white/90 transition-base">{l.label}</Link></li>
+                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/80 hover:text-white transition-base">{l.label}</Link></li>
               ))}
             </ul>
           </nav>
@@ -99,7 +99,7 @@ const Footer = memo(() => {
                 { to: "/planos-de-saude", label: "Plano de Saúde" },
                 { to: "/seguro-frota", label: "Seguro de Frota" },
               ].map(l => (
-                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/70 hover:text-white/90 transition-base">{l.label}</Link></li>
+                <li key={l.to}><Link to={l.to} className="text-[13px] text-white/80 hover:text-white transition-base">{l.label}</Link></li>
               ))}
             </ul>
           </nav>
@@ -134,21 +134,21 @@ const Footer = memo(() => {
             <h3 className="font-heading font-semibold text-white/90 text-[11px] uppercase tracking-[0.1em] mb-5">Contato</h3>
             <address className="not-italic">
               <ul className="space-y-3 text-[13px]">
-                <li className="flex items-start gap-2.5 text-white/70">
-                  <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0 text-white/60" aria-hidden="true" />
+                <li className="flex items-start gap-2.5 text-white/80">
+                  <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0 text-white/70" aria-hidden="true" />
                   <span>Av. Salgado Filho, 2120<br />Ed. Via Alameda – Sala 219 — Cidade Maia, Guarulhos/SP<br /><Link to="/seguros-em-guarulhos" className="text-[12px] text-white/80 underline opacity-70 hover:opacity-100">Ver todas as regiões atendidas em Guarulhos</Link></span>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
-                  <a href="tel:1151997500" className="text-white/70 hover:text-white/90 transition-base">(11) 5199-7500</a>
+                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/70" aria-hidden="true" />
+                  <a href="tel:1151997500" className="text-white/80 hover:text-white transition-base">(11) 5199-7500</a>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
-                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white/90 transition-base" onClick={() => trackWhatsAppClick("footer")}>WhatsApp</a>
+                  <Phone className="h-3.5 w-3.5 flex-shrink-0 text-white/70" aria-hidden="true" />
+                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-base" onClick={() => trackWhatsAppClick("footer")}>WhatsApp</a>
                 </li>
                 <li className="flex items-center gap-2.5">
-                  <Mail className="h-3.5 w-3.5 flex-shrink-0 text-white/60" aria-hidden="true" />
-                  <a href="mailto:contato@patroseguros.com.br" className="text-white/70 hover:text-white/90 transition-base">contato@patroseguros.com.br</a>
+                  <Mail className="h-3.5 w-3.5 flex-shrink-0 text-white/70" aria-hidden="true" />
+                  <a href="mailto:contato@patroseguros.com.br" className="text-white/80 hover:text-white transition-base">contato@patroseguros.com.br</a>
                 </li>
               </ul>
             </address>
@@ -156,12 +156,12 @@ const Footer = memo(() => {
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/[0.08]">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/70">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/80">
             <p className="text-[13px]">© {new Date().getFullYear()} Patro Corretora de Seguros · <span className="text-white/90 font-semibold">CNPJ 41.641.558/0001-33</span> · <span className="text-white/90 font-semibold">SUSEP 212113511</span></p>
             <div className="flex gap-6 text-[13px]">
-              <Link to="/landing-pages" className="hover:text-white/90 transition-base">Campanhas</Link>
-              <Link to="/politica-privacidade" className="hover:text-white/90 transition-base">Privacidade</Link>
-              <Link to="/termos-de-uso" className="hover:text-white/90 transition-base">Termos</Link>
+              <Link to="/landing-pages" className="hover:text-white transition-base">Campanhas</Link>
+              <Link to="/politica-privacidade" className="hover:text-white transition-base">Privacidade</Link>
+              <Link to="/termos-de-uso" className="hover:text-white transition-base">Termos</Link>
             </div>
           </div>
         </div>

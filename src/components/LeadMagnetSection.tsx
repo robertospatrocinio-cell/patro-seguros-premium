@@ -55,12 +55,12 @@ const LeadMagnetSection = memo(() => {
           <div className="grid md:grid-cols-2 items-center">
             {/* Left — Text + Form */}
             <div className="p-8 md:p-12 lg:p-16">
-              <span className="inline-block text-sm font-semibold text-amber-400 mb-3">🎁 Material Gratuito</span>
+              <span className="inline-block text-sm font-semibold text-amber-500 mb-3">🎁 Material Gratuito</span>
               <h2 id="lead-magnet-heading" className="text-2xl md:text-3xl font-extrabold text-white mb-3 leading-tight">
                 Quer baixar o preço do seu Seguro Auto em até 30%?
               </h2>
-              <p className="text-white/70 text-sm mb-8 leading-relaxed">
-                Baixe nosso guia definitivo para motoristas de Guarulhos e descubra <strong className="text-white/90">5 segredos que as seguradoras não te contam</strong>.
+              <p className="text-white/80 text-sm mb-8 leading-relaxed">
+                Baixe nosso guia definitivo para motoristas de Guarulhos e descubra <strong className="text-white">5 segredos que as seguradoras não te contam</strong>.
               </p>
 
               {!sent ? (
@@ -69,7 +69,7 @@ const LeadMagnetSection = memo(() => {
                     placeholder="Seu nome"
                     value={name}
                     onChange={handleNameChange}
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-amber-400"
+                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-amber-500"
                     required
                     maxLength={80}
                   />
@@ -77,7 +77,7 @@ const LeadMagnetSection = memo(() => {
                     placeholder="WhatsApp (DDD + número)"
                     value={whatsapp}
                     onChange={handleWhatsappChange}
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-amber-400"
+                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-amber-500"
                     required
                     inputMode="tel"
                     maxLength={16}

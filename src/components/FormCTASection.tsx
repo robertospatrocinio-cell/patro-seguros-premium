@@ -27,7 +27,7 @@
                <h2 id="form-cta-heading" className="text-3xl md:text-4xl lg:text-5xl mb-6">
                  {title}
                </h2>
-               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+               <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
                  {subtitle}
                </p>
                <div className="space-y-4">
@@ -41,7 +41,7 @@
                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                      </div>
-                     <span className="text-sm font-medium text-foreground/80">{item}</span>
+                     <span className="text-sm font-medium text-foreground">{item}</span>
                    </div>
                  ))}
                </div>
@@ -52,7 +52,7 @@
                  </div>
                  <div>
                    <p className="text-sm font-bold text-primary mb-0.5">Prefere falar agora?</p>
-                   <p className="text-xs text-muted-foreground leading-relaxed">
+                   <p className="text-xs text-foreground/70 leading-relaxed">
                      Chame no WhatsApp <a href="tel:1151997500" className="font-semibold hover:underline">(11) 5199-7500</a> para atendimento imediato.
                    </p>
                  </div>
