@@ -108,16 +108,19 @@
  </IfModule>
  
  <IfModule mod_headers.c>
-    # Static assets with hashes (immutable) - including compressed versions
-    <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf|avif)(\.(br|gz))?$">
-      Header set Cache-Control "public, max-age=31536000, immutable"
-      Header unset ETag
-      Header set X-Content-Type-Options "nosniff"
-    </FilesMatch>
+   # Static assets with hashes (immutable) - including compressed versions
+   <FilesMatch "\.(css|js|webp|png|jpg|jpeg|svg|woff2|woff|ttf|avif)(\.(br|gz))?$">
+     Header set Cache-Control "public, max-age=31536000, immutable"
+     Header unset ETag
+     Header set X-Content-Type-Options "nosniff"
+     # Help CDNs and proxies serve the correct compressed version
+     Header append Vary Accept-Encoding
+   </FilesMatch>
  
    # HTML and data files
    <FilesMatch "\.(html|json|txt)$">
      Header set Cache-Control "public, max-age=3600, stale-while-revalidate=86400"
+     Header append Vary Accept-Encoding
    </FilesMatch>
  
    # Specific handling for robots.txt and sitemaps
@@ -126,6 +129,7 @@
    </FilesMatch>
    <FilesMatch "sitemap.*\.xml">
      Header set Cache-Control "public, max-age=86400"
+     Header append Vary Accept-Encoding
    </FilesMatch>
  
    # Service worker must NOT be cached long-term
