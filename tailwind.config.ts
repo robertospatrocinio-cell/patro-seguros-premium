@@ -44,6 +44,15 @@ export default {
     placeItems: false,
     placeSelf: false,
     skew: false,
+    ringOffsetColor: false,
+    ringOffsetWidth: false,
+    outlineOffset: false,
+    outlineWidth: false,
+    strokeWidth: false,
+    gridAutoColumns: false,
+    gridAutoRows: false,
+    gridTemplateColumns: false, // Explicitly false as we use custom ones or standard only
+    gridTemplateRows: false,
   },
   theme: {
     container: {
