@@ -31,8 +31,8 @@ const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = fals
 
   const { cls, w } = SIZE_MAP[size];
   const base = "/images/selo-melhor-corretora";
-  const webpSrcSet = `${base}.webp 1x, ${base}@2x.webp 2x, ${base}@3x.webp 3x`;
-  const pngSrcSet = `${base}.png 1x, ${base}@2x.png 2x, ${base}@3x.png 3x`;
+  const webpSrcSet = `${base}.webp 1x, ${base}@2x.webp 2x`;
+  const pngSrcSet = `${base}.png 1x, ${base}@2x.png 2x`;
   return (
     <picture>
       <source type="image/webp" srcSet={webpSrcSet} />
