@@ -95,8 +95,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     managePreload('dynamic-hero-preload', preloadImage, preloadMobileImage ? '(min-width: 641px)' : undefined);
     managePreload('dynamic-hero-mobile-preload', preloadMobileImage, '(max-width: 640px)');
 
-    // WE REMOVED THE CLEANUP THAT WAS RESETTING TO HOME
-    // This allows the page-specific tags to persist until another PageMeta or navigation happens
+    // No cleanup required to avoid resetting meta tags during hydration or fast navigation
   }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, preloadImage, preloadMobileImage]);
 
   return null;
