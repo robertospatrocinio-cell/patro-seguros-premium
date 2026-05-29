@@ -12,13 +12,14 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <link rel="canonical" href="https://www.patroseguros.com.br" />
-    <link rel="preconnect" href="https://vjzsekwkeixbbpldiqmd.supabase.co" crossorigin />
-    <link rel="dns-prefetch" href="https://vjzsekwkeixbbpldiqmd.supabase.co" />
+    <link rel="preconnect" href="https://vjzsekwkeixbbpldiqmd.supabase.co" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://connect.facebook.net" />
     <link rel="modulepreload" href="/src/main.tsx" fetchpriority="high" />
 
-    <!-- Preload critical fonts with low priority -->
-    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low" />
-    <link rel="preload" href="/fonts/poppins-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="low" />
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+    <link rel="preload" href="/fonts/poppins-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
 
     <!-- Critical inline CSS for instant first paint -->
     <style>
@@ -40,17 +41,10 @@
     <meta property="og:locale" content="pt_BR" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.webmanifest">
-    <!-- Preconnect to critical third-party origins -->
-    <!-- GTM and Facebook Pixel scripts are deferred until after load/interaction.
-         dns-prefetch resolves DNS early without spending a TLS handshake on origins
-         the page may not contact in the LCP window (avoids "unused preconnect"). -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://connect.facebook.net" />
-     <!-- Preload LCP candidates with auto priority (browser knows best) -->
-     <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
-     <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 640px)" fetchpriority="auto" />
-     <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 639px)" fetchpriority="auto" />
+    <!-- Preload LCP candidates -->
+    <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 641px)" fetchpriority="high" />
+    <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 640px)" fetchpriority="high" />
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
