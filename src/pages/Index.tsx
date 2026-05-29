@@ -177,7 +177,7 @@ const Index = () => {
                 <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight">
                   O seguro em Guarulhos subiu? <span className="text-primary">Nós ajudamos você a pagar menos.</span>
                 </h2>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-foreground/80 leading-relaxed font-medium">
                   Nossa ferramenta analisa o custo médio das seguradoras parceiras com base no índice de risco de cada bairro em Guarulhos. Compare e economize em minutos.
                 </p>
                 <div className="flex flex-col gap-4">
