@@ -323,8 +323,11 @@ export default defineConfig(({ mode }) => ({
               if (id.includes("lucide-react")) {
                 return "icons";
               }
-              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom")) {
+              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack") || id.includes("framer-motion")) {
                 return "framework";
+              }
+              if (id.includes("radix-ui") || id.includes("clsx") || id.includes("tailwind-merge")) {
+                return "ui-core";
               }
               return "vendor";
             }
