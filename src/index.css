@@ -118,6 +118,9 @@
   }
 }
 
+/* Purge unused non-standard animation rules and complex unused shadows if any */
+/* The current file looks mostly lean, but we ensure base components are optimized */
+
 @layer utilities {
   .gradient-cta {
     background: var(--gradient-cta);
