@@ -136,7 +136,7 @@ const BlogArticle = () => {
         );
       })()}
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <section className="gradient-hero py-16 relative overflow-hidden">
           {slug && (
             <OptimizedImage

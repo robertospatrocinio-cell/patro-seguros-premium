@@ -35,7 +35,7 @@ const Sobre = () => {
     <Fragment>
       <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />
 
         {/* Hero */}

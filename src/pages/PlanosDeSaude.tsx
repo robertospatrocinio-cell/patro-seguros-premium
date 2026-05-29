@@ -170,7 +170,7 @@ const PlanosDeSaude = () => {
       <PageMeta title="Plano de Saúde em Guarulhos | Compare Opções | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Compare Bradesco, Amil, SulAmérica e mais. Cotação grátis para pessoa física e empresas." />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <section className="gradient-hero py-20 relative overflow-hidden">
           <img src={heroImg} alt="Consultoria para plano de saúde em Guarulhos" width={1280} height={720} className="absolute inset-0 w-full h-full object-cover opacity-20" loading="eager" />
           <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">

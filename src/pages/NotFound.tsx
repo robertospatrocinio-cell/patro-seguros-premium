@@ -77,7 +77,7 @@ const NotFound = () => {
         description="A página que você está procurando não existe. Encontre o seguro ideal por categoria ou solicite uma cotação gratuita com a Patro Seguros."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         {/* Hero */}
         <section className="gradient-hero relative overflow-hidden" aria-labelledby="not-found-heading">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.12),transparent)]" />

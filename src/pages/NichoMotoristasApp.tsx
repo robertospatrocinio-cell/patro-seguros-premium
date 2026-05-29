@@ -101,7 +101,7 @@ const NichoMotoristasApp = () => {
       />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Seguros por Nicho" }, { label: "Motoristas de Aplicativo" }]} />
 
         {/* Hero */}

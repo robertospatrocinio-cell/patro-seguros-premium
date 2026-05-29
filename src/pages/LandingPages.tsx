@@ -23,7 +23,7 @@ const LandingPages = () => (
   <>
     <PageMeta title="Landing Pages — Campanhas" description="Páginas de campanha para anúncios online da Patro Seguros." noindex />
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <section className="py-20">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="flex items-center gap-3 mb-2">

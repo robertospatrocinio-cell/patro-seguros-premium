@@ -148,7 +148,7 @@ const HubSegurosGuarulhos = () => {
         description="Corretora de seguros em Guarulhos com 16+ seguradoras parceiras."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Seguros em Guarulhos" }]} />
 
         {/* Hero */}

@@ -134,7 +134,7 @@ const allFaqs = faqCategories.flatMap(cat => cat.faqs);
       <PageMeta title="Perguntas Frequentes (FAQ)" description="Tire suas dúvidas sobre seguros, planos de saúde, consórcios e mais. FAQ completo com respostas de especialistas — Patro Seguros, Guarulhos." />
       <FAQSchema faqs={allFaqs} />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "FAQ" }]} />
 
         <section className="gradient-hero py-20">

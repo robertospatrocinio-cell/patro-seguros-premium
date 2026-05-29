@@ -73,7 +73,7 @@ const SeoPlanoSaudeGuarulhos = () => (
     <PageMeta title="Plano de Saúde em Guarulhos | Patro" description="Planos de saúde em Guarulhos com as melhores operadoras. Cobertura ambulatorial, hospitalar e odontológica. Cotação personalizada grátis." />
     <FAQSchema faqs={faqs} />
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <section className="gradient-hero py-20">
         <div className="container mx-auto px-4 text-center max-w-4xl">
           <h1 className="text-white mb-6">Plano de Saúde em Guarulhos</h1>

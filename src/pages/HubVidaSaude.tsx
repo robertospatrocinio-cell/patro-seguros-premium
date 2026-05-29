@@ -60,7 +60,7 @@ const HubVidaSaude = () => {
         description="Planos de saúde e seguros de vida em Guarulhos."
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Vida e Saúde" }]} />
         
          <section className="relative gradient-hero py-20 md:py-32 overflow-hidden">

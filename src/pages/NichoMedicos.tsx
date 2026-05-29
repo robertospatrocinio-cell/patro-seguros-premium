@@ -43,7 +43,7 @@ const NichoMedicos = () => (
     />
     <FAQSchema faqs={faqs} />
     <Header />
-    <main id="main-content">
+    <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Seguros por Nicho" }, { label: "Médicos e Clínicas" }]} />
 
       {/* Hero */}

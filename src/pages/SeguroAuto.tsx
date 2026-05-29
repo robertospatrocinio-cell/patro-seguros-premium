@@ -50,7 +50,7 @@ const SeguroAuto = () => {
       />
       <FAQSchema faqs={faqs} />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Seguro Auto" }]} />
 
         {/* ===== 1. HERO ===== */}

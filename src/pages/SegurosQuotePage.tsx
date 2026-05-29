@@ -24,7 +24,7 @@ const SegurosQuotePage = () => {
       <PageMeta title={config.metaTitle} description={config.metaDescription} />
       <FAQSchema faqs={config.faqs} />
       <Header />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Início", href: "/" }, { label: "Cotação", href: "/cotacao" }, { label: config.type }]} />
 
         {/* Hero + Form */}
