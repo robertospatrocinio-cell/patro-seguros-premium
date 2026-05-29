@@ -90,18 +90,18 @@ const Index = () => {
       ]} />
       <Header />
       <main id="main-content">
-        <section className="relative gradient-hero overflow-hidden min-h-[500px] flex items-center" aria-label="Apresentação da Patro Seguros em Guarulhos">
+        <section className="relative gradient-hero overflow-hidden min-h-[500px] flex items-center bg-slate-900" aria-label="Apresentação da Patro Seguros em Guarulhos">
           <div className="absolute inset-0 z-0">
             <picture>
               <source media="(max-width: 600px)" srcSet="/images/hero-familia-sm.webp" type="image/webp" />
               <img
                 src="/images/hero-home.webp"
                 alt="Seguro auto em Guarulhos com cotação online pela Patro Seguros"
-                width={960}
-                height={540}
-                className="w-full h-full object-cover opacity-15"
+                width={1920}
+                height={1080}
+                className="w-full h-full object-cover opacity-25"
                 fetchPriority="high"
-                decoding="async"
+                decoding="sync"
                 loading="eager"
               />
             </picture>
