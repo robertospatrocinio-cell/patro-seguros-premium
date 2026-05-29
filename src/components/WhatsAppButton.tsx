@@ -82,8 +82,8 @@ const WhatsAppButton = () => {
         className="group"
       >
         <div className="relative bg-[#25D366] text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
-          <MessageCircle className="h-6 w-6" strokeWidth={1.8} />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />
+          <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" aria-hidden="true" />
         </div>
       </a>
     </div>

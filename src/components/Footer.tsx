@@ -33,7 +33,7 @@ const Footer = memo(() => {
                 Reconhecida como uma das <strong className="text-white">melhores corretoras de Guarulhos</strong> pelos nossos clientes.
               </p>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2" aria-label="Redes sociais">
               <TooltipProvider>
                 {[
                   { href: "https://wa.me/551151997500", icon: MessageCircle, label: "WhatsApp", color: "hover:bg-green-500/20", iconColor: "hover:text-green-500" },
@@ -124,7 +124,7 @@ const Footer = memo(() => {
               ))}
             </ul>
             <div className="mt-4">
-               <Link to="/seguros-em-guarulhos-bairros" className="text-[12px] text-white/80 underline font-medium">Ver todos os bairros →</Link>
+               <Link to="/seguros-em-guarulhos-bairros" className="text-[12px] text-white/80 underline font-medium" aria-label="Ver todos os bairros atendidos em Guarulhos">Ver todos os bairros →</Link>
             </div>
           </nav>
 
@@ -155,7 +155,7 @@ const Footer = memo(() => {
           </div>
         </div>
 
-        <div className="mt-14 pt-8 border-t border-white/[0.08]">
+        <div className="mt-14 pt-8 border-t border-white/[0.08]" aria-label="Informações legais">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-white/80">
             <p className="text-[13px]">© {new Date().getFullYear()} Patro Corretora de Seguros · <span className="text-white/90 font-semibold">CNPJ 41.641.558/0001-33</span> · <span className="text-white/90 font-semibold">SUSEP 212113511</span></p>
             <div className="flex gap-6 text-[13px]">

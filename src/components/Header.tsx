@@ -173,11 +173,11 @@ const Header = memo(() => {
             <div className="flex items-center gap-5">
               <div className="hidden lg:flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded border border-white/10">
                 <div className="flex text-yellow-400">
-                  <Star className="h-2.5 w-2.5 fill-current" />
-                  <Star className="h-2.5 w-2.5 fill-current" />
-                  <Star className="h-2.5 w-2.5 fill-current" />
-                  <Star className="h-2.5 w-2.5 fill-current" />
-                  <Star className="h-2.5 w-2.5 fill-current" />
+                  <Star className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                  <Star className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                  <Star className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                  <Star className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                  <Star className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
                 </div>
                 <span className="text-[10px] text-white font-bold">5.0 no Google</span>
               </div>
@@ -216,7 +216,6 @@ const Header = memo(() => {
                   <TooltipTrigger asChild>
                     <a href="https://www.tiktok.com/@patroseguros" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white/90 transition-base" aria-label="TikTok">
                       <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                        <title>TikTok</title>
                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
                       </svg>
                     </a>
