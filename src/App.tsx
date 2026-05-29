@@ -11,7 +11,7 @@ import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
 
 // Static import of critical home page to ensure it's available immediately
-const Index = lazy(() => import("./pages/Index"));
+import Index from "./pages/Index";
 
 const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 // Lazy-loaded pages for code splitting
