@@ -63,9 +63,17 @@ const Index = () => {
   const linkedKeywords = useMemo(() => new Set<string>(), []);
   
   useEffect(() => {
-    const el = document.getElementById('persistent-hero-bg');
-    if (el) el.style.setProperty('display', 'none', 'important');
-    return () => { if (el) el.style.display = ''; };
+    try {
+      const el = document.getElementById('persistent-hero-bg');
+      if (el) {
+        el.style.setProperty('display', 'none', 'important');
+      }
+      return () => { 
+        if (el) el.style.display = ''; 
+      };
+    } catch (e) {
+      console.warn("Effect error in Index:", e);
+    }
   }, []);
 
   return (
