@@ -5,6 +5,7 @@ import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
 
 const rootElement = document.getElementById("root");
+
 if (rootElement) {
   const root = createRoot(rootElement);
   root.render(<App />);
@@ -19,4 +20,6 @@ if (rootElement) {
   } else {
     setTimeout(deferInit, 1);
   }
+} else {
+  console.error("Critical Error: Root element not found");
 }
