@@ -166,6 +166,12 @@ const Header = memo(() => {
 
   return (
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'translate-y-[-32px] md:translate-y-[-36px]' : 'translate-y-0'}`}>
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:outline-none focus:ring-2 focus:ring-white"
+      >
+        Ir para o conteúdo principal
+      </a>
       {/* Top bar */}
       <div className="bg-foreground">
         <div className="container mx-auto px-4">
