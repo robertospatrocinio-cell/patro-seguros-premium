@@ -2,9 +2,6 @@
  <IfModule LiteSpeed>
    CacheLookup on
    CacheEngine on
-   # Enable HTTP/2 Push / Link Header preloading if supported
-   SetEnvIf Request_URI "^/$" PRELOAD_ASSETS
-   Header add Link "</assets/index.css>; rel=preload; as=style, </src/main.tsx>; rel=modulepreload" env=PRELOAD_ASSETS
  </IfModule>
  
  DirectoryIndex index.html
