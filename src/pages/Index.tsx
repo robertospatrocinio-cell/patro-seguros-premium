@@ -129,7 +129,7 @@ const Index = () => {
                   </Button>
                 </Link>
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("homepage-hero")}>
-                  <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.08] border border-white/[0.1] text-white/80 hover:bg-white/[0.12] hover:text-white font-medium tracking-tight">
+                  <Button size="lg" className="w-full sm:w-auto text-[13px] px-7 rounded-lg h-11 bg-white/[0.12] border border-white/[0.2] text-white hover:bg-white/[0.18] hover:text-white font-semibold tracking-tight">
                     <MessageCircle className="mr-1.5 h-3.5 w-3.5" aria-hidden="true" />
                     Falar com especialista no WhatsApp
                   </Button>
