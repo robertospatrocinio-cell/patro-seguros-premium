@@ -72,7 +72,7 @@
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .section-label { @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-primary; }
+  .section-label { @apply text-[11px] font-bold uppercase tracking-[0.12em] text-primary; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .animate-marquee { animation: marquee 30s linear infinite; }
   @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
