@@ -140,10 +140,6 @@
 }
 
 @layer utilities {
-  .gradient-hero {
-    background: var(--gradient-hero);
-  }
-
   .gradient-cta {
     background: var(--gradient-cta);
   }
