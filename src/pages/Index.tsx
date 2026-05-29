@@ -125,7 +125,7 @@ const Index = () => {
               <p className="text-[15px] md:text-lg text-white mb-1.5 font-semibold">
                 Nota 4.9 no Google | +16 seguradoras parceiras | Cotação em 2h
               </p>
-              <p className="text-[14px] md:text-base text-white/90 mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
+              <p className="text-[14px] md:text-base text-white mb-8 md:mb-10 text-balance max-w-[520px] mx-auto leading-relaxed">
                 Atendimento humanizado e personalizado. Compare cotações de seguro auto, residencial, vida e empresarial entre as melhores seguradoras do mercado.
               </p>
 
@@ -155,7 +155,7 @@ const Index = () => {
               {stats.map((s) => (
                 <div key={s.label} className="py-8 md:py-10 text-center">
                   <p className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight font-heading">{s.value}</p>
-                  <p className="text-[11px] text-foreground mt-1 uppercase tracking-[0.1em] font-bold">{s.label}</p>
+                  <p className="text-[11px] text-foreground/80 mt-1 uppercase tracking-[0.1em] font-bold">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -185,7 +185,7 @@ const Index = () => {
                 <h2 className="text-3xl md:text-4xl font-black text-foreground leading-tight">
                   O seguro em Guarulhos subiu? <span className="text-primary">Nós ajudamos você a pagar menos.</span>
                 </h2>
-                <p className="text-foreground/80 leading-relaxed font-medium">
+                <p className="text-foreground leading-relaxed font-medium">
                   Nossa ferramenta analisa o custo médio das seguradoras parceiras com base no índice de risco de cada bairro em Guarulhos. Compare e economize em minutos.
                 </p>
                 <div className="flex flex-col gap-4">
@@ -231,7 +231,7 @@ const Index = () => {
                     <item.icon className="h-[18px] w-[18px] text-primary" strokeWidth={1.5} aria-hidden="true" />
                   </div>
                   <h3 className="text-[15px] font-semibold mb-2 tracking-tight">{item.title}</h3>
-                  <p className="text-[13px] text-muted-foreground leading-relaxed">{item.desc}</p>
+                  <p className="text-[13px] text-muted-foreground/90 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -241,7 +241,7 @@ const Index = () => {
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 id="eeat-heading" className="text-center mb-8">Corretora de Seguros em Guarulhos: Proteção e Economia</h2>
-            <div className="prose prose-sm max-w-none text-foreground/80 space-y-4">
+            <div className="prose prose-sm max-w-none text-foreground space-y-4">
               <p>
                 Desde 2020, a <strong>Patro Seguros</strong> atende moradores e empresas de <strong>Guarulhos</strong> com consultoria especializada em seguros. Somos uma das <strong>melhores corretoras de seguros em Guarulhos</strong>, reconhecida pela nota 4,9/5 no Google e por já ter atendido <strong>500+ PMEs locais</strong> com cases reais de economia e proteção. Nossa sede no <strong>Cidade Maia</strong> (Av. Salgado Filho, 2120 – Ed. Via Alameda, Sala 219) permite atendimento presencial para clientes de toda a região metropolitana, enquanto nosso canal online atende todo o Brasil.
               </p>
