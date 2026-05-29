@@ -3,8 +3,8 @@ import React from "react";
 const PageSkeleton = () => {
   const pulse = "animate-pulse rounded-md bg-slate-200 dark:bg-slate-800";
   
-  return (
-    <div className="min-h-screen bg-background">
+   return (
+    <div className="min-h-screen bg-background" id="main-content">
       {/* Header skeleton */}
       <div className="h-16 border-b border-border/40 bg-background/95 flex items-center px-4 sticky top-0 z-50">
         <div className={`h-8 w-32 md:w-48 ${pulse}`} />
