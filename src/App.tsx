@@ -12,6 +12,7 @@ import PageSkeleton from "@/components/PageSkeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import SkipLink from "@/components/SkipLink";
 
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
@@ -256,6 +257,7 @@ const App = () => {
       <QueryProviderWrapper>
         <TooltipProvider>
           <BrowserRouter>
+            <SkipLink />
             <Toaster />
             <Sonner />
             <WhatsAppButton />
