@@ -150,28 +150,29 @@ const InsuranceHeroSelector = memo(() => {
     <>
       <section className="relative w-full min-h-[520px] md:min-h-[600px] overflow-hidden bg-slate-900" aria-label="Seguros por perfil">
         {tabs.map((tab) => (
-          <div
-            key={tab.key}
-            className="absolute inset-0 transition-opacity duration-700 ease-in-out"
-            style={{ opacity: active === tab.key ? 1 : 0 }}
-            aria-hidden={active !== tab.key}
-          >
-            <img
-              src={bgByTab[tab.key]}
-              srcSet={`${bgSmByTab[tab.key]} 900w, ${bgByTab[tab.key]} 1920w`}
-              sizes="100vw"
-              alt={tab.key === "voce" ? "Seguro auto e vida em Guarulhos para sua família" : 
-                   tab.key === "empresa" ? "Seguro empresarial e frotas para empresas em Guarulhos" :
-                   tab.key === "agro" ? "Seguro agrícola e de máquinas para o produtor rural" :
-                   "Consórcio de imóveis e veículos com a Patro Seguros"}
-              width={1280}
-              height={720}
-              className="w-full h-full object-cover"
-              loading={tab.key === "voce" ? "eager" : "lazy"}
-              fetchPriority={tab.key === "voce" ? "high" : "low"}
-              decoding={tab.key === "voce" ? "sync" : "async"}
-            />
-          </div>
+          active === tab.key && (
+            <div
+              key={tab.key}
+              className="absolute inset-0 animate-fade-in"
+              aria-hidden="false"
+            >
+              <img
+                src={bgByTab[tab.key]}
+                srcSet={`${bgSmByTab[tab.key]} 900w, ${bgByTab[tab.key]} 1920w`}
+                sizes="100vw"
+                alt={tab.key === "voce" ? "Seguro auto e vida em Guarulhos para sua família" : 
+                     tab.key === "empresa" ? "Seguro empresarial e frotas para empresas em Guarulhos" :
+                     tab.key === "agro" ? "Seguro agrícola e de máquinas para o produtor rural" :
+                     "Consórcio de imóveis e veículos com a Patro Seguros"}
+                width={1280}
+                height={720}
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </div>
+          )
         ))}
 
         <div className="absolute inset-0 bg-black/60" />
