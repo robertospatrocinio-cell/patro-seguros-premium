@@ -3,9 +3,8 @@ import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import Index from "./pages/Index";
-
-import ComparativoPlanosSaude from "./pages/ComparativoPlanosSaude";
+const Index = lazy(() => import("./pages/Index"));
+const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
