@@ -165,7 +165,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         <MessageCircle className="h-5 w-5 text-primary" aria-hidden="true" />
         <h3 className="text-lg font-bold">Cotação Rápida de {insuranceType}</h3>
       </div>
-      <p className="text-sm text-muted-foreground mb-6">
+      <p className="text-sm text-foreground/80 mb-6">
         Preencha os dados abaixo e receba sua cotação personalizada em até 2 horas.
       </p>
 
@@ -274,8 +274,8 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         <Button type="submit" variant="cta" className="w-full h-12 font-bold text-sm" disabled={sending}>
           {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Cotar meu seguro agora</>}
         </Button>
-        <div className="flex items-center justify-center gap-2 text-[10px] text-muted-foreground mt-4">
-          <TrendingDown className="h-3 w-3 text-green-500" />
+        <div className="flex items-center justify-center gap-2 text-[10px] text-foreground/70 mt-4">
+          <TrendingDown className="h-3 w-3 text-green-600" />
           <span>Nota 4.9 no Google | Comparativo de 16+ seguradoras</span>
         </div>
       </form>
