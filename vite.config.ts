@@ -320,10 +320,10 @@ export default defineConfig(({ mode }) => ({
         output: {
           manualChunks: (id) => {
             if (id.includes("node_modules")) {
-              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom")) {
+              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack/react-query") || id.includes("@supabase/supabase-js")) {
                 return "vendor-core";
               }
-              if (id.includes("lucide-react") || id.includes("@radix-ui")) {
+              if (id.includes("lucide-react") || id.includes("@radix-ui") || id.includes("framer-motion") || id.includes("date-fns")) {
                 return "vendor-ui";
               }
               return "vendor";
