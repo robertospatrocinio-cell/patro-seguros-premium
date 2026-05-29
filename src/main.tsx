@@ -5,6 +5,7 @@ import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
 import PageSkeleton from "./components/PageSkeleton";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const rootElement = document.getElementById("root");
 
