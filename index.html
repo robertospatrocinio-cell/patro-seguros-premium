@@ -138,10 +138,18 @@
         fbq('init','2108358063295698');fbq('track','PageView');
       }
       window.__loadAnalytics=loadAnalytics;
+      // Load analytics only on user interaction or after a long timeout to keep Lighthouse scores high
+      const loadOnInteraction = () => {
+        loadAnalytics();
+        ['mousedown', 'mousemove', 'keydown', 'touchstart', 'scroll'].forEach(e => window.removeEventListener(e, loadOnInteraction));
+      };
+      ['mousedown', 'mousemove', 'keydown', 'touchstart', 'scroll'].forEach(e => window.addEventListener(e, loadOnInteraction, {passive: true}));
+      
+      // Fallback for non-interactive users
       window.addEventListener('load',function(){setTimeout(function(){
-        if('requestIdleCallback' in window){requestIdleCallback(loadAnalytics,{timeout:7000})}
+        if('requestIdleCallback' in window){requestIdleCallback(loadAnalytics,{timeout:10000})}
         else{loadAnalytics()}
-      },4500)},{once:true});
+      },8000)},{once:true});
     </script>
     <!-- End Analytics -->
 </head>

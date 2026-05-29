@@ -39,7 +39,7 @@ const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = fals
        <img
          src={`${base}.png`}
          srcSet={pngSrcSet}
-         alt="Selo de avaliação da Patro Seguros"
+         alt="Selo Patro Seguros: Eleita melhor corretora de Guarulhos pelos clientes Google"
          width={w}
          height={w}
          loading={priority ? "eager" : "lazy"}
