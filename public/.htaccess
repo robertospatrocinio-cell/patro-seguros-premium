@@ -4,6 +4,16 @@
    CacheEngine on
  </IfModule>
  
+ <IfModule mod_rewrite.c>
+   RewriteEngine On
+   RewriteBase /
+   
+   # Force apex -> www and HTTPS in one go for maximum efficiency
+   RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br$ [NC,OR]
+   RewriteCond %{HTTPS} !=on
+   RewriteRule ^(.*)$ https://www.patroseguros.com.br/$1 [R=301,L]
+ </IfModule>
+ 
  DirectoryIndex index.html
  Options -MultiViews +FollowSymLinks
  
