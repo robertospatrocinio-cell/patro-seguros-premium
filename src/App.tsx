@@ -10,7 +10,11 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
 
-const Index = lazy(() => import("./pages/Index"));
+// Static imports of critical pages to ensure they are available immediately
+import Index from "./pages/Index";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
+import Cotacao from "./pages/Cotacao";
 
 const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 const CRM = lazy(() => import("./pages/CRM"));
