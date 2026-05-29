@@ -13,20 +13,16 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-// Static imports to avoid blank screens
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import Cotacao from "./pages/Cotacao";
 
-
 const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 const CRM = lazy(() => import("./pages/CRM"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-// Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Parceiros = lazy(() => import("./pages/Parceiros"));
-
 const Contato = lazy(() => import("./pages/Contato"));
 const SeguroAuto = lazy(() => import("./pages/SeguroAuto"));
 const SeguroVida = lazy(() => import("./pages/SeguroVida"));
