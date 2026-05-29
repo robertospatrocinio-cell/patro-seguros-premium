@@ -144,7 +144,7 @@ async function run() {
         </nav>
       </div>
     `;
-    html = html.replace('<div id="root">', `${crawlerContent}\n    <div id="root">`);
+    html = html.replace(/<div id="root"[^>]*>/, (match) => `${crawlerContent}\n    ${match}`);
 
 
 
