@@ -147,7 +147,7 @@ const Index = () => {
               {stats.map((s) => (
                 <div key={s.label} className="py-8 md:py-10 text-center">
                   <p className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight font-heading">{s.value}</p>
-                  <p className="text-[11px] text-muted-foreground mt-1 uppercase tracking-[0.1em] font-medium">{s.label}</p>
+                  <p className="text-[11px] text-foreground mt-1 uppercase tracking-[0.1em] font-bold">{s.label}</p>
                 </div>
               ))}
             </div>
