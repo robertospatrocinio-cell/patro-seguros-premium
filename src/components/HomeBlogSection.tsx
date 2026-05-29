@@ -25,6 +25,8 @@ const HomeBlogSection = memo(() => (
                 <OptimizedImage
                   src={getArticleImage(article.slug)}
                   alt={article.title}
+                  width={400}
+                  height={225}
                   className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
