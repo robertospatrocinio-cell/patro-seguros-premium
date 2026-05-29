@@ -217,7 +217,7 @@ const InsurancePageTemplate = ({
         ]}
       />
       <Header />
-      <main id="main-content">
+      <main id="main-content" className="outline-none">
         <Breadcrumb items={breadcrumbItems} />
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden min-h-[480px] md:min-h-[520px] flex items-center" aria-label={`${title} — cotação gratuita`}>
