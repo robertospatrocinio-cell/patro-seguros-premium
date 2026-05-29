@@ -3,14 +3,15 @@ import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-const Index = lazy(() => import("./pages/Index"));
-const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
+
+// Static import of critical home page to ensure it's available immediately
+import Index from "./pages/Index";
 
 // Lazy-loaded pages for code splitting
 const Sobre = lazy(() => import("./pages/Sobre"));
