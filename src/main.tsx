@@ -7,8 +7,6 @@ import { initWebVitals } from "./lib/webVitals";
 import PageSkeleton from "./components/PageSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
 
-console.log("Rendering application...");
-
 const rootElement = document.getElementById("root");
 
 if (rootElement) {
