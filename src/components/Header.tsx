@@ -260,7 +260,7 @@ const Header = memo(() => {
                  aria-label="Patro Seguros — Página inicial" 
                  onClick={() => window.scrollTo(0,0)}
                >
-                 <picture>
+                  <picture>
                     <source media="(max-width: 640px)" srcSet="/images/logo-full.webp" width="160" height="80" />
                        <img
                          src={logoFull}
