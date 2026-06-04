@@ -721,6 +721,223 @@ const MODELOS: ModeloSeed[] = [
     ],
     context: "A Ford é sinônimo de força e inovação constante. Em Guarulhos, modelos como a F-150, Ranger e Bronco são os destaques para quem busca performance sem limites, exigindo uma proteção sob medida."
   },
+  // === ONDA 1 — Modelos específicos (rotas pré-existentes em App.tsx) ===
+  {
+    slug: "seguro-corolla-guarulhos",
+    modelo: "Toyota Corolla",
+    modeloShort: "Corolla",
+    categoria: "sedan",
+    fipeRange: "R$ 80.000 a R$ 180.000",
+    priceRange: { min: 2400, max: 5500, label: "R$ 2.400 a R$ 5.500/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Sedan mais vendido do mundo, com revenda altíssima", "Versões híbridas (Altis Hybrid) com baixo consumo", "Confiabilidade Toyota e custo de manutenção previsível"],
+    cons: ["Modelo muito visado por roubo e furto em SP", "Versões topo (Altis Premium) com FIPE acima de R$ 170 mil", "Peças de versão híbrida com custo elevado de reposição"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "líder em aceitação do Corolla, com ampla rede de oficinas Toyota" },
+      { name: "Tokio Marine", reason: "subscrição preferencial para marca japonesa e versões híbridas" },
+      { name: "Allianz", reason: "preço competitivo em versões GLi e XEi com rastreador" },
+      { name: "Bradesco", reason: "boa franquia para Corolla 0km financiado em Guarulhos" }
+    ],
+    context: "O Toyota Corolla é o sedan mais cotado da Patro em Guarulhos. Por estar entre os carros mais visados na Grande SP, exige análise cuidadosa de CEP e perfil para encontrar a seguradora que precifica melhor o modelo."
+  },
+  {
+    slug: "seguro-civic-guarulhos",
+    modelo: "Honda Civic",
+    modeloShort: "Civic",
+    categoria: "sedan",
+    fipeRange: "R$ 70.000 a R$ 250.000",
+    priceRange: { min: 2600, max: 6800, label: "R$ 2.600 a R$ 6.800/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Esportividade e refinamento de cabine acima da média", "Versões híbridas e:HEV com economia expressiva", "Tradição Honda de durabilidade mecânica"],
+    cons: ["Type R e Si com prêmio elevado por perfil esportivo", "Modelo descontinuado no Brasil eleva custo de peças usadas", "Visado por desmanche, especialmente gerações 2016-2021"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "ampla aceitação para todas as gerações do Civic em Guarulhos" },
+      { name: "Tokio Marine", reason: "expertise em marcas japonesas e versões híbridas e:HEV" },
+      { name: "Allianz", reason: "condições competitivas para Civic LXR e Sport com garagem" },
+      { name: "HDI", reason: "preço agressivo para Civic geração 10ª em diante" }
+    ],
+    context: "O Honda Civic combina esportividade e refinamento e tem fãs fiéis em Guarulhos. A Patro identifica as seguradoras que melhor precificam cada geração — do EXL ao Type R."
+  },
+  {
+    slug: "seguro-hb20-guarulhos",
+    modelo: "Hyundai HB20",
+    modeloShort: "HB20",
+    categoria: "popular",
+    fipeRange: "R$ 50.000 a R$ 110.000",
+    priceRange: { min: 1800, max: 3800, label: "R$ 1.800 a R$ 3.800/ano" },
+    theftProfile: "alto",
+    pros: ["Um dos carros mais vendidos do Brasil, peças baratas e disponíveis", "Versões turbo (Platinum Plus) com bom desempenho", "Manutenção previsível e barata"],
+    cons: ["Entre os 3 modelos mais roubados em Guarulhos e SP", "Versões básicas exigem rastreador para aprovação", "Alta sinistralidade encarece o prêmio em CEPs de risco"],
+    bestInsurers: [
+      { name: "Azul Seguros", reason: "uma das melhores taxas para HB20 com rastreador em Guarulhos" },
+      { name: "Porto Seguro", reason: "aceitação ampla e rede de oficinas Hyundai" },
+      { name: "HDI", reason: "preço competitivo para condutor acima de 30 anos com garagem" },
+      { name: "Allianz", reason: "boas condições para HB20 0km financiado" }
+    ],
+    context: "O Hyundai HB20 é um dos carros mais cotados (e mais roubados) em Guarulhos. Por isso, rastreador costuma ser exigido, e a diferença de prêmio entre seguradoras pode passar de 60%."
+  },
+  {
+    slug: "seguro-onix-guarulhos",
+    modelo: "Chevrolet Onix",
+    modeloShort: "Onix",
+    categoria: "popular",
+    fipeRange: "R$ 55.000 a R$ 115.000",
+    priceRange: { min: 1900, max: 4000, label: "R$ 1.900 a R$ 4.000/ano" },
+    theftProfile: "alto",
+    pros: ["Carro mais vendido do Brasil em diversos anos", "Versão Plus (sedan) com bom espaço e revenda forte", "Rede Chevrolet ampla em Guarulhos para reparos"],
+    cons: ["Visado por desmanche, principal alvo em CEPs de risco", "Versões básicas (LT) recusadas sem rastreador em alguns CEPs", "Peças de carroceria com alta rotatividade em sinistros"],
+    bestInsurers: [
+      { name: "Azul Seguros", reason: "líder em preço para Onix com rastreador em Guarulhos" },
+      { name: "Porto Seguro", reason: "ampla aceitação e oficinas Chevrolet referenciadas" },
+      { name: "HDI", reason: "condições competitivas para condutor experiente com garagem" },
+      { name: "Bradesco", reason: "boa franquia para Onix Plus 0km financiado" }
+    ],
+    context: "O Chevrolet Onix lidera vendas no Brasil e também as estatísticas de roubo em SP. A Patro encontra a seguradora que precifica seu CEP e perfil sem inflar o prêmio."
+  },
+  {
+    slug: "seguro-tcross-guarulhos",
+    modelo: "Volkswagen T-Cross",
+    modeloShort: "T-Cross",
+    categoria: "suv",
+    fipeRange: "R$ 110.000 a R$ 180.000",
+    priceRange: { min: 2700, max: 5400, label: "R$ 2.700 a R$ 5.400/ano" },
+    theftProfile: "médio-alto",
+    pros: ["SUV compacto mais vendido do segmento", "Versão Highline com pacote tecnológico completo", "Posição de dirigir alta e bom espaço interno"],
+    cons: ["Modelo em alta nas estatísticas de roubo desde 2023", "Versões topo exigem rastreador na maioria dos CEPs de Guarulhos", "Manutenção VW levemente acima da média popular"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "aceitação preferencial e ampla rede VW em Guarulhos" },
+      { name: "Allianz", reason: "preço competitivo para versões Comfortline e Highline" },
+      { name: "Tokio Marine", reason: "boa subscrição para T-Cross em CEPs residenciais" },
+      { name: "HDI", reason: "agressivo em condutor 30+ com garagem e rastreador" }
+    ],
+    context: "O VW T-Cross é o SUV compacto mais visado da Patro em Guarulhos. Apesar do risco médio-alto, o comparativo entre 9 seguradoras costuma achar variação de até R$ 1.500/ano."
+  },
+  {
+    slug: "seguro-compass-guarulhos",
+    modelo: "Jeep Compass",
+    modeloShort: "Compass",
+    categoria: "suv",
+    fipeRange: "R$ 130.000 a R$ 260.000",
+    priceRange: { min: 3000, max: 7200, label: "R$ 3.000 a R$ 7.200/ano" },
+    theftProfile: "médio-alto",
+    pros: ["SUV médio mais vendido do Brasil há vários anos", "Versão híbrida (4xe) com benefícios fiscais", "Acabamento premium nas versões Limited e Trailhawk"],
+    cons: ["Versões 4xe e Trailhawk com FIPE acima de R$ 250 mil", "Visado em rotas para o aeroporto de Cumbica", "Peças de versão híbrida com custo elevado"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "líder em aceitação do Compass com rede Stellantis ampla" },
+      { name: "Allianz", reason: "subscrição preferencial para versões Limited e S" },
+      { name: "Tokio Marine", reason: "assistência 24h preparada para SUV de médio porte" },
+      { name: "Bradesco", reason: "boas condições para Compass 0km financiado" }
+    ],
+    context: "O Jeep Compass é o SUV médio mais cotado da Patro. Em Guarulhos, o CEP de pernoite (sobretudo na faixa Cumbica/aeroporto) é decisivo no preço final."
+  },
+  {
+    slug: "seguro-hilux-guarulhos",
+    modelo: "Toyota Hilux",
+    modeloShort: "Hilux",
+    categoria: "premium",
+    fipeRange: "R$ 150.000 a R$ 380.000",
+    priceRange: { min: 3200, max: 9500, label: "R$ 3.200 a R$ 9.500/ano" },
+    theftProfile: "alto",
+    pros: ["Caminhonete mais durável e revendida do Brasil", "Versão SRX e GR-S com performance premium", "Forte demanda em mercados internacionais"],
+    cons: ["Alvo número 1 para exportação ilegal pela Fernão Dias", "Rastreador obrigatório em praticamente todos os CEPs de Guarulhos", "Versões topo com FIPE acima de R$ 350 mil exigem proteção reforçada"],
+    bestInsurers: [
+      { name: "Tokio Marine", reason: "expertise reconhecida em caminhonetes Toyota e proteção contra roubo" },
+      { name: "Porto Seguro", reason: "ampla aceitação e rede de oficinas Toyota referenciadas" },
+      { name: "Allianz", reason: "condições agressivas para SRV e SRX com rastreador" },
+      { name: "Mapfre", reason: "boa aceitação para Hilux em uso rural/empresarial" }
+    ],
+    context: "A Toyota Hilux é a caminhonete mais visada de SP, especialmente em rotas para a Fernão Dias. Em Guarulhos, rastreador é praticamente obrigatório, e a Patro identifica as seguradoras que aceitam o modelo com franquia razoável."
+  },
+  {
+    slug: "seguro-strada-guarulhos",
+    modelo: "Fiat Strada",
+    modeloShort: "Strada",
+    categoria: "popular",
+    fipeRange: "R$ 80.000 a R$ 145.000",
+    priceRange: { min: 2100, max: 4400, label: "R$ 2.100 a R$ 4.400/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Picape compacta mais vendida do Brasil", "Versões Volcano e Ranch com bom acabamento", "Uso versátil: lazer, trabalho e PJ"],
+    cons: ["Visada por desmanche, especialmente versões cabine simples", "Uso comercial/PJ encarece o prêmio em algumas seguradoras", "Carroceria exposta aumenta risco de furto de carga"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "aceitação ampla e rede Fiat extensa em Guarulhos" },
+      { name: "Azul Seguros", reason: "preço competitivo para Strada com rastreador e garagem" },
+      { name: "HDI", reason: "boa subscrição para uso particular com condutor 30+" },
+      { name: "Allianz", reason: "condições especiais para Strada em uso PJ/empresarial" }
+    ],
+    context: "A Fiat Strada lidera vendas de picapes no Brasil e é muito comum em Guarulhos para uso de trabalho. A Patro identifica seguradoras que aceitam tanto uso particular quanto PJ sem inflar o prêmio."
+  },
+  {
+    slug: "seguro-renegade-guarulhos",
+    modelo: "Jeep Renegade",
+    modeloShort: "Renegade",
+    categoria: "suv",
+    fipeRange: "R$ 100.000 a R$ 175.000",
+    priceRange: { min: 2500, max: 5000, label: "R$ 2.500 a R$ 5.000/ano" },
+    theftProfile: "médio",
+    pros: ["SUV compacto com identidade Jeep e capacidade off-road real", "Versão Trailhawk com tração 4x4 efetiva", "Boa revenda e demanda no usado"],
+    cons: ["Versões topo com FIPE próximo de modelos médios", "Peças importadas em algumas versões 4x4 elevam custo de reparo", "Sinistralidade média em CEPs urbanos de Guarulhos"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "líder em aceitação de toda a linha Jeep em Guarulhos" },
+      { name: "Allianz", reason: "boa subscrição para Renegade Limited e Trailhawk" },
+      { name: "HDI", reason: "preço competitivo para condutor 35+ com garagem" },
+      { name: "Tokio Marine", reason: "assistência 24h adequada para uso urbano e estrada" }
+    ],
+    context: "O Jeep Renegade é uma das opções mais equilibradas em SUV compacto. Em Guarulhos, o perfil de risco é menor que o do Compass, o que costuma garantir prêmios mais convidativos."
+  },
+  {
+    slug: "seguro-mobi-guarulhos",
+    modelo: "Fiat Mobi",
+    modeloShort: "Mobi",
+    categoria: "popular",
+    fipeRange: "R$ 45.000 a R$ 75.000",
+    priceRange: { min: 1500, max: 3000, label: "R$ 1.500 a R$ 3.000/ano" },
+    theftProfile: "médio",
+    pros: ["Carro 0km mais barato do Brasil em diversos anos", "Consumo excelente e manutenção barata", "Ideal para uso urbano e primeiro carro"],
+    cons: ["FIPE baixa reduz o teto da indenização", "Versões básicas com pouca segurança ativa", "Cobertura compreensiva pode ser proporcionalmente cara"],
+    bestInsurers: [
+      { name: "Azul Seguros", reason: "uma das menores taxas para Mobi em Guarulhos" },
+      { name: "Porto Seguro", reason: "aceitação ampla e rede Fiat referenciada" },
+      { name: "HDI", reason: "preço agressivo para condutor 30+ com garagem" },
+      { name: "Mapfre", reason: "boa franquia para Mobi 0km financiado" }
+    ],
+    context: "O Fiat Mobi é a porta de entrada do mercado 0km. Em Guarulhos, vale comparar RCF-V vs. compreensivo — em alguns perfis, o compreensivo não compensa a diferença de prêmio."
+  },
+  {
+    slug: "seguro-auto-geely-guarulhos",
+    modelo: "Geely",
+    modeloShort: "Geely",
+    categoria: "suv",
+    fipeRange: "R$ 130.000 a R$ 320.000",
+    priceRange: { min: 2800, max: 7800, label: "R$ 2.800 a R$ 7.800/ano" },
+    theftProfile: "médio",
+    pros: ["Marca em expansão acelerada no Brasil com SUVs híbridos e EV", "Tecnologia embarcada acima da média do segmento", "Garantia de fábrica longa e custo de aquisição competitivo"],
+    cons: ["Rede de assistência ainda em consolidação no Brasil", "Peças importadas com prazo de reposição variável", "Algumas seguradoras ainda em fase de tabulação para a marca"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "aceitação confirmada para a linha EX5 e Geometry em Guarulhos" },
+      { name: "Allianz", reason: "subscrição aberta para SUVs Geely com perfil bom" },
+      { name: "Tokio Marine", reason: "experiência com marcas asiáticas e veículos eletrificados" },
+      { name: "HDI", reason: "condições competitivas para Geely 0km com rastreador" }
+    ],
+    context: "A Geely chega ao Brasil com força nos SUVs híbridos e elétricos. A Patro mapeia as seguradoras que já possuem tabela ativa para a marca, evitando recusas e preços inflados de subscrição manual."
+  },
+  {
+    slug: "seguro-bmw-motorrad-guarulhos",
+    modelo: "BMW Motorrad",
+    modeloShort: "BMW Motorrad",
+    categoria: "premium",
+    fipeRange: "R$ 45.000 a R$ 220.000",
+    priceRange: { min: 2200, max: 9500, label: "R$ 2.200 a R$ 9.500/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Linha GS é referência mundial em motos trail e big trail", "Engenharia alemã com tecnologia ABS Pro, ESA e quickshifter", "Forte clube de proprietários e suporte BMW Motorrad em SP"],
+    cons: ["FIPE elevado em F 900 GS, R 1300 GS e linha M 1000", "Peças e revisão BMW Motorrad com custo premium", "Uso esportivo em pista exige cláusula específica"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "subscrição preferencial para toda linha BMW Motorrad" },
+      { name: "Allianz", reason: "expertise em motos premium com cobertura de equipamentos" },
+      { name: "Tokio Marine", reason: "assistência 24h preparada para big trails em viagem" },
+      { name: "HDI", reason: "boas condições para condutor 30+ com garagem e habilitação A definitiva" }
+    ],
+    context: "BMW Motorrad é a referência em motos premium no Brasil — da G 310 GS até a R 1300 GS Adventure. A Patro cota com seguradoras que aceitam motos importadas e oferecem cobertura para acessórios e equipamento do piloto."
+  },
 ];
 
 
