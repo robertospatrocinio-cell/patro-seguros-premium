@@ -162,6 +162,44 @@ export const landingPagesData: Record<string, LandingPageContent> = {
     icon: "🚗",
     detailedDescription: "Quem trabalha no volante precisa de proteção extra. Nosso seguro para motorista de aplicativo inclui a cobertura APP (Acidentes Pessoais a Passageiros), essencial para operar nas plataformas.\n\nOferecemos coberturas para roubo, colisão, danos a terceiros e assistência 24h com guincho e carro reserva, garantindo que seu instrumento de trabalho esteja sempre protegido.",
   },
+  "seguro-de-vida-para-socios": {
+    title: "Seguro de Vida para Sócios (Buy-Sell)",
+    description: "Seguro de vida societário (buy-sell) para sócios de empresas. Protege a continuidade do negócio garantindo capital para recompra de quotas em caso de falecimento ou invalidez de um sócio.",
+    metaDescription: "Seguro de vida para sócios em Guarulhos: capital para recompra de quotas (buy-sell), continuidade societária e proteção patrimonial. Cotação Patro Seguros.",
+    heroImage: "/images/hero-home.webp",
+    insuranceType: "vida",
+    icon: "🤝",
+    detailedDescription: "O seguro de vida para sócios — conhecido no mercado como apólice buy-sell ou key-person — é o instrumento financeiro que garante a continuidade da sociedade quando um dos sócios falece ou se torna inválido permanentemente. Sem essa apólice, os herdeiros ingressam automaticamente na empresa, o que costuma gerar conflitos de gestão, paralisação de decisões estratégicas e, no limite, dissolução da sociedade.\n\nNa estrutura buy-sell, o capital segurado é dimensionado pelo valor justo de cada quota societária (avaliação contábil + ágio de mercado). Em caso de sinistro, a indenização é direcionada aos sócios remanescentes, que utilizam o capital para recomprar formalmente a participação do sócio falecido junto aos herdeiros — preservando o controle, o caixa e a operação.\n\nA Patro Seguros estrutura apólices de vida societária para PMEs de Guarulhos e região, combinando capital por morte, capital por invalidez total e permanente, doenças graves e, opcionalmente, despesas médicas hospitalares. A modelagem é feita junto ao contador e ao advogado da empresa para garantir aderência ao contrato social e ao acordo de sócios.",
+    whoNeeds: [
+      "Sociedades limitadas (Ltda) com 2 ou mais sócios ativos",
+      "Sociedades por ações (S.A.) de capital fechado",
+      "Empresas familiares onde a saída de um sócio comprometeria a gestão",
+      "Holdings patrimoniais e empresas com cláusulas de acordo de sócios",
+      "PMEs com sócios-chave responsáveis por receita ou know-how operacional",
+    ],
+    whyPatro: [
+      "Estruturação técnica em parceria com contador e advogado da empresa",
+      "Comparativo entre Prudential, Icatu, MetLife, Bradesco Vida, Mongeral e Porto Vida",
+      "Análise atuarial do capital segurado por sócio",
+      "Cláusula buy-sell sincronizada com o contrato social",
+      "Revisão anual da apólice conforme valuation da empresa",
+    ],
+    coverages: [
+      { title: "Morte por Qualquer Causa", description: "Capital integral pago aos sócios remanescentes (ou à empresa, conforme estrutura) para recompra das quotas do sócio falecido." },
+      { title: "Invalidez Total e Permanente (IPA/IPD)", description: "Antecipação do capital em caso de invalidez permanente que impeça o sócio de exercer atividades empresariais." },
+      { title: "Doenças Graves", description: "Adiantamento de parte do capital em caso de diagnóstico de câncer, AVC, infarto e outras doenças graves cobertas." },
+      { title: "Capital Indexado por Sócio", description: "Cada sócio tem capital proporcional à sua participação societária e ao valor justo das quotas." },
+      { title: "Renovação Anual com Revisão de Valuation", description: "Atualização do capital segurado conforme novo valuation da empresa, mantendo a apólice aderente à realidade societária." },
+    ],
+    faqs: [
+      { question: "O que é seguro de vida para sócios (buy-sell)?", answer: "É uma apólice de vida em grupo contratada pela empresa em nome dos sócios, com capital dimensionado para recompra das quotas em caso de morte ou invalidez. Garante que a empresa não precise vender ativos ou se endividar para honrar a saída do sócio." },
+      { question: "Quem recebe a indenização: a empresa ou os herdeiros?", answer: "Depende da modelagem. No formato 'cross-purchase', cada sócio é beneficiário dos demais e usa o capital para recomprar as quotas. No formato 'entity redemption', a empresa é beneficiária e recompra as quotas diretamente. A Patro orienta qual estrutura faz mais sentido para o contrato social." },
+      { question: "Como é calculado o capital segurado?", answer: "Pelo valor justo das quotas de cada sócio: valuation contábil (patrimônio líquido) ajustado por múltiplos de mercado (EBITDA, faturamento) e ágio do negócio. Recomenda-se revisão anual junto ao contador da empresa." },
+      { question: "A apólice precisa estar prevista no contrato social?", answer: "Não é obrigatório, mas é altamente recomendado. O acordo de sócios deve mencionar a apólice buy-sell e o procedimento de recompra, evitando disputas com herdeiros e dando força jurídica à operação." },
+      { question: "Tem benefício fiscal para a empresa?", answer: "O prêmio pode ser deduzido como despesa operacional quando a empresa é a contratante e beneficiária (entity redemption), respeitando os limites da legislação. A Patro orienta o enquadramento junto ao contador." },
+      { question: "Quais seguradoras a Patro compara para apólices de sócios?", answer: "Prudential, Icatu, MetLife, Bradesco Vida e Previdência, Mongeral Aegon, Porto Vida e SulAmérica Vida. Cada uma tem apetite e precificação diferente para capital elevado e perfis de sócios — o comparativo costuma encontrar variação superior a 30%." },
+    ],
+  },
 };
 
 
