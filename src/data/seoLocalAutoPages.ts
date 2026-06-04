@@ -1621,6 +1621,7 @@ interface CitySeed {
   priceRange: string;
   context: string;
   highlights: string[];
+  metaCity?: string;
 }
 
 type LocalRiskLevel = "baixo" | "médio" | "médio-alto" | "alto";
