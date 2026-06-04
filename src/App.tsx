@@ -454,6 +454,19 @@ const App = () => {
             <Route path="/seguro-moto-bmw-guarulhos" element={<SeoLocalPage slug="seguro-moto-bmw-guarulhos" />} />
             <Route path="/seguro-bmw-motorrad-guarulhos" element={<SeoLocalPage slug="seguro-bmw-motorrad-guarulhos" />} />
             <Route path="/seguro-de-vida-para-socios" element={<DynamicLandingPage slug="seguro-de-vida-para-socios" />} />
+            {/* Ondas 2-3: cidades Grande SP, ABC, Oeste (atendimento remoto) */}
+            <Route path="/seguro-auto-aruja" element={<SeoLocalPage slug="seguro-auto-aruja" />} />
+            <Route path="/seguro-auto-mairipora" element={<SeoLocalPage slug="seguro-auto-mairipora" />} />
+            <Route path="/seguro-auto-itaquaquecetuba" element={<SeoLocalPage slug="seguro-auto-itaquaquecetuba" />} />
+            <Route path="/seguro-auto-suzano" element={<SeoLocalPage slug="seguro-auto-suzano" />} />
+            <Route path="/seguro-auto-poa" element={<SeoLocalPage slug="seguro-auto-poa" />} />
+            <Route path="/seguro-auto-ferraz-de-vasconcelos" element={<SeoLocalPage slug="seguro-auto-ferraz-de-vasconcelos" />} />
+            <Route path="/seguro-auto-santo-andre" element={<SeoLocalPage slug="seguro-auto-santo-andre" />} />
+            <Route path="/seguro-auto-sao-bernardo-do-campo" element={<SeoLocalPage slug="seguro-auto-sao-bernardo-do-campo" />} />
+            <Route path="/seguro-auto-sao-caetano-do-sul" element={<SeoLocalPage slug="seguro-auto-sao-caetano-do-sul" />} />
+            <Route path="/seguro-auto-osasco" element={<SeoLocalPage slug="seguro-auto-osasco" />} />
+            <Route path="/seguro-auto-barueri" element={<SeoLocalPage slug="seguro-auto-barueri" />} />
+            <Route path="/seguro-auto-alphaville" element={<SeoLocalPage slug="seguro-auto-alphaville" />} />
             <Route path="/seguro-auto-audi-guarulhos" element={<SeoLocalPage slug="seguro-auto-audi-guarulhos" />} />
             <Route path="/seguro-auto-byd-guarulhos" element={<SeoLocalPage slug="seguro-auto-byd-guarulhos" />} />
             <Route path="/seguro-auto-geely-guarulhos" element={<SeoLocalPage slug="seguro-auto-geely-guarulhos" />} />
