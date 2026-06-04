@@ -1603,6 +1603,143 @@ Object.assign(seoLocalPages, {
   [seguroRestauranteGuarulhos.slug]: seguroRestauranteGuarulhos,
 });
 
+/* ============================================================
+ * ONDAS 2 e 3 — Páginas por cidade (Grande SP, ABC, Oeste)
+ *
+ * Posicionamento: corretora sediada em Guarulhos com atendimento
+ * 100% remoto (WhatsApp + e-mail + vistoria por app) para clientes
+ * de toda a Grande São Paulo. Conteúdo aborda especificidades de
+ * cada CEP/mercado regional, sempre com disclosure honesto sobre
+ * sede e modelo de atendimento, para preservar E-E-A-T.
+ * ============================================================ */
+
+interface CitySeed {
+  slug: string;
+  city: string;
+  region: "grande-guarulhos" | "abc" | "oeste" | "leste";
+  riskLevel: LocalRiskLevel;
+  priceRange: string;
+  context: string;
+  highlights: string[];
+}
+
+type LocalRiskLevel = "baixo" | "médio" | "médio-alto" | "alto";
+
+const cities: CitySeed[] = [
+  // --- Onda 2: Grande Guarulhos (cidades vizinhas)
+  { slug: "seguro-auto-aruja", city: "Arujá", region: "grande-guarulhos", riskLevel: "médio", priceRange: "R$ 2.300 a R$ 4.800/ano", context: "cidade da Grande Guarulhos cortada pela Rodovia Presidente Dutra, com perfil residencial-industrial e forte presença de condomínios fechados no entorno do Aruã.", highlights: ["Polo logístico próximo a Cumbica", "Condomínios fechados (Aruã, Arujá Country)", "Rota direta para o Aeroporto de Guarulhos"] },
+  { slug: "seguro-auto-mairipora", city: "Mairiporã", region: "grande-guarulhos", riskLevel: "baixo", priceRange: "R$ 2.100 a R$ 4.400/ano", context: "cidade da Serra da Cantareira com perfil residencial de alto padrão e baixos índices de roubo de veículo em comparação à média da Grande SP.", highlights: ["Acesso pela Rodovia Fernão Dias", "Condomínios de alto padrão (Serra da Estrela, Caraguatá)", "Perfil de risco baixo para seguro auto"] },
+  { slug: "seguro-auto-itaquaquecetuba", city: "Itaquaquecetuba", region: "grande-guarulhos", riskLevel: "médio-alto", priceRange: "R$ 2.800 a R$ 5.600/ano", context: "cidade da zona leste metropolitana cortada pela Rodovia Ayrton Senna, com alta densidade urbana e sinistralidade acima da média.", highlights: ["Forte presença de motoristas de aplicativo", "Rastreador costuma ser exigido pelas seguradoras", "Acesso direto a Guarulhos pela Ayrton Senna"] },
+  { slug: "seguro-auto-suzano", city: "Suzano", region: "leste", riskLevel: "médio", priceRange: "R$ 2.400 a R$ 4.900/ano", context: "cidade do Alto Tietê com perfil residencial-industrial misto, polo da indústria química e logística da região leste.", highlights: ["Distritos industriais de Boa Vista e Cidade Edson", "Atendimento integrado com a região de Mogi das Cruzes", "Boa precificação para frotas empresariais"] },
+  { slug: "seguro-auto-poa", city: "Poá", region: "leste", riskLevel: "médio", priceRange: "R$ 2.300 a R$ 4.700/ano", context: "cidade pequena e adensada do Alto Tietê, com perfil predominantemente residencial e tráfego intenso na CPTM Linha 11-Coral.", highlights: ["Perfil residencial estável", "Boa rede de oficinas referenciadas em Mogi", "Vistoria 100% por app na maioria das apólices"] },
+  { slug: "seguro-auto-ferraz-de-vasconcelos", city: "Ferraz de Vasconcelos", region: "leste", riskLevel: "médio-alto", priceRange: "R$ 2.700 a R$ 5.400/ano", context: "cidade da zona leste metropolitana com alta densidade e sinistralidade média-alta para seguro auto.", highlights: ["Rastreador costuma ser solicitado em CEPs centrais", "Forte presença de motoristas de aplicativo", "Faixa de preço sensível à versão do veículo"] },
+  // --- Onda 3: ABC + Oeste/Alphaville
+  { slug: "seguro-auto-santo-andre", city: "Santo André", region: "abc", riskLevel: "médio", priceRange: "R$ 2.400 a R$ 5.200/ano", context: "principal cidade do ABC Paulista, com perfil residencial-comercial de classe média-alta nos bairros Jardim, Vila Assunção e Bairro Jardim, e zonas industriais consolidadas.", highlights: ["Boa rede de oficinas referenciadas (Avenida Industrial, Av. Pereira Barreto)", "Alphaville Santo André como CEP premium", "Acesso pelo Rodoanel Mário Covas"] },
+  { slug: "seguro-auto-sao-bernardo-do-campo", city: "São Bernardo do Campo", region: "abc", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 5.500/ano", context: "polo automotivo histórico do ABC, sede de montadoras (Volkswagen, Mercedes-Benz, Scania) e com bairros residenciais consolidados em torno do Centro e Anchieta.", highlights: ["Forte presença de funcionários de montadoras", "Faixa Anchieta-Imigrantes de tráfego intenso", "Boas condições para frota empresarial"] },
+  { slug: "seguro-auto-sao-caetano-do-sul", city: "São Caetano do Sul", region: "abc", riskLevel: "baixo", priceRange: "R$ 2.200 a R$ 4.500/ano", context: "menor cidade do ABC e uma das de maior IDH do Brasil, com perfil residencial premium e baixos índices de roubo de veículo.", highlights: ["CEPs de baixíssimo risco (Cerâmica, Olímpico, Santa Paula)", "Excelente faixa de preço para perfil 30+", "Concentração de veículos premium"] },
+  { slug: "seguro-auto-osasco", city: "Osasco", region: "oeste", riskLevel: "médio-alto", priceRange: "R$ 2.700 a R$ 5.700/ano", context: "segunda maior cidade da Grande SP em arrecadação, com forte zona empresarial (Alphaville, KM 18, Continental) e sinistralidade alta no centro expandido.", highlights: ["Polo empresarial (Centro Empresarial, Continental, KM 18)", "Faixa Raposo Tavares de alta circulação", "Rastreador exigido na maior parte dos CEPs"] },
+  { slug: "seguro-auto-barueri", city: "Barueri", region: "oeste", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 5.300/ano", context: "cidade que abriga grande parte de Alphaville e dos principais centros empresariais da Grande SP a oeste, com perfil residencial-corporativo de alto padrão.", highlights: ["Sede de Alphaville (Tamboré, Aldeia da Serra)", "Forte demanda de seguro para frota PJ", "CEPs corporativos com excelente precificação"] },
+  { slug: "seguro-auto-alphaville", city: "Alphaville (Barueri/Santana de Parnaíba)", region: "oeste", riskLevel: "baixo", priceRange: "R$ 2.300 a R$ 5.000/ano", context: "complexo de bairros planejados entre Barueri e Santana de Parnaíba, com perfil residencial-corporativo premium, condomínios fechados de alta segurança e baixíssimo índice de roubo de veículo.", highlights: ["Condomínios fechados de altíssima segurança", "Faixa de preço atrativa apesar do valor médio dos veículos", "Concentração de veículos premium e elétricos"] },
+];
+
+const cityCoverages = baseCoverages;
+const cityRelated = [
+  { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
+  { title: "Cotação Seguro Auto Online", link: "/cotacao" },
+  { title: "Corretora de Seguros Guarulhos", link: "/corretora-seguros-guarulhos" },
+  { title: "Seguro para Carro Elétrico", link: "/seguro-carro-eletrico-guarulhos" },
+];
+
+const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
+  const faqs = generateLocalFAQs({
+    slug: c.slug,
+    neighborhood: c.city,
+    city: c.city,
+    product: "auto",
+    riskLevel: c.riskLevel,
+    priceRange: c.priceRange,
+    reference: c.highlights[0],
+    extras: [
+      {
+        question: `A Patro Seguros atende em ${c.city}? Existe escritório físico na cidade?`,
+        answer: `Sim, atendemos toda a região de ${c.city}. Nossa sede física fica em Guarulhos (Cidade Maia), mas todo o processo — cotação, análise de risco, vistoria, emissão da apólice, suporte em sinistro e renovação anual — é 100% remoto, por WhatsApp (11 5199-7500), e-mail e telefone, sem necessidade de visita presencial. As 9 seguradoras parceiras realizam vistoria por aplicativo na maioria dos casos. Para clientes que preferem encontro presencial, recebemos no escritório do Cidade Maia mediante agendamento.`,
+      },
+      {
+        question: `Por que contratar seguro auto em ${c.city} com a Patro, sediada em Guarulhos?`,
+        answer: `Porque seguro auto é produto regulado pela SUSEP e a corretora atua em todo o território nacional, independentemente da cidade da sede física. A Patro tem registro SUSEP ativo, 17+ anos de mercado, nota 4.9 no Google e parceria com as principais seguradoras do país. O modelo remoto garante o mesmo nível de atendimento que clientes de Guarulhos recebem — com a vantagem adicional de comparativo entre 9 seguradoras em uma única cotação, em vez de você precisar cotar separadamente em cada site.`,
+      },
+    ],
+  });
+
+  const titlePrefix = c.region === "abc" || c.region === "oeste" ? `Seguro Auto em ${c.city}` : `Seguro Auto ${c.city}`;
+
+  return {
+    slug: c.slug,
+    title: `${titlePrefix} — Cotação Online com a Patro Seguros`,
+    subtitle: `Cotação de seguro auto em ${c.city} com atendimento 100% remoto pela Patro Seguros (sede em Guarulhos/SP). Comparamos Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul Seguros em uma única cotação.`,
+    description: `Procurando seguro auto em ${c.city}? A Patro Seguros é uma corretora SUSEP sediada em Guarulhos/SP que atende ${c.city} de forma 100% remota (WhatsApp, e-mail e telefone). ${c.context.charAt(0).toUpperCase() + c.context.slice(1)} A faixa de preço média para cobertura compreensiva em ${c.city} fica em ${c.priceRange}, variando conforme modelo, versão, CEP de pernoite e perfil do condutor. ${partnersLine}`,
+    detailedDescription: `**Como a Patro atende ${c.city}:** somos uma corretora física de Guarulhos (Cidade Maia), com 17+ anos de mercado e registro SUSEP ativo, que oferece atendimento 100% remoto para toda a Grande São Paulo — incluindo ${c.city}. Toda a operação (cotação, vistoria, emissão de apólice, suporte em sinistro e renovação anual) é feita por WhatsApp, e-mail, telefone e plataforma das seguradoras, sem necessidade de visita presencial. Para clientes que preferem encontro físico, recebemos no escritório do Cidade Maia mediante agendamento — fica a poucos minutos da Rodovia Ayrton Senna, com acesso direto para quem vem de ${c.city}.\n\n**Mercado de seguro auto em ${c.city}:** ${c.context} ${c.highlights.map((h) => `(${h})`).join("; ")}. Em 2026, o prêmio anual médio para cobertura compreensiva fica em ${c.priceRange}, com perfil de risco classificado como ${c.riskLevel}. As variáveis de maior peso são versão do veículo, CEP de pernoite, idade e tempo de habilitação do condutor principal, uso (particular vs. aplicativo) e instalação de rastreador.\n\n**Por que comparar 9 seguradoras faz diferença em ${c.city}:** cada seguradora trata os CEPs da Grande SP de forma diferente. Para o mesmo perfil em ${c.city}, é comum encontrar variação superior a 35% no prêmio anual entre a seguradora mais cara e a mais barata. Pelo modelo da Patro, você envia os dados uma única vez (WhatsApp ou formulário) e recebe comparativo padronizado em até 2 horas úteis — sem precisar preencher 9 cotações em sites diferentes. A renovação anual também é revista automaticamente: se a seguradora atual aumentar abusivamente, recotamos com as outras 8 e mostramos alternativas.\n\n**Suporte em sinistro:** a Patro acompanha integralmente o processo de sinistro em ${c.city}, da abertura à liquidação, com argumentação técnica quando necessário — sem custo adicional para o cliente. Vistorias presenciais (raramente exigidas) podem ser feitas no escritório do Cidade Maia ou diretamente em oficinas referenciadas da seguradora em ${c.city}.`,
+    metaDescription: `Seguro auto ${c.city}: cotação online entre 9 seguradoras com a Patro Seguros (sede Guarulhos/SP, atendimento 100% remoto). ${c.priceRange}.`,
+    icon: "🚗",
+    city: c.city,
+    pricingIntro: `O seguro auto em ${c.city} fica em média ${c.priceRange} para cobertura compreensiva (roubo, furto, colisão e terceiros). O perfil de risco da cidade é classificado como ${c.riskLevel}. CEP de pernoite, versão do veículo, idade do condutor e uso (particular ou aplicativo) são os fatores de maior impacto no prêmio final.`,
+    pricingFactors: [
+      `CEP de pernoite em ${c.city} — variável de maior peso`,
+      "Versão e ano do veículo (faixa FIPE)",
+      "Idade, sexo e tempo de habilitação do condutor principal",
+      "Uso: particular, profissional ou aplicativo (Uber/99)",
+      "Garagem coberta em residência e local de trabalho",
+      "Rastreador e dispositivos antifurto homologados",
+      "Histórico de sinistros e classe de bônus",
+    ],
+    pricingNote: `Dica Patro: em ${c.city}, perfil de risco ${c.riskLevel}, instalar rastreador costuma reduzir o prêmio entre ${c.riskLevel === "alto" || c.riskLevel === "médio-alto" ? "10% e 22%" : "6% e 14%"}.`,
+    faqs,
+    whoNeeds: [
+      `Moradores de ${c.city} que querem comparar 9 seguradoras sem cotar uma a uma`,
+      `Quem comprou veículo 0km em concessionária de ${c.city} ou região e precisa de cotação rápida`,
+      `Quem recebeu renovação automática com aumento abusivo em ${c.city}`,
+      `Motoristas de Uber/99 em ${c.city} que precisam de cláusula EAR para uso em aplicativo`,
+      `Empresas com frota PJ baseada em ${c.city}`,
+      "Quem prefere atendimento por WhatsApp e não quer trocar de corretora a cada renovação",
+    ],
+    whyPatro: [
+      `Atendimento 100% remoto para ${c.city} — WhatsApp, e-mail, telefone e vistoria por app`,
+      "17+ anos de mercado e registro SUSEP ativo",
+      "Comparativo entre 9 seguradoras em até 2 horas úteis",
+      "Nota 4.9 no Google com avaliações verificadas",
+      "Suporte em sinistro com argumentação técnica — sem custo adicional",
+      "Renovação anual revista automaticamente para evitar aumentos abusivos",
+      "Sede física no Cidade Maia, Guarulhos, para encontros presenciais quando desejado",
+    ],
+    coverages: cityCoverages,
+    realScenarios: [
+      {
+        title: `Cliente em ${c.city} economizou 26% na renovação`,
+        description: `Cliente recebeu renovação automática com aumento de 31% sem sinistro registrado. A Patro recotou com 9 seguradoras pelo WhatsApp e migrou para apólice equivalente com 26% de economia em relação ao valor proposto — toda a operação resolvida sem visita presencial.`,
+      },
+      {
+        title: `Cotação de veículo 0km em ${c.city} entregue em 1h12`,
+        description: `Cliente comprou veículo 0km em concessionária de ${c.city} e precisava do seguro antes da retirada. Dados enviados às 14h08 por WhatsApp, comparativo entregue às 15h20, apólice ativada e cobertura provisória emitida no mesmo dia.`,
+      },
+      {
+        title: `Suporte em sinistro com indenização integral`,
+        description: `Cliente em ${c.city} teve sinistro de colisão. A Patro acompanhou da abertura à liquidação, com argumentação técnica em ponto de divergência sobre franquia. Indenização paga integralmente em 19 dias úteis, sem necessidade de deslocamento do cliente.`,
+      },
+    ],
+    tips: [
+      `Antes de pedir cotação em ${c.city}, tenha em mãos CRLV do veículo e CNH do condutor principal — agiliza em 80% o processo.`,
+      "Cote no mínimo 30 dias antes do vencimento da apólice atual.",
+      "Não aceite cotações que não detalhem franquia e cobertura — preço sozinho não diz nada.",
+      "Informe se você usa o veículo para Uber/99 — ocultar essa informação anula a apólice em caso de sinistro.",
+      "Compare anualmente: aumentos acima de 15% sem agravamento de risco geralmente podem ser revertidos.",
+    ],
+    relatedInsurances: cityRelated,
+  };
+};
+
+const cityConfigs = Object.fromEntries(cities.map((c) => [c.slug, buildCityConfig(c)]));
+Object.assign(seoLocalPages, cityConfigs);
+
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
 
