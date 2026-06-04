@@ -2,8 +2,13 @@ import { useParams, Navigate } from "react-router-dom";
 import { landingPagesData } from "@/data/landingPages";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 
-const DynamicLandingPage = () => {
-  const { slug } = useParams();
+interface DynamicLandingPageProps {
+  slug?: string;
+}
+
+const DynamicLandingPage = ({ slug: slugProp }: DynamicLandingPageProps = {}) => {
+  const params = useParams();
+  const slug = slugProp ?? params.slug;
   const pageData = slug ? landingPagesData[slug] : null;
 
   if (!pageData) {
