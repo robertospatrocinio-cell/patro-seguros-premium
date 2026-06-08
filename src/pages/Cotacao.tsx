@@ -149,12 +149,17 @@ const Cotacao = () => {
     [partialId]
   );
 
-  // Save progress only on Blur (end of field interaction) to avoid incremental re-renders
-  const handleFieldBlur = useCallback(() => {
-    const values = form.getValues();
-    localStorage.setItem("cotacao_progress", JSON.stringify({ values, step }));
-    if (values.name || values.phone || values.email) {
-      saveToCloud(values, step);
+  // Improved saving logic: update local immediately, cloud with debounce per field
+  const handleFieldBlur = useCallback((fieldName: string, value: any) => {
+    const currentValues = form.getValues();
+    const updatedValues = { ...currentValues, [fieldName]: value };
+    
+    // Immediate local save
+    localStorage.setItem("cotacao_progress", JSON.stringify({ values: updatedValues, step }));
+    
+    // Cloud save if we have enough identifying info
+    if (updatedValues.name || updatedValues.phone || updatedValues.email) {
+      saveToCloud(updatedValues, step);
     }
   }, [form, step, saveToCloud]);
 
