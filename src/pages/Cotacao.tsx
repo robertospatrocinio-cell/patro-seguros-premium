@@ -29,7 +29,31 @@ const formSchema = z.object({
 const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Handle magic link resumption
+  useEffect(() => {
+    const resumeData = searchParams.get("resume");
+    if (resumeData) {
+      try {
+        const decoded = JSON.parse(atob(resumeData));
+        if (decoded && decoded.values) {
+          Object.keys(decoded.values).forEach((key) => {
+            form.setValue(key as any, decoded.values[key]);
+          });
+          if (decoded.step) setStep(decoded.step);
+          
+          // Clear param from URL after loading
+          searchParams.delete("resume");
+          setSearchParams(searchParams);
+          
+          toast.success("Progresso retomado via link!");
+        }
+      } catch (e) {
+        console.error("Error decoding resume link", e);
+      }
+    }
+  }, [searchParams]);
 
   const VALID_TYPES = ["auto","vida","residencial","viagem","saude","empresarial","frota","rc","outros", "planos-de-saude", "agronegocio", "seguro-celular", "seguro-transporte", "seguro-fianca"] as const;
   const tipoParam = (searchParams.get("tipo") || "").toLowerCase();
@@ -384,6 +408,22 @@ const Cotacao = () => {
                           />
 
                           <div className="pt-4 flex flex-col gap-4">
+                            <Button 
+                              type="button" 
+                              variant="outline" 
+                              size="sm"
+                              className="w-full text-xs font-medium border-dashed text-slate-500"
+                              onClick={() => {
+                                const values = form.getValues();
+                                const resumeLink = `${window.location.origin}${window.location.pathname}?resume=${btoa(JSON.stringify({ values, step }))}`;
+                                const waLink = `https://wa.me/?text=${encodeURIComponent(`Aqui está o link para você retomar sua cotação na Patro Seguros: ${resumeLink}`)}`;
+                                window.open(waLink, "_blank");
+                                toast.success("Link de retomada enviado para o WhatsApp!");
+                              }}
+                            >
+                              Enviar link para continuar no WhatsApp
+                            </Button>
+
                             <Button type="submit" size="lg" className="w-full h-14 text-lg font-bold shadow-xl shadow-primary/20" disabled={isSubmitting}>
                               {isSubmitting ? "Enviando..." : "Receber Cotação no WhatsApp"}
                             </Button>
