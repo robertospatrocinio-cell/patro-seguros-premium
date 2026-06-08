@@ -36,6 +36,9 @@ const BlogArticle = () => {
   const { slug } = useParams();
   const [articleContent, setArticleContent] = useState<any>(null);
   const variant = useABTest(`blog_cta_${slug || 'default'}`);
+
+  // Cache em memória para evitar re-imports
+  const [cachedContent] = useState<Record<string, any>>({});
   
   useEffect(() => {
     if (slug) {
