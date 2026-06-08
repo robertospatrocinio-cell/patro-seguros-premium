@@ -282,7 +282,21 @@ const Cotacao = () => {
                               <FormItem>
                                 <FormLabel className="text-slate-700 font-semibold">WhatsApp</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="(11) 99999-9999" className="h-12 bg-slate-50" {...field} />
+                                  <InputMask
+                                    mask="(99) 99999-9999"
+                                    value={field.value}
+                                    onChange={field.onChange}
+                                    onBlur={field.onBlur}
+                                  >
+                                    {/* @ts-ignore */}
+                                    {(inputProps: any) => (
+                                      <Input 
+                                        {...inputProps}
+                                        placeholder="(11) 99999-9999" 
+                                        className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" 
+                                      />
+                                    )}
+                                  </InputMask>
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -296,7 +310,14 @@ const Cotacao = () => {
                               <FormItem>
                                 <FormLabel className="text-slate-700 font-semibold">E-mail</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="seu@email.com" className="h-12 bg-slate-50" {...field} />
+                                  <Input 
+                                    placeholder="seu@email.com" 
+                                    className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" 
+                                    {...field} 
+                                    onChange={(e) => {
+                                      field.onChange(e.target.value.toLowerCase().trim());
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
