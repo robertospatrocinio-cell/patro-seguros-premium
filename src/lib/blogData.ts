@@ -14,6 +14,16 @@ export interface BlogArticleMeta {
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
   { 
+    slug: "seguro-vida-resgatavel-vale-a-pena-patrimonio", 
+    title: "Seguro de Vida Resgatável Vale a Pena? Como Proteger seu Patrimônio", 
+    excerpt: "Entenda a diferença entre o seguro de vida tradicional e o resgatável. Descubra se essa modalidade é o investimento certo para sua família.", 
+    category: "Seguro Vida", 
+    tags: ["seguro de vida", "investimentos", "planejamento financeiro", "sucessão patrimonial"], 
+    author: "Sandra Patro", 
+    date: "2026-06-08", 
+    readTime: 11 
+  },
+  { 
     slug: "seguro-empresarial-reduzir-turnover-funcionarios", 
     title: "Como o Seguro Empresarial pode reduzir o turnover de funcionários", 
     excerpt: "Descubra como benefícios corporativos e um ambiente seguro podem reter talentos e diminuir a rotatividade na sua empresa.", 
