@@ -376,9 +376,9 @@ const Cotacao = () => {
                                     placeholder="Digite seu nome" 
                                     className="h-12 bg-slate-50" 
                                     {...field} 
-                                    onBlur={() => {
+                                    onBlur={(e) => {
                                       field.onBlur();
-                                      handleFieldBlur();
+                                      handleFieldBlur("name", e.target.value);
                                     }}
                                   />
                                 </FormControl>
@@ -398,9 +398,9 @@ const Cotacao = () => {
                                     mask="(99) 99999-9999"
                                     value={field.value}
                                     onChange={field.onChange}
-                                    onBlur={() => {
+                                    onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                                       field.onBlur();
-                                      handleFieldBlur();
+                                      handleFieldBlur("phone", e.target.value);
                                     }}
                                   >
                                     {/* @ts-ignore */}
@@ -432,9 +432,9 @@ const Cotacao = () => {
                                     onChange={(e) => {
                                       field.onChange(e.target.value.toLowerCase().trim());
                                     }}
-                                    onBlur={() => {
+                                    onBlur={(e) => {
                                       field.onBlur();
-                                      handleFieldBlur();
+                                      handleFieldBlur("email", e.target.value);
                                     }}
                                   />
                                 </FormControl>
