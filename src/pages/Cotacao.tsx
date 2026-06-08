@@ -175,7 +175,20 @@ const Cotacao = () => {
     if (step === 2) fields = ["name", "email", "phone"];
     
     const isValid = await form.trigger(fields);
-    if (isValid) setStep(step + 1);
+    if (isValid) {
+      const next = step + 1;
+      setStep(next);
+      
+      // Log step progression in history
+      if (partialId) {
+        const values = form.getValues();
+        await supabase.from("lead_quote_history").insert({
+          partial_quote_id: partialId,
+          step_reached: next,
+          snapshot: values
+        });
+      }
+    }
   };
 
   const prevStep = () => setStep(step - 1);
