@@ -14,28 +14,28 @@ export const extraFaqsBySlug: Record<string, any> = {
     ]
   },
   "crescimento-frotas-comerciais-guarulhos-logistica-2026": {
-    title: "FAQ: Dúvidas sobre Seguro de Frota e Logística em Guarulhos",
-    subtitle: "Tudo o que gestores e empresários precisam saber para proteger sua operação logística.",
+    title: "FAQ: Como o Seguro de Frota Reduz Custos de Logística",
+    subtitle: "Dúvidas essenciais para gestores que buscam eficiência operacional e economia em seguros de transporte.",
     faqs: [
       { 
-        q: "A partir de quantos veículos é considerado seguro de frota?", 
-        a: "Geralmente, as seguradoras aceitam frotas a partir de 3 ou 5 veículos. Quanto maior o número de itens, maior o poder de negociação e os descontos progressivos." 
+        q: "Qual a importância estratégica do seguro de frota para os custos de logística?", 
+        a: "O seguro de frota é um pilar da previsibilidade financeira. Ao evitar gastos repentinos com perda total, colisões ou roubos, a empresa mantém seu fluxo de caixa estável, o que é fundamental para uma gestão de custos de logística eficiente." 
       },
       { 
-        q: "O seguro de frota cobre roubo de carga?", 
-        a: "O seguro do veículo (casco) é diferente do seguro de carga. Para transportadoras, o RCTR-C (obrigatório) e o RCF-DC (facultivo contra roubo) são essenciais para proteger a mercadoria transportada." 
+        q: "A partir de quantos veículos consigo negociar um seguro de frota empresarial?", 
+        a: "A maioria das seguradoras oferece condições especiais de frota a partir de 3 ou 5 veículos. Quanto maior o volume, maior o poder de negociação para reduzir o custo médio por unidade e otimizar o orçamento logístico." 
       },
       { 
-        q: "Como o seguro ajuda a reduzir custos de logística?", 
-        a: "Além de evitar prejuízos inesperados com colisões e roubos, apólices modernas oferecem assistência 24h especializada, rastreamento e telemetria, que ajudam a reduzir gastos com combustível e manutenção através da direção preventiva." 
+        q: "O seguro de frota cobre danos a terceiros e carga transportada?", 
+        a: "Sim, apólices completas de frota incluem RCF-V (danos a terceiros). No entanto, para a carga, é necessário o seguro de transporte específico (como RCTR-C e RCF-DC), garantindo proteção total contra os principais riscos logísticos." 
       },
       { 
-        q: "Vale a pena ter seguro de frota para vans e utilitários leves em Guarulhos?", 
-        a: "Sim. Devido ao alto fluxo de entregas do e-commerce em Guarulhos, utilitários têm alta exposição a riscos. O seguro de frota unifica a gestão e reduz o custo por veículo em comparação ao seguro individual." 
+        q: "Como a telemetria no seguro de frota pode reduzir custos operacionais?", 
+        a: "Muitas seguradoras oferecem descontos para frotas com telemetria. Esse monitoramento reduz a sinistralidade, diminui o consumo de combustível por incentivar uma direção mais segura e prolonga a vida útil dos veículos, cortando custos de logística." 
       },
       { 
-        q: "Quais são as coberturas essenciais para transportadoras em Guarulhos?", 
-        a: "Recomendamos o combo: Seguro da Frota (Casco), Responsabilidade Civil (RCF-V), Seguro de Carga (RCTR-C/RCF-DC) e Assistência 24h com guincho ilimitado devido às rodovias Dutra e Fernão Dias." 
+        q: "Quais são as melhores seguradoras de frota para transportadoras em Guarulhos?", 
+        a: "Seguradoras como Porto Seguro, Tokio Marine e Sompo possuem produtos robustos para o polo logístico de Guarulhos, oferecendo assistência 24h ágil em rodovias e coberturas moldadas para o alto fluxo de carga da região." 
       }
     ],
     relatedLink: {
