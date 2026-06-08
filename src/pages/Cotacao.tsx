@@ -17,7 +17,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
-import { Phone, CheckCircle2, ShieldCheck, Clock, Award } from "lucide-react";
+import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info } from "lucide-react";
 import InputMask from "react-input-mask";
 
 const formSchema = z.object({
