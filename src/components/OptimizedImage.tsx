@@ -69,7 +69,7 @@ const OptimizedImage = ({
       }}
       width={props.width}
       height={props.height}
-      className={`w-full h-full object-cover ${eager ? "" : "transition-opacity duration-500"} ${
+      className={`w-full h-full object-cover will-change-opacity ${eager ? "" : "transition-opacity duration-500"} ${
         loaded ? "opacity-100" : "opacity-0"
       }`}
       {...props}
