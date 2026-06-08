@@ -9,9 +9,12 @@ import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate } from "@/lib/blogData";
 
+const POSTS_PER_PAGE = 9;
+
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filtered = useMemo(() => {
     let list = [...articles].sort((a, b) => b.date.localeCompare(a.date));
@@ -19,6 +22,17 @@ const Blog = () => {
     if (selectedTag) list = list.filter(a => a.tags.includes(selectedTag));
     return list;
   }, [selectedCategory, selectedTag]);
+
+  const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
+  const currentArticles = useMemo(() => {
+    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    return filtered.slice(start, start + POSTS_PER_PAGE);
+  }, [filtered, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, selectedTag]);
+
 
   return (
     <Fragment>
