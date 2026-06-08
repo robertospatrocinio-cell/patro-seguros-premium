@@ -391,6 +391,24 @@ const Cotacao = () => {
                             <div className="flex items-center justify-center gap-4 text-xs text-slate-400">
                               <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> Dados seguros</span>
                               <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Grátis</span>
+                              <button 
+                                type="button" 
+                                onClick={() => {
+                                  localStorage.removeItem("cotacao_progress");
+                                  form.reset({
+                                    name: "",
+                                    email: "",
+                                    phone: "",
+                                    insuranceType: "",
+                                    message: "",
+                                  });
+                                  setStep(1);
+                                  toast.success("Progresso limpo com sucesso!");
+                                }}
+                                className="underline hover:text-slate-600 transition-colors"
+                              >
+                                Limpar dados salvos
+                              </button>
                             </div>
                           </div>
                         </div>
