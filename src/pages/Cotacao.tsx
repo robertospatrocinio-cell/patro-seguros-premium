@@ -31,6 +31,7 @@ const formSchema = z.object({
 const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
+  const [partialId, setPartialId] = useState<string | null>(localStorage.getItem("partial_quote_id"));
   const [searchParams, setSearchParams] = useSearchParams();
 
   // Handle magic link resumption with security checks
@@ -122,13 +123,43 @@ const Cotacao = () => {
     }
   }, []);
 
+  // Debounced cloud save for automatic reminders
+  const saveToCloud = useCallback(
+    debounce(async (values: any, currentStep: number) => {
+      const dataToSave = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        insurance_type: values.insuranceType,
+        current_step: currentStep,
+        data: values,
+        last_activity: new Date().toISOString()
+      };
+
+      if (partialId) {
+        await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+      } else {
+        const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
+        if (data && !error) {
+          setPartialId(data.id);
+          localStorage.setItem("partial_quote_id", data.id);
+        }
+      }
+    }, 2000),
+    [partialId]
+  );
+
   // Save progress on change
   useEffect(() => {
     const subscription = form.watch((values) => {
       localStorage.setItem("cotacao_progress", JSON.stringify({ values, step }));
+      // Cloud save for reminders (only if we have at least name/phone or email)
+      if (values.name || values.phone || values.email) {
+        saveToCloud(values, step);
+      }
     });
     return () => subscription.unsubscribe();
-  }, [form.watch, step]);
+  }, [form.watch, step, saveToCloud]);
 
   useEffect(() => {
     if (initialType && form.getValues("insuranceType") !== initialType) {
