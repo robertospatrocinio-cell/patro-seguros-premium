@@ -14,6 +14,16 @@ export interface BlogArticleMeta {
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
   { 
+    slug: "crescimento-frotas-comerciais-guarulhos-logistica-2026", 
+    title: "Crescimento de Frotas Comerciais em Guarulhos e o Impacto na Logística", 
+    excerpt: "Guarulhos consolida-se como o coração logístico do país. Entenda como o aumento das frotas impacta os custos e a importância do seguro de carga.", 
+    category: "Seguro Frota", 
+    tags: ["logística", "guarulhos", "frotas", "seguro de carga", "Cumbica"], 
+    author: "Roberto Patro", 
+    date: "2026-06-08", 
+    readTime: 12 
+  },
+  { 
     slug: "seguro-vida-resgatavel-vale-a-pena-patrimonio", 
     title: "Seguro de Vida Resgatável Vale a Pena? Como Proteger seu Patrimônio", 
     excerpt: "Entenda a diferença entre o seguro de vida tradicional e o resgatável. Descubra se essa modalidade é o investimento certo para sua família.", 
