@@ -149,17 +149,14 @@ const Cotacao = () => {
     [partialId]
   );
 
-  // Save progress on change
-  useEffect(() => {
-    const subscription = form.watch((values) => {
-      localStorage.setItem("cotacao_progress", JSON.stringify({ values, step }));
-      // Cloud save for reminders (only if we have at least name/phone or email)
-      if (values.name || values.phone || values.email) {
-        saveToCloud(values, step);
-      }
-    });
-    return () => subscription.unsubscribe();
-  }, [form.watch, step, saveToCloud]);
+  // Save progress only on Blur (end of field interaction) to avoid incremental re-renders
+  const handleFieldBlur = useCallback(() => {
+    const values = form.getValues();
+    localStorage.setItem("cotacao_progress", JSON.stringify({ values, step }));
+    if (values.name || values.phone || values.email) {
+      saveToCloud(values, step);
+    }
+  }, [form, step, saveToCloud]);
 
   useEffect(() => {
     if (initialType && form.getValues("insuranceType") !== initialType) {
