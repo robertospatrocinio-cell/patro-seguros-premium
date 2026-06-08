@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download, CheckCircle } from "lucide-react";
 import OptimizedImage from "@/components/OptimizedImage";
+
 const ebookMockup = "/images/ebook-mockup-seguro-auto.webp";
 const EBOOK_URL = "/downloads/guia-seguro-auto-guarulhos.pdf";
 
@@ -15,6 +16,7 @@ const formatWhatsApp = (value: string): string => {
 
 const isValidWhatsApp = (value: string): boolean => {
   const digits = value.replace(/\D/g, "");
+  // Brazilian mobile: DDD + 9 + 8 digits = 11 digits
   return digits.length === 11 && digits[2] === "9";
 };
 
@@ -40,8 +42,8 @@ const LeadMagnetSection = memo(() => {
     // Fire tracking
     try {
       if (typeof window !== "undefined") {
-        (window as any).fbq?.("track", "Lead", { content_name: "ebook-seguro-auto" });
-        (window as any).gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-seguro-auto" });
+        window.fbq?.("track", "Lead", { content_name: "ebook-seguro-auto" });
+        window.gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-seguro-auto" });
       }
     } catch {}
 
@@ -55,7 +57,7 @@ const LeadMagnetSection = memo(() => {
           <div className="grid md:grid-cols-2 items-center">
             {/* Left — Text + Form */}
             <div className="p-8 md:p-12 lg:p-16">
-              <span className="inline-block text-sm font-semibold text-amber-500 mb-3">🎁 Material Gratuito</span>
+              <span className="inline-block text-sm font-semibold text-amber-500 mb-3" role="img" aria-label="Presente">🎁 Material Gratuito</span>
               <h2 id="lead-magnet-heading" className="text-2xl md:text-3xl font-extrabold text-white mb-3 leading-tight">
                 Quer baixar o preço do seu Seguro Auto em até 30%?
               </h2>
@@ -89,16 +91,16 @@ const LeadMagnetSection = memo(() => {
                     disabled={!canSubmit}
                     className="w-full h-12 rounded-xl bg-amber-500 hover:bg-amber-400 text-primary font-bold text-sm shadow-lg shadow-amber-500/20 disabled:opacity-40"
                   >
-                    <Download className="mr-2 h-4 w-4" /> Baixar Guia Gratuito Agora
+                    <Download className="mr-2 h-4 w-4" aria-hidden="true" /> Baixar Guia Gratuito Agora
                   </Button>
                 </form>
               ) : (
                 <div className="text-center py-4 space-y-4">
-                  <CheckCircle className="h-12 w-12 text-green-400 mx-auto" />
+                  <CheckCircle className="h-12 w-12 text-green-400 mx-auto" aria-hidden="true" />
                   <p className="text-white font-semibold">Sucesso! Seu guia está pronto.</p>
                   <a href={EBOOK_URL} download>
                     <Button className="bg-amber-500 hover:bg-amber-400 text-primary font-bold rounded-xl h-12 px-8">
-                      <Download className="mr-2 h-4 w-4" /> Baixar E-book Agora
+                      <Download className="mr-2 h-4 w-4" aria-hidden="true" /> Baixar E-book Agora
                     </Button>
                   </a>
                 </div>
