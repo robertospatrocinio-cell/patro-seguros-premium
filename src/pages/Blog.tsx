@@ -121,7 +121,7 @@ const Blog = () => {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((article) => (
+              {currentArticles.map((article) => (
                 <Link key={article.slug} to={`/blog/${article.slug}`}>
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
                     <div className="aspect-video w-full overflow-hidden">
@@ -150,6 +150,30 @@ const Blog = () => {
                 </Link>
               ))}
             </div>
+
+            {totalPages > 1 && (
+              <div className="mt-12 flex justify-center items-center gap-4">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                >
+                  Anterior
+                </Button>
+                <span className="text-sm text-muted-foreground">
+                  Página {currentPage} de {totalPages}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                >
+                  Próxima
+                </Button>
+              </div>
+            )}
           </div>
         </section>
       </main>
