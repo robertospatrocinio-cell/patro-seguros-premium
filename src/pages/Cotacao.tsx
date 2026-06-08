@@ -61,6 +61,36 @@ const Cotacao = () => {
     },
   });
 
+  // Load saved progress
+  useEffect(() => {
+    const savedProgress = localStorage.getItem("cotacao_progress");
+    if (savedProgress) {
+      try {
+        const { values, step: savedStep } = JSON.parse(savedProgress);
+        // Only restore if it's the same insurance type or if no type was specified in URL
+        if (!tipoParam || values.insuranceType === initialType) {
+          Object.keys(values).forEach((key) => {
+            form.setValue(key as any, values[key]);
+          });
+          setStep(savedStep);
+          toast.info("Retomamos seu progresso de onde você parou!", {
+            duration: 4000
+          });
+        }
+      } catch (e) {
+        console.error("Error restoring progress", e);
+      }
+    }
+  }, []);
+
+  // Save progress on change
+  useEffect(() => {
+    const subscription = form.watch((values) => {
+      localStorage.setItem("cotacao_progress", JSON.stringify({ values, step }));
+    });
+    return () => subscription.unsubscribe();
+  }, [form.watch, step]);
+
   useEffect(() => {
     if (initialType && form.getValues("insuranceType") !== initialType) {
       form.setValue("insuranceType", initialType, { shouldValidate: true });
@@ -100,6 +130,7 @@ const Cotacao = () => {
       htmlBody
     });
 
+    localStorage.removeItem("cotacao_progress");
     trackCotacaoSubmit(values.insuranceType, { origin: "formulario-etapas" });
     trackWhatsAppClick("formulario-etapas", { origin: "formulario-etapas", insuranceType: values.insuranceType });
     
