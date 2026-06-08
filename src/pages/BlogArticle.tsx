@@ -15,10 +15,11 @@ import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, 
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
-
-const articlesContentLoader = () => import("@/data/blogArticlesContent");
-import { useState, useEffect } from "react";
+import { getArticleImage } from "@/lib/blogImages";
+import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
+import { useABTest } from "@/hooks/useABTest";
+import { useState, useEffect } from "react";
 
 const PHONE = "551151997500";
 const WHATSAPP_BASE_URL = `https://wa.me/${PHONE}`;
