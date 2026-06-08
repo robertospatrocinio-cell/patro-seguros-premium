@@ -16,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
 import { Phone, CheckCircle2, ShieldCheck, Clock, Award } from "lucide-react";
+import InputMask from "react-input-mask";
 
 const formSchema = z.object({
   name: z.string().trim().min(3, "Nome deve ter no mínimo 3 caracteres").max(100),
@@ -281,7 +282,21 @@ const Cotacao = () => {
                               <FormItem>
                                 <FormLabel className="text-slate-700 font-semibold">WhatsApp</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="(11) 99999-9999" className="h-12 bg-slate-50" {...field} />
+                                  <InputMask
+                                    mask="(99) 99999-9999"
+                                    value={field.value}
+                                    onChange={field.onChange}
+                                    onBlur={field.onBlur}
+                                  >
+                                    {/* @ts-ignore */}
+                                    {(inputProps: any) => (
+                                      <Input 
+                                        {...inputProps}
+                                        placeholder="(11) 99999-9999" 
+                                        className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" 
+                                      />
+                                    )}
+                                  </InputMask>
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -295,7 +310,14 @@ const Cotacao = () => {
                               <FormItem>
                                 <FormLabel className="text-slate-700 font-semibold">E-mail</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="seu@email.com" className="h-12 bg-slate-50" {...field} />
+                                  <Input 
+                                    placeholder="seu@email.com" 
+                                    className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" 
+                                    {...field} 
+                                    onChange={(e) => {
+                                      field.onChange(e.target.value.toLowerCase().trim());
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
