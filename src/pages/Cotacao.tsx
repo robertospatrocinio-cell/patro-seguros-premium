@@ -337,6 +337,5 @@ const Cotacao = () => {
     </Fragment>
   );
 };
-};
 
 export default Cotacao;
