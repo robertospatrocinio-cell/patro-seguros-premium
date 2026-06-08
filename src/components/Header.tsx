@@ -265,7 +265,7 @@ const Header = memo(() => {
                     alt="Patro Seguros"
                     width={160}
                     height={80}
-                    className="h-20 w-auto object-contain -my-2 relative z-50"
+                    className="h-20 w-auto object-contain -my-2 relative z-50 will-change-transform"
                     fetchPriority="high"
                     decoding="async"
                     loading="eager"

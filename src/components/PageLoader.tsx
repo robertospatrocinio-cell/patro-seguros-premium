@@ -8,7 +8,7 @@ const PageLoader = () => {
         <div className="absolute top-0 h-16 w-16 animate-spin rounded-full border-4 border-primary border-t-transparent" />
       </div>
       <div className="mt-6 flex flex-col items-center gap-2">
-        <span className="text-xl font-bold text-primary animate-pulse">Patro Seguros</span>
+        <span className="text-xl font-bold text-primary animate-pulse will-change-opacity">Patro Seguros</span>
         <span className="text-sm text-muted-foreground">Carregando cotações...</span>
       </div>
     </div>

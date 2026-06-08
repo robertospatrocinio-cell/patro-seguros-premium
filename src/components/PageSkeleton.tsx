@@ -1,7 +1,7 @@
 import React from "react";
 
 const PageSkeleton = () => {
-  const pulse = "animate-pulse rounded-md bg-slate-200 dark:bg-slate-800";
+  const pulse = "animate-pulse rounded-md bg-slate-200 dark:bg-slate-800 will-change-opacity";
   
    return (
     <div className="min-h-screen bg-background" id="main-content">
