@@ -2,6 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { landingPagesData } from "@/data/landingPages";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import FAQSchema from "@/components/FAQSchema";
+import PageMeta from "@/components/PageMeta";
 
 interface DynamicLandingPageProps {
   slug?: string;
@@ -41,7 +42,5 @@ const DynamicLandingPage = ({ slug: slugProp }: DynamicLandingPageProps = {}) =>
     </>
   );
 };
-
-export default DynamicLandingPage;
 
 export default DynamicLandingPage;
