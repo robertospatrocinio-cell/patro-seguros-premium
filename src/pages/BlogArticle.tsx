@@ -13,12 +13,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
-import { getArticleImage } from "@/lib/blogImages";
-import OptimizedImage from "@/components/OptimizedImage";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
-import { articlesContent } from "@/data/blogArticlesContent";
+import { getArticleImage } from "@/lib/blogImages";
+import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
+import { useABTest } from "@/hooks/useABTest";
+import { useState, useEffect } from "react";
 
 const PHONE = "551151997500";
 const WHATSAPP_BASE_URL = `https://wa.me/${PHONE}`;
@@ -31,22 +32,32 @@ const defaultArticle = {
   faqs: []
 };
 
-import { useABTest } from "@/hooks/useABTest";
-
 const BlogArticle = () => {
   const { slug } = useParams();
+  const [articleContent, setArticleContent] = useState<any>(null);
   const variant = useABTest(`blog_cta_${slug || 'default'}`);
-  const article = (slug && articlesContent[slug]) || defaultArticle;
+  
+  useEffect(() => {
+    if (slug) {
+      import("@/data/blogArticlesContent").then(module => {
+        setArticleContent(module.articlesContent[slug] || defaultArticle);
+      });
+    } else {
+      setArticleContent(defaultArticle);
+    }
+  }, [slug]);
+
+  const article = articleContent || defaultArticle;
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
   const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;
   const allFaqs = [
-    ...article.faqs,
+    ...(article?.faqs ?? []),
     ...(extraFaqBlock?.faqs ?? []),
-    ...((extraFaqBlock?.timeline?.stages ?? []).map(s => ({ q: s.faqQ, a: s.faqA }))),
+    ...((extraFaqBlock?.timeline?.stages ?? []).map((s: any) => ({ q: s.faqQ, a: s.faqA }))),
     ...((extraFaqBlock?.comparison?.rows ?? [])
-      .filter(r => r.faqQ && r.faqA)
-      .map(r => ({ q: r.faqQ as string, a: r.faqA as string }))),
+      .filter((r: any) => r.faqQ && r.faqA)
+      .map((r: any) => ({ q: r.faqQ as string, a: r.faqA as string }))),
   ];
 
   const articleImageUrl = slug ? `${CANONICAL_BASE_URL}${getArticleImage(slug)}` : undefined;

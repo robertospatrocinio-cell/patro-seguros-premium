@@ -15,10 +15,10 @@ import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
 
-import Index from "./pages/Index";
-import Blog from "./pages/Blog";
-import BlogArticle from "./pages/BlogArticle";
-import Cotacao from "./pages/Cotacao";
+const Index = lazy(() => import("./pages/Index"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogArticle = lazy(() => import("./pages/BlogArticle"));
+const Cotacao = lazy(() => import("./pages/Cotacao"));
 
 const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
 const CRM = lazy(() => import("./pages/CRM"));
