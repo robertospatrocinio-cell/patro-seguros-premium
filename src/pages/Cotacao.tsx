@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
-import { Phone } from "lucide-react";
+import { Phone, CheckCircle2, ShieldCheck, Clock, Award } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().trim().min(3, "Nome deve ter no mínimo 3 caracteres").max(100),
