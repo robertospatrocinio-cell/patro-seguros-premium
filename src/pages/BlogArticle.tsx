@@ -13,11 +13,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
-import { getArticleImage } from "@/lib/blogImages";
-import OptimizedImage from "@/components/OptimizedImage";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
-import { articlesContent } from "@/data/blogArticlesContent";
+
+const articlesContentLoader = () => import("@/data/blogArticlesContent");
+import { useState, useEffect } from "react";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
 
 const PHONE = "551151997500";
