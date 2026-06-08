@@ -298,6 +298,18 @@ const BlogArticle = () => {
 
             {extraFaqBlock && (
               <div className="mt-12 border-t pt-8">
+                <div className="mb-8 p-6 rounded-xl bg-primary/5 border border-primary/20 text-center">
+                  <p className="font-bold text-primary mb-3">Dúvidas sobre o Seguro de Frota?</p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Link to={quoteHref} onClick={() => trackCotacaoClick("blog-before-faq")}>
+                      <Button variant="cta" size="sm" className="w-full sm:w-auto">Pedir Cotação</Button>
+                    </Link>
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("blog-before-faq")}>
+                      <Button variant="outline" size="sm" className="w-full sm:w-auto"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp</Button>
+                    </a>
+                  </div>
+                </div>
+
                 <h2 className="mb-2">{extraFaqBlock.title}</h2>
                 {extraFaqBlock.subtitle && (
                   <p className="text-muted-foreground mb-6">{extraFaqBlock.subtitle}</p>
@@ -321,6 +333,20 @@ const BlogArticle = () => {
                       </p>
                     </details>
                   ))}
+                </div>
+
+                <div className="mt-8 p-6 rounded-xl bg-primary text-primary-foreground text-center shadow-elegant">
+                  <p className="font-bold mb-3">Pronto para proteger sua operação?</p>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Link to={quoteHref} onClick={() => trackCotacaoClick("blog-after-faq")}>
+                      <Button variant="cta" size="sm" className="w-full sm:w-auto">Iniciar Cotação Grátis</Button>
+                    </Link>
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("blog-after-faq")}>
+                      <Button variant="outline" size="sm" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
+                        <MessageCircle className="mr-2 h-4 w-4" /> Chamar no WhatsApp
+                      </Button>
+                    </a>
+                  </div>
                 </div>
                 {extraFaqBlock.relatedLink && (
                   <div className="mt-6 rounded-lg border-l-4 border-primary bg-primary/5 p-5">
