@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
-import { Phone } from "lucide-react";
+import { Phone, CheckCircle2, ShieldCheck, Clock, Award } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().trim().min(3, "Nome deve ter no mínimo 3 caracteres").max(100),
@@ -113,173 +113,221 @@ const Cotacao = () => {
     setIsSubmitting(false);
   };
 
+  const faqs = [
+    {
+      q: "Quanto tempo demora para receber a cotação?",
+      a: "Nosso compromisso é enviar as melhores propostas em até 2 horas úteis após o recebimento dos seus dados."
+    },
+    {
+      q: "Preciso pagar algo pela consultoria?",
+      a: "Não! A consultoria e a cotação são 100% gratuitas e sem compromisso."
+    },
+    {
+      q: "Com quais seguradoras vocês trabalham?",
+      a: "Trabalhamos com as 16 maiores seguradoras do Brasil, incluindo Porto Seguro, Allianz, Tokio Marine, Liberty, Bradesco e SulAmérica."
+    },
+    {
+      q: "Como vou receber as propostas?",
+      a: "Você receberá um comparativo detalhado diretamente no seu WhatsApp ou e-mail, conforme sua preferência."
+    }
+  ];
+
   return (
     <Fragment>
       <PageMeta title="Cotação de Seguro em Guarulhos | Patro Seguros" description="Solicite sua cotação de seguro em Guarulhos gratuitamente. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras do Brasil." />
       <Header />
-      <main id="main-content" className="outline-none">
-        {/* Hero */}
-        <section className="gradient-hero py-20">
+      <main id="main-content" className="outline-none bg-slate-50/50">
+        {/* Hero Section */}
+        <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 overflow-hidden">
+          <div className="absolute inset-0 bg-primary/5 -skew-y-3 origin-top-left -z-10" />
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-white mb-6">Cotação de Seguro em Guarulhos</h1>
-              <p className="text-xl text-white/70">
-                Preencha o formulário abaixo e receba sua cotação personalizada em até 2 horas
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">
+                <ShieldCheck className="w-4 h-4" /> Atendimento Especializado em Guarulhos
+              </div>
+              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+                Sua Cotação Pronta em <span className="text-primary italic">Até 2 Horas</span>
+              </h1>
+              <p className="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Comparamos as 16 maiores seguradoras do país para encontrar a cobertura ideal com o menor custo para você ou sua empresa.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Formulário */}
-        <section className="py-16">
+        {/* Form Section */}
+        <section className="-mt-16 pb-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-2xl mx-auto">
-              <div className="bg-primary-light p-6 rounded-lg mb-8 text-center">
-                <h2 className="text-2xl font-bold mb-2 text-primary">Cotação Gratuita e Sem Compromisso</h2>
-                <p className="text-muted-foreground">
-                  Analisamos seu perfil e enviamos as melhores opções do mercado
-                </p>
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8 items-start">
+              
+              {/* Left Column: Social Proof & Benefits */}
+              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-24">
+                <div className="space-y-6">
+                  <h2 className="text-2xl lg:text-3xl font-bold text-slate-900">Por que escolher a Patro?</h2>
+                  <div className="space-y-4">
+                    {[
+                      { icon: <Clock className="w-5 h-5" />, title: "Agilidade Real", text: "Propostas enviadas em tempo recorde." },
+                      { icon: <Award className="w-5 h-5" />, title: "Expertise Local", text: "Especialistas no mercado de Guarulhos e SP." },
+                      { icon: <CheckCircle2 className="w-5 h-5" />, title: "Independência", text: "Trabalhamos para você, não para a seguradora." },
+                    ].map((item, i) => (
+                      <div key={i} className="flex gap-4 p-4 rounded-xl bg-white border border-slate-100 shadow-sm">
+                        <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-slate-900">{item.title}</h4>
+                          <p className="text-sm text-slate-500">{item.text}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-6 rounded-2xl bg-slate-900 text-white relative overflow-hidden">
+                  <div className="relative z-10">
+                    <p className="text-slate-400 text-sm font-medium mb-4 italic">"Atendimento impecável! Recebi as opções pelo WhatsApp muito rápido e consegui economizar R$ 600 no seguro da minha frota."</p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">RG</div>
+                      <div>
+                        <p className="font-bold text-sm">Ricardo G.</p>
+                        <p className="text-xs text-slate-500">Empresário em Guarulhos</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -right-4 -bottom-4 text-white/5 font-serif text-9xl">“</div>
+                </div>
               </div>
 
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Nome Completo *</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Digite seu nome completo" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>E-mail *</FormLabel>
-                          <FormControl>
-                            <Input type="email" placeholder="seu@email.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Telefone/WhatsApp *</FormLabel>
-                          <FormControl>
-                            <Input placeholder="(11) 99999-9999" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+              {/* Right Column: Form */}
+              <div className="lg:col-span-7">
+                <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 lg:p-10">
+                  <div className="mb-8">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Solicite sua Cotação</h3>
+                    <p className="text-slate-500">Preencha os campos abaixo e entraremos em contato.</p>
                   </div>
 
-                  <FormField
-                    control={form.control}
-                    name="insuranceType"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Tipo de Seguro *</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Selecione o tipo de seguro" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="auto">Seguro Auto</SelectItem>
-                            <SelectItem value="vida">Seguro de Vida</SelectItem>
-                            <SelectItem value="residencial">Seguro Residencial</SelectItem>
-                            <SelectItem value="viagem">Seguro Viagem</SelectItem>
-                            <SelectItem value="saude">Seguro Saúde</SelectItem>
-                            <SelectItem value="empresarial">Seguro Empresarial</SelectItem>
-                            <SelectItem value="frota">Seguro de Frota</SelectItem>
-                            <SelectItem value="rc">Responsabilidade Civil</SelectItem>
-                            <SelectItem value="outros">Outros</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-slate-700 font-semibold">Nome Completo</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Seu nome" className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Mensagem (opcional)</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Conte-nos um pouco mais sobre o que você precisa..."
-                            className="min-h-[120px]"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                      <div className="grid md:grid-cols-2 gap-5">
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-slate-700 font-semibold">E-mail</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="seu@email.com" className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button type="submit" size="lg" className="flex-1" disabled={isSubmitting}>
-                      {isSubmitting ? "Enviando..." : "Solicitar Cotação via WhatsApp"}
-                    </Button>
-                    <a href="tel:1151997500" className="flex-1">
-                      <Button type="button" variant="outline" size="lg" className="w-full">
-                        <Phone className="mr-2 h-5 w-5" />
-                        Ou Ligue Agora
-                      </Button>
-                    </a>
-                  </div>
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-slate-700 font-semibold">WhatsApp</FormLabel>
+                              <FormControl>
+                                <Input placeholder="(11) 99999-9999" className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
 
-                  <p className="text-sm text-muted-foreground text-center">
-                    Ao enviar, você será redirecionado para nosso WhatsApp com suas informações preenchidas.
-                  </p>
-                </form>
-              </Form>
+                      <FormField
+                        control={form.control}
+                        name="insuranceType"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-slate-700 font-semibold">O que você quer proteger?</FormLabel>
+                            <Select onValueChange={field.onChange} value={field.value}>
+                              <FormControl>
+                                <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all">
+                                  <SelectValue placeholder="Selecione o tipo de seguro" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="auto">Seguro Auto</SelectItem>
+                                <SelectItem value="vida">Seguro de Vida</SelectItem>
+                                <SelectItem value="residencial">Seguro Residencial</SelectItem>
+                                <SelectItem value="viagem">Seguro Viagem</SelectItem>
+                                <SelectItem value="saude">Seguro Saúde</SelectItem>
+                                <SelectItem value="empresarial">Seguro Empresarial</SelectItem>
+                                <SelectItem value="frota">Seguro de Frota</SelectItem>
+                                <SelectItem value="rc">Responsabilidade Civil</SelectItem>
+                                <SelectItem value="outros">Outros</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-slate-700 font-semibold">Observações (opcional)</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Algum detalhe importante?"
+                                className="min-h-[100px] bg-slate-50 border-slate-200 focus:bg-white transition-all"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <div className="pt-4 flex flex-col gap-4">
+                        <Button type="submit" size="lg" className="w-full h-14 text-lg font-bold shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95" disabled={isSubmitting}>
+                          {isSubmitting ? "Enviando..." : "Solicitar Cotação Agora"}
+                        </Button>
+                        <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
+                          <span className="flex items-center gap-1"><ShieldCheck className="w-4 h-4" /> Dados protegidos</span>
+                          <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4" /> 100% Gratuito</span>
+                        </div>
+                      </div>
+                    </form>
+                  </Form>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Benefícios */}
-        <section className="py-16 bg-muted">
+        {/* FAQ Section */}
+        <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-center mb-12">Por Que Solicitar Cotação Conosco?</h2>
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="text-center">
-                <div className="text-4xl mb-4">⚡</div>
-                <h3 className="text-xl font-semibold mb-2">Resposta Rápida</h3>
-                <p className="text-muted-foreground">
-                  Retorno em até 2 horas úteis com cotação completa e personalizada
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl mb-4">💰</div>
-                <h3 className="text-xl font-semibold mb-2">Melhor Custo-Benefício</h3>
-                <p className="text-muted-foreground">
-                  Comparamos várias seguradoras para encontrar a melhor opção
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-xl font-semibold mb-2">100% Personalizado</h3>
-                <p className="text-muted-foreground">
-                  Análise consultiva com recomendações sob medida para você
-                </p>
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-center text-slate-900 mb-12">Dúvidas Frequentes</h2>
+              <div className="space-y-4">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="p-6 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                    <h4 className="text-lg font-bold text-slate-900 mb-2">{faq.q}</h4>
+                    <p className="text-slate-600 leading-relaxed">{faq.a}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
