@@ -130,8 +130,18 @@
         n.queue=[];}(window, document, 'script');
 
         var analyticsLoaded = false;
-        function loadAnalytics(reason) {
+        
+        // Define global functions to allow activation from React
+        window.activateAnalytics = function(reason) {
           if (analyticsLoaded) return;
+          
+          // Check for LGPD consent before loading
+          var consent = localStorage.getItem('patro-cookies-accepted');
+          if (consent !== 'true') {
+            console.log('Analytics activation skipped: No LGPD consent.');
+            return;
+          }
+
           analyticsLoaded = true;
           console.log('Loading heavy analytics scripts. Reason: ' + reason);
           
@@ -150,25 +160,29 @@
           document.head.appendChild(f);
           fbq('init', '2108358063295698');
           fbq('track', 'PageView');
+        };
+
+        function tryLoadAnalytics(reason) {
+          if (localStorage.getItem('patro-cookies-accepted') === 'true') {
+            window.activateAnalytics(reason);
+          }
         }
 
-        // 1. Load on first user interaction
+        // Try to load if already consented
         var interactionEvents = ['mousedown', 'mousemove', 'keydown', 'touchstart', 'scroll'];
         function onUserInteraction() {
-          loadAnalytics('interaction');
+          tryLoadAnalytics('interaction');
           interactionEvents.forEach(function(e) { window.removeEventListener(e, onUserInteraction); });
         }
         interactionEvents.forEach(function(e) { window.addEventListener(e, onUserInteraction, { passive: true }); });
         
-        // 2. Load when the browser is idle (best for performance)
         if ('requestIdleCallback' in window) {
           requestIdleCallback(function() {
-            setTimeout(function() { loadAnalytics('idle'); }, 2000);
+            setTimeout(function() { tryLoadAnalytics('idle'); }, 2000);
           }, { timeout: 10000 });
         } else {
-          // Fallback for older browsers
           window.addEventListener('load', function() {
-            setTimeout(function() { loadAnalytics('load_timeout'); }, 6000);
+            setTimeout(function() { tryLoadAnalytics('load_timeout'); }, 6000);
           });
         }
       })();
