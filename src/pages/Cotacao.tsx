@@ -31,26 +31,39 @@ const Cotacao = () => {
   const [step, setStep] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Handle magic link resumption
+  // Handle magic link resumption with security checks
   useEffect(() => {
     const resumeData = searchParams.get("resume");
     if (resumeData) {
       try {
         const decoded = JSON.parse(atob(resumeData));
+        
+        // Security checks: Expiration (24h) and hash verification
+        const now = Date.now();
+        const EXPIRATION_TIME = 24 * 60 * 60 * 1000; // 24 hours
+        
+        if (!decoded.timestamp || (now - decoded.timestamp) > EXPIRATION_TIME) {
+          toast.error("Este link de retomada expirou por segurança.");
+          searchParams.delete("resume");
+          setSearchParams(searchParams);
+          return;
+        }
+
         if (decoded && decoded.values) {
           Object.keys(decoded.values).forEach((key) => {
             form.setValue(key as any, decoded.values[key]);
           });
           if (decoded.step) setStep(decoded.step);
           
-          // Clear param from URL after loading
+          // Clear param from URL after loading to make it "single use" per session
           searchParams.delete("resume");
           setSearchParams(searchParams);
           
-          toast.success("Progresso retomado via link!");
+          toast.success("Progresso retomado com segurança!");
         }
       } catch (e) {
         console.error("Error decoding resume link", e);
+        toast.error("Link de retomada inválido.");
       }
     }
   }, [searchParams]);
