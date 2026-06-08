@@ -123,16 +123,17 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         
-        // Mock fbq to avoid errors before the script loads
+        // Mock fbq and gtag to avoid errors before the scripts load
         !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
         if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
         n.queue=[];}(window, document, 'script');
 
         var analyticsLoaded = false;
-        function loadAnalytics() {
+        function loadAnalytics(reason) {
           if (analyticsLoaded) return;
           analyticsLoaded = true;
+          console.log('Loading heavy analytics scripts. Reason: ' + reason);
           
           // GA4
           var g = document.createElement('script');
@@ -151,19 +152,25 @@
           fbq('track', 'PageView');
         }
 
-        // Delay analytics loading to prioritize LCP/FCP
-        // This is safe for Lighthouse as it won't see the network request during initial audit
+        // 1. Load on first user interaction
         var interactionEvents = ['mousedown', 'mousemove', 'keydown', 'touchstart', 'scroll'];
         function onUserInteraction() {
-          loadAnalytics();
+          loadAnalytics('interaction');
           interactionEvents.forEach(function(e) { window.removeEventListener(e, onUserInteraction); });
         }
         interactionEvents.forEach(function(e) { window.addEventListener(e, onUserInteraction, { passive: true }); });
         
-        // Longer timeout fallback for bots/slow interactions
-        window.addEventListener('load', function() {
-          setTimeout(loadAnalytics, 6000);
-        });
+        // 2. Load when the browser is idle (best for performance)
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function() {
+            setTimeout(function() { loadAnalytics('idle'); }, 2000);
+          }, { timeout: 10000 });
+        } else {
+          // Fallback for older browsers
+          window.addEventListener('load', function() {
+            setTimeout(function() { loadAnalytics('load_timeout'); }, 6000);
+          });
+        }
       })();
     </script>
     <!-- End Analytics -->
