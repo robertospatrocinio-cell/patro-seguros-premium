@@ -232,6 +232,44 @@ const BlogArticle = () => {
                     </div>
                   );
                 }
+                // Inline CTA block para Seguro de Frota
+                if (p.trim() === "[[CTA_FROTA]]") {
+                  return (
+                    <div
+                      key={i}
+                      className="my-10 p-6 md:p-8 rounded-xl bg-primary text-primary-foreground shadow-elegant"
+                    >
+                      <div className="text-center">
+                        <span className="inline-block bg-[hsl(var(--cta))]/20 text-[hsl(var(--cta))] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                          Soluções para Transportadoras
+                        </span>
+                        <h3 className="text-xl md:text-2xl font-bold mb-2">
+                          Proteja sua frota com quem entende de logística em Guarulhos
+                        </h3>
+                        <p className="text-primary-foreground/80 text-sm md:text-base mb-6 max-w-xl mx-auto">
+                          Reduza custos de sinistralidade e garanta a operação 24h. Cotação personalizada para frotas a partir de 3 veículos.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                          <Link to="/cotacao?tipo=frota&origem=blog-inline-frota" onClick={() => trackCotacaoClick("blog-frota-inline")}>
+                            <Button size="lg" variant="cta" className="w-full sm:w-auto font-semibold">
+                              Pedir Cotação Agora <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+                          <a
+                            href={whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackWhatsAppClick("blog-frota-inline")}
+                          >
+                            <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
+                              <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
+                            </Button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
                 // Parse markdown-style [text](url) links
                 const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
                 return (
