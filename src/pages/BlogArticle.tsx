@@ -42,13 +42,19 @@ const BlogArticle = () => {
   
   useEffect(() => {
     if (slug) {
+      if (cachedContent[slug]) {
+        setArticleContent(cachedContent[slug]);
+        return;
+      }
       import("@/data/blogArticlesContent").then(module => {
-        setArticleContent(module.articlesContent[slug] || defaultArticle);
+        const content = module.articlesContent[slug] || defaultArticle;
+        cachedContent[slug] = content;
+        setArticleContent(content);
       });
     } else {
       setArticleContent(defaultArticle);
     }
-  }, [slug]);
+  }, [slug, cachedContent]);
 
   const article = articleContent || defaultArticle;
   const meta = slug ? getArticleMeta(slug) : undefined;
