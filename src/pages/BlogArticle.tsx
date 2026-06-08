@@ -32,22 +32,32 @@ const defaultArticle = {
   faqs: []
 };
 
-import { useABTest } from "@/hooks/useABTest";
-
 const BlogArticle = () => {
   const { slug } = useParams();
+  const [articleContent, setArticleContent] = useState<any>(null);
   const variant = useABTest(`blog_cta_${slug || 'default'}`);
-  const article = (slug && articlesContent[slug]) || defaultArticle;
+  
+  useEffect(() => {
+    if (slug) {
+      import("@/data/blogArticlesContent").then(module => {
+        setArticleContent(module.articlesContent[slug] || defaultArticle);
+      });
+    } else {
+      setArticleContent(defaultArticle);
+    }
+  }, [slug]);
+
+  const article = articleContent || defaultArticle;
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
   const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;
   const allFaqs = [
-    ...article.faqs,
+    ...(article?.faqs ?? []),
     ...(extraFaqBlock?.faqs ?? []),
-    ...((extraFaqBlock?.timeline?.stages ?? []).map(s => ({ q: s.faqQ, a: s.faqA }))),
+    ...((extraFaqBlock?.timeline?.stages ?? []).map((s: any) => ({ q: s.faqQ, a: s.faqA }))),
     ...((extraFaqBlock?.comparison?.rows ?? [])
-      .filter(r => r.faqQ && r.faqA)
-      .map(r => ({ q: r.faqQ as string, a: r.faqA as string }))),
+      .filter((r: any) => r.faqQ && r.faqA)
+      .map((r: any) => ({ q: r.faqQ as string, a: r.faqA as string }))),
   ];
 
   const articleImageUrl = slug ? `${CANONICAL_BASE_URL}${getArticleImage(slug)}` : undefined;
