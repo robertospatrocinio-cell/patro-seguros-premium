@@ -14,6 +14,16 @@ export interface BlogArticleMeta {
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
   { 
+    slug: "seguro-empresarial-reduzir-turnover-funcionarios", 
+    title: "Como o Seguro Empresarial pode reduzir o turnover de funcionários", 
+    excerpt: "Descubra como benefícios corporativos e um ambiente seguro podem reter talentos e diminuir a rotatividade na sua empresa.", 
+    category: "Seguro Empresarial", 
+    tags: ["gestão de pessoas", "turnover", "RH", "benefícios", "seguro empresarial"], 
+    author: "Roberto Patro", 
+    date: "2026-06-08", 
+    readTime: 10 
+  },
+  { 
     slug: "como-funciona-seguro-fianca-melhor-que-fiador", 
     title: "Como funciona o seguro fiança e por que ele é melhor que fiador", 
     excerpt: "Alugar um imóvel ficou mais fácil. Entenda como o seguro fiança substitui o fiador com mais agilidade e benefícios para inquilinos e proprietários.", 
