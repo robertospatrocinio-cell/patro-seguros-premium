@@ -201,6 +201,7 @@ const Cotacao = () => {
     });
 
     localStorage.removeItem("cotacao_progress");
+    localStorage.removeItem("partial_quote_id");
     trackCotacaoSubmit(values.insuranceType, { origin: "formulario-etapas" });
     trackWhatsAppClick("formulario-etapas", { origin: "formulario-etapas", insuranceType: values.insuranceType });
     
