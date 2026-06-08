@@ -13,17 +13,17 @@ const CotacaoSeguroAuto = () => {
     <>
       <PageMeta title="Cotação Seguro Auto – Guarulhos, Cidade Maia" description="Cotação de seguro auto online no Cidade Maia, Guarulhos. Compare Porto, Tokio Marine, Allianz e mais. Resposta em até 2h com a Patro Seguros." />
       <Header />
-      <main id="main-content" tabIndex={-1} className="outline-none">
+      <main id="main-content" className="outline-none">
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4 text-center max-w-4xl">
-            <div className="text-6xl mb-6">🚗</div>
+            <div className="text-6xl mb-6" role="img" aria-label="Emoji de carro">🚗</div>
             <h1 className="text-white mb-6">Cotação de Seguro Auto Online</h1>
             <p className="text-xl text-white/70 mb-8">
               Faça sua cotação 100% online e gratuita. Compare as melhores seguradoras em minutos.
             </p>
             <a href={SEGFY_URL} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="cta" className="text-lg px-10">
-                Fazer Cotação Online <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="text-lg px-10 bg-white text-primary hover:bg-white/90">
+                Fazer Cotação Online <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Button>
             </a>
           </div>
@@ -40,7 +40,7 @@ const CotacaoSeguroAuto = () => {
                 { icon: "🚐", label: "Seguro Vans" },
               ].map((item, i) => (
                 <div key={i} className="bg-muted rounded-lg p-6">
-                  <div className="text-4xl mb-2">{item.icon}</div>
+                  <div className="text-4xl mb-2" role="img" aria-label={item.label}>{item.icon}</div>
                   <p className="font-semibold text-sm">{item.label}</p>
                 </div>
               ))}
@@ -55,8 +55,8 @@ const CotacaoSeguroAuto = () => {
               Nosso time está pronto para te ajudar a encontrar a melhor proteção para o seu veículo.
             </p>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("cotacao-seguro-auto")}>
-              <Button size="lg" variant="cta" className="text-lg px-8">
-                <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
+              <Button size="lg" className="text-lg px-8">
+                <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" /> Falar no WhatsApp
               </Button>
             </a>
           </div>
