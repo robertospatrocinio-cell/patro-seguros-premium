@@ -223,11 +223,12 @@ import RequireAdmin from "@/components/RequireAdmin";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 1,
+      retry: 2,
       refetchOnWindowFocus: false,
-      staleTime: 10 * 60 * 1000, // Increased to 10 min
-      gcTime: 30 * 60 * 1000, // Increased to 30 min
+      staleTime: 24 * 60 * 60 * 1000, // 24 horas (dados estáticos)
+      gcTime: 48 * 60 * 60 * 1000, // 48 horas
       refetchOnMount: false,
+      refetchOnReconnect: false,
     },
   },
 });

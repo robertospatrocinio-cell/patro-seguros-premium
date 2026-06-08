@@ -36,16 +36,25 @@ const BlogArticle = () => {
   const { slug } = useParams();
   const [articleContent, setArticleContent] = useState<any>(null);
   const variant = useABTest(`blog_cta_${slug || 'default'}`);
+
+  // Cache em memória para evitar re-imports
+  const [cachedContent] = useState<Record<string, any>>({});
   
   useEffect(() => {
     if (slug) {
+      if (cachedContent[slug]) {
+        setArticleContent(cachedContent[slug]);
+        return;
+      }
       import("@/data/blogArticlesContent").then(module => {
-        setArticleContent(module.articlesContent[slug] || defaultArticle);
+        const content = module.articlesContent[slug] || defaultArticle;
+        cachedContent[slug] = content;
+        setArticleContent(content);
       });
     } else {
       setArticleContent(defaultArticle);
     }
-  }, [slug]);
+  }, [slug, cachedContent]);
 
   const article = articleContent || defaultArticle;
   const meta = slug ? getArticleMeta(slug) : undefined;
