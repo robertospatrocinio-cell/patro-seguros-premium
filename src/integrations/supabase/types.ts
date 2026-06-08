@@ -777,6 +777,47 @@ export type Database = {
         }
         Relationships: []
       }
+      lead_quote_history: {
+        Row: {
+          created_at: string | null
+          field_changed: string | null
+          id: string
+          new_value: string | null
+          partial_quote_id: string | null
+          previous_value: string | null
+          snapshot: Json | null
+          step_reached: number
+        }
+        Insert: {
+          created_at?: string | null
+          field_changed?: string | null
+          id?: string
+          new_value?: string | null
+          partial_quote_id?: string | null
+          previous_value?: string | null
+          snapshot?: Json | null
+          step_reached: number
+        }
+        Update: {
+          created_at?: string | null
+          field_changed?: string | null
+          id?: string
+          new_value?: string | null
+          partial_quote_id?: string | null
+          previous_value?: string | null
+          snapshot?: Json | null
+          step_reached?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_quote_history_partial_quote_id_fkey"
+            columns: ["partial_quote_id"]
+            isOneToOne: false
+            referencedRelation: "partial_quotes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       leads: {
         Row: {
           assigned_to: string | null
