@@ -367,7 +367,15 @@ const Cotacao = () => {
                               <FormItem>
                                 <FormLabel className="text-slate-700 font-semibold">Seu Nome</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Digite seu nome" className="h-12 bg-slate-50" {...field} />
+                                  <Input 
+                                    placeholder="Digite seu nome" 
+                                    className="h-12 bg-slate-50" 
+                                    {...field} 
+                                    onBlur={() => {
+                                      field.onBlur();
+                                      handleFieldBlur();
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -385,7 +393,10 @@ const Cotacao = () => {
                                     mask="(99) 99999-9999"
                                     value={field.value}
                                     onChange={field.onChange}
-                                    onBlur={field.onBlur}
+                                    onBlur={() => {
+                                      field.onBlur();
+                                      handleFieldBlur();
+                                    }}
                                   >
                                     {/* @ts-ignore */}
                                     {(inputProps: any) => (
@@ -415,6 +426,10 @@ const Cotacao = () => {
                                     {...field} 
                                     onChange={(e) => {
                                       field.onChange(e.target.value.toLowerCase().trim());
+                                    }}
+                                    onBlur={() => {
+                                      field.onBlur();
+                                      handleFieldBlur();
                                     }}
                                   />
                                 </FormControl>
