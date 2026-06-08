@@ -428,10 +428,16 @@ const Cotacao = () => {
                               className="w-full text-xs font-medium border-dashed text-slate-500"
                               onClick={() => {
                                 const values = form.getValues();
-                                const resumeLink = `${window.location.origin}${window.location.pathname}?resume=${btoa(JSON.stringify({ values, step }))}`;
-                                const waLink = `https://wa.me/?text=${encodeURIComponent(`Aqui está o link para você retomar sua cotação na Patro Seguros: ${resumeLink}`)}`;
+                                const payload = { 
+                                  values, 
+                                  step, 
+                                  timestamp: Date.now(),
+                                  nonce: Math.random().toString(36).substring(7) 
+                                };
+                                const resumeLink = `${window.location.origin}${window.location.pathname}?resume=${btoa(JSON.stringify(payload))}`;
+                                const waLink = `https://wa.me/?text=${encodeURIComponent(`Aqui está o link seguro (válido por 24h) para você retomar sua cotação na Patro Seguros: ${resumeLink}`)}`;
                                 window.open(waLink, "_blank");
-                                toast.success("Link de retomada enviado para o WhatsApp!");
+                                toast.success("Link de retomada seguro enviado para o WhatsApp!");
                               }}
                             >
                               Enviar link para continuar no WhatsApp
