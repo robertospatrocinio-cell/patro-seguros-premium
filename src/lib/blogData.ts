@@ -14,6 +14,16 @@ export interface BlogArticleMeta {
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
   { 
+    slug: "como-funciona-seguro-fianca-melhor-que-fiador", 
+    title: "Como funciona o seguro fiança e por que ele é melhor que fiador", 
+    excerpt: "Alugar um imóvel ficou mais fácil. Entenda como o seguro fiança substitui o fiador com mais agilidade e benefícios para inquilinos e proprietários.", 
+    category: "Seguro Fiança", 
+    tags: ["aluguel", "seguro fiança", "imobiliário", "fiador", "dicas"], 
+    author: "Sandra Patro", 
+    date: "2026-06-08", 
+    readTime: 9 
+  },
+  { 
     slug: "crescimento-seguro-cyber-sao-paulo-2026", 
     title: "O Crescimento da Busca por Seguros Cibernéticos em São Paulo", 
     excerpt: "Empresas paulistas lideram a procura por proteção contra ataques hacker e vazamento de dados. Entenda por que o Seguro Cyber virou prioridade.", 
