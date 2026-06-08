@@ -149,17 +149,14 @@ const Cotacao = () => {
     [partialId]
   );
 
-  // Save progress on change
-  useEffect(() => {
-    const subscription = form.watch((values) => {
-      localStorage.setItem("cotacao_progress", JSON.stringify({ values, step }));
-      // Cloud save for reminders (only if we have at least name/phone or email)
-      if (values.name || values.phone || values.email) {
-        saveToCloud(values, step);
-      }
-    });
-    return () => subscription.unsubscribe();
-  }, [form.watch, step, saveToCloud]);
+  // Save progress only on Blur (end of field interaction) to avoid incremental re-renders
+  const handleFieldBlur = useCallback(() => {
+    const values = form.getValues();
+    localStorage.setItem("cotacao_progress", JSON.stringify({ values, step }));
+    if (values.name || values.phone || values.email) {
+      saveToCloud(values, step);
+    }
+  }, [form, step, saveToCloud]);
 
   useEffect(() => {
     if (initialType && form.getValues("insuranceType") !== initialType) {
@@ -370,7 +367,15 @@ const Cotacao = () => {
                               <FormItem>
                                 <FormLabel className="text-slate-700 font-semibold">Seu Nome</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Digite seu nome" className="h-12 bg-slate-50" {...field} />
+                                  <Input 
+                                    placeholder="Digite seu nome" 
+                                    className="h-12 bg-slate-50" 
+                                    {...field} 
+                                    onBlur={() => {
+                                      field.onBlur();
+                                      handleFieldBlur();
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -388,7 +393,10 @@ const Cotacao = () => {
                                     mask="(99) 99999-9999"
                                     value={field.value}
                                     onChange={field.onChange}
-                                    onBlur={field.onBlur}
+                                    onBlur={() => {
+                                      field.onBlur();
+                                      handleFieldBlur();
+                                    }}
                                   >
                                     {/* @ts-ignore */}
                                     {(inputProps: any) => (
@@ -418,6 +426,10 @@ const Cotacao = () => {
                                     {...field} 
                                     onChange={(e) => {
                                       field.onChange(e.target.value.toLowerCase().trim());
+                                    }}
+                                    onBlur={() => {
+                                      field.onBlur();
+                                      handleFieldBlur();
                                     }}
                                   />
                                 </FormControl>
