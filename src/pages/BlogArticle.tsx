@@ -31,8 +31,11 @@ const defaultArticle = {
   faqs: []
 };
 
+import { useABTest } from "@/hooks/useABTest";
+
 const BlogArticle = () => {
   const { slug } = useParams();
+  const variant = useABTest(`blog_cta_${slug || 'default'}`);
   const article = (slug && articlesContent[slug]) || defaultArticle;
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
@@ -299,14 +302,24 @@ const BlogArticle = () => {
             {extraFaqBlock && (
               <div className="mt-12 border-t pt-8">
                 <div className="mb-8 p-6 rounded-xl bg-primary/5 border border-primary/20 text-center">
-                  <p className="font-bold text-primary mb-1">Dúvidas sobre o Seguro de Frota?</p>
-                  <p className="text-sm text-muted-foreground mb-4">Fale agora com um especialista em logística e reduza seus custos.</p>
+                  <p className="font-bold text-primary mb-1">
+                    {variant === 'A' ? 'Dúvidas sobre o Seguro de Frota?' : 'Quanto sua empresa economizaria com seguro de frota?'}
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {variant === 'A' 
+                      ? 'Fale agora com um especialista em logística e reduza seus custos.' 
+                      : 'Descubra agora as taxas exclusivas para frotas comerciais em Guarulhos.'}
+                  </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Link to={quoteHref} onClick={() => trackCotacaoClick("blog-faq-before-quote")}>
-                      <Button variant="cta" size="sm" className="w-full sm:w-auto font-bold">Simular Cotação Agora</Button>
+                    <Link to={quoteHref} onClick={() => trackCotacaoClick(`blog-faq-before-quote-v${variant}`)}>
+                      <Button variant="cta" size="sm" className="w-full sm:w-auto font-bold">
+                        {variant === 'A' ? 'Simular Cotação Agora' : 'Garantir Desconto de Frota'}
+                      </Button>
                     </Link>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("blog-faq-before-whatsapp")}>
-                      <Button variant="outline" size="sm" className="w-full sm:w-auto font-bold border-primary text-primary hover:bg-primary hover:text-white transition-all"><MessageCircle className="mr-2 h-4 w-4" /> Consultoria via WhatsApp</Button>
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`blog-faq-before-whatsapp-v${variant}`)}>
+                      <Button variant="outline" size="sm" className="w-full sm:w-auto font-bold border-primary text-primary hover:bg-primary hover:text-white transition-all">
+                        <MessageCircle className="mr-2 h-4 w-4" /> {variant === 'A' ? 'Consultoria via WhatsApp' : 'Falar com Especialista de Frota'}
+                      </Button>
                     </a>
                   </div>
                 </div>
@@ -337,17 +350,23 @@ const BlogArticle = () => {
                 </div>
 
                 <div className="mt-8 p-6 rounded-xl bg-primary text-primary-foreground text-center shadow-elegant">
-                  <h4 className="text-xl font-bold mb-2">Pronto para proteger sua operação?</h4>
-                  <p className="text-primary-foreground/80 text-sm mb-5">Não deixe sua frota vulnerável. Garanta a melhor cobertura com o menor custo de Guarulhos.</p>
+                  <h4 className="text-xl font-bold mb-2">
+                    {variant === 'A' ? 'Pronto para proteger sua operação?' : 'Sua frota merece a melhor proteção de Guarulhos'}
+                  </h4>
+                  <p className="text-primary-foreground/80 text-sm mb-5">
+                    {variant === 'A' 
+                      ? 'Não deixe sua frota vulnerável. Garanta a melhor cobertura com o menor custo de Guarulhos.' 
+                      : 'Compare 16 seguradoras em minutos e economize até 30% no seu seguro de frota empresarial.'}
+                  </p>
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Link to={quoteHref} onClick={() => trackCotacaoClick("blog-faq-after-quote")}>
+                    <Link to={quoteHref} onClick={() => trackCotacaoClick(`blog-faq-after-quote-v${variant}`)}>
                       <Button variant="cta" size="lg" className="w-full sm:w-auto font-bold shadow-lg hover:scale-105 transition-transform">
-                        Iniciar Cotação Gratuita <ArrowRight className="ml-2 h-4 w-4" />
+                        {variant === 'A' ? 'Iniciar Cotação Gratuita' : 'Ver Preços de Frota'} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("blog-faq-after-whatsapp")}>
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`blog-faq-after-whatsapp-v${variant}`)}>
                       <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold transition-all">
-                        <MessageCircle className="mr-2 h-4 w-4" /> Falar com Especialista
+                        <MessageCircle className="mr-2 h-4 w-4" /> {variant === 'A' ? 'Falar com Especialista' : 'Orçamento via WhatsApp'}
                       </Button>
                     </a>
                   </div>
