@@ -14,6 +14,16 @@ export interface BlogArticleMeta {
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
   { 
+    slug: "crescimento-seguro-cyber-sao-paulo-2026", 
+    title: "O Crescimento da Busca por Seguros Cibernéticos em São Paulo", 
+    excerpt: "Empresas paulistas lideram a procura por proteção contra ataques hacker e vazamento de dados. Entenda por que o Seguro Cyber virou prioridade.", 
+    category: "Seguro Cyber", 
+    tags: ["cyber", "seguro digital", "são paulo", "LGPD", "empresas"], 
+    author: "Roberto Patro", 
+    date: "2026-06-08", 
+    readTime: 12 
+  },
+  { 
     slug: "seguro-auto-guarulhos-preco-bairro-2026", 
     title: "Seguro Auto em Guarulhos: Preço por Bairro em 2026", 
     excerpt: "Descubra quanto custa o seguro auto nos principais bairros de Guarulhos e por que o CEP influencia tanto no valor.", 
