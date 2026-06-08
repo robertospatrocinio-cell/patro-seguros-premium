@@ -27,12 +27,12 @@ const formSchema = z.object({
 
 const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [step, setStep] = useState(1);
   const [searchParams] = useSearchParams();
 
   const VALID_TYPES = ["auto","vida","residencial","viagem","saude","empresarial","frota","rc","outros", "planos-de-saude", "agronegocio", "seguro-celular", "seguro-transporte", "seguro-fianca"] as const;
   const tipoParam = (searchParams.get("tipo") || "").toLowerCase();
   
-  // Mapeamento de slugs de categoria do blog para valores do select
   const categoryToValue: Record<string, string> = {
     "seguro-auto": "auto",
     "seguro-vida": "vida",
@@ -42,8 +42,8 @@ const Cotacao = () => {
     "seguro-empresarial": "empresarial",
     "seguro-frota": "frota",
     "agronegocio": "outros",
-    "seguro-transporte": "frota", // ou novo valor se disponível
-    "seguro-fianca": "residencial", // ou novo valor
+    "seguro-transporte": "frota",
+    "seguro-fianca": "residencial",
     "rc": "rc"
   };
 
@@ -60,57 +60,49 @@ const Cotacao = () => {
     },
   });
 
-  // Sync if the query param changes after mount (SPA navigation)
   useEffect(() => {
     if (initialType && form.getValues("insuranceType") !== initialType) {
       form.setValue("insuranceType", initialType, { shouldValidate: true });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialType]);
+
+  const nextStep = async () => {
+    let fields: (keyof z.infer<typeof formSchema>)[] = [];
+    if (step === 1) fields = ["insuranceType"];
+    if (step === 2) fields = ["name", "email", "phone"];
+    
+    const isValid = await form.trigger(fields);
+    if (isValid) setStep(step + 1);
+  };
+
+  const prevStep = () => setStep(step - 1);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     
-    // Criar mensagem para WhatsApp
     const whatsappMessage = encodeURIComponent(
       `*Nova Solicitação de Cotação*\n\n` +
-      `Nome: ${values.name}\n` +
-      `E-mail: ${values.email}\n` +
-      `Telefone: ${values.phone}\n` +
-      `Tipo de Seguro: ${values.insuranceType}\n` +
-      `Mensagem: ${values.message || "Não informada"}`
+      `👤 *Nome:* ${values.name}\n` +
+      `📧 *E-mail:* ${values.email}\n` +
+      `📱 *WhatsApp:* ${values.phone}\n` +
+      `🛡️ *Tipo de Seguro:* ${values.insuranceType}\n` +
+      `💬 *Mensagem:* ${values.message || "Não informada"}\n\n` +
+      `_Enviado via Patro Seguros_`
     );
     
-    // Enviar email
     const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${values.message || "Não informada"}`;
-    const htmlBody = `<h2>Nova Solicitação de Cotação — ${escapeHtml(values.insuranceType)}</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
+    const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
 
-    const { error: mailErr } = await safeInvoke("send-form-email", {
-      subject: `Nova Cotação — ${values.insuranceType}`,
+    await safeInvoke("send-form-email", {
+      subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
       textBody,
       htmlBody
     });
 
-     if (mailErr) {
-       // Don't use handleSupabaseError here as we want to manage the redirection flow gracefully
-       console.error("Email notification error:", mailErr);
-       toast.warning("Houve uma instabilidade no sistema de notificações.", {
-         description: "Mas não se preocupe, estamos redirecionando você agora para o WhatsApp para garantir seu atendimento.",
-         duration: 6000,
-       });
-     }
-
-    // Redirecionar para WhatsApp
-    trackCotacaoSubmit(values.insuranceType, { origin: "formulario-cotacao" });
-    trackWhatsAppClick("formulario-cotacao", { origin: "formulario-cotacao", insuranceType: values.insuranceType });
-    window.open(`https://wa.me/551151997500?text=${whatsappMessage}`, "_blank");
+    trackCotacaoSubmit(values.insuranceType, { origin: "formulario-etapas" });
+    trackWhatsAppClick("formulario-etapas", { origin: "formulario-etapas", insuranceType: values.insuranceType });
     
-    toast.success("Redirecionando para WhatsApp...", {
-      description: "Em instantes você será atendido por um de nossos especialistas!",
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
+    window.location.href = `https://wa.me/551151997500?text=${whatsappMessage}`;
   };
 
   const faqs = [
@@ -202,112 +194,154 @@ const Cotacao = () => {
               <div className="lg:col-span-7">
                 <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 lg:p-10">
                   <div className="mb-8">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Solicite sua Cotação</h3>
-                    <p className="text-slate-500">Preencha os campos abaixo e entraremos em contato.</p>
+                    <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
+                      <span>Etapa {step} de 3</span>
+                      <span>{Math.round((step / 3) * 100)}% concluído</span>
+                    </div>
+                    <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-primary transition-all duration-500 ease-out"
+                        style={{ width: `${(step / 3) * 100}%` }}
+                      />
+                    </div>
                   </div>
 
                   <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-slate-700 font-semibold">Nome Completo</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Seu nome" className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <div className="grid md:grid-cols-2 gap-5">
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-slate-700 font-semibold">E-mail</FormLabel>
-                              <FormControl>
-                                <Input type="email" placeholder="seu@email.com" className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-slate-700 font-semibold">WhatsApp</FormLabel>
-                              <FormControl>
-                                <Input placeholder="(11) 99999-9999" className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-
-                      <FormField
-                        control={form.control}
-                        name="insuranceType"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-slate-700 font-semibold">O que você quer proteger?</FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value}>
-                              <FormControl>
-                                <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all">
-                                  <SelectValue placeholder="Selecione o tipo de seguro" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="auto">Seguro Auto</SelectItem>
-                                <SelectItem value="vida">Seguro de Vida</SelectItem>
-                                <SelectItem value="residencial">Seguro Residencial</SelectItem>
-                                <SelectItem value="viagem">Seguro Viagem</SelectItem>
-                                <SelectItem value="saude">Seguro Saúde</SelectItem>
-                                <SelectItem value="empresarial">Seguro Empresarial</SelectItem>
-                                <SelectItem value="frota">Seguro de Frota</SelectItem>
-                                <SelectItem value="rc">Responsabilidade Civil</SelectItem>
-                                <SelectItem value="outros">Outros</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-slate-700 font-semibold">Observações (opcional)</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Algum detalhe importante?"
-                                className="min-h-[100px] bg-slate-50 border-slate-200 focus:bg-white transition-all"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      <div className="pt-4 flex flex-col gap-4">
-                        <Button type="submit" size="lg" className="w-full h-14 text-lg font-bold shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95" disabled={isSubmitting}>
-                          {isSubmitting ? "Enviando..." : "Solicitar Cotação Agora"}
-                        </Button>
-                        <div className="flex items-center justify-center gap-4 text-sm text-slate-400">
-                          <span className="flex items-center gap-1"><ShieldCheck className="w-4 h-4" /> Dados protegidos</span>
-                          <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4" /> 100% Gratuito</span>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      {step === 1 && (
+                        <div className="animate-in fade-in slide-in-from-right-4 duration-300">
+                          <FormField
+                            control={form.control}
+                            name="insuranceType"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-slate-700 font-bold text-lg mb-4 block">O que você deseja proteger hoje?</FormLabel>
+                                <FormControl>
+                                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                    {[
+                                      { value: "auto", label: "Auto", icon: "🚗" },
+                                      { value: "vida", label: "Vida", icon: "🛡️" },
+                                      { value: "residencial", label: "Casa", icon: "🏠" },
+                                      { value: "saude", label: "Saúde", icon: "🏥" },
+                                      { value: "empresarial", label: "Empresa", icon: "🏢" },
+                                      { value: "frota", label: "Frota", icon: "🚛" },
+                                      { value: "fianca", label: "Aluguel", icon: "🔑" },
+                                      { value: "viagem", label: "Viagem", icon: "✈️" },
+                                      { value: "outros", label: "Outros", icon: "✨" },
+                                    ].map((opt) => (
+                                      <button
+                                        key={opt.value}
+                                        type="button"
+                                        onClick={() => {
+                                          field.onChange(opt.value);
+                                          nextStep();
+                                        }}
+                                        className={`p-4 rounded-2xl border-2 transition-all text-center flex flex-col items-center gap-2 group ${
+                                          field.value === opt.value 
+                                            ? "border-primary bg-primary/5 shadow-md shadow-primary/10" 
+                                            : "border-slate-100 hover:border-slate-200 hover:bg-slate-50"
+                                        }`}
+                                      >
+                                        <span className="text-2xl group-hover:scale-110 transition-transform">{opt.icon}</span>
+                                        <span className={`text-sm font-bold ${field.value === opt.value ? "text-primary" : "text-slate-600"}`}>
+                                          {opt.label}
+                                        </span>
+                                      </button>
+                                    ))}
+                                  </div>
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
                         </div>
-                      </div>
+                      )}
+
+                      {step === 2 && (
+                        <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
+                          <h3 className="text-xl font-bold text-slate-900 mb-4">Como podemos te contatar?</h3>
+                          <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-slate-700 font-semibold">Seu Nome</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Digite seu nome" className="h-12 bg-slate-50" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="phone"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-slate-700 font-semibold">WhatsApp</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="(11) 99999-9999" className="h-12 bg-slate-50" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-slate-700 font-semibold">E-mail</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="seu@email.com" className="h-12 bg-slate-50" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <div className="pt-4 flex gap-3">
+                            <Button type="button" variant="ghost" onClick={prevStep} className="flex-1 h-12">Voltar</Button>
+                            <Button type="button" onClick={nextStep} className="flex-[2] h-12 text-lg font-bold">Próximo Passo</Button>
+                          </div>
+                        </div>
+                      )}
+
+                      {step === 3 && (
+                        <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
+                          <h3 className="text-xl font-bold text-slate-900 mb-4">Finalize sua solicitação</h3>
+                          <FormField
+                            control={form.control}
+                            name="message"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-slate-700 font-semibold">Informações Adicionais (opcional)</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="Ex: Modelo do carro, número de funcionários, valor do aluguel..."
+                                    className="min-h-[120px] bg-slate-50"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+
+                          <div className="pt-4 flex flex-col gap-4">
+                            <Button type="submit" size="lg" className="w-full h-14 text-lg font-bold shadow-xl shadow-primary/20" disabled={isSubmitting}>
+                              {isSubmitting ? "Enviando..." : "Receber Cotação no WhatsApp"}
+                            </Button>
+                            <Button type="button" variant="ghost" onClick={prevStep} disabled={isSubmitting}>Voltar e revisar</Button>
+                            <div className="flex items-center justify-center gap-4 text-xs text-slate-400">
+                              <span className="flex items-center gap-1"><ShieldCheck className="w-3 h-3" /> Dados seguros</span>
+                              <span className="flex items-center gap-1"><CheckCircle2 className="w-3 h-3" /> Grátis</span>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </form>
                   </Form>
                 </div>
