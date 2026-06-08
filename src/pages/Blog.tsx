@@ -1,17 +1,21 @@
-import { useState, useMemo, Fragment } from "react";
+import { useState, useMemo, Fragment, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate } from "@/lib/blogData";
 
+const POSTS_PER_PAGE = 9;
+
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filtered = useMemo(() => {
     let list = [...articles].sort((a, b) => b.date.localeCompare(a.date));
@@ -19,6 +23,17 @@ const Blog = () => {
     if (selectedTag) list = list.filter(a => a.tags.includes(selectedTag));
     return list;
   }, [selectedCategory, selectedTag]);
+
+  const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
+  const currentArticles = useMemo(() => {
+    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    return filtered.slice(start, start + POSTS_PER_PAGE);
+  }, [filtered, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, selectedTag]);
+
 
   return (
     <Fragment>
@@ -107,7 +122,7 @@ const Blog = () => {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((article) => (
+              {currentArticles.map((article) => (
                 <Link key={article.slug} to={`/blog/${article.slug}`}>
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
                     <div className="aspect-video w-full overflow-hidden">
@@ -136,6 +151,30 @@ const Blog = () => {
                 </Link>
               ))}
             </div>
+
+            {totalPages > 1 && (
+              <div className="mt-12 flex justify-center items-center gap-4">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                >
+                  Anterior
+                </Button>
+                <span className="text-sm text-muted-foreground">
+                  Página {currentPage} de {totalPages}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                >
+                  Próxima
+                </Button>
+              </div>
+            )}
           </div>
         </section>
       </main>
