@@ -917,6 +917,45 @@ export type Database = {
         }
         Relationships: []
       }
+      partial_quotes: {
+        Row: {
+          created_at: string | null
+          current_step: number | null
+          data: Json | null
+          email: string | null
+          id: string
+          insurance_type: string | null
+          last_activity: string | null
+          name: string | null
+          phone: string | null
+          reminder_sent_count: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          current_step?: number | null
+          data?: Json | null
+          email?: string | null
+          id?: string
+          insurance_type?: string | null
+          last_activity?: string | null
+          name?: string | null
+          phone?: string | null
+          reminder_sent_count?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          current_step?: number | null
+          data?: Json | null
+          email?: string | null
+          id?: string
+          insurance_type?: string | null
+          last_activity?: string | null
+          name?: string | null
+          phone?: string | null
+          reminder_sent_count?: number | null
+        }
+        Relationships: []
+      }
       policies: {
         Row: {
           commission_amount: number | null
