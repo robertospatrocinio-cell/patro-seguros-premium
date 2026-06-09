@@ -272,6 +272,27 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         </div>
       )}
 
+      {showRestoreNotice && (
+        <div className="mb-6 animate-in slide-in-from-top-4 duration-500">
+          <div className="bg-primary/5 border border-primary/20 rounded-xl p-3 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <AlertCircle className="h-4 w-4 text-primary shrink-0" />
+              <p className="text-[11px] font-medium text-primary">Sessão restaurada</p>
+            </div>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="h-7 px-2 text-[10px] gap-1 hover:bg-primary/10 text-primary"
+              onClick={startOver}
+            >
+              <RotateCcw className="h-3 w-3" />
+              Limpar
+            </Button>
+          </div>
+        </div>
+      )}
+
+
       <div className="flex items-center gap-3 mb-1">
         <MessageCircle className="h-5 w-5 text-primary" aria-hidden="true" />
         <h3 className="text-lg font-bold">
