@@ -135,7 +135,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-corolla-cross-guarulhos": {
     title: "Quanto custa o seguro do Corolla Cross em Guarulhos?",
-    content: "O Corolla Cross em Guarulhos tem seguro médio de R$ 3.200 a R$ 5.800. A versão híbrida tem uma aceitação excelente em seguradoras como Porto e Tokio Marine. Moradores de condomínios na Vila Augusta conseguem as melhores taxas para este modelo.\n\n[Cotação Corolla Cross](/cotacao?tipo=auto&modelo=corolla-cross)",
+    content: "O Corolla Cross em Guarulhos tem seguro médio de R$ 3.200 a R$ 5.800. A versão híbrida tem uma aceitação excelente em seguradoras como Porto e Tokio Marine. Moradores de condomínios na Vila Augusta conseguem as melhores taxas para este modelo.\n\n[Cotação Corolla Cross](/seguro-auto-toyota-guarulhos)",
     faqs: [
       { q: "Diferença de preço entre híbrido e combustão?", a: "A versão híbrida costuma ter seguro cerca de 8% a 12% mais barato devido ao perfil do condutor." },
       { q: "O seguro cobre o teto solar do Corolla Cross?", a: "Sim, recomendamos sempre incluir a cobertura de vidros completa que abrange o teto solar panorâmico." }
