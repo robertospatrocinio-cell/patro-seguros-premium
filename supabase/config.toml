@@ -2,3 +2,5 @@ project_id = "vjzsekwkeixbbpldiqmd"
 
 [functions.process-email-queue]
 verify_jwt = true
+[functions.monitor-sitemap-errors]
+verify_jwt = false
