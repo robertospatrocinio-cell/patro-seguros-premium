@@ -132,6 +132,7 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
                           })
                         }
 
+
                         className="group flex flex-col gap-0 rounded-xl border border-border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all"
                       >
                         {m.heroImg && (
