@@ -577,6 +577,3 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
 export default InsuranceQuoteForm;
 
-};
-
-export default InsuranceQuoteForm;
