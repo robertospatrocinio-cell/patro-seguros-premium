@@ -324,6 +324,31 @@ const FormularioSeguroVida = () => {
                 <Progress value={progress} className="h-2 bg-primary/10" />
               </div>
 
+              {showRestoreNotice && (
+                <div className="mb-8 animate-in slide-in-from-top-4 duration-500">
+                  <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                        <AlertCircle className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-base font-bold text-primary">Formulário recuperado</p>
+                        <p className="text-sm text-muted-foreground">Retomamos de onde você parou.</p>
+                      </div>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      className="gap-2 border-primary/30 text-primary hover:bg-primary/10"
+                      onClick={startOver}
+                    >
+                      <RotateCcw className="h-4 w-4" />
+                      Reiniciar
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+
               <form onSubmit={handleSubmit} className="space-y-8">
                 {currentStep === 1 && (
                   <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
