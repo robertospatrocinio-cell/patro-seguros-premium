@@ -1172,8 +1172,8 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
 
   return {
     slug: m.slug,
-    title: `Seguro Auto ${m.modelo} em Guarulhos — Cotação 2026`,
-    subtitle: `Cotação de seguro para ${m.modelo} em Guarulhos com a Patro Seguros. Comparamos Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco e mais para encontrar o melhor preço para seu ${m.modeloShort}.`,
+    title: `Seguro ${m.modelo} em Guarulhos — Cotação 2026`,
+    subtitle: `Cotação de seguro para ${m.modelo} em Guarulhos. Comparamos Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco e mais para encontrar o melhor preço para seu ${m.modeloShort}.`,
     description: `Procurando seguro para ${m.modelo} em Guarulhos? A Patro Seguros é especialista em cotações por modelo e compara as 9 maiores seguradoras do país em uma única solicitação. Para o ${m.modeloShort}, o prêmio anual fica em média ${m.priceRange.label} para cobertura compreensiva, considerando perfil de risco ${m.theftProfile} de furto/roubo. Faixa FIPE: ${m.fipeRange}.`,
     detailedDescription: `${m.context}\n\nCada seguradora precifica modelos específicos de forma diferente. Para o ${m.modelo}, a Patro identifica quais companhias entregam melhor preço, melhor franquia e melhor cobertura adicional. ${m.bestInsurers[0].name}: ${m.bestInsurers[0].reason}. ${m.bestInsurers[1].name}: ${m.bestInsurers[1].reason}. Em vez de cotar em 9 sites diferentes, fazemos uma única cotação padronizada e devolvemos comparativo claro em até 2 horas úteis.\n\nPontos fortes do ${m.modeloShort} para o seguro: ${m.pros.join("; ")}. Pontos de atenção: ${m.cons.join("; ")}. Nossa orientação combina perfil do veículo, CEP de pernoite em Guarulhos, idade do condutor e uso (particular, profissional ou aplicativo) para entregar a apólice mais adequada e mais barata possível.`,
     metaDescription: `Seguro ${m.modelo} Guarulhos: cotação online e comparativo entre 9 seguradoras. Patro Seguros — ${m.priceRange.label}.`,
@@ -1273,6 +1273,7 @@ export const seoModeloAutoPages: Record<string, SeoLocalPageConfig> = Object.fro
 );
 
 export const seoModeloAutoSlugs = Object.keys(seoModeloAutoPages);
+export const seoLocalPageSlugs = seoModeloAutoSlugs;
 
 export const MODELO_LIST = MODELOS.map((m) => ({
   slug: m.slug,

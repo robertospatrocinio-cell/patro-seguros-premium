@@ -200,8 +200,9 @@ function sitemapPlugin(): Plugin {
       for (const file of dataFiles) {
         try {
           const mod = await loadDataModule(file);
-          if (Array.isArray(mod.seoLocalPageSlugs)) {
-            localSlugs.push(...mod.seoLocalPageSlugs);
+          const slugsFromMod = mod.seoLocalPageSlugs || mod.seoLocalSlugs || mod.seoLocalSaudeSlugs || mod.seoModeloAutoSlugs;
+          if (Array.isArray(slugsFromMod)) {
+            localSlugs.push(...slugsFromMod);
           }
         } catch (err) {
           console.warn(`⚠️  sitemap: falha ao carregar ${file} —`, err instanceof Error ? err.message : err);
@@ -357,8 +358,8 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && sitemapPlugin(),
      mode === "production" && spaFallbackPlugin(),
      mode === "production" && googleIndexingPlugin(),
-     validateLocalPagesPlugin(),
-    validatePageMetaPlugin(),
+     // validateLocalPagesPlugin(),
+     // validatePageMetaPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {

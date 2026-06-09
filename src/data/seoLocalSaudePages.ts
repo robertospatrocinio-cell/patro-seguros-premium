@@ -449,4 +449,5 @@ interface SaudeBairroSeed {
     ...empresarialPagesConfig
   };
 
-  export const seoLocalPageSlugs = Object.keys(seoLocalSaudePages);
+  export const seoLocalSaudeSlugs = Object.keys(seoLocalSaudePages);
+  export const seoLocalPageSlugs = seoLocalSaudeSlugs;

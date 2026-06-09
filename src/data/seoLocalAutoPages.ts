@@ -1803,7 +1803,8 @@ Object.assign(seoLocalPages, cityConfigs, {
   "seguro-lojas-shopping-bonsucesso": seguroShoppingBonsucesso
 });
 
-export const seoLocalPageSlugs = Object.keys(seoLocalPages);
+export const seoLocalAutoSlugs = Object.keys(seoLocalPages);
+export const seoLocalPageSlugs = seoLocalAutoSlugs;
 
 
 // Suppress unused-import warning when consumers tree-shake
