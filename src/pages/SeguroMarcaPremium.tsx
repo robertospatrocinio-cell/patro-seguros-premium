@@ -10,6 +10,7 @@ import FAQSchema from "@/components/FAQSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { PREMIUM_BRANDS } from "@/data/premiumBrandsConfig";
@@ -38,6 +39,13 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
       <OrganizationSchema />
       <LocalBusinessSchema />
       <WebSiteSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Seguro Auto", url: "/seguro-auto" },
+          { name: config.name, url: `/seguro-${config.slug}` },
+        ]}
+      />
       <LocalAreaSchema
         serviceName={`Seguro ${config.name}`}
         url={`https://patroseguros.lovable.app/seguro-${config.slug}`}
