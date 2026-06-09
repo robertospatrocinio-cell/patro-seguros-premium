@@ -26,11 +26,71 @@ interface QuickQuoteFormProps {
 
 const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: QuickQuoteFormProps) => {
   const storageKey = `quick-quote-${trackingLabel.toLowerCase().replace(/\s+/g, "-")}`;
-  const [form, setForm, clearForm] = usePersistentForm<Record<string, string>>(storageKey, { nome: "", telefone: "", email: "" });
-  const [currentStep, setCurrentStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
+  const [form, setForm, clearForm, isRestored] = usePersistentForm<Record<string, string>>(storageKey, { nome: "", telefone: "", email: "" });
+  const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [showRestoreNotice, setShowRestoreNotice] = useState(false);
+  const [partialId, setPartialId] = useState<string | null>(localStorage.getItem(`${storageKey}-partial-id`));
+
+  // Handle restoration notice
+  useEffect(() => {
+    const hasData = form.nome || form.telefone || form.email;
+    if (isRestored && hasData && !sent) {
+      setShowRestoreNotice(true);
+      const timer = setTimeout(() => setShowRestoreNotice(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [isRestored, sent]);
+
+  // Debounced cloud save
+  const saveToCloud = useCallback(
+    debounce(async (values: Record<string, string>, step: number) => {
+      const dataToSave = {
+        name: values.nome || null,
+        email: values.email || null,
+        phone: values.telefone || null,
+        insurance_type: insuranceType,
+        current_step: step,
+        data: values,
+        last_activity: new Date().toISOString()
+      };
+
+      try {
+        if (partialId) {
+          await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+        } else if (dataToSave.name || dataToSave.email || dataToSave.phone) {
+          const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
+          if (data && !error) {
+            setPartialId(data.id);
+            localStorage.setItem(`${storageKey}-partial-id`, data.id);
+          }
+        }
+      } catch (err) {
+        console.error("Cloud save failed", err);
+      }
+    }, 3000),
+    [partialId, insuranceType, storageKey]
+  );
+
+  useEffect(() => {
+    const hasData = form.nome || form.telefone || form.email;
+    if (hasData) {
+      saveToCloud(form, currentStep);
+    }
+  }, [form, currentStep, saveToCloud]);
+
+  const startOver = () => {
+    clearForm();
+    clearStep();
+    localStorage.removeItem(`${storageKey}-partial-id`);
+    setPartialId(null);
+    setTouched({});
+    setShowRestoreNotice(false);
+    toast.success("Dados limpos com sucesso.");
+  };
+
 
   const hasExtraFields = extraFields.length > 0;
   const totalSteps = hasExtraFields ? 2 : 1;
