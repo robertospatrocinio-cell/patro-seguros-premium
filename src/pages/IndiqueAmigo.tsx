@@ -17,6 +17,8 @@ import { Progress } from "@/components/ui/progress";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 
 
 const tiposSeguros = [
