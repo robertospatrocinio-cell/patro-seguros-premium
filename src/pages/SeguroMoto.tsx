@@ -1,8 +1,16 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import LocalAreaSchema from "@/components/LocalAreaSchema";
 import heroImg from "@/assets/hero-seguro-moto.webp";
 
 const SeguroMoto = () => {
   return (
+    <>
+      <LocalAreaSchema
+        serviceName="Seguro Moto"
+        url="https://patroseguros.lovable.app/seguro-moto"
+        description="Seguro moto em Guarulhos: proteção contra roubo, furto e colisão."
+        city="Guarulhos"
+      />
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Moto em Guarulhos | Cotação em 2h | Patro Seguros"
@@ -102,6 +110,7 @@ Outro diferencial importante: motos exigem assistência 24h especializada. O gui
       quoteUrl="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
       canonicalUrl="https://patroseguros.lovable.app/seguro-moto"
     />
+    </>
   );
 };
 

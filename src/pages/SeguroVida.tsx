@@ -1,11 +1,18 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import LocalAreaSchema from "@/components/LocalAreaSchema";
 import heroImg from "@/assets/hero-seguro-vida.webp";
 import heroMobileImg from "@/assets/hero-familia-sm.webp";
 
 const SeguroVida = () => {
   return (
     <>
+      <LocalAreaSchema
+        serviceName="Seguro de Vida"
+        url="https://patroseguros.lovable.app/seguro-vida"
+        description="Seguro de vida em Guarulhos: proteção familiar completa contra morte, invalidez e doenças graves."
+        city="Guarulhos"
+      />
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
