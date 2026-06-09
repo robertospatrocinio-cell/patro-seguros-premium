@@ -426,6 +426,32 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
         <Progress value={progress} className="h-1.5 bg-primary/10" />
       </div>
 
+      {showRestoreNotice && (
+        <div className="mb-6 animate-in slide-in-from-top-4 duration-500">
+          <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                <AlertCircle className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-primary">Sessão recuperada</p>
+                <p className="text-xs text-muted-foreground">Retomamos seus dados anteriores.</p>
+              </div>
+            </div>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="h-9 gap-2 border-primary/30 text-primary hover:bg-primary/10"
+              onClick={startOver}
+            >
+              <RotateCcw className="h-3.5 w-3.5" />
+              Reiniciar
+            </Button>
+          </div>
+        </div>
+      )}
+
+
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl" aria-hidden="true">{config.emoji}</span>
         <h3 className="text-lg font-bold">{steps[currentStep - 1].title}</h3>
