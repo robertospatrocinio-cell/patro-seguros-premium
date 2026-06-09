@@ -9,10 +9,10 @@ const SeguroVida = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
-      title="Seguro de Vida em Guarulhos – Cidade Maia"
+      title="Seguro de Vida em Guarulhos — Proteção Familiar Completa"
       subtitle="Proteção financeira para você e sua família em momentos difíceis"
       icon="❤️"
-      metaDescription="Seguro de Vida em Guarulhos: cobertura por morte, invalidez, doenças graves e assistência funeral. A partir de R$ 30/mês. Cotação grátis."
+      metaDescription="Seguro de Vida em Guarulhos: cobertura por morte, invalidez e doenças graves. A partir de R$ 30/mês. Cotação em 2h com a Patro Seguros."
       description="O Seguro de Vida garante que as pessoas que dependem de você terão recursos para manter o padrão de vida se você faltar ou não puder trabalhar."
       detailedDescription={`Muitos brasileiros associam o seguro de vida apenas à morte, mas as coberturas mais acionadas são as de invalidez e doenças graves — situações em que o segurado está vivo, mas impossibilitado de gerar renda. Um profissional de 40 anos que sofre um acidente grave e fica impossibilitado de trabalhar enfrenta décadas de despesas sem receita.
 

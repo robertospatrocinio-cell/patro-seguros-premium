@@ -17,7 +17,7 @@ const SeguroEmpresarialSegmento = ({ segmento: segmentoProp }: SeguroEmpresarial
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title={`Seguro para ${data.nome}`}
+      title={`Seguro para ${data.nome} em Guarulhos`}
       subtitle={data.subtitle}
       icon={data.icon}
       metaDescription={data.metaDescription}

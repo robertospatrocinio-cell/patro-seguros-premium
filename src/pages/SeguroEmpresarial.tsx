@@ -7,10 +7,10 @@ const SeguroEmpresarial = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
-      title="Seguro Empresarial em Guarulhos – Cidade Maia"
+      title="Seguro Empresarial em Guarulhos — Proteção para o seu Negócio"
       subtitle="Proteção completa para o patrimônio e as operações da sua empresa"
       icon="🏢"
-      metaDescription="Seguro Empresarial em Guarulhos, Cidade Maia. Cobertura contra incêndio, roubo, RC, lucros cessantes e danos elétricos. Cotação grátis Patro Seguros."
+      metaDescription="Seguro Empresarial em Guarulhos: incêndio, roubo, lucros cessantes e RC. Proteja sua empresa com a Patro Seguros. Cotação rápida em 2h."
       description="O Seguro Empresarial protege seu negócio contra incêndio, roubo e desastres. Garanta a continuidade da sua empresa em Guarulhos com consultoria especializada."
       detailedDescription={`Segundo dados da SUSEP, menos de 30% das empresas brasileiras possuem seguro adequado. Dessas que sofrem sinistros graves sem seguro, mais de 60% fecham as portas em até 2 anos. A razão é simples: além dos danos físicos (que já são enormes), a empresa perde faturamento durante a reconstrução — e os custos fixos continuam: aluguel, salários, financiamentos, impostos.
 

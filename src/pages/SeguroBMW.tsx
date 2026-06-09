@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import FAQSchema from "@/components/FAQSchema";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Seguro%20BMW.%20Gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20exclusiva%20para%20o%20meu%20ve%C3%ADculo.";
 
@@ -94,8 +95,9 @@ const SeguroBMW = () => {
     <div className="min-h-screen bg-black">
       <PageMeta
         title="Seguro BMW | Proteção Premium e Especializada para seu Veículo — Patro Seguros"
-        description="Seguro exclusivo para modelos BMW. Reparo em concessionária, franquia zero, carro reserva premium e assistência 24h dedicada. Solicite sua cotação."
+        description="Seguro exclusivo para modelos BMW em Guarulhos. Reparo em concessionária, franquia zero, carro reserva premium e assistência 24h dedicada. Solicite sua cotação."
       />
+      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
       <Header />
 
       <main>
@@ -264,10 +266,10 @@ const SeguroBMW = () => {
         {/* FAQ */}
         <section className="bg-zinc-900 py-24">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-black text-white text-center uppercase italic tracking-tighter mb-16">
-              Dúvidas <span className="text-blue-500">Frequentes</span>
+            <h2 id="faq-heading" className="text-3xl md:text-4xl font-black text-white text-center uppercase italic tracking-tighter mb-16">
+              Dúvidas <span className="text-blue-500">Frequentes</span> sobre Seguro BMW
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-4" data-speakable="faq">
               {faqs.map((faq, i) => (
                 <div key={i} className="bg-black border border-white/5 overflow-hidden">
                   <button
