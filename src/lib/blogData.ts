@@ -1,5 +1,6 @@
 import { guarulhosArticles } from "@/data/blogGuarulhosData";
 import { guarulhosLojistasArticles } from "@/data/blogGuarulhosLojistasData";
+import { vistoriaArticles } from "@/data/blogVistoriaData";
 
 export interface BlogArticleMeta {
   slug: string;
@@ -15,6 +16,7 @@ export interface BlogArticleMeta {
 export const articles: BlogArticleMeta[] = [
   ...guarulhosArticles,
   ...guarulhosLojistasArticles,
+  ...vistoriaArticles,
   { 
     slug: "crescimento-frotas-comerciais-guarulhos-logistica-2026", 
     title: "Crescimento de Frotas Comerciais em Guarulhos e o Impacto na Logística", 

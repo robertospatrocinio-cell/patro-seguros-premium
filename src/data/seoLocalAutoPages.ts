@@ -164,19 +164,26 @@ const seguroShoppingInternacional: SeoLocalPageConfig = {
   title: "Seguro para Lojas no Internacional Shopping Guarulhos",
   subtitle: "Seguro empresarial para lojistas e quiosques do Internacional Shopping. Proteção contra roubo, incêndio e lucros cessantes com a Patro Seguros.",
   description: "Proteja sua operação no Internacional Shopping Guarulhos. O seguro empresarial da Patro atende todas as exigências do condomínio e garante o faturamento da sua loja.",
-  detailedDescription: "O Internacional Shopping Guarulhos possui um dos maiores fluxos de pessoas do Brasil. Para o lojista, isso significa visibilidade, mas também exposição a riscos operacionais. Nossa consultoria foca em apólices robustas de Responsabilidade Civil e proteção de estoque contra vazamentos e furtos.",
+  detailedDescription: "O Internacional Shopping Guarulhos possui um dos maiores fluxos de pessoas do Brasil. Para o lojista, isso significa visibilidade, mas também exposição a riscos operacionais. Nossa consultoria foca em apólices robustas de Responsabilidade Civil e proteção de estoque contra vazamentos e furtos.\n\nAtuamos em Guarulhos desde 2008 e conhecemos as exigências específicas do condomínio do Internacional Shopping. O seguro é fundamental para garantir que um incidente em uma unidade não comprometa todo o negócio.",
   metaDescription: "Seguro para lojistas no Internacional Shopping Guarulhos. Incêndio, roubo e RC. Cotação grátis em 2h.",
   icon: "🏬",
   pricingIntro: "Preços competitivos para lojas de todos os tamanhos e quiosques.",
   pricingFactors: ["Faturamento", "Valor do estoque", "Área ocupada", "Sistemas de segurança"],
   pricingNote: "Atendimento presencial disponível sob agendamento.",
   faqs: [
-    { question: "O seguro cobre lucros cessantes?", answer: "Sim, protegemos seu faturamento médio mensal em caso de paralisação por sinistro." }
+    { question: "O seguro cobre lucros cessantes?", answer: "Sim, protegemos seu faturamento médio mensal em caso de paralisação por sinistro." },
+    { question: "O seguro do shopping já não cobre minha loja?", answer: "Não. O seguro do condomínio cobre apenas as áreas comuns. O conteúdo da loja e sua responsabilidade civil são por sua conta." },
+    { question: "Qual a cobertura mais importante para lojistas?", answer: "Incêndio, Roubo e Lucros Cessantes formam o tripé essencial de proteção." },
+    { question: "Vocês atendem quiosques?", answer: "Sim, temos taxas exclusivas para quiosques no Internacional Shopping Guarulhos." },
+    { question: "Como funciona a assistência 24h?", answer: "Incluímos serviços de chaveiro, eletricista e encanador para emergências na loja." }
   ],
   whoNeeds: ["Lojistas", "Franqueados", "Operadores de quiosque"],
   whyPatro: ["Especialista em Guarulhos", "16+ seguradoras", "Atendimento rápido"],
   coverages: baseCoverages,
-  realScenarios: [],
+  realScenarios: [
+    { title: "Vazamento em Loja Vizinha", description: "O estoque de um cliente foi atingido por um vazamento na loja de cima. O seguro cobriu a reposição integral das mercadorias." },
+    { title: "Curto-circuito no PDV", description: "Um pico de energia danificou os computadores do caixa. A cobertura de danos elétricos garantiu a substituição em 48h." }
+  ],
   tips: ["Verifique as exigências do condomínio no seu contrato de locação."],
   relatedInsurances: baseRelated,
 };
@@ -186,19 +193,26 @@ const seguroShoppingBonsucesso: SeoLocalPageConfig = {
   title: "Seguro para Lojas no Shopping Bonsucesso — Guarulhos",
   subtitle: "Consultoria especializada em seguros para o varejo no Shopping Bonsucesso. Proteção completa para sua loja ou quiosque.",
   description: "Seguro empresarial para lojistas do Shopping Bonsucesso com as melhores taxas do mercado. Proteja seu patrimônio e atenda as normas do shopping.",
-  detailedDescription: "O Shopping Bonsucesso é a referência do varejo na zona leste de Guarulhos. A Patro Seguros oferece atendimento local para lojistas que buscam segurança contra roubo, danos elétricos e responsabilidade civil.",
+  detailedDescription: "O Shopping Bonsucesso é a referência do varejo na zona leste de Guarulhos. A Patro Seguros oferece atendimento local para lojistas que buscam segurança contra roubo, danos elétricos e responsabilidade civil.\n\nNossa equipe conhece profundamente a região de Bonsucesso e as particularidades de operar em um shopping center. Oferecemos consultoria para garantir que sua apólice cumpra todas as exigências do locador, evitando multas e interrupções.",
   metaDescription: "Seguro empresarial Shopping Bonsucesso Guarulhos. Proteção para lojistas e quiosques. Cote agora.",
   icon: "🏬",
   pricingIntro: "Planos acessíveis a partir de R$ 80/mês para pequenas operações.",
   pricingFactors: ["Localização", "Giro de estoque", "Equipamentos"],
   pricingNote: "Cotação gratuita em 2 horas úteis.",
   faqs: [
-    { question: "Seguro de quiosque é mais barato?", answer: "Sim, possuímos taxas exclusivas para quiosques no Shopping Bonsucesso." }
+    { question: "Seguro de quiosque é mais barato?", answer: "Sim, possuímos taxas exclusivas para quiosques no Shopping Bonsucesso." },
+    { question: "Quais documentos preciso para contratar?", answer: "Basicamente o CNPJ da empresa e os valores estimados de estoque e equipamentos." },
+    { question: "O seguro cobre danos elétricos?", answer: "Sim, protegemos seus equipamentos contra curtos-circuitos e picos de tensão." },
+    { question: "Atendem restaurantes na praça de alimentação?", answer: "Com certeza, temos coberturas específicas para riscos de incêndio em cozinhas industriais." },
+    { question: "Quanto tempo leva para a apólice ficar pronta?", answer: "Após a aprovação, a emissão costuma ocorrer no mesmo dia útil." }
   ],
   whoNeeds: ["Comerciantes de Bonsucesso", "Franquias", "Restaurantes"],
   whyPatro: ["Nota 4.9 no Google", "Referência em Guarulhos", "Suporte total"],
   coverages: baseCoverages,
-  realScenarios: [],
+  realScenarios: [
+    { title: "Tentativa de Arrombamento", description: "Uma loja sofreu danos na porta de enrolar durante uma madrugada. O seguro cobriu o conserto da estrutura e os itens levados." },
+    { title: "Sinistro de Incêndio Controlado", description: "Um princípio de incêndio em uma fritadeira foi controlado, mas o fumo danificou o forro. O seguro custeou a limpeza e pintura." }
+  ],
   tips: ["Mantenha seu estoque sempre declarado pelo valor real."],
   relatedInsurances: baseRelated,
 };
