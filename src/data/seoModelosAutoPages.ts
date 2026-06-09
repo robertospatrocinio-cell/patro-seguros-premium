@@ -381,13 +381,14 @@ const MODELOS: ModeloSeed[] = [
     context: "Sua BMW X1 no Jardim Maia merece o melhor atendimento. Patro Seguros garante reparo em concessionária e peças originais."
   },
   {
-    slug: "seguro-auto-audi-q3-guarulhos",
+    slug: "seguro-audi-q3-guarulhos",
     modelo: "Audi Q3",
     modeloShort: "Q3",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 220.000 a R$ 330.000",
     priceRange: { min: 4200, max: 9500, label: "R$ 4.200 a R$ 9.500/ano" },
+
     theftProfile: "médio",
     pros: ["Equilíbrio entre luxo e esportividade", "Tração Quattro disponível", "Conjunto mecânico confiável"],
     cons: ["Seguro elevado para motoristas jovens", "Pneus Run Flat com custo alto"],
