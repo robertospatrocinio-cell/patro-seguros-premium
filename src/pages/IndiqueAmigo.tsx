@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { debounce } from "lodash";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -11,9 +12,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { CheckCircle, ChevronRight, ChevronLeft, Save, User as UserIcon, Users, Send } from "lucide-react";
+import { CheckCircle, ChevronRight, ChevronLeft, Save, User as UserIcon, Users, Send, RotateCcw, AlertCircle } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+
 
 const tiposSeguros = [
   "Seguro Auto", "Seguro Moto", "Seguro Vida", "Seguro Residencial",
