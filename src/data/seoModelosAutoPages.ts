@@ -373,7 +373,42 @@ const MODELOS: ModeloSeed[] = [
     context: "Sua BMW X1 no Jardim Maia merece o melhor atendimento. Patro Seguros garante reparo em concessionária e peças originais."
   },
   {
+    slug: "seguro-auto-audi-q3-guarulhos",
+    modelo: "Audi Q3",
+    modeloShort: "Q3",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 220.000 a R$ 330.000",
+    priceRange: { min: 4200, max: 9500, label: "R$ 4.200 a R$ 9.500/ano" },
+    theftProfile: "médio",
+    pros: ["Equilíbrio entre luxo e esportividade", "Tração Quattro disponível", "Conjunto mecânico confiável"],
+    cons: ["Seguro elevado para motoristas jovens", "Pneus Run Flat com custo alto"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Aceitação premium e rede de suporte em Guarulhos" },
+      { name: "Allianz", reason: "Logística ágil para peças importadas" }
+    ],
+    context: "O Audi Q3 é o SUV executivo de quem circula pelas marginais. Na Patro Seguros, garantimos proteção contra alagamentos e danos estéticos."
+  },
+  {
+    slug: "seguro-auto-mercedes-gla-guarulhos",
+    modelo: "Mercedes-Benz GLA",
+    modeloShort: "GLA",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1618843479313-40f8af24b428?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 250.000 a R$ 380.000",
+    priceRange: { min: 4800, max: 11500, label: "R$ 4.800 a R$ 11.500/ano" },
+    theftProfile: "baixo-médio",
+    pros: ["Estrela Mercedes no capô", "Interior refinado", "Alta tecnologia embarcada"],
+    cons: ["Franquia elevada em algumas companhias", "Rede de oficinas mais enxuta"],
+    bestInsurers: [
+      { name: "Liberty", reason: "Preços competitivos para a linha Mercedes" },
+      { name: "Zurich", reason: "Seguro sob medida para veículos de alto padrão" }
+    ],
+    context: "Sua Mercedes GLA protegida com assistência VIP 24h. Na Patro Seguros, o atendimento premium começa na cotação."
+  },
+  {
     slug: "seguro-volkswagen-guarulhos",
+
 
 
 
