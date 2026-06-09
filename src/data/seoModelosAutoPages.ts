@@ -236,7 +236,194 @@ const MODELOS: ModeloSeed[] = [
       "A caminhonete premium é o símbolo de força e sucesso. Em Guarulhos, proprietários de modelos como Hilux, Amarok, Ranger, RAM e Silverado buscam uma proteção que acompanhe a grandiosidade de seu veículo. A Patro Seguros oferece consultoria exclusiva para garantir que sua pick-up esteja protegida contra roubo, furto e danos em terrenos acidentados, com assistência 24h preparada para veículos de grande porte e suporte total em todo o Brasil.",
   },
   {
+    slug: "seguro-byd-dolphin-guarulhos",
+    modelo: "BYD Dolphin",
+    modeloShort: "Dolphin",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 149.000 a R$ 180.000",
+    priceRange: { min: 2500, max: 4800, label: "R$ 2.500 a R$ 4.800/ano" },
+
+    theftProfile: "baixo",
+    pros: ["Tecnologia 100% elétrica", "Baixo custo de manutenção", "Isenção de rodízio em SP"],
+    cons: ["Rede de oficinas especializada restrita", "Custo de bateria elevado em sinistros"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Cobertura específica para bateria e Wallbox" },
+      { name: "Tokio Marine", reason: "Parceria oficial com a BYD e assistência VIP" },
+      { name: "Allianz", reason: "Expertise global em veículos elétricos" }
+    ],
+    context: "O BYD Dolphin é o elétrico mais vendido do Brasil. Em Guarulhos, exige um seguro que cubra a bateria e o Wallbox de recarga."
+  },
+  {
+    slug: "seguro-byd-song-plus-guarulhos",
+    modelo: "BYD Song Plus",
+    modeloShort: "Song Plus",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 229.000 a R$ 250.000",
+    priceRange: { min: 3200, max: 6500, label: "R$ 3.200 a R$ 6.500/ano" },
+
+    theftProfile: "baixo",
+    pros: ["Híbrido plug-in eficiente", "Espaço interno premium", "Tecnologia ADAS avançada"],
+    cons: ["Complexidade do sistema híbrido", "Valor de peças de reposição"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Excelentes condições para híbridos plug-in" },
+      { name: "Allianz", reason: "Rede de oficinas com técnicos certificados" }
+    ],
+    context: "O BYD Song Plus une o motor a combustão com a eficiência elétrica. Ideal para quem viaja partindo de Guarulhos."
+  },
+  {
+    slug: "seguro-byd-seal-guarulhos",
+    modelo: "BYD Seal",
+    modeloShort: "Seal",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 290.000 a R$ 320.000",
+    priceRange: { min: 4500, max: 8500, label: "R$ 4.500 a R$ 8.500/ano" },
+
+    theftProfile: "baixo",
+    pros: ["Esportividade de 530cv", "Design premiado", "Tração integral inteligente"],
+    cons: ["Pneus de alta performance caros", "Custo de reparo da carroceria CTB"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Indenização 100% FIPE e assistência premium" },
+      { name: "Tokio Marine", reason: "Melhores taxas para esportivos elétricos" }
+    ],
+    context: "O BYD Seal é para quem busca performance sem emissões. Em Guarulhos, a Patro Seguros oferece coberturas VIP para este modelo."
+  },
+  {
+    slug: "seguro-gwm-haval-h6-guarulhos",
+    modelo: "GWM Haval H6",
+    modeloShort: "Haval H6",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 214.000 a R$ 270.000",
+    priceRange: { min: 2900, max: 5800, label: "R$ 2.900 a R$ 5.800/ano" },
+
+    theftProfile: "baixo",
+    pros: ["Tecnologia ADAS nível 2+", "Opções HEV e PHEV", "Garantia de 5 anos"],
+    cons: ["Sensores caros em pequenas colisões", "Modelo novo com índice de peças em formação"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Líder em aceitação da linha GWM Haval" },
+      { name: "Allianz", reason: "Cobertura internacional e assistência 24h ágil" }
+    ],
+    context: "O GWM Haval H6 é o smart SUV que conquistou o Jardim Maia. Proteção robusta para sensores e bateria híbrida."
+  },
+  {
+    slug: "seguro-toyota-sw4-guarulhos",
+    modelo: "Toyota SW4",
+    modeloShort: "SW4",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1621285853634-713b8dd1b2ff?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 350.000 a R$ 480.000",
+    priceRange: { min: 6500, max: 14500, label: "R$ 6.500 a R$ 14.500/ano" },
+
+    theftProfile: "alto",
+    pros: ["Confiabilidade mecânica Toyota", "Alta liquidez na revenda", "7 lugares e conforto premium"],
+    cons: ["Índice de roubo altíssimo em Guarulhos", "Exigência de múltiplos rastreadores"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Referência em rastreamento e suporte pós-roubo" },
+      { name: "Tokio Marine", reason: "Melhor aceitação para SUVs de luxo visados" }
+    ],
+    context: "Proteger uma Toyota SW4 em Guarulhos é prioridade. Na Patro Seguros, focamos em sistemas de segurança que reduzem o preço do seguro."
+  },
+  {
+    slug: "seguro-ford-ranger-guarulhos",
+    modelo: "Ford Ranger",
+
+    modeloShort: "Ranger",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 230.000 a R$ 360.000",
+    priceRange: { min: 4200, max: 9800, label: "R$ 4.200 a R$ 9.800/ano" },
+
+    theftProfile: "médio-alto",
+    pros: ["Nova geração tecnológica", "Motor V6 diesel potente", "Capacidade off-road superior"],
+    cons: ["Manutenção da rede Ford exige peças originais", "Visada por quadrilhas de frotas"],
+    bestInsurers: [
+      { name: "Allianz", reason: "Cobertura robusta para pickups 4x4" },
+      { name: "Mapfre", reason: "Especialista em seguros para o setor agro e logística" }
+    ],
+    context: "A Ford Ranger em Guarulhos circula entre o trabalho e o lazer. Proteção para carga e acessórios é o nosso diferencial."
+  },
+  {
+    slug: "seguro-chevrolet-s10-guarulhos",
+    modelo: "Chevrolet S10",
+    modeloShort: "S10",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 180.000 a R$ 330.000",
+    priceRange: { min: 3800, max: 8500, label: "R$ 3.800 a R$ 8.500/ano" },
+
+    theftProfile: "médio-alto",
+    pros: ["Tradição Chevrolet e rede GM ampla em Guarulhos", "Robusta para trabalho", "Peças disponíveis em todo o país"],
+    cons: ["Tecnologia da cabine mais conservadora", "Visada para roubo de peças"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Parceria tradicional GM e OnStar" },
+      { name: "Tokio Marine", reason: "Custo-benefício para pickups urbanas" }
+    ],
+    context: "A Chevrolet S10 é a parceira do empresário guarulhense. Seguro sob medida para quem não pode parar a operação."
+  },
+  {
+    slug: "seguro-bmw-x1-guarulhos",
+    modelo: "BMW X1",
+    modeloShort: "X1",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 290.000 a R$ 350.000",
+    priceRange: { min: 5500, max: 12000, label: "R$ 5.500 a R$ 12.000/ano" },
+
+    theftProfile: "médio",
+    pros: ["Prestígio BMW e prazer de dirigir", "Tecnologia premium", "Rede de oficinas certificadas"],
+    cons: ["Reparo de faróis LED e grade muito caro", "Seguro premium com perfil específico"],
+    bestInsurers: [
+      { name: "Allianz", reason: "Especialista em marcas alemãs premium" },
+      { name: "Zurich", reason: "Atendimento diferenciado para veículos importados" }
+    ],
+    context: "Sua BMW X1 no Jardim Maia merece o melhor atendimento. Patro Seguros garante reparo em concessionária e peças originais."
+  },
+  {
+    slug: "seguro-audi-q3-guarulhos",
+    modelo: "Audi Q3",
+    modeloShort: "Q3",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 220.000 a R$ 330.000",
+    priceRange: { min: 4200, max: 9500, label: "R$ 4.200 a R$ 9.500/ano" },
+
+    theftProfile: "médio",
+    pros: ["Equilíbrio entre luxo e esportividade", "Tração Quattro disponível", "Conjunto mecânico confiável"],
+    cons: ["Seguro elevado para motoristas jovens", "Pneus Run Flat com custo alto"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Aceitação premium e rede de suporte em Guarulhos" },
+      { name: "Allianz", reason: "Logística ágil para peças importadas" }
+    ],
+    context: "O Audi Q3 é o SUV executivo de quem circula pelas marginais. Na Patro Seguros, garantimos proteção contra alagamentos e danos estéticos."
+  },
+  {
+    slug: "seguro-mercedes-gla-guarulhos",
+    modelo: "Mercedes-Benz GLA",
+    modeloShort: "GLA",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1618843479313-40f8af24b428?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 250.000 a R$ 380.000",
+    priceRange: { min: 4800, max: 11500, label: "R$ 4.800 a R$ 11.500/ano" },
+
+    theftProfile: "baixo",
+    pros: ["Estrela Mercedes no capô", "Interior refinado", "Alta tecnologia embarcada"],
+    cons: ["Franquia elevada em algumas companhias", "Rede de oficinas mais enxuta"],
+    bestInsurers: [
+      { name: "Liberty", reason: "Preços competitivos para a linha Mercedes" },
+      { name: "Zurich", reason: "Seguro sob medida para veículos de alto padrão" }
+    ],
+    context: "Sua Mercedes GLA protegida com assistência VIP 24h. Na Patro Seguros, o atendimento premium começa na cotação."
+  },
+  {
     slug: "seguro-volkswagen-guarulhos",
+
+
+
+
+
     modelo: "Volkswagen",
     modeloShort: "T-Cross",
     categoria: "popular",
