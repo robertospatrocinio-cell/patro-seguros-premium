@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { AlertTriangle, CheckCircle2, FileSearch, RefreshCw, XCircle } from "lucide-react";
+import { AlertTriangle, CheckCircle2, FileSearch, RefreshCw, XCircle, Search, LayoutList, Star, HelpCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import { checkPageSchemas } from "@/lib/schemaValidator";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +16,7 @@ interface SeoCheck {
   status: CheckStatus;
   summary: string;
   details: string[];
+  results?: any[];
 }
 
 const REQUIRED_SITEMAP_ROUTES = ["/", "/cotacao", "/seguro-auto", "/faq", "/blog"];
@@ -190,26 +192,67 @@ const SeoTechnicalReport = () => {
     }
   }, []);
 
+  const validateAllSchemas = useCallback(async (): Promise<SeoCheck> => {
+    const PAGES_TO_CHECK = [
+      "/seguro-auto", "/seguro-bmw", "/seguro-vida", "/seguro-residencial",
+      "/seguro-empresarial", "/seguro-moto", "/seguro-porsche", "/seguro-audi"
+    ];
+    
+    try {
+      const results = await Promise.all(PAGES_TO_CHECK.map(path => checkPageSchemas(path)));
+      const missingBreadcrumb = results.filter(r => !r.hasBreadcrumb);
+      const missingFAQ = results.filter(r => !r.hasFAQ);
+      
+      let status: CheckStatus = "ok";
+      if (missingBreadcrumb.length > 0 || missingFAQ.length > 0) status = "warn";
+      if (results.some(r => r.errors.length > 0)) status = "fail";
+
+      return {
+        key: "structured-data",
+        title: "Dados Estruturados",
+        status,
+        summary: `${results.length} páginas de cotação auditadas.`,
+        details: [
+          `Páginas com Breadcrumb: ${results.length - missingBreadcrumb.length}/${results.length}`,
+          `Páginas com FAQPage: ${results.length - missingFAQ.length}/${results.length}`,
+          missingBreadcrumb.length > 0 ? `Breadcrumb ausente em: ${missingBreadcrumb.map(r => r.url.split('/').pop()).join(", ")}` : "Todos os Breadcrumbs presentes."
+        ],
+        results
+      };
+    } catch (error) {
+      return {
+        key: "structured-data",
+        title: "Dados Estruturados",
+        status: "fail",
+        summary: "Erro ao executar auditoria de schemas.",
+        details: [error instanceof Error ? error.message : "Erro desconhecido"]
+      };
+    }
+  }, []);
+
   const runValidation = useCallback(async () => {
     setRunning(true);
     setChecks([
       { key: "faq-schema", title: "FAQ Schema", status: "checking", summary: "Validando JSON-LD renderizado em /faq...", details: [] },
+      { key: "structured-data", title: "Dados Estruturados", status: "checking", summary: "Verificando schemas em todas as LPs...", details: [] },
       { key: "sitemap", title: "sitemap.xml", status: "checking", summary: "Consultando /sitemap.xml...", details: [] },
       { key: "robots", title: "robots.txt", status: "checking", summary: "Consultando /robots.txt...", details: [] },
     ]);
 
-    const [faqSchema, sitemap, robots] = await Promise.all([
+    const [faqSchema, structuredData, sitemap, robots] = await Promise.all([
       validateFaqSchema(),
+      validateAllSchemas(),
       validateSitemap(),
       validateRobots(),
     ]);
 
     updateCheck(faqSchema);
+    updateCheck(structuredData);
     updateCheck(sitemap);
     updateCheck(robots);
     setLastRun(new Date().toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "medium" }));
     setRunning(false);
-  }, [updateCheck, validateFaqSchema, validateRobots, validateSitemap]);
+  }, [updateCheck, validateFaqSchema, validateRobots, validateSitemap, validateAllSchemas]);
 
   useEffect(() => {
     runValidation();
@@ -256,11 +299,11 @@ const SeoTechnicalReport = () => {
           </CardContent>
         </Card>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2">
           {checks.map((check) => {
             const Icon = statusIcon[check.status];
             return (
-              <Card key={check.key}>
+              <Card key={check.key} className={check.key === "structured-data" ? "md:col-span-2" : ""}>
                 <CardHeader className="space-y-3">
                   <div className="flex items-center justify-between gap-3">
                     <CardTitle className="flex items-center gap-2 text-base">
@@ -272,16 +315,50 @@ const SeoTechnicalReport = () => {
                   <p className="text-sm text-muted-foreground">{check.summary}</p>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {check.details.length > 0 ? check.details.map((detail) => (
-                      <li key={detail} className="border-l-2 border-border pl-3">{detail}</li>
+                  <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+                    {check.details.length > 0 ? check.details.map((detail, idx) => (
+                      <li key={idx} className="border-l-2 border-border pl-3">{detail}</li>
                     )) : <li className="border-l-2 border-border pl-3">Aguardando resultado.</li>}
                   </ul>
+
+                  {check.results && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mt-4">
+                      {check.results.map((res: any, idx: number) => (
+                        <div key={idx} className="p-3 rounded-lg border bg-muted/30 text-[11px]">
+                          <div className="font-bold text-foreground mb-2 truncate" title={res.url}>
+                            {res.url.split('/').pop() || 'home'}
+                          </div>
+                          <div className="flex flex-col gap-1.5">
+                            <SchemaBadge label="Breadcrumb" active={res.hasBreadcrumb} icon={LayoutList} />
+                            <SchemaBadge label="FAQ" active={res.hasFAQ} icon={HelpCircle} />
+                            <SchemaBadge label="Rating" active={res.hasAggregateRating} icon={Star} />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             );
           })}
         </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+function SchemaBadge({ label, active, icon: Icon }: { label: string, active: boolean, icon: any }) {
+  return (
+    <div className={`flex items-center justify-between px-2 py-1 rounded ${active ? 'bg-green-500/10 text-green-600' : 'bg-red-500/10 text-red-600'}`}>
+      <div className="flex items-center gap-1.5">
+        <Icon className="h-3 w-3" />
+        <span>{label}</span>
+      </div>
+      {active ? <CheckCircle2 className="h-3 w-3" /> : <XCircle className="h-3 w-3" />}
+    </div>
+  );
+}
       </main>
       <Footer />
     </div>
