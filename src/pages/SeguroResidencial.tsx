@@ -1,10 +1,17 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import LocalAreaSchema from "@/components/LocalAreaSchema";
 import heroImg from "@/assets/hero-seguro-residencial.webp";
 
 const SeguroResidencial = () => {
   return (
     <>
+      <LocalAreaSchema
+        serviceName="Seguro Residencial"
+        url="https://patroseguros.lovable.app/seguro-residencial"
+        description="Seguro residencial em Guarulhos: proteja sua casa ou apartamento contra incêndio, roubo e danos elétricos."
+        city="Guarulhos"
+      />
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Residencial em Guarulhos | Cotação em 2h | Patro Seguros"
