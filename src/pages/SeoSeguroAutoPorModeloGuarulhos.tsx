@@ -123,14 +123,15 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
                   {models.map((m) => (
                     <li key={m.slug}>
                       <Link
-                        to={`/${m.slug}`}
+                        to={m.slug.startsWith("/") ? m.slug : `/${m.slug}`}
                         onClick={() =>
                           trackInternalLinkClick({
                             source: "hub-modelos-guarulhos",
-                            destination: `/${m.slug}`,
+                            destination: m.slug.startsWith("/") ? m.slug : `/${m.slug}`,
                             label: m.modelo,
                           })
                         }
+
                         className="group flex flex-col gap-0 rounded-xl border border-border bg-card overflow-hidden hover:border-primary hover:shadow-md transition-all"
                       >
                         {m.heroImg && (
