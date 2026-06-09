@@ -358,8 +358,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       setSent(true);
       setFinalMsg(finalParts);
       clearFormData();
+      clearCheckboxes();
       clearStep();
+      localStorage.removeItem(`${storageKey}-partial-id`);
     }, 600);
+
 
 
   };
