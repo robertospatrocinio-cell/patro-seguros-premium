@@ -40,9 +40,19 @@ interface InsurerPageProps {
 
 
 
-const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history, faqs }: InsurerPageProps) => {
+const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history, faqs, claimChannels }: InsurerPageProps) => {
   const WHATSAPP_URL = `https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20da%20${insurer}%20em%20Guarulhos.`;
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const comparisonData = [
+    { name: "Porto Seguro", cost: "Premium", coverage: "Máxima", support: "5 Estrelas", franchise: "Flexível" },
+    { name: "Tokio Marine", cost: "Equilibrado", coverage: "Alta", support: "5 Estrelas", franchise: "Competitiva" },
+    { name: "Allianz", cost: "Específico", coverage: "Alta", support: "4 Estrelas", franchise: "Padronizada" },
+    { name: "Azul Seguros", cost: "Econômico", coverage: "Essencial", support: "4 Estrelas", franchise: "Baixa" },
+    { name: "Suhai", cost: "Mínimo", coverage: "Roubo/Furto", support: "3 Estrelas", franchise: "Isenta (Indenização)" },
+    { name: "HDI Seguros", cost: "Equilibrado", coverage: "Média-Alta", support: "5 Estrelas", franchise: "Bate-Pronto" },
+  ];
+
 
   return (
     <div className="min-h-screen bg-background">
