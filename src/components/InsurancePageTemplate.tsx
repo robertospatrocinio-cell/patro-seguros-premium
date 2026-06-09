@@ -188,7 +188,7 @@ const InsurancePageTemplate = ({
          preloadImage={heroImage}
          preloadMobileImage={mobileHeroImage}
        />
-       {!skipFAQSchema && faqs.length > 0 && <FAQSchema faqs={faqs} />}
+       
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
