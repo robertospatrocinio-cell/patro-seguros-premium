@@ -8,6 +8,8 @@ import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 
 
 
