@@ -559,6 +559,7 @@ const Cotacao = () => {
                               <button 
                                 type="button" 
                                 onClick={() => {
+                                  logForgottenQuote(form.getValues("insuranceType") || "Cotação Etapas", step, "cotacao_progress");
                                   localStorage.removeItem("cotacao_progress");
                                   form.reset({
                                     name: "",
@@ -570,6 +571,7 @@ const Cotacao = () => {
                                   setStep(1);
                                   toast.success("Progresso limpo com sucesso!");
                                 }}
+
                                 className="underline hover:text-slate-600 transition-colors"
                               >
                                 Limpar dados salvos
