@@ -119,6 +119,7 @@ const Footer = memo(() => {
                 { to: "/seguros-guarulhos/centro", label: "Centro" },
                 { to: "/seguros-guarulhos/pimentas", label: "Pimentas" },
                 { to: "/seguros-guarulhos/gopouva", label: "Gopouva" },
+                { to: "/seguros-para-lojistas-guarulhos", label: "Hub Lojistas" },
               ].map(l => (
                 <li key={l.to}><Link to={l.to} className="text-[13px] text-white/80 hover:text-white transition-base">{l.label}</Link></li>
               ))}

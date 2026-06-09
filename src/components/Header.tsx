@@ -114,6 +114,11 @@ const Header = memo(() => {
     { label: "Mahindra", to: "/seguro-mahindra", section: "agro" },
     { label: "Massey Ferguson", to: "/seguro-massey-ferguson", section: "agro" },
     { label: "JACTO", to: "/seguro-jacto", section: "agro" },
+    { label: "Lojistas Guarulhos", to: "/seguros-para-lojistas-guarulhos", section: "empresarial" },
+    { label: "Shopping Maia", to: "/seguro-lojas-shopping-maia", section: "empresarial" },
+    { label: "Internacional Shopping", to: "/seguro-lojas-shopping-internacional-guarulhos", section: "empresarial" },
+    { label: "Shopping Bonsucesso", to: "/seguro-lojas-shopping-bonsucesso", section: "empresarial" },
+    { label: "Blog Lojistas", to: "/blog/lojistas-e-franquias", section: "empresarial" },
   ], []);
 
   const searchResults = useMemo(() => {
