@@ -1,6 +1,6 @@
 import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
@@ -551,6 +551,49 @@ const Header = memo(() => {
                   </div>
                 </div>
               </div>
+
+              {/* Especialistas — mega menu */}
+              <div className="relative group">
+                <button className="flex items-center gap-1 text-[13px] font-medium text-foreground/50 hover:text-foreground transition-base py-2 px-3" aria-haspopup="true">
+                  Especialistas
+                  <ChevronDown className="h-3 w-3 opacity-40 group-hover:opacity-70 transition-base" aria-hidden="true" />
+                </button>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[480px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                  <div className="bg-card rounded-xl shadow-xl border p-5">
+                    <div className="grid grid-cols-2 gap-8">
+                      <div>
+                        <p className="text-[10px] font-medium text-primary uppercase tracking-[0.1em] mb-3 flex items-center gap-1.5">
+                           <PawPrint className="h-3 w-3" /> Veterinária
+                        </p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguros-para-clinicas-veterinarias" className="block py-1 text-[13px] font-bold text-foreground hover:text-primary transition-base">Hub Veterinário</Link>
+                          <Link to="/seguro-clinica-veterinaria" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">Clínica Veterinária</Link>
+                          <Link to="/seguro-hospital-veterinario" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">Hospital Veterinário</Link>
+                          <Link to="/responsabilidade-civil-veterinarios" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">RC Veterinário</Link>
+                          <Link to="/seguro-pet-shop" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">Pet Shop</Link>
+                          <Link to="/protecao-pet-premium" className="block py-1 text-[12px] text-primary/70 hover:text-primary transition-base italic">Área Pet Premium</Link>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-medium text-blue-600 uppercase tracking-[0.1em] mb-3 flex items-center gap-1.5">
+                           <Stethoscope className="h-3 w-3" /> Odontologia
+                        </p>
+                        <div className="space-y-0.5">
+                          <Link to="/seguros-para-clinicas-odontologicas" className="block py-1 text-[13px] font-bold text-foreground hover:text-primary transition-base">Hub Odontologia</Link>
+                          <Link to="/seguro-clinica-odontologica" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">Clínica Odontológica</Link>
+                          <Link to="/seguro-consultorio-odontologico" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">Consultório</Link>
+                          <Link to="/responsabilidade-civil-dentistas" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">RC Dentista</Link>
+                          <Link to="/seguro-equipamentos-odontologicos" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">Equipamentos</Link>
+                        </div>
+                        <p className="text-[10px] font-medium text-muted-foreground/40 uppercase tracking-[0.1em] mb-2 mt-4">Automotivo</p>
+                        <div className="space-y-0.5">
+                           <Link to="/seguro-para-empresas-de-vistoria-veicular" className="block py-1 text-[12px] text-foreground/60 hover:text-foreground transition-base">Vistoria Veicular (Hub)</Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <Link to="/blog" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Blog</Link>
               <Link to="/sobre" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Sobre</Link>
               <Link to="/contato" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Contato</Link>
@@ -770,6 +813,29 @@ const Header = memo(() => {
                 <MobileLink to="/consorcio-carro">Carro</MobileLink>
                 <MobileLink to="/consorcio-imoveis">Imóveis</MobileLink>
                 <MobileLink to="/consorcio-veiculos-pesados">Veículos Pesados</MobileLink>
+              </div>
+            </MobileSection>
+            <MobileSection id="especialistas" label="Especialistas">
+              <MobileSubLabel>Veterinária</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguros-para-clinicas-veterinarias">Hub Veterinário</MobileLink>
+                <MobileLink to="/seguro-clinica-veterinaria">Clínica</MobileLink>
+                <MobileLink to="/seguro-hospital-veterinario">Hospital</MobileLink>
+                <MobileLink to="/seguro-rc-veterinarios">RC Veterinário</MobileLink>
+                <MobileLink to="/seguro-pet-shop">Pet Shop</MobileLink>
+                <MobileLink to="/protecao-pet-premium">Premium Pet</MobileLink>
+              </div>
+              <MobileSubLabel>Odontologia</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguros-para-clinicas-odontologicas">Hub Odonto</MobileLink>
+                <MobileLink to="/seguro-clinica-odontologica">Clínica</MobileLink>
+                <MobileLink to="/seguro-consultorio-odontologico">Consultório</MobileLink>
+                <MobileLink to="/responsabilidade-civil-dentistas">RC Dentista</MobileLink>
+                <MobileLink to="/seguro-equipamentos-odontologicos">Equipamentos</MobileLink>
+              </div>
+              <MobileSubLabel>Outros</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-para-empresas-de-vistoria-veicular">Hub Vistoria</MobileLink>
               </div>
             </MobileSection>
             <Link to="/blog" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Blog</Link>
