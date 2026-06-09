@@ -159,6 +159,51 @@ const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
 
 /* ---------- COMERCIAIS ---------- */
 
+const seguroShoppingInternacional: SeoLocalPageConfig = {
+  slug: "seguro-lojas-shopping-internacional-guarulhos",
+  title: "Seguro para Lojas no Internacional Shopping Guarulhos",
+  subtitle: "Seguro empresarial para lojistas e quiosques do Internacional Shopping. Proteção contra roubo, incêndio e lucros cessantes com a Patro Seguros.",
+  description: "Proteja sua operação no Internacional Shopping Guarulhos. O seguro empresarial da Patro atende todas as exigências do condomínio e garante o faturamento da sua loja.",
+  detailedDescription: "O Internacional Shopping Guarulhos possui um dos maiores fluxos de pessoas do Brasil. Para o lojista, isso significa visibilidade, mas também exposição a riscos operacionais. Nossa consultoria foca em apólices robustas de Responsabilidade Civil e proteção de estoque contra vazamentos e furtos.",
+  metaDescription: "Seguro para lojistas no Internacional Shopping Guarulhos. Incêndio, roubo e RC. Cotação grátis em 2h.",
+  icon: "🏬",
+  pricingIntro: "Preços competitivos para lojas de todos os tamanhos e quiosques.",
+  pricingFactors: ["Faturamento", "Valor do estoque", "Área ocupada", "Sistemas de segurança"],
+  pricingNote: "Atendimento presencial disponível sob agendamento.",
+  faqs: [
+    { question: "O seguro cobre lucros cessantes?", answer: "Sim, protegemos seu faturamento médio mensal em caso de paralisação por sinistro." }
+  ],
+  whoNeeds: ["Lojistas", "Franqueados", "Operadores de quiosque"],
+  whyPatro: ["Especialista em Guarulhos", "16+ seguradoras", "Atendimento rápido"],
+  coverages: baseCoverages,
+  realScenarios: [],
+  tips: ["Verifique as exigências do condomínio no seu contrato de locação."],
+  relatedInsurances: baseRelated,
+};
+
+const seguroShoppingBonsucesso: SeoLocalPageConfig = {
+  slug: "seguro-lojas-shopping-bonsucesso",
+  title: "Seguro para Lojas no Shopping Bonsucesso — Guarulhos",
+  subtitle: "Consultoria especializada em seguros para o varejo no Shopping Bonsucesso. Proteção completa para sua loja ou quiosque.",
+  description: "Seguro empresarial para lojistas do Shopping Bonsucesso com as melhores taxas do mercado. Proteja seu patrimônio e atenda as normas do shopping.",
+  detailedDescription: "O Shopping Bonsucesso é a referência do varejo na zona leste de Guarulhos. A Patro Seguros oferece atendimento local para lojistas que buscam segurança contra roubo, danos elétricos e responsabilidade civil.",
+  metaDescription: "Seguro empresarial Shopping Bonsucesso Guarulhos. Proteção para lojistas e quiosques. Cote agora.",
+  icon: "🏬",
+  pricingIntro: "Planos acessíveis a partir de R$ 80/mês para pequenas operações.",
+  pricingFactors: ["Localização", "Giro de estoque", "Equipamentos"],
+  pricingNote: "Cotação gratuita em 2 horas úteis.",
+  faqs: [
+    { question: "Seguro de quiosque é mais barato?", answer: "Sim, possuímos taxas exclusivas para quiosques no Shopping Bonsucesso." }
+  ],
+  whoNeeds: ["Comerciantes de Bonsucesso", "Franquias", "Restaurantes"],
+  whyPatro: ["Nota 4.9 no Google", "Referência em Guarulhos", "Suporte total"],
+  coverages: baseCoverages,
+  realScenarios: [],
+  tips: ["Mantenha seu estoque sempre declarado pelo valor real."],
+  relatedInsurances: baseRelated,
+};
+
+
 const cotacaoSeguroAuto: SeoLocalPageConfig = {
   slug: "cotacao-seguro-auto-guarulhos",
   title: "Cotação Seguro Auto Guarulhos — 9 Seguradoras em 2h",
@@ -1739,7 +1784,10 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
 };
 
 const cityConfigs = Object.fromEntries(cities.map((c) => [c.slug, buildCityConfig(c)]));
-Object.assign(seoLocalPages, cityConfigs);
+Object.assign(seoLocalPages, cityConfigs, { 
+  "seguro-lojas-shopping-internacional-guarulhos": seguroShoppingInternacional,
+  "seguro-lojas-shopping-bonsucesso": seguroShoppingBonsucesso
+});
 
 export const seoLocalPageSlugs = Object.keys(seoLocalPages);
 
