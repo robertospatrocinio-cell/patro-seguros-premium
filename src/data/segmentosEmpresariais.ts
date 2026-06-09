@@ -408,9 +408,9 @@ segmentos.push(
     nome: "Óticas",
     icon: "👓",
     subtitle: "Seguro para óticas e laboratórios ópticos em Guarulhos",
-    description: "Proteja armações de grife, lentes e equipamentos de laboratório contra roubo e danos elétricos.",
-    detailedDescription: "Óticas possuem estoque de alto valor e equipamentos sensíveis. Nossa proteção foca em roubo qualificado de mercadorias e danos elétricos em aparelhos de medição e laboratório.",
-    metaDescription: "Seguro para Óticas em Guarulhos: proteção para óculos de grife e laboratórios. Cotação rápida.",
+    description: "Proteja armações de grife, lentes e equipamentos de laboratório em Guarulhos contra roubo e danos elétricos.",
+    detailedDescription: "### Seguro Especializado para Óticas em Guarulhos\n\nÓticas possuem estoque de alto valor e equipamentos sensíveis. Nossa proteção foca em roubo qualificado de mercadorias e danos elétricos em aparelhos de medição e laboratório. Garantimos que sua ótica em Guarulhos não pare em caso de picos de energia ou furtos.",
+    metaDescription: "Seguro para Óticas em Guarulhos: proteção para óculos de grife e laboratórios. Cotação em 2h com a Patro Seguros.",
     coverages: baseCoverages,
     whoNeeds: ["Óticas de rua", "Óticas em shopping", "Laboratórios ópticos", "Redes de óticas"],
     faqs: [
