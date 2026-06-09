@@ -32,7 +32,6 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
       />
       <FAQSchema 
         faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))} 
-        speakable={true}
       />
       <Header />
 
