@@ -1,5 +1,5 @@
 
-export const veterinariaFormFields = [
+export const veterinariaFormFields: { id: string; label: string; placeholder?: string; type: "text" | "select"; options?: string[] }[] = [
   { id: "nome_clinica", label: "Nome da Clínica", placeholder: "Nome fantasia da empresa", type: "text" },
   { id: "crmv", label: "CRMV (opcional)", placeholder: "Seu registro profissional", type: "text" },
   { id: "cidade", label: "Cidade", placeholder: "Ex: Guarulhos", type: "text" },
