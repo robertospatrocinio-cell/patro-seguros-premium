@@ -1,10 +1,14 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import PageMeta from "@/components/PageMeta";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { checkPageSchemas, type SchemaCheckResult } from "@/lib/schemaValidator";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, XCircle, Loader2, Search } from "lucide-react";
+import { CheckCircle, XCircle, Loader2, Search, History, Calendar } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 const PAGES_TO_CHECK = [
   "/seguro-auto",
