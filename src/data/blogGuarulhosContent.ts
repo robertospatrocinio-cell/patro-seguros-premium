@@ -114,13 +114,20 @@ export const guarulhosArticlesContent = {
   "quanto-custa-seguro-byd-dolphin-guarulhos": {
     title: "Quanto custa o seguro do BYD Dolphin em Guarulhos?",
     content: "O seguro do BYD Dolphin em Guarulhos é uma grata surpresa para os proprietários. Com média de preço entre R$ 2.500 e R$ 4.200, ele se mostra muito competitivo. O principal ponto de atenção é a cobertura de bateria e o atendimento de guincho plataforma, que garantimos em todas as nossas apólices para elétricos.\n\n[Comparar Seguros para BYD](/cotacao?tipo=auto&modelo=dolphin)",
-    faqs: [{ q: "O seguro do Dolphin cobre o carregador?", a: "Sim, é possível incluir o Wallbox como cobertura adicional na apólice residencial ou como acessório no auto." }]
+    faqs: [
+      { q: "O seguro do Dolphin cobre o carregador?", a: "Sim, é possível incluir o Wallbox como cobertura adicional na apólice residencial ou como acessório no auto." },
+      { q: "O seguro do BYD Dolphin é caro?", a: "Não, ele é um dos elétricos com seguro mais competitivo, variando entre 1,5% e 2,5% do valor do carro em Guarulhos." }
+    ]
   },
   "quanto-custa-seguro-gwm-haval-h6-guarulhos": {
     title: "Quanto custa o seguro do GWM Haval H6 em Guarulhos?",
     content: "Para o GWM Haval H6, os preços em Guarulhos variam de R$ 3.000 a R$ 5.500. A grande vantagem é que as seguradoras parceiras da Patro oferecem descontos exclusivos para veículos com tecnologia ADAS (auxílio de condução), que o Haval possui de sobra. Isso reduz a probabilidade de colisões e, consequentemente, o preço do seguro.\n\n[Cotação Grátis GWM Haval](/cotacao?tipo=auto&modelo=haval-h6)",
-    faqs: [{ q: "Seguro do Haval H6 é mais caro que de um Jeep?", a: "Atualmente, as taxas para o Haval estão muito similares e, em alguns perfis, até mais baratas que SUVs tradicionais." }]
+    faqs: [
+      { q: "Seguro do Haval H6 é mais caro que de um Jeep?", a: "Atualmente, as taxas para o Haval estão muito similares e, em alguns perfis, até mais baratas que SUVs tradicionais." },
+      { q: "A bateria do GWM Haval tem seguro?", a: "Sim, nossas apólices garantem a cobertura total do sistema híbrido e da bateria em caso de colisão ou danos elétricos." }
+    ]
   },
+
   "quanto-custa-seguro-corolla-cross-guarulhos": {
     title: "Quanto custa o seguro do Corolla Cross em Guarulhos?",
     content: "O Corolla Cross em Guarulhos tem seguro médio de R$ 3.200 a R$ 5.800. A versão híbrida tem uma aceitação excelente em seguradoras como Porto e Tokio Marine. Moradores de condomínios na Vila Augusta conseguem as melhores taxas para este modelo.\n\n[Cotação Corolla Cross](/cotacao?tipo=auto&modelo=corolla-cross)",
