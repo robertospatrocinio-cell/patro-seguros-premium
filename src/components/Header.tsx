@@ -30,6 +30,72 @@ const Header = memo(() => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    // Check for recoverable sessions in localStorage
+    const checkSessions = () => {
+      const storageKeys = [
+        "cotacao_progress",
+        "seguro-vida-completo",
+        "indique-amigo-data",
+        "quote-form-seguro-auto",
+        "quote-form-seguro-vida",
+        "quote-form-seguro-residencial",
+        "quote-form-plano-de-saúde",
+        "quote-form-seguro-empresarial"
+      ];
+      
+      const hasAny = storageKeys.some(key => {
+        const item = localStorage.getItem(key);
+        if (!item) return false;
+        try {
+          const parsed = JSON.parse(item);
+          // If it's the stepped form format {values, step}
+          if (parsed.values && Object.keys(parsed.values).length > 0) return true;
+          // If it's just raw data record
+          if (Object.keys(parsed).length > 0) return true;
+          return false;
+        } catch {
+          return true; // If not JSON but exists, consider potentially recoverable
+        }
+      });
+      
+      setHasRecoverableSession(hasAny);
+    };
+
+    checkSessions();
+    // Listen for storage changes in other tabs
+    window.addEventListener('storage', checkSessions);
+    // Also check on interval as state might change in same tab
+    const interval = setInterval(checkSessions, 5000);
+    
+    return () => {
+      window.removeEventListener('storage', checkSessions);
+      clearInterval(interval);
+    };
+  }, []);
+
+  const handleResumeClick = useCallback(() => {
+    // Determine the best page to resume
+    if (localStorage.getItem("cotacao_progress")) {
+      navigate("/cotacao");
+    } else if (localStorage.getItem("seguro-vida-completo")) {
+      navigate("/formulario-seguro-vida");
+    } else if (localStorage.getItem("indique-amigo-data")) {
+      navigate("/indique-amigo");
+    } else {
+      // Find which quote-form-* exists
+      const keys = Object.keys(localStorage);
+      const quoteKey = keys.find(k => k.startsWith("quote-form-"));
+      if (quoteKey) {
+        const type = quoteKey.replace("quote-form-", "");
+        navigate(`/cotacao?tipo=${type}`);
+      } else {
+        navigate("/cotacao");
+      }
+    }
+  }, [navigate]);
+
+
   const allMobileLinks = useMemo(() => [
     { label: "Auto", to: "/seguro-auto", section: "pessoal" },
     { label: "Moto", to: "/seguro-moto", section: "pessoal" },
