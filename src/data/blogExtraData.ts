@@ -49,5 +49,75 @@ export const extraFaqsBySlug: Record<string, any> = {
         { anchor: "Polo Logístico Cumbica", to: "/blog/seguro-transportadoras-cumbica-frota-carga-rc", trackingLabel: "blog-frota-faq-cumbica" }
       ]
     }
+  },
+  "quanto-custa-seguro-corolla-guarulhos-2026": {
+    title: "FAQ sobre Seguro do Corolla em Guarulhos",
+    faqs: [
+      { q: "Qual a melhor seguradora para Toyota Corolla?", a: "Porto Seguro e Tokio Marine possuem as melhores condições para modelos Toyota na região de Guarulhos." },
+      { q: "O seguro do Corolla é muito visado?", a: "Sim, por ser um sedã de alta liquidez, é visado em Guarulhos, por isso o rastreador é recomendado para baixar o preço." }
+    ]
+  },
+  "quanto-custa-seguro-hilux-guarulhos-2026": {
+    title: "FAQ sobre Seguro da Hilux em Guarulhos",
+    faqs: [
+      { q: "A Hilux exige rastreador?", a: "Sim, quase todas as seguradoras em Guarulhos exigem rastreador para aceitar o risco da Hilux devido ao alto índice de roubo." },
+      { q: "O seguro da Hilux cobre acessórios?", a: "Sim, é possível incluir estribos, santantônio e capota marítima na cobertura da apólice." }
+    ]
+  },
+  "quanto-custa-seguro-byd-dolphin-guarulhos": {
+    title: "FAQ sobre Seguro BYD Dolphin em Guarulhos",
+    faqs: [
+      { q: "Seguro de carro elétrico cobre bateria?", a: "Sim, nossas apólices para BYD Dolphin incluem cobertura total para o conjunto de baterias em caso de colisão ou danos elétricos." },
+      { q: "O seguro do Dolphin é caro?", a: "Não, surpreendentemente o BYD Dolphin tem uma das taxas de seguro mais baixas do segmento elétrico em Guarulhos." }
+    ]
+  },
+  "quanto-custa-seguro-gwm-haval-h6-guarulhos": {
+    title: "FAQ sobre Seguro GWM Haval H6 em Guarulhos",
+    faqs: [
+      { q: "A GWM tem rede de oficinas em Guarulhos?", a: "Sim, e trabalhamos com seguradoras que garantem o reparo em concessionárias autorizadas GWM." },
+      { q: "O seguro cobre sensores ADAS?", a: "Sim, a cobertura completa abrange todos os sistemas de auxílio à condução (sensores e radares) do Haval H6." }
+    ]
+  },
+  "quanto-custa-seguro-corolla-cross-guarulhos": {
+    title: "FAQ sobre Seguro Corolla Cross em Guarulhos",
+    faqs: [
+      { q: "Qual o preço médio do seguro do Corolla Cross?", a: "Em Guarulhos, o valor gira entre R$ 3.200 e R$ 5.500, dependendo da versão e do perfil." },
+      { q: "Híbrido paga menos seguro?", a: "Geralmente sim, o perfil do condutor de híbridos em Guarulhos é considerado de menor risco pelas seguradoras." }
+    ]
+  },
+  "quanto-custa-seguro-hr-v-guarulhos": {
+    title: "FAQ sobre Seguro Honda HR-V em Guarulhos",
+    faqs: [
+      { q: "Seguro do HR-V cobre teto solar?", a: "Sim, para as versões que possuem, a cobertura de vidros completa abrange o teto solar do HR-V." },
+      { q: "Honda HR-V é visado para roubo?", a: "É um modelo de média sinistralidade em Guarulhos, mantendo preços estáveis." }
+    ]
+  },
+  "quanto-custa-seguro-jeep-compass-guarulhos": {
+    title: "FAQ sobre Seguro Jeep Compass em Guarulhos",
+    faqs: [
+      { q: "O Compass a diesel tem seguro mais caro?", a: "Sim, devido ao valor de mercado superior e custo de manutenção das peças motoras." },
+      { q: "O seguro cobre danos ao interior do Compass?", a: "Sim, coberturas contra roubo e furto parcial podem abranger itens internos conforme a apólice." }
+    ]
+  },
+  "quanto-custa-seguro-toyota-sw4-guarulhos": {
+    title: "FAQ sobre Seguro Toyota SW4 em Guarulhos",
+    faqs: [
+      { q: "Por que o seguro da SW4 é tão caro?", a: "O índice de roubo em Guarulhos e rodovias próximas é altíssimo, o que eleva o risco estatístico das seguradoras." },
+      { q: "Consigo baixar o preço da SW4?", a: "O uso de rastreadores redundantes e garagem fechada são as melhores formas de reduzir o custo em Guarulhos." }
+    ]
+  },
+  "seguro-carro-eletrico-guarulhos-quanto-custa": {
+    title: "FAQ sobre Seguros Elétricos em Guarulhos",
+    faqs: [
+      { q: "Qual a melhor seguradora para carros elétricos?", a: "Porto Seguro, Allianz e Tokio Marine lideram o segmento com assistências específicas para pane elétrica." },
+      { q: "O guincho para elétrico é diferente?", a: "Sim, para evitar danos aos motores, o reboque deve ser sempre feito em guincho plataforma." }
+    ]
+  },
+  "seguradoras-mais-baratas-guarulhos-2026": {
+    title: "FAQ sobre Seguradoras Econômicas em Guarulhos",
+    faqs: [
+      { q: "Suhai é a mais barata em Guarulhos?", a: "Para cobertura exclusiva de roubo e furto, a Suhai é imbatível no preço e aceitação." },
+      { q: "Vale a pena contratar seguradora só pelo preço?", a: "Apenas se o seu perfil de uso for baixo risco ou se você estiver buscando apenas proteção contra a perda total por roubo." }
+    ]
   }
 };
