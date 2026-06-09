@@ -1,6 +1,6 @@
 import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
@@ -13,9 +13,10 @@ const Header = memo(() => {
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [mobileSearch, setMobileSearch] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hasRecoverableSession, setHasRecoverableSession] = useState(false);
+  const [recoverableSession, setRecoverableSession] = useState<{ type: string; name?: string; step?: number } | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
+
 
 
   useEffect(() => {
