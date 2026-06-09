@@ -151,7 +151,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-jeep-compass-guarulhos": {
     title: "Quanto custa o seguro do Compass em Guarulhos?",
-    content: "O Jeep Compass é líder de categoria e isso gera uma sinistralidade moderada em Guarulhos. O seguro médio fica entre R$ 3.500 e R$ 6.000. Recomendamos sempre incluir a cobertura de vidros completa, incluindo teto solar, que é um item comum no Compass.\n\n[Simular Seguro Compass](/cotacao?tipo=auto&modelo=compass)",
+    content: "O Jeep Compass é líder de categoria e isso gera uma sinistralidade moderada em Guarulhos. O seguro médio fica entre R$ 3.500 e R$ 6.000. Recomendamos sempre incluir a cobertura de vidros completa, incluindo teto solar, que é um item comum no Compass.\n\n[Simular Seguro Compass](/seguro-auto-jeep-guarulhos)",
     faqs: [
       { q: "Seguro do Compass a Diesel é mais caro?", a: "Sim, versões diesel costumam ter prêmio superior devido ao valor FIPE e custo de peças do motor." },
       { q: "Jeep Compass exige rastreador em Guarulhos?", a: "Algumas seguradoras dispensam em CEPs de baixo risco, mas em bairros como Cumbica ele é essencial para aceitação." }
