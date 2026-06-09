@@ -3,8 +3,13 @@ import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import { findSegmento, baseWhyPatroEmpresarial } from "@/data/segmentosEmpresariais";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
-const SeguroEmpresarialSegmento = () => {
-  const { segmento } = useParams<{ segmento: string }>();
+interface SeguroEmpresarialSegmentoProps {
+  segmento?: string;
+}
+
+const SeguroEmpresarialSegmento = ({ segmento: segmentoProp }: SeguroEmpresarialSegmentoProps) => {
+  const params = useParams<{ segmento: string }>();
+  const segmento = segmentoProp ?? params.segmento;
   const data = segmento ? findSegmento(segmento) : undefined;
 
   if (!data) return <Navigate to="/seguro-empresarial" replace />;

@@ -1,6 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo } from "react";
 const NichoLojistasGuarulhos = lazy(() => import("./pages/NichoLojistasGuarulhos"));
-const SeguroEmpresarialSegmento = lazy(() => import("./pages/SeguroEmpresarialSegmento"));
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
