@@ -1,6 +1,6 @@
 import { useState, useMemo, memo, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
@@ -13,6 +13,10 @@ const Header = memo(() => {
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [mobileSearch, setMobileSearch] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasRecoverableSession, setHasRecoverableSession] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +29,72 @@ const Header = memo(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Check for recoverable sessions in localStorage
+    const checkSessions = () => {
+      const storageKeys = [
+        "cotacao_progress",
+        "seguro-vida-completo",
+        "indique-amigo-data",
+        "quote-form-seguro-auto",
+        "quote-form-seguro-vida",
+        "quote-form-seguro-residencial",
+        "quote-form-plano-de-saúde",
+        "quote-form-seguro-empresarial"
+      ];
+      
+      const hasAny = storageKeys.some(key => {
+        const item = localStorage.getItem(key);
+        if (!item) return false;
+        try {
+          const parsed = JSON.parse(item);
+          // If it's the stepped form format {values, step}
+          if (parsed.values && Object.keys(parsed.values).length > 0) return true;
+          // If it's just raw data record
+          if (Object.keys(parsed).length > 0) return true;
+          return false;
+        } catch {
+          return true; // If not JSON but exists, consider potentially recoverable
+        }
+      });
+      
+      setHasRecoverableSession(hasAny);
+    };
+
+    checkSessions();
+    // Listen for storage changes in other tabs
+    window.addEventListener('storage', checkSessions);
+    // Also check on interval as state might change in same tab
+    const interval = setInterval(checkSessions, 5000);
+    
+    return () => {
+      window.removeEventListener('storage', checkSessions);
+      clearInterval(interval);
+    };
+  }, []);
+
+  const handleResumeClick = useCallback(() => {
+    // Determine the best page to resume
+    if (localStorage.getItem("cotacao_progress")) {
+      navigate("/cotacao");
+    } else if (localStorage.getItem("seguro-vida-completo")) {
+      navigate("/formulario-seguro-vida");
+    } else if (localStorage.getItem("indique-amigo-data")) {
+      navigate("/indique-amigo");
+    } else {
+      // Find which quote-form-* exists
+      const keys = Object.keys(localStorage);
+      const quoteKey = keys.find(k => k.startsWith("quote-form-"));
+      if (quoteKey) {
+        const type = quoteKey.replace("quote-form-", "");
+        navigate(`/cotacao?tipo=${type}`);
+      } else {
+        navigate("/cotacao");
+      }
+    }
+  }, [navigate]);
+
 
   const allMobileLinks = useMemo(() => [
     { label: "Auto", to: "/seguro-auto", section: "pessoal" },
@@ -276,11 +346,23 @@ const Header = memo(() => {
               </div>
             </div>
 
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-3">
+              {hasRecoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={handleResumeClick}
+                  className="h-8 gap-2 border-primary/30 text-primary hover:bg-primary/5 font-semibold text-[11px] animate-in fade-in zoom-in duration-300"
+                >
+                  <RotateCcw className="h-3 w-3" />
+                  Retomar Cotação
+                </Button>
+              )}
               <Link to="/cotacao" onClick={() => trackCotacaoClick("header-desktop")}>
                 <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4">Cotação Grátis</Button>
               </Link>
             </div>
+
 
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -291,7 +373,26 @@ const Header = memo(() => {
 
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg max-h-[80vh] overflow-y-auto p-4">
+          {hasRecoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
+            <button 
+              onClick={handleResumeClick}
+              className="w-full flex items-center justify-between p-4 mb-4 bg-primary/5 border border-primary/10 rounded-2xl text-primary animate-in slide-in-from-right-4 duration-300 group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <RotateCcw className="h-5 w-5" />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold leading-tight">Retomar Cotação</p>
+                  <p className="text-[11px] opacity-70">Continue de onde parou</p>
+                </div>
+              </div>
+              <ArrowRight className="h-4 w-4 opacity-40 group-active:translate-x-1 transition-transform" />
+            </button>
+          )}
+
           <div className="relative mb-4">
+
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/50" />
             <input
               type="search"
