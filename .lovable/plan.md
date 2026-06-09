@@ -1,40 +1,49 @@
-### Analysis
-The user wants to create a new "Odontology Hub" for Patro Seguros, similar to the previously implemented "Lojistas" and "Vistoria Veicular" hubs. This includes a main hub page, several specific product pages, a partnership page, a blog category, and a set of SEO articles.
+# Implementation Plan - Phases 1 & 2: Architecture & Home Evolution
 
-### Implementation Strategy
+Transform the Patro Seguros website into a robust digital platform while maintaining its local expertise in Guarulhos.
 
-#### 1. Page Creation
-- **Main Hub:** `/seguros-para-clinicas-odontologicas` (using `NichoClinicasOdontologicas.tsx`)
-- **Specific Pages (using `InsurancePageTemplate`):**
-    - `/seguro-para-dentistas`
-    - `/seguro-consultorio-odontologico`
-    - `/seguro-clinica-odontologica`
-    - `/responsabilidade-civil-dentistas` (Redirect or update existing `SeguroRCDentistas.tsx`)
-    - `/seguro-equipamentos-odontologicos`
-    - `/plano-saude-clinicas-odontologicas`
-    - `/seguro-vida-clinicas-odontologicas`
-- **Partnership Page:** `/parcerias-clinicas-odontologicas`
-- **Blog Category:** `/blog/odontologia`
+## Phase 1: Architecture & Navigation
+Reorganize the main menu and footer to improve discovery and alignment with industry best practices.
 
-#### 2. Blog & SEO Content
-- Create `src/data/blogOdontologiaData.ts` and add the 1 main article + 15 SEO articles.
-- Update `src/lib/blogData.ts` to export these new articles.
-- Update `src/App.tsx` with all new routes.
+### 1.1 Header Restructuring
+- **Para você**: Auto, Moto, Residencial, Vida, Saúde, Viagem, Celular, Motorista App, Consórcio.
+- **Para sua empresa**: Empresarial, Frota, Transporte, Transportadoras, Galpões, RC, Cyber, Saúde PME, Vida Grupo, Máquinas.
+- **Agronegócio**: Rural, Máquinas Agrícolas, Equipamentos, Propriedade Rural, Pecuário, Transporte Agro.
+- **Atendimento**: Solicitar Cotação, Renovar Seguro, Acionar Sinistro, Assistência 24h, Segunda Via, Falar com Consultor, Área do Cliente.
+- **Conteúdo**: Blog, Guias, Calculadoras, Perguntas Frequentes.
 
-#### 3. Navigation & Components
-- Add "Clínicas Odontológicas" to `Header.tsx` (Mobile and Desktop menus).
-- Add to `Footer.tsx` in the local hubs/segments section.
-- Implement Local Business and FAQ schemas for the hub page.
+### 1.2 Footer Realignment
+- Group links according to the new architecture.
+- Ensure all essential links (About, Contact, Legal) remain easily accessible.
 
-#### 4. Lead Capture
-- Use the existing `InsuranceQuoteForm` or a specialized one for the odontology niche with the requested fields (CRO, clinic name, etc.).
+## Phase 2: New Home Oriented to Conversion
+Redesign the homepage to focus on user intent and clear calls to action.
 
-### Technical Details
-- **Tech Stack:** React, TypeScript, Tailwind CSS, Lucide Icons, React Router.
-- **Components:** `InsurancePageTemplate` will be reused for product pages.
-- **Routing:** New routes in `App.tsx` mapped to the new components.
-- **SEO:** Meta tags, canonical URLs, and JSON-LD schemas (FAQ, LocalBusiness) will be included.
+### 2.1 Hero Section Evolution
+- Update H1: "Corretora de Seguros em Guarulhos".
+- Update Support Text: Focused on comparison and consulting.
+- Primary CTAs: "Solicitar cotação" and "Falar no WhatsApp".
 
-### User Questions
-- Do you have specific images for the odontology niche, or should I use generic high-quality placeholders?
-- For the "Responsabilidade Civil para Dentistas", should I replace the existing `/seguro-rc-dentistas` route or create a new one with a redirect?
+### 2.2 Product Selector ("O que você quer proteger?")
+- Implement a prominent selector component after the hero.
+- Options: Car, Moto, House, Family, Health, Company, Fleet, Cargo, Heritage, Machines.
+- Direct users to relevant quote paths.
+
+### 2.3 Section Reorganization
+1. Product Selector.
+2. Main Insurance Products.
+3. How it Works (Process).
+4. Partner Insurers.
+5. Proposal Comparison (Placeholder for Phase 4).
+6. Real Reviews.
+7. B2B Solutions (Patro Empresas).
+8. Local Authority (Guarulhos focus).
+9. Tools & Content.
+10. FAQ.
+11. Final CTA.
+
+## Technical Details
+- **Components**: Create `HomeSelector.tsx`, update `Header.tsx`, `Footer.tsx`, and `Index.tsx`.
+- **SEO**: Preserve `PageMeta`, `LocalBusinessSchema`, and existing canonical tags.
+- **Icons**: Use `Lucide-React`.
+- **Responsive**: Mobile-first design for all new elements.
