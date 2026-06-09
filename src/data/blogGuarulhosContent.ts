@@ -138,10 +138,20 @@ export const guarulhosArticlesContent = {
   "quanto-custa-seguro-corolla-cross-guarulhos": {
     title: "Quanto custa o seguro do Corolla Cross em Guarulhos?",
     content: "O Corolla Cross em Guarulhos tem seguro médio de R$ 3.200 a R$ 5.800. A versão híbrida tem uma aceitação excelente em seguradoras como Porto e Tokio Marine. Moradores de condomínios na Vila Augusta conseguem as melhores taxas para este modelo.\n\n[Cotação Corolla Cross](/cotacao?tipo=auto&modelo=corolla-cross)",
-    faqs: [{ q: "Diferença de preço entre híbrido e combustão?", a: "A versão híbrida costuma ter seguro cerca de 8% a 12% mais barato devido ao perfil do condutor." }]
+    faqs: [
+      { q: "Diferença de preço entre híbrido e combustão?", a: "A versão híbrida costuma ter seguro cerca de 8% a 12% mais barato devido ao perfil do condutor." },
+      { q: "O seguro cobre o teto solar do Corolla Cross?", a: "Sim, recomendamos sempre incluir a cobertura de vidros completa que abrange o teto solar panorâmico." }
+    ]
   },
   "quanto-custa-seguro-hr-v-guarulhos": {
     title: "Quanto custa o seguro do HR-V em Guarulhos?",
+    content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/cotacao?tipo=auto&modelo=hrv)",
+    faqs: [
+      { q: "A Honda tem parceria com seguradora?", a: "Sim, a Allianz e a Porto Seguro possuem redes de oficinas Honda muito fortes em Guarulhos." },
+      { q: "O seguro do HR-V é visado?", a: "É um modelo intermediário, menos visado que o Civic, o que ajuda a manter o preço mais estável." }
+    ]
+  },
+
     content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/cotacao?tipo=auto&modelo=hrv)",
     faqs: [{ q: "A Honda tem parceria com seguradora?", a: "Sim, a Allianz e a Porto Seguro possuem redes de oficinas Honda muito fortes em Guarulhos." }]
   },
