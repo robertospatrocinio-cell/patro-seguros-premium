@@ -20,10 +20,12 @@ interface QuickQuoteFormProps {
 }
 
 const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: QuickQuoteFormProps) => {
-  const [form, setForm] = useState<Record<string, string>>({ nome: "", telefone: "", email: "" });
+  const storageKey = `quick-quote-${trackingLabel.toLowerCase().replace(/\s+/g, "-")}`;
+  const [form, setForm, clearForm] = usePersistentForm<Record<string, string>>(storageKey, { nome: "", telefone: "", email: "" });
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+
 
   const validateField = (key: string, value: string) => {
     if (key === "nome") {
