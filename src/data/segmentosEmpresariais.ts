@@ -422,9 +422,9 @@ segmentos.push(
     nome: "Joalherias",
     icon: "💎",
     subtitle: "Seguro especializado para joias e relógios em Guarulhos",
-    description: "Proteção máxima para estoques valiosos e vitrines. Cobertura de roubo e furto qualificado para joalherias.",
-    detailedDescription: "Joalherias exigem uma análise de risco diferenciada. Oferecemos coberturas de roubo, proteção para vitrines blindadas e responsabilidade civil em um dos segmentos mais visados de Guarulhos.",
-    metaDescription: "Seguro para Joalherias em Guarulhos: proteção valiosa para joias e relógios. Confira.",
+    description: "Proteção máxima para estoques valiosos e vitrines em Guarulhos. Cobertura de roubo e furto qualificado para joalherias.",
+    detailedDescription: "### Blindagem para Joalherias em Guarulhos\n\nJoalherias exigem uma análise de risco diferenciada. Oferecemos coberturas de roubo, proteção para vitrines blindadas e responsabilidade civil em um dos segmentos mais visados de Guarulhos. Nossa consultoria ajuda a atender as exigências de segurança das seguradoras premium.",
+    metaDescription: "Seguro para Joalherias em Guarulhos: proteção valiosa para joias e relógios. Cotação rápida em 2h com a Patro Seguros.",
     coverages: baseCoverages,
     whoNeeds: ["Joalherias", "Relojoarias", "Venda de pedras preciosas"],
     faqs: [
