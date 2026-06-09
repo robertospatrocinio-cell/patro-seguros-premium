@@ -309,13 +309,14 @@ const MODELOS: ModeloSeed[] = [
     context: "O GWM Haval H6 é o smart SUV que conquistou o Jardim Maia. Proteção robusta para sensores e bateria híbrida."
   },
   {
-    slug: "seguro-auto-toyota-sw4-guarulhos",
+    slug: "seguro-toyota-sw4-guarulhos",
     modelo: "Toyota SW4",
     modeloShort: "SW4",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1621285853634-713b8dd1b2ff?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 350.000 a R$ 480.000",
     priceRange: { min: 6500, max: 14500, label: "R$ 6.500 a R$ 14.500/ano" },
+
     theftProfile: "alto",
     pros: ["Confiabilidade mecânica Toyota", "Alta liquidez na revenda", "7 lugares e conforto premium"],
     cons: ["Índice de roubo altíssimo em Guarulhos", "Exigência de múltiplos rastreadores"],
