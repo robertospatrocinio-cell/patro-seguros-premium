@@ -98,18 +98,19 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
   const validateField = (key: string, value: string) => {
     if (key === "nome") {
-      if (!value.trim()) return "Nome é obrigatório";
-      if (value.trim().length < 3) return "Nome muito curto";
+      if (!value.trim()) return "Seu nome é necessário para o orçamento";
+      if (value.trim().length < 3) return "Por favor, digite seu nome completo";
     }
     if (key === "telefone") {
-      if (!value.trim()) return "WhatsApp é obrigatório";
-      if (!validatePhone(value)) return "Formato: (11) 99999-9999";
+      if (!value.trim()) return "WhatsApp é essencial para enviarmos a cotação";
+      if (!validatePhone(value)) return "Use o formato (11) 99999-9999";
     }
     if (key === "email" && value.trim()) {
-      if (!validateEmail(value)) return "E-mail inválido";
+      if (!validateEmail(value)) return "Formato de e-mail inválido. Ex: nome@email.com";
     }
     return "";
   };
+
 
   const getFieldError = (key: string) => {
     if (!touched[key]) return "";
@@ -136,12 +137,16 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       setTouched(prev => ({ ...prev, nome: true, telefone: true }));
 
       if (nomeError || telError) {
-        toast.error(nomeError || telError);
+        toast.error(nomeError || telError || "Verifique as informações para continuar.");
+        const firstErrorKey = nomeError ? "nome" : "telefone";
+        const element = document.getElementById(`qq-${firstErrorKey}-${trackingLabel}`);
+        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
       setCurrentStep(2);
     }
   };
+
 
   const prevStep = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
