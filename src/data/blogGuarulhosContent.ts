@@ -151,10 +151,8 @@ export const guarulhosArticlesContent = {
       { q: "O seguro do HR-V é visado?", a: "É um modelo intermediário, menos visado que o Civic, o que ajuda a manter o preço mais estável." }
     ]
   },
+  "quanto-custa-seguro-jeep-compass-guarulhos": {
 
-    content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/cotacao?tipo=auto&modelo=hrv)",
-    faqs: [{ q: "A Honda tem parceria com seguradora?", a: "Sim, a Allianz e a Porto Seguro possuem redes de oficinas Honda muito fortes em Guarulhos." }]
-  },
   "quanto-custa-seguro-jeep-compass-guarulhos": {
     title: "Quanto custa o seguro do Compass em Guarulhos?",
     content: "O Jeep Compass é líder de categoria e isso gera uma sinistralidade moderada em Guarulhos. O seguro médio fica entre R$ 3.500 e R$ 6.000. Recomendamos sempre incluir a cobertura de vidros completa, incluindo teto solar, que é um item comum no Compass.\n\n[Simular Seguro Compass](/cotacao?tipo=auto&modelo=compass)",
