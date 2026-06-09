@@ -224,16 +224,18 @@ function sitemapPlugin(): Plugin {
       fs.mkdirSync(outDir, { recursive: true });
       // Cluster sitemaps + legacy flat sitemap.xml
        for (const [name, xml] of Object.entries(files as Record<string, string>)) {
-         fs.writeFileSync(path.join(outDir, name), xml, "utf-8");
+         const filePath = path.join(outDir, name);
+         // If a directory exists with the same name, we need to remove it (unlikely but safe)
+         if (fs.existsSync(filePath) && fs.lstatSync(filePath).isDirectory()) {
+           fs.rmSync(filePath, { recursive: true });
+         }
+         fs.writeFileSync(filePath, xml, "utf-8");
          const count = xml.split("<url>").length - 1;
-        console.log(`✅ ${name} generated with ${count} URLs`);
+         if (count > 0) console.log(`✅ ${name} generated with ${count} URLs`);
+         else console.log(`✅ ${name} generated (index/meta)`);
       }
-      // Sitemap index referencing all clusters
-      fs.writeFileSync(path.join(outDir, "sitemap-index.xml"), index, "utf-8");
       console.log(`✅ sitemap-index.xml generated with ${Object.keys(files).length - 1} cluster sitemaps`);
 
-      // Mirror as sitemap_index.xml (WordPress/Yoast convention)
-      fs.writeFileSync(path.join(outDir, "sitemap_index.xml"), index, "utf-8");
 
        // Final validation step for XML and UTF-8 encoding
        try {
