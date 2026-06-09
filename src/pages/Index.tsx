@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, Fragment } from "react";
+import { useEffect, useMemo, useState, Fragment, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { Shield, Users, Phone, MessageCircle, ArrowRight, Zap, Headphones, MapPin, Globe, Smartphone, Mail } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
@@ -285,20 +285,16 @@ const Index = () => {
           </div>
         </section>
 
-        <LazySection minHeight="400px">
-          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+        <div className="min-h-[400px]">
             <LeadMagnetSection />
-          </Suspense>
-        </LazySection>
+        </div>
 
-        <LazySection minHeight="400px">
-          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+        <div className="min-h-[400px]">
             <FormCTASection 
               title="Proteja seu patrimônio com quem entende de Guarulhos"
               subtitle="Seja para sua família ou sua empresa, encontramos a melhor cobertura pelo menor custo do mercado."
             />
-          </Suspense>
-        </LazySection>
+        </div>
 
         <section className="py-16 md:py-32 bg-background" aria-labelledby="sobre-heading">
           <div className="container mx-auto px-4">
@@ -397,32 +393,24 @@ const Index = () => {
               <h2 id="google-business-heading" className="mt-3">Avaliações reais de clientes reais</h2>
             </div>
             <div className="max-w-md mx-auto">
-              <LazySection minHeight="250px">
-                <Suspense fallback={<div className="h-[250px] w-full bg-muted animate-pulse" />}>
+              <div className="min-h-[250px]">
                   <GoogleBusinessWidget />
-                </Suspense>
-              </LazySection>
+              </div>
             </div>
           </div>
         </section>
 
-        <LazySection minHeight="150px">
-          <Suspense fallback={<div className="h-[150px] w-full bg-muted animate-pulse" />}>
+        <div className="min-h-[150px]">
             <AgrishowPromoBanner source="home" variant="full" />
-          </Suspense>
-        </LazySection>
+        </div>
 
-        <LazySection minHeight="400px">
-          <Suspense fallback={<div className="h-[400px] w-full bg-muted animate-pulse" />}>
+        <div className="min-h-[400px]">
             <HomeBlogSection />
-          </Suspense>
-        </LazySection>
+        </div>
 
-        <LazySection minHeight="300px">
-          <Suspense fallback={<div className="h-[300px] w-full bg-muted animate-pulse" />}>
+        <div className="min-h-[300px]">
             <PortoPartnershipSection />
-          </Suspense>
-        </LazySection>
+        </div>
 
         <section className="py-20 md:py-36 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
           <div className="container mx-auto px-4 text-center relative">
@@ -498,11 +486,9 @@ const Index = () => {
           </div>
         </section>
 
-        <LazySection minHeight="200px">
-          <Suspense fallback={<div className="h-[200px] w-full bg-muted animate-pulse" />}>
+        <div className="min-h-[200px]">
             <InsuranceHubLinks />
-          </Suspense>
-        </LazySection>
+        </div>
       </main>
       <Footer />
     </>
