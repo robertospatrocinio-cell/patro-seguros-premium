@@ -61,13 +61,14 @@ const BlogArticle = () => {
   const related = slug ? getRelatedArticles(slug, 3) : [];
   const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;
   const allFaqs = [
-    ...(article?.faqs ?? []),
+    ...(article?.faqs ?? []).map((f: any) => ({ q: f.q, a: f.a })),
     ...(extraFaqBlock?.faqs ?? []),
     ...((extraFaqBlock?.timeline?.stages ?? []).map((s: any) => ({ q: s.faqQ, a: s.faqA }))),
     ...((extraFaqBlock?.comparison?.rows ?? [])
       .filter((r: any) => r.faqQ && r.faqA)
       .map((r: any) => ({ q: r.faqQ as string, a: r.faqA as string }))),
-  ];
+  ].filter(f => f.q && f.a);
+
 
   const articleImageUrl = slug ? `${CANONICAL_BASE_URL}${getArticleImage(slug)}` : undefined;
 
