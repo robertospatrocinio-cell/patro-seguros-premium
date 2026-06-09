@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { CheckCircle, ChevronRight, ChevronLeft, Save, User as UserIcon, Users } from "lucide-react";
+import { CheckCircle, ChevronRight, ChevronLeft, Save, User as UserIcon, Users, Send } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 
