@@ -65,7 +65,7 @@ const SeguroAuto = () => {
             <div className="py-24 md:py-32 max-w-3xl mx-auto text-center">
               <div className="text-5xl mb-6 animate-fade-up" role="img" aria-label="Seguro Auto">🚗</div>
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
-                Corretora de Seguro Auto em Guarulhos: Melhor Preço e Cotação em 2h
+                Seguro Auto em Guarulhos: Melhor Preço e Cotação em 2h
               </h1>
               <p className="text-base md:text-lg text-white/60 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">
                 Compare seu perfil nas 16 maiores seguradoras do Brasil e economize até 35% no seguro do seu carro. Atendimento humano especializado em Guarulhos.

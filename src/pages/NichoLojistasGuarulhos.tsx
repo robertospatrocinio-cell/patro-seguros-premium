@@ -54,8 +54,8 @@ const coberturas = [
 const NichoLojistasGuarulhos = () => (
   <>
     <PageMeta
-      title="Seguros para Lojistas em Guarulhos | Patro Seguros"
-      description="Proteja sua loja, franquia ou quiosque nos shoppings de Guarulhos. Seguro empresarial, vida, saúde e responsabilidade civil. Cotação grátis."
+      title="Seguros para Lojistas em Guarulhos | Proteção para Shopping"
+      description="Proteja sua loja ou quiosque nos shoppings de Guarulhos. Seguro empresarial, vida e RC com cotação em 2h pela Patro Seguros."
     />
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />
