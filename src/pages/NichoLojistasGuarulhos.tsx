@@ -77,7 +77,7 @@ const NichoLojistasGuarulhos = () => (
       <section className="gradient-hero py-20 md:py-28">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <span className="inline-block bg-white/10 text-white/80 text-xs font-medium px-3 py-1 rounded-full mb-6">Hub de Seguros para Shopping</span>
-          <h1 className="text-white mb-4">Seguros para Lojistas em Guarulhos</h1>
+          <h1 className="text-white mb-4">Seguros para Lojistas em Guarulhos — Proteção para Shopping</h1>
           <p className="text-lg text-white/70 max-w-2xl mx-auto mb-8">
             Proteção estratégica para sua loja, franquia ou quiosque nos principais shoppings de Guarulhos. Geração de leads e autoridade local.
           </p>
