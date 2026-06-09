@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
 const SeoVistoriaVeicularGuarulhos = () => (
   <>
-    <PrerenderText slug={"seguro-para-empresas-de-vistoria-veicular" as any} />
+    <PrerenderText slug="seguro-para-empresas-de-vistoria-veicular" />
     <InsurancePageTemplate
     heroImage={heroImg}
     title="Seguro para Empresas de Vistoria Veicular | Patro Seguros"
