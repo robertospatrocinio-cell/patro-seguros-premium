@@ -1,18 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle, MessageCircle, ListChecks } from "lucide-react";
+import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Progress } from "@/components/ui/progress";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { usePersistentForm } from "@/hooks/usePersistentForm";
+
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -60,15 +63,35 @@ interface Props {
 }
 
 const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
-  const [formData, setFormData] = useState<Record<string, string>>({});
+  const storageKey = `quote-form-${config.type.toLowerCase().replace(/\s+/g, "-")}`;
+  
+  const [formData, setFormData, clearFormData] = usePersistentForm<Record<string, string>>(storageKey, {});
+  const [checkboxGroups, setCheckboxGroups] = usePersistentForm<Record<string, string[]>>(`${storageKey}-checkboxes`, {});
+  const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
-  const [checkboxGroups, setCheckboxGroups] = useState<Record<string, string[]>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [finalMsg, setFinalMsg] = useState("");
   const [showChecklist, setShowChecklist] = useState(false);
   const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
+
+  // Group fields into steps
+  const contactFieldIds = ["nome", "email", "telefone", "whatsapp", "phone", "name"];
+  const contactFields = config.fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
+  const coverageFields = config.fields.filter(f => f.type === "checkbox-group");
+  const technicalFields = config.fields.filter(f => !contactFields.includes(f) && !coverageFields.includes(f));
+
+  // Define dynamic steps
+  const steps = [
+    { id: "contact", title: "Dados de Contato", fields: contactFields },
+    ...(technicalFields.length > 0 ? [{ id: "technical", title: "Detalhes do Seguro", fields: technicalFields }] : []),
+    ...(coverageFields.length > 0 ? [{ id: "coverage", title: "Coberturas e Extras", fields: coverageFields }] : []),
+    { id: "review", title: "Termos e Revisão", fields: [] }
+  ];
+
+  const totalSteps = steps.length;
+  const progress = (currentStep / totalSteps) * 100;
 
   const checklistOptions = [
     { id: "correct_phone", label: "Meu WhatsApp está correto para receber a cotação." },
@@ -81,6 +104,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const toggleChecklistItem = (id: string) => {
     setChecklistItems(prev => ({ ...prev, [id]: !prev[id] }));
   };
+
 
   const getFieldError = (field: FormFieldConfig) => {
     if (!touched[field.id]) return "";
@@ -123,38 +147,63 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     });
   };
 
-  const isValid = () => {
-    for (const field of config.fields) {
+  const isStepValid = (stepIndex: number) => {
+    const step = steps[stepIndex - 1];
+    if (!step) return true;
+    
+    for (const field of step.fields) {
       if (!field.required) continue;
       if (field.type === "checkbox-group") {
         if (!(checkboxGroups[field.id]?.length > 0)) return false;
       } else {
         if (!formData[field.id]?.trim()) return false;
       }
+      if (getFieldError(field)) return false;
     }
-    return consent;
+
+    if (step.id === "review") {
+      return consent && isChecklistComplete;
+    }
+
+    return true;
+  };
+
+  const nextStep = () => {
+    // Mark current step fields as touched
+    const currentFields = steps[currentStep - 1]?.fields || [];
+    const newTouched = { ...touched };
+    currentFields.forEach(f => { newTouched[f.id] = true });
+    setTouched(newTouched);
+
+    if (!isStepValid(currentStep)) {
+      const firstError = steps[currentStep - 1].fields.find(f => getFieldError(f));
+      toast.error(firstError ? `Por favor, preencha: ${firstError.label}` : "Preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Mark all as touched
-    const allTouched: Record<string, boolean> = {};
-    config.fields.forEach(f => { allTouched[f.id] = true });
-    setTouched(allTouched);
-
-    const firstError = config.fields.find(f => getFieldError(f));
-    if (firstError || !consent) {
-      toast.error(
-        !consent 
-          ? "Por favor, aceite os termos para continuar." 
-          : `Por favor, corrija o campo: ${firstError?.label}`
-      );
+    if (currentStep < totalSteps) {
+      nextStep();
       return;
     }
 
-    if (!showChecklist) {
-      setShowChecklist(true);
+    if (!consent) {
+      toast.error("Por favor, aceite os termos para continuar.");
       return;
     }
 
@@ -162,6 +211,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       toast.error("Por favor, confirme todos os itens do checklist antes de enviar.");
       return;
     }
+
 
     setSending(true);
 
@@ -244,7 +294,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       setSending(false);
       setSent(true);
       setFinalMsg(finalParts);
+      clearFormData();
+      clearStep();
     }, 600);
+
+
   };
 
   if (sent) {
@@ -300,278 +354,230 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
   return (
     <div className={`bg-primary/[0.03] border border-primary/10 rounded-2xl ${compact ? "p-5" : "p-6 md:p-8"}`}>
+      {/* Progress Bar */}
+      <div className="mb-8">
+        <div className="flex justify-between items-center text-xs text-muted-foreground mb-2">
+          <span className="font-semibold text-primary uppercase tracking-wider">Passo {currentStep} de {totalSteps}</span>
+          <span>{Math.round(progress)}% completo</span>
+        </div>
+        <Progress value={progress} className="h-1.5 bg-primary/10" />
+      </div>
+
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl" aria-hidden="true">{config.emoji}</span>
-        <h3 className="text-lg font-bold">{compact ? `Cotação de ${config.type}` : config.title}</h3>
+        <h3 className="text-lg font-bold">{steps[currentStep - 1].title}</h3>
       </div>
-      <p className="text-sm text-muted-foreground mb-6">{config.subtitle}</p>
+      <p className="text-sm text-muted-foreground mb-6">
+        {currentStep === 1 ? config.subtitle : `Preencha os detalhes para sua cotação de ${config.type}`}
+      </p>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {config.fields.map(field => {
-          const error = getFieldError(field);
-          return (
-            <div key={field.id} className="space-y-1.5">
-              <Label htmlFor={`iq-${field.id}`} className={error ? "text-destructive" : ""}>
-                {field.label} {field.required && <span className="text-destructive">*</span>}
-              </Label>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Step Content */}
+        <div className="space-y-4 animate-in fade-in slide-in-from-right-2 duration-300">
+          {steps[currentStep - 1].id === "review" ? (
+            <div className="space-y-6">
+              <div className="bg-white/80 border border-primary/20 rounded-xl p-5 space-y-4 shadow-sm">
+                <div className="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+                  <ListChecks className="h-5 w-5" />
+                  <span>Confirmação Final:</span>
+                </div>
+                {checklistOptions.map(item => (
+                  <label key={item.id} className="flex items-start gap-3 cursor-pointer group">
+                    <Checkbox 
+                      id={item.id}
+                      checked={checklistItems[item.id] || false}
+                      onCheckedChange={() => toggleChecklistItem(item.id)}
+                      className="mt-1"
+                    />
+                    <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
+                      {item.label}
+                    </span>
+                  </label>
+                ))}
+              </div>
 
-              {field.type === "select" && field.options && (
-                <Select 
-                  value={formData[field.id] || ""} 
-                  onValueChange={v => {
-                    update(field.id, v);
-                    handleBlur(field.id);
-                  }}
-                >
-                  <SelectTrigger 
-                    id={`iq-${field.id}`}
-                    className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                    aria-invalid={!!error}
-                    aria-describedby={error ? `error-iq-${field.id}` : undefined}
-                    aria-required={field.required}
-                  >
-                    <SelectValue placeholder={field.placeholder || "Selecione"} />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {field.options.map(opt => (
-                      <SelectItem key={opt} value={opt}>{opt}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              )}
+              <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-1" />
+                  <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors leading-tight">
+                    Concordo em receber contato especializado da Patro Seguros via WhatsApp ou E-mail para tratar desta cotação.
+                  </span>
+                </label>
+              </div>
+            </div>
+          ) : (
+            steps[currentStep - 1].fields.map(field => {
+              const error = getFieldError(field);
+              return (
+                <div key={field.id} className="space-y-2">
+                  <Label htmlFor={`iq-${field.id}`} className={error ? "text-destructive font-semibold" : "font-semibold"}>
+                    {field.label} {field.required && <span className="text-destructive">*</span>}
+                  </Label>
 
-              {field.type === "radio" && field.options && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {field.options.map(opt => (
-                    <label
-                      key={opt}
-                      className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-colors text-sm ${
-                        formData[field.id] === opt
-                          ? "border-primary bg-primary/5 text-foreground"
-                          : error 
-                            ? "border-destructive hover:border-destructive/80"
-                            : "border-input hover:border-primary/30"
-                      }`}
+                  {field.type === "select" && field.options && (
+                    <Select 
+                      value={formData[field.id] || ""} 
+                      onValueChange={v => {
+                        update(field.id, v);
+                        handleBlur(field.id);
+                      }}
                     >
-                      <input
-                        type="radio"
-                        name={field.id}
-                        value={opt}
-                        checked={formData[field.id] === opt}
-                        onChange={() => {
-                          update(field.id, opt);
-                          handleBlur(field.id);
-                        }}
-                        className="sr-only"
+                      <SelectTrigger 
+                        id={`iq-${field.id}`}
+                        className={`h-11 ${error ? "border-destructive focus-visible:ring-destructive" : ""}`}
                         aria-invalid={!!error}
                         aria-describedby={error ? `error-iq-${field.id}` : undefined}
                         aria-required={field.required}
-                      />
-                      <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                        formData[field.id] === opt 
-                          ? "border-primary" 
-                          : error ? "border-destructive" : "border-muted-foreground/40"
-                      }`}>
-                        {formData[field.id] === opt && <div className="w-2 h-2 rounded-full bg-primary" />}
-                      </div>
-                      <span>{opt}</span>
-                    </label>
-                  ))}
-                </div>
-              )}
-
-              {field.type === "checkbox-group" && field.options && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {field.options.map(opt => {
-                    const checked = opt === "Todos"
-                      ? (checkboxGroups[field.id]?.length === (field.options!.filter(o => o !== "Todos").length))
-                      : checkboxGroups[field.id]?.includes(opt);
-                    return (
-                      <label
-                        key={opt}
-                        className={`flex items-center gap-2 px-3 py-2.5 rounded-lg border cursor-pointer transition-colors text-sm ${
-                          checked 
-                            ? "border-primary bg-primary/5" 
-                            : error 
-                              ? "border-destructive hover:border-destructive/80"
-                              : "border-input hover:border-primary/30"
-                        }`}
                       >
-                        <Checkbox 
-                          checked={checked} 
-                          onCheckedChange={() => {
-                            toggleCheckboxOption(field.id, opt);
-                            handleBlur(field.id);
-                          }} 
-                          aria-invalid={!!error}
-                          aria-describedby={error ? `error-iq-${field.id}` : undefined}
-                        />
-                        <span>{opt}</span>
-                      </label>
-                    );
-                  })}
+                        <SelectValue placeholder={field.placeholder || "Selecione"} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {field.options.map(opt => (
+                          <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
+
+                  {field.type === "radio" && field.options && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {field.options.map(opt => (
+                        <label
+                          key={opt}
+                          className={`flex items-center gap-2 px-3 py-3 rounded-xl border cursor-pointer transition-all text-sm ${
+                            formData[field.id] === opt
+                              ? "border-primary bg-primary/5 text-primary-foreground font-medium ring-1 ring-primary"
+                              : error 
+                                ? "border-destructive hover:border-destructive/80"
+                                : "border-input hover:border-primary/30"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name={field.id}
+                            value={opt}
+                            checked={formData[field.id] === opt}
+                            onChange={() => {
+                              update(field.id, opt);
+                              handleBlur(field.id);
+                            }}
+                            className="sr-only"
+                          />
+                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                            formData[field.id] === opt 
+                              ? "border-primary" 
+                              : error ? "border-destructive" : "border-muted-foreground/40"
+                          }`}>
+                            {formData[field.id] === opt && <div className="w-2 h-2 rounded-full bg-primary" />}
+                          </div>
+                          <span className={formData[field.id] === opt ? "text-foreground" : ""}>{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  )}
+
+                  {field.type === "checkbox-group" && field.options && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {field.options.map(opt => {
+                        const checked = opt === "Todos"
+                          ? (checkboxGroups[field.id]?.length === (field.options!.filter(o => o !== "Todos").length))
+                          : checkboxGroups[field.id]?.includes(opt);
+                        return (
+                          <label
+                            key={opt}
+                            className={`flex items-center gap-2 px-3 py-3 rounded-xl border cursor-pointer transition-all text-sm ${
+                              checked 
+                                ? "border-primary bg-primary/5 ring-1 ring-primary" 
+                                : error 
+                                  ? "border-destructive hover:border-destructive/80"
+                                  : "border-input hover:border-primary/30"
+                            }`}
+                          >
+                            <Checkbox 
+                              checked={checked} 
+                              onCheckedChange={() => {
+                                toggleCheckboxOption(field.id, opt);
+                                handleBlur(field.id);
+                              }} 
+                            />
+                            <span className={checked ? "text-foreground font-medium" : ""}>{opt}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {(field.type === "tel" || field.type === "email" || field.type === "text" || field.type === "date" || field.type === "currency") && (
+                    <Input
+                      id={`iq-${field.id}`}
+                      type={field.type === "email" ? "text" : field.type === "tel" ? "tel" : field.type === "date" ? "date" : "text"}
+                      placeholder={field.placeholder || (field.type === "tel" ? "(11) 99999-9999" : field.type === "email" ? "seu@email.com" : "")}
+                      value={formData[field.id] || ""}
+                      onChange={e => update(field.id, field.type === "tel" ? formatPhone(e.target.value) : field.type === "currency" ? e.target.value : e.target.value)}
+                      onBlur={() => handleBlur(field.id)}
+                      className={`h-11 ${error ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                      aria-invalid={!!error}
+                      aria-describedby={error ? `error-iq-${field.id}` : undefined}
+                      aria-required={field.required}
+                    />
+                  )}
+
+                  {error && (
+                    <p id={`error-iq-${field.id}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">
+                      {error}
+                    </p>
+                  )}
                 </div>
-              )}
+              );
+            })
+          )}
+        </div>
 
-              {field.type === "tel" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  type="tel"
-                  placeholder={field.placeholder || "(11) 99999-9999"}
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, formatPhone(e.target.value))}
-                  onBlur={() => handleBlur(field.id)}
-                   maxLength={16}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                  aria-invalid={!!error}
-                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
-                  aria-required={field.required}
-                />
-              )}
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-3 pt-2">
+          {currentStep > 1 && (
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={prevStep} 
+              className="h-12 order-2 sm:order-1"
+              disabled={sending}
+            >
+              <ChevronLeft className="mr-2 h-4 w-4" /> Voltar
+            </Button>
+          )}
+          
+          <Button 
+            type="submit" 
+            variant="cta" 
+            className={`h-12 font-bold text-base flex-1 order-1 sm:order-2 ${currentStep === 1 ? "w-full" : ""}`}
+            disabled={sending}
+          >
+            {sending ? (
+              "Enviando..."
+            ) : currentStep < totalSteps ? (
+              <>Próximo Passo <ChevronRight className="ml-2 h-4 w-4" /></>
+            ) : (
+              <><Send className="mr-2 h-4 w-4" /> Finalizar e Receber Cotação</>
+            )}
+          </Button>
+        </div>
 
-              {field.type === "email" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  type="text"
-                  placeholder={field.placeholder || "seu@email.com"}
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
-                  maxLength={255}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                  aria-invalid={!!error}
-                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
-                  aria-required={field.required}
-                />
-              )}
-
-              {field.type === "text" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  placeholder={field.placeholder}
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                  aria-invalid={!!error}
-                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
-                  aria-required={field.required}
-                />
-              )}
-
-              {field.type === "date" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  type="date"
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                  aria-invalid={!!error}
-                  aria-describedby={error ? `error-iq-${field.id}` : undefined}
-                  aria-required={field.required}
-                />
-              )}
-
-              {error && (
-                <p id={`error-iq-${field.id}`} className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">
-                  {error}
-                </p>
-              )}
-
-              {field.type === "email" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  type="text"
-                  placeholder={field.placeholder || "seu@email.com"}
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
-                  maxLength={255}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                />
-              )}
-
-              {field.type === "text" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  placeholder={field.placeholder}
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
-                  maxLength={200}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                />
-              )}
-
-              {field.type === "date" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  type="date"
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                />
-              )}
-
-              {field.type === "currency" && (
-                <Input
-                  id={`iq-${field.id}`}
-                  placeholder={field.placeholder || "R$ 0,00"}
-                  value={formData[field.id] || ""}
-                  onChange={e => update(field.id, e.target.value)}
-                  onBlur={() => handleBlur(field.id)}
-                  maxLength={30}
-                  className={error ? "border-destructive focus-visible:ring-destructive" : ""}
-                />
-              )}
-
-              {error && (
-                <p className="text-xs text-destructive animate-in fade-in slide-in-from-top-1">{error}</p>
-              )}
-            </div>
-          );
-        })}
-
-        {/* Checklist de Validação */}
-        {showChecklist && (
-          <div className="bg-white/80 border border-primary/20 rounded-xl p-4 space-y-3 animate-in fade-in slide-in-from-top-2">
-            <div className="flex items-center gap-2 text-primary font-semibold text-sm mb-1">
-              <ListChecks className="h-4 w-4" />
-              <span>Confirme seus dados antes de enviar:</span>
-            </div>
-            {checklistOptions.map(item => (
-              <label key={item.id} className="flex items-start gap-3 cursor-pointer group">
-                <Checkbox 
-                  id={item.id}
-                  checked={checklistItems[item.id] || false}
-                  onCheckedChange={() => toggleChecklistItem(item.id)}
-                  className="mt-1"
-                />
-                <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                  {item.label}
-                </span>
-              </label>
-            ))}
-          </div>
-        )}
-
-        {/* Consent */}
-        <label className="flex items-start gap-2 cursor-pointer">
-          <Checkbox checked={consent} onCheckedChange={(v) => setConsent(v === true)} className="mt-0.5" />
-          <span className="text-xs text-muted-foreground">Concordo em receber contato via WhatsApp/Email</span>
-        </label>
-
-        <Button type="submit" variant="cta" className="w-full h-12 text-base" disabled={sending || !isValid() || (showChecklist && !isChecklistComplete)}>
-          {sending ? "Enviando..." : showChecklist ? <><Send className="mr-2 h-4 w-4" /> Confirmar e Enviar</> : <><Send className="mr-2 h-4 w-4" /> Receber Cotação Grátis</>}
-        </Button>
-        <p className="text-xs text-muted-foreground text-center">
-          100% gratuito · Resposta em até 2 horas · Sem compromisso
-        </p>
+        <div className="flex flex-col items-center gap-3">
+          <p className="text-[10px] text-muted-foreground text-center flex items-center gap-1.5">
+            <Save className="h-3 w-3 text-primary" />
+            Progresso salvo automaticamente · 100% gratuito e sem compromisso
+          </p>
+          {currentStep === totalSteps && (
+            <p className="text-[10px] text-muted-foreground text-center">
+              Ao enviar, nossos especialistas analisarão seu perfil em até 2 horas úteis.
+            </p>
+          )}
+        </div>
       </form>
     </div>
   );
 };
 
 export default InsuranceQuoteForm;
+

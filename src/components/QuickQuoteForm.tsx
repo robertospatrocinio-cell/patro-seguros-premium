@@ -1,9 +1,11 @@
-import { useState } from "react";
-import { Send, CheckCircle, MessageCircle, TrendingDown } from "lucide-react";
- import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { useState, useEffect } from "react";
+import { Send, CheckCircle, MessageCircle, TrendingDown, Save } from "lucide-react";
+import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
 import { toast } from "sonner";
+import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { Button } from "@/components/ui/button";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -18,10 +20,12 @@ interface QuickQuoteFormProps {
 }
 
 const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: QuickQuoteFormProps) => {
-  const [form, setForm] = useState<Record<string, string>>({ nome: "", telefone: "", email: "" });
+  const storageKey = `quick-quote-${trackingLabel.toLowerCase().replace(/\s+/g, "-")}`;
+  const [form, setForm, clearForm] = usePersistentForm<Record<string, string>>(storageKey, { nome: "", telefone: "", email: "" });
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+
 
   const validateField = (key: string, value: string) => {
     if (key === "nome") {
@@ -129,11 +133,13 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
     setTimeout(() => {
       setSending(false);
       setSent(true);
+      clearForm();
       window.open(
         `https://wa.me/551151997500?text=${encodeURIComponent(finalParts)}`,
         "_blank"
       );
     }, 500);
+
   };
 
   if (sent) {
@@ -286,10 +292,17 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         <Button type="submit" variant="cta" className="w-full h-12 font-bold text-sm" disabled={sending}>
           {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Cotar meu seguro agora</>}
         </Button>
-        <div className="flex items-center justify-center gap-2 text-[10px] text-foreground/70 mt-4">
-          <TrendingDown className="h-3 w-3 text-green-600" />
-          <span>Nota 4.9 no Google | Comparativo de 16+ seguradoras</span>
+        <div className="flex flex-col items-center gap-2 mt-4">
+          <div className="flex items-center justify-center gap-2 text-[10px] text-foreground/70">
+            <TrendingDown className="h-3 w-3 text-green-600" />
+            <span>Nota 4.9 no Google | Comparativo de 16+ seguradoras</span>
+          </div>
+          <div className="flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground/60">
+            <Save className="h-3 w-3" />
+            <span>Progresso salvo automaticamente</span>
+          </div>
         </div>
+
       </form>
     </div>
   );
