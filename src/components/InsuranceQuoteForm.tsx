@@ -233,15 +233,22 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   };
 
   const nextStep = () => {
-    // Mark current step fields as touched
-    const currentFields = steps[currentStep - 1]?.fields || [];
+    // Mark current step fields as touched to trigger validation UI
+    const currentStepFields = steps[currentStep - 1]?.fields || [];
     const newTouched = { ...touched };
-    currentFields.forEach(f => { newTouched[f.id] = true });
+    currentStepFields.forEach(f => { newTouched[f.id] = true });
     setTouched(newTouched);
 
     if (!isStepValid(currentStep)) {
-      const firstError = steps[currentStep - 1].fields.find(f => getFieldError(f));
-      toast.error(firstError ? `Por favor, preencha: ${firstError.label}` : "Preencha todos os campos obrigatórios.");
+      const firstErrorField = steps[currentStep - 1].fields.find(f => getFieldError(f));
+      if (firstErrorField) {
+        toast.error(`Por favor, verifique o campo: ${firstErrorField.label}`);
+        // Scroll to the error field
+        const element = document.getElementById(`iq-${firstErrorField.id}`);
+        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (steps[currentStep - 1].id === "review") {
+        toast.error("Confirme todos os itens e aceite os termos para continuar.");
+      }
       return;
     }
 
@@ -250,6 +257,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
+
 
   const prevStep = () => {
     if (currentStep > 1) {
