@@ -22,6 +22,16 @@ export const articles: BlogArticleMeta[] = [
   ...odontologiaArticles,
   ...blogVeterinariaData,
   { 
+    slug: "guia-completo-seguro-auto-economia-sinistro-franquia", 
+    title: "Guia Completo Seguro Auto: Economia, Sinistros e Coberturas", 
+    excerpt: "Tudo o que você precisa saber sobre seguro auto: como reduzir o valor, o que fazer em colisões, como funciona a franquia e coberturas para enchentes.", 
+    category: "Seguro Auto", 
+    tags: ["seguro auto", "franquia", "sinistro", "economia", "enchente"], 
+    author: "Roberto Patro", 
+    date: "2026-06-09", 
+    readTime: 15 
+  },
+  { 
     slug: "crescimento-frotas-comerciais-guarulhos-logistica-2026", 
     title: "Crescimento de Frotas Comerciais em Guarulhos e o Impacto na Logística", 
     excerpt: "Guarulhos consolida-se como o coração logístico do país. Entenda como o aumento das frotas impacta os custos e a importância do seguro de carga.", 
