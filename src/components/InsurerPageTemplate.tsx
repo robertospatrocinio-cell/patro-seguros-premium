@@ -41,17 +41,36 @@ interface InsurerPageProps {
 
 
 const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history, faqs, claimChannels }: InsurerPageProps) => {
-  const WHATSAPP_URL = `https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20da%20${insurer}%20em%20Guarulhos.`;
+  const [selectedType, setSelectedType] = useState<'auto' | 'residencial' | 'empresarial' | 'vida'>('auto');
+  const [sortBy, setSortBy] = useState<'default' | 'cost' | 'support'>('default');
+  
+  const WHATSAPP_URL = `https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20Seguro%20${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)}%20da%20${insurer}%20em%20Guarulhos.`;
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const comparisonData = [
-    { name: "Porto Seguro", cost: "Premium", coverage: "Máxima", support: "5 Estrelas", franchise: "Flexível" },
-    { name: "Tokio Marine", cost: "Equilibrado", coverage: "Alta", support: "5 Estrelas", franchise: "Competitiva" },
-    { name: "Allianz", cost: "Específico", coverage: "Alta", support: "4 Estrelas", franchise: "Padronizada" },
-    { name: "Azul Seguros", cost: "Econômico", coverage: "Essencial", support: "4 Estrelas", franchise: "Baixa" },
-    { name: "Suhai", cost: "Mínimo", coverage: "Roubo/Furto", support: "3 Estrelas", franchise: "Isenta (Indenização)" },
-    { name: "HDI Seguros", cost: "Equilibrado", coverage: "Média-Alta", support: "5 Estrelas", franchise: "Bate-Pronto" },
+  const rawComparisonData = [
+    { name: "Porto Seguro", type: "auto", cost: 5, costLabel: "Premium", coverage: "Máxima", support: 5, supportLabel: "5 Estrelas", franchise: "Flexível" },
+    { name: "Tokio Marine", type: "auto", cost: 3, costLabel: "Equilibrado", coverage: "Alta", support: 5, supportLabel: "5 Estrelas", franchise: "Competitiva" },
+    { name: "Allianz", type: "auto", cost: 4, costLabel: "Específico", coverage: "Alta", support: 4, supportLabel: "4 Estrelas", franchise: "Padronizada" },
+    { name: "Azul Seguros", type: "auto", cost: 2, costLabel: "Econômico", coverage: "Essencial", support: 4, supportLabel: "4 Estrelas", franchise: "Baixa" },
+    { name: "Suhai", type: "auto", cost: 1, costLabel: "Mínimo", coverage: "Roubo/Furto", support: 3, supportLabel: "3 Estrelas", franchise: "Isenta" },
+    { name: "HDI Seguros", type: "auto", cost: 3, costLabel: "Equilibrado", coverage: "Média-Alta", support: 5, supportLabel: "5 Estrelas", franchise: "Bate-Pronto" },
+    // Adicionando outros tipos para o filtro funcionar
+    { name: "Porto Seguro", type: "residencial", cost: 3, costLabel: "Competitivo", coverage: "Completa", support: 5, supportLabel: "5 Estrelas", franchise: "Fixa" },
+    { name: "Tokio Marine", type: "residencial", cost: 2, costLabel: "Econômico", coverage: "Ampla", support: 4, supportLabel: "4 Estrelas", franchise: "Reduzida" },
+    { name: "Porto Seguro", type: "empresarial", cost: 4, costLabel: "Premium", coverage: "Total", support: 5, supportLabel: "5 Estrelas", franchise: "Ajustável" },
+    { name: "Allianz", type: "empresarial", cost: 4, costLabel: "Robustez", coverage: "Internacional", support: 5, supportLabel: "5 Estrelas", franchise: "Industrial" },
+    { name: "Porto Seguro", type: "vida", cost: 3, costLabel: "Flexível", coverage: "Vitalícia", support: 5, supportLabel: "5 Estrelas", franchise: "N/A" },
+    { name: "Tokio Marine", type: "vida", cost: 2, costLabel: "Acessível", coverage: "Personalizada", support: 5, supportLabel: "5 Estrelas", franchise: "N/A" },
   ];
+
+  const comparisonData = rawComparisonData
+    .filter(item => item.type === selectedType)
+    .sort((a, b) => {
+      if (sortBy === 'cost') return a.cost - b.cost;
+      if (sortBy === 'support') return b.support - a.support;
+      return 0;
+    });
+
 
 
   return (
