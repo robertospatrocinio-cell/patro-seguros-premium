@@ -1,35 +1,40 @@
-### Objective
-Implement accessible labels and validation messages in all project forms, including clear error indications using ARIA attributes.
+### Analysis
+The user wants to create a new "Odontology Hub" for Patro Seguros, similar to the previously implemented "Lojistas" and "Vistoria Veicular" hubs. This includes a main hub page, several specific product pages, a partnership page, a blog category, and a set of SEO articles.
 
-### Implementation Plan
+### Implementation Strategy
 
-#### 1. Form Component Enhancements
-*   **src/components/InsuranceQuoteForm.tsx**: 
-    *   Add `aria-invalid` to inputs/selects based on the `error` state.
-    *   Add `aria-describedby` linking to a new inline error message `<p>`.
-    *   Add `aria-required="true"` for required fields.
-    *   Render inline error messages below each field when `touched` and invalid.
+#### 1. Page Creation
+- **Main Hub:** `/seguros-para-clinicas-odontologicas` (using `NichoClinicasOdontologicas.tsx`)
+- **Specific Pages (using `InsurancePageTemplate`):**
+    - `/seguro-para-dentistas`
+    - `/seguro-consultorio-odontologico`
+    - `/seguro-clinica-odontologica`
+    - `/responsabilidade-civil-dentistas` (Redirect or update existing `SeguroRCDentistas.tsx`)
+    - `/seguro-equipamentos-odontologicos`
+    - `/plano-saude-clinicas-odontologicas`
+    - `/seguro-vida-clinicas-odontologicas`
+- **Partnership Page:** `/parcerias-clinicas-odontologicas`
+- **Blog Category:** `/blog/odontologia`
 
-*   **src/components/QuickQuoteForm.tsx**:
-    *   Add `aria-invalid` and `aria-describedby` to inputs.
-    *   Ensure all inputs have `aria-required`.
+#### 2. Blog & SEO Content
+- Create `src/data/blogOdontologiaData.ts` and add the 1 main article + 15 SEO articles.
+- Update `src/lib/blogData.ts` to export these new articles.
+- Update `src/App.tsx` with all new routes.
 
-*   **src/pages/Contato.tsx**:
-    *   Implement inline validation messages instead of just a generic toast.
-    *   Add `aria-invalid`, `aria-describedby`, and `aria-required` to fields.
+#### 3. Navigation & Components
+- Add "Clínicas Odontológicas" to `Header.tsx` (Mobile and Desktop menus).
+- Add to `Footer.tsx` in the local hubs/segments section.
+- Implement Local Business and FAQ schemas for the hub page.
 
-*   **src/pages/FormularioSeguroVida.tsx**:
-    *   Implement logic to track `touched` states for fields.
-    *   Add inline error messages and ARIA attributes (`aria-invalid`, `aria-describedby`, `aria-required`).
+#### 4. Lead Capture
+- Use the existing `InsuranceQuoteForm` or a specialized one for the odontology niche with the requested fields (CRO, clinic name, etc.).
 
-*   **src/components/LeadMagnetSection.tsx** and **src/components/ExitIntentPopup.tsx**:
-    *   Review and apply similar accessibility improvements to these smaller forms.
+### Technical Details
+- **Tech Stack:** React, TypeScript, Tailwind CSS, Lucide Icons, React Router.
+- **Components:** `InsurancePageTemplate` will be reused for product pages.
+- **Routing:** New routes in `App.tsx` mapped to the new components.
+- **SEO:** Meta tags, canonical URLs, and JSON-LD schemas (FAQ, LocalBusiness) will be included.
 
-#### 2. Technical Details
-*   Use `useId` for stable IDs when linking labels/errors to inputs if not already using unique field IDs.
-*   Ensure error messages have a unique ID that matches the `aria-describedby` value of the input.
-*   Validation logic should trigger on blur or change as appropriate to maintain a good user experience.
-
-### Verification
-*   Audit forms using browser tools to verify `aria-` attributes are correctly applied when errors occur.
-*   Manually test forms to ensure inline errors appear as expected.
+### User Questions
+- Do you have specific images for the odontology niche, or should I use generic high-quality placeholders?
+- For the "Responsabilidade Civil para Dentistas", should I replace the existing `/seguro-rc-dentistas` route or create a new one with a redirect?
