@@ -346,11 +346,23 @@ const Header = memo(() => {
               </div>
             </div>
 
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-3">
+              {hasRecoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={handleResumeClick}
+                  className="h-8 gap-2 border-primary/30 text-primary hover:bg-primary/5 font-semibold text-[11px] animate-in fade-in zoom-in duration-300"
+                >
+                  <RotateCcw className="h-3 w-3" />
+                  Retomar Cotação
+                </Button>
+              )}
               <Link to="/cotacao" onClick={() => trackCotacaoClick("header-desktop")}>
                 <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4">Cotação Grátis</Button>
               </Link>
             </div>
+
 
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
