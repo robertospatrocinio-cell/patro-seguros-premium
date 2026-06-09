@@ -311,6 +311,38 @@ const BlogArticle = () => {
                   </p>
                 );
               })}
+
+              {/* Novo bloco de CTA no meio do conteúdo (dinâmico) */}
+              <div className="my-12 p-8 rounded-2xl bg-slate-900 text-white shadow-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-primary/30 transition-colors" />
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                  <div className="flex-1 text-center md:text-left text-balance">
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-primary text-[10px] font-bold uppercase tracking-widest mb-4">Oportunidade em Guarulhos</span>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">Precisa proteger seu patrimônio hoje?</h3>
+                    <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+                      Nossa equipe na <strong className="text-white">Patro Seguros (Cidade Maia)</strong> compara 16+ seguradoras para você em tempo recorde. Receba seu orçamento em até 2 horas.
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-3 w-full md:w-auto shrink-0">
+                    <Link to={quoteHref} onClick={() => trackCotacaoClick("blog-middle-cta")}>
+                      <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-14 px-8 rounded-xl shadow-lg shadow-primary/20 transition-all hover:scale-105">
+                        Pedir Cotação Agora <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </Link>
+                    <a 
+                      href={whatsappUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={() => trackWhatsAppClick("blog-middle-cta")}
+                    >
+                      <Button variant="outline" size="lg" className="w-full h-14 px-8 rounded-xl border-white/10 bg-white/5 text-white hover:bg-white/10 font-bold transition-all">
+                        <MessageCircle className="mr-2 h-5 w-5 text-green-500" /> Falar no WhatsApp
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
             {meta?.category === "Consórcio" && (
