@@ -84,6 +84,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
   }, [form, currentStep, saveToCloud]);
 
   const startOver = () => {
+    logForgottenQuote(insuranceType, currentStep, storageKey);
     clearForm();
     clearStep();
     localStorage.removeItem(`${storageKey}-partial-id`);
@@ -92,6 +93,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
     setShowRestoreNotice(false);
     toast.success("Dados limpos com sucesso.");
   };
+
 
 
   const hasExtraFields = extraFields.length > 0;
