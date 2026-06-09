@@ -130,6 +130,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   }, [formData, checkboxGroups, currentStep, saveToCloud]);
 
   const startOver = () => {
+    logForgottenQuote(config.type, currentStep, storageKey);
     clearFormData();
     clearCheckboxes();
     clearStep();
@@ -139,6 +140,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     setShowRestoreNotice(false);
     toast.success("Formulário reiniciado com sucesso.");
   };
+
 
   // Group fields into steps
 
