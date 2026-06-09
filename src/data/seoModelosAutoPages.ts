@@ -339,7 +339,42 @@ const MODELOS: ModeloSeed[] = [
     context: "A Ford Ranger em Guarulhos circula entre o trabalho e o lazer. Proteção para carga e acessórios é o nosso diferencial."
   },
   {
+    slug: "seguro-auto-chevrolet-s10-guarulhos",
+    modelo: "Chevrolet S10",
+    modeloShort: "S10",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 180.000 a R$ 330.000",
+    priceRange: { min: 3800, max: 8500, label: "R$ 3.800 a R$ 8.500/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Tradição Chevrolet e rede GM ampla em Guarulhos", "Robusta para trabalho", "Peças disponíveis em todo o país"],
+    cons: ["Tecnologia da cabine mais conservadora", "Visada para roubo de peças"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Parceria tradicional GM e OnStar" },
+      { name: "Tokio Marine", reason: "Custo-benefício para pickups urbanas" }
+    ],
+    context: "A Chevrolet S10 é a parceira do empresário guarulhense. Seguro sob medida para quem não pode parar a operação."
+  },
+  {
+    slug: "seguro-auto-bmw-x1-guarulhos",
+    modelo: "BMW X1",
+    modeloShort: "X1",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 290.000 a R$ 350.000",
+    priceRange: { min: 5500, max: 12000, label: "R$ 5.500 a R$ 12.000/ano" },
+    theftProfile: "médio",
+    pros: ["Prestígio BMW e prazer de dirigir", "Tecnologia premium", "Rede de oficinas certificadas"],
+    cons: ["Reparo de faróis LED e grade muito caro", "Seguro premium com perfil específico"],
+    bestInsurers: [
+      { name: "Allianz", reason: "Especialista em marcas alemãs premium" },
+      { name: "Zurich", reason: "Atendimento diferenciado para veículos importados" }
+    ],
+    context: "Sua BMW X1 no Jardim Maia merece o melhor atendimento. Patro Seguros garante reparo em concessionária e peças originais."
+  },
+  {
     slug: "seguro-volkswagen-guarulhos",
+
 
 
 
