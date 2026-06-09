@@ -1,5 +1,13 @@
 import { lazy, Suspense, useEffect, useMemo } from "react";
 const NichoLojistasGuarulhos = lazy(() => import("./pages/NichoLojistasGuarulhos"));
+const SeoVistoriaVeicularGuarulhos = lazy(() => import("./pages/SeoVistoriaVeicularGuarulhos"));
+const SeoECVGuarulhos = lazy(() => import("./pages/SeoECVGuarulhos"));
+const SeoInspecaoVeicularGuarulhos = lazy(() => import("./pages/SeoInspecaoVeicularGuarulhos"));
+const SeoVistoriaCautelarGuarulhos = lazy(() => import("./pages/SeoVistoriaCautelarGuarulhos"));
+const SeoTransferenciaVeicularGuarulhos = lazy(() => import("./pages/SeoTransferenciaVeicularGuarulhos"));
+const SeoDespachantesVistoriasGuarulhos = lazy(() => import("./pages/SeoDespachantesVistoriasGuarulhos"));
+const SeoParceriaVistoriaGuarulhos = lazy(() => import("./pages/SeoParceriaVistoriaGuarulhos"));
+const SeoAutoPosVistoriaGuarulhos = lazy(() => import("./pages/SeoAutoPosVistoriaGuarulhos"));
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -508,6 +516,14 @@ const App = () => {
             <Route path="/seguro-renegade-guarulhos" element={<SeoLocalPage slug="seguro-renegade-guarulhos" />} />
             <Route path="/seguro-mobi-guarulhos" element={<SeoLocalPage slug="seguro-mobi-guarulhos" />} />
             <Route path="/seguro-auto-por-modelo-guarulhos" element={<SeoSeguroAutoPorModeloGuarulhos />} />
+            <Route path="/seguro-para-empresas-de-vistoria-veicular" element={<SeoVistoriaVeicularGuarulhos />} />
+            <Route path="/seguro-para-ecv" element={<SeoECVGuarulhos />} />
+            <Route path="/seguro-inspecao-veicular" element={<SeoInspecaoVeicularGuarulhos />} />
+            <Route path="/seguro-vistoria-cautelar" element={<SeoVistoriaCautelarGuarulhos />} />
+            <Route path="/seguro-transferencia-veicular" element={<SeoTransferenciaVeicularGuarulhos />} />
+            <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
+            <Route path="/parceria-vistorias-veiculares" element={<SeoParceriaVistoriaGuarulhos />} />
+            <Route path="/seguro-auto-pos-vistoria" element={<SeoAutoPosVistoriaGuarulhos />} />
             <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
             <Route path="/seguro-geada" element={<SeguroGeada />} />
             <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
