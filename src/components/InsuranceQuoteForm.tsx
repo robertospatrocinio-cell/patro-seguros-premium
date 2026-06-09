@@ -147,38 +147,63 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     });
   };
 
-  const isValid = () => {
-    for (const field of config.fields) {
+  const isStepValid = (stepIndex: number) => {
+    const step = steps[stepIndex - 1];
+    if (!step) return true;
+    
+    for (const field of step.fields) {
       if (!field.required) continue;
       if (field.type === "checkbox-group") {
         if (!(checkboxGroups[field.id]?.length > 0)) return false;
       } else {
         if (!formData[field.id]?.trim()) return false;
       }
+      if (getFieldError(field)) return false;
     }
-    return consent;
+
+    if (step.id === "review") {
+      return consent && isChecklistComplete;
+    }
+
+    return true;
+  };
+
+  const nextStep = () => {
+    // Mark current step fields as touched
+    const currentFields = steps[currentStep - 1]?.fields || [];
+    const newTouched = { ...touched };
+    currentFields.forEach(f => { newTouched[f.id] = true });
+    setTouched(newTouched);
+
+    if (!isStepValid(currentStep)) {
+      const firstError = steps[currentStep - 1].fields.find(f => getFieldError(f));
+      toast.error(firstError ? `Por favor, preencha: ${firstError.label}` : "Preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Mark all as touched
-    const allTouched: Record<string, boolean> = {};
-    config.fields.forEach(f => { allTouched[f.id] = true });
-    setTouched(allTouched);
-
-    const firstError = config.fields.find(f => getFieldError(f));
-    if (firstError || !consent) {
-      toast.error(
-        !consent 
-          ? "Por favor, aceite os termos para continuar." 
-          : `Por favor, corrija o campo: ${firstError?.label}`
-      );
+    if (currentStep < totalSteps) {
+      nextStep();
       return;
     }
 
-    if (!showChecklist) {
-      setShowChecklist(true);
+    if (!consent) {
+      toast.error("Por favor, aceite os termos para continuar.");
       return;
     }
 
@@ -186,6 +211,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       toast.error("Por favor, confirme todos os itens do checklist antes de enviar.");
       return;
     }
+
 
     setSending(true);
 
