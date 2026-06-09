@@ -1,4 +1,6 @@
-export const guarulhosLojistasArticles: any[] = [
+import { BlogArticleMeta } from "@/lib/blogData";
+
+export const guarulhosLojistasArticles: BlogArticleMeta[] = [
   { 
     slug: "7-riscos-lojista-shopping-guarulhos", 
     title: "7 Riscos Que Todo Lojista de Shopping em Guarulhos Precisa Conhecer", 
