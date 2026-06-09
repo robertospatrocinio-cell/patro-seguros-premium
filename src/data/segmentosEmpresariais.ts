@@ -450,9 +450,9 @@ segmentos.push(
     nome: "Quiosques",
     icon: "🏗️",
     subtitle: "Seguro barato para quiosques em shoppings de Guarulhos",
-    description: "Proteção sob medida para operações de ilha e quiosques com baixo custo e alta eficiência.",
-    detailedDescription: "Quiosques no Shopping Maia, Internacional ou Bonsucesso precisam de seguro. Oferecemos planos a partir de R$ 50/mês para atender as exigências do condomínio e proteger seu estoque.",
-    metaDescription: "Seguro para Quiosque em Shopping Guarulhos: barato e rápido. Cotação por WhatsApp.",
+    description: "Proteção sob medida para operações de ilha e quiosques em Guarulhos com baixo custo e alta eficiência.",
+    detailedDescription: "### Seguro para Quiosque em Shopping Guarulhos\n\nQuiosques no Shopping Maia, Internacional ou Bonsucesso precisam de seguro obrigatório. Oferecemos planos a partir de R$ 50/mês para atender as exigências do condomínio e proteger seu estoque com rapidez na emissão do certificado.",
+    metaDescription: "Seguro para Quiosque em Shopping Guarulhos: barato e rápido. Cotação em 2h com a Patro Seguros.",
     coverages: baseCoverages,
     whoNeeds: ["Quiosques de café", "Ilhas de acessórios", "Serviços rápidos em shopping"],
     faqs: [
