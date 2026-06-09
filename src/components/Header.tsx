@@ -429,10 +429,28 @@ const Header = memo(() => {
                             </div>
                           )}
 
-                          <div className="pt-1 flex items-center justify-between">
-                            <span className="text-[10px] font-medium text-muted-foreground">Status: Etapa {recoverableSession.step || 1}</span>
-                            <span className="text-[10px] font-bold text-primary flex items-center gap-1">Continuar <ArrowRight className="h-2 w-2" /></span>
+                          <div className="pt-1 flex items-center justify-between border-t border-primary/10 mt-2">
+                            <span className="text-[10px] font-medium text-muted-foreground">Etapa {recoverableSession.step || 1}</span>
+                            <div className="flex gap-2">
+                              <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                className="h-6 px-2 text-[10px] text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                                onClick={handleForgetClick}
+                              >
+                                Esquecer
+                              </Button>
+                              <Button 
+                                variant="link" 
+                                size="sm" 
+                                className="h-6 p-0 text-[10px] font-bold text-primary flex items-center gap-1"
+                                onClick={handleResumeClick}
+                              >
+                                Continuar <ArrowRight className="h-2 w-2" />
+                              </Button>
+                            </div>
                           </div>
+
                         </div>
                       </div>
                     </TooltipContent>
