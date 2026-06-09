@@ -227,6 +227,9 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       setSending(false);
       setSent(true);
       clearForm();
+      clearStep();
+      localStorage.removeItem(`${storageKey}-partial-id`);
+
       localStorage.removeItem(`${storageKey}-step`);
       window.open(
         `https://wa.me/551151997500?text=${encodeURIComponent(finalParts)}`,
