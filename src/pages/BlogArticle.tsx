@@ -633,22 +633,20 @@ const BlogArticle = () => {
               </div>
             )}
 
-            {article.faqs.length > 0 && (
-              <>
-                <FAQSchema faqs={article.faqs.map(f => ({ question: f.q, answer: f.a }))} />
-                <div className="mt-12 border-t pt-8">
-                  <h2 className="mb-6">Perguntas Frequentes</h2>
-                  <div className="space-y-4">
-                    {article.faqs.map((faq, i) => (
-                      <div key={i}>
-                        <h3 className="text-lg font-semibold mb-1">{faq.q}</h3>
-                        <p className="text-muted-foreground">{faq.a}</p>
-                      </div>
-                    ))}
-                  </div>
+            {allFaqs.length > 0 && (
+              <div className="mt-12 border-t pt-8">
+                <h2 className="text-2xl font-bold mb-6" id="faq-heading">Dúvidas Frequentes</h2>
+                <div className="space-y-4" data-speakable="faq">
+                  {allFaqs.map((faq, i) => (
+                    <div key={i} className="rounded-xl border border-border bg-card p-5">
+                      <h3 className="text-lg font-bold mb-2 text-foreground">{faq.q}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
+                    </div>
+                  ))}
                 </div>
-              </>
+              </div>
             )}
+
 
             {/* Tags */}
             {meta && meta.tags.length > 0 && (
