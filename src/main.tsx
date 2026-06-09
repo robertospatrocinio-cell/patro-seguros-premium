@@ -19,6 +19,14 @@ const Main = () => {
     } else {
       setTimeout(deferInit, 1);
     }
+
+    // Remove initial loader once React takes over
+    const loader = document.getElementById("initial-loader");
+    if (loader) {
+      loader.style.opacity = "0";
+      loader.style.transition = "opacity 0.3s ease-out";
+      setTimeout(() => loader.remove(), 300);
+    }
   }, []);
 
   return (
