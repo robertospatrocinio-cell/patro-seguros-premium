@@ -84,11 +84,21 @@ const IndiqueAmigo = () => {
       : ["nomeIndicado", "telefoneIndicado", "tipoSeguro"];
       
     const isValid = await form.trigger(fields);
-    if (isValid && step < 2) {
-      setStep(step + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (isValid) {
+      if (step < 2) {
+        setStep(step + 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else {
+      toast.error("Por favor, preencha todos os campos corretamente para continuar.");
+      const errorField = fields.find(f => form.formState.errors[f]);
+      if (errorField) {
+        const element = document.getElementsByName(errorField)[0];
+        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   };
+
 
   const prevStep = () => {
     if (step > 1) setStep(step - 1);
