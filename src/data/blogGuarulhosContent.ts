@@ -78,6 +78,27 @@ export const guarulhosArticlesContent = {
     title: "Seguro de Vida em Guarulhos",
     content: "Garantir a sucessão familiar e a proteção de renda é vital para o trabalhador guarulhense. Planos a partir de R$ 30/mês oferecem tranquilidade imediata.",
     faqs: []
+  },
+  "seguro-byd-carro-eletrico-guarulhos-guia": {
+    title: "Seguro para BYD e Carros Elétricos em Guarulhos",
+    content: "A revolução dos carros elétricos chegou com força total em Guarulhos. Modelos como **BYD Dolphin**, **Seal** e **Yuan Plus** tornaram-se presença constante nas ruas do Maia e Vila Augusta. No entanto, o [Seguro para Carro Elétrico](/seguro-carro-eletrico) possui particularidades que todo proprietário precisa conhecer.\n\n## Particularidades do Seguro Elétrico\n\n1. **Cobertura de Bateria:** A bateria é o componente mais caro. Garantimos que sua apólice tenha proteção específica contra danos por colisão ou curto-circuito na recarga.\n2. **Cabos de Recarga:** O cabo de carregamento portátil e o Wallbox também podem ser segurados contra roubo e furto.\n3. **Rede de Oficinas Especializadas:** Em Guarulhos, apenas oficinas com certificação para alta voltagem podem mexer no sistema. Trabalhamos com seguradoras que possuem essa rede credenciada.\n\n## Por que a BYD é um caso à parte?\n\nA BYD possui parcerias exclusivas com seguradoras como Porto Seguro e Tokio Marine. Na Patro Seguros, acessamos essas condições especiais para garantir que seu BYD tenha a melhor proteção pelo menor custo possível na região.\n\n[Cotar Seguro para meu Elétrico agora](/cotacao?tipo=auto&origem=blog-byd)",
+    faqs: [
+      { q: "O seguro de carro elétrico é mais caro?", a: "Em muitos casos é equivalente ou até mais barato que modelos a combustão de mesmo valor, devido ao menor índice de roubo e tecnologia de segurança embarcada." },
+      { q: "O seguro cobre o Wallbox instalado na minha garagem?", a: "Sim, é possível incluir o equipamento como um acessório na apólice de seguro auto ou até no seguro residencial." }
+    ]
+  },
+  "seguro-loja-shopping-guarulhos-internacional-maia": {
+    title: "Seguro para Lojas de Shopping em Guarulhos",
+    content: "Administrações de shoppings como o **Internacional Shopping Guarulhos**, **Parque Shopping Maia** e **Shopping Bonsucesso** exigem que os lojistas possuam um [Seguro Empresarial](/seguro-loja-shopping) com coberturas mínimas obrigatórias.\n\n## Coberturas Exigidas\n\n- **Responsabilidade Civil (RC) Operações:** Fundamental para danos causados a clientes dentro da loja.\n- **Incêndio, Raio e Explosão:** Proteção básica do imóvel e conteúdo.\n- **Danos Elétricos:** Cobertura vital para sistemas de iluminação, computadores e ar-condicionado.\n\n## O 'Pulo do Gato' para o Lojista\n\nAlém do obrigatório, recomendamos coberturas que protegem o seu lucro, como **Lucros Cessantes** (paga suas despesas fixas se a loja ficar fechada por sinistro) e **Roubo de Bens e Valores** (essencial para o fluxo de caixa).\n\nA Patro Seguros entende as regras de condomínio dos shoppings de Guarulhos e emite a apólice com a rapidez que o lojista precisa para inaugurar ou renovar seu contrato.\n\n[Falar com Especialista em Seguros para Comércio](/cotacao?tipo=empresarial&origem=blog-shopping)",
+    faqs: [
+      { q: "A seguradora envia a apólice direto para o shopping?", a: "Nós, como sua corretora, emitimos o certificado de seguro e enviamos para a administração do shopping validar seu contrato." }
+    ]
+  },
+  "seguro-para-engenheiros-guarulhos-responsabilidade-civil": {
+    title: "Seguro para Engenheiros em Guarulhos: Responsabilidade Civil",
+    content: "O mercado da construção civil em Guarulhos não para de crescer, com novos empreendimentos residenciais e expansão industrial. Para os profissionais, o [Seguro de Responsabilidade Civil Profissional (E&O)](/seguro-rc-engenheiros) é a blindagem necessária contra imprevistos técnicos.\n\n## O que o Seguro RC Engenheiro cobre?\n\n- **Erros de Projeto e Execução:** Proteção contra falhas em cálculos estruturais ou erros de supervisão.\n- **Danos a Terceiros:** Indenizações por danos causados a vizinhos ou funcionários da obra.\n- **Custos de Defesa:** Honorários advocatícios e custas judiciais em processos de responsabilidade civil.\n\n## Por que contratar em Guarulhos?\n\nA complexidade do solo e a densidade urbana de Guarulhos aumentam os riscos em fundações e reformas. Ter uma apólice da Patro Seguros garante que sua carreira e patrimônio pessoal não sejam afetados por uma falha técnica.\n\n[Solicitar Proposta de Seguro RC Profissional](/cotacao?tipo=rc&origem=blog-engenheiro)",
+    faqs: [
+      { q: "O seguro cobre projetos antigos?", a: "Sim, é possível contratar retroatividade para projetos realizados antes da vigência da apólice, desde que não haja sinistro conhecido." }
+    ]
   }
-
 };
