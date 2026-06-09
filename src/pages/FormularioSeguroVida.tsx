@@ -53,12 +53,71 @@ const valoresSeguro = [
 ];
 
 const FormularioSeguroVida = () => {
-  const [form, setForm, clearForm] = usePersistentForm<Record<string, string>>("seguro-vida-completo", {});
-  const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>("seguro-vida-completo-step", 1);
+  const storageKey = "seguro-vida-completo";
+  const [form, setForm, clearForm, isRestored] = usePersistentForm<Record<string, string>>(storageKey, {});
+  const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [showRestoreNotice, setShowRestoreNotice] = useState(false);
+  const [partialId, setPartialId] = useState<string | null>(localStorage.getItem(`${storageKey}-partial-id`));
+
+  // Handle restoration notice
+  useEffect(() => {
+    if (isRestored && Object.keys(form).length > 0 && !sent) {
+      setShowRestoreNotice(true);
+      const timer = setTimeout(() => setShowRestoreNotice(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [isRestored, sent]);
+
+  // Debounced cloud save
+  const saveToCloud = useCallback(
+    debounce(async (values: Record<string, string>, step: number) => {
+      const dataToSave = {
+        name: values.nomeCompleto || null,
+        email: values.email || null,
+        phone: values.telefone || null,
+        insurance_type: "Seguro de Vida - Completo",
+        current_step: step,
+        data: values,
+        last_activity: new Date().toISOString()
+      };
+
+      try {
+        if (partialId) {
+          await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+        } else if (dataToSave.name || dataToSave.email || dataToSave.phone) {
+          const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
+          if (data && !error) {
+            setPartialId(data.id);
+            localStorage.setItem(`${storageKey}-partial-id`, data.id);
+          }
+        }
+      } catch (err) {
+        console.error("Cloud save failed", err);
+      }
+    }, 3000),
+    [partialId, storageKey]
+  );
+
+  useEffect(() => {
+    if (Object.keys(form).length > 0) {
+      saveToCloud(form, currentStep);
+    }
+  }, [form, currentStep, saveToCloud]);
+
+  const startOver = () => {
+    clearForm();
+    clearStep();
+    localStorage.removeItem(`${storageKey}-partial-id`);
+    setPartialId(null);
+    setTouched({});
+    setShowRestoreNotice(false);
+    toast.success("Formulário reiniciado.");
+  };
+
 
   const totalSteps = 4;
   const progress = (currentStep / totalSteps) * 100;
