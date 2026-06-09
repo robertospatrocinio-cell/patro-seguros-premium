@@ -371,3 +371,107 @@ export const segmentos: SegmentoEmpresarial[] = [
 
 export const findSegmento = (slug: string) =>
   segmentos.find((s) => s.slug === slug);
+
+segmentos.push(
+  {
+    slug: "franquias-guarulhos",
+    nome: "Franquias",
+    icon: "🏢",
+    subtitle: "Seguro obrigatório para franqueados em Guarulhos",
+    description: "Proteção completa para franquias: atende todas as exigências do franqueador com o melhor custo-benefício de Guarulhos.",
+    detailedDescription: "Ser um franqueado em Guarulhos exige atenção redobrada aos contratos de seguro. A maioria das franqueadoras exige coberturas específicas de Incêndio, Danos Elétricos e Responsabilidade Civil para liberar a operação. Na Patro Seguros, analisamos seu COF (Circular de Oferta de Franquia) e emitimos a apólice exata para sua conformidade.\n\nAlém de atender a burocracia, protegemos seu investimento em estoque, instalações premium e garantimos o faturamento durante reformas com a cobertura de Lucros Cessantes. Atendemos franquias no Shopping Maia, Internacional Shopping e demais polos comerciais de Guarulhos.",
+    metaDescription: "Seguro para Franquias em Guarulhos: conformidade com o franqueador, incêndio, RC e lucros cessantes. Cotação em 2h.",
+    coverages: baseCoverages,
+    whoNeeds: ["Franqueados de alimentação", "Franquias de moda e beleza", "Redes de educação e cursos", "Franquias de serviços", "Lojistas em shopping centers"],
+    faqs: [
+      { question: "O seguro atende as exigências da franqueadora?", answer: "Sim, dimensionamos a apólice conforme as cláusulas obrigatórias do seu contrato de franquia." },
+      { question: "Cobre lojas em shopping?", answer: "Sim, somos especialistas em seguros para lojistas de shopping em Guarulhos." },
+      { question: "Quanto tempo para emitir a apólice?", answer: "A cotação sai em 2h e a emissão pode ser feita no mesmo dia para casos urgentes." },
+    ],
+  },
+  {
+    slug: "lojas-de-roupas-guarulhos",
+    nome: "Lojas de Roupas",
+    icon: "👕",
+    subtitle: "Proteção para estoque e vitrines de moda em Guarulhos",
+    description: "Seguro para lojas de roupas e acessórios: proteção contra roubo de mercadorias, incêndio e quebra de vidros.",
+    detailedDescription: "Lojas de roupas em Guarulhos concentram alto valor em estoque sazonal. O seguro empresarial garante a reposição das peças em caso de assalto ou incêndio, além de cobrir vitrines e fachadas. Ideal para lojas no Centro de Guarulhos e shoppings da região.",
+    metaDescription: "Seguro para Lojas de Roupas em Guarulhos: roubo de mercadoria, vitrines e incêndio. Cotação grátis.",
+    coverages: baseCoverages,
+    whoNeeds: ["Lojas de moda masculina e feminina", "Boutiques", "Multimarcas", "Lojas de calçados", "Acessórios"],
+    faqs: [
+      { question: "O seguro cobre roubo de mercadoria?", answer: "Sim, a cobertura de Roubo e Furto Qualificado é a principal para o varejo de moda." }
+    ],
+  },
+  {
+    slug: "otica-guarulhos",
+    nome: "Óticas",
+    icon: "👓",
+    subtitle: "Seguro para óticas e laboratórios ópticos em Guarulhos",
+    description: "Proteja armações de grife, lentes e equipamentos de laboratório contra roubo e danos elétricos.",
+    detailedDescription: "Óticas possuem estoque de alto valor e equipamentos sensíveis. Nossa proteção foca em roubo qualificado de mercadorias e danos elétricos em aparelhos de medição e laboratório.",
+    metaDescription: "Seguro para Óticas em Guarulhos: proteção para óculos de grife e laboratórios. Cotação rápida.",
+    coverages: baseCoverages,
+    whoNeeds: ["Óticas de rua", "Óticas em shopping", "Laboratórios ópticos", "Redes de óticas"],
+    faqs: [
+      { question: "Cobre aparelhos de laboratório?", answer: "Sim, com cobertura de Danos Elétricos e Equipamentos Eletrônicos." }
+    ],
+  },
+  {
+    slug: "joalheria-guarulhos",
+    nome: "Joalherias",
+    icon: "💎",
+    subtitle: "Seguro especializado para joias e relógios em Guarulhos",
+    description: "Proteção máxima para estoques valiosos e vitrines. Cobertura de roubo e furto qualificado para joalherias.",
+    detailedDescription: "Joalherias exigem uma análise de risco diferenciada. Oferecemos coberturas de roubo, proteção para vitrines blindadas e responsabilidade civil em um dos segmentos mais visados de Guarulhos.",
+    metaDescription: "Seguro para Joalherias em Guarulhos: proteção valiosa para joias e relógios. Confira.",
+    coverages: baseCoverages,
+    whoNeeds: ["Joalherias", "Relojoarias", "Venda de pedras preciosas"],
+    faqs: [
+      { question: "O seguro exige cofre?", answer: "Dependendo do valor segurado, as seguradoras podem exigir cofre ou alarme monitorado." }
+    ],
+  },
+  {
+    slug: "loja-celular-guarulhos",
+    nome: "Lojas de Celulares",
+    icon: "📱",
+    subtitle: "Seguro para assistência técnica e venda de smartphones",
+    description: "Proteção para estoques de celulares e aparelhos de clientes sob sua guarda na assistência técnica.",
+    detailedDescription: "Um dos segmentos com maior índice de sinistro em Guarulhos. Protegemos seu estoque de novos/seminovos e garantimos o valor dos aparelhos de clientes em conserto.",
+    metaDescription: "Seguro para Loja de Celular em Guarulhos: roubo de estoque e assistência técnica. Cote agora.",
+    coverages: baseCoverages,
+    whoNeeds: ["Lojas de celulares", "Assistência técnica especializada", "Acessórios eletrônicos"],
+    faqs: [
+      { question: "Cobre celulares de clientes no conserto?", answer: "Sim, com a cobertura de Bens de Terceiros sob Guarda." }
+    ],
+  },
+  {
+    slug: "quiosque-shopping-guarulhos",
+    nome: "Quiosques",
+    icon: "🏗️",
+    subtitle: "Seguro barato para quiosques em shoppings de Guarulhos",
+    description: "Proteção sob medida para operações de ilha e quiosques com baixo custo e alta eficiência.",
+    detailedDescription: "Quiosques no Shopping Maia, Internacional ou Bonsucesso precisam de seguro. Oferecemos planos a partir de R$ 50/mês para atender as exigências do condomínio e proteger seu estoque.",
+    metaDescription: "Seguro para Quiosque em Shopping Guarulhos: barato e rápido. Cotação por WhatsApp.",
+    coverages: baseCoverages,
+    whoNeeds: ["Quiosques de café", "Ilhas de acessórios", "Serviços rápidos em shopping"],
+    faqs: [
+      { question: "É aceito por todos os shoppings de Guarulhos?", answer: "Sim, nossas apólices são padronizadas para as exigências das administradoras." }
+    ],
+  },
+  {
+    slug: "clinica-estetica-guarulhos",
+    nome: "Clínicas e Estéticas",
+    icon: "🧴",
+    subtitle: "Seguro empresarial e RC profissional para estética",
+    description: "Proteção para aparelhos de laser, equipamentos e cobertura contra processos de pacientes.",
+    detailedDescription: "Clínicas de estética em Guarulhos possuem equipamentos de alto custo (laser, criolipólise) e risco de processos por danos em procedimentos. Combinamos o seguro patrimonial com o RC Profissional.",
+    metaDescription: "Seguro para Clínicas de Estética em Guarulhos: equipamentos e RC profissional. Proteja seu nome.",
+    coverages: baseCoverages,
+    whoNeeds: ["Clínicas de estética", "Centros de depilação", "Estúdios de harmonização facial"],
+    faqs: [
+      { question: "Cobre erro em procedimento?", answer: "Sim, desde que contratada a cobertura de Responsabilidade Civil Profissional." }
+    ],
+  }
+);
+

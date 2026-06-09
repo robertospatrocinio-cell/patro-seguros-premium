@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useMemo } from "react";
+const NichoLojistasGuarulhos = lazy(() => import("./pages/NichoLojistasGuarulhos"));
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -372,6 +373,23 @@ const App = () => {
               <Route path="/seguradoras/mitsui-guarulhos" element={<Mitsui />} />
             <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
             <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
+            {/* Hub de Lojistas de Shopping Guarulhos */}
+            <Route path="/seguros-para-lojistas-guarulhos" element={<NichoLojistasGuarulhos />} />
+            <Route path="/seguro-lojas-shopping-maia" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
+            <Route path="/seguro-lojas-shopping-internacional-guarulhos" element={<SeoLocalPage slug="seguro-lojas-shopping-internacional-guarulhos" />} />
+            <Route path="/seguro-lojas-shopping-bonsucesso" element={<SeoLocalPage slug="seguro-lojas-shopping-bonsucesso" />} />
+            
+            {/* Segmentos Lojistas */}
+            <Route path="/seguro-para-franquias-guarulhos" element={<SeguroEmpresarialSegmento segmento="franquias-guarulhos" />} />
+            <Route path="/seguro-loja-de-roupas-guarulhos" element={<SeguroEmpresarialSegmento segmento="lojas-de-roupas-guarulhos" />} />
+            <Route path="/seguro-otica-guarulhos" element={<SeguroEmpresarialSegmento segmento="otica-guarulhos" />} />
+            <Route path="/seguro-joalheria-guarulhos" element={<SeguroEmpresarialSegmento segmento="joalheria-guarulhos" />} />
+            <Route path="/seguro-perfumaria-guarulhos" element={<SeguroEmpresarialSegmento segmento="perfumaria" />} />
+            <Route path="/seguro-loja-celular-guarulhos" element={<SeguroEmpresarialSegmento segmento="loja-celular-guarulhos" />} />
+            <Route path="/seguro-restaurante-guarulhos" element={<SeguroEmpresarialSegmento segmento="restaurantes" />} />
+            <Route path="/seguro-quiosque-shopping-guarulhos" element={<SeguroEmpresarialSegmento segmento="quiosque-shopping-guarulhos" />} />
+            <Route path="/seguro-clinica-estetica-guarulhos" element={<SeguroEmpresarialSegmento segmento="clinica-estetica-guarulhos" />} />
+
             {/* SEO local — bairros e páginas comerciais (data-driven) */}
             <Route path="/cotacao-seguro-auto-guarulhos" element={<SeoLocalPage slug="cotacao-seguro-auto-guarulhos" />} />
             <Route path="/melhor-corretora-de-seguros-guarulhos" element={<SeoLocalPage slug="melhor-corretora-de-seguros-guarulhos" />} />
