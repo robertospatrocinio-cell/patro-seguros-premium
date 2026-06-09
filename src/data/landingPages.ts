@@ -200,6 +200,141 @@ export const landingPagesData: Record<string, LandingPageContent> = {
       { question: "Quais seguradoras a Patro compara para apólices de sócios?", answer: "Prudential, Icatu, MetLife, Bradesco Vida e Previdência, Mongeral Aegon, Porto Vida e SulAmérica Vida. Cada uma tem apetite e precificação diferente para capital elevado e perfis de sócios — o comparativo costuma encontrar variação superior a 30%." },
     ],
   },
+  "seguro-byd-dolphin": {
+    title: "Seguro BYD Dolphin em Guarulhos",
+    description: "Cotação exclusiva para o BYD Dolphin em Guarulhos. Proteção total para seu carro elétrico com assistência 24h e cobertura de bateria.",
+    metaDescription: "Procurando seguro para BYD Dolphin em Guarulhos? A Patro Seguros oferece coberturas exclusivas para elétricos. Cotação grátis em 2h.",
+    heroImage: "https://images.unsplash.com/photo-1695666750014-a9062d3a334d?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "⚡",
+    location: "Guarulhos",
+    detailedDescription: "O BYD Dolphin é um dos carros elétricos mais vendidos em Guarulhos. Por ser um veículo tecnológico, exige um seguro que entenda de baterias e componentes eletrônicos. Na Patro Seguros, comparamos 16 seguradoras para garantir o melhor custo-benefício para seu Dolphin, com guincho plataforma e reparo em oficinas especializadas.",
+    whoNeeds: ["Proprietários de BYD Dolphin", "Motoristas de aplicativo com carro elétrico", "Empresas com frota BYD"],
+    whyPatro: ["Especialistas em carros elétricos", "Atendimento em Guarulhos", "Comparativo de 16 seguradoras"],
+    coverages: [
+      { title: "Bateria e Motor Elétrico", description: "Cobertura total para o conjunto de baterias e motorização elétrica." },
+      { title: "Wallbox e Cabos", description: "Proteção para seu equipamento de carregamento residencial." },
+      { title: "Guincho Plataforma", description: "Assistência 24h especializada para veículos elétricos." }
+    ],
+    faqs: [
+      { question: "O seguro do BYD Dolphin é caro?", answer: "Não, ele é um dos elétricos com seguro mais competitivo, variando entre 1,5% e 2,5% do valor do carro em Guarulhos." },
+      { question: "Cobre o carregador Wallbox?", answer: "Sim, é possível incluir o Wallbox como cobertura adicional na apólice." }
+    ]
+  },
+  "seguro-byd-song-plus": {
+    title: "Seguro BYD Song Plus em Guarulhos",
+    description: "Proteção premium para seu BYD Song Plus Hybrid. O melhor custo-benefício em seguros para SUVs híbridos em Guarulhos.",
+    metaDescription: "Seguro para BYD Song Plus em Guarulhos. Cobertura para sistemas híbridos, baterias e assistência 24h completa. Confira!",
+    heroImage: "https://images.unsplash.com/photo-1688649420800-349f2b8417c8?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "🔋",
+    location: "Guarulhos",
+    detailedDescription: "O BYD Song Plus une o melhor dos dois mundos. Para garantir sua tranquilidade nas ruas de Guarulhos, estruturamos apólices que cobrem tanto o motor a combustão quanto o sistema elétrico e baterias, garantindo manutenção de alta qualidade.",
+    whoNeeds: ["Proprietários de BYD Song Plus", "Famílias que buscam segurança", "Usuários de SUVs híbridos"],
+    whyPatro: ["Expertise em híbridos", "Consultoria local em Guarulhos", "Suporte 24h dedicado"],
+    coverages: [
+      { title: "Sistema Híbrido", description: "Proteção específica para a integração dos motores elétrico e a combustão." },
+      { title: "Danos a Terceiros", description: "Cobertura ampliada para danos materiais e corporais." },
+      { title: "Reparo em Concessionária", description: "Garantia de peças originais e mão de obra certificada." }
+    ],
+    faqs: [
+      { question: "O seguro cobre problemas no sistema híbrido?", answer: "Sim, a apólice cobre danos decorrentes de acidentes e sinistros externos que afetem o sistema." }
+    ]
+  },
+  "seguro-byd-seal": {
+    title: "Seguro BYD Seal em Guarulhos",
+    description: "Seguro de alta performance para o seu BYD Seal. Proteção exclusiva para o sedan elétrico mais desejado do momento.",
+    metaDescription: "Seguro exclusivo para BYD Seal em Guarulhos. Performance e proteção premium com a Patro Seguros. Peça sua cotação.",
+    heroImage: "https://images.unsplash.com/photo-1695666750014-a9062d3a334d?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "🏎️",
+    location: "Guarulhos",
+    detailedDescription: "O BYD Seal é sinônimo de performance. Para um carro dessa categoria, a Patro Seguros oferece coberturas diferenciadas que incluem proteção para rodas, vidros e assistência VIP, garantindo que sua experiência ao dirigir seja sempre segura.",
+    whoNeeds: ["Proprietários de BYD Seal", "Entusiastas de carros elétricos", "Público premium em Guarulhos"],
+    whyPatro: ["Atendimento personalizado", "Melhores taxas para elétricos", "Gestão de sinistro ágil"],
+    faqs: [
+      { question: "Qual a melhor seguradora para o BYD Seal?", answer: "Trabalhamos com seguradoras que possuem expertise em veículos de alta performance e tecnologia elétrica." }
+    ]
+  },
+  "seguro-gwm-haval-h6": {
+    title: "Seguro GWM Haval H6 em Guarulhos",
+    description: "Cotação de seguro para GWM Haval H6 em Guarulhos com descontos para tecnologia ADAS e sistemas híbridos.",
+    metaDescription: "Economize no seguro do seu GWM Haval H6 em Guarulhos. Descontos exclusivos para carros com tecnologia de segurança. Confira!",
+    heroImage: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "🤖",
+    location: "Guarulhos",
+    detailedDescription: "O GWM Haval H6 é um dos carros mais seguros do mundo. Na Patro Seguros, aproveitamos essa tecnologia para negociar taxas menores com as seguradoras, já que os sistemas de auxílio de condução (ADAS) reduzem o risco de acidentes.",
+    whoNeeds: ["Proprietários de GWM Haval H6", "Famílias de Guarulhos", "Tecnófilos"],
+    whyPatro: ["Descontos ADAS", "Especialistas GWM", "Cotação em 2 horas"],
+    faqs: [
+      { question: "O seguro do Haval H6 é mais barato por causa da tecnologia?", answer: "Sim, muitas seguradoras oferecem descontos de até 15% para veículos equipados com sistemas autônomos de frenagem." }
+    ]
+  },
+  "seguro-toyota-sw4": {
+    title: "Seguro Toyota SW4 em Guarulhos",
+    description: "Proteção robusta para sua Toyota SW4 em Guarulhos. O seguro ideal para o SUV mais visado, com rastreamento e cobertura total.",
+    metaDescription: "Seguro para Toyota SW4 em Guarulhos. Proteção contra roubo, furto e colisão com as melhores taxas do mercado. Peça cotação!",
+    heroImage: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "🏔️",
+    location: "Guarulhos",
+    detailedDescription: "A Toyota SW4 é um ícone de durabilidade, mas também um dos veículos mais visados em Guarulhos. Oferecemos soluções que combinam seguro compreensivo com dispositivos de rastreamento para garantir a aceitação e o melhor preço.",
+    whoNeeds: ["Proprietários de SW4", "Empresários e produtores rurais", "Famílias que viajam muito"],
+    whyPatro: ["Estratégias de aceitação", "Redução de custo com rastreador", "Atendimento em Guarulhos"],
+    faqs: [
+      { question: "É difícil fazer seguro de SW4 em Guarulhos?", answer: "Pode ser desafiador em alguns CEPs, mas na Patro temos parcerias que garantem a cobertura com ótimas taxas." }
+    ]
+  },
+  "seguro-ford-ranger": {
+    title: "Seguro Ford Ranger em Guarulhos",
+    description: "Seguro para Nova Ford Ranger em Guarulhos. Proteção completa para lazer ou trabalho com assistência 24h e carro reserva.",
+    metaDescription: "Proteja sua Ford Ranger em Guarulhos. Seguro para pick-up com coberturas de acessórios e uso comercial. Cotação grátis em 2h.",
+    heroImage: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "🛻",
+    location: "Guarulhos",
+    detailedDescription: "Seja para o agronegócio ou uso urbano, a Ford Ranger exige um seguro versátil. Protegemos sua pick-up contra roubo, colisão e danos a terceiros, com opções de cobertura para acessórios e caçamba.",
+    whoNeeds: ["Proprietários de Ford Ranger", "Empresas de logística", "Produtores rurais"],
+    whyPatro: ["Consultoria especializada em pick-ups", "Agilidade no atendimento", "Presença local em Guarulhos"]
+  },
+  "seguro-chevrolet-s10": {
+    title: "Seguro Chevrolet S10 em Guarulhos",
+    description: "Cotação de seguro para Chevrolet S10 em Guarulhos. Economia e proteção para a pick-up preferida do Brasil.",
+    metaDescription: "Seguro para Chevrolet S10 em Guarulhos. Compare 16 seguradoras e encontre o melhor preço para sua pick-up. Confira agora!",
+    heroImage: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "🚛",
+    location: "Guarulhos",
+    detailedDescription: "A Chevrolet S10 é pau para toda obra. Garantimos que sua ferramenta de trabalho ou lazer esteja sempre protegida em Guarulhos, com assistência 24h que funciona de verdade e guincho ilimitado.",
+    whoNeeds: ["Proprietários de S10", "Frotistas", "Autônomos"],
+    whyPatro: ["Foco em custo-benefício", "Seguradoras líderes", "Suporte em sinistro"]
+  },
+  "seguro-audi-q3": {
+    title: "Seguro Audi Q3 em Guarulhos",
+    description: "Seguro premium para Audi Q3 em Guarulhos. Sofisticação e segurança com reparo em concessionária e peças originais.",
+    metaDescription: "Proteção exclusiva para seu Audi Q3 em Guarulhos. Seguro premium com atendimento especializado. Peça sua cotação agora!",
+    heroImage: "https://images.unsplash.com/photo-1541348263662-e0c864333670?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "💎",
+    location: "Guarulhos",
+    detailedDescription: "O Audi Q3 exige um seguro à altura da marca das quatro argolas. Oferecemos apólices com livre escolha de oficina e garantia de peças genuínas, para que seu SUV mantenha sempre o padrão de fábrica.",
+    whoNeeds: ["Proprietários de Audi Q3", "Público executivo em Guarulhos", "Famílias premium"],
+    whyPatro: ["Atendimento diferenciado", "Conhecimento de marcas premium", "Cotação exclusiva"]
+  },
+  "seguro-mercedes-gla": {
+    title: "Seguro Mercedes-Benz GLA em Guarulhos",
+    description: "Seguro para Mercedes-Benz GLA em Guarulhos. Proteção de luxo com assistência 24h VIP e coberturas exclusivas.",
+    metaDescription: "Seguro de luxo para Mercedes-Benz GLA em Guarulhos. O melhor da estrela protegido pela Patro Seguros. Cotação em 2h.",
+    heroImage: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=2000",
+    insuranceType: "auto",
+    icon: "⭐",
+    location: "Guarulhos",
+    detailedDescription: "Sua Mercedes-Benz GLA merece o melhor seguro de Guarulhos. Na Patro, estruturamos planos que incluem carro reserva premium, cobertura de vidros completa e atendimento prioritário em caso de sinistro.",
+    whoNeeds: ["Proprietários de Mercedes GLA", "Empresários de sucesso", "Amantes de carros alemães"],
+    whyPatro: ["Padrão de excelência", "Relacionamento com grandes seguradoras", "Atendimento no Cidade Maia"]
+  }
 };
+
 
 
