@@ -17,7 +17,7 @@ export const guarulhosArticlesContent = {
   },
   "seguro-motorista-uber-guarulhos-guia": {
     title: "Seguro para Motorista Uber em Guarulhos",
-    content: "Trabalhar como motorista de aplicativo em Guarulhos é um desafio diário que exige não apenas paciência no trânsito, mas uma proteção financeira sólida. O seguro convencional não cobre atividades remuneradas, o que torna o [Seguro para Motorista de Aplicativo](/seguro-motorista-app) indispensável.\n\n## O Que é o Seguro APP?\n\nO Seguro de Acidentes Pessoais de Passageiros (APP) é obrigatório por lei e exigido pelas plataformas como Uber e 99. Ele garante indenização em caso de acidentes que envolvam os passageiros.\n\n## Diferenciais para quem roda em Guarulhos\n\n- **Assistência 24h com Guincho Ilimitado:** Vital para quem circula o dia todo e não pode ficar na mão na Dutra.\n- **Carro Reserva:** Fundamental para não interromper sua fonte de renda enquanto o carro está na oficina.\n- **Cobertura EAR:** É obrigatório que conste na sua apólice que você 'Exerce Atividade Remunerada'.\n\n## Onde Cotar?\n\nA Patro Seguros é especialista em [seguro para Uber em Guarulhos](/seguro-motorista-app), oferecendo planos que cabem no bolso do motorista e garantem a tranquilidade de quem está no volante 12h por dia.\n\n[Solicitar Cotação Especial para Uber/99](/cotacao?tipo=auto&origem=blog-uber-guia)",
+    content: "Trabalhar como motorista de aplicativo em Guarulhos é um desafio diário que exige não apenas paciência no trânsito, mas uma proteção financeira sólida. O seguro convencional não cobre atividades remuneradas, o que torna o [Seguro para Motorista de Aplicativo](/seguro-motorista-app-guarulhos) indispensável.\n\n## O Que é o Seguro APP?\n\nO Seguro de Acidentes Pessoais de Passageiros (APP) é obrigatório por lei e exigido pelas plataformas como Uber e 99. Ele garante indenização em caso de acidentes que envolvam os passageiros.\n\n## Diferenciais para quem roda em Guarulhos\n\n- **Assistência 24h com Guincho Ilimitado:** Vital para quem circula o dia todo e não pode ficar na mão na Dutra.\n- **Carro Reserva:** Fundamental para não interromper sua fonte de renda enquanto o carro está na oficina.\n- **Cobertura EAR:** É obrigatório que conste na sua apólice que você 'Exerce Atividade Remunerada'.\n\n## Onde Cotar?\n\nA Patro Seguros é especialista em [seguro para Uber em Guarulhos](/seguro-motorista-app-guarulhos), oferecendo planos que cabem no bolso do motorista e garantem a tranquilidade de quem está no volante 12h por dia.\n\n[Solicitar Cotação Especial para Uber/99](/cotacao?tipo=auto&origem=blog-uber-guia)",
     faqs: [
       { q: "A Uber já oferece seguro?", a: "A Uber oferece um seguro que cobre apenas durante a viagem com passageiro. Para proteger o SEU carro e o trajeto entre viagens, você precisa de um seguro particular com cobertura EAR." },
       { q: "O seguro para Uber é muito mais caro?", a: "O valor é superior ao particular devido ao maior risco de exposição, mas a Patro Seguros possui parcerias que garantem preços competitivos." }
@@ -103,7 +103,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-corolla-guarulhos-2026": {
     title: "Quanto custa o seguro do Corolla em Guarulhos em 2026?",
-    content: "O Toyota Corolla é o sedã mais desejado de Guarulhos, mas seu preço de seguro varia drasticamente conforme o bairro. Em 2026, a média para um condutor de 35 anos com garagem no Jardim Maia gira entre R$ 2.800 e R$ 3.900. Já em regiões como Cumbica, o valor pode subir para R$ 4.500 devido ao índice de roubo. Dica Patro: As versões híbridas costumam ter bônus de 10% na taxa de seguro em algumas companhias.\n\n[Cotar Seguro Corolla Agora](/seguro-auto-toyota-guarulhos)",
+    content: "O Toyota Corolla é o sedã mais desejado de Guarulhos, mas seu preço de seguro varia drasticamente conforme o bairro. Em 2026, a média para um condutor de 35 anos com garagem no Jardim Maia gira entre R$ 2.800 e R$ 3.900. Já em regiões como Cumbica, o valor pode subir para R$ 4.500 devido ao índice de roubo. Dica Patro: As versões híbridas costumam ter bônus de 10% na taxa de seguro em algumas companhias.\n\n[Cotar Seguro Corolla Agora](/seguro-toyota-corolla-guarulhos)",
     faqs: [
       { q: "O seguro do Corolla cobre blindagem?", a: "Sim, desde que a blindagem esteja discriminada na apólice com valor específico." },
       { q: "Qual seguradora é melhor para o Corolla em Guarulhos?", a: "Porto Seguro e Tokio Marine possuem as melhores redes de oficinas autorizadas Toyota na cidade." }
@@ -111,7 +111,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-hilux-guarulhos-2026": {
     title: "Quanto custa o seguro da Hilux em Guarulhos in 2026?",
-    content: "A Toyota Hilux exige atenção máxima em Guarulhos. Por ser um dos veículos mais visados, o seguro pode custar entre R$ 5.500 e R$ 9.000, dependendo do CEP. A instalação de um rastreador homologado é quase sempre obrigatória para aceitação do risco. Na Patro Seguros, conseguimos condições especiais para produtores rurais e empresas de logística da região.\n\n[Solicitar Cotação Hilux](/seguro-auto-toyota-guarulhos)",
+    content: "A Toyota Hilux exige atenção máxima em Guarulhos. Por ser um dos veículos mais visados, o seguro pode custar entre R$ 5.500 e R$ 9.000, dependendo do CEP. A instalação de um rastreador homologado é quase sempre obrigatória para aceitação do risco. Na Patro Seguros, conseguimos condições especiais para produtores rurais e empresas de logística da região.\n\n[Solicitar Cotação Hilux](/seguro-toyota-hilux-guarulhos)",
     faqs: [
       { q: "Preciso de rastreador para segurar a Hilux?", a: "Na maioria das seguradoras premium em Guarulhos, o rastreador é obrigatório para este modelo." },
       { q: "A Hilux 4x4 tem seguro mais caro?", a: "Sim, devido ao valor FIPE superior e custo de manutenção das peças de tração." }
@@ -135,7 +135,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-corolla-cross-guarulhos": {
     title: "Quanto custa o seguro do Corolla Cross em Guarulhos?",
-    content: "O Corolla Cross em Guarulhos tem seguro médio de R$ 3.200 a R$ 5.800. A versão híbrida tem uma aceitação excelente em seguradoras como Porto e Tokio Marine. Moradores de condomínios na Vila Augusta conseguem as melhores taxas para este modelo.\n\n[Cotação Corolla Cross](/seguro-auto-toyota-guarulhos)",
+    content: "O Corolla Cross em Guarulhos tem seguro médio de R$ 3.200 a R$ 5.800. A versão híbrida tem uma aceitação excelente em seguradoras como Porto e Tokio Marine. Moradores de condomínios na Vila Augusta conseguem as melhores taxas para este modelo.\n\n[Cotação Corolla Cross](/seguro-toyota-corolla-cross-guarulhos)",
     faqs: [
       { q: "Diferença de preço entre híbrido e combustão?", a: "A versão híbrida costuma ter seguro cerca de 8% a 12% mais barato devido ao perfil do condutor." },
       { q: "O seguro cobre o teto solar do Corolla Cross?", a: "Sim, recomendamos sempre incluir a cobertura de vidros completa que abrange o teto solar panorâmico." }
@@ -143,7 +143,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-hr-v-guarulhos": {
     title: "Quanto custa o seguro do HR-V em Guarulhos?",
-    content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/seguro-auto-honda-guarulhos)",
+    content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/seguro-honda-hr-v-guarulhos)",
     faqs: [
       { q: "A Honda tem parceria com seguradora?", a: "Sim, a Allianz e a Porto Seguro possuem redes de oficinas Honda muito fortes em Guarulhos." },
       { q: "O seguro do HR-V é visado?", a: "É um modelo intermediário, menos visado que o Civic, o que ajuda a manter o preço mais estável." }
@@ -151,7 +151,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-jeep-compass-guarulhos": {
     title: "Quanto custa o seguro do Compass em Guarulhos?",
-    content: "O Jeep Compass é líder de categoria e isso gera uma sinistralidade moderada em Guarulhos. O seguro médio fica entre R$ 3.500 e R$ 6.000. Recomendamos sempre incluir a cobertura de vidros completa, incluindo teto solar, que é um item comum no Compass.\n\n[Simular Seguro Compass](/seguro-auto-jeep-guarulhos)",
+    content: "O Jeep Compass é líder de categoria e isso gera uma sinistralidade moderada em Guarulhos. O seguro médio fica entre R$ 3.500 e R$ 6.000. Recomendamos sempre incluir a cobertura de vidros completa, incluindo teto solar, que é um item comum no Compass.\n\n[Simular Seguro Compass](/seguro-jeep-compass-guarulhos)",
     faqs: [
       { q: "Seguro do Compass a Diesel é mais caro?", a: "Sim, versões diesel costumam ter prêmio superior devido ao valor FIPE e custo de peças do motor." },
       { q: "Jeep Compass exige rastreador em Guarulhos?", a: "Algumas seguradoras dispensam em CEPs de baixo risco, mas em bairros como Cumbica ele é essencial para aceitação." }
