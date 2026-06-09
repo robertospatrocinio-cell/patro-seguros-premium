@@ -26,7 +26,22 @@ const PAGES_TO_CHECK = [
 
 export default function SchemaDashboard() {
   const [results, setResults] = useState<SchemaCheckResult[]>([]);
+  const [history, setHistory] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const fetchHistory = useCallback(async () => {
+    const { data } = await supabase
+      .from('schema_audits')
+      .select('*')
+      .order('executed_at', { ascending: false })
+      .limit(50);
+    
+    if (data) setHistory(data);
+  }, []);
+
+  useEffect(() => {
+    fetchHistory();
+  }, [fetchHistory]);
 
   const runAudit = useCallback(async () => {
     setLoading(true);
@@ -38,8 +53,9 @@ export default function SchemaDashboard() {
     }
     
     setResults(newResults);
+    await fetchHistory();
     setLoading(false);
-  }, []);
+  }, [fetchHistory]);
 
   return (
     <div className="min-h-screen bg-background">
