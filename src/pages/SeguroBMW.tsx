@@ -99,7 +99,6 @@ const SeguroBMW = () => {
       />
       <FAQSchema 
         faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} 
-        speakable={true}
       />
       <Header />
 

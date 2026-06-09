@@ -111,20 +111,20 @@ const LocalAreaSchema = ({
 
   const graph: Record<string, unknown>[] = [serviceNode, aggregateRatingNode];
 
-  if (faqs && faqs.length > 0) {
+  const validFaqs = faqs?.filter(faq => faq.question?.trim() && faq.answer?.trim()) || [];
+
+  if (validFaqs.length > 0) {
     graph.push({
       "@type": "FAQPage",
       "@id": `${url}#faq`,
-      mainEntityOfPage: url,
-      // Voice-assistant ready (matches `data-speakable="faq"` rendered region).
-      speakable: {
-        "@type": "SpeakableSpecification",
-        cssSelector: ['[data-speakable="faq"]', "#faq-heading"],
-      },
-      mainEntity: faqs.map((faq) => ({
+      mainEntityOfPage: { "@id": url },
+      mainEntity: validFaqs.map((faq) => ({
         "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+        name: faq.question.trim(),
+        acceptedAnswer: { 
+          "@type": "Answer", 
+          text: faq.answer.trim() 
+        },
       })),
     });
   }

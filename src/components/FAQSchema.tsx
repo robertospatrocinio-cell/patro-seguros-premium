@@ -5,34 +5,23 @@ interface FAQItem {
 
 interface FAQSchemaProps {
   faqs: FAQItem[];
-  /**
-   * When true (default), includes a SpeakableSpecification pointing at the
-   * rendered FAQ container. Pages must render the FAQ list with the attribute
-   * `data-speakable="faq"` for voice assistants to pick the right region.
-   */
-  speakable?: boolean;
 }
 
-const FAQSchema = ({ faqs, speakable = true }: FAQSchemaProps) => {
-  if (!faqs.length) return null;
+const FAQSchema = ({ faqs }: FAQSchemaProps) => {
+  const validFaqs = faqs.filter(faq => faq.question?.trim() && faq.answer?.trim());
+  if (!validFaqs.length) return null;
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-     "mainEntity": faqs.slice(0, 10).map((faq) => ({
+    "mainEntity": validFaqs.map((faq) => ({
       "@type": "Question",
       "name": faq.question.trim(),
       "acceptedAnswer": {
         "@type": "Answer",
         "text": faq.answer.trim()
       }
-    })),
-    ...(speakable ? {
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": ["[data-speakable='faq']", "#faq-heading"]
-      }
-    } : {})
+    }))
   };
 
   return (
