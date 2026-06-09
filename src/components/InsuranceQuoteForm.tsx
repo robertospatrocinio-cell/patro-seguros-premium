@@ -294,7 +294,10 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       setSending(false);
       setSent(true);
       setFinalMsg(finalParts);
+      clearFormData();
+      setCurrentStep(1);
     }, 600);
+
   };
 
   if (sent) {
