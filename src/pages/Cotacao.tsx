@@ -3,8 +3,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { debounce } from "lodash";
 import { useSearchParams } from "react-router-dom";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
- import { escapeHtml } from "@/lib/utils";
- import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { escapeHtml } from "@/lib/utils";
+import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -14,6 +14,8 @@ import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
@@ -557,6 +559,7 @@ const Cotacao = () => {
                               <button 
                                 type="button" 
                                 onClick={() => {
+                                  logForgottenQuote(form.getValues("insuranceType") || "Cotação Etapas", step, "cotacao_progress");
                                   localStorage.removeItem("cotacao_progress");
                                   form.reset({
                                     name: "",
@@ -568,6 +571,7 @@ const Cotacao = () => {
                                   setStep(1);
                                   toast.success("Progresso limpo com sucesso!");
                                 }}
+
                                 className="underline hover:text-slate-600 transition-colors"
                               >
                                 Limpar dados salvos

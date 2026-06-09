@@ -17,6 +17,8 @@ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 
 
 const WHATSAPP_NUMBER = "551151997500";
@@ -109,6 +111,7 @@ const FormularioSeguroVida = () => {
   }, [form, currentStep, saveToCloud]);
 
   const startOver = () => {
+    logForgottenQuote("Seguro de Vida - Completo", currentStep, storageKey);
     clearForm();
     clearStep();
     localStorage.removeItem(`${storageKey}-partial-id`);
@@ -117,6 +120,7 @@ const FormularioSeguroVida = () => {
     setShowRestoreNotice(false);
     toast.success("Formulário reiniciado.");
   };
+
 
 
   const totalSteps = 4;

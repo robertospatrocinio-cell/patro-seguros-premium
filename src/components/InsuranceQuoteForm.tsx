@@ -16,6 +16,8 @@ import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 
 
 
@@ -128,6 +130,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   }, [formData, checkboxGroups, currentStep, saveToCloud]);
 
   const startOver = () => {
+    logForgottenQuote(config.type, currentStep, storageKey);
     clearFormData();
     clearCheckboxes();
     clearStep();
@@ -137,6 +140,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     setShowRestoreNotice(false);
     toast.success("Formulário reiniciado com sucesso.");
   };
+
 
   // Group fields into steps
 

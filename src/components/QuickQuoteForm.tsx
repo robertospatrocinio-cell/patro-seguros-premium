@@ -8,6 +8,8 @@ import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 
 
 
@@ -82,6 +84,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
   }, [form, currentStep, saveToCloud]);
 
   const startOver = () => {
+    logForgottenQuote(insuranceType, currentStep, storageKey);
     clearForm();
     clearStep();
     localStorage.removeItem(`${storageKey}-partial-id`);
@@ -90,6 +93,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
     setShowRestoreNotice(false);
     toast.success("Dados limpos com sucesso.");
   };
+
 
 
   const hasExtraFields = extraFields.length > 0;

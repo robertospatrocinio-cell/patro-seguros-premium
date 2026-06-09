@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 import { toast } from "sonner";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 
 
 const logoFull = "/images/logo-full.webp";
@@ -100,6 +102,13 @@ const Header = memo(() => {
   const handleForgetClick = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
     if (recoverableSession) {
+      // Log to local history before removing
+      logForgottenQuote(
+        recoverableSession.type, 
+        recoverableSession.step || 1, 
+        recoverableSession.key
+      );
+
       localStorage.removeItem(recoverableSession.key);
       localStorage.removeItem(`${recoverableSession.key}-step`);
       localStorage.removeItem(`${recoverableSession.key}-checkboxes`);
@@ -113,6 +122,8 @@ const Header = memo(() => {
       toast.success("Sessão esquecida com sucesso.");
     }
   }, [recoverableSession]);
+
+
 
   const handleResumeClick = useCallback(() => {
     if (!recoverableSession) return;
