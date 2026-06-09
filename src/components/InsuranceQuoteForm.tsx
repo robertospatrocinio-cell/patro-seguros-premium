@@ -63,15 +63,35 @@ interface Props {
 }
 
 const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
-  const [formData, setFormData] = useState<Record<string, string>>({});
+  const storageKey = `quote-form-${config.type.toLowerCase().replace(/\s+/g, "-")}`;
+  
+  const [formData, setFormData, clearFormData] = usePersistentForm<Record<string, string>>(storageKey, {});
+  const [checkboxGroups, setCheckboxGroups] = usePersistentForm<Record<string, string[]>>(`${storageKey}-checkboxes`, {});
+  const [currentStep, setCurrentStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
-  const [checkboxGroups, setCheckboxGroups] = useState<Record<string, string[]>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [finalMsg, setFinalMsg] = useState("");
   const [showChecklist, setShowChecklist] = useState(false);
   const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
+
+  // Group fields into steps
+  const contactFieldIds = ["nome", "email", "telefone", "whatsapp", "phone", "name"];
+  const contactFields = config.fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
+  const coverageFields = config.fields.filter(f => f.type === "checkbox-group");
+  const technicalFields = config.fields.filter(f => !contactFields.includes(f) && !coverageFields.includes(f));
+
+  // Define dynamic steps
+  const steps = [
+    { id: "contact", title: "Dados de Contato", fields: contactFields },
+    ...(technicalFields.length > 0 ? [{ id: "technical", title: "Detalhes do Seguro", fields: technicalFields }] : []),
+    ...(coverageFields.length > 0 ? [{ id: "coverage", title: "Coberturas e Extras", fields: coverageFields }] : []),
+    { id: "review", title: "Termos e Revisão", fields: [] }
+  ];
+
+  const totalSteps = steps.length;
+  const progress = (currentStep / totalSteps) * 100;
 
   const checklistOptions = [
     { id: "correct_phone", label: "Meu WhatsApp está correto para receber a cotação." },
@@ -84,6 +104,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const toggleChecklistItem = (id: string) => {
     setChecklistItems(prev => ({ ...prev, [id]: !prev[id] }));
   };
+
 
   const getFieldError = (field: FormFieldConfig) => {
     if (!touched[field.id]) return "";
