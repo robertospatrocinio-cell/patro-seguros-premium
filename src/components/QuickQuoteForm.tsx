@@ -24,10 +24,14 @@ interface QuickQuoteFormProps {
 const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: QuickQuoteFormProps) => {
   const storageKey = `quick-quote-${trackingLabel.toLowerCase().replace(/\s+/g, "-")}`;
   const [form, setForm, clearForm] = usePersistentForm<Record<string, string>>(storageKey, { nome: "", telefone: "", email: "" });
+  const [currentStep, setCurrentStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const hasExtraFields = extraFields.length > 0;
+  const totalSteps = hasExtraFields ? 2 : 1;
+  const progress = (currentStep / totalSteps) * 100;
 
   const validateField = (key: string, value: string) => {
     if (key === "nome") {
@@ -61,9 +65,33 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
     setTouched(prev => ({ ...prev, [key]: true }));
   };
 
+  const nextStep = () => {
+    if (currentStep === 1) {
+      const nomeError = validateField("nome", form.nome);
+      const telError = validateField("telefone", form.telefone);
+      
+      setTouched(prev => ({ ...prev, nome: true, telefone: true }));
+
+      if (nomeError || telError) {
+        toast.error(nomeError || telError);
+        return;
+      }
+      setCurrentStep(2);
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) setCurrentStep(currentStep - 1);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (currentStep < totalSteps) {
+      nextStep();
+      return;
+    }
+
     // Mark all as touched to show errors
     const allTouched = { nome: true, telefone: true, email: true };
     extraFields.forEach(f => { (allTouched as any)[f.id] = true });
@@ -136,11 +164,13 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       setSending(false);
       setSent(true);
       clearForm();
+      localStorage.removeItem(`${storageKey}-step`);
       window.open(
         `https://wa.me/551151997500?text=${encodeURIComponent(finalParts)}`,
         "_blank"
       );
     }, 500);
+
 
   };
 
