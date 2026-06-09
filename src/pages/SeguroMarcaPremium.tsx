@@ -198,10 +198,10 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
         {/* FAQ */}
         <section className="bg-zinc-900 py-24">
           <div className="container mx-auto px-4 max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-black text-white text-center uppercase italic tracking-tighter mb-16">
-              Dúvidas <span className="text-blue-500">Frequentes</span>
+            <h2 id="faq-heading" className="text-3xl md:text-4xl font-black text-white text-center uppercase italic tracking-tighter mb-16">
+              Dúvidas <span className="text-blue-500">Frequentes</span> sobre Seguro {config.name}
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-4" data-speakable="faq">
               {config.faqs.map((faq, i) => (
                 <div key={i} className="bg-black border border-white/5 overflow-hidden">
                   <button
