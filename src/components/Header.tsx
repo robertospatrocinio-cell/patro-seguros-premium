@@ -100,6 +100,17 @@ const Header = memo(() => {
   const handleForgetClick = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
     if (recoverableSession) {
+      // Log to local history before removing
+      const historyKey = "forgotten_quotes_history";
+      const history = JSON.parse(localStorage.getItem(historyKey) || "[]");
+      const newEntry = {
+        type: recoverableSession.type,
+        step: recoverableSession.step || 1,
+        timestamp: new Date().toISOString(),
+        key: recoverableSession.key
+      };
+      localStorage.setItem(historyKey, JSON.stringify([newEntry, ...history].slice(0, 50)));
+
       localStorage.removeItem(recoverableSession.key);
       localStorage.removeItem(`${recoverableSession.key}-step`);
       localStorage.removeItem(`${recoverableSession.key}-checkboxes`);
@@ -113,6 +124,7 @@ const Header = memo(() => {
       toast.success("Sessão esquecida com sucesso.");
     }
   }, [recoverableSession]);
+
 
   const handleResumeClick = useCallback(() => {
     if (!recoverableSession) return;
