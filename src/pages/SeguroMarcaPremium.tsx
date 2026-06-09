@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import FAQSchema from "@/components/FAQSchema";
 import { PREMIUM_BRANDS } from "@/data/premiumBrandsConfig";
 
 const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
