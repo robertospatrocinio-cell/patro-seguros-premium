@@ -175,19 +175,20 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     
     if (field.required) {
       if (field.type === "checkbox-group") {
-        if (!(checkboxGroups[field.id]?.length > 0)) return "Selecione ao menos uma opção";
+        if (!(checkboxGroups[field.id]?.length > 0)) return "Este dado é fundamental para sua cotação.";
       } else if (!value.trim()) {
-        return "Campo obrigatório";
+        return "Campo obrigatório para prosseguir.";
       }
     }
 
     if (value.trim()) {
-      if (field.type === "email" && !validateEmail(value)) return "E-mail inválido";
+      if (field.type === "email" && !validateEmail(value)) return "E-mail inválido. Ex: nome@email.com";
       if (field.type === "tel" && !validatePhone(value)) return "Formato: (11) 99999-9999";
     }
 
     return "";
   };
+
 
   const update = (key: string, value: string) => setFormData(prev => ({ ...prev, [key]: value }));
 
