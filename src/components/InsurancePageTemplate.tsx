@@ -202,15 +202,8 @@ const InsurancePageTemplate = ({
         url={canonicalUrl}
         description={metaDescription || subtitle}
         city="Guarulhos"
-        faqs={skipFAQSchema ? [] : faqs}
+        faqs={faqs}
       />
-      {!skipAggregateRating && (
-        <AggregateRatingSchema
-          serviceName={title}
-          url={canonicalUrl}
-          description={metaDescription || subtitle}
-        />
-      )}
 
       <BreadcrumbSchema
         items={[

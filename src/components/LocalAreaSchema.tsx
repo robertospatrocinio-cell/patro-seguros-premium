@@ -11,11 +11,6 @@
  *   3. FAQPage node (when `faqs` is provided), linked via mainEntityOfPage to
  *      the page URL — replaces the standalone <FAQSchema> for local pages so
  *      we never emit two FAQPage blocks on the same URL
- *
- * Pairs with `LocalBusinessSchema` and `BreadcrumbSchema` injected by
- * InsurancePageTemplate. When this component handles ratings/FAQ, the parent
- * LocalPageTemplate must pass `skipFAQSchema` and `skipAggregateRating` to
- * InsurancePageTemplate to keep the page's structured data graph consistent.
  */
 
 import { PATRO_RATING } from "@/components/AggregateRatingSchema";
@@ -55,7 +50,7 @@ const LocalAreaSchema = ({
     });
   }
 
-  const ratingId = "https://www.patroseguros.com.br/#aggregate-rating";
+  const ratingId = `${url}#aggregate-rating`;
   const agencyId = "https://www.patroseguros.com.br/#insurance-agency";
   const serviceId = `${url}#service`;
 
@@ -66,7 +61,6 @@ const LocalAreaSchema = ({
     reviewCount: PATRO_RATING.reviewCount,
     bestRating: PATRO_RATING.bestRating,
     worstRating: PATRO_RATING.worstRating,
-    itemReviewed: { "@id": agencyId },
   };
 
   const serviceNode: Record<string, unknown> = {
@@ -91,11 +85,7 @@ const LocalAreaSchema = ({
         postalCode: "07115-000",
         addressCountry: "BR",
       },
-      // Same rating, referenced — never duplicated.
-      aggregateRating: { "@id": ratingId },
     },
-    // Service-level rating reference keeps SERP review snippet eligible
-    // while pointing to the same canonical AggregateRating node.
     aggregateRating: { "@id": ratingId },
   };
 

@@ -102,9 +102,6 @@ const SeguroBMW = () => {
         title="Seguro BMW em Guarulhos | Cotação em 2h | Patro Seguros"
         description="Seguro BMW em Guarulhos: proteção premium para Série 3, X1, X5 e mais. Reparo em concessionária e assistência 24h. Solicite sua cotação na Patro Seguros."
       />
-      <FAQSchema 
-        faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} 
-      />
       <OrganizationSchema />
       <LocalBusinessSchema />
       <WebSiteSchema />
@@ -114,11 +111,6 @@ const SeguroBMW = () => {
         description="Seguro BMW em Guarulhos: proteção premium para Série 3, X1, X5 e mais."
         city="Guarulhos"
         faqs={faqs.map(f => ({ question: f.q, answer: f.a }))}
-      />
-      <AggregateRatingSchema
-        serviceName="Seguro BMW"
-        url="https://patroseguros.lovable.app/seguro-bmw"
-        description="Cotação de Seguro BMW em Guarulhos"
       />
       <Header />
 
