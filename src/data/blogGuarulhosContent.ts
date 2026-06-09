@@ -119,7 +119,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-byd-dolphin-guarulhos": {
     title: "Quanto custa o seguro do BYD Dolphin em Guarulhos?",
-    content: "O seguro do BYD Dolphin em Guarulhos é uma grata surpresa para os proprietários. Com média de preço entre R$ 2.500 e R$ 4.200, ele se mostra muito competitivo. O principal ponto de atenção é a cobertura de bateria e o atendimento de guincho plataforma, que garantimos em todas as nossas apólices para elétricos.\n\n[Comparar Seguros para BYD](/cotacao?tipo=auto&modelo=dolphin)",
+    content: "O seguro do BYD Dolphin em Guarulhos é uma grata surpresa para os proprietários. Com média de preço entre R$ 2.500 e R$ 4.200, ele se mostra muito competitivo. O principal ponto de atenção é a cobertura de bateria e o atendimento de guincho plataforma, que garantimos em todas as nossas apólices para elétricos.\n\n[Comparar Seguros para BYD](/seguro-byd-dolphin-guarulhos)",
     faqs: [
       { q: "O seguro do Dolphin cobre o carregador?", a: "Sim, é possível incluir o Wallbox como cobertura adicional na apólice residencial ou como acessório no auto." },
       { q: "O seguro do BYD Dolphin é caro?", a: "Não, ele é um dos elétricos com seguro mais competitivo, variando entre 1,5% e 2,5% do valor do carro em Guarulhos." }
