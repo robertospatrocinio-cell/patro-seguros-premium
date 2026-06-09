@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export function usePersistentForm<T>(storageKey: string, initialValue: T) {
   const [data, setData] = useState<T>(() => {
@@ -6,6 +6,14 @@ export function usePersistentForm<T>(storageKey: string, initialValue: T) {
     const saved = localStorage.getItem(storageKey);
     return saved ? JSON.parse(saved) : initialValue;
   });
+
+  const isRestored = useRef(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && localStorage.getItem(storageKey)) {
+      isRestored.current = true;
+    }
+  }, [storageKey]);
 
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(data));
@@ -16,5 +24,6 @@ export function usePersistentForm<T>(storageKey: string, initialValue: T) {
     setData(initialValue);
   };
 
-  return [data, setData, clear] as const;
+  return [data, setData, clear, isRestored.current] as const;
 }
+
