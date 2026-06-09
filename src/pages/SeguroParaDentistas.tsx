@@ -7,7 +7,7 @@ const SeguroParaDentistas = () => (
     title="Seguro para Dentistas"
     subtitle="Proteção integral para o cirurgião-dentista autônomo: RC profissional, vida, equipamentos e plano de saúde."
     icon="🦷"
-    metaDescription="Seguro para Dentistas — RC profissional, equipamentos, vida e plano de saúde para cirurgiões-dentistas em Guarulhos e região. Cotação grátis com a Patro Seguros."
+    metaDescription="Seguro para Dentistas: RC profissional, equipamentos, vida e plano de saúde para cirurgiões-dentistas em Guarulhos. Cotação grátis com a Patro."
     description="Pacote completo de proteção para o dentista autônomo: responsabilidade civil profissional, equipamentos odontológicos, vida e benefícios."
     detailedDescription={`O cirurgião-dentista autônomo acumula riscos altos e pouco visíveis: processos por procedimentos estéticos, roubo de equipamentos portáteis, vazamento de dados de pacientes e perda de receita em caso de afastamento.\n\nA Patro Seguros estrutura um pacote integrado para dentistas autônomos com RC Profissional dimensionado para sua especialidade, cobertura para equipamentos (próprios ou de terceiros), seguro de vida com cobertura de invalidez profissional e plano de saúde com condições especiais para profissionais da odontologia.`}
     howItWorks={[
