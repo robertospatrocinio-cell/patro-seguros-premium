@@ -27,11 +27,16 @@ interface InsurerPageProps {
 }
 
 
-const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history }: InsurerPageProps) => {
+const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history, faqs }: InsurerPageProps) => {
   const WHATSAPP_URL = `https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20da%20${insurer}%20em%20Guarulhos.`;
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
+      {faqs && faqs.length > 0 && (
+        <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      )}
+
       <PageMeta 
         title={`${insurer} em Guarulhos | Seguro Auto e Preços | Patro Seguros`}
         description={`Cotação de Seguro Auto ${insurer} em Guarulhos. A Patro Seguros é parceira oficial ${insurer}. Compare preços e coberturas com especialistas locais.`}
