@@ -119,6 +119,14 @@ const Header = memo(() => {
     { label: "Internacional Shopping", to: "/seguro-lojas-shopping-internacional-guarulhos", section: "empresarial" },
     { label: "Shopping Bonsucesso", to: "/seguro-lojas-shopping-bonsucesso", section: "empresarial" },
     { label: "Blog Lojistas", to: "/blog/lojistas-e-franquias", section: "empresarial" },
+    { label: "Vistoria Veicular", to: "/seguro-para-empresas-de-vistoria-veicular", section: "empresarial" },
+    { label: "Seguro ECV", to: "/seguro-para-ecv", section: "empresarial" },
+    { label: "Transferência Veicular", to: "/seguro-transferencia-veicular", section: "empresarial" },
+    { label: "Inspeção Veicular", to: "/seguro-inspecao-veicular", section: "empresarial" },
+    { label: "Vistoria Cautelar", to: "/seguro-vistoria-cautelar", section: "empresarial" },
+    { label: "Despachantes e Vistorias", to: "/seguro-despachantes-e-vistorias", section: "empresarial" },
+    { label: "Parceria Vistorias", to: "/parceria-vistorias-veiculares", section: "empresarial" },
+    { label: "Auto Pós-Vistoria", to: "/seguro-auto-pos-vistoria", section: "pessoal" },
   ], []);
 
   const searchResults = useMemo(() => {
