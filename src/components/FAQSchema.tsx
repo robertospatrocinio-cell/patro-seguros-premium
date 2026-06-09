@@ -5,12 +5,6 @@ interface FAQItem {
 
 interface FAQSchemaProps {
   faqs: FAQItem[];
-  /**
-   * When true (default), includes a SpeakableSpecification pointing at the
-   * rendered FAQ container. Pages must render the FAQ list with the attribute
-   * `data-speakable="faq"` for voice assistants to pick the right region.
-   */
-  speakable?: boolean;
 }
 
 const FAQSchema = ({ faqs }: FAQSchemaProps) => {
