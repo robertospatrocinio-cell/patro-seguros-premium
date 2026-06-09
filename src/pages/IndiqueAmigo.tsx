@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,7 +11,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ChevronRight, ChevronLeft, Save } from "lucide-react";
+import { Progress } from "@/components/ui/progress";
+import { usePersistentForm } from "@/hooks/usePersistentForm";
+
 
 const tiposSeguros = [
   "Seguro Auto", "Seguro Moto", "Seguro Vida", "Seguro Residencial",
