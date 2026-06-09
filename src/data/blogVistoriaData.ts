@@ -14,7 +14,7 @@ export const vistoriaArticles: BlogArticleMeta[] = [
   {
     slug: "empresas-de-vistoria-precisam-de-seguro",
     title: "Empresas de vistoria precisam de seguro?",
-    excerpt: "Entenda por que o seguro é um investimento estratégico e muitas vezes obrigatório para empresas credenciadas de vistoria.",
+    excerpt: "Entenda por que o seguro é um investmento estratégico e muitas vezes obrigatório para empresas credenciadas de vistoria.",
     category: "Vistoria Veicular",
     tags: ["vistoria", "ECV", "legislação"],
     author: "Sandra Patro",
