@@ -1,10 +1,14 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import PageMeta from "@/components/PageMeta";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { checkPageSchemas, type SchemaCheckResult } from "@/lib/schemaValidator";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, XCircle, Loader2, Search } from "lucide-react";
+import { CheckCircle, XCircle, Loader2, Search, History, Calendar } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 const PAGES_TO_CHECK = [
   "/seguro-auto",
@@ -22,7 +26,22 @@ const PAGES_TO_CHECK = [
 
 export default function SchemaDashboard() {
   const [results, setResults] = useState<SchemaCheckResult[]>([]);
+  const [history, setHistory] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+
+  const fetchHistory = useCallback(async () => {
+    const { data } = await supabase
+      .from('schema_audits')
+      .select('*')
+      .order('executed_at', { ascending: false })
+      .limit(50);
+    
+    if (data) setHistory(data);
+  }, []);
+
+  useEffect(() => {
+    fetchHistory();
+  }, [fetchHistory]);
 
   const runAudit = useCallback(async () => {
     setLoading(true);
@@ -34,8 +53,9 @@ export default function SchemaDashboard() {
     }
     
     setResults(newResults);
+    await fetchHistory();
     setLoading(false);
-  }, []);
+  }, [fetchHistory]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -98,9 +118,51 @@ export default function SchemaDashboard() {
             </ul>
           </div>
         )}
+
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+            <History className="h-6 w-6" /> Histórico de Auditorias
+          </h2>
+          
+          <div className="grid gap-4">
+            {history.length > 0 ? (
+              history.map((item) => (
+                <Card key={item.id} className="bg-muted/30 border-none">
+                  <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
+                    <div className="flex items-center gap-3">
+                      <Calendar className="h-4 w-4 text-muted-foreground" />
+                      <span className="text-sm font-medium">
+                        {format(new Date(item.executed_at), "dd 'de' MMMM, HH:mm", { locale: ptBR })}
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono text-muted-foreground">{item.page_path}</span>
+                  </CardHeader>
+                  <CardContent className="pb-4 pt-0">
+                    <div className="flex gap-4">
+                      <StatusBadge active={item.has_breadcrumb} label="Breadcrumb" />
+                      <StatusBadge active={item.has_faq} label="FAQ" />
+                      <StatusBadge active={item.has_rating} label="Rating" />
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            ) : (
+              <p className="text-muted-foreground text-center py-10 italic">Nenhum histórico disponível.</p>
+            )}
+          </div>
+        </div>
       </main>
 
       <Footer />
+    </div>
+  );
+}
+
+function StatusBadge({ active, label }: { active: boolean, label: string }) {
+  return (
+    <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-bold uppercase ${active ? 'bg-green-500/10 text-green-600' : 'bg-red-500/10 text-red-600'}`}>
+      {active ? <CheckCircle className="h-3 w-3" /> : <XCircle className="h-3 w-3" />}
+      {label}
     </div>
   );
 }
