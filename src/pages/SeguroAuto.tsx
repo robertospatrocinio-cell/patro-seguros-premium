@@ -10,6 +10,11 @@ import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import LazySection from "@/components/LazySection";
 import { Button } from "@/components/ui/button";
+import OrganizationSchema from "@/components/OrganizationSchema";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import WebSiteSchema from "@/components/WebSiteSchema";
+import LocalAreaSchema from "@/components/LocalAreaSchema";
+import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
@@ -49,6 +54,21 @@ const SeguroAuto = () => {
         description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
       />
       <FAQSchema faqs={faqs} />
+      <OrganizationSchema />
+      <LocalBusinessSchema />
+      <WebSiteSchema />
+      <LocalAreaSchema
+        serviceName="Seguro Auto"
+        url="https://patroseguros.lovable.app/seguro-auto"
+        description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
+        city="Guarulhos"
+        faqs={faqs}
+      />
+      <AggregateRatingSchema
+        serviceName="Seguro Auto"
+        url="https://patroseguros.lovable.app/seguro-auto"
+        description="Cotação de Seguro Auto em Guarulhos"
+      />
       <Header />
       <main id="main-content" className="outline-none">
         <Breadcrumb items={[{ label: "Seguro Auto" }]} />
