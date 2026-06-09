@@ -250,6 +250,24 @@ export const blogImageMap: Record<string, string> = {
 
   // Consultoria
   "crescimento-patrimonial-guarulhos-2026": blogConsorcioImoveisGuarulhos,
+
+  // Odontologia
+  "7-riscos-clinica-odontologica-proteger": blogSeguroOdonto,
+  "dentista-precisa-seguro-responsabilidade-civil": blogRC,
+  "quanto-custa-seguro-clinica-odontologica": blogSeguroOdonto,
+  "como-proteger-equipamentos-odontologicos": blogSeguroOdonto,
+  "seguro-scanner-intraoral-vale-pena": blogSeguroOdonto,
+  "lgpd-para-clinicas-odontologicas": blogSeguroCyber,
+  "como-evitar-prejuizos-consultorios-odontologicos": blogSeguroOdonto,
+  "seguro-empresarial-clinicas-odontologicas": blogSeguroEmpresarial,
+  "seguro-vida-para-dentistas": blogSeguroVida,
+  "plano-saude-equipes-odontologicas": blogPlanoSaudePme,
+  "gestao-riscos-clinicas-odontologicas": blogSeguroOdonto,
+  "como-proteger-dados-pacientes-odontologia": blogSeguroCyber,
+  "seguro-clinicas-guarulhos-odonto": blogSeguroOdonto,
+  "seguro-franquias-odontologicas": blogSeguroOdonto,
+  "como-proteger-patrimonio-dentista": blogSeguroVidaSucessao,
+  "o-que-fazer-apos-sinistro-clinica-odontologica": blogSeguroOdonto,
 };
 
 
