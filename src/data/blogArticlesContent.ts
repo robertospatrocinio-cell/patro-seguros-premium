@@ -1,8 +1,6 @@
 import { guarulhosArticlesContent } from "./blogGuarulhosContent";
 import { guarulhosLojistasArticlesContent } from "./blogGuarulhosLojistasContent";
 import { vistoriaArticlesContent } from "./blogVistoriaContent";
-import { guarulhosArticlesContent } from "./blogGuarulhosContent";
-import { guarulhosLojistasArticlesContent } from "./blogGuarulhosLojistasContent";
 
 export const articlesContent: Record<string, { title: string; content: string; faqs: { q: string; a: string }[] }> = {
   ...guarulhosArticlesContent,
