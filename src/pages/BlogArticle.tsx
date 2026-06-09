@@ -670,17 +670,23 @@ const BlogArticle = () => {
 
             {allFaqs.length > 0 && (
               <div className="mt-12 border-t pt-8">
-                <h2 className="text-2xl font-bold mb-6" id="faq-heading">Dúvidas Frequentes</h2>
+                <h2 className="text-2xl font-bold mb-6" id="faq-heading">Dúvidas Frequentes sobre {article.title}</h2>
                 <div className="space-y-4" data-speakable="faq">
                   {allFaqs.map((faq, i) => (
-                    <div key={i} className="rounded-xl border border-border bg-card p-5">
-                      <h3 className="text-lg font-bold mb-2 text-foreground">{faq.q}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
-                    </div>
+                    <Card key={i} className="border-border bg-card hover:border-primary/30 transition-colors">
+                      <CardContent className="p-5">
+                        <h3 className="text-lg font-bold mb-2 text-foreground flex items-start gap-2">
+                          <span className="text-primary mt-1 shrink-0">?</span>
+                          {faq.q}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed pl-5">{faq.a}</p>
+                      </CardContent>
+                    </Card>
                   ))}
                 </div>
               </div>
             )}
+
 
 
             {/* Tags */}
