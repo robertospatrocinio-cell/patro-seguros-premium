@@ -32,6 +32,12 @@ const TokioMarineGuarulhos = () => (
         a: "Sim, e inclusive oferece descontos significativos para veículos que possuem dispositivos de segurança instalados, o que é uma ótima estratégia para economizar em Guarulhos."
       }
     ]}
+    claimChannels={[
+      { type: 'whatsapp', value: '11 99578-6546', label: 'WhatsApp' },
+      { type: 'phone', value: '0800 31 86546', label: 'Central de Sinistros' },
+      { type: 'app', value: 'App Tokio Marine', label: 'Aplicativo' },
+      { type: 'web', value: 'tokiomarine.com.br', label: 'Portal do Segurado' }
+    ]}
   />
 );
 
