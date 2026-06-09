@@ -137,12 +137,13 @@ const FormularioSeguroVida = () => {
   const getFieldError = (key: string) => {
     if (!touched[key]) return "";
     const value = form[key] || "";
-    if (requiredFields.includes(key) && !value.trim()) return "Campo obrigatório";
-    if (key === "email" && value.trim() && !/^\S+@\S+\.\S+$/.test(value)) return "E-mail inválido";
-    if (key === "cpf" && value.trim() && value.replace(/\D/g, "").length < 11) return "CPF incompleto";
-    if (key === "telefone" && value.trim() && value.replace(/\D/g, "").length < 10) return "Telefone inválido";
+    if (requiredFields.includes(key) && !value.trim()) return "Campo essencial para sua proposta.";
+    if (key === "email" && value.trim() && !/^\S+@\S+\.\S+$/.test(value)) return "E-mail inválido. Ex: nome@exemplo.com";
+    if (key === "cpf" && value.trim() && value.replace(/\D/g, "").length < 11) return "CPF precisa de 11 dígitos.";
+    if (key === "telefone" && value.trim() && value.replace(/\D/g, "").length < 10) return "WhatsApp incompleto.";
     return "";
   };
+
 
   const isStepValid = (stepNum: number) => {
     const fields = stepFields[stepNum] || [];
