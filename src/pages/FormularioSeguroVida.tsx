@@ -163,7 +163,12 @@ const FormularioSeguroVida = () => {
     setTouched(newTouched);
 
     if (!isStepValid(currentStep)) {
-      toast.error("Por favor, preencha os campos obrigatórios desta etapa.");
+      const firstInvalidField = fields.find(f => requiredFields.includes(f) && (!form[f]?.trim() || getFieldError(f)));
+      if (firstInvalidField) {
+        toast.error("Por favor, preencha os dados obrigatórios para continuar.");
+        const element = document.getElementById(firstInvalidField);
+        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       return;
     }
     if (currentStep < totalSteps) {
@@ -171,6 +176,7 @@ const FormularioSeguroVida = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
+
 
   const prevStep = () => {
     if (currentStep > 1) {
