@@ -373,7 +373,26 @@ const Header = memo(() => {
 
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg max-h-[80vh] overflow-y-auto p-4">
+          {hasRecoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
+            <button 
+              onClick={handleResumeClick}
+              className="w-full flex items-center justify-between p-4 mb-4 bg-primary/5 border border-primary/10 rounded-2xl text-primary animate-in slide-in-from-right-4 duration-300 group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <RotateCcw className="h-5 w-5" />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-bold leading-tight">Retomar Cotação</p>
+                  <p className="text-[11px] opacity-70">Continue de onde parou</p>
+                </div>
+              </div>
+              <ArrowRight className="h-4 w-4 opacity-40 group-active:translate-x-1 transition-transform" />
+            </button>
+          )}
+
           <div className="relative mb-4">
+
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/50" />
             <input
               type="search"
