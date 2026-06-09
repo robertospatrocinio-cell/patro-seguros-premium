@@ -111,6 +111,7 @@ const FormularioSeguroVida = () => {
   }, [form, currentStep, saveToCloud]);
 
   const startOver = () => {
+    logForgottenQuote("Seguro de Vida - Completo", currentStep, storageKey);
     clearForm();
     clearStep();
     localStorage.removeItem(`${storageKey}-partial-id`);
@@ -119,6 +120,7 @@ const FormularioSeguroVida = () => {
     setShowRestoreNotice(false);
     toast.success("Formulário reiniciado.");
   };
+
 
 
   const totalSteps = 4;
