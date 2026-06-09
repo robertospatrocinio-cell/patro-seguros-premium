@@ -27,6 +27,7 @@ export async function validateLocalPages() {
     loadDataModule("src/data/localDefaults.ts"),
   ]);
 
+  console.log('DEBUG: pagesMod keys:', Object.keys(pagesMod || {}));
   const seoLocalPages = pagesMod.seoLocalPages || pagesMod.seoLocalSaudePages || pagesMod.seoModeloAutoPages;
   const DEFAULT_INSURERS = defaultsMod.DEFAULT_INSURERS;
   const DEFAULT_TESTIMONIALS = defaultsMod.DEFAULT_TESTIMONIALS;
