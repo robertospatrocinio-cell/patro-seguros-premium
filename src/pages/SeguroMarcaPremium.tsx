@@ -35,9 +35,6 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
         title={`Seguro ${config.name} em Guarulhos | Cotação em 2h | Patro Seguros`}
         description={`Seguro ${config.name} em Guarulhos: proteção premium e especializada para seu veículo. Reparo em concessionária, assistência 24h e cotação rápida na Patro Seguros.`}
       />
-      <FAQSchema 
-        faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))} 
-      />
       <OrganizationSchema />
       <LocalBusinessSchema />
       <WebSiteSchema />
@@ -47,11 +44,6 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
         description={`Seguro ${config.name} em Guarulhos: proteção premium e especializada para seu veículo.`}
         city="Guarulhos"
         faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))}
-      />
-      <AggregateRatingSchema
-        serviceName={`Seguro ${config.name}`}
-        url={`https://patroseguros.lovable.app/seguro-${config.slug}`}
-        description={`Cotação de Seguro ${config.name} em Guarulhos`}
       />
       <Header />
 
