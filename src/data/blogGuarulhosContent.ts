@@ -103,7 +103,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-corolla-guarulhos-2026": {
     title: "Quanto custa o seguro do Corolla em Guarulhos em 2026?",
-    content: "O Toyota Corolla é o sedã mais desejado de Guarulhos, mas seu preço de seguro varia drasticamente conforme o bairro. Em 2026, a média para um condutor de 35 anos com garagem no Jardim Maia gira entre R$ 2.800 e R$ 3.900. Já em regiões como Cumbica, o valor pode subir para R$ 4.500 devido ao índice de roubo. Dica Patro: As versões híbridas costumam ter bônus de 10% na taxa de seguro em algumas companhias.\n\n[Cotar Seguro Corolla Agora](/cotacao?tipo=auto&modelo=corolla)",
+    content: "O Toyota Corolla é o sedã mais desejado de Guarulhos, mas seu preço de seguro varia drasticamente conforme o bairro. Em 2026, a média para um condutor de 35 anos com garagem no Jardim Maia gira entre R$ 2.800 e R$ 3.900. Já em regiões como Cumbica, o valor pode subir para R$ 4.500 devido ao índice de roubo. Dica Patro: As versões híbridas costumam ter bônus de 10% na taxa de seguro em algumas companhias.\n\n[Cotar Seguro Corolla Agora](/seguro-auto-toyota-guarulhos)",
     faqs: [
       { q: "O seguro do Corolla cobre blindagem?", a: "Sim, desde que a blindagem esteja discriminada na apólice com valor específico." },
       { q: "Qual seguradora é melhor para o Corolla em Guarulhos?", a: "Porto Seguro e Tokio Marine possuem as melhores redes de oficinas autorizadas Toyota na cidade." }
