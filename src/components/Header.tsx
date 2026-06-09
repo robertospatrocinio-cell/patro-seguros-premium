@@ -103,15 +103,11 @@ const Header = memo(() => {
     e.stopPropagation();
     if (recoverableSession) {
       // Log to local history before removing
-      const historyKey = "forgotten_quotes_history";
-      const history = JSON.parse(localStorage.getItem(historyKey) || "[]");
-      const newEntry = {
-        type: recoverableSession.type,
-        step: recoverableSession.step || 1,
-        timestamp: new Date().toISOString(),
-        key: recoverableSession.key
-      };
-      localStorage.setItem(historyKey, JSON.stringify([newEntry, ...history].slice(0, 50)));
+      logForgottenQuote(
+        recoverableSession.type, 
+        recoverableSession.step || 1, 
+        recoverableSession.key
+      );
 
       localStorage.removeItem(recoverableSession.key);
       localStorage.removeItem(`${recoverableSession.key}-step`);
@@ -126,6 +122,7 @@ const Header = memo(() => {
       toast.success("Sessão esquecida com sucesso.");
     }
   }, [recoverableSession]);
+
 
 
   const handleResumeClick = useCallback(() => {
