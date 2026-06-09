@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import FAQSchema from "@/components/FAQSchema";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Seguro%20BMW.%20Gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20exclusiva%20para%20o%20meu%20ve%C3%ADculo.";
 
