@@ -473,23 +473,37 @@ const Header = memo(() => {
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg max-h-[80vh] overflow-y-auto p-4">
           {recoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
-            <button 
-              onClick={handleResumeClick}
-              className="w-full flex items-center justify-between p-4 mb-4 bg-primary/5 border border-primary/10 rounded-2xl text-primary animate-in slide-in-from-right-4 duration-300 group"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <RotateCcw className="h-6 w-6" />
+            <div className="mb-4 bg-primary/5 border border-primary/10 rounded-2xl overflow-hidden animate-in slide-in-from-right-4 duration-300">
+              <button 
+                onClick={handleResumeClick}
+                className="w-full flex items-center justify-between p-4 group active:bg-primary/10 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <RotateCcw className="h-6 w-6" />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <p className="text-sm font-bold leading-tight">Retomar {recoverableSession.type}</p>
+                    <p className="text-[11px] opacity-70 truncate">
+                      {recoverableSession.name ? `${recoverableSession.name} • ` : ""}Etapa {recoverableSession.step || 1}
+                    </p>
+                  </div>
                 </div>
-                <div className="text-left min-w-0">
-                  <p className="text-sm font-bold leading-tight">Retomar {recoverableSession.type}</p>
-                  <p className="text-[11px] opacity-70 truncate">
-                    {recoverableSession.name ? `${recoverableSession.name} • ` : ""}Etapa {recoverableSession.step || 1}
-                  </p>
-                </div>
+                <ArrowRight className="h-4 w-4 opacity-40 group-active:translate-x-1 transition-transform" />
+              </button>
+              <div className="px-4 pb-3 flex justify-end border-t border-primary/10 pt-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={handleForgetClick}
+                  className="h-7 gap-1.5 text-xs text-muted-foreground hover:text-destructive hover:bg-destructive/10 font-medium"
+                >
+                  <Trash2 className="h-3 w-3" />
+                  Esquecer esta cotação
+                </Button>
               </div>
-              <ArrowRight className="h-4 w-4 opacity-40 group-active:translate-x-1 transition-transform" />
-            </button>
+            </div>
+
           )}
 
 
