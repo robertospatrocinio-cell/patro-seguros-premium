@@ -345,13 +345,14 @@ const MODELOS: ModeloSeed[] = [
     context: "A Ford Ranger em Guarulhos circula entre o trabalho e o lazer. Proteção para carga e acessórios é o nosso diferencial."
   },
   {
-    slug: "seguro-auto-chevrolet-s10-guarulhos",
+    slug: "seguro-chevrolet-s10-guarulhos",
     modelo: "Chevrolet S10",
     modeloShort: "S10",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 180.000 a R$ 330.000",
     priceRange: { min: 3800, max: 8500, label: "R$ 3.800 a R$ 8.500/ano" },
+
     theftProfile: "médio-alto",
     pros: ["Tradição Chevrolet e rede GM ampla em Guarulhos", "Robusta para trabalho", "Peças disponíveis em todo o país"],
     cons: ["Tecnologia da cabine mais conservadora", "Visada para roubo de peças"],
