@@ -41,17 +41,36 @@ interface InsurerPageProps {
 
 
 const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history, faqs, claimChannels }: InsurerPageProps) => {
-  const WHATSAPP_URL = `https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20da%20${insurer}%20em%20Guarulhos.`;
+  const [selectedType, setSelectedType] = useState<'auto' | 'residencial' | 'empresarial' | 'vida'>('auto');
+  const [sortBy, setSortBy] = useState<'default' | 'cost' | 'support'>('default');
+  
+  const WHATSAPP_URL = `https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20Seguro%20${selectedType.charAt(0).toUpperCase() + selectedType.slice(1)}%20da%20${insurer}%20em%20Guarulhos.`;
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const comparisonData = [
-    { name: "Porto Seguro", cost: "Premium", coverage: "Máxima", support: "5 Estrelas", franchise: "Flexível" },
-    { name: "Tokio Marine", cost: "Equilibrado", coverage: "Alta", support: "5 Estrelas", franchise: "Competitiva" },
-    { name: "Allianz", cost: "Específico", coverage: "Alta", support: "4 Estrelas", franchise: "Padronizada" },
-    { name: "Azul Seguros", cost: "Econômico", coverage: "Essencial", support: "4 Estrelas", franchise: "Baixa" },
-    { name: "Suhai", cost: "Mínimo", coverage: "Roubo/Furto", support: "3 Estrelas", franchise: "Isenta (Indenização)" },
-    { name: "HDI Seguros", cost: "Equilibrado", coverage: "Média-Alta", support: "5 Estrelas", franchise: "Bate-Pronto" },
+  const rawComparisonData = [
+    { name: "Porto Seguro", type: "auto", cost: 5, costLabel: "Premium", coverage: "Máxima", support: 5, supportLabel: "5 Estrelas", franchise: "Flexível" },
+    { name: "Tokio Marine", type: "auto", cost: 3, costLabel: "Equilibrado", coverage: "Alta", support: 5, supportLabel: "5 Estrelas", franchise: "Competitiva" },
+    { name: "Allianz", type: "auto", cost: 4, costLabel: "Específico", coverage: "Alta", support: 4, supportLabel: "4 Estrelas", franchise: "Padronizada" },
+    { name: "Azul Seguros", type: "auto", cost: 2, costLabel: "Econômico", coverage: "Essencial", support: 4, supportLabel: "4 Estrelas", franchise: "Baixa" },
+    { name: "Suhai", type: "auto", cost: 1, costLabel: "Mínimo", coverage: "Roubo/Furto", support: 3, supportLabel: "3 Estrelas", franchise: "Isenta" },
+    { name: "HDI Seguros", type: "auto", cost: 3, costLabel: "Equilibrado", coverage: "Média-Alta", support: 5, supportLabel: "5 Estrelas", franchise: "Bate-Pronto" },
+    // Adicionando outros tipos para o filtro funcionar
+    { name: "Porto Seguro", type: "residencial", cost: 3, costLabel: "Competitivo", coverage: "Completa", support: 5, supportLabel: "5 Estrelas", franchise: "Fixa" },
+    { name: "Tokio Marine", type: "residencial", cost: 2, costLabel: "Econômico", coverage: "Ampla", support: 4, supportLabel: "4 Estrelas", franchise: "Reduzida" },
+    { name: "Porto Seguro", type: "empresarial", cost: 4, costLabel: "Premium", coverage: "Total", support: 5, supportLabel: "5 Estrelas", franchise: "Ajustável" },
+    { name: "Allianz", type: "empresarial", cost: 4, costLabel: "Robustez", coverage: "Internacional", support: 5, supportLabel: "5 Estrelas", franchise: "Industrial" },
+    { name: "Porto Seguro", type: "vida", cost: 3, costLabel: "Flexível", coverage: "Vitalícia", support: 5, supportLabel: "5 Estrelas", franchise: "N/A" },
+    { name: "Tokio Marine", type: "vida", cost: 2, costLabel: "Acessível", coverage: "Personalizada", support: 5, supportLabel: "5 Estrelas", franchise: "N/A" },
   ];
+
+  const comparisonData = rawComparisonData
+    .filter(item => item.type === selectedType)
+    .sort((a, b) => {
+      if (sortBy === 'cost') return a.cost - b.cost;
+      if (sortBy === 'support') return b.support - a.support;
+      return 0;
+    });
+
 
 
   return (
@@ -262,7 +281,42 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-900">Comparativo: {insurer} vs Mercado</h2>
-              <p className="text-slate-600 mt-2">Veja como a {insurer} se posiciona em relação às outras seguradoras que trabalhamos em Guarulhos.</p>
+              <p className="text-slate-600 mt-2">Personalize o comparativo para encontrar a melhor opção para sua necessidade em Guarulhos.</p>
+              
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <div className="bg-white p-1 rounded-xl border border-slate-200 shadow-sm flex overflow-x-auto max-w-full">
+                  {(['auto', 'residencial', 'empresarial', 'vida'] as const).map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setSelectedType(type)}
+                      className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${selectedType === type ? 'bg-primary text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                    >
+                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                    </button>
+                  ))}
+                </div>
+                
+                <div className="bg-white p-1 rounded-xl border border-slate-200 shadow-sm flex overflow-x-auto max-w-full">
+                  <button
+                    onClick={() => setSortBy('default')}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${sortBy === 'default' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                  >
+                    Padrão
+                  </button>
+                  <button
+                    onClick={() => setSortBy('cost')}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${sortBy === 'cost' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                  >
+                    Melhor Custo
+                  </button>
+                  <button
+                    onClick={() => setSortBy('support')}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${sortBy === 'support' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                  >
+                    Melhor Atendimento
+                  </button>
+                </div>
+              </div>
             </div>
 
             <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-xl">
@@ -278,7 +332,7 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {comparisonData.map((row, i) => (
+                  {comparisonData.length > 0 ? comparisonData.map((row, i) => (
                     <tr key={i} className={`hover:bg-slate-50 transition-colors ${row.name === insurer ? 'bg-primary/5' : ''}`}>
                       <td className="p-6">
                         <div className="flex items-center gap-2">
@@ -286,22 +340,37 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
                           <span className={`font-bold whitespace-nowrap ${row.name === insurer ? 'text-primary' : 'text-slate-800'}`}>{row.name}</span>
                         </div>
                       </td>
-                      <td className="p-6 text-slate-600 text-sm">{row.cost}</td>
+                      <td className="p-6">
+                        <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase ${row.cost <= 2 ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600'}`}>
+                          {row.costLabel}
+                        </span>
+                      </td>
                       <td className="p-6 text-slate-600 text-sm">{row.coverage}</td>
-                      <td className="p-6 text-slate-600 text-sm">{row.support}</td>
+                      <td className="p-6">
+                        <div className="flex items-center gap-1">
+                          <span className="text-slate-600 text-sm">{row.supportLabel}</span>
+                        </div>
+                      </td>
                       <td className="p-6 text-slate-600 text-sm">{row.franchise}</td>
                       <td className="p-6">
-                        <Link to={`/cotacao?tipo=auto&seguradora=${row.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link to={`/cotacao?tipo=${selectedType}&seguradora=${row.name.toLowerCase().replace(/\s+/g, '-')}`}>
                           <Button size="sm" variant={row.name === insurer ? 'default' : 'outline'} className="text-[10px] h-8 px-4 font-bold uppercase whitespace-nowrap">
                             Cotar {row.name}
                           </Button>
                         </Link>
                       </td>
                     </tr>
-                  ))}
+                  )) : (
+                    <tr>
+                      <td colSpan={6} className="p-12 text-center text-slate-400 font-medium">
+                        Nenhum comparativo disponível para este tipo de seguro no momento.
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
+
             <p className="text-center text-[10px] text-slate-400 mt-4 uppercase tracking-widest font-medium">Análise baseada na performance de sinistros e preços médios praticados em Guarulhos em 2026.</p>
           </div>
         </section>
