@@ -393,6 +393,8 @@ export function generateSitemap(blogSlugs: string[]): string {
     "sitemap-geral.xml": urlsetFor(geralEntries),
     // Legacy flat sitemap kept for backward compatibility with already-submitted URLs
     "sitemap.xml": urlsetFor(allEntries),
+    // Mirror of index for compatibility
+    "sitemap_index.xml": index,
   };
 
   // ---- Sitemap index -------------------------------------------------------
