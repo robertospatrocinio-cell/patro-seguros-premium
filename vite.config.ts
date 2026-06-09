@@ -355,7 +355,7 @@ export default defineConfig(({ mode }) => ({
         );
       }
     },
-    mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
+    mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024, deleteOriginalAssets: false }),
     mode === "production" && sitemapPlugin(),
      mode === "production" && spaFallbackPlugin(),
      mode === "production" && googleIndexingPlugin(),
