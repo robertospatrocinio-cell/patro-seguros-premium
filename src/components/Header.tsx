@@ -57,6 +57,7 @@ const Header = memo(() => {
           // If it's the stepped form format {values, step}
           if (parsed.values && Object.keys(parsed.values).length > 0) {
             foundSession = {
+              key: config.key,
               type: parsed.values.insuranceType || config.label,
               name: parsed.values.name || parsed.values.nome,
               step: parsed.step
@@ -66,6 +67,7 @@ const Header = memo(() => {
           // If it's just raw data record
           if (Object.keys(parsed).length > 0) {
             foundSession = {
+              key: config.key,
               type: config.label,
               name: parsed.name || parsed.nome || parsed.nomeCompleto || parsed.nomeCliente,
               step: Number(localStorage.getItem(`${config.key}-step`)) || 1
@@ -74,7 +76,7 @@ const Header = memo(() => {
           }
         } catch {
           // If not JSON but exists
-          foundSession = { type: config.label };
+          foundSession = { key: config.key, type: config.label };
           break;
         }
       }
@@ -95,26 +97,41 @@ const Header = memo(() => {
     };
   }, []);
 
-  const handleResumeClick = useCallback(() => {
-    // Determine the best page to resume
-    if (localStorage.getItem("cotacao_progress")) {
-      navigate("/cotacao");
-    } else if (localStorage.getItem("seguro-vida-completo")) {
-      navigate("/formulario-seguro-vida");
-    } else if (localStorage.getItem("indique-amigo-data")) {
-      navigate("/indique-amigo");
-    } else {
-      // Find which quote-form-* exists
-      const keys = Object.keys(localStorage);
-      const quoteKey = keys.find(k => k.startsWith("quote-form-"));
-      if (quoteKey) {
-        const type = quoteKey.replace("quote-form-", "");
-        navigate(`/cotacao?tipo=${type}`);
-      } else {
-        navigate("/cotacao");
+  const handleForgetClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (recoverableSession) {
+      localStorage.removeItem(recoverableSession.key);
+      localStorage.removeItem(`${recoverableSession.key}-step`);
+      localStorage.removeItem(`${recoverableSession.key}-checkboxes`);
+      localStorage.removeItem(`${recoverableSession.key}-partial-id`);
+      
+      if (recoverableSession.key === "cotacao_progress") {
+        localStorage.removeItem("partial_quote_id");
       }
+      
+      setRecoverableSession(null);
+      toast.success("Sessão esquecida com sucesso.");
     }
-  }, [navigate]);
+  }, [recoverableSession]);
+
+  const handleResumeClick = useCallback(() => {
+    if (!recoverableSession) return;
+    
+    // Determine the best page to resume based on the current session key
+    if (recoverableSession.key === "cotacao_progress") {
+      navigate("/cotacao");
+    } else if (recoverableSession.key === "seguro-vida-completo") {
+      navigate("/formulario-seguro-vida");
+    } else if (recoverableSession.key === "indique-amigo-data") {
+      navigate("/indique-amigo");
+    } else if (recoverableSession.key.startsWith("quote-form-")) {
+      const type = recoverableSession.key.replace("quote-form-", "");
+      navigate(`/cotacao?tipo=${type}`);
+    } else {
+      navigate("/cotacao");
+    }
+  }, [navigate, recoverableSession]);
+
 
 
   const allMobileLinks = useMemo(() => [
