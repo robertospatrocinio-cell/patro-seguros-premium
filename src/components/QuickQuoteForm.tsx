@@ -133,11 +133,13 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
     setTimeout(() => {
       setSending(false);
       setSent(true);
+      clearForm();
       window.open(
         `https://wa.me/551151997500?text=${encodeURIComponent(finalParts)}`,
         "_blank"
       );
     }, 500);
+
   };
 
   if (sent) {
