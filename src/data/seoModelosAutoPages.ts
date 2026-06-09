@@ -397,7 +397,7 @@ const MODELOS: ModeloSeed[] = [
     heroImg: "https://images.unsplash.com/photo-1618843479313-40f8af24b428?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 250.000 a R$ 380.000",
     priceRange: { min: 4800, max: 11500, label: "R$ 4.800 a R$ 11.500/ano" },
-    theftProfile: "baixo-médio",
+    theftProfile: "baixo",
     pros: ["Estrela Mercedes no capô", "Interior refinado", "Alta tecnologia embarcada"],
     cons: ["Franquia elevada em algumas companhias", "Rede de oficinas mais enxuta"],
     bestInsurers: [
