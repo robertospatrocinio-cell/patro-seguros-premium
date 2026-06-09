@@ -314,7 +314,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     headers: {
-      "Cache-Control": "public, max-age=0, stale-while-revalidate=86400",
+      "Cache-Control": "public, max-age=31536000, immutable",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
       "X-XSS-Protection": "1; mode=block",
@@ -329,6 +329,9 @@ export default defineConfig(({ mode }) => ({
               if (id.includes("lucide-react")) return "icons";
               if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack") || id.includes("framer-motion")) return "framework";
               if (id.includes("radix-ui") || id.includes("clsx") || id.includes("tailwind-merge")) return "ui-core";
+              if (id.includes("@supabase")) return "supabase";
+              if (id.includes("zod") || id.includes("react-hook-form")) return "forms-core";
+              if (id.includes("date-fns") || id.includes("lodash")) return "utils";
               return "vendor";
             }
           },
