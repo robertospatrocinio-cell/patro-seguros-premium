@@ -167,7 +167,7 @@ export const guarulhosArticlesContent = {
   },
   "seguro-carro-eletrico-guarulhos-quanto-custa": {
     title: "Seguro para carro elétrico em Guarulhos: quanto custa?",
-    content: "Carros elétricos em Guarulhos pagam, em média, de 2% a 3,5% do valor do veículo em seguro. É um mito que o seguro elétrico é proibitivo. Com as parcerias certas, donos de Volvo, BYD e GWM encontram coberturas completas que incluem bateria e assistência especializada.\n\n[Guia de Seguros Elétricos](/cotacao?tipo=auto)",
+    content: "Carros elétricos em Guarulhos pagam, em média, de 2% a 3,5% do valor do veículo em seguro. É um mito que o seguro elétrico é proibitivo. Com as parcerias certas, donos de Volvo, BYD e GWM encontram coberturas completas que incluem bateria e assistência especializada.\n\n[Guia de Seguros Elétricos](/seguro-carro-eletrico-guarulhos)",
     faqs: [
       { q: "Seguro elétrico cobre falta de carga?", a: "Sim, a maioria das assistências 24h VIP oferece reboque até o ponto de recarga mais próximo em caso de pane seca elétrica." },
       { q: "Cobre danos por enchente?", a: "Sim, carros elétricos possuem baterias seladas, mas a cobertura compreensiva garante indenização por danos elétricos severos." }
