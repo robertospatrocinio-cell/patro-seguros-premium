@@ -8,6 +8,7 @@ const SeoTransferenciaVeicularGuarulhos = lazy(() => import("./pages/SeoTransfer
 const SeoDespachantesVistoriasGuarulhos = lazy(() => import("./pages/SeoDespachantesVistoriasGuarulhos"));
 const SeoParceriaVistoriaGuarulhos = lazy(() => import("./pages/SeoParceriaVistoriaGuarulhos"));
 const SeoAutoPosVistoriaGuarulhos = lazy(() => import("./pages/SeoAutoPosVistoriaGuarulhos"));
+const BlogVistoriaVeicular = lazy(() => import("./pages/BlogVistoriaVeicular"));
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -524,6 +525,7 @@ const App = () => {
             <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
             <Route path="/parceria-vistorias-veiculares" element={<SeoParceriaVistoriaGuarulhos />} />
             <Route path="/seguro-auto-pos-vistoria" element={<SeoAutoPosVistoriaGuarulhos />} />
+            <Route path="/blog/vistoria-veicular" element={<BlogVistoriaVeicular />} />
             <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
             <Route path="/seguro-geada" element={<SeguroGeada />} />
             <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
