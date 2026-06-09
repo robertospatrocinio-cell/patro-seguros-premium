@@ -359,10 +359,5 @@ function SchemaBadge({ label, active, icon: Icon }: { label: string, active: boo
     </div>
   );
 }
-      </main>
-      <Footer />
-    </div>
-  );
-};
 
 export default SeoTechnicalReport;
