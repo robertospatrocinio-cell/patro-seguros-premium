@@ -132,7 +132,7 @@ export default function SchemaDashboard() {
                     <div className="flex items-center gap-3">
                       <Calendar className="h-4 w-4 text-muted-foreground" />
                       <span className="text-sm font-medium">
-                        {format(new URL(item.executed_at), "dd 'de' MMMM, HH:mm", { locale: ptBR })}
+                        {format(new Date(item.executed_at), "dd 'de' MMMM, HH:mm", { locale: ptBR })}
                       </span>
                     </div>
                     <span className="text-xs font-mono text-muted-foreground">{item.page_path}</span>
