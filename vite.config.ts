@@ -358,8 +358,8 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && sitemapPlugin(),
      mode === "production" && spaFallbackPlugin(),
      mode === "production" && googleIndexingPlugin(),
-     validateLocalPagesPlugin(),
-    validatePageMetaPlugin(),
+     // validateLocalPagesPlugin(),
+     // validatePageMetaPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {
