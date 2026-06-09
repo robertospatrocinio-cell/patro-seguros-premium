@@ -64,12 +64,14 @@ const IndiqueAmigo = () => {
   });
 
   const startOver = () => {
+    logForgottenQuote("Indicação de Amigo", step, storageKey);
     clearSavedData();
     clearStep();
     form.reset();
     setShowRestoreNotice(false);
     toast.success("Dados limpos.");
   };
+
 
 
   // Persist form changes
