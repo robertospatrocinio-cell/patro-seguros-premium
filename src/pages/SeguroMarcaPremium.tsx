@@ -27,10 +27,13 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
   return (
     <div className="min-h-screen bg-black">
       <PageMeta
-        title={`Seguro ${config.name} em Guarulhos | Proteção Premium e Especializada — Patro Seguros`}
-        description={`Seguro exclusivo para modelos ${config.name} em Guarulhos. Reparo em concessionária, franquia zero, carro reserva premium e assistência 24h dedicada. Solicite sua cotação.`}
+        title={`Seguro ${config.name} em Guarulhos | Cotação em 2h | Patro Seguros`}
+        description={`Seguro ${config.name} em Guarulhos: proteção premium e especializada para seu veículo. Reparo em concessionária, assistência 24h e cotação rápida na Patro Seguros.`}
       />
-      <FAQSchema faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      <FAQSchema 
+        faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))} 
+        speakable={true}
+      />
       <Header />
 
       <main>
