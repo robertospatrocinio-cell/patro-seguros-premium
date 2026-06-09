@@ -95,8 +95,9 @@ const SeguroBMW = () => {
     <div className="min-h-screen bg-black">
       <PageMeta
         title="Seguro BMW | Proteção Premium e Especializada para seu Veículo — Patro Seguros"
-        description="Seguro exclusivo para modelos BMW. Reparo em concessionária, franquia zero, carro reserva premium e assistência 24h dedicada. Solicite sua cotação."
+        description="Seguro exclusivo para modelos BMW em Guarulhos. Reparo em concessionária, franquia zero, carro reserva premium e assistência 24h dedicada. Solicite sua cotação."
       />
+      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
       <Header />
 
       <main>
