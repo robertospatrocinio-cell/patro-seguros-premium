@@ -67,7 +67,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   
   const [formData, setFormData, clearFormData] = usePersistentForm<Record<string, string>>(storageKey, {});
   const [checkboxGroups, setCheckboxGroups] = usePersistentForm<Record<string, string[]>>(`${storageKey}-checkboxes`, {});
-  const [currentStep, setCurrentStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
+  const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
