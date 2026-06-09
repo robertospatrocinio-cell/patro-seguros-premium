@@ -1,9 +1,11 @@
 import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
+import { toast } from "sonner";
+
 
 const logoFull = "/images/logo-full.webp";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
@@ -13,7 +15,7 @@ const Header = memo(() => {
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [mobileSearch, setMobileSearch] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [recoverableSession, setRecoverableSession] = useState<{ type: string; name?: string; step?: number } | null>(null);
+  const [recoverableSession, setRecoverableSession] = useState<{ key: string; type: string; name?: string; step?: number } | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -55,6 +57,7 @@ const Header = memo(() => {
           // If it's the stepped form format {values, step}
           if (parsed.values && Object.keys(parsed.values).length > 0) {
             foundSession = {
+              key: config.key,
               type: parsed.values.insuranceType || config.label,
               name: parsed.values.name || parsed.values.nome,
               step: parsed.step
@@ -64,6 +67,7 @@ const Header = memo(() => {
           // If it's just raw data record
           if (Object.keys(parsed).length > 0) {
             foundSession = {
+              key: config.key,
               type: config.label,
               name: parsed.name || parsed.nome || parsed.nomeCompleto || parsed.nomeCliente,
               step: Number(localStorage.getItem(`${config.key}-step`)) || 1
@@ -72,7 +76,7 @@ const Header = memo(() => {
           }
         } catch {
           // If not JSON but exists
-          foundSession = { type: config.label };
+          foundSession = { key: config.key, type: config.label };
           break;
         }
       }
@@ -93,26 +97,41 @@ const Header = memo(() => {
     };
   }, []);
 
-  const handleResumeClick = useCallback(() => {
-    // Determine the best page to resume
-    if (localStorage.getItem("cotacao_progress")) {
-      navigate("/cotacao");
-    } else if (localStorage.getItem("seguro-vida-completo")) {
-      navigate("/formulario-seguro-vida");
-    } else if (localStorage.getItem("indique-amigo-data")) {
-      navigate("/indique-amigo");
-    } else {
-      // Find which quote-form-* exists
-      const keys = Object.keys(localStorage);
-      const quoteKey = keys.find(k => k.startsWith("quote-form-"));
-      if (quoteKey) {
-        const type = quoteKey.replace("quote-form-", "");
-        navigate(`/cotacao?tipo=${type}`);
-      } else {
-        navigate("/cotacao");
+  const handleForgetClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (recoverableSession) {
+      localStorage.removeItem(recoverableSession.key);
+      localStorage.removeItem(`${recoverableSession.key}-step`);
+      localStorage.removeItem(`${recoverableSession.key}-checkboxes`);
+      localStorage.removeItem(`${recoverableSession.key}-partial-id`);
+      
+      if (recoverableSession.key === "cotacao_progress") {
+        localStorage.removeItem("partial_quote_id");
       }
+      
+      setRecoverableSession(null);
+      toast.success("Sessão esquecida com sucesso.");
     }
-  }, [navigate]);
+  }, [recoverableSession]);
+
+  const handleResumeClick = useCallback(() => {
+    if (!recoverableSession) return;
+    
+    // Determine the best page to resume based on the current session key
+    if (recoverableSession.key === "cotacao_progress") {
+      navigate("/cotacao");
+    } else if (recoverableSession.key === "seguro-vida-completo") {
+      navigate("/formulario-seguro-vida");
+    } else if (recoverableSession.key === "indique-amigo-data") {
+      navigate("/indique-amigo");
+    } else if (recoverableSession.key.startsWith("quote-form-")) {
+      const type = recoverableSession.key.replace("quote-form-", "");
+      navigate(`/cotacao?tipo=${type}`);
+    } else {
+      navigate("/cotacao");
+    }
+  }, [navigate, recoverableSession]);
+
 
 
   const allMobileLinks = useMemo(() => [
@@ -410,10 +429,28 @@ const Header = memo(() => {
                             </div>
                           )}
 
-                          <div className="pt-1 flex items-center justify-between">
-                            <span className="text-[10px] font-medium text-muted-foreground">Status: Etapa {recoverableSession.step || 1}</span>
-                            <span className="text-[10px] font-bold text-primary flex items-center gap-1">Continuar <ArrowRight className="h-2 w-2" /></span>
+                          <div className="pt-1 flex items-center justify-between border-t border-primary/10 mt-2">
+                            <span className="text-[10px] font-medium text-muted-foreground">Etapa {recoverableSession.step || 1}</span>
+                            <div className="flex gap-2">
+                              <Button 
+                                variant="ghost" 
+                                size="sm" 
+                                className="h-6 px-2 text-[10px] text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                                onClick={handleForgetClick}
+                              >
+                                Esquecer
+                              </Button>
+                              <Button 
+                                variant="link" 
+                                size="sm" 
+                                className="h-6 p-0 text-[10px] font-bold text-primary flex items-center gap-1"
+                                onClick={handleResumeClick}
+                              >
+                                Continuar <ArrowRight className="h-2 w-2" />
+                              </Button>
+                            </div>
                           </div>
+
                         </div>
                       </div>
                     </TooltipContent>
@@ -436,23 +473,37 @@ const Header = memo(() => {
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg max-h-[80vh] overflow-y-auto p-4">
           {recoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
-            <button 
-              onClick={handleResumeClick}
-              className="w-full flex items-center justify-between p-4 mb-4 bg-primary/5 border border-primary/10 rounded-2xl text-primary animate-in slide-in-from-right-4 duration-300 group"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <RotateCcw className="h-6 w-6" />
+            <div className="mb-4 bg-primary/5 border border-primary/10 rounded-2xl overflow-hidden animate-in slide-in-from-right-4 duration-300">
+              <button 
+                onClick={handleResumeClick}
+                className="w-full flex items-center justify-between p-4 group active:bg-primary/10 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <RotateCcw className="h-6 w-6" />
+                  </div>
+                  <div className="text-left min-w-0">
+                    <p className="text-sm font-bold leading-tight">Retomar {recoverableSession.type}</p>
+                    <p className="text-[11px] opacity-70 truncate">
+                      {recoverableSession.name ? `${recoverableSession.name} • ` : ""}Etapa {recoverableSession.step || 1}
+                    </p>
+                  </div>
                 </div>
-                <div className="text-left min-w-0">
-                  <p className="text-sm font-bold leading-tight">Retomar {recoverableSession.type}</p>
-                  <p className="text-[11px] opacity-70 truncate">
-                    {recoverableSession.name ? `${recoverableSession.name} • ` : ""}Etapa {recoverableSession.step || 1}
-                  </p>
-                </div>
+                <ArrowRight className="h-4 w-4 opacity-40 group-active:translate-x-1 transition-transform" />
+              </button>
+              <div className="px-4 pb-3 flex justify-end border-t border-primary/10 pt-2">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={handleForgetClick}
+                  className="h-7 gap-1.5 text-xs text-muted-foreground hover:text-destructive hover:bg-destructive/10 font-medium"
+                >
+                  <Trash2 className="h-3 w-3" />
+                  Esquecer esta cotação
+                </Button>
               </div>
-              <ArrowRight className="h-4 w-4 opacity-40 group-active:translate-x-1 transition-transform" />
-            </button>
+            </div>
+
           )}
 
 
