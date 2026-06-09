@@ -344,7 +344,7 @@ export default defineConfig(({ mode }) => ({
     // Convert standard CSS imports to preloads in development/preview as well to fix render blocking
     {
       name: "preview-css-optimizer",
-      transformIndexHtml(html) {
+      transformIndexHtml(html: string) {
         return html.replace(
           /<link\s+rel="stylesheet"\s*href="([^"]+\.css)"\s*\/?>/gi,
           '<link rel="preload" href="$1" as="style" onload="this.rel=\'stylesheet\'">' +
