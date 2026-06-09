@@ -127,7 +127,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-gwm-haval-h6-guarulhos": {
     title: "Quanto custa o seguro do GWM Haval H6 em Guarulhos?",
-    content: "Para o GWM Haval H6, os preços em Guarulhos variam de R$ 3.000 a R$ 5.500. A grande vantagem é que as seguradoras parceiras da Patro oferecem descontos exclusivos para veículos com tecnologia ADAS (auxílio de condução), que o Haval possui de sobra. Isso reduz a probabilidade de colisões e, consequentemente, o preço do seguro.\n\n[Cotação Grátis GWM Haval](/cotacao?tipo=auto&modelo=haval-h6)",
+    content: "Para o GWM Haval H6, os preços em Guarulhos variam de R$ 3.000 a R$ 5.500. A grande vantagem é que as seguradoras parceiras da Patro oferecem descontos exclusivos para veículos com tecnologia ADAS (auxílio de condução), que o Haval possui de sobra. Isso reduz a probabilidade de colisões e, consequentemente, o preço do seguro.\n\n[Cotação Grátis GWM Haval](/seguro-gwm-haval-h6-guarulhos)",
     faqs: [
       { q: "Seguro do Haval H6 é mais caro que de um Jeep?", a: "Atualmente, as taxas para o Haval estão muito similares e, em alguns perfis, até mais baratas que SUVs tradicionais." },
       { q: "A bateria do GWM Haval tem seguro?", a: "Sim, nossas apólices garantem a cobertura total do sistema híbrido e da bateria em caso de colisão ou danos elétricos." }
