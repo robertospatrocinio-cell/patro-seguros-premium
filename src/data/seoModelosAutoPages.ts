@@ -255,13 +255,14 @@ const MODELOS: ModeloSeed[] = [
     context: "O BYD Dolphin é o elétrico mais vendido do Brasil. Em Guarulhos, exige um seguro que cubra a bateria e o Wallbox de recarga."
   },
   {
-    slug: "seguro-auto-byd-song-plus-guarulhos",
+    slug: "seguro-byd-song-plus-guarulhos",
     modelo: "BYD Song Plus",
     modeloShort: "Song Plus",
     categoria: "suv",
     heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 229.000 a R$ 250.000",
     priceRange: { min: 3200, max: 6500, label: "R$ 3.200 a R$ 6.500/ano" },
+
     theftProfile: "baixo",
     pros: ["Híbrido plug-in eficiente", "Espaço interno premium", "Tecnologia ADAS avançada"],
     cons: ["Complexidade do sistema híbrido", "Valor de peças de reposição"],
