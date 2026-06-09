@@ -1273,6 +1273,7 @@ export const seoModeloAutoPages: Record<string, SeoLocalPageConfig> = Object.fro
 );
 
 export const seoModeloAutoSlugs = Object.keys(seoModeloAutoPages);
+export const seoLocalPageSlugs = seoModeloAutoSlugs;
 
 export const MODELO_LIST = MODELOS.map((m) => ({
   slug: m.slug,
