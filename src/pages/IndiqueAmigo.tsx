@@ -152,6 +152,27 @@ const IndiqueAmigo = () => {
                 <Progress value={progress} className="h-2 bg-primary/10" />
               </div>
 
+              {showRestoreNotice && (
+                <div className="mb-8 animate-in slide-in-from-top-4 duration-500">
+                  <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <AlertCircle className="h-5 w-5 text-primary shrink-0" />
+                      <p className="text-sm font-medium text-primary">Indicação retomada</p>
+                    </div>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="h-8 gap-2 hover:bg-primary/10 text-primary"
+                      onClick={startOver}
+                    >
+                      <RotateCcw className="h-3.5 w-3.5" />
+                      Limpar
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                   {step === 1 ? (
