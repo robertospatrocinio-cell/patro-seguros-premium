@@ -1,13 +1,20 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, MessageCircle, Info, ShieldCheck, Zap, Award } from "lucide-react";
+import { CheckCircle2, MessageCircle, Info, ShieldCheck, Zap, Award, HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import { useState } from "react";
+
+interface FAQItem {
+  q: string;
+  a: string;
+}
 
 interface InsurerPageProps {
   insurer: string;
@@ -16,7 +23,9 @@ interface InsurerPageProps {
   keywords: string[];
   accentColor: string;
   history?: string;
+  faqs?: FAQItem[];
 }
+
 
 const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history }: InsurerPageProps) => {
   const WHATSAPP_URL = `https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20da%20${insurer}%20em%20Guarulhos.`;
