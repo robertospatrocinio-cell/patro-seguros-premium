@@ -327,13 +327,14 @@ const MODELOS: ModeloSeed[] = [
     context: "Proteger uma Toyota SW4 em Guarulhos é prioridade. Na Patro Seguros, focamos em sistemas de segurança que reduzem o preço do seguro."
   },
   {
-    slug: "seguro-auto-ford-ranger-guarulhos",
+    slug: "seguro-ford-ranger-guarulhos",
     modelo: "Ford Ranger",
     modeloShort: "Ranger",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 230.000 a R$ 360.000",
     priceRange: { min: 4200, max: 9800, label: "R$ 4.200 a R$ 9.800/ano" },
+
     theftProfile: "médio-alto",
     pros: ["Nova geração tecnológica", "Motor V6 diesel potente", "Capacidade off-road superior"],
     cons: ["Manutenção da rede Ford exige peças originais", "Visada por quadrilhas de frotas"],
