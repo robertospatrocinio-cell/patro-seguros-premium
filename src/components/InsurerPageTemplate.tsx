@@ -181,8 +181,134 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
           </div>
         </section>
 
+        {/* Claim Step-by-Step */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="flex flex-col md:flex-row gap-12">
+              <div className="md:w-1/3">
+                <div className="sticky top-24 space-y-4">
+                  <div className="w-12 h-12 bg-red-50 rounded-2xl flex items-center justify-center text-red-600">
+                    <AlertCircle className="w-6 h-6" />
+                  </div>
+                  <h2 className="text-3xl font-bold text-slate-900 leading-tight">Como acionar o sinistro {insurer} em Guarulhos</h2>
+                  <p className="text-slate-600">Guia rápido para quando você mais precisar de agilidade e suporte.</p>
+                  
+                  {claimChannels && claimChannels.length > 0 && (
+                    <div className="pt-6 space-y-3">
+                      <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">Canais Oficiais {insurer}</p>
+                      {claimChannels.map((channel, idx) => (
+                        <div key={idx} className="flex items-center gap-3 text-slate-700">
+                          {channel.type === 'whatsapp' && <MessageCircle className="w-4 h-4 text-green-500" />}
+                          {channel.type === 'phone' && <Phone className="w-4 h-4 text-blue-500" />}
+                          {channel.type === 'app' && <Smartphone className="w-4 h-4 text-purple-500" />}
+                          {channel.type === 'web' && <Search className="w-4 h-4 text-orange-500" />}
+                          <span className="text-sm"><strong>{channel.label}:</strong> {channel.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="md:w-2/3 space-y-12">
+                <div className="relative pl-12 border-l-2 border-slate-100 space-y-8">
+                  <div className="relative">
+                    <div className="absolute -left-[60px] top-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg">1</div>
+                    <h3 className="text-xl font-bold mb-2">Segurança e Documentação</h3>
+                    <p className="text-slate-600">Garanta a segurança de todos. Se houver vítimas, chame o socorro médico. Tire fotos dos danos e placas dos veículos envolvidos e anote o contato de testemunhas.</p>
+                  </div>
+
+                  <div className="relative">
+                    <div className="absolute -left-[60px] top-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg">2</div>
+                    <h3 className="text-xl font-bold mb-2">Boletim de Ocorrência (B.O.)</h3>
+                    <p className="text-slate-600">Para colisões em Guarulhos ou rodovias federais, o B.O. pode ser feito online. Ele é indispensável em casos de roubo, furto ou colisões com feridos/terceiros.</p>
+                  </div>
+
+                  <div className="relative">
+                    <div className="absolute -left-[60px] top-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg">3</div>
+                    <h3 className="text-xl font-bold mb-2">Comunicação à {insurer}</h3>
+                    <p className="text-slate-600">Use os canais oficiais acima para abrir o aviso de sinistro. Você receberá um número de protocolo que usaremos para acompanhar seu processo.</p>
+                  </div>
+
+                  <div className="relative">
+                    <div className="absolute -left-[60px] top-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg">4</div>
+                    <h3 className="text-xl font-bold mb-2">Oficina e Vistoria em Guarulhos</h3>
+                    <p className="text-slate-600">Escolha uma oficina da rede referenciada da {insurer} em Guarulhos (Macedo, Centro ou Cumbica) para ganhar descontos na franquia e agilidade na vistoria.</p>
+                  </div>
+
+                  <div className="relative">
+                    <div className="absolute -left-[60px] top-0 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg">5</div>
+                    <h3 className="text-xl font-bold mb-2">Apoio da Patro Seguros</h3>
+                    <p className="text-slate-600">Após abrir o aviso, envie o número do sinistro para a Patro. Nós cuidaremos de cobrar a seguradora para que seu carro seja liberado o mais rápido possível.</p>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                  <h4 className="font-bold flex items-center gap-2 mb-3">
+                    <MapPin className="w-4 h-4 text-primary" />
+                    Rede de Oficinas em Guarulhos
+                  </h4>
+                  <p className="text-sm text-slate-600">
+                    A {insurer} possui oficinas credenciadas em pontos estratégicos de Guarulhos. Ao optar pela rede referenciada, você tem garantia total no reparo e condições especiais no valor da franquia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table Section */}
+        <section className="py-20 bg-slate-50 border-y border-slate-200">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-slate-900">Comparativo: {insurer} vs Mercado</h2>
+              <p className="text-slate-600 mt-2">Veja como a {insurer} se posiciona em relação às outras seguradoras que trabalhamos em Guarulhos.</p>
+            </div>
+
+            <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-xl">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-slate-900 text-white">
+                    <th className="p-6 font-bold uppercase tracking-widest text-xs text-nowrap">Seguradora</th>
+                    <th className="p-6 font-bold uppercase tracking-widest text-xs text-nowrap">Custo-Benefício</th>
+                    <th className="p-6 font-bold uppercase tracking-widest text-xs text-nowrap">Cobertura</th>
+                    <th className="p-6 font-bold uppercase tracking-widest text-xs text-nowrap">Atendimento</th>
+                    <th className="p-6 font-bold uppercase tracking-widest text-xs text-nowrap">Franquia</th>
+                    <th className="p-6 font-bold uppercase tracking-widest text-xs text-nowrap">Ação</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {comparisonData.map((row, i) => (
+                    <tr key={i} className={`hover:bg-slate-50 transition-colors ${row.name === insurer ? 'bg-primary/5' : ''}`}>
+                      <td className="p-6">
+                        <div className="flex items-center gap-2">
+                          {row.name === insurer && <Shield className="w-4 h-4 text-primary" />}
+                          <span className={`font-bold whitespace-nowrap ${row.name === insurer ? 'text-primary' : 'text-slate-800'}`}>{row.name}</span>
+                        </div>
+                      </td>
+                      <td className="p-6 text-slate-600 text-sm">{row.cost}</td>
+                      <td className="p-6 text-slate-600 text-sm">{row.coverage}</td>
+                      <td className="p-6 text-slate-600 text-sm">{row.support}</td>
+                      <td className="p-6 text-slate-600 text-sm">{row.franchise}</td>
+                      <td className="p-6">
+                        <Link to={`/cotacao?tipo=auto&seguradora=${row.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                          <Button size="sm" variant={row.name === insurer ? 'default' : 'outline'} className="text-[10px] h-8 px-4 font-bold uppercase whitespace-nowrap">
+                            Cotar {row.name}
+                          </Button>
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-center text-[10px] text-slate-400 mt-4 uppercase tracking-widest font-medium">Análise baseada na performance de sinistros e preços médios praticados em Guarulhos em 2026.</p>
+          </div>
+        </section>
+
         {/* History/SEO Content */}
         {history && (
+
           <section className="py-16 bg-white">
             <div className="container mx-auto px-4 max-w-3xl prose prose-slate">
               <h2 className="text-center mb-8">Sobre a {insurer}</h2>
