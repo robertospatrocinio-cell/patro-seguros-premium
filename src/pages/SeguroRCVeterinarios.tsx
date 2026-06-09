@@ -5,8 +5,8 @@ const SeguroRCVeterinarios = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro RC Veterinários"
-      subtitle="Proteção profissional para médicos veterinários e clínicas"
+      title="Responsabilidade Civil para Veterinários"
+      subtitle="Proteção contra alegações de erro profissional e danos a animais"
       icon="🐾"
       metaDescription="Seguro RC para Veterinários: proteção contra processos por erro profissional, óbito de animais e danos a tutores. Cotação grátis."
       description="O Seguro RC para Veterinários protege o profissional contra reclamações por alegação de erro, negligência ou imperícia no tratamento de animais. A Patro Seguros é especialista neste tipo de seguro e oferece apólices sob medida para cada perfil veterinário."

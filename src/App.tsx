@@ -18,6 +18,16 @@ const SeguroClinicaOdontologica = lazy(() => import("./pages/SeguroClinicaOdonto
 const SeguroEquipamentosOdontologicos = lazy(() => import("./pages/SeguroEquipamentosOdontologicos"));
 const PlanoSaudeClinicasOdontologicas = lazy(() => import("./pages/PlanoSaudeClinicasOdontologicas"));
 const SeguroVidaClinicasOdontologicas = lazy(() => import("./pages/SeguroVidaClinicasOdontologicas"));
+const NichoClinicasVeterinarias = lazy(() => import("./pages/NichoClinicasVeterinarias"));
+const ParceriasClinicasVeterinarias = lazy(() => import("./pages/ParceriasClinicasVeterinarias"));
+const BlogClinicasVeterinarias = lazy(() => import("./pages/BlogClinicasVeterinarias"));
+const ProtecaoPetPremium = lazy(() => import("./pages/ProtecaoPetPremium"));
+const SeguroParaVeterinarios = lazy(() => import("./pages/SeguroParaVeterinarios"));
+const SeguroClinicaVeterinaria = lazy(() => import("./pages/SeguroClinicaVeterinaria"));
+const SeguroHospitalVeterinario = lazy(() => import("./pages/SeguroHospitalVeterinario"));
+const SeguroEquipamentosVeterinarios = lazy(() => import("./pages/SeguroEquipamentosVeterinarios"));
+const PlanoSaudeClinicasVeterinarias = lazy(() => import("./pages/PlanoSaudeClinicasVeterinarias"));
+const SeguroVidaClinicasVeterinarias = lazy(() => import("./pages/SeguroVidaClinicasVeterinarias"));
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -323,6 +333,19 @@ const App = () => {
             <Route path="/seguro-odonto" element={<SeguroOdonto />} />
             <Route path="/seguro-empresarial" element={<SeguroEmpresarial />} />
             <Route path="/seguro-petshop" element={<SeguroPetshop />} />
+            <Route path="/seguro-pet-shop" element={<SeguroPetshop />} />
+            <Route path="/seguro-rc-veterinarios" element={<SeguroRCVeterinarios />} />
+            <Route path="/responsabilidade-civil-veterinarios" element={<SeguroRCVeterinarios />} />
+            <Route path="/seguros-para-clinicas-veterinarias" element={<NichoClinicasVeterinarias />} />
+            <Route path="/parcerias-clinicas-veterinarias" element={<ParceriasClinicasVeterinarias />} />
+            <Route path="/protecao-pet-premium" element={<ProtecaoPetPremium />} />
+            <Route path="/blog/clinicas-veterinarias" element={<BlogClinicasVeterinarias />} />
+            <Route path="/seguro-para-veterinarios" element={<SeguroParaVeterinarios />} />
+            <Route path="/seguro-clinica-veterinaria" element={<SeguroClinicaVeterinaria />} />
+            <Route path="/seguro-hospital-veterinario" element={<SeguroHospitalVeterinario />} />
+            <Route path="/seguro-equipamentos-veterinarios" element={<SeguroEquipamentosVeterinarios />} />
+            <Route path="/plano-saude-clinicas-veterinarias" element={<PlanoSaudeClinicasVeterinarias />} />
+            <Route path="/seguro-vida-clinicas-veterinarias" element={<SeguroVidaClinicasVeterinarias />} />
             <Route path="/seguro-restaurante" element={<SeguroRestaurante />} />
             <Route path="/seguro-empresarial/segmentos" element={<SegurosPorSegmento />} />
             <Route path="/seguro-empresarial/:segmento" element={<SeguroEmpresarialSegmento />} />
