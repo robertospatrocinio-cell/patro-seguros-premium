@@ -490,6 +490,17 @@ const App = () => {
             <Route path="/seguro-auto-jaguar-guarulhos" element={<SeoLocalPage slug="seguro-auto-jaguar-guarulhos" />} />
             <Route path="/seguro-auto-lexus-guarulhos" element={<SeoLocalPage slug="seguro-auto-lexus-guarulhos" />} />
             <Route path="/seguro-auto-toyota-guarulhos" element={<SeoLocalPage slug="seguro-auto-toyota-guarulhos" />} />
+            <Route path="/seguro-byd-dolphin-guarulhos" element={<SeguroBydDolphinGuarulhos />} />
+            <Route path="/seguro-byd-song-plus-guarulhos" element={<SeguroBydSongPlusGuarulhos />} />
+            <Route path="/seguro-byd-seal-guarulhos" element={<SeguroBydSealGuarulhos />} />
+            <Route path="/seguro-gwm-haval-h6-guarulhos" element={<SeguroGwmHavalH6Guarulhos />} />
+            <Route path="/seguro-toyota-sw4-guarulhos" element={<SeguroToyotaSw4Guarulhos />} />
+            <Route path="/seguro-ford-ranger-guarulhos" element={<SeguroFordRangerGuarulhos />} />
+            <Route path="/seguro-chevrolet-s10-guarulhos" element={<SeguroChevroletS10Guarulhos />} />
+            <Route path="/seguro-bmw-x1-guarulhos" element={<SeguroBmwX1Guarulhos />} />
+            <Route path="/seguro-audi-q3-guarulhos" element={<SeguroAudiQ3Guarulhos />} />
+            <Route path="/seguro-mercedes-gla-guarulhos" element={<SeguroMercedesGlaGuarulhos />} />
+
 
             <Route path="/seguro-auto-jeep-guarulhos" element={<SeoLocalPage slug="seguro-auto-jeep-guarulhos" />} />
             <Route path="/seguro-moto-estradeira-guarulhos" element={<SeoLocalPage slug="seguro-moto-estradeira-guarulhos" />} />
