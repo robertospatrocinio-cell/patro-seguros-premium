@@ -106,17 +106,8 @@ const SeoSeguroUberGuarulhos = lazy(() => import("./pages/SeoSeguroUberGuarulhos
 const SeoSeguroEmpresaGuarulhos = lazy(() => import("./pages/SeoSeguroEmpresaGuarulhos"));
 const SeoSeguroVidaGuarulhos = lazy(() => import("./pages/SeoSeguroVidaGuarulhos"));
 const SeoSeguroMotoristaAppGuarulhos = lazy(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"));
-const SeguroBydDolphinGuarulhos = lazy(() => import("./pages/seguro-byd-dolphin-guarulhos"));
-const SeguroBydSongPlusGuarulhos = lazy(() => import("./pages/seguro-byd-song-plus-guarulhos"));
-const SeguroBydSealGuarulhos = lazy(() => import("./pages/seguro-byd-seal-guarulhos"));
-const SeguroGwmHavalH6Guarulhos = lazy(() => import("./pages/seguro-gwm-haval-h6-guarulhos"));
-const SeguroToyotaSw4Guarulhos = lazy(() => import("./pages/seguro-toyota-sw4-guarulhos"));
-const SeguroFordRangerGuarulhos = lazy(() => import("./pages/seguro-ford-ranger-guarulhos"));
-const SeguroChevroletS10Guarulhos = lazy(() => import("./pages/seguro-chevrolet-s10-guarulhos"));
-const SeguroBmwX1Guarulhos = lazy(() => import("./pages/seguro-bmw-x1-guarulhos"));
-const SeguroAudiQ3Guarulhos = lazy(() => import("./pages/seguro-audi-q3-guarulhos"));
-const SeguroMercedesGlaGuarulhos = lazy(() => import("./pages/seguro-mercedes-gla-guarulhos"));
 const SeoLocalPage = lazy(() => import("./pages/SeoLocalPage"));
+
 
 
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
