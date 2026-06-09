@@ -159,7 +159,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-toyota-sw4-guarulhos": {
     title: "Quanto custa o seguro da SW4 em Guarulhos?",
-    content: "A Toyota SW4 é o desafio de qualquer corretora em Guarulhos. Com valores que podem ultrapassar R$ 12.000 sem rastreador, a Patro Seguros utiliza parcerias tecnológicas para trazer este custo para a faixa de R$ 7.000 a R$ 9.500 com monitoramento ativo. É a proteção máxima para o SUV de 7 lugares.\n\n[Cotação VIP SW4](/cotacao?tipo=auto&modelo=sw4)",
+    content: "A Toyota SW4 é o desafio de qualquer corretora em Guarulhos. Com valores que podem ultrapassar R$ 12.000 sem rastreador, a Patro Seguros utiliza parcerias tecnológicas para trazer este custo para a faixa de R$ 7.000 a R$ 9.500 com monitoramento ativo. É a proteção máxima para o SUV de 7 lugares.\n\n[Cotação VIP SW4](/seguro-toyota-sw4-guarulhos)",
     faqs: [
       { q: "A SW4 7 lugares paga mais seguro?", a: "O valor é baseado na FIPE, então a versão 7 lugares tem prêmio proporcionalmente maior." },
       { q: "É possível segurar SW4 blindada?", a: "Sim, temos seguradoras especializadas em veículos blindados com rede de oficinas certificada." }
