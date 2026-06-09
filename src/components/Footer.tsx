@@ -121,6 +121,7 @@ const Footer = memo(() => {
                 { to: "/seguros-guarulhos/gopouva", label: "Gopouva" },
                 { to: "/seguros-para-lojistas-guarulhos", label: "Hub Lojistas" },
                 { to: "/seguro-para-empresas-de-vistoria-veicular", label: "Hub Vistoria" },
+                { to: "/seguros-para-clinicas-odontologicas", label: "Hub Odontologia" },
               ].map(l => (
                 <li key={l.to}><Link to={l.to} className="text-[13px] text-white/80 hover:text-white transition-base">{l.label}</Link></li>
               ))}
