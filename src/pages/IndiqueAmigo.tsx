@@ -35,9 +35,19 @@ const formSchema = z.object({
 });
 
 const IndiqueAmigo = () => {
+  const storageKey = "indique-amigo-data";
   const [submitted, setSubmitted] = useState(false);
-  const [step, setStep] = usePersistentForm<number>("indique-amigo-step", 1);
-  const [savedData, setSavedData, clearSavedData] = usePersistentForm<Partial<z.infer<typeof formSchema>>>("indique-amigo-data", {});
+  const [step, setStep, clearStep, isRestored] = usePersistentForm<number>("indique-amigo-step", 1);
+  const [savedData, setSavedData, clearSavedData] = usePersistentForm<Partial<z.infer<typeof formSchema>>>(storageKey, {});
+  const [showRestoreNotice, setShowRestoreNotice] = useState(false);
+
+  useEffect(() => {
+    if (isRestored && Object.keys(savedData).length > 0 && !submitted) {
+      setShowRestoreNotice(true);
+      const timer = setTimeout(() => setShowRestoreNotice(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [isRestored, submitted]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -50,6 +60,15 @@ const IndiqueAmigo = () => {
       mensagem: savedData.mensagem || "",
     },
   });
+
+  const startOver = () => {
+    clearSavedData();
+    clearStep();
+    form.reset();
+    setShowRestoreNotice(false);
+    toast.success("Dados limpos.");
+  };
+
 
   // Persist form changes
   useEffect(() => {
