@@ -346,6 +346,8 @@ const SeoTechnicalReport = () => {
       <Footer />
     </div>
   );
+};
+
 export default SeoTechnicalReport;
 
 function SchemaBadge({ label, active, icon: Icon }: { label: string, active: boolean, icon: any }) {
@@ -359,5 +361,3 @@ function SchemaBadge({ label, active, icon: Icon }: { label: string, active: boo
     </div>
   );
 }
-
-export default SeoTechnicalReport;
