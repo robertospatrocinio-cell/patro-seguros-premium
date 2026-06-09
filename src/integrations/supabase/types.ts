@@ -1209,6 +1209,36 @@ export type Database = {
         }
         Relationships: []
       }
+      schema_audits: {
+        Row: {
+          errors: Json | null
+          executed_at: string
+          has_breadcrumb: boolean
+          has_faq: boolean
+          has_rating: boolean
+          id: string
+          page_path: string
+        }
+        Insert: {
+          errors?: Json | null
+          executed_at?: string
+          has_breadcrumb?: boolean
+          has_faq?: boolean
+          has_rating?: boolean
+          id?: string
+          page_path: string
+        }
+        Update: {
+          errors?: Json | null
+          executed_at?: string
+          has_breadcrumb?: boolean
+          has_faq?: boolean
+          has_rating?: boolean
+          id?: string
+          page_path?: string
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
