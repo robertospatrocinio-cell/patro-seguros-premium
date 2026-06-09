@@ -267,7 +267,7 @@ const SeguroBMW = () => {
             <h2 id="faq-heading" className="text-3xl md:text-4xl font-black text-white text-center uppercase italic tracking-tighter mb-16">
               Dúvidas <span className="text-blue-500">Frequentes</span> sobre Seguro BMW
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-4" data-speakable="faq">
               {faqs.map((faq, i) => (
                 <div key={i} className="bg-black border border-white/5 overflow-hidden">
                   <button
