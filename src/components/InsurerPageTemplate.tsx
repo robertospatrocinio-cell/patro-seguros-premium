@@ -281,7 +281,42 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-slate-900">Comparativo: {insurer} vs Mercado</h2>
-              <p className="text-slate-600 mt-2">Veja como a {insurer} se posiciona em relação às outras seguradoras que trabalhamos em Guarulhos.</p>
+              <p className="text-slate-600 mt-2">Personalize o comparativo para encontrar a melhor opção para sua necessidade em Guarulhos.</p>
+              
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <div className="bg-white p-1 rounded-xl border border-slate-200 shadow-sm flex overflow-x-auto max-w-full">
+                  {(['auto', 'residencial', 'empresarial', 'vida'] as const).map((type) => (
+                    <button
+                      key={type}
+                      onClick={() => setSelectedType(type)}
+                      className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${selectedType === type ? 'bg-primary text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                    >
+                      {type.charAt(0).toUpperCase() + type.slice(1)}
+                    </button>
+                  ))}
+                </div>
+                
+                <div className="bg-white p-1 rounded-xl border border-slate-200 shadow-sm flex overflow-x-auto max-w-full">
+                  <button
+                    onClick={() => setSortBy('default')}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${sortBy === 'default' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                  >
+                    Padrão
+                  </button>
+                  <button
+                    onClick={() => setSortBy('cost')}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${sortBy === 'cost' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                  >
+                    Melhor Custo
+                  </button>
+                  <button
+                    onClick={() => setSortBy('support')}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${sortBy === 'support' ? 'bg-slate-800 text-white shadow-md' : 'text-slate-500 hover:bg-slate-50'}`}
+                  >
+                    Melhor Atendimento
+                  </button>
+                </div>
+              </div>
             </div>
 
             <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-xl">
@@ -297,7 +332,7 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {comparisonData.map((row, i) => (
+                  {comparisonData.length > 0 ? comparisonData.map((row, i) => (
                     <tr key={i} className={`hover:bg-slate-50 transition-colors ${row.name === insurer ? 'bg-primary/5' : ''}`}>
                       <td className="p-6">
                         <div className="flex items-center gap-2">
@@ -305,22 +340,37 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
                           <span className={`font-bold whitespace-nowrap ${row.name === insurer ? 'text-primary' : 'text-slate-800'}`}>{row.name}</span>
                         </div>
                       </td>
-                      <td className="p-6 text-slate-600 text-sm">{row.cost}</td>
+                      <td className="p-6">
+                        <span className={`px-2 py-1 rounded text-[10px] font-bold uppercase ${row.cost <= 2 ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600'}`}>
+                          {row.costLabel}
+                        </span>
+                      </td>
                       <td className="p-6 text-slate-600 text-sm">{row.coverage}</td>
-                      <td className="p-6 text-slate-600 text-sm">{row.support}</td>
+                      <td className="p-6">
+                        <div className="flex items-center gap-1">
+                          <span className="text-slate-600 text-sm">{row.supportLabel}</span>
+                        </div>
+                      </td>
                       <td className="p-6 text-slate-600 text-sm">{row.franchise}</td>
                       <td className="p-6">
-                        <Link to={`/cotacao?tipo=auto&seguradora=${row.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <Link to={`/cotacao?tipo=${selectedType}&seguradora=${row.name.toLowerCase().replace(/\s+/g, '-')}`}>
                           <Button size="sm" variant={row.name === insurer ? 'default' : 'outline'} className="text-[10px] h-8 px-4 font-bold uppercase whitespace-nowrap">
                             Cotar {row.name}
                           </Button>
                         </Link>
                       </td>
                     </tr>
-                  ))}
+                  )) : (
+                    <tr>
+                      <td colSpan={6} className="p-12 text-center text-slate-400 font-medium">
+                        Nenhum comparativo disponível para este tipo de seguro no momento.
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
+
             <p className="text-center text-[10px] text-slate-400 mt-4 uppercase tracking-widest font-medium">Análise baseada na performance de sinistros e preços médios praticados em Guarulhos em 2026.</p>
           </div>
         </section>
