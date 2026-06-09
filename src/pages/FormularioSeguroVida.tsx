@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { Send, CheckCircle, ChevronRight, ChevronLeft, Save } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Send, CheckCircle, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle } from "lucide-react";
+import { debounce } from "lodash";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -13,8 +14,10 @@ import { Progress } from "@/components/ui/progress";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { escapeHtml } from "@/lib/utils";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
+
 
 const WHATSAPP_NUMBER = "551151997500";
 
@@ -50,12 +53,71 @@ const valoresSeguro = [
 ];
 
 const FormularioSeguroVida = () => {
-  const [form, setForm, clearForm] = usePersistentForm<Record<string, string>>("seguro-vida-completo", {});
-  const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>("seguro-vida-completo-step", 1);
+  const storageKey = "seguro-vida-completo";
+  const [form, setForm, clearForm, isRestored] = usePersistentForm<Record<string, string>>(storageKey, {});
+  const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [showRestoreNotice, setShowRestoreNotice] = useState(false);
+  const [partialId, setPartialId] = useState<string | null>(localStorage.getItem(`${storageKey}-partial-id`));
+
+  // Handle restoration notice
+  useEffect(() => {
+    if (isRestored && Object.keys(form).length > 0 && !sent) {
+      setShowRestoreNotice(true);
+      const timer = setTimeout(() => setShowRestoreNotice(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [isRestored, sent]);
+
+  // Debounced cloud save
+  const saveToCloud = useCallback(
+    debounce(async (values: Record<string, string>, step: number) => {
+      const dataToSave = {
+        name: values.nomeCompleto || null,
+        email: values.email || null,
+        phone: values.telefone || null,
+        insurance_type: "Seguro de Vida - Completo",
+        current_step: step,
+        data: values,
+        last_activity: new Date().toISOString()
+      };
+
+      try {
+        if (partialId) {
+          await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+        } else if (dataToSave.name || dataToSave.email || dataToSave.phone) {
+          const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
+          if (data && !error) {
+            setPartialId(data.id);
+            localStorage.setItem(`${storageKey}-partial-id`, data.id);
+          }
+        }
+      } catch (err) {
+        console.error("Cloud save failed", err);
+      }
+    }, 3000),
+    [partialId, storageKey]
+  );
+
+  useEffect(() => {
+    if (Object.keys(form).length > 0) {
+      saveToCloud(form, currentStep);
+    }
+  }, [form, currentStep, saveToCloud]);
+
+  const startOver = () => {
+    clearForm();
+    clearStep();
+    localStorage.removeItem(`${storageKey}-partial-id`);
+    setPartialId(null);
+    setTouched({});
+    setShowRestoreNotice(false);
+    toast.success("Formulário reiniciado.");
+  };
+
 
   const totalSteps = 4;
   const progress = (currentStep / totalSteps) * 100;
@@ -202,7 +264,11 @@ const FormularioSeguroVida = () => {
     }
 
     setSending(false);
+    clearForm();
+    clearStep();
+    localStorage.removeItem(`${storageKey}-partial-id`);
     setSent(true);
+
     clearForm();
     clearStep();
   };
@@ -257,6 +323,31 @@ const FormularioSeguroVida = () => {
                 </div>
                 <Progress value={progress} className="h-2 bg-primary/10" />
               </div>
+
+              {showRestoreNotice && (
+                <div className="mb-8 animate-in slide-in-from-top-4 duration-500">
+                  <div className="bg-primary/10 border border-primary/20 rounded-2xl p-5 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                        <AlertCircle className="h-6 w-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="text-base font-bold text-primary">Formulário recuperado</p>
+                        <p className="text-sm text-muted-foreground">Retomamos de onde você parou.</p>
+                      </div>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      className="gap-2 border-primary/30 text-primary hover:bg-primary/10"
+                      onClick={startOver}
+                    >
+                      <RotateCcw className="h-4 w-4" />
+                      Reiniciar
+                    </Button>
+                  </div>
+                </div>
+              )}
+
 
               <form onSubmit={handleSubmit} className="space-y-8">
                 {currentStep === 1 && (

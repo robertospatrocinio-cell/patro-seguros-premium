@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { debounce } from "lodash";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -11,9 +12,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { CheckCircle, ChevronRight, ChevronLeft, Save, User as UserIcon, Users, Send } from "lucide-react";
+import { CheckCircle, ChevronRight, ChevronLeft, Save, User as UserIcon, Users, Send, RotateCcw, AlertCircle } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+
 
 const tiposSeguros = [
   "Seguro Auto", "Seguro Moto", "Seguro Vida", "Seguro Residencial",
@@ -31,9 +35,19 @@ const formSchema = z.object({
 });
 
 const IndiqueAmigo = () => {
+  const storageKey = "indique-amigo-data";
   const [submitted, setSubmitted] = useState(false);
-  const [step, setStep] = usePersistentForm<number>("indique-amigo-step", 1);
-  const [savedData, setSavedData, clearSavedData] = usePersistentForm<Partial<z.infer<typeof formSchema>>>("indique-amigo-data", {});
+  const [step, setStep, clearStep, isRestored] = usePersistentForm<number>("indique-amigo-step", 1);
+  const [savedData, setSavedData, clearSavedData] = usePersistentForm<Partial<z.infer<typeof formSchema>>>(storageKey, {});
+  const [showRestoreNotice, setShowRestoreNotice] = useState(false);
+
+  useEffect(() => {
+    if (isRestored && Object.keys(savedData).length > 0 && !submitted) {
+      setShowRestoreNotice(true);
+      const timer = setTimeout(() => setShowRestoreNotice(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [isRestored, submitted]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,6 +60,15 @@ const IndiqueAmigo = () => {
       mensagem: savedData.mensagem || "",
     },
   });
+
+  const startOver = () => {
+    clearSavedData();
+    clearStep();
+    form.reset();
+    setShowRestoreNotice(false);
+    toast.success("Dados limpos.");
+  };
+
 
   // Persist form changes
   useEffect(() => {
@@ -128,6 +151,27 @@ const IndiqueAmigo = () => {
                 </div>
                 <Progress value={progress} className="h-2 bg-primary/10" />
               </div>
+
+              {showRestoreNotice && (
+                <div className="mb-8 animate-in slide-in-from-top-4 duration-500">
+                  <div className="bg-primary/5 border border-primary/20 rounded-2xl p-4 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                      <AlertCircle className="h-5 w-5 text-primary shrink-0" />
+                      <p className="text-sm font-medium text-primary">Indicação retomada</p>
+                    </div>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="h-8 gap-2 hover:bg-primary/10 text-primary"
+                      onClick={startOver}
+                    >
+                      <RotateCcw className="h-3.5 w-3.5" />
+                      Limpar
+                    </Button>
+                  </div>
+                </div>
+              )}
+
 
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

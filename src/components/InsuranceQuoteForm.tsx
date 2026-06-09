@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save } from "lucide-react";
+import { debounce } from "lodash";
+import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,6 +16,7 @@ import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
+
 
 
 const WHATSAPP_NUMBER = "551151997500";
@@ -65,8 +67,8 @@ interface Props {
 const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const storageKey = `quote-form-${config.type.toLowerCase().replace(/\s+/g, "-")}`;
   
-  const [formData, setFormData, clearFormData] = usePersistentForm<Record<string, string>>(storageKey, {});
-  const [checkboxGroups, setCheckboxGroups] = usePersistentForm<Record<string, string[]>>(`${storageKey}-checkboxes`, {});
+  const [formData, setFormData, clearFormData, isRestored] = usePersistentForm<Record<string, string>>(storageKey, {});
+  const [checkboxGroups, setCheckboxGroups, clearCheckboxes] = usePersistentForm<Record<string, string[]>>(`${storageKey}-checkboxes`, {});
   const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [consent, setConsent] = useState(false);
@@ -75,8 +77,69 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [finalMsg, setFinalMsg] = useState("");
   const [showChecklist, setShowChecklist] = useState(false);
   const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
+  const [showRestoreNotice, setShowRestoreNotice] = useState(false);
+  const [partialId, setPartialId] = useState<string | null>(localStorage.getItem(`${storageKey}-partial-id`));
+
+  // Handle restoration notice
+  useEffect(() => {
+    if (isRestored && Object.keys(formData).length > 0 && !sent) {
+      setShowRestoreNotice(true);
+      // Auto-hide notice after 8 seconds
+      const timer = setTimeout(() => setShowRestoreNotice(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [isRestored, sent]);
+
+  // Debounced cloud save for automatic recovery
+  const saveToCloud = useCallback(
+    debounce(async (values: Record<string, string>, checkboxes: Record<string, string[]>, step: number) => {
+      const dataToSave = {
+        name: values.nome || values.name || null,
+        email: values.email || null,
+        phone: values.whatsapp || values.telefone || values.phone || null,
+        insurance_type: config.type,
+        current_step: step,
+        data: { ...values, checkboxGroups: checkboxes },
+        last_activity: new Date().toISOString()
+      };
+
+      try {
+        if (partialId) {
+          await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+        } else if (dataToSave.name || dataToSave.email || dataToSave.phone) {
+          const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
+          if (data && !error) {
+            setPartialId(data.id);
+            localStorage.setItem(`${storageKey}-partial-id`, data.id);
+          }
+        }
+      } catch (err) {
+        console.error("Cloud save failed", err);
+      }
+    }, 3000),
+    [partialId, config.type, storageKey]
+  );
+
+  // Sync to cloud on form changes
+  useEffect(() => {
+    if (Object.keys(formData).length > 0 || Object.keys(checkboxGroups).length > 0) {
+      saveToCloud(formData, checkboxGroups, currentStep);
+    }
+  }, [formData, checkboxGroups, currentStep, saveToCloud]);
+
+  const startOver = () => {
+    clearFormData();
+    clearCheckboxes();
+    clearStep();
+    localStorage.removeItem(`${storageKey}-partial-id`);
+    setPartialId(null);
+    setTouched({});
+    setShowRestoreNotice(false);
+    toast.success("Formulário reiniciado com sucesso.");
+  };
 
   // Group fields into steps
+
   const contactFieldIds = ["nome", "email", "telefone", "whatsapp", "phone", "name"];
   const contactFields = config.fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
   const coverageFields = config.fields.filter(f => f.type === "checkbox-group");
@@ -295,8 +358,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       setSent(true);
       setFinalMsg(finalParts);
       clearFormData();
+      clearCheckboxes();
       clearStep();
+      localStorage.removeItem(`${storageKey}-partial-id`);
     }, 600);
+
 
 
   };
@@ -362,6 +428,32 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
         </div>
         <Progress value={progress} className="h-1.5 bg-primary/10" />
       </div>
+
+      {showRestoreNotice && (
+        <div className="mb-6 animate-in slide-in-from-top-4 duration-500">
+          <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                <AlertCircle className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm font-bold text-primary">Sessão recuperada</p>
+                <p className="text-xs text-muted-foreground">Retomamos seus dados anteriores.</p>
+              </div>
+            </div>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="h-9 gap-2 border-primary/30 text-primary hover:bg-primary/10"
+              onClick={startOver}
+            >
+              <RotateCcw className="h-3.5 w-3.5" />
+              Reiniciar
+            </Button>
+          </div>
+        </div>
+      )}
+
 
       <div className="flex items-center gap-3 mb-1">
         <span className="text-2xl" aria-hidden="true">{config.emoji}</span>
