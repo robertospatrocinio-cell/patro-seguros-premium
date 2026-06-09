@@ -15,7 +15,7 @@ import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
 
-const Index = lazy(() => import("./pages/Index"));
+import Index from "./pages/Index";
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const Cotacao = lazy(() => import("./pages/Cotacao"));
@@ -266,8 +266,7 @@ const App = () => {
             <CookieBanner />
             <ScrollToTop />
             <ServiceWorkerCheck />
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
+            <Routes>
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
                 <Route path="/" element={<Index />} />
@@ -591,7 +590,6 @@ const App = () => {
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
             <Route path="*" element={<LegacyWpRedirect />} />
               </Routes>
-            </Suspense>
           </BrowserRouter>
         </TooltipProvider>
       </QueryProviderWrapper>

@@ -10,7 +10,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 const Main = () => {
   useEffect(() => {
     const deferInit = () => {
-      initMonitoring();
+      initMonitoring().catch(console.error);
       initWebVitals();
     };
 
@@ -29,9 +29,7 @@ const Main = () => {
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={<PageSkeleton />}>
-        <App />
-      </Suspense>
+      <App />
     </ErrorBoundary>
   );
 };
