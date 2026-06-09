@@ -7,7 +7,7 @@ const SeguroClinicaOdontologica = () => (
     title="Seguro para Clínica Odontológica"
     subtitle="Apólice integrada para clínicas, redes odontológicas e franquias com múltiplos dentistas."
     icon="🏥"
-    metaDescription="Seguro para clínica odontológica em Guarulhos — patrimônio, equipamentos, RC profissional coletivo, cyber e lucros cessantes. Cotação grátis com a Patro Seguros."
+    metaDescription="Seguro para clínica odontológica em Guarulhos: patrimônio, equipamentos, RC coletivo, cyber e lucros cessantes. Cotação grátis com a Patro."
     description="Apólice empresarial integrada para clínicas odontológicas de médio e grande porte, redes e franquias."
     detailedDescription={`Clínicas odontológicas modernas combinam alta concentração de pacientes, sócios e equipe técnica, equipamentos de R$ 200 mil a R$ 1 milhão e dados sensíveis sob a LGPD. O risco é agregado — e uma única apólice mal dimensionada pode comprometer a continuidade do negócio.\n\nA Patro Seguros estrutura programas de proteção integrados para clínicas e redes odontológicas, com RC profissional coletivo (todos os dentistas em uma única apólice), seguro cyber, D&O para sócios e plano de saúde empresarial com condições agressivas.`}
     coverages={[

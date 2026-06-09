@@ -46,7 +46,7 @@ const NichoClinicasOdontologicas = () => (
   <>
     <PageMeta
       title="Seguro para Clínicas Odontológicas em Guarulhos | Patro Seguros"
-      description="Proteja sua clínica odontológica com seguro empresarial, responsabilidade civil profissional, equipamentos odontológicos, seguro de vida e plano de saúde empresarial."
+      description="Proteja sua clínica odontológica: seguro empresarial, RC profissional, equipamentos odontológicos, seguro de vida e plano de saúde empresarial."
     />
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />
