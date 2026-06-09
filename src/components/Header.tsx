@@ -1,6 +1,6 @@
 import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
@@ -13,9 +13,10 @@ const Header = memo(() => {
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [mobileSearch, setMobileSearch] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hasRecoverableSession, setHasRecoverableSession] = useState(false);
+  const [recoverableSession, setRecoverableSession] = useState<{ type: string; name?: string; step?: number } | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
+
 
 
   useEffect(() => {
@@ -34,33 +35,51 @@ const Header = memo(() => {
     // Check for recoverable sessions in localStorage
     const checkSessions = () => {
       const storageKeys = [
-        "cotacao_progress",
-        "seguro-vida-completo",
-        "indique-amigo-data",
-        "quote-form-seguro-auto",
-        "quote-form-seguro-vida",
-        "quote-form-seguro-residencial",
-        "quote-form-plano-de-saúde",
-        "quote-form-seguro-empresarial"
+        { key: "cotacao_progress", label: "Cotação Geral" },
+        { key: "seguro-vida-completo", label: "Seguro de Vida" },
+        { key: "indique-amigo-data", label: "Indicação" },
+        { key: "quote-form-seguro-auto", label: "Seguro Auto" },
+        { key: "quote-form-seguro-vida", label: "Seguro de Vida" },
+        { key: "quote-form-seguro-residencial", label: "Seguro Residencial" },
+        { key: "quote-form-plano-de-saúde", label: "Plano de Saúde" },
+        { key: "quote-form-seguro-empresarial", label: "Seguro Empresarial" }
       ];
       
-      const hasAny = storageKeys.some(key => {
-        const item = localStorage.getItem(key);
-        if (!item) return false;
+      let foundSession = null;
+
+      for (const config of storageKeys) {
+        const item = localStorage.getItem(config.key);
+        if (!item) continue;
         try {
           const parsed = JSON.parse(item);
           // If it's the stepped form format {values, step}
-          if (parsed.values && Object.keys(parsed.values).length > 0) return true;
+          if (parsed.values && Object.keys(parsed.values).length > 0) {
+            foundSession = {
+              type: parsed.values.insuranceType || config.label,
+              name: parsed.values.name || parsed.values.nome,
+              step: parsed.step
+            };
+            break;
+          }
           // If it's just raw data record
-          if (Object.keys(parsed).length > 0) return true;
-          return false;
+          if (Object.keys(parsed).length > 0) {
+            foundSession = {
+              type: config.label,
+              name: parsed.name || parsed.nome || parsed.nomeCompleto || parsed.nomeCliente,
+              step: Number(localStorage.getItem(`${config.key}-step`)) || 1
+            };
+            break;
+          }
         } catch {
-          return true; // If not JSON but exists, consider potentially recoverable
+          // If not JSON but exists
+          foundSession = { type: config.label };
+          break;
         }
-      });
+      }
       
-      setHasRecoverableSession(hasAny);
+      setRecoverableSession(foundSession);
     };
+
 
     checkSessions();
     // Listen for storage changes in other tabs
@@ -347,16 +366,59 @@ const Header = memo(() => {
             </div>
 
             <div className="hidden lg:flex items-center gap-3">
-              {hasRecoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  onClick={handleResumeClick}
-                  className="h-8 gap-2 border-primary/30 text-primary hover:bg-primary/5 font-semibold text-[11px] animate-in fade-in zoom-in duration-300"
-                >
-                  <RotateCcw className="h-3 w-3" />
-                  Retomar Cotação
-                </Button>
+              {recoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={handleResumeClick}
+                        className="h-8 gap-2 border-primary/30 text-primary hover:bg-primary/5 font-semibold text-[11px] animate-in fade-in zoom-in duration-300 relative group"
+                      >
+                        <RotateCcw className="h-3 w-3" />
+                        Retomar {recoverableSession.type}
+                        <span className="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse" />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom" className="w-64 p-4 shadow-xl border-primary/10">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2 text-primary border-b border-primary/10 pb-2">
+                          <RotateCcw className="h-4 w-4" />
+                          <span className="font-bold text-xs uppercase tracking-wider">Cotação em Aberto</span>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                              <ShieldCheck className="h-4 w-4 text-primary" />
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-[10px] text-muted-foreground leading-none mb-1">Produto</p>
+                              <p className="text-xs font-bold truncate capitalize">{recoverableSession.type}</p>
+                            </div>
+                          </div>
+                          
+                          {recoverableSession.name && (
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                                <UserIcon className="h-4 w-4 text-primary" />
+                              </div>
+                              <div className="min-w-0">
+                                <p className="text-[10px] text-muted-foreground leading-none mb-1">Titular</p>
+                                <p className="text-xs font-bold truncate">{recoverableSession.name}</p>
+                              </div>
+                            </div>
+                          )}
+
+                          <div className="pt-1 flex items-center justify-between">
+                            <span className="text-[10px] font-medium text-muted-foreground">Status: Etapa {recoverableSession.step || 1}</span>
+                            <span className="text-[10px] font-bold text-primary flex items-center gap-1">Continuar <ArrowRight className="h-2 w-2" /></span>
+                          </div>
+                        </div>
+                      </div>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               )}
               <Link to="/cotacao" onClick={() => trackCotacaoClick("header-desktop")}>
                 <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4">Cotação Grátis</Button>
@@ -373,23 +435,26 @@ const Header = memo(() => {
 
       {isMenuOpen && (
         <div className="lg:hidden bg-background border-b shadow-lg max-h-[80vh] overflow-y-auto p-4">
-          {hasRecoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
+          {recoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
             <button 
               onClick={handleResumeClick}
               className="w-full flex items-center justify-between p-4 mb-4 bg-primary/5 border border-primary/10 rounded-2xl text-primary animate-in slide-in-from-right-4 duration-300 group"
             >
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <RotateCcw className="h-5 w-5" />
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <RotateCcw className="h-6 w-6" />
                 </div>
-                <div className="text-left">
-                  <p className="text-sm font-bold leading-tight">Retomar Cotação</p>
-                  <p className="text-[11px] opacity-70">Continue de onde parou</p>
+                <div className="text-left min-w-0">
+                  <p className="text-sm font-bold leading-tight">Retomar {recoverableSession.type}</p>
+                  <p className="text-[11px] opacity-70 truncate">
+                    {recoverableSession.name ? `${recoverableSession.name} • ` : ""}Etapa {recoverableSession.step || 1}
+                  </p>
                 </div>
               </div>
               <ArrowRight className="h-4 w-4 opacity-40 group-active:translate-x-1 transition-transform" />
             </button>
           )}
+
 
           <div className="relative mb-4">
 
