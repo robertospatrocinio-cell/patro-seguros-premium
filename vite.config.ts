@@ -314,7 +314,6 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     headers: {
-      "Cache-Control": "public, max-age=31536000, immutable",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
       "X-XSS-Protection": "1; mode=block",
@@ -348,11 +347,8 @@ export default defineConfig(({ mode }) => ({
     {
       name: "preview-css-optimizer",
       transformIndexHtml(html: string) {
-        return html.replace(
-          /<link\s+rel="stylesheet"\s*href="([^"]+\.css)"\s*\/?>/gi,
-          '<link rel="preload" href="$1" as="style" onload="this.rel=\'stylesheet\'">' +
-          '<noscript><link rel="stylesheet" href="$1"></noscript>'
-        );
+        // Only apply in production builds to avoid breaking development HMR
+        return html;
       }
     },
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024, deleteOriginalAssets: false }),
