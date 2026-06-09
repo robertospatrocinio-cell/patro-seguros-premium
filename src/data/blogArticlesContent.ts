@@ -113,46 +113,74 @@ export const articlesContent: Record<string, { title: string; content: string; f
   "vai-alugar-imovel-seguro-fianca-sem-fiador": {
     title: "Seguro Fiança Sem Fiador | Patro Seguros",
     content: "Alugar um imóvel em Guarulhos ficou muito mais fácil. O [Seguro Fiança](/seguro-fianca) substitui o fiador e o depósito caução com mais agilidade.",
-    faqs: []
+    faqs: [
+      { q: "Quais documentos preciso para o seguro fiança?", a: "RG, CPF, comprovante de residência e os 3 últimos holerites ou extratos bancários." },
+      { q: "O seguro fiança é aprovado na hora?", a: "Na Patro Seguros, a análise de crédito costuma levar de 30 minutos a 2 horas úteis." }
+    ]
   },
   "como-funciona-franquia-seguro-auto-perda-parcial": {
     title: "Franquia do Seguro Auto: Como Funciona",
     content: "A franquia é a sua participação em caso de conserto do veículo. Entenda quando você paga e quando a seguradora assume tudo.",
-    faqs: []
+    faqs: [
+      { q: "Quando não pago franquia?", a: "Em casos de Perda Total, Roubo/Furto sem recuperação ou quando você aciona apenas a cobertura de terceiros." },
+      { q: "O que é franquia reduzida?", a: "É uma opção onde você paga um prêmio maior anualmente para ter um valor de conserto muito menor em caso de batida." }
+    ]
   },
   "vale-a-pena-usar-consorcio-para-investir-em-imoveis": {
     title: "Consórcio Para Investir em Imóveis | Patro",
     content: "Investir em imóveis via consórcio é uma estratégia inteligente de alavancagem financeira sem juros bancários.",
-    faqs: []
+    faqs: [
+      { q: "Consórcio tem juros?", a: "Não, o consórcio possui apenas uma taxa de administração diluída nas parcelas, o que o torna muito mais barato que o financiamento bancário." },
+      { q: "Posso usar o FGTS no consórcio imobiliário?", a: "Sim, você pode usar o FGTS tanto para dar um lance quanto para amortizar parcelas após a contemplação." }
+    ]
   },
   "melhores-seguradoras-guarulhos-2026": {
     title: "Melhores Seguradoras em Guarulhos 2026",
     content: "Analisamos Porto Seguro, Allianz, Tokio Marine e HDI para descobrir quem tem o melhor atendimento na nossa cidade.",
-    faqs: []
+    faqs: [
+      { q: "Qual a melhor seguradora para assistência 24h?", a: "Porto Seguro lidera o ranking com a maior frota de guinchos e rede de centros automotivos próprios em Guarulhos." },
+      { q: "Tokio Marine é boa em Guarulhos?", a: "Sim, a Tokio Marine é muito agressiva em preços para bairros residenciais e possui excelente agilidade digital." }
+    ]
   },
   "seguro-uber-99-guarulhos-guia": {
     title: "Seguro Uber e 99 em Guarulhos",
     content: "Guia completo de coberturas e seguradoras que aceitam motoristas de aplicativo em Guarulhos.",
-    faqs: []
+    faqs: [
+      { q: "Uber aceita qualquer seguro?", a: "Não, a apólice deve conter obrigatoriamente a cláusula de EAR (Exerce Atividade Remunerada) e o Seguro APP." },
+      { q: "Seguro para Uber cobre batida?", a: "Sim, desde que contratada a cobertura compreensiva com cláusula profissional." }
+    ]
   },
   "seguro-porsche-luxo-guarulhos": {
     title: "Seguro Para Carros de Luxo em Guarulhos",
     content: "Atendimento especializado e coberturas premium para Porsche, BMW e veículos de alto padrão.",
-    faqs: []
+    faqs: [
+      { q: "Carro de luxo exige oficina específica?", a: "Sim, trabalhamos com seguradoras que garantem o conserto em concessionárias autorizadas para manter a originalidade." },
+      { q: "Blindagem de Porsche tem seguro?", a: "Sim, oferecemos cobertura completa para o casco e para o kit de blindagem com reposição de vidros balísticos." }
+    ]
   },
   "porto-seguro-guarulhos-atendimento": {
     title: "Porto Seguro em Guarulhos: Vantagens",
     content: "Conheça os centros médicos, oficinas referenciadas e benefícios exclusivos da Porto Seguro em Guarulhos.",
-    faqs: []
+    faqs: [
+      { q: "Onde fica o Centro Automotivo Porto em Guarulhos?", a: "Existem unidades estratégicas na região do Centro, Vila Augusta e Macedo para check-ups e reparos rápidos." },
+      { q: "Porto Seguro Saúde atende em Guarulhos?", a: "Sim, possui rede credenciada nos principais hospitais e clínicas de alto padrão da cidade." }
+    ]
   },
   "seguradoras-que-mais-pagam-sinistro-guarulhos": {
     title: "Seguradoras Que Mais Pagam Sinistro",
     content: "Ranking de agilidade e satisfação no atendimento de sinistros na região de Guarulhos.",
-    faqs: []
+    faqs: [
+      { q: "Quanto tempo demora o pagamento de perda total?", a: "Por lei, o prazo é de 30 dias após a entrega de todos os documentos, mas Porto e Allianz costumam pagar em menos de 15 dias." },
+      { q: "Seguradora pode negar sinistro?", a: "Apenas se houver fraude, agravamento de risco (como embriaguez) ou inadimplência severa." }
+    ]
   },
   "seguro-caminhao-carreta-cumbica-guarulhos": {
     title: "Seguro Caminhão em Cumbica",
     content: "Proteção pesada para transportadoras e motoristas autônomos no maior polo logístico da região.",
-    faqs: []
+    faqs: [
+      { q: "Seguro de caminhão cobre a carga?", a: "Não, para a carga é necessário o seguro de RCTR-C. O seguro de caminhão foca no cavalo mecânico e carreta." },
+      { q: "Aceitam motoristas autônomos em Cumbica?", a: "Sim, temos planos específicos para autônomos e frotas de pequeno porte." }
+    ]
   }
 };
+
