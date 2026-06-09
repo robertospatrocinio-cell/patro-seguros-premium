@@ -271,7 +271,42 @@ const MODELOS: ModeloSeed[] = [
     context: "O BYD Song Plus une o motor a combustão com a eficiência elétrica. Ideal para quem viaja partindo de Guarulhos."
   },
   {
+    slug: "seguro-auto-byd-seal-guarulhos",
+    modelo: "BYD Seal",
+    modeloShort: "Seal",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 290.000 a R$ 320.000",
+    priceRange: { min: 4500, max: 8500, label: "R$ 4.500 a R$ 8.500/ano" },
+    theftProfile: "baixo",
+    pros: ["Esportividade de 530cv", "Design premiado", "Tração integral inteligente"],
+    cons: ["Pneus de alta performance caros", "Custo de reparo da carroceria CTB"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Indenização 100% FIPE e assistência premium" },
+      { name: "Tokio Marine", reason: "Melhores taxas para esportivos elétricos" }
+    ],
+    context: "O BYD Seal é para quem busca performance sem emissões. Em Guarulhos, a Patro Seguros oferece coberturas VIP para este modelo."
+  },
+  {
+    slug: "seguro-auto-gwm-haval-h6-guarulhos",
+    modelo: "GWM Haval H6",
+    modeloShort: "Haval H6",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1695642646639-661788775f0a?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 214.000 a R$ 270.000",
+    priceRange: { min: 2900, max: 5800, label: "R$ 2.900 a R$ 5.800/ano" },
+    theftProfile: "baixo",
+    pros: ["Tecnologia ADAS nível 2+", "Opções HEV e PHEV", "Garantia de 5 anos"],
+    cons: ["Sensores caros em pequenas colisões", "Modelo novo com índice de peças em formação"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Líder em aceitação da linha GWM Haval" },
+      { name: "Allianz", reason: "Cobertura internacional e assistência 24h ágil" }
+    ],
+    context: "O GWM Haval H6 é o smart SUV que conquistou o Jardim Maia. Proteção robusta para sensores e bateria híbrida."
+  },
+  {
     slug: "seguro-volkswagen-guarulhos",
+
 
     modelo: "Volkswagen",
     modeloShort: "T-Cross",
