@@ -264,7 +264,11 @@ const FormularioSeguroVida = () => {
     }
 
     setSending(false);
+    clearForm();
+    clearStep();
+    localStorage.removeItem(`${storageKey}-partial-id`);
     setSent(true);
+
     clearForm();
     clearStep();
   };
