@@ -407,11 +407,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       </form>
     </div>
   );
-
-
-      </form>
-    </div>
-  );
 };
 
 export default QuickQuoteForm;
+
