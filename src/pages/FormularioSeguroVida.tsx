@@ -51,14 +51,25 @@ const valoresSeguro = [
 ];
 
 const FormularioSeguroVida = () => {
-  const [form, setForm] = useState<Record<string, string>>({});
+  const [form, setForm, clearForm] = usePersistentForm<Record<string, string>>("seguro-vida-completo", {});
+  const [currentStep, setCurrentStep] = usePersistentForm<number>("seguro-vida-completo-step", 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [consent, setConsent] = useState(false);
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const totalSteps = 4;
+  const progress = (currentStep / totalSteps) * 100;
+
   const u = (key: string, value: string) => setForm(p => ({ ...p, [key]: value }));
   const handleBlur = (key: string) => setTouched(p => ({ ...p, [key]: true }));
+
+  const stepFields: Record<number, string[]> = {
+    1: ["nomeCompleto", "cpf", "dataNascimento", "profissao"],
+    2: ["cep", "rua", "numero", "bairro", "cidade", "estado"],
+    3: ["valorSeguro", "peso", "altura"],
+    4: ["telefone", "email"]
+  };
 
   const requiredFields = ["nomeCompleto", "cpf", "dataNascimento", "telefone", "email", "profissao", "valorSeguro"];
 
@@ -72,26 +83,65 @@ const FormularioSeguroVida = () => {
     return "";
   };
 
-  const isValid = () => {
-    for (const f of requiredFields) {
-      if (!form[f]?.trim()) return false;
-      if (getFieldError(f)) return false;
+  const isStepValid = (stepNum: number) => {
+    const fields = stepFields[stepNum] || [];
+    for (const f of fields) {
+      if (requiredFields.includes(f)) {
+        if (!form[f]?.trim()) return false;
+        if (getFieldError(f)) return false;
+      }
     }
-    return consent;
+    return true;
+  };
+
+  const nextStep = () => {
+    // Touch fields in current step
+    const fields = stepFields[currentStep] || [];
+    const newTouched = { ...touched };
+    fields.forEach(f => { newTouched[f] = true });
+    setTouched(newTouched);
+
+    if (!isStepValid(currentStep)) {
+      toast.error("Por favor, preencha os campos obrigatórios desta etapa.");
+      return;
+    }
+    if (currentStep < totalSteps) {
+      setCurrentStep(currentStep + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (currentStep < totalSteps) {
+      nextStep();
+      return;
+    }
+
+    if (!consent) {
+      toast.error("Você precisa aceitar os termos para continuar.");
+      return;
+    }
 
     // Mark all as touched
     const allTouched: Record<string, boolean> = {};
     requiredFields.forEach(f => { allTouched[f] = true });
     setTouched(allTouched);
 
-    if (!isValid()) {
+    const firstInvalidField = requiredFields.find(f => !form[f]?.trim() || getFieldError(f));
+    if (firstInvalidField) {
       toast.error("Por favor, preencha todos os campos obrigatórios corretamente.");
       return;
     }
+
     setSending(true);
 
     const lines = [
