@@ -290,10 +290,17 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         <Button type="submit" variant="cta" className="w-full h-12 font-bold text-sm" disabled={sending}>
           {sending ? "Enviando..." : <><Send className="mr-2 h-4 w-4" /> Cotar meu seguro agora</>}
         </Button>
-        <div className="flex items-center justify-center gap-2 text-[10px] text-foreground/70 mt-4">
-          <TrendingDown className="h-3 w-3 text-green-600" />
-          <span>Nota 4.9 no Google | Comparativo de 16+ seguradoras</span>
+        <div className="flex flex-col items-center gap-2 mt-4">
+          <div className="flex items-center justify-center gap-2 text-[10px] text-foreground/70">
+            <TrendingDown className="h-3 w-3 text-green-600" />
+            <span>Nota 4.9 no Google | Comparativo de 16+ seguradoras</span>
+          </div>
+          <div className="flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground/60">
+            <Save className="h-3 w-3" />
+            <span>Progresso salvo automaticamente</span>
+          </div>
         </div>
+
       </form>
     </div>
   );
