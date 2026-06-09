@@ -815,6 +815,29 @@ const Header = memo(() => {
                 <MobileLink to="/consorcio-veiculos-pesados">Veículos Pesados</MobileLink>
               </div>
             </MobileSection>
+            <MobileSection id="especialistas" label="Especialistas">
+              <MobileSubLabel>Veterinária</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguros-para-clinicas-veterinarias">Hub Veterinário</MobileLink>
+                <MobileLink to="/seguro-clinica-veterinaria">Clínica</MobileLink>
+                <MobileLink to="/seguro-hospital-veterinario">Hospital</MobileLink>
+                <MobileLink to="/seguro-rc-veterinarios">RC Veterinário</MobileLink>
+                <MobileLink to="/seguro-pet-shop">Pet Shop</MobileLink>
+                <MobileLink to="/protecao-pet-premium">Premium Pet</MobileLink>
+              </div>
+              <MobileSubLabel>Odontologia</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguros-para-clinicas-odontologicas">Hub Odonto</MobileLink>
+                <MobileLink to="/seguro-clinica-odontologica">Clínica</MobileLink>
+                <MobileLink to="/seguro-consultorio-odontologico">Consultório</MobileLink>
+                <MobileLink to="/responsabilidade-civil-dentistas">RC Dentista</MobileLink>
+                <MobileLink to="/seguro-equipamentos-odontologicos">Equipamentos</MobileLink>
+              </div>
+              <MobileSubLabel>Outros</MobileSubLabel>
+              <div className="grid grid-cols-2 gap-0.5">
+                <MobileLink to="/seguro-para-empresas-de-vistoria-veicular">Hub Vistoria</MobileLink>
+              </div>
+            </MobileSection>
             <Link to="/blog" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Blog</Link>
             <Link to="/sobre" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Sobre</Link>
             <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold text-foreground hover:text-primary border-b border-border/50 transition-base" onClick={close}>Contato</Link>
