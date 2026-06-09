@@ -378,9 +378,9 @@ segmentos.push(
     nome: "Franquias",
     icon: "🏢",
     subtitle: "Seguro obrigatório para franqueados em Guarulhos",
-    description: "Proteção completa para franquias: atende todas as exigências do franqueador com o melhor custo-benefício de Guarulhos.",
-    detailedDescription: "Ser um franqueado em Guarulhos exige atenção redobrada aos contratos de seguro. A maioria das franqueadoras exige coberturas específicas de Incêndio, Danos Elétricos e Responsabilidade Civil para liberar a operação. Na Patro Seguros, analisamos seu COF (Circular de Oferta de Franquia) e emitimos a apólice exata para sua conformidade.\n\nAlém de atender a burocracia, protegemos seu investimento em estoque, instalações premium e garantimos o faturamento durante reformas com a cobertura de Lucros Cessantes. Atendemos franquias no Shopping Maia, Internacional Shopping e demais polos comerciais de Guarulhos.",
-    metaDescription: "Seguro para Franquias em Guarulhos: conformidade com o franqueador, incêndio, RC e lucros cessantes. Cotação em 2h.",
+    description: "Proteção completa para franquias em Guarulhos: atende todas as exigências do franqueador com o melhor custo-benefício.",
+    detailedDescription: "### Por que contratar Seguro para Franquias em Guarulhos?\n\nSer um franqueado em Guarulhos exige atenção redobrada aos contratos de seguro. A maioria das franqueadoras exige coberturas específicas de Incêndio, Danos Elétricos e Responsabilidade Civil para liberar a operação. Na Patro Seguros, analisamos seu COF (Circular de Oferta de Franquia) e emitimos a apólice exata para sua conformidade.\n\n### Atendimento aos Shoppings de Guarulhos\n\nAlém de atender a burocracia, protegemos seu investimento em estoque, instalações premium e garantimos o faturamento durante reformas com a cobertura de Lucros Cessantes. Atendemos franquias no Shopping Maia, Internacional Shopping e demais polos comerciais de Guarulhos.",
+    metaDescription: "Seguro para Franquias em Guarulhos: conformidade com o franqueador, incêndio, RC e lucros cessantes. Cotação em 2h com a Patro Seguros.",
     coverages: baseCoverages,
     whoNeeds: ["Franqueados de alimentação", "Franquias de moda e beleza", "Redes de educação e cursos", "Franquias de serviços", "Lojistas em shopping centers"],
     faqs: [
