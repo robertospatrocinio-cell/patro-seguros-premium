@@ -6,7 +6,10 @@ import { Heart, Shield, Star, Car, Home } from "lucide-react";
 
 const ProtecaoPetPremium = () => (
   <>
-    <PageMeta title="Proteção Pet Premium | Patro Seguros" />
+    <PageMeta 
+      title="Proteção Pet Premium | Patro Seguros" 
+      description="Soluções exclusivas da Patro Seguros para tutores: seguro auto com cobertura pet, assistência residencial e benefícios para sua família."
+    />
     <Header />
     <main className="py-20 bg-muted/20">
       <div className="container mx-auto px-4 text-center max-w-4xl">

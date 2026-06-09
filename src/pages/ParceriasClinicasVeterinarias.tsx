@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 
 const ParceriasClinicasVeterinarias = () => (
   <>
-    <PageMeta title="Parcerias para Clínicas Veterinárias | Patro Seguros" />
+    <PageMeta 
+      title="Parcerias para Clínicas Veterinárias | Patro Seguros" 
+      description="Programa de parceria Patro Seguros para clínicas e pet shops: indicação mútua, comissionamento e atendimento especializado."
+    />
     <Header />
     <main className="py-20">
       <div className="container mx-auto px-4 text-center">
