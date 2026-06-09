@@ -104,52 +104,82 @@ export const guarulhosArticlesContent = {
   "quanto-custa-seguro-corolla-guarulhos-2026": {
     title: "Quanto custa o seguro do Corolla em Guarulhos em 2026?",
     content: "O Toyota Corolla é o sedã mais desejado de Guarulhos, mas seu preço de seguro varia drasticamente conforme o bairro. Em 2026, a média para um condutor de 35 anos com garagem no Jardim Maia gira entre R$ 2.800 e R$ 3.900. Já em regiões como Cumbica, o valor pode subir para R$ 4.500 devido ao índice de roubo. Dica Patro: As versões híbridas costumam ter bônus de 10% na taxa de seguro em algumas companhias.\n\n[Cotar Seguro Corolla Agora](/cotacao?tipo=auto&modelo=corolla)",
-    faqs: [{ q: "O seguro do Corolla cobre blindagem?", a: "Sim, desde que a blindagem esteja discriminada na apólice com valor específico." }]
+    faqs: [
+      { q: "O seguro do Corolla cobre blindagem?", a: "Sim, desde que a blindagem esteja discriminada na apólice com valor específico." },
+      { q: "Qual seguradora é melhor para o Corolla em Guarulhos?", a: "Porto Seguro e Tokio Marine possuem as melhores redes de oficinas autorizadas Toyota na cidade." }
+    ]
   },
   "quanto-custa-seguro-hilux-guarulhos-2026": {
-    title: "Quanto custa o seguro da Hilux em Guarulhos em 2026?",
+    title: "Quanto custa o seguro da Hilux em Guarulhos in 2026?",
     content: "A Toyota Hilux exige atenção máxima em Guarulhos. Por ser um dos veículos mais visados, o seguro pode custar entre R$ 5.500 e R$ 9.000, dependendo do CEP. A instalação de um rastreador homologado é quase sempre obrigatória para aceitação do risco. Na Patro Seguros, conseguimos condições especiais para produtores rurais e empresas de logística da região.\n\n[Solicitar Cotação Hilux](/cotacao?tipo=auto&modelo=hilux)",
-    faqs: [{ q: "Preciso de rastreador para segurar a Hilux?", a: "Na maioria das seguradoras premium em Guarulhos, o rastreador é obrigatório para este modelo." }]
+    faqs: [
+      { q: "Preciso de rastreador para segurar a Hilux?", a: "Na maioria das seguradoras premium em Guarulhos, o rastreador é obrigatório para este modelo." },
+      { q: "A Hilux 4x4 tem seguro mais caro?", a: "Sim, devido ao valor FIPE superior e custo de manutenção das peças de tração." }
+    ]
   },
   "quanto-custa-seguro-byd-dolphin-guarulhos": {
     title: "Quanto custa o seguro do BYD Dolphin em Guarulhos?",
     content: "O seguro do BYD Dolphin em Guarulhos é uma grata surpresa para os proprietários. Com média de preço entre R$ 2.500 e R$ 4.200, ele se mostra muito competitivo. O principal ponto de atenção é a cobertura de bateria e o atendimento de guincho plataforma, que garantimos em todas as nossas apólices para elétricos.\n\n[Comparar Seguros para BYD](/cotacao?tipo=auto&modelo=dolphin)",
-    faqs: [{ q: "O seguro do Dolphin cobre o carregador?", a: "Sim, é possível incluir o Wallbox como cobertura adicional na apólice residencial ou como acessório no auto." }]
+    faqs: [
+      { q: "O seguro do Dolphin cobre o carregador?", a: "Sim, é possível incluir o Wallbox como cobertura adicional na apólice residencial ou como acessório no auto." },
+      { q: "O seguro do BYD Dolphin é caro?", a: "Não, ele é um dos elétricos com seguro mais competitivo, variando entre 1,5% e 2,5% do valor do carro em Guarulhos." }
+    ]
   },
   "quanto-custa-seguro-gwm-haval-h6-guarulhos": {
     title: "Quanto custa o seguro do GWM Haval H6 em Guarulhos?",
     content: "Para o GWM Haval H6, os preços em Guarulhos variam de R$ 3.000 a R$ 5.500. A grande vantagem é que as seguradoras parceiras da Patro oferecem descontos exclusivos para veículos com tecnologia ADAS (auxílio de condução), que o Haval possui de sobra. Isso reduz a probabilidade de colisões e, consequentemente, o preço do seguro.\n\n[Cotação Grátis GWM Haval](/cotacao?tipo=auto&modelo=haval-h6)",
-    faqs: [{ q: "Seguro do Haval H6 é mais caro que de um Jeep?", a: "Atualmente, as taxas para o Haval estão muito similares e, em alguns perfis, até mais baratas que SUVs tradicionais." }]
+    faqs: [
+      { q: "Seguro do Haval H6 é mais caro que de um Jeep?", a: "Atualmente, as taxas para o Haval estão muito similares e, em alguns perfis, até mais baratas que SUVs tradicionais." },
+      { q: "A bateria do GWM Haval tem seguro?", a: "Sim, nossas apólices garantem a cobertura total do sistema híbrido e da bateria em caso de colisão ou danos elétricos." }
+    ]
   },
   "quanto-custa-seguro-corolla-cross-guarulhos": {
     title: "Quanto custa o seguro do Corolla Cross em Guarulhos?",
     content: "O Corolla Cross em Guarulhos tem seguro médio de R$ 3.200 a R$ 5.800. A versão híbrida tem uma aceitação excelente em seguradoras como Porto e Tokio Marine. Moradores de condomínios na Vila Augusta conseguem as melhores taxas para este modelo.\n\n[Cotação Corolla Cross](/cotacao?tipo=auto&modelo=corolla-cross)",
-    faqs: [{ q: "Diferença de preço entre híbrido e combustão?", a: "A versão híbrida costuma ter seguro cerca de 8% a 12% mais barato devido ao perfil do condutor." }]
+    faqs: [
+      { q: "Diferença de preço entre híbrido e combustão?", a: "A versão híbrida costuma ter seguro cerca de 8% a 12% mais barato devido ao perfil do condutor." },
+      { q: "O seguro cobre o teto solar do Corolla Cross?", a: "Sim, recomendamos sempre incluir a cobertura de vidros completa que abrange o teto solar panorâmico." }
+    ]
   },
   "quanto-custa-seguro-hr-v-guarulhos": {
     title: "Quanto custa o seguro do HR-V em Guarulhos?",
     content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/cotacao?tipo=auto&modelo=hrv)",
-    faqs: [{ q: "A Honda tem parceria com seguradora?", a: "Sim, a Allianz e a Porto Seguro possuem redes de oficinas Honda muito fortes em Guarulhos." }]
+    faqs: [
+      { q: "A Honda tem parceria com seguradora?", a: "Sim, a Allianz e a Porto Seguro possuem redes de oficinas Honda muito fortes em Guarulhos." },
+      { q: "O seguro do HR-V é visado?", a: "É um modelo intermediário, menos visado que o Civic, o que ajuda a manter o preço mais estável." }
+    ]
   },
   "quanto-custa-seguro-jeep-compass-guarulhos": {
     title: "Quanto custa o seguro do Compass em Guarulhos?",
     content: "O Jeep Compass é líder de categoria e isso gera uma sinistralidade moderada em Guarulhos. O seguro médio fica entre R$ 3.500 e R$ 6.000. Recomendamos sempre incluir a cobertura de vidros completa, incluindo teto solar, que é um item comum no Compass.\n\n[Simular Seguro Compass](/cotacao?tipo=auto&modelo=compass)",
-    faqs: [{ q: "Seguro do Compass a Diesel é mais caro?", a: "Sim, versões diesel costumam ter prêmio superior devido ao valor FIPE e custo de peças do motor." }]
+    faqs: [
+      { q: "Seguro do Compass a Diesel é mais caro?", a: "Sim, versões diesel costumam ter prêmio superior devido ao valor FIPE e custo de peças do motor." },
+      { q: "Jeep Compass exige rastreador em Guarulhos?", a: "Algumas seguradoras dispensam em CEPs de baixo risco, mas em bairros como Cumbica ele é essencial para aceitação." }
+    ]
   },
   "quanto-custa-seguro-toyota-sw4-guarulhos": {
     title: "Quanto custa o seguro da SW4 em Guarulhos?",
     content: "A Toyota SW4 é o desafio de qualquer corretora em Guarulhos. Com valores que podem ultrapassar R$ 12.000 sem rastreador, a Patro Seguros utiliza parcerias tecnológicas para trazer este custo para a faixa de R$ 7.000 a R$ 9.500 com monitoramento ativo. É a proteção máxima para o SUV de 7 lugares.\n\n[Cotação VIP SW4](/cotacao?tipo=auto&modelo=sw4)",
-    faqs: [{ q: "A SW4 7 lugares paga mais seguro?", a: "O valor é baseado na FIPE, então a versão 7 lugares tem prêmio proporcionalmente maior." }]
+    faqs: [
+      { q: "A SW4 7 lugares paga mais seguro?", a: "O valor é baseado na FIPE, então a versão 7 lugares tem prêmio proporcionalmente maior." },
+      { q: "É possível segurar SW4 blindada?", a: "Sim, temos seguradoras especializadas em veículos blindados com rede de oficinas certificada." }
+    ]
   },
   "seguro-carro-eletrico-guarulhos-quanto-custa": {
     title: "Seguro para carro elétrico em Guarulhos: quanto custa?",
     content: "Carros elétricos em Guarulhos pagam, em média, de 2% a 3,5% do valor do veículo em seguro. É um mito que o seguro elétrico é proibitivo. Com as parcerias certas, donos de Volvo, BYD e GWM encontram coberturas completas que incluem bateria e assistência especializada.\n\n[Guia de Seguros Elétricos](/cotacao?tipo=auto)",
-    faqs: [{ q: "Seguro elétrico cobre falta de carga?", a: "Sim, a maioria das assistências 24h VIP oferece reboque até o ponto de recarga mais próximo em caso de pane seca elétrica." }]
+    faqs: [
+      { q: "Seguro elétrico cobre falta de carga?", a: "Sim, a maioria das assistências 24h VIP oferece reboque até o ponto de recarga mais próximo em caso de pane seca elétrica." },
+      { q: "Cobre danos por enchente?", a: "Sim, carros elétricos possuem baterias seladas, mas a cobertura compreensiva garante indenização por danos elétricos severos." }
+    ]
   },
   "seguradoras-mais-baratas-guarulhos-2026": {
     title: "As seguradoras mais baratas para moradores de Guarulhos.",
     content: "Se o seu foco é economia sem perder a qualidade, Azul Seguros e Suhai lideram o ranking em Guarulhos para 2026. A Azul oferece a garantia do Grupo Porto com preço reduzido, enquanto a Suhai é imbatível para quem busca apenas cobertura de roubo e furto em bairros mais visados.\n\n[Ver Comparativo de Preços](/parceiros)",
-    faqs: [{ q: "A seguradora mais barata é boa?", a: "Depende da sua necessidade. Se você busca apenas proteção financeira contra roubo, as opções focadas em custo são excelentes." }]
+    faqs: [
+      { q: "A seguradora mais barata é boa?", a: "Depende da sua necessidade. Se você busca apenas proteção financeira contra roubo, as opções focadas em custo são excelentes." },
+      { q: "Como baixar o preço do seguro?", a: "Instalar rastreador e aumentar o valor da franquia são as formas mais rápidas de reduzir o boleto mensal." }
+    ]
   },
   "seguro-byd-carro-eletrico-guarulhos-guia": {
     title: "Seguro para BYD e Carros Elétricos em Guarulhos",

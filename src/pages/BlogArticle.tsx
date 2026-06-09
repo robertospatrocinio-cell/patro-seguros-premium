@@ -61,13 +61,14 @@ const BlogArticle = () => {
   const related = slug ? getRelatedArticles(slug, 3) : [];
   const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;
   const allFaqs = [
-    ...(article?.faqs ?? []),
+    ...(article?.faqs ?? []).map((f: any) => ({ q: f.q, a: f.a })),
     ...(extraFaqBlock?.faqs ?? []),
     ...((extraFaqBlock?.timeline?.stages ?? []).map((s: any) => ({ q: s.faqQ, a: s.faqA }))),
     ...((extraFaqBlock?.comparison?.rows ?? [])
       .filter((r: any) => r.faqQ && r.faqA)
       .map((r: any) => ({ q: r.faqQ as string, a: r.faqA as string }))),
-  ];
+  ].filter(f => f.q && f.a);
+
 
   const articleImageUrl = slug ? `${CANONICAL_BASE_URL}${getArticleImage(slug)}` : undefined;
 
@@ -87,6 +88,7 @@ const BlogArticle = () => {
       {allFaqs.length > 0 && (
         <FAQSchema faqs={allFaqs.map(f => ({ question: f.q, answer: f.a }))} />
       )}
+
       {meta && slug && (() => {
         // Canonical URL uses the www. host to match the <link rel="canonical">
         // emitted by PageMeta, keeping JSON-LD `url`/`@id` consistent across signals.
@@ -668,17 +670,23 @@ const BlogArticle = () => {
 
             {allFaqs.length > 0 && (
               <div className="mt-12 border-t pt-8">
-                <h2 className="text-2xl font-bold mb-6" id="faq-heading">Dúvidas Frequentes</h2>
+                <h2 className="text-2xl font-bold mb-6" id="faq-heading">Dúvidas Frequentes sobre {article.title}</h2>
                 <div className="space-y-4" data-speakable="faq">
                   {allFaqs.map((faq, i) => (
-                    <div key={i} className="rounded-xl border border-border bg-card p-5">
-                      <h3 className="text-lg font-bold mb-2 text-foreground">{faq.q}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
-                    </div>
+                    <Card key={i} className="border-border bg-card hover:border-primary/30 transition-colors">
+                      <CardContent className="p-5">
+                        <h3 className="text-lg font-bold mb-2 text-foreground flex items-start gap-2">
+                          <span className="text-primary mt-1 shrink-0">?</span>
+                          {faq.q}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed pl-5">{faq.a}</p>
+                      </CardContent>
+                    </Card>
                   ))}
                 </div>
               </div>
             )}
+
 
 
             {/* Tags */}
