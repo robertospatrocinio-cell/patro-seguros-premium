@@ -9,6 +9,15 @@ const SeoDespachantesVistoriasGuarulhos = lazy(() => import("./pages/SeoDespacha
 const SeoParceriaVistoriaGuarulhos = lazy(() => import("./pages/SeoParceriaVistoriaGuarulhos"));
 const SeoAutoPosVistoriaGuarulhos = lazy(() => import("./pages/SeoAutoPosVistoriaGuarulhos"));
 const BlogVistoriaVeicular = lazy(() => import("./pages/BlogVistoriaVeicular"));
+const NichoClinicasOdontologicas = lazy(() => import("./pages/NichoClinicasOdontologicas"));
+const ParceriasClinicasOdontologicas = lazy(() => import("./pages/ParceriasClinicasOdontologicas"));
+const BlogOdontologia = lazy(() => import("./pages/BlogOdontologia"));
+const SeguroParaDentistas = lazy(() => import("./pages/SeguroParaDentistas"));
+const SeguroConsultorioOdontologico = lazy(() => import("./pages/SeguroConsultorioOdontologico"));
+const SeguroClinicaOdontologica = lazy(() => import("./pages/SeguroClinicaOdontologica"));
+const SeguroEquipamentosOdontologicos = lazy(() => import("./pages/SeguroEquipamentosOdontologicos"));
+const PlanoSaudeClinicasOdontologicas = lazy(() => import("./pages/PlanoSaudeClinicasOdontologicas"));
+const SeguroVidaClinicasOdontologicas = lazy(() => import("./pages/SeguroVidaClinicasOdontologicas"));
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -526,6 +535,17 @@ const App = () => {
             <Route path="/parceria-vistorias-veiculares" element={<SeoParceriaVistoriaGuarulhos />} />
             <Route path="/seguro-auto-pos-vistoria" element={<SeoAutoPosVistoriaGuarulhos />} />
             <Route path="/blog/vistoria-veicular" element={<BlogVistoriaVeicular />} />
+            {/* Hub Clínicas Odontológicas */}
+            <Route path="/seguros-para-clinicas-odontologicas" element={<NichoClinicasOdontologicas />} />
+            <Route path="/seguro-para-dentistas" element={<SeguroParaDentistas />} />
+            <Route path="/seguro-consultorio-odontologico" element={<SeguroConsultorioOdontologico />} />
+            <Route path="/seguro-clinica-odontologica" element={<SeguroClinicaOdontologica />} />
+            <Route path="/responsabilidade-civil-dentistas" element={<SeguroRCDentistas />} />
+            <Route path="/seguro-equipamentos-odontologicos" element={<SeguroEquipamentosOdontologicos />} />
+            <Route path="/plano-saude-clinicas-odontologicas" element={<PlanoSaudeClinicasOdontologicas />} />
+            <Route path="/seguro-vida-clinicas-odontologicas" element={<SeguroVidaClinicasOdontologicas />} />
+            <Route path="/parcerias-clinicas-odontologicas" element={<ParceriasClinicasOdontologicas />} />
+            <Route path="/blog/odontologia" element={<BlogOdontologia />} />
             <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
             <Route path="/seguro-geada" element={<SeguroGeada />} />
             <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />

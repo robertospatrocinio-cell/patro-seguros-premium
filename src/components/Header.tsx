@@ -127,6 +127,15 @@ const Header = memo(() => {
     { label: "Despachantes e Vistorias", to: "/seguro-despachantes-e-vistorias", section: "empresarial" },
     { label: "Parceria Vistorias", to: "/parceria-vistorias-veiculares", section: "empresarial" },
     { label: "Auto Pós-Vistoria", to: "/seguro-auto-pos-vistoria", section: "pessoal" },
+    { label: "Clínicas Odontológicas", to: "/seguros-para-clinicas-odontologicas", section: "empresarial" },
+    { label: "Seguro para Dentistas", to: "/seguro-para-dentistas", section: "empresarial" },
+    { label: "Consultório Odontológico", to: "/seguro-consultorio-odontologico", section: "empresarial" },
+    { label: "Clínica Odontológica", to: "/seguro-clinica-odontologica", section: "empresarial" },
+    { label: "Equipamentos Odontológicos", to: "/seguro-equipamentos-odontologicos", section: "empresarial" },
+    { label: "Plano Saúde Clínicas", to: "/plano-saude-clinicas-odontologicas", section: "empresarial" },
+    { label: "Vida Clínicas Odonto", to: "/seguro-vida-clinicas-odontologicas", section: "empresarial" },
+    { label: "Parcerias Odontológicas", to: "/parcerias-clinicas-odontologicas", section: "empresarial" },
+    { label: "Blog Odontologia", to: "/blog/odontologia", section: "empresarial" },
   ], []);
 
   const searchResults = useMemo(() => {

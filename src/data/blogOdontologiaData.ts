@@ -1,0 +1,29 @@
+import { BlogArticleMeta } from "@/lib/blogData";
+
+export const odontologiaArticles: BlogArticleMeta[] = [
+  {
+    slug: "7-riscos-clinica-odontologica-proteger",
+    title: "7 Riscos Que Toda Clínica Odontológica Deve Proteger",
+    excerpt: "Conheça os principais riscos operacionais, jurídicos e cibernéticos de consultórios e clínicas odontológicas — e como blindar o patrimônio do dentista.",
+    category: "Odontologia",
+    tags: ["odontologia", "clínica odontológica", "gestão de riscos", "guarulhos"],
+    author: "Roberto Patro",
+    date: "2026-06-09",
+    readTime: 12,
+  },
+  { slug: "dentista-precisa-seguro-responsabilidade-civil", title: "Dentista precisa de seguro de responsabilidade civil?", excerpt: "Entenda por que o RC Profissional é hoje quase obrigatório para todo cirurgião-dentista no Brasil.", category: "Odontologia", tags: ["odontologia", "responsabilidade civil", "dentistas"], author: "Sandra Patro", date: "2026-06-09", readTime: 9 },
+  { slug: "quanto-custa-seguro-clinica-odontologica", title: "Quanto custa um seguro para clínica odontológica?", excerpt: "Veja faixas de preço por tipo de clínica e os fatores que mais impactam o custo do seguro empresarial odontológico.", category: "Odontologia", tags: ["odontologia", "preços", "clínica odontológica"], author: "Roberto Patro", date: "2026-06-09", readTime: 8 },
+  { slug: "como-proteger-equipamentos-odontologicos", title: "Como proteger equipamentos odontológicos?", excerpt: "Cadeiras, raio-X, scanners intraorais e impressoras 3D: como evitar prejuízos com seguro patrimonial.", category: "Odontologia", tags: ["equipamentos odontológicos", "patrimônio"], author: "Sandra Patro", date: "2026-06-09", readTime: 8 },
+  { slug: "seguro-scanner-intraoral-vale-pena", title: "Seguro para scanner intraoral vale a pena?", excerpt: "Equipamentos de imagem digital custam R$ 60 mil a R$ 200 mil. Veja por que o seguro específico é decisivo.", category: "Odontologia", tags: ["scanner intraoral", "equipamentos odontológicos"], author: "Roberto Patro", date: "2026-06-09", readTime: 7 },
+  { slug: "lgpd-para-clinicas-odontologicas", title: "LGPD para clínicas odontológicas.", excerpt: "O que toda clínica precisa fazer para proteger dados de pacientes e evitar multas da ANPD.", category: "Odontologia", tags: ["LGPD", "cyber", "odontologia"], author: "Sandra Patro", date: "2026-06-09", readTime: 11 },
+  { slug: "como-evitar-prejuizos-consultorios-odontologicos", title: "Como evitar prejuízos em consultórios odontológicos.", excerpt: "Gestão de riscos, contratos, prontuário e seguros: o tripé que protege o dentista autônomo.", category: "Odontologia", tags: ["consultório odontológico", "gestão"], author: "Roberto Patro", date: "2026-06-09", readTime: 10 },
+  { slug: "seguro-empresarial-clinicas-odontologicas", title: "Seguro empresarial para clínicas odontológicas.", excerpt: "Coberturas de incêndio, roubo, lucros cessantes e RC sob medida para o segmento odontológico.", category: "Odontologia", tags: ["seguro empresarial", "clínica odontológica"], author: "Sandra Patro", date: "2026-06-09", readTime: 9 },
+  { slug: "seguro-vida-para-dentistas", title: "Seguro de vida para dentistas.", excerpt: "Como o seguro de vida protege a família, os sócios e a continuidade da clínica em caso de afastamento.", category: "Odontologia", tags: ["seguro vida", "dentistas"], author: "Roberto Patro", date: "2026-06-09", readTime: 8 },
+  { slug: "plano-saude-equipes-odontologicas", title: "Plano de saúde para equipes odontológicas.", excerpt: "Benefícios para auxiliares, recepcionistas e dentistas: como contratar plano empresarial com desconto.", category: "Odontologia", tags: ["plano de saúde", "PME", "odontologia"], author: "Sandra Patro", date: "2026-06-09", readTime: 9 },
+  { slug: "gestao-riscos-clinicas-odontologicas", title: "Gestão de riscos em clínicas odontológicas.", excerpt: "Passo a passo para identificar, mitigar e transferir riscos no dia a dia da clínica.", category: "Odontologia", tags: ["gestão de riscos", "odontologia"], author: "Roberto Patro", date: "2026-06-09", readTime: 11 },
+  { slug: "como-proteger-dados-pacientes-odontologia", title: "Como proteger dados de pacientes.", excerpt: "Boas práticas e seguro cibernético para clínicas odontológicas em conformidade com a LGPD.", category: "Odontologia", tags: ["LGPD", "cyber", "dados"], author: "Sandra Patro", date: "2026-06-09", readTime: 10 },
+  { slug: "seguro-clinicas-guarulhos-odonto", title: "Seguro para clínicas em Guarulhos.", excerpt: "Por que clínicas odontológicas de Guarulhos precisam de coberturas locais específicas (alagamento, roubo, RC).", category: "Odontologia", tags: ["guarulhos", "clínica odontológica"], author: "Roberto Patro", date: "2026-06-09", readTime: 9 },
+  { slug: "seguro-franquias-odontologicas", title: "Seguro para franquias odontológicas.", excerpt: "OdontoCompany, Sorridents, OrthoPride e outras: como atender às exigências da franqueadora.", category: "Odontologia", tags: ["franquias", "odontologia"], author: "Sandra Patro", date: "2026-06-09", readTime: 9 },
+  { slug: "como-proteger-patrimonio-dentista", title: "Como proteger o patrimônio do dentista.", excerpt: "Estratégia de proteção patrimonial integrada: PJ, seguros, previdência e sucessão para profissionais da odontologia.", category: "Odontologia", tags: ["patrimônio", "dentistas", "planejamento"], author: "Roberto Patro", date: "2026-06-09", readTime: 11 },
+  { slug: "o-que-fazer-apos-sinistro-clinica-odontologica", title: "O que fazer após um sinistro em uma clínica odontológica.", excerpt: "Passo a passo para acionar o seguro, preservar provas e retomar o funcionamento da clínica.", category: "Odontologia", tags: ["sinistro", "clínica odontológica"], author: "Sandra Patro", date: "2026-06-09", readTime: 9 },
+];
