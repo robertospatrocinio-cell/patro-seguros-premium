@@ -111,7 +111,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-hilux-guarulhos-2026": {
     title: "Quanto custa o seguro da Hilux em Guarulhos in 2026?",
-    content: "A Toyota Hilux exige atenção máxima em Guarulhos. Por ser um dos veículos mais visados, o seguro pode custar entre R$ 5.500 e R$ 9.000, dependendo do CEP. A instalação de um rastreador homologado é quase sempre obrigatória para aceitação do risco. Na Patro Seguros, conseguimos condições especiais para produtores rurais e empresas de logística da região.\n\n[Solicitar Cotação Hilux](/cotacao?tipo=auto&modelo=hilux)",
+    content: "A Toyota Hilux exige atenção máxima em Guarulhos. Por ser um dos veículos mais visados, o seguro pode custar entre R$ 5.500 e R$ 9.000, dependendo do CEP. A instalação de um rastreador homologado é quase sempre obrigatória para aceitação do risco. Na Patro Seguros, conseguimos condições especiais para produtores rurais e empresas de logística da região.\n\n[Solicitar Cotação Hilux](/seguro-auto-toyota-guarulhos)",
     faqs: [
       { q: "Preciso de rastreador para segurar a Hilux?", a: "Na maioria das seguradoras premium em Guarulhos, o rastreador é obrigatório para este modelo." },
       { q: "A Hilux 4x4 tem seguro mais caro?", a: "Sim, devido ao valor FIPE superior e custo de manutenção das peças de tração." }
