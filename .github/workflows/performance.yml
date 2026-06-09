@@ -1,0 +1,34 @@
+name: Performance CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  performance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      
+      - name: Install dependencies
+        run: bun install
+        
+      - name: Build project
+        run: bun run build
+        
+      - name: Run Lighthouse CI
+        run: bunx lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: WebPageTest Check
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          if [ -n "${{ secrets.WPT_API_KEY }}" ]; then
+            curl -X POST "https://www.webpagetest.org/runtest.php?url=https://www.patroseguros.com.br&k=${{ secrets.WPT_API_KEY }}&location=Dulles_MotoG4:Motorola G (gen 4) - Chrome.4G&f=json"
+          else
+            echo "WPT_API_KEY not found, skipping WebPageTest"
+          fi
