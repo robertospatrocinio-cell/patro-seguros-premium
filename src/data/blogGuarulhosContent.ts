@@ -143,7 +143,7 @@ export const guarulhosArticlesContent = {
   },
   "quanto-custa-seguro-hr-v-guarulhos": {
     title: "Quanto custa o seguro do HR-V em Guarulhos?",
-    content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/cotacao?tipo=auto&modelo=hrv)",
+    content: "O Honda HR-V mantém um dos seguros mais estáveis de Guarulhos, com valores entre R$ 2.900 e R$ 4.800. Por ter uma mecânica confiável e peças disponíveis, a regulação de sinistros é muito rápida na cidade.\n\n[Cotar Seguro Honda HR-V](/seguro-auto-honda-guarulhos)",
     faqs: [
       { q: "A Honda tem parceria com seguradora?", a: "Sim, a Allianz e a Porto Seguro possuem redes de oficinas Honda muito fortes em Guarulhos." },
       { q: "O seguro do HR-V é visado?", a: "É um modelo intermediário, menos visado que o Civic, o que ajuda a manter o preço mais estável." }
