@@ -384,17 +384,6 @@ export function generateSitemap(blogSlugs: string[]): string {
      else geralEntries.push(e);
    }
 
-  const files: Record<string, string> = {
-    "sitemap-guarulhos.xml": urlsetFor(guarulhosEntries),
-    "sitemap-bairros.xml": urlsetFor(bairrosEntries),
-    "sitemap-auto.xml": urlsetFor(autoEntries),
-    "sitemap-vida-saude.xml": urlsetFor(vidaSaudeEntries),
-    "sitemap-empresarial.xml": urlsetFor(empresarialEntries),
-    "sitemap-geral.xml": urlsetFor(geralEntries),
-    // Legacy flat sitemap kept for backward compatibility with already-submitted URLs
-    "sitemap.xml": urlsetFor(allEntries),
-  };
-
   // ---- Sitemap index -------------------------------------------------------
   // Order matters: bairros & Guarulhos first (highest local commercial priority).
   const indexOrder = [
@@ -406,16 +395,31 @@ export function generateSitemap(blogSlugs: string[]): string {
     "sitemap-geral.xml",
   ];
 
-   const index = [
-     '<?xml version="1.0" encoding="UTF-8"?>',
-     '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-     ...indexOrder.map(name => {
-       const loc = cleanXmlString(`${DOMAIN}/${name}`);
-       return `  <sitemap>\n    <loc>${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n  </sitemap>`;
-     }),
-     '</sitemapindex>',
-     '' // Final newline
-   ].join('\n');
+  const index = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...indexOrder.map(name => {
+      const loc = cleanXmlString(`${DOMAIN}/${name}`);
+      return `  <sitemap>\n    <loc>${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n  </sitemap>`;
+    }),
+    '</sitemapindex>',
+    '' // Final newline
+  ].join('\n');
+
+  const files: Record<string, string> = {
+    "sitemap-guarulhos.xml": urlsetFor(guarulhosEntries),
+    "sitemap-bairros.xml": urlsetFor(bairrosEntries),
+    "sitemap-auto.xml": urlsetFor(autoEntries),
+    "sitemap-vida-saude.xml": urlsetFor(vidaSaudeEntries),
+    "sitemap-empresarial.xml": urlsetFor(empresarialEntries),
+    "sitemap-geral.xml": urlsetFor(geralEntries),
+    // Legacy flat sitemap kept for backward compatibility with already-submitted URLs
+    "sitemap.xml": urlsetFor(allEntries),
+    // Mirror of index for compatibility
+    "sitemap_index.xml": index,
+  };
+
+  return { index, files };
 
   return { index, files };
 }

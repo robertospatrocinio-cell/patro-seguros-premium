@@ -18,7 +18,6 @@ Allow: /seguros-guarulhos/
 Allow: /planos-de-saude/
 
 # Sitemaps
-Sitemap: https://www.patroseguros.com.br/sitemap.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
 
 # Optimization for Search Bots
