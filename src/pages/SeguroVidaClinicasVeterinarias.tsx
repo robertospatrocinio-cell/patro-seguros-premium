@@ -1,34 +1,36 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { veterinariaFormFields } from "@/data/veterinariaFormConfig";
+import heroImg from "@/assets/hero-seguro-vida.webp";
 
-const SeguroVidaClinicasVeterinarias = () => (
-  <InsurancePageTemplate
-    title="Seguro de Vida para Clínicas Veterinárias"
-    subtitle="Proteção para sócios, veterinários e funcionários."
-    icon="❤️"
-    metaDescription="Seguro de vida empresarial para o setor veterinário. Cobertura para invalidez profissional, doenças graves e morte. Patro Seguros."
-    description="O seguro de vida empresarial é fundamental para garantir a estabilidade financeira da sua clínica em momentos difíceis, protegendo o futuro das famílias de quem faz o negócio acontecer."
-    coverages={[
-      { title: "Invalidez Profissional", description: "Indenização caso o veterinário fique impossibilitado de exercer a profissão." },
-      { title: "Doenças Graves", description: "Capital para tratamento de câncer, infarto, AVC e outras patologias." },
-      { title: "Morte por Qualquer Causa", description: "Proteção financeira para os dependentes do segurado." },
-      { title: "Auxílio Funeral", description: "Suporte completo para a família em momentos de luto." }
-    ]}
-    whoNeeds={[
-      "Sócios de Clínicas e Hospitais",
-      "Médicos Veterinários",
-      "Equipe de Apoio e Administrativo",
-      "Clínicas que exigem seguro via Sindicato"
-    ]}
-    whyPatro={[
-      "Especialista em Proteção Familiar e Sucessória",
-      "Análise de Capital Segurado Adequada",
-      "Atendimento Especializado em Guarulhos",
-      "Seguradoras com Liquidez Garantida"
-    ]}
-    faqs={[
-      { question: "O seguro é obrigatório pela convenção coletiva?", answer: "Muitas categorias veterinárias possuem obrigatoriedade de seguro de vida. Nós analisamos a convenção do seu sindicato." }
-    ]}
-  />
-);
+const SeguroVidaClinicasVeterinarias = () => {
+  return (
+    <InsurancePageTemplate
+      heroImage={heroImg}
+      title="Seguro de Vida para Clínicas Veterinárias"
+      subtitle="Proteção financeira para sócios e especialistas do setor pet"
+      icon="🤝"
+      badge="Proteção Familiar e Societária"
+      metaDescription="Seguro de Vida Empresarial para Veterinários e Equipes de Clínicas em Guarulhos. Cobertura para invalidez e doenças graves. Patro Seguros."
+      description="Garanta a continuidade do seu negócio e a proteção da sua família com um seguro de vida desenhado para as particularidades da profissão veterinária."
+      detailedDescription={`O seguro de vida empresarial para o setor veterinário vai muito além da cobertura de falecimento. Para o médico veterinário, as coberturas de Invalidez Profissional e Doenças Graves são os pilares mais importantes.
+
+Uma mordida grave, um acidente de trânsito em atendimento domiciliar ou uma doença ocupacional podem impedir o exercício da profissão. O seguro garante a liquidez necessária para tratamentos e manutenção do padrão de vida.
+
+Para donos de clínicas, o seguro de vida para sócios é uma ferramenta de sucessão empresarial, garantindo que a clínica continue operando em caso de falta de um dos pilares do negócio.`}
+      quoteFormFields={veterinariaFormFields}
+      coverages={[
+        { title: "Invalidez Profissional", description: "Indenização específica para quem não pode mais exercer a veterinária." },
+        { title: "Doenças Graves", description: "Capital livre para uso em diagnósticos de câncer, infarto, AVC e outros." },
+        { title: "DIT - Incapacidade Temporária", description: "Garante o pagamento de diárias enquanto você se recupera de um acidente ou cirurgia." },
+        { title: "Assistência Funeral Familiar", description: "Suporte completo em momentos difíceis, estendido à família do segurado." },
+      ]}
+      whoNeeds={["Sócios de Clínicas", "Veterinários Cirurgiões", "Profissionais de Campo", "Funcionários de Hospitais"]}
+      whyPatro={["Especialista em planejamento sucessório", "Análise técnica de coberturas profissionais", "Atendimento humano em Guarulhos"]}
+      faqs={[
+        { question: "O seguro de vida tem carência?", answer: "Para acidentes a cobertura é imediata; para doenças costuma haver carência de 60 a 90 dias." }
+      ]}
+    />
+  );
+};
 
 export default SeguroVidaClinicasVeterinarias;

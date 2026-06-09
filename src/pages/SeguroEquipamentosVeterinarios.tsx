@@ -1,34 +1,36 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { veterinariaFormFields } from "@/data/veterinariaFormConfig";
+import heroImg from "@/assets/hero-seguro-maquinas.webp";
 
-const SeguroEquipamentosVeterinarios = () => (
-  <InsurancePageTemplate
-    title="Seguro para Equipamentos Veterinários"
-    subtitle="Proteja o investimento em tecnologia da sua clínica."
-    icon="📷"
-    metaDescription="Seguro para raio-X, ultrassom, scanners e equipamentos laboratoriais veterinários. Reposição garantida contra roubo e quebra."
-    description="Seus equipamentos médicos são caros e indispensáveis. O seguro de equipamentos veterinários garante que você não fique parado em caso de acidentes ou crimes."
-    coverages={[
-      { title: "Roubo e Furto Qualificado", description: "Indenização rápida para reposição do equipamento em caso de crime." },
-      { title: "Danos Elétricos", description: "Proteção contra queima por picos de energia ou raios." },
-      { title: "Danos por Quedas e Impactos", description: "Cobre a quebra acidental do equipamento durante o manuseio ou transporte." },
-      { title: "Equipamentos Portáteis", description: "Proteção para equipamentos levados para atendimentos domiciliares ou a campo." }
-    ]}
-    whoNeeds={[
-      "Clínicas com Equipamentos de Imagem",
-      "Laboratórios Veterinários",
-      "Veterinários que fazem Atendimento em Campo",
-      "Hospitais Veterinários"
-    ]}
-    whyPatro={[
-      "Apólices Específicas para Tecnologia Médica",
-      "Agilidade na Regulação de Sinistros",
-      "Melhores Taxas do Mercado em Guarulhos",
-      "Suporte Especializado em Hardware Médico"
-    ]}
-    faqs={[
-      { question: "Preciso de nota fiscal para segurar?", answer: "Sim, para a contratação e para a indenização é necessária a comprovação da propriedade via nota fiscal ou documento de importação." }
-    ]}
-  />
-);
+const SeguroEquipamentosVeterinarios = () => {
+  return (
+    <InsurancePageTemplate
+      heroImage={heroImg}
+      title="Seguro para Equipamentos Veterinários"
+      subtitle="Proteja seus aparelhos de diagnóstico e cirurgia contra danos e roubo"
+      icon="🔬"
+      badge="Proteção de Ativos Críticos"
+      metaDescription="Seguro para Equipamentos Veterinários em Guarulhos: proteção para Raio-X, Ultrassom, Monitores e Lab. Cobre roubo e danos elétricos. Patro Seguros."
+      description="Seus equipamentos são o coração do seu diagnóstico. Não deixe seu faturamento parar por conta de um dano acidental ou roubo de aparelhos caros."
+      detailedDescription={`Ultrassom, raio-X digital, monitores multiparâmetros e autoclaves são investimentos pesados. Além do alto valor de aquisição, eles são extremamente sensíveis a picos de energia — um problema comum em diversas regiões.
+
+Nossa apólice específica para equipamentos veterinários garante a reposição rápida ou o conserto desses aparelhos. Oferecemos cobertura para roubo e furto qualificado, danos elétricos e até quebra acidental durante o uso.
+
+Protegemos também seus equipamentos portáteis em trânsito, essencial para veterinários que realizam atendimentos domiciliares ou em haras.`}
+      quoteFormFields={veterinariaFormFields}
+      coverages={[
+        { title: "Danos Elétricos", description: "Proteção contra queima por picos de tensão ou descargas atmosféricas." },
+        { title: "Roubo e Furto Qualificado", description: "Segurança total dentro do seu estabelecimento ou em trânsito." },
+        { title: "Danos Acidentais (Quebra)", description: "Cobre quedas ou impactos que danifiquem o funcionamento do aparelho." },
+        { title: "Equipamentos Portáteis", description: "Cobertura em todo o território nacional para aparelhos móveis." },
+      ]}
+      whoNeeds={["Centros de Diagnóstico", "Clínicas Móveis", "Veterinários de Campo", "Hospitais Veterinários"]}
+      whyPatro={["Especialistas em equipamentos médicos em Guarulhos", "Cláusula de valor de novo para importados", "Reposição ágil de ativos"]}
+      faqs={[
+        { question: "O seguro cobre se o ultrassom cair no chão?", answer: "Sim, se contratada a cobertura de danos acidentais." }
+      ]}
+    />
+  );
+};
 
 export default SeguroEquipamentosVeterinarios;
