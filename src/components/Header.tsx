@@ -15,7 +15,7 @@ const Header = memo(() => {
   const [openMobileSection, setOpenMobileSection] = useState<string | null>(null);
   const [mobileSearch, setMobileSearch] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [recoverableSession, setRecoverableSession] = useState<{ type: string; name?: string; step?: number } | null>(null);
+  const [recoverableSession, setRecoverableSession] = useState<{ key: string; type: string; name?: string; step?: number } | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
