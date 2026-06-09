@@ -22,10 +22,12 @@ function effective(value, fallback) {
 }
 
 export async function validateLocalPages() {
+  console.log('DEBUG: Iniciando loadDataModule...');
   const [pagesMod, defaultsMod] = await Promise.all([
     loadDataModule("src/data/seoLocalAutoPages.ts"),
     loadDataModule("src/data/localDefaults.ts"),
   ]);
+  console.log('DEBUG: loadDataModule concluído.');
 
   console.log('DEBUG: pagesMod keys:', Object.keys(pagesMod || {}));
   const seoLocalPages = pagesMod.seoLocalPages || pagesMod.seoLocalSaudePages || pagesMod.seoModeloAutoPages;
