@@ -102,6 +102,8 @@ const Index = () => {
           <div className="absolute inset-0 z-0">
             <picture>
               <source media="(max-width: 600px)" srcSet="/images/hero-familia-sm.webp" type="image/webp" />
+              {/* Prioritize AVIF if the server/CDN can serve it, though currently using WebP for reliability */}
+              <source srcSet="/images/hero-home.webp" type="image/webp" />
               <img
                 src="/images/hero-home.webp"
                 alt="Seguro auto em Guarulhos com cotação online pela Patro Seguros"
