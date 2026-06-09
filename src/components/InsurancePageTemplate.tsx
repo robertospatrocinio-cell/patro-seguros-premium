@@ -117,6 +117,10 @@ interface InsurancePageProps {
    * para evitar nodos de rating duplicados / inconsistentes.
    */
   skipAggregateRating?: boolean;
+  /**
+   * Fornece o URL canônico para as schemas internas.
+   */
+  canonicalUrl?: string;
 }
 
 const InsurancePageTemplate = ({
@@ -144,9 +148,10 @@ const InsurancePageTemplate = ({
   skipFAQSchema,
   skipAggregateRating,
   faqs = [],
+  canonicalUrl: canonicalUrlProp,
 }: InsurancePageProps) => {
   const location = useLocation();
-  const canonicalUrl = getCanonicalUrl(location.pathname);
+  const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
   const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
   const breadcrumbItems = breadcrumbCategory
     ? [{ label: breadcrumbCategory.label, href: breadcrumbCategory.href }, { label: title }]

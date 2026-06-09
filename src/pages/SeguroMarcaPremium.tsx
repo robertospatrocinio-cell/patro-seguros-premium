@@ -7,6 +7,11 @@ import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FAQSchema from "@/components/FAQSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import WebSiteSchema from "@/components/WebSiteSchema";
+import LocalAreaSchema from "@/components/LocalAreaSchema";
+import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { PREMIUM_BRANDS } from "@/data/premiumBrandsConfig";
 
 const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
@@ -29,9 +34,25 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
       <PageMeta
         title={`Seguro ${config.name} em Guarulhos | Cotação em 2h | Patro Seguros`}
         description={`Seguro ${config.name} em Guarulhos: proteção premium e especializada para seu veículo. Reparo em concessionária, assistência 24h e cotação rápida na Patro Seguros.`}
+        canonicalUrl={`https://patroseguros.lovable.app/seguro-${config.slug}`}
       />
       <FAQSchema 
         faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))} 
+      />
+      <OrganizationSchema />
+      <LocalBusinessSchema />
+      <WebSiteSchema />
+      <LocalAreaSchema
+        serviceName={`Seguro ${config.name}`}
+        url={`https://patroseguros.lovable.app/seguro-${config.slug}`}
+        description={`Seguro ${config.name} em Guarulhos: proteção premium e especializada para seu veículo.`}
+        city="Guarulhos"
+        faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))}
+      />
+      <AggregateRatingSchema
+        serviceName={`Seguro ${config.name}`}
+        url={`https://patroseguros.lovable.app/seguro-${config.slug}`}
+        description={`Cotação de Seguro ${config.name} em Guarulhos`}
       />
       <Header />
 
