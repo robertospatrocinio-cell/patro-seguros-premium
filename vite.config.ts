@@ -341,6 +341,17 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === "development" && componentTagger(),
     mode === "production" && asyncCssPlugin(),
+    // Convert standard CSS imports to preloads in development/preview as well to fix render blocking
+    {
+      name: "preview-css-optimizer",
+      transformIndexHtml(html: string) {
+        return html.replace(
+          /<link\s+rel="stylesheet"\s*href="([^"]+\.css)"\s*\/?>/gi,
+          '<link rel="preload" href="$1" as="style" onload="this.rel=\'stylesheet\'">' +
+          '<noscript><link rel="stylesheet" href="$1"></noscript>'
+        );
+      }
+    },
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024 }),
     mode === "production" && sitemapPlugin(),
      mode === "production" && spaFallbackPlugin(),
