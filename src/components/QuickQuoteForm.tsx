@@ -137,12 +137,16 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
       setTouched(prev => ({ ...prev, nome: true, telefone: true }));
 
       if (nomeError || telError) {
-        toast.error(nomeError || telError);
+        toast.error(nomeError || telError || "Verifique as informações para continuar.");
+        const firstErrorKey = nomeError ? "nome" : "telefone";
+        const element = document.getElementById(`qq-${firstErrorKey}-${trackingLabel}`);
+        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
       }
       setCurrentStep(2);
     }
   };
+
 
   const prevStep = () => {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
