@@ -273,13 +273,14 @@ const MODELOS: ModeloSeed[] = [
     context: "O BYD Song Plus une o motor a combustão com a eficiência elétrica. Ideal para quem viaja partindo de Guarulhos."
   },
   {
-    slug: "seguro-auto-byd-seal-guarulhos",
+    slug: "seguro-byd-seal-guarulhos",
     modelo: "BYD Seal",
     modeloShort: "Seal",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 290.000 a R$ 320.000",
     priceRange: { min: 4500, max: 8500, label: "R$ 4.500 a R$ 8.500/ano" },
+
     theftProfile: "baixo",
     pros: ["Esportividade de 530cv", "Design premiado", "Tração integral inteligente"],
     cons: ["Pneus de alta performance caros", "Custo de reparo da carroceria CTB"],
