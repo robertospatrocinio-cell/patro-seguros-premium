@@ -10,6 +10,7 @@ import FAQSchema from "@/components/FAQSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 
@@ -105,6 +106,13 @@ const SeguroBMW = () => {
       <OrganizationSchema />
       <LocalBusinessSchema />
       <WebSiteSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Seguro Auto", url: "/seguro-auto" },
+          { name: "BMW", url: "/seguro-bmw" },
+        ]}
+      />
       <LocalAreaSchema
         serviceName="Seguro BMW"
         url="https://patroseguros.lovable.app/seguro-bmw"

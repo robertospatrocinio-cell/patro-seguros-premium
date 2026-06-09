@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LazySection from "@/components/LazySection";
 import { Button } from "@/components/ui/button";
 import OrganizationSchema from "@/components/OrganizationSchema";
@@ -56,6 +57,12 @@ const SeguroAuto = () => {
       <OrganizationSchema />
       <LocalBusinessSchema />
       <WebSiteSchema />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Seguro Auto", url: "/seguro-auto" },
+        ]}
+      />
       <LocalAreaSchema
         serviceName="Seguro Auto"
         url="https://patroseguros.lovable.app/seguro-auto"
