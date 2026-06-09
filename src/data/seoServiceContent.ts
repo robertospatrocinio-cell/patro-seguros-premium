@@ -1,4 +1,4 @@
-export const servicePagesContent = {
+export const servicePagesContent: any = {
   "seguro-auto-guarulhos": {
     content: "Guarulhos é a segunda maior cidade do estado de São Paulo, com mais de 1,4 milhão de habitantes e uma frota estimada em 650 mil veículos. A cidade é cortada por rodovias de alto fluxo como a Presidente Dutra (BR-116), Fernão Dias (BR-381) e Ayrton Senna, o que eleva significativamente o risco de acidentes e sinistros. Segundo dados do ISP (Índice de Sinistralidade por Praça), Guarulhos está entre as 10 cidades com maior índice de roubo e furto de veículos do Brasil. Bairros como Cumbica, Bonsucesso e Pimentas apresentam taxas de sinistralidade até 40% superiores à média estadual, enquanto regiões como Cidade Maia e Vila Augusta possuem índices mais favoráveis. A Patro Seguros conhece profundamente a realidade local. Nossa equipe de consultores analisa o perfil de cada cliente — idade, CEP, modelo do veículo, quilometragem e uso — para encontrar a seguradora que oferece a melhor relação custo-benefício. Em muitos casos, conseguimos economias de 15% a 35% em relação à cotação direta. Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFood), que representam uma parcela significativa da frota de Guarulhos. Para esse público, oferecemos coberturas específicas que incluem proteção durante o uso profissional do veículo, algo que muitas apólices convencionais não cobrem. Vila Galvão, Gopoúva, Centro, Cumbica, Parque Cecap são bairros onde temos forte presença."
   },
@@ -17,4 +17,12 @@ export const servicePagesContent = {
   "seguro-frota-guarulhos": {
     content: "Seguro de frota para empresas em Guarulhos. Cobertura completa para veículos comerciais. Gestão simplificada e cotação rápida. Guarulhos é o maior polo logístico do estado. Proximidade do Aeroporto Internacional de Cumbica e rodovias Dutra e Fernão Dias. Oferecemos gestão de risco completa para frotas de todos os portes. Negociação direta com Porto Seguro, Tokio Marine, HDI e Mapfre. Descontos de 15% a 30% em relação ao seguro individual. Atendemos transportadoras, distribuidoras e frotas corporativas. Gestão de sinistros ágil para reduzir tempo de veículo parado."
   }
+  ...vistoriaServicePagesContent
+};
+
+export const vistoriaServicePagesContent = {
+  "seguro-para-empresas-de-vistoria-veicular": {
+    content: "O mercado de vistoria veicular em Guarulhos é altamente regulamentado e exige segurança jurídica e patrimonial. Empresas Credenciadas de Vistoria (ECVs) lidam com grandes responsabilidades ao emitir laudos de transferência e inspeções cautelares. A Patro Seguros oferece consultoria especializada para o setor automotivo, estruturando apólices que atendem às exigências do Detran e protegem o caixa da empresa contra processos judiciais decorrentes de erros operacionais ou omissões em vistorias. Atuamos em toda a região de Guarulhos, com destaque para bairros próximos ao Detran e polos automotivos."
+  }
+  ...vistoriaServicePagesContent
 };
