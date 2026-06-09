@@ -305,7 +305,42 @@ const MODELOS: ModeloSeed[] = [
     context: "O GWM Haval H6 é o smart SUV que conquistou o Jardim Maia. Proteção robusta para sensores e bateria híbrida."
   },
   {
+    slug: "seguro-auto-toyota-sw4-guarulhos",
+    modelo: "Toyota SW4",
+    modeloShort: "SW4",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1621285853634-713b8dd1b2ff?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 350.000 a R$ 480.000",
+    priceRange: { min: 6500, max: 14500, label: "R$ 6.500 a R$ 14.500/ano" },
+    theftProfile: "alto",
+    pros: ["Confiabilidade mecânica Toyota", "Alta liquidez na revenda", "7 lugares e conforto premium"],
+    cons: ["Índice de roubo altíssimo em Guarulhos", "Exigência de múltiplos rastreadores"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Referência em rastreamento e suporte pós-roubo" },
+      { name: "Tokio Marine", reason: "Melhor aceitação para SUVs de luxo visados" }
+    ],
+    context: "Proteger uma Toyota SW4 em Guarulhos é prioridade. Na Patro Seguros, focamos em sistemas de segurança que reduzem o preço do seguro."
+  },
+  {
+    slug: "seguro-auto-ford-ranger-guarulhos",
+    modelo: "Ford Ranger",
+    modeloShort: "Ranger",
+    categoria: "premium",
+    heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 230.000 a R$ 360.000",
+    priceRange: { min: 4200, max: 9800, label: "R$ 4.200 a R$ 9.800/ano" },
+    theftProfile: "médio-alto",
+    pros: ["Nova geração tecnológica", "Motor V6 diesel potente", "Capacidade off-road superior"],
+    cons: ["Manutenção da rede Ford exige peças originais", "Visada por quadrilhas de frotas"],
+    bestInsurers: [
+      { name: "Allianz", reason: "Cobertura robusta para pickups 4x4" },
+      { name: "Mapfre", reason: "Especialista em seguros para o setor agro e logística" }
+    ],
+    context: "A Ford Ranger em Guarulhos circula entre o trabalho e o lazer. Proteção para carga e acessórios é o nosso diferencial."
+  },
+  {
     slug: "seguro-volkswagen-guarulhos",
+
 
 
     modelo: "Volkswagen",
