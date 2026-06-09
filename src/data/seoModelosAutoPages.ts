@@ -363,13 +363,14 @@ const MODELOS: ModeloSeed[] = [
     context: "A Chevrolet S10 é a parceira do empresário guarulhense. Seguro sob medida para quem não pode parar a operação."
   },
   {
-    slug: "seguro-auto-bmw-x1-guarulhos",
+    slug: "seguro-bmw-x1-guarulhos",
     modelo: "BMW X1",
     modeloShort: "X1",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2000&auto=format&fit=crop",
     fipeRange: "R$ 290.000 a R$ 350.000",
     priceRange: { min: 5500, max: 12000, label: "R$ 5.500 a R$ 12.000/ano" },
+
     theftProfile: "médio",
     pros: ["Prestígio BMW e prazer de dirigir", "Tecnologia premium", "Rede de oficinas certificadas"],
     cons: ["Reparo de faróis LED e grade muito caro", "Seguro premium com perfil específico"],
