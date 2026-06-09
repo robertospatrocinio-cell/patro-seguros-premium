@@ -329,6 +329,7 @@ const MODELOS: ModeloSeed[] = [
   {
     slug: "seguro-ford-ranger-guarulhos",
     modelo: "Ford Ranger",
+
     modeloShort: "Ranger",
     categoria: "premium",
     heroImg: "https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2000&auto=format&fit=crop",
