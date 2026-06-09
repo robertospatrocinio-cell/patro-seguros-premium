@@ -32,6 +32,12 @@ const PortoSeguroGuarulhos = () => (
         a: "Nem sempre. Embora seja uma seguradora premium, a Porto possui diversas modalidades (como a Porto Seguro Auto Jovem ou Sênior) que podem ser muito competitivas. Na Patro, comparamos todas as categorias para você."
       }
     ]}
+    claimChannels={[
+      { type: 'whatsapp', value: '11 3003-9303', label: 'WhatsApp' },
+      { type: 'phone', value: '333-PORTO (76786)', label: 'Central 24h' },
+      { type: 'app', value: 'App Porto Seguro', label: 'Aplicativo' },
+      { type: 'web', value: 'portoseguro.com.br', label: 'Portal do Cliente' }
+    ]}
   />
 );
 

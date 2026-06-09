@@ -32,6 +32,12 @@ const HDIGuarulhos = () => (
         a: "O acionamento é muito simples através do aplicativo HDI ou pelo WhatsApp. Como a HDI possui muitos clientes na região, a rede de guinchos em Guarulhos é bastante densa e rápida."
       }
     ]}
+    claimChannels={[
+      { type: 'whatsapp', value: '11 9303-3434', label: 'WhatsApp' },
+      { type: 'phone', value: '0800 701 5430', label: 'Assistência 24h' },
+      { type: 'app', value: 'App HDI Seguros', label: 'Aplicativo' },
+      { type: 'web', value: 'hdi.com.br', label: 'Sinistro Online' }
+    ]}
   />
 );
 
