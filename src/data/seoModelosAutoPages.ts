@@ -236,7 +236,43 @@ const MODELOS: ModeloSeed[] = [
       "A caminhonete premium é o símbolo de força e sucesso. Em Guarulhos, proprietários de modelos como Hilux, Amarok, Ranger, RAM e Silverado buscam uma proteção que acompanhe a grandiosidade de seu veículo. A Patro Seguros oferece consultoria exclusiva para garantir que sua pick-up esteja protegida contra roubo, furto e danos em terrenos acidentados, com assistência 24h preparada para veículos de grande porte e suporte total em todo o Brasil.",
   },
   {
+    slug: "seguro-auto-byd-dolphin-guarulhos",
+    modelo: "BYD Dolphin",
+    modeloShort: "Dolphin",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 149.000 a R$ 180.000",
+    priceRange: { min: 2500, max: 4800, label: "R$ 2.500 a R$ 4.800/ano" },
+    theftProfile: "baixo",
+    pros: ["Tecnologia 100% elétrica", "Baixo custo de manutenção", "Isenção de rodízio em SP"],
+    cons: ["Rede de oficinas especializada restrita", "Custo de bateria elevado em sinistros"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Cobertura específica para bateria e Wallbox" },
+      { name: "Tokio Marine", reason: "Parceria oficial com a BYD e assistência VIP" },
+      { name: "Allianz", reason: "Expertise global em veículos elétricos" }
+    ],
+    context: "O BYD Dolphin é o elétrico mais vendido do Brasil. Em Guarulhos, exige um seguro que cubra a bateria e o Wallbox de recarga."
+  },
+  {
+    slug: "seguro-auto-byd-song-plus-guarulhos",
+    modelo: "BYD Song Plus",
+    modeloShort: "Song Plus",
+    categoria: "suv",
+    heroImg: "https://images.unsplash.com/photo-1707324204207-681329f6424e?q=80&w=2000&auto=format&fit=crop",
+    fipeRange: "R$ 229.000 a R$ 250.000",
+    priceRange: { min: 3200, max: 6500, label: "R$ 3.200 a R$ 6.500/ano" },
+    theftProfile: "baixo",
+    pros: ["Híbrido plug-in eficiente", "Espaço interno premium", "Tecnologia ADAS avançada"],
+    cons: ["Complexidade do sistema híbrido", "Valor de peças de reposição"],
+    bestInsurers: [
+      { name: "Porto Seguro", reason: "Excelentes condições para híbridos plug-in" },
+      { name: "Allianz", reason: "Rede de oficinas com técnicos certificados" }
+    ],
+    context: "O BYD Song Plus une o motor a combustão com a eficiência elétrica. Ideal para quem viaja partindo de Guarulhos."
+  },
+  {
     slug: "seguro-volkswagen-guarulhos",
+
     modelo: "Volkswagen",
     modeloShort: "T-Cross",
     categoria: "popular",
