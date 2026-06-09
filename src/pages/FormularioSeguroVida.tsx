@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { Send, CheckCircle, ChevronRight, ChevronLeft, Save } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Send, CheckCircle, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle } from "lucide-react";
+import { debounce } from "lodash";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -13,8 +14,10 @@ import { Progress } from "@/components/ui/progress";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { escapeHtml } from "@/lib/utils";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
+
 
 const WHATSAPP_NUMBER = "551151997500";
 
