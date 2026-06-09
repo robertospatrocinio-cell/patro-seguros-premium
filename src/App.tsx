@@ -118,6 +118,7 @@ const SeguroAudiQ3Guarulhos = lazy(() => import("./pages/seguro-audi-q3-guarulho
 const SeguroMercedesGlaGuarulhos = lazy(() => import("./pages/seguro-mercedes-gla-guarulhos"));
 const SeoLocalPage = lazy(() => import("./pages/SeoLocalPage"));
 
+
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
 const SeguroGeada = lazy(() => import("./pages/SeguroGeada"));
 const SeguroPropriedadeRural = lazy(() => import("./pages/SeguroPropriedadeRural"));
