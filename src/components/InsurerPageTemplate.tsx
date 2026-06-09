@@ -169,7 +169,47 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
             </div>
           </section>
         )}
+        {/* FAQ Section */}
+        {faqs && faqs.length > 0 && (
+          <section className="py-20 bg-slate-50 border-t border-slate-200">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <div className="text-center mb-12">
+                <HelpCircle className="w-12 h-12 text-primary mx-auto mb-4 opacity-20" />
+                <h2 className="text-3xl font-bold text-slate-900">Dúvidas Frequentes sobre a {insurer}</h2>
+                <p className="text-slate-600 mt-2">Tudo o que você precisa saber antes de contratar em Guarulhos</p>
+              </div>
+              
+              <div className="space-y-4">
+                {faqs.map((faq, i) => (
+                  <Card key={i} className="border-slate-200 overflow-hidden cursor-pointer hover:border-primary/30 transition-colors" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                    <CardContent className="p-0">
+                      <div className="p-6 flex items-center justify-between gap-4">
+                        <h3 className="font-bold text-slate-800 text-lg">{faq.q}</h3>
+                        {openFaq === i ? <ChevronUp className="w-5 h-5 text-primary shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />}
+                      </div>
+                      {openFaq === i && (
+                        <div className="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-50 pt-4 bg-slate-50/50">
+                          {faq.a}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              
+              <div className="mt-12 p-6 bg-white rounded-2xl border border-slate-200 text-center">
+                <p className="text-slate-700 font-medium mb-4">Sua dúvida não está aqui?</p>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                    Perguntar ao Especialista Patro
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
       </main>
+
       
       <Footer />
     </div>
