@@ -35,33 +35,51 @@ const Header = memo(() => {
     // Check for recoverable sessions in localStorage
     const checkSessions = () => {
       const storageKeys = [
-        "cotacao_progress",
-        "seguro-vida-completo",
-        "indique-amigo-data",
-        "quote-form-seguro-auto",
-        "quote-form-seguro-vida",
-        "quote-form-seguro-residencial",
-        "quote-form-plano-de-saúde",
-        "quote-form-seguro-empresarial"
+        { key: "cotacao_progress", label: "Cotação Geral" },
+        { key: "seguro-vida-completo", label: "Seguro de Vida" },
+        { key: "indique-amigo-data", label: "Indicação" },
+        { key: "quote-form-seguro-auto", label: "Seguro Auto" },
+        { key: "quote-form-seguro-vida", label: "Seguro de Vida" },
+        { key: "quote-form-seguro-residencial", label: "Seguro Residencial" },
+        { key: "quote-form-plano-de-saúde", label: "Plano de Saúde" },
+        { key: "quote-form-seguro-empresarial", label: "Seguro Empresarial" }
       ];
       
-      const hasAny = storageKeys.some(key => {
-        const item = localStorage.getItem(key);
-        if (!item) return false;
+      let foundSession = null;
+
+      for (const config of storageKeys) {
+        const item = localStorage.getItem(config.key);
+        if (!item) continue;
         try {
           const parsed = JSON.parse(item);
           // If it's the stepped form format {values, step}
-          if (parsed.values && Object.keys(parsed.values).length > 0) return true;
+          if (parsed.values && Object.keys(parsed.values).length > 0) {
+            foundSession = {
+              type: parsed.values.insuranceType || config.label,
+              name: parsed.values.name || parsed.values.nome,
+              step: parsed.step
+            };
+            break;
+          }
           // If it's just raw data record
-          if (Object.keys(parsed).length > 0) return true;
-          return false;
+          if (Object.keys(parsed).length > 0) {
+            foundSession = {
+              type: config.label,
+              name: parsed.name || parsed.nome || parsed.nomeCompleto || parsed.nomeCliente,
+              step: Number(localStorage.getItem(`${config.key}-step`)) || 1
+            };
+            break;
+          }
         } catch {
-          return true; // If not JSON but exists, consider potentially recoverable
+          // If not JSON but exists
+          foundSession = { type: config.label };
+          break;
         }
-      });
+      }
       
-      setHasRecoverableSession(hasAny);
+      setRecoverableSession(foundSession);
     };
+
 
     checkSessions();
     // Listen for storage changes in other tabs
