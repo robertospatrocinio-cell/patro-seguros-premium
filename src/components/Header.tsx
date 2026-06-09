@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 import { toast } from "sonner";
+import { logForgottenQuote } from "@/lib/quoteHistory";
+
 
 
 const logoFull = "/images/logo-full.webp";
