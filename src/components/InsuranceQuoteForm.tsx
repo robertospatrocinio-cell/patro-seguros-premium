@@ -67,8 +67,8 @@ interface Props {
 const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const storageKey = `quote-form-${config.type.toLowerCase().replace(/\s+/g, "-")}`;
   
-  const [formData, setFormData, clearFormData] = usePersistentForm<Record<string, string>>(storageKey, {});
-  const [checkboxGroups, setCheckboxGroups] = usePersistentForm<Record<string, string[]>>(`${storageKey}-checkboxes`, {});
+  const [formData, setFormData, clearFormData, isRestored] = usePersistentForm<Record<string, string>>(storageKey, {});
+  const [checkboxGroups, setCheckboxGroups, clearCheckboxes] = usePersistentForm<Record<string, string[]>>(`${storageKey}-checkboxes`, {});
   const [currentStep, setCurrentStep, clearStep] = usePersistentForm<number>(`${storageKey}-step`, 1);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [consent, setConsent] = useState(false);
@@ -77,8 +77,69 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [finalMsg, setFinalMsg] = useState("");
   const [showChecklist, setShowChecklist] = useState(false);
   const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
+  const [showRestoreNotice, setShowRestoreNotice] = useState(false);
+  const [partialId, setPartialId] = useState<string | null>(localStorage.getItem(`${storageKey}-partial-id`));
+
+  // Handle restoration notice
+  useEffect(() => {
+    if (isRestored && Object.keys(formData).length > 0 && !sent) {
+      setShowRestoreNotice(true);
+      // Auto-hide notice after 8 seconds
+      const timer = setTimeout(() => setShowRestoreNotice(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [isRestored, sent]);
+
+  // Debounced cloud save for automatic recovery
+  const saveToCloud = useCallback(
+    debounce(async (values: Record<string, string>, checkboxes: Record<string, string[]>, step: number) => {
+      const dataToSave = {
+        name: values.nome || values.name || null,
+        email: values.email || null,
+        phone: values.whatsapp || values.telefone || values.phone || null,
+        insurance_type: config.type,
+        current_step: step,
+        data: { ...values, checkboxGroups: checkboxes },
+        last_activity: new Date().toISOString()
+      };
+
+      try {
+        if (partialId) {
+          await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+        } else if (dataToSave.name || dataToSave.email || dataToSave.phone) {
+          const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
+          if (data && !error) {
+            setPartialId(data.id);
+            localStorage.setItem(`${storageKey}-partial-id`, data.id);
+          }
+        }
+      } catch (err) {
+        console.error("Cloud save failed", err);
+      }
+    }, 3000),
+    [partialId, config.type, storageKey]
+  );
+
+  // Sync to cloud on form changes
+  useEffect(() => {
+    if (Object.keys(formData).length > 0 || Object.keys(checkboxGroups).length > 0) {
+      saveToCloud(formData, checkboxGroups, currentStep);
+    }
+  }, [formData, checkboxGroups, currentStep, saveToCloud]);
+
+  const startOver = () => {
+    clearFormData();
+    clearCheckboxes();
+    clearStep();
+    localStorage.removeItem(`${storageKey}-partial-id`);
+    setPartialId(null);
+    setTouched({});
+    setShowRestoreNotice(false);
+    toast.success("Formulário reiniciado com sucesso.");
+  };
 
   // Group fields into steps
+
   const contactFieldIds = ["nome", "email", "telefone", "whatsapp", "phone", "name"];
   const contactFields = config.fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
   const coverageFields = config.fields.filter(f => f.type === "checkbox-group");
