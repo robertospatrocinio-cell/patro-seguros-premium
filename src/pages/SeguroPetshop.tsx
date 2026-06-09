@@ -5,8 +5,8 @@ const SeguroPetshop = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro para Petshop e Clínicas Veterinárias"
-      subtitle="Proteção completa para o seu negócio, os animais sob seus cuidados e sua responsabilidade civil."
+      title="Seguro para Pet Shops"
+      subtitle="Proteção completa para lojas, banho, tosa e hotelaria pet"
       icon="🐾"
       badge="Especialista em Negócios Pet"
       metaDescription="Seguro para Petshops e Clínicas Veterinárias: proteção contra incêndio, roubo e RC Profissional para banho, tosa e atendimento. Cotação Patro Seguros."

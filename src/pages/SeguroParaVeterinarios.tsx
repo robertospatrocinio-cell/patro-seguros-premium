@@ -1,35 +1,22 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 
-const SeguroParaVeterinarios = () => (
+const SeguroClinicaVeterinariaIndividual = () => (
   <InsurancePageTemplate
     title="Seguro para Veterinários"
-    subtitle="Proteção individual para o médico veterinário autônomo ou sócio."
-    icon="🩺"
-    metaDescription="Seguro de vida, acidentes pessoais e RC profissional para médicos veterinários. Proteja sua renda e seu patrimônio."
-    description="O Seguro para Veterinários foi desenhado para proteger o profissional que atua de forma autônoma ou como sócio de clínicas. Ele garante suporte financeiro em caso de afastamento do trabalho e proteção contra processos."
+    subtitle="Proteção completa para médicos veterinários autônomos ou com clínica própria."
+    icon="🐾"
+    metaDescription="Seguro para veterinários: RC profissional, seguro de vida, equipamentos e plano de saúde. Proteja sua carreira."
+    description="Desenvolvemos uma solução modular para o médico veterinário, permitindo que você contrate apenas o que faz sentido para o seu momento de carreira."
     coverages={[
-      { title: "Diária de Incapacidade Temporária", description: "Garante sua renda diária caso precise se afastar do trabalho por doença ou acidente." },
-      { title: "Responsabilidade Civil Profissional", description: "Defesa jurídica e pagamento de indenizações por alegações de erro profissional." },
-      { title: "Seguro de Vida", description: "Proteção financeira para sua família em caso de morte ou invalidez." },
-      { title: "Doenças Graves", description: "Indenização em dinheiro para custear tratamentos de câncer, infarto e outras doenças." }
+      { title: "RC Profissional", description: "Proteção contra processos por erro médico." },
+      { title: "DIT - Diária de Incapacidade", description: "Garante sua renda se você não puder trabalhar." },
+      { title: "Seguro de Equipamentos", description: "Proteção para seus aparelhos portáteis." },
+      { title: "Seguro de Vida", description: "Proteção para sua família." }
     ]}
-    whoNeeds={[
-      "Médicos Veterinários Autônomos",
-      "Sócios de Clínicas e Hospitais",
-      "Veterinários de Grandes Animais",
-      "Consultores e Peritos Veterinários"
-    ]}
-    whyPatro={[
-      "Especialista em Seguros para Profissionais da Saúde",
-      "Análise de Risco Individualizada",
-      "Atendimento Humanizado em Guarulhos",
-      "Melhores Seguradoras do Mercado"
-    ]}
-    faqs={[
-      { question: "O seguro cobre afastamento por mordida de animal?", answer: "Sim, se a mordida resultar em incapacidade temporária de trabalho, o seguro paga as diárias contratadas." },
-      { question: "O RC protege contra processos no CRMV?", answer: "Sim, as apólices de RC Profissional incluem custos de defesa em processos éticos." }
-    ]}
+    whoNeeds={["Veterinários Autônomos", "Clínicos Gerais", "Especialistas", "Veterinários de Campo"]}
+    whyPatro={["Especialista no setor pet", "Consultoria 360", "Atendimento em Guarulhos"]}
+    faqs={[]}
   />
 );
 
-export default SeguroParaVeterinarios;
+export default SeguroClinicaVeterinariaIndividual;
