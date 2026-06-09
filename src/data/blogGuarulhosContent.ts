@@ -104,13 +104,20 @@ export const guarulhosArticlesContent = {
   "quanto-custa-seguro-corolla-guarulhos-2026": {
     title: "Quanto custa o seguro do Corolla em Guarulhos em 2026?",
     content: "O Toyota Corolla é o sedã mais desejado de Guarulhos, mas seu preço de seguro varia drasticamente conforme o bairro. Em 2026, a média para um condutor de 35 anos com garagem no Jardim Maia gira entre R$ 2.800 e R$ 3.900. Já em regiões como Cumbica, o valor pode subir para R$ 4.500 devido ao índice de roubo. Dica Patro: As versões híbridas costumam ter bônus de 10% na taxa de seguro em algumas companhias.\n\n[Cotar Seguro Corolla Agora](/cotacao?tipo=auto&modelo=corolla)",
-    faqs: [{ q: "O seguro do Corolla cobre blindagem?", a: "Sim, desde que a blindagem esteja discriminada na apólice com valor específico." }]
+    faqs: [
+      { q: "O seguro do Corolla cobre blindagem?", a: "Sim, desde que a blindagem esteja discriminada na apólice com valor específico." },
+      { q: "Qual seguradora é melhor para o Corolla em Guarulhos?", a: "Porto Seguro e Tokio Marine possuem as melhores redes de oficinas autorizadas Toyota na cidade." }
+    ]
   },
   "quanto-custa-seguro-hilux-guarulhos-2026": {
     title: "Quanto custa o seguro da Hilux em Guarulhos em 2026?",
     content: "A Toyota Hilux exige atenção máxima em Guarulhos. Por ser um dos veículos mais visados, o seguro pode custar entre R$ 5.500 e R$ 9.000, dependendo do CEP. A instalação de um rastreador homologado é quase sempre obrigatória para aceitação do risco. Na Patro Seguros, conseguimos condições especiais para produtores rurais e empresas de logística da região.\n\n[Solicitar Cotação Hilux](/cotacao?tipo=auto&modelo=hilux)",
-    faqs: [{ q: "Preciso de rastreador para segurar a Hilux?", a: "Na maioria das seguradoras premium em Guarulhos, o rastreador é obrigatório para este modelo." }]
+    faqs: [
+      { q: "Preciso de rastreador para segurar a Hilux?", a: "Na maioria das seguradoras premium em Guarulhos, o rastreador é obrigatório para este modelo." },
+      { q: "A Hilux 4x4 tem seguro mais caro?", a: "Sim, devido ao valor FIPE superior e custo de manutenção das peças de tração." }
+    ]
   },
+
   "quanto-custa-seguro-byd-dolphin-guarulhos": {
     title: "Quanto custa o seguro do BYD Dolphin em Guarulhos?",
     content: "O seguro do BYD Dolphin em Guarulhos é uma grata surpresa para os proprietários. Com média de preço entre R$ 2.500 e R$ 4.200, ele se mostra muito competitivo. O principal ponto de atenção é a cobertura de bateria e o atendimento de guincho plataforma, que garantimos em todas as nossas apólices para elétricos.\n\n[Comparar Seguros para BYD](/cotacao?tipo=auto&modelo=dolphin)",
