@@ -1,7 +1,11 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, MessageCircle, Info, ShieldCheck, Zap, Award, HelpCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { 
+  CheckCircle2, MessageCircle, Info, ShieldCheck, Zap, Award, HelpCircle, 
+  ChevronDown, ChevronUp, AlertCircle, Phone, Smartphone, MapPin, Search,
+  ArrowRight, Shield
+} from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -10,10 +14,17 @@ import FAQSchema from "@/components/FAQSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface FAQItem {
   q: string;
   a: string;
+}
+
+interface ClaimChannel {
+  type: 'whatsapp' | 'app' | 'phone' | 'web';
+  value: string;
+  label: string;
 }
 
 interface InsurerPageProps {
@@ -24,7 +35,9 @@ interface InsurerPageProps {
   accentColor: string;
   history?: string;
   faqs?: FAQItem[];
+  claimChannels?: ClaimChannel[];
 }
+
 
 
 const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentColor, history, faqs }: InsurerPageProps) => {
