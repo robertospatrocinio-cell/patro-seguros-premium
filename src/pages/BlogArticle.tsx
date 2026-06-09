@@ -87,6 +87,7 @@ const BlogArticle = () => {
       {allFaqs.length > 0 && (
         <FAQSchema faqs={allFaqs.map(f => ({ question: f.q, answer: f.a }))} />
       )}
+
       {meta && slug && (() => {
         // Canonical URL uses the www. host to match the <link rel="canonical">
         // emitted by PageMeta, keeping JSON-LD `url`/`@id` consistent across signals.
