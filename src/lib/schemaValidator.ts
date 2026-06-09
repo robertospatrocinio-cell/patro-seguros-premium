@@ -1,4 +1,5 @@
 import { getCanonicalUrl } from "./canonical";
+import { supabase } from "@/integrations/supabase/client";
 
 export interface SchemaCheckResult {
   url: string;
@@ -22,7 +23,6 @@ export const checkPageSchemas = async (path: string): Promise<SchemaCheckResult>
     const response = await fetch(path);
     const html = await response.text();
     
-    // Check for script tags with ld+json
     const scriptRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
     let match;
     
@@ -39,12 +39,23 @@ export const checkPageSchemas = async (path: string): Promise<SchemaCheckResult>
           }
         }
       } catch (e) {
-        // Skip invalid JSON in scripts
+        // Skip invalid JSON
       }
     }
+
+    // Save to history in background if it's a real run
+    await supabase.from('schema_audits').insert({
+      page_path: path,
+      has_breadcrumb: result.hasBreadcrumb,
+      has_faq: result.hasFAQ,
+      has_rating: result.hasAggregateRating,
+      errors: result.errors
+    });
+
   } catch (error) {
     result.errors.push(`Erro ao acessar página: ${error instanceof Error ? error.message : String(error)}`);
   }
 
   return result;
 };
+
