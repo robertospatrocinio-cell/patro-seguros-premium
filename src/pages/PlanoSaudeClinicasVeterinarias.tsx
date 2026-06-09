@@ -1,6 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import { veterinariaFormFields } from "@/data/veterinariaFormConfig";
-import heroImg from "@/assets/hero-plano-saude.webp";
+import heroImg from "@/assets/hero-planos-saude.webp";
 
 const PlanoSaudeClinicasVeterinarias = () => {
   return (
