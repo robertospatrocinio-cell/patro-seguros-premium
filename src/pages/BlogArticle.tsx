@@ -769,10 +769,11 @@ const BlogArticle = () => {
       <Suspense fallback={null}>
        <StickyQuoteBar 
          source={`blog:${slug}`} 
-         quoteHref="/cotacao" 
+         quoteHref={quoteHref}
          ctaLabel="Pedir Cotação" 
-         whatsappMessage={`Olá! Li o artigo sobre ${article.title} e gostaria de uma cotação.`}
+         whatsappMessage={whatsappMessage}
        />
+
       </Suspense>
       <Footer />
 
