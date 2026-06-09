@@ -394,9 +394,9 @@ segmentos.push(
     nome: "Lojas de Roupas",
     icon: "👕",
     subtitle: "Proteção para estoque e vitrines de moda em Guarulhos",
-    description: "Seguro para lojas de roupas e acessórios: proteção contra roubo de mercadorias, incêndio e quebra de vidros.",
-    detailedDescription: "Lojas de roupas em Guarulhos concentram alto valor em estoque sazonal. O seguro empresarial garante a reposição das peças em caso de assalto ou incêndio, além de cobrir vitrines e fachadas. Ideal para lojas no Centro de Guarulhos e shoppings da região.",
-    metaDescription: "Seguro para Lojas de Roupas em Guarulhos: roubo de mercadoria, vitrines e incêndio. Cotação grátis.",
+    description: "Seguro para lojas de roupas e acessórios em Guarulhos: proteção contra roubo de mercadorias, incêndio e quebra de vidros.",
+    detailedDescription: "### Proteja sua Loja de Roupas em Guarulhos\n\nLojas de roupas em Guarulhos concentram alto valor em estoque sazonal. O seguro empresarial garante a reposição das peças em caso de assalto ou incêndio, além de cobrir vitrines e fachadas. Ideal para lojas no Centro de Guarulhos e shoppings da região como o Maia e o Internacional.",
+    metaDescription: "Seguro para Lojas de Roupas em Guarulhos: roubo de mercadoria, vitrines e incêndio. Cotação em 2h com a Patro Seguros.",
     coverages: baseCoverages,
     whoNeeds: ["Lojas de moda masculina e feminina", "Boutiques", "Multimarcas", "Lojas de calçados", "Acessórios"],
     faqs: [
