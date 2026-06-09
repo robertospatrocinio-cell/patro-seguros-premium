@@ -7,10 +7,10 @@ const SeguroResidencial = () => {
     <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Residencial em Guarulhos — Proteja sua Casa ou Apartamento"
+      title="Seguro Residencial em Guarulhos | Cotação em 2h | Patro Seguros"
       subtitle="Proteção completa para seu lar, seus bens e sua tranquilidade"
       icon="🏠"
-      metaDescription="Seguro Residencial em Guarulhos a partir de R$ 150/ano. Cobertura contra incêndio, roubo e danos elétricos com assistência 24h. Cotação em 2h."
+      metaDescription="Seguro residencial em Guarulhos: proteja sua casa ou apartamento contra incêndio, roubo e danos elétricos. Assistência 24h e cotação em 2h na Patro Seguros."
       description="O Seguro Residencial é o seguro com melhor custo-benefício do mercado brasileiro. Com valores a partir de R$ 150/ano para apartamentos, ele protege o patrimônio que você construiu ao longo de anos — e ainda oferece assistências práticas que se pagam na primeira utilização."
       detailedDescription={`Diferente do que muitos pensam, o seguro residencial vai muito além da proteção contra incêndio. Ele cobre roubo de bens, danos elétricos em eletrodomésticos, vendavais, alagamentos, responsabilidade civil e oferece assistência 24h com encanador, eletricista, chaveiro e vidraceiro — serviços que, se contratados avulsamente, custariam muito mais do que a apólice inteira.
 

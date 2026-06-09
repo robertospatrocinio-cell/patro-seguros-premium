@@ -94,10 +94,13 @@ const SeguroBMW = () => {
   return (
     <div className="min-h-screen bg-black">
       <PageMeta
-        title="Seguro BMW | Proteção Premium e Especializada para seu Veículo — Patro Seguros"
-        description="Seguro exclusivo para modelos BMW em Guarulhos. Reparo em concessionária, franquia zero, carro reserva premium e assistência 24h dedicada. Solicite sua cotação."
+        title="Seguro BMW em Guarulhos | Cotação em 2h | Patro Seguros"
+        description="Seguro BMW em Guarulhos: proteção premium para Série 3, X1, X5 e mais. Reparo em concessionária e assistência 24h. Solicite sua cotação na Patro Seguros."
       />
-      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
+      <FAQSchema 
+        faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} 
+        speakable={true}
+      />
       <Header />
 
       <main>
