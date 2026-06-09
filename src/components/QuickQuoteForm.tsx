@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
-import { Send, CheckCircle, MessageCircle, TrendingDown, Save, ChevronRight, ChevronLeft } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Send, CheckCircle, MessageCircle, TrendingDown, Save, ChevronRight, ChevronLeft, RotateCcw, AlertCircle } from "lucide-react";
+import { debounce } from "lodash";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+
 
 
 import { Input } from "@/components/ui/input";
