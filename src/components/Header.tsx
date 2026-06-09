@@ -136,6 +136,16 @@ const Header = memo(() => {
     { label: "Vida Clínicas Odonto", to: "/seguro-vida-clinicas-odontologicas", section: "empresarial" },
     { label: "Parcerias Odontológicas", to: "/parcerias-clinicas-odontologicas", section: "empresarial" },
     { label: "Blog Odontologia", to: "/blog/odontologia", section: "empresarial" },
+    { label: "Clínicas Veterinárias", to: "/seguros-para-clinicas-veterinarias", section: "empresarial" },
+    { label: "Blog Veterinária", to: "/blog/clinicas-veterinarias", section: "empresarial" },
+    { label: "Seguro para Veterinários", to: "/seguro-para-veterinarios", section: "empresarial" },
+    { label: "Seguro Clínica Veterinária", to: "/seguro-clinica-veterinaria", section: "empresarial" },
+    { label: "Seguro Hospital Veterinário", to: "/seguro-hospital-veterinario", section: "empresarial" },
+    { label: "Seguro Equipamentos Veterinários", to: "/seguro-equipamentos-veterinarios", section: "empresarial" },
+    { label: "Plano Saúde Clínicas Pet", to: "/plano-saude-clinicas-veterinarias", section: "empresarial" },
+    { label: "Vida Clínicas Pet", to: "/seguro-vida-clinicas-veterinarias", section: "empresarial" },
+    { label: "Parcerias Pet", to: "/parcerias-clinicas-veterinarias", section: "empresarial" },
+    { label: "Área Pet Premium", to: "/protecao-pet-premium", section: "pessoal" },
   ], []);
 
   const searchResults = useMemo(() => {
