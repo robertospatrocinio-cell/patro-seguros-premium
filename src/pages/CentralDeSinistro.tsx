@@ -63,27 +63,32 @@ const CentralDeSinistro = () => {
     {
       icon: <Car className="h-8 w-8 text-orange-500" />,
       title: "Colisão",
-      description: "Batidas leves ou graves. Se o carro não puder rodar, solicite o guincho imediatamente."
+      description: "Batidas leves ou graves. Se o carro não puder rodar, solicite o guincho imediatamente.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Colisão*."
     },
     {
       icon: <Ghost className="h-8 w-8 text-orange-500" />,
       title: "Roubo ou furto",
-      description: "Em caso de roubo (com ameaça) ou furto, registre o B.O. antes de qualquer outro passo."
+      description: "Em caso de roubo (com ameaça) ou furto, registre o B.O. antes de qualquer outro passo.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Roubo ou Furto*."
     },
     {
       icon: <CloudRain className="h-8 w-8 text-orange-500" />,
       title: "Enchente ou alagamento",
-      description: "Não tente dar partida se o veículo foi submerso. Isso pode agravar os danos ao motor."
+      description: "Não tente dar partida se o veículo foi submerso. Isso pode agravar os danos ao motor.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Enchente ou Alagamento*."
     },
     {
       icon: <UserPlus className="h-8 w-8 text-orange-500" />,
       title: "Danos a terceiros",
-      description: "Se você atingiu outro veículo ou propriedade, o seu seguro pode cobrir os reparos dele."
+      description: "Se você atingiu outro veículo ou propriedade, o seu seguro pode cobrir os reparos dele.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Danos a Terceiros*."
     },
     {
       icon: <Truck className="h-8 w-8 text-orange-500" />,
       title: "Guincho ou assistência 24h",
-      description: "Para panes elétricas, mecânicas, troca de pneus ou falta de combustível (pane seca)."
+      description: "Para panes elétricas, mecânicas, troca de pneus ou falta de combustível (pane seca).",
+      whatsappMessage: "Olá, preciso de *Assistência 24h / Guincho*."
     }
   ];
 
