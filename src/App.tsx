@@ -258,6 +258,7 @@ const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
+const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 import RequireAdmin from "@/components/RequireAdmin";
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -705,6 +706,7 @@ const App = () => {
              <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
             <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
             <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
+            <Route path="/diagnostico" element={<Diagnostico />} />
             <Route path="/investimentos" element={<Investimentos />} />
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
             <Route path="*" element={<LegacyWpRedirect />} />
