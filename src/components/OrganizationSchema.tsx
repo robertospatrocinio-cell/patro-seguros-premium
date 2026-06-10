@@ -45,9 +45,9 @@ const OrganizationSchema = () => {
         "contactType": "sales",
         "areaServed": "BR",
         "availableLanguage": "Portuguese"
-      }
       },
       {
+        "@type": "ContactPoint",
         "@type": "ContactPoint",
         "telephone": "+551151997500",
         "contactType": "emergency",
