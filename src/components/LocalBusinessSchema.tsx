@@ -1,27 +1,26 @@
+import { Helmet } from "react-helmet-async";
+import { CANONICAL_BASE_URL } from "@/lib/canonical";
+
 /**
  * Componente que renderiza o Schema.org (JSON-LD) para a Agência de Seguros.
- * Define dados globais como endereço, horário de funcionamento e catálogo de serviços.
- * Nota: aggregateRating é omitido aqui para evitar avisos de duplicidade com o Service Schema.
+ * Define dados globais como endereço, telefone, horário de funcionamento e área de atendimento.
  */
- const LocalBusinessSchema = () => {
+const LocalBusinessSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": ["InsuranceAgency", "LocalBusiness"],
-    "@id": "https://www.patroseguros.com.br/#insurance-agency",
-    "name": "Patro Seguros",
-    "alternateName": "Patro Corretora de Seguros",
+    "@id": `${CANONICAL_BASE_URL}/#local-business`,
+    "name": "Patro Corretora de Seguros",
+    "alternateName": "Patro Seguros",
     "image": [
-      "https://www.patroseguros.com.br/images/logo-full.webp",
-      "https://www.patroseguros.com.br/images/selo-melhor-corretora.png"
+      `${CANONICAL_BASE_URL}/images/logo-full.webp`,
+      `${CANONICAL_BASE_URL}/images/selo-melhor-corretora.png`
     ],
-    "url": "https://www.patroseguros.com.br",
+    "url": CANONICAL_BASE_URL,
     "telephone": "+551151997500",
     "email": "contato@patroseguros.com.br",
-    "foundingDate": "2020",
-    "description": "Corretora de seguros em Guarulhos especializada em seguros auto, residencial, vida, saúde, empresarial e frotas. Atendimento personalizado para famílias e PMEs com cotação online grátis.",
-    "slogan": "Proteção sob medida para você e sua empresa",
-    "currenciesAccepted": "BRL",
-    "paymentAccepted": "Cartão de Crédito, Boleto, PIX, Débito em Conta",
+    "description": "Corretora de seguros em Guarulhos especializada em seguros auto, vida, residencial, saúde, empresarial e frotas. Atendimento em toda Guarulhos e São Paulo.",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
@@ -30,23 +29,11 @@
       "postalCode": "07115-000",
       "addressCountry": "BR"
     },
-    "location": {
-      "@type": "Place",
-      "name": "Patro Seguros Guarulhos",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
-        "addressLocality": "Guarulhos",
-        "addressRegion": "SP",
-        "postalCode": "07115-000",
-        "addressCountry": "BR"
-      }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.4468661,
+      "longitude": -46.5369463
     },
-     "geo": {
-       "@type": "GeoCoordinates",
-       "latitude": -23.4468661,
-       "longitude": -46.5369463
-     },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -68,96 +55,40 @@
         "sameAs": "https://pt.wikipedia.org/wiki/Guarulhos"
       },
       {
-        "@type": "State",
-        "name": "São Paulo"
+        "@type": "City",
+        "name": "São Paulo",
+        "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo"
       },
       {
-        "@type": "Country",
-        "name": "Brasil"
+        "@type": "State",
+        "name": "São Paulo"
       }
     ],
     "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Seguros e Planos",
-      "itemListElement": [
-        {
-          "@type": "OfferCatalog",
-          "name": "Seguros para Você",
-          "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Auto", "url": "https://www.patroseguros.com.br/seguro-auto" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Residencial", "url": "https://www.patroseguros.com.br/seguro-residencial" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro de Vida", "url": "https://www.patroseguros.com.br/seguro-vida" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Plano de Saúde", "url": "https://www.patroseguros.com.br/planos-de-saude" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Viagem", "url": "https://www.patroseguros.com.br/seguro-viagem" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Celular", "url": "https://www.patroseguros.com.br/seguro-celular" } }
-          ]
-        },
-        {
-          "@type": "OfferCatalog",
-          "name": "Seguros para Empresa",
-          "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Empresarial", "url": "https://www.patroseguros.com.br/seguro-empresarial" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro de Frota", "url": "https://www.patroseguros.com.br/seguro-frota" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Cyber", "url": "https://www.patroseguros.com.br/seguro-cyber" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro RC Profissional", "url": "https://www.patroseguros.com.br/seguro-rc-profissional" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Condomínio", "url": "https://www.patroseguros.com.br/seguro-condominio" } }
-          ]
-        },
-        {
-          "@type": "OfferCatalog",
-          "name": "Seguros Rural e Agro",
-          "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Rural", "url": "https://www.patroseguros.com.br/seguro-rural" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Máquinas Agrícolas", "url": "https://www.patroseguros.com.br/seguro-maquinas-agricolas" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seguro Pecuário", "url": "https://www.patroseguros.com.br/seguro-pecuario" } }
-          ]
-        }
-      ]
+      "@id": `${CANONICAL_BASE_URL}/#service-catalog`
     },
-    "knowsAbout": [
-      "Seguro Automóvel", "Seguro Residencial", "Seguro de Vida", "Plano de Saúde",
-      "Seguro Empresarial", "Seguro de Frota", "Consórcio", "Previdência Privada",
-      "Seguro Rural", "Seguro Cyber", "Seguro RC Profissional", "Seguro Condomínio",
-      "Seguro Viagem", "Seguro Moto", "Seguro Caminhão", "Seguro Transporte"
-    ],
     "sameAs": [
       "https://www.instagram.com/patroseguros",
       "https://www.facebook.com/patroseguros",
       "https://www.linkedin.com/company/patro-seguros"
     ],
-    "identifier": [
+    "contactPoint": [
       {
-        "@type": "PropertyValue",
-        "name": "SUSEP",
-        "value": "212113511"
+        "@type": "ContactPoint",
+        "telephone": "+551151997500",
+        "contactType": "customer service",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
       }
-    ],
-    "potentialAction": [
-      {
-        "@type": "QuoteAction",
-        "name": "Solicitar Cotação de Seguro",
-        "target": "https://www.patroseguros.com.br/cotacao",
-        "description": "Faça uma cotação gratuita de seguro online"
-      },
-      {
-        "@type": "CommunicateAction",
-        "name": "Falar pelo WhatsApp",
-        "target": "https://wa.me/551151997500"
-      }
-    ],
-    "priceRange": "$$"
-    // NOTE: `aggregateRating` and `review` were intentionally removed from this
-    // entity to prevent duplicate-snippet conflicts with `AggregateRatingSchema`
-    // (which attaches the rating to the per-page Service — Google's preferred
-    // pattern for review snippets on service pages). The single source of truth
-    // for the 4.9 / 150 rating is `PATRO_RATING` in AggregateRatingSchema.tsx.
+    ]
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(schema)}
+      </script>
+    </Helmet>
   );
 };
 
