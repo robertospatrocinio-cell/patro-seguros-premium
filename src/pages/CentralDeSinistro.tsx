@@ -63,27 +63,32 @@ const CentralDeSinistro = () => {
     {
       icon: <Car className="h-8 w-8 text-orange-500" />,
       title: "Colisão",
-      description: "Batidas leves ou graves. Se o carro não puder rodar, solicite o guincho imediatamente."
+      description: "Batidas leves ou graves. Se o carro não puder rodar, solicite o guincho imediatamente.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Colisão*."
     },
     {
       icon: <Ghost className="h-8 w-8 text-orange-500" />,
       title: "Roubo ou furto",
-      description: "Em caso de roubo (com ameaça) ou furto, registre o B.O. antes de qualquer outro passo."
+      description: "Em caso de roubo (com ameaça) ou furto, registre o B.O. antes de qualquer outro passo.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Roubo ou Furto*."
     },
     {
       icon: <CloudRain className="h-8 w-8 text-orange-500" />,
       title: "Enchente ou alagamento",
-      description: "Não tente dar partida se o veículo foi submerso. Isso pode agravar os danos ao motor."
+      description: "Não tente dar partida se o veículo foi submerso. Isso pode agravar os danos ao motor.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Enchente ou Alagamento*."
     },
     {
       icon: <UserPlus className="h-8 w-8 text-orange-500" />,
       title: "Danos a terceiros",
-      description: "Se você atingiu outro veículo ou propriedade, o seu seguro pode cobrir os reparos dele."
+      description: "Se você atingiu outro veículo ou propriedade, o seu seguro pode cobrir os reparos dele.",
+      whatsappMessage: "Olá, preciso de ajuda com um sinistro de *Danos a Terceiros*."
     },
     {
       icon: <Truck className="h-8 w-8 text-orange-500" />,
       title: "Guincho ou assistência 24h",
-      description: "Para panes elétricas, mecânicas, troca de pneus ou falta de combustível (pane seca)."
+      description: "Para panes elétricas, mecânicas, troca de pneus ou falta de combustível (pane seca).",
+      whatsappMessage: "Olá, preciso de *Assistência 24h / Guincho*."
     }
   ];
 
@@ -172,15 +177,24 @@ const CentralDeSinistro = () => {
               
               <div className="space-y-6">
                 {types.map((type, index) => (
-                  <div key={index} className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl border border-slate-100 hover:border-orange-200 transition-colors">
-                    <div className="flex-shrink-0 w-16 h-16 bg-orange-50 flex items-center justify-center rounded-2xl">
+                  <div key={index} className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl border border-slate-100 hover:border-orange-200 transition-colors group">
+                    <div className="flex-shrink-0 w-16 h-16 bg-orange-50 flex items-center justify-center rounded-2xl group-hover:bg-orange-100 transition-colors">
                       {type.icon}
                     </div>
-                    <div className="text-center md:text-left">
+                    <div className="text-center md:text-left flex-grow">
                       <h3 className="text-xl font-bold text-primary mb-2">{type.title}</h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground mb-4">
                         {type.description}
                       </p>
+                      <a 
+                        href={`https://wa.me/551151997500?text=${encodeURIComponent(type.whatsappMessage)}`}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={() => trackWhatsAppClick(`sinistro-tipo-${type.title.toLowerCase()}`)}
+                        className="inline-flex items-center text-orange-500 font-bold text-sm hover:underline"
+                      >
+                        Preciso de ajuda com {type.title} <ArrowRight className="ml-1 h-4 w-4" />
+                      </a>
                     </div>
                   </div>
                 ))}
