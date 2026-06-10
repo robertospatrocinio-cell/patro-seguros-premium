@@ -44,6 +44,8 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+
 
 import Index from "./pages/Index";
 const Blog = lazy(() => import("./pages/Blog"));
@@ -295,7 +297,9 @@ const App = () => {
         <TooltipProvider>
           <BrowserRouter>
             <SkipLink />
+            <BreadcrumbSchema />
             <Toaster />
+
             <Sonner />
             <WhatsAppButton />
             <CookieBanner />
