@@ -50,7 +50,7 @@ const Index = () => {
         description="A experiência digital de uma grande corretora com atendimento próximo em Guarulhos. Compare 16+ seguradoras e economize no seu seguro auto, saúde ou empresa."
         absoluteTitle={true}
       />
-      <FAQSchema faqs={faqs} />
+      <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
