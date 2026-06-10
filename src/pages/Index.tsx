@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle, AlertTriangle } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -92,6 +92,19 @@ const Index = () => {
             </div>
           </div>
         </section>
+24: 
+25:         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
+26:         <div className="bg-orange-500 py-3 text-white">
+27:           <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+28:             <div className="flex items-center gap-2">
+29:               <AlertTriangle className="h-5 w-5 animate-pulse text-white" />
+30:               <span className="font-bold text-sm md:text-base">Precisando de ajuda agora? Central de Sinistro 24h</span>
+31:             </div>
+32:             <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-black text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
+33:               Clique aqui
+34:             </Link>
+35:           </div>
+36:         </div>
 
         {/* 1. SELETOR "O QUE VOCÊ QUER PROTEGER?" */}
         <HomeSelector />
