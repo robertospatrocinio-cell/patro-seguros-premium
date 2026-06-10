@@ -69,6 +69,7 @@
  
     private handleReset = () => {
       this.setState({ hasError: false, error: undefined, errorId: "" });
+      window.location.reload(); // Force full reload to ensure fresh state
     };
 
     private handleBack = () => {
