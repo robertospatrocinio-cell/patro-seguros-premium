@@ -2,6 +2,15 @@ import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface BreadcrumbSchemaProps {
+  items?: BreadcrumbItem[];
+}
+
 const routeNameMap: Record<string, string> = {
   "": "Home",
   "sobre": "Sobre Nós",
@@ -27,34 +36,47 @@ const routeNameMap: Record<string, string> = {
   "politica-privacidade": "Política de Privacidade",
   "termos-de-uso": "Termos de Uso",
   "consorcio": "Consórcio",
+  "saude": "Planos de Saúde",
+  "seguradoras": "Seguradoras",
 };
 
-const BreadcrumbSchema = () => {
+const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
   const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
+  
+  let breadcrumbItems;
 
-  const breadcrumbItems = [
-    {
+  if (items && items.length > 0) {
+    breadcrumbItems = items.map((item, index) => ({
       "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": CANONICAL_BASE_URL
-    },
-    ...pathnames.map((name, index) => {
-      const routePath = `/${pathnames.slice(0, index + 1).join("/")}`;
-      const displayName = routeNameMap[name] || name
-        .split("-")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-
-      return {
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url.startsWith("http") ? item.url : `${CANONICAL_BASE_URL}${item.url.startsWith("/") ? "" : "/"}${item.url}`
+    }));
+  } else {
+    const pathnames = location.pathname.split("/").filter((x) => x);
+    breadcrumbItems = [
+      {
         "@type": "ListItem",
-        "position": index + 2,
-        "name": displayName,
-        "item": `${CANONICAL_BASE_URL}${routePath}`
-      };
-    })
-  ];
+        "position": 1,
+        "name": "Home",
+        "item": CANONICAL_BASE_URL
+      },
+      ...pathnames.map((name, index) => {
+        const routePath = `/${pathnames.slice(0, index + 1).join("/")}`;
+        const displayName = routeNameMap[name] || name
+          .split("-")
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+
+        return {
+          "@type": "ListItem",
+          "position": index + 2,
+          "name": displayName,
+          "item": `${CANONICAL_BASE_URL}${routePath}`
+        };
+      })
+    ];
+  }
 
   const schema = {
     "@context": "https://schema.org",
@@ -72,3 +94,4 @@ const BreadcrumbSchema = () => {
 };
 
 export default BreadcrumbSchema;
+
