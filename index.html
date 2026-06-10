@@ -197,36 +197,54 @@
       <button class="retry-button" id="retry-btn" onclick="window.location.reload()">Tentar novamente</button>
     </div>
     <script>
-      // Auto-reconnect and retry button logic
+      // Enhanced Auto-reconnect and recovery logic
       (function() {
         var loaderText = document.querySelector('.loader-text');
         var retryBtn = document.getElementById('retry-btn');
         var startTime = Date.now();
+        var hasTimedOut = false;
         
         function updateStatus() {
+          if (document.getElementById('initial-loader').style.display === 'none') return;
+          
           var elapsed = Math.floor((Date.now() - startTime) / 1000);
-          if (elapsed >= 10 && loaderText) {
-            loaderText.innerText = 'A conexão está demorando mais que o esperado... (' + elapsed + 's)';
+          
+          if (elapsed >= 5 && loaderText && !hasTimedOut) {
+            loaderText.innerText = 'Estabelecendo conexão segura... (' + elapsed + 's)';
+          }
+
+          if (elapsed >= 15 && loaderText) {
+            hasTimedOut = true;
+            loaderText.innerText = 'A conexão está demorando mais que o esperado... Verifique sua internet.';
             if (retryBtn) retryBtn.style.display = 'block';
           }
-          if (elapsed >= 30 && !window.autoReloaded) {
+          
+          // Auto-reload after 45s of no progress
+          if (elapsed >= 45 && !window.autoReloaded) {
              window.autoReloaded = true;
-             console.log('Timeout de 30s atingido, tentando recarregar...');
+             console.log('Timeout crítico atingido, reiniciando aplicação...');
              window.location.reload();
           }
+          
           if (elapsed < 60) setTimeout(updateStatus, 1000);
         }
         
         updateStatus();
 
-        // Check for specific connection errors
-        window.onerror = function(msg, url, lineNo, columnNo, error) {
-          if (msg && (msg.indexOf('Failed to fetch') > -1 || msg.indexOf('NetworkError') > -1)) {
-            if (loaderText) loaderText.innerText = 'Erro de conexão detectado.';
+        // Listen for specific script loading errors (Vite chunks)
+        window.addEventListener('error', function(e) {
+          if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+            console.error('Resource failed to load:', e.target.src || e.target.href);
+            if (loaderText) loaderText.innerText = 'Falha ao carregar componentes. Tentando recuperar...';
             if (retryBtn) retryBtn.style.display = 'block';
+            
+            // If a script fails, try to reload once
+            if (!window.resourceErrorReloaded) {
+              window.resourceErrorReloaded = true;
+              setTimeout(function() { window.location.reload(); }, 2000);
+            }
           }
-          return false;
-        };
+        }, true);
       })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
