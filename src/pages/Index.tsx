@@ -13,6 +13,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
 import { HomeSelector } from "@/components/HomeSelector";
@@ -257,14 +258,18 @@ const Index = () => {
 
             <div>
               <h3 className="text-xl font-bold mb-6 text-orange-600 border-l-4 border-orange-600 pl-4">Central de Sinistro & Ajuda</h3>
-              <div className="space-y-6">
+              <Accordion type="single" collapsible className="w-full space-y-4">
                 {sinistroFaqs.map((faq, i) => (
-                  <div key={i} className="bg-card p-6 rounded-xl border hover:border-orange-200 transition-colors">
-                    <h4 className="font-bold mb-3">{faq.question}</h4>
-                    <p className="text-[14px] text-muted-foreground">{faq.answer}</p>
-                  </div>
+                  <AccordionItem key={i} value={`item-${i}`} className="bg-card px-6 rounded-xl border border-orange-100 hover:border-orange-200 transition-colors">
+                    <AccordionTrigger className="text-left font-bold hover:no-underline hover:text-orange-600 py-6">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-[14px] text-muted-foreground pb-6">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </div>
+              </Accordion>
               <div className="mt-8 text-center">
                 <Link to="/central-de-sinistro" className="text-primary font-bold hover:underline inline-flex items-center">
                   Ver guia completo de sinistro <ArrowRight className="ml-2 h-4 w-4" />
