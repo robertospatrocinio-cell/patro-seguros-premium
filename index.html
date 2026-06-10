@@ -204,8 +204,21 @@
         var startTime = Date.now();
         var hasTimedOut = false;
         
+        // Disable cache for reloads to ensure we get fresh files
+        if (window.location.search.indexOf('nocache') === -1 && !window.autoReloaded) {
+          // Add a small delay then check if still loading
+          setTimeout(function() {
+            if (document.getElementById('initial-loader').style.display !== 'none') {
+               console.log('Slow load detected, forcing fresh reload...');
+               window.autoReloaded = true;
+               window.location.href = window.location.pathname + '?nocache=' + Date.now();
+            }
+          }, 8000);
+        }
+
         function updateStatus() {
-          if (document.getElementById('initial-loader').style.display === 'none') return;
+          var loader = document.getElementById('initial-loader');
+          if (!loader || loader.style.display === 'none') return;
           
           var elapsed = Math.floor((Date.now() - startTime) / 1000);
           
@@ -213,17 +226,10 @@
             loaderText.innerText = 'Estabelecendo conexão segura... (' + elapsed + 's)';
           }
 
-          if (elapsed >= 15 && loaderText) {
+          if (elapsed >= 12 && loaderText) {
             hasTimedOut = true;
-            loaderText.innerText = 'A conexão está demorando mais que o esperado... Verifique sua internet.';
+            loaderText.innerText = 'Quase lá! Carregando componentes...';
             if (retryBtn) retryBtn.style.display = 'block';
-          }
-          
-          // Auto-reload after 45s of no progress
-          if (elapsed >= 45 && !window.autoReloaded) {
-             window.autoReloaded = true;
-             console.log('Timeout crítico atingido, reiniciando aplicação...');
-             window.location.reload();
           }
           
           if (elapsed < 60) setTimeout(updateStatus, 1000);
@@ -231,17 +237,12 @@
         
         updateStatus();
 
-        // Listen for specific script loading errors (Vite chunks)
         window.addEventListener('error', function(e) {
           if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
-            console.error('Resource failed to load:', e.target.src || e.target.href);
-            if (loaderText) loaderText.innerText = 'Falha ao carregar componentes. Tentando recuperar...';
-            if (retryBtn) retryBtn.style.display = 'block';
-            
-            // If a script fails, try to reload once
+            if (loaderText) loaderText.innerText = 'Atualizando componentes...';
             if (!window.resourceErrorReloaded) {
               window.resourceErrorReloaded = true;
-              setTimeout(function() { window.location.reload(); }, 2000);
+              setTimeout(function() { window.location.reload(); }, 1000);
             }
           }
         }, true);

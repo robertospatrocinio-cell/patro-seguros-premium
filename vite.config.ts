@@ -323,17 +323,14 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
+    target: "es2020",
     minify: "esbuild",
     rollupOptions: {
         output: {
           manualChunks: (id) => {
             if (id.includes("node_modules")) {
-              if (id.includes("lucide-react")) return "icons";
-              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack") || id.includes("framer-motion")) return "framework";
-              if (id.includes("radix-ui") || id.includes("clsx") || id.includes("tailwind-merge")) return "ui-core";
-              if (id.includes("@supabase")) return "supabase";
-              if (id.includes("zod") || id.includes("react-hook-form")) return "forms-core";
-              if (id.includes("date-fns") || id.includes("lodash")) return "utils";
+              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack")) return "vendor-core";
+              if (id.includes("lucide-react") || id.includes("framer-motion")) return "vendor-ui";
               return "vendor";
             }
           },
@@ -341,6 +338,8 @@ export default defineConfig(({ mode }) => ({
     },
     cssMinify: true,
     reportCompressedSize: true,
+    sourcemap: false,
+    chunkSizeWarningLimit: 1000,
   },
   plugins: [
     react(),
