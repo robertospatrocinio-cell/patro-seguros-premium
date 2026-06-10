@@ -1,6 +1,6 @@
 import { useState, useEffect, useSyncExternalStore } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { MessageCircle, FileText } from "lucide-react";
+import { MessageCircle, FileText, ShieldCheck, ArrowRight } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { inferQuoteTypeFromText } from "@/lib/inferQuoteType";
 import {
