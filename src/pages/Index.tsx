@@ -34,6 +34,14 @@ const faqs = [
   { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
 ];
 
+const sinistroFaqs = [
+  { question: "Sofri um acidente, o que devo fazer primeiro?", answer: "Sinalize o local, verifique se há feridos (se sim, ligue 192 ou 193) e não assuma culpa. Tire fotos dos danos e da posição dos veículos antes de removê-los e chame a Patro Seguros pelo WhatsApp para orientações imediatas." },
+  { question: "Como acionar o guincho 24h?", answer: "Você pode solicitar diretamente pelo aplicativo da sua seguradora ou falar com a Patro Seguros no WhatsApp. Nós localizamos sua apólice e solicitamos a assistência técnica ou mecânica para você em minutos." },
+  { question: "Fui roubado, qual o procedimento?", answer: "A primeira etapa é registrar o Boletim de Ocorrência (B.O.). Com o documento em mãos, entre em contato com a Central de Sinistro da Patro para iniciarmos o processo de indenização junto à seguradora." },
+  { question: "Preciso pagar franquia em caso de sinistro de terceiros?", answer: "Geralmente não. Na maioria das apólices, a cobertura de danos a terceiros (RCF-V) não possui cobrança de franquia para o segurado. A franquia só é paga quando você decide consertar o seu próprio veículo pelo seguro." },
+  { question: "Quanto tempo demora o conserto do veículo pelo seguro?", answer: "O prazo depende da liberação da seguradora (normalmente até 48h após a vistoria) e da disponibilidade de peças na oficina. A Patro Seguros acompanha todo o processo para agilizar a entrega do seu carro." },
+];
+
 const Index = () => {
   return (
     <>
@@ -42,7 +50,7 @@ const Index = () => {
         description="A experiência digital de uma grande corretora com atendimento próximo em Guarulhos. Compare 16+ seguradoras e economize no seu seguro auto, saúde ou empresa."
         absoluteTitle={true}
       />
-      <FAQSchema faqs={faqs} />
+      <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
@@ -234,13 +242,34 @@ const Index = () => {
         <section className="py-20 bg-muted/20">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-3xl font-bold mb-12 text-center">Perguntas Frequentes</h2>
-            <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <div key={i} className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold mb-3">{faq.question}</h3>
-                  <p className="text-[14px] text-muted-foreground">{faq.answer}</p>
-                </div>
-              ))}
+            
+            <div className="mb-12">
+              <h3 className="text-xl font-bold mb-6 text-primary border-l-4 border-primary pl-4">Dúvidas Gerais</h3>
+              <div className="space-y-6">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="bg-card p-6 rounded-xl border">
+                    <h4 className="font-bold mb-3">{faq.question}</h4>
+                    <p className="text-[14px] text-muted-foreground">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-orange-600 border-l-4 border-orange-600 pl-4">Central de Sinistro & Ajuda</h3>
+              <div className="space-y-6">
+                {sinistroFaqs.map((faq, i) => (
+                  <div key={i} className="bg-card p-6 rounded-xl border hover:border-orange-200 transition-colors">
+                    <h4 className="font-bold mb-3">{faq.question}</h4>
+                    <p className="text-[14px] text-muted-foreground">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 text-center">
+                <Link to="/central-de-sinistro" className="text-primary font-bold hover:underline inline-flex items-center">
+                  Ver guia completo de sinistro <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
