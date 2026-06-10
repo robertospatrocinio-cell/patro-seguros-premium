@@ -13,10 +13,10 @@ import { Progress } from "@/components/ui/progress";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { logForgottenQuote } from "@/lib/quoteHistory";
+import { submitLead, savePartialQuote } from "@/lib/leadsApi";
 
 
 
@@ -107,12 +107,12 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
       try {
         if (partialId) {
-          await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+          await savePartialQuote({ id: partialId, ...dataToSave });
         } else if (dataToSave.name || dataToSave.email || dataToSave.phone) {
-          const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
-          if (data && !error) {
-            setPartialId(data.id);
-            localStorage.setItem(`${storageKey}-partial-id`, data.id);
+          const { id, error } = await savePartialQuote(dataToSave);
+          if (id && !error) {
+            setPartialId(id);
+            localStorage.setItem(`${storageKey}-partial-id`, id);
           }
         }
       } catch (err) {
@@ -332,19 +332,14 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       </table>
     `;
 
-    // 1. Integrar com o CRM (Tabela de Leads do Supabase)
-    const { error: crmError } = await supabase
-      .from("leads")
-      .insert({
-        full_name: formData.nome || formData.name || "Cliente Interessado",
-        phone: formData.whatsapp || formData.telefone || formData.phone || "",
-        email: formData.email || "",
-        insurance_type: config.type,
-        raw_data: {
-          ...formData,
-          checkboxGroups
-        }
-      });
+    // 1. Integrar com o CRM via Edge Function (service role)
+    const { error: crmError } = await submitLead({
+      full_name: formData.nome || formData.name || "Cliente Interessado",
+      phone: formData.whatsapp || formData.telefone || formData.phone || "",
+      email: formData.email || "",
+      insurance_type: config.type,
+      raw_data: { ...formData, checkboxGroups },
+    });
 
     if (crmError) {
       console.error("Erro ao registrar lead no CRM:", crmError);

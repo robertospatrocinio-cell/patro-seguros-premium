@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { submitLead } from "@/lib/leadsApi";
 
 interface FormState {
   name: string;
@@ -53,18 +53,14 @@ export const useInsuranceForm = (source: string) => {
     trackCotacaoClick(`${source}-form-submit`);
     
     try {
-      // Save to Supabase (Leads table)
-      const { error } = await supabase.from("leads").insert([
-        {
-          full_name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          raw_data: { message: formData.message },
-          source_page: source,
-          insurance_type: source,
-        },
-      ]);
-
+      const { error } = await submitLead({
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        raw_data: { message: formData.message },
+        source_page: source,
+        insurance_type: source,
+      });
       if (error) throw error;
 
       toast.success("Solicitação enviada com sucesso!", {
