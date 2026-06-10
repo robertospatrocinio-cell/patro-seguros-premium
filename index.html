@@ -199,23 +199,34 @@
     <script>
       // Auto-reconnect and retry button logic
       (function() {
-        var timeout = setTimeout(function() {
-          var text = document.querySelector('.loader-text');
-          var btn = document.getElementById('retry-btn');
-          if (text) text.innerText = 'A conexão está demorando mais que o esperado...';
-          if (btn) btn.style.display = 'block';
-          
-          // Attempt one automatic reload after 10 seconds if still loading
-          if (!window.autoReloaded) {
-            window.autoReloaded = true;
-            console.log('Slow connection detected, attempting auto-reload...');
-            setTimeout(function() { window.location.reload(); }, 5000);
-          }
-        }, 10000);
+        var loaderText = document.querySelector('.loader-text');
+        var retryBtn = document.getElementById('retry-btn');
+        var startTime = Date.now();
         
-        window.addEventListener('load', function() {
-          clearTimeout(timeout);
-        });
+        function updateStatus() {
+          var elapsed = Math.floor((Date.now() - startTime) / 1000);
+          if (elapsed >= 10 && loaderText) {
+            loaderText.innerText = 'A conexão está demorando mais que o esperado... (' + elapsed + 's)';
+            if (retryBtn) retryBtn.style.display = 'block';
+          }
+          if (elapsed >= 30 && !window.autoReloaded) {
+             window.autoReloaded = true;
+             console.log('Timeout de 30s atingido, tentando recarregar...');
+             window.location.reload();
+          }
+          if (elapsed < 60) setTimeout(updateStatus, 1000);
+        }
+        
+        updateStatus();
+
+        // Check for specific connection errors
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+          if (msg && (msg.indexOf('Failed to fetch') > -1 || msg.indexOf('NetworkError') > -1)) {
+            if (loaderText) loaderText.innerText = 'Erro de conexão detectado.';
+            if (retryBtn) retryBtn.style.display = 'block';
+          }
+          return false;
+        };
       })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
