@@ -12,7 +12,8 @@ interface BreadcrumbSchemaProps {
 }
 
 const routeNameMap: Record<string, string> = {
-  "": "Home",
+  "": "Início",
+
   "sobre": "Sobre Nós",
   "parceiros": "Parceiros",
   "cotacao": "Cotação Online",
