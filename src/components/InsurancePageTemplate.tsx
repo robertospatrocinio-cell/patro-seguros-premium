@@ -197,6 +197,7 @@ const InsurancePageTemplate = ({
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
+      {!skipFAQSchema && faqs.length > 0 && <FAQSchema faqs={faqs} />}
       <LocalAreaSchema
         serviceName={title}
         url={canonicalUrl}
