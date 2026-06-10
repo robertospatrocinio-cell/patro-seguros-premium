@@ -9,7 +9,7 @@ import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
