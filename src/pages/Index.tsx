@@ -60,9 +60,6 @@ const Index = () => {
         url={CANONICAL_BASE_URL}
         description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. 16+ seguradoras parceiras."
       />
-      <BreadcrumbSchema items={[
-        { name: "Início", url: "https://www.patroseguros.com.br" },
-      ]} />
       <Header />
       <main id="main-content">
         {/* HERO SECTION */}
