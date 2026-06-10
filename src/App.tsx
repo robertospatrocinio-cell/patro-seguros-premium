@@ -289,8 +289,9 @@ const App = () => {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <QueryProviderWrapper>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <QueryProviderWrapper>
         <TooltipProvider>
           <BrowserRouter>
             <SkipLink />
@@ -694,7 +695,8 @@ const App = () => {
           </BrowserRouter>
         </TooltipProvider>
       </QueryProviderWrapper>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 };
 
