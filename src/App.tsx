@@ -706,6 +706,7 @@ const App = () => {
              <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
             <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
             <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
+            <Route path="/diagnostico" element={<Diagnostico />} />
             <Route path="/investimentos" element={<Investimentos />} />
             <Route path="/planejamento-patrimonial" element={<Investimentos />} />
             <Route path="*" element={<LegacyWpRedirect />} />
