@@ -262,12 +262,19 @@ import RequireAdmin from "@/components/RequireAdmin";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      retry: 2,
+      retry: (failureCount, error: any) => {
+        // Retry more aggressively for network errors
+        if (error?.message?.includes("Failed to fetch") || error?.message?.includes("NetworkError")) {
+          return failureCount < 5;
+        }
+        return failureCount < 2;
+      },
+      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
       refetchOnWindowFocus: false,
-      staleTime: 24 * 60 * 60 * 1000, // 24 horas (dados estáticos)
-      gcTime: 48 * 60 * 60 * 1000, // 48 horas
+      staleTime: 24 * 60 * 60 * 1000,
+      gcTime: 48 * 60 * 60 * 1000,
       refetchOnMount: false,
-      refetchOnReconnect: false,
+      refetchOnReconnect: true, // Re-enable this to help with recovery
     },
   },
 });
