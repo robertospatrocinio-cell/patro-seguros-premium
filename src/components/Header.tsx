@@ -367,8 +367,8 @@ const Header = memo(() => {
                     <div className="space-y-0.5 text-[13px]">
                       <Link to="/cotacao" className="block py-1 hover:text-primary">Solicitar Cotação</Link>
                       <Link to="/contato" className="block py-1 hover:text-primary">Renovar Seguro</Link>
-                      <Link to="/contato" className="block py-1 hover:text-primary">Acionar Sinistro</Link>
-                      <Link to="/contato" className="block py-1 hover:text-primary">Assistência 24h</Link>
+                      <Link to="/central-de-sinistro" className="block py-1 hover:text-primary">Acionar Sinistro</Link>
+                      <Link to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</Link>
                       <Link to="/contato" className="block py-1 hover:text-primary">Segunda Via</Link>
                       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-primary">Falar com Consultor</a>
                       <Link to="/crm" className="block py-1 font-semibold text-primary">Área do Cliente</Link>
@@ -555,6 +555,7 @@ const Header = memo(() => {
             <MobileSection id="atendimento" label="Atendimento">
               <MobileLink to="/cotacao">Solicitar Cotação</MobileLink>
               <MobileLink to="/contato">Renovar Seguro</MobileLink>
+              <MobileLink to="/central-de-sinistro">Central de Sinistro</MobileLink>
               <Link to="/crm" className="block py-2 px-2 text-[13px] font-bold text-primary" onClick={close}>Área do Cliente</Link>
             </MobileSection>
 
