@@ -12,9 +12,9 @@ const MedicalOrganizationSchema = () => {
     "parentOrganization": {
       "@id": `${CANONICAL_BASE_URL}/#organization`
     },
-    "medicalSpecialty": [
-      "HealthInsurance",
-      "MedicalBrokerage"
+    "knowsAbout": [
+      "Health Insurance",
+      "Medical Brokerage"
     ],
     "address": {
       "@type": "PostalAddress",

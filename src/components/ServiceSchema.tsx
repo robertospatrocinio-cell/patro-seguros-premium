@@ -16,10 +16,12 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
     "provider": {
       "@id": `${CANONICAL_BASE_URL}/#organization`
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Guarulhos"
-    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Guarulhos"
+      }
+    ],
     "serviceType": serviceType,
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

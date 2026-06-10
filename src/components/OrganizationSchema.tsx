@@ -20,10 +20,16 @@ const OrganizationSchema = () => {
     },
     "image": `${CANONICAL_BASE_URL}/images/logo-full.webp`,
     "description": "Corretora de seguros em Guarulhos com atendimento personalizado. Seguros auto, vida, residencial, saúde, empresarial e frotas para famílias e PMEs.",
-    "foundingDate": "2020",
-    "foundingLocation": {
+    "foundingDate": "2020-01-01",
+    "location": {
       "@type": "Place",
-      "name": "Guarulhos, SP, Brasil"
+      "name": "Guarulhos, SP, Brasil",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Guarulhos",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      }
     },
     "contactPoint": [
       {
