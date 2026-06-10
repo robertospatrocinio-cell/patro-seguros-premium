@@ -258,6 +258,7 @@ const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
+const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 import RequireAdmin from "@/components/RequireAdmin";
 const queryClient = new QueryClient({
   defaultOptions: {
