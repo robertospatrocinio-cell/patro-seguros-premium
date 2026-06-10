@@ -127,6 +127,8 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ServiceSchema from "@/components/ServiceSchema";
+import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde.";
 
@@ -169,6 +171,12 @@ const PlanosDeSaude = () => {
     <>
       <PageMeta title="Plano de Saúde em Guarulhos | Compare Opções | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Compare Bradesco, Amil, SulAmérica e mais. Cotação grátis para pessoa física e empresas." />
       <FAQSchema faqs={faqs} />
+      <ServiceSchema 
+        name="Cotação de Plano de Saúde em Guarulhos" 
+        description="Consultoria especializada para contratação de planos de saúde individuais, familiares e empresariais."
+        serviceType="HealthInsurance"
+      />
+      <MedicalOrganizationSchema />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <section className="gradient-hero py-20 relative overflow-hidden">
