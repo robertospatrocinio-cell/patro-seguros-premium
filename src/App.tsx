@@ -108,9 +108,9 @@ const SeoSeguroVidaGuarulhos = lazy(() => import("./pages/SeoSeguroVidaGuarulhos
 const SeoSeguroMotoristaAppGuarulhos = lazy(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"));
 const SeoLocalPage = lazy(() => import("./pages/SeoLocalPage"));
 
-
-
+const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
+
 const SeguroGeada = lazy(() => import("./pages/SeguroGeada"));
 const SeguroPropriedadeRural = lazy(() => import("./pages/SeguroPropriedadeRural"));
 const SeguroAcidentesPessoais = lazy(() => import("./pages/SeguroAcidentesPessoais"));
@@ -532,7 +532,9 @@ const App = () => {
             <Route path="/seguro-bmw-motorrad-guarulhos" element={<SeoLocalPage slug="seguro-bmw-motorrad-guarulhos" />} />
             <Route path="/seguro-de-vida-para-socios" element={<DynamicLandingPage slug="seguro-de-vida-para-socios" />} />
             {/* Ondas 2-3: cidades Grande SP, ABC, Oeste (atendimento remoto) */}
+            <Route path="/central-de-sinistro" element={<CentralDeSinistro />} />
             <Route path="/seguro-auto-aruja" element={<SeoLocalPage slug="seguro-auto-aruja" />} />
+
             <Route path="/seguro-auto-mairipora" element={<SeoLocalPage slug="seguro-auto-mairipora" />} />
             <Route path="/seguro-auto-itaquaquecetuba" element={<SeoLocalPage slug="seguro-auto-itaquaquecetuba" />} />
             <Route path="/seguro-auto-suzano" element={<SeoLocalPage slug="seguro-auto-suzano" />} />
