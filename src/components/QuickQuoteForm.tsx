@@ -3,8 +3,8 @@ import { Send, CheckCircle, MessageCircle, TrendingDown, Save, ChevronRight, Che
 import { debounce } from "lodash";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
+import { savePartialQuote } from "@/lib/leadsApi";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -61,12 +61,12 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
       try {
         if (partialId) {
-          await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+          await savePartialQuote({ id: partialId, ...dataToSave });
         } else if (dataToSave.name || dataToSave.email || dataToSave.phone) {
-          const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
-          if (data && !error) {
-            setPartialId(data.id);
-            localStorage.setItem(`${storageKey}-partial-id`, data.id);
+          const { id, error } = await savePartialQuote(dataToSave);
+          if (id && !error) {
+            setPartialId(id);
+            localStorage.setItem(`${storageKey}-partial-id`, id);
           }
         }
       } catch (err) {

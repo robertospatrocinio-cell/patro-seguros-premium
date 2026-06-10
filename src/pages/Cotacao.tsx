@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { escapeHtml } from "@/lib/utils";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { savePartialQuote } from "@/lib/leadsApi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -140,12 +141,12 @@ const Cotacao = () => {
       };
 
       if (partialId) {
-        await supabase.from("partial_quotes").update(dataToSave).eq("id", partialId);
+        await savePartialQuote({ id: partialId, ...dataToSave });
       } else {
-        const { data, error } = await supabase.from("partial_quotes").insert(dataToSave).select("id").single();
-        if (data && !error) {
-          setPartialId(data.id);
-          localStorage.setItem("partial_quote_id", data.id);
+        const { id, error } = await savePartialQuote(dataToSave);
+        if (id && !error) {
+          setPartialId(id);
+          localStorage.setItem("partial_quote_id", id);
         }
       }
     }, 2000),
