@@ -9,6 +9,8 @@ import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
+import ServiceSchema from "@/components/ServiceSchema";
+import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
@@ -55,6 +57,11 @@ const Index = () => {
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
+      <ServiceSchema 
+        name="Consultoria de Seguros em Guarulhos" 
+        description="Serviços profissionais de corretagem e consultoria de seguros para pessoas físicas e empresas."
+      />
+      <MedicalOrganizationSchema />
       <AggregateRatingSchema
         serviceName="Corretora de Seguros em Guarulhos"
         url={CANONICAL_BASE_URL}

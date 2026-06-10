@@ -16,6 +16,7 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
@@ -69,6 +70,11 @@ const SeguroAuto = () => {
         description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
         city="Guarulhos"
         faqs={faqs}
+      />
+      <ServiceSchema 
+        name="Cotação de Seguro Auto em Guarulhos" 
+        description="Serviço de comparação de preços e coberturas de seguro automotivo em 16 seguradoras."
+        serviceType="AutoInsurance"
       />
       <Header />
       <main id="main-content" className="outline-none">
