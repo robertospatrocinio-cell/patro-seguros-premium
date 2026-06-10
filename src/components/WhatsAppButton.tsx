@@ -34,59 +34,94 @@ const WhatsAppButton = () => {
 
   // Hide on the Cotacao page itself (the user is already in the form)
   const isCotacaoPage = location.pathname.startsWith("/cotacao");
+  const isSinistroPage = location.pathname.includes("central-de-sinistro");
   const tipo = inferQuoteTypeFromText(location.pathname);
   const cotacaoHref = tipo ? `/cotacao?tipo=${tipo}` : "/cotacao";
 
   const lastErrorId = typeof window !== "undefined" ? (window as any).lastErrorId : null;
-  const baseMessage = override?.message ?? DEFAULT_MESSAGE;
+  const baseMessage = isSinistroPage 
+    ? "Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site." 
+    : (override?.message ?? DEFAULT_MESSAGE);
+  
   const whatsappMessage = lastErrorId 
     ? `${baseMessage}\n\n_Ref. Erro anterior: ${lastErrorId}_`
     : baseMessage;
   
   const whatsappHref = WHATSAPP_BASE + encodeURIComponent(whatsappMessage);
-  const trackingLabel = override?.trackingLabel ?? DEFAULT_TRACKING_LABEL;
-  const ariaLabel = override
-    ? `Falar no WhatsApp sobre ${override.trackingLabel.replace(/^local-page:/, "").replace(/:floating$/, "")}`
-    : "Falar no WhatsApp";
+  const trackingLabel = isSinistroPage ? "central-sinistro-flutuante" : (override?.trackingLabel ?? DEFAULT_TRACKING_LABEL);
+  const ariaLabel = isSinistroPage 
+    ? "Central de Sinistro no WhatsApp" 
+    : (override
+      ? `Falar no WhatsApp sobre ${override.trackingLabel.replace(/^local-page:/, "").replace(/:floating$/, "")}`
+      : "Falar no WhatsApp");
 
   return (
-    <div
-      className={`fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 transition-all duration-300 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
-      }`}
-    >
-      {!isCotacaoPage && (
-        <Link
-          to={cotacaoHref}
-          aria-label="Pedir cotação"
-          onClick={() =>
-            trackCotacaoClick("botao-fixo", { origin: "sticky-cta", insuranceType: tipo || undefined })
-          }
-          className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground pl-3 pr-4 py-2.5 shadow-xl transition-base hover:scale-105 hover:shadow-2xl text-sm font-semibold"
+    <>
+      {/* Barra Fixa Desktop (Central de Sinistro) */}
+      <div className={`hidden lg:flex fixed top-[84px] right-0 z-[40] transition-all duration-500 ${visible ? "translate-x-0" : "translate-x-full"}`}>
+        <Link 
+          to="/central-de-sinistro"
+          className="bg-orange-600 text-white px-5 py-3 rounded-l-2xl shadow-2xl flex items-center gap-3 font-black text-sm uppercase tracking-wider hover:bg-orange-700 transition-all hover:pr-8"
         >
-          <FileText className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
-          Pedir Cotação
+          <div className="bg-white/20 p-1.5 rounded-lg">
+            <ShieldCheck className="h-5 w-5" />
+          </div>
+          Central de Sinistro
+          <ArrowRight className="h-4 w-4" />
         </Link>
-      )}
-      <a
-        href={whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={ariaLabel}
-        onClick={() =>
-          trackWhatsAppClick(trackingLabel, {
-            origin: "sticky-cta",
-            ...(override ? { localOverride: true } : {}),
-          })
-        }
-        className="group"
+      </div>
+
+      <div
+        className={`fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 transition-all duration-300 ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
       >
-        <div className="relative bg-[#25D366] text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
-          <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />
-        </div>
-      </a>
-    </div>
+        {/* Botão Mobile Especial (Central de Sinistro) */}
+        {!isSinistroPage && (
+          <div className="lg:hidden flex flex-col items-end gap-2">
+            <Link
+              to="/central-de-sinistro"
+              className="bg-orange-600 text-white px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 font-bold text-[12px] uppercase animate-in slide-in-from-bottom-2"
+            >
+              <ShieldCheck className="h-4 w-4" />
+              Central de Sinistro
+            </Link>
+          </div>
+        )}
+
+        {!isCotacaoPage && (
+          <Link
+            to={cotacaoHref}
+            aria-label="Pedir cotação"
+            onClick={() =>
+              trackCotacaoClick("botao-fixo", { origin: "sticky-cta", insuranceType: tipo || undefined })
+            }
+            className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground pl-3 pr-4 py-2.5 shadow-xl transition-base hover:scale-105 hover:shadow-2xl text-sm font-semibold"
+          >
+            <FileText className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+            Pedir Cotação
+          </Link>
+        )}
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={ariaLabel}
+          onClick={() =>
+            trackWhatsAppClick(trackingLabel, {
+              origin: "sticky-cta",
+              ...(override ? { localOverride: true } : {}),
+            })
+          }
+          className="group"
+        >
+          <div className="relative bg-[#25D366] text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
+            <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
+            <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />
+          </div>
+        </a>
+      </div>
+    </>
   );
 };
 
