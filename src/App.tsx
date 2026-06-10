@@ -297,7 +297,9 @@ const App = () => {
         <TooltipProvider>
           <BrowserRouter>
             <SkipLink />
+            <BreadcrumbSchema />
             <Toaster />
+
             <Sonner />
             <WhatsAppButton />
             <CookieBanner />
