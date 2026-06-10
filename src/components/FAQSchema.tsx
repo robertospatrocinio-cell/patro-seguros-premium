@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+
 interface FAQItem {
   question: string;
   answer: string;
@@ -25,11 +27,11 @@ const FAQSchema = ({ faqs }: FAQSchemaProps) => {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      data-faq-schema="true"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(schema)}
+      </script>
+    </Helmet>
   );
 };
 

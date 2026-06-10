@@ -28,6 +28,7 @@ const SeguroHospitalVeterinario = lazy(() => import("./pages/SeguroHospitalVeter
 const SeguroEquipamentosVeterinarios = lazy(() => import("./pages/SeguroEquipamentosVeterinarios"));
 const PlanoSaudeClinicasVeterinarias = lazy(() => import("./pages/PlanoSaudeClinicasVeterinarias"));
 const SeguroVidaClinicasVeterinarias = lazy(() => import("./pages/SeguroVidaClinicasVeterinarias"));
+import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -37,7 +38,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieBanner from "@/components/CookieBanner";
- import PageSkeleton from "@/components/PageSkeleton";
+import PageSkeleton from "@/components/PageSkeleton";
 import PageLoader from "@/components/PageLoader";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
@@ -288,8 +289,9 @@ const App = () => {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <QueryProviderWrapper>
+    <HelmetProvider>
+      <ErrorBoundary>
+        <QueryProviderWrapper>
         <TooltipProvider>
           <BrowserRouter>
             <SkipLink />
@@ -693,7 +695,8 @@ const App = () => {
           </BrowserRouter>
         </TooltipProvider>
       </QueryProviderWrapper>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </HelmetProvider>
   );
 };
 
