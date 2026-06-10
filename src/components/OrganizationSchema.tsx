@@ -14,9 +14,10 @@ const OrganizationSchema = () => {
     "url": CANONICAL_BASE_URL,
     "logo": {
       "@type": "ImageObject",
+      "@id": `${CANONICAL_BASE_URL}/#logo`,
       "url": `${CANONICAL_BASE_URL}/images/logo-full.webp`,
-      "width": 300,
-      "height": 60
+      "width": "300",
+      "height": "60"
     },
     "image": `${CANONICAL_BASE_URL}/images/logo-full.webp`,
     "description": "Corretora de seguros em Guarulhos com atendimento personalizado. Seguros auto, vida, residencial, saúde, empresarial e frotas para famílias e PMEs.",

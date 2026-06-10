@@ -8,7 +8,7 @@ import { CANONICAL_BASE_URL } from "@/lib/canonical";
 const LocalBusinessSchema = () => {
   const schema = {
     "@context": "https://schema.org",
-    "@type": ["InsuranceAgency"],
+    "@type": "InsuranceAgency",
     "@id": `${CANONICAL_BASE_URL}/#local-business`,
     "name": "Patro Corretora de Seguros",
     "alternateName": "Patro Seguros",

@@ -11,6 +11,7 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${CANONICAL_BASE_URL}${window.location.pathname}/#service`,
     "name": name,
     "description": description,
     "provider": {
@@ -19,7 +20,13 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
     "areaServed": [
       {
         "@type": "City",
-        "name": "Guarulhos"
+        "name": "Guarulhos",
+        "sameAs": "https://pt.wikipedia.org/wiki/Guarulhos"
+      },
+      {
+        "@type": "City",
+        "name": "São Paulo",
+        "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo"
       }
     ],
     "serviceType": serviceType,
@@ -31,7 +38,8 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Cotação de Seguros"
+            "name": name,
+            "description": `Cotação de ${name} personalizada.`
           }
         }
       ]
