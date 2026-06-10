@@ -15,6 +15,8 @@ import LocalAreaSchema from "@/components/LocalAreaSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import ServiceSchema from "@/components/ServiceSchema";
+import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
@@ -221,6 +223,12 @@ const InsurancePageTemplate = ({
           { name: title, url: location.pathname },
         ]}
       />
+      <ServiceSchema 
+        name={title} 
+        description={description} 
+        serviceType={inferQuoteType(title) === "saude" ? "HealthInsurance" : "Insurance"}
+      />
+      {(inferQuoteType(title) === "saude" || title.toLowerCase().includes("plano")) && <MedicalOrganizationSchema />}
       <Header />
       <main id="main-content" className="outline-none">
         <Breadcrumb items={breadcrumbItems} />
