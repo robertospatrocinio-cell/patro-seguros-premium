@@ -193,7 +193,10 @@
                   <Button onClick={this.handleBack} variant="outline" className="gap-2 w-full">
                     <ArrowLeft className="w-4 h-4" /> Voltar Anterior
                   </Button>
-                  <Button onClick={() => window.location.href = "/"} variant="ghost" className="gap-2 w-full sm:col-span-2">
+                  <Button onClick={() => window.location.href = "/diagnostico"} variant="ghost" className="gap-2 w-full">
+                    <AlertTriangle className="w-4 h-4" /> Ver Diagnóstico
+                  </Button>
+                  <Button onClick={() => window.location.href = "/"} variant="ghost" className="gap-2 w-full">
                     <Home className="w-4 h-4" /> Ir para o Início
                   </Button>
                 </div>
