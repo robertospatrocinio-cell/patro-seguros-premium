@@ -12,7 +12,7 @@ export const diagnosticLogs: {
   details?: any;
 }[] = [];
 
-const addDiagnosticLog = (log: typeof diagnosticLogs[0]) => {
+const addDiagnosticLog = (log: { type: 'error' | 'network' | 'console', message: string, timestamp: string, details?: any }) => {
   diagnosticLogs.unshift(log);
   if (diagnosticLogs.length > MAX_LOGS) {
     diagnosticLogs.pop();
@@ -33,21 +33,21 @@ export const initMonitoring = async () => {
   if (typeof window !== "undefined") {
     // Intercept console errors
     const originalConsoleError = console.error;
-    console.error = (firstArg: any, ...args: any[]) => {
-      const message = [firstArg, ...args].map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+    console.error = function(this: any, ...args: any[]) {
+      const message = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
       addDiagnosticLog({
         type: 'console',
         message,
         timestamp: new Date().toISOString(),
       });
-      originalConsoleError.apply(console, [firstArg, ...args]);
+      return originalConsoleError.apply(this, args);
     };
 
     // Intercept network failures if possible via fetch
     const originalFetch = window.fetch;
-    window.fetch = async (...args: any[]) => {
+    window.fetch = async function(this: any, ...args: any[]) {
       try {
-        const response = await originalFetch(...args);
+        const response = await originalFetch.apply(this, args);
         if (!response.ok) {
           addDiagnosticLog({
             type: 'network',
