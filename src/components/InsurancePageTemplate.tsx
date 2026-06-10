@@ -151,6 +151,7 @@ const InsurancePageTemplate = ({
   showAgrishowBanner,
   extraSections,
   skipFAQSchema,
+  skipFAQSchemaManual,
   skipAggregateRating,
   faqs = [],
   canonicalUrl: canonicalUrlProp,

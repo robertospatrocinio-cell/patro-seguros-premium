@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Header from "@/components/Header";
+import FAQSchema from "@/components/FAQSchema";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
