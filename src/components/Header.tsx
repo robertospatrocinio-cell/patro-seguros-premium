@@ -1,6 +1,6 @@
 import { useState, useMemo, memo, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck, Trash2 } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, ChevronDown, MapPin, Search, Star, MessageCircle, PawPrint, Stethoscope, RotateCcw, ArrowRight, User as UserIcon, Car, ShieldCheck, Trash2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
@@ -564,6 +564,49 @@ const Header = memo(() => {
           </div>
         </div>
       )}
+      {/* CTA FIXA CENTRAL DE SINISTRO - DESKTOP SIDE BAR & MOBILE FLOATING */}
+      <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
+        {/* Mobile: Botão flutuante de emergência */}
+        <a 
+          href={WHATSAPP_URL} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="lg:hidden flex items-center justify-center w-14 h-14 bg-orange-600 text-white rounded-full shadow-2xl animate-pulse hover:bg-orange-700 transition-colors"
+          title="Central de Sinistro 24h"
+          onClick={() => trackWhatsAppClick("floating-mobile-sinistro")}
+        >
+          <AlertCircle className="h-7 w-7" />
+        </a>
+
+        {/* Desktop: Barra fixa lateral/inferior para Central de Sinistro */}
+        <div className="hidden lg:flex flex-col gap-2 group">
+          <Link 
+            to="/central-de-sinistro"
+            className="flex items-center gap-3 bg-white border border-orange-200 shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:shadow-2xl hover:border-orange-500 transition-all group/btn translate-x-[calc(100%-48px)] hover:translate-x-0"
+          >
+            <div className="flex flex-col">
+              <span className="text-[10px] font-bold text-orange-600 uppercase tracking-tighter leading-none mb-0.5">Precisa de Ajuda?</span>
+              <span className="text-xs font-black text-slate-900 whitespace-nowrap">Central de Sinistro</span>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center text-white group-hover/btn:scale-110 transition-transform">
+              <AlertCircle className="h-4 w-4" />
+            </div>
+          </Link>
+          
+          <a 
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("floating-desktop-sinistro")}
+            className="flex items-center gap-3 bg-green-500 text-white shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:bg-green-600 transition-all translate-x-[calc(100%-48px)] hover:translate-x-0"
+          >
+            <span className="text-xs font-bold whitespace-nowrap">WhatsApp de Emergência</span>
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-green-600">
+              <MessageCircle className="h-4 w-4 fill-current" />
+            </div>
+          </a>
+        </div>
+      </div>
     </header>
   );
 });
