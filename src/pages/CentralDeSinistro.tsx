@@ -177,15 +177,24 @@ const CentralDeSinistro = () => {
               
               <div className="space-y-6">
                 {types.map((type, index) => (
-                  <div key={index} className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl border border-slate-100 hover:border-orange-200 transition-colors">
-                    <div className="flex-shrink-0 w-16 h-16 bg-orange-50 flex items-center justify-center rounded-2xl">
+                  <div key={index} className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl border border-slate-100 hover:border-orange-200 transition-colors group">
+                    <div className="flex-shrink-0 w-16 h-16 bg-orange-50 flex items-center justify-center rounded-2xl group-hover:bg-orange-100 transition-colors">
                       {type.icon}
                     </div>
-                    <div className="text-center md:text-left">
+                    <div className="text-center md:text-left flex-grow">
                       <h3 className="text-xl font-bold text-primary mb-2">{type.title}</h3>
-                      <p className="text-muted-foreground">
+                      <p className="text-muted-foreground mb-4">
                         {type.description}
                       </p>
+                      <a 
+                        href={`https://wa.me/551151997500?text=${encodeURIComponent(type.whatsappMessage)}`}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={() => trackWhatsAppClick(`sinistro-tipo-${type.title.toLowerCase()}`)}
+                        className="inline-flex items-center text-orange-500 font-bold text-sm hover:underline"
+                      >
+                        Preciso de ajuda com {type.title} <ArrowRight className="ml-1 h-4 w-4" />
+                      </a>
                     </div>
                   </div>
                 ))}
