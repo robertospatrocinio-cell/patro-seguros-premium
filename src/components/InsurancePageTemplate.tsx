@@ -112,6 +112,11 @@ interface InsurancePageProps {
    */
   skipFAQSchema?: boolean;
   /**
+   * Quando true, suprime o `<FAQSchema>` injetado por este template.
+   * Útil para páginas que já emitem FAQPage via outros componentes (ex: LocalAreaSchema)
+   */
+  skipFAQSchemaManual?: boolean;
+  /**
    * Quando true, suprime o `<AggregateRatingSchema>` injetado por este template.
    * Use em páginas locais que já emitem AggregateRating via `LocalAreaSchema`
    * para evitar nodos de rating duplicados / inconsistentes.
@@ -197,7 +202,7 @@ const InsurancePageTemplate = ({
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
-      {!skipFAQSchema && faqs.length > 0 && <FAQSchema faqs={faqs} />}
+      {!skipFAQSchemaManual && faqs.length > 0 && <FAQSchema faqs={faqs} />}
       <LocalAreaSchema
         serviceName={title}
         url={canonicalUrl}
