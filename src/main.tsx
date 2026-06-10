@@ -30,7 +30,9 @@ const Main = () => {
 
   return (
     <ErrorBoundary>
-      <App />
+      <Suspense fallback={<PageSkeleton />}>
+        <App />
+      </Suspense>
     </ErrorBoundary>
   );
 };
