@@ -45,6 +45,9 @@ import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
+import OrganizationSchema from "@/components/OrganizationSchema";
+import WebSiteSchema from "@/components/WebSiteSchema";
 
 
 import Index from "./pages/Index";
@@ -298,6 +301,9 @@ const App = () => {
           <BrowserRouter>
             <SkipLink />
             <BreadcrumbSchema />
+            <LocalBusinessSchema />
+            <OrganizationSchema />
+            <WebSiteSchema />
             <Toaster />
 
             <Sonner />
