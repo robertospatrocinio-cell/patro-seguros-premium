@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
 const WebSiteSchema = () => {
@@ -24,10 +25,11 @@ const WebSiteSchema = () => {
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <Helmet>
+      <script type="application/ld+json">
+        {JSON.stringify(schema)}
+      </script>
+    </Helmet>
   );
 };
 
