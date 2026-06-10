@@ -13,10 +13,10 @@ import { Progress } from "@/components/ui/progress";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { logForgottenQuote } from "@/lib/quoteHistory";
+import { submitLead, savePartialQuote } from "@/lib/leadsApi";
 
 
 
