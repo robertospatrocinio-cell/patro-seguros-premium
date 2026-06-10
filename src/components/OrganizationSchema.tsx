@@ -46,6 +46,16 @@ const OrganizationSchema = () => {
         "areaServed": "BR",
         "availableLanguage": "Portuguese"
       }
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+551151997500",
+        "contactType": "emergency",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese",
+        "description": "Central de Sinistro 24h para Roubo, Furto e Colisão",
+        "contactOption": "HearingImpairedSupported"
+      }
     ],
     "sameAs": [
       "https://www.instagram.com/patroseguros",
