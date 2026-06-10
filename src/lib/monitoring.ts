@@ -33,13 +33,14 @@ export const initMonitoring = async () => {
   if (typeof window !== "undefined") {
     // Intercept console errors
     const originalConsoleError = console.error;
-    console.error = (...args: any[]) => {
+    console.error = (firstArg: any, ...args: any[]) => {
+      const message = [firstArg, ...args].map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
       addDiagnosticLog({
         type: 'console',
-        message: args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' '),
+        message,
         timestamp: new Date().toISOString(),
       });
-      originalConsoleError.apply(console, args);
+      originalConsoleError.apply(console, [firstArg, ...args]);
     };
 
     // Intercept network failures if possible via fetch
