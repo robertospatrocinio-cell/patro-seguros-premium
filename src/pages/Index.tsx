@@ -115,6 +115,16 @@ const Index = () => {
                   <span className="text-primary font-bold inline-flex items-center">Saber mais <ArrowRight className="ml-1 h-4 w-4" /></span>
                 </Link>
               ))}
+              <Link to="/central-de-sinistro" className="group p-8 bg-primary/5 rounded-2xl border border-primary/20 hover:shadow-xl transition-all md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="text-center md:text-left">
+                  <h3 className="text-xl font-bold mb-2 text-primary">Sofreu um sinistro ou precisa de assistência?</h3>
+                  <p className="text-[14px] text-muted-foreground">Saiba o que fazer em caso de roubo, colisão ou pane 24h.</p>
+                </div>
+                <Button variant="default" className="font-bold whitespace-nowrap">
+                  Acessar Central de Sinistro
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
