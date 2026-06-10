@@ -41,7 +41,7 @@ const AggregateRatingSchema = ({
     ...(description ? { description } : {}),
     provider: {
       "@type": "InsuranceAgency",
-      "@id": "https://www.patroseguros.com.br/#insurance-agency",
+      "@id": "https://www.patroseguros.com.br/#organization",
       name: "Patro Seguros",
       url: "https://www.patroseguros.com.br",
       telephone: "+551151997500",
