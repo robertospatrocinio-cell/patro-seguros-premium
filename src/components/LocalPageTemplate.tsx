@@ -256,7 +256,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         // Local pages emit FAQPage + AggregateRating via LocalAreaSchema's
         // unified @graph. Skip the duplicates here to keep the structured
         // data graph consistent (single AggregateRating @id, single FAQPage).
-        skipFAQSchema
+        skipFAQSchemaManual
         skipAggregateRating
         pricingInfo={{
           intro: pricing.intro,

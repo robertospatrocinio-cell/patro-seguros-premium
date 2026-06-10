@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import Header from "@/components/Header";
+import FAQSchema from "@/components/FAQSchema";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Button } from "@/components/ui/button";
@@ -247,6 +248,7 @@ const Cotacao = () => {
   return (
     <Fragment>
       <PageMeta title="Cotação de Seguro em Guarulhos | Patro Seguros" description="Solicite sua cotação de seguro em Guarulhos gratuitamente. Comparamos auto, residencial, vida e empresarial entre as melhores seguradoras do Brasil." />
+      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
       <Header />
       <main id="main-content" className="outline-none bg-slate-50/50">
         {/* Hero Section */}

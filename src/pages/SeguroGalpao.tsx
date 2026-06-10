@@ -110,6 +110,7 @@ const SeguroGalpao = () => {
         "Implementação de apólices All-risks para operações de alta complexidade",
       ]}
       faqs={HUB_FAQS}
+      skipFAQSchemaManual={true}
       relatedInsurances={[
         { title: "Seguro Galpões Industriais", link: "/seguro-galpoes-industriais" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },

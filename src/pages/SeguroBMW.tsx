@@ -120,6 +120,7 @@ const SeguroBMW = () => {
         city="Guarulhos"
         faqs={faqs.map(f => ({ question: f.q, answer: f.a }))}
       />
+      <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
       <Header />
 
       <main>
