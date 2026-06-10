@@ -35,6 +35,7 @@ const AggregateRatingSchema = ({
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${url}/#service-rating`,
     name: serviceName,
     serviceType: serviceName,
     url,
@@ -55,17 +56,22 @@ const AggregateRatingSchema = ({
       },
     },
     areaServed: [
-      { "@type": "City", name: "Guarulhos" },
-      { "@type": "State", name: "São Paulo" },
+      { "@type": "City", name: "Guarulhos", sameAs: "https://pt.wikipedia.org/wiki/Guarulhos" },
+      { "@type": "City", name: "São Paulo", sameAs: "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo" },
       { "@type": "Country", name: "Brasil" },
     ],
     aggregateRating: {
       "@type": "AggregateRating",
+      "@id": `${url}/#aggregate-rating`,
       ratingValue: rating.ratingValue,
       reviewCount: rating.reviewCount,
       bestRating: rating.bestRating,
       worstRating: rating.worstRating,
-      itemReviewed: serviceName,
+      itemReviewed: {
+        "@type": "Service",
+        "name": serviceName,
+        "@id": `${url}/#service`
+      },
     },
   };
 
