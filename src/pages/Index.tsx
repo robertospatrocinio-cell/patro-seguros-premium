@@ -242,13 +242,34 @@ const Index = () => {
         <section className="py-20 bg-muted/20">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 className="text-3xl font-bold mb-12 text-center">Perguntas Frequentes</h2>
-            <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <div key={i} className="bg-card p-6 rounded-xl border">
-                  <h3 className="font-bold mb-3">{faq.question}</h3>
-                  <p className="text-[14px] text-muted-foreground">{faq.answer}</p>
-                </div>
-              ))}
+            
+            <div className="mb-12">
+              <h3 className="text-xl font-bold mb-6 text-primary border-l-4 border-primary pl-4">Dúvidas Gerais</h3>
+              <div className="space-y-6">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="bg-card p-6 rounded-xl border">
+                    <h4 className="font-bold mb-3">{faq.question}</h4>
+                    <p className="text-[14px] text-muted-foreground">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-orange-600 border-l-4 border-orange-600 pl-4">Central de Sinistro & Ajuda</h3>
+              <div className="space-y-6">
+                {sinistroFaqs.map((faq, i) => (
+                  <div key={i} className="bg-card p-6 rounded-xl border hover:border-orange-200 transition-colors">
+                    <h4 className="font-bold mb-3">{faq.question}</h4>
+                    <p className="text-[14px] text-muted-foreground">{faq.answer}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 text-center">
+                <Link to="/central-de-sinistro" className="text-primary font-bold hover:underline inline-flex items-center">
+                  Ver guia completo de sinistro <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
