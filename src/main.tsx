@@ -10,17 +10,8 @@ const App = lazy(() => import("./App.tsx"));
 
 const Main = () => {
   useEffect(() => {
-    // Initial monitoring can be deferred slightly more
-    const deferInit = () => {
-      initMonitoring().catch(console.error);
-      initWebVitals();
-    };
-
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(deferInit, { timeout: 2000 });
-    } else {
-      setTimeout(deferInit, 1000);
-    }
+    initMonitoring().catch(console.error);
+    initWebVitals();
   }, []);
 
   return (
