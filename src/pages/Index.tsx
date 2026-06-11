@@ -24,6 +24,7 @@ import LocalTestimonials from "@/components/LocalTestimonials";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import HomeBlogSection from "@/components/HomeBlogSection";
 import PortoPartnershipSection from "@/components/PortoPartnershipSection";
+import { QuickLeadForm } from "@/components/QuickLeadForm";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -106,6 +107,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* QUICK LEAD FORM */}
+        <QuickLeadForm />
 24: 
 25:         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
 26:         <div className="bg-orange-500 py-3 text-white">
