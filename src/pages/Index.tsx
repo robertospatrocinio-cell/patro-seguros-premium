@@ -93,13 +93,13 @@ const Index = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>
-                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold">
-                      Solicitar cotação
+                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all">
+                      Solicitar cotação agora
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/10 text-white border-white/20 hover:bg-white/20">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-green-500 hover:bg-green-600 text-white border-green-600 hover:border-green-700 font-bold shadow-lg shadow-green-500/20 transition-all">
                       <MessageCircle className="mr-2 h-5 w-5" />
                       Falar no WhatsApp
                     </Button>
