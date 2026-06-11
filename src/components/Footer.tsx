@@ -80,9 +80,9 @@ const Footer = memo(() => {
           <nav aria-label="Atendimento e Conteúdo">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Atendimento</h3>
             <ul className="space-y-2.5 text-[13px] mb-8">
-              <li><Link to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</Link></li>
-              <li><Link to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</Link></li>
-              <li><Link to="/crm" className="text-primary font-bold hover:text-primary/80">Área do Cliente</Link></li>
+              <li><SmartLink to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</SmartLink></li>
+              <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>
+              <li><SmartLink to="/crm" className="text-primary font-bold hover:text-primary/80">Área do Cliente</SmartLink></li>
             </ul>
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Conteúdo</h3>
             <ul className="space-y-2.5 text-[13px]">
