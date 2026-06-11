@@ -1,33 +1,65 @@
-import { lazy, Suspense, useEffect, useMemo } from "react";
-const NichoLojistasGuarulhos = lazy(() => import("./pages/NichoLojistasGuarulhos"));
-const SeoVistoriaVeicularGuarulhos = lazy(() => import("./pages/SeoVistoriaVeicularGuarulhos"));
-const SeoECVGuarulhos = lazy(() => import("./pages/SeoECVGuarulhos"));
-const SeoInspecaoVeicularGuarulhos = lazy(() => import("./pages/SeoInspecaoVeicularGuarulhos"));
-const SeoVistoriaCautelarGuarulhos = lazy(() => import("./pages/SeoVistoriaCautelarGuarulhos"));
-const SeoTransferenciaVeicularGuarulhos = lazy(() => import("./pages/SeoTransferenciaVeicularGuarulhos"));
-const SeoDespachantesVistoriasGuarulhos = lazy(() => import("./pages/SeoDespachantesVistoriasGuarulhos"));
-const SeoParceriaVistoriaGuarulhos = lazy(() => import("./pages/SeoParceriaVistoriaGuarulhos"));
-const SeoAutoPosVistoriaGuarulhos = lazy(() => import("./pages/SeoAutoPosVistoriaGuarulhos"));
-const BlogVistoriaVeicular = lazy(() => import("./pages/BlogVistoriaVeicular"));
-const NichoClinicasOdontologicas = lazy(() => import("./pages/NichoClinicasOdontologicas"));
-const ParceriasClinicasOdontologicas = lazy(() => import("./pages/ParceriasClinicasOdontologicas"));
-const BlogOdontologia = lazy(() => import("./pages/BlogOdontologia"));
-const SeguroParaDentistas = lazy(() => import("./pages/SeguroParaDentistas"));
-const SeguroConsultorioOdontologico = lazy(() => import("./pages/SeguroConsultorioOdontologico"));
-const SeguroClinicaOdontologica = lazy(() => import("./pages/SeguroClinicaOdontologica"));
-const SeguroEquipamentosOdontologicos = lazy(() => import("./pages/SeguroEquipamentosOdontologicos"));
-const PlanoSaudeClinicasOdontologicas = lazy(() => import("./pages/PlanoSaudeClinicasOdontologicas"));
-const SeguroVidaClinicasOdontologicas = lazy(() => import("./pages/SeguroVidaClinicasOdontologicas"));
-const NichoClinicasVeterinarias = lazy(() => import("./pages/NichoClinicasVeterinarias"));
-const ParceriasClinicasVeterinarias = lazy(() => import("./pages/ParceriasClinicasVeterinarias"));
-const BlogClinicasVeterinarias = lazy(() => import("./pages/BlogClinicasVeterinarias"));
-const ProtecaoPetPremium = lazy(() => import("./pages/ProtecaoPetPremium"));
-const SeguroParaVeterinarios = lazy(() => import("./pages/SeguroParaVeterinarios"));
-const SeguroClinicaVeterinaria = lazy(() => import("./pages/SeguroClinicaVeterinaria"));
-const SeguroHospitalVeterinario = lazy(() => import("./pages/SeguroHospitalVeterinario"));
-const SeguroEquipamentosVeterinarios = lazy(() => import("./pages/SeguroEquipamentosVeterinarios"));
-const PlanoSaudeClinicasVeterinarias = lazy(() => import("./pages/PlanoSaudeClinicasVeterinarias"));
-const SeguroVidaClinicasVeterinarias = lazy(() => import("./pages/SeguroVidaClinicasVeterinarias"));
+import { lazy, Suspense, useEffect, useMemo, Component, ReactNode } from "react";
+
+// Helper function to create lazy components with retry logic
+const lazyWithRetry = (componentImport: () => Promise<{ default: any }>, routeName: string = "default") => {
+  return lazy(async () => {
+    const MAX_RETRIES = routeName === "Index" || routeName === "Cotacao" ? 8 : 5;
+    let attempt = 0;
+
+    while (attempt < MAX_RETRIES) {
+      try {
+        return await componentImport();
+      } catch (error: any) {
+        attempt++;
+        const isNetworkError = 
+          error.message?.toLowerCase().includes("failed to fetch") || 
+          error.message?.toLowerCase().includes("load failed") ||
+          error.message?.toLowerCase().includes("connection refused") ||
+          error.name === "ChunkLoadError";
+
+        if (!isNetworkError || attempt >= MAX_RETRIES) {
+          throw error;
+        }
+
+        // Exponential backoff: 1s, 2s, 4s, 8s... capped at 10s
+        const delay = Math.min(1000 * Math.pow(2, attempt - 1), 10000);
+        console.warn(`[Retry] Failed to load route "${routeName}". Attempt ${attempt}/${MAX_RETRIES}. Retrying in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
+    return componentImport(); // Should not reach here due to throw above
+  });
+};
+
+const NichoLojistasGuarulhos = lazyWithRetry(() => import("./pages/NichoLojistasGuarulhos"), "NichoLojistasGuarulhos");
+const SeoVistoriaVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaVeicularGuarulhos"), "SeoVistoriaVeicularGuarulhos");
+const SeoECVGuarulhos = lazyWithRetry(() => import("./pages/SeoECVGuarulhos"), "SeoECVGuarulhos");
+const SeoInspecaoVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoInspecaoVeicularGuarulhos"), "SeoInspecaoVeicularGuarulhos");
+const SeoVistoriaCautelarGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaCautelarGuarulhos"), "SeoVistoriaCautelarGuarulhos");
+const SeoTransferenciaVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoTransferenciaVeicularGuarulhos"), "SeoTransferenciaVeicularGuarulhos");
+const SeoDespachantesVistoriasGuarulhos = lazyWithRetry(() => import("./pages/SeoDespachantesVistoriasGuarulhos"), "SeoDespachantesVistoriasGuarulhos");
+const SeoParceriaVistoriaGuarulhos = lazyWithRetry(() => import("./pages/SeoParceriaVistoriaGuarulhos"), "SeoParceriaVistoriaGuarulhos");
+const SeoAutoPosVistoriaGuarulhos = lazyWithRetry(() => import("./pages/SeoAutoPosVistoriaGuarulhos"), "SeoAutoPosVistoriaGuarulhos");
+const BlogVistoriaVeicular = lazyWithRetry(() => import("./pages/BlogVistoriaVeicular"), "BlogVistoriaVeicular");
+const NichoClinicasOdontologicas = lazyWithRetry(() => import("./pages/NichoClinicasOdontologicas"), "NichoClinicasOdontologicas");
+const ParceriasClinicasOdontologicas = lazyWithRetry(() => import("./pages/ParceriasClinicasOdontologicas"), "ParceriasClinicasOdontologicas");
+const BlogOdontologia = lazyWithRetry(() => import("./pages/BlogOdontologia"), "BlogOdontologia");
+const SeguroParaDentistas = lazyWithRetry(() => import("./pages/SeguroParaDentistas"), "SeguroParaDentistas");
+const SeguroConsultorioOdontologico = lazyWithRetry(() => import("./pages/SeguroConsultorioOdontologico"), "SeguroConsultorioOdontologico");
+const SeguroClinicaOdontologica = lazyWithRetry(() => import("./pages/SeguroClinicaOdontologica"), "SeguroClinicaOdontologica");
+const SeguroEquipamentosOdontologicos = lazyWithRetry(() => import("./pages/SeguroEquipamentosOdontologicos"), "SeguroEquipamentosOdontologicos");
+const PlanoSaudeClinicasOdontologicas = lazyWithRetry(() => import("./pages/PlanoSaudeClinicasOdontologicas"), "PlanoSaudeClinicasOdontologicas");
+const SeguroVidaClinicasOdontologicas = lazyWithRetry(() => import("./pages/SeguroVidaClinicasOdontologicas"), "SeguroVidaClinicasOdontologicas");
+const NichoClinicasVeterinarias = lazyWithRetry(() => import("./pages/NichoClinicasVeterinarias"), "NichoClinicasVeterinarias");
+const ParceriasClinicasVeterinarias = lazyWithRetry(() => import("./pages/ParceriasClinicasVeterinarias"), "ParceriasClinicasVeterinarias");
+const BlogClinicasVeterinarias = lazyWithRetry(() => import("./pages/BlogClinicasVeterinarias"), "BlogClinicasVeterinarias");
+const ProtecaoPetPremium = lazyWithRetry(() => import("./pages/ProtecaoPetPremium"), "ProtecaoPetPremium");
+const SeguroParaVeterinarios = lazyWithRetry(() => import("./pages/SeguroParaVeterinarios"), "SeguroParaVeterinarios");
+const SeguroClinicaVeterinaria = lazyWithRetry(() => import("./pages/SeguroClinicaVeterinaria"), "SeguroClinicaVeterinaria");
+const SeguroHospitalVeterinario = lazyWithRetry(() => import("./pages/SeguroHospitalVeterinario"), "SeguroHospitalVeterinario");
+const SeguroEquipamentosVeterinarios = lazyWithRetry(() => import("./pages/SeguroEquipamentosVeterinarios"), "SeguroEquipamentosVeterinarios");
+const PlanoSaudeClinicasVeterinarias = lazyWithRetry(() => import("./pages/PlanoSaudeClinicasVeterinarias"), "PlanoSaudeClinicasVeterinarias");
+const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/SeguroVidaClinicasVeterinarias"), "SeguroVidaClinicasVeterinarias");
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
