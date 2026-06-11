@@ -231,21 +231,20 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 3. COMO FUNCIONA A COTAÇÃO */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-16">Como funciona a cotação na Patro</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <section className="py-20 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { step: "01", title: "Escolha o Seguro", desc: "Selecione o que deseja proteger em nosso site." },
-                { step: "02", title: "Preencha os Dados", desc: "Informe os detalhes básicos em poucos segundos." },
-                { step: "03", title: "Nós Comparamos", desc: "Analisamos mais de 16 seguradoras parceiras." },
-                { step: "04", title: "Você Escolhe", desc: "Apresentamos as melhores opções com consultoria." }
+                { step: "01", title: "Cotação em 2h", desc: "Sua proposta comparativa entregue via WhatsApp em tempo recorde.", icon: Clock },
+                { step: "02", title: "Gestão Dedicada", desc: "Suporte total em caso de sinistro, cuidamos de toda a burocracia.", icon: ShieldCheck },
+                { step: "03", title: "16+ Seguradoras", desc: "Comparamos as maiores do Brasil para garantir o menor preço.", icon: Building2 }
               ].map(s => (
-                <div key={s.step} className="relative">
-                  <span className="text-6xl font-black text-primary/10 absolute -top-10 left-1/2 -translate-x-1/2">{s.step}</span>
-                  <h3 className="text-lg font-bold mb-2 relative z-10">{s.title}</h3>
-                  <p className="text-[14px] text-muted-foreground">{s.desc}</p>
+                <div key={s.step} className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all text-center md:text-left">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 mx-auto md:mx-0">
+                    <s.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{s.title}</h3>
+                  <p className="text-slate-500 leading-relaxed text-sm">{s.desc}</p>
                 </div>
               ))}
             </div>
