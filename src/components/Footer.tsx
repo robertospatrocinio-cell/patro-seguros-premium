@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SmartLink } from "./SmartLink";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
