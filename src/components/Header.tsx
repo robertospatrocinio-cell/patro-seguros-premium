@@ -372,7 +372,7 @@ const Header = memo(() => {
                       <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</SmartLink>
                       <SmartLink to="/contato" className="block py-1 hover:text-primary">Segunda Via</SmartLink>
                       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-primary">Falar com Consultor</a>
-                      <Link to="/crm" className="block py-1 font-semibold text-primary">Área do Cliente</Link>
+                      <SmartLink to="/crm" className="block py-1 font-semibold text-primary">Área do Cliente</SmartLink>
                     </div>
                   </div>
                 </div>
