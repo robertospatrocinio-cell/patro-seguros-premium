@@ -107,6 +107,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        {/* QUICK LEAD FORM */}
+        <QuickLeadForm />
 24: 
 25:         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
 26:         <div className="bg-orange-500 py-3 text-white">
