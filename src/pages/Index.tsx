@@ -167,7 +167,7 @@ const Index = () => {
                       <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
                       <p className="text-xs text-slate-500">{t.loc}, Guarulhos</p>
                     </div>
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-3 ml-auto opacity-50" />
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-3 ml-auto opacity-50" loading="lazy" />
                   </div>
                 </div>
               ))}
