@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SmartLink } from "./SmartLink";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
@@ -15,9 +16,9 @@ const Footer = memo(() => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <SmartLink to="/" className="inline-block mb-6">
               <img src={logoFull} alt="Patro Seguros" width={160} height={80} className="h-20 w-auto object-contain brightness-200" />
-            </Link>
+            </SmartLink>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
               A experiência digital de uma grande corretora, com o atendimento próximo de uma especialista em Guarulhos e região.
             </p>
@@ -53,12 +54,12 @@ const Footer = memo(() => {
           <nav aria-label="Seguros para você">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Para Você</h3>
             <ul className="space-y-2.5 text-[13px]">
-              <li><Link to="/seguro-auto" className="hover:text-white transition-colors">Seguro Auto</Link></li>
-              <li><Link to="/seguro-moto" className="hover:text-white transition-colors">Seguro Moto</Link></li>
-              <li><Link to="/seguro-residencial" className="hover:text-white transition-colors">Seguro Residencial</Link></li>
-              <li><Link to="/seguro-vida" className="hover:text-white transition-colors">Seguro de Vida</Link></li>
-              <li><Link to="/planos-de-saude" className="hover:text-white transition-colors">Plano de Saúde</Link></li>
-              <li><Link to="/consorcio" className="hover:text-white transition-colors">Consórcio</Link></li>
+              <li><SmartLink to="/seguro-auto" className="hover:text-white transition-colors">Seguro Auto</SmartLink></li>
+              <li><SmartLink to="/seguro-moto" className="hover:text-white transition-colors">Seguro Moto</SmartLink></li>
+              <li><SmartLink to="/seguro-residencial" className="hover:text-white transition-colors">Seguro Residencial</SmartLink></li>
+              <li><SmartLink to="/seguro-vida" className="hover:text-white transition-colors">Seguro de Vida</SmartLink></li>
+              <li><SmartLink to="/planos-de-saude" className="hover:text-white transition-colors">Plano de Saúde</SmartLink></li>
+              <li><SmartLink to="/consorcio" className="hover:text-white transition-colors">Consórcio</SmartLink></li>
             </ul>
           </nav>
 
@@ -66,12 +67,12 @@ const Footer = memo(() => {
           <nav aria-label="Seguros para empresas">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Para Sua Empresa</h3>
             <ul className="space-y-2.5 text-[13px]">
-              <li><Link to="/seguro-empresarial" className="hover:text-white transition-colors">Seguro Empresarial</Link></li>
-              <li><Link to="/seguro-frota" className="hover:text-white transition-colors">Seguro Frota</Link></li>
-              <li><Link to="/seguro-transporte" className="hover:text-white transition-colors">Transporte e Carga</Link></li>
-              <li><Link to="/plano-saude-empresarial" className="hover:text-white transition-colors">Plano de Saúde PME</Link></li>
-              <li><Link to="/seguro-vida-pme" className="hover:text-white transition-colors">Seguro de Vida em Grupo</Link></li>
-              <li><Link to="/seguro-maquinas" className="hover:text-white transition-colors">Máquinas e Equip.</Link></li>
+              <li><SmartLink to="/seguro-empresarial" className="hover:text-white transition-colors">Seguro Empresarial</SmartLink></li>
+              <li><SmartLink to="/seguro-frota" className="hover:text-white transition-colors">Seguro Frota</SmartLink></li>
+              <li><SmartLink to="/seguro-transporte" className="hover:text-white transition-colors">Transporte e Carga</SmartLink></li>
+              <li><SmartLink to="/plano-saude-empresarial" className="hover:text-white transition-colors">Plano de Saúde PME</SmartLink></li>
+              <li><SmartLink to="/seguro-vida-pme" className="hover:text-white transition-colors">Seguro de Vida em Grupo</SmartLink></li>
+              <li><SmartLink to="/seguro-maquinas" className="hover:text-white transition-colors">Máquinas e Equip.</SmartLink></li>
             </ul>
           </nav>
 
@@ -79,15 +80,15 @@ const Footer = memo(() => {
           <nav aria-label="Atendimento e Conteúdo">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Atendimento</h3>
             <ul className="space-y-2.5 text-[13px] mb-8">
-              <li><Link to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</Link></li>
-              <li><Link to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</Link></li>
-              <li><Link to="/crm" className="text-primary font-bold hover:text-primary/80">Área do Cliente</Link></li>
+              <li><SmartLink to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</SmartLink></li>
+              <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>
+              <li><SmartLink to="/crm" className="text-primary font-bold hover:text-primary/80">Área do Cliente</SmartLink></li>
             </ul>
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Conteúdo</h3>
             <ul className="space-y-2.5 text-[13px]">
-              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-              <li><Link to="/politica-privacidade" className="hover:text-white transition-colors">Privacidade</Link></li>
+              <li><SmartLink to="/blog" className="hover:text-white transition-colors">Blog</SmartLink></li>
+              <li><SmartLink to="/faq" className="hover:text-white transition-colors">FAQ</SmartLink></li>
+              <li><SmartLink to="/politica-privacidade" className="hover:text-white transition-colors">Privacidade</SmartLink></li>
             </ul>
           </nav>
         </div>
