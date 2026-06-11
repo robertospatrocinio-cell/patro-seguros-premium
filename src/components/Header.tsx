@@ -214,9 +214,9 @@ const Header = memo(() => {
   };
 
   const MobileLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
-    <Link to={to} className="block py-1.5 px-2 text-[13px] text-foreground/60 hover:text-primary rounded-md hover:bg-muted/50 transition-base" onClick={close}>
+    <SmartLink to={to} className="block py-1.5 px-2 text-[13px] text-foreground/60 hover:text-primary rounded-md hover:bg-muted/50 transition-base" onClick={close}>
       {children}
-    </Link>
+    </SmartLink>
   );
 
   return (
