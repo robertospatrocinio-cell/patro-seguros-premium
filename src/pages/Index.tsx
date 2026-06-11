@@ -47,13 +47,6 @@ const sinistroFaqs = [
 ];
 
 const Index = () => {
-  useEffect(() => {
-    // Signal that the index page is ready
-    if (typeof window !== "undefined" && (window as any).onAppReady) {
-      (window as any).onAppReady();
-    }
-  }, []);
-
   return (
     <>
       <PageMeta 
