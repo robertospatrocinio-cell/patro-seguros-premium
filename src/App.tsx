@@ -1,33 +1,70 @@
-import { lazy, Suspense, useEffect, useMemo } from "react";
-const NichoLojistasGuarulhos = lazy(() => import("./pages/NichoLojistasGuarulhos"));
-const SeoVistoriaVeicularGuarulhos = lazy(() => import("./pages/SeoVistoriaVeicularGuarulhos"));
-const SeoECVGuarulhos = lazy(() => import("./pages/SeoECVGuarulhos"));
-const SeoInspecaoVeicularGuarulhos = lazy(() => import("./pages/SeoInspecaoVeicularGuarulhos"));
-const SeoVistoriaCautelarGuarulhos = lazy(() => import("./pages/SeoVistoriaCautelarGuarulhos"));
-const SeoTransferenciaVeicularGuarulhos = lazy(() => import("./pages/SeoTransferenciaVeicularGuarulhos"));
-const SeoDespachantesVistoriasGuarulhos = lazy(() => import("./pages/SeoDespachantesVistoriasGuarulhos"));
-const SeoParceriaVistoriaGuarulhos = lazy(() => import("./pages/SeoParceriaVistoriaGuarulhos"));
-const SeoAutoPosVistoriaGuarulhos = lazy(() => import("./pages/SeoAutoPosVistoriaGuarulhos"));
-const BlogVistoriaVeicular = lazy(() => import("./pages/BlogVistoriaVeicular"));
-const NichoClinicasOdontologicas = lazy(() => import("./pages/NichoClinicasOdontologicas"));
-const ParceriasClinicasOdontologicas = lazy(() => import("./pages/ParceriasClinicasOdontologicas"));
-const BlogOdontologia = lazy(() => import("./pages/BlogOdontologia"));
-const SeguroParaDentistas = lazy(() => import("./pages/SeguroParaDentistas"));
-const SeguroConsultorioOdontologico = lazy(() => import("./pages/SeguroConsultorioOdontologico"));
-const SeguroClinicaOdontologica = lazy(() => import("./pages/SeguroClinicaOdontologica"));
-const SeguroEquipamentosOdontologicos = lazy(() => import("./pages/SeguroEquipamentosOdontologicos"));
-const PlanoSaudeClinicasOdontologicas = lazy(() => import("./pages/PlanoSaudeClinicasOdontologicas"));
-const SeguroVidaClinicasOdontologicas = lazy(() => import("./pages/SeguroVidaClinicasOdontologicas"));
-const NichoClinicasVeterinarias = lazy(() => import("./pages/NichoClinicasVeterinarias"));
-const ParceriasClinicasVeterinarias = lazy(() => import("./pages/ParceriasClinicasVeterinarias"));
-const BlogClinicasVeterinarias = lazy(() => import("./pages/BlogClinicasVeterinarias"));
-const ProtecaoPetPremium = lazy(() => import("./pages/ProtecaoPetPremium"));
-const SeguroParaVeterinarios = lazy(() => import("./pages/SeguroParaVeterinarios"));
-const SeguroClinicaVeterinaria = lazy(() => import("./pages/SeguroClinicaVeterinaria"));
-const SeguroHospitalVeterinario = lazy(() => import("./pages/SeguroHospitalVeterinario"));
-const SeguroEquipamentosVeterinarios = lazy(() => import("./pages/SeguroEquipamentosVeterinarios"));
-const PlanoSaudeClinicasVeterinarias = lazy(() => import("./pages/PlanoSaudeClinicasVeterinarias"));
-const SeguroVidaClinicasVeterinarias = lazy(() => import("./pages/SeguroVidaClinicasVeterinarias"));
+import { lazy, Suspense, useEffect, useMemo, Component, ReactNode, memo } from "react";
+
+// Helper for type-safe property passing to memoized components in lazy loading
+const withProps = <T extends object>(Component: React.ComponentType<T>, props: T) => {
+  return memo(() => <Component {...props} />);
+};
+
+// Helper function to create lazy components with retry logic
+const lazyWithRetry = (componentImport: () => Promise<{ default: any }>, routeName: string = "default") => {
+  return lazy(async () => {
+    const MAX_RETRIES = routeName === "Index" || routeName === "Cotacao" ? 8 : 5;
+    let attempt = 0;
+
+    while (attempt < MAX_RETRIES) {
+      try {
+        return await componentImport();
+      } catch (error: any) {
+        attempt++;
+        const isNetworkError = 
+          error.message?.toLowerCase().includes("failed to fetch") || 
+          error.message?.toLowerCase().includes("load failed") ||
+          error.message?.toLowerCase().includes("connection refused") ||
+          error.name === "ChunkLoadError";
+
+        if (!isNetworkError || attempt >= MAX_RETRIES) {
+          throw error;
+        }
+
+        // Exponential backoff: 1s, 2s, 4s, 8s... capped at 10s
+        const delay = Math.min(1000 * Math.pow(2, attempt - 1), 10000);
+        console.warn(`[Retry] Failed to load route "${routeName}". Attempt ${attempt}/${MAX_RETRIES}. Retrying in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
+    }
+    return componentImport(); // Should not reach here due to throw above
+  });
+};
+
+const NichoLojistasGuarulhos = lazyWithRetry(() => import("./pages/NichoLojistasGuarulhos"), "NichoLojistasGuarulhos");
+const SeoVistoriaVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaVeicularGuarulhos"), "SeoVistoriaVeicularGuarulhos");
+const SeoECVGuarulhos = lazyWithRetry(() => import("./pages/SeoECVGuarulhos"), "SeoECVGuarulhos");
+const SeoInspecaoVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoInspecaoVeicularGuarulhos"), "SeoInspecaoVeicularGuarulhos");
+const SeoVistoriaCautelarGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaCautelarGuarulhos"), "SeoVistoriaCautelarGuarulhos");
+const SeoTransferenciaVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoTransferenciaVeicularGuarulhos"), "SeoTransferenciaVeicularGuarulhos");
+const SeoDespachantesVistoriasGuarulhos = lazyWithRetry(() => import("./pages/SeoDespachantesVistoriasGuarulhos"), "SeoDespachantesVistoriasGuarulhos");
+const SeoParceriaVistoriaGuarulhos = lazyWithRetry(() => import("./pages/SeoParceriaVistoriaGuarulhos"), "SeoParceriaVistoriaGuarulhos");
+const SeoAutoPosVistoriaGuarulhos = lazyWithRetry(() => import("./pages/SeoAutoPosVistoriaGuarulhos"), "SeoAutoPosVistoriaGuarulhos");
+const BlogVistoriaVeicular = lazyWithRetry(() => import("./pages/BlogVistoriaVeicular"), "BlogVistoriaVeicular");
+const NichoClinicasOdontologicas = lazyWithRetry(() => import("./pages/NichoClinicasOdontologicas"), "NichoClinicasOdontologicas");
+const ParceriasClinicasOdontologicas = lazyWithRetry(() => import("./pages/ParceriasClinicasOdontologicas"), "ParceriasClinicasOdontologicas");
+const BlogOdontologia = lazyWithRetry(() => import("./pages/BlogOdontologia"), "BlogOdontologia");
+const SeguroParaDentistas = lazyWithRetry(() => import("./pages/SeguroParaDentistas"), "SeguroParaDentistas");
+const SeguroConsultorioOdontologico = lazyWithRetry(() => import("./pages/SeguroConsultorioOdontologico"), "SeguroConsultorioOdontologico");
+const SeguroClinicaOdontologica = lazyWithRetry(() => import("./pages/SeguroClinicaOdontologica"), "SeguroClinicaOdontologica");
+const SeguroEquipamentosOdontologicos = lazyWithRetry(() => import("./pages/SeguroEquipamentosOdontologicos"), "SeguroEquipamentosOdontologicos");
+const PlanoSaudeClinicasOdontologicas = lazyWithRetry(() => import("./pages/PlanoSaudeClinicasOdontologicas"), "PlanoSaudeClinicasOdontologicas");
+const SeguroVidaClinicasOdontologicas = lazyWithRetry(() => import("./pages/SeguroVidaClinicasOdontologicas"), "SeguroVidaClinicasOdontologicas");
+const NichoClinicasVeterinarias = lazyWithRetry(() => import("./pages/NichoClinicasVeterinarias"), "NichoClinicasVeterinarias");
+const ParceriasClinicasVeterinarias = lazyWithRetry(() => import("./pages/ParceriasClinicasVeterinarias"), "ParceriasClinicasVeterinarias");
+const BlogClinicasVeterinarias = lazyWithRetry(() => import("./pages/BlogClinicasVeterinarias"), "BlogClinicasVeterinarias");
+const ProtecaoPetPremium = lazyWithRetry(() => import("./pages/ProtecaoPetPremium"), "ProtecaoPetPremium");
+const SeguroParaVeterinarios = lazyWithRetry(() => import("./pages/SeguroParaVeterinarios"), "SeguroParaVeterinarios");
+const SeguroClinicaVeterinaria = lazyWithRetry(() => import("./pages/SeguroClinicaVeterinaria"), "SeguroClinicaVeterinaria");
+const SeguroHospitalVeterinario = lazyWithRetry(() => import("./pages/SeguroHospitalVeterinario"), "SeguroHospitalVeterinario");
+const SeguroEquipamentosVeterinarios = lazyWithRetry(() => import("./pages/SeguroEquipamentosVeterinarios"), "SeguroEquipamentosVeterinarios");
+const PlanoSaudeClinicasVeterinarias = lazyWithRetry(() => import("./pages/PlanoSaudeClinicasVeterinarias"), "PlanoSaudeClinicasVeterinarias");
+const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/SeguroVidaClinicasVeterinarias"), "SeguroVidaClinicasVeterinarias");
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
 import { supabase } from "@/integrations/supabase/client";
@@ -50,69 +87,69 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 
 
-const Index = lazy(() => import("./pages/Index"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogArticle = lazy(() => import("./pages/BlogArticle"));
-const Cotacao = lazy(() => import("./pages/Cotacao"));
+const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
+const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
+const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
+const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 
-const ComparativoPlanosSaude = lazy(() => import("./pages/ComparativoPlanosSaude"));
-const CRM = lazy(() => import("./pages/CRM"));
-const AdminLogin = lazy(() => import("./pages/AdminLogin"));
-const Sobre = lazy(() => import("./pages/Sobre"));
-const Parceiros = lazy(() => import("./pages/Parceiros"));
-const Contato = lazy(() => import("./pages/Contato"));
-const SeguroAuto = lazy(() => import("./pages/SeguroAuto"));
-const SeguroVida = lazy(() => import("./pages/SeguroVida"));
-const SeguroResidencial = lazy(() => import("./pages/SeguroResidencial"));
-const SeguroViagem = lazy(() => import("./pages/SeguroViagem"));
-const SeguroFianca = lazy(() => import("./pages/SeguroFianca"));
-const PrevidenciaPrivada = lazy(() => import("./pages/PrevidenciaPrivada"));
-const Investimentos = lazy(() => import("./pages/Investimentos"));
-const SeguroMoto = lazy(() => import("./pages/SeguroMoto"));
-const SeguroSaude = lazy(() => import("./pages/SeguroSaude"));
-const SeguroOdonto = lazy(() => import("./pages/SeguroOdonto"));
-const SeguroEmpresarial = lazy(() => import("./pages/SeguroEmpresarial"));
-const SeguroFrota = lazy(() => import("./pages/SeguroFrota"));
-const SeguroTransporte = lazy(() => import("./pages/SeguroTransporte"));
-const SeguroRural = lazy(() => import("./pages/SeguroRural"));
-const SeguroMaquinas = lazy(() => import("./pages/SeguroMaquinas"));
-const SeguroRC = lazy(() => import("./pages/SeguroRC"));
-const SeguroRCProfissional = lazy(() => import("./pages/SeguroRCProfissional"));
-const SeguroCondominio = lazy(() => import("./pages/SeguroCondominio"));
-const SeguroEngenharia = lazy(() => import("./pages/SeguroEngenharia"));
-const SeguroCyber = lazy(() => import("./pages/SeguroCyber"));
-const SeguroCelular = lazy(() => import("./pages/SeguroCelular"));
-const PlanosDeSaude = lazy(() => import("./pages/PlanosDeSaude"));
-const IndiqueAmigo = lazy(() => import("./pages/IndiqueAmigo"));
-const CotacaoSeguroAuto = lazy(() => import("./pages/CotacaoSeguroAuto"));
-const SeguroMaquinasAgricolas = lazy(() => import("./pages/SeguroMaquinasAgricolas"));
-const SeguroEquipamentosAgricolas = lazy(() => import("./pages/SeguroEquipamentosAgricolas"));
-const SeguroGalpoesIndustriais = lazy(() => import("./pages/SeguroGalpoesIndustriais"));
-const SeguroGalpao = lazy(() => import("./pages/SeguroGalpao"));
-const SeguroMaquinasIndustriais = lazy(() => import("./pages/SeguroMaquinasIndustriais"));
-const SeguroTratorIndustrial = lazy(() => import("./pages/SeguroTratorIndustrial"));
-const SeguroMaquinasLinhaAmarela = lazy(() => import("./pages/SeguroMaquinasLinhaAmarela"));
-const FormularioSeguroVida = lazy(() => import("./pages/FormularioSeguroVida"));
-const SeoSeguroAutoGuarulhos = lazy(() => import("./pages/SeoSeguroAutoGuarulhos"));
-const SeoSeguroAutoPorModeloGuarulhos = lazy(() => import("./pages/SeoSeguroAutoPorModeloGuarulhos"));
-const AvaliarNoGoogle = lazy(() => import("./pages/AvaliarNoGoogle"));
-const ParceirosLocais = lazy(() => import("./pages/ParceirosLocais"));
-const Imprensa = lazy(() => import("./pages/Imprensa"));
-const SeoPlanoSaudeGuarulhos = lazy(() => import("./pages/SeoPlanoSaudeGuarulhos"));
-const SeoSeguroEmpresarialGuarulhos = lazy(() => import("./pages/SeoSeguroEmpresarialGuarulhos"));
-const SeoCorretoraGuarulhos = lazy(() => import("./pages/SeoCorretoraGuarulhos"));
-const SeoSeguroResidencialGuarulhos = lazy(() => import("./pages/SeoSeguroResidencialGuarulhos"));
-const SeoSeguroVidaSaudeGuarulhos = lazy(() => import("./pages/SeoSeguroVidaSaudeGuarulhos"));
-const SeoSeguroFrotaGuarulhos = lazy(() => import("./pages/SeoSeguroFrotaGuarulhos"));
-const SeoSegurosPmeGuarulhos = lazy(() => import("./pages/SeoSegurosPmeGuarulhos"));
-const SeoSeguroMotoGuarulhos = lazy(() => import("./pages/SeoSeguroMotoGuarulhos"));
-const SeoSeguroCondominioGuarulhos = lazy(() => import("./pages/SeoSeguroCondominioGuarulhos"));
-const SeoSegurosShoppingMaiaCidadeMaia = lazy(() => import("./pages/SeoSegurosShoppingMaiaCidadeMaia"));
-const SeoSeguroUberGuarulhos = lazy(() => import("./pages/SeoSeguroUberGuarulhos"));
-const SeoSeguroEmpresaGuarulhos = lazy(() => import("./pages/SeoSeguroEmpresaGuarulhos"));
-const SeoSeguroVidaGuarulhos = lazy(() => import("./pages/SeoSeguroVidaGuarulhos"));
-const SeoSeguroMotoristaAppGuarulhos = lazy(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"));
-const SeoLocalPage = lazy(() => import("./pages/SeoLocalPage"));
+const ComparativoPlanosSaude = lazyWithRetry(() => import("./pages/ComparativoPlanosSaude"), "ComparativoPlanosSaude");
+const CRM = lazyWithRetry(() => import("./pages/CRM"), "CRM");
+const AdminLogin = lazyWithRetry(() => import("./pages/AdminLogin"), "AdminLogin");
+const Sobre = lazyWithRetry(() => import("./pages/Sobre"), "Sobre");
+const Parceiros = lazyWithRetry(() => import("./pages/Parceiros"), "Parceiros");
+const Contato = lazyWithRetry(() => import("./pages/Contato"), "Contato");
+const SeguroAuto = lazyWithRetry(() => import("./pages/SeguroAuto"), "SeguroAuto");
+const SeguroVida = lazyWithRetry(() => import("./pages/SeguroVida"), "SeguroVida");
+const SeguroResidencial = lazyWithRetry(() => import("./pages/SeguroResidencial"), "SeguroResidencial");
+const SeguroViagem = lazyWithRetry(() => import("./pages/SeguroViagem"), "SeguroViagem");
+const SeguroFianca = lazyWithRetry(() => import("./pages/SeguroFianca"), "SeguroFianca");
+const PrevidenciaPrivada = lazyWithRetry(() => import("./pages/PrevidenciaPrivada"), "PrevidenciaPrivada");
+const Investimentos = lazyWithRetry(() => import("./pages/Investimentos"), "Investimentos");
+const SeguroMoto = lazyWithRetry(() => import("./pages/SeguroMoto"), "SeguroMoto");
+const SeguroSaude = lazyWithRetry(() => import("./pages/SeguroSaude"), "SeguroSaude");
+const SeguroOdonto = lazyWithRetry(() => import("./pages/SeguroOdonto"), "SeguroOdonto");
+const SeguroEmpresarial = lazyWithRetry(() => import("./pages/SeguroEmpresarial"), "SeguroEmpresarial");
+const SeguroFrota = lazyWithRetry(() => import("./pages/SeguroFrota"), "SeguroFrota");
+const SeguroTransporte = lazyWithRetry(() => import("./pages/SeguroTransporte"), "SeguroTransporte");
+const SeguroRural = lazyWithRetry(() => import("./pages/SeguroRural"), "SeguroRural");
+const SeguroMaquinas = lazyWithRetry(() => import("./pages/SeguroMaquinas"), "SeguroMaquinas");
+const SeguroRC = lazyWithRetry(() => import("./pages/SeguroRC"), "SeguroRC");
+const SeguroRCProfissional = lazyWithRetry(() => import("./pages/SeguroRCProfissional"), "SeguroRCProfissional");
+const SeguroCondominio = lazyWithRetry(() => import("./pages/SeguroCondominio"), "SeguroCondominio");
+const SeguroEngenharia = lazyWithRetry(() => import("./pages/SeguroEngenharia"), "SeguroEngenharia");
+const SeguroCyber = lazyWithRetry(() => import("./pages/SeguroCyber"), "SeguroCyber");
+const SeguroCelular = lazyWithRetry(() => import("./pages/SeguroCelular"), "SeguroCelular");
+const PlanosDeSaude = lazyWithRetry(() => import("./pages/PlanosDeSaude"), "PlanosDeSaude");
+const IndiqueAmigo = lazyWithRetry(() => import("./pages/IndiqueAmigo"), "IndiqueAmigo");
+const CotacaoSeguroAuto = lazyWithRetry(() => import("./pages/CotacaoSeguroAuto"), "CotacaoSeguroAuto");
+const SeguroMaquinasAgricolas = lazyWithRetry(() => import("./pages/SeguroMaquinasAgricolas"), "SeguroMaquinasAgricolas");
+const SeguroEquipamentosAgricolas = lazyWithRetry(() => import("./pages/SeguroEquipamentosAgricolas"), "SeguroEquipamentosAgricolas");
+const SeguroGalpoesIndustriais = lazyWithRetry(() => import("./pages/SeguroGalpoesIndustriais"), "SeguroGalpoesIndustriais");
+const SeguroGalpao = lazyWithRetry(() => import("./pages/SeguroGalpao"), "SeguroGalpao");
+const SeguroMaquinasIndustriais = lazyWithRetry(() => import("./pages/SeguroMaquinasIndustriais"), "SeguroMaquinasIndustriais");
+const SeguroTratorIndustrial = lazyWithRetry(() => import("./pages/SeguroTratorIndustrial"), "SeguroTratorIndustrial");
+const SeguroMaquinasLinhaAmarela = lazyWithRetry(() => import("./pages/SeguroMaquinasLinhaAmarela"), "SeguroMaquinasLinhaAmarela");
+const FormularioSeguroVida = lazyWithRetry(() => import("./pages/FormularioSeguroVida"), "FormularioSeguroVida");
+const SeoSeguroAutoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoGuarulhos"), "SeoSeguroAutoGuarulhos");
+const SeoSeguroAutoPorModeloGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoPorModeloGuarulhos"), "SeoSeguroAutoPorModeloGuarulhos");
+const AvaliarNoGoogle = lazyWithRetry(() => import("./pages/AvaliarNoGoogle"), "AvaliarNoGoogle");
+const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "ParceirosLocais");
+const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
+const SeoPlanoSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoPlanoSaudeGuarulhos"), "SeoPlanoSaudeGuarulhos");
+const SeoSeguroEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresarialGuarulhos"), "SeoSeguroEmpresarialGuarulhos");
+const SeoCorretoraGuarulhos = lazyWithRetry(() => import("./pages/SeoCorretoraGuarulhos"), "SeoCorretoraGuarulhos");
+const SeoSeguroResidencialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroResidencialGuarulhos"), "SeoSeguroResidencialGuarulhos");
+const SeoSeguroVidaSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaSaudeGuarulhos"), "SeoSeguroVidaSaudeGuarulhos");
+const SeoSeguroFrotaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroFrotaGuarulhos"), "SeoSeguroFrotaGuarulhos");
+const SeoSegurosPmeGuarulhos = lazyWithRetry(() => import("./pages/SeoSegurosPmeGuarulhos"), "SeoSegurosPmeGuarulhos");
+const SeoSeguroMotoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoGuarulhos"), "SeoSeguroMotoGuarulhos");
+const SeoSeguroCondominioGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroCondominioGuarulhos"), "SeoSeguroCondominioGuarulhos");
+const SeoSegurosShoppingMaiaCidadeMaia = lazyWithRetry(() => import("./pages/SeoSegurosShoppingMaiaCidadeMaia"), "SeoSegurosShoppingMaiaCidadeMaia");
+const SeoSeguroUberGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroUberGuarulhos"), "SeoSeguroUberGuarulhos");
+const SeoSeguroEmpresaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresaGuarulhos"), "SeoSeguroEmpresaGuarulhos");
+const SeoSeguroVidaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaGuarulhos"), "SeoSeguroVidaGuarulhos");
+const SeoSeguroMotoristaAppGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"), "SeoSeguroMotoristaAppGuarulhos");
+const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
 
 const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
@@ -366,10 +403,10 @@ const App = () => {
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
-                  <Route path="/seguro-auto-maia" element={<SeoLocalPage slug="seguro-auto-maia-guarulhos" />} />
-                  <Route path="/seguro-auto-vila-augusta" element={<SeoLocalPage slug="seguro-auto-vila-augusta-guarulhos" />} />
-                  <Route path="/seguro-auto-bonsucesso" element={<SeoLocalPage slug="seguro-auto-bonsucesso-guarulhos-v2" />} />
-                  <Route path="/seguro-auto-pimentas" element={<SeoLocalPage slug="seguro-auto-pimentas-guarulhos" />} />
+                  <Route path="/seguro-auto-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-maia-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-auto-vila-augusta" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-vila-augusta-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-auto-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-bonsucesso-guarulhos-v2" }); return <Comp />; })()} />
+                  <Route path="/seguro-auto-pimentas" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-pimentas-guarulhos" }); return <Comp />; })()} />
                   <Route path="/lp/:slug" element={<DynamicLandingPage />} />
                   <Route path="/diagnostico" element={<Diagnostico />} />
                   <Route path="/performance" element={<PerformanceDiagnostico />} />
