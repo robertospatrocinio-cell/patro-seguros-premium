@@ -113,13 +113,36 @@ const WhatsAppButton = () => {
               ...(override ? { localOverride: true } : {}),
             })
           }
-          className="group"
+          className="group lg:block hidden"
         >
           <div className="relative bg-[#25D366] text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
             <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />
           </div>
         </a>
+
+        {/* Sticky Mobile WhatsApp Bar */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[100] bg-white border-t border-slate-100 p-3 shadow-[0_-8px_30px_rgb(0,0,0,0.08)] flex gap-3 animate-in slide-in-from-bottom duration-500">
+          <a
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick(trackingLabel, { origin: "sticky-mobile-bar" })}
+            className="flex-1 bg-[#25D366] text-white h-12 rounded-xl flex items-center justify-center gap-2 font-bold text-sm shadow-lg shadow-green-500/20 active:scale-95 transition-all"
+          >
+            <MessageCircle className="h-5 w-5" />
+            Cotação via WhatsApp
+          </a>
+          {!isCotacaoPage && (
+            <Link
+              to={cotacaoHref}
+              onClick={() => trackCotacaoClick("sticky-mobile-bar")}
+              className="px-4 bg-primary text-primary-foreground h-12 rounded-xl flex items-center justify-center shadow-lg active:scale-95 transition-all"
+            >
+              <FileText className="h-5 w-5" />
+            </Link>
+          )}
+        </div>
       </div>
     </>
   );
