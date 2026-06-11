@@ -263,12 +263,12 @@ const Header = memo(() => {
       <div className="bg-background/95 md:backdrop-blur-xl border-b border-border/40 min-h-[64px]">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
-            <Link to="/" className="flex items-center relative z-[60]" onClick={() => window.scrollTo(0,0)}>
+            <SmartLink to="/" className="flex items-center relative z-[60]" onClick={() => window.scrollTo(0,0)}>
               <img src={logoFull} alt="Patro Seguros" width={160} height={80} className="h-20 w-auto object-contain -my-2 relative z-50" />
-            </Link>
+            </SmartLink>
 
             <div className="hidden lg:flex items-center gap-1">
-              <Link to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Início</Link>
+              <SmartLink to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Início</SmartLink>
 
               {/* Para você */}
               <div className="relative group">
