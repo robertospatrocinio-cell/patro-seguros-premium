@@ -4,7 +4,6 @@ import { generateLocalFAQs } from "@/data/localFAQGenerator";
 import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 import { DEFAULT_INSURERS } from "@/data/localDefaults";
 
-
 /**
  * Configuração de dados para uma página de SEO Local.
  * Usada pelo template SeoLocalPage para injetar conteúdo dinâmico baseado no slug.
@@ -27,7 +26,6 @@ import { DEFAULT_INSURERS } from "@/data/localDefaults";
   realScenarios: { title: string; description: string }[];
   tips: string[];
   relatedInsurances: { title: string; link: string }[];
-  /** Opcionais — preenchidos por bairros e páginas comerciais quando relevante */
   city?: string;
   neighborhood?: string;
   geo?: { latitude: number; longitude: number };
@@ -74,7 +72,7 @@ interface BairroSeed {
  * Lista de bairros alvo para campanhas de Seguro Auto em Guarulhos.
  * Cada entrada gera uma página dedicada focada em SEO geolocalizado.
  */
- const bairros: BairroSeed[] = [
+const bairros: BairroSeed[] = [
   { slug: "seguro-auto-vila-galvao", bairro: "Vila Galvão", bairroSlugBairros: "vila-augusta", riskLevel: "baixo", context: "região predominantemente residencial de classe média-alta na divisa com São Paulo, com baixos índices de roubo de veículo em comparação ao restante de Guarulhos.", reference: "próxima ao Parque Cecap e Avenida Brasil", priceRange: "R$ 2.300 a R$ 4.200/ano" },
   { slug: "seguro-auto-bonsucesso-guarulhos", bairro: "Bonsucesso", bairroSlugBairros: "bonsucesso", riskLevel: "médio", context: "bairro extenso na zona leste de Guarulhos, com forte movimento comercial na Estrada Velha de São Miguel e índices moderados de sinistralidade.", reference: "região da Estrada Velha de São Miguel e Avenida Bonsucesso", priceRange: "R$ 2.700 a R$ 5.100/ano" },
   { slug: "seguro-auto-cumbica", bairro: "Cumbica", bairroSlugBairros: "cumbica", riskLevel: "médio-alto", context: "região do Aeroporto Internacional de Guarulhos (GRU Airport), com alto fluxo de veículos, motoristas de aplicativo e índices de sinistro acima da média da cidade.", reference: "no entorno do GRU Airport e Rodovia Hélio Smidt", priceRange: "R$ 3.100 a R$ 6.200/ano" },
@@ -92,6 +90,42 @@ interface BairroSeed {
     context: "região nobre de Guarulhos, com alto padrão de condomínios e vigilância reforçada, o que reflete em prêmios de seguro auto até 20% menores que a média da cidade.", 
     reference: "ao lado do Shopping Maia e Parque Shopping Maia", 
     priceRange: "R$ 1.950 a R$ 3.800/ano" 
+  },
+  { 
+    slug: "seguro-auto-maia-guarulhos", 
+    bairro: "Maia", 
+    bairroSlugBairros: "jardim-maia", 
+    riskLevel: "baixo", 
+    context: "região nobre e altamente valorizada de Guarulhos, abrangendo o Parque Continental e áreas adjacentes, com condomínios de alto padrão e segurança monitorada.", 
+    reference: "no entorno da Avenida Paulo Faccini e Parque Bosque Maia", 
+    priceRange: "R$ 2.050 a R$ 3.950/ano" 
+  },
+  { 
+    slug: "seguro-auto-vila-augusta-guarulhos", 
+    bairro: "Vila Augusta", 
+    bairroSlugBairros: "vila-augusta", 
+    riskLevel: "baixo", 
+    context: "tradicional bairro residencial e comercial de Guarulhos, estrategicamente localizado próximo à Rodovia Presidente Dutra e ao Shopping Internacional.", 
+    reference: "próximo ao Shopping Internacional e Parque Fracalanza", 
+    priceRange: "R$ 2.150 a R$ 4.100/ano" 
+  },
+  { 
+    slug: "seguro-auto-bonsucesso-guarulhos-v2", 
+    bairro: "Bonsucesso", 
+    bairroSlugBairros: "bonsucesso", 
+    riskLevel: "médio", 
+    context: "um dos polos de crescimento de Guarulhos, com forte característica industrial e logística, além de áreas residenciais em expansão.", 
+    reference: "no entorno do Shopping Bonsucesso e UNIFESP", 
+    priceRange: "R$ 2.650 a R$ 5.200/ano" 
+  },
+  { 
+    slug: "seguro-auto-pimentas-guarulhos", 
+    bairro: "Pimentas", 
+    bairroSlugBairros: "cumbica", 
+    riskLevel: "alto", 
+    context: "o bairro mais populoso de Guarulhos, com intenso fluxo comercial e de transporte, exigindo atenção especial à segurança veicular e rastreamento.", 
+    reference: "região do Terminal Pimentas e Hospital Municipal", 
+    priceRange: "R$ 3.200 a R$ 6.400/ano" 
   },
 ];
 
