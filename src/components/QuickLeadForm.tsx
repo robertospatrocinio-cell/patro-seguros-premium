@@ -35,6 +35,8 @@ export const QuickLeadForm = () => {
     setLoading(false);
   };
 
+  const whatsappMessage = `Olá, meu nome é ${formData.name || '...'}. Sou de Guarulhos e gostaria de uma cotação de ${formData.insuranceType || '...'}.`;
+
   return (
     <div className="w-full max-w-5xl mx-auto px-4 -mt-12 relative z-20">
       <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 md:p-8">
@@ -85,17 +87,26 @@ export const QuickLeadForm = () => {
               </Select>
             </div>
             
-            <Button 
-              type="submit" 
-              disabled={loading}
-              className="h-12 w-full font-bold text-base bg-[#22c55e] hover:bg-[#16a34a] text-white shadow-lg shadow-green-500/20 rounded-xl md:col-span-3 lg:col-span-1"
-            >
-              {loading ? "Enviando..." : (
-                <span className="flex items-center gap-2">
-                  Receber Cotação em 2 Horas <ArrowRight className="h-4 w-4" />
-                </span>
-              )}
-            </Button>
+            <div className="flex flex-col gap-2 md:col-span-3 lg:col-span-1">
+              <Button 
+                type="submit" 
+                disabled={loading}
+                className="h-12 w-full font-bold text-base bg-[#22c55e] hover:bg-[#16a34a] text-white shadow-lg shadow-green-500/20 rounded-xl"
+              >
+                {loading ? "Enviando..." : (
+                  <span className="flex items-center gap-2">
+                    Receber Cotação em 2 Horas <ArrowRight className="h-4 w-4" />
+                  </span>
+                )}
+              </Button>
+              
+              <div className="bg-slate-50 border border-slate-100 p-2 rounded-lg">
+                <p className="text-[10px] text-slate-400 uppercase font-bold tracking-wider mb-1 px-1">Prévia da Mensagem:</p>
+                <p className="text-[11px] text-slate-600 italic leading-tight px-1 line-clamp-2">
+                  "{whatsappMessage}"
+                </p>
+              </div>
+            </div>
           </form>
         </div>
       </div>
