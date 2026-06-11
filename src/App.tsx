@@ -1,4 +1,9 @@
-import { lazy, Suspense, useEffect, useMemo, Component, ReactNode } from "react";
+import { lazy, Suspense, useEffect, useMemo, Component, ReactNode, memo } from "react";
+
+// Helper for type-safe property passing to memoized components in lazy loading
+const withProps = <T extends object>(Component: React.ComponentType<T>, props: T) => {
+  return memo(() => <Component {...props} />);
+};
 
 // Helper function to create lazy components with retry logic
 const lazyWithRetry = (componentImport: () => Promise<{ default: any }>, routeName: string = "default") => {
