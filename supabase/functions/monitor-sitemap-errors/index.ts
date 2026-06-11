@@ -5,6 +5,15 @@ const GSC_API_BASE = "https://www.googleapis.com/webmasters/v3";
 
 serve(async (req) => {
   try {
+    // Restrict to service_role only (cron-triggered function)
+    const token = req.headers.get("Authorization")?.replace(/^Bearer\s+/i, "").trim();
+    if (!token || token !== Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     const GOOGLE_SEARCH_CONSOLE_API_KEY = Deno.env.get("GOOGLE_SEARCH_CONSOLE_API_KEY");
 
@@ -47,6 +56,10 @@ serve(async (req) => {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    console.error("monitor-sitemap-errors error:", error);
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 });
