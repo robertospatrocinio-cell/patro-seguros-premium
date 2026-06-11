@@ -305,11 +305,11 @@ const App = () => {
           <TooltipProvider>
             <BrowserRouter>
               <Suspense fallback={<PageSkeleton />}>
-                <SkipLink />
                 <BreadcrumbSchema />
                 <LocalBusinessSchema />
                 <OrganizationSchema />
                 <WebSiteSchema />
+                <SkipLink />
                 <Toaster />
                 <Sonner position="top-right" closeButton richColors />
                 <WhatsAppButton />
@@ -317,7 +317,7 @@ const App = () => {
                 <ScrollToTop />
                 <ServiceWorkerCheck />
                 <Routes>
-                  <Route index element={<Index />} />
+                  <Route path="/" element={<Index />} />
                   <Route path="/admin/login" element={<AdminLogin />} />
                   <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
                   <Route path="/sobre" element={<Sobre />} />

@@ -28,11 +28,10 @@
       .gradient-hero{background:var(--gradient-hero)}
       .skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:9999;padding:1rem 2rem;background:hsl(210 100% 20%);color:white;border-radius:0.5rem;text-decoration:none}
       #root{min-height:100vh;display:block}
-      #initial-loader{display:flex;position:fixed;inset:0;background:white;z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:1rem;transition:opacity 0.3s ease-out}
-      .loader-spinner{width:40px;height:40px;border:3px solid #f3f3f3;border-top:3px solid #1e3a8a;border-radius:50%;animation:spin 1s linear infinite}
-      @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-      .loader-text{font-family:sans-serif;font-size:14px;color:#64748b}
-      .retry-button{display:none;margin-top:1rem;padding:0.5rem 1rem;background:#1e3a8a;color:white;border:none;border-radius:0.5rem;cursor:pointer}
+      #initial-loader{display:none}
+      .loader-spinner{display:none}
+      .loader-text{display:none}
+      .retry-button{display:none}
     </style>
 
     <meta property="og:type" content="website" />
@@ -165,56 +164,7 @@
     src="https://www.facebook.com/tr?id=2108358063295698&ev=PageView&noscript=1"
     alt="" /></noscript>
     <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
-    <div id="initial-loader">
-      <div class="loader-spinner"></div>
-      <p class="loader-text">Carregando Patro Seguros...</p>
-      <button class="retry-button" id="retry-load" onclick="window.location.reload()">Tentar novamente</button>
-    </div>
     <div id="root"></div>
-    <script>
-      // Fallback loader removal if React fails or takes too long
-      (function() {
-        var loader = document.getElementById('initial-loader');
-        var retry = document.getElementById('retry-load');
-        var MAX_RETRIES = 3;
-        var retryCount = parseInt(sessionStorage.getItem('patro_load_retries') || '0');
-
-        var timeout = setTimeout(function() {
-          if (loader) {
-            var text = loader.querySelector('.loader-text');
-            if (text) text.innerText = 'O carregamento está demorando mais que o esperado...';
-            if (retry) retry.style.display = 'block';
-            
-            // Auto-retry once if it's the first failure and likely a transient network issue
-            if (retryCount < MAX_RETRIES) {
-              sessionStorage.setItem('patro_load_retries', (retryCount + 1).toString());
-              console.warn('Transient load delay detected, auto-retrying... (' + (retryCount + 1) + '/' + MAX_RETRIES + ')');
-              setTimeout(function() { window.location.reload(); }, 2000);
-            }
-          }
-        }, 10000);
-        
-        // Expose a global to let React signal it's ready
-        window.onAppReady = function() {
-          clearTimeout(timeout);
-          sessionStorage.removeItem('patro_load_retries'); // Success, clear retries
-          if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(function() { loader.style.display = 'none'; }, 300);
-          }
-        };
-
-        // Global error listener for failed script loads (connection refused/timeout)
-        window.addEventListener('error', function(e) {
-          if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
-            if (retryCount < MAX_RETRIES) {
-              sessionStorage.setItem('patro_load_retries', (retryCount + 1).toString());
-              setTimeout(function() { window.location.reload(); }, 1500);
-            }
-          }
-        }, true);
-      })();
-    </script>
     <script type="module" src="/src/main.tsx"></script>
 
 
