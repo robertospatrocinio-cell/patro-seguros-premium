@@ -67,12 +67,12 @@ const Footer = memo(() => {
           <nav aria-label="Seguros para empresas">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Para Sua Empresa</h3>
             <ul className="space-y-2.5 text-[13px]">
-              <li><Link to="/seguro-empresarial" className="hover:text-white transition-colors">Seguro Empresarial</Link></li>
-              <li><Link to="/seguro-frota" className="hover:text-white transition-colors">Seguro Frota</Link></li>
-              <li><Link to="/seguro-transporte" className="hover:text-white transition-colors">Transporte e Carga</Link></li>
-              <li><Link to="/plano-saude-empresarial" className="hover:text-white transition-colors">Plano de Saúde PME</Link></li>
-              <li><Link to="/seguro-vida-pme" className="hover:text-white transition-colors">Seguro de Vida em Grupo</Link></li>
-              <li><Link to="/seguro-maquinas" className="hover:text-white transition-colors">Máquinas e Equip.</Link></li>
+              <li><SmartLink to="/seguro-empresarial" className="hover:text-white transition-colors">Seguro Empresarial</SmartLink></li>
+              <li><SmartLink to="/seguro-frota" className="hover:text-white transition-colors">Seguro Frota</SmartLink></li>
+              <li><SmartLink to="/seguro-transporte" className="hover:text-white transition-colors">Transporte e Carga</SmartLink></li>
+              <li><SmartLink to="/plano-saude-empresarial" className="hover:text-white transition-colors">Plano de Saúde PME</SmartLink></li>
+              <li><SmartLink to="/seguro-vida-pme" className="hover:text-white transition-colors">Seguro de Vida em Grupo</SmartLink></li>
+              <li><SmartLink to="/seguro-maquinas" className="hover:text-white transition-colors">Máquinas e Equip.</SmartLink></li>
             </ul>
           </nav>
 
