@@ -12,6 +12,11 @@ const App = lazy(() => import("./App.tsx"));
 
 const Main = () => {
   useEffect(() => {
+    // Signal that the app is ready to remove the initial loader
+    if (typeof window !== "undefined" && (window as any).onAppReady) {
+      (window as any).onAppReady();
+    }
+
     // Initial monitoring can be deferred slightly more
     const deferInit = () => {
       initMonitoring().catch(console.error);
@@ -23,8 +28,6 @@ const Main = () => {
     } else {
       setTimeout(deferInit, 1000);
     }
-
-    // Loader removal logic removed for performance
   }, []);
 
   return (
