@@ -251,7 +251,7 @@ const LegacyWpRedirect = () => {
   }
   return <NotFound />;
 };
-const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
+
 const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
 const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
 const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
@@ -259,12 +259,6 @@ const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
-const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
-const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
-const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
-const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
-const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
-const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 
 import RequireAdmin from "@/components/RequireAdmin";
@@ -278,45 +272,12 @@ const queryClient = new QueryClient({
         }
         return failureCount < 2;
       },
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      gcTime: 1000 * 60 * 30, // 30 minutes
-    },
-  },
-});
-
-const App = () => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <HelmetProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner position="top-right" closeButton richColors />
-          <ServiceWorkerCheck />
-          <SkipLink />
-          <BreadcrumbSchema />
-          <LocalBusinessSchema />
-          <OrganizationSchema />
-          <WebSiteSchema />
-          <BrowserRouter>
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/diagnostico" element={<Diagnostico />} />
-                <Route path="/performance" element={<PerformanceDiagnostico />} />
-                <Route path="/seguro-auto" element={<SeguroAuto />} />
-                <Route path="/planos-de-saude" element={<PlanosDeSaude />} />
-                <Route path="/seguro-vida" element={<SeguroVida />} />
-                <Route path="/seguro-residencial" element={<SeguroResidencial />} />
-                <Route path="/seguro-viagem" element={<SeguroViagem />} />
-                <Route path="/seguro-fianca" element={<SeguroFianca />} />
-                <Route path="/cotacao" element={<Cotacao />} />
-                {/* ... other routes ... */}
       retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
       refetchOnWindowFocus: false,
-      staleTime: 24 * 60 * 60 * 1000,
-      gcTime: 48 * 60 * 60 * 1000,
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 30, // 30 minutes
       refetchOnMount: false,
-      refetchOnReconnect: true, // Re-enable this to help with recovery
+      refetchOnReconnect: true,
     },
   },
 });
@@ -325,20 +286,15 @@ const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => {
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
-
 const App = () => {
   useEffect(() => {
-    // Monitor auth state to provide user context to monitoring
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (session?.user) {
-        setUserContext({
-          id: session.user.id,
-        });
+        setUserContext({ id: session.user.id });
       } else {
-        setUserContext({}); // Clear context on sign out
+        setUserContext({});
       }
     });
-
     return () => subscription.unsubscribe();
   }, []);
 
@@ -346,415 +302,80 @@ const App = () => {
     <HelmetProvider>
       <ErrorBoundary>
         <QueryProviderWrapper>
-        <TooltipProvider>
-          <BrowserRouter>
-            <SkipLink />
-            <BreadcrumbSchema />
-            <LocalBusinessSchema />
-            <OrganizationSchema />
-            <WebSiteSchema />
-            <Toaster />
-
-            <Sonner />
-            <WhatsAppButton />
-            <CookieBanner />
-            <ScrollToTop />
-            <ServiceWorkerCheck />
-            <Routes>
-                <Route path="/admin/login" element={<AdminLogin />} />
-                <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
-                <Route path="/" element={<Index />} />
-                <Route path="/sobre" element={<Sobre />} />
-                <Route path="/parceiros" element={<Parceiros />} />
-            <Route path="/cotacao" element={<Cotacao />} />
-            <Route path="/contato" element={<Contato />} />
-            <Route path="/depoimentos" element={<Depoimentos />} />
-            <Route path="/seguro-bmw" element={<SeguroBMW />} />
-            <Route path="/seguro-mercedes" element={<SeguroMarcaPremium brand="mercedes" />} />
-            <Route path="/seguro-audi" element={<SeguroMarcaPremium brand="audi" />} />
-            <Route path="/seguro-land-rover" element={<SeguroMarcaPremium brand="land-rover" />} />
-            <Route path="/seguro-jaguar" element={<SeguroMarcaPremium brand="jaguar" />} />
-            <Route path="/seguro-volvo" element={<SeguroMarcaPremium brand="volvo" />} />
-            <Route path="/seguro-ferrari" element={<SeguroMarcaPremium brand="ferrari" />} />
-            <Route path="/seguro-porsche" element={<SeguroMarcaPremium brand="porsche" />} />
-            <Route path="/seguro-byd" element={<SeguroMarcaPremium brand="byd" />} />
-            <Route path="/seguro-gwm" element={<SeguroMarcaPremium brand="gwm" />} />
-            <Route path="/seguro-lexus" element={<SeguroMarcaPremium brand="lexus" />} />
-            {/* Adicionando variantes com parametro para o componente genérico */}
-            <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
-
-            <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
-            <Route path="/parceiros-locais" element={<ParceirosLocais />} />
-            <Route path="/imprensa" element={<Imprensa />} />
-            <Route path="/seguro-auto" element={<SeguroAuto />} />
-            <Route path="/seguro-vida" element={<SeguroVida />} />
-            <Route path="/seguro-vida/formulario" element={<FormularioSeguroVida />} />
-            <Route path="/seguro-residencial" element={<SeguroResidencial />} />
-            <Route path="/seguro-viagem" element={<SeguroViagem />} />
-            <Route path="/seguro-fianca" element={<SeguroFianca />} />
-            <Route path="/previdencia-privada" element={<PrevidenciaPrivada />} />
-            <Route path="/seguro-moto" element={<SeguroMoto />} />
-            <Route path="/seguro-saude" element={<SeguroSaude />} />
-            <Route path="/seguro-odonto" element={<SeguroOdonto />} />
-            <Route path="/seguro-empresarial" element={<SeguroEmpresarial />} />
-            <Route path="/seguro-petshop" element={<SeguroPetshop />} />
-            <Route path="/seguro-pet-shop" element={<SeguroPetshop />} />
-            <Route path="/seguro-rc-veterinarios" element={<SeguroRCVeterinarios />} />
-            <Route path="/responsabilidade-civil-veterinarios" element={<SeguroRCVeterinarios />} />
-            <Route path="/seguros-para-clinicas-veterinarias" element={<NichoClinicasVeterinarias />} />
-            <Route path="/parcerias-clinicas-veterinarias" element={<ParceriasClinicasVeterinarias />} />
-            <Route path="/protecao-pet-premium" element={<ProtecaoPetPremium />} />
-            <Route path="/blog/clinicas-veterinarias" element={<BlogClinicasVeterinarias />} />
-            <Route path="/seguro-para-veterinarios" element={<SeguroParaVeterinarios />} />
-            <Route path="/seguro-clinica-veterinaria" element={<SeguroClinicaVeterinaria />} />
-            <Route path="/seguro-hospital-veterinario" element={<SeguroHospitalVeterinario />} />
-            <Route path="/seguro-equipamentos-veterinarios" element={<SeguroEquipamentosVeterinarios />} />
-            <Route path="/plano-saude-clinicas-veterinarias" element={<PlanoSaudeClinicasVeterinarias />} />
-            <Route path="/seguro-vida-clinicas-veterinarias" element={<SeguroVidaClinicasVeterinarias />} />
-            <Route path="/seguro-restaurante" element={<SeguroRestaurante />} />
-            <Route path="/seguro-empresarial/segmentos" element={<SegurosPorSegmento />} />
-            <Route path="/seguro-empresarial/:segmento" element={<SeguroEmpresarialSegmento />} />
-            <Route path="/seguro-frota" element={<SeguroFrota />} />
-            <Route path="/seguro-transporte" element={<SeguroTransporte />} />
-            <Route path="/seguro-rural" element={<SeguroRural />} />
-            <Route path="/seguro-maquinas" element={<SeguroMaquinas />} />
-            <Route path="/seguro-rc" element={<SeguroRC />} />
-            <Route path="/seguro-rc-profissional" element={<SeguroRCProfissional />} />
-            <Route path="/seguro-condominio" element={<SeguroCondominio />} />
-            <Route path="/seguro-gerador-energia" element={<SeguroGeradorEnergia />} />
-            <Route path="/seguro-condominio-residencial" element={<SeguroCondominioResidencial />} />
-            <Route path="/seguro-condominio-empresarial" element={<SeguroCondominioEmpresarial />} />
-            <Route path="/seguro-engenharia" element={<SeguroEngenharia />} />
-            <Route path="/seguro-cyber" element={<SeguroCyber />} />
-            <Route path="/seguro-celular" element={<SeguroCelular />} />
-            <Route path="/planos-de-saude" element={<PlanosDeSaude />} />
-            <Route path="/indique-um-amigo" element={<IndiqueAmigo />} />
-            <Route path="/cotacao-seguro-auto" element={<CotacaoSeguroAuto />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:slug" element={<BlogArticle />} />
-            <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
-            <Route path="/seguro-equipamentos-agricolas" element={<SeguroEquipamentosAgricolas />} />
-            <Route path="/seguro-galpoes-industriais" element={<SeguroGalpoesIndustriais />} />
-            <Route path="/seguro-trator-industrial" element={<SeguroTratorIndustrial />} />
-            <Route path="/seguro-galpao" element={<SeguroGalpao />} />
-            <Route path="/seguro-maquinas-industriais" element={<SeguroMaquinasIndustriais />} />
-            <Route path="/seguro-maquinas-linha-amarela" element={<SeguroMaquinasLinhaAmarela />} />
-             
-             <Route path="/lp/:slug" element={<DynamicLandingPage />} />
-             <Route path="/seguro-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
-             <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresarialGuarulhos />} />
-            <Route path="/corretora-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
-             <Route path="/seguro-residencial-guarulhos" element={<SeoSeguroResidencialGuarulhos />} />
-            <Route path="/seguro-vida-saude-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
-             <Route path="/seguro-frota-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
-            <Route path="/seguros-empresariais-pme-guarulhos" element={<SeoSegurosPmeGuarulhos />} />
-            <Route path="/seguro-moto-guarulhos" element={<SeoSeguroMotoGuarulhos />} />
-            <Route path="/seguro-condominio-guarulhos" element={<SeoSeguroCondominioGuarulhos />} />
-            <Route path="/seguros-shopping-maia-cidade-maia-guarulhos" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
-            <Route path="/seguro-uber-guarulhos" element={<SeoSeguroUberGuarulhos />} />
-            <Route path="/seguro-empresa-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
-              <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaGuarulhos />} />
-              <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<PreventSenior />} />
-              <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<SulAmericaSaude />} />
-              <Route path="/planos-de-saude/amil-saude-guarulhos" element={<AmilSaude />} />
-              <Route path="/planos-de-saude/porto-saude-guarulhos" element={<PortoSaude />} />
-              <Route path="/planos-de-saude/hapvida-guarulhos" element={<Hapvida />} />
-              <Route path="/planos-de-saude/medsenior-guarulhos" element={<Medsenior />} />
-              <Route path="/planos-de-saude/bradesco-saude-guarulhos" element={<BradescoSaude />} />
-              <Route path="/planos-de-saude/sami-guarulhos" element={<Sami />} />
-              <Route path="/planos-de-saude/unimed-guarulhos" element={<Unimed />} />
-              <Route path="/planos-de-saude/alice-guarulhos" element={<Alice />} />
-
-              <Route path="/seguradoras/porto-seguro-guarulhos" element={<PortoSeguro />} />
-              <Route path="/seguradoras/tokio-marine-guarulhos" element={<TokioMarine />} />
-              <Route path="/seguradoras/allianz-guarulhos" element={<Allianz />} />
-              <Route path="/seguradoras/azul-seguros-guarulhos" element={<AzulSeguros />} />
-              <Route path="/seguradoras/mapfre-guarulhos" element={<Mapfre />} />
-              <Route path="/seguradoras/zurich-guarulhos" element={<Zurich />} />
-              <Route path="/seguradoras/yellum-guarulhos" element={<Yellum />} />
-              <Route path="/seguradoras/suhai-guarulhos" element={<Suhai />} />
-              <Route path="/seguradoras/hdi-guarulhos" element={<HDI />} />
-              <Route path="/seguradoras/itau-seguros-guarulhos" element={<ItauSeguros />} />
-              <Route path="/seguradoras/bradesco-seguros-guarulhos" element={<BradescoSeguros />} />
-              <Route path="/seguradoras/mitsui-guarulhos" element={<Mitsui />} />
-            <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
-            <Route path="/seguros-em-guarulhos-bairros" element={<SeoHubBairrosGuarulhos />} />
-            {/* Hub de Lojistas de Shopping Guarulhos */}
-            <Route path="/seguros-para-lojistas-guarulhos" element={<NichoLojistasGuarulhos />} />
-            <Route path="/seguro-lojas-shopping-maia" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
-            <Route path="/seguro-lojas-shopping-internacional-guarulhos" element={<SeoLocalPage slug="seguro-lojas-shopping-internacional-guarulhos" />} />
-            <Route path="/seguro-lojas-shopping-bonsucesso" element={<SeoLocalPage slug="seguro-lojas-shopping-bonsucesso" />} />
-            
-            {/* Segmentos Lojistas */}
-            <Route path="/seguro-para-franquias-guarulhos" element={<SeguroEmpresarialSegmento segmento="franquias-guarulhos" />} />
-            <Route path="/seguro-loja-de-roupas-guarulhos" element={<SeguroEmpresarialSegmento segmento="lojas-de-roupas-guarulhos" />} />
-            <Route path="/seguro-otica-guarulhos" element={<SeguroEmpresarialSegmento segmento="otica-guarulhos" />} />
-            <Route path="/seguro-joalheria-guarulhos" element={<SeguroEmpresarialSegmento segmento="joalheria-guarulhos" />} />
-            <Route path="/seguro-perfumaria-guarulhos" element={<SeguroEmpresarialSegmento segmento="perfumaria" />} />
-            <Route path="/seguro-loja-celular-guarulhos" element={<SeguroEmpresarialSegmento segmento="loja-celular-guarulhos" />} />
-            <Route path="/seguro-restaurante-guarulhos" element={<SeguroEmpresarialSegmento segmento="restaurantes" />} />
-            <Route path="/seguro-quiosque-shopping-guarulhos" element={<SeguroEmpresarialSegmento segmento="quiosque-shopping-guarulhos" />} />
-            <Route path="/seguro-clinica-estetica-guarulhos" element={<SeguroEmpresarialSegmento segmento="clinica-estetica-guarulhos" />} />
-
-            {/* SEO local — bairros e páginas comerciais (data-driven) */}
-            <Route path="/cotacao-seguro-auto-guarulhos" element={<SeoLocalPage slug="cotacao-seguro-auto-guarulhos" />} />
-            <Route path="/melhor-corretora-de-seguros-guarulhos" element={<SeoLocalPage slug="melhor-corretora-de-seguros-guarulhos" />} />
-            <Route path="/plano-saude-mei-guarulhos" element={<SeoLocalPage slug="plano-saude-mei-guarulhos" />} />
-             <Route path="/seguro-empresarial-cumbica" element={<SeoLocalPage slug="seguro-empresarial-cumbica" />} />
-             <Route path="/seguro-empresarial-bonsucesso" element={<SeoLocalPage slug="seguro-empresarial-bonsucesso" />} />
-             <Route path="/seguro-empresarial-pimentas" element={<SeoLocalPage slug="seguro-empresarial-pimentas" />} />
-             <Route path="/seguro-residencial-centro-guarulhos" element={<SeoLocalPage slug="seguro-residencial-centro-guarulhos" />} />
-             <Route path="/seguro-residencial-vila-augusta" element={<SeoLocalPage slug="seguro-residencial-vila-augusta" />} />
-             <Route path="/seguro-residencial-jardim-maia" element={<SeoLocalPage slug="seguro-residencial-jardim-maia" />} />
-             <Route path="/plano-saude-taboao-guarulhos" element={<SeoLocalPage slug="plano-saude-taboao-guarulhos" />} />
-             <Route path="/plano-saude-macedo-guarulhos" element={<SeoLocalPage slug="plano-saude-macedo-guarulhos" />} />
-             <Route path="/plano-saude-gopouva-guarulhos" element={<SeoLocalPage slug="plano-saude-gopouva-guarulhos" />} />
-             <Route path="/seguro-residencial-taboao-guarulhos" element={<SeoLocalPage slug="seguro-residencial-taboao-guarulhos" />} />
-             <Route path="/seguro-residencial-gopouva-guarulhos" element={<SeoLocalPage slug="seguro-residencial-gopouva-guarulhos" />} />
-             <Route path="/seguro-empresarial-taboao-guarulhos" element={<SeoLocalPage slug="seguro-empresarial-taboao-guarulhos" />} />
-             <Route path="/seguro-empresarial-macedo-guarulhos" element={<SeoLocalPage slug="seguro-empresarial-macedo-guarulhos" />} />
-             <Route path="/seguro-empresarial-gopouva-guarulhos" element={<SeoLocalPage slug="seguro-empresarial-gopouva-guarulhos" />} />
-            <Route path="/seguro-transportadora-guarulhos" element={<SeoLocalPage slug="seguro-transportadora-guarulhos" />} />
-            <Route path="/seguro-99-guarulhos" element={<SeoLocalPage slug="seguro-99-guarulhos" />} />
-            <Route path="/plano-saude-empresarial-guarulhos" element={<SeoLocalPage slug="plano-saude-empresarial-guarulhos" />} />
-            <Route path="/plano-saude-pme-guarulhos" element={<SeoLocalPage slug="plano-saude-pme-guarulhos" />} />
-            <Route path="/plano-saude-familia-guarulhos" element={<SeoLocalPage slug="plano-saude-familia-guarulhos" />} />
-            <Route path="/plano-odontologico-guarulhos" element={<SeoLocalPage slug="plano-odontologico-guarulhos" />} />
-            <Route path="/seguro-auto-barato-guarulhos" element={<SeoLocalPage slug="seguro-auto-barato-guarulhos" />} />
-            <Route path="/seguro-restaurante-guarulhos" element={<SeoLocalPage slug="seguro-restaurante-guarulhos" />} />
-            <Route path="/seguro-loja-guarulhos" element={<SeoLocalPage slug="seguro-loja-guarulhos" />} />
-            <Route path="/seguro-frota-pequena-guarulhos" element={<SeoLocalPage slug="seguro-frota-pequena-guarulhos" />} />
-            <Route path="/seguro-galpao-guarulhos" element={<SeoLocalPage slug="seguro-galpao-guarulhos" />} />
-            <Route path="/seguro-galpao-cumbica" element={<SeoLocalPage slug="seguro-galpao-cumbica" />} />
-           <Route path="/seguro-carro-eletrico-guarulhos" element={<SeoLocalPage slug="seguro-carro-eletrico-guarulhos" />} />
-            <Route path="/seguro-logistica-guarulhos" element={<SeoLocalPage slug="seguro-logistica-guarulhos" />} />
-            <Route path="/seguro-auto-vila-galvao" element={<SeoLocalPage slug="seguro-auto-vila-galvao" />} />
-            <Route path="/seguro-auto-bonsucesso-guarulhos" element={<SeoLocalPage slug="seguro-auto-bonsucesso-guarulhos" />} />
-            <Route path="/seguro-auto-cumbica" element={<SeoLocalPage slug="seguro-auto-cumbica" />} />
-            <Route path="/seguro-auto-pimentas" element={<SeoLocalPage slug="seguro-auto-pimentas" />} />
-            <Route path="/seguro-auto-maia-guarulhos" element={<SeoLocalPage slug="seguro-auto-maia-guarulhos" />} />
-            <Route path="/seguro-auto-jardim-sao-joao" element={<SeoLocalPage slug="seguro-auto-jardim-sao-joao" />} />
-            <Route path="/seguro-auto-taboao-guarulhos" element={<SeoLocalPage slug="seguro-auto-taboao-guarulhos" />} />
-            <Route path="/seguro-auto-centro-guarulhos" element={<SeoLocalPage slug="seguro-auto-centro-guarulhos" />} />
-            <Route path="/seguro-auto-vila-augusta" element={<SeoLocalPage slug="seguro-auto-vila-augusta" />} />
-            <Route path="/seguro-auto-cidade-maia" element={<SeoLocalPage slug="seguro-auto-cidade-maia" />} />
-            {/* Programmatic SEO — modelos de carro em Guarulhos */}
-            <Route path="/seguro-massey-ferguson-guarulhos" element={<SeoLocalPage slug="seguro-massey-ferguson-guarulhos" />} />
-            <Route path="/seguro-auto-land-rover-guarulhos" element={<SeoLocalPage slug="seguro-auto-land-rover-guarulhos" />} />
-            <Route path="/seguro-auto-jaguar-guarulhos" element={<SeoLocalPage slug="seguro-auto-jaguar-guarulhos" />} />
-            <Route path="/seguro-auto-lexus-guarulhos" element={<SeoLocalPage slug="seguro-auto-lexus-guarulhos" />} />
-            <Route path="/seguro-auto-toyota-guarulhos" element={<SeoLocalPage slug="seguro-auto-toyota-guarulhos" />} />
-            <Route path="/seguro-byd-dolphin-guarulhos" element={<DynamicLandingPage slug="seguro-byd-dolphin" />} />
-            <Route path="/seguro-byd-song-plus-guarulhos" element={<DynamicLandingPage slug="seguro-byd-song-plus" />} />
-            <Route path="/seguro-byd-seal-guarulhos" element={<DynamicLandingPage slug="seguro-byd-seal" />} />
-            <Route path="/seguro-gwm-haval-h6-guarulhos" element={<DynamicLandingPage slug="seguro-gwm-haval-h6" />} />
-            <Route path="/seguro-toyota-sw4-guarulhos" element={<DynamicLandingPage slug="seguro-toyota-sw4" />} />
-            <Route path="/seguro-ford-ranger-guarulhos" element={<DynamicLandingPage slug="seguro-ford-ranger" />} />
-            <Route path="/seguro-chevrolet-s10-guarulhos" element={<DynamicLandingPage slug="seguro-chevrolet-s10" />} />
-            <Route path="/seguro-bmw-x1-guarulhos" element={<SeguroBMW />} />
-            <Route path="/seguro-audi-q3-guarulhos" element={<DynamicLandingPage slug="seguro-audi-q3" />} />
-            <Route path="/seguro-mercedes-gla-guarulhos" element={<DynamicLandingPage slug="seguro-mercedes-gla" />} />
-
-
-
-
-
-            <Route path="/seguro-auto-jeep-guarulhos" element={<SeoLocalPage slug="seguro-auto-jeep-guarulhos" />} />
-            <Route path="/seguro-moto-estradeira-guarulhos" element={<SeoLocalPage slug="seguro-moto-estradeira-guarulhos" />} />
-            <Route path="/seguro-auto-gac-guarulhos" element={<SeoLocalPage slug="seguro-auto-gac-guarulhos" />} />
-            <Route path="/seguro-volkswagen-guarulhos" element={<SeoLocalPage slug="seguro-volkswagen-guarulhos" />} />
-            <Route path="/seguro-fiat-guarulhos" element={<SeoLocalPage slug="seguro-fiat-guarulhos" />} />
-            <Route path="/seguro-chevrolet-guarulhos" element={<SeoLocalPage slug="seguro-chevrolet-guarulhos" />} />
-            <Route path="/seguro-auto-chevrolet-guarulhos" element={<SeoLocalPage slug="seguro-chevrolet-guarulhos" />} />
-            <Route path="/seguro-auto-hyundai-guarulhos" element={<SeoLocalPage slug="seguro-auto-hyundai-guarulhos" />} />
-            <Route path="/seguro-auto-ford-guarulhos" element={<SeoLocalPage slug="seguro-auto-ford-guarulhos" />} />
-            <Route path="/seguro-auto-honda-guarulhos" element={<SeoLocalPage slug="seguro-auto-honda-guarulhos" />} />
-            <Route path="/seguro-auto-peugeot-guarulhos" element={<SeoLocalPage slug="seguro-auto-peugeot-guarulhos" />} />
-            <Route path="/seguro-auto-citroen-guarulhos" element={<SeoLocalPage slug="seguro-auto-citroen-guarulhos" />} />
-            <Route path="/seguro-carro-antigo-guarulhos" element={<SeoLocalPage slug="seguro-carro-antigo-guarulhos" />} />
-            <Route path="/seguro-auto-ferrari-guarulhos" element={<SeoLocalPage slug="seguro-auto-ferrari-guarulhos" />} />
-            <Route path="/seguro-jacto-guarulhos" element={<SeoLocalPage slug="seguro-jacto-guarulhos" />} />
-            <Route path="/seguro-mahindra-guarulhos" element={<SeoLocalPage slug="seguro-mahindra-guarulhos" />} />
-            <Route path="/seguro-moto-royal-enfield-guarulhos" element={<SeoLocalPage slug="seguro-moto-royal-enfield-guarulhos" />} />
-            <Route path="/seguro-new-holland-guarulhos" element={<SeoLocalPage slug="seguro-new-holland-guarulhos" />} />
-            <Route path="/seguro-case-ih-guarulhos" element={<SeoLocalPage slug="seguro-case-ih-guarulhos" />} />
-            <Route path="/seguro-valtra-guarulhos" element={<SeoLocalPage slug="seguro-valtra-guarulhos" />} />
-            <Route path="/seguro-john-deere-guarulhos" element={<SeoLocalPage slug="seguro-john-deere-guarulhos" />} />
-            <Route path="/seguro-caminhonete-premium-guarulhos" element={<SeoLocalPage slug="seguro-caminhonete-premium-guarulhos" />} />
-            <Route path="/seguro-moto-triumph-guarulhos" element={<SeoLocalPage slug="seguro-moto-triumph-guarulhos" />} />
-            <Route path="/seguro-moto-suzuki-guarulhos" element={<SeoLocalPage slug="seguro-moto-suzuki-guarulhos" />} />
-            <Route path="/seguro-moto-kawasaki-guarulhos" element={<SeoLocalPage slug="seguro-moto-kawasaki-guarulhos" />} />
-            <Route path="/seguro-moto-dafra-guarulhos" element={<SeoLocalPage slug="seguro-moto-dafra-guarulhos" />} />
-            <Route path="/seguro-moto-yamaha-guarulhos" element={<SeoLocalPage slug="seguro-moto-yamaha-guarulhos" />} />
-            <Route path="/seguro-moto-honda-guarulhos" element={<SeoLocalPage slug="seguro-moto-honda-guarulhos" />} />
-            <Route path="/seguro-moto-harley-guarulhos" element={<SeoLocalPage slug="seguro-moto-harley-guarulhos" />} />
-            <Route path="/seguro-moto-ducati-guarulhos" element={<SeoLocalPage slug="seguro-moto-ducati-guarulhos" />} />
-            <Route path="/seguro-moto-bmw-guarulhos" element={<SeoLocalPage slug="seguro-moto-bmw-guarulhos" />} />
-            <Route path="/seguro-bmw-motorrad-guarulhos" element={<SeoLocalPage slug="seguro-bmw-motorrad-guarulhos" />} />
-            <Route path="/seguro-de-vida-para-socios" element={<DynamicLandingPage slug="seguro-de-vida-para-socios" />} />
-            {/* Ondas 2-3: cidades Grande SP, ABC, Oeste (atendimento remoto) */}
-            <Route path="/central-de-sinistro" element={<CentralDeSinistro />} />
-            <Route path="/seguro-auto-aruja" element={<SeoLocalPage slug="seguro-auto-aruja" />} />
-
-            <Route path="/seguro-auto-mairipora" element={<SeoLocalPage slug="seguro-auto-mairipora" />} />
-            <Route path="/seguro-auto-itaquaquecetuba" element={<SeoLocalPage slug="seguro-auto-itaquaquecetuba" />} />
-            <Route path="/seguro-auto-suzano" element={<SeoLocalPage slug="seguro-auto-suzano" />} />
-            <Route path="/seguro-auto-poa" element={<SeoLocalPage slug="seguro-auto-poa" />} />
-            <Route path="/seguro-auto-ferraz-de-vasconcelos" element={<SeoLocalPage slug="seguro-auto-ferraz-de-vasconcelos" />} />
-            <Route path="/seguro-auto-santo-andre" element={<SeoLocalPage slug="seguro-auto-santo-andre" />} />
-            <Route path="/seguro-auto-sao-bernardo-do-campo" element={<SeoLocalPage slug="seguro-auto-sao-bernardo-do-campo" />} />
-            <Route path="/seguro-auto-sao-caetano-do-sul" element={<SeoLocalPage slug="seguro-auto-sao-caetano-do-sul" />} />
-            <Route path="/seguro-auto-osasco" element={<SeoLocalPage slug="seguro-auto-osasco" />} />
-            <Route path="/seguro-auto-barueri" element={<SeoLocalPage slug="seguro-auto-barueri" />} />
-            <Route path="/seguro-auto-alphaville" element={<SeoLocalPage slug="seguro-auto-alphaville" />} />
-            <Route path="/seguro-auto-audi-guarulhos" element={<SeoLocalPage slug="seguro-auto-audi-guarulhos" />} />
-            <Route path="/seguro-auto-byd-guarulhos" element={<SeoLocalPage slug="seguro-auto-byd-guarulhos" />} />
-            <Route path="/seguro-auto-geely-guarulhos" element={<SeoLocalPage slug="seguro-auto-geely-guarulhos" />} />
-            <Route path="/seguro-auto-gwm-guarulhos" element={<SeoLocalPage slug="seguro-auto-gwm-guarulhos" />} />
-            <Route path="/seguro-auto-bmw-guarulhos" element={<SeoLocalPage slug="seguro-auto-bmw-guarulhos" />} />
-            <Route path="/seguro-auto-mercedes-guarulhos" element={<SeoLocalPage slug="seguro-auto-mercedes-guarulhos" />} />
-            <Route path="/seguro-auto-porsche-guarulhos" element={<SeoLocalPage slug="seguro-auto-porsche-guarulhos" />} />
-            <Route path="/seguro-auto-mitsubishi-guarulhos" element={<SeoLocalPage slug="seguro-auto-mitsubishi-guarulhos" />} />
-            <Route path="/seguro-auto-nissan-guarulhos" element={<SeoLocalPage slug="seguro-auto-nissan-guarulhos" />} />
-            <Route path="/seguro-auto-renault-guarulhos" element={<SeoLocalPage slug="seguro-auto-renault-guarulhos" />} />
-            <Route path="/seguro-auto-caoa-chery-guarulhos" element={<SeoLocalPage slug="seguro-auto-caoa-chery-guarulhos" />} />
-            <Route path="/seguro-auto-volvo-guarulhos" element={<SeoLocalPage slug="seguro-auto-volvo-guarulhos" />} />
-            <Route path="/seguro-corolla-guarulhos" element={<SeoLocalPage slug="seguro-corolla-guarulhos" />} />
-            <Route path="/seguro-civic-guarulhos" element={<SeoLocalPage slug="seguro-civic-guarulhos" />} />
-            <Route path="/seguro-hb20-guarulhos" element={<SeoLocalPage slug="seguro-hb20-guarulhos" />} />
-            <Route path="/seguro-onix-guarulhos" element={<SeoLocalPage slug="seguro-onix-guarulhos" />} />
-            <Route path="/seguro-tcross-guarulhos" element={<SeoLocalPage slug="seguro-tcross-guarulhos" />} />
-            <Route path="/seguro-compass-guarulhos" element={<SeoLocalPage slug="seguro-compass-guarulhos" />} />
-            <Route path="/seguro-hilux-guarulhos" element={<SeoLocalPage slug="seguro-hilux-guarulhos" />} />
-            <Route path="/seguro-strada-guarulhos" element={<SeoLocalPage slug="seguro-strada-guarulhos" />} />
-            <Route path="/seguro-renegade-guarulhos" element={<SeoLocalPage slug="seguro-renegade-guarulhos" />} />
-            <Route path="/seguro-mobi-guarulhos" element={<SeoLocalPage slug="seguro-mobi-guarulhos" />} />
-            <Route path="/seguro-auto-por-modelo-guarulhos" element={<SeoSeguroAutoPorModeloGuarulhos />} />
-            <Route path="/seguro-para-empresas-de-vistoria-veicular" element={<SeoVistoriaVeicularGuarulhos />} />
-            <Route path="/seguro-para-ecv" element={<SeoECVGuarulhos />} />
-            <Route path="/seguro-inspecao-veicular" element={<SeoInspecaoVeicularGuarulhos />} />
-            <Route path="/seguro-vistoria-cautelar" element={<SeoVistoriaCautelarGuarulhos />} />
-            <Route path="/seguro-transferencia-veicular" element={<SeoTransferenciaVeicularGuarulhos />} />
-            <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
-            <Route path="/parceria-vistorias-veiculares" element={<SeoParceriaVistoriaGuarulhos />} />
-            <Route path="/seguro-auto-pos-vistoria" element={<SeoAutoPosVistoriaGuarulhos />} />
-            <Route path="/blog/vistoria-veicular" element={<BlogVistoriaVeicular />} />
-            {/* Hub Clínicas Odontológicas */}
-            <Route path="/seguros-para-clinicas-odontologicas" element={<NichoClinicasOdontologicas />} />
-            <Route path="/seguro-para-dentistas" element={<SeguroParaDentistas />} />
-            <Route path="/seguro-consultorio-odontologico" element={<SeguroConsultorioOdontologico />} />
-            <Route path="/seguro-clinica-odontologica" element={<SeguroClinicaOdontologica />} />
-            <Route path="/responsabilidade-civil-dentistas" element={<SeguroRCDentistas />} />
-            <Route path="/seguro-equipamentos-odontologicos" element={<SeguroEquipamentosOdontologicos />} />
-            <Route path="/plano-saude-clinicas-odontologicas" element={<PlanoSaudeClinicasOdontologicas />} />
-            <Route path="/seguro-vida-clinicas-odontologicas" element={<SeguroVidaClinicasOdontologicas />} />
-            <Route path="/parcerias-clinicas-odontologicas" element={<ParceriasClinicasOdontologicas />} />
-            <Route path="/blog/odontologia" element={<BlogOdontologia />} />
-            <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
-            <Route path="/seguro-geada" element={<SeguroGeada />} />
-            <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
-            <Route path="/seguro-estagiario" element={<SeguroEstagiario />} />
-            <Route path="/seguro-fianca-locaticia" element={<SeguroFiancaLocaticia />} />
-            <Route path="/seguro-caminhao" element={<SeguroCaminhao />} />
-            <Route path="/seguro-vida-pme" element={<SeguroVidaPME />} />
-            <Route path="/seguro-armazenagem" element={<SeguroArmazenagem />} />
-            <Route path="/seguro-placa-solar" element={<SeguroPlacaSolar />} />
-            <Route path="/seguro-pecuario" element={<SeguroPecuario />} />
-            <Route path="/seguro-cafe" element={<SeguroCafe />} />
-            <Route path="/consorcio" element={<Consorcio />} />
-            <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
-            <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
-            <Route path="/consorcio-veiculos-pesados" element={<ConsorcioVeiculosPesados />} />
-            <Route path="/ebook-consorcio" element={<EbookConsorcio />} />
-            <Route path="/seguro-lojas-shopping" element={<SeguroLojasShopping />} />
-            <Route path="/seguro-drone-agricola" element={<SeguroDroneAgricola />} />
-            <Route path="/seguro-transporte-agro" element={<SeguroTransporteAgro />} />
-            <Route path="/seguro-granja" element={<SeguroGranja />} />
-            <Route path="/seguro-bike" element={<SeguroBike />} />
-            <Route path="/seguro-jetski" element={<SeguroJetSki />} />
-            <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
-            <Route path="/seguro-avioes" element={<SeguroAvioes />} />
-            <Route path="/seguro-helicopteros" element={<SeguroHelicopteros />} />
-            <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
-            <Route path="/seguro-decesso" element={<SeguroDecesso />} />
-            <Route path="/seguro-garantia" element={<SeguroGarantia />} />
-            <Route path="/seguro-rc-medicos" element={<SeguroRCMedicos />} />
-            <Route path="/seguro-rc-veterinarios" element={<SeguroRCVeterinarios />} />
-            <Route path="/seguro-rc-advogados" element={<SeguroRCAdvogados />} />
-            <Route path="/seguro-rc-dentistas" element={<SeguroRCDentistas />} />
-            <Route path="/seguro-rc-engenheiros" element={<SeguroRCEngenheiros />} />
-            <Route path="/seguro-rc-executivos" element={<SeguroRCExecutivos />} />
-            <Route path="/seguro-rc-obras" element={<SeguroRCObras />} />
-            <Route path="/seguro-rc-prestacao-servicos" element={<SeguroRCPrestacaoServicos />} />
-            <Route path="/seguro-rc-eventos" element={<SeguroRCEventos />} />
-            <Route path="/plano-pet" element={<PlanoPet />} />
-            <Route path="/plano-saude-empresarial" element={<PlanoSaudeEmpresarial />} />
-            <Route path="/seguro-propriedade-rural" element={<SeguroPropriedadeRural />} />
-            <Route path="/seguro-trator-agricola" element={<SeguroTratorAgricola />} />
-            <Route path="/seguro-colhedora-cana" element={<SeguroColhedoraCana />} />
-            <Route path="/seguro-colheitadeira-graos" element={<SeguroColheitadeiraGraos />} />
-            <Route path="/seguro-colhedora-algodao" element={<SeguroColhedoraAlgodao />} />
-            <Route path="/seguro-pulverizador-agricola" element={<SeguroPulverizadorAgricola />} />
-            <Route path="/seguro-silo-agricola" element={<SeguroSiloAgricola />} />
-            <Route path="/seguro-imobiliario" element={<SeguroImobiliario />} />
-            <Route path="/seguro-bmw" element={<SeguroBMW />} />
-            <Route path="/seguro-funeral" element={<SeguroFuneral />} />
-            <Route path="/seguro-micro-onibus" element={<SeguroMicroOnibus />} />
-            <Route path="/seguro-motorista-app" element={<SeguroMotoristaApp />} />
-            <Route path="/landing-pages" element={<LandingPages />} />
-            <Route path="/lp/seguro-auto" element={<LandingSeguroAuto />} />
-            <Route path="/lp/seguro-auto-premium" element={<LandingSeguroAutoPremium />} />
-            <Route path="/lp/plano-de-saude" element={<LandingPlanoSaude />} />
-            <Route path="/lp/seguro-empresarial" element={<LandingSeguroEmpresarial />} />
-            <Route path="/lp/seguro-residencial" element={<LandingSeguroResidencial />} />
-            <Route path="/lp/seguro-vida" element={<LandingSeguroVida />} />
-            <Route path="/lp/seguro-moto" element={<LandingSeguroMoto />} />
-            <Route path="/lp/seguro-galpoes" element={<LandingSeguroGalpoes />} />
-            <Route path="/lp/seguro-galpao-alugado" element={<LandingSeguroGalpaoAlugado />} />
-            <Route path="/lp/consorcio" element={<LandingConsorcio />} />
-            <Route path="/lp/seguro-celular" element={<LandingSeguroCelular />} />
-            <Route path="/lp/seguro-motorista-app" element={<LandingSeguroMotoristaApp />} />
-            <Route path="/lp/medsenior" element={<LandingMedSenior />} />
-             <Route path="/lp/alice" element={<LandingAlice />} />
-             <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />
-             {/* SEO Local Planos de Saúde */}
-             <Route path="/plano-saude-centro-guarulhos" element={<SeoLocalPage slug="plano-saude-centro-guarulhos" />} />
-             <Route path="/plano-saude-cidade-maia" element={<SeoLocalPage slug="plano-saude-cidade-maia" />} />
-             <Route path="/plano-saude-picanco" element={<SeoLocalPage slug="plano-saude-picanco" />} />
-             <Route path="/plano-saude-vila-augusta" element={<SeoLocalPage slug="plano-saude-vila-augusta" />} />
-             <Route path="/faq" element={<FAQ />} />
-            <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
-            <Route path="/seguros-guarulhos-bairros" element={<SegurosGuarulhosBairros />} />
-            <Route path="/seguros-guarulhos" element={<SegurosGuarulhosBairros />} />
-             <Route path="/seguros-em-guarulhos" element={<HubSegurosGuarulhos />} />
-             <Route path="/seguros-de-veiculos" element={<HubVeiculos />} />
-             <Route path="/seguros-empresariais" element={<HubEmpresarial />} />
-             <Route path="/seguros-de-patrimonio" element={<HubPatrimonio />} />
-             <Route path="/seguros-responsabilidade-civil" element={<HubRC />} />
-             <Route path="/vida-e-saude" element={<HubVidaSaude />} />
-            <Route path="/seguros-guarulhos/:bairro" element={<SegurosGuarulhosBairros />} />
-            <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
-            <Route path="/termos-de-uso" element={<TermosDeUso />} />
-            <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
-            <Route path="/seguros/transportadoras" element={<NichoTransportadoras />} />
-            <Route path="/seguros/empresarios" element={<NichoEmpresarios />} />
-            <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
-            <Route path="/seguros/motoristas-app" element={<NichoMotoristasApp />} />
-            <Route path="/seguros/:tipo" element={<SegurosQuotePage />} />
-            <Route path="/admin/purge-logs" element={<RequireAdmin><PurgeLogs /></RequireAdmin>} />
-            <Route path="/admin/performance" element={<RequireAdmin><PerformanceDiagnostico /></RequireAdmin>} />
-            <Route path="/admin/seo-tecnico" element={<RequireAdmin><SeoTechnicalReport /></RequireAdmin>} />
-             <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
-            <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
-            <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
-            <Route path="/diagnostico" element={<Diagnostico />} />
-            <Route path="/investimentos" element={<Investimentos />} />
-            <Route path="/planejamento-patrimonial" element={<Investimentos />} />
-            <Route path="*" element={<LegacyWpRedirect />} />
-              </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </QueryProviderWrapper>
+          <TooltipProvider>
+            <BrowserRouter>
+              <Suspense fallback={<PageLoader />}>
+                <SkipLink />
+                <BreadcrumbSchema />
+                <LocalBusinessSchema />
+                <OrganizationSchema />
+                <WebSiteSchema />
+                <Toaster />
+                <Sonner position="top-right" closeButton richColors />
+                <WhatsAppButton />
+                <CookieBanner />
+                <ScrollToTop />
+                <ServiceWorkerCheck />
+                <Routes>
+                  <Route path="/admin/login" element={<AdminLogin />} />
+                  <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
+                  <Route path="/" element={<Index />} />
+                  <Route path="/sobre" element={<Sobre />} />
+                  <Route path="/parceiros" element={<Parceiros />} />
+                  <Route path="/cotacao" element={<Cotacao />} />
+                  <Route path="/contato" element={<Contato />} />
+                  <Route path="/depoimentos" element={<Depoimentos />} />
+                  <Route path="/seguro-bmw" element={<SeguroBMW />} />
+                  <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
+                  <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
+                  <Route path="/parceiros-locais" element={<ParceirosLocais />} />
+                  <Route path="/imprensa" element={<Imprensa />} />
+                  <Route path="/seguro-auto" element={<SeguroAuto />} />
+                  <Route path="/seguro-vida" element={<SeguroVida />} />
+                  <Route path="/seguro-vida/formulario" element={<FormularioSeguroVida />} />
+                  <Route path="/seguro-residencial" element={<SeguroResidencial />} />
+                  <Route path="/seguro-viagem" element={<SeguroViagem />} />
+                  <Route path="/seguro-fianca" element={<SeguroFianca />} />
+                  <Route path="/previdencia-privada" element={<PrevidenciaPrivada />} />
+                  <Route path="/seguro-moto" element={<SeguroMoto />} />
+                  <Route path="/seguro-saude" element={<SeguroSaude />} />
+                  <Route path="/seguro-odonto" element={<SeguroOdonto />} />
+                  <Route path="/seguro-empresarial" element={<SeguroEmpresarial />} />
+                  <Route path="/seguro-frota" element={<SeguroFrota />} />
+                  <Route path="/seguro-transporte" element={<SeguroTransporte />} />
+                  <Route path="/seguro-rural" element={<SeguroRural />} />
+                  <Route path="/seguro-maquinas" element={<SeguroMaquinas />} />
+                  <Route path="/seguro-rc" element={<SeguroRC />} />
+                  <Route path="/seguro-rc-profissional" element={<SeguroRCProfissional />} />
+                  <Route path="/seguro-condominio" element={<SeguroCondominio />} />
+                  <Route path="/seguro-gerador-energia" element={<SeguroGeradorEnergia />} />
+                  <Route path="/seguro-engenharia" element={<SeguroEngenharia />} />
+                  <Route path="/seguro-cyber" element={<SeguroCyber />} />
+                  <Route path="/seguro-celular" element={<SeguroCelular />} />
+                  <Route path="/planos-de-saude" element={<PlanosDeSaude />} />
+                  <Route path="/indique-um-amigo" element={<IndiqueAmigo />} />
+                  <Route path="/cotacao-seguro-auto" element={<CotacaoSeguroAuto />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:slug" element={<BlogArticle />} />
+                  <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
+                  <Route path="/lp/:slug" element={<DynamicLandingPage />} />
+                  <Route path="/diagnostico" element={<Diagnostico />} />
+                  <Route path="/performance" element={<PerformanceDiagnostico />} />
+                  
+                  {/* ... other specific routes ... */}
+                  <Route path="/admin/purge-logs" element={<RequireAdmin><PurgeLogs /></RequireAdmin>} />
+                  <Route path="/admin/performance" element={<RequireAdmin><PerformanceDiagnostico /></RequireAdmin>} />
+                  <Route path="/admin/seo-tecnico" element={<RequireAdmin><SeoTechnicalReport /></RequireAdmin>} />
+                  <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
+                  <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
+                  <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
+                  <Route path="/investimentos" element={<Investimentos />} />
+                  <Route path="*" element={<LegacyWpRedirect />} />
+                </Routes>
+              </Suspense>
+            </BrowserRouter>
+          </TooltipProvider>
+        </QueryProviderWrapper>
       </ErrorBoundary>
     </HelmetProvider>
   );
