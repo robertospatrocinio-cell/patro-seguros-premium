@@ -346,12 +346,12 @@ const Header = memo(() => {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="space-y-0.5 text-[13px]">
-                      <Link to="/seguro-rural" className="block py-1 hover:text-primary">Seguro Rural</Link>
-                      <Link to="/seguro-maquinas-agricolas" className="block py-1 hover:text-primary">Máquinas Agrícolas</Link>
-                      <Link to="/seguro-equipamentos-agricolas" className="block py-1 hover:text-primary">Equipamentos</Link>
-                      <Link to="/seguro-propriedade-rural" className="block py-1 hover:text-primary">Propriedade Rural</Link>
-                      <Link to="/seguro-pecuario" className="block py-1 hover:text-primary">Seguro Pecuário</Link>
-                      <Link to="/seguro-transporte-agro" className="block py-1 hover:text-primary">Transporte Agro</Link>
+                      <SmartLink to="/seguro-rural" className="block py-1 hover:text-primary">Seguro Rural</SmartLink>
+                      <SmartLink to="/seguro-maquinas-agricolas" className="block py-1 hover:text-primary">Máquinas Agrícolas</SmartLink>
+                      <SmartLink to="/seguro-equipamentos-agricolas" className="block py-1 hover:text-primary">Equipamentos</SmartLink>
+                      <SmartLink to="/seguro-propriedade-rural" className="block py-1 hover:text-primary">Propriedade Rural</SmartLink>
+                      <SmartLink to="/seguro-pecuario" className="block py-1 hover:text-primary">Seguro Pecuário</SmartLink>
+                      <SmartLink to="/seguro-transporte-agro" className="block py-1 hover:text-primary">Transporte Agro</SmartLink>
                     </div>
                   </div>
                 </div>
