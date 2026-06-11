@@ -127,15 +127,6 @@ const bairros: BairroSeed[] = [
     reference: "região do Terminal Pimentas e Hospital Municipal", 
     priceRange: "R$ 3.200 a R$ 6.400/ano" 
   },
-  { 
-    slug: "seguro-auto-pimentas-guarulhos", 
-    bairro: "Pimentas", 
-    bairroSlugBairros: "cumbica", 
-    riskLevel: "alto", 
-    context: "o bairro mais populoso de Guarulhos, com intenso fluxo comercial e de transporte, exigindo atenção especial à segurança veicular e rastreamento.", 
-    reference: "região do Terminal Pimentas e Hospital Municipal", 
-    priceRange: "R$ 3.200 a R$ 6.400/ano" 
-  },
 ];
 
 const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
