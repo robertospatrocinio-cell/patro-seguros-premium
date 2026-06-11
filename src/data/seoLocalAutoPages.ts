@@ -4,7 +4,6 @@ import { generateLocalFAQs } from "@/data/localFAQGenerator";
 import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
 import { DEFAULT_INSURERS } from "@/data/localDefaults";
 
-
 /**
  * Configuração de dados para uma página de SEO Local.
  * Usada pelo template SeoLocalPage para injetar conteúdo dinâmico baseado no slug.
@@ -27,7 +26,6 @@ import { DEFAULT_INSURERS } from "@/data/localDefaults";
   realScenarios: { title: string; description: string }[];
   tips: string[];
   relatedInsurances: { title: string; link: string }[];
-  /** Opcionais — preenchidos por bairros e páginas comerciais quando relevante */
   city?: string;
   neighborhood?: string;
   geo?: { latitude: number; longitude: number };
