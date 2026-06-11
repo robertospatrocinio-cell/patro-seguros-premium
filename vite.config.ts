@@ -329,8 +329,9 @@ export default defineConfig(({ mode }) => ({
         output: {
           manualChunks: (id) => {
             if (id.includes("node_modules")) {
-              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack")) return "vendor-core";
-              if (id.includes("lucide-react") || id.includes("framer-motion")) return "vendor-ui";
+              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack") || id.includes("framer-motion")) return "vendor-core";
+              if (id.includes("lucide-react")) return "vendor-ui";
+              if (id.includes("@supabase")) return "vendor-supabase";
               return "vendor";
             }
           },

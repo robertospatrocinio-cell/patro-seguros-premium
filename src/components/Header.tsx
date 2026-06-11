@@ -91,7 +91,7 @@ const Header = memo(() => {
     // Listen for storage changes in other tabs
     window.addEventListener('storage', checkSessions);
     // Also check on interval as state might change in same tab
-    const interval = setInterval(checkSessions, 5000);
+    const interval = setInterval(checkSessions, 15000); // Increased interval to 15s for better performance
     
     return () => {
       window.removeEventListener('storage', checkSessions);
