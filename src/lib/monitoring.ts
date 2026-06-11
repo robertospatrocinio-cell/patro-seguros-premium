@@ -31,6 +31,29 @@ export const initMonitoring = async () => {
   const dsn = import.meta.env.VITE_SENTRY_DSN;
   
   if (typeof window !== "undefined") {
+    // Only load full monitoring after a short delay to stay off the critical path
+    setTimeout(async () => {
+      if (dsn) {
+        const Sentry = await getSentry();
+        if (Sentry) {
+          Sentry.init({
+            dsn,
+            integrations: [
+              Sentry.browserTracingIntegration(),
+              Sentry.replayIntegration({
+                maskAllText: false,
+                blockAllMedia: false,
+              }),
+            ],
+            tracesSampleRate: 0.1,
+            replaysSessionSampleRate: 0.05,
+            replaysOnErrorSampleRate: 1.0,
+            environment: import.meta.env.MODE,
+          });
+          console.log("Monitoring: Sentry initialized.");
+        }
+      }
+    }, 4000);
     // Intercept console errors
     const originalConsoleError = console.error;
     const originalConsoleWarn = console.warn;
