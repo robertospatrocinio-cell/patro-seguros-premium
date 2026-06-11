@@ -25,9 +25,12 @@ interface Props {
       errorId: string;
       copied: boolean;
       isSupportModalOpen: boolean;
+      retryCount: number;
     }
  
    class ErrorBoundary extends Component<Props, State> {
+     private retryTimer?: NodeJS.Timeout;
+
      private handleWhatsAppReport = () => {
        const message = encodeURIComponent(`Olá, encontrei um erro no site da Patro Seguros. ID do Erro: ${this.state.errorId}`);
        window.open(`https://wa.me/551151997500?text=${message}`, "_blank");
@@ -38,44 +41,84 @@ interface Props {
         errorId: "",
         copied: false,
         isSupportModalOpen: false,
+        retryCount: 0,
       };
 
     public static getDerivedStateFromError(error: Error): State {
       const errorId = Math.random().toString(36).substring(2, 9).toUpperCase();
-      return { hasError: true, error, errorId, copied: false, isSupportModalOpen: false };
+      return { 
+        hasError: true, 
+        error, 
+        errorId, 
+        copied: false, 
+        isSupportModalOpen: false,
+        retryCount: 0 
+      };
     }
  
-   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-     console.error("Uncaught error caught by ErrorBoundary:", error, errorInfo);
-     
-     // Globalize error ID so forms can pick it up if user navigates back
-     if (typeof window !== "undefined") {
-       (window as any).lastErrorId = this.state.errorId;
-       
-       // Also notify user via toast if they are still on a functional part of the app
-       toast.error("Ocorreu um erro inesperado na interface.", {
-         description: `Código de referência: ${this.state.errorId}. Nossa equipe técnica foi notificada.`,
-         duration: 8000,
-       });
-     }
-     
-     captureException(error, {
-       componentStack: errorInfo.componentStack,
-       url: window.location.href,
-       timestamp: new Date().toISOString(),
-       errorId: this.state.errorId,
-       boundary: true
-     });
-   }
- 
-    private handleReset = () => {
-      this.setState({ hasError: false, error: undefined, errorId: "" });
-      if (this.props.onReset) {
-        this.props.onReset();
-      } else {
-        window.location.reload(); // Fallback if no onReset provided
+    public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+      console.error("Uncaught error caught by ErrorBoundary:", error, errorInfo);
+      
+      const isNetworkError = 
+        error.message?.includes("Failed to fetch") || 
+        error.message?.includes("Load failed") ||
+        error.message?.includes("NetworkError") ||
+        error.message?.includes("connection refused") ||
+        error.name === "ChunkLoadError";
+
+      if (isNetworkError && this.state.retryCount < 5) {
+        const backoffDelay = Math.min(1000 * Math.pow(2, this.state.retryCount), 10000);
+        console.log(`Network error detected. Retrying in ${backoffDelay}ms (attempt ${this.state.retryCount + 1})...`);
+        
+        this.retryTimer = setTimeout(() => {
+          this.setState(prevState => ({
+            hasError: false,
+            error: undefined,
+            retryCount: prevState.retryCount + 1
+          }));
+        }, backoffDelay);
       }
-    };
+
+      // Globalize error ID so forms can pick it up if user navigates back
+      if (typeof window !== "undefined") {
+        (window as any).lastErrorId = this.state.errorId;
+        
+        if (!isNetworkError || this.state.retryCount >= 3) {
+          toast.error("Ocorreu um erro inesperado na interface.", {
+            description: `Código de referência: ${this.state.errorId}. Nossa equipe técnica foi notificada.`,
+            duration: 8000,
+          });
+        }
+      }
+      
+      captureException(error, {
+        componentStack: errorInfo.componentStack,
+        url: window.location.href,
+        timestamp: new Date().toISOString(),
+        errorId: this.state.errorId,
+        boundary: true,
+        retryCount: this.state.retryCount,
+        isNetworkError
+      });
+    }
+
+    public componentWillUnmount() {
+      if (this.retryTimer) {
+        clearTimeout(this.retryTimer);
+      }
+    }
+ 
+     private handleReset = () => {
+       if (this.retryTimer) {
+         clearTimeout(this.retryTimer);
+       }
+       this.setState({ hasError: false, error: undefined, errorId: "", retryCount: 0 });
+       if (this.props.onReset) {
+         this.props.onReset();
+       } else {
+         window.location.reload(); // Fallback if no onReset provided
+       }
+     };
 
     private handleBack = () => {
       this.handleReset();
@@ -100,16 +143,18 @@ interface Props {
        if (this.props.fallback) return this.props.fallback;
  
        return (
-         <div className="min-h-screen flex items-center justify-center bg-background p-4">
-           <div className="max-w-md w-full text-center space-y-6">
-             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-destructive/10">
-               <AlertTriangle className="w-10 h-10 text-destructive" />
-             </div>
-              <div className="space-y-2">
-                <h1 className="text-2xl font-bold tracking-tight">Ops! Algo deu errado.</h1>
-                <p className="text-muted-foreground">
-                  Ocorreu um erro inesperado ao carregar esta página.
-                </p>
+          <div className="min-h-screen flex items-center justify-center bg-background p-4">
+            <div className="max-w-md w-full text-center space-y-6">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-destructive/10">
+                <AlertTriangle className="w-10 h-10 text-destructive" />
+              </div>
+               <div className="space-y-2">
+                 <h1 className="text-2xl font-bold tracking-tight">Ops! Algo deu errado.</h1>
+                 <p className="text-muted-foreground">
+                   {this.state.retryCount > 0 
+                     ? `Tentando reconectar automaticamente (tentativa ${this.state.retryCount}/5)...`
+                     : "Ocorreu um erro inesperado ao carregar esta página."}
+                 </p>
                 
                 <div className="mt-4 p-3 bg-muted/50 rounded-lg inline-flex items-center gap-2 text-xs font-mono border border-border/30">
                   <span className="text-muted-foreground">ID do Erro:</span>
