@@ -267,13 +267,21 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: (failureCount, error: any) => {
-        if (error?.message?.includes("Failed to fetch") || error?.message?.includes("NetworkError")) {
-          return failureCount < 5;
+        const message = error?.message?.toLowerCase() || "";
+        const isNetworkFailure = 
+          message.includes("failed to fetch") || 
+          message.includes("networkerror") || 
+          message.includes("connection refused") ||
+          message.includes("load failed") ||
+          message.includes("refused");
+
+        if (isNetworkFailure) {
+          return failureCount < 8; // Aumentado para mais resiliência em falhas de rede
         }
         return failureCount < 2;
       },
-      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
-      refetchOnWindowFocus: false,
+      retryDelay: (attemptIndex) => Math.min(1000 * Math.pow(2, attemptIndex), 30000),
+      refetchOnWindowFocus: true, // Reativado para ajudar na recuperação automática
       staleTime: 1000 * 60 * 5, // 5 minutes
       gcTime: 1000 * 60 * 30, // 30 minutes
       refetchOnMount: false,
