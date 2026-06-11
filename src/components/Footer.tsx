@@ -54,12 +54,12 @@ const Footer = memo(() => {
           <nav aria-label="Seguros para você">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Para Você</h3>
             <ul className="space-y-2.5 text-[13px]">
-              <li><Link to="/seguro-auto" className="hover:text-white transition-colors">Seguro Auto</Link></li>
-              <li><Link to="/seguro-moto" className="hover:text-white transition-colors">Seguro Moto</Link></li>
-              <li><Link to="/seguro-residencial" className="hover:text-white transition-colors">Seguro Residencial</Link></li>
-              <li><Link to="/seguro-vida" className="hover:text-white transition-colors">Seguro de Vida</Link></li>
-              <li><Link to="/planos-de-saude" className="hover:text-white transition-colors">Plano de Saúde</Link></li>
-              <li><Link to="/consorcio" className="hover:text-white transition-colors">Consórcio</Link></li>
+              <li><SmartLink to="/seguro-auto" className="hover:text-white transition-colors">Seguro Auto</SmartLink></li>
+              <li><SmartLink to="/seguro-moto" className="hover:text-white transition-colors">Seguro Moto</SmartLink></li>
+              <li><SmartLink to="/seguro-residencial" className="hover:text-white transition-colors">Seguro Residencial</SmartLink></li>
+              <li><SmartLink to="/seguro-vida" className="hover:text-white transition-colors">Seguro de Vida</SmartLink></li>
+              <li><SmartLink to="/planos-de-saude" className="hover:text-white transition-colors">Plano de Saúde</SmartLink></li>
+              <li><SmartLink to="/consorcio" className="hover:text-white transition-colors">Consórcio</SmartLink></li>
             </ul>
           </nav>
 
