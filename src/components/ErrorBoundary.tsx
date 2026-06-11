@@ -13,10 +13,11 @@
     DialogFooter,
   } from "@/components/ui/dialog";
  
- interface Props {
-   children: ReactNode;
-   fallback?: ReactNode;
- }
+interface Props {
+  children: ReactNode;
+  fallback?: ReactNode;
+  onReset?: () => void;
+}
  
     interface State {
       hasError: boolean;
@@ -69,7 +70,11 @@
  
     private handleReset = () => {
       this.setState({ hasError: false, error: undefined, errorId: "" });
-      window.location.reload(); // Force full reload to ensure fresh state
+      if (this.props.onReset) {
+        this.props.onReset();
+      } else {
+        window.location.reload(); // Fallback if no onReset provided
+      }
     };
 
     private handleBack = () => {
