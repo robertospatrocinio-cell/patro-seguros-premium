@@ -102,6 +102,33 @@ interface BairroSeed {
     reference: "no entorno da Avenida Paulo Faccini e Parque Bosque Maia", 
     priceRange: "R$ 2.050 a R$ 3.950/ano" 
   },
+  { 
+    slug: "seguro-auto-vila-augusta-guarulhos", 
+    bairro: "Vila Augusta", 
+    bairroSlugBairros: "vila-augusta", 
+    riskLevel: "baixo", 
+    context: "tradicional bairro residencial e comercial de Guarulhos, estrategicamente localizado próximo à Rodovia Presidente Dutra e ao Shopping Internacional.", 
+    reference: "próximo ao Shopping Internacional e Parque Fracalanza", 
+    priceRange: "R$ 2.150 a R$ 4.100/ano" 
+  },
+  { 
+    slug: "seguro-auto-bonsucesso-guarulhos-v2", 
+    bairro: "Bonsucesso", 
+    bairroSlugBairros: "bonsucesso", 
+    riskLevel: "médio", 
+    context: "um dos polos de crescimento de Guarulhos, com forte característica industrial e logística, além de áreas residenciais em expansão.", 
+    reference: "no entorno do Shopping Bonsucesso e UNIFESP", 
+    priceRange: "R$ 2.650 a R$ 5.200/ano" 
+  },
+  { 
+    slug: "seguro-auto-pimentas-guarulhos", 
+    bairro: "Pimentas", 
+    bairroSlugBairros: "cumbica", 
+    riskLevel: "alto", 
+    context: "o bairro mais populoso de Guarulhos, com intenso fluxo comercial e de transporte, exigindo atenção especial à segurança veicular e rastreamento.", 
+    reference: "região do Terminal Pimentas e Hospital Municipal", 
+    priceRange: "R$ 3.200 a R$ 6.400/ano" 
+  },
 ];
 
 const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
