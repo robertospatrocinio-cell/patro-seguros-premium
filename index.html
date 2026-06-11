@@ -28,11 +28,10 @@
       .gradient-hero{background:var(--gradient-hero)}
       .skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:9999;padding:1rem 2rem;background:hsl(210 100% 20%);color:white;border-radius:0.5rem;text-decoration:none}
       #root{min-height:100vh;display:block}
-      #initial-loader{display:flex;position:fixed;inset:0;background:white;z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:1rem;transition:opacity 0.3s ease-out}
-      .loader-spinner{width:40px;height:40px;border:3px solid #f3f3f3;border-top:3px solid #1e3a8a;border-radius:50%;animation:spin 1s linear infinite}
-      @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-      .loader-text{font-family:sans-serif;font-size:14px;color:#64748b}
-      .retry-button{display:none;margin-top:1rem;padding:0.5rem 1rem;background:#1e3a8a;color:white;border:none;border-radius:0.5rem;cursor:pointer}
+      #initial-loader{display:none}
+      .loader-spinner{display:none}
+      .loader-text{display:none}
+      .retry-button{display:none}
     </style>
 
     <meta property="og:type" content="website" />
