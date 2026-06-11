@@ -33,36 +33,59 @@ export const initMonitoring = async () => {
   if (typeof window !== "undefined") {
     // Intercept console errors
     const originalConsoleError = console.error;
+    const originalConsoleWarn = console.warn;
+    
     console.error = function(this: any, ...args: any[]) {
       const message = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
       addDiagnosticLog({
-        type: 'console',
-        message,
+        type: 'error',
+        message: `Console Error: ${message}`,
         timestamp: new Date().toISOString(),
       });
       return originalConsoleError.apply(this, args);
     };
 
+    console.warn = function(this: any, ...args: any[]) {
+      const message = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+      addDiagnosticLog({
+        type: 'console',
+        message: `Console Warning: ${message}`,
+        timestamp: new Date().toISOString(),
+      });
+      return originalConsoleWarn.apply(this, args);
+    };
+
     // Intercept network failures if possible via fetch
     const originalFetch = window.fetch;
     window.fetch = async function(this: any, ...args: any[]) {
+      const startTime = performance.now();
       try {
         const response = await originalFetch.apply(this, args);
+        const duration = performance.now() - startTime;
+        
         if (!response.ok) {
           addDiagnosticLog({
             type: 'network',
-            message: `HTTP Error ${response.status}: ${args[0]}`,
+            message: `HTTP ${response.status} (${Math.round(duration)}ms): ${args[0]}`,
             timestamp: new Date().toISOString(),
-            details: { status: response.status, url: args[0] }
+            details: { status: response.status, url: args[0], duration }
+          });
+        } else if (duration > 3000) {
+          addDiagnosticLog({
+            type: 'network',
+            message: `Slow Request (${Math.round(duration)}ms): ${args[0]}`,
+            timestamp: new Date().toISOString(),
+            details: { status: response.status, url: args[0], duration }
           });
         }
         return response;
       } catch (error: any) {
+        const duration = performance.now() - startTime;
         addDiagnosticLog({
           type: 'network',
-          message: `Network Failure: ${args[0]} - ${error.message}`,
+          message: `Network Failure (${Math.round(duration)}ms): ${args[0]} - ${error.message}`,
           timestamp: new Date().toISOString(),
-          details: { error: error.message, url: args[0] }
+          details: { error: error.message, url: args[0], duration }
         });
         throw error;
       }

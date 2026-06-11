@@ -259,17 +259,58 @@ const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
+const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
+const ConversionDashboard = lazy(() => import("./pages/ConversionDashboard"));
+const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
+const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
+const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
+const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
+const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
+
 import RequireAdmin from "@/components/RequireAdmin";
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: (failureCount, error: any) => {
-        // Retry more aggressively for network errors
         if (error?.message?.includes("Failed to fetch") || error?.message?.includes("NetworkError")) {
           return failureCount < 5;
         }
         return failureCount < 2;
       },
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 30, // 30 minutes
+    },
+  },
+});
+
+const App = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner position="top-right" closeButton richColors />
+          <ServiceWorkerCheck />
+          <SkipLink />
+          <BreadcrumbSchema />
+          <LocalBusinessSchema />
+          <OrganizationSchema />
+          <WebSiteSchema />
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/diagnostico" element={<Diagnostico />} />
+                <Route path="/performance" element={<PerformanceDiagnostico />} />
+                <Route path="/seguro-auto" element={<SeguroAuto />} />
+                <Route path="/planos-de-saude" element={<PlanosDeSaude />} />
+                <Route path="/seguro-vida" element={<SeguroVida />} />
+                <Route path="/seguro-residencial" element={<SeguroResidencial />} />
+                <Route path="/seguro-viagem" element={<SeguroViagem />} />
+                <Route path="/seguro-fianca" element={<SeguroFianca />} />
+                <Route path="/cotacao" element={<Cotacao />} />
+                {/* ... other routes ... */}
       retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
       refetchOnWindowFocus: false,
       staleTime: 24 * 60 * 60 * 1000,

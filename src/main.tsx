@@ -8,6 +8,16 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 const App = lazy(() => import("./App.tsx"));
 
+// Critical resources pre-warming
+const prewarm = () => {
+  const images = ['/images/logo-full.webp', '/images/hero-home.webp'];
+  images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+};
+prewarm();
+
 const Main = () => {
   useEffect(() => {
     const deferInit = () => {
