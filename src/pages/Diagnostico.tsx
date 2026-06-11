@@ -115,15 +115,19 @@ const DiagnosticPage = () => {
               <CardTitle className="text-sm font-medium">Erros Detectados</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{logs.filter(l => l.type === 'error').length}</div>
+              <div className="text-2xl font-bold text-destructive">
+                {logs.filter(l => l.type === 'error').length}
+              </div>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">Falhas de Rede</CardTitle>
+              <CardTitle className="text-sm font-medium">Lentidão de Rede</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{logs.filter(l => l.type === 'network').length}</div>
+              <div className="text-2xl font-bold text-orange-500">
+                {logs.filter(l => l.type === 'network' && (l.message.includes('Slow') || l.message.includes('HTTP'))).length}
+              </div>
             </CardContent>
           </Card>
         </div>
