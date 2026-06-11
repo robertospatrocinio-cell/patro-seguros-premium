@@ -387,9 +387,9 @@ const Header = memo(() => {
                 <div className="absolute top-full right-0 pt-2 w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="space-y-0.5 text-[13px]">
-                      <Link to="/blog" className="block py-1 hover:text-primary">Blog</Link>
-                      <Link to="/imprensa" className="block py-1 hover:text-primary">Guias</Link>
-                      <Link to="/faq" className="block py-1 hover:text-primary">Perguntas Frequentes</Link>
+                      <SmartLink to="/blog" className="block py-1 hover:text-primary">Blog</SmartLink>
+                      <SmartLink to="/imprensa" className="block py-1 hover:text-primary">Guias</SmartLink>
+                      <SmartLink to="/faq" className="block py-1 hover:text-primary">Perguntas Frequentes</SmartLink>
                     </div>
                   </div>
                 </div>
