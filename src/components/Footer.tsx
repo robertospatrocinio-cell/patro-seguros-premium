@@ -86,9 +86,9 @@ const Footer = memo(() => {
             </ul>
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Conteúdo</h3>
             <ul className="space-y-2.5 text-[13px]">
-              <li><Link to="/blog" className="hover:text-white transition-colors">Blog</Link></li>
-              <li><Link to="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
-              <li><Link to="/politica-privacidade" className="hover:text-white transition-colors">Privacidade</Link></li>
+              <li><SmartLink to="/blog" className="hover:text-white transition-colors">Blog</SmartLink></li>
+              <li><SmartLink to="/faq" className="hover:text-white transition-colors">FAQ</SmartLink></li>
+              <li><SmartLink to="/politica-privacidade" className="hover:text-white transition-colors">Privacidade</SmartLink></li>
             </ul>
           </nav>
         </div>
