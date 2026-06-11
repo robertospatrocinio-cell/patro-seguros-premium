@@ -366,11 +366,11 @@ const Header = memo(() => {
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[400px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="space-y-0.5 text-[13px]">
-                      <Link to="/cotacao" className="block py-1 hover:text-primary">Solicitar Cotação</Link>
-                      <Link to="/contato" className="block py-1 hover:text-primary">Renovar Seguro</Link>
-                      <Link to="/central-de-sinistro" className="block py-1 hover:text-primary">Acionar Sinistro</Link>
-                      <Link to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</Link>
-                      <Link to="/contato" className="block py-1 hover:text-primary">Segunda Via</Link>
+                      <SmartLink to="/cotacao" className="block py-1 hover:text-primary">Solicitar Cotação</SmartLink>
+                      <SmartLink to="/contato" className="block py-1 hover:text-primary">Renovar Seguro</SmartLink>
+                      <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Acionar Sinistro</SmartLink>
+                      <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</SmartLink>
+                      <SmartLink to="/contato" className="block py-1 hover:text-primary">Segunda Via</SmartLink>
                       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-primary">Falar com Consultor</a>
                       <Link to="/crm" className="block py-1 font-semibold text-primary">Área do Cliente</Link>
                     </div>
