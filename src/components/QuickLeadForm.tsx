@@ -28,7 +28,7 @@ export const QuickLeadForm = () => {
     toast.success("Recebemos seu contato! Um consultor ligará em breve.");
     
     // Redirect to full quote or WhatsApp for better UX
-    const msg = encodeURIComponent(`Olá, meu nome é ${formData.name}. Gostaria de uma cotação de ${formData.insuranceType}.`);
+    const msg = encodeURIComponent(`Olá, meu nome é ${formData.name}. Sou de Guarulhos e gostaria de uma cotação de ${formData.insuranceType}.`);
     window.open(`https://wa.me/551151997500?text=${msg}`, "_blank");
     
     setFormData({ name: "", phone: "", insuranceType: "" });
