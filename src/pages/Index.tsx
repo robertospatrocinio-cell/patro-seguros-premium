@@ -116,19 +116,26 @@ const Index = () => {
 
         {/* QUICK LEAD FORM */}
         <QuickLeadForm />
-24: 
-25:         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
-26:         <div className="bg-orange-500 py-3 text-white">
-27:           <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
-28:             <div className="flex items-center gap-2">
-29:               <AlertTriangle className="h-5 w-5 animate-pulse text-white" />
-30:               <span className="font-bold text-sm md:text-base">Precisando de ajuda agora? Central de Sinistro 24h</span>
-31:             </div>
-32:             <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-black text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
-33:               Clique aqui
-34:             </Link>
-35:           </div>
-36:         </div>
+
+        {/* GOOGLE BUSINESS WIDGET (Mobile Only Version for immediate social proof) */}
+        <div className="lg:hidden container mx-auto px-4 pt-12">
+          <div className="bg-slate-50 p-1 rounded-2xl border border-slate-100">
+            <GoogleBusinessWidget />
+          </div>
+        </div>
+
+        {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
+        <div className="bg-orange-500 py-3 text-white mt-12 md:mt-20">
+          <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5 animate-pulse text-white" />
+              <span className="font-bold text-sm md:text-base">Precisando de ajuda agora? Central de Sinistro 24h</span>
+            </div>
+            <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-black text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
+              Clique aqui
+            </Link>
+          </div>
+        </div>
 
         {/* 1. SELETOR "O QUE VOCÊ QUER PROTEGER?" */}
         <HomeSelector />
