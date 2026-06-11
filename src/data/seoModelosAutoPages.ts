@@ -1196,7 +1196,7 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
       },
       {
         question: `Qual a melhor seguradora para ${m.modelo} em Guarulhos?`,
-        answer: `Não existe "a melhor" — cada seguradora trata o ${m.modeloShort} de forma diferente. ${m.bestInsurers[0].name}: ${m.bestInsurers[0].reason}. ${m.bestInsurers[1].name}: ${m.bestInsurers[1].reason}. ${m.bestInsurers[2].name}: ${m.bestInsurers[2].reason}. A Patro compara todas em uma única cotação e mostra o comparativo lado a lado.`,
+        answer: `Não existe "a melhor" — cada seguradora trata o ${m.modeloShort} de forma diferente. ${m.bestInsurers[0]?.name || "Porto Seguro"}: ${m.bestInsurers[0]?.reason || "excelente rede referenciada"}. ${m.bestInsurers[1]?.name || "Allianz"}: ${m.bestInsurers[1]?.reason || "cobertura robusta"}. ${m.bestInsurers[2]?.name || "Tokio Marine"}: ${m.bestInsurers[2]?.reason || "atendimento ágil"}. A Patro compara todas em uma única cotação e mostra o comparativo lado a lado.`,
       },
       {
         question: `Preciso de rastreador para segurar meu ${m.modeloShort} em Guarulhos?`,
