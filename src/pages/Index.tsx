@@ -47,6 +47,16 @@ const sinistroFaqs = [
 ];
 
 const Index = () => {
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    isMounted.current = true;
+    console.log("Index component mounted");
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
+
   return (
     <>
       <PageMeta 
