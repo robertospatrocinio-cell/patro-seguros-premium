@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle, AlertTriangle } from "lucide-react";
+import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
