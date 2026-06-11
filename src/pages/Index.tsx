@@ -207,14 +207,14 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { title: "Seguro Auto", desc: "Compare as melhores seguradoras e economize.", path: "/seguro-auto" },
-                { title: "Plano de Saúde", desc: "Rede credenciada completa para você e sua família.", path: "/planos-de-saude" },
-                { title: "Seguro Empresarial", desc: "Proteção sob medida para o seu negócio.", path: "/seguro-empresarial" }
+                { title: "Seguro Auto em Guarulhos", desc: "Compare as melhores seguradoras e economize até 30% no seu seguro de carro.", path: "/seguro-auto" },
+                { title: "Seguro de Frota", desc: "Proteção completa para empresas de transporte e logística em Guarulhos.", path: "/seguro-frota" },
+                { title: "Seguro Residencial", desc: "Proteção para seu patrimônio no bairro Maia e em toda Guarulhos.", path: "/seguro-residencial" }
               ].map(s => (
-                <Link key={s.title} to={s.path} className="group p-8 bg-card rounded-2xl border hover:shadow-xl transition-all">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary">{s.title}</h3>
-                  <p className="text-[14px] text-muted-foreground mb-4">{s.desc}</p>
-                  <span className="text-primary font-bold inline-flex items-center">Saber mais <ArrowRight className="ml-1 h-4 w-4" /></span>
+                <Link key={s.title} to={s.path} className="group p-8 bg-card rounded-2xl border hover:shadow-xl transition-all border-slate-100">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{s.title}</h3>
+                  <p className="text-[14px] text-muted-foreground mb-4 leading-relaxed">{s.desc}</p>
+                  <span className="text-primary font-bold inline-flex items-center text-sm">Saber mais <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
                 </Link>
               ))}
               <Link to="/central-de-sinistro" className="group p-8 bg-primary/5 rounded-2xl border border-primary/20 hover:shadow-xl transition-all md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-6">
