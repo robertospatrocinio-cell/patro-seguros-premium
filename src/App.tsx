@@ -317,7 +317,7 @@ const App = () => {
                 <ScrollToTop />
                 <ServiceWorkerCheck />
                 <Routes>
-                  <Route path="/" element={<Index />} />
+                  <Route index element={<Index />} />
                   <Route path="/admin/login" element={<AdminLogin />} />
                   <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
                   <Route path="/sobre" element={<Sobre />} />
