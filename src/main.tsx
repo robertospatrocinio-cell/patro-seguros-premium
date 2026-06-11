@@ -20,15 +20,16 @@ prewarm();
 
 const Main = () => {
   useEffect(() => {
+    // Initial monitoring can be deferred slightly more
     const deferInit = () => {
       initMonitoring().catch(console.error);
       initWebVitals();
     };
 
     if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(deferInit);
+      window.requestIdleCallback(deferInit, { timeout: 2000 });
     } else {
-      setTimeout(deferInit, 1);
+      setTimeout(deferInit, 1000);
     }
 
     // Smooth transition: hide loader instead of immediate removal
