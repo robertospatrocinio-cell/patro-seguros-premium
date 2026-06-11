@@ -119,6 +119,15 @@ const bairros: BairroSeed[] = [
     priceRange: "R$ 2.650 a R$ 5.200/ano" 
   },
   { 
+    slug: "seguro-auto-bonsucesso-guarulhos-v3", 
+    bairro: "Bonsucesso", 
+    bairroSlugBairros: "bonsucesso", 
+    riskLevel: "médio", 
+    context: "um dos polos de crescimento de Guarulhos, com forte característica industrial e logística, além de áreas residenciais em expansão.", 
+    reference: "no entorno do Shopping Bonsucesso e UNIFESP", 
+    priceRange: "R$ 2.650 a R$ 5.200/ano" 
+  },
+  { 
     slug: "seguro-auto-pimentas-guarulhos", 
     bairro: "Pimentas", 
     bairroSlugBairros: "cumbica", 
