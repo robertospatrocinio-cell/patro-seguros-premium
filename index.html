@@ -9,10 +9,7 @@
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="canonical" href="https://www.patroseguros.com.br" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://connect.facebook.net" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    
 
     <!-- Preload critical fonts -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
@@ -113,73 +110,49 @@
   <meta name="twitter:image" content="https://www.patroseguros.com.br/images/og-cover.webp">
   <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Analytics logic: load analytics script after initial user interaction or after a delay -->
+    <!-- Optimized Analytics Loader -->
     <script>
       (function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        
-        // Mock fbq and gtag to avoid errors before the scripts load
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];}(window, document, 'script');
-
         var analyticsLoaded = false;
-        
-        // Define global functions to allow activation from React
         window.activateAnalytics = function(reason) {
-          if (analyticsLoaded) return;
-          
-          // Check for LGPD consent before loading
-          var consent = localStorage.getItem('patro-cookies-accepted');
-          if (consent !== 'true') {
-            console.log('Analytics activation skipped: No LGPD consent.');
-            return;
-          }
-
+          if (analyticsLoaded || localStorage.getItem('patro-cookies-accepted') !== 'true') return;
           analyticsLoaded = true;
-          console.log('Loading heavy analytics scripts. Reason: ' + reason);
           
           // GA4
           var g = document.createElement('script');
           g.src = 'https://www.googletagmanager.com/gtag/js?id=G-YM02VJN0LZ';
           g.async = true;
           document.head.appendChild(g);
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
           gtag('js', new Date());
           gtag('config', 'G-YM02VJN0LZ');
           
           // Meta Pixel
+          !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];}(window, document, 'script');
           var f = document.createElement('script');
           f.src = 'https://connect.facebook.net/en_US/fbevents.js';
           f.async = true;
           document.head.appendChild(f);
           fbq('init', '2108358063295698');
           fbq('track', 'PageView');
+          
+          console.log('Analytics initialized (' + reason + ')');
         };
 
-        function tryLoadAnalytics(reason) {
-          if (localStorage.getItem('patro-cookies-accepted') === 'true') {
-            window.activateAnalytics(reason);
-          }
+        // Delay non-critical analytics until idle or interaction
+        var events = ['mousedown', 'touchstart', 'scroll'];
+        function trigger() {
+          window.activateAnalytics('interaction');
+          events.forEach(function(e) { window.removeEventListener(e, trigger); });
         }
-
-        // Try to load if already consented
-        var interactionEvents = ['mousedown', 'mousemove', 'keydown', 'touchstart', 'scroll'];
-        function onUserInteraction() {
-          tryLoadAnalytics('interaction');
-          interactionEvents.forEach(function(e) { window.removeEventListener(e, onUserInteraction); });
-        }
-        interactionEvents.forEach(function(e) { window.addEventListener(e, onUserInteraction, { passive: true }); });
+        events.forEach(function(e) { window.addEventListener(e, trigger, { passive: true }); });
         
         if ('requestIdleCallback' in window) {
-          requestIdleCallback(function() {
-            setTimeout(function() { tryLoadAnalytics('idle'); }, 2000);
-          }, { timeout: 10000 });
-        } else {
-          window.addEventListener('load', function() {
-            setTimeout(function() { tryLoadAnalytics('load_timeout'); }, 6000);
-          });
+          requestIdleCallback(function() { setTimeout(function() { window.activateAnalytics('idle'); }, 3000); });
         }
       })();
     </script>

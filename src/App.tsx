@@ -50,7 +50,7 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 
 
-import Index from "./pages/Index";
+const Index = lazy(() => import("./pages/Index"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const Cotacao = lazy(() => import("./pages/Cotacao"));
