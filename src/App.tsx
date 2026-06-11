@@ -403,10 +403,10 @@ const App = () => {
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
-                  <Route path="/seguro-auto-maia" element={<SeoLocalPage slug="seguro-auto-maia-guarulhos" />} />
-                  <Route path="/seguro-auto-vila-augusta" element={<SeoLocalPage slug="seguro-auto-vila-augusta-guarulhos" />} />
-                  <Route path="/seguro-auto-bonsucesso" element={<SeoLocalPage slug="seguro-auto-bonsucesso-guarulhos-v2" />} />
-                  <Route path="/seguro-auto-pimentas" element={<SeoLocalPage slug="seguro-auto-pimentas-guarulhos" />} />
+                  <Route path="/seguro-auto-maia" element={withProps(SeoLocalPage, { slug: "seguro-auto-maia-guarulhos" })()} />
+                  <Route path="/seguro-auto-vila-augusta" element={withProps(SeoLocalPage, { slug: "seguro-auto-vila-augusta-guarulhos" })()} />
+                  <Route path="/seguro-auto-bonsucesso" element={withProps(SeoLocalPage, { slug: "seguro-auto-bonsucesso-guarulhos-v2" })()} />
+                  <Route path="/seguro-auto-pimentas" element={withProps(SeoLocalPage, { slug: "seguro-auto-pimentas-guarulhos" })()} />
                   <Route path="/lp/:slug" element={<DynamicLandingPage />} />
                   <Route path="/diagnostico" element={<Diagnostico />} />
                   <Route path="/performance" element={<PerformanceDiagnostico />} />
