@@ -292,10 +292,10 @@ const Header = memo(() => {
                       <div>
                         <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-3">Patrimônio e Outros</p>
                         <div className="space-y-0.5 text-[13px]">
-                          <Link to="/seguro-residencial" className="block py-1 hover:text-primary">Seguro Residencial</Link>
-                          <Link to="/seguro-celular" className="block py-1 hover:text-primary">Seguro Celular</Link>
-                          <Link to="/seguro-motorista-app" className="block py-1 hover:text-primary">Motorista de Aplicativo</Link>
-                          <Link to="/consorcio" className="block py-1 hover:text-primary">Consórcio</Link>
+                          <SmartLink to="/seguro-residencial" className="block py-1 hover:text-primary">Seguro Residencial</SmartLink>
+                          <SmartLink to="/seguro-celular" className="block py-1 hover:text-primary">Seguro Celular</SmartLink>
+                          <SmartLink to="/seguro-motorista-app" className="block py-1 hover:text-primary">Motorista de Aplicativo</SmartLink>
+                          <SmartLink to="/consorcio" className="block py-1 hover:text-primary">Consórcio</SmartLink>
                         </div>
                       </div>
                     </div>
