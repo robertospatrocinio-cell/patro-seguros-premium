@@ -16,7 +16,7 @@ const Footer = memo(() => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-6">
+            <SmartLink to="/" className="inline-block mb-6">
               <img src={logoFull} alt="Patro Seguros" width={160} height={80} className="h-20 w-auto object-contain brightness-200" />
             </Link>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
