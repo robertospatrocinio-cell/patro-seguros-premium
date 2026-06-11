@@ -103,16 +103,6 @@ interface BairroSeed {
     priceRange: "R$ 2.050 a R$ 3.950/ano" 
   },
 ];
-  { 
-    slug: "seguro-auto-maia-guarulhos", 
-    bairro: "Maia", 
-    bairroSlugBairros: "jardim-maia", 
-    riskLevel: "baixo", 
-    context: "região nobre e altamente valorizada de Guarulhos, abrangendo o Parque Continental e áreas adjacentes, com condomínios de alto padrão e segurança monitorada.", 
-    reference: "no entorno da Avenida Paulo Faccini e Parque Bosque Maia", 
-    priceRange: "R$ 2.050 a R$ 3.950/ano" 
-  },
-];
 
 const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
   slug: b.slug,
