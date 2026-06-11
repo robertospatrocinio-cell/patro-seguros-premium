@@ -150,7 +150,7 @@ const Index = () => {
                 { name: "Mariana Costa", loc: "Cidade Maia", text: "O seguro residencial deles é excelente. Tive um problema elétrico e a assistência 24h resolveu tudo no mesmo dia." },
                 { name: "André Santos", loc: "Cumbica", text: "Para quem trabalha com logística aqui em Cumbica, ter uma corretora que entende da região faz toda a diferença." }
               ].map((t, i) => (
-                <div key={i} className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                <div key={i} className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group" loading="lazy">
                   <div className="flex text-yellow-400 mb-4">
                     {[1, 2, 3, 4, 5].map(j => (
                       <svg key={j} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
