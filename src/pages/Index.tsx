@@ -81,28 +81,34 @@ const Index = () => {
               fetchPriority="high"
             />
           </div>
-          <div className="container mx-auto px-4 relative z-10 py-20 text-center lg:text-left">
-            <div className="max-w-3xl">
-              <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
-              <h1 className="text-white text-4xl md:text-6xl font-black mb-6 leading-tight">
-                Corretora de Seguros em Guarulhos
-              </h1>
-              <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Compare seguradoras e encontre proteção para seu carro, família ou empresa com atendimento consultivo da Patro Seguros.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>
-                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold">
-                    Solicitar cotação
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/10 text-white border-white/20 hover:bg-white/20">
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Falar no WhatsApp
-                  </Button>
-                </a>
+          <div className="container mx-auto px-4 relative z-10 py-12 md:py-20 text-center lg:text-left">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="max-w-3xl">
+                <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
+                <h1 className="text-white text-4xl md:text-6xl font-black mb-6 leading-tight">
+                  Corretora de Seguros em Guarulhos
+                </h1>
+                <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  Compare seguradoras e encontre proteção para seu carro, família ou empresa com atendimento consultivo da Patro Seguros.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>
+                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold">
+                      Solicitar cotação
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/10 text-white border-white/20 hover:bg-white/20">
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      Falar no WhatsApp
+                    </Button>
+                  </a>
+                </div>
+              </div>
+
+              <div className="hidden lg:block animate-in fade-in slide-in-from-right duration-700">
+                <GoogleBusinessWidget />
               </div>
             </div>
           </div>
@@ -110,19 +116,26 @@ const Index = () => {
 
         {/* QUICK LEAD FORM */}
         <QuickLeadForm />
-24: 
-25:         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
-26:         <div className="bg-orange-500 py-3 text-white">
-27:           <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
-28:             <div className="flex items-center gap-2">
-29:               <AlertTriangle className="h-5 w-5 animate-pulse text-white" />
-30:               <span className="font-bold text-sm md:text-base">Precisando de ajuda agora? Central de Sinistro 24h</span>
-31:             </div>
-32:             <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-black text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
-33:               Clique aqui
-34:             </Link>
-35:           </div>
-36:         </div>
+
+        {/* GOOGLE BUSINESS WIDGET (Mobile Only Version for immediate social proof) */}
+        <div className="lg:hidden container mx-auto px-4 pt-12">
+          <div className="bg-slate-50 p-1 rounded-2xl border border-slate-100">
+            <GoogleBusinessWidget />
+          </div>
+        </div>
+
+        {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
+        <div className="bg-orange-500 py-3 text-white mt-12 md:mt-20">
+          <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5 animate-pulse text-white" />
+              <span className="font-bold text-sm md:text-base">Precisando de ajuda agora? Central de Sinistro 24h</span>
+            </div>
+            <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-black text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
+              Clique aqui
+            </Link>
+          </div>
+        </div>
 
         {/* 1. SELETOR "O QUE VOCÊ QUER PROTEGER?" */}
         <HomeSelector />
@@ -222,8 +235,15 @@ const Index = () => {
                   <Button size="lg" className="w-full sm:w-auto font-bold">Conhecer Patro Empresas</Button>
                 </Link>
               </div>
-              <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-                <GoogleBusinessWidget />
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-primary/20 rounded-3xl blur-2xl group-hover:bg-primary/30 transition-all duration-500 opacity-50" />
+                <div className="relative bg-white/5 p-4 md:p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
+                  <div className="flex items-center gap-2 mb-6 text-primary">
+                    <div className="h-1 w-12 bg-primary rounded-full" />
+                    <span className="text-xs font-bold uppercase tracking-widest">Nossa Sede em Guarulhos</span>
+                  </div>
+                  <GoogleBusinessWidget />
+                </div>
               </div>
             </div>
           </div>
