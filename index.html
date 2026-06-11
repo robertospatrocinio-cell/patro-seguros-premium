@@ -176,26 +176,43 @@
       (function() {
         var loader = document.getElementById('initial-loader');
         var retry = document.getElementById('retry-load');
+        var MAX_RETRIES = 3;
+        var retryCount = parseInt(sessionStorage.getItem('patro_load_retries') || '0');
+
         var timeout = setTimeout(function() {
           if (loader) {
             var text = loader.querySelector('.loader-text');
             if (text) text.innerText = 'O carregamento está demorando mais que o esperado...';
             if (retry) retry.style.display = 'block';
+            
+            // Auto-retry once if it's the first failure and likely a transient network issue
+            if (retryCount < MAX_RETRIES) {
+              sessionStorage.setItem('patro_load_retries', (retryCount + 1).toString());
+              console.warn('Transient load delay detected, auto-retrying... (' + (retryCount + 1) + '/' + MAX_RETRIES + ')');
+              setTimeout(function() { window.location.reload(); }, 2000);
+            }
           }
-        }, 8000);
-        
-        window.addEventListener('DOMContentLoaded', function() {
-          // Keep loader until React mounts
-        });
+        }, 10000);
         
         // Expose a global to let React signal it's ready
         window.onAppReady = function() {
           clearTimeout(timeout);
+          sessionStorage.removeItem('patro_load_retries'); // Success, clear retries
           if (loader) {
             loader.style.opacity = '0';
             setTimeout(function() { loader.style.display = 'none'; }, 300);
           }
         };
+
+        // Global error listener for failed script loads (connection refused/timeout)
+        window.addEventListener('error', function(e) {
+          if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+            if (retryCount < MAX_RETRIES) {
+              sessionStorage.setItem('patro_load_retries', (retryCount + 1).toString());
+              setTimeout(function() { window.location.reload(); }, 1500);
+            }
+          }
+        }, true);
       })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
