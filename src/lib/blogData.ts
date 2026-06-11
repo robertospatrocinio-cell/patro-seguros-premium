@@ -22,6 +22,16 @@ export const articles: BlogArticleMeta[] = [
   ...odontologiaArticles,
   ...blogVeterinariaData,
   { 
+    slug: "por-que-seguro-auto-guarulhos-diferente-roubo-furto", 
+    title: "Por que o seguro auto em Guarulhos é diferente? (Roubo e Furto na região)", 
+    excerpt: "Entenda por que o CEP de Guarulhos influencia tanto no preço do seu seguro e como as estatísticas de roubo e furto moldam o mercado local.", 
+    category: "Seguro Auto", 
+    tags: ["guarulhos", "seguro auto", "roubo e furto", "prevenção", "dicas"], 
+    author: "Roberto Patro", 
+    date: "2026-06-11", 
+    readTime: 10 
+  },
+  { 
     slug: "guia-completo-seguro-auto-economia-sinistro-franquia", 
     title: "Guia Completo Seguro Auto: Economia, Sinistros e Coberturas", 
     excerpt: "Tudo o que você precisa saber sobre seguro auto: como reduzir o valor, o que fazer em colisões, como funciona a franquia e coberturas para enchentes.", 
