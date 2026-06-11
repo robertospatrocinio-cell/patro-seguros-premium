@@ -8,7 +8,7 @@ const PageLoader = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsTakingTooLong(true);
-    }, 10000); // 10 seconds timeout
+    }, 5000); // Reduce from 10s to 5s for the internal diagnostic hint
 
     return () => clearTimeout(timer);
   }, []);

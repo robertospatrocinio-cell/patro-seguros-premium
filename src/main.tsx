@@ -31,10 +31,11 @@ const Main = () => {
       setTimeout(deferInit, 1);
     }
 
-    // Remove initial loader once React takes over
+    // Smooth transition: hide loader instead of immediate removal
     const loader = document.getElementById("initial-loader");
     if (loader) {
-      loader.remove();
+      loader.style.opacity = "0";
+      setTimeout(() => loader.remove(), 300);
     }
   }, []);
 

@@ -52,6 +52,7 @@ const Index = () => {
         title="Corretora de Seguros em Guarulhos | Patro Seguros"
         description="A experiência digital de uma grande corretora com atendimento próximo em Guarulhos. Compare 16+ seguradoras e economize no seu seguro auto, saúde ou empresa."
         absoluteTitle={true}
+        preloadImage="/images/hero-home.webp"
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
       <LocalBusinessSchema />

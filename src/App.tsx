@@ -304,7 +304,7 @@ const App = () => {
         <QueryProviderWrapper>
           <TooltipProvider>
             <BrowserRouter>
-              <Suspense fallback={<PageLoader />}>
+              <Suspense fallback={null}>
                 <SkipLink />
                 <BreadcrumbSchema />
                 <LocalBusinessSchema />
