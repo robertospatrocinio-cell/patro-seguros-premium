@@ -8,15 +8,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 const App = lazy(() => import("./App.tsx"));
 
-// Critical resources are already preloaded in index.html for maximum performance
-
 const Main = () => {
   useEffect(() => {
-    // Signal that the app is ready to remove the initial loader
-    if (typeof window !== "undefined" && (window as any).onAppReady) {
-      (window as any).onAppReady();
-    }
-
     // Initial monitoring can be deferred slightly more
     const deferInit = () => {
       initMonitoring().catch(console.error);
@@ -32,7 +25,7 @@ const Main = () => {
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={null}>
+      <Suspense fallback={<PageSkeleton />}>
         <App />
       </Suspense>
     </ErrorBoundary>
