@@ -33,7 +33,7 @@
       .loader-text{font-family:'Inter',sans-serif;color:#1e3a8a;font-weight:600;font-size:14px}
       .retry-button{display:none;margin-top:1rem;padding:0.5rem 1rem;background:#1e3a8a;color:white;border-radius:0.5rem;border:none;cursor:pointer;font-weight:600}
       @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-      .loaded #initial-loader{opacity:0;visibility:hidden}
+      .loaded #initial-loader{opacity:0;visibility:hidden;pointer-events:none}
     </style>
 
     <meta property="og:type" content="website" />
@@ -179,7 +179,8 @@
         var startTime = Date.now();
         var timeout = 12000;
         var checkInterval = setInterval(function() {
-          if (window.React && window.document.getElementById('root').children.length > 0) {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
             document.body.classList.add('loaded');
             clearInterval(checkInterval);
           } else if (Date.now() - startTime > timeout) {
