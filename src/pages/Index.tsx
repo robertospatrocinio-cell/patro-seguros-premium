@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle, AlertTriangle } from "lucide-react";
+import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -93,13 +93,13 @@ const Index = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>
-                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold">
-                      Solicitar cotação
+                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all">
+                      Solicitar cotação agora
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/10 text-white border-white/20 hover:bg-white/20">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-green-500 hover:bg-green-600 text-white border-green-600 hover:border-green-700 font-bold shadow-lg shadow-green-500/20 transition-all">
                       <MessageCircle className="mr-2 h-5 w-5" />
                       Falar no WhatsApp
                     </Button>
@@ -116,6 +116,64 @@ const Index = () => {
 
         {/* QUICK LEAD FORM */}
         <QuickLeadForm />
+
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto text-center mb-16">
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest mb-4 border border-primary/10">
+                Excelência Comprovada
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+                O que nossos clientes dizem
+              </h2>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="text-2xl font-bold text-slate-900">4.9/5.0</span>
+                <div className="flex text-yellow-400">
+                  {[1, 2, 3, 4, 5].map(i => (
+                    <ArrowRight key={i} className="w-5 h-5 fill-current hidden" /> 
+                  ))}
+                  <div className="flex gap-0.5">
+                    {[1, 2, 3, 4, 5].map(i => (
+                      <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-slate-500 font-medium">+340 avaliações reais no Google Maps</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[
+                { name: "Ricardo Silva", loc: "Vila Augusta", text: "Consegui reduzir meu seguro auto em 20% com a Patro. O atendimento via WhatsApp foi muito rápido e prático." },
+                { name: "Mariana Costa", loc: "Cidade Maia", text: "O seguro residencial deles é excelente. Tive um problema elétrico e a assistência 24h resolveu tudo no mesmo dia." },
+                { name: "André Santos", loc: "Cumbica", text: "Para quem trabalha com logística aqui em Cumbica, ter uma corretora que entende da região faz toda a diferença." }
+              ].map((t, i) => (
+                <div key={i} className="bg-slate-50 p-8 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300 group">
+                  <div className="flex text-yellow-400 mb-4">
+                    {[1, 2, 3, 4, 5].map(j => (
+                      <svg key={j} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-slate-700 italic mb-6 leading-relaxed">"{t.text}"</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
+                      <p className="text-xs text-slate-500">{t.loc}, Guarulhos</p>
+                    </div>
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" className="h-3 ml-auto opacity-50" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* GOOGLE BUSINESS WIDGET (Mobile Only Version for immediate social proof) */}
         <div className="lg:hidden container mx-auto px-4 pt-12">
@@ -149,14 +207,14 @@ const Index = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { title: "Seguro Auto", desc: "Compare as melhores seguradoras e economize.", path: "/seguro-auto" },
-                { title: "Plano de Saúde", desc: "Rede credenciada completa para você e sua família.", path: "/planos-de-saude" },
-                { title: "Seguro Empresarial", desc: "Proteção sob medida para o seu negócio.", path: "/seguro-empresarial" }
+                { title: "Seguro Auto em Guarulhos", desc: "Compare as melhores seguradoras e economize até 30% no seu seguro de carro.", path: "/seguro-auto" },
+                { title: "Seguro de Frota", desc: "Proteção completa para empresas de transporte e logística em Guarulhos.", path: "/seguro-frota" },
+                { title: "Seguro Residencial", desc: "Proteção para seu patrimônio no bairro Maia e em toda Guarulhos.", path: "/seguro-residencial" }
               ].map(s => (
-                <Link key={s.title} to={s.path} className="group p-8 bg-card rounded-2xl border hover:shadow-xl transition-all">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary">{s.title}</h3>
-                  <p className="text-[14px] text-muted-foreground mb-4">{s.desc}</p>
-                  <span className="text-primary font-bold inline-flex items-center">Saber mais <ArrowRight className="ml-1 h-4 w-4" /></span>
+                <Link key={s.title} to={s.path} className="group p-8 bg-card rounded-2xl border hover:shadow-xl transition-all border-slate-100">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{s.title}</h3>
+                  <p className="text-[14px] text-muted-foreground mb-4 leading-relaxed">{s.desc}</p>
+                  <span className="text-primary font-bold inline-flex items-center text-sm">Saber mais <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
                 </Link>
               ))}
               <Link to="/central-de-sinistro" className="group p-8 bg-primary/5 rounded-2xl border border-primary/20 hover:shadow-xl transition-all md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -173,21 +231,20 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 3. COMO FUNCIONA A COTAÇÃO */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-16">Como funciona a cotação na Patro</h2>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <section className="py-20 bg-slate-50">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { step: "01", title: "Escolha o Seguro", desc: "Selecione o que deseja proteger em nosso site." },
-                { step: "02", title: "Preencha os Dados", desc: "Informe os detalhes básicos em poucos segundos." },
-                { step: "03", title: "Nós Comparamos", desc: "Analisamos mais de 16 seguradoras parceiras." },
-                { step: "04", title: "Você Escolhe", desc: "Apresentamos as melhores opções com consultoria." }
+                { step: "01", title: "Cotação em 2h", desc: "Sua proposta comparativa entregue via WhatsApp em tempo recorde.", icon: Clock },
+                { step: "02", title: "Gestão Dedicada", desc: "Suporte total em caso de sinistro, cuidamos de toda a burocracia.", icon: ShieldCheck },
+                { step: "03", title: "16+ Seguradoras", desc: "Comparamos as maiores do Brasil para garantir o menor preço.", icon: Building2 }
               ].map(s => (
-                <div key={s.step} className="relative">
-                  <span className="text-6xl font-black text-primary/10 absolute -top-10 left-1/2 -translate-x-1/2">{s.step}</span>
-                  <h3 className="text-lg font-bold mb-2 relative z-10">{s.title}</h3>
-                  <p className="text-[14px] text-muted-foreground">{s.desc}</p>
+                <div key={s.step} className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all text-center md:text-left">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 mx-auto md:mx-0">
+                    <s.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3">{s.title}</h3>
+                  <p className="text-slate-500 leading-relaxed text-sm">{s.desc}</p>
                 </div>
               ))}
             </div>

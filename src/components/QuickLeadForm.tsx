@@ -88,11 +88,11 @@ export const QuickLeadForm = () => {
             <Button 
               type="submit" 
               disabled={loading}
-              className="h-12 w-full font-bold text-base bg-primary hover:bg-primary-hover shadow-lg shadow-primary/20 rounded-xl md:col-span-3 lg:col-span-1"
+              className="h-12 w-full font-bold text-base bg-[#22c55e] hover:bg-[#16a34a] text-white shadow-lg shadow-green-500/20 rounded-xl md:col-span-3 lg:col-span-1"
             >
               {loading ? "Enviando..." : (
                 <span className="flex items-center gap-2">
-                  Solicitar Agora <ArrowRight className="h-4 w-4" />
+                  Receber Cotação em 2 Horas <ArrowRight className="h-4 w-4" />
                 </span>
               )}
             </Button>

@@ -32,17 +32,12 @@ const Main = () => {
       setTimeout(deferInit, 1000);
     }
 
-    // Smooth transition: hide loader instead of immediate removal
-    const loader = document.getElementById("initial-loader");
-    if (loader) {
-      loader.style.opacity = "0";
-      setTimeout(() => loader.remove(), 300);
-    }
+    // Loader removal logic removed for performance
   }, []);
 
   return (
     <ErrorBoundary>
-      <Suspense fallback={<PageSkeleton />}>
+      <Suspense fallback={null}>
         <App />
       </Suspense>
     </ErrorBoundary>

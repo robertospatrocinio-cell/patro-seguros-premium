@@ -94,9 +94,14 @@ const Footer = memo(() => {
 
         <div className="mt-16 pt-8 border-t border-white/5 text-[12px] flex flex-col md:flex-row justify-between items-center gap-4">
           <p>© {new Date().getFullYear()} Patro Seguros. Todos os direitos reservados.</p>
-          <p className="flex items-center gap-1">
-            <MapPin className="h-3 w-3" /> Cidade Maia, Guarulhos - SP
-          </p>
+          <a 
+            href="https://maps.google.com/?q=Avenida+Salgado+Filho+2120+Guarulhos+SP" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 hover:text-white transition-colors"
+          >
+            <MapPin className="h-3 w-3" /> Edifício Via Alameda – Av. Salgado Filho, 2120 – Sala 219 – Guarulhos/SP
+          </a>
         </div>
       </div>
     </footer>
