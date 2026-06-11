@@ -305,11 +305,11 @@ const App = () => {
           <TooltipProvider>
             <BrowserRouter>
               <Suspense fallback={<PageSkeleton />}>
-                <SkipLink />
                 <BreadcrumbSchema />
                 <LocalBusinessSchema />
                 <OrganizationSchema />
                 <WebSiteSchema />
+                <SkipLink />
                 <Toaster />
                 <Sonner position="top-right" closeButton richColors />
                 <WhatsAppButton />
