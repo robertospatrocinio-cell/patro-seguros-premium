@@ -220,6 +220,7 @@ const Header = memo(() => {
   );
 
   return (
+    <>
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'translate-y-[-32px] md:translate-y-[-36px]' : 'translate-y-0'}`}>
       <div className="bg-foreground">
         <div className="container mx-auto px-4">
