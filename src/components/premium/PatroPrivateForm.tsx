@@ -32,7 +32,7 @@ export const PatroPrivateForm = () => {
     const message = String(fd.get("message") || "").trim();
 
     try {
-      trackCotacaoClick("Patro Private", "form");
+      trackCotacaoClick("Patro Private");
       const { error } = await submitLead({
         full_name,
         phone,
