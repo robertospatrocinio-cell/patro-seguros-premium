@@ -6,11 +6,11 @@ const ConsorcioImoveis = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Consórcio de Imóveis"
-      subtitle="Conquiste a casa própria, terreno ou imóvel comercial sem juros bancários"
+      title="Consórcio de Imóveis Sem Juros"
+      subtitle="Conquiste casa própria, terreno ou imóvel comercial com FGTS no lance, créditos de até R$ 1 milhão e prazos de até 200 meses."
       icon="🏠"
       showEbookConsorcio
-      metaDescription="Consórcio de Imóveis sem juros com a Patro Seguros. Use o FGTS para lance, créditos de R$100 mil a R$1 milhão+. Prazos de até 200 meses. Simule grátis!"
+      metaDescription="Consórcio de imóveis sem juros: use o FGTS para lance, créditos de R$ 100 mil a R$ 1 milhão e prazos de até 200 meses. Simule grátis com a Patro Seguros."
       description="O Consórcio de Imóveis é o caminho econômico para seu patrimônio. Adquira casa ou terreno sem juros e use o FGTS para acelerar a contemplação do seu imóvel."
       coverages={[
         { title: "Sem Juros Bancários", description: "Economia expressiva comparada ao financiamento imobiliário — pague apenas taxa de administração" },

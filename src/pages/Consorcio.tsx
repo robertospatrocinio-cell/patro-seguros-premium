@@ -71,7 +71,10 @@ const etapas = [
 const Consorcio = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageMeta title="Consórcio de Imóveis, Carros e Veículos Pesados" description="Consórcio sem juros com a Patro Seguros. Carros, motos, imóveis e caminhões. Parcelas acessíveis, poder de compra à vista e uso do FGTS. Simule grátis!" />
+      <PageMeta
+        title="Consórcio Sem Juros: Imóveis, Carros e Frota"
+        description="Consórcio Patro Seguros sem juros: imóveis, carros, motos e veículos pesados. Estudo estratégico de lance, uso do FGTS e até 40% de economia vs. financiamento."
+      />
       <FAQSchema faqs={faqs.map(f => ({ question: f.q, answer: f.a }))} />
       <Header />
 
@@ -84,7 +87,7 @@ const Consorcio = () => {
               💰 Sem juros • Regulamentado pelo Banco Central
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight text-white">
-              Consórcio: A Forma Mais <span className="text-yellow-300">Inteligente</span> de Conquistar Seus Sonhos
+              Consórcio Sem Juros: A Forma Mais <span className="text-yellow-300">Inteligente</span> de Conquistar Imóveis, Carros e Frota
             </h1>
             <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
               Carro, moto, imóvel ou veículo pesado — sem juros, sem entrada e com parcelas que cabem no seu orçamento. Nossa consultoria desenha a estratégia de lance e contemplação para você economizar até 40% frente ao financiamento.
@@ -111,7 +114,7 @@ const Consorcio = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Escolha o Consórcio Ideal Para Você
+              Escolha a Modalidade de Consórcio Ideal Para Você
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Temos as melhores opções para cada necessidade. Compare e escolha a modalidade que faz sentido para o seu momento.
@@ -163,7 +166,7 @@ const Consorcio = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Por Que Escolher o Consórcio?
+              Por Que Escolher o Consórcio em Vez do Financiamento?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Descubra as vantagens que fazem do consórcio a melhor escolha para quem quer economizar e planejar.
@@ -188,7 +191,7 @@ const Consorcio = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Consórcio vs Financiamento
+              Consórcio vs Financiamento: Comparativo Completo
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Veja por que o consórcio é mais vantajoso para o seu bolso.
@@ -226,7 +229,7 @@ const Consorcio = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-4">
-              Como Funciona?
+              Como Funciona o Consórcio em 4 Passos
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Em 4 passos simples você pode conquistar o seu bem.
@@ -277,7 +280,7 @@ const Consorcio = () => {
             <div className="inline-flex items-center gap-2 mb-4">
               <HelpCircle className="h-6 w-6 text-primary" />
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-                Perguntas Frequentes
+                Perguntas Frequentes sobre Consórcio
               </h2>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

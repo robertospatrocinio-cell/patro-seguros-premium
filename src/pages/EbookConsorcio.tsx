@@ -102,8 +102,8 @@ const EbookConsorcio = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageMeta
-        title="E-book Grátis: Guia do Consórcio Desvendado | Patro Seguros"
-        description="Baixe gratuitamente o Guia do Consórcio Patro Seguros: passo a passo para adquirir imóvel, veículo ou serviço sem juros de financiamento."
+        title="E-book Gratuito: Guia do Consórcio Desvendado"
+        description="Baixe grátis o Guia do Consórcio Desvendado da Patro Seguros: passo a passo para conquistar imóvel, carro ou caminhão sem juros, com estratégia de lance."
       />
       <Header />
       <main id="main-content" className="flex-1">
