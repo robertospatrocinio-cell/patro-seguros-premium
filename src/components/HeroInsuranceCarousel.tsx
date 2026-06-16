@@ -455,14 +455,23 @@ const HeroInsuranceCarousel = ({
                           aria-hidden
                           loading="lazy"
                           decoding="async"
-                          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-35 transition-opacity duration-300 group-hover:opacity-55 motion-reduce:transition-none"
+                          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-40 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-90 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                         />
                       )}
                       {/* Gradient overlay tingido com a cor do ramo */}
                       <div
-                        className="pointer-events-none absolute inset-0 -z-10"
+                        className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-500 ease-out group-hover:opacity-40 motion-reduce:transition-none"
                         style={{
                           backgroundImage: `linear-gradient(150deg, hsl(${visuals.accent} / 0.85) 0%, hsl(${visuals.accent} / 0.55) 45%, rgba(2,6,23,0.85) 100%)`,
+                        }}
+                      />
+                      {/* Vinheta inferior para manter legibilidade do texto no hover */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-2/3 opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 motion-reduce:transition-none"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(to top, rgba(2,6,23,0.85) 0%, rgba(2,6,23,0.45) 55%, rgba(2,6,23,0) 100%)",
                         }}
                       />
                       <div>
