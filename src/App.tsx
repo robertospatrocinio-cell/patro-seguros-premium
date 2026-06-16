@@ -358,6 +358,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    const cleanupKey = "patro_legacy_cache_cleanup_v2";
+    if (localStorage.getItem(cleanupKey) === "done") return;
+
     const timer = globalThis.setTimeout(() => {
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -368,7 +371,10 @@ const App = () => {
       if ("caches" in window) {
         caches.keys().then((names) => {
           names.forEach((name) => caches.delete(name));
+          localStorage.setItem(cleanupKey, "done");
         });
+      } else {
+        localStorage.setItem(cleanupKey, "done");
       }
     }, 5000);
 
