@@ -314,8 +314,8 @@ const HubSegurosGuarulhos = () => {
         </section>
       </main>
 
-      {/* Sticky bottom CTA (desktop + mobile) */}
-      <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:bottom-6 z-40 flex flex-col sm:flex-row gap-2 max-w-md md:max-w-none mx-auto md:mx-0 pointer-events-none">
+      {/* Sticky bottom CTA (desktop) */}
+      <div className="hidden md:flex fixed left-auto right-6 bottom-6 z-40 flex-row gap-2 max-w-none mx-0 pointer-events-none">
         <Link
           to="/cotacao"
           onClick={() => trackCotacaoClick("hub-guarulhos:sticky", { origin: "hub-guarulhos" })}
