@@ -16,8 +16,9 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { nameSchema, phoneSchema, emailSchema, messageSchema, firstZodMessage } from "@/lib/leadValidation";
 import { showFriendlyError } from "@/lib/friendlyToast";
-import { buildWhatsAppMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, buildMailtoUrl, openWhatsAppOrFallback } from "@/lib/whatsapp";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import { toast as sonnerToast } from "sonner";
 
 const contatoSchema = z.object({
   nome: nameSchema,
@@ -96,11 +97,12 @@ const Contato = () => {
         data.servico ? `Interesse: ${data.servico}` : "",
         data.mensagem ? `Mensagem: ${data.mensagem}` : "",
       ].filter(Boolean) as string[];
-      const parts = buildWhatsAppMessage({
+      const ctaOptions = {
         origem: "contato_formulario",
         extraLines,
-      });
-      const waUrl = buildWhatsAppUrl({ origem: "contato_formulario", extraLines });
+        subject: `Contato pelo site — ${data.nome}`,
+      };
+      const waUrl = buildWhatsAppUrl(ctaOptions);
 
       try {
         window.fbq?.("track", "Lead", {
@@ -125,17 +127,10 @@ const Contato = () => {
       setTimeout(() => {
         setSending(false);
         setSent(true);
-        const popup = window.open(
-          waUrl,
-          "_blank",
-          "noopener,noreferrer",
+        openWhatsAppOrFallback(
+          ctaOptions,
+          (msg, opts) => sonnerToast.error(msg, opts),
         );
-        if (!popup) {
-          showFriendlyError(
-            "Não conseguimos abrir o WhatsApp automaticamente. Toque no botão abaixo.",
-            { whatsappMessage: parts },
-          );
-        }
       }, 400);
     } catch (err) {
       console.error("Contato submit failed", err);
