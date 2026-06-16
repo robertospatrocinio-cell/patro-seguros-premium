@@ -471,8 +471,17 @@ const App = () => {
                   <Route path="/central-de-sinistro" element={<CentralDeSinistro />} />
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+                  {/* Alias legado/typo — evita 404 */}
+                  <Route path="/politica-de-privacidade" element={<Navigate to="/politica-privacidade" replace />} />
                   <Route path="/termos-de-uso" element={<TermosDeUso />} />
                   <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
+                  {/* Hubs Guarulhos e páginas locais referenciadas em links internos */}
+                  <Route path="/seguros-em-guarulhos" element={<HubSegurosGuarulhos />} />
+                  <Route path="/seguros-guarulhos" element={<SegurosGuarulhosBairros />} />
+                  <Route path="/seguros-guarulhos/:bairro" element={<SegurosGuarulhosBairros />} />
+                  <Route path="/seguros-shopping-maia-cidade-maia-guarulhos" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
+                  <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />
+                  <Route path="/seguro-auto-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-guarulhos" }); return <Comp />; })()} />
                   {/* Consórcio */}
                   <Route path="/consorcio" element={<Consorcio />} />
                   <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
