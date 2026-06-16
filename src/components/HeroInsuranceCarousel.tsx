@@ -35,6 +35,7 @@ import {
 } from "@/lib/tracking";
 import heroFamilia from "@/assets/hero-familia.webp";
 import heroEmpresa from "@/assets/hero-empresa.webp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 type Audience = "pessoa" | "empresa";
 
@@ -44,16 +45,6 @@ type InsuranceCard = {
   href: string;
   Icon: LucideIcon;
   slug: string;
-};
-
-const WHATSAPP_NUMBER = "551151997500";
-
-const buildWhatsAppUrl = (audience: Audience, origem: string) => {
-  const publico = audience === "pessoa" ? "Para Você" : "Para sua Empresa";
-  const message =
-    `Olá! Vim pelo site da Patro Seguros (${origem}) — perfil ${publico}. ` +
-    `Gostaria de uma cotação consultiva e de falar com um consultor.`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
 const cardsPessoa: InsuranceCard[] = [
@@ -185,7 +176,7 @@ const HeroInsuranceCarousel = ({
   };
 
   const whatsappUrl = useMemo(
-    () => buildWhatsAppUrl(audience, origem),
+    () => buildWhatsAppUrl({ origem, audience }),
     [audience, origem]
   );
 

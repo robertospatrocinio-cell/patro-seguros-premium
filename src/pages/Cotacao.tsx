@@ -15,6 +15,7 @@ import FAQSchema from "@/components/FAQSchema";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import HeroInsuranceCarousel from "@/components/HeroInsuranceCarousel";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -193,17 +194,18 @@ const Cotacao = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    
-    const whatsappMessage = encodeURIComponent(
-      `*Nova Solicitação de Cotação*\n\n` +
-      `👤 *Nome:* ${values.name}\n` +
-      `📧 *E-mail:* ${values.email}\n` +
-      `📱 *WhatsApp:* ${values.phone}\n` +
-      `🛡️ *Tipo de Seguro:* ${values.insuranceType}\n` +
-      `💬 *Mensagem:* ${values.message || "Não informada"}\n\n` +
-      `_Enviado via Patro Seguros_`
-    );
-    
+
+    const waUrl = buildWhatsAppUrl({
+      origem: "cotacao_formulario_etapas",
+      extraLines: [
+        `Nome: ${values.name}`,
+        `E-mail: ${values.email}`,
+        `WhatsApp: ${values.phone}`,
+        `Tipo de Seguro: ${values.insuranceType}`,
+        `Mensagem: ${values.message || "Não informada"}`,
+      ],
+    });
+
     const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${values.message || "Não informada"}`;
     const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
 
@@ -215,10 +217,23 @@ const Cotacao = () => {
 
     localStorage.removeItem("cotacao_progress");
     localStorage.removeItem("partial_quote_id");
-    trackCotacaoSubmit(values.insuranceType, { origin: "formulario-etapas" });
-    trackWhatsAppClick("formulario-etapas", { origin: "formulario-etapas", insuranceType: values.insuranceType });
-    
-    window.location.href = `https://wa.me/551151997500?text=${whatsappMessage}`;
+    trackCotacaoSubmit(values.insuranceType, { origin: "cotacao_formulario_etapas" });
+    trackWhatsAppClick("formulario-etapas", {
+      origin: "cotacao_formulario_etapas",
+      insuranceType: values.insuranceType,
+    });
+    try {
+      window.gtag?.("event", "clique_whatsapp_cotacao", {
+        event_category: "cotacao",
+        origem: "cotacao_formulario_etapas",
+        tipo_de_seguro: values.insuranceType,
+        url_destino: waUrl,
+      });
+    } catch {
+      /* noop */
+    }
+
+    window.location.href = waUrl;
   };
 
   const faqs = [

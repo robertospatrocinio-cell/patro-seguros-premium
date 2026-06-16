@@ -16,6 +16,8 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { nameSchema, phoneSchema, emailSchema, messageSchema, firstZodMessage } from "@/lib/leadValidation";
 import { showFriendlyError } from "@/lib/friendlyToast";
+import { buildWhatsAppMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 const contatoSchema = z.object({
   nome: nameSchema,
@@ -87,14 +89,18 @@ const Contato = () => {
 
     try {
       const data = parsed.data;
-      const parts = [
-        `Olá! Vim pelo formulário de contato do site.`,
+      const extraLines = [
         `Nome: ${data.nome}`,
-        data.email && `E-mail: ${data.email}`,
+        data.email ? `E-mail: ${data.email}` : "",
         `Telefone: ${data.telefone}`,
-        data.servico && `Interesse: ${data.servico}`,
-        data.mensagem && `Mensagem: ${data.mensagem}`,
-      ].filter(Boolean).join("\n");
+        data.servico ? `Interesse: ${data.servico}` : "",
+        data.mensagem ? `Mensagem: ${data.mensagem}` : "",
+      ].filter(Boolean) as string[];
+      const parts = buildWhatsAppMessage({
+        origem: "contato_formulario",
+        extraLines,
+      });
+      const waUrl = buildWhatsAppUrl({ origem: "contato_formulario", extraLines });
 
       try {
         window.fbq?.("track", "Lead", {
@@ -105,11 +111,22 @@ const Contato = () => {
         console.error("Contato tracking failed", err);
       }
 
+      try {
+        window.gtag?.("event", "clique_whatsapp_contato", {
+          event_category: "contato",
+          origem: "contato_formulario",
+          url_destino: waUrl,
+        });
+      } catch {
+        /* noop */
+      }
+      trackWhatsAppClick("contato-formulario", { origin: "contato_formulario" });
+
       setTimeout(() => {
         setSending(false);
         setSent(true);
         const popup = window.open(
-          `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
+          waUrl,
           "_blank",
           "noopener,noreferrer",
         );
@@ -162,7 +179,13 @@ const Contato = () => {
                 <CardContent className="pt-6">
                   <MessageCircle className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">WhatsApp</h3>
-                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">(11) 5199-7500</a>
+                  <a
+                    href={buildWhatsAppUrl({ origem: "contato_card_info" })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                    onClick={() => trackWhatsAppClick("contato-card-info", { origin: "contato_card_info" })}
+                  >(11) 5199-7500</a>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-base">
@@ -352,7 +375,24 @@ const Contato = () => {
               Nossa equipe está pronta para atender você via WhatsApp ou telefone
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a
+                href={buildWhatsAppUrl({ origem: "contato_fale_conosco" })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  try {
+                    window.gtag?.("event", "clique_whatsapp_contato", {
+                      event_category: "contato",
+                      origem: "contato_fale_conosco",
+                      url_destino: buildWhatsAppUrl({ origem: "contato_fale_conosco" }),
+                    });
+                  } catch {
+                    /* noop */
+                  }
+                  trackWhatsAppClick("contato-fale-conosco", { origin: "contato_fale_conosco" });
+                }}
+              >
                 <Button size="lg" variant="cta" className="w-full sm:w-auto text-lg px-8">
                   <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                   Chamar no WhatsApp
