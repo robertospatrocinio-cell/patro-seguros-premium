@@ -25,6 +25,12 @@ import {
   ArrowRight,
   ArrowLeft,
   MessageCircle,
+  Tractor,
+  Wheat,
+  Sprout,
+  Coffee,
+  Leaf,
+  Combine,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,9 +41,10 @@ import {
 } from "@/lib/tracking";
 import heroFamilia from "@/assets/hero-familia.webp";
 import heroEmpresa from "@/assets/hero-empresa.webp";
+import heroAgro from "@/assets/hero-agro.webp";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
-type Audience = "pessoa" | "empresa";
+type Audience = "pessoa" | "empresa" | "agro";
 
 type InsuranceCard = {
   title: string;
@@ -76,6 +83,16 @@ const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> 
   "seguro-rc":           { bg: UNSPLASH("1505664194779-8beaceb93744"), accent: "240 60% 55%", alt: "Aperto de mãos profissional" },
   "seguro-cyber":        { bg: UNSPLASH("1550751827-4bd374c3f58b"), accent: "260 70% 60%", alt: "Servidor de dados" },
   "seguro-engenharia":   { bg: UNSPLASH("1503387762-592deb58ef4e"), accent: "45 90% 50%",  alt: "Obra de engenharia" },
+  // Agro
+  "seguro-propriedade-rural": { bg: UNSPLASH("1500382017468-9049fed747ef"), accent: "120 45% 35%", alt: "Propriedade rural ao amanhecer" },
+  "seguro-rural":             { bg: UNSPLASH("1464226184884-fa280b87c399"), accent: "95 50% 40%",  alt: "Fazenda com plantação" },
+  "seguro-maquinas-agricolas":{ bg: UNSPLASH("1605000797499-95a51c5269ae"), accent: "30 85% 50%",  alt: "Trator agrícola no campo" },
+  "seguro-colheitadeira-graos":{ bg: UNSPLASH("1500595046743-cd271d694d30"), accent: "45 90% 50%", alt: "Colheitadeira em campo de grãos" },
+  "seguro-colhedora-cana":    { bg: UNSPLASH("1574943320219-89283c1f7d5e"), accent: "75 65% 45%",  alt: "Colhedora de cana-de-açúcar" },
+  "seguro-colhedora-algodao": { bg: UNSPLASH("1591100406836-1f7e3b94c4d3"), accent: "40 30% 80%",  alt: "Plantação de algodão" },
+  "seguro-cafe":              { bg: UNSPLASH("1542223189-67a03fa0f0bd"), accent: "25 65% 30%",   alt: "Plantação de café" },
+  "seguro-silo-agricola":     { bg: UNSPLASH("1625246333195-78d9c38ad449"), accent: "210 35% 50%", alt: "Silos agrícolas" },
+  "seguro-transporte-agro":   { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 80% 50%",  alt: "Transporte de cargas agrícolas" },
 };
 
 const DEFAULT_ACCENT = "210 70% 50%";
@@ -103,6 +120,18 @@ const cardsEmpresa: InsuranceCard[] = [
   { title: "Responsabilidade Civil", short: "Proteção contra danos a terceiros.", href: "/seguro-rc", Icon: ShieldCheck, slug: "seguro-rc" },
   { title: "Seguro Cyber", short: "Vazamento de dados e ataques digitais.", href: "/seguro-cyber", Icon: Lock, slug: "seguro-cyber" },
   { title: "Seguro Engenharia", short: "Obras civis, instalação e montagem.", href: "/seguro-engenharia", Icon: HardHat, slug: "seguro-engenharia" },
+];
+
+const cardsAgro: InsuranceCard[] = [
+  { title: "Propriedade Rural", short: "Sede, benfeitorias e instalações.", href: "/seguro-propriedade-rural", Icon: Sprout, slug: "seguro-propriedade-rural" },
+  { title: "Seguro Rural", short: "Cobertura ampla para produtor rural.", href: "/seguro-rural", Icon: Leaf, slug: "seguro-rural" },
+  { title: "Máquinas Agrícolas", short: "Tratores, implementos e pulverizadores.", href: "/seguro-maquinas-agricolas", Icon: Tractor, slug: "seguro-maquinas-agricolas" },
+  { title: "Colheitadeira de Grãos", short: "Soja, milho, trigo e sorgo.", href: "/seguro-colheitadeira-graos", Icon: Combine, slug: "seguro-colheitadeira-graos" },
+  { title: "Colhedora de Cana", short: "Proteção total da safra canavieira.", href: "/seguro-colhedora-cana", Icon: Combine, slug: "seguro-colhedora-cana" },
+  { title: "Colhedora de Algodão", short: "Equipamentos de alta complexidade.", href: "/seguro-colhedora-algodao", Icon: Combine, slug: "seguro-colhedora-algodao" },
+  { title: "Seguro Café", short: "Lavoura, armazém e beneficiamento.", href: "/seguro-cafe", Icon: Coffee, slug: "seguro-cafe" },
+  { title: "Silo Agrícola", short: "Armazenagem e estoque de grãos.", href: "/seguro-silo-agricola", Icon: Wheat, slug: "seguro-silo-agricola" },
+  { title: "Transporte Agro", short: "Cargas agrícolas em trânsito nacional.", href: "/seguro-transporte-agro", Icon: Truck, slug: "seguro-transporte-agro" },
 ];
 
 const prefersReducedMotion = () =>
@@ -138,7 +167,8 @@ const HeroInsuranceCarousel = ({
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
 
-  const cards = audience === "pessoa" ? cardsPessoa : cardsEmpresa;
+  const cards =
+    audience === "pessoa" ? cardsPessoa : audience === "empresa" ? cardsEmpresa : cardsAgro;
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -165,9 +195,15 @@ const HeroInsuranceCarousel = ({
     if (next === audience) return;
     setAudience(next);
     try {
-      window.gtag?.("event", next === "pessoa" ? "clique_toggle_para_voce" : "clique_toggle_para_empresa", {
+      const eventName =
+        next === "pessoa"
+          ? "clique_toggle_para_voce"
+          : next === "empresa"
+          ? "clique_toggle_para_empresa"
+          : "clique_toggle_para_agro";
+      window.gtag?.("event", eventName, {
         event_category: "hero_carrossel",
-        tipo_de_publico: next === "pessoa" ? "pessoa" : "empresa",
+        tipo_de_publico: next,
         origem,
       });
     } catch {
@@ -227,11 +263,14 @@ const HeroInsuranceCarousel = ({
     trackWhatsAppClick("hero-carrossel", { origin: origem });
   };
 
-  const bgImage = audience === "pessoa" ? heroFamilia : heroEmpresa;
+  const bgImage =
+    audience === "pessoa" ? heroFamilia : audience === "empresa" ? heroEmpresa : heroAgro;
   const bgAlt =
     audience === "pessoa"
       ? "Família protegida pela consultoria da Patro Seguros"
-      : "Empresário recebendo consultoria empresarial da Patro Seguros";
+      : audience === "empresa"
+      ? "Empresário recebendo consultoria empresarial da Patro Seguros"
+      : "Produtor rural com plantação ao fundo, protegido pela Patro Seguros";
 
   return (
     <section
@@ -288,7 +327,11 @@ const HeroInsuranceCarousel = ({
               rel="noopener noreferrer"
               onClick={handleWhatsApp}
               aria-label={`Falar com consultor da Patro Seguros pelo WhatsApp — perfil ${
-                audience === "pessoa" ? "Para Você" : "Para sua Empresa"
+                audience === "pessoa"
+                  ? "Para Você"
+                  : audience === "empresa"
+                  ? "Para sua Empresa"
+                  : "Para o Agro"
               }`}
               className="w-full sm:w-auto"
             >
@@ -315,6 +358,7 @@ const HeroInsuranceCarousel = ({
             {([
               { id: "pessoa" as const, label: "Para Você" },
               { id: "empresa" as const, label: "Para sua Empresa" },
+              { id: "agro" as const, label: "Para o Agro" },
             ]).map((opt) => {
               const active = audience === opt.id;
               return (
