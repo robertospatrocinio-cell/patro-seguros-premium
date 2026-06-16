@@ -78,7 +78,23 @@ const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
-const HeroInsuranceCarousel = () => {
+type HeroInsuranceCarouselProps = {
+  headline?: string;
+  subheadline?: string;
+  origem?: string;
+  headingId?: string;
+  as?: "h2" | "h3";
+  showCtas?: boolean;
+};
+
+const HeroInsuranceCarousel = ({
+  headline = "Faça sua cotação com a Patro Seguros",
+  subheadline = "Compare seguradoras e encontre a proteção ideal para você, sua família ou sua empresa.",
+  origem = "hero_carrossel_home",
+  headingId = "hero-carrossel-heading",
+  as: HeadingTag = "h2",
+  showCtas = true,
+}: HeroInsuranceCarouselProps) => {
   const [audience, setAudience] = useState<Audience>("pessoa");
   const reduceMotion = useMemo(prefersReducedMotion, []);
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -121,7 +137,7 @@ const HeroInsuranceCarousel = () => {
       window.gtag?.("event", next === "pessoa" ? "clique_toggle_para_voce" : "clique_toggle_para_empresa", {
         event_category: "hero_carrossel",
         tipo_de_publico: next === "pessoa" ? "pessoa" : "empresa",
-        origem: "hero_carrossel_home",
+        origem,
       });
     } catch {
       /* noop */
@@ -135,13 +151,13 @@ const HeroInsuranceCarousel = () => {
         tipo_de_publico: audience,
         seguro: card.title,
         url_destino: card.href,
-        origem: "hero_carrossel_home",
+        origem,
       });
     } catch {
       /* noop */
     }
     trackInternalLinkClick({
-      source: buildInternalLinkSource("landing", `hero-carrossel-${audience}`),
+      source: buildInternalLinkSource("landing", `${origem}-${audience}`),
       destination: card.href,
       label: card.title,
       placement: "hub-grid",
@@ -153,12 +169,12 @@ const HeroInsuranceCarousel = () => {
       window.gtag?.("event", "clique_cta_cotacao_hero", {
         event_category: "hero_carrossel",
         tipo_de_publico: audience,
-        origem: "hero_carrossel_home",
+        origem,
       });
     } catch {
       /* noop */
     }
-    trackCotacaoClick("hero-carrossel", { origin: "hero_carrossel_home" });
+    trackCotacaoClick("hero-carrossel", { origin: origem });
   };
 
   const handleWhatsApp = () => {
@@ -166,12 +182,12 @@ const HeroInsuranceCarousel = () => {
       window.gtag?.("event", "clique_whatsapp_hero", {
         event_category: "hero_carrossel",
         tipo_de_publico: audience,
-        origem: "hero_carrossel_home",
+        origem,
       });
     } catch {
       /* noop */
     }
-    trackWhatsAppClick("hero-carrossel", { origin: "hero_carrossel_home" });
+    trackWhatsAppClick("hero-carrossel", { origin: origem });
   };
 
   const bgImage = audience === "pessoa" ? heroFamilia : heroEmpresa;
@@ -182,7 +198,7 @@ const HeroInsuranceCarousel = () => {
 
   return (
     <section
-      aria-labelledby="hero-carrossel-heading"
+      aria-labelledby={headingId}
       className="relative isolate overflow-hidden bg-slate-950 text-white"
     >
       {/* Background image with overlay */}
@@ -208,16 +224,17 @@ const HeroInsuranceCarousel = () => {
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 backdrop-blur">
             Cotação consultiva · 16+ seguradoras
           </span>
-          <h2
-            id="hero-carrossel-heading"
+          <HeadingTag
+            id={headingId}
             className="mt-5 text-3xl font-black leading-tight tracking-tight md:text-5xl"
           >
-            Faça sua cotação com a Patro Seguros
-          </h2>
+            {headline}
+          </HeadingTag>
           <p className="mx-auto mt-4 max-w-2xl text-base text-white/75 md:text-lg">
-            Compare seguradoras e encontre a proteção ideal para você, sua família ou sua empresa.
+            {subheadline}
           </p>
 
+          {showCtas && (
           <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link to="/cotacao" onClick={handleCotacao} className="w-full sm:w-auto">
               <Button
@@ -245,6 +262,7 @@ const HeroInsuranceCarousel = () => {
               </Button>
             </a>
           </div>
+          )}
         </div>
 
         {/* Toggle */}
