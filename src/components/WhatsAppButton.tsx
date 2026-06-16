@@ -75,7 +75,7 @@ const WhatsAppButton = () => {
   const tipo = inferQuoteTypeFromText(location.pathname);
   const cotacaoHref = tipo ? `/cotacao?tipo=${tipo}` : "/cotacao";
 
-  const lastErrorId = typeof window !== "undefined" ? (window as any).lastErrorId : null;
+  const lastErrorId = typeof window !== "undefined" ? (window as Window & { lastErrorId?: string }).lastErrorId : null;
   const baseMessage = isSinistroPage 
     ? "Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site." 
     : (override?.message ?? DEFAULT_MESSAGE);

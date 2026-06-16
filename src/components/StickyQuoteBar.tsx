@@ -35,7 +35,7 @@ const StickyQuoteBar = ({
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isFormOpen]);
 
   const waUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(whatsappMessage)}`;
 
