@@ -129,7 +129,12 @@ const SeguroBMW = () => {
           <div className="absolute inset-0 z-0">
             <img
               src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop"
-              alt="Seguro BMW em Guarulhos com cotação online pela Patro Seguros"
+              alt="Seguro BMW com cotação online — Patro Seguros, Corretora em Guarulhos/SP"
+              title="Seguro BMW — Patro Seguros, Corretora em Guarulhos/SP"
+              loading="eager"
+              decoding="async"
+              width={2070}
+              height={1380}
               className="w-full h-full object-cover opacity-60"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
