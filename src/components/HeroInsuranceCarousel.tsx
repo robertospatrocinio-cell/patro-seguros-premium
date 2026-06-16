@@ -183,7 +183,13 @@ const HeroInsuranceCarousel = ({
   const [canNext, setCanNext] = useState(true);
 
   const cards =
-    audience === "pessoa" ? cardsPessoa : audience === "empresa" ? cardsEmpresa : cardsAgro;
+    audience === "pessoa"
+      ? cardsPessoa
+      : audience === "empresa"
+      ? cardsEmpresa
+      : audience === "agro"
+      ? cardsAgro
+      : cardsConsorcio;
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -215,7 +221,9 @@ const HeroInsuranceCarousel = ({
           ? "clique_toggle_para_voce"
           : next === "empresa"
           ? "clique_toggle_para_empresa"
-          : "clique_toggle_para_agro";
+          : next === "agro"
+          ? "clique_toggle_para_agro"
+          : "clique_toggle_para_consorcio";
       window.gtag?.("event", eventName, {
         event_category: "hero_carrossel",
         tipo_de_publico: next,
@@ -279,13 +287,21 @@ const HeroInsuranceCarousel = ({
   };
 
   const bgImage =
-    audience === "pessoa" ? heroFamilia : audience === "empresa" ? heroEmpresa : heroAgro;
+    audience === "pessoa"
+      ? heroFamilia
+      : audience === "empresa"
+      ? heroEmpresa
+      : audience === "agro"
+      ? heroAgro
+      : heroFamilia;
   const bgAlt =
     audience === "pessoa"
       ? "Família protegida pela consultoria da Patro Seguros"
       : audience === "empresa"
       ? "Empresário recebendo consultoria empresarial da Patro Seguros"
-      : "Produtor rural com plantação ao fundo, protegido pela Patro Seguros";
+      : audience === "agro"
+      ? "Produtor rural com plantação ao fundo, protegido pela Patro Seguros"
+      : "Família conquistando seus bens com consórcio pela Patro Seguros";
 
   return (
     <section
@@ -346,7 +362,9 @@ const HeroInsuranceCarousel = ({
                   ? "Para Você"
                   : audience === "empresa"
                   ? "Para sua Empresa"
-                  : "Para o Agro"
+                  : audience === "agro"
+                  ? "Para o Agro"
+                  : "Para Consórcio"
               }`}
               className="w-full sm:w-auto"
             >
@@ -374,6 +392,7 @@ const HeroInsuranceCarousel = ({
               { id: "pessoa" as const, label: "Para Você" },
               { id: "empresa" as const, label: "Para sua Empresa" },
               { id: "agro" as const, label: "Para o Agro" },
+              { id: "consorcio" as const, label: "Para Consórcio" },
             ]).map((opt) => {
               const active = audience === opt.id;
               return (
