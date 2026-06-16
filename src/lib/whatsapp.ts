@@ -6,7 +6,7 @@
 
 export const WHATSAPP_NUMBER = "551151997500";
 
-export type WhatsAppAudience = "pessoa" | "empresa" | "geral";
+export type WhatsAppAudience = "pessoa" | "empresa" | "agro" | "geral";
 
 export interface BuildWhatsAppOptions {
   /** Identificador de origem usado em analytics (ex.: hero_carrossel_home, cotacao_pagina, contato_fale_conosco). */
@@ -20,6 +20,7 @@ export interface BuildWhatsAppOptions {
 const audienceLabel = (audience?: WhatsAppAudience) => {
   if (audience === "pessoa") return "Para Você";
   if (audience === "empresa") return "Para sua Empresa";
+  if (audience === "agro") return "Para o Agro";
   return null;
 };
 
