@@ -167,7 +167,8 @@ const HeroInsuranceCarousel = ({
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
 
-  const cards = audience === "pessoa" ? cardsPessoa : cardsEmpresa;
+  const cards =
+    audience === "pessoa" ? cardsPessoa : audience === "empresa" ? cardsEmpresa : cardsAgro;
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -194,9 +195,15 @@ const HeroInsuranceCarousel = ({
     if (next === audience) return;
     setAudience(next);
     try {
-      window.gtag?.("event", next === "pessoa" ? "clique_toggle_para_voce" : "clique_toggle_para_empresa", {
+      const eventName =
+        next === "pessoa"
+          ? "clique_toggle_para_voce"
+          : next === "empresa"
+          ? "clique_toggle_para_empresa"
+          : "clique_toggle_para_agro";
+      window.gtag?.("event", eventName, {
         event_category: "hero_carrossel",
-        tipo_de_publico: next === "pessoa" ? "pessoa" : "empresa",
+        tipo_de_publico: next,
         origem,
       });
     } catch {
@@ -256,11 +263,14 @@ const HeroInsuranceCarousel = ({
     trackWhatsAppClick("hero-carrossel", { origin: origem });
   };
 
-  const bgImage = audience === "pessoa" ? heroFamilia : heroEmpresa;
+  const bgImage =
+    audience === "pessoa" ? heroFamilia : audience === "empresa" ? heroEmpresa : heroAgro;
   const bgAlt =
     audience === "pessoa"
       ? "Família protegida pela consultoria da Patro Seguros"
-      : "Empresário recebendo consultoria empresarial da Patro Seguros";
+      : audience === "empresa"
+      ? "Empresário recebendo consultoria empresarial da Patro Seguros"
+      : "Produtor rural com plantação ao fundo, protegido pela Patro Seguros";
 
   return (
     <section
@@ -317,7 +327,11 @@ const HeroInsuranceCarousel = ({
               rel="noopener noreferrer"
               onClick={handleWhatsApp}
               aria-label={`Falar com consultor da Patro Seguros pelo WhatsApp — perfil ${
-                audience === "pessoa" ? "Para Você" : "Para sua Empresa"
+                audience === "pessoa"
+                  ? "Para Você"
+                  : audience === "empresa"
+                  ? "Para sua Empresa"
+                  : "Para o Agro"
               }`}
               className="w-full sm:w-auto"
             >
@@ -344,6 +358,7 @@ const HeroInsuranceCarousel = ({
             {([
               { id: "pessoa" as const, label: "Para Você" },
               { id: "empresa" as const, label: "Para sua Empresa" },
+              { id: "agro" as const, label: "Para o Agro" },
             ]).map((opt) => {
               const active = audience === opt.id;
               return (
