@@ -68,7 +68,9 @@ interface Props {
 
       if (isNetworkError && this.state.retryCount < 5) {
         const backoffDelay = Math.min(1000 * Math.pow(2, this.state.retryCount), 10000);
-        console.log(`Network error detected. Retrying in ${backoffDelay}ms (attempt ${this.state.retryCount + 1})...`);
+        if (import.meta.env.DEV) {
+          console.warn(`Network error detected. Retrying in ${backoffDelay}ms (attempt ${this.state.retryCount + 1})...`);
+        }
         
         this.retryTimer = setTimeout(() => {
           this.setState(prevState => ({

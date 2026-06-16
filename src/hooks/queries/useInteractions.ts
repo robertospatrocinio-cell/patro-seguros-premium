@@ -1,18 +1,11 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { toast } from "sonner";
 
-export interface Interaction {
-  id: string;
-  customer_id: string;
-  type: string;
-  interaction_date: string;
-  user_id: string | null;
-  notes: string | null;
-  status: string | null;
-  next_contact_date: string | null;
-  created_at: string;
-}
+export type Interaction = Database["public"]["Tables"]["interactions"]["Row"];
+export type InteractionInsert = Database["public"]["Tables"]["interactions"]["Insert"];
+type ContactsUpdate = Database["public"]["Tables"]["contacts"]["Update"];
 
 export const useInteractions = (contactId?: string) => {
   const queryClient = useQueryClient();
@@ -34,7 +27,7 @@ export const useInteractions = (contactId?: string) => {
   });
 
   const createInteraction = useMutation({
-    mutationFn: async (newInteraction: Omit<Interaction, "id" | "created_at">) => {
+    mutationFn: async (newInteraction: Omit<InteractionInsert, "id" | "created_at">) => {
       const { data, error } = await supabase
         .from("interactions")
         .insert([newInteraction])
@@ -42,14 +35,14 @@ export const useInteractions = (contactId?: string) => {
         .single();
 
       if (error) throw error;
-      
+
       // Update contact's last and next contact dates
       if (newInteraction.customer_id) {
-        const updateData: any = {
+        const updateData: ContactsUpdate = {
           last_contact_date: newInteraction.interaction_date,
-          last_interaction_type: newInteraction.type
+          last_interaction_type: newInteraction.type,
         };
-        
+
         if (newInteraction.next_contact_date) {
           updateData.next_contact_date = newInteraction.next_contact_date;
         }
@@ -58,7 +51,7 @@ export const useInteractions = (contactId?: string) => {
           .from("contacts")
           .update(updateData)
           .eq("id", newInteraction.customer_id);
-          
+
         if (contactError) console.error("Error updating contact dates:", contactError);
       }
 
@@ -69,7 +62,7 @@ export const useInteractions = (contactId?: string) => {
       queryClient.invalidateQueries({ queryKey: ["contacts"] });
       toast.success("Histórico registrado com sucesso!");
     },
-    onError: (error: any) => {
+    onError: (error: Error) => {
       toast.error("Erro ao registrar histórico: " + error.message);
     }
   });

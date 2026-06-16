@@ -97,7 +97,7 @@ const Contato = () => {
       ].filter(Boolean).join("\n");
 
       try {
-        (window as { fbq?: (...args: unknown[]) => void }).fbq?.("track", "Lead", {
+        window.fbq?.("track", "Lead", {
           content_name: "formulario-contato",
           content_category: data.servico || "geral",
         });

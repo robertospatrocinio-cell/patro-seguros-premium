@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Send, CheckCircle, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle } from "lucide-react";
-import { debounce } from "lodash-es";
+import { debounce } from "@/lib/debounce";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";

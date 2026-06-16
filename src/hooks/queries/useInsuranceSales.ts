@@ -1,14 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 
-export interface InsuranceSale {
-  id: string;
-  carrier: string;
-  insurance_type: string;
-  sale_date: string;
-  amount: number;
-  created_at: string;
-}
+export type InsuranceSale = Database["public"]["Tables"]["insurance_sales"]["Row"];
 
 export const useInsuranceSales = () => {
   return useQuery({
@@ -20,7 +14,10 @@ export const useInsuranceSales = () => {
         .order("sale_date", { ascending: false });
 
       if (error) throw error;
-      return data as InsuranceSale[];
+      return (data ?? []) as InsuranceSale[];
     },
+    staleTime: 60_000,
+    gcTime: 5 * 60_000,
+    refetchOnWindowFocus: false,
   });
 };

@@ -1,60 +1,43 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { toast } from "sonner";
 
-export interface Contact {
-  id: string;
-  full_name: string;
-  email: string | null;
-  phone: string | null;
-  cpf_cnpj: string | null;
-  client_type: string | null;
-  is_client: boolean;
-  notes: string | null;
-  marital_status?: string | null;
-  birth_date?: string | null;
-  partner_name?: string | null;
-  partner_birthday?: string | null;
-  has_children?: boolean;
-  children_count?: number;
-  children_data?: any;
-  car_count?: number;
-  has_motorcycle?: boolean;
-  has_life_insurance?: boolean;
-  life_insurance_carrier?: string | null;
-  life_insurance_renewal?: string | null;
-  has_home_insurance?: boolean;
-  home_insurance_carrier?: string | null;
-  home_insurance_renewal?: string | null;
-  health_plan_type?: string | null;
-  health_insurance_carrier?: string | null;
-  health_insurance_renewal?: string | null;
-  has_business_insurance?: boolean;
-  business_insurance_carrier?: string | null;
-  business_insurance_renewal?: string | null;
-  has_other_insurance?: boolean;
-  other_insurance_carrier?: string | null;
-  other_insurance_renewal?: string | null;
-  last_contact_date?: string | null;
-  next_contact_date?: string | null;
-  profession?: string | null;
-  income_bracket?: string | null;
-  home_ownership?: string | null;
-  lead_source?: string | null;
-  referral_contact_id?: string | null;
-  salesperson_name?: string | null;
-  partner_source_name?: string | null;
-  satisfaction_score?: number | null;
-  last_interaction_type?: string | null;
-  has_consortium?: boolean;
-  consortium_type?: string | null;
-  consortium_carrier?: string | null;
-  consortium_renewal?: string | null;
-  responsible_name?: string | null;
-  opportunities?: string[] | null;
-  opportunity_notes?: string | null;
-  created_at: string;
-  updated_at?: string;
+type ContactRow = Database["public"]["Tables"]["contacts"]["Row"];
+type ContactInsert = Database["public"]["Tables"]["contacts"]["Insert"];
+type ContactUpdate = Database["public"]["Tables"]["contacts"]["Update"];
+type DocumentRow = Database["public"]["Tables"]["documents"]["Row"];
+type DocumentInsert = Database["public"]["Tables"]["documents"]["Insert"];
+
+/** `Contact` enriquecido com os joins de seguros e documentos. */
+export type Contact = ContactRow & {
+  contact_insurances?: Array<{ insurance_type: string }> | null;
+  documents?: DocumentRow[] | null;
+};
+
+export type { ContactInsert, ContactUpdate };
+
+/** Colunas de data: string vazia precisa virar NULL para o Postgres aceitar. */
+const DATE_FIELDS = [
+  "birth_date",
+  "partner_birthday",
+  "life_insurance_renewal",
+  "home_insurance_renewal",
+  "health_insurance_renewal",
+  "business_insurance_renewal",
+  "other_insurance_renewal",
+  "last_contact_date",
+  "next_contact_date",
+  "consortium_renewal",
+] as const satisfies ReadonlyArray<keyof ContactUpdate>;
+
+function sanitizeContact<T extends ContactInsert | ContactUpdate>(input: T): T {
+  const out = { ...input } as Record<string, unknown>;
+  if (out.referral_contact_id === "") out.referral_contact_id = null;
+  for (const field of DATE_FIELDS) {
+    if (out[field] === "") out[field] = null;
+  }
+  return out as T;
 }
 
 export const useContacts = () => {
@@ -84,28 +67,11 @@ export const useContacts = () => {
   });
 
   const createContact = useMutation({
-    mutationFn: async (newContact: { full_name: string } & Partial<Contact> & { insurances?: string[] }) => {
+    mutationFn: async (
+      newContact: { full_name: string } & Partial<ContactInsert> & { insurances?: string[] },
+    ) => {
       const { insurances, ...contactData } = newContact;
-      
-      // Sanitize fields
-      const sanitizedData: any = { ...contactData };
-      if (sanitizedData.referral_contact_id === "") {
-        sanitizedData.referral_contact_id = null;
-      }
-
-      // Convert empty strings to null for date fields to avoid Postgres errors
-      const dateFields = [
-        'birth_date', 'partner_birthday', 'life_insurance_renewal', 
-        'home_insurance_renewal', 'health_insurance_renewal', 
-        'business_insurance_renewal', 'other_insurance_renewal',
-        'last_contact_date', 'next_contact_date', 'consortium_renewal'
-      ];
-
-      dateFields.forEach(field => {
-        if (sanitizedData[field] === "") {
-          sanitizedData[field] = null;
-        }
-      });
+      const sanitizedData = sanitizeContact(contactData as ContactInsert);
 
       const { data: contact, error: contactError } = await supabase
         .from("contacts")
@@ -119,15 +85,15 @@ export const useContacts = () => {
       }
 
       if (insurances && insurances.length > 0) {
-        const insuranceInserts = insurances.map(type => ({
+        const insuranceInserts = insurances.map((type) => ({
           contact_id: contact.id,
-          insurance_type: type
+          insurance_type: type,
         }));
-        
+
         const { error: insError } = await supabase
           .from("contact_insurances")
           .insert(insuranceInserts);
-          
+
         if (insError) throw insError;
       }
 
@@ -137,13 +103,18 @@ export const useContacts = () => {
       queryClient.invalidateQueries({ queryKey: ["contacts"] });
       toast.success("Contato criado com sucesso!");
     },
-    onError: (error) => {
+    onError: (error: Error) => {
       toast.error("Erro ao criar contato: " + error.message);
     }
   });
 
   const uploadDocument = useMutation({
-    mutationFn: async ({ contactId, file, category, externalLink }: { contactId: string, file?: File, category: string, externalLink?: string }) => {
+    mutationFn: async ({
+      contactId,
+      file,
+      category,
+      externalLink,
+    }: { contactId: string; file?: File; category: string; externalLink?: string }) => {
       if (file) {
         const fileExt = file.name.split('.').pop();
         const fileName = `${contactId}/${Math.random()}.${fileExt}`;
@@ -155,26 +126,29 @@ export const useContacts = () => {
 
         if (uploadError) throw uploadError;
 
+        const docPayload: DocumentInsert = {
+          contact_id: contactId,
+          file_name: file.name,
+          file_path: filePath,
+          file_type: file.type,
+          category,
+        };
         const { error: docError } = await supabase
           .from('documents')
-          .insert([{
-            contact_id: contactId,
-            file_name: file.name,
-            file_path: filePath,
-            file_type: file.type,
-            category: category
-          } as any]);
+          .insert([docPayload]);
 
         if (docError) throw docError;
       } else if (externalLink) {
+        const docPayload: DocumentInsert = {
+          contact_id: contactId,
+          file_name: "Google Drive Policy",
+          file_path: externalLink,
+          external_drive_link: externalLink,
+          category,
+        };
         const { error: docError } = await supabase
           .from('documents')
-          .insert([{
-            contact_id: contactId,
-            file_name: "Google Drive Policy",
-            external_drive_link: externalLink,
-            category: category
-          } as any]);
+          .insert([docPayload]);
 
         if (docError) throw docError;
       }
@@ -186,26 +160,11 @@ export const useContacts = () => {
   });
 
   const updateContact = useMutation({
-    mutationFn: async (updatedContact: Partial<Contact> & { id: string; insurances?: string[] }) => {
+    mutationFn: async (
+      updatedContact: Partial<ContactUpdate> & { id: string; insurances?: string[] },
+    ) => {
       const { insurances, id, ...contactData } = updatedContact;
-      
-      const sanitizedData: any = { ...contactData };
-      if (sanitizedData.referral_contact_id === "") {
-        sanitizedData.referral_contact_id = null;
-      }
-
-      const dateFields = [
-        'birth_date', 'partner_birthday', 'life_insurance_renewal', 
-        'home_insurance_renewal', 'health_insurance_renewal', 
-        'business_insurance_renewal', 'other_insurance_renewal',
-        'last_contact_date', 'next_contact_date', 'consortium_renewal'
-      ];
-
-      dateFields.forEach(field => {
-        if (sanitizedData[field] === "") {
-          sanitizedData[field] = null;
-        }
-      });
+      const sanitizedData = sanitizeContact(contactData as ContactUpdate);
 
       const { data: contact, error: contactError } = await supabase
         .from("contacts")
@@ -224,15 +183,15 @@ export const useContacts = () => {
           .eq("contact_id", id);
 
         if (insurances.length > 0) {
-          const insuranceInserts = insurances.map(type => ({
+          const insuranceInserts = insurances.map((type) => ({
             contact_id: id,
-            insurance_type: type
+            insurance_type: type,
           }));
-          
+
           const { error: insError } = await supabase
             .from("contact_insurances")
             .insert(insuranceInserts);
-            
+
           if (insError) throw insError;
         }
       }
@@ -243,7 +202,7 @@ export const useContacts = () => {
       queryClient.invalidateQueries({ queryKey: ["contacts"] });
       toast.success("Contato atualizado com sucesso!");
     },
-    onError: (error: any) => {
+    onError: (error: Error) => {
       toast.error("Erro ao atualizar contato: " + error.message);
     }
   });
@@ -255,8 +214,9 @@ export const useContacts = () => {
       await queryClient.invalidateQueries({ queryKey: ["contacts"] });
       await refetch();
       toast.success("Agenda e contatos sincronizados com o servidor.");
-    } catch (error: any) {
-      toast.error("Erro ao sincronizar dados: " + (error?.message || "Erro desconhecido"));
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : "Erro desconhecido";
+      toast.error("Erro ao sincronizar dados: " + msg);
       throw error;
     }
   };

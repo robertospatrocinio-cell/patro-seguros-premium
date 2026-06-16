@@ -36,10 +36,12 @@ import { KanbanBoard } from "@/components/crm/KanbanBoard";
 import { exportToCSV } from "@/lib/utils/export";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { useContacts } from "@/hooks/queries/useContacts";
+import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { toast } from "sonner";
 
 const CRMPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearch = useDebouncedValue(searchTerm, 250);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [opportunitySubTab, setOpportunitySubTab] = useState("opportunities");
   const [selectedContact, setSelectedContact] = useState<any>(null);
@@ -78,16 +80,17 @@ const CRMPage = () => {
 
   const filteredLeads = useMemo(() => {
     if (!Array.isArray(leads)) return [];
+    if (!debouncedSearch.trim()) return leads;
+    const searchLower = debouncedSearch.toLowerCase();
     return leads.filter((lead) => {
-      const searchLower = searchTerm.toLowerCase();
       return (
         lead.full_name?.toLowerCase().includes(searchLower) ||
         lead.email?.toLowerCase().includes(searchLower) ||
-        lead.phone?.includes(searchTerm) ||
+        lead.phone?.includes(debouncedSearch) ||
         lead.insurance_type?.toLowerCase().includes(searchLower)
       );
     });
-  }, [leads, searchTerm]);
+  }, [leads, debouncedSearch]);
 
   const stats = useMemo(() => {
     const yesterday = new Date();

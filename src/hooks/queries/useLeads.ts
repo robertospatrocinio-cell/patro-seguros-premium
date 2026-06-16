@@ -1,28 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { toast } from "sonner";
 
-export interface Lead {
-  id: string;
-  created_at: string;
-  full_name: string | null;
-  email: string | null;
-  phone: string | null;
-  insurance_type: string | null;
-  source_page: string | null;
-  utm_source: string | null;
-  utm_medium: string | null;
-  utm_campaign: string | null;
-  raw_data: any;
-  lead_status: string | null;
-  kanban_stage_id: string | null;
-  kanban_order: number;
-  client_type: string | null;
-  cpf_cnpj: string | null;
-  city: string | null;
-  state: string | null;
-  responsible_name: string | null;
-}
+/** Tipo de linha de `leads` gerado a partir do schema Supabase. */
+export type Lead = Database["public"]["Tables"]["leads"]["Row"];
+export type LeadInsert = Database["public"]["Tables"]["leads"]["Insert"];
+export type LeadUpdate = Database["public"]["Tables"]["leads"]["Update"];
 
 export const useLeads = () => {
   return useQuery({
@@ -39,12 +23,13 @@ export const useLeads = () => {
           console.error("Supabase error fetching leads:", error);
           throw new Error(`Erro Supabase: ${error.message || "Erro ao conectar com o banco de dados"}`);
         }
-        
-        return (data || []) as Lead[];
-      } catch (err: any) {
+
+        return (data ?? []) as Lead[];
+      } catch (err) {
         console.error("Catch error fetching leads:", err);
+        const message = err instanceof Error ? err.message : "Verifique sua conexão e tente novamente.";
         toast.error("Erro ao carregar leads", {
-          description: err.message || "Verifique sua conexão e tente novamente.",
+          description: message,
         });
         throw err;
       }

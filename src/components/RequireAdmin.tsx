@@ -18,13 +18,10 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
         if (!mounted) return;
 
         if (!session) {
-          console.log("RequireAdmin: Sem sessão, redirecionando para login");
           setState("unauth");
           return;
         }
 
-        console.log("RequireAdmin: Verificando acesso para:", session.user.id);
-        
         const { data, error } = await supabase
           .from("user_roles")
           .select("role")
@@ -40,7 +37,6 @@ export default function RequireAdmin({ children }: { children: React.ReactNode }
         }
 
         if (data && data.role === "admin") {
-          console.log("RequireAdmin: Acesso concedido");
           setState("allowed");
         } else {
           console.warn("RequireAdmin: Usuário logado mas sem permissão de admin");
