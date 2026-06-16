@@ -565,6 +565,91 @@ const App = () => {
                   <Route path="/seguros-para-empresarios-guarulhos" element={<SegurosParaEmpresariosGuarulhos />} />
                   <Route path="/seguro-carro-blindado-guarulhos" element={<SeguroCarroBlindadoGuarulhos />} />
                   <Route path="/protecao-patrimonial-familiar-guarulhos" element={<ProtecaoPatrimonialFamiliarGuarulhos />} />
+                  {/* === Fase 2: rotas faltantes + redirecionamentos para eliminar 404 em links internos === */}
+                  <Route path="/seguro-jetski" element={<SeguroJetSki />} />
+                  <Route path="/hub-empresarial" element={<HubEmpresarial />} />
+                  <Route path="/seguros-empresariais" element={<HubEmpresarial />} />
+                  <Route path="/seguro-empresarial/segmentos" element={<SegurosPorSegmento />} />
+                  <Route path="/seguros-empresariais-pme-guarulhos" element={<SeoSegurosPmeGuarulhos />} />
+                  <Route path="/seguro-residencial-guarulhos" element={<SeoSeguroResidencialGuarulhos />} />
+                  <Route path="/seguro-vida-saude-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
+                  <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
+                  <Route path="/seguro-uber-guarulhos" element={<SeoSeguroUberGuarulhos />} />
+                  <Route path="/seguro-frota-empresas-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
+                  <Route path="/seguro-frota-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
+                  <Route path="/seguro-moto-guarulhos" element={<SeoSeguroMotoGuarulhos />} />
+                  <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoSeguroMotoristaAppGuarulhos />} />
+                  {/* Segmentos / nichos */}
+                  <Route path="/seguros/transportadoras" element={<NichoTransportadoras />} />
+                  <Route path="/seguros/motoristas-app" element={<NichoMotoristasApp />} />
+                  <Route path="/seguros/empresarios" element={<NichoEmpresarios />} />
+                  <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
+                  <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
+                  {/* Redirecionamentos canônicos */}
+                  <Route path="/formulario-seguro-vida" element={<Navigate to="/seguro-vida/formulario" replace />} />
+                  <Route path="/indique-amigo" element={<Navigate to="/indique-um-amigo" replace />} />
+                  <Route path="/planejamento-patrimonial" element={<Navigate to="/investimentos" replace />} />
+                  <Route path="/responsabilidade-civil-dentistas" element={<Navigate to="/seguro-rc-dentistas" replace />} />
+                  <Route path="/seguro-responsabilidade-civil" element={<Navigate to="/seguro-rc" replace />} />
+                  <Route path="/corretora-seguros-guarulhos" element={<Navigate to="/sobre-guarulhos" replace />} />
+                  <Route path="/cotacao-seguro-auto-guarulhos" element={<Navigate to="/cotacao-seguro-auto" replace />} />
+                  <Route path="/seguros-para-clinicas-odontologicas" element={<Navigate to="/parcerias-clinicas-odontologicas" replace />} />
+                  <Route path="/seguros-para-clinicas-veterinarias" element={<Navigate to="/parcerias-clinicas-veterinarias" replace />} />
+                  {/* Planos de saúde — variantes */}
+                  <Route path="/plano-saude-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
+                  <Route path="/plano-saude-empresarial-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
+                  <Route path="/plano-saude-familia-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
+                  <Route path="/plano-saude-mei-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
+                  <Route path="/plano-saude-pme-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
+                  <Route path="/plano-odontologico-guarulhos" element={<Navigate to="/seguro-odonto" replace />} />
+                  {/* Patrimônio / empresas — variantes */}
+                  <Route path="/seguro-galpao-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
+                  <Route path="/seguro-galpao-cumbica" element={<Navigate to="/seguro-galpao" replace />} />
+                  <Route path="/seguro-logistica-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
+                  <Route path="/seguro-transportadora-guarulhos" element={<Navigate to="/seguro-transporte" replace />} />
+                  <Route path="/seguro-loja-guarulhos" element={<Navigate to="/seguro-lojas-shopping" replace />} />
+                  <Route path="/seguro-restaurante-guarulhos" element={<Navigate to="/seguro-restaurante" replace />} />
+                  {/* Auto — variantes e modelos */}
+                  <Route path="/seguro-auto-barato-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-auto-premium" element={<Navigate to="/seguro-auto-premium-guarulhos" replace />} />
+                  <Route path="/seguro-auto-pos-vistoria" element={<Navigate to="/seguro-auto" replace />} />
+                  <Route path="/seguro-auto-por-modelo-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-hb20-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-hilux-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-mobi-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-onix-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-strada-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-tcross-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-renegade-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  {/* Auto — bairros (vão ao hub de bairros) */}
+                  <Route path="/seguro-auto-bonsucesso-guarulhos" element={<Navigate to="/seguro-auto-bonsucesso" replace />} />
+                  <Route path="/seguro-auto-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
+                  <Route path="/seguro-auto-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
+                  <Route path="/seguro-auto-jardim-sao-joao" element={<Navigate to="/seguros-guarulhos/jardim-sao-joao" replace />} />
+                  <Route path="/seguro-auto-maia-guarulhos" element={<Navigate to="/seguro-auto-maia" replace />} />
+                  <Route path="/seguro-auto-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  <Route path="/seguro-auto-vila-galvao" element={<Navigate to="/seguros-guarulhos/vila-galvao" replace />} />
+                  {/* Residencial / Saúde / Empresarial por bairro → hub de bairros */}
+                  <Route path="/plano-saude-cidade-maia" element={<Navigate to="/seguros-guarulhos/cidade-maia" replace />} />
+                  <Route path="/plano-saude-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
+                  <Route path="/plano-saude-macedo-guarulhos" element={<Navigate to="/seguros-guarulhos/macedo" replace />} />
+                  <Route path="/plano-saude-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  <Route path="/seguro-residencial-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
+                  <Route path="/seguro-residencial-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
+                  <Route path="/seguro-residencial-jardim-maia" element={<Navigate to="/seguros-guarulhos/jardim-maia" replace />} />
+                  <Route path="/seguro-residencial-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  <Route path="/seguro-empresarial-pimentas" element={<Navigate to="/seguros-guarulhos/pimentas" replace />} />
+                  <Route path="/seguro-empresarial-macedo-guarulhos" element={<Navigate to="/seguros-guarulhos/macedo" replace />} />
+                  <Route path="/seguro-empresarial-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  {/* Tratores por marca → trator agrícola */}
+                  <Route path="/seguro-jacto-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
+                  <Route path="/seguro-john-deere-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
+                  <Route path="/seguro-mahindra-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
+                  <Route path="/seguro-massey-ferguson-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
+                  <Route path="/seguro-new-holland-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
+                  <Route path="/seguro-valtra-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
+                  {/* Vistoria — empresas */}
+                  <Route path="/seguro-para-empresas-de-vistoria-veicular" element={<Navigate to="/seguro-vistoria-veicular-guarulhos" replace />} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
