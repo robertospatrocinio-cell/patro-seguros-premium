@@ -53,7 +53,7 @@ const CRMPage = () => {
     forceRefetch: forceRefetchContacts
   } = useContacts();
   
-  const leads = data || [];
+  const leads = useMemo(() => data ?? [], [data]);
   const isLoading = isLoadingLeads || isLoadingContacts;
   const error = errorLeads || errorContacts;
   const isRefetching = isRefetchingLeads || isRefetchingContacts;
@@ -70,16 +70,11 @@ const CRMPage = () => {
     // Configura o intervalo para 2 minutos (120000ms)
     // Usamos forceRefetchContacts para garantir que limpe o cache e pegue dados frescos
     const id = window.setInterval(() => {
-      console.log("Auto-refresh: Sincronizando agenda e contatos...");
       forceRefetchContacts();
     }, 2 * 60 * 1000);
     
     return () => window.clearInterval(id);
   }, [forceRefetchContacts]);
-
-  useEffect(() => {
-    console.log("CRMPage: Componente montado. Leads carregados:", leads.length);
-  }, [leads.length]);
 
   const filteredLeads = useMemo(() => {
     if (!Array.isArray(leads)) return [];

@@ -23,8 +23,7 @@ export const QuickLeadForm = () => {
     setLoading(true);
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    console.log("Lead captured:", formData);
+
     toast.success("Recebemos seu contato! Um consultor ligará em breve.");
     
     // Redirect to full quote or WhatsApp for better UX

@@ -449,8 +449,7 @@ const App = () => {
                   <Route path="/seguro-auto-pimentas" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-pimentas-guarulhos" }); return <Comp />; })()} />
                   <Route path="/lp/:slug" element={<DynamicLandingPage />} />
                   <Route path="/diagnostico" element={<Diagnostico />} />
-                  <Route path="/performance" element={<PerformanceDiagnostico />} />
-                  
+
                   {/* ... other specific routes ... */}
                   <Route path="/admin/purge-logs" element={<RequireAdmin><PurgeLogs /></RequireAdmin>} />
                   <Route path="/admin/performance" element={<RequireAdmin><PerformanceDiagnostico /></RequireAdmin>} />
