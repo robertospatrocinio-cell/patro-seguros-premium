@@ -235,21 +235,25 @@ const InsurancePageTemplate = ({
   const linkedKeywords = new Set<string>();
 
   // Determine descriptive alt for hero image based on product type
+  // Padrão unificado para SEO + acessibilidade:
+  //   "{descrição contextual} — Patro Seguros, Corretora em Guarulhos/SP"
+  // O mesmo texto é usado em `alt` e `title` para consistência.
   const getHeroAlt = () => {
     const t = title.toLowerCase();
+    const suffix = " — Patro Seguros, Corretora em Guarulhos/SP";
     if (t.includes("auto") || t.includes("carro") || t.includes("veículo") || t.includes("frota") || t.includes("moto")) 
-      return "Seguro auto em Guarulhos com cotação online pela Patro Seguros";
+      return `${title} com cotação online${suffix}`;
     if (t.includes("saúde") || t.includes("saude") || t.includes("médico") || t.includes("plano")) 
-      return "Consultoria para plano de saúde em Guarulhos";
+      return `${title}: consultoria especializada${suffix}`;
     if (t.includes("residencial") || t.includes("casa") || t.includes("apartamento") || t.includes("imóvel")) 
-      return "Seguro residencial para proteger casa e apartamento";
+      return `${title} para proteger casa e apartamento${suffix}`;
     if (t.includes("empresa") || t.includes("pme") || t.includes("negócio") || t.includes("empresarial")) 
-      return "Seguro empresarial para pequenas e médias empresas";
+      return `${title} para pequenas e médias empresas${suffix}`;
     if (t.includes("vida")) 
-      return "Seguro de vida para proteção familiar";
+      return `${title} para proteção familiar${suffix}`;
     if (t.includes("consórcio") || t.includes("consorcio")) 
-      return "Consórcio para carro, imóvel ou caminhão";
-    return `${title} em Guarulhos com a Patro Seguros`;
+      return `${title} para carro, imóvel ou caminhão${suffix}`;
+    return `${title}${suffix}`;
   };
 
   // SEO Local: se o title da página ainda não menciona uma localidade
@@ -306,6 +310,7 @@ const InsurancePageTemplate = ({
                 src={heroImage} 
                 mobileSrc={mobileHeroImage}
                 alt={getHeroAlt()} 
+                title={getHeroAlt()}
                 className="w-full h-full" 
                 eager 
                 aria-hidden="false" 
@@ -392,7 +397,8 @@ const InsurancePageTemplate = ({
                     >
                       <img
                         src={src}
-                        alt={`${title} — imagem ${i + 1}`}
+                        alt={`${title} — Patro Seguros, Corretora em Guarulhos/SP (imagem ${i + 1})`}
+                        title={`${title} — Patro Seguros, Corretora em Guarulhos/SP`}
                         loading="lazy"
                         decoding="async"
                         width={800}
