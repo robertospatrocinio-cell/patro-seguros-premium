@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
+import type { LucideIcon } from "lucide-react";
 import {
   Car,
   Bike,
@@ -41,7 +42,7 @@ type InsuranceCard = {
   title: string;
   short: string;
   href: string;
-  Icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
+  Icon: LucideIcon;
   slug: string;
 };
 
