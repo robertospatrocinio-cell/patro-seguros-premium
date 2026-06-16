@@ -246,8 +246,11 @@ const InsurancePageTemplate = ({
                 placeholderClass="bg-transparent" 
                 decoding="sync"
 
-                style={{ opacity: 0.18, objectPosition: 'center center' }} 
+                style={{ opacity: 0.45, objectPosition: 'center center' }} 
               />
+              {/* Overlay suave: escurece para legibilidade do texto sem apagar a foto temática */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[hsl(212,60%,8%)]/70 via-[hsl(212,60%,10%)]/55 to-[hsl(212,60%,12%)]/75" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,transparent,hsl(212,60%,8%)/0.5)]" />
             </div>
           )}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.12),transparent)]" />
