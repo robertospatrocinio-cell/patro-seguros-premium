@@ -76,6 +76,15 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     const managePreload = (id: string, href?: string, media?: string) => {
       let link = document.getElementById(id) as HTMLLinkElement;
       if (href) {
+        const absoluteHref = new URL(href, window.location.origin).href;
+        const existingEquivalent = Array.from(document.querySelectorAll<HTMLLinkElement>('link[rel="preload"][as="image"]'))
+          .find((candidate) => candidate.id !== id && candidate.href === absoluteHref && (candidate.media || "") === (media || ""));
+
+        if (existingEquivalent) {
+          link?.remove();
+          return;
+        }
+
         const isNew = !link;
         if (!link) {
           link = document.createElement('link');
