@@ -21,6 +21,7 @@ import LazySection from "@/components/LazySection";
 import { HomeSelector } from "@/components/HomeSelector";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import { QuickLeadForm } from "@/components/QuickLeadForm";
+import HeroInsuranceCarousel from "@/components/HeroInsuranceCarousel";
 
 const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalculator"));
 const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
@@ -120,6 +121,9 @@ const Index = () => {
         {/* QUICK LEAD FORM */}
         <QuickLeadForm />
 
+        {/* HERO CARROSSEL — Conversion shortcut: toggle Pessoa/Empresa + cards principais */}
+        <HeroInsuranceCarousel />
+
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
@@ -201,36 +205,22 @@ const Index = () => {
         {/* 1. SELETOR "O QUE VOCÊ QUER PROTEGER?" */}
         <HomeSelector />
 
-        {/* 2. PRINCIPAIS SEGUROS (Placeholder for Phase 2 improvement) */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Soluções Completas de Proteção</h2>
-              <p className="text-muted-foreground">Encontre o seguro ideal para cada momento da sua vida.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { title: "Seguro Auto em Guarulhos", desc: "Compare as melhores seguradoras e economize até 30% no seu seguro de carro.", path: "/seguro-auto" },
-                { title: "Seguro de Frota", desc: "Proteção completa para empresas de transporte e logística em Guarulhos.", path: "/seguro-frota" },
-                { title: "Seguro Residencial", desc: "Proteção para seu patrimônio no bairro Maia e em toda Guarulhos.", path: "/seguro-residencial" }
-              ].map(s => (
-                <Link key={s.title} to={s.path} className="group p-8 bg-card rounded-2xl border hover:shadow-xl transition-all border-slate-100">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{s.title}</h3>
-                  <p className="text-[14px] text-muted-foreground mb-4 leading-relaxed">{s.desc}</p>
-                  <span className="text-primary font-bold inline-flex items-center text-sm">Saber mais <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" /></span>
-                </Link>
-              ))}
-              <Link to="/central-de-sinistro" className="group p-8 bg-primary/5 rounded-2xl border border-primary/20 hover:shadow-xl transition-all md:col-span-3 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="text-center md:text-left">
-                  <h3 className="text-xl font-bold mb-2 text-primary">Sofreu um sinistro ou precisa de assistência?</h3>
-                  <p className="text-[14px] text-muted-foreground">Saiba o que fazer em caso de roubo, colisão ou pane 24h.</p>
-                </div>
-                <Button variant="default" className="font-bold whitespace-nowrap">
-                  Acessar Central de Sinistro
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
+        {/* 2. CENTRAL DE SINISTRO — preservada do placeholder antigo (os 3 cards de produto migraram para o HeroInsuranceCarousel acima) */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <Link
+              to="/central-de-sinistro"
+              className="group flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-primary/5 rounded-2xl border border-primary/20 hover:shadow-xl transition-all"
+            >
+              <div className="text-center md:text-left">
+                <h3 className="text-xl font-bold mb-2 text-primary">Sofreu um sinistro ou precisa de assistência?</h3>
+                <p className="text-[14px] text-muted-foreground">Saiba o que fazer em caso de roubo, colisão ou pane 24h.</p>
+              </div>
+              <Button variant="default" className="font-bold whitespace-nowrap">
+                Acessar Central de Sinistro
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </section>
 
