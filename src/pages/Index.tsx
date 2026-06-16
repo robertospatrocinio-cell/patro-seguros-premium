@@ -30,6 +30,8 @@ const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnership
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
+import { INSURER_WEBSITES } from "@/data/insurerWebsites";
+
 const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO", "DARWIN", "EZZE", "HAPVIDA/NOTREDAME", "HDI", "ITAÚ", "ITURAN", "JUSTOS", "LIBERTY", "MAG", "MAPFRE", "MEDSENIOR", "MITSUI", "OMINT", "PIER", "PORTO", "PREVENT SENIOR", "SOMPO", "SUHAI", "SULAMERICA", "SURA", "TOKIO MARINE", "UNIMED", "YOUSE", "ZURICH"];
 
 const faqs = [
@@ -250,9 +252,39 @@ const Index = () => {
             <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Comparamos com as melhores</p>
           </div>
           <div className="flex animate-marquee whitespace-nowrap">
-            {[...parceiros, ...parceiros].map((name, i) => (
-              <span key={i} className="mx-8 text-lg font-bold text-muted-foreground/50">{name}</span>
-            ))}
+            {[...parceiros, ...parceiros].map((name, i) => {
+              const url = INSURER_WEBSITES[name];
+              const baseClass =
+                "mx-8 text-lg font-bold text-muted-foreground/60 transition-all duration-200 hover:scale-115 hover:text-primary hover:font-extrabold focus-visible:outline-none focus-visible:text-primary";
+              return url ? (
+                <a
+                  key={`${name}-${i}`}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  aria-label={`Visitar o site oficial da seguradora ${name}`}
+                  onClick={() => {
+                    try {
+                      window.gtag?.("event", "clique_seguradora_parceira", {
+                        event_category: "parceiros",
+                        seguradora: name,
+                        url_destino: url,
+                        origem: "marquee_home",
+                      });
+                    } catch {
+                      /* noop */
+                    }
+                  }}
+                  className={baseClass}
+                >
+                  {name}
+                </a>
+              ) : (
+                <span key={`${name}-${i}`} className="mx-8 text-lg font-bold text-muted-foreground/50">
+                  {name}
+                </span>
+              );
+            })}
           </div>
         </section>
 
