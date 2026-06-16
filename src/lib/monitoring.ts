@@ -2,6 +2,7 @@
  * Monitoring module to capture and store errors for diagnostic purposes.
  */
 let sentryInstance: typeof import("@sentry/react") | null = null;
+let monitoringInitialized = false;
 
 // Memory storage for diagnostics
 const MAX_LOGS = 50;
@@ -28,32 +29,12 @@ async function getSentry() {
 }
 
 export const initMonitoring = async () => {
+  if (monitoringInitialized) return;
+  monitoringInitialized = true;
+
   const dsn = import.meta.env.VITE_SENTRY_DSN;
   
   if (typeof window !== "undefined") {
-    // Only load full monitoring after a short delay to stay off the critical path
-    setTimeout(async () => {
-      if (dsn) {
-        const Sentry = await getSentry();
-        if (Sentry) {
-          Sentry.init({
-            dsn,
-            integrations: [
-              Sentry.browserTracingIntegration(),
-              Sentry.replayIntegration({
-                maskAllText: false,
-                blockAllMedia: false,
-              }),
-            ],
-            tracesSampleRate: 0.1,
-            replaysSessionSampleRate: 0.05,
-            replaysOnErrorSampleRate: 1.0,
-            environment: import.meta.env.MODE,
-          });
-          console.log("Monitoring: Sentry initialized.");
-        }
-      }
-    }, 4000);
     // Intercept console errors
     const originalConsoleError = console.error;
     const originalConsoleWarn = console.warn;
@@ -76,42 +57,6 @@ export const initMonitoring = async () => {
         timestamp: new Date().toISOString(),
       });
       return originalConsoleWarn.apply(this, args);
-    };
-
-    // Intercept network failures if possible via fetch
-    const originalFetch = window.fetch;
-    window.fetch = async function(this: any, ...args: any[]) {
-      const startTime = performance.now();
-      try {
-        const response = await originalFetch.apply(this, args);
-        const duration = performance.now() - startTime;
-        
-        if (!response.ok) {
-          addDiagnosticLog({
-            type: 'network',
-            message: `HTTP ${response.status} (${Math.round(duration)}ms): ${args[0]}`,
-            timestamp: new Date().toISOString(),
-            details: { status: response.status, url: args[0], duration }
-          });
-        } else if (duration > 3000) {
-          addDiagnosticLog({
-            type: 'network',
-            message: `Slow Request (${Math.round(duration)}ms): ${args[0]}`,
-            timestamp: new Date().toISOString(),
-            details: { status: response.status, url: args[0], duration }
-          });
-        }
-        return response;
-      } catch (error: any) {
-        const duration = performance.now() - startTime;
-        addDiagnosticLog({
-          type: 'network',
-          message: `Network Failure (${Math.round(duration)}ms): ${args[0]} - ${error.message}`,
-          timestamp: new Date().toISOString(),
-          details: { error: error.message, url: args[0], duration }
-        });
-        throw error;
-      }
     };
 
     window.onerror = (message, source, lineno, colno, error) => {
