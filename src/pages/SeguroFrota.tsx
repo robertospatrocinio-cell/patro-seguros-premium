@@ -6,10 +6,10 @@ const SeguroFrota = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro de Frota"
-      subtitle="Proteção especializada para múltiplos veículos da sua empresa"
+      subtitle="Consultoria especializada para gerir, proteger e otimizar o custo da sua frota corporativa"
       icon="🚛"
       metaDescription="Seguro de Frota empresarial com economia de até 40% vs seguros individuais. Gestão centralizada, relatórios e assistência 24h. Cotação grátis Patro Seguros."
-      description="O Seguro de Frota é desenhado para empresas com múltiplos veículos. Oferece economia de escala, gestão centralizada e condições diferenciadas."
+      description="O Seguro de Frota deixou de ser um item de custo para se tornar uma decisão estratégica. Quando bem desenhado, reduz o gasto unitário por veículo, dá previsibilidade ao orçamento e libera o gestor das renovações pulverizadas — função que assumimos integralmente para você."
       detailedDescription={`Gerenciar seguros de veículos individuais é ineficiente e caro. Cada renovação, cada sinistro, cada inclusão ou exclusão de veículo exige processos separados. O Seguro de Frota resolve tudo isso com uma apólice única, gestão centralizada e economia significativa.
 
 A principal vantagem financeira é clara: frotas pagam de 20% a 40% menos que a soma de seguros individuais. Isso acontece porque a seguradora avalia o risco do conjunto, diluindo sinistros pontuais no volume total. Além disso, a gestão centralizada gera relatórios de sinistralidade que permitem identificar padrões e implementar ações preventivas.
