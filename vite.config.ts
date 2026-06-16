@@ -340,7 +340,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
-    mode === "production" && asyncCssPlugin(),
     // Convert standard CSS imports to preloads in development/preview as well to fix render blocking
     {
       name: "preview-css-optimizer",
