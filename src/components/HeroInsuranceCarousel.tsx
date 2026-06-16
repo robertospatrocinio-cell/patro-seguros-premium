@@ -234,6 +234,7 @@ const HeroInsuranceCarousel = ({
             {subheadline}
           </p>
 
+          {showCtas && (
           <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link to="/cotacao" onClick={handleCotacao} className="w-full sm:w-auto">
               <Button
@@ -261,6 +262,7 @@ const HeroInsuranceCarousel = ({
               </Button>
             </a>
           </div>
+          )}
         </div>
 
         {/* Toggle */}
