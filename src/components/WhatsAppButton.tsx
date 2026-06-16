@@ -18,6 +18,7 @@ const WhatsAppButton = () => {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const [isUserScrolling, setIsUserScrolling] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement | null>(null);
   const scrollStopTimeoutRef = useRef<number | null>(null);
@@ -28,6 +29,14 @@ const WhatsAppButton = () => {
     getWhatsAppOverrideSnapshot,
     getWhatsAppOverrideServerSnapshot,
   );
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 1023px)");
+    const onMediaChange = () => setIsMobileViewport(media.matches);
+    onMediaChange();
+    media.addEventListener("change", onMediaChange);
+    return () => media.removeEventListener("change", onMediaChange);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -101,7 +110,7 @@ const WhatsAppButton = () => {
 
       <div
         className={`fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-50 flex flex-col items-end gap-2 transition-all duration-300 motion-reduce:transition-none lg:bottom-4 lg:right-4 ${
-          visible && (!isUserScrolling || open) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+          visible && (!isMobileViewport || !isUserScrolling || open) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
         {/* === MOBILE: FAB retrátil agrupando as 3 ações === */}
