@@ -350,6 +350,11 @@ const HeroInsuranceCarousel = ({
             <ul className="-ml-3 flex list-none md:-ml-4">
               {cards.map((card) => {
                 const Icon = card.Icon;
+                const visuals = CARD_VISUALS[card.slug] ?? {
+                  bg: "",
+                  accent: DEFAULT_ACCENT,
+                  alt: card.title,
+                };
                 return (
                   <li
                     key={`${audience}-${card.slug}`}
@@ -358,18 +363,43 @@ const HeroInsuranceCarousel = ({
                     <Link
                       to={card.href}
                       onClick={() => handleCardClick(card)}
-                      className="group flex h-full flex-col justify-between rounded-xl border border-white/12 bg-white/[0.06] p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+                      aria-label={`${card.title} — ${card.short}`}
+                      className="group relative isolate flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-xl border border-white/12 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+                      style={{
+                        backgroundColor: `hsl(${visuals.accent} / 0.18)`,
+                      }}
                     >
+                      {/* Foto temática de fundo */}
+                      {visuals.bg && (
+                        <img
+                          src={visuals.bg}
+                          alt=""
+                          aria-hidden
+                          loading="lazy"
+                          decoding="async"
+                          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-35 transition-opacity duration-300 group-hover:opacity-55 motion-reduce:transition-none"
+                        />
+                      )}
+                      {/* Gradient overlay tingido com a cor do ramo */}
+                      <div
+                        className="pointer-events-none absolute inset-0 -z-10"
+                        style={{
+                          backgroundImage: `linear-gradient(150deg, hsl(${visuals.accent} / 0.85) 0%, hsl(${visuals.accent} / 0.55) 45%, rgba(2,6,23,0.85) 100%)`,
+                        }}
+                      />
                       <div>
-                        <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 ring-1 ring-inset ring-white/15 transition-colors group-hover:bg-white group-hover:text-slate-900">
+                        <span
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/15 ring-1 ring-inset ring-white/25 backdrop-blur transition-colors group-hover:bg-white group-hover:text-slate-900"
+                          style={{ color: "white" }}
+                        >
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
                         <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
-                        <p className="mt-1.5 hidden text-sm leading-relaxed text-white/65 sm:block">
+                        <p className="mt-1.5 hidden text-sm leading-relaxed text-white/85 sm:block">
                           {card.short}
                         </p>
                       </div>
-                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white/85 group-hover:text-white">
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white drop-shadow">
                         Saiba mais
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden />
                       </span>
