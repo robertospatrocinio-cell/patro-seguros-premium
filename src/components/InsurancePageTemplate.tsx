@@ -100,6 +100,14 @@ interface InsurancePageProps {
   quoteUrl?: string;
   heroImage?: string;
   mobileHeroImage?: string;
+  /**
+   * Galeria de 3 a 6 imagens reais do produto (URLs). Quando omitida,
+   * o template gera automaticamente 4 imagens temáticas via Unsplash
+   * a partir de palavras-chave inferidas do título.
+   */
+  galleryImages?: string[];
+  /** Palavras-chave em inglês para o fallback automático de galeria. */
+  galleryKeywords?: string[];
   quoteFormFields?: QuoteFormField[];
   contextualLinks?: ContextualSection;
   featuredArticle?: FeaturedArticle;
@@ -146,6 +154,8 @@ const InsurancePageTemplate = ({
   quoteUrl,
   heroImage,
   mobileHeroImage,
+  galleryImages,
+  galleryKeywords,
   quoteFormFields,
   contextualLinks,
   featuredArticle,
