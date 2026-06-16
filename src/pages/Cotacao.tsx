@@ -585,6 +585,16 @@ const Cotacao = () => {
           </div>
         </section>
 
+        {/* Carrossel de seguros — atalho por categoria */}
+        <HeroInsuranceCarousel
+          headline="Escolha o seguro que você quer cotar"
+          subheadline="Selecione a categoria abaixo e abra a página específica com cobertura, preços e formulário direcionado."
+          origem="hero_carrossel_cotacao"
+          headingId="hero-carrossel-cotacao-heading"
+          as="h2"
+          showCtas={false}
+        />
+
         {/* FAQ Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
