@@ -78,6 +78,9 @@ export const useContacts = () => {
       }
       return data;
     },
+    staleTime: 60_000,
+    gcTime: 5 * 60_000,
+    refetchOnWindowFocus: false,
   });
 
   const createContact = useMutation({
@@ -247,9 +250,9 @@ export const useContacts = () => {
 
   const forceRefetch = async () => {
     try {
-      // Clear cache for this query
-      queryClient.removeQueries({ queryKey: ["contacts"] });
-      // Refetch from database
+      // Invalidate the cache and refetch. Avoid `removeQueries` because it
+      // forces a hard re-mount that doubles the round-trip.
+      await queryClient.invalidateQueries({ queryKey: ["contacts"] });
       await refetch();
       toast.success("Agenda e contatos sincronizados com o servidor.");
     } catch (error: any) {
