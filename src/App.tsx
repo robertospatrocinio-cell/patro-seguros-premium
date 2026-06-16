@@ -68,7 +68,6 @@ const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/Segur
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import Index from "./pages/Index";
 import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
@@ -144,6 +143,7 @@ const SeoSeguroEmpresaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroE
 const SeoSeguroVidaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaGuarulhos"), "SeoSeguroVidaGuarulhos");
 const SeoSeguroMotoristaAppGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"), "SeoSeguroMotoristaAppGuarulhos");
 const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
+const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
 
 const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
