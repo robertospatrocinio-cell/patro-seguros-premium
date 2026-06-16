@@ -95,12 +95,12 @@ const SeguroAuto = () => {
                 Seguro Auto em Guarulhos: Melhor Preço e Cotação em 2h
               </h1>
               <p className="text-base md:text-lg text-white/60 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">
-                Compare seu perfil nas 16 maiores seguradoras do Brasil e economize até 35% no seguro do seu carro. Atendimento humano especializado em Guarulhos.
+                Uma consultoria que analisa seu perfil em 16 seguradoras, encontra a melhor combinação de preço e cobertura para o seu carro — e responde por você em todas as etapas. Economia média de até 35%, com atendimento humano em Guarulhos.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("seguro-auto-hero")}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                    📲 Cotar meu seguro agora
+                    📲 Solicitar análise personalizada
                   </Button>
                 </a>
                 <a href="#coberturas" className="w-full sm:w-auto">
@@ -221,7 +221,7 @@ const SeguroAuto = () => {
             <div className="text-center mt-12">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("seguro-auto-coberturas")}>
                 <Button size="lg" variant="cta" className="rounded-xl h-12 px-8 text-sm">
-                  💬 Falar com especialista no WhatsApp
+                  💬 Conversar com um consultor
                 </Button>
               </a>
             </div>
@@ -330,9 +330,9 @@ const SeguroAuto = () => {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,60%,0.12),transparent)]" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container mx-auto px-4 text-center relative max-w-2xl">
-            <h2 className="text-white mb-4">Não deixe seu patrimônio exposto à sorte.</h2>
+            <h2 className="text-white mb-4">Vamos desenhar a proteção certa para o seu veículo.</h2>
             <p className="text-base text-white/60 mb-12">
-              Imprevistos não mandam aviso. Garanta a segurança do seu veículo hoje mesmo com o melhor custo-benefício de Guarulhos.
+              Antes de contratar qualquer apólice, vale uma conversa de 10 minutos com quem entende de cada seguradora. Receba uma análise comparativa, sem custo e sem compromisso.
             </p>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("seguro-auto-rodape")}>
               <Button size="lg" variant="cta" className="rounded-xl h-14 px-10 text-base animate-pulse">

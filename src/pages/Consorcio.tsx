@@ -87,12 +87,12 @@ const Consorcio = () => {
               Consórcio: A Forma Mais <span className="text-yellow-300">Inteligente</span> de Conquistar Seus Sonhos
             </h1>
             <p className="text-lg md:text-xl opacity-90 mb-8 leading-relaxed">
-              Carro, moto, imóvel ou veículo pesado — sem juros, sem entrada e com parcelas que cabem no seu bolso. Economize até 40% comparado ao financiamento.
+              Carro, moto, imóvel ou veículo pesado — sem juros, sem entrada e com parcelas que cabem no seu orçamento. Nossa consultoria desenha a estratégia de lance e contemplação para você economizar até 40% frente ao financiamento.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-hero")}>
                 <Button size="lg" variant="cta" className="rounded-xl text-base px-8 w-full sm:w-auto">
-                  Simular Consórcio Grátis
+                  Solicitar estudo personalizado
                 </Button>
               </a>
               <a href="tel:1151997500">
@@ -250,15 +250,15 @@ const Consorcio = () => {
       <section className="py-16 md:py-20 bg-gradient-to-r from-primary to-blue-700 text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            Pronto Para Realizar Seu Sonho?
+            Vamos planejar a sua conquista juntos
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-            Faça uma simulação gratuita agora e descubra quanto vai economizar com o consórcio. Sem compromisso!
+            Em uma conversa rápida, montamos uma simulação personalizada com o melhor cenário de prazo, parcela e estratégia de lance — sem compromisso e sem custos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio-cta")}>
               <Button size="lg" variant="cta" className="rounded-xl text-base px-10">
-                Simular Agora pelo WhatsApp
+                Conversar com um consultor
               </Button>
             </a>
             <Link to="/contato">

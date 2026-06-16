@@ -17,10 +17,10 @@ const SeguroVida = () => {
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
       title="Seguro de Vida em Guarulhos | Cotação em 2h | Patro Seguros"
-      subtitle="Proteção financeira para você e sua família em momentos difíceis"
+      subtitle="Consultoria sensível e técnica para garantir estabilidade à sua família — em qualquer cenário"
       icon="❤️"
       metaDescription="Seguro de vida em Guarulhos: proteção familiar completa contra morte, invalidez e doenças graves. Cotação em 2h com as melhores seguradoras na Patro Seguros."
-      description="O Seguro de Vida garante que as pessoas que dependem de você terão recursos para manter o padrão de vida se você faltar ou não puder trabalhar."
+      description="O Seguro de Vida é, antes de qualquer cobertura, um ato de planejamento. Ele garante que as pessoas que dependem de você manterão o padrão de vida — caso falte ou não consiga mais gerar renda — e dá a você o controle de definir, em vida, como esse cuidado será entregue."
       detailedDescription={`Muitos brasileiros associam o seguro de vida apenas à morte, mas as coberturas mais acionadas são as de invalidez e doenças graves — situações em que o segurado está vivo, mas impossibilitado de gerar renda. Um profissional de 40 anos que sofre um acidente grave e fica impossibilitado de trabalhar enfrenta décadas de despesas sem receita.
 
 Segundo dados do mercado segurador, apenas 18% dos brasileiros possuem seguro de vida. Isso significa que a maioria das famílias não tem nenhuma rede de proteção financeira em caso de imprevistos graves com o principal provedor.
@@ -108,7 +108,7 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         { question: "Seguro de vida em grupo (empresa) é suficiente?", answer: "Geralmente não. O seguro de vida em grupo oferecido pela empresa costuma ter capitais baixos (12 a 24 salários) e você perde a cobertura ao sair da empresa. O ideal é ter um seguro individual com capital adequado como base e considerar o do grupo como complemento." },
       ]}
       contextualLinks={{
-        heading: "Proteção completa vai além do seguro de vida",
+        heading: "Vamos conversar sobre proteção patrimonial completa",
         paragraphs: [
           "O seguro de vida protege financeiramente quem você ama. Mas a proteção da família vai além: seu imóvel é provavelmente o maior patrimônio da família — e o seguro residencial protege contra incêndio, roubo e danos elétricos a partir de R$ 150/ano.",
           "Se você é autônomo ou profissional liberal, considere também o seguro de acidentes pessoais para complementar a cobertura. Para quem busca construir patrimônio a longo prazo, a previdência privada é o complemento ideal ao seguro de vida. E não esqueça: um bom plano de saúde garante acesso rápido a tratamentos que podem salvar vidas.",

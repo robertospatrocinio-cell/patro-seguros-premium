@@ -46,7 +46,7 @@ const Sobre = () => {
             </div>
             <h1 className="text-white mb-4">Corretora de Seguros em Guarulhos</h1>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Uma corretora feita de pessoas reais, com experiência real, cuidando de famílias e empresas reais em Guarulhos e em todo o Brasil.
+              Uma consultoria de seguros feita por pessoas reais — para cuidar, com método e proximidade, de famílias, empresários e produtores em Guarulhos e em todo o Brasil.
             </p>
           </div>
         </section>

@@ -141,7 +141,7 @@ const Contato = () => {
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-white mb-6">Fale Conosco</h1>
               <p className="text-xl text-white/70">
-                Estamos prontos para atender você. Entre em contato e descubra como podemos te ajudar
+                Conte com uma consultoria próxima, técnica e sem pressa. Escolha o canal que preferir — respondemos em até 2 horas úteis.
               </p>
             </div>
           </div>
