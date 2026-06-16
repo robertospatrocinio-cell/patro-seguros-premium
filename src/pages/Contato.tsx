@@ -369,7 +369,24 @@ const Contato = () => {
               Nossa equipe está pronta para atender você via WhatsApp ou telefone
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a
+                href={buildWhatsAppUrl({ origem: "contato_fale_conosco" })}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+                onClick={() => {
+                  try {
+                    window.gtag?.("event", "clique_whatsapp_contato", {
+                      event_category: "contato",
+                      origem: "contato_fale_conosco",
+                      url_destino: buildWhatsAppUrl({ origem: "contato_fale_conosco" }),
+                    });
+                  } catch {
+                    /* noop */
+                  }
+                  trackWhatsAppClick("contato-fale-conosco", { origin: "contato_fale_conosco" });
+                }}
+              >
                 <Button size="lg" variant="cta" className="w-full sm:w-auto text-lg px-8">
                   <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
                   Chamar no WhatsApp
