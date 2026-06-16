@@ -185,6 +185,14 @@ const restoredRoutes: SitemapEntry[] = [
   "/seguro-equipamentos-odontologicos",
   "/plano-saude-clinicas-odontologicas",
   "/seguro-vida-clinicas-odontologicas",
+  // === Patro Private (camada premium) ===
+  "/patro-private",
+  "/seguro-auto-premium-guarulhos",
+  "/seguro-carros-luxo-guarulhos",
+  "/seguro-residencial-alto-padrao-guarulhos",
+  "/seguros-para-empresarios-guarulhos",
+  "/seguro-carro-blindado-guarulhos",
+  "/protecao-patrimonial-familiar-guarulhos",
 ].map(loc => ({ loc, priority: "0.6", changefreq: "monthly" }));
 
  /**
