@@ -47,6 +47,39 @@ type InsuranceCard = {
   slug: string;
 };
 
+/**
+ * Identidade visual por ramo: foto temática (Unsplash, CDN otimizada)
+ * + cor de acento HSL para o gradiente do card.
+ */
+const UNSPLASH = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=640&q=70`;
+
+const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> = {
+  // Pessoa
+  "seguro-auto":         { bg: UNSPLASH("1492144534655-ae79c964c9d7"), accent: "210 90% 55%", alt: "Carro em estrada" },
+  "seguro-moto":         { bg: UNSPLASH("1558981806-ec527fa84c39"), accent: "0 75% 55%",    alt: "Motocicleta esportiva" },
+  "seguro-residencial":  { bg: UNSPLASH("1568605114967-8130f3a36994"), accent: "150 55% 45%", alt: "Casa moderna" },
+  "seguro-vida":         { bg: UNSPLASH("1511895426328-dc8714191300"), accent: "340 70% 55%", alt: "Família reunida" },
+  "plano-saude":         { bg: UNSPLASH("1576091160550-2173dba999ef"), accent: "190 75% 50%", alt: "Atendimento médico" },
+  "seguro-viagem":       { bg: UNSPLASH("1436491865332-7a61a109cc05"), accent: "200 85% 55%", alt: "Avião sobre nuvens" },
+  "seguro-celular":      { bg: UNSPLASH("1512941937669-90a1b58e7e9c"), accent: "270 65% 60%", alt: "Smartphone em uso" },
+  "seguro-motorista-app":{ bg: UNSPLASH("1549317661-bd32c8ce0db2"), accent: "45 95% 55%",  alt: "Motorista de aplicativo" },
+  "consorcio":           { bg: UNSPLASH("1560518883-ce09059eeffa"), accent: "30 90% 55%",  alt: "Chave de imóvel" },
+  // Empresa
+  "seguro-empresarial":  { bg: UNSPLASH("1486406146926-c627a92ad1ab"), accent: "215 70% 50%", alt: "Prédio comercial" },
+  "seguro-frota":        { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 85% 55%",  alt: "Frota de veículos" },
+  "seguro-transporte":   { bg: UNSPLASH("1494412519320-aa613dfb7738"), accent: "35 80% 50%",  alt: "Caminhão de carga" },
+  "transportadoras":     { bg: UNSPLASH("1586528116311-ad8dd3c8310d"), accent: "210 65% 45%", alt: "Operação logística" },
+  "seguro-galpao":       { bg: UNSPLASH("1553413077-190dd305871c"), accent: "30 70% 45%",  alt: "Galpão industrial" },
+  "plano-saude-pme":     { bg: UNSPLASH("1576091160399-112ba8d25d1d"), accent: "180 70% 45%", alt: "Equipe médica corporativa" },
+  "vida-em-grupo":       { bg: UNSPLASH("1521737604893-d14cc237f11d"), accent: "330 65% 55%", alt: "Equipe de trabalho" },
+  "seguro-rc":           { bg: UNSPLASH("1505664194779-8beaceb93744"), accent: "240 60% 55%", alt: "Aperto de mãos profissional" },
+  "seguro-cyber":        { bg: UNSPLASH("1550751827-4bd374c3f58b"), accent: "260 70% 60%", alt: "Servidor de dados" },
+  "seguro-engenharia":   { bg: UNSPLASH("1503387762-592deb58ef4e"), accent: "45 90% 50%",  alt: "Obra de engenharia" },
+};
+
+const DEFAULT_ACCENT = "210 70% 50%";
+
 const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Auto", short: "Carro, terceiros e assistência 24h.", href: "/seguro-auto-guarulhos", Icon: Car, slug: "seguro-auto" },
   { title: "Seguro Moto", short: "Proteção para sua moto no dia a dia.", href: "/seguro-moto-guarulhos", Icon: Bike, slug: "seguro-moto" },
@@ -317,6 +350,11 @@ const HeroInsuranceCarousel = ({
             <ul className="-ml-3 flex list-none md:-ml-4">
               {cards.map((card) => {
                 const Icon = card.Icon;
+                const visuals = CARD_VISUALS[card.slug] ?? {
+                  bg: "",
+                  accent: DEFAULT_ACCENT,
+                  alt: card.title,
+                };
                 return (
                   <li
                     key={`${audience}-${card.slug}`}
@@ -325,18 +363,43 @@ const HeroInsuranceCarousel = ({
                     <Link
                       to={card.href}
                       onClick={() => handleCardClick(card)}
-                      className="group flex h-full flex-col justify-between rounded-xl border border-white/12 bg-white/[0.06] p-5 text-left backdrop-blur transition-all hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+                      aria-label={`${card.title} — ${card.short}`}
+                      className="group relative isolate flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-xl border border-white/12 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+                      style={{
+                        backgroundColor: `hsl(${visuals.accent} / 0.18)`,
+                      }}
                     >
+                      {/* Foto temática de fundo */}
+                      {visuals.bg && (
+                        <img
+                          src={visuals.bg}
+                          alt=""
+                          aria-hidden
+                          loading="lazy"
+                          decoding="async"
+                          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-35 transition-opacity duration-300 group-hover:opacity-55 motion-reduce:transition-none"
+                        />
+                      )}
+                      {/* Gradient overlay tingido com a cor do ramo */}
+                      <div
+                        className="pointer-events-none absolute inset-0 -z-10"
+                        style={{
+                          backgroundImage: `linear-gradient(150deg, hsl(${visuals.accent} / 0.85) 0%, hsl(${visuals.accent} / 0.55) 45%, rgba(2,6,23,0.85) 100%)`,
+                        }}
+                      />
                       <div>
-                        <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 ring-1 ring-inset ring-white/15 transition-colors group-hover:bg-white group-hover:text-slate-900">
+                        <span
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/15 ring-1 ring-inset ring-white/25 backdrop-blur transition-colors group-hover:bg-white group-hover:text-slate-900"
+                          style={{ color: "white" }}
+                        >
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
                         <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
-                        <p className="mt-1.5 hidden text-sm leading-relaxed text-white/65 sm:block">
+                        <p className="mt-1.5 hidden text-sm leading-relaxed text-white/85 sm:block">
                           {card.short}
                         </p>
                       </div>
-                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white/85 group-hover:text-white">
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white drop-shadow">
                         Saiba mais
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden />
                       </span>
