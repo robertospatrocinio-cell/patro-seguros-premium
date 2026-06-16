@@ -3,7 +3,7 @@ import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { debounce } from "lodash-es";
+import { debounce } from "@/lib/debounce";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";

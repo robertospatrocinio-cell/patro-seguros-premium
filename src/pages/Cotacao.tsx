@@ -1,6 +1,6 @@
 import { useState, useEffect, Fragment, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { debounce } from "lodash-es";
+import { debounce } from "@/lib/debounce";
 import { useSearchParams } from "react-router-dom";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { escapeHtml } from "@/lib/utils";
