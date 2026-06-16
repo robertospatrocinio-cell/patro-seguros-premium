@@ -17,8 +17,10 @@ const DEFAULT_TRACKING_LABEL = "botao-fixo";
 const WhatsAppButton = () => {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isUserScrolling, setIsUserScrolling] = useState(false);
   const location = useLocation();
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const scrollStopTimeoutRef = useRef<number | null>(null);
 
   // Lê override (mensagem + tracking label) ditado por páginas locais.
   const override = useSyncExternalStore(
@@ -28,10 +30,18 @@ const WhatsAppButton = () => {
   );
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 300);
+    const onScroll = () => {
+      setVisible(window.scrollY > 300);
+      setIsUserScrolling(true);
+      if (scrollStopTimeoutRef.current) window.clearTimeout(scrollStopTimeoutRef.current);
+      scrollStopTimeoutRef.current = window.setTimeout(() => setIsUserScrolling(false), 700);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (scrollStopTimeoutRef.current) window.clearTimeout(scrollStopTimeoutRef.current);
+    };
   }, []);
 
   // Close mobile menu on outside click / Esc / route change
@@ -90,8 +100,8 @@ const WhatsAppButton = () => {
       </div>
 
       <div
-        className={`fixed bottom-4 right-4 z-50 flex flex-col items-end gap-2 transition-all duration-300 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+        className={`fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-50 flex flex-col items-end gap-2 transition-all duration-300 motion-reduce:transition-none lg:bottom-4 lg:right-4 ${
+          visible && (!isUserScrolling || open) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
         {/* === MOBILE: FAB retrátil agrupando as 3 ações === */}
@@ -153,7 +163,7 @@ const WhatsAppButton = () => {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Fechar menu de atendimento" : "Abrir menu de atendimento"}
             aria-expanded={open}
-            className="relative bg-primary text-primary-foreground rounded-full p-3 shadow-xl active:scale-95 transition-transform"
+            className="relative bg-primary text-primary-foreground rounded-full p-2.5 shadow-xl active:scale-95 transition-transform"
           >
             {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
             {!open && (
