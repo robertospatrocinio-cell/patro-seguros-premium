@@ -167,6 +167,8 @@ const legal: SitemapEntry[] = [
 const restoredRoutes: SitemapEntry[] = [
   "/central-de-sinistro",
   "/ebook-consorcio",
+  "/hub-rc", "/hub-empresarial", "/hub-patrimonio",
+  "/hub-veiculos", "/hub-vida-saude",
   "/consorcio-carro", "/consorcio-imoveis", "/consorcio-veiculos-pesados",
   "/nicho-transportadoras",
   "/seguro-condominio-empresarial", "/seguro-condominio-residencial",
