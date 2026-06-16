@@ -20,6 +20,16 @@ const addDiagnosticLog = (log: { type: 'error' | 'network' | 'console', message:
   }
 };
 
+const formatConsoleArg = (arg: unknown) => {
+  if (arg instanceof Error) return `${arg.name}: ${arg.message}`;
+  if (typeof arg !== "object" || arg === null) return String(arg);
+  try {
+    return JSON.stringify(arg);
+  } catch {
+    return Object.prototype.toString.call(arg);
+  }
+};
+
 async function getSentry() {
   if (sentryInstance) return sentryInstance;
   if (!import.meta.env.VITE_SENTRY_DSN) return null;
@@ -40,7 +50,7 @@ export const initMonitoring = async () => {
     const originalConsoleWarn = console.warn;
     
     console.error = function(this: any, ...args: any[]) {
-      const message = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+      const message = args.map(formatConsoleArg).join(' ');
       addDiagnosticLog({
         type: 'error',
         message: `Console Error: ${message}`,
@@ -50,7 +60,7 @@ export const initMonitoring = async () => {
     };
 
     console.warn = function(this: any, ...args: any[]) {
-      const message = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+      const message = args.map(formatConsoleArg).join(' ');
       addDiagnosticLog({
         type: 'console',
         message: `Console Warning: ${message}`,
