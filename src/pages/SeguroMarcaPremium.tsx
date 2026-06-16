@@ -61,7 +61,10 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
           <div className="absolute inset-0 z-0">
             <img
               src={config.heroImage}
-              alt={`Seguro ${config.name} em Guarulhos com cotação online pela Patro Seguros`}
+              alt={`Seguro ${config.name} com cotação online — Patro Seguros, Corretora em Guarulhos/SP`}
+              title={`Seguro ${config.name} — Patro Seguros, Corretora em Guarulhos/SP`}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover opacity-60"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
@@ -154,7 +157,10 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
           <div className="absolute right-0 top-0 w-1/2 h-full hidden lg:block">
             <img 
               src={config.middleImage} 
-              alt={`Detalhe do veículo ${config.name} - Seguro de carros de luxo`} 
+              alt={`Detalhe ${config.name} — Seguro de carros de luxo na Patro Seguros, Corretora em Guarulhos/SP`}
+              title={`Seguro ${config.name} — Patro Seguros, Corretora em Guarulhos/SP`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover opacity-30 grayscale"
             />
           </div>
