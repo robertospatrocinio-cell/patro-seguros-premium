@@ -24,7 +24,6 @@ export default {
     float: false,
     clear: false,
     skew: false,
-    fontVariantNumeric: false,
     verticalAlign: false,
     accentColor: false,
     caretColor: false,
@@ -63,7 +62,6 @@ export default {
     boxShadowColor: false,
     ringOffsetColor: false,
     ringOffsetWidth: false,
-    accentColor: false,
   },
   theme: {
     container: {
