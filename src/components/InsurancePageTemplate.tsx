@@ -27,6 +27,54 @@ import SmartText from "@/components/SmartText";
 import { getBreadcrumbCategory } from "@/lib/breadcrumbCategory";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 
+// Inferência de palavras-chave (em inglês) para a galeria temática automática
+const inferGalleryKeywords = (title: string): string[] => {
+  const t = title.toLowerCase();
+  const map: Array<[RegExp, string[]]> = [
+    [/silo|arma(z|s)|gr[ãa]os|colheitadeira|safra/, ["grain silo farm", "grain harvest", "farm storage", "agriculture wheat"]],
+    [/trator|m[áa]quina agr[íi]cola|colheit|agro|rural|fazenda/, ["tractor farm field", "agriculture brazil", "harvest combine", "farm landscape"]],
+    [/granja|av[íi]cola|aves|frango/, ["poultry farm", "chicken farm", "rural farm shed", "agriculture poultry"]],
+    [/m[áa]quinas?.*linha amarela|escavadeira|retroescavadeira|p[áa] carregadeira/, ["excavator construction", "yellow heavy machinery", "construction site", "heavy equipment"]],
+    [/m[áa]quinas?.*industriais?/, ["industrial machinery", "factory floor", "manufacturing plant", "industrial equipment"]],
+    [/galp[ãa]o|log[íi]stica|armaz[ée]m|patrimon/, ["warehouse interior", "logistics warehouse", "industrial warehouse", "shipping pallets"]],
+    [/frota|cami(nh)?[ãa]o|transporte/, ["truck fleet highway", "logistics truck", "cargo trucks", "transport brazil"]],
+    [/auto|carro|ve[íi]culo/, ["new car", "car driving city", "automobile brazil", "modern sedan"]],
+    [/moto/, ["motorcycle city", "motorbike rider", "sport motorcycle", "urban motorbike"]],
+    [/bike|bicicleta|ciclista/, ["bicycle city", "road cyclist", "mountain bike", "urban bike"]],
+    [/celular|smartphone/, ["smartphone", "mobile phone hand", "modern smartphone", "phone screen"]],
+    [/drone/, ["drone flying", "aerial drone", "quadcopter sky", "drone landscape"]],
+    [/avi[ãa]o|avia[çc][ãa]o|aeronave/, ["private jet", "small airplane", "aircraft runway", "aviation cockpit"]],
+    [/embarca[çc][ãa]o|barco|lancha|n[áa]utico/, ["luxury boat", "yacht marina", "speedboat", "sailing boat"]],
+    [/jet ?ski|jetski/, ["jet ski water", "jetski beach", "personal watercraft", "ocean recreation"]],
+    [/residencial|casa|im[óo]vel|moradia/, ["modern house", "family home interior", "cozy living room", "residential home"]],
+    [/condom[íi]nio/, ["condo building", "modern condominium", "apartment lobby", "residential tower"]],
+    [/fian[çc]a|aluguel|locat/, ["house keys hand", "apartment rental", "real estate keys", "modern apartment"]],
+    [/saude|sa[úu]de|hospital|m[ée]dic|cl[íi]nica/, ["doctor consultation", "modern hospital", "stethoscope hands", "healthcare brazil"]],
+    [/odonto|dent/, ["dental clinic", "dentist office", "modern dentistry", "dental chair"]],
+    [/pet|animal|c[ãa]o|gato/, ["happy dog", "pet veterinary", "cat home", "puppy family"]],
+    [/funeral/, ["white lily flowers", "candle memorial", "peaceful sunset", "minimalist tribute"]],
+    [/vida|fam[íi]lia/, ["happy family brazil", "family hands together", "smiling parents kids", "family sunset"]],
+    [/viagem|travel/, ["airport traveler", "passport luggage", "vacation beach", "tourist suitcase"]],
+    [/cyber|digital|dados|ti/, ["server room", "cyber security code", "data center", "developer screen"]],
+    [/engenharia|obra|constru/, ["construction site engineer", "civil engineering", "building under construction", "architect blueprints"]],
+    [/solar|energia|fotovolt/, ["solar panels rooftop", "solar farm sunset", "photovoltaic panels", "renewable energy"]],
+    [/ambiental|meio ambiente/, ["green forest brazil", "environmental nature", "river forest aerial", "sustainability"]],
+    [/loja|com[ée]rcio|varejo/, ["modern retail store", "boutique interior", "shop counter", "small business owner"]],
+    [/empresa|empresarial|pme|neg[óo]cio/, ["modern office team", "business meeting brazil", "startup workspace", "corporate handshake"]],
+    [/rc|responsabilidade civil/, ["business handshake contract", "lawyer office", "professional meeting", "corporate office"]],
+    [/previd[êe]ncia|aposentad/, ["happy retired couple", "senior couple beach", "elderly hands", "retirement planning"]],
+    [/cons[óo]rcio/, ["new car keys", "house keys couple", "real estate handover", "smiling owner car"]],
+    [/motorista de app|uber|99/, ["rideshare driver", "uber driver car", "app driver smartphone", "city driver"]],
+  ];
+  for (const [re, kws] of map) if (re.test(t)) return kws;
+  return ["insurance brazil", "professional handshake", "modern office", "family home"];
+};
+
+const buildAutoGallery = (title: string, keywords?: string[]): string[] => {
+  const kws = (keywords && keywords.length > 0 ? keywords : inferGalleryKeywords(title)).slice(0, 4);
+  return kws.map((kw, i) => `https://source.unsplash.com/featured/800x600/?${encodeURIComponent(kw)}&sig=${i + 1}`);
+};
+
 // Map page title keywords to the Cotacao select values
 const inferQuoteType = (title: string): string => {
   const t = title.toLowerCase();
@@ -100,6 +148,14 @@ interface InsurancePageProps {
   quoteUrl?: string;
   heroImage?: string;
   mobileHeroImage?: string;
+  /**
+   * Galeria de 3 a 6 imagens reais do produto (URLs). Quando omitida,
+   * o template gera automaticamente 4 imagens temáticas via Unsplash
+   * a partir de palavras-chave inferidas do título.
+   */
+  galleryImages?: string[];
+  /** Palavras-chave em inglês para o fallback automático de galeria. */
+  galleryKeywords?: string[];
   quoteFormFields?: QuoteFormField[];
   contextualLinks?: ContextualSection;
   featuredArticle?: FeaturedArticle;
@@ -146,6 +202,8 @@ const InsurancePageTemplate = ({
   quoteUrl,
   heroImage,
   mobileHeroImage,
+  galleryImages,
+  galleryKeywords,
   quoteFormFields,
   contextualLinks,
   featuredArticle,
@@ -295,6 +353,53 @@ const InsurancePageTemplate = ({
         {showAgrishowBanner && (
           <AgrishowPromoBanner source={title.toLowerCase().replace(/\s+/g, "-")} variant="compact" />
         )}
+
+        {/* Galeria temática do produto (3-6 imagens reais) */}
+        {(() => {
+          const gallery = (galleryImages && galleryImages.length >= 3)
+            ? galleryImages.slice(0, 6)
+            : buildAutoGallery(title, galleryKeywords);
+          if (!gallery || gallery.length < 3) return null;
+          const colsClass = gallery.length >= 6
+            ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-6"
+            : gallery.length === 5
+            ? "grid-cols-2 md:grid-cols-5"
+            : gallery.length === 4
+            ? "grid-cols-2 md:grid-cols-4"
+            : "grid-cols-1 sm:grid-cols-3";
+          return (
+            <section className="py-12 md:py-16 bg-gradient-surface border-y border-border/60" aria-labelledby="galeria-heading">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-8 md:mb-10">
+                  <span className="section-label">Veja na prática</span>
+                  <h2 id="galeria-heading" className="mt-3 text-2xl md:text-3xl text-foreground">
+                    {title}: o que protegemos
+                  </h2>
+                </div>
+                <div className={`grid ${colsClass} gap-3 md:gap-4`}>
+                  {gallery.map((src, i) => (
+                    <figure
+                      key={`${src}-${i}`}
+                      className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted shadow-sm transition-smooth hover:shadow-lg"
+                    >
+                      <img
+                        src={src}
+                        alt={`${title} — imagem ${i + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={800}
+                        height={600}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = "none"; }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </section>
+          );
+        })()}
 
         {/* Descrição */}
         <section className="py-20" aria-labelledby="descricao-heading">
