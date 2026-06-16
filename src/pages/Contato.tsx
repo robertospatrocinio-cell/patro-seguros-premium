@@ -179,7 +179,13 @@ const Contato = () => {
                 <CardContent className="pt-6">
                   <MessageCircle className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">WhatsApp</h3>
-                  <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">(11) 5199-7500</a>
+                  <a
+                    href={buildWhatsAppUrl({ origem: "contato_card_info" })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                    onClick={() => trackWhatsAppClick("contato-card-info", { origin: "contato_card_info" })}
+                  >(11) 5199-7500</a>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-base">
