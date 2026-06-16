@@ -221,11 +221,11 @@ const Header = memo(() => {
 
   return (
     <>
-    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'translate-y-[-32px] md:translate-y-[-36px]' : 'translate-y-0'}`}>
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'md:translate-y-[-36px]' : 'translate-y-0'}`}>
       <div className="bg-foreground">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-1.5 text-[11px]">
-            <div className="flex items-center gap-5">
+          <div className="flex items-center justify-between py-1.5 text-[11px] gap-3">
+            <div className="flex items-center gap-3 sm:gap-5 min-w-0 flex-1">
               <div className="hidden lg:flex items-center gap-1 bg-white/5 px-2 py-0.5 rounded border border-white/10">
                 <div className="flex text-yellow-400">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-2.5 w-2.5 fill-current" aria-hidden="true" />)}
@@ -236,27 +236,26 @@ const Header = memo(() => {
                 <MapPin className="h-3 w-3" aria-hidden="true" role="presentation" />
                 Cidade Maia, Guarulhos/SP
               </span>
-              <a href="tel:1151997500" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-base">
-                <Phone className="h-3 w-3" aria-hidden="true" role="presentation" />
-                <span className="hidden sm:inline">(11) 5199-7500</span>
+              <a href="tel:1151997500" aria-label="Ligar (11) 5199-7500" className="flex items-center gap-1.5 text-white hover:text-white/80 transition-base font-medium">
+                <Phone className="h-3.5 w-3.5" aria-hidden="true" role="presentation" />
+                <span>(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/80 hover:text-white transition-base">
-                <Mail className="h-3 w-3" aria-hidden="true" role="presentation" />
-                <span className="hidden md:inline">contato@patroseguros.com.br</span>
+              <a href="mailto:contato@patroseguros.com.br" aria-label="Enviar e-mail" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
+                <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" role="presentation" />
+                <span className="hidden md:inline truncate">contato@patroseguros.com.br</span>
               </a>
             </div>
-            <div className="flex items-center gap-3">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-green-400 transition-base" onClick={() => trackWhatsAppClick("header_top")}>
-                      <MessageCircle className="h-3 w-3" aria-hidden="true" role="presentation" />
-                    </a>
-                  </TooltipTrigger>
-                  <TooltipContent side="bottom" className="text-[10px] py-1 px-2">WhatsApp</TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </div>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Falar no WhatsApp"
+              onClick={() => trackWhatsAppClick("header_top")}
+              className="flex items-center gap-1.5 bg-[#25D366] hover:bg-[#1ebe57] text-white rounded-full px-2.5 py-1 text-[11px] font-semibold transition-base shrink-0"
+            >
+              <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+              <span className="hidden sm:inline">WhatsApp</span>
+            </a>
           </div>
         </div>
       </div>
