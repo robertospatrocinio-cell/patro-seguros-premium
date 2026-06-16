@@ -650,6 +650,18 @@ const App = () => {
                   <Route path="/seguro-valtra-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
                   {/* Vistoria — empresas */}
                   <Route path="/seguro-para-empresas-de-vistoria-veicular" element={<Navigate to="/seguro-vistoria-veicular-guarulhos" replace />} />
+                  {/* Fase 3: últimos resíduos */}
+                  <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
+                  <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
+                  <Route path="/seguro-condominio-guarulhos" element={<Navigate to="/seguro-condominio" replace />} />
+                  <Route path="/seguro-carro-eletrico-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-civic-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-compass-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-corolla-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-case-ih-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
+                  <Route path="/seguro-empresarial-bonsucesso" element={<Navigate to="/seguros-guarulhos/bonsucesso" replace />} />
+                  <Route path="/seguro-empresarial-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
+                  <Route path="/seguro-empresarial-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
