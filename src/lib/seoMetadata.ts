@@ -206,6 +206,80 @@ const premiumPages: Record<string, PremiumMeta> = {
     h1: "Hub de Seguros de Vida, Saúde e Previdência",
     collection: true,
   },
+
+  // ===== Patro Private (camada premium) =====
+  "/patro-private": {
+    title: "Patro Private | Seguros Premium em Guarulhos",
+    description: "Consultoria em seguros premium para veículos de alto valor, residências, empresários e proteção patrimonial em Guarulhos.",
+    h1: "Patro Private: Proteção Patrimonial e Seguros Premium",
+    serviceType: "Consultoria em Seguros Premium e Proteção Patrimonial",
+    faqs: [
+      { question: "O que é a Patro Private?", answer: "É uma vertical consultiva da Patro Seguros dedicada a clientes com patrimônio relevante: análise técnica, comparação entre seguradoras e estrutura de proteção sob medida." },
+      { question: "Atende clientes fora de Guarulhos?", answer: "Sim. A sede é em Guarulhos/SP, mas o atendimento Patro Private cobre todo o Brasil para clientes premium." },
+      { question: "É preciso ter patrimônio mínimo?", answer: "Não há um valor mínimo declarado. A análise é apropriada para quem busca cobertura técnica e atendimento consultivo, não decisão exclusiva por preço." },
+    ],
+  },
+  "/seguro-auto-premium-guarulhos": {
+    title: "Seguro Auto Premium em Guarulhos | Patro",
+    description: "Seguro para veículos premium, importados e blindados em Guarulhos. Compare coberturas completas com atendimento consultivo.",
+    h1: "Seguro Auto Premium em Guarulhos",
+    serviceType: "Seguro Auto para Veículos Premium",
+    faqs: [
+      { question: "O seguro auto premium é muito mais caro?", answer: "Não necessariamente. O prêmio depende do perfil do condutor, CEP, uso e cobertura. Ajustar cláusulas (em vez de comprar a apólice mais cara) costuma gerar proteção melhor com prêmio equivalente ao convencional." },
+      { question: "Vocês trabalham com oficinas autorizadas das montadoras premium?", answer: "Sim. Validamos com cada seguradora a rede referenciada para a marca específica do seu veículo antes de fechar a apólice." },
+      { question: "Posso ter cobertura para uso eventual de outro condutor?", answer: "Sim. Pode ser estruturada com condutores nomeados ou cobertura ampla para eventuais." },
+    ],
+  },
+  "/seguro-carros-luxo-guarulhos": {
+    title: "Seguro Para Carros de Luxo em Guarulhos | Patro",
+    description: "Proteção para Porsche, BMW, Mercedes, Audi, Volvo, Land Rover e veículos de alto valor em Guarulhos.",
+    h1: "Seguro para Carros de Luxo em Guarulhos",
+    serviceType: "Seguro para Carros de Luxo",
+    faqs: [
+      { question: "Vocês trabalham com Porsche e Range Rover?", answer: "Sim. Estruturamos apólices para essas e outras marcas premium com seguradoras que possuem rede e regulação compatível." },
+      { question: "É possível segurar veículo importado sem FIPE clara?", answer: "Sim, por meio de apólice por valor determinado, com laudo técnico e documentação adequada." },
+    ],
+  },
+  "/seguro-residencial-alto-padrao-guarulhos": {
+    title: "Seguro Residencial Alto Padrão | Patro",
+    description: "Seguro para casas, apartamentos e condomínios de alto padrão em Guarulhos, com cobertura sob medida e assistência.",
+    h1: "Seguro Residencial Alto Padrão em Guarulhos",
+    serviceType: "Seguro Residencial para Imóveis de Alto Padrão",
+    faqs: [
+      { question: "Casa em condomínio fechado precisa de seguro próprio?", answer: "Sim. O seguro do condomínio cobre áreas comuns e estrutura coletiva, não o conteúdo nem a estrutura privativa da sua residência." },
+      { question: "Posso incluir obras de arte e joias?", answer: "Sim, mediante laudo e declaração de itens, com cobertura específica e franquia adequada." },
+    ],
+  },
+  "/seguros-para-empresarios-guarulhos": {
+    title: "Seguros Para Empresários em Guarulhos | Patro",
+    description: "Proteção para empresários, sócios e executivos: vida, saúde, D&O, RC, cyber, frota, patrimônio e sucessão.",
+    h1: "Seguros para Empresários em Guarulhos",
+    serviceType: "Consultoria em Seguros para Empresários e Executivos",
+    faqs: [
+      { question: "Quando D&O passa a fazer sentido?", answer: "Geralmente quando a empresa cresce e o sócio ou administrador toma decisões com impacto financeiro relevante para terceiros, conselheiros ou investidores. Avaliamos caso a caso." },
+      { question: "Vocês atendem indústrias em Cumbica?", answer: "Sim. Temos atuação consolidada em galpões e indústrias na região de Cumbica e arredores do Aeroporto de Guarulhos." },
+    ],
+  },
+  "/seguro-carro-blindado-guarulhos": {
+    title: "Seguro Para Carro Blindado em Guarulhos | Patro",
+    description: "Seguro para veículos blindados em Guarulhos, com análise de perfil, cobertura completa e seguradoras especializadas.",
+    h1: "Seguro para Carro Blindado em Guarulhos",
+    serviceType: "Seguro para Veículos Blindados",
+    faqs: [
+      { question: "Qualquer seguradora aceita blindado?", answer: "Não. Algumas seguradoras restringem por região, perfil ou modelo. A Patro consulta as que efetivamente operam essa categoria." },
+      { question: "Posso blindar um carro já segurado?", answer: "Sim, mas é necessário comunicar a seguradora, apresentar nota fiscal da blindagem e atualizar a soma segurada e o sublimite de vidros." },
+    ],
+  },
+  "/protecao-patrimonial-familiar-guarulhos": {
+    title: "Proteção Patrimonial Familiar | Patro",
+    description: "Planejamento de seguros para proteger família, patrimônio, imóveis, veículos, vida e continuidade financeira.",
+    h1: "Proteção Patrimonial Familiar em Guarulhos",
+    serviceType: "Planejamento Integrado de Proteção Patrimonial Familiar",
+    faqs: [
+      { question: "Como vocês calculam a soma segurada do seguro de vida?", answer: "A partir de variáveis: dívidas, padrão de vida, tempo de dependência dos filhos, renda do cônjuge e objetivos sucessórios. É uma análise consultiva." },
+      { question: "Com que frequência a apólice deve ser revisada?", answer: "Recomendamos revisão anual ou sempre que houver evento relevante: novo filho, mudança de imóvel, novo veículo, mudança de cargo ou de renda." },
+    ],
+  },
 };
 
 function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {

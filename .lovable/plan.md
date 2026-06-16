@@ -1,129 +1,99 @@
-# Plano de refatoração e otimização — Patro Seguros
+# Plano: Patro Private — Camada Premium + Auditoria SEO
 
-Cada etapa é entregável de forma independente, com critério de pronto e métrica antes/depois. Recomendo executar nesta ordem (do menor risco e maior ROI ao mais estrutural).
+Escopo grande. Vou executar em **5 fases sequenciais**, validando build/prerender ao fim de cada uma. Sem quebrar URLs, sem alterar metadata existente, sem inventar números.
 
----
+## Fase A — Auditoria técnica (sem alterações)
 
-## Etapa 1 — Higiene de código e segurança (1 PR pequeno)
+Antes de criar qualquer coisa, rodar checagem de regressão no HTML prerenderizado das URLs críticas:
 
-**Objetivo:** remover ruído operacional e fechar pontas soltas que já mapeei.
+- `/`
+- `/seguro-auto-guarulhos`
+- `/lp/seguro-auto`
+- `/seguro-empresarial-guarulhos`
+- `/plano-saude-guarulhos`
+- `/blog/quanto-custa-seguro-auto-guarulhos-2026`
+- `/politica-privacidade`
 
-- Remover `console.log` restantes em código de produção (`PerformanceDiagnostico` e demais).
-- Padronizar `console.error` cru com objeto `Error` (não `error.message`) para preservar stack no Sentry.
-- Trocar `(window as any).fbq/gtag` por tipos compartilhados em `src/types/tracking.d.ts`.
-- Auditar todas as rotas `/admin/*` confirmando `<RequireAdmin>` (já feito p/ `/performance`).
-- Confirmar `escapeHtml` em **todo** campo dinâmico injetado em e-mail das Edge Functions.
+Validar em cada `dist/<rota>/index.html`: title único, description única, H1 único, canonical próprio, og:url próprio, conteúdo específico (não conteúdo da home), schema presente.
 
-**Pronto quando:** `rg -n "console\.(log|warn)" src/ | wc -l` ≤ 5 (apenas debug intencional) e `rg -n "as any" src/lib src/hooks | wc -l` reduzido em 50%.
+**Entregável:** relatório curto. Se houver regressão, corrijo antes de prosseguir.
 
----
+## Fase B — Sistema de design premium (tokens, sem alterar páginas)
 
-## Etapa 2 — Tipagem forte dos hooks de dados (1 PR médio)
+Adicionar tokens semânticos para a vertical premium em `src/index.css` (sem mexer nos existentes):
 
-**Objetivo:** eliminar os ~145 `no-explicit-any` que mascaram bugs do Supabase.
+- `--premium-navy` (azul profundo)
+- `--premium-champagne` (dourado discreto)
+- `--premium-pearl` (cinza neutro claro)
+- `--premium-ink` (texto editorial)
+- Tipografia: par editorial (display serif + sans neutro) carregado via `<link>` em `index.html` apenas nas rotas premium (ou globalmente leve)
+- Espaçamentos `--premium-space-*`
+- Sombras sutis `--premium-shadow-soft`
 
-- Substituir interfaces manuais `Contact`/`Lead`/`Claim` por `Database['public']['Tables']['<t>']['Row']` (gerado em `src/integrations/supabase/types.ts`).
-- Tipar payloads das mutations (`Insert`/`Update`).
-- Remover `as any` em `dateFields.forEach`, `uploadDocument`, etc. usando `Partial<Insert>` correto.
-- Adicionar testes mínimos de tipo (compile-time) com `expectTypeOf` em `useContacts`, `useLeads`, `useClaims`.
+Criar componentes reutilizáveis em `src/components/premium/`:
+- `PremiumHero.tsx` — hero editorial limpo, sem cards, com CTA discreto
+- `PremiumSection.tsx` — wrapper com tipografia editorial
+- `PremiumTrustBlock.tsx` — SUSEP + endereço + parceiros (sem inventar números)
+- `PremiumCaseStudy.tsx` — situação/risco/análise/solução (genérico, educativo)
+- `PremiumCTA.tsx` — "Solicitar análise personalizada" / "Falar com consultor"
 
-**Pronto quando:** `npx eslint src/hooks src/lib --rule '@typescript-eslint/no-explicit-any: error'` passa sem warnings.
+## Fase C — Página `/patro-private` (hub da nova vertical)
 
----
+Rota: `/patro-private` em `src/App.tsx` + `src/pages/PatroPrivate.tsx`.
 
-## Etapa 3 — Performance de dados do CRM (1 PR focado)
+Conteúdo conforme briefing (hero, texto institucional, 7 blocos de solução, "como funciona" em 5 passos, bloco de confiança, CTA dual).
 
-**Objetivo:** continuar o trabalho já iniciado (índices + staleTime) com paginação real.
+SEO:
+- Title: "Patro Private | Seguros Premium em Guarulhos"
+- Description: conforme briefing (≤160 char)
+- H1: "Patro Private: Proteção Patrimonial e Seguros Premium"
+- Canonical + og:url próprios
+- Schema: `Service` + `BreadcrumbList`
+- Entrada em `seoMetadata.ts` + `generate-sitemap.ts`
 
-- **`useContacts` paginado**: aceitar `{ page, pageSize, search }` e usar `.range()` + filtro server-side. Hoje traz todos os contatos numa única query.
-- **Select específico em vez de `*`** em `useContacts` e `useLeads` (manter campos usados na UI).
-- **Lazy join**: `documents (*)` e `contact_insurances` só quando o contato é expandido (sub-query por id, não LATERAL).
-- **Infinite scroll** ou paginação no `ContactsModule`/`LeadsTable`.
-- **Debounce** no campo de busca do CRM (`searchTerm`) para não filtrar 5000 leads a cada tecla.
-- Cache de `kanban_stages` com `staleTime: Infinity` (raramente muda).
+Formulário dedicado `PatroPrivateForm.tsx`:
+- Campos do briefing (nome, WhatsApp, e-mail, cidade, perfil [7 opções], horário, mensagem, LGPD)
+- Envia via edge function existente `submit-lead` com `origem: "patro-private"`
+- Mensagem de confirmação elegante
 
-**Métrica:** rodar `pg_stat_statements` antes/depois — alvo é cortar `total_ms` da query de `contacts` em ≥ 70%.
+## Fase D — 6 páginas premium
 
----
+Criar em `src/pages/premium/` usando um único `PremiumPageTemplate` parametrizado por dados (evita duplicação):
 
-## Etapa 4 — Bundle e Core Web Vitals (1 PR de frontend)
+1. `/seguro-auto-premium-guarulhos`
+2. `/seguro-carros-luxo-guarulhos`
+3. `/seguro-residencial-alto-padrao-guarulhos`
+4. `/seguros-para-empresarios-guarulhos`
+5. `/seguro-carro-blindado-guarulhos`
+6. `/protecao-patrimonial-familiar-guarulhos`
 
-**Objetivo:** reduzir JS inicial e melhorar LCP/INP do site público.
+Para cada uma: registrar rota, adicionar entrada `premiumPages` em `seoMetadata.ts` (com Service + FAQPage schemas), adicionar ao sitemap, criar arquivo de conteúdo `src/data/premiumPagesContent.ts` com seções (para quem é, coberturas, o que comparar, erros comuns, FAQ).
 
-- **Bundle audit** via `vite-bundle-visualizer` → identificar top 10 maiores chunks.
-- **Code-split de libs pesadas**: `@hello-pangea/dnd` (Kanban), `recharts`, `embla-carousel`, `framer-motion` — todos só nas rotas que precisam.
-- **Remover `lodash-es`** trocando `debounce` por implementação inline de 6 linhas (zera dependência).
-- **`React.memo` + `useMemo`** em listas longas: `KanbanBoard`, `LeadsTable`, `PartnerMarquee`.
-- **Imagens**: confirmar `OptimizedImage` em todo `<img>` do site público; lazy-load fora do hero; `loading="eager" fetchpriority="high"` só no LCP.
-- **Preload da fonte** principal e do hero WebP via `<link rel="preload">`.
-- **Service Worker**: revisar `public/sw.js` — escopo, runtime cache de fontes/imagens, evitar cachear HTML.
+Linguagem conforme briefing: "análise personalizada", "cobertura adequada", "atendimento consultivo" — nunca "barato/menor preço".
 
-**Métrica:** PageSpeed mobile ≥ 90 em `/`, `/cotacao`, `/blog`. CLS = 0, LCP < 2.5s.
+## Fase E — Conexões, validação, deploy
 
----
+- Link discreto no `Header.tsx` e `Footer.tsx` para `/patro-private` (sem reorganizar menu existente)
+- Link interno "Esta cobertura também faz parte da **Patro Private** →" nas páginas existentes auto/residencial/empresarial/vida (no fim do conteúdo, sem alterar H1/title/intro)
+- Build completo + grep nos HTMLs gerados para confirmar title/H1/canonical únicos em todas as 7 novas rotas
+- Validar que `dist/seguro-auto-guarulhos/index.html` e outras existentes continuam idênticas em metadata
 
-## Etapa 5 — Endurecimento de Edge Functions (1 PR backend)
+## Fora deste plano (acordar depois)
 
-**Objetivo:** robustez e observabilidade nas funções que enviam e-mail/cotação.
+Estes itens do briefing **não** entram nesta entrega — peço para abrir como tarefas separadas após validar a vertical premium:
 
-- **Validação zod no servidor** em todas as 8 functions (`send-form-email`, `submit-lead`, `save-partial-quote`, etc.). Hoje algumas confiam no client.
-- **Rate-limit por IP** via `public.check_rate_limit` (já existe) em `send-form-email` e `submit-lead`.
-- **Retry exponencial** no envio SMTP (HostGator às vezes 421/timeout).
-- **DLQ** (dead-letter queue) — já há `move_to_dlq`; usar consistentemente em `process-email-queue`.
-- **Logs estruturados**: JSON com `level/event/lead_id/error_code` em vez de `console.log` solto.
-- **Sentry no servidor**: instrumentar Edge Functions com `@sentry/deno`.
+- **Parte 9 (10 artigos editoriais)** — escrita de conteúdo longo, melhor fazer em lote dedicado
+- **Parte 5 (reescrever 10 páginas existentes)** — risco alto de regressão SEO, recomendo página-a-página com aprovação
+- **Parte 8 (cases)** — vou deixar a estrutura de componente pronta, mas sem popular casos até você aprovar texto
+- **Refoto / fotos reais do escritório** — depende de você enviar assets
+- **Consolidação dos 3 botões flutuantes** (Fase 2 do plano anterior) — tarefa visual separada
 
-**Pronto quando:** cada function rejeita payload inválido com 400 + JSON estruturado, e falhas SMTP aparecem no Sentry.
+## Detalhes técnicos
 
----
+- Stack: rotas em `src/App.tsx`, metadata em `src/lib/seoMetadata.ts` (já tem `premiumPages` record), sitemap em `scripts/generate-sitemap.ts`, prerender em `scripts/prerender.mjs` — todos já preparados pelas fases anteriores
+- Lead submission: reusar edge function `submit-lead` adicionando campo `origem`
+- Sem novas dependências
+- Sem migrations de banco
+- Sem alterar `client.ts`, `types.ts`, `.env`, `config.toml`
 
-## Etapa 6 — Arquitetura e organização (refator de longo prazo)
-
-**Objetivo:** reduzir acoplamento e tornar o codebase navegável (~200 arquivos hoje).
-
-- **Reorganização por feature** em vez de tipo:
-  ```text
-  src/
-    features/
-      crm/        (pages, components, hooks, types)
-      blog/
-      seo-local/
-      forms/      (QuickQuote, Cotacao, Indique)
-    shared/       (ui, lib, hooks genéricos)
-  ```
-- **Extrair `InsuranceQuoteForm` (683 linhas)** em sub-componentes: `QuoteFields`, `QuoteSubmit`, `QuoteSuccess`.
-- **Quebrar `CRM.tsx` (422 linhas)** em containers menores; mover `stats`/`filters` para hooks dedicados.
-- **`PerformanceDiagnostico.tsx` (815 linhas)** → mover regras de recomendação para `src/lib/perfRules.ts` (testável).
-- **Consolidar schemas zod** no novo `src/lib/leadValidation.ts` (já criado) — migrar `IndiqueAmigo`, `EbookConsorcio`, `Cotacao` para reusar.
-- **Remover variantes shadcn de componentes** (`badgeVariants`, `buttonVariants`) para arquivos `.ts` separados → habilita Fast Refresh.
-- **Documentação**: atualizar `README.md` com a nova árvore + guia de contribuição (onde adicionar uma página local, um post de blog, uma function).
-
-**Pronto quando:** nenhum arquivo `src/` ultrapassa 400 linhas e a importação cruzada feature→feature é zero (lint rule `import/no-restricted-paths`).
-
----
-
-## Detalhes técnicos por etapa
-
-- **Risco**: 1 e 2 são seguros (typing/lint). 3 e 4 exigem testes manuais no CRM e Lighthouse. 5 precisa testar Edge Functions com `supabase--curl_edge_functions`. 6 é o mais invasivo — fazer por feature, 1 PR cada.
-- **Dependências**: Etapa 3 se beneficia da Etapa 2 (tipos corretos evitam regressão). Etapa 4 não depende das outras. Etapa 6 deve ser última.
-- **Métricas de acompanhamento**:
-  - `pg_stat_statements` (top 10 queries antes/depois)
-  - Lighthouse mobile (LCP, INP, CLS) em 3 rotas-chave
-  - `npm run build` size report (chunk inicial + total)
-  - ESLint warnings count
-  - Bundle map (`rollup-plugin-visualizer`)
-
----
-
-## Sequência recomendada e tempo estimado
-
-| # | Etapa | Esforço | Risco | Ganho |
-|---|---|---|---|---|
-| 1 | Higiene | 1–2h | Baixo | Médio |
-| 2 | Tipagem forte | 3–4h | Baixo | Alto (qualidade) |
-| 3 | CRM paginado | 4–6h | Médio | Muito alto (DB) |
-| 4 | Bundle + CWV | 4–6h | Médio | Muito alto (UX pública) |
-| 5 | Edge Functions | 3–5h | Médio | Alto (confiabilidade) |
-| 6 | Arquitetura | 8–12h | Alto | Alto (manutenção) |
-
-**Quer que eu comece pela Etapa 1 já?** Posso emendar direto se aprovar este plano, ou ajustar prioridades (ex: começar pela 4 se a dor maior for performance pública).
+**Posso começar pela Fase A (auditoria) e te trazer o relatório antes de mexer em qualquer arquivo de página?**
