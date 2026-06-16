@@ -43,3 +43,14 @@ export const buildWhatsAppUrl = (options: BuildWhatsAppOptions): string => {
   const message = buildWhatsAppMessage(options);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
+
+/**
+ * Constrói uma URL wa.me para um número específico (usado no CRM).
+ * Normaliza removendo caracteres não numéricos e prefixando 55 quando ausente.
+ */
+export const getWhatsAppUrl = (phone?: string | null, message?: string): string => {
+  const digits = (phone || "").replace(/\D/g, "");
+  const normalized = digits.startsWith("55") ? digits : `55${digits}`;
+  const base = `https://wa.me/${normalized}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+};
