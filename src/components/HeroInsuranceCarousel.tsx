@@ -46,8 +46,15 @@ type InsuranceCard = {
   slug: string;
 };
 
-const WHATSAPP_URL =
-  "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.";
+const WHATSAPP_NUMBER = "551151997500";
+
+const buildWhatsAppUrl = (audience: Audience, origem: string) => {
+  const publico = audience === "pessoa" ? "Para Você" : "Para sua Empresa";
+  const message =
+    `Olá! Vim pelo site da Patro Seguros (${origem}) — perfil ${publico}. ` +
+    `Gostaria de uma cotação consultiva e de falar com um consultor.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
 
 const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Auto", short: "Carro, terceiros e assistência 24h.", href: "/seguro-auto-guarulhos", Icon: Car, slug: "seguro-auto" },
@@ -177,12 +184,18 @@ const HeroInsuranceCarousel = ({
     trackCotacaoClick("hero-carrossel", { origin: origem });
   };
 
+  const whatsappUrl = useMemo(
+    () => buildWhatsAppUrl(audience, origem),
+    [audience, origem]
+  );
+
   const handleWhatsApp = () => {
     try {
       window.gtag?.("event", "clique_whatsapp_hero", {
         event_category: "hero_carrossel",
         tipo_de_publico: audience,
         origem,
+        url_destino: whatsappUrl,
       });
     } catch {
       /* noop */
@@ -246,10 +259,13 @@ const HeroInsuranceCarousel = ({
               </Button>
             </Link>
             <a
-              href={WHATSAPP_URL}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleWhatsApp}
+              aria-label={`Falar com consultor da Patro Seguros pelo WhatsApp — perfil ${
+                audience === "pessoa" ? "Para Você" : "Para sua Empresa"
+              }`}
               className="w-full sm:w-auto"
             >
               <Button
