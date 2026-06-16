@@ -55,6 +55,35 @@ export const quickLeadSchema = z.object({
 
 export type QuickLeadInput = z.infer<typeof quickLeadSchema>;
 
+/** Cotação completa (página /cotacao). */
+export const cotacaoSchema = z.object({
+  name: nameSchema,
+  email: emailSchema,
+  phone: phoneSchema,
+  insuranceType: insuranceTypeSchema,
+  message: z.string().trim().max(1000, "Mensagem muito longa (máx. 1000 caracteres)"),
+});
+export type CotacaoInput = z.infer<typeof cotacaoSchema>;
+
+/** Indique um amigo. */
+export const referralSchema = z.object({
+  nomeCliente: nameSchema,
+  telefoneCliente: phoneSchema,
+  nomeIndicado: nameSchema,
+  telefoneIndicado: phoneSchema,
+  tipoSeguro: insuranceTypeSchema,
+  mensagem: z.string().trim().max(500, "Mensagem muito longa (máx. 500 caracteres)").optional().default(""),
+});
+export type ReferralInput = z.infer<typeof referralSchema>;
+
+/** E-book / lead magnet com e-mail + WhatsApp formatado. */
+export const ebookLeadSchema = z.object({
+  name: nameSchema,
+  email: emailSchema,
+  whatsapp: whatsappSchema,
+});
+export type EbookLeadInput = z.infer<typeof ebookLeadSchema>;
+
 /** Retorna a primeira mensagem de erro de um `ZodError`. */
 export function firstZodMessage(error: z.ZodError): string {
   return error.errors[0]?.message ?? "Verifique os campos e tente novamente.";

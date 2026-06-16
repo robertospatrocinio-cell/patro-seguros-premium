@@ -8,7 +8,8 @@ import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { savePartialQuote } from "@/lib/leadsApi";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { cotacaoSchema as formSchema } from "@/lib/leadValidation";
+import type { z } from "zod";
 import Header from "@/components/Header";
 import FAQSchema from "@/components/FAQSchema";
 import Footer from "@/components/Footer";
@@ -23,14 +24,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { toast } from "sonner";
 import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info } from "lucide-react";
 import InputMask from "react-input-mask";
-
-const formSchema = z.object({
-  name: z.string().trim().min(3, "Nome deve ter no mínimo 3 caracteres").max(100),
-  email: z.string().trim().email("E-mail inválido").max(255),
-  phone: z.string().trim().min(10, "Telefone inválido").max(15),
-  insuranceType: z.string().min(1, "Selecione um tipo de seguro"),
-  message: z.string().trim().max(1000, "Mensagem muito longa"),
-});
 
 const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

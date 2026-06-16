@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { z } from "zod";
+import { ebookLeadSchema as leadSchema } from "@/lib/leadValidation";
 import { CheckCircle, Download, BookOpen, Target, TrendingUp, Lightbulb, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,15 +13,6 @@ import { toast } from "sonner";
 import ebookMockup from "@/assets/ebook-mockup-consorcio.webp";
 
 const EBOOK_URL = "/downloads/ebook-consorcio-patro.pdf";
-
-const leadSchema = z.object({
-  name: z.string().trim().min(2, "Nome muito curto").max(80, "Nome muito longo"),
-  email: z.string().trim().email("E-mail inválido").max(255),
-  whatsapp: z
-    .string()
-    .trim()
-    .regex(/^\(\d{2}\)\s\d{4,5}-\d{4}$/, "WhatsApp inválido. Use formato (11) 9xxxx-xxxx"),
-});
 
 const formatWhatsApp = (value: string): string => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
