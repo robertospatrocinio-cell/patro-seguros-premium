@@ -93,6 +93,12 @@ const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
+// Mensagem personalizada por tipo de seguro para o link do WhatsApp
+const buildProductWhatsAppUrl = (title: string): string => {
+  const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${title}. Pode me ajudar?`;
+  return `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`;
+};
+
 interface Coverage { title: string; description: string; }
 interface FAQ { question: string; answer: string; }
 interface HowItWorksStep { step: string; title: string; description: string; }
@@ -330,19 +336,19 @@ const InsurancePageTemplate = ({
                 {quoteUrl && quoteUrl.startsWith('/') ? (
                   <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      Cotar {title} Agora
+                      Pedir Cotação do {title}
                     </Button>
                   </Link>
                 ) : (
                   <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      Cotar {title} Agora
+                      Pedir Cotação do {title}
                     </Button>
                   </Link>
                 )}
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                <a href={buildProductWhatsAppUrl(title)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
-                    <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar com Especialista
+                    <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                   </Button>
                 </a>
               </div>
@@ -709,28 +715,42 @@ const InsurancePageTemplate = ({
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,60%,0.12),transparent)]" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-white mb-4">Solicite sua cotação de {title} agora</h2>
-            <p className="text-base text-white/50 mb-12 max-w-lg mx-auto">Resposta em até 2 horas com as melhores opções do mercado</p>
+            <h2 className="text-white mb-4">Pronto para proteger o seu {title}?</h2>
+            <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">Cotação gratuita do {title} em até 2h úteis — fale agora com um especialista da Patro.</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               {quoteUrl ? (
                 quoteUrl.startsWith('/') ? (
-                  <Link to={quoteUrl} className="w-full sm:w-auto">
+                  <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Preencher Formulário Completo
+                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Pedir Cotação do {title}
                     </Button>
                   </Link>
                 ) : (
-                  <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                  <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Fazer Cotação Online
+                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Pedir Cotação do {title}
                     </Button>
                   </a>
                 )
               ) : (
-                <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto">
-                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">Cotação Rápida</Button>
+                <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                    <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Pedir Cotação do {title}
+                  </Button>
                 </Link>
               )}
+              <a
+                href={buildProductWhatsAppUrl(title)}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Falar no WhatsApp sobre ${title}`}
+                className="w-full sm:w-auto"
+                onClick={() => trackWhatsAppClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}
+              >
+                <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-[#25D366] text-white hover:bg-[#1ebe57] border border-[#25D366]/40 shadow-lg shadow-[#25D366]/20">
+                  <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp sobre {title}
+                </Button>
+              </a>
               <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> (11) 5199-7500
