@@ -142,6 +142,7 @@ export const useContacts = () => {
         const docPayload: DocumentInsert = {
           contact_id: contactId,
           file_name: "Google Drive Policy",
+          file_path: externalLink,
           external_drive_link: externalLink,
           category,
         };
