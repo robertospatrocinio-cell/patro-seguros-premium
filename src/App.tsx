@@ -458,6 +458,87 @@ const App = () => {
                   <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
                   <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
                   <Route path="/investimentos" element={<Investimentos />} />
+                  {/* === Rotas restauradas (Fase 1: correção de 73 links quebrados no menu/hubs) === */}
+                  <Route path="/central-de-sinistro" element={<CentralDeSinistro />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+                  <Route path="/termos-de-uso" element={<TermosDeUso />} />
+                  <Route path="/sobre-guarulhos" element={<SobreGuarulhos />} />
+                  {/* Consórcio */}
+                  <Route path="/consorcio" element={<Consorcio />} />
+                  <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
+                  <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
+                  <Route path="/consorcio-veiculos-pesados" element={<ConsorcioVeiculosPesados />} />
+                  <Route path="/ebook-consorcio" element={<EbookConsorcio />} />
+                  {/* RC */}
+                  <Route path="/seguro-rc-medicos" element={<SeguroRCMedicos />} />
+                  <Route path="/seguro-rc-dentistas" element={<SeguroRCDentistas />} />
+                  <Route path="/seguro-rc-advogados" element={<SeguroRCAdvogados />} />
+                  <Route path="/seguro-rc-engenheiros" element={<SeguroRCEngenheiros />} />
+                  <Route path="/seguro-rc-veterinarios" element={<SeguroRCVeterinarios />} />
+                  <Route path="/seguro-rc-executivos" element={<SeguroRCExecutivos />} />
+                  <Route path="/seguro-rc-obras" element={<SeguroRCObras />} />
+                  <Route path="/seguro-rc-prestacao-servicos" element={<SeguroRCPrestacaoServicos />} />
+                  <Route path="/seguro-rc-eventos" element={<SeguroRCEventos />} />
+                  {/* Patrimônio / Empresarial */}
+                  <Route path="/seguro-galpao" element={<SeguroGalpao />} />
+                  <Route path="/seguro-galpoes-industriais" element={<SeguroGalpoesIndustriais />} />
+                  <Route path="/seguro-armazenagem" element={<SeguroArmazenagem />} />
+                  <Route path="/seguro-condominio-empresarial" element={<SeguroCondominioEmpresarial />} />
+                  <Route path="/seguro-condominio-residencial" element={<SeguroCondominioResidencial />} />
+                  <Route path="/seguro-lojas-shopping" element={<SeguroLojasShopping />} />
+                  <Route path="/seguro-restaurante" element={<SeguroRestaurante />} />
+                  <Route path="/seguro-imobiliario" element={<SeguroImobiliario />} />
+                  <Route path="/seguro-placa-solar" element={<SeguroPlacaSolar />} />
+                  <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
+                  <Route path="/seguro-garantia" element={<SeguroGarantia />} />
+                  <Route path="/seguro-maquinas-industriais" element={<SeguroMaquinasIndustriais />} />
+                  <Route path="/seguro-maquinas-linha-amarela" element={<SeguroMaquinasLinhaAmarela />} />
+                  <Route path="/seguro-trator-industrial" element={<SeguroTratorIndustrial />} />
+                  {/* Agro */}
+                  <Route path="/seguro-pecuario" element={<SeguroPecuario />} />
+                  <Route path="/seguro-cafe" element={<SeguroCafe />} />
+                  <Route path="/seguro-geada" element={<SeguroGeada />} />
+                  <Route path="/seguro-granja" element={<SeguroGranja />} />
+                  <Route path="/seguro-propriedade-rural" element={<SeguroPropriedadeRural />} />
+                  <Route path="/seguro-equipamentos-agricolas" element={<SeguroEquipamentosAgricolas />} />
+                  <Route path="/seguro-drone-agricola" element={<SeguroDroneAgricola />} />
+                  <Route path="/seguro-transporte-agro" element={<SeguroTransporteAgro />} />
+                  <Route path="/seguro-trator-agricola" element={<SeguroTratorAgricola />} />
+                  <Route path="/seguro-colhedora-cana" element={<SeguroColhedoraCana />} />
+                  <Route path="/seguro-colhedora-algodao" element={<SeguroColhedoraAlgodao />} />
+                  <Route path="/seguro-colheitadeira-graos" element={<SeguroColheitadeiraGraos />} />
+                  <Route path="/seguro-pulverizador-agricola" element={<SeguroPulverizadorAgricola />} />
+                  <Route path="/seguro-silo-agricola" element={<SeguroSiloAgricola />} />
+                  {/* Veículos / Transporte */}
+                  <Route path="/seguro-caminhao" element={<SeguroCaminhao />} />
+                  <Route path="/seguro-micro-onibus" element={<SeguroMicroOnibus />} />
+                  <Route path="/seguro-motorista-app" element={<SeguroMotoristaApp />} />
+                  <Route path="/seguro-bike" element={<SeguroBike />} />
+                  <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
+                  <Route path="/seguro-avioes" element={<SeguroAvioes />} />
+                  <Route path="/seguro-helicopteros" element={<SeguroHelicopteros />} />
+                  <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
+                  {/* Vida / Saúde / Pet */}
+                  <Route path="/seguro-vida-pme" element={<SeguroVidaPME />} />
+                  <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
+                  <Route path="/seguro-estagiario" element={<SeguroEstagiario />} />
+                  <Route path="/seguro-funeral" element={<SeguroFuneral />} />
+                  <Route path="/seguro-decesso" element={<SeguroDecesso />} />
+                  <Route path="/seguro-fianca-locaticia" element={<SeguroFiancaLocaticia />} />
+                  <Route path="/plano-pet" element={<PlanoPet />} />
+                  <Route path="/plano-saude-empresarial" element={<PlanoSaudeEmpresarial />} />
+                  <Route path="/protecao-pet-premium" element={<ProtecaoPetPremium />} />
+                  <Route path="/seguro-petshop" element={<SeguroPetshop />} />
+                  {/* Nichos / Parcerias / Odonto / Vet */}
+                  <Route path="/nicho-transportadoras" element={<NichoTransportadoras />} />
+                  <Route path="/parcerias-clinicas-odontologicas" element={<ParceriasClinicasOdontologicas />} />
+                  <Route path="/parcerias-clinicas-veterinarias" element={<ParceriasClinicasVeterinarias />} />
+                  <Route path="/seguro-clinica-odontologica" element={<SeguroClinicaOdontologica />} />
+                  <Route path="/seguro-consultorio-odontologico" element={<SeguroConsultorioOdontologico />} />
+                  <Route path="/seguro-equipamentos-odontologicos" element={<SeguroEquipamentosOdontologicos />} />
+                  <Route path="/plano-saude-clinicas-odontologicas" element={<PlanoSaudeClinicasOdontologicas />} />
+                  <Route path="/seguro-vida-clinicas-odontologicas" element={<SeguroVidaClinicasOdontologicas />} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
