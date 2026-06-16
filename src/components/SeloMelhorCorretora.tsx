@@ -44,7 +44,7 @@ const SeloMelhorCorretora = memo(({ size = "md", className = "", priority = fals
          height={w}
          loading={priority ? "eager" : "lazy"}
          decoding={priority ? "sync" : "async"}
-         {...(priority ? { fetchPriority: "high" as const } : {})}
+          {...(priority ? ({ fetchpriority: "high" } as any) : {})}
          className={`${cls} object-contain transition-transform duration-300 hover:scale-110 ${className}`}
        />
     </picture>

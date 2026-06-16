@@ -1,18 +1,27 @@
 import { createRoot } from "react-dom/client";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
-import PageSkeleton from "./components/PageSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
 import App from "./App.tsx";
+
+const runWhenIdle = (callback: () => void) => {
+  if (typeof window.requestIdleCallback === "function") {
+    window.requestIdleCallback(callback, { timeout: 3000 });
+    return;
+  }
+  globalThis.setTimeout(callback, 1200);
+};
 
 const Main = () => {
   const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
-    initMonitoring().catch(console.error);
-    initWebVitals();
+    runWhenIdle(() => {
+      initMonitoring().catch(console.error);
+      initWebVitals();
+    });
   }, []);
 
   const handleReset = () => {
@@ -21,9 +30,7 @@ const Main = () => {
 
   return (
     <ErrorBoundary key={retryCount} onReset={handleReset}>
-      <Suspense fallback={<PageSkeleton />}>
-        <App />
-      </Suspense>
+      <App />
     </ErrorBoundary>
   );
 };

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useRef } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -19,12 +19,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
 import { HomeSelector } from "@/components/HomeSelector";
-import LocalSavingsCalculator from "@/components/LocalSavingsCalculator";
-import LocalTestimonials from "@/components/LocalTestimonials";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
-import HomeBlogSection from "@/components/HomeBlogSection";
-import PortoPartnershipSection from "@/components/PortoPartnershipSection";
 import { QuickLeadForm } from "@/components/QuickLeadForm";
+
+const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalculator"));
+const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
+const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
+const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
@@ -88,7 +89,7 @@ const Index = () => {
               src="/images/hero-home.webp"
               alt="Corretora de Seguros em Guarulhos"
               className="w-full h-full object-cover opacity-30"
-              fetchPriority="high"
+              {...({ fetchpriority: "high" } as any)}
             />
           </div>
           <div className="container mx-auto px-4 relative z-10 py-12 md:py-20 text-center lg:text-left">
@@ -277,9 +278,11 @@ const Index = () => {
         {/* Will be detailed in Phase 4 */}
 
         {/* 6. AVALIAÇÕES REAIS */}
-        <div className="bg-muted/10">
-          <LocalTestimonials />
-        </div>
+        <LazySection minHeight="420px" rootMargin="300px" className="bg-muted/10">
+          <Suspense fallback={null}>
+            <LocalTestimonials />
+          </Suspense>
+        </LazySection>
 
         {/* 7. SOLUÇÕES PARA EMPRESAS (Patro Empresas) */}
         <section className="py-20 bg-slate-900 text-white">
@@ -330,9 +333,11 @@ const Index = () => {
 
         {/* 9. CONTEÚDOS E FERRAMENTAS */}
         <LazySection>
-          <LocalSavingsCalculator />
-          <HomeBlogSection />
-          <PortoPartnershipSection />
+          <Suspense fallback={null}>
+            <LocalSavingsCalculator />
+            <HomeBlogSection />
+            <PortoPartnershipSection />
+          </Suspense>
         </LazySection>
 
         {/* 10. FAQ */}
