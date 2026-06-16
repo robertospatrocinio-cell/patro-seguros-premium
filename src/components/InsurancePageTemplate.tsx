@@ -397,7 +397,8 @@ const InsurancePageTemplate = ({
                     >
                       <img
                         src={src}
-                        alt={`${title} — imagem ${i + 1}`}
+                        alt={`${title} — Patro Seguros, Corretora em Guarulhos/SP (imagem ${i + 1})`}
+                        title={`${title} — Patro Seguros, Corretora em Guarulhos/SP`}
                         loading="lazy"
                         decoding="async"
                         width={800}
