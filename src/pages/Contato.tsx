@@ -13,6 +13,17 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import { useToast } from "@/hooks/use-toast";
+import { z } from "zod";
+import { nameSchema, phoneSchema, emailSchema, messageSchema, firstZodMessage } from "@/lib/leadValidation";
+import { showFriendlyError } from "@/lib/friendlyToast";
+
+const contatoSchema = z.object({
+  nome: nameSchema,
+  telefone: phoneSchema,
+  email: emailSchema.optional().or(z.literal("")),
+  servico: z.string().trim().max(80).optional().or(z.literal("")),
+  mensagem: messageSchema,
+});
 
 const contatoFaqs = [
   { question: "Preciso agendar para ser atendido?", answer: "Não é obrigatório, mas recomendamos agendar para garantir atendimento personalizado e sem espera. Entre em contato pelo WhatsApp para agendar." },
@@ -62,37 +73,58 @@ const Contato = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Mark all as touched
     setTouched({ nome: true, email: true, telefone: true, servico: true, mensagem: true });
 
-    if (getFieldError("nome") || getFieldError("telefone") || getFieldError("email")) {
-      toast({ title: "Por favor, corrija os erros no formulário.", variant: "destructive" });
+    const parsed = contatoSchema.safeParse(formState);
+    if (!parsed.success) {
+      toast({ title: firstZodMessage(parsed.error), variant: "destructive" });
       return;
     }
-    
+
     setSending(true);
 
-    // Build WhatsApp message with form data
-    const parts = [
-      `Olá! Vim pelo formulário de contato do site.`,
-      `Nome: ${formState.nome.trim()}`,
-      formState.email.trim() && `E-mail: ${formState.email.trim()}`,
-      `Telefone: ${formState.telefone.trim()}`,
-      formState.servico && `Interesse: ${formState.servico}`,
-      formState.mensagem.trim() && `Mensagem: ${formState.mensagem.trim()}`,
-    ].filter(Boolean).join("\n");
+    try {
+      const data = parsed.data;
+      const parts = [
+        `Olá! Vim pelo formulário de contato do site.`,
+        `Nome: ${data.nome}`,
+        data.email && `E-mail: ${data.email}`,
+        `Telefone: ${data.telefone}`,
+        data.servico && `Interesse: ${data.servico}`,
+        data.mensagem && `Mensagem: ${data.mensagem}`,
+      ].filter(Boolean).join("\n");
 
-    // Track Meta Pixel
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "Lead", { content_name: "formulario-contato", content_category: formState.servico || "geral" });
-    }
+      try {
+        (window as { fbq?: (...args: unknown[]) => void }).fbq?.("track", "Lead", {
+          content_name: "formulario-contato",
+          content_category: data.servico || "geral",
+        });
+      } catch (err) {
+        console.error("Contato tracking failed", err);
+      }
 
-    setTimeout(() => {
+      setTimeout(() => {
+        setSending(false);
+        setSent(true);
+        const popup = window.open(
+          `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
+          "_blank",
+          "noopener,noreferrer",
+        );
+        if (!popup) {
+          showFriendlyError(
+            "Não conseguimos abrir o WhatsApp automaticamente. Toque no botão abaixo.",
+            { whatsappMessage: parts },
+          );
+        }
+      }, 400);
+    } catch (err) {
+      console.error("Contato submit failed", err);
       setSending(false);
-      setSent(true);
-      window.open(`https://wa.me/551151997500?text=${encodeURIComponent(parts)}`, "_blank");
-    }, 600);
+      showFriendlyError();
+    }
   };
 
   const update = (field: string, value: string) => setFormState(prev => ({ ...prev, [field]: value }));

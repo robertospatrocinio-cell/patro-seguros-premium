@@ -3,6 +3,8 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download, CheckCircle, X } from "lucide-react";
+import { showFriendlyError, showValidationError } from "@/lib/friendlyToast";
+import { whatsappSchema, firstZodMessage } from "@/lib/leadValidation";
 
 const EBOOK_URL = "/downloads/guia-seguro-auto-guarulhos.pdf";
 const STORAGE_KEY = "patro_exit_popup_dismissed";
@@ -59,14 +61,26 @@ const ExitIntentPopup = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!canSubmit) return;
+
+    const parsed = whatsappSchema.safeParse(whatsapp);
+    if (!parsed.success) {
+      showValidationError(firstZodMessage(parsed.error));
+      return;
+    }
 
     try {
-      (window as any).fbq?.("track", "Lead", { content_name: "ebook-exit-intent" });
-      (window as any).gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-exit-intent" });
-    } catch {}
+      (window as { fbq?: (...args: unknown[]) => void }).fbq?.("track", "Lead", { content_name: "ebook-exit-intent" });
+      (window as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-exit-intent" });
+    } catch (err) {
+      console.error("ExitIntentPopup tracking failed", err);
+    }
 
-    setSent(true);
+    try {
+      setSent(true);
+    } catch (err) {
+      console.error("ExitIntentPopup submit failed", err);
+      showFriendlyError();
+    }
   };
 
   return (
