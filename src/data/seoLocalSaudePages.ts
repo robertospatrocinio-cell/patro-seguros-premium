@@ -372,7 +372,7 @@ interface SaudeBairroSeed {
   ].reduce((acc, e) => {
    acc[e.slug] = {
      slug: e.slug,
-     title: `Seguro Empresarial ${e.bairro} (Guarulhos) — Cotação para ${e.tipo}`,
+      title: `Seguro Empresarial em ${e.bairro} | Patro Seguros`,
      subtitle: `Proteja seu negócio em ${e.bairro}. Especialistas em ${e.foco} com atendimento local em Guarulhos.`,
      description: `Precisa de seguro empresarial em ${e.bairro}, Guarulhos? A Patro Seguros oferece consultoria especializada para ${e.tipo} com coberturas contra incêndio, roubo e RC.`,
      detailedDescription: `O bairro de ${e.bairro} é um dos motores econômicos de Guarulhos, com forte presença de ${e.tipo}. Para empresas que operam na região ${e.referencia}, ter uma apólice bem estruturada é a diferença entre a continuidade ou a falência do negócio após um sinistro.\n\nNa Patro Seguros, entendemos as particularidades de ${e.bairro}. Seja um galpão logístico em Cumbica ou um comércio de rua no Pimentas, desenhamos a apólice conforme seu CNAE e riscos reais. Atuamos com as 9 maiores seguradoras de Riscos Patrimoniais do Brasil, garantindo que você pague o preço justo por uma cobertura que realmente funciona na hora que você mais precisa.`,
