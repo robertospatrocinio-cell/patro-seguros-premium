@@ -329,9 +329,20 @@ export default defineConfig(({ mode }) => ({
         output: {
           manualChunks: (id) => {
             if (id.includes("node_modules")) {
-              if (id.includes("react") || id.includes("react-dom") || id.includes("react-router-dom") || id.includes("@tanstack") || id.includes("framer-motion")) return "vendor-core";
-              if (id.includes("lucide-react")) return "vendor-ui";
-              if (id.includes("@supabase")) return "vendor-supabase";
+              // Core React runtime + router + data layer — loaded on every route
+              if (
+                id.includes("/node_modules/react/") ||
+                id.includes("/node_modules/react-dom/") ||
+                id.includes("/node_modules/scheduler/") ||
+                id.includes("/node_modules/react-router") ||
+                id.includes("/node_modules/@tanstack/")
+              ) return "vendor-core";
+              // Heavy animation lib — split so it can be tree-shaken per route
+              if (id.includes("/node_modules/framer-motion/")) return "vendor-motion";
+              if (id.includes("/node_modules/lucide-react/")) return "vendor-ui";
+              if (id.includes("/node_modules/@supabase/")) return "vendor-supabase";
+              if (id.includes("/node_modules/react-helmet-async/")) return "vendor-helmet";
+              if (id.includes("/node_modules/react-hook-form/") || id.includes("/node_modules/@hookform/") || id.includes("/node_modules/zod/")) return "vendor-forms";
               return "vendor";
             }
           },

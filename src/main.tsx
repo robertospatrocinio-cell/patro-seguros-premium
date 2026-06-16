@@ -1,12 +1,11 @@
 import { createRoot } from "react-dom/client";
-import { Suspense, useEffect, lazy, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import "./index.css";
 import { initMonitoring } from "./lib/monitoring";
 import { initWebVitals } from "./lib/webVitals";
 import PageSkeleton from "./components/PageSkeleton";
 import ErrorBoundary from "./components/ErrorBoundary";
-
-const App = lazy(() => import("./App.tsx"));
+import App from "./App.tsx";
 
 const Main = () => {
   const [retryCount, setRetryCount] = useState(0);
