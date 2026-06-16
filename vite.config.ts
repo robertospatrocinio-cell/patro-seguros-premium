@@ -326,30 +326,10 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     minify: "esbuild",
     rollupOptions: {
-        output: {
-          manualChunks: (id) => {
-            if (!id.includes("node_modules")) return;
-            // Keep React + everything that depends on React's module init
-            // (router, helmet, hook-form, tanstack) in a single chunk to avoid
-            // cross-chunk TDZ ("Cannot access 'X' before initialization") errors.
-            if (
-              id.includes("/node_modules/react/") ||
-              id.includes("/node_modules/react-dom/") ||
-              id.includes("/node_modules/scheduler/") ||
-              id.includes("/node_modules/react-router") ||
-              id.includes("/node_modules/@tanstack/") ||
-              id.includes("/node_modules/react-helmet-async/") ||
-              id.includes("/node_modules/react-hook-form/") ||
-              id.includes("/node_modules/@hookform/") ||
-              id.includes("/node_modules/zod/")
-            ) return "vendor-core";
-            // Safe-to-isolate, leaf libs with no React init dependency
-            if (id.includes("/node_modules/framer-motion/")) return "vendor-motion";
-            if (id.includes("/node_modules/lucide-react/")) return "vendor-ui";
-            if (id.includes("/node_modules/@supabase/")) return "vendor-supabase";
-            return "vendor";
-          },
-        },
+        // Intentionally NO manualChunks — custom splits caused cross-chunk
+        // TDZ ("Cannot access 'X' before initialization") because libs like
+        // sonner that depend on React ended up in a chunk evaluated before
+        // the React chunk. Let Rollup compute a safe import graph.
     },
     cssMinify: true,
     reportCompressedSize: true,
