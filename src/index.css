@@ -53,6 +53,16 @@
     --shadow-md: 0 4px 12px -2px hsl(220 25% 10% / 0.06);
     --shadow-lg: 0 10px 30px -6px hsl(220 25% 10% / 0.08);
     --shadow-xl: 0 20px 50px -12px hsl(220 25% 10% / 0.12);
+
+    /* === Patro Private (camada premium / editorial) === */
+    --premium-navy: 215 55% 14%;        /* azul profundo editorial */
+    --premium-navy-soft: 215 35% 22%;
+    --premium-champagne: 38 45% 62%;    /* dourado discreto */
+    --premium-champagne-soft: 38 35% 78%;
+    --premium-pearl: 30 20% 96%;        /* off-white quente */
+    --premium-ink: 215 30% 18%;
+    --premium-rule: 215 15% 88%;
+    --premium-shadow-soft: 0 24px 60px -28px hsl(215 55% 14% / 0.18);
   }
 }
 
