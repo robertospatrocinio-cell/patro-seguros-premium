@@ -22,12 +22,12 @@ const PHONE = "551151997500";
  * Diferença para o `StickyQuoteBar` (que é mobile-only):
  *   - Visível em TODOS os viewports (mobile + desktop) para garantir que
  *     "Pedir Cotação" e "Falar no WhatsApp" estejam sempre acessíveis em
- *     qualquer seção das páginas de Galpão (cluster de alto ticket).
+ *     qualquer seção desktop das páginas de Galpão (cluster de alto ticket).
  *   - Aparece após 300px de scroll (logo após o hero).
  *   - Respeita `prefers-reduced-motion`.
  *   - Reserva espaço na parte inferior para não cobrir o botão flutuante
  *     global de WhatsApp (canto inferior direito) — alinhamento à esquerda
- *     no desktop e largura completa no mobile.
+ *     no desktop. No mobile, o botão global compacto evita cobrir a leitura.
  */
 const GalpaoStickyCTABar = ({
   source,
@@ -48,7 +48,7 @@ const GalpaoStickyCTABar = ({
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background/95 backdrop-blur-md shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] transition-transform duration-300 motion-reduce:transition-none ${
+      className={`hidden md:block fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-background/95 backdrop-blur-md shadow-[0_-8px_24px_-12px_rgba(0,0,0,0.18)] transition-transform duration-300 motion-reduce:transition-none ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
       role="region"
