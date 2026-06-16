@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { toast } from "sonner";
 import { Phone, User, ShieldCheck, ArrowRight } from "lucide-react";
 
 export const QuickLeadForm = () => {
@@ -15,6 +14,7 @@ export const QuickLeadForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const { toast } = await import("sonner");
     if (!formData.name || !formData.phone || !formData.insuranceType) {
       toast.error("Por favor, preencha todos os campos.");
       return;

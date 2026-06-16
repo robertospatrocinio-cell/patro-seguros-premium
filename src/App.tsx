@@ -354,6 +354,24 @@ const App = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = globalThis.setTimeout(() => {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          registrations.forEach((registration) => registration.unregister());
+        });
+      }
+
+      if ("caches" in window) {
+        caches.keys().then((names) => {
+          names.forEach((name) => caches.delete(name));
+        });
+      }
+    }, 5000);
+
+    return () => globalThis.clearTimeout(timer);
+  }, []);
+
   return (
     <HelmetProvider>
       <ErrorBoundary>
