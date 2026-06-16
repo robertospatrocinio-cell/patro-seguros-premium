@@ -162,6 +162,29 @@ const legal: SitemapEntry[] = [
   { loc: "/termos-de-uso", priority: "0.3", changefreq: "yearly" },
 ];
 
+// Rotas restauradas na Fase 1 que ainda não estavam na sitemap.
+// Entrarão no prerender (HTML estático com metadata + JSON-LD) no próximo build.
+const restoredRoutes: SitemapEntry[] = [
+  "/central-de-sinistro",
+  "/ebook-consorcio",
+  "/consorcio-carro", "/consorcio-imoveis", "/consorcio-veiculos-pesados",
+  "/nicho-transportadoras",
+  "/seguro-condominio-empresarial", "/seguro-condominio-residencial",
+  "/seguro-galpoes-industriais", "/seguro-armazenagem",
+  "/seguro-maquinas-industriais", "/seguro-maquinas-linha-amarela",
+  "/seguro-trator-industrial", "/seguro-trator-agricola",
+  "/seguro-pulverizador-agricola", "/seguro-silo-agricola",
+  "/seguro-colhedora-cana", "/seguro-colhedora-algodao",
+  "/seguro-colheitadeira-graos", "/seguro-equipamentos-agricolas",
+  "/seguro-petshop", "/protecao-pet-premium",
+  "/seguro-motorista-app", "/seguro-micro-onibus",
+  "/parcerias-clinicas-odontologicas", "/parcerias-clinicas-veterinarias",
+  "/seguro-clinica-odontologica", "/seguro-consultorio-odontologico",
+  "/seguro-equipamentos-odontologicos",
+  "/plano-saude-clinicas-odontologicas",
+  "/seguro-vida-clinicas-odontologicas",
+].map(loc => ({ loc, priority: "0.6", changefreq: "monthly" }));
+
  /**
   * Escapes XML special characters and strips control characters.
   */
