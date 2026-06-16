@@ -1,6 +1,6 @@
-import { useState, useEffect, useSyncExternalStore } from "react";
+import { useState, useEffect, useSyncExternalStore, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { MessageCircle, FileText, ShieldCheck, ArrowRight } from "lucide-react";
+import { MessageCircle, FileText, ShieldCheck, ArrowRight, Plus, X } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { inferQuoteTypeFromText } from "@/lib/inferQuoteType";
 import {
@@ -16,7 +16,9 @@ const DEFAULT_TRACKING_LABEL = "botao-fixo";
 
 const WhatsAppButton = () => {
   const [visible, setVisible] = useState(false);
+  const [open, setOpen] = useState(false);
   const location = useLocation();
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   // Lê override (mensagem + tracking label) ditado por páginas locais.
   const override = useSyncExternalStore(
@@ -31,6 +33,22 @@ const WhatsAppButton = () => {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close mobile menu on outside click / Esc / route change
+  useEffect(() => { setOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
 
   // Hide on the Cotacao page itself (the user is already in the form)
   const isCotacaoPage = location.pathname.startsWith("/cotacao");
@@ -76,17 +94,75 @@ const WhatsAppButton = () => {
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
-        {/* Mini FAB Central de Sinistro (mobile) */}
-        {!isSinistroPage && (
-          <Link
-            to="/central-de-sinistro"
-            aria-label="Central de Sinistro"
-            className="lg:hidden bg-orange-600 text-white rounded-full p-2.5 shadow-lg active:scale-95 transition-all"
+        {/* === MOBILE: FAB retrátil agrupando as 3 ações === */}
+        <div ref={menuRef} className="lg:hidden flex flex-col items-end gap-2">
+          {/* Itens expansíveis */}
+          <div
+            className={`flex flex-col items-end gap-2 transition-all duration-200 origin-bottom-right ${
+              open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-90 pointer-events-none"
+            }`}
+            aria-hidden={!open}
           >
-            <ShieldCheck className="h-5 w-5" strokeWidth={2} />
-          </Link>
-        )}
+            {!isSinistroPage && (
+              <Link
+                to="/central-de-sinistro"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 bg-white text-foreground rounded-full pl-2 pr-3 py-1.5 shadow-md border border-border text-xs font-semibold active:scale-95"
+              >
+                <span className="bg-orange-600 text-white rounded-full p-1.5">
+                  <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.2} />
+                </span>
+                Central de Sinistro
+              </Link>
+            )}
+            {!isCotacaoPage && (
+              <Link
+                to={cotacaoHref}
+                onClick={() => {
+                  trackCotacaoClick("botao-fixo", { origin: "sticky-fab-mobile", insuranceType: tipo || undefined });
+                  setOpen(false);
+                }}
+                className="flex items-center gap-2 bg-white text-foreground rounded-full pl-2 pr-3 py-1.5 shadow-md border border-border text-xs font-semibold active:scale-95"
+              >
+                <span className="bg-primary text-primary-foreground rounded-full p-1.5">
+                  <FileText className="h-3.5 w-3.5" strokeWidth={2.2} />
+                </span>
+                Pedir Cotação
+              </Link>
+            )}
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                trackWhatsAppClick(trackingLabel, { origin: "sticky-fab-mobile" });
+                setOpen(false);
+              }}
+              className="flex items-center gap-2 bg-white text-foreground rounded-full pl-2 pr-3 py-1.5 shadow-md border border-border text-xs font-semibold active:scale-95"
+            >
+              <span className="bg-[#25D366] text-white rounded-full p-1.5">
+                <MessageCircle className="h-3.5 w-3.5" strokeWidth={2.2} />
+              </span>
+              WhatsApp
+            </a>
+          </div>
 
+          {/* Botão principal mobile */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Fechar menu de atendimento" : "Abrir menu de atendimento"}
+            aria-expanded={open}
+            className="relative bg-primary text-primary-foreground rounded-full p-3 shadow-xl active:scale-95 transition-transform"
+          >
+            {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
+            {!open && (
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#25D366] rounded-full border-2 border-white animate-pulse" />
+            )}
+          </button>
+        </div>
+
+        {/* === DESKTOP: botões originais === */}
         {!isCotacaoPage && (
           <Link
             to={cotacaoHref}
@@ -100,7 +176,6 @@ const WhatsAppButton = () => {
             Pedir Cotação
           </Link>
         )}
-        {/* WhatsApp FAB (desktop + mobile) */}
         <a
           href={whatsappHref}
           target="_blank"
@@ -112,10 +187,10 @@ const WhatsAppButton = () => {
               ...(override ? { localOverride: true } : {}),
             })
           }
-          className="group block"
+          className="group hidden lg:block"
         >
-          <div className="relative bg-[#25D366] text-white rounded-full p-3 lg:p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
-            <MessageCircle className="h-5 w-5 lg:h-6 lg:w-6" strokeWidth={1.8} aria-hidden="true" />
+          <div className="relative bg-[#25D366] text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
+            <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />
           </div>
         </a>
