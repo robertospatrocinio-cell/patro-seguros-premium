@@ -73,17 +73,13 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
-import PageLoader from "@/components/PageLoader";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import OrganizationSchema from "@/components/OrganizationSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
+
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 
 
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
@@ -311,12 +307,12 @@ const queryClient = new QueryClient({
           message.includes("refused");
 
         if (isNetworkFailure) {
-          return failureCount < 8; // Aumentado para mais resiliência em falhas de rede
+          return failureCount < 3;
         }
         return failureCount < 2;
       },
-      retryDelay: (attemptIndex) => Math.min(1000 * Math.pow(2, attemptIndex), 30000),
-      refetchOnWindowFocus: true, // Reativado para ajudar na recuperação automática
+      retryDelay: (attemptIndex) => Math.min(1000 * Math.pow(2, attemptIndex), 8000),
+      refetchOnWindowFocus: false,
       staleTime: 1000 * 60 * 5, // 5 minutes
       gcTime: 1000 * 60 * 30, // 30 minutes
       refetchOnMount: false,
@@ -328,6 +324,13 @@ const queryClient = new QueryClient({
 const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => {
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
+
+const DeferredGlobalUi = () => (
+  <Suspense fallback={null}>
+    <WhatsAppButton />
+    <CookieBanner />
+  </Suspense>
+);
 
 const App = () => {
   useEffect(() => {
@@ -355,6 +358,17 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    const cleanupKey = "patro_legacy_cache_cleanup_v2";
+    const safeStorage = {
+      get: () => {
+        try { return localStorage.getItem(cleanupKey); } catch { return "done"; }
+      },
+      done: () => {
+        try { localStorage.setItem(cleanupKey, "done"); } catch { /* storage unavailable */ }
+      },
+    };
+    if (safeStorage.get() === "done") return;
+
     const timer = globalThis.setTimeout(() => {
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -365,7 +379,10 @@ const App = () => {
       if ("caches" in window) {
         caches.keys().then((names) => {
           names.forEach((name) => caches.delete(name));
+          safeStorage.done();
         });
+      } else {
+        safeStorage.done();
       }
     }, 5000);
 
@@ -378,17 +395,12 @@ const App = () => {
         <QueryProviderWrapper>
           <TooltipProvider>
             <BrowserRouter>
+              <SkipLink />
+              <Toaster />
+              <Sonner position="top-right" closeButton richColors />
+              <DeferredGlobalUi />
+              <ScrollToTop />
               <Suspense fallback={<PageSkeleton />}>
-                <BreadcrumbSchema />
-                <LocalBusinessSchema />
-                <OrganizationSchema />
-                <WebSiteSchema />
-                <SkipLink />
-                <Toaster />
-                <Sonner position="top-right" closeButton richColors />
-                <WhatsAppButton />
-                <CookieBanner />
-                <ScrollToTop />
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/admin/login" element={<AdminLogin />} />

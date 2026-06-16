@@ -152,26 +152,6 @@ import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
 import { validatePageMeta } from "./scripts/validate-page-meta.mjs";
 import { loadDataModule } from "./scripts/load-data-module.mjs";
 
-// Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
-// to async loading with print/onload trick (critical CSS is already inlined in index.html)
-function asyncCssPlugin(): Plugin {
-  return {
-    name: "async-css",
-    enforce: "post",
-    transformIndexHtml: {
-      order: "post",
-      handler(html) {
-        // Match any Vite-injected stylesheet link (with or without crossorigin)
-        return html.replace(
-          /<link\s+rel="stylesheet"\s*(?:crossorigin\s*)?href="(\/assets\/[^"]+\.css)"\s*\/?>/gi,
-          '<link rel="preload" href="$1" as="style" onload="this.rel=\'stylesheet\'">' +
-          '<noscript><link rel="stylesheet" href="$1"></noscript>'
-        );
-      },
-    },
-  };
-}
-
 // Plugin to auto-generate sitemap.xml at build time
 function sitemapPlugin(): Plugin {
   return {
@@ -339,7 +319,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
-    mode === "production" && asyncCssPlugin(),
     // Convert standard CSS imports to preloads in development/preview as well to fix render blocking
     {
       name: "preview-css-optimizer",

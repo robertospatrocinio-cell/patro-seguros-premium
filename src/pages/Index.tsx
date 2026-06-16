@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef } from "react";
+import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -48,23 +48,12 @@ const sinistroFaqs = [
 ];
 
 const Index = () => {
-  const isMounted = useRef(false);
-
-  useEffect(() => {
-    isMounted.current = true;
-    console.log("Index component mounted");
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
-
   return (
     <>
       <PageMeta 
         title="Corretora de Seguros em Guarulhos | Patro Seguros"
         description="A experiência digital de uma grande corretora com atendimento próximo em Guarulhos. Compare 16+ seguradoras e economize no seu seguro auto, saúde ou empresa."
         absoluteTitle={true}
-        preloadImage="/images/hero-home.webp"
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
       <LocalBusinessSchema />
@@ -88,6 +77,9 @@ const Index = () => {
             <img
               src="/images/hero-home.webp"
               alt="Corretora de Seguros em Guarulhos"
+              width={960}
+              height={540}
+              decoding="async"
               className="w-full h-full object-cover opacity-30"
               {...({ fetchpriority: "high" } as any)}
             />
