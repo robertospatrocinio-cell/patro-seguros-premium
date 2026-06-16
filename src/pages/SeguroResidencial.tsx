@@ -15,10 +15,10 @@ const SeguroResidencial = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Residencial em Guarulhos | Cotação em 2h | Patro Seguros"
-      subtitle="Proteção completa para seu lar, seus bens e sua tranquilidade"
+      subtitle="Consultoria dedicada para proteger seu lar, seus bens e a rotina da sua família"
       icon="🏠"
       metaDescription="Seguro residencial em Guarulhos: proteja sua casa ou apartamento contra incêndio, roubo e danos elétricos. Assistência 24h e cotação em 2h na Patro Seguros."
-      description="O Seguro Residencial é o seguro com melhor custo-benefício do mercado brasileiro. Com valores a partir de R$ 150/ano para apartamentos, ele protege o patrimônio que você construiu ao longo de anos — e ainda oferece assistências práticas que se pagam na primeira utilização."
+      description="Poucos contratos entregam tanto valor por tão pouco quanto o Seguro Residencial. A partir de R$ 150/ano para apartamentos, ele resguarda o patrimônio que sua família levou anos para construir — e inclui um pacote de assistências que, na prática, se paga já no primeiro chamado de encanador ou eletricista."
       detailedDescription={`Diferente do que muitos pensam, o seguro residencial vai muito além da proteção contra incêndio. Ele cobre roubo de bens, danos elétricos em eletrodomésticos, vendavais, alagamentos, responsabilidade civil e oferece assistência 24h com encanador, eletricista, chaveiro e vidraceiro — serviços que, se contratados avulsamente, custariam muito mais do que a apólice inteira.
 
 Um dado importante: segundo a Superintendência de Seguros Privados (SUSEP), apenas 15% dos domicílios brasileiros possuem seguro residencial. Isso significa que a maioria das famílias está desprotegida contra riscos que podem causar prejuízos de dezenas ou centenas de milhares de reais.
@@ -106,7 +106,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { question: "O seguro residencial cobre enchente?", answer: "Sim, desde que a cobertura de alagamento/inundação seja contratada — não é automática na apólice básica. Se você mora em região com histórico de enchentes, essa cobertura é essencial. O custo adicional é relativamente baixo comparado ao potencial de prejuízo de um alagamento." },
       ]}
       contextualLinks={{
-        heading: "Proteja mais do que sua casa — proteja toda a sua vida",
+        heading: "Conversemos sobre proteger mais do que o imóvel",
         paragraphs: [
           "O seguro residencial é apenas uma parte da proteção completa que sua família merece. Se você já protege seu lar, considere também proteger quem mora nele com um seguro de vida — que garante estabilidade financeira em caso de imprevistos graves.",
           "Se você tem veículo, o seguro auto complementa a proteção do patrimônio familiar. E para quem mora em condomínio, o seguro condominial é obrigatório por lei e protege as áreas comuns do prédio. Já pensou também em um plano de saúde para toda a família?",
