@@ -220,6 +220,7 @@ const Header = memo(() => {
   );
 
   return (
+    <>
     <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'translate-y-[-32px] md:translate-y-[-36px]' : 'translate-y-0'}`}>
       <div className="bg-foreground">
         <div className="container mx-auto px-4">
@@ -566,7 +567,14 @@ const Header = memo(() => {
         </div>
       )}
       {/* CTA FIXA CENTRAL DE SINISTRO - DESKTOP SIDE BAR & MOBILE FLOATING */}
-      <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
+    </header>
+    {/*
+      Floating sinistro CTAs are rendered as a sibling of <header>.
+      Keep them OUTSIDE the header because the header uses `translate-*` for its
+      scroll animation, which creates a containing block and would otherwise
+      anchor `position: fixed` children to the header instead of the viewport.
+    */}
+    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
         {/* Mobile: Botão flutuante de emergência */}
         <a 
           href={WHATSAPP_URL} 
@@ -608,7 +616,7 @@ const Header = memo(() => {
           </a>
         </div>
       </div>
-    </header>
+    </>
   );
 });
 
