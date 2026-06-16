@@ -95,7 +95,7 @@ Deno.serve(async (req) => {
           results.push({ id: candidate.id, status: "failed", error: await emailResponse.text() });
         }
       } catch (e) {
-        results.push({ id: candidate.id, status: "error", error: e.message });
+        results.push({ id: candidate.id, status: "error", error: e instanceof Error ? e.message : String(e) });
       }
     }
 
