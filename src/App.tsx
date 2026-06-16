@@ -67,7 +67,6 @@ const PlanoSaudeClinicasVeterinarias = lazyWithRetry(() => import("./pages/Plano
 const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/SeguroVidaClinicasVeterinarias"), "SeguroVidaClinicasVeterinarias");
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
-import { supabase } from "@/integrations/supabase/client";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -78,7 +77,6 @@ import CookieBanner from "@/components/CookieBanner";
 import PageSkeleton from "@/components/PageSkeleton";
 import PageLoader from "@/components/PageLoader";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import { ServiceWorkerCheck } from "@/components/ServiceWorkerCheck";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
@@ -333,14 +331,27 @@ const QueryProviderWrapper = ({ children }: { children: React.ReactNode }) => {
 
 const App = () => {
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session?.user) {
-        setUserContext({ id: session.user.id });
-      } else {
-        setUserContext({});
-      }
-    });
-    return () => subscription.unsubscribe();
+    let cleanup: (() => void) | undefined;
+    let cancelled = false;
+    const timer = globalThis.setTimeout(() => {
+      import("@/integrations/supabase/client").then(({ supabase }) => {
+        if (cancelled) return;
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+          if (session?.user) {
+            setUserContext({ id: session.user.id });
+          } else {
+            setUserContext({});
+          }
+        });
+        cleanup = () => subscription.unsubscribe();
+      });
+    }, 1500);
+
+    return () => {
+      cancelled = true;
+      globalThis.clearTimeout(timer);
+      cleanup?.();
+    };
   }, []);
 
   return (
@@ -360,7 +371,6 @@ const App = () => {
                 <WhatsAppButton />
                 <CookieBanner />
                 <ScrollToTop />
-                <ServiceWorkerCheck />
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/admin/login" element={<AdminLogin />} />

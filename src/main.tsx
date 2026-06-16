@@ -7,11 +7,11 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import App from "./App.tsx";
 
 const runWhenIdle = (callback: () => void) => {
-  if ("requestIdleCallback" in window) {
+  if (typeof window.requestIdleCallback === "function") {
     window.requestIdleCallback(callback, { timeout: 3000 });
     return;
   }
-  window.setTimeout(callback, 1200);
+  globalThis.setTimeout(callback, 1200);
 };
 
 const Main = () => {
