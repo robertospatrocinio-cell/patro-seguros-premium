@@ -567,6 +567,9 @@ const App = () => {
                   <Route path="/protecao-patrimonial-familiar-guarulhos" element={<ProtecaoPatrimonialFamiliarGuarulhos />} />
                   {/* === Fase 2: rotas faltantes + redirecionamentos para eliminar 404 em links internos === */}
                   <Route path="/seguro-jetski" element={<SeguroJetSki />} />
+                  <Route path="/seguro-jet-ski" element={<Navigate to="/seguro-jetski" replace />} />
+                  <Route path="/seguro-de-jet-ski" element={<Navigate to="/seguro-jetski" replace />} />
+                  <Route path="/seguro-moto-aquatica" element={<Navigate to="/seguro-jetski" replace />} />
                   <Route path="/hub-empresarial" element={<HubEmpresarial />} />
                   <Route path="/seguros-empresariais" element={<HubEmpresarial />} />
                   <Route path="/seguro-empresarial/segmentos" element={<SegurosPorSegmento />} />
