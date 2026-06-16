@@ -89,7 +89,7 @@ const Index = () => {
               src="/images/hero-home.webp"
               alt="Corretora de Seguros em Guarulhos"
               className="w-full h-full object-cover opacity-30"
-              fetchpriority="high"
+              {...({ fetchpriority: "high" } as any)}
             />
           </div>
           <div className="container mx-auto px-4 relative z-10 py-12 md:py-20 text-center lg:text-left">
