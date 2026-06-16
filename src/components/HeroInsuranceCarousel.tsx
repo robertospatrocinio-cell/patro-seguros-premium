@@ -333,10 +333,18 @@ const HeroInsuranceCarousel = ({
           </span>
           <HeadingTag
             id={headingId}
-            className="mt-5 bg-gradient-to-br from-white via-[#F5E6C8] to-[#F2994A] bg-clip-text text-3xl font-black leading-tight tracking-tight text-transparent drop-shadow-[0_2px_12px_rgba(242,153,74,0.25)] md:text-5xl"
+            className="mt-6 text-3xl font-light leading-[1.1] tracking-tight text-white md:text-5xl lg:text-[3.5rem]"
+            style={{
+              fontFeatureSettings: '"ss01", "kern"',
+              letterSpacing: "-0.02em",
+            }}
           >
             {headline}
           </HeadingTag>
+          <span
+            aria-hidden
+            className="mx-auto mt-6 block h-px w-16 bg-gradient-to-r from-transparent via-[#D4A857] to-transparent"
+          />
           <p className="mx-auto mt-4 max-w-2xl text-base text-white/75 md:text-lg">
             {subheadline}
           </p>
