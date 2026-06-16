@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
+import { referralSchema as formSchema } from "@/lib/leadValidation";
+import type { z } from "zod";
 import { debounce } from "@/lib/debounce";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -26,15 +27,6 @@ const tiposSeguros = [
   "Seguro Empresarial", "Seguro Saúde", "Plano de Saúde", "Seguro Viagem",
   "Seguro Frota", "Previdência Privada", "Outro",
 ];
-
-const formSchema = z.object({
-  nomeCliente: z.string().trim().min(3, "Nome deve ter no mínimo 3 caracteres").max(100, "Nome muito longo"),
-  telefoneCliente: z.string().trim().min(10, "Telefone inválido").max(15, "Telefone inválido"),
-  nomeIndicado: z.string().trim().min(3, "Nome deve ter no mínimo 3 caracteres").max(100, "Nome muito longo"),
-  telefoneIndicado: z.string().trim().min(10, "Telefone inválido").max(15, "Telefone inválido"),
-  tipoSeguro: z.string().min(1, "Selecione um tipo de seguro"),
-  mensagem: z.string().trim().max(500, "Mensagem muito longa").optional().default(""),
-});
 
 const IndiqueAmigo = () => {
   const storageKey = "indique-amigo-data";
