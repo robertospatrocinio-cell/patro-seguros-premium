@@ -5,11 +5,11 @@ const ConsorcioVeiculosPesados = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Consórcio de Veículos Pesados"
-      subtitle="Caminhões, ônibus, máquinas e implementos — renove ou amplie sua frota sem juros"
+      title="Consórcio de Veículos Pesados Sem Juros"
+      subtitle="Caminhões, ônibus, máquinas e implementos: renove ou amplie a frota sem comprometer o caixa, com parcelas planejadas e poder de compra à vista."
       icon="🚛"
       showEbookConsorcio
-      metaDescription="Consórcio de Veículos Pesados sem juros. Caminhões, ônibus, máquinas e implementos. Ideal para empresas e autônomos. Simule grátis com a Patro Seguros!"
+      metaDescription="Consórcio de caminhões, ônibus e máquinas sem juros: renove a frota sem comprometer o caixa, com parcelas planejadas e poder de compra à vista. Simule grátis."
       description="Consórcio de Veículos Pesados: ideal para renovar frotas sem comprometer o caixa. Adquira caminhões e máquinas sem juros e com poder de compra à vista."
       coverages={[
         { title: "Sem Juros", description: "Economize até 40% comparado ao financiamento de veículos pesados — pague apenas taxa de administração" },
