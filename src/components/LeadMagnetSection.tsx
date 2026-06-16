@@ -3,6 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Download, CheckCircle } from "lucide-react";
 import OptimizedImage from "@/components/OptimizedImage";
+import { showFriendlyError, showValidationError } from "@/lib/friendlyToast";
+import { nameSchema, whatsappSchema, firstZodMessage } from "@/lib/leadValidation";
+import { z } from "zod";
+
+const leadMagnetSchema = z.object({ name: nameSchema, whatsapp: whatsappSchema });
 
 const ebookMockup = "/images/ebook-mockup-seguro-auto.webp";
 const EBOOK_URL = "/downloads/guia-seguro-auto-guarulhos.pdf";
@@ -37,18 +42,29 @@ const LeadMagnetSection = memo(() => {
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
     e.preventDefault();
-    if (!canSubmit) return;
 
-    // Fire tracking
+    const parsed = leadMagnetSchema.safeParse({ name, whatsapp });
+    if (!parsed.success) {
+      showValidationError(firstZodMessage(parsed.error));
+      return;
+    }
+
     try {
       if (typeof window !== "undefined") {
         window.fbq?.("track", "Lead", { content_name: "ebook-seguro-auto" });
         window.gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-seguro-auto" });
       }
-    } catch {}
+    } catch (err) {
+      console.error("LeadMagnet tracking failed", err);
+    }
 
-    setSent(true);
-  }, [canSubmit]);
+    try {
+      setSent(true);
+    } catch (err) {
+      console.error("LeadMagnet submit failed", err);
+      showFriendlyError();
+    }
+  }, [name, whatsapp]);
 
   return (
     <section className="py-16 md:py-24 relative z-[2] bg-white" aria-labelledby="lead-magnet-heading">

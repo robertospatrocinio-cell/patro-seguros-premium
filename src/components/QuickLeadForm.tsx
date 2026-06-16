@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Phone, User, ShieldCheck, ArrowRight } from "lucide-react";
+import { quickLeadSchema, firstZodMessage } from "@/lib/leadValidation";
+import { showFriendlyError, showValidationError } from "@/lib/friendlyToast";
 
 export const QuickLeadForm = () => {
   const [loading, setLoading] = useState(false);
@@ -14,24 +17,39 @@ export const QuickLeadForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { toast } = await import("sonner");
-    if (!formData.name || !formData.phone || !formData.insuranceType) {
-      toast.error("Por favor, preencha todos os campos.");
+
+    const parsed = quickLeadSchema.safeParse(formData);
+    if (!parsed.success) {
+      showValidationError(firstZodMessage(parsed.error));
       return;
     }
 
     setLoading(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { name, phone, insuranceType } = parsed.data;
+      const msg = `Olá, meu nome é ${name} (${phone}). Sou de Guarulhos e gostaria de uma cotação de ${insuranceType}.`;
 
-    toast.success("Recebemos seu contato! Um consultor ligará em breve.");
-    
-    // Redirect to full quote or WhatsApp for better UX
-    const msg = encodeURIComponent(`Olá, meu nome é ${formData.name}. Sou de Guarulhos e gostaria de uma cotação de ${formData.insuranceType}.`);
-    window.open(`https://wa.me/551151997500?text=${msg}`, "_blank");
-    
-    setFormData({ name: "", phone: "", insuranceType: "" });
-    setLoading(false);
+      const popup = window.open(
+        `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`,
+        "_blank",
+        "noopener,noreferrer",
+      );
+      if (!popup) {
+        showFriendlyError(
+          "Não conseguimos abrir o WhatsApp automaticamente. Toque no botão abaixo para falar com a gente.",
+          { whatsappMessage: msg },
+        );
+        return;
+      }
+
+      toast.success("Recebemos seu contato! Um consultor ligará em breve.");
+      setFormData({ name: "", phone: "", insuranceType: "" });
+    } catch (err) {
+      console.error("QuickLeadForm submit failed", err);
+      showFriendlyError();
+    } finally {
+      setLoading(false);
+    }
   };
 
   const whatsappMessage = `Olá, meu nome é ${formData.name || '...'}. Sou de Guarulhos e gostaria de uma cotação de ${formData.insuranceType || '...'}.`;
