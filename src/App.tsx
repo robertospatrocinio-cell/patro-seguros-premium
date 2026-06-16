@@ -481,7 +481,7 @@ const App = () => {
                   <Route path="/seguros-guarulhos/:bairro" element={<SegurosGuarulhosBairros />} />
                   <Route path="/seguros-shopping-maia-cidade-maia-guarulhos" element={<SeoSegurosShoppingMaiaCidadeMaia />} />
                   <Route path="/comparativo-planos-saude-guarulhos" element={<ComparativoPlanosSaude />} />
-                  <Route path="/seguro-auto-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-auto-guarulhos" element={<SeoSeguroAutoGuarulhos />} />
                   {/* Consórcio */}
                   <Route path="/consorcio" element={<Consorcio />} />
                   <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
