@@ -354,6 +354,53 @@ const InsurancePageTemplate = ({
           <AgrishowPromoBanner source={title.toLowerCase().replace(/\s+/g, "-")} variant="compact" />
         )}
 
+        {/* Galeria temática do produto (3-6 imagens reais) */}
+        {(() => {
+          const gallery = (galleryImages && galleryImages.length >= 3)
+            ? galleryImages.slice(0, 6)
+            : buildAutoGallery(title, galleryKeywords);
+          if (!gallery || gallery.length < 3) return null;
+          const colsClass = gallery.length >= 6
+            ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-6"
+            : gallery.length === 5
+            ? "grid-cols-2 md:grid-cols-5"
+            : gallery.length === 4
+            ? "grid-cols-2 md:grid-cols-4"
+            : "grid-cols-1 sm:grid-cols-3";
+          return (
+            <section className="py-12 md:py-16 bg-gradient-surface border-y border-border/60" aria-labelledby="galeria-heading">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-8 md:mb-10">
+                  <span className="section-label">Veja na prática</span>
+                  <h2 id="galeria-heading" className="mt-3 text-2xl md:text-3xl text-foreground">
+                    {title}: o que protegemos
+                  </h2>
+                </div>
+                <div className={`grid ${colsClass} gap-3 md:gap-4`}>
+                  {gallery.map((src, i) => (
+                    <figure
+                      key={`${src}-${i}`}
+                      className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-muted shadow-sm transition-smooth hover:shadow-lg"
+                    >
+                      <img
+                        src={src}
+                        alt={`${title} — imagem ${i + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        width={800}
+                        height={600}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => { (e.currentTarget.parentElement as HTMLElement).style.display = "none"; }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            </section>
+          );
+        })()}
+
         {/* Descrição */}
         <section className="py-20" aria-labelledby="descricao-heading">
           <div className="container mx-auto px-4 max-w-3xl">
