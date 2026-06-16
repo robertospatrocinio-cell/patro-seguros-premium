@@ -25,6 +25,12 @@ import {
   ArrowRight,
   ArrowLeft,
   MessageCircle,
+  Tractor,
+  Wheat,
+  Sprout,
+  Coffee,
+  Leaf,
+  Combine,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,9 +41,10 @@ import {
 } from "@/lib/tracking";
 import heroFamilia from "@/assets/hero-familia.webp";
 import heroEmpresa from "@/assets/hero-empresa.webp";
+import heroAgro from "@/assets/hero-agro.webp";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
-type Audience = "pessoa" | "empresa";
+type Audience = "pessoa" | "empresa" | "agro";
 
 type InsuranceCard = {
   title: string;
