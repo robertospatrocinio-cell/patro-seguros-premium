@@ -82,6 +82,15 @@ const Footer = memo(() => {
             <ul className="space-y-2.5 text-[13px] mb-8">
               <li><SmartLink to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</SmartLink></li>
               <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>
+              <li>
+                <SmartLink
+                  to="/patro-private"
+                  className="hover:text-white transition-colors"
+                  style={{ color: "hsl(38 60% 72%)" }}
+                >
+                  Patro Private →
+                </SmartLink>
+              </li>
               <li><SmartLink to="/crm" className="text-primary font-bold hover:text-primary/80">Área do Cliente</SmartLink></li>
             </ul>
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Conteúdo</h3>
