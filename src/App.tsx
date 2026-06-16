@@ -65,6 +65,15 @@ const SeguroHospitalVeterinario = lazyWithRetry(() => import("./pages/SeguroHosp
 const SeguroEquipamentosVeterinarios = lazyWithRetry(() => import("./pages/SeguroEquipamentosVeterinarios"), "SeguroEquipamentosVeterinarios");
 const PlanoSaudeClinicasVeterinarias = lazyWithRetry(() => import("./pages/PlanoSaudeClinicasVeterinarias"), "PlanoSaudeClinicasVeterinarias");
 const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/SeguroVidaClinicasVeterinarias"), "SeguroVidaClinicasVeterinarias");
+
+// === Patro Private (camada premium) ===
+const PatroPrivate = lazyWithRetry(() => import("./pages/PatroPrivate"), "PatroPrivate");
+const SeguroAutoPremiumGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroAutoPremiumGuarulhos"), "SeguroAutoPremiumGuarulhos");
+const SeguroCarrosLuxoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroCarrosLuxoGuarulhos"), "SeguroCarrosLuxoGuarulhos");
+const SeguroResidencialAltoPadraoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroResidencialAltoPadraoGuarulhos"), "SeguroResidencialAltoPadraoGuarulhos");
+const SegurosParaEmpresariosGuarulhos = lazyWithRetry(() => import("./pages/premium/SegurosParaEmpresariosGuarulhos"), "SegurosParaEmpresariosGuarulhos");
+const SeguroCarroBlindadoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroCarroBlindadoGuarulhos"), "SeguroCarroBlindadoGuarulhos");
+const ProtecaoPatrimonialFamiliarGuarulhos = lazyWithRetry(() => import("./pages/premium/ProtecaoPatrimonialFamiliarGuarulhos"), "ProtecaoPatrimonialFamiliarGuarulhos");
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -539,6 +548,14 @@ const App = () => {
                   <Route path="/seguro-equipamentos-odontologicos" element={<SeguroEquipamentosOdontologicos />} />
                   <Route path="/plano-saude-clinicas-odontologicas" element={<PlanoSaudeClinicasOdontologicas />} />
                   <Route path="/seguro-vida-clinicas-odontologicas" element={<SeguroVidaClinicasOdontologicas />} />
+                  {/* === Patro Private === */}
+                  <Route path="/patro-private" element={<PatroPrivate />} />
+                  <Route path="/seguro-auto-premium-guarulhos" element={<SeguroAutoPremiumGuarulhos />} />
+                  <Route path="/seguro-carros-luxo-guarulhos" element={<SeguroCarrosLuxoGuarulhos />} />
+                  <Route path="/seguro-residencial-alto-padrao-guarulhos" element={<SeguroResidencialAltoPadraoGuarulhos />} />
+                  <Route path="/seguros-para-empresarios-guarulhos" element={<SegurosParaEmpresariosGuarulhos />} />
+                  <Route path="/seguro-carro-blindado-guarulhos" element={<SeguroCarroBlindadoGuarulhos />} />
+                  <Route path="/protecao-patrimonial-familiar-guarulhos" element={<ProtecaoPatrimonialFamiliarGuarulhos />} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
