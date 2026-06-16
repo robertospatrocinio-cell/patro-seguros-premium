@@ -152,27 +152,6 @@ import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
 import { validatePageMeta } from "./scripts/validate-page-meta.mjs";
 import { loadDataModule } from "./scripts/load-data-module.mjs";
 
-// Plugin to make CSS non-render-blocking by converting <link rel="stylesheet"> 
-// to async loading with print/onload trick (critical CSS is already inlined in index.html)
-function asyncCssPlugin(): Plugin {
-  return {
-    name: "async-css",
-    enforce: "post",
-    transformIndexHtml: {
-      order: "post",
-      handler(html) {
-        // Match any Vite-injected stylesheet link regardless of attribute order.
-        return html.replace(/<link\b([^>]*\brel="stylesheet"[^>]*)>/gi, (tag, attrs) => {
-          const href = String(attrs).match(/\bhref="([^"]+)"/i)?.[1];
-          if (!href || !href.startsWith("/assets/") || !href.endsWith(".css")) return tag;
-          return `<link rel="preload" href="${href}" as="style" onload="this.onload=null;this.rel='stylesheet'">` +
-            `<noscript><link rel="stylesheet" href="${href}"></noscript>`;
-        });
-      },
-    },
-  };
-}
-
 // Plugin to auto-generate sitemap.xml at build time
 function sitemapPlugin(): Plugin {
   return {
