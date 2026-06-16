@@ -359,7 +359,15 @@ const App = () => {
 
   useEffect(() => {
     const cleanupKey = "patro_legacy_cache_cleanup_v2";
-    if (localStorage.getItem(cleanupKey) === "done") return;
+    const safeStorage = {
+      get: () => {
+        try { return localStorage.getItem(cleanupKey); } catch { return "done"; }
+      },
+      done: () => {
+        try { localStorage.setItem(cleanupKey, "done"); } catch { /* storage unavailable */ }
+      },
+    };
+    if (safeStorage.get() === "done") return;
 
     const timer = globalThis.setTimeout(() => {
       if ("serviceWorker" in navigator) {
@@ -371,10 +379,10 @@ const App = () => {
       if ("caches" in window) {
         caches.keys().then((names) => {
           names.forEach((name) => caches.delete(name));
-          localStorage.setItem(cleanupKey, "done");
+          safeStorage.done();
         });
       } else {
-        localStorage.setItem(cleanupKey, "done");
+        safeStorage.done();
       }
     }, 5000);
 
