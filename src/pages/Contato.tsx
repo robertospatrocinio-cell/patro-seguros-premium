@@ -16,6 +16,8 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { nameSchema, phoneSchema, emailSchema, messageSchema, firstZodMessage } from "@/lib/leadValidation";
 import { showFriendlyError } from "@/lib/friendlyToast";
+import { buildWhatsAppMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/tracking";
 
 const contatoSchema = z.object({
   nome: nameSchema,
@@ -87,14 +89,18 @@ const Contato = () => {
 
     try {
       const data = parsed.data;
-      const parts = [
-        `Olá! Vim pelo formulário de contato do site.`,
+      const extraLines = [
         `Nome: ${data.nome}`,
-        data.email && `E-mail: ${data.email}`,
+        data.email ? `E-mail: ${data.email}` : "",
         `Telefone: ${data.telefone}`,
-        data.servico && `Interesse: ${data.servico}`,
-        data.mensagem && `Mensagem: ${data.mensagem}`,
-      ].filter(Boolean).join("\n");
+        data.servico ? `Interesse: ${data.servico}` : "",
+        data.mensagem ? `Mensagem: ${data.mensagem}` : "",
+      ].filter(Boolean) as string[];
+      const parts = buildWhatsAppMessage({
+        origem: "contato_formulario",
+        extraLines,
+      });
+      const waUrl = buildWhatsAppUrl({ origem: "contato_formulario", extraLines });
 
       try {
         window.fbq?.("track", "Lead", {
@@ -105,11 +111,22 @@ const Contato = () => {
         console.error("Contato tracking failed", err);
       }
 
+      try {
+        window.gtag?.("event", "clique_whatsapp_contato", {
+          event_category: "contato",
+          origem: "contato_formulario",
+          url_destino: waUrl,
+        });
+      } catch {
+        /* noop */
+      }
+      trackWhatsAppClick("contato-formulario", { origin: "contato_formulario" });
+
       setTimeout(() => {
         setSending(false);
         setSent(true);
         const popup = window.open(
-          `https://wa.me/551151997500?text=${encodeURIComponent(parts)}`,
+          waUrl,
           "_blank",
           "noopener,noreferrer",
         );
