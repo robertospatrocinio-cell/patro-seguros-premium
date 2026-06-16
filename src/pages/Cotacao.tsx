@@ -15,7 +15,7 @@ import FAQSchema from "@/components/FAQSchema";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import HeroInsuranceCarousel from "@/components/HeroInsuranceCarousel";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, openWhatsAppOrFallback } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -195,8 +195,9 @@ const Cotacao = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
-    const waUrl = buildWhatsAppUrl({
+    const ctaOptions = {
       origem: "cotacao_formulario_etapas",
+      subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
       extraLines: [
         `Nome: ${values.name}`,
         `E-mail: ${values.email}`,
@@ -204,7 +205,8 @@ const Cotacao = () => {
         `Tipo de Seguro: ${values.insuranceType}`,
         `Mensagem: ${values.message || "Não informada"}`,
       ],
-    });
+    };
+    const waUrl = buildWhatsAppUrl(ctaOptions);
 
     const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${values.message || "Não informada"}`;
     const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
@@ -233,7 +235,14 @@ const Cotacao = () => {
       /* noop */
     }
 
-    window.location.href = waUrl;
+    const opened = openWhatsAppOrFallback(
+      ctaOptions,
+      (msg, opts) => toast.error(msg, opts),
+    );
+    if (opened === false) {
+      // toast com fallback de e-mail já exibido; não redireciona.
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
