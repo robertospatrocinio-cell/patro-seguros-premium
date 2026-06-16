@@ -69,8 +69,8 @@ const ExitIntentPopup = () => {
     }
 
     try {
-      (window as { fbq?: (...args: unknown[]) => void }).fbq?.("track", "Lead", { content_name: "ebook-exit-intent" });
-      (window as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-exit-intent" });
+      window.fbq?.("track", "Lead", { content_name: "ebook-exit-intent" });
+      window.gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-exit-intent" });
     } catch (err) {
       console.error("ExitIntentPopup tracking failed", err);
     }
