@@ -21,6 +21,251 @@ export interface Metadata {
 
 const DOMAIN = "https://www.patroseguros.com.br";
 
+/**
+ * Premium metadata para rotas restauradas na Fase 1.
+ * Title ≤65, description ≤160, schema dedicado (Service/FAQPage/CollectionPage).
+ * Fica antes do fallback genérico para evitar títulos do tipo "Seguro Rc Medicos | Patro".
+ */
+interface PremiumMeta {
+  title: string;
+  description: string;
+  h1: string;
+  serviceType?: string;
+  faqs?: { question: string; answer: string }[];
+  collection?: boolean;
+}
+
+const premiumPages: Record<string, PremiumMeta> = {
+  // ===== Responsabilidade Civil Profissional (foco do pedido) =====
+  "/seguro-rc-medicos": {
+    title: "Seguro RC Médicos | Erro Médico e Processos | Patro",
+    description: "Seguro de Responsabilidade Civil para médicos: cobertura para erro médico, processos judiciais, custos de defesa e danos a pacientes. Cotação em 24h.",
+    h1: "Seguro RC Profissional para Médicos",
+    serviceType: "Seguro de Responsabilidade Civil Profissional Médica",
+    faqs: [
+      { question: "O que cobre o seguro RC para médicos?", answer: "Cobre indenizações por erro médico, custos de defesa judicial, perícias e danos morais/materiais causados a pacientes no exercício da profissão." },
+      { question: "Residentes e plantonistas têm cobertura?", answer: "Sim. A apólice pode ser estruturada por CPF (autônomo) ou por instituição, contemplando residentes, plantonistas e cooperativas médicas." },
+      { question: "Cobre processos por atendimento via telemedicina?", answer: "Sim, desde que a modalidade esteja declarada na proposta. A Patro estrutura coberturas específicas para teleconsulta conforme a CFM 2.314/2022." },
+    ],
+  },
+  "/seguro-rc-dentistas": {
+    title: "Seguro RC Dentistas e Cirurgiões-Dentistas | Patro",
+    description: "Responsabilidade Civil para cirurgiões-dentistas: cobertura para erro odontológico, implantes, ortodontia, estética e defesa em processos no CRO e judicial.",
+    h1: "Seguro RC Profissional para Dentistas",
+    serviceType: "Seguro de Responsabilidade Civil Profissional Odontológica",
+    faqs: [
+      { question: "O seguro cobre tratamentos estéticos e implantes?", answer: "Sim. A cobertura contempla implantodontia, ortodontia, harmonização orofacial e procedimentos estéticos, desde que declarados na proposta." },
+      { question: "Cobre processos no CRO?", answer: "Sim. Inclui custos de defesa em processos éticos no Conselho Regional de Odontologia e ações cíveis de pacientes." },
+      { question: "Vale para clínica com vários dentistas?", answer: "Sim. É possível contratar apólice PJ para a clínica + apólices individuais por CRO dos profissionais." },
+    ],
+  },
+  "/seguro-rc-advogados": {
+    title: "Seguro RC Advogados | Erro Profissional e OAB | Patro",
+    description: "Seguro de Responsabilidade Civil para advogados e escritórios: cobertura para perda de prazo, erro profissional, processos disciplinares na OAB e defesa judicial.",
+    h1: "Seguro RC Profissional para Advogados",
+    serviceType: "Seguro de Responsabilidade Civil Profissional Advocatícia",
+    faqs: [
+      { question: "O seguro cobre perda de prazo processual?", answer: "Sim. A perda de prazo é o sinistro mais comum em RC Advogados e está coberta, incluindo indenização ao cliente e custos de defesa." },
+      { question: "Vale para escritório de advocacia (PJ)?", answer: "Sim. A apólice pode ser contratada por escritório/sociedade, cobrindo todos os advogados associados sob o CNPJ." },
+      { question: "Cobre processos disciplinares na OAB?", answer: "Sim, inclui custos de defesa em representações no Tribunal de Ética da OAB e ações cíveis movidas por clientes." },
+    ],
+  },
+
+  // ===== Galpões e Patrimônio =====
+  "/seguro-galpao": {
+    title: "Seguro Galpão Industrial e Logístico | Patro Seguros",
+    description: "Seguro para galpões em Guarulhos, Cumbica e todo o Brasil: incêndio, roubo, vendaval, lucros cessantes e RC operações. Apólices a partir de R$ 2M até R$ 500M.",
+    h1: "Seguro Galpão Industrial e Logístico",
+    serviceType: "Seguro Patrimonial para Galpões",
+  },
+  "/seguro-galpoes-industriais": {
+    title: "Seguro Galpões Industriais | Riscos Patrimoniais | Patro",
+    description: "Cobertura completa para galpões industriais: incêndio, danos elétricos, vendaval, alagamento, roubo de mercadoria e lucros cessantes. Especialista em Cumbica/SP.",
+    h1: "Seguro para Galpões Industriais",
+    serviceType: "Seguro de Riscos Patrimoniais Industriais",
+  },
+  "/seguro-armazenagem": {
+    title: "Seguro Armazenagem e Estoques | Operador Logístico",
+    description: "Seguro para operadores logísticos e armazéns gerais: cobertura para mercadorias de terceiros, RC depositário, incêndio e desvio de carga estática.",
+    h1: "Seguro de Armazenagem e Operação Logística",
+    serviceType: "Seguro para Operador Logístico",
+  },
+  "/seguro-condominio-empresarial": {
+    title: "Seguro Condomínio Empresarial e Comercial | Patro",
+    description: "Seguro obrigatório para condomínios empresariais: incêndio, RC síndico, danos a terceiros, equipamentos e áreas comuns. Cotação com 8+ seguradoras.",
+    h1: "Seguro para Condomínio Empresarial",
+    serviceType: "Seguro de Condomínio Comercial",
+  },
+  "/seguro-condominio-residencial": {
+    title: "Seguro Condomínio Residencial Obrigatório | Patro",
+    description: "Seguro condomínio residencial conforme Lei 4.591/64 e Código Civil: incêndio, RC síndico, danos elétricos, vendaval e equipamentos. Cotação rápida.",
+    h1: "Seguro Obrigatório para Condomínio Residencial",
+    serviceType: "Seguro de Condomínio Residencial",
+  },
+
+  // ===== Agro =====
+  "/seguro-trator-agricola": {
+    title: "Seguro Trator Agrícola | Cobertura Nacional | Patro",
+    description: "Seguro para tratores agrícolas John Deere, Massey, New Holland, Valtra e Case: roubo, colisão, tombamento, incêndio e RC. Atendimento em todo o Brasil.",
+    h1: "Seguro para Tratores Agrícolas",
+    serviceType: "Seguro de Máquinas Agrícolas",
+  },
+  "/seguro-colheitadeira-graos": {
+    title: "Seguro Colheitadeira de Grãos | Soja, Milho e Trigo",
+    description: "Seguro para colheitadeiras de soja, milho, trigo e sorgo: cobertura para incêndio na lavoura, tombamento, colisão e quebra de plataforma. Cotação nacional.",
+    h1: "Seguro para Colheitadeira de Grãos",
+    serviceType: "Seguro de Colheitadeira",
+  },
+  "/seguro-pulverizador-agricola": {
+    title: "Seguro Pulverizador Agrícola Autopropelido | Patro",
+    description: "Seguro para pulverizadores autopropelidos Jacto, John Deere, Stara e Case: cobertura para tombamento, colisão, incêndio e deriva. Atendimento nacional.",
+    h1: "Seguro para Pulverizador Agrícola",
+    serviceType: "Seguro de Pulverizador Autopropelido",
+  },
+  "/seguro-silo-agricola": {
+    title: "Seguro Silo e Armazenagem de Grãos | Patro",
+    description: "Seguro para silos, armazéns e secadores de grãos: cobertura para incêndio, explosão, combustão espontânea, vendaval e perda de produto armazenado.",
+    h1: "Seguro para Silos e Armazenagem de Grãos",
+    serviceType: "Seguro de Silos e Armazenagem Agrícola",
+  },
+  "/seguro-equipamentos-agricolas": {
+    title: "Seguro Equipamentos Agrícolas | Implementos | Patro",
+    description: "Seguro para implementos agrícolas, plantadeiras, plataformas, grades e arados. Cobertura nacional para máquinas paradas e em operação na lavoura.",
+    h1: "Seguro para Equipamentos e Implementos Agrícolas",
+    serviceType: "Seguro de Equipamentos Agrícolas",
+  },
+
+  // ===== Consórcio =====
+  "/consorcio-carro": {
+    title: "Consórcio de Carro | Sem Juros, Lance e Parcelas",
+    description: "Consórcio de carro 0km ou seminovo sem juros: parcelas a partir de R$ 350, contemplação por sorteio ou lance. Simulação com administradoras autorizadas.",
+    h1: "Consórcio de Carro",
+    serviceType: "Consórcio de Veículos Leves",
+  },
+  "/consorcio-imoveis": {
+    title: "Consórcio de Imóveis | Casa, Apto e Terreno",
+    description: "Consórcio imobiliário para compra, construção, reforma ou quitação de financiamento. Crédito de R$ 100k a R$ 2M sem juros, com administradoras Top 5.",
+    h1: "Consórcio de Imóveis",
+    serviceType: "Consórcio Imobiliário",
+  },
+  "/consorcio-veiculos-pesados": {
+    title: "Consórcio Caminhão e Veículos Pesados | Patro",
+    description: "Consórcio para caminhão, carreta, ônibus, micro-ônibus e implementos rodoviários. Crédito sem juros para frotistas e transportadores autônomos.",
+    h1: "Consórcio de Veículos Pesados e Caminhões",
+    serviceType: "Consórcio de Veículos Pesados",
+  },
+
+  // ===== Atendimento / Outros =====
+  "/central-de-sinistro": {
+    title: "Central de Sinistros | Aviso 24h | Patro Seguros",
+    description: "Acionou um sinistro? Comunique online ou via WhatsApp (11) 5199-7500. Equipe Patro acompanha vistoria, regulação e indenização até a quitação.",
+    h1: "Central de Sinistros Patro Seguros",
+    serviceType: "Atendimento e Regulação de Sinistros",
+  },
+  "/seguro-petshop": {
+    title: "Seguro Petshop | Clínicas e Banho & Tosa | Patro",
+    description: "Seguro empresarial para petshops, clínicas veterinárias e banho & tosa: incêndio, roubo, equipamentos, RC custódia de animais e perda de receita.",
+    h1: "Seguro para Petshop e Clínicas Veterinárias",
+    serviceType: "Seguro Empresarial para Petshop",
+  },
+  "/seguro-motorista-app": {
+    title: "Seguro Motorista de App | Uber, 99 e iFood | Patro",
+    description: "Seguro com cobertura específica para motoristas de aplicativo (Uber, 99, InDriver) e entregadores: terceiros, passageiros, APP e furto qualificado.",
+    h1: "Seguro para Motorista de Aplicativo",
+    serviceType: "Seguro Auto para Motorista de App",
+  },
+
+  // ===== Hubs (CollectionPage) =====
+  "/hub-rc": {
+    title: "Seguros de Responsabilidade Civil (RC) | Patro",
+    description: "Hub de seguros RC: profissional liberal, empresarial, D&O, eventos, condomínio, construção, transportador. Compare coberturas e cote em 24h.",
+    h1: "Hub de Seguros de Responsabilidade Civil",
+    collection: true,
+  },
+  "/hub-empresarial": {
+    title: "Seguros Empresariais | PME e Grandes Riscos | Patro",
+    description: "Hub de seguros empresariais: galpão, escritório, frota, RC, D&O, cyber, lucros cessantes e benefícios. Mais de 500 empresas atendidas em Guarulhos/SP.",
+    h1: "Hub de Seguros Empresariais",
+    collection: true,
+  },
+  "/hub-patrimonio": {
+    title: "Seguros Patrimoniais | Galpão, Casa e Condomínio",
+    description: "Hub de seguros patrimoniais: residencial, condomínio, galpão, armazém, equipamentos e obras civis. Cobertura para todos os portes em todo o Brasil.",
+    h1: "Hub de Seguros Patrimoniais",
+    collection: true,
+  },
+  "/hub-veiculos": {
+    title: "Seguros de Veículos | Auto, Moto, Frota e Pesados",
+    description: "Hub de seguros para veículos: auto, moto, caminhão, frota, motorista de app, micro-ônibus e implementos. Compare 12+ seguradoras em uma cotação.",
+    h1: "Hub de Seguros de Veículos",
+    collection: true,
+  },
+  "/hub-vida-saude": {
+    title: "Seguros de Vida e Saúde | Planos e Previdência",
+    description: "Hub de vida, saúde e previdência: vida individual, vida empresarial, plano de saúde PME, odontológico e previdência privada (PGBL/VGBL).",
+    h1: "Hub de Seguros de Vida, Saúde e Previdência",
+    collection: true,
+  },
+};
+
+function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
+  const schema = p.collection
+    ? {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": p.h1,
+        "description": p.description,
+        "url": `${DOMAIN}${cleanPath}`,
+        "isPartOf": { "@type": "WebSite", "name": "Patro Seguros", "url": DOMAIN },
+        "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN },
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": p.h1,
+        "serviceType": p.serviceType || p.h1,
+        "description": p.description,
+        "url": `${DOMAIN}${cleanPath}`,
+        "provider": {
+          "@type": "InsuranceAgency",
+          "name": "Patro Seguros",
+          "url": DOMAIN,
+          "telephone": "+55-11-5199-7500",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Guarulhos",
+            "addressRegion": "SP",
+            "addressCountry": "BR",
+          },
+        },
+        "areaServed": { "@type": "Country", "name": "Brasil" },
+      };
+
+  return {
+    title: p.title,
+    description: p.description,
+    canonical: `${DOMAIN}${cleanPath}`,
+    h1: p.h1,
+    ogUrl: `${DOMAIN}${cleanPath}`,
+    ogType: "website",
+    faqs: p.faqs,
+    schema: p.faqs
+      ? [
+          schema,
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": p.faqs.map((f) => ({
+              "@type": "Question",
+              "name": f.question,
+              "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+            })),
+          },
+        ]
+      : schema,
+  };
+}
+
 export function getMetadataForRoute(pathname: string): Metadata | null {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
   let slug = cleanPath.startsWith("/") ? cleanPath.slice(1) : cleanPath;
@@ -28,6 +273,12 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   const isLP = slug.startsWith("lp/");
   if (isLP) {
     slug = slug.replace("lp/", "");
+  }
+
+  // Premium overrides para rotas restauradas (RC, galpões, agro, consórcio, hubs)
+  if (!isLP) {
+    const premium = premiumPages[cleanPath];
+    if (premium) return buildPremiumMetadata(cleanPath, premium);
   }
 
   // 1. Home
