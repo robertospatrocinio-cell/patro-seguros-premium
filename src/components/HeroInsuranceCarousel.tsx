@@ -98,11 +98,11 @@ const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> 
 const DEFAULT_ACCENT = "210 70% 50%";
 
 const cardsPessoa: InsuranceCard[] = [
-  { title: "Seguro Auto", short: "Carro, terceiros e assistência 24h.", href: "/seguro-auto-guarulhos", Icon: Car, slug: "seguro-auto" },
-  { title: "Seguro Moto", short: "Proteção para sua moto no dia a dia.", href: "/seguro-moto-guarulhos", Icon: Bike, slug: "seguro-moto" },
-  { title: "Seguro Residencial", short: "Casa, apto e assistência completa.", href: "/seguro-residencial-guarulhos", Icon: Home, slug: "seguro-residencial" },
-  { title: "Seguro de Vida", short: "Estabilidade financeira para sua família.", href: "/seguro-vida-guarulhos", Icon: HeartPulse, slug: "seguro-vida" },
-  { title: "Plano de Saúde", short: "Comparamos 20+ operadoras para você.", href: "/plano-saude-guarulhos", Icon: Stethoscope, slug: "plano-saude" },
+  { title: "Seguro Auto", short: "Carro, terceiros e assistência 24h.", href: "/seguro-auto", Icon: Car, slug: "seguro-auto" },
+  { title: "Seguro Moto", short: "Proteção para sua moto no dia a dia.", href: "/seguro-moto", Icon: Bike, slug: "seguro-moto" },
+  { title: "Seguro Residencial", short: "Casa, apto e assistência completa.", href: "/seguro-residencial", Icon: Home, slug: "seguro-residencial" },
+  { title: "Seguro de Vida", short: "Estabilidade financeira para sua família.", href: "/seguro-vida", Icon: HeartPulse, slug: "seguro-vida" },
+  { title: "Plano de Saúde", short: "Comparamos 20+ operadoras para você.", href: "/planos-de-saude", Icon: Stethoscope, slug: "plano-saude" },
   { title: "Seguro Viagem", short: "Cobertura médica e bagagem no exterior.", href: "/seguro-viagem", Icon: Plane, slug: "seguro-viagem" },
   { title: "Seguro Celular", short: "Roubo, furto e danos acidentais.", href: "/seguro-celular", Icon: Smartphone, slug: "seguro-celular" },
   { title: "Motorista de App", short: "Cobertura para quem dirige Uber/99.", href: "/seguro-motorista-app", Icon: Navigation, slug: "seguro-motorista-app" },
@@ -111,9 +111,9 @@ const cardsPessoa: InsuranceCard[] = [
 
 const cardsEmpresa: InsuranceCard[] = [
   { title: "Seguro Empresarial", short: "Patrimônio, lucros cessantes e RC.", href: "/seguro-empresarial", Icon: Building2, slug: "seguro-empresarial" },
-  { title: "Seguro Frota", short: "Economia de até 40% vs apólices individuais.", href: "/seguro-frota-empresas-guarulhos", Icon: Truck, slug: "seguro-frota" },
+  { title: "Seguro Frota", short: "Economia de até 40% vs apólices individuais.", href: "/seguro-frota", Icon: Truck, slug: "seguro-frota" },
   { title: "Transporte e Carga", short: "RCTR-C, RCF-DC e cargas em trânsito.", href: "/seguro-transporte", Icon: PackageCheck, slug: "seguro-transporte" },
-  { title: "Transportadoras", short: "Solução completa para operação logística.", href: "/seguros/transportadoras", Icon: Boxes, slug: "transportadoras" },
+  { title: "Transportadoras", short: "Solução completa para operação logística.", href: "/nicho-transportadoras", Icon: Boxes, slug: "transportadoras" },
   { title: "Seguro Galpão", short: "Blindagem patrimonial e All-Risks.", href: "/seguro-galpao", Icon: Warehouse, slug: "seguro-galpao" },
   { title: "Plano de Saúde PME", short: "Saúde corporativa a partir de 2 vidas.", href: "/plano-saude-empresarial", Icon: Briefcase, slug: "plano-saude-pme" },
   { title: "Vida em Grupo", short: "Benefício essencial para o seu time.", href: "/seguro-vida-pme", Icon: Users, slug: "vida-em-grupo" },
