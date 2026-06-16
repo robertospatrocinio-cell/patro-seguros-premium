@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Send, CheckCircle, MessageCircle, TrendingDown, Save, ChevronRight, ChevronLeft, RotateCcw, AlertCircle } from "lucide-react";
-import { debounce } from "lodash";
+import { debounce } from "lodash-es";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone, maskPhone } from "@/lib/utils";
 import { toast } from "sonner";

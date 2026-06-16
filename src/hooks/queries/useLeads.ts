@@ -29,7 +29,6 @@ export const useLeads = () => {
     queryKey: ["leads"],
     queryFn: async () => {
       try {
-        console.log("Fetching leads from Supabase...");
         const { data, error } = await supabase
           .from("leads")
           .select("*")

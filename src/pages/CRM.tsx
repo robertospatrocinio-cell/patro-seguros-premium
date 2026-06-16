@@ -67,12 +67,12 @@ const CRMPage = () => {
   };
 
   useEffect(() => {
-    // Configura o intervalo para 2 minutos (120000ms)
-    // Usamos forceRefetchContacts para garantir que limpe o cache e pegue dados frescos
+    // Sync background a cada 5 minutos. React Query (staleTime de 60s)
+    // já evita refetches redundantes em mudanças de foco/montagem.
     const id = window.setInterval(() => {
       forceRefetchContacts();
-    }, 2 * 60 * 1000);
-    
+    }, 5 * 60 * 1000);
+
     return () => window.clearInterval(id);
   }, [forceRefetchContacts]);
 
