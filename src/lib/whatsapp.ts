@@ -54,3 +54,85 @@ export const getWhatsAppUrl = (phone?: string | null, message?: string): string 
   const base = `https://wa.me/${normalized}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 };
+
+/**
+ * E-mail padrão para fallback quando o WhatsApp não estiver disponível
+ * (popup bloqueado, dispositivo sem app instalado, etc.).
+ */
+export const FALLBACK_EMAIL = "contato@patroseguros.com.br";
+
+export interface BuildMailtoOptions extends BuildWhatsAppOptions {
+  /** Assunto do e-mail. Default reflete a origem. */
+  subject?: string;
+}
+
+export const buildMailtoUrl = ({
+  origem,
+  audience,
+  extraLines = [],
+  subject,
+}: BuildMailtoOptions): string => {
+  const finalSubject =
+    subject || `Contato pelo site — ${origem}`;
+  const body = buildWhatsAppMessage({ origem, audience, extraLines });
+  const params = new URLSearchParams({
+    subject: finalSubject,
+    body,
+  });
+  return `mailto:${FALLBACK_EMAIL}?${params.toString()}`;
+};
+
+export interface OpenWhatsAppOptions extends BuildMailtoOptions {
+  /** Mensagem amigável exibida no toast quando o fallback for acionado. */
+  fallbackToastMessage?: string;
+}
+
+/**
+ * Tenta abrir o WhatsApp e oferece fallback automático por e-mail
+ * caso a janela seja bloqueada pelo navegador.
+ * Retorna `true` quando o WhatsApp foi aberto com sucesso.
+ */
+export const openWhatsAppOrFallback = (
+  options: OpenWhatsAppOptions,
+  toastFn?: (
+    message: string,
+    opts: { action: { label: string; onClick: () => void }; duration?: number }
+  ) => void,
+): boolean => {
+  const waUrl = buildWhatsAppUrl(options);
+  const mailtoUrl = buildMailtoUrl(options);
+  const popup = window.open(waUrl, "_blank", "noopener,noreferrer");
+  const blocked = !popup || popup.closed || typeof popup.closed === "undefined";
+
+  if (blocked) {
+    try {
+      window.gtag?.("event", "whatsapp_fallback_email", {
+        event_category: "fallback",
+        origem: options.origem,
+        url_destino: mailtoUrl,
+      });
+    } catch {
+      /* noop */
+    }
+
+    if (toastFn) {
+      toastFn(
+        options.fallbackToastMessage ||
+          "Não conseguimos abrir o WhatsApp. Quer enviar por e-mail?",
+        {
+          action: {
+            label: "Enviar por e-mail",
+            onClick: () => {
+              window.location.href = mailtoUrl;
+            },
+          },
+          duration: 10000,
+        },
+      );
+    } else {
+      window.location.href = mailtoUrl;
+    }
+    return false;
+  }
+  return true;
+};
