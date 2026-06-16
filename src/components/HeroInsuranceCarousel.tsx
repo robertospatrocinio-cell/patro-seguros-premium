@@ -122,6 +122,18 @@ const cardsEmpresa: InsuranceCard[] = [
   { title: "Seguro Engenharia", short: "Obras civis, instalação e montagem.", href: "/seguro-engenharia", Icon: HardHat, slug: "seguro-engenharia" },
 ];
 
+const cardsAgro: InsuranceCard[] = [
+  { title: "Propriedade Rural", short: "Sede, benfeitorias e instalações.", href: "/seguro-propriedade-rural", Icon: Sprout, slug: "seguro-propriedade-rural" },
+  { title: "Seguro Rural", short: "Cobertura ampla para produtor rural.", href: "/seguro-rural", Icon: Leaf, slug: "seguro-rural" },
+  { title: "Máquinas Agrícolas", short: "Tratores, implementos e pulverizadores.", href: "/seguro-maquinas-agricolas", Icon: Tractor, slug: "seguro-maquinas-agricolas" },
+  { title: "Colheitadeira de Grãos", short: "Soja, milho, trigo e sorgo.", href: "/seguro-colheitadeira-graos", Icon: Combine, slug: "seguro-colheitadeira-graos" },
+  { title: "Colhedora de Cana", short: "Proteção total da safra canavieira.", href: "/seguro-colhedora-cana", Icon: Combine, slug: "seguro-colhedora-cana" },
+  { title: "Colhedora de Algodão", short: "Equipamentos de alta complexidade.", href: "/seguro-colhedora-algodao", Icon: Combine, slug: "seguro-colhedora-algodao" },
+  { title: "Seguro Café", short: "Lavoura, armazém e beneficiamento.", href: "/seguro-cafe", Icon: Coffee, slug: "seguro-cafe" },
+  { title: "Silo Agrícola", short: "Armazenagem e estoque de grãos.", href: "/seguro-silo-agricola", Icon: Wheat, slug: "seguro-silo-agricola" },
+  { title: "Transporte Agro", short: "Cargas agrícolas em trânsito nacional.", href: "/seguro-transporte-agro", Icon: Truck, slug: "seguro-transporte-agro" },
+];
+
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
