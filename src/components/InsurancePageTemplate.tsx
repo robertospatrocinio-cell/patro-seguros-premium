@@ -71,8 +71,10 @@ const inferGalleryKeywords = (title: string): string[] => {
 };
 
 const buildAutoGallery = (title: string, keywords?: string[]): string[] => {
-  const kws = (keywords && keywords.length > 0 ? keywords : inferGalleryKeywords(title)).slice(0, 4);
-  return kws.map((kw, i) => `https://source.unsplash.com/featured/800x600/?${encodeURIComponent(kw)}&sig=${i + 1}`);
+  // source.unsplash.com/featured was deprecated by Unsplash (returns 503).
+  // We now hide the gallery section unless callers pass explicit `galleryImages`.
+  void title; void keywords;
+  return [];
 };
 
 // Map page title keywords to the Cotacao select values

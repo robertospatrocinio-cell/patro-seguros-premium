@@ -75,7 +75,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre o sistema Quattro?", a: "Sim, a cobertura abrange todo o sistema de tração integral e componentes mecânicos avançados." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1621348335345-d86b9762497e?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=2070&auto=format&fit=crop",
   },
   landrover: {
     name: "Land Rover",
@@ -96,13 +96,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre uso fora de estrada?", a: "Sim, temos planos que incluem cobertura para uso off-road leve e moderado." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1620248430635-f0cc71871239?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=2070&auto=format&fit=crop",
   },
   jaguar: {
     name: "Jaguar",
     slug: "jaguar",
     slogan: "The Art of Performance",
-    heroImage: "https://images.unsplash.com/photo-1574044536224-037048a609d0?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-900",
     description: "Design e performance britânica protegidos com exclusividade. Cuidamos do seu Jaguar com a mesma paixão que você o dirige.",
     diferenciais: [
@@ -116,7 +116,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro atende o I-PACE elétrico?", a: "Com certeza, temos planos específicos para a linha elétrica da Jaguar." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1621348335072-463273463991?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=2070&auto=format&fit=crop",
   },
   volvo: {
     name: "Volvo",
@@ -136,7 +136,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "Como funciona a cobertura da bateria?", a: "A bateria tem cobertura específica contra danos externos e curtos-circuitos acidentais." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1621251914299-e688849405f6?q=80&w=2071&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=2071&auto=format&fit=crop",
   },
   ferrari: {
     name: "Ferrari",
@@ -182,7 +182,7 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     name: "BYD",
     slug: "byd",
     slogan: "Build Your Dreams",
-    heroImage: "https://images.unsplash.com/photo-1718042457813-f4702f2323e2?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-500",
     description: "A revolução elétrica protegida pela Patro Seguros. Parceiros das melhores seguradoras para a linha BYD, garantindo que seu Seal ou qualquer modelo da marca esteja sempre em segurança.",
     diferenciais: [
@@ -196,13 +196,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro cobre o carregador Wallbox?", a: "Sim, oferecemos cobertura adicional para o equipamento de carregamento residencial." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1691230485303-99933857597f?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1734364147225-19185de620e4?q=80&w=2070&auto=format&fit=crop",
   },
   gwm: {
     name: "GWM",
     slug: "gwm",
     slogan: "Hello Tomorrow",
-    heroImage: "https://images.unsplash.com/photo-1702525790471-ef6652c42171?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1549416878-b9ca95e26903?q=80&w=2070&auto=format&fit=crop",
     accentColor: "blue-600",
     description: "Sua jornada híbrida começa protegida. Seguros especializados para a linha Haval e Ora da GWM.",
     diferenciais: [
@@ -216,13 +216,13 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "A marca é bem aceita pelas seguradoras?", a: "Sim, trabalhamos com seguradoras que possuem parcerias e aceitação total para GWM." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1691230491321-72993857597f?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
   },
   lexus: {
     name: "Lexus",
     slug: "lexus",
     slogan: "Experience Amazing",
-    heroImage: "https://images.unsplash.com/photo-1707026563720-40e8a7da0e8f?q=80&w=2070&auto=format&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2070&auto=format&fit=crop",
     accentColor: "zinc-600",
     description: "O luxo japonês e a confiabilidade híbrida protegidos pela Patro Seguros. Experiência Omotenashi em seguros.",
     diferenciais: [
@@ -236,6 +236,6 @@ export const PREMIUM_BRANDS: Record<string, PremiumBrandConfig> = {
     faqs: [
       { q: "O seguro é similar ao da Toyota?", a: "Sim, aproveitamos a excelente aceitação da marca Toyota para oferecer condições exclusivas Lexus." },
     ],
-    middleImage: "https://images.unsplash.com/photo-1629891465239-010e964b387e?q=80&w=2070&auto=format&fit=crop",
+    middleImage: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop",
   },
 };

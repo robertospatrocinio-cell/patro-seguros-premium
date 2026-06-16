@@ -1,6 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-
-const heroImg = "https://images.unsplash.com/photo-1594411124406-8d59268f7b3c?auto=format&fit=crop&q=80&w=2000";
+import heroImg from "@/assets/hero-agro-silo.jpg";
 
 const SeguroSiloAgricola = () => {
   return (
