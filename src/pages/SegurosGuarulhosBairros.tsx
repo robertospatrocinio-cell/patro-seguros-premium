@@ -179,9 +179,11 @@ const SegurosGuarulhosBairros = () => {
           >
             <img
               src={selectedBairro.image}
-              alt={`Bairro ${selectedBairro.nome} em Guarulhos`}
+              alt={`Seguros em ${selectedBairro.nome} — Patro Seguros, Corretora em Guarulhos/SP`}
+              title={`Seguros em ${selectedBairro.nome} — Patro Seguros, Corretora em Guarulhos/SP`}
               className="w-full h-full object-cover"
               loading="eager"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-[#003366]/80" />
           </div>

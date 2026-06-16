@@ -127,9 +127,11 @@ const SeguroJetSki = () => {
         <section className="relative min-h-[90vh] flex items-center overflow-hidden">
           <img
             src={heroImg}
-            alt="Seguro Jet Ski em Guarulhos com cotação online pela Patro Seguros"
+            alt="Seguro Jet Ski com cotação online — Patro Seguros, Corretora em Guarulhos/SP"
+            title="Seguro Jet Ski — Patro Seguros, Corretora em Guarulhos/SP"
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />

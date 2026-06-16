@@ -140,7 +140,8 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
                           <div className="w-full h-32 overflow-hidden bg-muted">
                             <OptimizedImage
                               src={m.heroImg}
-                              alt={`Seguro ${m.modelo} ${m.modeloShort}`}
+                              alt={`Seguro ${m.modelo} ${m.modeloShort} — Patro Seguros, Corretora em Guarulhos/SP`}
+                              title={`Seguro ${m.modelo} — Patro Seguros, Corretora em Guarulhos/SP`}
                               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                           </div>
