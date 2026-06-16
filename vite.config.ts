@@ -161,12 +161,13 @@ function asyncCssPlugin(): Plugin {
     transformIndexHtml: {
       order: "post",
       handler(html) {
-        // Match any Vite-injected stylesheet link (with or without crossorigin)
-        return html.replace(
-          /<link\s+rel="stylesheet"\s*(?:crossorigin\s*)?href="(\/assets\/[^"]+\.css)"\s*\/?>/gi,
-          '<link rel="preload" href="$1" as="style" onload="this.rel=\'stylesheet\'">' +
-          '<noscript><link rel="stylesheet" href="$1"></noscript>'
-        );
+        // Match any Vite-injected stylesheet link regardless of attribute order.
+        return html.replace(/<link\b([^>]*\brel="stylesheet"[^>]*)>/gi, (tag, attrs) => {
+          const href = String(attrs).match(/\bhref="([^"]+)"/i)?.[1];
+          if (!href || !href.startsWith("/assets/") || !href.endsWith(".css")) return tag;
+          return `<link rel="preload" href="${href}" as="style" onload="this.onload=null;this.rel='stylesheet'">` +
+            `<noscript><link rel="stylesheet" href="${href}"></noscript>`;
+        });
       },
     },
   };
