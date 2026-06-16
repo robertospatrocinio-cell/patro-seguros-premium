@@ -83,6 +83,16 @@ const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> 
   "seguro-rc":           { bg: UNSPLASH("1505664194779-8beaceb93744"), accent: "240 60% 55%", alt: "Aperto de mãos profissional" },
   "seguro-cyber":        { bg: UNSPLASH("1550751827-4bd374c3f58b"), accent: "260 70% 60%", alt: "Servidor de dados" },
   "seguro-engenharia":   { bg: UNSPLASH("1503387762-592deb58ef4e"), accent: "45 90% 50%",  alt: "Obra de engenharia" },
+  // Agro
+  "seguro-propriedade-rural": { bg: UNSPLASH("1500382017468-9049fed747ef"), accent: "120 45% 35%", alt: "Propriedade rural ao amanhecer" },
+  "seguro-rural":             { bg: UNSPLASH("1464226184884-fa280b87c399"), accent: "95 50% 40%",  alt: "Fazenda com plantação" },
+  "seguro-maquinas-agricolas":{ bg: UNSPLASH("1605000797499-95a51c5269ae"), accent: "30 85% 50%",  alt: "Trator agrícola no campo" },
+  "seguro-colheitadeira-graos":{ bg: UNSPLASH("1500595046743-cd271d694d30"), accent: "45 90% 50%", alt: "Colheitadeira em campo de grãos" },
+  "seguro-colhedora-cana":    { bg: UNSPLASH("1574943320219-89283c1f7d5e"), accent: "75 65% 45%",  alt: "Colhedora de cana-de-açúcar" },
+  "seguro-colhedora-algodao": { bg: UNSPLASH("1591100406836-1f7e3b94c4d3"), accent: "40 30% 80%",  alt: "Plantação de algodão" },
+  "seguro-cafe":              { bg: UNSPLASH("1542223189-67a03fa0f0bd"), accent: "25 65% 30%",   alt: "Plantação de café" },
+  "seguro-silo-agricola":     { bg: UNSPLASH("1625246333195-78d9c38ad449"), accent: "210 35% 50%", alt: "Silos agrícolas" },
+  "seguro-transporte-agro":   { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 80% 50%",  alt: "Transporte de cargas agrícolas" },
 };
 
 const DEFAULT_ACCENT = "210 70% 50%";
