@@ -44,7 +44,7 @@ import heroEmpresa from "@/assets/hero-empresa.webp";
 import heroAgro from "@/assets/hero-agro.webp";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
-type Audience = "pessoa" | "empresa" | "agro";
+type Audience = "pessoa" | "empresa" | "agro" | "consorcio";
 
 type InsuranceCard = {
   title: string;
@@ -93,6 +93,13 @@ const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> 
   "seguro-cafe":              { bg: UNSPLASH("1542223189-67a03fa0f0bd"), accent: "25 65% 30%",   alt: "Plantação de café" },
   "seguro-silo-agricola":     { bg: UNSPLASH("1625246333195-78d9c38ad449"), accent: "210 35% 50%", alt: "Silos agrícolas" },
   "seguro-transporte-agro":   { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 80% 50%",  alt: "Transporte de cargas agrícolas" },
+  // Consórcio
+  "consorcio-carro":          { bg: UNSPLASH("1492144534655-ae79c964c9d7"), accent: "30 90% 55%",  alt: "Carro novo entregue" },
+  "consorcio-imoveis":        { bg: UNSPLASH("1568605114967-8130f3a36994"), accent: "150 55% 45%", alt: "Imóvel residencial" },
+  "consorcio-veiculos-pesados":{ bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "210 70% 45%", alt: "Caminhão pesado" },
+  "consorcio-moto":           { bg: UNSPLASH("1558981806-ec527fa84c39"), accent: "0 75% 55%",    alt: "Motocicleta nova" },
+  "consorcio-geral":          { bg: UNSPLASH("1560518883-ce09059eeffa"), accent: "45 90% 55%",   alt: "Conquista de bem" },
+  "ebook-consorcio":          { bg: UNSPLASH("1521587760476-6c12a4b040da"), accent: "260 60% 55%", alt: "Guia de consórcio" },
 };
 
 const DEFAULT_ACCENT = "210 70% 50%";
@@ -134,6 +141,14 @@ const cardsAgro: InsuranceCard[] = [
   { title: "Transporte Agro", short: "Cargas agrícolas em trânsito nacional.", href: "/seguro-transporte-agro", Icon: Truck, slug: "seguro-transporte-agro" },
 ];
 
+const cardsConsorcio: InsuranceCard[] = [
+  { title: "Consórcio", short: "Conquiste sem juros: carro, moto ou imóvel.", href: "/consorcio", Icon: KeyRound, slug: "consorcio-geral" },
+  { title: "Consórcio de Carro", short: "Carro novo ou seminovo sem juros.", href: "/consorcio-carro", Icon: Car, slug: "consorcio-carro" },
+  { title: "Consórcio de Imóveis", short: "Casa, apto, terreno ou construção.", href: "/consorcio-imoveis", Icon: Home, slug: "consorcio-imoveis" },
+  { title: "Veículos Pesados", short: "Caminhões, máquinas e implementos.", href: "/consorcio-veiculos-pesados", Icon: Truck, slug: "consorcio-veiculos-pesados" },
+  { title: "E-book do Consórcio", short: "Guia gratuito para escolher sua carta.", href: "/ebook-consorcio", Icon: Briefcase, slug: "ebook-consorcio" },
+];
+
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -168,7 +183,13 @@ const HeroInsuranceCarousel = ({
   const [canNext, setCanNext] = useState(true);
 
   const cards =
-    audience === "pessoa" ? cardsPessoa : audience === "empresa" ? cardsEmpresa : cardsAgro;
+    audience === "pessoa"
+      ? cardsPessoa
+      : audience === "empresa"
+      ? cardsEmpresa
+      : audience === "agro"
+      ? cardsAgro
+      : cardsConsorcio;
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -200,7 +221,9 @@ const HeroInsuranceCarousel = ({
           ? "clique_toggle_para_voce"
           : next === "empresa"
           ? "clique_toggle_para_empresa"
-          : "clique_toggle_para_agro";
+          : next === "agro"
+          ? "clique_toggle_para_agro"
+          : "clique_toggle_para_consorcio";
       window.gtag?.("event", eventName, {
         event_category: "hero_carrossel",
         tipo_de_publico: next,
@@ -264,13 +287,21 @@ const HeroInsuranceCarousel = ({
   };
 
   const bgImage =
-    audience === "pessoa" ? heroFamilia : audience === "empresa" ? heroEmpresa : heroAgro;
+    audience === "pessoa"
+      ? heroFamilia
+      : audience === "empresa"
+      ? heroEmpresa
+      : audience === "agro"
+      ? heroAgro
+      : heroFamilia;
   const bgAlt =
     audience === "pessoa"
       ? "Família protegida pela consultoria da Patro Seguros"
       : audience === "empresa"
       ? "Empresário recebendo consultoria empresarial da Patro Seguros"
-      : "Produtor rural com plantação ao fundo, protegido pela Patro Seguros";
+      : audience === "agro"
+      ? "Produtor rural com plantação ao fundo, protegido pela Patro Seguros"
+      : "Família conquistando seus bens com consórcio pela Patro Seguros";
 
   return (
     <section
@@ -331,7 +362,9 @@ const HeroInsuranceCarousel = ({
                   ? "Para Você"
                   : audience === "empresa"
                   ? "Para sua Empresa"
-                  : "Para o Agro"
+                  : audience === "agro"
+                  ? "Para o Agro"
+                  : "Para Consórcio"
               }`}
               className="w-full sm:w-auto"
             >
@@ -359,6 +392,7 @@ const HeroInsuranceCarousel = ({
               { id: "pessoa" as const, label: "Para Você" },
               { id: "empresa" as const, label: "Para sua Empresa" },
               { id: "agro" as const, label: "Para o Agro" },
+              { id: "consorcio" as const, label: "Para Consórcio" },
             ]).map((opt) => {
               const active = audience === opt.id;
               return (
