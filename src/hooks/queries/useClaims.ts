@@ -33,6 +33,9 @@ export const useClaims = () => {
       if (error) throw error;
       return (data ?? []) as Claim[];
     },
+    staleTime: 60_000,
+    gcTime: 5 * 60_000,
+    refetchOnWindowFocus: false,
   });
 
   const createClaim = useMutation({
