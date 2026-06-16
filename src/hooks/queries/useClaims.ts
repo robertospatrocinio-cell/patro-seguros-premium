@@ -1,32 +1,17 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { toast } from "sonner";
 
-export interface Claim {
-  id: string;
-  client_id: string;
-  description: string;
-  claim_date: string;
-  status: string;
-  has_third_party: boolean;
-  third_party_count: number;
-  third_party_name: string;
-  third_party_phone: string;
-  tracking_notes: string;
-  claim_number: string;
-  carrier: string;
-  policy_number: string;
-  location: string;
-  workshop: string;
-  notification_date: string;
-  deductible_amount: number;
-  created_at: string;
-  updated_at: string;
-  contacts?: {
-    full_name: string;
-    phone: string;
-  };
-}
+type ClaimRow = Database["public"]["Tables"]["claims"]["Row"];
+type ClaimInsert = Database["public"]["Tables"]["claims"]["Insert"];
+type ClaimUpdate = Database["public"]["Tables"]["claims"]["Update"];
+
+/** `Claim` enriquecido com o join de contatos usado na listagem. */
+export type Claim = ClaimRow & {
+  contacts?: { full_name: string | null; phone: string | null } | null;
+};
+export type { ClaimInsert, ClaimUpdate };
 
 export const useClaims = () => {
   const queryClient = useQueryClient();
@@ -46,16 +31,17 @@ export const useClaims = () => {
         .order("claim_date", { ascending: false });
 
       if (error) throw error;
-      return data as Claim[];
+      return (data ?? []) as Claim[];
     },
   });
 
   const createClaim = useMutation({
     mutationFn: async (newClaim: Partial<Claim>) => {
-      const { contacts, ...dbClaim } = newClaim as any;
+      const { contacts: _ignore, ...dbClaim } = newClaim;
+      void _ignore;
       const { data, error } = await supabase
         .from("claims")
-        .insert([dbClaim])
+        .insert([dbClaim as ClaimInsert])
         .select()
         .single();
 
@@ -73,12 +59,13 @@ export const useClaims = () => {
 
   const updateClaim = useMutation({
     mutationFn: async ({ id, ...updates }: Partial<Claim> & { id: string }) => {
-      // Remove 'contacts' from updates to avoid TS errors and Postgres errors
-      const { contacts, ...dbUpdates } = updates as any;
-      
+      // Remove join field para que o Postgres só receba colunas reais.
+      const { contacts: _ignore, ...dbUpdates } = updates;
+      void _ignore;
+
       const { data, error } = await supabase
         .from("claims")
-        .update(dbUpdates)
+        .update(dbUpdates as ClaimUpdate)
         .eq("id", id)
         .select()
         .single();
