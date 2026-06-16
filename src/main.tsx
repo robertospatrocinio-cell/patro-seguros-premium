@@ -1,8 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { useEffect, useState } from "react";
 import "./index.css";
-import { initMonitoring } from "./lib/monitoring";
-import { initWebVitals } from "./lib/webVitals";
 import ErrorBoundary from "./components/ErrorBoundary";
 import App from "./App.tsx";
 
@@ -18,9 +16,19 @@ const Main = () => {
   const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
+    document.body.classList.add("loaded");
+    window.dispatchEvent(new Event("patro:app-mounted"));
+
     runWhenIdle(() => {
-      initMonitoring().catch(console.error);
-      initWebVitals();
+      Promise.all([
+        import("./lib/monitoring"),
+        import("./lib/webVitals"),
+      ])
+        .then(([monitoring, webVitals]) => {
+          monitoring.initMonitoring().catch(console.error);
+          webVitals.initWebVitals();
+        })
+        .catch(console.error);
     });
   }, []);
 
