@@ -307,12 +307,12 @@ const queryClient = new QueryClient({
           message.includes("refused");
 
         if (isNetworkFailure) {
-          return failureCount < 8; // Aumentado para mais resiliência em falhas de rede
+          return failureCount < 3;
         }
         return failureCount < 2;
       },
-      retryDelay: (attemptIndex) => Math.min(1000 * Math.pow(2, attemptIndex), 30000),
-      refetchOnWindowFocus: true, // Reativado para ajudar na recuperação automática
+      retryDelay: (attemptIndex) => Math.min(1000 * Math.pow(2, attemptIndex), 8000),
+      refetchOnWindowFocus: false,
       staleTime: 1000 * 60 * 5, // 5 minutes
       gcTime: 1000 * 60 * 30, // 30 minutes
       refetchOnMount: false,
@@ -395,12 +395,12 @@ const App = () => {
         <QueryProviderWrapper>
           <TooltipProvider>
             <BrowserRouter>
+              <SkipLink />
+              <Toaster />
+              <Sonner position="top-right" closeButton richColors />
+              <DeferredGlobalUi />
+              <ScrollToTop />
               <Suspense fallback={<PageSkeleton />}>
-                <SkipLink />
-                <Toaster />
-                <Sonner position="top-right" closeButton richColors />
-                <DeferredGlobalUi />
-                <ScrollToTop />
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/admin/login" element={<AdminLogin />} />
