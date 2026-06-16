@@ -365,6 +365,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...localPageEntries,
     ...blogEntries,
     ...legal,
+    ...restoredRoutes,
   ];
 
   // Dedupe by loc, keeping the highest priority entry.
