@@ -110,7 +110,7 @@ const cardsPessoa: InsuranceCard[] = [
 ];
 
 const cardsEmpresa: InsuranceCard[] = [
-  { title: "Seguro Empresarial", short: "Patrimônio, lucros cessantes e RC.", href: "/seguro-empresarial-guarulhos", Icon: Building2, slug: "seguro-empresarial" },
+  { title: "Seguro Empresarial", short: "Patrimônio, lucros cessantes e RC.", href: "/seguro-empresarial", Icon: Building2, slug: "seguro-empresarial" },
   { title: "Seguro Frota", short: "Economia de até 40% vs apólices individuais.", href: "/seguro-frota-empresas-guarulhos", Icon: Truck, slug: "seguro-frota" },
   { title: "Transporte e Carga", short: "RCTR-C, RCF-DC e cargas em trânsito.", href: "/seguro-transporte", Icon: PackageCheck, slug: "seguro-transporte" },
   { title: "Transportadoras", short: "Solução completa para operação logística.", href: "/seguros/transportadoras", Icon: Boxes, slug: "transportadoras" },
