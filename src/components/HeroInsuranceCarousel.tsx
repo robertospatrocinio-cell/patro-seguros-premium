@@ -200,11 +200,7 @@ const HeroInsuranceCarousel = ({
     } catch {
       /* noop */
     }
-    trackWhatsAppClick("hero-carrossel", {
-      origin: origem,
-      tipo_de_publico: audience,
-      url_destino: whatsappUrl,
-    });
+    trackWhatsAppClick("hero-carrossel", { origin: origem });
   };
 
   const bgImage = audience === "pessoa" ? heroFamilia : heroEmpresa;
