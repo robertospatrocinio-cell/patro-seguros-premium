@@ -273,12 +273,12 @@ const LandingSeguroGalpoes = () => (
     title="Seguro de Galpões"
     heroEmoji="🏭"
     headline="Seguro de Galpões: A Blindagem Estratégica para o Coração da sua Logística"
-    subheadline="Em hubs como Guarulhos, um sinistro não interrompe apenas uma operação local, mas compromete toda uma cadeia de suprimentos. Sua operação está realmente protegida?"
+    subheadline="Em hubs como Guarulhos, um sinistro de galpão não para apenas a sua operação — compromete toda uma cadeia de suprimentos. Vamos analisar, juntos, se a sua apólice atual sustentaria esse cenário."
     metaDescription="Seguro de Galpão Logístico em Guarulhos. Blindagem estratégica contra incêndio, roubo, danos elétricos e lucros cessantes. Solicite análise de risco."
-    ctaText="Solicitar Análise de Risco"
+    ctaText="Solicitar Análise Técnica de Risco"
     urgencyText="Incêndios em galpões causam prejuízos milionários"
     priceAnchor="Valores sob medida para seu patrimônio"
-    guaranteeText="Visitamos seu galpão (se necessário), analisamos os riscos e apresentamos no mínimo 3 propostas comparativas. 100% gratuito."
+    guaranteeText="Quando necessário, vamos até o seu galpão, mapeamos os riscos reais e apresentamos no mínimo 3 propostas comparativas — sem custo e sem compromisso."
     extraSections={
       <>
         <LocadorVsLocatario />
