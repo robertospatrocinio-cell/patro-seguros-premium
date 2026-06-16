@@ -73,8 +73,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Poppins', 'Inter', 'sans-serif'],
+        sans: ['Work Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Instrument Serif', 'Cormorant Garamond', 'Georgia', 'serif'],
+        display: ['Instrument Serif', 'Cormorant Garamond', 'Georgia', 'serif'],
+        serif: ['Instrument Serif', 'Cormorant Garamond', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -82,6 +84,11 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          soft: "hsl(var(--gold-soft))",
+          deep: "hsl(var(--gold-deep))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

@@ -28,41 +28,44 @@
     --card-foreground: 220 25% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 10%;
-    --primary: 210 100% 20%;
+    --primary: 212 100% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 210 100% 16%;
-    --primary-light: 210 50% 97%;
-    --primary-glow: 210 100% 35%;
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 210 100% 20%;
-    --accent: 215 100% 50%;
-    --accent-foreground: 0 0% 100%;
-    --accent-hover: 215 100% 45%;
-    --muted: 220 14% 96%;
+    --primary-hover: 212 100% 16%;
+    --primary-light: 212 50% 97%;
+    --primary-glow: 212 80% 32%;
+    --secondary: 220 18% 97%;
+    --secondary-foreground: 212 100% 20%;
+    --accent: 42 55% 52%;
+    --accent-foreground: 212 100% 14%;
+    --accent-hover: 42 60% 46%;
+    --muted: 220 16% 96%;
     --muted-foreground: 220 10% 40%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 210 100% 20%;
-    --radius: 0.625rem;
-    --cta: 27 87% 62%;
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 212 100% 20%;
+    --radius: 0.5rem;
+    --cta: 42 55% 52%;
     --cta-foreground: 0 0% 100%;
-    --shadow-xs: 0 1px 2px 0 hsl(220 25% 10% / 0.03);
-    --shadow-sm: 0 1px 3px 0 hsl(220 25% 10% / 0.04), 0 1px 2px -1px hsl(220 25% 10% / 0.03);
-    --shadow-md: 0 4px 12px -2px hsl(220 25% 10% / 0.06);
-    --shadow-lg: 0 10px 30px -6px hsl(220 25% 10% / 0.08);
-    --shadow-xl: 0 20px 50px -12px hsl(220 25% 10% / 0.12);
+    --gold: 42 55% 52%;
+    --gold-soft: 42 50% 72%;
+    --gold-deep: 38 50% 38%;
+    --shadow-xs: 0 1px 2px 0 hsl(212 40% 14% / 0.04);
+    --shadow-sm: 0 1px 3px 0 hsl(212 40% 14% / 0.05), 0 1px 2px -1px hsl(212 40% 14% / 0.04);
+    --shadow-md: 0 6px 16px -4px hsl(212 40% 14% / 0.08);
+    --shadow-lg: 0 18px 40px -12px hsl(212 40% 14% / 0.12);
+    --shadow-xl: 0 28px 60px -16px hsl(212 40% 14% / 0.16);
 
     /* === Patro Private (camada premium / editorial) === */
-    --premium-navy: 215 55% 14%;        /* azul profundo editorial */
-    --premium-navy-soft: 215 35% 22%;
-    --premium-champagne: 38 45% 62%;    /* dourado discreto */
-    --premium-champagne-soft: 38 35% 78%;
-    --premium-pearl: 30 20% 96%;        /* off-white quente */
-    --premium-ink: 215 30% 18%;
-    --premium-rule: 215 15% 88%;
-    --premium-shadow-soft: 0 24px 60px -28px hsl(215 55% 14% / 0.18);
+    --premium-navy: 212 100% 14%;
+    --premium-navy-soft: 212 50% 22%;
+    --premium-champagne: 42 55% 58%;
+    --premium-champagne-soft: 42 50% 78%;
+    --premium-pearl: 36 24% 97%;
+    --premium-ink: 212 40% 16%;
+    --premium-rule: 215 14% 88%;
+    --premium-shadow-soft: 0 24px 60px -28px hsl(212 60% 14% / 0.22);
   }
 }
 
@@ -70,23 +73,34 @@
   * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Work Sans', 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    font-feature-settings: 'ss01', 'kern';
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    @apply font-bold text-foreground;
+    font-family: 'Instrument Serif', 'Cormorant Garamond', Georgia, serif;
+    @apply text-foreground;
+    font-weight: 400;
+    letter-spacing: -0.015em;
   }
-  h1 { @apply text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.1]; }
-  h2 { @apply text-2xl md:text-[2rem] lg:text-[2.5rem] leading-[1.15]; }
-  h3 { @apply text-lg md:text-xl leading-snug; }
+  h1 { @apply text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4rem] leading-[1.02]; letter-spacing: -0.025em; }
+  h2 { @apply text-3xl md:text-[2.5rem] lg:text-[3rem] leading-[1.08]; letter-spacing: -0.02em; }
+  h3 { @apply text-xl md:text-2xl leading-snug; }
   p { line-height: 1.65; }
+  .font-display { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.015em; }
+  .eyebrow { @apply text-[11px] uppercase tracking-[0.18em] font-medium; font-family: 'Work Sans', sans-serif; }
 }
 
 @layer utilities {
-  .gradient-hero { background: linear-gradient(165deg, hsl(210 30% 6%) 0%, hsl(210 60% 14%) 50%, hsl(210 70% 18%) 100%); }
-  .gradient-cta { background: linear-gradient(135deg, hsl(210 100% 35%) 0%, hsl(210 100% 25%) 100%); }
+  .gradient-hero { background: linear-gradient(165deg, hsl(212 60% 8%) 0%, hsl(212 70% 14%) 55%, hsl(212 60% 20%) 100%); }
+  .gradient-cta { background: linear-gradient(135deg, hsl(42 60% 58%) 0%, hsl(38 55% 44%) 100%); }
+  .gradient-gold { background: linear-gradient(135deg, hsl(42 70% 68%) 0%, hsl(38 55% 44%) 100%); }
+  .text-gold { color: hsl(var(--gold)); }
+  .bg-gold { background-color: hsl(var(--gold)); }
+  .border-gold { border-color: hsl(var(--gold)); }
+  .gold-rule { height: 1px; background: linear-gradient(90deg, transparent, hsl(var(--gold) / 0.6), transparent); }
   .gradient-glass { background: linear-gradient(135deg, hsla(0 0% 100% / 0.08) 0%, hsla(0 0% 100% / 0.03) 100%); }
-  .gradient-surface { background: linear-gradient(180deg, hsl(220 14% 97.5%) 0%, hsl(220 14% 96%) 100%); }
+  .gradient-surface { background: linear-gradient(180deg, hsl(36 24% 98%) 0%, hsl(220 16% 96%) 100%); }
   .transition-base { transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); }
   .transition-smooth { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
   .text-balance { text-wrap: balance; }
@@ -97,20 +111,22 @@
   }
 
   .premium-card {
-    @apply bg-card rounded-xl border;
-    box-shadow: var(--shadow-xs);
+    @apply bg-card rounded-lg border border-border;
+    box-shadow: var(--shadow-sm);
     transition: var(--transition-smooth);
+    position: relative;
   }
 
   @media (hover: hover) {
     .premium-card:hover {
       box-shadow: var(--shadow-lg);
-      transform: translateY(-1px);
-      border-color: hsl(var(--border));
+      transform: translateY(-2px);
+      border-color: hsl(var(--gold) / 0.45);
     }
   }
 
-  .section-label { @apply text-[11px] font-bold uppercase tracking-[0.12em] text-primary; }
+  .section-label { @apply text-[11px] font-medium uppercase tracking-[0.18em] text-primary; }
+  .section-label::before { content: ""; display: inline-block; width: 24px; height: 1px; background: hsl(var(--gold)); vertical-align: middle; margin-right: 10px; transform: translateY(-2px); }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .animate-marquee { animation: marquee 30s linear infinite; }
   @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
