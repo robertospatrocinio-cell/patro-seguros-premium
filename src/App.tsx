@@ -68,6 +68,7 @@ const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/Segur
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import Index from "./pages/Index";
 import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
@@ -85,7 +86,6 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
 
 
-const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
 const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
