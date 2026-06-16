@@ -6,11 +6,11 @@ const SeguroPropriedadeRural = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Propriedade Rural"
-      subtitle="Proteção de alto nível para o seu maior patrimônio. Segurança total para sedes, benfeitorias e instalações."
+      subtitle="Consultoria patrimonial dedicada para proteger sedes, benfeitorias e instalações que sustentam a sua operação rural."
       icon="🏡"
       badge="Especialista em Patrimônio Agro"
       metaDescription="Seguro Propriedade Rural: proteção para sedes, galpões, armazéns e cercas contra incêndio e vendaval em todo o Brasil. Atendimento remoto Patro Seguros."
-      description="A propriedade rural é a base de toda a produção. O Seguro de Propriedade Rural da Patro Seguros oferece a proteção robusta que as estruturas físicas e benfeitorias da sua fazenda exigem."
+      description="A propriedade rural é a base de tudo o que se produz nela — e tratamos cada apólice como o desenho técnico do que sua família levou décadas para construir. Nossa consultoria de Propriedade Rural dimensiona, com critério, a proteção das estruturas físicas e benfeitorias da sua fazenda."
       detailedDescription={`Investir em infraestrutura rural exige capital e planejamento. De sedes imponentes a galpões de máquinas e silos de armazenamento, cada estrutura é vital para a operação. O risco de eventos climáticos, como vendavais e granizos, ou acidentes como incêndios e quedas de raios, pode gerar prejuízos que comprometem gerações de trabalho.
 
 Nossa consultoria para Seguro de Propriedade Rural foca na blindagem patrimonial completa. Desenvolvemos apólices que cobrem desde a casa sede até cercas, currais e sistemas de irrigação. Atendemos proprietários em todas as regiões do Brasil, oferecendo um atendimento consultivo que entende a geografia e os riscos específicos de cada estado.
