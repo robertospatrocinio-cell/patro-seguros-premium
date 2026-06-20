@@ -134,6 +134,8 @@ const SeguroMaquinasLinhaAmarela = lazyWithRetry(() => import("./pages/SeguroMaq
 const FormularioSeguroVida = lazyWithRetry(() => import("./pages/FormularioSeguroVida"), "FormularioSeguroVida");
 const SeoSeguroAutoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoGuarulhos"), "SeoSeguroAutoGuarulhos");
 const SeoSeguroAutoPorModeloGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoPorModeloGuarulhos"), "SeoSeguroAutoPorModeloGuarulhos");
+const SeguroAutoMarcas = lazyWithRetry(() => import("./pages/SeguroAutoMarcas"), "SeguroAutoMarcas");
+const SeguroAutoComparativoCoberturas = lazyWithRetry(() => import("./pages/SeguroAutoComparativoCoberturas"), "SeguroAutoComparativoCoberturas");
 const AvaliarNoGoogle = lazyWithRetry(() => import("./pages/AvaliarNoGoogle"), "AvaliarNoGoogle");
 const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "ParceirosLocais");
 const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
