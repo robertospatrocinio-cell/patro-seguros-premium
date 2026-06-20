@@ -56,7 +56,51 @@ function loadPhase1Routes() {
   return [...new Set(routes)];
 }
 
-const ROUTES = loadPhase1Routes();
+function loadPhase2ExtraRoutes() {
+  const file = path.join(ROOT, "scripts", "prerender-routes.ts");
+  if (!fs.existsSync(file)) return [];
+  const src = fs.readFileSync(file, "utf-8");
+  const match = src.match(/PRERENDER_ROUTES_PHASE_2_EXTRA[^[]*\[([\s\S]*?)\];/);
+  if (!match) return [];
+  const out = [];
+  const re = /"([^"]+)"/g;
+  let m;
+  while ((m = re.exec(match[1])) !== null) out.push(m[1]);
+  return out;
+}
+
+function loadBlogRoutes() {
+  const file = path.join(ROOT, "src", "lib", "blogData.ts");
+  if (!fs.existsSync(file)) return [];
+  const src = fs.readFileSync(file, "utf-8");
+  const slugs = [];
+  const re = /slug:\s*"([a-z0-9-]+)"/g;
+  let m;
+  while ((m = re.exec(src)) !== null) slugs.push(m[1]);
+  return [...new Set(slugs)].map((s) => `/blog/${s}`);
+}
+
+function loadBairroRoutes() {
+  const file = path.join(ROOT, "src", "lib", "bairrosData.ts");
+  if (!fs.existsSync(file)) return [];
+  const src = fs.readFileSync(file, "utf-8");
+  const ids = [];
+  const re = /id:\s*"([a-z0-9-]+)"/g;
+  let m;
+  while ((m = re.exec(src)) !== null) ids.push(m[1]);
+  return [...new Set(ids)].map((id) => `/seguros-guarulhos/${id}`);
+}
+
+const PHASE_1 = loadPhase1Routes();
+const PHASE_2 = [
+  ...loadPhase2ExtraRoutes(),
+  ...loadBairroRoutes(),
+  ...loadBlogRoutes(),
+];
+const ROUTES = [...new Set([...PHASE_1, ...PHASE_2])];
+console.log(
+  `🗺️  prerender-react: Fase 1 = ${PHASE_1.length} rotas | Fase 2 = ${PHASE_2.length} rotas | total único = ${ROUTES.length}`
+);
 if (ROUTES.length === 0) {
   console.warn("⚠️  prerender-react: nenhuma rota carregada — pulando.");
   process.exit(0);
@@ -230,7 +274,7 @@ async function main() {
     return;
   }
 
-  console.log(`🚀 prerender-react: renderizando ${ROUTES.length} rotas (Fase 1) com concorrência ${CONCURRENCY}...`);
+  console.log(`🚀 prerender-react: renderizando ${ROUTES.length} rotas (Fase 1+2) com concorrência ${CONCURRENCY}...`);
   const t0 = Date.now();
   let ok = 0;
   await pool(ROUTES, CONCURRENCY, async (route) => {
