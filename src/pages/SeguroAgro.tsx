@@ -20,17 +20,22 @@ import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
+import FAQBlock from "@/components/FAQBlock";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import {
   trackInternalLinkClick,
   trackWhatsAppClick,
   trackCotacaoClick,
 } from "@/lib/tracking";
 
-const PHONE = "551151997500";
 const WA_MSG =
   "Olá! Quero cotar seguro agro com a Patro. Pode me passar opções de cobertura para minha operação (lavoura, máquinas, silo, propriedade)?";
-const WA_URL = `https://wa.me/${PHONE}?text=${encodeURIComponent(WA_MSG)}`;
+const WA_URL = buildWhatsAppLink({
+  origem: "hub-agro",
+  produto: "Seguro Agro",
+  mensagem: WA_MSG,
+});
 
 type Item = { name: string; slug: string; desc: string };
 
@@ -403,21 +408,12 @@ const SeguroAgro = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-14">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-8">
-              Perguntas frequentes — Seguro Agro
-            </h2>
-            <dl className="space-y-4" data-speakable="faq">
-              {FAQS.map((f) => (
-                <div key={f.question} className="rounded-xl border border-border bg-card p-5">
-                  <dt className="font-semibold text-foreground">{f.question}</dt>
-                  <dd className="mt-2 text-sm text-muted-foreground leading-relaxed">{f.answer}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
+        <FAQBlock
+          title="Perguntas frequentes — Seguro Agro"
+          items={FAQS}
+          headingId="faq-agro-heading"
+          className="py-14"
+        />
 
         {/* Cross-link */}
         <section className="py-12 bg-background border-t border-border">

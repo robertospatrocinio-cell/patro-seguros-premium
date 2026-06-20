@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { Car, ArrowRight, MessageCircle, Calculator } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import FAQSchema from "@/components/FAQSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import OptimizedImage from "@/components/OptimizedImage";
 import { MODELO_LIST } from "@/data/seoModelosAutoPages";
 import { trackInternalLinkClick, trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -58,7 +60,19 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
   <>
     <PageMeta
       title="Seguro Auto por Modelo em Guarulhos — Cotação por Carro 2026"
-      description="Cotação de seguro auto por modelo em Guarulhos: Corolla, Civic, HB20, Onix, T-Cross, Compass, Hilux, Strada, Renegade e Mobi. Compare seguradoras."
+      description="Hub navegável de seguro auto por modelo em Guarulhos: Onix, Corolla, HB20, T-Cross, Hilux, Civic e mais 40 modelos. Compare seguradoras pelo seu carro."
+    />
+    <Helmet>
+      <link rel="canonical" href="https://patroseguros.com.br/seguro-auto/modelos" />
+      <meta property="og:url" content="https://patroseguros.com.br/seguro-auto/modelos" />
+      <meta property="og:title" content="Seguro Auto por Modelo em Guarulhos | Patro Seguros" />
+    </Helmet>
+    <BreadcrumbSchema
+      items={[
+        { name: "Início", url: "/" },
+        { name: "Seguro Auto", url: "/seguro-auto" },
+        { name: "Modelos", url: "/seguro-auto/modelos" },
+      ]}
     />
     <FAQSchema faqs={FAQS} />
     <Header />

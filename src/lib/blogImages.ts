@@ -153,6 +153,13 @@ export const blogImageMap: Record<string, string> = {
   "seguro-silo-metalico-armazenagem-fazenda": blogPenhorRural,
   "drone-agricola-anac-seguro-rcf-pulverizacao": blogPivoCentral,
 
+  // Posts Auto — Fase 2 (cluster Auto)
+  "preco-seguro-auto-perfil-bairro-cep-2026": blogPrecoSeguroAutoGuarulhos2026,
+  "franquia-seguro-auto-reduzida-normal-majorada-comparativo": blogSeguroAutoPremium,
+  "carro-reserva-seguro-auto-como-funciona-quando-usar": blogSeguroAutoValeAPena,
+  "uso-profissional-app-seguro-auto-rc-passageiros": blogMotoristaApp,
+  "sinistro-auto-passo-a-passo-12-horas-criticas": blogAcoesAcidente,
+
   // Dicas
   "7-seguros-proteger-familia": blogDicas,
   "como-funciona-cotacao-seguros": blogCotacaoSeguros,
