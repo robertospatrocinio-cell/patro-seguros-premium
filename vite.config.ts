@@ -262,7 +262,8 @@ function spaFallbackPlugin(): Plugin {
         console.log("🚀 Starting React SSG pass (Phase 1)...");
         execSync("node scripts/prerender-react.mjs", { stdio: "inherit" });
       } catch (err) {
-        console.warn("⚠️  React SSG pass falhou — Fase 1 mantém prerender.mjs apenas:", err?.message || err);
+        const msg = err instanceof Error ? err.message : String(err);
+        console.warn("⚠️  React SSG pass falhou — Fase 1 mantém prerender.mjs apenas:", msg);
       }
     },
   };
