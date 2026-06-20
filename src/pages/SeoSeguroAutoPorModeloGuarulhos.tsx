@@ -68,7 +68,7 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
           items={[
             { label: "Seguros em Guarulhos", href: "/seguros-guarulhos" },
             { label: "Seguro Auto Guarulhos", href: "/seguro-auto-guarulhos" },
-            { label: "Por Modelo", href: "/seguro-auto-por-modelo-guarulhos" },
+            { label: "Modelos", href: "/seguro-auto/modelos" },
           ]}
         />
       </div>

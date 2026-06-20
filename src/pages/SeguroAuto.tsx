@@ -41,6 +41,30 @@ const faqs = [
     question: "A cotação com a Patro Seguros tem algum custo?",
     answer: "Não. Nossa consultoria e o levantamento de preços são 100% gratuitos e sem compromisso.",
   },
+  {
+    question: "Qual a diferença entre cobertura básica, intermediária e compreensiva?",
+    answer: "Básica cobre só terceiros (RCF-V) + assistência 24h. Intermediária acrescenta colisão, roubo, furto e incêndio. Compreensiva é a mais completa, incluindo vidros, carro reserva e flexibilidade para acessórios. Conforme aceitação da seguradora e perfil do cliente, é possível personalizar coberturas dentro de cada nível. Veja o comparativo completo em /seguro-auto/comparativo-coberturas.",
+  },
+  {
+    question: "Preciso de rastreador para contratar seguro auto em Guarulhos?",
+    answer: "Depende do modelo, CEP de pernoite e valor FIPE. Para veículos acima de R$ 80 mil em bairros como Cumbica, Bonsucesso e Pimentas, a maioria das seguradoras exige rastreador. Para modelos populares ou em CEPs de baixo risco, costuma ser opcional — mas instalar reduz o prêmio entre 8% e 18%.",
+  },
+  {
+    question: "Posso transferir minha apólice de outra corretora para a Patro?",
+    answer: "Sim, a qualquer momento. Você não perde classe de bônus nem coberturas. Basta enviar sua apólice atual pelo WhatsApp (11) 5199-7500 que recotamos em até 2 horas úteis. Em mais de 60% dos casos conseguimos preço melhor que a renovação automática.",
+  },
+  {
+    question: "Em quanto tempo recebo a cotação?",
+    answer: "Cotações simples (modelos populares, perfil sem agravantes) ficam prontas em 30 minutos. Casos mais complexos (premium, blindados, motorista de app, frota) saem em até 2 horas úteis. Tudo por WhatsApp ou presencial no Cidade Maia.",
+  },
+  {
+    question: "Vale a pena seguro auto ou proteção veicular?",
+    answer: "Seguro auto é regulado pela SUSEP, tem garantia de pagamento via reserva técnica obrigatória e indenização pela tabela FIPE. Proteção veicular opera em associações sem regulação SUSEP — em caso de aumento de sinistralidade, a mensalidade pode subir bruscamente e a associação pode não honrar a indenização. Para a Patro, recomendamos sempre seguro regulado.",
+  },
+  {
+    question: "Quais seguradoras a Patro cota em Guarulhos?",
+    answer: "Cotamos em 16 seguradoras parceiras: Porto Seguro, Allianz, Tokio Marine, HDI, SulAmérica, Bradesco Seguros, Mapfre, Azul Seguros, Sompo, Suhai, entre outras. Cada cotação compara automaticamente as elegíveis para o seu perfil — você recebe comparativo lado a lado.",
+  },
 ];
 
 const parceiros = [
@@ -343,6 +367,51 @@ const SeguroAuto = () => {
         </section>
 
         {/* ===== Linkagem Interna Contextual ===== */}
+        {/* ===== Hubs Auto (modelos, marcas, comparativo) ===== */}
+        <section className="py-16" aria-labelledby="hubs-auto-heading">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-10">
+              <span className="section-label">Aprofundar</span>
+              <h2 id="hubs-auto-heading" className="mt-3">Explore o seguro auto pelo caminho que faz sentido pra você</h2>
+              <p className="text-muted-foreground text-[15px] mt-3 max-w-2xl mx-auto">
+                Páginas dedicadas por marca, modelo e nível de cobertura para você comparar antes de cotar.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <Link to="/seguro-auto/marcas" className="group premium-card p-6 text-left hover:border-primary/30 transition-colors block">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Gem className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-[15px] font-semibold mb-1">Por marca</h3>
+                <p className="text-sm text-muted-foreground">Volkswagen, Toyota, Honda, BMW, Mercedes, BYD e mais — com a melhor seguradora para cada uma.</p>
+                <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+                  Ver hub de marcas <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+              <Link to="/seguro-auto/modelos" className="group premium-card p-6 text-left hover:border-primary/30 transition-colors block">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Search className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-[15px] font-semibold mb-1">Por modelo</h3>
+                <p className="text-sm text-muted-foreground">Onix, HB20, Corolla, Civic, T-Cross, Hilux, Compass, Strada e 40+ modelos com faixa de preço e dicas.</p>
+                <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+                  Ver hub de modelos <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+              <Link to="/seguro-auto/comparativo-coberturas" className="group premium-card p-6 text-left hover:border-primary/30 transition-colors block">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Shield className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-[15px] font-semibold mb-1">Comparativo de coberturas</h3>
+                <p className="text-sm text-muted-foreground">Básica, intermediária e compreensiva lado a lado — entenda o que entra em cada nível antes de cotar.</p>
+                <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+                  Ver comparativo <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 gradient-surface" aria-labelledby="protecao-completa-heading">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="premium-card p-6 md:p-8">

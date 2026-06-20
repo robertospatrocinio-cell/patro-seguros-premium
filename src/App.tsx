@@ -134,6 +134,8 @@ const SeguroMaquinasLinhaAmarela = lazyWithRetry(() => import("./pages/SeguroMaq
 const FormularioSeguroVida = lazyWithRetry(() => import("./pages/FormularioSeguroVida"), "FormularioSeguroVida");
 const SeoSeguroAutoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoGuarulhos"), "SeoSeguroAutoGuarulhos");
 const SeoSeguroAutoPorModeloGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoPorModeloGuarulhos"), "SeoSeguroAutoPorModeloGuarulhos");
+const SeguroAutoMarcas = lazyWithRetry(() => import("./pages/SeguroAutoMarcas"), "SeguroAutoMarcas");
+const SeguroAutoComparativoCoberturas = lazyWithRetry(() => import("./pages/SeguroAutoComparativoCoberturas"), "SeguroAutoComparativoCoberturas");
 const AvaliarNoGoogle = lazyWithRetry(() => import("./pages/AvaliarNoGoogle"), "AvaliarNoGoogle");
 const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "ParceirosLocais");
 const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
@@ -617,6 +619,10 @@ const App = () => {
                   <Route path="/seguro-auto-premium" element={<Navigate to="/seguro-auto-premium-guarulhos" replace />} />
                   <Route path="/seguro-auto-pos-vistoria" element={<Navigate to="/seguro-auto" replace />} />
                   <Route path="/seguro-auto-por-modelo-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  {/* Hubs Auto (modelos / marcas / comparativo) */}
+                  <Route path="/seguro-auto/modelos" element={<SeoSeguroAutoPorModeloGuarulhos />} />
+                  <Route path="/seguro-auto/marcas" element={<SeguroAutoMarcas />} />
+                  <Route path="/seguro-auto/comparativo-coberturas" element={<SeguroAutoComparativoCoberturas />} />
                   <Route path="/seguro-hb20-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-hilux-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-mobi-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
