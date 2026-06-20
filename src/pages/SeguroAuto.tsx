@@ -367,6 +367,51 @@ const SeguroAuto = () => {
         </section>
 
         {/* ===== Linkagem Interna Contextual ===== */}
+        {/* ===== Hubs Auto (modelos, marcas, comparativo) ===== */}
+        <section className="py-16" aria-labelledby="hubs-auto-heading">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-10">
+              <span className="section-label">Aprofundar</span>
+              <h2 id="hubs-auto-heading" className="mt-3">Explore o seguro auto pelo caminho que faz sentido pra você</h2>
+              <p className="text-muted-foreground text-[15px] mt-3 max-w-2xl mx-auto">
+                Páginas dedicadas por marca, modelo e nível de cobertura para você comparar antes de cotar.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <Link to="/seguro-auto/marcas" className="group premium-card p-6 text-left hover:border-primary/30 transition-colors block">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Gem className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-[15px] font-semibold mb-1">Por marca</h3>
+                <p className="text-sm text-muted-foreground">Volkswagen, Toyota, Honda, BMW, Mercedes, BYD e mais — com a melhor seguradora para cada uma.</p>
+                <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+                  Ver hub de marcas <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+              <Link to="/seguro-auto/modelos" className="group premium-card p-6 text-left hover:border-primary/30 transition-colors block">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Search className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-[15px] font-semibold mb-1">Por modelo</h3>
+                <p className="text-sm text-muted-foreground">Onix, HB20, Corolla, Civic, T-Cross, Hilux, Compass, Strada e 40+ modelos com faixa de preço e dicas.</p>
+                <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+                  Ver hub de modelos <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+              <Link to="/seguro-auto/comparativo-coberturas" className="group premium-card p-6 text-left hover:border-primary/30 transition-colors block">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Shield className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-[15px] font-semibold mb-1">Comparativo de coberturas</h3>
+                <p className="text-sm text-muted-foreground">Básica, intermediária e compreensiva lado a lado — entenda o que entra em cada nível antes de cotar.</p>
+                <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+                  Ver comparativo <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 gradient-surface" aria-labelledby="protecao-completa-heading">
           <div className="container mx-auto px-4 max-w-3xl">
             <div className="premium-card p-6 md:p-8">
