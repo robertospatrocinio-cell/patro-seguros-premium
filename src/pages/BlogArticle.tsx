@@ -15,7 +15,7 @@ import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, 
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
-import { getArticleImage } from "@/lib/blogImages";
+import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
 import { useABTest } from "@/hooks/useABTest";
@@ -84,6 +84,7 @@ const BlogArticle = () => {
         description={meta?.excerpt || `${article.title} — Leia o artigo completo no blog da Patro Seguros. Dicas e informações sobre seguros em Guarulhos.`}
         ogType="article"
         ogImage={articleImageUrl}
+        ogImageAlt={slug ? getArticleImageAlt(slug, article.title) : undefined}
       />
       {allFaqs.length > 0 && (
         <FAQSchema faqs={allFaqs.map(f => ({ question: f.q, answer: f.a }))} />

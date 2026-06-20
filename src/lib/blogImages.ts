@@ -293,3 +293,27 @@ export const blogImageMap: Record<string, string> = {
 export const getArticleImage = (slug: string): string => {
   return blogImageMap[slug] || blogDicas;
 };
+
+/**
+ * Descriptive alt text for blog cover images.
+ * Used for OG/Twitter image alt and in-page thumbnails where the title alone
+ * is too generic. Only slugs with curated descriptions need an entry —
+ * `getArticleImageAlt()` falls back to the article title when missing.
+ */
+export const blogImageAltMap: Record<string, string> = {
+  // Cluster Agro — capas únicas
+  "psr-passo-a-passo-produtor-rural-subvencao":
+    "Produtor rural assinando documentos de subvenção do PSR em escritório com lavoura de soja ao fundo",
+  "seguro-agricola-granizo-sinistro-passo-a-passo":
+    "Lavoura de soja coberta por granizo após tempestade, mostrando danos para acionar seguro agrícola",
+  "seguro-trator-vs-seguro-auto-diferencas":
+    "Comparativo lado a lado: trator agrícola verde em lavoura e carro de passeio em rodovia",
+  "seguro-silo-metalico-armazenagem-fazenda":
+    "Silos metálicos de armazenagem de grãos em fazenda brasileira ao entardecer",
+  "drone-agricola-anac-seguro-rcf-pulverizacao":
+    "Drone agrícola pulverizando lavoura de soja com céu azul ao fundo, operação regulada pela ANAC",
+};
+
+export const getArticleImageAlt = (slug: string, fallback?: string): string => {
+  return blogImageAltMap[slug] || fallback || "Imagem ilustrativa do artigo — Patro Seguros";
+};

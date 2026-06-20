@@ -11,6 +11,8 @@ interface PageMetaProps {
   ogType?: "website" | "article" | "product" | "profile";
   /** Absolute URL to the social-preview image (per-page). Falls back to the sitewide og:image in index.html. */
   ogImage?: string;
+  /** Descriptive alt text for the og:image / twitter:image (per-page). Falls back to the sitewide og:image:alt in index.html. */
+  ogImageAlt?: string;
   /** URL of the hero image to preload for performance (LCP) */
   preloadImage?: string;
   /** URL of the mobile hero image to preload with media query */
@@ -22,7 +24,7 @@ const DEFAULT_OG_IMAGE = `${CANONICAL_BASE_URL}/images/og-cover.webp`;
 const TITLE_SUFFIX = " | Patro Seguros";
 const MAX_TITLE_LENGTH = 60;
 
-const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, preloadImage, preloadMobileImage }: PageMetaProps) => {
+const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage }: PageMetaProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -66,6 +68,12 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     setMetaContent('meta[name="twitter:description"]', description);
     setMetaContent('meta[name="twitter:image"]', ogImage ?? DEFAULT_OG_IMAGE);
 
+    // Accessible alt text for the social-preview image
+    if (ogImageAlt) {
+      setMetaContent('meta[property="og:image:alt"]', ogImageAlt);
+      setMetaContent('meta[name="twitter:image:alt"]', ogImageAlt);
+    }
+
     // Robots
     let robots = document.querySelector('meta[name="robots"]');
     if (robots) {
@@ -106,7 +114,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     managePreload('dynamic-hero-mobile-preload', preloadMobileImage, '(max-width: 640px)');
 
     // No cleanup required to avoid resetting meta tags during hydration or fast navigation
-  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, preloadImage, preloadMobileImage]);
+  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage]);
 
   return null;
 };
