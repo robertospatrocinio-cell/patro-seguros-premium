@@ -83,3 +83,23 @@ Algumas rotas (`/cotacao`, `/formulario-seguro-vida`) têm efeitos que disparam 
 1. **Escopo Fase 1** (~40 rotas curadas) está OK? Ou prefere já fazer todas as 237?
 2. **Excluir** `/cotacao`, `/formulario-*`, `/indique-amigo`, `/ebook-consorcio` da pré-renderização (mantém como SPA)?
 3. Se Chromium falhar no build do Lovable, **build continua como SPA** (warning) ou **falha duro** para você saber?
+
+---
+
+## Status: ✅ Fase 1 entregue (build validado)
+
+**Build**: `bun run build` em 21s + SSG pass em 70.5s = ~92s total.
+
+**Output validado** (`dist/<rota>/index.html`):
+- `/` — 239K, `<title>` correto, 2 H1/H2 no HTML inicial
+- `/seguro-auto` — 126K, canonical self-ref, 3 H1/H2, 2 JSON-LD schemas
+- `/seguro-agro` — 144K, 3 H1/H2, título único
+- `/glossario-seguros` — DefinedTerm renderizado
+
+**Analytics scrub**: 0 ocorrências de `gtag(` ou `fbq(` no HTML estático — recarregam só após hidratação no cliente real.
+
+**Chromium**: encontrado em `/bin/chromium` no sandbox de build do Lovable. Não foi necessário o fallback Playwright.
+
+**Próximas fases (sob demanda)**:
+- Fase 2: incluir 60+ posts de blog e 10 páginas de bairro (`/seguros-guarulhos/:bairro`)
+- Fase 3: todas as 237 rotas
