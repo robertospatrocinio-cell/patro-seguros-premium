@@ -147,6 +147,11 @@ export const blogImageMap: Record<string, string> = {
   "penhor-rural-seguro-maquinas-agricolas": blogPenhorRural,
   "seguro-pivo-central-equipamentos-irrigacao": blogPivoCentral,
   "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": blogAgrishow2026,
+  "psr-passo-a-passo-produtor-rural-subvencao": blogSeguroRural,
+  "seguro-agricola-granizo-sinistro-passo-a-passo": blogGranizo,
+  "seguro-trator-vs-seguro-auto-diferencas": blogAgronegocio,
+  "seguro-silo-metalico-armazenagem-fazenda": blogPenhorRural,
+  "drone-agricola-anac-seguro-rcf-pulverizacao": blogPivoCentral,
 
   // Dicas
   "7-seguros-proteger-familia": blogDicas,
