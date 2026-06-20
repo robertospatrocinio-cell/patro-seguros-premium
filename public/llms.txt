@@ -103,4 +103,20 @@ Fundada em 2020 por Roberto e Sandra Patrocínio, atende mais de 500 PMEs, famí
 - [Política de Privacidade](https://www.patroseguros.com.br/politica-de-privacidade): LGPD e tratamento de dados.
 - [Termos de Uso](https://www.patroseguros.com.br/termos-de-uso): Termos legais.
 - [Imprensa](https://www.patroseguros.com.br/imprensa): Releases e contato de imprensa.
+
+## Conteúdo aprofundado — Blog (cluster Agro)
+
+- [PSR passo a passo](https://www.patroseguros.com.br/blog/psr-passo-a-passo-produtor-rural-subvencao): Como o produtor acessa a subvenção federal do seguro rural.
+- [Granizo na lavoura — passo a passo](https://www.patroseguros.com.br/blog/seguro-agricola-granizo-sinistro-passo-a-passo): Acionamento de sinistro agrícola sem recusa.
+- [Seguro de trator vs. seguro auto](https://www.patroseguros.com.br/blog/seguro-trator-vs-seguro-auto-diferencas): Por que máquinas exigem apólice própria e penhor rural.
+- [Seguro de silo metálico e armazenagem](https://www.patroseguros.com.br/blog/seguro-silo-metalico-armazenagem-fazenda): Estrutura, conteúdo e lucros cessantes.
+- [Drone agrícola, ANAC e RCF](https://www.patroseguros.com.br/blog/drone-agricola-anac-seguro-rcf-pulverizacao): Conformidade regulatória e seguro obrigatório.
+
+## Conteúdo aprofundado — Blog (cluster Auto)
+
+- [Preço por perfil e CEP em 2026](https://www.patroseguros.com.br/blog/preco-seguro-auto-perfil-bairro-cep-2026): O que faz dois motoristas pagarem 40% diferente pelo mesmo carro.
+- [Franquia reduzida, normal ou majorada](https://www.patroseguros.com.br/blog/franquia-seguro-auto-reduzida-normal-majorada-comparativo): Simulações práticas para escolha consciente.
+- [Carro reserva — como funciona](https://www.patroseguros.com.br/blog/carro-reserva-seguro-auto-como-funciona-quando-usar): Diárias, categorias e quando vale a pena.
+- [Uso profissional e app — o que declarar](https://www.patroseguros.com.br/blog/uso-profissional-app-seguro-auto-rc-passageiros): RC passageiros e por que omitir uso invalida a apólice.
+- [Sinistro de auto — 12 horas críticas](https://www.patroseguros.com.br/blog/sinistro-auto-passo-a-passo-12-horas-criticas): Passo a passo da batida ao aviso formal.
 - [Glossário de Seguros](https://www.patroseguros.com.br/glossario-seguros): 60+ termos do mercado de seguros (apólice, franquia, RCF, lucros cessantes, PSR, RCTR-C, D&O) explicados de forma simples. DefinedTermSet schema.
