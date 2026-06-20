@@ -61,6 +61,7 @@ Fundada em 2020 por Roberto e Sandra Patrocínio, atende mais de 500 PMEs, famí
 
 ## Agronegócio (atendimento nacional)
 
+- [Hub Seguro Agro](https://www.patroseguros.com.br/seguro-agro): Pilar consolidado do cluster agro — lavoura, máquinas, silo, propriedade rural e transporte. Inclui FAQ, AgriculturalService schema e PSR.
 - [Seguro Rural](https://www.patroseguros.com.br/seguro-rural): Cobertura para produtores.
 - [Seguro Agrícola e Geada](https://www.patroseguros.com.br/seguro-geada): Lavouras e granizo.
 - [Seguro Pecuário](https://www.patroseguros.com.br/seguro-pecuario): Rebanhos confinados e a pasto.
@@ -70,6 +71,10 @@ Fundada em 2020 por Roberto e Sandra Patrocínio, atende mais de 500 PMEs, famí
 - [Seguro Equipamentos Agrícolas](https://www.patroseguros.com.br/seguro-equipamentos-agricolas): Implementos e pulverizadores.
 - [Seguro Drone Agrícola](https://www.patroseguros.com.br/seguro-drone-agricola): Drones de pulverização.
 - [Seguro Transporte Agro](https://www.patroseguros.com.br/seguro-transporte-agro): Grãos e insumos.
+- [Seguro Trator Agrícola](https://www.patroseguros.com.br/seguro-trator-agricola): JD, MF, NH, Case IH, Valtra, Mahindra, Jacto.
+- [Seguro Colheitadeira de Grãos](https://www.patroseguros.com.br/seguro-colheitadeira-graos): Soja, milho, trigo e demais grãos.
+- [Seguro Pulverizador Agrícola](https://www.patroseguros.com.br/seguro-pulverizador-agricola): Autopropelidos e tratorizados.
+- [Seguro Silo Agrícola](https://www.patroseguros.com.br/seguro-silo-agricola): Estrutura e estoque graneleiro.
 
 ## Páginas locais (Guarulhos)
 
@@ -98,3 +103,4 @@ Fundada em 2020 por Roberto e Sandra Patrocínio, atende mais de 500 PMEs, famí
 - [Política de Privacidade](https://www.patroseguros.com.br/politica-de-privacidade): LGPD e tratamento de dados.
 - [Termos de Uso](https://www.patroseguros.com.br/termos-de-uso): Termos legais.
 - [Imprensa](https://www.patroseguros.com.br/imprensa): Releases e contato de imprensa.
+- [Glossário de Seguros](https://www.patroseguros.com.br/glossario-seguros): 60+ termos do mercado de seguros (apólice, franquia, RCF, lucros cessantes, PSR, RCTR-C, D&O) explicados de forma simples. DefinedTermSet schema.
