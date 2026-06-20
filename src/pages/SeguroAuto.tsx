@@ -41,6 +41,30 @@ const faqs = [
     question: "A cotação com a Patro Seguros tem algum custo?",
     answer: "Não. Nossa consultoria e o levantamento de preços são 100% gratuitos e sem compromisso.",
   },
+  {
+    question: "Qual a diferença entre cobertura básica, intermediária e compreensiva?",
+    answer: "Básica cobre só terceiros (RCF-V) + assistência 24h. Intermediária acrescenta colisão, roubo, furto e incêndio. Compreensiva é a mais completa, incluindo vidros, carro reserva e flexibilidade para acessórios. Conforme aceitação da seguradora e perfil do cliente, é possível personalizar coberturas dentro de cada nível. Veja o comparativo completo em /seguro-auto/comparativo-coberturas.",
+  },
+  {
+    question: "Preciso de rastreador para contratar seguro auto em Guarulhos?",
+    answer: "Depende do modelo, CEP de pernoite e valor FIPE. Para veículos acima de R$ 80 mil em bairros como Cumbica, Bonsucesso e Pimentas, a maioria das seguradoras exige rastreador. Para modelos populares ou em CEPs de baixo risco, costuma ser opcional — mas instalar reduz o prêmio entre 8% e 18%.",
+  },
+  {
+    question: "Posso transferir minha apólice de outra corretora para a Patro?",
+    answer: "Sim, a qualquer momento. Você não perde classe de bônus nem coberturas. Basta enviar sua apólice atual pelo WhatsApp (11) 5199-7500 que recotamos em até 2 horas úteis. Em mais de 60% dos casos conseguimos preço melhor que a renovação automática.",
+  },
+  {
+    question: "Em quanto tempo recebo a cotação?",
+    answer: "Cotações simples (modelos populares, perfil sem agravantes) ficam prontas em 30 minutos. Casos mais complexos (premium, blindados, motorista de app, frota) saem em até 2 horas úteis. Tudo por WhatsApp ou presencial no Cidade Maia.",
+  },
+  {
+    question: "Vale a pena seguro auto ou proteção veicular?",
+    answer: "Seguro auto é regulado pela SUSEP, tem garantia de pagamento via reserva técnica obrigatória e indenização pela tabela FIPE. Proteção veicular opera em associações sem regulação SUSEP — em caso de aumento de sinistralidade, a mensalidade pode subir bruscamente e a associação pode não honrar a indenização. Para a Patro, recomendamos sempre seguro regulado.",
+  },
+  {
+    question: "Quais seguradoras a Patro cota em Guarulhos?",
+    answer: "Cotamos em 16 seguradoras parceiras: Porto Seguro, Allianz, Tokio Marine, HDI, SulAmérica, Bradesco Seguros, Mapfre, Azul Seguros, Sompo, Suhai, entre outras. Cada cotação compara automaticamente as elegíveis para o seu perfil — você recebe comparativo lado a lado.",
+  },
 ];
 
 const parceiros = [
