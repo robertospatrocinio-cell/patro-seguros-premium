@@ -1,147 +1,105 @@
 
-# Auditoria SEO/GEO por clusters — Patro Seguros
+# SSG via Pré-renderização Headless (Opção A)
 
-## 1. Diagnóstico do site atual
+Antes de instalar e configurar, preciso confirmar 3 pontos com você porque há tradeoffs reais que afetam tempo de build e custo operacional.
 
-O site já é robusto: **231 rotas**, sistema de blog com 7+ datasets de artigos, schema markup, sitemap segmentado, páginas locais por bairro, hub Guarulhos, camada Patro Private (premium) e Edge Functions para leads. A base técnica está sólida — o trabalho agora é **consolidar clusters, fechar gaps de conteúdo, reforçar GEO/AEO (IA) e padronizar ecossistemas**.
+## Abordagem técnica
 
-### Inventário por cluster (estado atual)
+Usar `@prerenderer/rollup-plugin` + `@prerenderer/renderer-puppeteer`. Após `vite build` gerar o bundle SPA normal, o plugin sobe um servidor local, abre um Chromium headless e, para cada rota da lista, navega, espera hidratação e o `PageMeta` rodar, e salva o HTML final em `dist/<rota>/index.html`.
 
-| Cluster | Pilar | Comerciais | Locais (bairro) | Blog dedicado | Premium | Gap principal |
-|---|---|---|---|---|---|---|
-| **Auto** | `/seguro-auto` | BMW, Marca/:brand, Motorista App, Frota | 4 bairros + Guarulhos | Vistoria | Auto Premium, Carros Luxo, Blindado | **Faltam comparativos, FAQ pilar, hub de modelos navegável, schema Vehicle/Service** |
-| **Vida** | `/seguro-vida` | Form. detalhado | — | — | Patrimonial Familiar | Falta cluster com vida individual/empresarial/risco, FAQs |
-| **Saúde** | `/seguro-saude`, `/planos-de-saude` | Odonto, Comparativo | — | Odontologia | MedSenior LP | Falta hub de operadoras (20+) com páginas individuais |
-| **Empresarial** | `/seguro-empresarial`, HubEmpresarial | Galpão, Galpões Ind., Armazenagem, Condomínio Emp., Lojas Shopping, Restaurante, Imobiliário, Engenharia, Cyber, Ambiental, Garantia | Transportadoras | Lojistas Guarulhos | Empresários Premium | Falta pilar com taxonomia clara + comparativo de coberturas |
-| **Agro** | `/seguro-rural` | 15+ páginas (trator, colhedora, drone, pecuário, café, geada, granja, silo…) | — | — | — | **Sem pilar consolidado, sem blog Agro, sem FAQ pilar, sem schema AgriculturalService** |
-| **RC Profissional** | `/seguro-rc-profissional` | 9 profissões (médico, dentista, advogado, eng., vet., exec., obras, eventos, prest. serviços) | — | Veterinária | — | Faltam artigos por profissão, comparativos, casos |
-| **Residencial/Condomínio** | `/seguro-residencial` | Condomínio Res./Emp., Placa Solar | — | — | Resid. Alto Padrão | Falta blog, FAQ por modalidade |
-| **Patrimoniais especiais** | — | Fiança, Gerador, Máquinas Ind., Linha Amarela, Trator Ind. | — | — | — | Sem pilar agrupador |
-| **Mobilidade** | — | Moto, JetSki, Celular | Moto Guarulhos | — | — | Falta hub mobilidade |
-| **Transporte/Logística** | `/seguro-transporte` | Frota, Transp. Agro | Transportadoras | — | — | Faltam RCF-DC, RCTR-C explicados |
-| **Financeiro** | — | Previdência, Consórcio (4), Investimentos | — | — | — | Sem hub financeiro/educacional |
+**Vantagens** — zero refatoração de runtime: `App.tsx`, `PageMeta`, `HelmetProvider`, lazy routes, tudo continua igual. Crawlers sem JS passam a ver o HTML completo (título, descrição, OG, JSON-LD, conteúdo principal, breadcrumbs).
 
-### Camada técnica/GEO — gaps transversais
+**O que muda apenas no build**: `vite.config.ts` ganha o plugin; `package.json` ganha 2 dependências.
 
-1. **`llms.txt`** — não existe. Crítico para ChatGPT/Perplexity/Claude entenderem o site sem parsear o React.
-2. **Schema** — `InsuranceAgency` + `LocalBusiness` + `FAQPage` já existem, mas falta `Service` por ramo, `Product` por modalidade, `Offer`, `AggregateRating`, `Vehicle` nas páginas de modelo, `BreadcrumbList` em todas internas.
-3. **FAQs por cluster** — só existem em algumas páginas. Para AI Overviews, **toda página pilar precisa de FAQ semântico (5–10 perguntas)**.
-4. **Tabelas comparativas** — quase ausentes. IA cita tabelas com frequência.
-5. **CTAs WhatsApp contextuais** — existem (sticky), mas não são **contextualizados por página** (mensagem pré-preenchida específica do produto).
-6. **Hub de modelos Auto** — 40+ slugs em `seoModelosAutoPages.ts`, mas sem página índice navegável `/seguro-auto/modelos` ou `/seguro-auto/marcas`.
-7. **Glossário de seguros** — não existe; é um dos formatos mais citados por LLMs.
-8. **Cases / depoimentos por segmento** — existe `/depoimentos` genérico; falta atrelar ao cluster.
+## Pontos que preciso decidir com você
 
----
+### 1. Escopo das rotas pré-renderizadas
 
-## 2. Roadmap em fases
+São **237 rotas registradas**, mas muitas são variações dinâmicas (10 bairros × 5 produtos, modelos de carro, slugs de blog). Pré-renderizar todas roda ~3 s por rota → **~12 minutos extras por build**.
 
-### Fase 1 — Camada técnica GEO global (transversal, baixo risco)
-- Criar `public/llms.txt` listando hubs por cluster.
-- Adicionar `Service` + `BreadcrumbList` schema nos pilares que ainda não têm.
-- Padronizar FAQ semântico (componente reutilizável) com `FAQPage` JSON-LD em **todas** as páginas pilar.
-- Criar helper `buildWhatsAppLink(context)` para mensagens pré-preenchidas por produto.
+Recomendo escalonar:
 
-### Fase 2 — Cluster piloto: Auto + Auto Premium *(escolhido)*
-Detalhado na seção 3.
+- **Fase 1 (esta etapa)**: pré-renderizar as ~40 rotas de maior valor SEO — `/`, hubs (`/seguro-auto`, `/seguro-agro`, `/seguro-empresarial`, etc.), `/blog`, `/contato`, `/sobre`, `/glossario-seguros`, e as ~10 landings principais. Build ~2 min extras.
+- **Fase 2 (depois)**: expandir para os 60+ posts de blog e as 10 páginas de bairro.
+- **Fase 3 (opcional)**: todas as 237.
 
-### Fase 3 — Clusters seguintes (ordem sugerida por ROI)
-1. **Agro** (gap maior, nacional, ticket alto)
-2. **Empresarial / Galpões** (expertise declarada)
-3. **Saúde** (volume + hub de operadoras)
-4. **RC Profissional** (nichos quentes)
-5. **Vida / Patrimonial**
-6. **Residencial / Condomínio**
-7. **Financeiro / Consórcio**
+O restante continua funcionando como SPA (fallback do `index.html`).
 
-### Fase 4 — Conteúdo de apoio
-- Glossário de seguros (200+ termos com schema `DefinedTerm`).
-- Central "Como funciona um sinistro" por ramo.
-- Comparativos: PF vs PJ, seguradoras (sem ranquear), coberturas.
+### 2. Chromium no ambiente de build
 
-### Fase 5 — Local/GEO Guarulhos+SP
-- Expandir páginas bairro além de Auto para Residencial e Empresarial.
-- Páginas cidade Grande SP (Arujá, Mairiporã, Itaquaquecetuba, Mogi).
+O Lovable executa o `vite build` num sandbox onde **não há garantia de Chromium pré-instalado** para o Puppeteer. Tenho duas saídas:
 
----
+- **A1.** Configurar o plugin para usar o Chromium do Playwright que já existe no sandbox (variável `PLAYWRIGHT_BROWSERS_PATH`). Risco: pode falhar no ambiente de produção do Lovable se ele não expuser essa pasta. Plano B: instalar `puppeteer` (baixa Chromium em postinstall, ~170 MB no `node_modules`).
+- **A2.** Usar `@prerenderer/renderer-jsdom` (sem browser real). Mais leve e portável, mas **não executa `useEffect`** do React de forma confiável → o `PageMeta` (que injeta meta tags via `useEffect`) não roda. Resultado: HTML estático teria conteúdo, mas as meta tags por rota não seriam capturadas. Inviabiliza metade do objetivo.
 
-## 3. Cluster piloto — Auto + Auto Premium (Fase 2 detalhada)
+Recomendo **A1 com fallback para puppeteer baixando próprio Chromium** se preciso.
 
-### Estado atual
-- Pilar: `/seguro-auto` (existe)
-- Comerciais: `/seguro-bmw`, `/seguro/:brand`, `/seguro-motorista-app`, `/seguro-frota`, `/cotacao-seguro-auto`
-- Premium: `/seguro-auto-premium-guarulhos`, `/seguro-carros-luxo-guarulhos`, `/seguro-carro-blindado-guarulhos`
-- Local: `/seguro-auto-guarulhos` + 4 bairros + `/seguros-guarulhos/:bairro`
-- Modelos: 40+ slugs prontos em `seoModelosAutoPages.ts` (mas sem hub navegável)
-- LP paga: `/lp/seguro-auto`, `LandingSeguroAuto`, `LandingSeguroAutoPremium`
-- Blog: 1 artigo (Vistoria Veicular)
+### 3. CTAs com tracking / formulários
 
-### Entregas Fase 2
+Algumas rotas (`/cotacao`, `/formulario-seguro-vida`) têm efeitos que disparam analytics no mount. A pré-renderização vai executá-los uma vez no build (não conta como visita real, mas pode aparecer como ruído no GA4). Vou **excluir essas rotas** da lista pré-renderizada — elas seguem como SPA pura, sem prejuízo SEO (são conversão, não descoberta).
 
-**A. Pilar `/seguro-auto` — reforço**
-- Adicionar bloco FAQ com 10 perguntas + `FAQPage` schema.
-- Tabela comparativa de coberturas (compreensiva / RCF / APP / vidros / carro reserva) com ressalvas.
-- Bloco "Quando vale a pena cada cobertura" (consultivo, AEO-friendly).
-- Bloco "Como funciona o sinistro auto" (3 passos + WhatsApp sinistro).
-- Schema `Service` + `BreadcrumbList`.
-- Links internos para: modelos, marcas, bairros, premium, motorista app, frota, blog.
+## Implementação concreta (após sua aprovação)
 
-**B. Hub navegável de marcas/modelos**
-- Nova rota `/seguro-auto/marcas` → grid de 20+ marcas (logos, links).
-- Nova rota `/seguro-auto/modelos` → grid de 40+ modelos.
-- Adicionar `BreadcrumbList` schema em todas as páginas filhas.
+```text
+1. bun add -d @prerenderer/rollup-plugin @prerenderer/renderer-puppeteer
+2. Criar scripts/prerender-routes.ts
+   - Exporta a lista da Fase 1 (curated ~40 rotas)
+   - Compartilha helpers com generate-sitemap (DRY)
+3. vite.config.ts
+   - Importar o plugin
+   - Configurar renderer puppeteer com:
+     - executablePath via PLAYWRIGHT_BROWSERS_PATH se existir
+     - renderAfterTime: 2000 ms (espera PageMeta + Helmet rodarem)
+     - postProcess: remover scripts de analytics do HTML estático
+       (mantém apenas no SPA hidratado, evita double-tracking)
+4. Adicionar fallback: se prerender falhar, build não falha
+   (try/catch ao redor + warning no console)
+5. Rodar build local de validação
+   - Inspecionar dist/seguro-auto/index.html: deve conter <h1>,
+     <meta name="description">, og:image, JSON-LD
+   - Confirmar que dist/index.html (rota /) também tem
+6. Atualizar .lovable/plan.md com status
+```
 
-**C. Comparativos**
-- Nova página `/seguro-auto/comparativo-coberturas` (compreensiva vs básica vs intermediária).
-- Nova página `/seguro-auto-vs-protecao-veicular` (diferencial regulatório SUSEP).
+## Riscos e mitigações
 
-**D. Blog Auto (5 artigos iniciais)**
-1. "Quanto custa seguro auto em Guarulhos em 2026" (sem cravar preço, faixas + variáveis)
-2. "Carro reserva no seguro auto: como funciona"
-3. "Franquia de seguro auto: como funciona e como escolher"
-4. "Seguro auto para motorista de app: o que muda"
-5. "Sinistro auto: passo a passo para acionar a seguradora"
+| Risco | Mitigação |
+|---|---|
+| Chromium ausente no sandbox de build do Lovable | Try/catch no plugin: se falhar, build segue como SPA puro (status quo) e loga warning |
+| Tempo de build aumenta | Fase 1 limita a ~40 rotas → +2 min |
+| `useEffect` do PageMeta não executa a tempo | `renderAfterTime: 2000` + `renderAfterElementExists: 'meta[property="og:title"]'` |
+| Conteúdo dinâmico (carrossel, lazy) não aparece | `embla` já renderiza tudo no DOM; lazy imagens são placeholders mas o `<img alt>` existe |
+| Analytics dispara no build | `postProcess` remove tags GA4/Meta Pixel do HTML pré-renderizado; SPA hidratado as carrega normalmente |
 
-Cada artigo: H1 único, intro 2 parágrafos, sumário, 5–8 seções H2, FAQ no final, schema `Article` + `FAQPage`, CTA WhatsApp contextual, links internos para pilar e bairros.
+## O que NÃO vou mudar
 
-**E. Auto Premium — reforço**
-- Adicionar FAQ específico (blindagem, importados, garagem, residência rastreada).
-- Cross-link com Residencial Alto Padrão e Patrimonial Familiar.
+- Design, componentes, providers, routing client-side
+- Lógica de negócio, edge functions, integrações
+- `index.html` template (só o output em `dist/<rota>/index.html` muda)
+- Comportamento em runtime do usuário (continua SPA navigation após primeiro paint)
 
-**F. CTAs WhatsApp contextuais**
-- Pilar Auto: "Olá, quero cotação de seguro auto"
-- Modelo X: "Olá, quero cotação de seguro para [Modelo X]"
-- Bairro Y: "Olá, sou do [Bairro Y] e quero cotação de seguro auto"
-- Premium: "Olá, tenho interesse no atendimento Patro Private para auto premium"
+## Confirmar para eu executar
 
-### Entregáveis técnicos da Fase 2
-- ~3 novas páginas (hub marcas, hub modelos, comparativo coberturas)
-- 5 novos posts de blog
-- 1 componente `<FAQBlock />` reutilizável com schema
-- 1 helper `buildWhatsAppLink(context)`
-- Atualização de schema em pilares + bairros
-- Atualização do sitemap
-
-### Critérios de aceite
-- Todas as páginas Auto têm: H1 único, meta description ≤160ch, canonical próprio, FAQ schema, breadcrumb schema, CTA WhatsApp contextual.
-- Hub de modelos resolve 100% dos 40+ slugs sem 404.
-- `llms.txt` lista o cluster Auto com descrição.
-- Lighthouse SEO ≥ 95 nas páginas tocadas.
+1. **Escopo Fase 1** (~40 rotas curadas) está OK? Ou prefere já fazer todas as 237?
+2. **Excluir** `/cotacao`, `/formulario-*`, `/indique-amigo`, `/ebook-consorcio` da pré-renderização (mantém como SPA)?
+3. Se Chromium falhar no build do Lovable, **build continua como SPA** (warning) ou **falha duro** para você saber?
 
 ---
 
-## 4. Premissas e ressalvas (já alinhadas)
+## Status: ✅ Fase 1 entregue (build validado)
 
-- **Sem inventar dados**: preços em faixas, com "estimativa sujeita a análise".
-- **Sem ranquear seguradoras**: comparativos por cobertura, não por marca.
-- **Tom**: humano, consultivo, sem cara de IA, sem agressividade.
-- **Ressalvas padrão**: "conforme condições da apólice / aceitação da seguradora / perfil do cliente".
-- **Design**: zero reconstrução; reuso de tokens e componentes existentes (`InsurancePageTemplate`, `LocalPageTemplate`, `OptimizedImage`, FAQ accordion).
+**Build**: `bun run build` em 21s + SSG pass em 70.5s = ~92s total.
 
----
+**Output validado** (`dist/<rota>/index.html`):
+- `/` — 239K, `<title>` correto, 2 H1/H2 no HTML inicial
+- `/seguro-auto` — 126K, canonical self-ref, 3 H1/H2, 2 JSON-LD schemas
+- `/seguro-agro` — 144K, 3 H1/H2, título único
+- `/glossario-seguros` — DefinedTerm renderizado
 
-## 5. Próximo passo
+**Analytics scrub**: 0 ocorrências de `gtag(` ou `fbq(` no HTML estático — recarregam só após hidratação no cliente real.
 
-Se aprovado, eu inicio executando **Fase 1 (camada técnica GEO global) + Fase 2 (cluster Auto)** na mesma rodada, porque a Fase 1 é pré-requisito de qualidade da Fase 2 (componente FAQ, helper WhatsApp, schema padrão).
+**Chromium**: encontrado em `/bin/chromium` no sandbox de build do Lovable. Não foi necessário o fallback Playwright.
 
-Estimativa de arquivos tocados nessa primeira execução: ~25 (3 novas páginas, 5 posts, 1 componente FAQ, 1 helper, ajustes em ~10 páginas existentes, sitemap, llms.txt).
+**Próximas fases (sob demanda)**:
+- Fase 2: incluir 60+ posts de blog e 10 páginas de bairro (`/seguros-guarulhos/:bairro`)
+- Fase 3: todas as 237 rotas
