@@ -1,99 +1,147 @@
-# Plano: Patro Private — Camada Premium + Auditoria SEO
 
-Escopo grande. Vou executar em **5 fases sequenciais**, validando build/prerender ao fim de cada uma. Sem quebrar URLs, sem alterar metadata existente, sem inventar números.
+# Auditoria SEO/GEO por clusters — Patro Seguros
 
-## Fase A — Auditoria técnica (sem alterações)
+## 1. Diagnóstico do site atual
 
-Antes de criar qualquer coisa, rodar checagem de regressão no HTML prerenderizado das URLs críticas:
+O site já é robusto: **231 rotas**, sistema de blog com 7+ datasets de artigos, schema markup, sitemap segmentado, páginas locais por bairro, hub Guarulhos, camada Patro Private (premium) e Edge Functions para leads. A base técnica está sólida — o trabalho agora é **consolidar clusters, fechar gaps de conteúdo, reforçar GEO/AEO (IA) e padronizar ecossistemas**.
 
-- `/`
-- `/seguro-auto-guarulhos`
-- `/lp/seguro-auto`
-- `/seguro-empresarial-guarulhos`
-- `/plano-saude-guarulhos`
-- `/blog/quanto-custa-seguro-auto-guarulhos-2026`
-- `/politica-privacidade`
+### Inventário por cluster (estado atual)
 
-Validar em cada `dist/<rota>/index.html`: title único, description única, H1 único, canonical próprio, og:url próprio, conteúdo específico (não conteúdo da home), schema presente.
+| Cluster | Pilar | Comerciais | Locais (bairro) | Blog dedicado | Premium | Gap principal |
+|---|---|---|---|---|---|---|
+| **Auto** | `/seguro-auto` | BMW, Marca/:brand, Motorista App, Frota | 4 bairros + Guarulhos | Vistoria | Auto Premium, Carros Luxo, Blindado | **Faltam comparativos, FAQ pilar, hub de modelos navegável, schema Vehicle/Service** |
+| **Vida** | `/seguro-vida` | Form. detalhado | — | — | Patrimonial Familiar | Falta cluster com vida individual/empresarial/risco, FAQs |
+| **Saúde** | `/seguro-saude`, `/planos-de-saude` | Odonto, Comparativo | — | Odontologia | MedSenior LP | Falta hub de operadoras (20+) com páginas individuais |
+| **Empresarial** | `/seguro-empresarial`, HubEmpresarial | Galpão, Galpões Ind., Armazenagem, Condomínio Emp., Lojas Shopping, Restaurante, Imobiliário, Engenharia, Cyber, Ambiental, Garantia | Transportadoras | Lojistas Guarulhos | Empresários Premium | Falta pilar com taxonomia clara + comparativo de coberturas |
+| **Agro** | `/seguro-rural` | 15+ páginas (trator, colhedora, drone, pecuário, café, geada, granja, silo…) | — | — | — | **Sem pilar consolidado, sem blog Agro, sem FAQ pilar, sem schema AgriculturalService** |
+| **RC Profissional** | `/seguro-rc-profissional` | 9 profissões (médico, dentista, advogado, eng., vet., exec., obras, eventos, prest. serviços) | — | Veterinária | — | Faltam artigos por profissão, comparativos, casos |
+| **Residencial/Condomínio** | `/seguro-residencial` | Condomínio Res./Emp., Placa Solar | — | — | Resid. Alto Padrão | Falta blog, FAQ por modalidade |
+| **Patrimoniais especiais** | — | Fiança, Gerador, Máquinas Ind., Linha Amarela, Trator Ind. | — | — | — | Sem pilar agrupador |
+| **Mobilidade** | — | Moto, JetSki, Celular | Moto Guarulhos | — | — | Falta hub mobilidade |
+| **Transporte/Logística** | `/seguro-transporte` | Frota, Transp. Agro | Transportadoras | — | — | Faltam RCF-DC, RCTR-C explicados |
+| **Financeiro** | — | Previdência, Consórcio (4), Investimentos | — | — | — | Sem hub financeiro/educacional |
 
-**Entregável:** relatório curto. Se houver regressão, corrijo antes de prosseguir.
+### Camada técnica/GEO — gaps transversais
 
-## Fase B — Sistema de design premium (tokens, sem alterar páginas)
+1. **`llms.txt`** — não existe. Crítico para ChatGPT/Perplexity/Claude entenderem o site sem parsear o React.
+2. **Schema** — `InsuranceAgency` + `LocalBusiness` + `FAQPage` já existem, mas falta `Service` por ramo, `Product` por modalidade, `Offer`, `AggregateRating`, `Vehicle` nas páginas de modelo, `BreadcrumbList` em todas internas.
+3. **FAQs por cluster** — só existem em algumas páginas. Para AI Overviews, **toda página pilar precisa de FAQ semântico (5–10 perguntas)**.
+4. **Tabelas comparativas** — quase ausentes. IA cita tabelas com frequência.
+5. **CTAs WhatsApp contextuais** — existem (sticky), mas não são **contextualizados por página** (mensagem pré-preenchida específica do produto).
+6. **Hub de modelos Auto** — 40+ slugs em `seoModelosAutoPages.ts`, mas sem página índice navegável `/seguro-auto/modelos` ou `/seguro-auto/marcas`.
+7. **Glossário de seguros** — não existe; é um dos formatos mais citados por LLMs.
+8. **Cases / depoimentos por segmento** — existe `/depoimentos` genérico; falta atrelar ao cluster.
 
-Adicionar tokens semânticos para a vertical premium em `src/index.css` (sem mexer nos existentes):
+---
 
-- `--premium-navy` (azul profundo)
-- `--premium-champagne` (dourado discreto)
-- `--premium-pearl` (cinza neutro claro)
-- `--premium-ink` (texto editorial)
-- Tipografia: par editorial (display serif + sans neutro) carregado via `<link>` em `index.html` apenas nas rotas premium (ou globalmente leve)
-- Espaçamentos `--premium-space-*`
-- Sombras sutis `--premium-shadow-soft`
+## 2. Roadmap em fases
 
-Criar componentes reutilizáveis em `src/components/premium/`:
-- `PremiumHero.tsx` — hero editorial limpo, sem cards, com CTA discreto
-- `PremiumSection.tsx` — wrapper com tipografia editorial
-- `PremiumTrustBlock.tsx` — SUSEP + endereço + parceiros (sem inventar números)
-- `PremiumCaseStudy.tsx` — situação/risco/análise/solução (genérico, educativo)
-- `PremiumCTA.tsx` — "Solicitar análise personalizada" / "Falar com consultor"
+### Fase 1 — Camada técnica GEO global (transversal, baixo risco)
+- Criar `public/llms.txt` listando hubs por cluster.
+- Adicionar `Service` + `BreadcrumbList` schema nos pilares que ainda não têm.
+- Padronizar FAQ semântico (componente reutilizável) com `FAQPage` JSON-LD em **todas** as páginas pilar.
+- Criar helper `buildWhatsAppLink(context)` para mensagens pré-preenchidas por produto.
 
-## Fase C — Página `/patro-private` (hub da nova vertical)
+### Fase 2 — Cluster piloto: Auto + Auto Premium *(escolhido)*
+Detalhado na seção 3.
 
-Rota: `/patro-private` em `src/App.tsx` + `src/pages/PatroPrivate.tsx`.
+### Fase 3 — Clusters seguintes (ordem sugerida por ROI)
+1. **Agro** (gap maior, nacional, ticket alto)
+2. **Empresarial / Galpões** (expertise declarada)
+3. **Saúde** (volume + hub de operadoras)
+4. **RC Profissional** (nichos quentes)
+5. **Vida / Patrimonial**
+6. **Residencial / Condomínio**
+7. **Financeiro / Consórcio**
 
-Conteúdo conforme briefing (hero, texto institucional, 7 blocos de solução, "como funciona" em 5 passos, bloco de confiança, CTA dual).
+### Fase 4 — Conteúdo de apoio
+- Glossário de seguros (200+ termos com schema `DefinedTerm`).
+- Central "Como funciona um sinistro" por ramo.
+- Comparativos: PF vs PJ, seguradoras (sem ranquear), coberturas.
 
-SEO:
-- Title: "Patro Private | Seguros Premium em Guarulhos"
-- Description: conforme briefing (≤160 char)
-- H1: "Patro Private: Proteção Patrimonial e Seguros Premium"
-- Canonical + og:url próprios
-- Schema: `Service` + `BreadcrumbList`
-- Entrada em `seoMetadata.ts` + `generate-sitemap.ts`
+### Fase 5 — Local/GEO Guarulhos+SP
+- Expandir páginas bairro além de Auto para Residencial e Empresarial.
+- Páginas cidade Grande SP (Arujá, Mairiporã, Itaquaquecetuba, Mogi).
 
-Formulário dedicado `PatroPrivateForm.tsx`:
-- Campos do briefing (nome, WhatsApp, e-mail, cidade, perfil [7 opções], horário, mensagem, LGPD)
-- Envia via edge function existente `submit-lead` com `origem: "patro-private"`
-- Mensagem de confirmação elegante
+---
 
-## Fase D — 6 páginas premium
+## 3. Cluster piloto — Auto + Auto Premium (Fase 2 detalhada)
 
-Criar em `src/pages/premium/` usando um único `PremiumPageTemplate` parametrizado por dados (evita duplicação):
+### Estado atual
+- Pilar: `/seguro-auto` (existe)
+- Comerciais: `/seguro-bmw`, `/seguro/:brand`, `/seguro-motorista-app`, `/seguro-frota`, `/cotacao-seguro-auto`
+- Premium: `/seguro-auto-premium-guarulhos`, `/seguro-carros-luxo-guarulhos`, `/seguro-carro-blindado-guarulhos`
+- Local: `/seguro-auto-guarulhos` + 4 bairros + `/seguros-guarulhos/:bairro`
+- Modelos: 40+ slugs prontos em `seoModelosAutoPages.ts` (mas sem hub navegável)
+- LP paga: `/lp/seguro-auto`, `LandingSeguroAuto`, `LandingSeguroAutoPremium`
+- Blog: 1 artigo (Vistoria Veicular)
 
-1. `/seguro-auto-premium-guarulhos`
-2. `/seguro-carros-luxo-guarulhos`
-3. `/seguro-residencial-alto-padrao-guarulhos`
-4. `/seguros-para-empresarios-guarulhos`
-5. `/seguro-carro-blindado-guarulhos`
-6. `/protecao-patrimonial-familiar-guarulhos`
+### Entregas Fase 2
 
-Para cada uma: registrar rota, adicionar entrada `premiumPages` em `seoMetadata.ts` (com Service + FAQPage schemas), adicionar ao sitemap, criar arquivo de conteúdo `src/data/premiumPagesContent.ts` com seções (para quem é, coberturas, o que comparar, erros comuns, FAQ).
+**A. Pilar `/seguro-auto` — reforço**
+- Adicionar bloco FAQ com 10 perguntas + `FAQPage` schema.
+- Tabela comparativa de coberturas (compreensiva / RCF / APP / vidros / carro reserva) com ressalvas.
+- Bloco "Quando vale a pena cada cobertura" (consultivo, AEO-friendly).
+- Bloco "Como funciona o sinistro auto" (3 passos + WhatsApp sinistro).
+- Schema `Service` + `BreadcrumbList`.
+- Links internos para: modelos, marcas, bairros, premium, motorista app, frota, blog.
 
-Linguagem conforme briefing: "análise personalizada", "cobertura adequada", "atendimento consultivo" — nunca "barato/menor preço".
+**B. Hub navegável de marcas/modelos**
+- Nova rota `/seguro-auto/marcas` → grid de 20+ marcas (logos, links).
+- Nova rota `/seguro-auto/modelos` → grid de 40+ modelos.
+- Adicionar `BreadcrumbList` schema em todas as páginas filhas.
 
-## Fase E — Conexões, validação, deploy
+**C. Comparativos**
+- Nova página `/seguro-auto/comparativo-coberturas` (compreensiva vs básica vs intermediária).
+- Nova página `/seguro-auto-vs-protecao-veicular` (diferencial regulatório SUSEP).
 
-- Link discreto no `Header.tsx` e `Footer.tsx` para `/patro-private` (sem reorganizar menu existente)
-- Link interno "Esta cobertura também faz parte da **Patro Private** →" nas páginas existentes auto/residencial/empresarial/vida (no fim do conteúdo, sem alterar H1/title/intro)
-- Build completo + grep nos HTMLs gerados para confirmar title/H1/canonical únicos em todas as 7 novas rotas
-- Validar que `dist/seguro-auto-guarulhos/index.html` e outras existentes continuam idênticas em metadata
+**D. Blog Auto (5 artigos iniciais)**
+1. "Quanto custa seguro auto em Guarulhos em 2026" (sem cravar preço, faixas + variáveis)
+2. "Carro reserva no seguro auto: como funciona"
+3. "Franquia de seguro auto: como funciona e como escolher"
+4. "Seguro auto para motorista de app: o que muda"
+5. "Sinistro auto: passo a passo para acionar a seguradora"
 
-## Fora deste plano (acordar depois)
+Cada artigo: H1 único, intro 2 parágrafos, sumário, 5–8 seções H2, FAQ no final, schema `Article` + `FAQPage`, CTA WhatsApp contextual, links internos para pilar e bairros.
 
-Estes itens do briefing **não** entram nesta entrega — peço para abrir como tarefas separadas após validar a vertical premium:
+**E. Auto Premium — reforço**
+- Adicionar FAQ específico (blindagem, importados, garagem, residência rastreada).
+- Cross-link com Residencial Alto Padrão e Patrimonial Familiar.
 
-- **Parte 9 (10 artigos editoriais)** — escrita de conteúdo longo, melhor fazer em lote dedicado
-- **Parte 5 (reescrever 10 páginas existentes)** — risco alto de regressão SEO, recomendo página-a-página com aprovação
-- **Parte 8 (cases)** — vou deixar a estrutura de componente pronta, mas sem popular casos até você aprovar texto
-- **Refoto / fotos reais do escritório** — depende de você enviar assets
-- **Consolidação dos 3 botões flutuantes** (Fase 2 do plano anterior) — tarefa visual separada
+**F. CTAs WhatsApp contextuais**
+- Pilar Auto: "Olá, quero cotação de seguro auto"
+- Modelo X: "Olá, quero cotação de seguro para [Modelo X]"
+- Bairro Y: "Olá, sou do [Bairro Y] e quero cotação de seguro auto"
+- Premium: "Olá, tenho interesse no atendimento Patro Private para auto premium"
 
-## Detalhes técnicos
+### Entregáveis técnicos da Fase 2
+- ~3 novas páginas (hub marcas, hub modelos, comparativo coberturas)
+- 5 novos posts de blog
+- 1 componente `<FAQBlock />` reutilizável com schema
+- 1 helper `buildWhatsAppLink(context)`
+- Atualização de schema em pilares + bairros
+- Atualização do sitemap
 
-- Stack: rotas em `src/App.tsx`, metadata em `src/lib/seoMetadata.ts` (já tem `premiumPages` record), sitemap em `scripts/generate-sitemap.ts`, prerender em `scripts/prerender.mjs` — todos já preparados pelas fases anteriores
-- Lead submission: reusar edge function `submit-lead` adicionando campo `origem`
-- Sem novas dependências
-- Sem migrations de banco
-- Sem alterar `client.ts`, `types.ts`, `.env`, `config.toml`
+### Critérios de aceite
+- Todas as páginas Auto têm: H1 único, meta description ≤160ch, canonical próprio, FAQ schema, breadcrumb schema, CTA WhatsApp contextual.
+- Hub de modelos resolve 100% dos 40+ slugs sem 404.
+- `llms.txt` lista o cluster Auto com descrição.
+- Lighthouse SEO ≥ 95 nas páginas tocadas.
 
-**Posso começar pela Fase A (auditoria) e te trazer o relatório antes de mexer em qualquer arquivo de página?**
+---
+
+## 4. Premissas e ressalvas (já alinhadas)
+
+- **Sem inventar dados**: preços em faixas, com "estimativa sujeita a análise".
+- **Sem ranquear seguradoras**: comparativos por cobertura, não por marca.
+- **Tom**: humano, consultivo, sem cara de IA, sem agressividade.
+- **Ressalvas padrão**: "conforme condições da apólice / aceitação da seguradora / perfil do cliente".
+- **Design**: zero reconstrução; reuso de tokens e componentes existentes (`InsurancePageTemplate`, `LocalPageTemplate`, `OptimizedImage`, FAQ accordion).
+
+---
+
+## 5. Próximo passo
+
+Se aprovado, eu inicio executando **Fase 1 (camada técnica GEO global) + Fase 2 (cluster Auto)** na mesma rodada, porque a Fase 1 é pré-requisito de qualidade da Fase 2 (componente FAQ, helper WhatsApp, schema padrão).
+
+Estimativa de arquivos tocados nessa primeira execução: ~25 (3 novas páginas, 5 posts, 1 componente FAQ, 1 helper, ajustes em ~10 páginas existentes, sitemap, llms.txt).
