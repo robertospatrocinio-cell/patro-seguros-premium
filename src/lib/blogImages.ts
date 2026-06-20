@@ -79,6 +79,13 @@ import blogReducaoSaude from "@/assets/blog/blog-reducao-plano-saude.webp";
 import blogCnhDocumentos from "@/assets/blog/blog-documentos-cnh.webp";
 import blogSeguradorasSinistro from "@/assets/blog/blog-seguradoras-sinistro.webp";
 
+// Capas únicas — Cluster Agro (Fase 3)
+import blogPsrSubvencaoRural from "@/assets/blog/blog-psr-subvencao-rural.webp";
+import blogGranizoSinistroAgricola from "@/assets/blog/blog-granizo-sinistro-agricola.webp";
+import blogSeguroTratorVsAuto from "@/assets/blog/blog-seguro-trator-vs-auto.webp";
+import blogSeguroSiloMetalico from "@/assets/blog/blog-seguro-silo-metalico.webp";
+import blogDroneAgricolaRcf from "@/assets/blog/blog-drone-agricola-rcf.webp";
+
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
   // Seguro Auto
@@ -147,11 +154,11 @@ export const blogImageMap: Record<string, string> = {
   "penhor-rural-seguro-maquinas-agricolas": blogPenhorRural,
   "seguro-pivo-central-equipamentos-irrigacao": blogPivoCentral,
   "agrishow-2026-ribeirao-preto-seguro-maquinas-agricolas": blogAgrishow2026,
-  "psr-passo-a-passo-produtor-rural-subvencao": blogSeguroRural,
-  "seguro-agricola-granizo-sinistro-passo-a-passo": blogGranizo,
-  "seguro-trator-vs-seguro-auto-diferencas": blogAgronegocio,
-  "seguro-silo-metalico-armazenagem-fazenda": blogPenhorRural,
-  "drone-agricola-anac-seguro-rcf-pulverizacao": blogPivoCentral,
+  "psr-passo-a-passo-produtor-rural-subvencao": blogPsrSubvencaoRural,
+  "seguro-agricola-granizo-sinistro-passo-a-passo": blogGranizoSinistroAgricola,
+  "seguro-trator-vs-seguro-auto-diferencas": blogSeguroTratorVsAuto,
+  "seguro-silo-metalico-armazenagem-fazenda": blogSeguroSiloMetalico,
+  "drone-agricola-anac-seguro-rcf-pulverizacao": blogDroneAgricolaRcf,
 
   // Posts Auto — Fase 2 (cluster Auto)
   "preco-seguro-auto-perfil-bairro-cep-2026": blogPrecoSeguroAutoGuarulhos2026,
