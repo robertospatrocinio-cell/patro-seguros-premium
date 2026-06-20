@@ -76,6 +76,17 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
 ];
 
 /**
+ * FASE 2 — Conteúdo de cauda longa (blog + bairros).
+ *
+ * As listas reais são extraídas dinamicamente em `scripts/prerender-react.mjs`
+ * lendo `src/lib/blogData.ts` (posts) e `src/lib/bairrosData.ts` (bairros).
+ * Mantemos aqui apenas as âncoras fixas adicionais.
+ */
+export const PRERENDER_ROUTES_PHASE_2_EXTRA: string[] = [
+  "/seguros-guarulhos-bairros",
+];
+
+/**
  * Validação leve — garante que não haja duplicatas nem strings vazias.
  */
 export function dedupeRoutes(routes: string[]): string[] {
