@@ -82,6 +82,7 @@ function loadBlogRoutes() {
     "src/data/blogPatroPrivateContent.ts",
     "src/data/blogVeterinariaContent.ts",
     "src/data/blogVistoriaContent.ts",
+    "src/data/blogOdontologiaContent.ts",
   ];
   const slugs = new Set();
   for (const rel of contentFiles) {
