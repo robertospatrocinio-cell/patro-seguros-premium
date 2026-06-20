@@ -436,11 +436,11 @@ const SeguroAgro = () => {
                 <Bird className="h-4 w-4" /> Glossário de seguros
               </Link>
               <Link
-                to="/seguros-pme"
+                to="/seguros-empresariais-pme-guarulhos"
                 onClick={() =>
                   trackInternalLinkClick({
                     source: "hub-agro",
-                    destination: "/seguros-pme",
+                    destination: "/seguros-empresariais-pme-guarulhos",
                     label: "Seguros para PME",
                   })
                 }
