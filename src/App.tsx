@@ -619,6 +619,10 @@ const App = () => {
                   <Route path="/seguro-auto-premium" element={<Navigate to="/seguro-auto-premium-guarulhos" replace />} />
                   <Route path="/seguro-auto-pos-vistoria" element={<Navigate to="/seguro-auto" replace />} />
                   <Route path="/seguro-auto-por-modelo-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  {/* Hubs Auto (modelos / marcas / comparativo) */}
+                  <Route path="/seguro-auto/modelos" element={<SeoSeguroAutoPorModeloGuarulhos />} />
+                  <Route path="/seguro-auto/marcas" element={<SeguroAutoMarcas />} />
+                  <Route path="/seguro-auto/comparativo-coberturas" element={<SeguroAutoComparativoCoberturas />} />
                   <Route path="/seguro-hb20-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-hilux-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-mobi-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
