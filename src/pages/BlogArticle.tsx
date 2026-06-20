@@ -20,7 +20,6 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
 import { getBlogContent } from "@/data/blogContentIndex";
 import { useABTest } from "@/hooks/useABTest";
-import { useState } from "react";
 
 const PHONE = "551151997500";
 const WHATSAPP_BASE_URL = `https://wa.me/${PHONE}`;
