@@ -255,6 +255,15 @@ function spaFallbackPlugin(): Plugin {
       } catch (err) {
         console.error("❌ Prerender failed:", err);
       }
+
+      // Fase 1 — SSG real (puppeteer) sobreposto às ~40 rotas curadas.
+      // Falha silenciosa: build não quebra se Chromium estiver indisponível.
+      try {
+        console.log("🚀 Starting React SSG pass (Phase 1)...");
+        execSync("node scripts/prerender-react.mjs", { stdio: "inherit" });
+      } catch (err) {
+        console.warn("⚠️  React SSG pass falhou — Fase 1 mantém prerender.mjs apenas:", err?.message || err);
+      }
     },
   };
 }
