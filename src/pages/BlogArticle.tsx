@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Fragment, lazy, Suspense } from "react";
+import { Fragment, lazy, Suspense, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -18,8 +18,8 @@ import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
+import { getBlogContent } from "@/data/blogContentIndex";
 import { useABTest } from "@/hooks/useABTest";
-import { useState, useEffect } from "react";
 
 const PHONE = "551151997500";
 const WHATSAPP_BASE_URL = `https://wa.me/${PHONE}`;
@@ -34,29 +34,11 @@ const defaultArticle = {
 
 const BlogArticle = () => {
   const { slug } = useParams();
-  const [articleContent, setArticleContent] = useState<any>(null);
   const variant = useABTest(`blog_cta_${slug || 'default'}`);
 
-  // Cache em memória para evitar re-imports
-  const [cachedContent] = useState<Record<string, any>>({});
-  
-  useEffect(() => {
-    if (slug) {
-      if (cachedContent[slug]) {
-        setArticleContent(cachedContent[slug]);
-        return;
-      }
-      import("@/data/blogArticlesContent").then(module => {
-        const content = module.articlesContent[slug] || defaultArticle;
-        cachedContent[slug] = content;
-        setArticleContent(content);
-      });
-    } else {
-      setArticleContent(defaultArticle);
-    }
-  }, [slug, cachedContent]);
-
-  const article = articleContent || defaultArticle;
+  // Lookup SÍNCRONO no índice unificado de conteúdo (8 módulos mesclados).
+  // Essencial para o SSG capturar o conteúdo já renderizado sem race.
+  const article = useMemo(() => getBlogContent(slug) ?? defaultArticle, [slug]);
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
   const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;

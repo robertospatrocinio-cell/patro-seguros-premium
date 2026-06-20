@@ -70,14 +70,29 @@ function loadPhase2ExtraRoutes() {
 }
 
 function loadBlogRoutes() {
-  const file = path.join(ROOT, "src", "lib", "blogData.ts");
-  if (!fs.existsSync(file)) return [];
-  const src = fs.readFileSync(file, "utf-8");
-  const slugs = [];
-  const re = /slug:\s*"([a-z0-9-]+)"/g;
-  let m;
-  while ((m = re.exec(src)) !== null) slugs.push(m[1]);
-  return [...new Set(slugs)].map((s) => `/blog/${s}`);
+  // Só pré-renderiza posts cujo conteúdo está disponível em algum dos
+  // 8 módulos `blog*Content.ts`. Slugs apenas com metadados (sem corpo)
+  // ficam como SPA — evita gravar HTML "Artigo não encontrado".
+  const contentFiles = [
+    "src/data/blogArticlesContent.ts",
+    "src/data/blogAutoContent.ts",
+    "src/data/blogAgroContent.ts",
+    "src/data/blogGuarulhosContent.ts",
+    "src/data/blogGuarulhosLojistasContent.ts",
+    "src/data/blogPatroPrivateContent.ts",
+    "src/data/blogVeterinariaContent.ts",
+    "src/data/blogVistoriaContent.ts",
+  ];
+  const slugs = new Set();
+  for (const rel of contentFiles) {
+    const f = path.join(ROOT, rel);
+    if (!fs.existsSync(f)) continue;
+    const src = fs.readFileSync(f, "utf-8");
+    const re = /^\s*"([a-z0-9-]+)":\s*\{/gm;
+    let m;
+    while ((m = re.exec(src)) !== null) slugs.add(m[1]);
+  }
+  return [...slugs].map((s) => `/blog/${s}`);
 }
 
 function loadBairroRoutes() {
@@ -238,9 +253,13 @@ async function renderRoute(browser, route) {
   let html = await page.content();
   await page.close();
 
-  // Sanitização leve: remove `<script>` inline contendo GA/Pixel/Sentry,
-  // que serão recarregados pelo SPA durante hidratação.
+  // Sanitização: remove tags inline (gtag/fbq/sentry) E externas (gtm/pixel)
+  // que vão ser reinjetadas na hidratação do SPA — evita disparo duplo.
   html = html.replace(/<script[^>]*>[\s\S]*?(gtag\(|fbq\(|GA_MEASUREMENT_ID|sentry)[\s\S]*?<\/script>/gi, "");
+  html = html.replace(
+    /<script[^>]+src="[^"]*(googletagmanager\.com|google-analytics\.com|connect\.facebook\.net|sentry-cdn|browser\.sentry-cdn)[^"]*"[^>]*><\/script>/gi,
+    ""
+  );
 
   // Garante doctype no topo (puppeteer às vezes preserva, mas validamos).
   if (!/^\s*<!doctype/i.test(html)) html = `<!doctype html>\n${html}`;
