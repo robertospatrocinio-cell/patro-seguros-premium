@@ -9,6 +9,8 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQBlock from "@/components/FAQBlock";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 import LazySection from "@/components/LazySection";
 import { Button } from "@/components/ui/button";
 import OrganizationSchema from "@/components/OrganizationSchema";
@@ -22,7 +24,12 @@ import heroImg from "@/assets/hero-seguro-auto.webp";
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20simular%20meu%20seguro%20auto.";
+const WHATSAPP_URL = buildWhatsAppLink({
+  origem: "hub-auto:hero",
+  produto: "Seguro Auto",
+  mensagem:
+    "Olá! Vim pelo site da Patro Seguros e gostaria de simular meu seguro auto em Guarulhos.",
+});
 
 const faqs = [
   {
@@ -310,27 +317,13 @@ const SeguroAuto = () => {
         </section>
 
         {/* ===== 6. FAQ ===== */}
-        <section className="py-24" aria-labelledby="faq-heading">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <div className="text-center mb-16">
-              <span className="section-label">Tire suas dúvidas</span>
-              <h2 id="faq-heading" className="mt-4">Dúvidas Frequentes sobre Seguro Auto</h2>
-            </div>
-             <div className="space-y-4" data-speakable="faq">
-              {faqs.map((faq, i) => (
-                <details key={i} className="group premium-card overflow-hidden">
-                  <summary className="flex items-center justify-between p-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-[15px] font-semibold pr-4">{faq.question}</h3>
-                    <ArrowRight className="h-4 w-4 text-muted-foreground flex-shrink-0 transition-transform group-open:rotate-90" />
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
-                  </div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FAQBlock
+          eyebrow="Tire suas dúvidas"
+          title="Dúvidas Frequentes sobre Seguro Auto"
+          items={faqs}
+          headingId="faq-heading"
+          className="py-24"
+        />
 
         {/* ===== Formulário Rápido ===== */}
         <section className="py-24 gradient-surface" aria-labelledby="formulario-heading">
