@@ -29,7 +29,7 @@ const SKIP = process.env.PATRO_SKIP_REACT_PRERENDER === "1";
 const PORT = Number(process.env.PATRO_PRERENDER_PORT || 4178);
 const PAGE_TIMEOUT_MS = 25_000;
 const RENDER_AFTER_MS = 1_500;
-const CONCURRENCY = 2;
+const CONCURRENCY = Number(process.env.PATRO_PRERENDER_CONCURRENCY || 4);
 
 if (SKIP) {
   console.log("ℹ️  prerender-react: pulado (PATRO_SKIP_REACT_PRERENDER=1).");
