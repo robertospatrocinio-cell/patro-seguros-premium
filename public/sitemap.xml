@@ -127,6 +127,24 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.patroseguros.com.br/seguro-auto/modelos</loc>
+    <priority>0.9</priority>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.patroseguros.com.br/seguro-auto/marcas</loc>
+    <priority>0.9</priority>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.patroseguros.com.br/seguro-auto/comparativo-coberturas</loc>
+    <priority>0.9</priority>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.patroseguros.com.br/seguros-em-guarulhos-bairros</loc>
     <priority>0.9</priority>
     <lastmod>2026-06-16</lastmod>
