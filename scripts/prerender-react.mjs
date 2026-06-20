@@ -91,15 +91,53 @@ function loadBairroRoutes() {
   return [...new Set(ids)].map((id) => `/seguros-guarulhos/${id}`);
 }
 
+function loadAllAppRoutes() {
+  // Fase 3 — extrai TODAS as rotas estáticas registradas em src/App.tsx.
+  const file = path.join(ROOT, "src", "App.tsx");
+  if (!fs.existsSync(file)) return [];
+  const src = fs.readFileSync(file, "utf-8");
+  const out = [];
+  const re = /path="([^"]+)"/g;
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    const p = m[1];
+    if (!p.startsWith("/")) continue;
+    if (p.includes(":") || p.includes("*")) continue; // dinâmicas: tratadas separadamente
+    out.push(p);
+  }
+  const EXCLUDE = new Set([
+    "/cotacao",
+    "/cotacao-seguro-auto",
+    "/cotacao-seguro-auto-guarulhos",
+    "/formulario-seguro-vida",
+    "/seguro-vida/formulario",
+    "/indique-um-amigo",
+    "/indique-amigo",
+    "/ebook-consorcio",
+    "/avaliar-no-google",
+    "/crm",
+    "/admin/login",
+    "/admin/purge-logs",
+    "/admin/performance",
+    "/admin/seo-tecnico",
+    "/admin/conversoes",
+    "/admin/pagespeed",
+    "/admin/schemas",
+  ]);
+  return [...new Set(out)].filter((p) => !EXCLUDE.has(p) && !p.startsWith("/admin"));
+}
+
 const PHASE_1 = loadPhase1Routes();
 const PHASE_2 = [
   ...loadPhase2ExtraRoutes(),
   ...loadBairroRoutes(),
   ...loadBlogRoutes(),
 ];
-const ROUTES = [...new Set([...PHASE_1, ...PHASE_2])];
+const PHASE_3_ENABLED = process.env.PATRO_PRERENDER_PHASE_3 !== "0";
+const PHASE_3 = PHASE_3_ENABLED ? loadAllAppRoutes() : [];
+const ROUTES = [...new Set([...PHASE_1, ...PHASE_2, ...PHASE_3])];
 console.log(
-  `🗺️  prerender-react: Fase 1 = ${PHASE_1.length} rotas | Fase 2 = ${PHASE_2.length} rotas | total único = ${ROUTES.length}`
+  `🗺️  prerender-react: Fase 1 = ${PHASE_1.length} | Fase 2 = ${PHASE_2.length} | Fase 3 = ${PHASE_3.length} | total único = ${ROUTES.length}`
 );
 if (ROUTES.length === 0) {
   console.warn("⚠️  prerender-react: nenhuma rota carregada — pulando.");
@@ -274,7 +312,7 @@ async function main() {
     return;
   }
 
-  console.log(`🚀 prerender-react: renderizando ${ROUTES.length} rotas (Fase 1+2) com concorrência ${CONCURRENCY}...`);
+  console.log(`🚀 prerender-react: renderizando ${ROUTES.length} rotas (Fase 1+2+3) com concorrência ${CONCURRENCY}...`);
   const t0 = Date.now();
   let ok = 0;
   await pool(ROUTES, CONCURRENCY, async (route) => {
