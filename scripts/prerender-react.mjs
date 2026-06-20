@@ -253,9 +253,13 @@ async function renderRoute(browser, route) {
   let html = await page.content();
   await page.close();
 
-  // Sanitização leve: remove `<script>` inline contendo GA/Pixel/Sentry,
-  // que serão recarregados pelo SPA durante hidratação.
+  // Sanitização: remove tags inline (gtag/fbq/sentry) E externas (gtm/pixel)
+  // que vão ser reinjetadas na hidratação do SPA — evita disparo duplo.
   html = html.replace(/<script[^>]*>[\s\S]*?(gtag\(|fbq\(|GA_MEASUREMENT_ID|sentry)[\s\S]*?<\/script>/gi, "");
+  html = html.replace(
+    /<script[^>]+src="[^"]*(googletagmanager\.com|google-analytics\.com|connect\.facebook\.net|sentry-cdn|browser\.sentry-cdn)[^"]*"[^>]*><\/script>/gi,
+    ""
+  );
 
   // Garante doctype no topo (puppeteer às vezes preserva, mas validamos).
   if (!/^\s*<!doctype/i.test(html)) html = `<!doctype html>\n${html}`;
