@@ -74,8 +74,6 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
         { name: "Modelos", url: "/seguro-auto/modelos" },
       ]}
     />
-      description="Cotação de seguro auto por modelo em Guarulhos: Corolla, Civic, HB20, Onix, T-Cross, Compass, Hilux, Strada, Renegade e Mobi. Compare seguradoras."
-    />
     <FAQSchema faqs={FAQS} />
     <Header />
     <main className="bg-background">
