@@ -114,7 +114,7 @@ serve(async (req) => {
     }
 
     const body = await req.json();
-    const { subject, textBody } = body;
+    const { subject, textBody, lead } = body;
 
     // Basic validation to prevent empty spam emails
     if (textBody && textBody.length < 10) {
@@ -192,8 +192,44 @@ serve(async (req) => {
 
     console.log("Email sent successfully");
 
+    // Optional: persist a lead row when the caller sends a `lead` payload.
+    // Failures here MUST NOT break the email response — log and continue.
+    let leadId: string | null = null;
+    if (lead && typeof lead === "object") {
+      try {
+        const safeStr = (v: unknown, max = 500) =>
+          typeof v === "string" ? v.slice(0, max) : null;
+        const payload = {
+          full_name: safeStr(lead.full_name, 200) ?? "Sem nome",
+          email: safeStr(lead.email, 200) ?? "sem-email@patroseguros.com.br",
+          phone: safeStr(lead.phone, 50) ?? "00000000000",
+          insurance_type: safeStr(lead.insurance_type, 80),
+          source_page: safeStr(lead.source_page, 200),
+          source_origin: safeStr(lead.source_origin, 80),
+          utm_source: safeStr(lead.utm_source, 200),
+          utm_medium: safeStr(lead.utm_medium, 200),
+          utm_campaign: safeStr(lead.utm_campaign, 200),
+          ip_address: ip,
+          raw_data: lead.raw_data && typeof lead.raw_data === "object" ? lead.raw_data : null,
+        };
+        const { data: insertedLead, error: leadError } = await supabaseAdmin
+          .from("leads")
+          .insert(payload)
+          .select("id")
+          .single();
+        if (leadError) {
+          console.error("Lead insert error:", leadError);
+        } else {
+          leadId = insertedLead?.id ?? null;
+          console.log("Lead persisted:", leadId);
+        }
+      } catch (e) {
+        console.error("Lead persistence threw:", e);
+      }
+    }
+
     return new Response(
-      JSON.stringify({ success: true }),
+      JSON.stringify({ success: true, leadId }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   } catch (error) {
