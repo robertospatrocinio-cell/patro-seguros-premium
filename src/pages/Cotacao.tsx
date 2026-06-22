@@ -27,6 +27,60 @@ import { toast } from "sonner";
 import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info } from "lucide-react";
 import InputMask from "react-input-mask";
 
+type AssetField = { key: string; label: string; placeholder?: string; type?: "text" | "textarea" };
+const ASSET_FIELDS_BY_TYPE: Record<string, AssetField[]> = {
+  auto: [
+    { key: "modelo", label: "Marca / Modelo", placeholder: "Ex: Honda Civic EXL" },
+    { key: "ano", label: "Ano do veículo", placeholder: "Ex: 2022" },
+    { key: "cep", label: "CEP de pernoite", placeholder: "07000-000" },
+  ],
+  residencial: [
+    { key: "tipoImovel", label: "Tipo do imóvel", placeholder: "Casa ou apartamento" },
+    { key: "cep", label: "CEP", placeholder: "07000-000" },
+    { key: "valor", label: "Valor estimado do imóvel", placeholder: "R$ 500.000" },
+  ],
+  empresarial: [
+    { key: "razaoSocial", label: "Razão social / CNPJ", placeholder: "Empresa LTDA" },
+    { key: "ramo", label: "Ramo de atividade", placeholder: "Ex: Logística, indústria" },
+    { key: "faturamento", label: "Faturamento mensal aprox.", placeholder: "R$ 100 mil" },
+  ],
+  frota: [
+    { key: "qtdVeiculos", label: "Quantidade de veículos", placeholder: "Ex: 8" },
+    { key: "tipoFrota", label: "Tipo (leve / pesado / misto)", placeholder: "Pesado" },
+    { key: "uso", label: "Uso principal", placeholder: "Carga, entregas, passageiros" },
+  ],
+  vida: [
+    { key: "idade", label: "Idade", placeholder: "Ex: 38" },
+    { key: "cobertura", label: "Cobertura desejada", placeholder: "R$ 500.000" },
+    { key: "profissao", label: "Profissão", placeholder: "Ex: Engenheiro" },
+  ],
+  saude: [
+    { key: "qtdVidas", label: "Quantidade de vidas", placeholder: "Ex: 3" },
+    { key: "idades", label: "Idades (separadas por vírgula)", placeholder: "35, 32, 8" },
+    { key: "perfil", label: "Perfil", placeholder: "PF, MEI ou PJ" },
+  ],
+  viagem: [
+    { key: "destino", label: "Destino", placeholder: "Ex: Europa, EUA, Nacional" },
+    { key: "viajantes", label: "Nº de viajantes", placeholder: "Ex: 2" },
+    { key: "datas", label: "Período da viagem", placeholder: "10/03 a 25/03/2026" },
+  ],
+  fianca: [
+    { key: "valorAluguel", label: "Valor do aluguel", placeholder: "R$ 2.500" },
+    { key: "cidade", label: "Cidade do imóvel", placeholder: "Guarulhos / SP" },
+    { key: "finalidade", label: "Finalidade", placeholder: "Residencial ou comercial" },
+  ],
+  rc: [
+    { key: "profissao", label: "Profissão / atividade", placeholder: "Médico, engenheiro..." },
+    { key: "faturamento", label: "Faturamento anual aprox.", placeholder: "R$ 500 mil" },
+  ],
+  outros: [
+    { key: "detalhes", label: "Conte o que precisa proteger", placeholder: "Descreva o seu caso", type: "textarea" },
+  ],
+};
+const ASSET_FIELD_LABELS: Record<string, string> = Object.values(ASSET_FIELDS_BY_TYPE)
+  .flat()
+  .reduce((acc, f) => ({ ...acc, [f.key]: f.label }), {});
+
 const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
