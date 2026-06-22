@@ -495,6 +495,9 @@ const HeroInsuranceCarousel = ({
                   aria-selected={active}
                   aria-controls={`hero-carrossel-painel-${id}`}
                   id={`hero-carrossel-tab-${id}`}
+                  tabIndex={active ? 0 : -1}
+                  ref={(el) => { tabRefs.current[id] = el; }}
+                  onKeyDown={(e) => handleTabKeyDown(e, id)}
                   type="button"
                   onClick={() => handleAudience(id)}
                   className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:rounded-full ${
