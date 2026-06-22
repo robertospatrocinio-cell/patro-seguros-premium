@@ -82,6 +82,7 @@ const ASSET_FIELD_LABELS: Record<string, string> = Object.values(ASSET_FIELDS_BY
   .reduce((acc, f) => ({ ...acc, [f.key]: f.label }), {});
 
 const Cotacao = () => {
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
   const [partialId, setPartialId] = useState<string | null>(localStorage.getItem("partial_quote_id"));
@@ -89,15 +90,6 @@ const Cotacao = () => {
   const [assetData, setAssetData] = useState<Record<string, string>>({});
   const updateAsset = (k: string, v: string) =>
     setAssetData((prev) => ({ ...prev, [k]: v }));
-  const [successData, setSuccessData] = useState<null | {
-    name: string;
-    email: string;
-    phone: string;
-    insuranceType: string;
-    message: string;
-    assetLines: string[];
-    waUrl: string;
-  }>(null);
 
   // Handle magic link resumption with security checks
   useEffect(() => {
