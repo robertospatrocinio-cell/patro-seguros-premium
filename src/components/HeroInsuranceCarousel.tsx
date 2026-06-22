@@ -542,16 +542,9 @@ const HeroInsuranceCarousel = ({
                       />
                       <div>
                         <span
-                          className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 ring-1 ring-inset ring-white/30 backdrop-blur transition-all duration-300 group-hover:scale-105 group-hover:bg-white"
-                          style={{
-                            color: "white",
-                          }}
+                          className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-inset ring-white/30 backdrop-blur transition-all duration-300 group-hover:scale-105 group-hover:bg-white group-hover:text-slate-900"
                         >
-                          <Icon
-                            className="h-5 w-5 transition-colors duration-300"
-                            style={{ color: "currentColor" }}
-                            aria-hidden
-                          />
+                          <Icon className="h-5 w-5" aria-hidden />
                         </span>
                         <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
                         <p className="mt-1.5 hidden text-sm leading-relaxed text-white/85 sm:block">
