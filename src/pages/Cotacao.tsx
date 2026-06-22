@@ -174,7 +174,7 @@ const Cotacao = () => {
   const nextStep = async () => {
     let fields: (keyof z.infer<typeof formSchema>)[] = [];
     if (step === 1) fields = ["insuranceType"];
-    if (step === 2) fields = ["name", "email", "phone"];
+    if (step === 2) fields = []; // dados do bem são opcionais
     
     const isValid = await form.trigger(fields);
     if (isValid) {
@@ -198,6 +198,15 @@ const Cotacao = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
+    // Serializa dados do bem em texto legível
+    const assetLines = Object.entries(assetData)
+      .filter(([, v]) => v && String(v).trim())
+      .map(([k, v]) => `- ${ASSET_FIELD_LABELS[k] || k}: ${v}`);
+    const assetBlock = assetLines.length
+      ? `\nDados do seguro:\n${assetLines.join("\n")}`
+      : "";
+    const mergedMessage = `${values.message || "Não informada"}${assetBlock}`;
+
     const ctaOptions = {
       origem: "cotacao_formulario_etapas",
       subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
@@ -206,13 +215,21 @@ const Cotacao = () => {
         `E-mail: ${values.email}`,
         `WhatsApp: ${values.phone}`,
         `Tipo de Seguro: ${values.insuranceType}`,
+        ...assetLines,
         `Mensagem: ${values.message || "Não informada"}`,
       ],
     };
     const waUrl = buildWhatsAppUrl(ctaOptions);
 
-    const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${values.message || "Não informada"}`;
-    const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
+    const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${mergedMessage}`;
+    const assetRowsHtml = assetLines
+      .map((l) => {
+        const [labelRaw, ...rest] = l.replace(/^- /, "").split(":");
+        const val = rest.join(":").trim();
+        return `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${escapeHtml(labelRaw)}</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(val)}</td></tr>`;
+      })
+      .join("");
+    const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr>${assetRowsHtml}<tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
 
     await safeInvoke("send-form-email", {
       subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
