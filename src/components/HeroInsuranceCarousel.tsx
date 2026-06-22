@@ -526,8 +526,18 @@ const HeroInsuranceCarousel = ({
           id={`hero-carrossel-painel-${audience}`}
           role="tabpanel"
           aria-labelledby={`hero-carrossel-tab-${audience}`}
-          className="relative mt-8"
+          className="relative mt-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950 rounded-lg"
+          aria-roledescription="carrossel"
+          aria-label={`Seguros para ${AUDIENCE_THEMES[audience].label}. Use as setas do teclado para navegar entre os ${cards.length} cards.`}
+          tabIndex={0}
+          onKeyDown={handleCarouselKeyDown}
         >
+          {/* Live region anuncia mudança de slide para leitores de tela */}
+          <div className="sr-only" aria-live="polite" aria-atomic="true">
+            {snaps.length > 0
+              ? `Slide ${selectedSnap + 1} de ${snaps.length}${cards[selectedSnap] ? ` — ${cards[selectedSnap].title}` : ""}`
+              : ""}
+          </div>
           {(() => {
             const theme = AUDIENCE_THEMES[audience];
             return (
@@ -537,7 +547,7 @@ const HeroInsuranceCarousel = ({
             style={{ touchAction: "pan-y" }}
           >
             <ul className="-ml-3 flex list-none touch-pan-y md:-ml-4">
-              {cards.map((card) => {
+              {cards.map((card, index) => {
                 const Icon = card.Icon;
                 const visuals = CARD_VISUALS[card.slug] ?? {
                   bg: "",
@@ -547,6 +557,9 @@ const HeroInsuranceCarousel = ({
                   <li
                     key={`${audience}-${card.slug}`}
                     className="min-w-0 shrink-0 grow-0 basis-[82%] pl-3 sm:basis-[48%] md:basis-1/3 md:pl-4 lg:basis-1/4 xl:basis-1/5"
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label={`${index + 1} de ${cards.length}: ${card.title}`}
                   >
                     <Link
                       to={card.href}
