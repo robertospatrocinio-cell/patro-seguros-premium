@@ -93,6 +93,7 @@ const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
 const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
+const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
 
 const ComparativoPlanosSaude = lazyWithRetry(() => import("./pages/ComparativoPlanosSaude"), "ComparativoPlanosSaude");
 const CRM = lazyWithRetry(() => import("./pages/CRM"), "CRM");
@@ -422,6 +423,7 @@ const App = () => {
                   <Route path="/sobre" element={<Sobre />} />
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
+                  <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
                   <Route path="/contato" element={<Contato />} />
                   <Route path="/servicos" element={<Servicos />} />
                   <Route path="/depoimentos" element={<Depoimentos />} />

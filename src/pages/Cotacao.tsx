@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { debounce } from "@/lib/debounce";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { escapeHtml } from "@/lib/utils";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
@@ -24,7 +24,7 @@ import { logForgottenQuote } from "@/lib/quoteHistory";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
-import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info, MessageCircle, PartyPopper, ArrowLeft, RotateCcw } from "lucide-react";
+import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info } from "lucide-react";
 import InputMask from "react-input-mask";
 
 type AssetField = { key: string; label: string; placeholder?: string; type?: "text" | "textarea" };
@@ -82,6 +82,7 @@ const ASSET_FIELD_LABELS: Record<string, string> = Object.values(ASSET_FIELDS_BY
   .reduce((acc, f) => ({ ...acc, [f.key]: f.label }), {});
 
 const Cotacao = () => {
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
   const [partialId, setPartialId] = useState<string | null>(localStorage.getItem("partial_quote_id"));
@@ -89,15 +90,6 @@ const Cotacao = () => {
   const [assetData, setAssetData] = useState<Record<string, string>>({});
   const updateAsset = (k: string, v: string) =>
     setAssetData((prev) => ({ ...prev, [k]: v }));
-  const [successData, setSuccessData] = useState<null | {
-    name: string;
-    email: string;
-    phone: string;
-    insuranceType: string;
-    message: string;
-    assetLines: string[];
-    waUrl: string;
-  }>(null);
 
   // Handle magic link resumption with security checks
   useEffect(() => {
@@ -294,11 +286,40 @@ const Cotacao = () => {
       .join("");
     const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr>${assetRowsHtml}<tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
 
-    await safeInvoke("send-form-email", {
-      subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
-      textBody,
-      htmlBody
-    });
+    // Read attribution captured at landing (UTMs, referrer) for lead row.
+    let attribution: Record<string, string> = {};
+    try {
+      attribution = JSON.parse(sessionStorage.getItem("patro_attribution") || "{}");
+    } catch { /* noop */ }
+
+    const { data: invokeData } = await safeInvoke<{ success?: boolean; leadId?: string | null }>(
+      "send-form-email",
+      {
+        subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
+        textBody,
+        htmlBody,
+        lead: {
+          full_name: values.name,
+          email: values.email,
+          phone: values.phone,
+          insurance_type: values.insuranceType,
+          source_page: "/cotacao",
+          source_origin: "cotacao_formulario_etapas",
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          raw_data: {
+            asset: assetData,
+            message: values.message || null,
+            referrer: attribution.referrer,
+            landing_page: attribution.landing_page,
+            utm_term: attribution.utm_term,
+            utm_content: attribution.utm_content,
+          },
+        },
+      },
+    );
+    const leadId = invokeData?.leadId ?? null;
 
     localStorage.removeItem("cotacao_progress");
     localStorage.removeItem("partial_quote_id");
@@ -318,20 +339,30 @@ const Cotacao = () => {
       /* noop */
     }
 
-    const opened = openWhatsAppOrFallback(
-      ctaOptions,
-      (msg, opts) => toast.error(msg, opts),
-    );
-    setSuccessData({
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      insuranceType: values.insuranceType,
-      message: values.message || "",
-      assetLines,
-      waUrl,
-    });
+    // Persist success payload for the obrigado page, then redirect.
+    try {
+      sessionStorage.setItem(
+        "patro_cotacao_success",
+        JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          insuranceType: values.insuranceType,
+          message: values.message || "",
+          assetLines,
+          waUrl,
+          leadId,
+          submittedAt: Date.now(),
+        }),
+      );
+    } catch { /* noop */ }
+
+    // Try to open WhatsApp natively (best effort). The obrigado page also
+    // provides a manual button if the popup was blocked.
+    openWhatsAppOrFallback(ctaOptions, (msg, opts) => toast.error(msg, opts));
+
     setIsSubmitting(false);
+    navigate("/cotacao/obrigado");
   };
 
   const faqs = [
@@ -463,100 +494,6 @@ const Cotacao = () => {
               {/* Right Column: Form */}
               <div className="lg:col-span-7">
                 <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-6 lg:p-10">
-                  {successData ? (
-                    <div className="animate-in fade-in zoom-in-95 duration-500 text-center">
-                      <div className="w-20 h-20 mx-auto rounded-full bg-emerald-100 flex items-center justify-center mb-6">
-                        <PartyPopper className="w-10 h-10 text-emerald-600" />
-                      </div>
-                      <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-3">
-                        Pedido enviado, {successData.name.split(" ")[0]}!
-                      </h2>
-                      <p className="text-slate-600 leading-relaxed mb-8 max-w-md mx-auto">
-                        Recebemos sua solicitação e um especialista vai entrar em contato em
-                        até <strong className="text-slate-900">2 horas úteis</strong>. Uma cópia foi enviada para
-                        seu e-mail.
-                      </p>
-
-                      <div className="text-left bg-slate-50 rounded-2xl p-5 border border-slate-100 mb-6">
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                          Resumo da sua solicitação
-                        </h3>
-                        <dl className="space-y-2 text-sm">
-                          <div className="flex justify-between gap-4">
-                            <dt className="text-slate-500">Tipo de seguro</dt>
-                            <dd className="font-semibold text-slate-900 capitalize">{successData.insuranceType}</dd>
-                          </div>
-                          <div className="flex justify-between gap-4">
-                            <dt className="text-slate-500">Nome</dt>
-                            <dd className="font-semibold text-slate-900">{successData.name}</dd>
-                          </div>
-                          <div className="flex justify-between gap-4">
-                            <dt className="text-slate-500">WhatsApp</dt>
-                            <dd className="font-semibold text-slate-900">{successData.phone}</dd>
-                          </div>
-                          <div className="flex justify-between gap-4">
-                            <dt className="text-slate-500">E-mail</dt>
-                            <dd className="font-semibold text-slate-900 truncate">{successData.email}</dd>
-                          </div>
-                          {successData.assetLines.length > 0 && (
-                            <div className="pt-3 mt-3 border-t border-slate-200">
-                              <dt className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Dados informados</dt>
-                              <ul className="space-y-1">
-                                {successData.assetLines.map((l, i) => (
-                                  <li key={i} className="text-slate-700">{l.replace(/^- /, "")}</li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          {successData.message && (
-                            <div className="pt-3 mt-3 border-t border-slate-200">
-                              <dt className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Observações</dt>
-                              <dd className="text-slate-700 whitespace-pre-wrap">{successData.message}</dd>
-                            </div>
-                          )}
-                        </dl>
-                      </div>
-
-                      <div className="flex flex-col gap-3">
-                        <Button
-                          asChild
-                          size="lg"
-                          className="h-14 text-lg font-bold shadow-xl shadow-emerald-600/20 bg-emerald-600 hover:bg-emerald-700"
-                        >
-                          <a href={successData.waUrl} target="_blank" rel="noopener noreferrer">
-                            <MessageCircle className="w-5 h-5 mr-2" />
-                            Falar agora no WhatsApp
-                          </a>
-                        </Button>
-                        <div className="grid grid-cols-2 gap-3">
-                          <Button asChild variant="outline" className="h-12">
-                            <Link to="/">
-                              <ArrowLeft className="w-4 h-4 mr-2" /> Voltar ao início
-                            </Link>
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            className="h-12"
-                            onClick={() => {
-                              setSuccessData(null);
-                              setAssetData({});
-                              form.reset({
-                                name: "",
-                                email: "",
-                                phone: "",
-                                insuranceType: "",
-                                message: "",
-                              });
-                              setStep(1);
-                            }}
-                          >
-                            <RotateCcw className="w-4 h-4 mr-2" /> Nova cotação
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                  <>
                   <div className="mb-8">
                     <div className="flex justify-between text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
                       <span>Etapa {step} de 3</span>
@@ -808,8 +745,6 @@ const Cotacao = () => {
                       )}
                     </form>
                   </Form>
-                  </>
-                  )}
                 </div>
               </div>
             </div>
