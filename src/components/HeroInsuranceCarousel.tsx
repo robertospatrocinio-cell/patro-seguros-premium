@@ -104,7 +104,7 @@ const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> 
 
 const DEFAULT_ACCENT = "210 70% 50%";
 
-const cardsPessoa: InsuranceCard[] = [
+export const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Auto", short: "Carro, terceiros e assistência 24h.", href: "/seguro-auto", Icon: Car, slug: "seguro-auto" },
   { title: "Seguro Moto", short: "Proteção para sua moto no dia a dia.", href: "/seguro-moto", Icon: Bike, slug: "seguro-moto" },
   { title: "Seguro Residencial", short: "Casa, apto e assistência completa.", href: "/seguro-residencial", Icon: Home, slug: "seguro-residencial" },
@@ -116,7 +116,7 @@ const cardsPessoa: InsuranceCard[] = [
   { title: "Consórcio", short: "Carro, moto ou imóvel sem juros.", href: "/consorcio", Icon: KeyRound, slug: "consorcio" },
 ];
 
-const cardsEmpresa: InsuranceCard[] = [
+export const cardsEmpresa: InsuranceCard[] = [
   { title: "Seguro Empresarial", short: "Patrimônio, lucros cessantes e RC.", href: "/seguro-empresarial", Icon: Building2, slug: "seguro-empresarial" },
   { title: "Seguro Frota", short: "Economia de até 40% vs apólices individuais.", href: "/seguro-frota", Icon: Truck, slug: "seguro-frota" },
   { title: "Transporte e Carga", short: "RCTR-C, RCF-DC e cargas em trânsito.", href: "/seguro-transporte", Icon: PackageCheck, slug: "seguro-transporte" },
@@ -129,7 +129,7 @@ const cardsEmpresa: InsuranceCard[] = [
   { title: "Seguro Engenharia", short: "Obras civis, instalação e montagem.", href: "/seguro-engenharia", Icon: HardHat, slug: "seguro-engenharia" },
 ];
 
-const cardsAgro: InsuranceCard[] = [
+export const cardsAgro: InsuranceCard[] = [
   { title: "Propriedade Rural", short: "Sede, benfeitorias e instalações.", href: "/seguro-propriedade-rural", Icon: Sprout, slug: "seguro-propriedade-rural" },
   { title: "Seguro Rural", short: "Cobertura ampla para produtor rural.", href: "/seguro-rural", Icon: Leaf, slug: "seguro-rural" },
   { title: "Máquinas Agrícolas", short: "Tratores, implementos e pulverizadores.", href: "/seguro-maquinas-agricolas", Icon: Tractor, slug: "seguro-maquinas-agricolas" },
@@ -141,7 +141,7 @@ const cardsAgro: InsuranceCard[] = [
   { title: "Transporte Agro", short: "Cargas agrícolas em trânsito nacional.", href: "/seguro-transporte-agro", Icon: Truck, slug: "seguro-transporte-agro" },
 ];
 
-const cardsConsorcio: InsuranceCard[] = [
+export const cardsConsorcio: InsuranceCard[] = [
   { title: "Consórcio", short: "Conquiste sem juros: carro, moto ou imóvel.", href: "/consorcio", Icon: KeyRound, slug: "consorcio-geral" },
   { title: "Consórcio de Carro", short: "Carro novo ou seminovo sem juros.", href: "/consorcio-carro", Icon: Car, slug: "consorcio-carro" },
   { title: "Consórcio de Imóveis", short: "Casa, apto, terreno ou construção.", href: "/consorcio-imoveis", Icon: Home, slug: "consorcio-imoveis" },
