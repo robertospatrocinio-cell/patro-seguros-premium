@@ -89,6 +89,15 @@ const Cotacao = () => {
   const [assetData, setAssetData] = useState<Record<string, string>>({});
   const updateAsset = (k: string, v: string) =>
     setAssetData((prev) => ({ ...prev, [k]: v }));
+  const [successData, setSuccessData] = useState<null | {
+    name: string;
+    email: string;
+    phone: string;
+    insuranceType: string;
+    message: string;
+    assetLines: string[];
+    waUrl: string;
+  }>(null);
 
   // Handle magic link resumption with security checks
   useEffect(() => {
@@ -313,10 +322,16 @@ const Cotacao = () => {
       ctaOptions,
       (msg, opts) => toast.error(msg, opts),
     );
-    if (opened === false) {
-      // toast com fallback de e-mail já exibido; não redireciona.
-      setIsSubmitting(false);
-    }
+    setSuccessData({
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      insuranceType: values.insuranceType,
+      message: values.message || "",
+      assetLines,
+      waUrl,
+    });
+    setIsSubmitting(false);
   };
 
   const faqs = [
