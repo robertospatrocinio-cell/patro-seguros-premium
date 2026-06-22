@@ -433,34 +433,38 @@ const HeroInsuranceCarousel = ({
           )}
         </div>
 
-        {/* Toggle */}
-        <div className="mx-auto mt-10 flex max-w-md justify-center">
+        {/* Toggle — cor padronizada por aba */}
+        <div className="mx-auto mt-10 flex max-w-2xl justify-center">
           <div
             role="tablist"
             aria-label="Tipo de proteção"
-            className="inline-flex w-full rounded-full border border-white/15 bg-white/[0.06] p-1 backdrop-blur"
+            className="inline-flex w-full flex-wrap gap-1 rounded-2xl border border-white/15 bg-white/[0.06] p-1.5 backdrop-blur sm:flex-nowrap sm:rounded-full"
           >
-            {([
-              { id: "pessoa" as const, label: "Para Você" },
-              { id: "empresa" as const, label: "Para sua Empresa" },
-              { id: "agro" as const, label: "Para o Agro" },
-              { id: "consorcio" as const, label: "Para Consórcio" },
-            ]).map((opt) => {
-              const active = audience === opt.id;
+            {(Object.keys(AUDIENCE_THEMES) as Audience[]).map((id) => {
+              const opt = AUDIENCE_THEMES[id];
+              const active = audience === id;
               return (
                 <button
-                  key={opt.id}
+                  key={id}
                   role="tab"
                   aria-selected={active}
-                  aria-controls={`hero-carrossel-painel-${opt.id}`}
-                  id={`hero-carrossel-tab-${opt.id}`}
+                  aria-controls={`hero-carrossel-painel-${id}`}
+                  id={`hero-carrossel-tab-${id}`}
                   type="button"
-                  onClick={() => handleAudience(opt.id)}
-                  className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
+                  onClick={() => handleAudience(id)}
+                  className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:rounded-full ${
                     active
-                      ? "bg-white text-slate-900 shadow-sm"
-                      : "text-white/75 hover:text-white"
+                      ? "text-white shadow-lg"
+                      : "text-white/70 hover:text-white"
                   }`}
+                  style={
+                    active
+                      ? {
+                          background: `linear-gradient(135deg, hsl(${opt.accent}) 0%, hsl(${opt.accentSoft}) 100%)`,
+                          boxShadow: `0 8px 24px -8px hsl(${opt.accent} / 0.6)`,
+                        }
+                      : undefined
+                  }
                 >
                   {opt.label}
                 </button>
@@ -476,13 +480,15 @@ const HeroInsuranceCarousel = ({
           aria-labelledby={`hero-carrossel-tab-${audience}`}
           className="relative mt-8"
         >
+          {(() => {
+            const theme = AUDIENCE_THEMES[audience];
+            return (
           <div className="overflow-hidden" ref={emblaRef}>
             <ul className="-ml-3 flex list-none md:-ml-4">
               {cards.map((card) => {
                 const Icon = card.Icon;
                 const visuals = CARD_VISUALS[card.slug] ?? {
                   bg: "",
-                  accent: DEFAULT_ACCENT,
                   alt: card.title,
                 };
                 return (
@@ -494,9 +500,9 @@ const HeroInsuranceCarousel = ({
                       to={card.href}
                       onClick={() => handleCardClick(card)}
                       aria-label={`${card.title} — ${card.short}`}
-                      className="group relative isolate flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-xl border border-white/12 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+                      className="group relative isolate flex h-full min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl border border-white/12 p-5 text-left shadow-[0_4px_16px_-8px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
                       style={{
-                        backgroundColor: `hsl(${visuals.accent} / 0.18)`,
+                        backgroundColor: `hsl(${theme.accent} / 0.22)`,
                       }}
                     >
                       {/* Foto temática de fundo */}
@@ -510,11 +516,11 @@ const HeroInsuranceCarousel = ({
                           className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-40 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-90 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                         />
                       )}
-                      {/* Gradient overlay tingido com a cor do ramo */}
+                      {/* Gradient overlay tingido com a cor da aba */}
                       <div
-                        className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-500 ease-out group-hover:opacity-40 motion-reduce:transition-none"
+                        className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-500 ease-out group-hover:opacity-50 motion-reduce:transition-none"
                         style={{
-                          backgroundImage: `linear-gradient(150deg, hsl(${visuals.accent} / 0.85) 0%, hsl(${visuals.accent} / 0.55) 45%, rgba(2,6,23,0.85) 100%)`,
+                          backgroundImage: `linear-gradient(150deg, hsl(${theme.accent} / 0.92) 0%, hsl(${theme.accentSoft} / 0.65) 45%, rgba(2,6,23,0.88) 100%)`,
                         }}
                       />
                       {/* Vinheta inferior para manter legibilidade do texto no hover */}
@@ -526,12 +532,26 @@ const HeroInsuranceCarousel = ({
                             "linear-gradient(to top, rgba(2,6,23,0.85) 0%, rgba(2,6,23,0.45) 55%, rgba(2,6,23,0) 100%)",
                         }}
                       />
+                      {/* Barra superior com cor da aba para identidade visual */}
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 top-0 h-1"
+                        style={{
+                          background: `linear-gradient(90deg, hsl(${theme.accent}), hsl(${theme.accentSoft}))`,
+                        }}
+                      />
                       <div>
                         <span
-                          className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/15 ring-1 ring-inset ring-white/25 backdrop-blur transition-colors group-hover:bg-white group-hover:text-slate-900"
-                          style={{ color: "white" }}
+                          className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 ring-1 ring-inset ring-white/30 backdrop-blur transition-all duration-300 group-hover:scale-105 group-hover:bg-white"
+                          style={{
+                            color: "white",
+                          }}
                         >
-                          <Icon className="h-5 w-5" aria-hidden />
+                          <Icon
+                            className="h-5 w-5 transition-colors duration-300"
+                            style={{ color: "currentColor" }}
+                            aria-hidden
+                          />
                         </span>
                         <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
                         <p className="mt-1.5 hidden text-sm leading-relaxed text-white/85 sm:block">
@@ -548,6 +568,8 @@ const HeroInsuranceCarousel = ({
               })}
             </ul>
           </div>
+            );
+          })()}
 
           {/* Arrow controls (desktop) */}
           <div className="pointer-events-none absolute inset-y-0 left-0 right-0 hidden items-center justify-between md:flex">
