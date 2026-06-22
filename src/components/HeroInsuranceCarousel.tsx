@@ -505,7 +505,7 @@ const HeroInsuranceCarousel = ({
                 return (
                   <li
                     key={`${audience}-${card.slug}`}
-                    className="min-w-0 shrink-0 grow-0 basis-[82%] pl-3 xs:basis-[72%] sm:basis-[48%] md:basis-1/3 md:pl-4 lg:basis-1/4 xl:basis-1/5"
+                    className="min-w-0 shrink-0 grow-0 basis-[82%] pl-3 sm:basis-[48%] md:basis-1/3 md:pl-4 lg:basis-1/4 xl:basis-1/5"
                   >
                     <Link
                       to={card.href}
