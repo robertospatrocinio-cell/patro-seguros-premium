@@ -100,6 +100,7 @@ const AdminLogin = lazyWithRetry(() => import("./pages/AdminLogin"), "AdminLogin
 const Sobre = lazyWithRetry(() => import("./pages/Sobre"), "Sobre");
 const Parceiros = lazyWithRetry(() => import("./pages/Parceiros"), "Parceiros");
 const Contato = lazyWithRetry(() => import("./pages/Contato"), "Contato");
+const Servicos = lazyWithRetry(() => import("./pages/Servicos"), "Servicos");
 const SeguroAuto = lazyWithRetry(() => import("./pages/SeguroAuto"), "SeguroAuto");
 const SeguroVida = lazyWithRetry(() => import("./pages/SeguroVida"), "SeguroVida");
 const SeguroResidencial = lazyWithRetry(() => import("./pages/SeguroResidencial"), "SeguroResidencial");
@@ -422,6 +423,7 @@ const App = () => {
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
                   <Route path="/contato" element={<Contato />} />
+                  <Route path="/servicos" element={<Servicos />} />
                   <Route path="/depoimentos" element={<Depoimentos />} />
                   <Route path="/seguro-bmw" element={<SeguroBMW />} />
                   <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
