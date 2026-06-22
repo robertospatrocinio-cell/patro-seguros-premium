@@ -2,11 +2,11 @@
   import { toast } from "sonner";
   import { captureException } from "./monitoring";
  
- export async function safeInvoke(functionName: string, body: any) {
+export async function safeInvoke<T = unknown>(functionName: string, body: any) {
    try {
      const { data, error } = await supabase.functions.invoke(functionName, { body });
      if (error) throw error;
-     return { data, error: null };
+    return { data: data as T, error: null };
     } catch (err: any) {
     console.error(`Error invoking ${functionName}:`, err);
     // Avoid leaking PII (name/email/phone) to third-party monitoring.
@@ -15,7 +15,7 @@
       bodyKeys: body && typeof body === "object" ? Object.keys(body) : [],
     };
     captureException(err, safeContext);
-      return { data: null, error: err };
+     return { data: null as T | null, error: err };
     }
  }
  
