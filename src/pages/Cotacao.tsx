@@ -32,6 +32,9 @@ const Cotacao = () => {
   const [step, setStep] = useState(1);
   const [partialId, setPartialId] = useState<string | null>(localStorage.getItem("partial_quote_id"));
   const [searchParams, setSearchParams] = useSearchParams();
+  const [assetData, setAssetData] = useState<Record<string, string>>({});
+  const updateAsset = (k: string, v: string) =>
+    setAssetData((prev) => ({ ...prev, [k]: v }));
 
   // Handle magic link resumption with security checks
   useEffect(() => {
