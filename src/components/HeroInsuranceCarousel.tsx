@@ -219,12 +219,15 @@ const HeroInsuranceCarousel = ({
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
-    dragFree: false,
+    dragFree: true,
+    skipSnaps: false,
     containScroll: "trimSnaps",
     duration: reduceMotion ? 0 : 22,
   });
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [snaps, setSnaps] = useState<number[]>([]);
+  const [selectedSnap, setSelectedSnap] = useState(0);
 
   const cards =
     audience === "pessoa"
@@ -239,16 +242,20 @@ const HeroInsuranceCarousel = ({
     if (!emblaApi) return;
     setCanPrev(emblaApi.canScrollPrev());
     setCanNext(emblaApi.canScrollNext());
+    setSelectedSnap(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
+    setSnaps(emblaApi.scrollSnapList());
     emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
+    emblaApi.on("reInit", () => {
+      onSelect();
+      setSnaps(emblaApi.scrollSnapList());
+    });
     return () => {
       emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
     };
   }, [emblaApi, onSelect]);
 
