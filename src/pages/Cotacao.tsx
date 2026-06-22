@@ -27,11 +27,68 @@ import { toast } from "sonner";
 import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info } from "lucide-react";
 import InputMask from "react-input-mask";
 
+type AssetField = { key: string; label: string; placeholder?: string; type?: "text" | "textarea" };
+const ASSET_FIELDS_BY_TYPE: Record<string, AssetField[]> = {
+  auto: [
+    { key: "modelo", label: "Marca / Modelo", placeholder: "Ex: Honda Civic EXL" },
+    { key: "ano", label: "Ano do veículo", placeholder: "Ex: 2022" },
+    { key: "cep", label: "CEP de pernoite", placeholder: "07000-000" },
+  ],
+  residencial: [
+    { key: "tipoImovel", label: "Tipo do imóvel", placeholder: "Casa ou apartamento" },
+    { key: "cep", label: "CEP", placeholder: "07000-000" },
+    { key: "valor", label: "Valor estimado do imóvel", placeholder: "R$ 500.000" },
+  ],
+  empresarial: [
+    { key: "razaoSocial", label: "Razão social / CNPJ", placeholder: "Empresa LTDA" },
+    { key: "ramo", label: "Ramo de atividade", placeholder: "Ex: Logística, indústria" },
+    { key: "faturamento", label: "Faturamento mensal aprox.", placeholder: "R$ 100 mil" },
+  ],
+  frota: [
+    { key: "qtdVeiculos", label: "Quantidade de veículos", placeholder: "Ex: 8" },
+    { key: "tipoFrota", label: "Tipo (leve / pesado / misto)", placeholder: "Pesado" },
+    { key: "uso", label: "Uso principal", placeholder: "Carga, entregas, passageiros" },
+  ],
+  vida: [
+    { key: "idade", label: "Idade", placeholder: "Ex: 38" },
+    { key: "cobertura", label: "Cobertura desejada", placeholder: "R$ 500.000" },
+    { key: "profissao", label: "Profissão", placeholder: "Ex: Engenheiro" },
+  ],
+  saude: [
+    { key: "qtdVidas", label: "Quantidade de vidas", placeholder: "Ex: 3" },
+    { key: "idades", label: "Idades (separadas por vírgula)", placeholder: "35, 32, 8" },
+    { key: "perfil", label: "Perfil", placeholder: "PF, MEI ou PJ" },
+  ],
+  viagem: [
+    { key: "destino", label: "Destino", placeholder: "Ex: Europa, EUA, Nacional" },
+    { key: "viajantes", label: "Nº de viajantes", placeholder: "Ex: 2" },
+    { key: "datas", label: "Período da viagem", placeholder: "10/03 a 25/03/2026" },
+  ],
+  fianca: [
+    { key: "valorAluguel", label: "Valor do aluguel", placeholder: "R$ 2.500" },
+    { key: "cidade", label: "Cidade do imóvel", placeholder: "Guarulhos / SP" },
+    { key: "finalidade", label: "Finalidade", placeholder: "Residencial ou comercial" },
+  ],
+  rc: [
+    { key: "profissao", label: "Profissão / atividade", placeholder: "Médico, engenheiro..." },
+    { key: "faturamento", label: "Faturamento anual aprox.", placeholder: "R$ 500 mil" },
+  ],
+  outros: [
+    { key: "detalhes", label: "Conte o que precisa proteger", placeholder: "Descreva o seu caso", type: "textarea" },
+  ],
+};
+const ASSET_FIELD_LABELS: Record<string, string> = Object.values(ASSET_FIELDS_BY_TYPE)
+  .flat()
+  .reduce((acc, f) => ({ ...acc, [f.key]: f.label }), {});
+
 const Cotacao = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [step, setStep] = useState(1);
   const [partialId, setPartialId] = useState<string | null>(localStorage.getItem("partial_quote_id"));
   const [searchParams, setSearchParams] = useSearchParams();
+  const [assetData, setAssetData] = useState<Record<string, string>>({});
+  const updateAsset = (k: string, v: string) =>
+    setAssetData((prev) => ({ ...prev, [k]: v }));
 
   // Handle magic link resumption with security checks
   useEffect(() => {
@@ -171,7 +228,7 @@ const Cotacao = () => {
   const nextStep = async () => {
     let fields: (keyof z.infer<typeof formSchema>)[] = [];
     if (step === 1) fields = ["insuranceType"];
-    if (step === 2) fields = ["name", "email", "phone"];
+    if (step === 2) fields = []; // dados do bem são opcionais
     
     const isValid = await form.trigger(fields);
     if (isValid) {
@@ -195,6 +252,15 @@ const Cotacao = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
+    // Serializa dados do bem em texto legível
+    const assetLines = Object.entries(assetData)
+      .filter(([, v]) => v && String(v).trim())
+      .map(([k, v]) => `- ${ASSET_FIELD_LABELS[k] || k}: ${v}`);
+    const assetBlock = assetLines.length
+      ? `\nDados do seguro:\n${assetLines.join("\n")}`
+      : "";
+    const mergedMessage = `${values.message || "Não informada"}${assetBlock}`;
+
     const ctaOptions = {
       origem: "cotacao_formulario_etapas",
       subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
@@ -203,13 +269,21 @@ const Cotacao = () => {
         `E-mail: ${values.email}`,
         `WhatsApp: ${values.phone}`,
         `Tipo de Seguro: ${values.insuranceType}`,
+        ...assetLines,
         `Mensagem: ${values.message || "Não informada"}`,
       ],
     };
     const waUrl = buildWhatsAppUrl(ctaOptions);
 
-    const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${values.message || "Não informada"}`;
-    const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
+    const textBody = `Nome: ${values.name}\nE-mail: ${values.email}\nTelefone: ${values.phone}\nTipo de Seguro: ${values.insuranceType}\nMensagem: ${mergedMessage}`;
+    const assetRowsHtml = assetLines
+      .map((l) => {
+        const [labelRaw, ...rest] = l.replace(/^- /, "").split(":");
+        const val = rest.join(":").trim();
+        return `<tr><td style="padding:6px;border:1px solid #ddd"><strong>${escapeHtml(labelRaw)}</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(val)}</td></tr>`;
+      })
+      .join("");
+    const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr>${assetRowsHtml}<tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
 
     await safeInvoke("send-form-email", {
       subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
@@ -440,7 +514,39 @@ const Cotacao = () => {
 
                       {step === 2 && (
                         <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
-                          <h3 className="text-xl font-bold text-slate-900 mb-4">Como podemos te contatar?</h3>
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">Conte um pouco sobre o que vamos proteger</h3>
+                          <p className="text-sm text-slate-500 mb-4">Tudo opcional — quanto mais detalhes, mais precisa fica sua cotação.</p>
+                          {(ASSET_FIELDS_BY_TYPE[form.watch("insuranceType")] || ASSET_FIELDS_BY_TYPE.outros).map((f) => (
+                            <div key={f.key} className="space-y-2">
+                              <label className="text-slate-700 font-semibold text-sm">{f.label}</label>
+                              {f.type === "textarea" ? (
+                                <Textarea
+                                  placeholder={f.placeholder}
+                                  className="min-h-[100px] bg-slate-50"
+                                  value={assetData[f.key] || ""}
+                                  onChange={(e) => updateAsset(f.key, e.target.value)}
+                                />
+                              ) : (
+                                <Input
+                                  placeholder={f.placeholder}
+                                  className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all"
+                                  value={assetData[f.key] || ""}
+                                  onChange={(e) => updateAsset(f.key, e.target.value)}
+                                />
+                              )}
+                            </div>
+                          ))}
+                          <div className="pt-4 flex gap-3">
+                            <Button type="button" variant="ghost" onClick={prevStep} className="flex-1 h-12">Voltar</Button>
+                            <Button type="button" onClick={nextStep} className="flex-[2] h-12 text-lg font-bold">Próximo Passo</Button>
+                          </div>
+                        </div>
+                      )}
+
+                      {step === 3 && (
+                        <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">Como podemos te enviar a cotação?</h3>
+                          <p className="text-sm text-slate-500 mb-4">Você recebe pelo WhatsApp em até 2h úteis — e uma cópia no seu e-mail.</p>
                           <FormField
                             control={form.control}
                             name="name"
@@ -519,26 +625,16 @@ const Cotacao = () => {
                             )}
                           />
 
-                          <div className="pt-4 flex gap-3">
-                            <Button type="button" variant="ghost" onClick={prevStep} className="flex-1 h-12">Voltar</Button>
-                            <Button type="button" onClick={nextStep} className="flex-[2] h-12 text-lg font-bold">Próximo Passo</Button>
-                          </div>
-                        </div>
-                      )}
-
-                      {step === 3 && (
-                        <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
-                          <h3 className="text-xl font-bold text-slate-900 mb-4">Finalize sua solicitação</h3>
                           <FormField
                             control={form.control}
                             name="message"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-slate-700 font-semibold">Informações Adicionais (opcional)</FormLabel>
+                                <FormLabel className="text-slate-700 font-semibold">Observações (opcional)</FormLabel>
                                 <FormControl>
                                   <Textarea 
-                                    placeholder="Ex: Modelo do carro, número de funcionários, valor do aluguel..."
-                                    className="min-h-[120px] bg-slate-50"
+                                    placeholder="Algo a mais que devamos saber?"
+                                    className="min-h-[90px] bg-slate-50"
                                     {...field}
                                   />
                                 </FormControl>
