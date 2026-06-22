@@ -31,6 +31,14 @@ import {
   Coffee,
   Leaf,
   Combine,
+  PawPrint,
+  PiggyBank,
+  Activity,
+  Building,
+  FileCheck2,
+  Trees,
+  Beef,
+  Plane as PlaneIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -61,48 +69,73 @@ type InsuranceCard = {
 const UNSPLASH = (id: string) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=640&q=70`;
 
-const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> = {
-  // Pessoa
-  "seguro-auto":         { bg: UNSPLASH("1492144534655-ae79c964c9d7"), accent: "210 90% 55%", alt: "Carro em estrada" },
-  "seguro-moto":         { bg: UNSPLASH("1558981806-ec527fa84c39"), accent: "0 75% 55%",    alt: "Motocicleta esportiva" },
-  "seguro-residencial":  { bg: UNSPLASH("1568605114967-8130f3a36994"), accent: "150 55% 45%", alt: "Casa moderna" },
-  "seguro-vida":         { bg: UNSPLASH("1511895426328-dc8714191300"), accent: "340 70% 55%", alt: "Família reunida" },
-  "plano-saude":         { bg: UNSPLASH("1576091160550-2173dba999ef"), accent: "190 75% 50%", alt: "Atendimento médico" },
-  "seguro-viagem":       { bg: UNSPLASH("1436491865332-7a61a109cc05"), accent: "200 85% 55%", alt: "Avião sobre nuvens" },
-  "seguro-celular":      { bg: UNSPLASH("1512941937669-90a1b58e7e9c"), accent: "270 65% 60%", alt: "Smartphone em uso" },
-  "seguro-motorista-app":{ bg: UNSPLASH("1549317661-bd32c8ce0db2"), accent: "45 95% 55%",  alt: "Motorista de aplicativo" },
-  "consorcio":           { bg: UNSPLASH("1560518883-ce09059eeffa"), accent: "30 90% 55%",  alt: "Chave de imóvel" },
-  // Empresa
-  "seguro-empresarial":  { bg: UNSPLASH("1486406146926-c627a92ad1ab"), accent: "215 70% 50%", alt: "Prédio comercial" },
-  "seguro-frota":        { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 85% 55%",  alt: "Frota de veículos" },
-  "seguro-transporte":   { bg: UNSPLASH("1494412519320-aa613dfb7738"), accent: "35 80% 50%",  alt: "Caminhão de carga" },
-  "transportadoras":     { bg: UNSPLASH("1586528116311-ad8dd3c8310d"), accent: "210 65% 45%", alt: "Operação logística" },
-  "seguro-galpao":       { bg: UNSPLASH("1553413077-190dd305871c"), accent: "30 70% 45%",  alt: "Galpão industrial" },
-  "plano-saude-pme":     { bg: UNSPLASH("1576091160399-112ba8d25d1d"), accent: "180 70% 45%", alt: "Equipe médica corporativa" },
-  "vida-em-grupo":       { bg: UNSPLASH("1521737604893-d14cc237f11d"), accent: "330 65% 55%", alt: "Equipe de trabalho" },
-  "seguro-rc":           { bg: UNSPLASH("1505664194779-8beaceb93744"), accent: "240 60% 55%", alt: "Aperto de mãos profissional" },
-  "seguro-cyber":        { bg: UNSPLASH("1550751827-4bd374c3f58b"), accent: "260 70% 60%", alt: "Servidor de dados" },
-  "seguro-engenharia":   { bg: UNSPLASH("1503387762-592deb58ef4e"), accent: "45 90% 50%",  alt: "Obra de engenharia" },
-  // Agro
-  "seguro-propriedade-rural": { bg: UNSPLASH("1500382017468-9049fed747ef"), accent: "120 45% 35%", alt: "Propriedade rural ao amanhecer" },
-  "seguro-rural":             { bg: UNSPLASH("1464226184884-fa280b87c399"), accent: "95 50% 40%",  alt: "Fazenda com plantação" },
-  "seguro-maquinas-agricolas":{ bg: UNSPLASH("1605000797499-95a51c5269ae"), accent: "30 85% 50%",  alt: "Trator agrícola no campo" },
-  "seguro-colheitadeira-graos":{ bg: UNSPLASH("1500595046743-cd271d694d30"), accent: "45 90% 50%", alt: "Colheitadeira em campo de grãos" },
-  "seguro-colhedora-cana":    { bg: UNSPLASH("1574943320219-89283c1f7d5e"), accent: "75 65% 45%",  alt: "Colhedora de cana-de-açúcar" },
-  "seguro-colhedora-algodao": { bg: UNSPLASH("1591100406836-1f7e3b94c4d3"), accent: "40 30% 80%",  alt: "Plantação de algodão" },
-  "seguro-cafe":              { bg: UNSPLASH("1542223189-67a03fa0f0bd"), accent: "25 65% 30%",   alt: "Plantação de café" },
-  "seguro-silo-agricola":     { bg: UNSPLASH("1625246333195-78d9c38ad449"), accent: "210 35% 50%", alt: "Silos agrícolas" },
-  "seguro-transporte-agro":   { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 80% 50%",  alt: "Transporte de cargas agrícolas" },
-  // Consórcio
-  "consorcio-carro":          { bg: UNSPLASH("1492144534655-ae79c964c9d7"), accent: "30 90% 55%",  alt: "Carro novo entregue" },
-  "consorcio-imoveis":        { bg: UNSPLASH("1568605114967-8130f3a36994"), accent: "150 55% 45%", alt: "Imóvel residencial" },
-  "consorcio-veiculos-pesados":{ bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "210 70% 45%", alt: "Caminhão pesado" },
-  "consorcio-moto":           { bg: UNSPLASH("1558981806-ec527fa84c39"), accent: "0 75% 55%",    alt: "Motocicleta nova" },
-  "consorcio-geral":          { bg: UNSPLASH("1560518883-ce09059eeffa"), accent: "45 90% 55%",   alt: "Conquista de bem" },
-  "ebook-consorcio":          { bg: UNSPLASH("1521587760476-6c12a4b040da"), accent: "260 60% 55%", alt: "Guia de consórcio" },
+/**
+ * Theme único por aba (audiência) — cor padronizada, derivada da paleta da marca.
+ * Cada card herda o accent da aba para uma identidade visual coesa.
+ */
+const AUDIENCE_THEMES: Record<Audience, {
+  accent: string;        // HSL "h s% l%"
+  accentSoft: string;    // HSL "h s% l%" — para gradientes claros
+  label: string;
+  shortLabel: string;
+}> = {
+  pessoa:    { accent: "212 88% 38%", accentSoft: "212 88% 55%", label: "Para Você",          shortLabel: "Você" },
+  empresa:   { accent: "198 85% 32%", accentSoft: "198 85% 48%", label: "Para sua Empresa",   shortLabel: "Empresa" },
+  agro:      { accent: "140 55% 28%", accentSoft: "140 55% 42%", label: "Para o Agro",        shortLabel: "Agro" },
+  consorcio: { accent: "28 92% 45%",  accentSoft: "36 95% 55%",  label: "Para Consórcio",     shortLabel: "Consórcio" },
 };
 
-const DEFAULT_ACCENT = "210 70% 50%";
+const CARD_VISUALS: Record<string, { bg: string; alt: string }> = {
+  // Pessoa
+  "seguro-auto":         { bg: UNSPLASH("1492144534655-ae79c964c9d7"), alt: "Carro em estrada" },
+  "seguro-moto":         { bg: UNSPLASH("1558981806-ec527fa84c39"), alt: "Motocicleta esportiva" },
+  "seguro-residencial":  { bg: UNSPLASH("1568605114967-8130f3a36994"), alt: "Casa moderna" },
+  "seguro-vida":         { bg: UNSPLASH("1511895426328-dc8714191300"), alt: "Família reunida" },
+  "plano-saude":         { bg: UNSPLASH("1576091160550-2173dba999ef"), alt: "Atendimento médico" },
+  "seguro-viagem":       { bg: UNSPLASH("1436491865332-7a61a109cc05"), alt: "Avião sobre nuvens" },
+  "seguro-celular":      { bg: UNSPLASH("1512941937669-90a1b58e7e9c"), alt: "Smartphone em uso" },
+  "seguro-motorista-app":{ bg: UNSPLASH("1549317661-bd32c8ce0db2"), alt: "Motorista de aplicativo" },
+  "consorcio":           { bg: UNSPLASH("1560518883-ce09059eeffa"), alt: "Chave de imóvel" },
+  "seguro-bike":         { bg: UNSPLASH("1485965120184-e220f721d03e"), alt: "Ciclista urbano" },
+  "plano-pet":           { bg: UNSPLASH("1450778869180-41d0601e046e"), alt: "Cachorro feliz" },
+  "previdencia-privada": { bg: UNSPLASH("1554224155-6726b3ff858f"), alt: "Planejamento financeiro" },
+  "seguro-acidentes-pessoais": { bg: UNSPLASH("1571019613454-1cb2f99b2d8b"), alt: "Pessoa praticando esporte" },
+  // Empresa
+  "seguro-empresarial":  { bg: UNSPLASH("1486406146926-c627a92ad1ab"), alt: "Prédio comercial" },
+  "seguro-frota":        { bg: UNSPLASH("1601584115197-04ecc0da31d7"), alt: "Frota de veículos" },
+  "seguro-transporte":   { bg: UNSPLASH("1494412519320-aa613dfb7738"), alt: "Caminhão de carga" },
+  "transportadoras":     { bg: UNSPLASH("1586528116311-ad8dd3c8310d"), alt: "Operação logística" },
+  "seguro-galpao":       { bg: UNSPLASH("1553413077-190dd305871c"), alt: "Galpão industrial" },
+  "plano-saude-pme":     { bg: UNSPLASH("1576091160399-112ba8d25d1d"), alt: "Equipe médica corporativa" },
+  "vida-em-grupo":       { bg: UNSPLASH("1521737604893-d14cc237f11d"), alt: "Equipe de trabalho" },
+  "seguro-rc":           { bg: UNSPLASH("1505664194779-8beaceb93744"), alt: "Aperto de mãos profissional" },
+  "seguro-cyber":        { bg: UNSPLASH("1550751827-4bd374c3f58b"), alt: "Servidor de dados" },
+  "seguro-engenharia":   { bg: UNSPLASH("1503387762-592deb58ef4e"), alt: "Obra de engenharia" },
+  "seguro-garantia":     { bg: UNSPLASH("1450101499163-c8848c66ca85"), alt: "Documento contratual" },
+  "seguro-condominio":   { bg: UNSPLASH("1545324418-cc1a3fa10c00"), alt: "Condomínio residencial" },
+  "seguro-ambiental":    { bg: UNSPLASH("1473448912268-2022ce9509d8"), alt: "Paisagem ambiental" },
+  "seguro-armazenagem":  { bg: UNSPLASH("1586528116493-a029325540fa"), alt: "Centro de armazenagem" },
+  // Agro
+  "seguro-propriedade-rural": { bg: UNSPLASH("1500382017468-9049fed747ef"), alt: "Propriedade rural ao amanhecer" },
+  "seguro-rural":             { bg: UNSPLASH("1464226184884-fa280b87c399"), alt: "Fazenda com plantação" },
+  "seguro-maquinas-agricolas":{ bg: UNSPLASH("1605000797499-95a51c5269ae"), alt: "Trator agrícola no campo" },
+  "seguro-colheitadeira-graos":{ bg: UNSPLASH("1500595046743-cd271d694d30"), alt: "Colheitadeira em campo de grãos" },
+  "seguro-colhedora-cana":    { bg: UNSPLASH("1574943320219-89283c1f7d5e"), alt: "Colhedora de cana-de-açúcar" },
+  "seguro-colhedora-algodao": { bg: UNSPLASH("1591100406836-1f7e3b94c4d3"), alt: "Plantação de algodão" },
+  "seguro-cafe":              { bg: UNSPLASH("1542223189-67a03fa0f0bd"), alt: "Plantação de café" },
+  "seguro-silo-agricola":     { bg: UNSPLASH("1625246333195-78d9c38ad449"), alt: "Silos agrícolas" },
+  "seguro-transporte-agro":   { bg: UNSPLASH("1601584115197-04ecc0da31d7"), alt: "Transporte de cargas agrícolas" },
+  "seguro-pecuario":          { bg: UNSPLASH("1500595046743-cd271d694d30"), alt: "Rebanho bovino" },
+  "seguro-drone-agricola":    { bg: UNSPLASH("1473968512647-3e447244af8f"), alt: "Drone agrícola sobre lavoura" },
+  "seguro-agro":              { bg: UNSPLASH("1625246333195-78d9c38ad449"), alt: "Operação agrícola completa" },
+  // Consórcio
+  "consorcio-carro":          { bg: UNSPLASH("1492144534655-ae79c964c9d7"), alt: "Carro novo entregue" },
+  "consorcio-imoveis":        { bg: UNSPLASH("1568605114967-8130f3a36994"), alt: "Imóvel residencial" },
+  "consorcio-veiculos-pesados":{ bg: UNSPLASH("1601584115197-04ecc0da31d7"), alt: "Caminhão pesado" },
+  "consorcio-moto":           { bg: UNSPLASH("1558981806-ec527fa84c39"), alt: "Motocicleta nova" },
+  "consorcio-geral":          { bg: UNSPLASH("1560518883-ce09059eeffa"), alt: "Conquista de bem" },
+  "ebook-consorcio":          { bg: UNSPLASH("1521587760476-6c12a4b040da"), alt: "Guia de consórcio" },
+};
 
 export const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Auto", short: "Carro, terceiros e assistência 24h.", href: "/seguro-auto", Icon: Car, slug: "seguro-auto" },
@@ -113,6 +146,10 @@ export const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Viagem", short: "Cobertura médica e bagagem no exterior.", href: "/seguro-viagem", Icon: Plane, slug: "seguro-viagem" },
   { title: "Seguro Celular", short: "Roubo, furto e danos acidentais.", href: "/seguro-celular", Icon: Smartphone, slug: "seguro-celular" },
   { title: "Motorista de App", short: "Cobertura para quem dirige Uber/99.", href: "/seguro-motorista-app", Icon: Navigation, slug: "seguro-motorista-app" },
+  { title: "Seguro Bike", short: "Roubo, colisão e assistência ao ciclista.", href: "/seguro-bike", Icon: Bike, slug: "seguro-bike" },
+  { title: "Plano Pet", short: "Saúde, consultas e cirurgias para seu pet.", href: "/plano-pet", Icon: PawPrint, slug: "plano-pet" },
+  { title: "Acidentes Pessoais", short: "Invalidez, morte acidental e diárias.", href: "/seguro-acidentes-pessoais", Icon: Activity, slug: "seguro-acidentes-pessoais" },
+  { title: "Previdência Privada", short: "Aposentadoria planejada e benefícios fiscais.", href: "/previdencia-privada", Icon: PiggyBank, slug: "previdencia-privada" },
   { title: "Consórcio", short: "Carro, moto ou imóvel sem juros.", href: "/consorcio", Icon: KeyRound, slug: "consorcio" },
 ];
 
@@ -127,6 +164,10 @@ export const cardsEmpresa: InsuranceCard[] = [
   { title: "Responsabilidade Civil", short: "Proteção contra danos a terceiros.", href: "/seguro-rc", Icon: ShieldCheck, slug: "seguro-rc" },
   { title: "Seguro Cyber", short: "Vazamento de dados e ataques digitais.", href: "/seguro-cyber", Icon: Lock, slug: "seguro-cyber" },
   { title: "Seguro Engenharia", short: "Obras civis, instalação e montagem.", href: "/seguro-engenharia", Icon: HardHat, slug: "seguro-engenharia" },
+  { title: "Seguro Garantia", short: "Performance, judicial e contratual.", href: "/seguro-garantia", Icon: FileCheck2, slug: "seguro-garantia" },
+  { title: "Seguro Condomínio", short: "Áreas comuns, RC e equipamentos.", href: "/seguro-condominio", Icon: Building, slug: "seguro-condominio" },
+  { title: "Seguro Ambiental", short: "Riscos ambientais e remediação.", href: "/seguro-ambiental", Icon: Trees, slug: "seguro-ambiental" },
+  { title: "Armazenagem", short: "Mercadorias estocadas e operadores logísticos.", href: "/seguro-armazenagem", Icon: Warehouse, slug: "seguro-armazenagem" },
 ];
 
 export const cardsAgro: InsuranceCard[] = [
@@ -139,6 +180,9 @@ export const cardsAgro: InsuranceCard[] = [
   { title: "Seguro Café", short: "Lavoura, armazém e beneficiamento.", href: "/seguro-cafe", Icon: Coffee, slug: "seguro-cafe" },
   { title: "Silo Agrícola", short: "Armazenagem e estoque de grãos.", href: "/seguro-silo-agricola", Icon: Wheat, slug: "seguro-silo-agricola" },
   { title: "Transporte Agro", short: "Cargas agrícolas em trânsito nacional.", href: "/seguro-transporte-agro", Icon: Truck, slug: "seguro-transporte-agro" },
+  { title: "Seguro Pecuário", short: "Bovinos, equinos e rebanho leiteiro.", href: "/seguro-pecuario", Icon: Beef, slug: "seguro-pecuario" },
+  { title: "Drone Agrícola", short: "Pulverização e mapeamento de lavouras.", href: "/seguro-drone-agricola", Icon: PlaneIcon, slug: "seguro-drone-agricola" },
+  { title: "Seguro Agro Completo", short: "Solução integrada para o agronegócio.", href: "/seguro-agro", Icon: Leaf, slug: "seguro-agro" },
 ];
 
 export const cardsConsorcio: InsuranceCard[] = [
@@ -389,34 +433,38 @@ const HeroInsuranceCarousel = ({
           )}
         </div>
 
-        {/* Toggle */}
-        <div className="mx-auto mt-10 flex max-w-md justify-center">
+        {/* Toggle — cor padronizada por aba */}
+        <div className="mx-auto mt-10 flex max-w-2xl justify-center">
           <div
             role="tablist"
             aria-label="Tipo de proteção"
-            className="inline-flex w-full rounded-full border border-white/15 bg-white/[0.06] p-1 backdrop-blur"
+            className="inline-flex w-full flex-wrap gap-1 rounded-2xl border border-white/15 bg-white/[0.06] p-1.5 backdrop-blur sm:flex-nowrap sm:rounded-full"
           >
-            {([
-              { id: "pessoa" as const, label: "Para Você" },
-              { id: "empresa" as const, label: "Para sua Empresa" },
-              { id: "agro" as const, label: "Para o Agro" },
-              { id: "consorcio" as const, label: "Para Consórcio" },
-            ]).map((opt) => {
-              const active = audience === opt.id;
+            {(Object.keys(AUDIENCE_THEMES) as Audience[]).map((id) => {
+              const opt = AUDIENCE_THEMES[id];
+              const active = audience === id;
               return (
                 <button
-                  key={opt.id}
+                  key={id}
                   role="tab"
                   aria-selected={active}
-                  aria-controls={`hero-carrossel-painel-${opt.id}`}
-                  id={`hero-carrossel-tab-${opt.id}`}
+                  aria-controls={`hero-carrossel-painel-${id}`}
+                  id={`hero-carrossel-tab-${id}`}
                   type="button"
-                  onClick={() => handleAudience(opt.id)}
-                  className={`flex-1 rounded-full px-4 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
+                  onClick={() => handleAudience(id)}
+                  className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:rounded-full ${
                     active
-                      ? "bg-white text-slate-900 shadow-sm"
-                      : "text-white/75 hover:text-white"
+                      ? "text-white shadow-lg"
+                      : "text-white/70 hover:text-white"
                   }`}
+                  style={
+                    active
+                      ? {
+                          background: `linear-gradient(135deg, hsl(${opt.accent}) 0%, hsl(${opt.accentSoft}) 100%)`,
+                          boxShadow: `0 8px 24px -8px hsl(${opt.accent} / 0.6)`,
+                        }
+                      : undefined
+                  }
                 >
                   {opt.label}
                 </button>
@@ -432,13 +480,15 @@ const HeroInsuranceCarousel = ({
           aria-labelledby={`hero-carrossel-tab-${audience}`}
           className="relative mt-8"
         >
+          {(() => {
+            const theme = AUDIENCE_THEMES[audience];
+            return (
           <div className="overflow-hidden" ref={emblaRef}>
             <ul className="-ml-3 flex list-none md:-ml-4">
               {cards.map((card) => {
                 const Icon = card.Icon;
                 const visuals = CARD_VISUALS[card.slug] ?? {
                   bg: "",
-                  accent: DEFAULT_ACCENT,
                   alt: card.title,
                 };
                 return (
@@ -450,9 +500,9 @@ const HeroInsuranceCarousel = ({
                       to={card.href}
                       onClick={() => handleCardClick(card)}
                       aria-label={`${card.title} — ${card.short}`}
-                      className="group relative isolate flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-xl border border-white/12 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+                      className="group relative isolate flex h-full min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl border border-white/12 p-5 text-left shadow-[0_4px_16px_-8px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
                       style={{
-                        backgroundColor: `hsl(${visuals.accent} / 0.18)`,
+                        backgroundColor: `hsl(${theme.accent} / 0.22)`,
                       }}
                     >
                       {/* Foto temática de fundo */}
@@ -466,11 +516,11 @@ const HeroInsuranceCarousel = ({
                           className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-40 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-90 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                         />
                       )}
-                      {/* Gradient overlay tingido com a cor do ramo */}
+                      {/* Gradient overlay tingido com a cor da aba */}
                       <div
-                        className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-500 ease-out group-hover:opacity-40 motion-reduce:transition-none"
+                        className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-500 ease-out group-hover:opacity-50 motion-reduce:transition-none"
                         style={{
-                          backgroundImage: `linear-gradient(150deg, hsl(${visuals.accent} / 0.85) 0%, hsl(${visuals.accent} / 0.55) 45%, rgba(2,6,23,0.85) 100%)`,
+                          backgroundImage: `linear-gradient(150deg, hsl(${theme.accent} / 0.92) 0%, hsl(${theme.accentSoft} / 0.65) 45%, rgba(2,6,23,0.88) 100%)`,
                         }}
                       />
                       {/* Vinheta inferior para manter legibilidade do texto no hover */}
@@ -482,10 +532,17 @@ const HeroInsuranceCarousel = ({
                             "linear-gradient(to top, rgba(2,6,23,0.85) 0%, rgba(2,6,23,0.45) 55%, rgba(2,6,23,0) 100%)",
                         }}
                       />
+                      {/* Barra superior com cor da aba para identidade visual */}
+                      <span
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 top-0 h-1"
+                        style={{
+                          background: `linear-gradient(90deg, hsl(${theme.accent}), hsl(${theme.accentSoft}))`,
+                        }}
+                      />
                       <div>
                         <span
-                          className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-white/15 ring-1 ring-inset ring-white/25 backdrop-blur transition-colors group-hover:bg-white group-hover:text-slate-900"
-                          style={{ color: "white" }}
+                          className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-inset ring-white/30 backdrop-blur transition-all duration-300 group-hover:scale-105 group-hover:bg-white group-hover:text-slate-900"
                         >
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
@@ -504,6 +561,8 @@ const HeroInsuranceCarousel = ({
               })}
             </ul>
           </div>
+            );
+          })()}
 
           {/* Arrow controls (desktop) */}
           <div className="pointer-events-none absolute inset-y-0 left-0 right-0 hidden items-center justify-between md:flex">
