@@ -286,11 +286,40 @@ const Cotacao = () => {
       .join("");
     const htmlBody = `<h2>Nova Solicitação de Cotação</h2><table style="border-collapse:collapse;width:100%"><tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.name)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>E-mail</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.email)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Telefone</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.phone)}</td></tr><tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de Seguro</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.insuranceType)}</td></tr>${assetRowsHtml}<tr><td style="padding:6px;border:1px solid #ddd"><strong>Mensagem</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(values.message || "Não informada")}</td></tr></table>`;
 
-    await safeInvoke("send-form-email", {
-      subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
-      textBody,
-      htmlBody
-    });
+    // Read attribution captured at landing (UTMs, referrer) for lead row.
+    let attribution: Record<string, string> = {};
+    try {
+      attribution = JSON.parse(sessionStorage.getItem("patro_attribution") || "{}");
+    } catch { /* noop */ }
+
+    const { data: invokeData } = await safeInvoke<{ success?: boolean; leadId?: string | null }>(
+      "send-form-email",
+      {
+        subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
+        textBody,
+        htmlBody,
+        lead: {
+          full_name: values.name,
+          email: values.email,
+          phone: values.phone,
+          insurance_type: values.insuranceType,
+          source_page: "/cotacao",
+          source_origin: "cotacao_formulario_etapas",
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          raw_data: {
+            asset: assetData,
+            message: values.message || null,
+            referrer: attribution.referrer,
+            landing_page: attribution.landing_page,
+            utm_term: attribution.utm_term,
+            utm_content: attribution.utm_content,
+          },
+        },
+      },
+    );
+    const leadId = invokeData?.leadId ?? null;
 
     localStorage.removeItem("cotacao_progress");
     localStorage.removeItem("partial_quote_id");
@@ -310,20 +339,30 @@ const Cotacao = () => {
       /* noop */
     }
 
-    const opened = openWhatsAppOrFallback(
-      ctaOptions,
-      (msg, opts) => toast.error(msg, opts),
-    );
-    setSuccessData({
-      name: values.name,
-      email: values.email,
-      phone: values.phone,
-      insuranceType: values.insuranceType,
-      message: values.message || "",
-      assetLines,
-      waUrl,
-    });
+    // Persist success payload for the obrigado page, then redirect.
+    try {
+      sessionStorage.setItem(
+        "patro_cotacao_success",
+        JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          insuranceType: values.insuranceType,
+          message: values.message || "",
+          assetLines,
+          waUrl,
+          leadId,
+          submittedAt: Date.now(),
+        }),
+      );
+    } catch { /* noop */ }
+
+    // Try to open WhatsApp natively (best effort). The obrigado page also
+    // provides a manual button if the popup was blocked.
+    openWhatsAppOrFallback(ctaOptions, (msg, opts) => toast.error(msg, opts));
+
     setIsSubmitting(false);
+    navigate("/cotacao/obrigado");
   };
 
   const faqs = [
