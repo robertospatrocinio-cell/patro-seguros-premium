@@ -808,6 +808,8 @@ const Cotacao = () => {
                       )}
                     </form>
                   </Form>
+                  </>
+                  )}
                 </div>
               </div>
             </div>
