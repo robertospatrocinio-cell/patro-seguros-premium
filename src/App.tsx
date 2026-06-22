@@ -100,6 +100,7 @@ const AdminLogin = lazyWithRetry(() => import("./pages/AdminLogin"), "AdminLogin
 const Sobre = lazyWithRetry(() => import("./pages/Sobre"), "Sobre");
 const Parceiros = lazyWithRetry(() => import("./pages/Parceiros"), "Parceiros");
 const Contato = lazyWithRetry(() => import("./pages/Contato"), "Contato");
+const Servicos = lazyWithRetry(() => import("./pages/Servicos"), "Servicos");
 const SeguroAuto = lazyWithRetry(() => import("./pages/SeguroAuto"), "SeguroAuto");
 const SeguroVida = lazyWithRetry(() => import("./pages/SeguroVida"), "SeguroVida");
 const SeguroResidencial = lazyWithRetry(() => import("./pages/SeguroResidencial"), "SeguroResidencial");
