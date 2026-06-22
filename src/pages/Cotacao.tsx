@@ -514,7 +514,39 @@ const Cotacao = () => {
 
                       {step === 2 && (
                         <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
-                          <h3 className="text-xl font-bold text-slate-900 mb-4">Como podemos te contatar?</h3>
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">Conte um pouco sobre o que vamos proteger</h3>
+                          <p className="text-sm text-slate-500 mb-4">Tudo opcional — quanto mais detalhes, mais precisa fica sua cotação.</p>
+                          {(ASSET_FIELDS_BY_TYPE[form.watch("insuranceType")] || ASSET_FIELDS_BY_TYPE.outros).map((f) => (
+                            <div key={f.key} className="space-y-2">
+                              <label className="text-slate-700 font-semibold text-sm">{f.label}</label>
+                              {f.type === "textarea" ? (
+                                <Textarea
+                                  placeholder={f.placeholder}
+                                  className="min-h-[100px] bg-slate-50"
+                                  value={assetData[f.key] || ""}
+                                  onChange={(e) => updateAsset(f.key, e.target.value)}
+                                />
+                              ) : (
+                                <Input
+                                  placeholder={f.placeholder}
+                                  className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all"
+                                  value={assetData[f.key] || ""}
+                                  onChange={(e) => updateAsset(f.key, e.target.value)}
+                                />
+                              )}
+                            </div>
+                          ))}
+                          <div className="pt-4 flex gap-3">
+                            <Button type="button" variant="ghost" onClick={prevStep} className="flex-1 h-12">Voltar</Button>
+                            <Button type="button" onClick={nextStep} className="flex-[2] h-12 text-lg font-bold">Próximo Passo</Button>
+                          </div>
+                        </div>
+                      )}
+
+                      {step === 3 && (
+                        <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">Como podemos te enviar a cotação?</h3>
+                          <p className="text-sm text-slate-500 mb-4">Você recebe pelo WhatsApp em até 2h úteis — e uma cópia no seu e-mail.</p>
                           <FormField
                             control={form.control}
                             name="name"
@@ -593,26 +625,16 @@ const Cotacao = () => {
                             )}
                           />
 
-                          <div className="pt-4 flex gap-3">
-                            <Button type="button" variant="ghost" onClick={prevStep} className="flex-1 h-12">Voltar</Button>
-                            <Button type="button" onClick={nextStep} className="flex-[2] h-12 text-lg font-bold">Próximo Passo</Button>
-                          </div>
-                        </div>
-                      )}
-
-                      {step === 3 && (
-                        <div className="space-y-5 animate-in fade-in slide-in-from-right-4 duration-300">
-                          <h3 className="text-xl font-bold text-slate-900 mb-4">Finalize sua solicitação</h3>
                           <FormField
                             control={form.control}
                             name="message"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-slate-700 font-semibold">Informações Adicionais (opcional)</FormLabel>
+                                <FormLabel className="text-slate-700 font-semibold">Observações (opcional)</FormLabel>
                                 <FormControl>
                                   <Textarea 
-                                    placeholder="Ex: Modelo do carro, número de funcionários, valor do aluguel..."
-                                    className="min-h-[120px] bg-slate-50"
+                                    placeholder="Algo a mais que devamos saber?"
+                                    className="min-h-[90px] bg-slate-50"
                                     {...field}
                                   />
                                 </FormControl>
