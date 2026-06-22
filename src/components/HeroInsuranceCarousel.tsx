@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import type { LucideIcon } from "lucide-react";
@@ -228,6 +228,13 @@ const HeroInsuranceCarousel = ({
   const [canNext, setCanNext] = useState(true);
   const [snaps, setSnaps] = useState<number[]>([]);
   const [selectedSnap, setSelectedSnap] = useState(0);
+  const tabRefs = useRef<Record<Audience, HTMLButtonElement | null>>({
+    pessoa: null,
+    empresa: null,
+    agro: null,
+    consorcio: null,
+  });
+  const audienceOrder: Audience[] = ["pessoa", "empresa", "agro", "consorcio"];
 
   const cards =
     audience === "pessoa"
@@ -237,6 +244,37 @@ const HeroInsuranceCarousel = ({
       : audience === "agro"
       ? cardsAgro
       : cardsConsorcio;
+
+  const handleCarouselKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (!emblaApi) return;
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      emblaApi.scrollNext();
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      emblaApi.scrollPrev();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      emblaApi.scrollTo(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      emblaApi.scrollTo(emblaApi.scrollSnapList().length - 1);
+    }
+  };
+
+  const handleTabKeyDown = (e: KeyboardEvent<HTMLButtonElement>, current: Audience) => {
+    const idx = audienceOrder.indexOf(current);
+    let nextIdx = idx;
+    if (e.key === "ArrowRight") nextIdx = (idx + 1) % audienceOrder.length;
+    else if (e.key === "ArrowLeft") nextIdx = (idx - 1 + audienceOrder.length) % audienceOrder.length;
+    else if (e.key === "Home") nextIdx = 0;
+    else if (e.key === "End") nextIdx = audienceOrder.length - 1;
+    else return;
+    e.preventDefault();
+    const nextId = audienceOrder[nextIdx];
+    handleAudience(nextId);
+    tabRefs.current[nextId]?.focus();
+  };
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
