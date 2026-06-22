@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import type { LucideIcon } from "lucide-react";
@@ -228,6 +228,13 @@ const HeroInsuranceCarousel = ({
   const [canNext, setCanNext] = useState(true);
   const [snaps, setSnaps] = useState<number[]>([]);
   const [selectedSnap, setSelectedSnap] = useState(0);
+  const tabRefs = useRef<Record<Audience, HTMLButtonElement | null>>({
+    pessoa: null,
+    empresa: null,
+    agro: null,
+    consorcio: null,
+  });
+  const audienceOrder: Audience[] = ["pessoa", "empresa", "agro", "consorcio"];
 
   const cards =
     audience === "pessoa"
@@ -237,6 +244,37 @@ const HeroInsuranceCarousel = ({
       : audience === "agro"
       ? cardsAgro
       : cardsConsorcio;
+
+  const handleCarouselKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (!emblaApi) return;
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      emblaApi.scrollNext();
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      emblaApi.scrollPrev();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      emblaApi.scrollTo(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      emblaApi.scrollTo(emblaApi.scrollSnapList().length - 1);
+    }
+  };
+
+  const handleTabKeyDown = (e: KeyboardEvent<HTMLButtonElement>, current: Audience) => {
+    const idx = audienceOrder.indexOf(current);
+    let nextIdx = idx;
+    if (e.key === "ArrowRight") nextIdx = (idx + 1) % audienceOrder.length;
+    else if (e.key === "ArrowLeft") nextIdx = (idx - 1 + audienceOrder.length) % audienceOrder.length;
+    else if (e.key === "Home") nextIdx = 0;
+    else if (e.key === "End") nextIdx = audienceOrder.length - 1;
+    else return;
+    e.preventDefault();
+    const nextId = audienceOrder[nextIdx];
+    handleAudience(nextId);
+    tabRefs.current[nextId]?.focus();
+  };
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -457,6 +495,9 @@ const HeroInsuranceCarousel = ({
                   aria-selected={active}
                   aria-controls={`hero-carrossel-painel-${id}`}
                   id={`hero-carrossel-tab-${id}`}
+                  tabIndex={active ? 0 : -1}
+                  ref={(el) => { tabRefs.current[id] = el; }}
+                  onKeyDown={(e) => handleTabKeyDown(e, id)}
                   type="button"
                   onClick={() => handleAudience(id)}
                   className={`flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:rounded-full ${
@@ -485,8 +526,18 @@ const HeroInsuranceCarousel = ({
           id={`hero-carrossel-painel-${audience}`}
           role="tabpanel"
           aria-labelledby={`hero-carrossel-tab-${audience}`}
-          className="relative mt-8"
+          className="relative mt-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950 rounded-lg"
+          aria-roledescription="carrossel"
+          aria-label={`Seguros para ${AUDIENCE_THEMES[audience].label}. Use as setas do teclado para navegar entre os ${cards.length} cards.`}
+          tabIndex={0}
+          onKeyDown={handleCarouselKeyDown}
         >
+          {/* Live region anuncia mudança de slide para leitores de tela */}
+          <div className="sr-only" aria-live="polite" aria-atomic="true">
+            {snaps.length > 0
+              ? `Slide ${selectedSnap + 1} de ${snaps.length}${cards[selectedSnap] ? ` — ${cards[selectedSnap].title}` : ""}`
+              : ""}
+          </div>
           {(() => {
             const theme = AUDIENCE_THEMES[audience];
             return (
@@ -496,7 +547,7 @@ const HeroInsuranceCarousel = ({
             style={{ touchAction: "pan-y" }}
           >
             <ul className="-ml-3 flex list-none touch-pan-y md:-ml-4">
-              {cards.map((card) => {
+              {cards.map((card, index) => {
                 const Icon = card.Icon;
                 const visuals = CARD_VISUALS[card.slug] ?? {
                   bg: "",
@@ -506,6 +557,9 @@ const HeroInsuranceCarousel = ({
                   <li
                     key={`${audience}-${card.slug}`}
                     className="min-w-0 shrink-0 grow-0 basis-[82%] pl-3 sm:basis-[48%] md:basis-1/3 md:pl-4 lg:basis-1/4 xl:basis-1/5"
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label={`${index + 1} de ${cards.length}: ${card.title}`}
                   >
                     <Link
                       to={card.href}
