@@ -31,6 +31,14 @@ import {
   Coffee,
   Leaf,
   Combine,
+  PawPrint,
+  PiggyBank,
+  Activity,
+  Building,
+  FileCheck2,
+  Trees,
+  Beef,
+  Plane as PlaneIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -61,48 +69,73 @@ type InsuranceCard = {
 const UNSPLASH = (id: string) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=640&q=70`;
 
-const CARD_VISUALS: Record<string, { bg: string; accent: string; alt: string }> = {
-  // Pessoa
-  "seguro-auto":         { bg: UNSPLASH("1492144534655-ae79c964c9d7"), accent: "210 90% 55%", alt: "Carro em estrada" },
-  "seguro-moto":         { bg: UNSPLASH("1558981806-ec527fa84c39"), accent: "0 75% 55%",    alt: "Motocicleta esportiva" },
-  "seguro-residencial":  { bg: UNSPLASH("1568605114967-8130f3a36994"), accent: "150 55% 45%", alt: "Casa moderna" },
-  "seguro-vida":         { bg: UNSPLASH("1511895426328-dc8714191300"), accent: "340 70% 55%", alt: "Família reunida" },
-  "plano-saude":         { bg: UNSPLASH("1576091160550-2173dba999ef"), accent: "190 75% 50%", alt: "Atendimento médico" },
-  "seguro-viagem":       { bg: UNSPLASH("1436491865332-7a61a109cc05"), accent: "200 85% 55%", alt: "Avião sobre nuvens" },
-  "seguro-celular":      { bg: UNSPLASH("1512941937669-90a1b58e7e9c"), accent: "270 65% 60%", alt: "Smartphone em uso" },
-  "seguro-motorista-app":{ bg: UNSPLASH("1549317661-bd32c8ce0db2"), accent: "45 95% 55%",  alt: "Motorista de aplicativo" },
-  "consorcio":           { bg: UNSPLASH("1560518883-ce09059eeffa"), accent: "30 90% 55%",  alt: "Chave de imóvel" },
-  // Empresa
-  "seguro-empresarial":  { bg: UNSPLASH("1486406146926-c627a92ad1ab"), accent: "215 70% 50%", alt: "Prédio comercial" },
-  "seguro-frota":        { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 85% 55%",  alt: "Frota de veículos" },
-  "seguro-transporte":   { bg: UNSPLASH("1494412519320-aa613dfb7738"), accent: "35 80% 50%",  alt: "Caminhão de carga" },
-  "transportadoras":     { bg: UNSPLASH("1586528116311-ad8dd3c8310d"), accent: "210 65% 45%", alt: "Operação logística" },
-  "seguro-galpao":       { bg: UNSPLASH("1553413077-190dd305871c"), accent: "30 70% 45%",  alt: "Galpão industrial" },
-  "plano-saude-pme":     { bg: UNSPLASH("1576091160399-112ba8d25d1d"), accent: "180 70% 45%", alt: "Equipe médica corporativa" },
-  "vida-em-grupo":       { bg: UNSPLASH("1521737604893-d14cc237f11d"), accent: "330 65% 55%", alt: "Equipe de trabalho" },
-  "seguro-rc":           { bg: UNSPLASH("1505664194779-8beaceb93744"), accent: "240 60% 55%", alt: "Aperto de mãos profissional" },
-  "seguro-cyber":        { bg: UNSPLASH("1550751827-4bd374c3f58b"), accent: "260 70% 60%", alt: "Servidor de dados" },
-  "seguro-engenharia":   { bg: UNSPLASH("1503387762-592deb58ef4e"), accent: "45 90% 50%",  alt: "Obra de engenharia" },
-  // Agro
-  "seguro-propriedade-rural": { bg: UNSPLASH("1500382017468-9049fed747ef"), accent: "120 45% 35%", alt: "Propriedade rural ao amanhecer" },
-  "seguro-rural":             { bg: UNSPLASH("1464226184884-fa280b87c399"), accent: "95 50% 40%",  alt: "Fazenda com plantação" },
-  "seguro-maquinas-agricolas":{ bg: UNSPLASH("1605000797499-95a51c5269ae"), accent: "30 85% 50%",  alt: "Trator agrícola no campo" },
-  "seguro-colheitadeira-graos":{ bg: UNSPLASH("1500595046743-cd271d694d30"), accent: "45 90% 50%", alt: "Colheitadeira em campo de grãos" },
-  "seguro-colhedora-cana":    { bg: UNSPLASH("1574943320219-89283c1f7d5e"), accent: "75 65% 45%",  alt: "Colhedora de cana-de-açúcar" },
-  "seguro-colhedora-algodao": { bg: UNSPLASH("1591100406836-1f7e3b94c4d3"), accent: "40 30% 80%",  alt: "Plantação de algodão" },
-  "seguro-cafe":              { bg: UNSPLASH("1542223189-67a03fa0f0bd"), accent: "25 65% 30%",   alt: "Plantação de café" },
-  "seguro-silo-agricola":     { bg: UNSPLASH("1625246333195-78d9c38ad449"), accent: "210 35% 50%", alt: "Silos agrícolas" },
-  "seguro-transporte-agro":   { bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "20 80% 50%",  alt: "Transporte de cargas agrícolas" },
-  // Consórcio
-  "consorcio-carro":          { bg: UNSPLASH("1492144534655-ae79c964c9d7"), accent: "30 90% 55%",  alt: "Carro novo entregue" },
-  "consorcio-imoveis":        { bg: UNSPLASH("1568605114967-8130f3a36994"), accent: "150 55% 45%", alt: "Imóvel residencial" },
-  "consorcio-veiculos-pesados":{ bg: UNSPLASH("1601584115197-04ecc0da31d7"), accent: "210 70% 45%", alt: "Caminhão pesado" },
-  "consorcio-moto":           { bg: UNSPLASH("1558981806-ec527fa84c39"), accent: "0 75% 55%",    alt: "Motocicleta nova" },
-  "consorcio-geral":          { bg: UNSPLASH("1560518883-ce09059eeffa"), accent: "45 90% 55%",   alt: "Conquista de bem" },
-  "ebook-consorcio":          { bg: UNSPLASH("1521587760476-6c12a4b040da"), accent: "260 60% 55%", alt: "Guia de consórcio" },
+/**
+ * Theme único por aba (audiência) — cor padronizada, derivada da paleta da marca.
+ * Cada card herda o accent da aba para uma identidade visual coesa.
+ */
+const AUDIENCE_THEMES: Record<Audience, {
+  accent: string;        // HSL "h s% l%"
+  accentSoft: string;    // HSL "h s% l%" — para gradientes claros
+  label: string;
+  shortLabel: string;
+}> = {
+  pessoa:    { accent: "212 88% 38%", accentSoft: "212 88% 55%", label: "Para Você",          shortLabel: "Você" },
+  empresa:   { accent: "198 85% 32%", accentSoft: "198 85% 48%", label: "Para sua Empresa",   shortLabel: "Empresa" },
+  agro:      { accent: "140 55% 28%", accentSoft: "140 55% 42%", label: "Para o Agro",        shortLabel: "Agro" },
+  consorcio: { accent: "28 92% 45%",  accentSoft: "36 95% 55%",  label: "Para Consórcio",     shortLabel: "Consórcio" },
 };
 
-const DEFAULT_ACCENT = "210 70% 50%";
+const CARD_VISUALS: Record<string, { bg: string; alt: string }> = {
+  // Pessoa
+  "seguro-auto":         { bg: UNSPLASH("1492144534655-ae79c964c9d7"), alt: "Carro em estrada" },
+  "seguro-moto":         { bg: UNSPLASH("1558981806-ec527fa84c39"), alt: "Motocicleta esportiva" },
+  "seguro-residencial":  { bg: UNSPLASH("1568605114967-8130f3a36994"), alt: "Casa moderna" },
+  "seguro-vida":         { bg: UNSPLASH("1511895426328-dc8714191300"), alt: "Família reunida" },
+  "plano-saude":         { bg: UNSPLASH("1576091160550-2173dba999ef"), alt: "Atendimento médico" },
+  "seguro-viagem":       { bg: UNSPLASH("1436491865332-7a61a109cc05"), alt: "Avião sobre nuvens" },
+  "seguro-celular":      { bg: UNSPLASH("1512941937669-90a1b58e7e9c"), alt: "Smartphone em uso" },
+  "seguro-motorista-app":{ bg: UNSPLASH("1549317661-bd32c8ce0db2"), alt: "Motorista de aplicativo" },
+  "consorcio":           { bg: UNSPLASH("1560518883-ce09059eeffa"), alt: "Chave de imóvel" },
+  "seguro-bike":         { bg: UNSPLASH("1485965120184-e220f721d03e"), alt: "Ciclista urbano" },
+  "plano-pet":           { bg: UNSPLASH("1450778869180-41d0601e046e"), alt: "Cachorro feliz" },
+  "previdencia-privada": { bg: UNSPLASH("1554224155-6726b3ff858f"), alt: "Planejamento financeiro" },
+  "seguro-acidentes-pessoais": { bg: UNSPLASH("1571019613454-1cb2f99b2d8b"), alt: "Pessoa praticando esporte" },
+  // Empresa
+  "seguro-empresarial":  { bg: UNSPLASH("1486406146926-c627a92ad1ab"), alt: "Prédio comercial" },
+  "seguro-frota":        { bg: UNSPLASH("1601584115197-04ecc0da31d7"), alt: "Frota de veículos" },
+  "seguro-transporte":   { bg: UNSPLASH("1494412519320-aa613dfb7738"), alt: "Caminhão de carga" },
+  "transportadoras":     { bg: UNSPLASH("1586528116311-ad8dd3c8310d"), alt: "Operação logística" },
+  "seguro-galpao":       { bg: UNSPLASH("1553413077-190dd305871c"), alt: "Galpão industrial" },
+  "plano-saude-pme":     { bg: UNSPLASH("1576091160399-112ba8d25d1d"), alt: "Equipe médica corporativa" },
+  "vida-em-grupo":       { bg: UNSPLASH("1521737604893-d14cc237f11d"), alt: "Equipe de trabalho" },
+  "seguro-rc":           { bg: UNSPLASH("1505664194779-8beaceb93744"), alt: "Aperto de mãos profissional" },
+  "seguro-cyber":        { bg: UNSPLASH("1550751827-4bd374c3f58b"), alt: "Servidor de dados" },
+  "seguro-engenharia":   { bg: UNSPLASH("1503387762-592deb58ef4e"), alt: "Obra de engenharia" },
+  "seguro-garantia":     { bg: UNSPLASH("1450101499163-c8848c66ca85"), alt: "Documento contratual" },
+  "seguro-condominio":   { bg: UNSPLASH("1545324418-cc1a3fa10c00"), alt: "Condomínio residencial" },
+  "seguro-ambiental":    { bg: UNSPLASH("1473448912268-2022ce9509d8"), alt: "Paisagem ambiental" },
+  "seguro-armazenagem":  { bg: UNSPLASH("1586528116493-a029325540fa"), alt: "Centro de armazenagem" },
+  // Agro
+  "seguro-propriedade-rural": { bg: UNSPLASH("1500382017468-9049fed747ef"), alt: "Propriedade rural ao amanhecer" },
+  "seguro-rural":             { bg: UNSPLASH("1464226184884-fa280b87c399"), alt: "Fazenda com plantação" },
+  "seguro-maquinas-agricolas":{ bg: UNSPLASH("1605000797499-95a51c5269ae"), alt: "Trator agrícola no campo" },
+  "seguro-colheitadeira-graos":{ bg: UNSPLASH("1500595046743-cd271d694d30"), alt: "Colheitadeira em campo de grãos" },
+  "seguro-colhedora-cana":    { bg: UNSPLASH("1574943320219-89283c1f7d5e"), alt: "Colhedora de cana-de-açúcar" },
+  "seguro-colhedora-algodao": { bg: UNSPLASH("1591100406836-1f7e3b94c4d3"), alt: "Plantação de algodão" },
+  "seguro-cafe":              { bg: UNSPLASH("1542223189-67a03fa0f0bd"), alt: "Plantação de café" },
+  "seguro-silo-agricola":     { bg: UNSPLASH("1625246333195-78d9c38ad449"), alt: "Silos agrícolas" },
+  "seguro-transporte-agro":   { bg: UNSPLASH("1601584115197-04ecc0da31d7"), alt: "Transporte de cargas agrícolas" },
+  "seguro-pecuario":          { bg: UNSPLASH("1500595046743-cd271d694d30"), alt: "Rebanho bovino" },
+  "seguro-drone-agricola":    { bg: UNSPLASH("1473968512647-3e447244af8f"), alt: "Drone agrícola sobre lavoura" },
+  "seguro-agro":              { bg: UNSPLASH("1625246333195-78d9c38ad449"), alt: "Operação agrícola completa" },
+  // Consórcio
+  "consorcio-carro":          { bg: UNSPLASH("1492144534655-ae79c964c9d7"), alt: "Carro novo entregue" },
+  "consorcio-imoveis":        { bg: UNSPLASH("1568605114967-8130f3a36994"), alt: "Imóvel residencial" },
+  "consorcio-veiculos-pesados":{ bg: UNSPLASH("1601584115197-04ecc0da31d7"), alt: "Caminhão pesado" },
+  "consorcio-moto":           { bg: UNSPLASH("1558981806-ec527fa84c39"), alt: "Motocicleta nova" },
+  "consorcio-geral":          { bg: UNSPLASH("1560518883-ce09059eeffa"), alt: "Conquista de bem" },
+  "ebook-consorcio":          { bg: UNSPLASH("1521587760476-6c12a4b040da"), alt: "Guia de consórcio" },
+};
 
 export const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Auto", short: "Carro, terceiros e assistência 24h.", href: "/seguro-auto", Icon: Car, slug: "seguro-auto" },
@@ -113,6 +146,10 @@ export const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Viagem", short: "Cobertura médica e bagagem no exterior.", href: "/seguro-viagem", Icon: Plane, slug: "seguro-viagem" },
   { title: "Seguro Celular", short: "Roubo, furto e danos acidentais.", href: "/seguro-celular", Icon: Smartphone, slug: "seguro-celular" },
   { title: "Motorista de App", short: "Cobertura para quem dirige Uber/99.", href: "/seguro-motorista-app", Icon: Navigation, slug: "seguro-motorista-app" },
+  { title: "Seguro Bike", short: "Roubo, colisão e assistência ao ciclista.", href: "/seguro-bike", Icon: Bike, slug: "seguro-bike" },
+  { title: "Plano Pet", short: "Saúde, consultas e cirurgias para seu pet.", href: "/plano-pet", Icon: PawPrint, slug: "plano-pet" },
+  { title: "Acidentes Pessoais", short: "Invalidez, morte acidental e diárias.", href: "/seguro-acidentes-pessoais", Icon: Activity, slug: "seguro-acidentes-pessoais" },
+  { title: "Previdência Privada", short: "Aposentadoria planejada e benefícios fiscais.", href: "/previdencia-privada", Icon: PiggyBank, slug: "previdencia-privada" },
   { title: "Consórcio", short: "Carro, moto ou imóvel sem juros.", href: "/consorcio", Icon: KeyRound, slug: "consorcio" },
 ];
 
@@ -127,6 +164,10 @@ export const cardsEmpresa: InsuranceCard[] = [
   { title: "Responsabilidade Civil", short: "Proteção contra danos a terceiros.", href: "/seguro-rc", Icon: ShieldCheck, slug: "seguro-rc" },
   { title: "Seguro Cyber", short: "Vazamento de dados e ataques digitais.", href: "/seguro-cyber", Icon: Lock, slug: "seguro-cyber" },
   { title: "Seguro Engenharia", short: "Obras civis, instalação e montagem.", href: "/seguro-engenharia", Icon: HardHat, slug: "seguro-engenharia" },
+  { title: "Seguro Garantia", short: "Performance, judicial e contratual.", href: "/seguro-garantia", Icon: FileCheck2, slug: "seguro-garantia" },
+  { title: "Seguro Condomínio", short: "Áreas comuns, RC e equipamentos.", href: "/seguro-condominio", Icon: Building, slug: "seguro-condominio" },
+  { title: "Seguro Ambiental", short: "Riscos ambientais e remediação.", href: "/seguro-ambiental", Icon: Trees, slug: "seguro-ambiental" },
+  { title: "Armazenagem", short: "Mercadorias estocadas e operadores logísticos.", href: "/seguro-armazenagem", Icon: Warehouse, slug: "seguro-armazenagem" },
 ];
 
 export const cardsAgro: InsuranceCard[] = [
@@ -139,6 +180,9 @@ export const cardsAgro: InsuranceCard[] = [
   { title: "Seguro Café", short: "Lavoura, armazém e beneficiamento.", href: "/seguro-cafe", Icon: Coffee, slug: "seguro-cafe" },
   { title: "Silo Agrícola", short: "Armazenagem e estoque de grãos.", href: "/seguro-silo-agricola", Icon: Wheat, slug: "seguro-silo-agricola" },
   { title: "Transporte Agro", short: "Cargas agrícolas em trânsito nacional.", href: "/seguro-transporte-agro", Icon: Truck, slug: "seguro-transporte-agro" },
+  { title: "Seguro Pecuário", short: "Bovinos, equinos e rebanho leiteiro.", href: "/seguro-pecuario", Icon: Beef, slug: "seguro-pecuario" },
+  { title: "Drone Agrícola", short: "Pulverização e mapeamento de lavouras.", href: "/seguro-drone-agricola", Icon: PlaneIcon, slug: "seguro-drone-agricola" },
+  { title: "Seguro Agro Completo", short: "Solução integrada para o agronegócio.", href: "/seguro-agro", Icon: Leaf, slug: "seguro-agro" },
 ];
 
 export const cardsConsorcio: InsuranceCard[] = [
