@@ -49,7 +49,6 @@ const SECTIONS = [
 const Servicos = () => {
   const waUrl = buildWhatsAppUrl({
     origem: "pagina_servicos",
-    subject: "Quero falar com um corretor",
     extraLines: ["Origem: página /servicos"],
   });
 
@@ -71,7 +70,7 @@ const Servicos = () => {
           <div className="absolute inset-0 bg-primary/5 -skew-y-3 origin-top-left -z-10" />
           <div className="container mx-auto px-4">
             <Breadcrumb
-              items={[{ name: "Início", url: "/" }, { name: "Serviços", url: "/servicos" }]}
+              items={[{ label: "Serviços", href: "/servicos" }]}
             />
             <div className="max-w-4xl mx-auto text-center mt-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">
