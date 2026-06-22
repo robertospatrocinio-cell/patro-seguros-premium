@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { debounce } from "@/lib/debounce";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { escapeHtml } from "@/lib/utils";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
@@ -24,7 +24,7 @@ import { logForgottenQuote } from "@/lib/quoteHistory";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { toast } from "sonner";
-import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info } from "lucide-react";
+import { Phone, CheckCircle2, ShieldCheck, Clock, Award, Building, User as UserIcon, Mail, Info, MessageCircle, PartyPopper, ArrowLeft, RotateCcw } from "lucide-react";
 import InputMask from "react-input-mask";
 
 type AssetField = { key: string; label: string; placeholder?: string; type?: "text" | "textarea" };
