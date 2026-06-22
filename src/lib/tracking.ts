@@ -148,6 +148,34 @@ export const trackCotacaoSubmit = (tipoSeguro?: string, meta?: ConversionMeta) =
   });
 };
 
+/**
+ * Final conversion event fired on the success page (post-redirect).
+ * Emits a dedicated `quote_submitted` event for GA4/Meta, plus a Meta Pixel
+ * `CompleteRegistration` to track the end of the funnel cleanly.
+ */
+export const trackQuoteSubmitted = (tipoSeguro?: string, meta?: ConversionMeta) => {
+  ensureAnalytics();
+  const attr = captureAttribution();
+  window.fbq?.("trackCustom", "QuoteSubmitted", {
+    content_name: "Cotação Concluída",
+    content_category: tipoSeguro || "geral",
+    origin: meta?.origin,
+  });
+  window.fbq?.("track", "CompleteRegistration", {
+    content_name: "Cotação Concluída",
+    content_category: tipoSeguro || "geral",
+  });
+  window.gtag?.("event", "quote_submitted", {
+    event_category: "cotacao",
+    event_label: tipoSeguro,
+    insurance_type: tipoSeguro,
+    origin: meta?.origin,
+    utm_source: attr.utm_source,
+    utm_medium: attr.utm_medium,
+    utm_campaign: attr.utm_campaign,
+  });
+};
+
 export const trackCotacaoClick = (source?: string, meta?: ConversionMeta) => {
   recordConversionClick("cotacao_click", source, meta);
   ensureAnalytics();
