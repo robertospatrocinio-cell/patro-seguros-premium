@@ -219,12 +219,15 @@ const HeroInsuranceCarousel = ({
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
-    dragFree: false,
+    dragFree: true,
+    skipSnaps: false,
     containScroll: "trimSnaps",
     duration: reduceMotion ? 0 : 22,
   });
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [snaps, setSnaps] = useState<number[]>([]);
+  const [selectedSnap, setSelectedSnap] = useState(0);
 
   const cards =
     audience === "pessoa"
@@ -239,16 +242,20 @@ const HeroInsuranceCarousel = ({
     if (!emblaApi) return;
     setCanPrev(emblaApi.canScrollPrev());
     setCanNext(emblaApi.canScrollNext());
+    setSelectedSnap(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
+    setSnaps(emblaApi.scrollSnapList());
     emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
+    emblaApi.on("reInit", () => {
+      onSelect();
+      setSnaps(emblaApi.scrollSnapList());
+    });
     return () => {
       emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
     };
   }, [emblaApi, onSelect]);
 
@@ -483,8 +490,12 @@ const HeroInsuranceCarousel = ({
           {(() => {
             const theme = AUDIENCE_THEMES[audience];
             return (
-          <div className="overflow-hidden" ref={emblaRef}>
-            <ul className="-ml-3 flex list-none md:-ml-4">
+          <div
+            className="-mx-4 overflow-hidden px-4 sm:mx-0 sm:px-0"
+            ref={emblaRef}
+            style={{ touchAction: "pan-y" }}
+          >
+            <ul className="-ml-3 flex list-none touch-pan-y md:-ml-4">
               {cards.map((card) => {
                 const Icon = card.Icon;
                 const visuals = CARD_VISUALS[card.slug] ?? {
@@ -494,13 +505,13 @@ const HeroInsuranceCarousel = ({
                 return (
                   <li
                     key={`${audience}-${card.slug}`}
-                    className="min-w-0 shrink-0 grow-0 basis-[78%] pl-3 sm:basis-[48%] md:basis-1/3 md:pl-4 lg:basis-1/4 xl:basis-1/5"
+                    className="min-w-0 shrink-0 grow-0 basis-[82%] pl-3 sm:basis-[48%] md:basis-1/3 md:pl-4 lg:basis-1/4 xl:basis-1/5"
                   >
                     <Link
                       to={card.href}
                       onClick={() => handleCardClick(card)}
                       aria-label={`${card.title} — ${card.short}`}
-                      className="group relative isolate flex h-full min-h-[240px] flex-col justify-between overflow-hidden rounded-2xl border border-white/12 p-5 text-left shadow-[0_4px_16px_-8px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transform-none motion-reduce:transition-none"
+                      className="group relative isolate flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl border border-white/12 p-4 text-left shadow-[0_4px_16px_-8px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:min-h-[240px] sm:p-5 motion-reduce:transform-none motion-reduce:transition-none"
                       style={{
                         backgroundColor: `hsl(${theme.accent} / 0.22)`,
                       }}
@@ -542,16 +553,16 @@ const HeroInsuranceCarousel = ({
                       />
                       <div>
                         <span
-                          className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-inset ring-white/30 backdrop-blur transition-all duration-300 group-hover:scale-105 group-hover:bg-white group-hover:text-slate-900"
+                          className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-white ring-1 ring-inset ring-white/30 backdrop-blur transition-all duration-300 group-hover:scale-105 group-hover:bg-white group-hover:text-slate-900 sm:h-12 sm:w-12"
                         >
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
-                        <h3 className="mt-4 text-base font-semibold text-white">{card.title}</h3>
-                        <p className="mt-1.5 hidden text-sm leading-relaxed text-white/85 sm:block">
+                        <h3 className="mt-3 text-[15px] font-semibold leading-snug text-white sm:mt-4 sm:text-base">{card.title}</h3>
+                        <p className="mt-1.5 line-clamp-2 text-[13px] leading-relaxed text-white/85 sm:line-clamp-none sm:text-sm">
                           {card.short}
                         </p>
                       </div>
-                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white drop-shadow">
+                      <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white drop-shadow sm:mt-5">
                         Saiba mais
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden />
                       </span>
@@ -586,10 +597,38 @@ const HeroInsuranceCarousel = ({
             </button>
           </div>
 
-          {/* Mobile hint */}
-          <p className="mt-4 text-center text-xs text-white/55 md:hidden" aria-hidden>
-            Deslize para o lado para ver todos os seguros
-          </p>
+          {/* Mobile: dots + hint */}
+          <div className="mt-5 flex flex-col items-center gap-2 md:hidden">
+            {snaps.length > 1 && (
+              <div className="flex items-center gap-1.5" role="tablist" aria-label="Navegar entre seguros">
+                {snaps.map((_, i) => {
+                  const active = i === selectedSnap;
+                  const theme = AUDIENCE_THEMES[audience];
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      role="tab"
+                      aria-selected={active}
+                      aria-label={`Ir para o slide ${i + 1}`}
+                      onClick={() => emblaApi?.scrollTo(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        active ? "w-6" : "w-1.5 bg-white/30"
+                      }`}
+                      style={
+                        active
+                          ? { background: `linear-gradient(90deg, hsl(${theme.accent}), hsl(${theme.accentSoft}))` }
+                          : undefined
+                      }
+                    />
+                  );
+                })}
+              </div>
+            )}
+            <p className="text-center text-[11px] uppercase tracking-wider text-white/50" aria-hidden>
+              Arraste para o lado
+            </p>
+          </div>
         </div>
       </div>
     </section>
