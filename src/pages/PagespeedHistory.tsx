@@ -104,7 +104,7 @@ export default function PagespeedHistory() {
   const runNow = async () => {
     setRunning(true);
     toast.info("Auditoria iniciada — pode levar 1-2 minutos.");
-    const { data, error } = await safeInvoke("run-pagespeed-audit", {});
+    const { data, error } = await safeInvoke<{ results?: unknown[] }>("run-pagespeed-audit", {});
     if (error) {
       handleSupabaseError(error, "Falha ao executar auditoria.");
       setRunning(false);
