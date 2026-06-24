@@ -38,7 +38,20 @@ const GalpaoStickyCTABar = ({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 300);
+    let ticking = false;
+    let lastState = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 300;
+        if (next !== lastState) {
+          lastState = next;
+          setVisible(next);
+        }
+        ticking = false;
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
