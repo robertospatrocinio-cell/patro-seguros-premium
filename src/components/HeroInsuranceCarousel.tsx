@@ -65,9 +65,29 @@ type InsuranceCard = {
 /**
  * Identidade visual por ramo: foto temática (Unsplash, CDN otimizada)
  * + cor de acento HSL para o gradiente do card.
+ *
+ * Unsplash entrega WebP/AVIF automaticamente via `auto=format` (negociação
+ * por Accept header) — não precisamos de <source> explícito. Aproveitamos o
+ * parâmetro `w` para gerar srcset responsivo: o browser escolhe a largura
+ * mais próxima da renderização real, economizando banda em mobile.
  */
-const UNSPLASH = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=640&q=70`;
+const UNSPLASH_BASE = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=70`;
+
+const UNSPLASH = (id: string) => `${UNSPLASH_BASE(id)}&w=640`;
+
+const unsplashSrcSet = (id: string) => {
+  const base = UNSPLASH_BASE(id);
+  return [320, 480, 640, 800].map((w) => `${base}&w=${w} ${w}w`).join(", ");
+};
+
+/** Derive a responsive srcset from a `UNSPLASH(id)` URL. Returns undefined
+ *  for non-Unsplash strings so non-CDN images are passed through unchanged. */
+const buildSrcSet = (src: string): string | undefined => {
+  const match = src.match(/photo-([\w-]+)\?/);
+  if (!match) return undefined;
+  return unsplashSrcSet(match[1]);
+};
 
 /**
  * Theme único por aba (audiência) — cor padronizada, derivada da paleta da marca.
@@ -405,6 +425,7 @@ const HeroInsuranceCarousel = ({
           alt={bgAlt}
           width={1600}
           height={900}
+          sizes="100vw"
           loading="lazy"
           decoding="async"
           className={`h-full w-full object-cover object-center ${
@@ -574,8 +595,12 @@ const HeroInsuranceCarousel = ({
                       {visuals.bg && (
                         <img
                           src={visuals.bg}
+                          srcSet={buildSrcSet(visuals.bg)}
+                          sizes="(max-width: 640px) 82vw, (max-width: 768px) 48vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                           alt=""
                           aria-hidden
+                          width={640}
+                          height={400}
                           loading="lazy"
                           decoding="async"
                           className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-40 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-90 motion-reduce:transition-none motion-reduce:group-hover:scale-100"

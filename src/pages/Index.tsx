@@ -82,16 +82,27 @@ const Index = () => {
         {/* HERO SECTION */}
         <section className="relative min-h-[600px] flex items-center bg-slate-900 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img
-              src="/images/hero-home.webp"
-              alt="Corretora de Seguros em Guarulhos"
-              width={960}
-              height={540}
-              loading="eager"
-              decoding="async"
-              className="w-full h-full object-cover opacity-30"
-              {...({ fetchpriority: "high" } as any)}
-            />
+            <picture>
+              {/* Mobile variant (≤600px) — keeps weight low on slow connections */}
+              <source
+                media="(max-width: 600px)"
+                srcSet="/images/hero-home-sm.webp"
+                type="image/webp"
+              />
+              {/* Desktop / tablet */}
+              <source srcSet="/images/hero-home.webp" type="image/webp" />
+              <img
+                src="/images/hero-home.webp"
+                alt="Corretora de Seguros em Guarulhos"
+                width={960}
+                height={540}
+                sizes="100vw"
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover opacity-30"
+                {...({ fetchpriority: "high" } as any)}
+              />
+            </picture>
           </div>
           <div className="container mx-auto px-4 relative z-10 py-12 md:py-20 text-center lg:text-left">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
