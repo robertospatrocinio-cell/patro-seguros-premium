@@ -87,6 +87,7 @@ const Index = () => {
               alt="Corretora de Seguros em Guarulhos"
               width={960}
               height={540}
+              loading="eager"
               decoding="async"
               className="w-full h-full object-cover opacity-30"
               {...({ fetchpriority: "high" } as any)}
@@ -126,10 +127,14 @@ const Index = () => {
         </section>
 
         {/* QUICK LEAD FORM */}
-        <QuickLeadForm />
+        <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
+          <QuickLeadForm />
+        </Suspense>
 
         {/* HERO CARROSSEL — Conversion shortcut: toggle Pessoa/Empresa + cards principais */}
-        <HeroInsuranceCarousel />
+        <Suspense fallback={<div style={{ minHeight: 520 }} aria-hidden="true" />}>
+          <HeroInsuranceCarousel />
+        </Suspense>
 
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
