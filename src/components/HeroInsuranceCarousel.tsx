@@ -417,6 +417,7 @@ const HeroInsuranceCarousel = ({
           alt={bgAlt}
           width={1600}
           height={900}
+          sizes="100vw"
           loading="lazy"
           decoding="async"
           className={`h-full w-full object-cover object-center ${
@@ -586,8 +587,12 @@ const HeroInsuranceCarousel = ({
                       {visuals.bg && (
                         <img
                           src={visuals.bg}
+                          srcSet={visuals.srcSet}
+                          sizes="(max-width: 640px) 82vw, (max-width: 768px) 48vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                           alt=""
                           aria-hidden
+                          width={640}
+                          height={400}
                           loading="lazy"
                           decoding="async"
                           className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-40 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-90 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
