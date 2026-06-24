@@ -428,6 +428,7 @@ const HeroInsuranceCarousel = ({
           sizes="100vw"
           loading="lazy"
           decoding="async"
+          {...({ fetchpriority: "low" } as any)}
           className={`h-full w-full object-cover object-center ${
             reduceMotion ? "" : "transition-opacity duration-500"
           }`}
@@ -603,6 +604,7 @@ const HeroInsuranceCarousel = ({
                           height={400}
                           loading="lazy"
                           decoding="async"
+                          {...({ fetchpriority: index === 0 ? "auto" : "low" } as any)}
                           className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-40 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-90 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                         />
                       )}
