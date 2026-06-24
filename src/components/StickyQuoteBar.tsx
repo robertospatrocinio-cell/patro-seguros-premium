@@ -29,8 +29,19 @@ const StickyQuoteBar = ({
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    let lastState = false;
     const onScroll = () => {
-      if (!isFormOpen) setVisible(window.scrollY > 500);
+      if (isFormOpen || ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 500;
+        if (next !== lastState) {
+          lastState = next;
+          setVisible(next);
+        }
+        ticking = false;
+      });
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
