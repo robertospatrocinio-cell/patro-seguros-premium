@@ -41,9 +41,13 @@
     <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
     <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
     <link rel="preload" href="/images/hero-familia-sm.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high" />
-    <!-- Critical above-the-fold seal (hero region, both viewports) -->
-    <link rel="preload" href="/images/selo-melhor-corretora.webp" as="image" type="image/webp" media="(min-width: 768px)" />
-    <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" media="(min-width: 768px) and (min-resolution: 2dppx)" />
+    <!-- Critical above-the-fold seal (hero region, mobile + desktop) -->
+    <link rel="preload" href="/images/selo-melhor-corretora.webp" as="image" type="image/webp" />
+    <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" media="(min-resolution: 2dppx)" />
+
+    <!-- Theme color for instant UA chrome paint (no layout cost) -->
+    <meta name="theme-color" content="#003366" />
+    <meta name="color-scheme" content="light" />
 
     <!-- Preconnect to third-party hosts that serve content just below the fold -->
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
