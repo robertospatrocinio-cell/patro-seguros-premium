@@ -39,11 +39,29 @@ const WhatsAppButton = () => {
   }, []);
 
   useEffect(() => {
+    let ticking = false;
+    let lastVisible = false;
+    let lastScrolling = false;
     const onScroll = () => {
-      setVisible(window.scrollY > 300);
-      setIsUserScrolling(true);
+      if (!lastScrolling) {
+        lastScrolling = true;
+        setIsUserScrolling(true);
+      }
       if (scrollStopTimeoutRef.current) window.clearTimeout(scrollStopTimeoutRef.current);
-      scrollStopTimeoutRef.current = window.setTimeout(() => setIsUserScrolling(false), 700);
+      scrollStopTimeoutRef.current = window.setTimeout(() => {
+        lastScrolling = false;
+        setIsUserScrolling(false);
+      }, 700);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 300;
+        if (next !== lastVisible) {
+          lastVisible = next;
+          setVisible(next);
+        }
+        ticking = false;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();

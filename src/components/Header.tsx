@@ -25,12 +25,19 @@ const Header = memo(() => {
 
 
   useEffect(() => {
+    let ticking = false;
+    let lastState = false;
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 20;
+        if (next !== lastState) {
+          lastState = next;
+          setIsScrolled(next);
+        }
+        ticking = false;
+      });
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
