@@ -81,6 +81,14 @@ const unsplashSrcSet = (id: string) => {
   return [320, 480, 640, 800].map((w) => `${base}&w=${w} ${w}w`).join(", ");
 };
 
+/** Derive a responsive srcset from a `UNSPLASH(id)` URL. Returns undefined
+ *  for non-Unsplash strings so non-CDN images are passed through unchanged. */
+const buildSrcSet = (src: string): string | undefined => {
+  const match = src.match(/photo-([\w-]+)\?/);
+  if (!match) return undefined;
+  return unsplashSrcSet(match[1]);
+};
+
 /**
  * Theme único por aba (audiência) — cor padronizada, derivada da paleta da marca.
  * Cada card herda o accent da aba para uma identidade visual coesa.
