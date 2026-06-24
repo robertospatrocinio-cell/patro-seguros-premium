@@ -65,9 +65,21 @@ type InsuranceCard = {
 /**
  * Identidade visual por ramo: foto temática (Unsplash, CDN otimizada)
  * + cor de acento HSL para o gradiente do card.
+ *
+ * Unsplash entrega WebP/AVIF automaticamente via `auto=format` (negociação
+ * por Accept header) — não precisamos de <source> explícito. Aproveitamos o
+ * parâmetro `w` para gerar srcset responsivo: o browser escolhe a largura
+ * mais próxima da renderização real, economizando banda em mobile.
  */
-const UNSPLASH = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=640&q=70`;
+const UNSPLASH_BASE = (id: string) =>
+  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=70`;
+
+const UNSPLASH = (id: string) => `${UNSPLASH_BASE(id)}&w=640`;
+
+const unsplashSrcSet = (id: string) => {
+  const base = UNSPLASH_BASE(id);
+  return [320, 480, 640, 800].map((w) => `${base}&w=${w} ${w}w`).join(", ");
+};
 
 /**
  * Theme único por aba (audiência) — cor padronizada, derivada da paleta da marca.
