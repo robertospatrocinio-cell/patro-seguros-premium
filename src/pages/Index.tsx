@@ -18,11 +18,16 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
-import { HomeSelector } from "@/components/HomeSelector";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
-import { QuickLeadForm } from "@/components/QuickLeadForm";
-import HeroInsuranceCarousel from "@/components/HeroInsuranceCarousel";
 
+// Below-the-fold heavy components — code-split to lighten initial JS
+const HeroInsuranceCarousel = lazy(() => import("@/components/HeroInsuranceCarousel"));
+const QuickLeadForm = lazy(() =>
+  import("@/components/QuickLeadForm").then((m) => ({ default: m.QuickLeadForm }))
+);
+const HomeSelector = lazy(() =>
+  import("@/components/HomeSelector").then((m) => ({ default: m.HomeSelector }))
+);
 const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalculator"));
 const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
 const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
