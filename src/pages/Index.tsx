@@ -215,7 +215,9 @@ const Index = () => {
         </div>
 
         {/* 1. SELETOR "O QUE VOCÊ QUER PROTEGER?" */}
-        <HomeSelector />
+        <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden="true" />}>
+          <HomeSelector />
+        </Suspense>
 
         {/* 2. CENTRAL DE SINISTRO — preservada do placeholder antigo (os 3 cards de produto migraram para o HeroInsuranceCarousel acima) */}
         <section className="py-16 bg-muted/30">
