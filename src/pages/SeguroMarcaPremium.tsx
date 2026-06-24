@@ -159,6 +159,8 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
               src={config.middleImage} 
               alt={`Detalhe ${config.name} — Seguro de carros de luxo na Patro Seguros, Corretora em Guarulhos/SP`}
               title={`Seguro ${config.name} — Patro Seguros, Corretora em Guarulhos/SP`}
+              width={1974}
+              height={1316}
               loading="lazy"
               decoding="async"
               className="w-full h-full object-cover opacity-30 grayscale"
