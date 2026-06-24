@@ -18,11 +18,16 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
-import { HomeSelector } from "@/components/HomeSelector";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
-import { QuickLeadForm } from "@/components/QuickLeadForm";
-import HeroInsuranceCarousel from "@/components/HeroInsuranceCarousel";
 
+// Below-the-fold heavy components — code-split to lighten initial JS
+const HeroInsuranceCarousel = lazy(() => import("@/components/HeroInsuranceCarousel"));
+const QuickLeadForm = lazy(() =>
+  import("@/components/QuickLeadForm").then((m) => ({ default: m.QuickLeadForm }))
+);
+const HomeSelector = lazy(() =>
+  import("@/components/HomeSelector").then((m) => ({ default: m.HomeSelector }))
+);
 const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalculator"));
 const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
 const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
@@ -82,6 +87,7 @@ const Index = () => {
               alt="Corretora de Seguros em Guarulhos"
               width={960}
               height={540}
+              loading="eager"
               decoding="async"
               className="w-full h-full object-cover opacity-30"
               {...({ fetchpriority: "high" } as any)}
@@ -121,10 +127,14 @@ const Index = () => {
         </section>
 
         {/* QUICK LEAD FORM */}
-        <QuickLeadForm />
+        <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
+          <QuickLeadForm />
+        </Suspense>
 
         {/* HERO CARROSSEL — Conversion shortcut: toggle Pessoa/Empresa + cards principais */}
-        <HeroInsuranceCarousel />
+        <Suspense fallback={<div style={{ minHeight: 520 }} aria-hidden="true" />}>
+          <HeroInsuranceCarousel />
+        </Suspense>
 
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
@@ -205,7 +215,9 @@ const Index = () => {
         </div>
 
         {/* 1. SELETOR "O QUE VOCÊ QUER PROTEGER?" */}
-        <HomeSelector />
+        <Suspense fallback={<div style={{ minHeight: 400 }} aria-hidden="true" />}>
+          <HomeSelector />
+        </Suspense>
 
         {/* 2. CENTRAL DE SINISTRO — preservada do placeholder antigo (os 3 cards de produto migraram para o HeroInsuranceCarousel acima) */}
         <section className="py-16 bg-muted/30">

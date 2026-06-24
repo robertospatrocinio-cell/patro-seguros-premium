@@ -111,14 +111,17 @@
   <meta name="twitter:image:alt" content="Patro Seguros — Corretora de seguros em Guarulhos/SP">
   <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Optimized Analytics Loader -->
+    <!-- Optimized Analytics Loader — consent-gated, zero overhead pre-consent -->
     <script>
       (function() {
         var analyticsLoaded = false;
-        window.activateAnalytics = function(reason) {
-          if (analyticsLoaded || localStorage.getItem('patro-cookies-accepted') !== 'true') return;
+        var listenersBound = false;
+        var INTERACTION_EVENTS = ['mousedown', 'touchstart', 'scroll', 'keydown'];
+
+        function loadAnalytics(reason) {
+          if (analyticsLoaded) return;
           analyticsLoaded = true;
-          
+
           // GA4
           var g = document.createElement('script');
           g.src = 'https://www.googletagmanager.com/gtag/js?id=G-YM02VJN0LZ';
@@ -126,9 +129,10 @@
           document.head.appendChild(g);
           window.dataLayer = window.dataLayer || [];
           function gtag() { dataLayer.push(arguments); }
+          window.gtag = gtag;
           gtag('js', new Date());
-          gtag('config', 'G-YM02VJN0LZ');
-          
+          gtag('config', 'G-YM02VJN0LZ', { send_page_view: true });
+
           // Meta Pixel
           !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -140,20 +144,42 @@
           document.head.appendChild(f);
           fbq('init', '2108358063295698');
           fbq('track', 'PageView');
-          
-          console.log('Analytics initialized (' + reason + ')');
+        }
+
+        function unbindListeners() {
+          INTERACTION_EVENTS.forEach(function(e) { window.removeEventListener(e, onInteraction); });
+        }
+        function onInteraction() {
+          unbindListeners();
+          // Defer to idle so analytics never competes with user interaction handling
+          (window.requestIdleCallback || function(cb){ setTimeout(cb, 1); })(function(){
+            loadAnalytics('interaction');
+          });
+        }
+
+        function bindLazyTriggers() {
+          if (listenersBound) return;
+          listenersBound = true;
+          INTERACTION_EVENTS.forEach(function(e) {
+            window.addEventListener(e, onInteraction, { passive: true, once: false });
+          });
+        }
+
+        // Public API used by CookieBanner after consent click
+        window.activateAnalytics = function(reason) {
+          if (localStorage.getItem('patro-cookies-accepted') !== 'true') return;
+          if (reason === 'consent_given') {
+            unbindListeners();
+            loadAnalytics(reason);
+          } else {
+            bindLazyTriggers();
+          }
         };
 
-        // Delay non-critical analytics until idle or interaction
-        var events = ['mousedown', 'touchstart', 'scroll'];
-        function trigger() {
-          window.activateAnalytics('interaction');
-          events.forEach(function(e) { window.removeEventListener(e, trigger); });
-        }
-        events.forEach(function(e) { window.addEventListener(e, trigger, { passive: true }); });
-        
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(function() { setTimeout(function() { window.activateAnalytics('idle'); }, 3000); });
+        // On returning visitors with prior consent → bind lazy triggers only.
+        // Without consent we bind NOTHING (zero JS work on the main thread).
+        if (localStorage.getItem('patro-cookies-accepted') === 'true') {
+          bindLazyTriggers();
         }
       })();
     </script>
