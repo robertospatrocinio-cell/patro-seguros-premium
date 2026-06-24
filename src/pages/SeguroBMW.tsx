@@ -229,6 +229,8 @@ const SeguroBMW = () => {
               src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1974&auto=format&fit=crop" 
               alt="Detalhe BMW — Seguro de veículos premium na Patro Seguros, Corretora em Guarulhos/SP"
               title="Seguro BMW — Patro Seguros, Corretora em Guarulhos/SP"
+              width={1974}
+              height={1316}
               loading="lazy"
               decoding="async"
               className="w-full h-full object-cover opacity-30 grayscale"
