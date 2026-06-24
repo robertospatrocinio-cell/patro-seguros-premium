@@ -595,7 +595,7 @@ const HeroInsuranceCarousel = ({
                       {visuals.bg && (
                         <img
                           src={visuals.bg}
-                          srcSet={visuals.srcSet}
+                          srcSet={buildSrcSet(visuals.bg)}
                           sizes="(max-width: 640px) 82vw, (max-width: 768px) 48vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
                           alt=""
                           aria-hidden
