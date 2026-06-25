@@ -48,7 +48,7 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
       />
       <LocalAreaSchema
         serviceName={`Seguro ${config.name}`}
-        url={`https://patroseguros.lovable.app/seguro-${config.slug}`}
+        url={`https://www.patroseguros.com.br/seguro-${config.slug}`}
         description={`Seguro ${config.name} em Guarulhos: proteção premium e especializada para seu veículo.`}
         city="Guarulhos"
         faqs={config.faqs.map(f => ({ question: f.q, answer: f.a }))}

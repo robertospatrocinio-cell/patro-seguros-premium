@@ -9,7 +9,7 @@ const SeguroVida = () => {
     <>
       <LocalAreaSchema
         serviceName="Seguro de Vida"
-        url="https://patroseguros.lovable.app/seguro-vida"
+        url="https://www.patroseguros.com.br/seguro-vida"
         description="Seguro de vida em Guarulhos: proteção familiar completa contra morte, invalidez e doenças graves."
         city="Guarulhos"
       />
@@ -134,7 +134,7 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         { id: "profissao", label: "Profissão", placeholder: "Ex: Engenheiro, Médico, Autônomo" },
         { id: "capital", label: "Capital desejado", placeholder: "Selecione", type: "select", options: ["Até R$ 100.000", "R$ 100.000 a R$ 300.000", "R$ 300.000 a R$ 500.000", "Acima de R$ 500.000", "Não sei / quero orientação"] },
       ]}
-      canonicalUrl="https://patroseguros.lovable.app/seguro-vida"
+      canonicalUrl="https://www.patroseguros.com.br/seguro-vida"
     />
     <ExitIntentPopup />
     </>

@@ -1,105 +1,59 @@
+## Contexto
 
-# SSG via Pré-renderização Headless (Opção A)
+O site já é grande: ~60 páginas (`src/pages`), 8 sitemaps, schemas (Organization, InsuranceAgency, FAQ, Breadcrumb, Service), header/footer prontos, blog com 60+ artigos, formulários com `react-hook-form`+`zod`, edge functions, monitor de Rich Results semanal (acabei de configurar). Não é um site novo — é um refino de algo já avançado.
 
-Antes de instalar e configurar, preciso confirmar 3 pontos com você porque há tradeoffs reais que afetam tempo de build e custo operacional.
+A lista de 19 itens é grande demais para uma única passada sem perder qualidade. Quero entregar em **fases pequenas, auditáveis, com diff revisável**. Pacotão único quebra coisa.
 
-## Abordagem técnica
+## Fases propostas (cada uma é uma entrega independente)
 
-Usar `@prerenderer/rollup-plugin` + `@prerenderer/renderer-puppeteer`. Após `vite build` gerar o bundle SPA normal, o plugin sobe um servidor local, abre um Chromium headless e, para cada rota da lista, navega, espera hidratação e o `PageMeta` rodar, e salva o HTML final em `dist/<rota>/index.html`.
+### Fase 1 — Auditoria técnica + correções rápidas (1 turno)
+- Rodar build, scan SEO, varrer todas as páginas para detectar: H1 duplicado/oculto, title/description duplicados, canonical errado, refs ao domínio `*.lovable.app` ou `*.lovable.dev`, console errors.
+- Consolidar **8 sitemaps → 1 índice limpo**, validar `robots.txt`, remover entradas mortas.
+- Relatório do que está OK vs. o que precisa correção, com lista nominal das páginas afetadas.
+- **Não muda visual.** Só corrige metadata, schemas, sitemap, robots.
 
-**Vantagens** — zero refatoração de runtime: `App.tsx`, `PageMeta`, `HelmetProvider`, lazy routes, tudo continua igual. Crawlers sem JS passam a ver o HTML completo (título, descrição, OG, JSON-LD, conteúdo principal, breadcrumbs).
+### Fase 2 — Metadados da Home + estrutura de headings (1 turno)
+- Aplicar title/description/H1 exatos que você passou na Home.
+- Garantir og:image próprio 1200×630 (gerar se não houver).
+- Auditar e corrigir hierarquia H1/H2/H3 nas **14 páginas-chave** que você listou (Home, Auto, Saúde, Vida, Empresarial, Residencial, Viagem, Moto, Aluguel, Consórcio, Sobre, Blog, Contato, Cotação).
+- Schemas: Organization/InsuranceAgency/LocalBusiness/WebSite na Home; Service+FAQPage+BreadcrumbList nas páginas de produto.
 
-**O que muda apenas no build**: `vite.config.ts` ganha o plugin; `package.json` ganha 2 dependências.
+### Fase 3 — Design premium + header/footer (1 turno)
+- Reduzir `letter-spacing` negativo nos títulos serifados, capar peso em 700, mais respiro no hero, contraste em textos sobre imagens.
+- Header: menu reorganizado conforme sugestão, CTA "Cotação grátis" mais limpo, telefone discreto, mobile sem sobreposição.
+- Footer: CNPJ, SUSEP, endereço, telefone, e-mail, WhatsApp, links produtos, política, redes — todos visíveis.
+- Cards/botões/formulários padronizados.
 
-## Pontos que preciso decidir com você
+### Fase 4 — Conversão (1 turno)
+- Seção **Cotação Express** na Home: form de 5 campos (Nome, WhatsApp, tipo, cidade, melhor horário) → 2ª etapa com detalhes.
+- CTAs padronizados ("Cotar agora", "Falar com consultor", "Comparar seguradoras", "Receber pelo WhatsApp").
+- Eventos GA4/Meta em clique WhatsApp/telefone/form/email (já existe `src/lib/tracking.ts`).
 
-### 1. Escopo das rotas pré-renderizadas
+### Fase 5 — Páginas locais novas para Guarulhos (1–2 turnos)
+- Auditar quais das 12 páginas locais que você listou já existem (algumas existem como bairros via `LocalPageTemplate`).
+- Criar as faltantes com conteúdo único 700–1200 palavras, FAQ, schema Service+LocalBusiness, links internos.
+- **Não vou inventar conteúdo:** vou usar o gerador `generateLocalFAQs` que já existe + estrutura `LocalPageTemplate`.
 
-São **237 rotas registradas**, mas muitas são variações dinâmicas (10 bairros × 5 produtos, modelos de carro, slugs de blog). Pré-renderizar todas roda ~3 s por rota → **~12 minutos extras por build**.
+### Fase 6 — Performance + Core Web Vitals + checklist final (1 turno)
+- LCP/CLS/INP nas 5 páginas mais acessadas.
+- Lazy-load abaixo da dobra, preload hero, font-display swap, imagens em WebP via `OptimizedImage` (padrão já existente).
+- Página 404 com identidade, links de retorno.
+- Checklist final dos 18 itens + relatório de entrega.
 
-Recomendo escalonar:
+## Itens fora do escopo desta otimização
 
-- **Fase 1 (esta etapa)**: pré-renderizar as ~40 rotas de maior valor SEO — `/`, hubs (`/seguro-auto`, `/seguro-agro`, `/seguro-empresarial`, etc.), `/blog`, `/contato`, `/sobre`, `/glossario-seguros`, e as ~10 landings principais. Build ~2 min extras.
-- **Fase 2 (depois)**: expandir para os 60+ posts de blog e as 10 páginas de bairro.
-- **Fase 3 (opcional)**: todas as 237.
+- **Não vou criar avaliações, selos, notas, depoimentos ou números fake** — você foi explícito.
+- **Configuração de GA4/GTM/Search Console no painel externo** — código já está pronto; ativação depende de você.
+- **Verificação dos Rich Results no Google** — depende do recrawl do Google (1–7 dias após deploy).
 
-O restante continua funcionando como SPA (fallback do `index.html`).
+## Detalhes técnicos
 
-### 2. Chromium no ambiente de build
+- Schemas centralizados em `src/components/*Schema.tsx` e `src/lib/seoMetadata.ts` — não vou duplicar.
+- Sitemap consolidado: vou unificar via plugin Vite no build (`scripts/generate-sitemap.ts` se necessário) preservando `sitemap-bairros.xml` auto-gerado.
+- Memória do projeto já guarda paleta (#003366 navy, #F2994A laranja), fontes (Instrument Serif + Work Sans), padrões de schema/form — vou respeitar.
 
-O Lovable executa o `vite build` num sandbox onde **não há garantia de Chromium pré-instalado** para o Puppeteer. Tenho duas saídas:
+## Como quero proceder
 
-- **A1.** Configurar o plugin para usar o Chromium do Playwright que já existe no sandbox (variável `PLAYWRIGHT_BROWSERS_PATH`). Risco: pode falhar no ambiente de produção do Lovable se ele não expuser essa pasta. Plano B: instalar `puppeteer` (baixa Chromium em postinstall, ~170 MB no `node_modules`).
-- **A2.** Usar `@prerenderer/renderer-jsdom` (sem browser real). Mais leve e portável, mas **não executa `useEffect`** do React de forma confiável → o `PageMeta` (que injeta meta tags via `useEffect`) não roda. Resultado: HTML estático teria conteúdo, mas as meta tags por rota não seriam capturadas. Inviabiliza metade do objetivo.
+Confirme qual fase começamos. Recomendo **Fase 1 primeiro** — sem ela, qualquer mudança visual pode mascarar problema técnico que o Google já está vendo. Depois Fase 2 (metadados/headings) que dá o maior ganho de SEO por menor esforço.
 
-Recomendo **A1 com fallback para puppeteer baixando próprio Chromium** se preciso.
-
-### 3. CTAs com tracking / formulários
-
-Algumas rotas (`/cotacao`, `/formulario-seguro-vida`) têm efeitos que disparam analytics no mount. A pré-renderização vai executá-los uma vez no build (não conta como visita real, mas pode aparecer como ruído no GA4). Vou **excluir essas rotas** da lista pré-renderizada — elas seguem como SPA pura, sem prejuízo SEO (são conversão, não descoberta).
-
-## Implementação concreta (após sua aprovação)
-
-```text
-1. bun add -d @prerenderer/rollup-plugin @prerenderer/renderer-puppeteer
-2. Criar scripts/prerender-routes.ts
-   - Exporta a lista da Fase 1 (curated ~40 rotas)
-   - Compartilha helpers com generate-sitemap (DRY)
-3. vite.config.ts
-   - Importar o plugin
-   - Configurar renderer puppeteer com:
-     - executablePath via PLAYWRIGHT_BROWSERS_PATH se existir
-     - renderAfterTime: 2000 ms (espera PageMeta + Helmet rodarem)
-     - postProcess: remover scripts de analytics do HTML estático
-       (mantém apenas no SPA hidratado, evita double-tracking)
-4. Adicionar fallback: se prerender falhar, build não falha
-   (try/catch ao redor + warning no console)
-5. Rodar build local de validação
-   - Inspecionar dist/seguro-auto/index.html: deve conter <h1>,
-     <meta name="description">, og:image, JSON-LD
-   - Confirmar que dist/index.html (rota /) também tem
-6. Atualizar .lovable/plan.md com status
-```
-
-## Riscos e mitigações
-
-| Risco | Mitigação |
-|---|---|
-| Chromium ausente no sandbox de build do Lovable | Try/catch no plugin: se falhar, build segue como SPA puro (status quo) e loga warning |
-| Tempo de build aumenta | Fase 1 limita a ~40 rotas → +2 min |
-| `useEffect` do PageMeta não executa a tempo | `renderAfterTime: 2000` + `renderAfterElementExists: 'meta[property="og:title"]'` |
-| Conteúdo dinâmico (carrossel, lazy) não aparece | `embla` já renderiza tudo no DOM; lazy imagens são placeholders mas o `<img alt>` existe |
-| Analytics dispara no build | `postProcess` remove tags GA4/Meta Pixel do HTML pré-renderizado; SPA hidratado as carrega normalmente |
-
-## O que NÃO vou mudar
-
-- Design, componentes, providers, routing client-side
-- Lógica de negócio, edge functions, integrações
-- `index.html` template (só o output em `dist/<rota>/index.html` muda)
-- Comportamento em runtime do usuário (continua SPA navigation após primeiro paint)
-
-## Confirmar para eu executar
-
-1. **Escopo Fase 1** (~40 rotas curadas) está OK? Ou prefere já fazer todas as 237?
-2. **Excluir** `/cotacao`, `/formulario-*`, `/indique-amigo`, `/ebook-consorcio` da pré-renderização (mantém como SPA)?
-3. Se Chromium falhar no build do Lovable, **build continua como SPA** (warning) ou **falha duro** para você saber?
-
----
-
-## Status: ✅ Fase 1 entregue (build validado)
-
-**Build**: `bun run build` em 21s + SSG pass em 70.5s = ~92s total.
-
-**Output validado** (`dist/<rota>/index.html`):
-- `/` — 239K, `<title>` correto, 2 H1/H2 no HTML inicial
-- `/seguro-auto` — 126K, canonical self-ref, 3 H1/H2, 2 JSON-LD schemas
-- `/seguro-agro` — 144K, 3 H1/H2, título único
-- `/glossario-seguros` — DefinedTerm renderizado
-
-**Analytics scrub**: 0 ocorrências de `gtag(` ou `fbq(` no HTML estático — recarregam só após hidratação no cliente real.
-
-**Chromium**: encontrado em `/bin/chromium` no sandbox de build do Lovable. Não foi necessário o fallback Playwright.
-
-**Próximas fases (sob demanda)**:
-- Fase 2: incluir 60+ posts de blog e 10 páginas de bairro (`/seguros-guarulhos/:bairro`)
-- Fase 3: todas as 237 rotas
+Se preferir, posso fazer **Fase 1 + Fase 2 num único turno** (são as duas mais "mecânicas"), e abrir a Fase 3 (design) numa segunda rodada com prints de antes/depois.

@@ -8,7 +8,7 @@ const SeguroResidencial = () => {
     <>
       <LocalAreaSchema
         serviceName="Seguro Residencial"
-        url="https://patroseguros.lovable.app/seguro-residencial"
+        url="https://www.patroseguros.com.br/seguro-residencial"
         description="Seguro residencial em Guarulhos: proteja sua casa ou apartamento contra incêndio, roubo e danos elétricos."
         city="Guarulhos"
       />
@@ -131,7 +131,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { id: "cep", label: "CEP do imóvel", placeholder: "Ex: 07115-000" },
         { id: "condicao", label: "Condicao", placeholder: "Selecione", type: "select", options: ["Próprio (moradia)", "Alugado (inquilino)", "Alugado (proprietário)", "Veraneio / temporada"] },
       ]}
-      canonicalUrl="https://patroseguros.lovable.app/seguro-residencial"
+      canonicalUrl="https://www.patroseguros.com.br/seguro-residencial"
     />
     <ExitIntentPopup />
     </>

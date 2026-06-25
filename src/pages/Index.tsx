@@ -108,8 +108,8 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="max-w-3xl">
                 <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
-                <h1 className="text-white text-4xl md:text-6xl font-black mb-6 leading-tight">
-                  Corretora de Seguros em Guarulhos
+                <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                  Corretora de seguros em Guarulhos para você e sua empresa
                 </h1>
                 <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   Compare seguradoras e encontre proteção para seu carro, família ou empresa com atendimento consultivo da Patro Seguros.

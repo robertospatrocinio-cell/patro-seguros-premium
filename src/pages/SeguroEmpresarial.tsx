@@ -115,7 +115,7 @@ Cada tipo de empresa tem riscos específicos: um restaurante tem risco de incên
         { id: "segmento", label: "Segmento", placeholder: "Selecione", type: "select", options: ["Comércio", "Indústria", "Serviços", "Saúde", "Tecnologia", "Outro"] },
         { id: "funcionarios", label: "Nº de funcionários", placeholder: "Selecione", type: "select", options: ["1 a 5", "6 a 20", "21 a 50", "51 a 100", "Mais de 100"] },
       ]}
-      canonicalUrl="https://patroseguros.lovable.app/seguro-empresarial"
+      canonicalUrl="https://www.patroseguros.com.br/seguro-empresarial"
     />
   );
 };

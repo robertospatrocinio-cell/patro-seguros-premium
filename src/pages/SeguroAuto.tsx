@@ -97,7 +97,7 @@ const SeguroAuto = () => {
       />
       <LocalAreaSchema
         serviceName="Seguro Auto"
-        url="https://patroseguros.lovable.app/seguro-auto"
+        url="https://www.patroseguros.com.br/seguro-auto"
         description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
         city="Guarulhos"
         faqs={faqs}
