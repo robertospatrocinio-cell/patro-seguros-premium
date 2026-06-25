@@ -153,7 +153,7 @@ const Index = () => {
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest mb-4 border border-primary/10">
                 Excelência Comprovada
               </span>
-              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4">
                 O que nossos clientes dizem
               </h2>
               <div className="flex items-center justify-center gap-2 mb-2">
@@ -219,7 +219,7 @@ const Index = () => {
               <AlertTriangle className="h-5 w-5 animate-pulse text-white" />
               <span className="font-bold text-sm md:text-base">Precisando de ajuda agora? Central de Sinistro 24h</span>
             </div>
-            <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-black text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
+            <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-bold text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
               Clique aqui
             </Link>
           </div>
