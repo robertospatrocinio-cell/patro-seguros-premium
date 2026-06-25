@@ -55,6 +55,16 @@ export const quickLeadSchema = z.object({
 
 export type QuickLeadInput = z.infer<typeof quickLeadSchema>;
 
+/** Cotação Express na home — 5 campos (e-mail e cidade são opcionais mas validados quando preenchidos). */
+export const expressLeadSchema = z.object({
+  name: nameSchema,
+  phone: phoneSchema,
+  email: z.string().trim().email("E-mail inválido").max(255).optional().or(z.literal("")),
+  city: z.string().trim().max(80, "Cidade muito longa").optional().or(z.literal("")),
+  insuranceType: insuranceTypeSchema,
+});
+export type ExpressLeadInput = z.infer<typeof expressLeadSchema>;
+
 /** Cotação completa (página /cotacao). */
 export const cotacaoSchema = z.object({
   name: nameSchema,
