@@ -47,7 +47,7 @@ export const QuickLeadForm = () => {
         return;
       }
 
-      trackCotacaoSubmit(insuranceType, { source: "quick_lead_form_home" });
+      trackCotacaoSubmit(insuranceType, { origin: "quick_lead_form_home" });
       toast.success("Recebemos seu contato! Um consultor responderá em até 2 horas.");
       setFormData({ name: "", phone: "", email: "", city: "", insuranceType: "" });
     } catch (err) {
