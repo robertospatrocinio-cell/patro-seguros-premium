@@ -46,6 +46,8 @@ const AggregateRatingSchema = ({
       name: "Patro Seguros",
       url: "https://www.patroseguros.com.br",
       telephone: "+551151997500",
+      image: "https://www.patroseguros.com.br/images/logo-full.webp",
+      priceRange: "$$",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
