@@ -136,6 +136,12 @@ interface FeaturedArticle {
 
 interface InsurancePageProps {
   title: string;
+  /**
+   * H1 visível no hero. Quando omitido, usa `title` (o mesmo do <title> SEO),
+   * o que duplica title==h1 e prejudica o SEO. Sempre prefira passar um
+   * `headline` curto e humanizado, distinto do título da aba.
+   */
+  headline?: string;
   subtitle: string;
   description: string;
   icon: string;
@@ -196,6 +202,7 @@ interface InsurancePageProps {
 
 const InsurancePageTemplate = ({
    title, subtitle, description, icon,
+   headline,
    coverages, whoNeeds, whyPatro,
    relatedInsurances = [],
   badge,
@@ -337,7 +344,7 @@ const InsurancePageTemplate = ({
                   </span>
                 </div>
               )}
-              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">{title}</h1>
+              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">{headline || title}</h1>
               <p className="text-base md:text-lg text-white/50 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">{subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 {quoteUrl && quoteUrl.startsWith('/') ? (

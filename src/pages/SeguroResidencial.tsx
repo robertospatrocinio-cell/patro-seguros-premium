@@ -15,6 +15,7 @@ const SeguroResidencial = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Residencial em Guarulhos | Cotação em 2h | Patro Seguros"
+      headline="Seguro residencial em Guarulhos para casa e apartamento"
       subtitle="Consultoria dedicada para proteger seu lar, seus bens e a rotina da sua família"
       icon="🏠"
       metaDescription="Seguro residencial em Guarulhos: proteja sua casa ou apartamento contra incêndio, roubo e danos elétricos. Assistência 24h e cotação em 2h na Patro Seguros."
