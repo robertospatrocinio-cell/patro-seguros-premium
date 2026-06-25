@@ -7,7 +7,7 @@ const SeguroSaude = () => {
     <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro Saúde / Plano de Saúde"
+      title="Plano de Saúde e Seguro Saúde em Guarulhos | Patro Seguros"
       headline="Plano de saúde e seguro saúde em Guarulhos com consultoria comparativa"
       subtitle="Acesso a atendimento médico de qualidade quando você mais precisa"
       icon="🏥"
