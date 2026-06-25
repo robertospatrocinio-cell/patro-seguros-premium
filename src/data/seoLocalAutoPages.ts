@@ -127,6 +127,51 @@ const bairros: BairroSeed[] = [
     reference: "região do Terminal Pimentas e Hospital Municipal", 
     priceRange: "R$ 3.200 a R$ 6.400/ano" 
   },
+  {
+    slug: "seguro-auto-paraventi-guarulhos",
+    bairro: "Paraventi",
+    bairroSlugBairros: "paraventi",
+    riskLevel: "médio",
+    context: "bairro residencial em consolidação na zona sul de Guarulhos, com boa malha viária ligando à Rodovia Presidente Dutra e índices de sinistralidade dentro da média da cidade.",
+    reference: "no entorno da Avenida Otávio Braga de Mesquita e Parque Cecap",
+    priceRange: "R$ 2.600 a R$ 4.900/ano",
+  },
+  {
+    slug: "seguro-auto-continental-guarulhos",
+    bairro: "Continental",
+    bairroSlugBairros: "continental",
+    riskLevel: "baixo",
+    context: "região predominantemente residencial e arborizada, com condomínios verticais de médio e alto padrão, perfil de baixa sinistralidade para seguradoras.",
+    reference: "próximo ao Parque Continental e Avenida Tiradentes",
+    priceRange: "R$ 2.200 a R$ 4.200/ano",
+  },
+  {
+    slug: "seguro-auto-picanco-guarulhos",
+    bairro: "Picanço",
+    bairroSlugBairros: "picanco",
+    riskLevel: "médio",
+    context: "bairro tradicional com forte presença residencial e comercial, próximo ao centro de Guarulhos e bem servido por linhas de ônibus.",
+    reference: "região da Avenida Emílio Ribas e Hospital Stella Maris",
+    priceRange: "R$ 2.700 a R$ 5.000/ano",
+  },
+  {
+    slug: "seguro-auto-macedo-guarulhos",
+    bairro: "Macedo",
+    bairroSlugBairros: "macedo",
+    riskLevel: "médio",
+    context: "bairro residencial entre o Centro e a Vila Galvão, com boa estrutura urbana e acesso rápido à Marginal Tietê pela Avenida Salgado Filho.",
+    reference: "no entorno da Avenida Salgado Filho e Rua das Andorinhas",
+    priceRange: "R$ 2.650 a R$ 4.900/ano",
+  },
+  {
+    slug: "seguro-auto-gopouva-guarulhos",
+    bairro: "Gopouva",
+    bairroSlugBairros: "gopouva",
+    riskLevel: "médio",
+    context: "bairro consolidado e bem localizado próximo ao Centro de Guarulhos, com mix de residências e comércio de vizinhança e índices de sinistralidade na média da cidade.",
+    reference: "região da Avenida Otávio Braga de Mesquita e Praça Gopouva",
+    priceRange: "R$ 2.650 a R$ 4.950/ano",
+  },
 ];
 
 const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
