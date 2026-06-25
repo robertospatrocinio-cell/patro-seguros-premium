@@ -40,14 +40,14 @@ const LocalTestimonials = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-xl">
             <span className="section-label">Confiança Local</span>
-            <h2 className="text-3xl md:text-4xl font-black text-foreground mt-3">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mt-3">
               O que dizem os clientes de <span className="text-primary">Guarulhos</span>
             </h2>
           </div>
           
           <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-4">
             <div className="flex flex-col items-center border-r pr-4 border-slate-100">
-              <span className="text-2xl font-black text-foreground">5.0</span>
+              <span className="text-2xl font-bold text-foreground">5.0</span>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
               </div>
