@@ -22,6 +22,9 @@ import { z } from "zod";
 import { nameSchema, whatsappSchema, firstZodMessage } from "@/lib/leadValidation";
 import { showValidationError, showFriendlyError } from "@/lib/friendlyToast";
 import { trackWhatsAppClick, trackCotacaoSubmit, trackCotacaoClick } from "@/lib/tracking";
+import { submitLead } from "@/lib/leadsApi";
+import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
+import { escapeHtml } from "@/lib/utils";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=" + encodeURIComponent(
   "Olá, quero simular um consórcio com a Patro. Meu objetivo é entender as opções para imóvel, veículo ou empresa."
