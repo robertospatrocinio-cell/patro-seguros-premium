@@ -202,6 +202,7 @@ interface InsurancePageProps {
 
 const InsurancePageTemplate = ({
    title, subtitle, description, icon,
+   headline,
    coverages, whoNeeds, whyPatro,
    relatedInsurances = [],
   badge,
@@ -343,7 +344,7 @@ const InsurancePageTemplate = ({
                   </span>
                 </div>
               )}
-              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">{title}</h1>
+              <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">{headline || title}</h1>
               <p className="text-base md:text-lg text-white/50 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">{subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 {quoteUrl && quoteUrl.startsWith('/') ? (
