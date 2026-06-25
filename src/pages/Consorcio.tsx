@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import Header from "@/components/Header";
@@ -115,21 +115,55 @@ const simulacaoSchema = z.object({
   horario: z.string().min(1, "Escolha o melhor horário"),
 });
 
+const SUBMIT_DEDUPE_KEY = "consorcio:lastSubmit";
+const SUBMIT_DEDUPE_WINDOW_MS = 5 * 60 * 1000; // 5 minutos
+
+const hashPayload = (obj: Record<string, string>): string => {
+  const str = JSON.stringify(obj, Object.keys(obj).sort());
+  let h = 0;
+  for (let i = 0; i < str.length; i++) {
+    h = (h << 5) - h + str.charCodeAt(i);
+    h |= 0;
+  }
+  return `h${h}`;
+};
+
 const Consorcio = () => {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "", whatsapp: "", city: "Guarulhos", tipo: "", credito: "", horario: "",
   });
+  const submittingRef = useRef(false);
 
   const update = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Guarda síncrona contra duplo clique (mais rápida que setState)
+    if (submittingRef.current || loading) return;
     const parsed = simulacaoSchema.safeParse(form);
     if (!parsed.success) {
       showValidationError(firstZodMessage(parsed.error));
       return;
     }
+
+    // Idempotência entre sessões/refresh: hash do payload + janela de 5 min
+    const payloadHash = hashPayload(parsed.data as unknown as Record<string, string>);
+    try {
+      const raw = sessionStorage.getItem(SUBMIT_DEDUPE_KEY);
+      if (raw) {
+        const prev = JSON.parse(raw) as { hash: string; ts: number };
+        if (prev.hash === payloadHash && Date.now() - prev.ts < SUBMIT_DEDUPE_WINDOW_MS) {
+          toast.info("Já recebemos esta simulação há instantes. Vamos te chamar no WhatsApp!");
+          const { name, whatsapp, city, tipo, credito, horario } = parsed.data;
+          const msg = `Olá, sou ${name} (${whatsapp}), de ${city}. Quero simular um consórcio de ${tipo} com crédito de ${credito}. Melhor horário: ${horario}.`;
+          window.open(`https://wa.me/551151997500?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+          return;
+        }
+      }
+    } catch { /* sessionStorage indisponível — segue normal */ }
+
+    submittingRef.current = true;
     setLoading(true);
     try {
       const { name, whatsapp, city, tipo, credito, horario } = parsed.data;
@@ -198,12 +232,19 @@ const Consorcio = () => {
       }
       trackCotacaoSubmit("consorcio", { origin: "consorcio_simulacao" });
       toast.success("Recebemos sua solicitação! Um consultor da Patro responderá em breve.");
+      try {
+        sessionStorage.setItem(
+          SUBMIT_DEDUPE_KEY,
+          JSON.stringify({ hash: payloadHash, ts: Date.now() }),
+        );
+      } catch { /* ignore */ }
       setForm({ name: "", whatsapp: "", city: "Guarulhos", tipo: "", credito: "", horario: "" });
     } catch (err) {
       console.error("Consorcio submit failed", err);
       showFriendlyError();
     } finally {
       setLoading(false);
+      submittingRef.current = false;
     }
   };
 
