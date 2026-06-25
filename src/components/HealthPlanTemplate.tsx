@@ -40,7 +40,7 @@ const HealthPlanTemplate = ({ operator, description, benefits, faqs, accentColor
               <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white border border-slate-200 text-slate-600">
                 Operadora Parceira em Guarulhos
               </span>
-              <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900">
                 Plano de Saúde <span style={{ color: accentColor }}>{operator}</span> em Guarulhos
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">

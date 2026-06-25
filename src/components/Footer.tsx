@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { SmartLink } from "./SmartLink";
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
@@ -29,6 +29,28 @@ const Footer = memo(() => {
               <SeloMelhorCorretora size="sm" />
               <p className="text-[12px]">SUSEP 212113511<br />CNPJ 41.641.558/0001-33</p>
             </div>
+            <ul className="space-y-2 mb-6 text-[12.5px] text-white/75">
+              <li className="flex items-start gap-2">
+                <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-white/50" aria-hidden="true" />
+                <span>Av. Salgado Filho, 2120 – Sala 219<br />Cidade Maia, Guarulhos/SP</span>
+              </li>
+              <li>
+                <a href="tel:1151997500" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Phone className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
+                  <span>(11) 5199-7500</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Mail className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
+                  <span>contato@patroseguros.com.br</span>
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Clock className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
+                <span>Seg. a Sex. 8h30–18h • WhatsApp 24h</span>
+              </li>
+            </ul>
             <div className="flex gap-3">
               <TooltipProvider>
                 {[
