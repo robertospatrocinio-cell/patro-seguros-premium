@@ -99,7 +99,7 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
                 <Award className="w-4 h-4 text-primary" />
                 <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600">Principal Parceira em Guarulhos</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-black tracking-tighter text-slate-900 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
                 Seguro Auto <span style={{ color: accentColor }}>{insurer}</span> em Guarulhos
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
