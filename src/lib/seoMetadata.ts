@@ -291,7 +291,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
         "description": p.description,
         "url": `${DOMAIN}${cleanPath}`,
         "isPartOf": { "@type": "WebSite", "name": "Patro Seguros", "url": DOMAIN },
-        "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN },
+        "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN, "image": `${DOMAIN}/images/logo-full.webp`, "priceRange": "$$" },
       }
     : {
         "@context": "https://schema.org",
@@ -305,6 +305,8 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
           "name": "Patro Seguros",
           "url": DOMAIN,
           "telephone": "+55-11-5199-7500",
+          "image": `${DOMAIN}/images/logo-full.webp`,
+          "priceRange": "$$",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Guarulhos",
