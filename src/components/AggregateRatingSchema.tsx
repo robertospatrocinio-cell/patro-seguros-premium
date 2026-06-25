@@ -41,7 +41,7 @@ const AggregateRatingSchema = ({
     url,
     ...(description ? { description } : {}),
     provider: {
-      "@type": "InsuranceAgency",
+      "@type": "Organization",
       "@id": "https://www.patroseguros.com.br/#organization",
       name: "Patro Seguros",
       url: "https://www.patroseguros.com.br",
