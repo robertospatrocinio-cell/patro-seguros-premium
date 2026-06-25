@@ -184,6 +184,8 @@ const SeguroAgro = () => {
       name: "Patro Seguros",
       url: "https://patroseguros.com.br/",
       telephone: "+55-11-5199-7500",
+      image: "https://www.patroseguros.com.br/images/logo-full.webp",
+      priceRange: "$$",
       areaServed: { "@type": "Country", name: "Brasil" },
       address: {
         "@type": "PostalAddress",
