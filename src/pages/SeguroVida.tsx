@@ -17,6 +17,7 @@ const SeguroVida = () => {
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
       title="Seguro de Vida em Guarulhos | Cotação em 2h | Patro Seguros"
+      headline="Seguro de vida em Guarulhos para proteger sua família"
       subtitle="Consultoria sensível e técnica para garantir estabilidade à sua família — em qualquer cenário"
       icon="❤️"
       metaDescription="Seguro de vida em Guarulhos: proteção familiar completa contra morte, invalidez e doenças graves. Cotação em 2h com as melhores seguradoras na Patro Seguros."
