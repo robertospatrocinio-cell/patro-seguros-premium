@@ -84,7 +84,6 @@ const SeguroAuto = () => {
     <>
       <PageMeta
         title="Seguro Auto em Guarulhos | Cotação em 2h | Patro Seguros"
-      headline="Seguro Auto em Guarulhos com cotação em 2 horas"
         description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
       />
       <OrganizationSchema />
