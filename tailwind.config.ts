@@ -73,10 +73,13 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Work Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Instrument Serif', 'Cormorant Garamond', 'Georgia', 'serif'],
-        display: ['Instrument Serif', 'Cormorant Garamond', 'Georgia', 'serif'],
-        serif: ['Instrument Serif', 'Cormorant Garamond', 'Georgia', 'serif'],
+        // SF Pro stack — native on Apple devices, Inter/system fallback elsewhere.
+        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        heading: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        display: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        serif: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        rounded: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Rounded"', '"SF Pro"', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['ui-monospace', '"SF Mono"', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
