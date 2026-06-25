@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
 interface ServiceSchemaProps {
@@ -8,10 +9,13 @@ interface ServiceSchemaProps {
 }
 
 const ServiceSchema = ({ name, description, serviceType = "Insurance" }: ServiceSchemaProps) => {
+  const { pathname } = useLocation();
+  // Normalize: strip trailing slash so we never emit `//#service`
+  const cleanPath = pathname === "/" ? "" : pathname.replace(/\/+$/, "");
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${CANONICAL_BASE_URL}${window.location.pathname}/#service`,
+    "@id": `${CANONICAL_BASE_URL}${cleanPath}/#service`,
     "name": name,
     "description": description,
     "provider": {
