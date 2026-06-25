@@ -502,7 +502,10 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         "name": localConfig.title,
         "provider": {
           "@type": "InsuranceAgency",
-          "name": "Patro Seguros"
+          "name": "Patro Seguros",
+          "url": DOMAIN,
+          "image": `${DOMAIN}/images/logo-full.webp`,
+          "priceRange": "$$"
         },
         "areaServed": {
           "@type": "City",
