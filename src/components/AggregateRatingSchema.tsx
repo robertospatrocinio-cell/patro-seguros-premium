@@ -32,48 +32,43 @@ const AggregateRatingSchema = ({
   description,
   rating = PATRO_RATING,
 }: AggregateRatingSchemaProps) => {
+  // Review-snippet eligible parent type → LocalBusiness (InsuranceAgency).
+  // Google rejects `Service` as a valid parent for AggregateRating, so we
+  // attach the rating directly to the InsuranceAgency entity.
+  const agencyId = "https://www.patroseguros.com.br/#insurance-agency";
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${url}/#service-rating`,
-    name: serviceName,
-    serviceType: serviceName,
-    url,
+    "@type": "InsuranceAgency",
+    "@id": agencyId,
+    name: "Patro Seguros",
+    url: "https://www.patroseguros.com.br",
+    telephone: "+551151997500",
+    image: "https://www.patroseguros.com.br/images/logo-full.webp",
+    priceRange: "$$",
     ...(description ? { description } : {}),
-    provider: {
-      "@type": "Organization",
-      "@id": "https://www.patroseguros.com.br/#organization",
-      name: "Patro Seguros",
-      url: "https://www.patroseguros.com.br",
-      telephone: "+551151997500",
-      image: "https://www.patroseguros.com.br/images/logo-full.webp",
-      priceRange: "$$",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
-        addressLocality: "Guarulhos",
-        addressRegion: "SP",
-        postalCode: "07115-000",
-        addressCountry: "BR",
-      },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
+      addressLocality: "Guarulhos",
+      addressRegion: "SP",
+      postalCode: "07115-000",
+      addressCountry: "BR",
     },
     areaServed: [
       { "@type": "City", name: "Guarulhos", sameAs: "https://pt.wikipedia.org/wiki/Guarulhos" },
       { "@type": "City", name: "São Paulo", sameAs: "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo" },
       { "@type": "Country", name: "Brasil" },
     ],
+    makesOffer: {
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: serviceName, url },
+    },
     aggregateRating: {
       "@type": "AggregateRating",
-      "@id": `${url}/#aggregate-rating`,
       ratingValue: rating.ratingValue,
       reviewCount: rating.reviewCount,
       bestRating: rating.bestRating,
       worstRating: rating.worstRating,
-      itemReviewed: {
-        "@type": "Service",
-        "name": serviceName,
-        "@id": `${url}/#service`
-      },
     },
   };
 

@@ -54,6 +54,9 @@ const LocalAreaSchema = ({
   const agencyId = "https://www.patroseguros.com.br/#insurance-agency";
   const serviceId = `${url}#service`;
 
+  // Review-snippet eligible parent type → LocalBusiness (InsuranceAgency).
+  // Google does NOT accept aggregateRating on a generic `Service`, so we
+  // attach the rating to the agency node and reference it via @id.
   const aggregateRatingNode = {
     "@type": "AggregateRating",
     "@id": ratingId,
@@ -61,6 +64,26 @@ const LocalAreaSchema = ({
     reviewCount: PATRO_RATING.reviewCount,
     bestRating: PATRO_RATING.bestRating,
     worstRating: PATRO_RATING.worstRating,
+    itemReviewed: { "@id": agencyId },
+  };
+
+  const agencyNode = {
+    "@type": "InsuranceAgency",
+    "@id": agencyId,
+    name: "Patro Seguros",
+    url: "https://www.patroseguros.com.br",
+    telephone: "+551151997500",
+    image: "https://www.patroseguros.com.br/images/logo-full.webp",
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
+      addressLocality: "Guarulhos",
+      addressRegion: "SP",
+      postalCode: "07115-000",
+      addressCountry: "BR",
+    },
+    aggregateRating: { "@id": ratingId },
   };
 
   const serviceNode: Record<string, unknown> = {
@@ -71,24 +94,7 @@ const LocalAreaSchema = ({
     description,
     url,
     areaServed,
-    provider: {
-      "@type": "InsuranceAgency",
-      "@id": agencyId,
-      name: "Patro Seguros",
-      url: "https://www.patroseguros.com.br",
-      telephone: "+551151997500",
-      image: "https://www.patroseguros.com.br/images/logo-full.webp",
-      priceRange: "$$",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
-        addressLocality: "Guarulhos",
-        addressRegion: "SP",
-        postalCode: "07115-000",
-        addressCountry: "BR",
-      },
-    },
-    aggregateRating: { "@id": ratingId },
+    provider: { "@id": agencyId },
   };
 
   if (priceRange) {
@@ -101,7 +107,7 @@ const LocalAreaSchema = ({
     };
   }
 
-  const graph: Record<string, unknown>[] = [serviceNode, aggregateRatingNode];
+  const graph: Record<string, unknown>[] = [agencyNode, serviceNode, aggregateRatingNode];
 
   const validFaqs = faqs?.filter(faq => faq.question?.trim() && faq.answer?.trim()) || [];
 
