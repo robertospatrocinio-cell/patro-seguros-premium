@@ -8,6 +8,7 @@ const SeguroEmpresarial = () => {
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
       title="Seguro Empresarial em Guarulhos | Cotação em 2h | Patro Seguros"
+      headline="Seguro empresarial em Guarulhos para PMEs e indústrias"
       subtitle="Consultoria empresarial dedicada a proteger patrimônio, faturamento e a continuidade do seu negócio"
       icon="🏢"
       metaDescription="Seguro empresarial em Guarulhos: proteja seu negócio contra incêndio, roubo e lucros cessantes. Cotação em 2h com consultoria especializada na Patro Seguros."
