@@ -492,6 +492,7 @@ const App = () => {
                   <Route path="/seguro-auto-guarulhos" element={<SeoSeguroAutoGuarulhos />} />
                   {/* Consórcio */}
                   <Route path="/consorcio" element={<Consorcio />} />
+                  <Route path="/consorcio-guarulhos" element={<Navigate to="/consorcio" replace />} />
                   <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
                   <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
                   <Route path="/consorcio-veiculos-pesados" element={<ConsorcioVeiculosPesados />} />
