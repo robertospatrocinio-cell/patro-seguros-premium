@@ -4,24 +4,19 @@ import { CANONICAL_BASE_URL } from "@/lib/canonical";
 const MedicalOrganizationSchema = () => {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "MedicalOrganization",
-    "@id": `${CANONICAL_BASE_URL}/#medical-organization`,
-    "name": "Patro Seguros - Especialista em Saúde",
-    "description": "Corretora especializada em planos de saúde e seguros médicos em Guarulhos.",
+    "@type": "Service",
+    "@id": `${CANONICAL_BASE_URL}/planos-de-saude/#health-insurance-service`,
+    "name": "Corretagem de Planos de Saúde em Guarulhos",
+    "description": "Corretora especializada em planos de saúde e seguros médicos em Guarulhos — Hapvida/NotreDame, Unimed, SulAmérica, Bradesco Saúde, Amil, Omint, Porto, Prevent Senior e MedSenior.",
+    "serviceType": "Health Insurance Brokerage",
     "url": `${CANONICAL_BASE_URL}/planos-de-saude`,
-    "parentOrganization": {
+    "provider": {
       "@id": `${CANONICAL_BASE_URL}/#organization`
     },
-    "knowsAbout": [
-      "Health Insurance",
-      "Medical Brokerage"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Guarulhos",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    }
+    "areaServed": [
+      { "@type": "City", "name": "Guarulhos" },
+      { "@type": "State", "name": "São Paulo" }
+    ]
   };
 
   return (
