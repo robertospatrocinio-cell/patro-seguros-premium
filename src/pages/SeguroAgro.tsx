@@ -189,8 +189,10 @@ const SeguroAgro = () => {
       areaServed: { "@type": "Country", name: "Brasil" },
       address: {
         "@type": "PostalAddress",
+        streetAddress: "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
         addressLocality: "Guarulhos",
         addressRegion: "SP",
+        postalCode: "07115-000",
         addressCountry: "BR",
       },
     },

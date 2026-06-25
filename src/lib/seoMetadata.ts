@@ -309,8 +309,10 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
           "priceRange": "$$",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
             "addressLocality": "Guarulhos",
             "addressRegion": "SP",
+            "postalCode": "07115-000",
             "addressCountry": "BR",
           },
         },
@@ -375,8 +377,10 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         "telephone": "+55-11-5199-7500",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
           "addressLocality": "Guarulhos",
           "addressRegion": "SP",
+          "postalCode": "07115-000",
           "addressCountry": "BR"
         }
       }
