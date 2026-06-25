@@ -134,13 +134,67 @@ const Consorcio = () => {
     try {
       const { name, whatsapp, city, tipo, credito, horario } = parsed.data;
       const msg = `Olá, sou ${name} (${whatsapp}), de ${city}. Quero simular um consórcio de ${tipo} com crédito de ${credito}. Melhor horário: ${horario}.`;
+
+      // 1. Persistir lead no CRM (Supabase via Edge Function service-role)
+      const { error: crmError } = await submitLead({
+        full_name: name,
+        phone: whatsapp,
+        email: null,
+        insurance_type: "Consórcio",
+        source_page: "/consorcio",
+        raw_data: {
+          cidade: city,
+          tipo_consorcio: tipo,
+          credito_aproximado: credito,
+          melhor_horario: horario,
+          origem: "consorcio_simulacao",
+        },
+      });
+      if (crmError) {
+        console.error("Erro ao registrar lead de consórcio no CRM:", crmError);
+      }
+
+      // 2. Enviar e-mail de notificação SMTP (sanitizado com escapeHtml)
+      const subject = `Nova Simulação — Consórcio (${tipo})`;
+      const textBody = [
+        `Nova solicitação de simulação de consórcio.`,
+        ``,
+        `Nome: ${name}`,
+        `WhatsApp: ${whatsapp}`,
+        `Cidade: ${city}`,
+        `Tipo de consórcio: ${tipo}`,
+        `Crédito aproximado: ${credito}`,
+        `Melhor horário para contato: ${horario}`,
+        `Origem: /consorcio`,
+      ].join("\n");
+      const htmlBody = `
+        <h2>Nova Simulação de Consórcio — ${escapeHtml(tipo)}</h2>
+        <table style="border-collapse:collapse;width:100%;font-family:Arial,sans-serif">
+          <tr><td style="padding:6px;border:1px solid #ddd"><strong>Nome</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(name)}</td></tr>
+          <tr><td style="padding:6px;border:1px solid #ddd"><strong>WhatsApp</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(whatsapp)}</td></tr>
+          <tr><td style="padding:6px;border:1px solid #ddd"><strong>Cidade</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(city)}</td></tr>
+          <tr><td style="padding:6px;border:1px solid #ddd"><strong>Tipo de consórcio</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(tipo)}</td></tr>
+          <tr><td style="padding:6px;border:1px solid #ddd"><strong>Crédito aproximado</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(credito)}</td></tr>
+          <tr><td style="padding:6px;border:1px solid #ddd"><strong>Melhor horário</strong></td><td style="padding:6px;border:1px solid #ddd">${escapeHtml(horario)}</td></tr>
+          <tr><td style="padding:6px;border:1px solid #ddd"><strong>Origem</strong></td><td style="padding:6px;border:1px solid #ddd">/consorcio</td></tr>
+        </table>
+      `;
+      const { error: emailError } = await safeInvoke("send-form-email", {
+        subject, textBody, htmlBody,
+      });
+      if (emailError) {
+        handleSupabaseError(emailError, "Não foi possível registrar sua simulação digitalmente.");
+        toast.info("Você pode ligar para (11) 5199-7500 se o erro persistir.", { duration: 10000 });
+        return;
+      }
+
+      // 3. Abrir WhatsApp pré-preenchido (canal preferido de atendimento)
       const popup = window.open(
         `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`,
         "_blank", "noopener,noreferrer",
       );
       if (!popup) {
         showFriendlyError("Não conseguimos abrir o WhatsApp. Toque no botão para falar com a Patro.", { whatsappMessage: msg });
-        return;
       }
       trackCotacaoSubmit("consorcio", { origin: "consorcio_simulacao" });
       toast.success("Recebemos sua solicitação! Um consultor da Patro responderá em breve.");
