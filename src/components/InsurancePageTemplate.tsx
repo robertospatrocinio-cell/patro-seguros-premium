@@ -136,6 +136,12 @@ interface FeaturedArticle {
 
 interface InsurancePageProps {
   title: string;
+  /**
+   * H1 visível no hero. Quando omitido, usa `title` (o mesmo do <title> SEO),
+   * o que duplica title==h1 e prejudica o SEO. Sempre prefira passar um
+   * `headline` curto e humanizado, distinto do título da aba.
+   */
+  headline?: string;
   subtitle: string;
   description: string;
   icon: string;
