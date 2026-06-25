@@ -478,7 +478,9 @@ const Header = memo(() => {
                 </TooltipProvider>
               )}
               <Link to="/cotacao" onClick={() => trackCotacaoClick("header-desktop")}>
-                <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4">Cotação Grátis</Button>
+                <Button size="sm" className="rounded-lg text-[12px] font-semibold h-8 px-4 shadow-sm hover:shadow-md transition-shadow">
+                  Cotação grátis
+                </Button>
               </Link>
             </div>
 
