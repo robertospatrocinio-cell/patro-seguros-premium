@@ -7,7 +7,7 @@ const SeguroMoto = () => {
     <>
       <LocalAreaSchema
         serviceName="Seguro Moto"
-        url="https://patroseguros.lovable.app/seguro-moto"
+        url="https://www.patroseguros.com.br/seguro-moto"
         description="Seguro moto em Guarulhos: proteção contra roubo, furto e colisão."
         city="Guarulhos"
       />
@@ -108,7 +108,7 @@ Outro diferencial importante: motos exigem assistência 24h especializada. O gui
         { title: "Seguro de Frota", link: "/seguro-frota" },
       ]}
       quoteUrl="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
-      canonicalUrl="https://patroseguros.lovable.app/seguro-moto"
+      canonicalUrl="https://www.patroseguros.com.br/seguro-moto"
     />
     </>
   );

@@ -115,7 +115,7 @@ const SeguroBMW = () => {
       />
       <LocalAreaSchema
         serviceName="Seguro BMW"
-        url="https://patroseguros.lovable.app/seguro-bmw"
+        url="https://www.patroseguros.com.br/seguro-bmw"
         description="Seguro BMW em Guarulhos: proteção premium para Série 3, X1, X5 e mais."
         city="Guarulhos"
         faqs={faqs.map(f => ({ question: f.q, answer: f.a }))}
