@@ -1239,6 +1239,33 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_rich_results_checks: {
+        Row: {
+          checked_at: string
+          id: string
+          issues: Json
+          summary: Json
+          total_errors: number
+          total_warnings: number
+        }
+        Insert: {
+          checked_at?: string
+          id?: string
+          issues: Json
+          summary: Json
+          total_errors?: number
+          total_warnings?: number
+        }
+        Update: {
+          checked_at?: string
+          id?: string
+          issues?: Json
+          summary?: Json
+          total_errors?: number
+          total_warnings?: number
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
@@ -1571,6 +1598,7 @@ export type Database = {
         }[]
       }
       text_to_bytea: { Args: { data: string }; Returns: string }
+      trigger_monitor_rich_results: { Args: never; Returns: undefined }
       trigger_quote_reminders: { Args: never; Returns: undefined }
       urlencode:
         | { Args: { data: Json }; Returns: string }
