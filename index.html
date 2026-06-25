@@ -15,15 +15,15 @@
     <style>
       :root{--background:0 0% 100%;--foreground:220 25% 10%;--border:220 13% 91%;--primary:210 100% 20%;--primary-foreground:0 0% 100%;--muted-foreground:220 8% 46%;--gradient-hero:linear-gradient(165deg,hsl(210 30% 6%) 0%,hsl(210 60% 14%) 50%,hsl(210 70% 18%) 100%);--radius:0.625rem}
       @font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url('/fonts/inter-latin.woff2') format('woff2');unicode-range:U+0000-00FF}
-      body{margin:0;background-color:white;color:hsl(var(--foreground));font-family:'Work Sans','Inter',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;min-height:100vh;font-weight:400}
-      h1,h2,h3{font-family:'Instrument Serif','Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:-0.015em}
+      body{margin:0;background-color:white;color:hsl(var(--foreground));font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro",Inter,system-ui,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;min-height:100vh;font-weight:400}
+      h1,h2,h3{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro",Inter,system-ui,Helvetica,Arial,sans-serif;font-weight:600;letter-spacing:-0.015em}
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
       .gradient-hero{background:var(--gradient-hero)}
       .skip-link:focus{position:fixed;top:1rem;left:1rem;z-index:9999;padding:1rem 2rem;background:hsl(210 100% 20%);color:white;border-radius:0.5rem;text-decoration:none}
       #root{min-height:100vh}
       #initial-loader{position:fixed;inset:0;background:white;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s ease-out, visibility 0.5s}
       .loader-spinner{width:40px;height:40px;border:3px solid #f3f3f3;border-top:3px solid #1e3a8a;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:1rem}
-      .loader-text{font-family:'Inter',sans-serif;color:#1e3a8a;font-weight:600;font-size:14px}
+      .loader-text{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,sans-serif;color:#1e3a8a;font-weight:600;font-size:14px}
       .retry-button{display:none;margin-top:1rem;padding:0.5rem 1rem;background:#1e3a8a;color:white;border-radius:0.5rem;border:none;cursor:pointer;font-weight:600}
       @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
       .loaded #initial-loader{opacity:0;visibility:hidden;pointer-events:none}
