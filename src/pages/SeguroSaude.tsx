@@ -8,6 +8,7 @@ const SeguroSaude = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Saúde / Plano de Saúde"
+      headline="Plano de saúde e seguro saúde em Guarulhos com consultoria comparativa"
       subtitle="Acesso a atendimento médico de qualidade quando você mais precisa"
       icon="🏥"
       metaDescription="Plano de Saúde e Seguro Saúde. Compare Bradesco, Amil, SulAmérica, Porto Saúde e mais. Individual, familiar e empresarial. Cotação grátis Patro Seguros."
