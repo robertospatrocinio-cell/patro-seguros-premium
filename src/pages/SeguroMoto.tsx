@@ -14,6 +14,7 @@ const SeguroMoto = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Moto em Guarulhos | Cotação em 2h | Patro Seguros"
+      headline="Seguro moto em Guarulhos com assistência 24 horas"
       subtitle="Proteção completa para motociclistas com cobertura e assistência 24h especializada"
       icon="🏍️"
       metaDescription="Seguro moto em Guarulhos: proteção contra roubo, furto e colisão. Assistência 24h especializada e cotação em até 2 horas na Patro Seguros."
