@@ -57,12 +57,9 @@ const seoLocalGuarulhos: SitemapEntry[] = [
   "/seguros-shopping-maia-cidade-maia-guarulhos",
   "/seguro-vida-guarulhos",
   "/seguro-uber-guarulhos",
-  "/seguro-empresa-guarulhos",
   "/seguro-para-motorista-app-guarulhos",
   "/seguro-auto-por-modelo-guarulhos",
-   "/seguros-em-guarulhos-bairros",
    "/seguros-guarulhos",
-   "/seguros-guarulhos-bairros",
    "/seguro-empresarial/segmentos",
  ].map(loc => ({ loc, priority: "0.9", changefreq: "weekly" }));
 
@@ -90,7 +87,7 @@ const secondaryProducts: SitemapEntry[] = [
 ].map(loc => ({ loc, priority: "0.7", changefreq: "monthly" }));
 
 const tertiaryProducts: SitemapEntry[] = [
-  "/seguro-bike", "/seguro-funeral", "/seguro-decesso",
+  "/seguro-bike", "/seguro-bmw", "/seguro-funeral", "/seguro-decesso",
   "/seguro-carta-verde", "/seguro-garantia", "/seguro-estagiario",
   "/seguro-imobiliario", "/seguro-lojas-shopping", "/seguro-armazenagem",
   "/seguro-placa-solar", "/seguro-maquinas-industriais",
@@ -102,7 +99,7 @@ const tertiaryProducts: SitemapEntry[] = [
   "/seguro-rc-medicos", "/seguro-rc-dentistas", "/seguro-rc-advogados",
   "/seguro-rc-engenheiros", "/seguro-rc-veterinarios", "/seguro-rc-executivos",
   "/seguro-rc-obras", "/seguro-rc-prestacao-servicos", "/seguro-rc-eventos",
-  "/plano-pet", "/consorcio-carro", "/consorcio-imoveis",
+  "/plano-pet", "/servicos", "/consorcio-carro", "/consorcio-imoveis",
   "/consorcio-veiculos-pesados",
 ].map(loc => ({ loc, priority: "0.6", changefreq: "monthly" }));
 
@@ -314,8 +311,6 @@ export function generateSitemap(blogSlugs: string[]): string {
     "/seguro-odonto", "/seguro-acidentes-pessoais", "/seguro-funeral",
     "/seguro-decesso", "/seguro-viagem", "/previdencia-privada",
     "/plano-pet",
-    "/planos-de-saude/prevent-senior-guarulhos",
-    "/planos-de-saude/sulamerica-saude-guarulhos",
     "/planos-de-saude/amil-saude-guarulhos",
     "/planos-de-saude/porto-saude-guarulhos",
     "/planos-de-saude/hapvida-guarulhos",
@@ -359,8 +354,6 @@ export function generateSitemap(blogSlugs: string[]): string {
   autoRoutes.add("/seguradoras/mitsui-guarulhos");
 
   const healthPlanEntries: SitemapEntry[] = [
-    "/planos-de-saude/prevent-senior-guarulhos",
-    "/planos-de-saude/sulamerica-saude-guarulhos",
     "/planos-de-saude/amil-saude-guarulhos",
     "/planos-de-saude/porto-saude-guarulhos",
     "/planos-de-saude/hapvida-guarulhos",
