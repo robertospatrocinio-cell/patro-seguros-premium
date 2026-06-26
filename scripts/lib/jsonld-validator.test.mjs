@@ -4,6 +4,7 @@ import {
   validateBreadcrumb,
   validateLocalBusiness,
   validateFAQ,
+  validateArticle,
   validateNode,
   validateJsonLdBlock,
   validateHtml,
@@ -184,5 +185,86 @@ describe("validateHtml — integração", () => {
       telephone: "+5511",
     })}</script>`;
     expect(validateHtml(html).errors).toEqual([]);
+  });
+});
+
+describe("validateArticle / BlogPosting", () => {
+  const base = {
+    "@type": "BlogPosting",
+    headline: "Como contratar seguro de galpão em Guarulhos",
+    author: { "@type": "Person", name: "Roberto Patrocínio" },
+    datePublished: "2026-06-26",
+    image: "https://x/cover.webp",
+  };
+
+  it("passa com campos mínimos", () => {
+    const errors = []; validateArticle(base, errors, "L");
+    expect(errors).toEqual([]);
+  });
+
+  it("aceita author como string", () => {
+    const errors = []; validateArticle({ ...base, author: "Sandra" }, errors, "L");
+    expect(errors).toEqual([]);
+  });
+
+  it("aceita author como array de objetos", () => {
+    const errors = []; validateArticle({ ...base, author: [{ name: "A" }, { name: "B" }] }, errors, "L");
+    expect(errors).toEqual([]);
+  });
+
+  it("aceita image como array ou ImageObject", () => {
+    const e1 = []; validateArticle({ ...base, image: ["https://x/a.webp"] }, e1, "L");
+    const e2 = []; validateArticle({ ...base, image: { "@type": "ImageObject", url: "https://x/b.webp" } }, e2, "L");
+    expect(e1).toEqual([]); expect(e2).toEqual([]);
+  });
+
+  it("flagra headline ausente", () => {
+    const errors = []; validateArticle({ ...base, headline: "" }, errors, "L");
+    expect(errors[0]).toMatch(/faltando headline/);
+  });
+
+  it("flagra headline > 110 chars", () => {
+    const errors = []; validateArticle({ ...base, headline: "x".repeat(111) }, errors, "L");
+    expect(errors.some((e) => e.includes("> 110 chars"))).toBe(true);
+  });
+
+  it("flagra author ausente ou objeto sem name", () => {
+    const e1 = []; validateArticle({ ...base, author: undefined }, e1, "L");
+    const e2 = []; validateArticle({ ...base, author: { "@type": "Person" } }, e2, "L");
+    expect(e1.some((e) => e.includes("faltando author"))).toBe(true);
+    expect(e2.some((e) => e.includes("faltando author"))).toBe(true);
+  });
+
+  it("flagra datePublished ausente ou em formato inválido", () => {
+    const e1 = []; validateArticle({ ...base, datePublished: undefined }, e1, "L");
+    const e2 = []; validateArticle({ ...base, datePublished: "26/06/2026" }, e2, "L");
+    expect(e1.some((e) => e.includes("faltando datePublished"))).toBe(true);
+    expect(e2.some((e) => e.includes("ISO 8601"))).toBe(true);
+  });
+
+  it("aceita datePublished com timezone", () => {
+    const errors = []; validateArticle({ ...base, datePublished: "2026-06-26T10:00:00-03:00" }, errors, "L");
+    expect(errors).toEqual([]);
+  });
+
+  it("flagra dateModified inválido quando presente", () => {
+    const errors = []; validateArticle({ ...base, dateModified: "ontem" }, errors, "L");
+    expect(errors.some((e) => e.includes("dateModified"))).toBe(true);
+  });
+
+  it("flagra image ausente", () => {
+    const errors = []; validateArticle({ ...base, image: undefined }, errors, "L");
+    expect(errors.some((e) => e.includes("faltando image"))).toBe(true);
+  });
+
+  it("é despachado por validateNode via @type BlogPosting/Article/NewsArticle", () => {
+    const post = { "@context": "https://schema.org", ...base };
+    const news = { "@context": "https://schema.org", ...base, "@type": "NewsArticle" };
+    const art = { "@context": "https://schema.org", ...base, "@type": "Article", headline: undefined };
+    const e1 = []; validateNode(post, e1);
+    const e2 = []; validateNode(news, e2);
+    const e3 = []; validateNode(art, e3);
+    expect(e1).toEqual([]); expect(e2).toEqual([]);
+    expect(e3.some((e) => e.includes("faltando headline"))).toBe(true);
   });
 });
