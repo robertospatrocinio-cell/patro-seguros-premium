@@ -577,7 +577,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
           "@type": "BlogPosting",
           "headline": post.title,
           "description": post.excerpt,
+          "image": [`${DOMAIN}/images/og-cover.webp`],
           "datePublished": post.date,
+          "dateModified": post.date,
           "author": {
             "@type": "Person",
             "name": post.author
