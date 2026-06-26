@@ -688,7 +688,8 @@ const App = () => {
                   {/* Fase 3: últimos resíduos */}
                   <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
                   <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
-                  <Route path="/seguro-condominio-guarulhos" element={<Navigate to="/seguro-condominio" replace />} />
+                  <Route path="/seguro-condominio-guarulhos" element={<SeoSeguroCondominioGuarulhos />} />
+                  <Route path="/seguro-fianca-guarulhos" element={<Navigate to="/seguro-fianca" replace />} />
                   <Route path="/seguro-carro-eletrico-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-civic-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-compass-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
