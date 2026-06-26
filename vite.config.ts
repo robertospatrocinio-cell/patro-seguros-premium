@@ -275,6 +275,15 @@ function spaFallbackPlugin(): Plugin {
         console.error("❌ Validação de JSON-LD falhou. Build abortado.");
         process.exit(1);
       }
+
+      // Canonical self-reference + hierarquia de headings (h1 único, sem saltos).
+      try {
+        console.log("🔎 Validando canonical e hierarquia de headings...");
+        execSync("node scripts/validate-canonical-headings-build.mjs", { stdio: "inherit" });
+      } catch (err) {
+        console.error("❌ Validação de canonical/headings falhou. Build abortado.");
+        process.exit(1);
+      }
     },
   };
 }

@@ -12,7 +12,9 @@
     "check:links": "node scripts/check-internal-links.mjs",
     "test": "vitest run",
     "test:jsonld": "vitest run scripts/lib/jsonld-validator.test.mjs",
-    "validate:jsonld": "node scripts/validate-jsonld-build.mjs"
+    "test:canonical": "vitest run scripts/lib/canonical-heading-validator.test.mjs",
+    "validate:jsonld": "node scripts/validate-jsonld-build.mjs",
+    "validate:canonical": "node scripts/validate-canonical-headings-build.mjs"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
