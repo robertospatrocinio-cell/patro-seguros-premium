@@ -17,6 +17,8 @@
     "validate:canonical": "node scripts/validate-canonical-headings-build.mjs"
   },
   "dependencies": {
+    "@fontsource/epilogue": "^5.2.8",
+    "@fontsource/urbanist": "^5.2.7",
     "@hello-pangea/dnd": "^18.0.1",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
