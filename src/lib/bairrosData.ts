@@ -9,6 +9,9 @@ import imgGopouva from "@/assets/bairros/gopouva.webp";
 import imgBonsucesso from "@/assets/bairros/bonsucesso.webp";
 import imgParaventi from "@/assets/bairros/paraventi.webp";
 import imgContinental from "@/assets/bairros/continental.webp";
+import imgPimentas from "@/assets/bairros/pimentas.webp";
+import imgTaboao from "@/assets/bairros/taboao.webp";
+import imgVilaGalvao from "@/assets/bairros/vila-galvao.webp";
 
 export interface BairroFAQ {
   question: string;
@@ -23,6 +26,17 @@ export interface BairroData {
   descricao: string;
   image: string;
   faqs: BairroFAQ[];
+  testimonials?: BairroTestimonial[];
+  geo?: { latitude: number; longitude: number };
+}
+
+export interface BairroTestimonial {
+  author: string;
+  role: string;
+  product: string;
+  rating: 5 | 4;
+  text: string;
+  date: string; // YYYY-MM-DD
 }
 
 export const bairros: BairroData[] = [
