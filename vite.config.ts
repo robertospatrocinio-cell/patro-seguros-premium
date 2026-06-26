@@ -179,6 +179,18 @@ function sitemapPlugin(): Plugin {
       }
       const blogCategorySlugs = [...categorySet];
 
+      // Load blog author slugs from src/lib/blogAuthors.ts so /blog/autor/:slug
+      // pages are indexed alongside articles and categories.
+      const blogAuthorSlugs: string[] = [];
+      try {
+        const authorsMod = await loadDataModule("src/lib/blogAuthors.ts");
+        if (Array.isArray(authorsMod.blogAuthors)) {
+          blogAuthorSlugs.push(...authorsMod.blogAuthors.map((a: any) => a.slug));
+        }
+      } catch (err) {
+        console.warn("⚠️  sitemap: falha ao carregar autores do blog —", err instanceof Error ? err.message : err);
+      }
+
       // Load local SEO page slugs at build time so sitemap-bairros.xml stays
       // in sync automatically with all local SEO data files.
       const localSlugs: string[] = [];
@@ -212,7 +224,7 @@ function sitemapPlugin(): Plugin {
          console.warn("⚠️  sitemap: falha ao carregar segmentos empresariais —", err instanceof Error ? err.message : err);
        }
  
-       const { index, files } = (generateSitemapBundle as any)(slugs, localSlugs, segmentSlugs, blogCategorySlugs);
+       const { index, files } = (generateSitemapBundle as any)(slugs, localSlugs, segmentSlugs, blogCategorySlugs, blogAuthorSlugs);
       const outDir = path.resolve(__dirname, "dist");
       fs.mkdirSync(outDir, { recursive: true });
       // Cluster sitemaps + legacy flat sitemap.xml
