@@ -1,11 +1,12 @@
 import { useState, useMemo, Fragment, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, User } from "lucide-react";
+import { ArrowRight, Calendar, Clock, User, Search, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@/lib/blogData";
@@ -13,16 +14,49 @@ import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@
 const POSTS_PER_PAGE = 9;
 
 const Blog = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryFromUrl = searchParams.get("q") ?? "";
+  const categoryFromUrl = searchParams.get("categoria") ?? "";
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [query, setQuery] = useState(queryFromUrl);
+
+  // Hydrate from URL params (?q=...&categoria=...) so search is shareable + SEO-aware.
+  useEffect(() => {
+    setQuery(queryFromUrl);
+    setSelectedCategory(
+      categoryFromUrl
+        ? allCategories.find(c => slugifyCategory(c) === categoryFromUrl) ?? null
+        : null,
+    );
+  }, [queryFromUrl, categoryFromUrl]);
+
+  // Reflect query/category state back into the URL (debounced via useEffect).
+  useEffect(() => {
+    const next = new URLSearchParams(searchParams);
+    if (query.trim()) next.set("q", query.trim()); else next.delete("q");
+    if (selectedCategory) next.set("categoria", slugifyCategory(selectedCategory));
+    else next.delete("categoria");
+    if (next.toString() !== searchParams.toString()) {
+      setSearchParams(next, { replace: true });
+    }
+  }, [query, selectedCategory, searchParams, setSearchParams]);
 
   const filtered = useMemo(() => {
     let list = [...articles].sort((a, b) => b.date.localeCompare(a.date));
     if (selectedCategory) list = list.filter(a => a.category === selectedCategory);
     if (selectedTag) list = list.filter(a => a.tags.includes(selectedTag));
+    const q = query.trim().toLowerCase();
+    if (q) {
+      list = list.filter(a =>
+        a.title.toLowerCase().includes(q) ||
+        a.excerpt.toLowerCase().includes(q) ||
+        a.tags.some(t => t.toLowerCase().includes(q)),
+      );
+    }
     return list;
-  }, [selectedCategory, selectedTag]);
+  }, [selectedCategory, selectedTag, query]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const currentArticles = useMemo(() => {
@@ -32,12 +66,23 @@ const Blog = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, selectedTag]);
+  }, [selectedCategory, selectedTag, query]);
 
+  const isSearching = query.trim().length > 0 || !!selectedCategory;
+  const pageTitle = isSearching
+    ? `Busca${query.trim() ? `: "${query.trim()}"` : ""}${selectedCategory ? ` em ${selectedCategory}` : ""} | Blog Patro Seguros`
+    : "Blog – Dicas e Guias sobre Seguros";
+  const pageDescription = isSearching
+    ? `${filtered.length} ${filtered.length === 1 ? "artigo encontrado" : "artigos encontrados"}${query.trim() ? ` para "${query.trim()}"` : ""}${selectedCategory ? ` na categoria ${selectedCategory}` : ""} no blog da Patro Seguros.`
+    : "Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio.";
 
   return (
     <Fragment>
-      <PageMeta title="Blog – Dicas e Guias sobre Seguros" description="Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio." />
+      <PageMeta
+        title={pageTitle}
+        description={pageDescription}
+        noindex={isSearching}
+      />
       <Header />
       <main id="main-content" className="outline-none">
         <section className="gradient-hero py-20">
