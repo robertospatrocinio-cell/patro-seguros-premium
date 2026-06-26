@@ -33,7 +33,7 @@ export function validateLocalBusiness(node, errors, label) {
   if (!node.address) errors.push(`${label} ${node["@type"]}: faltando address`);
   else if (!node.address.streetAddress) errors.push(`${label} ${node["@type"]}: address.streetAddress ausente`);
   if (!node.telephone) errors.push(`${label} ${node["@type"]}: faltando telephone`);
-  if (node.aggregateRating) {
+  if (node.aggregateRating && node.aggregateRating.ratingValue !== undefined) {
     const v = Number(node.aggregateRating.ratingValue);
     if (Number.isNaN(v) || v < 0 || v > 5) errors.push(`${label} aggregateRating.ratingValue inválido`);
   }
@@ -107,6 +107,10 @@ export function validateNode(node, errors, label = "root") {
     return;
   }
   if (!node["@context"]) errors.push(`${label}: faltando @context`);
+  if (Array.isArray(node["@graph"])) {
+    node["@graph"].forEach((n, i) => validateNode({ "@context": node["@context"], ...n }, errors, `${label}@graph[${i}]`));
+    return;
+  }
   if (!node["@type"]) { errors.push(`${label}: faltando @type`); return; }
   const type = Array.isArray(node["@type"]) ? node["@type"][0] : node["@type"];
   if (type === "BreadcrumbList") validateBreadcrumb(node, errors, label);
