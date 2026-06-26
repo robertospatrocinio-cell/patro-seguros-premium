@@ -21,7 +21,10 @@ const EXPECTED_HOST = process.env.EXPECTED_HOST || "www.patroseguros.com.br";
 // Páginas que legitimamente NÃO devem ser validadas
 // (assets, fallback SPA, páginas de funil/admin).
 const SKIP = new Set(["404.html"]);
-const SKIP_PREFIXES = ["assets/", "admin/"];
+// /artigos/* é mirror de /blog/* (mesmo componente, mesmos slugs). O canonical
+// aponta para /blog/:slug e o /blog/:slug já é validado. Pular evita duplicar
+// erros e bloquear o publish por uma rota espelho.
+const SKIP_PREFIXES = ["assets/", "admin/", "artigos/"];
 
 if (!fs.existsSync(DIST)) {
   console.error("❌ dist/ não encontrado — execute o build antes.");
