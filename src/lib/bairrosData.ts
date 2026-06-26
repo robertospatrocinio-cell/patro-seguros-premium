@@ -155,6 +155,11 @@ export const bairros: BairroData[] = [
      subtitulo: "Seguros para o bairro em expansão de Guarulhos",
      descricao: "Bonsucesso cresce com o Shopping Bonsucesso como âncora e acesso direto à Dutra, com novos empreendimentos surgindo a cada mês. A região combina logística, comércio e residências. A Patro Seguros acompanha essa expansão com seguro empresarial para novos negócios, seguro auto para moradores e proteção patrimonial para investidores que apostam no futuro de Bonsucesso.",
      image: imgBonsucesso,
+    geo: { latitude: -23.4128, longitude: -46.4214 },
+    testimonials: [
+      { author: "André S.", role: "Lojista — Shopping Bonsucesso", product: "Seguro Empresarial", rating: 5, date: "2026-05-02", text: "Inauguração de loja exigiu certificado pela administração do shopping. A Patro entregou apólice em 2 dias úteis, com RC operações e lucros cessantes — exatamente como o regulamento pedia." },
+      { author: "Joana T.", role: "Moradora — Bonsucesso", product: "Seguro Auto", rating: 5, date: "2026-04-19", text: "Comparei 3 corretoras antes de fechar. A Patro trouxe Porto e HDI lado a lado com R$ 540 de diferença anual. Ainda incluiu rastreador sem custo extra." },
+    ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-bonsucesso", neighborhood: "Bonsucesso", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 90/mês", reference: "próximo ao Shopping Bonsucesso" }),
        ...generateLocalFAQs({ slug: "auto-bonsucesso", neighborhood: "Bonsucesso", product: "auto", riskLevel: "médio", priceRange: "R$ 2.700 a R$ 5.100/ano", reference: "com acesso à Rodovia Pres. Dutra" }),
