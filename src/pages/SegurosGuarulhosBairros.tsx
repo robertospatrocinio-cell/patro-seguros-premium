@@ -321,6 +321,40 @@ const SegurosGuarulhosBairros = () => {
 
         {/* FORMULÁRIO */}
         <section className="py-16 bg-gray-50" ref={formRef}>
+          {selectedBairro.testimonials && selectedBairro.testimonials.length > 0 && (
+            <div className="container mx-auto px-4 mb-16">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#003366] text-center mb-2">
+                  Cases reais de clientes em {selectedBairro.nome}
+                </h2>
+                <p className="text-center text-gray-500 mb-8">
+                  Depoimentos de quem já protege patrimônio e família com a Patro Seguros em {selectedBairro.nome}
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {selectedBairro.testimonials.map((t, i) => (
+                    <Card key={`${selectedBairro.id}-t-${i}`} className="border-0 shadow-md bg-white">
+                      <CardContent className="pt-6 pb-6">
+                        <Quote className="h-6 w-6 text-[#F2994A] mb-3" aria-hidden />
+                        <div className="flex items-center gap-1 mb-3" aria-label={`${t.rating} de 5 estrelas`}>
+                          {Array.from({ length: t.rating }).map((_, k) => (
+                            <Star key={k} className="h-4 w-4 fill-[#F2994A] text-[#F2994A]" />
+                          ))}
+                        </div>
+                        <blockquote className="text-gray-700 leading-relaxed mb-4 italic">
+                          “{t.text}”
+                        </blockquote>
+                        <footer className="border-t pt-3">
+                          <p className="font-bold text-[#003366]">{t.author}</p>
+                          <p className="text-sm text-gray-500">{t.role}</p>
+                          <p className="text-xs text-[#F2994A] font-semibold mt-1 uppercase tracking-wide">{t.product}</p>
+                        </footer>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
           <div className="container mx-auto px-4">
             <div className="max-w-lg mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-[#003366] text-center mb-2">
