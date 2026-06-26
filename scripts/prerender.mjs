@@ -21,7 +21,7 @@ async function run() {
 
   // Load Sitemap logic to get all routes
   const { generateSitemapBundle } = await loadDataModule("scripts/generate-sitemap.ts");
-  const { articles } = await loadDataModule("src/lib/blogData.ts");
+  const { articles, allCategories, slugifyCategory } = await loadDataModule("src/lib/blogData.ts");
   const { seoLocalPageSlugs: autoSlugs } = await loadDataModule("src/data/seoLocalAutoPages.ts");
   const { seoLocalPageSlugs: saudeSlugs } = await loadDataModule("src/data/seoLocalSaudePages.ts");
   const { seoLocalPageSlugs: modeloSlugs } = await loadDataModule("src/data/seoModelosAutoPages.ts");
@@ -30,8 +30,9 @@ async function run() {
   const blogSlugs = articles.map(a => a.slug);
   const localSlugs = [...(autoSlugs || []), ...(saudeSlugs || []), ...(modeloSlugs || [])];
   const segmentSlugs = (segmentos || []).map(s => s.slug);
+  const blogCategorySlugs = (allCategories || []).map(c => slugifyCategory(c));
 
-  const bundle = generateSitemapBundle(blogSlugs, localSlugs, segmentSlugs);
+  const bundle = generateSitemapBundle(blogSlugs, localSlugs, segmentSlugs, blogCategorySlugs);
   
   // Collect all unique routes from sitemaps
   const routes = new Set();
