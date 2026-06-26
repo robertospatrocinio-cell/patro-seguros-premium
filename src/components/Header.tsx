@@ -12,6 +12,7 @@ import { logForgottenQuote } from "@/lib/quoteHistory";
 
 const logoFull = "/images/logo-full.webp";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
+const WHATSAPP_SINISTRO_URL = "https://wa.me/551151997500?text=" + encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.");
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
