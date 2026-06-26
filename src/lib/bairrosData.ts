@@ -12,6 +12,9 @@ import imgContinental from "@/assets/bairros/continental.webp";
 import imgPimentas from "@/assets/bairros/pimentas.webp";
 import imgTaboao from "@/assets/bairros/taboao.webp";
 import imgVilaGalvao from "@/assets/bairros/vila-galvao.webp";
+import imgAeroporto from "@/assets/bairros/aeroporto-guarulhos.webp";
+import imgCidadeIndustrial from "@/assets/bairros/cidade-industrial-satelite.webp";
+import imgJardimCumbica from "@/assets/bairros/jardim-cumbica.webp";
 
 export interface BairroFAQ {
   question: string;
