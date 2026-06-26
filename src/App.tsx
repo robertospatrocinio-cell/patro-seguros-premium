@@ -311,6 +311,7 @@ const SeoTechnicalReport = lazy(() => import("./pages/SeoTechnicalReport"));
 const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
+const SeoScanSummary = lazy(() => import("./pages/SeoScanSummary"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 
