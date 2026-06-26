@@ -43,7 +43,16 @@ export function validateCanonical(html, route, { expectedHost } = {}) {
     return errors;
   }
   if (canonicals.length > 1) {
-    errors.push(`canonical duplicado (${canonicals.length} encontrados)`);
+    // Tolerar duplicatas quando todas apontam para o mesmo path (acontece
+    // quando o prerender estático e o React-Helmet emitem a mesma tag).
+    const norm = (h) => {
+      try { const u = new URL(h); return u.host.replace(/^www\./, "") + (u.pathname.replace(/\/$/, "") || "/"); }
+      catch { return h; }
+    };
+    const uniq = new Set(canonicals.map(norm));
+    if (uniq.size > 1) {
+      errors.push(`canonical duplicado divergente (${canonicals.length} encontrados)`);
+    }
   }
   const href = canonicals[0];
   if (!href) { errors.push("canonical sem atributo href"); return errors; }
