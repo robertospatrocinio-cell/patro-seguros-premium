@@ -49,7 +49,7 @@ const seoLocalGuarulhos: SitemapEntry[] = [
   "/seguro-frota-empresas-guarulhos",
   "/seguros-empresariais-pme-guarulhos",
   "/plano-saude-guarulhos",
-  "/corretora-seguros-guarulhos",
+  "/corretora-de-seguros-guarulhos",
   "/seguro-condominio-guarulhos",
   "/plano-saude-empresarial-guarulhos",
   "/plano-odontologico-guarulhos",
