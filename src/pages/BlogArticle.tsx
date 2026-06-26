@@ -14,6 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
+import { getAuthorSlugByName } from "@/lib/blogAuthors";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -119,6 +120,7 @@ const BlogArticle = () => {
               image={imageUrl}
               datePublished={meta.date}
               authorName={meta.author}
+              authorUrl={`${CANONICAL_BASE_URL}/blog/autor/${getAuthorSlugByName(meta.author)}`}
               category={meta.category}
               tags={meta.tags}
               wordCount={article.content.split(/\s+/).length}
