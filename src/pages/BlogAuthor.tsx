@@ -1,4 +1,4 @@
-import { useMemo, Fragment } from "react";
+import { useMemo, useEffect, Fragment } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -28,6 +28,34 @@ const BlogAuthor = () => {
   if (!author) return <Navigate to="/blog" replace />;
 
   const canonical = getCanonicalUrl(`/blog/autor/${author.slug}`);
+
+  // hreflang: site é pt-BR único. Sinaliza idioma/região e x-default
+  // apontando para a própria URL canônica do autor.
+  useEffect(() => {
+    const tags: Array<{ hreflang: string; href: string }> = [
+      { hreflang: "pt-BR", href: canonical },
+      { hreflang: "pt", href: canonical },
+      { hreflang: "x-default", href: canonical },
+    ];
+    const created: HTMLLinkElement[] = [];
+    tags.forEach(({ hreflang, href }) => {
+      let link = document.querySelector<HTMLLinkElement>(
+        `link[rel="alternate"][hreflang="${hreflang}"]`
+      );
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "alternate");
+        link.setAttribute("hreflang", hreflang);
+        document.head.appendChild(link);
+        created.push(link);
+      }
+      link.setAttribute("href", href);
+    });
+    return () => {
+      created.forEach(l => l.remove());
+    };
+  }, [canonical]);
+
   const title = `${author.name} — ${author.role.split("—")[0].trim()} | Patro Seguros`;
   const description = author.shortBio;
 
