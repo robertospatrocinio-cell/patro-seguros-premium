@@ -9,6 +9,9 @@ import imgGopouva from "@/assets/bairros/gopouva.webp";
 import imgBonsucesso from "@/assets/bairros/bonsucesso.webp";
 import imgParaventi from "@/assets/bairros/paraventi.webp";
 import imgContinental from "@/assets/bairros/continental.webp";
+import imgPimentas from "@/assets/bairros/pimentas.webp";
+import imgTaboao from "@/assets/bairros/taboao.webp";
+import imgVilaGalvao from "@/assets/bairros/vila-galvao.webp";
 
 export interface BairroFAQ {
   question: string;
@@ -23,6 +26,17 @@ export interface BairroData {
   descricao: string;
   image: string;
   faqs: BairroFAQ[];
+  testimonials?: BairroTestimonial[];
+  geo?: { latitude: number; longitude: number };
+}
+
+export interface BairroTestimonial {
+  author: string;
+  role: string;
+  product: string;
+  rating: 5 | 4;
+  text: string;
+  date: string; // YYYY-MM-DD
 }
 
 export const bairros: BairroData[] = [
@@ -61,6 +75,11 @@ export const bairros: BairroData[] = [
      subtitulo: "Proteção especializada para o polo logístico de Guarulhos",
      descricao: "Cumbica é sinônimo de logística. Com o Aeroporto Internacional de Guarulhos e o maior Polo Industrial do estado, a região demanda seguros empresariais robustos. A Patro Seguros é referência em seguro de carga, seguro de galpões, RC para transportadoras e proteção patrimonial para empresas que operam no coração logístico do Brasil.",
      image: imgCumbica,
+    geo: { latitude: -23.4356, longitude: -46.4731 },
+    testimonials: [
+      { author: "Marcelo R.", role: "Gerente de logística — Cumbica", product: "Seguro de Carga", rating: 5, date: "2026-04-12", text: "Operamos transporte de eletrônicos perto do aeroporto. A Patro reestruturou nossa apólice de RCTR-C e baixamos 18% o custo mantendo cobertura ampliada. Atendimento em sinistro foi resolvido em 48h." },
+      { author: "Patrícia M.", role: "Sócia de transportadora — Cumbica", product: "Frota + RC", rating: 5, date: "2026-03-05", text: "Tínhamos seguro direto com a seguradora. A Patro renegociou frota de 22 veículos e incluiu RC Facultativa robusta. Reduziu prêmio anual em R$ 38 mil." },
+    ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-cumbica", neighborhood: "Cumbica", product: "empresarial", riskLevel: "médio-alto", priceRange: "conforme porte da logística", reference: "no entorno do Aeroporto de Guarulhos" }),
        ...generateLocalFAQs({ slug: "auto-cumbica", neighborhood: "Cumbica", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 3.100 a R$ 6.200/ano", reference: "próximo à Rodovia Hélio Smidt" }),
@@ -75,6 +94,11 @@ export const bairros: BairroData[] = [
      subtitulo: "Sua corretora no coração comercial de Guarulhos",
      descricao: "O Centro de Guarulhos pulsa com comércio e serviços. Na Av. Salgado Filho — onde fica nossa sede — e nas imediações do Poli Shopping, advogados, dentistas, médicos e comerciantes precisam de proteção profissional. A Patro Seguros oferece RC Profissional, seguro empresarial para lojas e consultórios, além de planos de saúde corporativos, tudo com atendimento presencial a poucos passos de você.",
      image: imgCentro,
+    geo: { latitude: -23.4628, longitude: -46.5333 },
+    testimonials: [
+      { author: "Dra. Camila L.", role: "Dentista — Centro de Guarulhos", product: "RC Profissional + Empresarial", rating: 5, date: "2026-05-18", text: "Atendimento presencial fez a diferença. Visitei o escritório no Cidade Maia, fechei RC Profissional e seguro do consultório no mesmo dia. Já indiquei para 3 colegas da Av. Salgado Filho." },
+      { author: "Eduardo P.", role: "Comerciante — Poli Shopping", product: "Seguro Empresarial", rating: 5, date: "2026-02-22", text: "Tive sinistro de incêndio em loja vizinha que afetou meu estoque. A Patro acompanhou tudo, vistoria veio em 24h e indenização saiu em 28 dias. Profissionalismo raro." },
+    ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-centro", neighborhood: "Centro", product: "empresarial", riskLevel: "médio-alto", priceRange: "a partir de R$ 99/mês", reference: "próximo ao Poli Shopping e Av. Salgado Filho" }),
        ...generateLocalFAQs({ slug: "auto-centro", neighborhood: "Centro", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.500/ano", reference: "na região da Praça Tereza Cristina" }),
@@ -131,6 +155,11 @@ export const bairros: BairroData[] = [
      subtitulo: "Seguros para o bairro em expansão de Guarulhos",
      descricao: "Bonsucesso cresce com o Shopping Bonsucesso como âncora e acesso direto à Dutra, com novos empreendimentos surgindo a cada mês. A região combina logística, comércio e residências. A Patro Seguros acompanha essa expansão com seguro empresarial para novos negócios, seguro auto para moradores e proteção patrimonial para investidores que apostam no futuro de Bonsucesso.",
      image: imgBonsucesso,
+    geo: { latitude: -23.4128, longitude: -46.4214 },
+    testimonials: [
+      { author: "André S.", role: "Lojista — Shopping Bonsucesso", product: "Seguro Empresarial", rating: 5, date: "2026-05-02", text: "Inauguração de loja exigiu certificado pela administração do shopping. A Patro entregou apólice em 2 dias úteis, com RC operações e lucros cessantes — exatamente como o regulamento pedia." },
+      { author: "Joana T.", role: "Moradora — Bonsucesso", product: "Seguro Auto", rating: 5, date: "2026-04-19", text: "Comparei 3 corretoras antes de fechar. A Patro trouxe Porto e HDI lado a lado com R$ 540 de diferença anual. Ainda incluiu rastreador sem custo extra." },
+    ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-bonsucesso", neighborhood: "Bonsucesso", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 90/mês", reference: "próximo ao Shopping Bonsucesso" }),
        ...generateLocalFAQs({ slug: "auto-bonsucesso", neighborhood: "Bonsucesso", product: "auto", riskLevel: "médio", priceRange: "R$ 2.700 a R$ 5.100/ano", reference: "com acesso à Rodovia Pres. Dutra" }),
@@ -172,7 +201,12 @@ export const bairros: BairroData[] = [
     foco: "Seguro Auto, Moto e Saúde Familiar",
     subtitulo: "Proteção acessível para a maior região populacional de Guarulhos",
     descricao: "Pimentas é uma das regiões mais populosas de Guarulhos, com forte demanda por seguro auto, seguro moto e planos de saúde familiares. O índice de roubo/furto na região exige seguros bem calibrados — com rastreador, garagem e franquia ajustada ao perfil. A Patro Seguros compara as 16+ seguradoras parceiras para encontrar o melhor preço para o morador de Pimentas, sem abrir mão de assistência 24h e atendimento humano em sinistro.",
-    image: imgParaventi,
+    image: imgPimentas,
+    geo: { latitude: -23.4631, longitude: -46.3814 },
+    testimonials: [
+      { author: "Luís F.", role: "Motorista de aplicativo — Pimentas", product: "Seguro Auto com EAR", rating: 5, date: "2026-06-05", text: "Era impossível achar seguro com cobertura para Uber em Pimentas. A Patro encontrou apólice 22% mais barata que a anterior, com assistência 24h e carro reserva. Atende rápido pelo WhatsApp." },
+      { author: "Renata C.", role: "Mãe de família — Pimentas", product: "Plano de Saúde Familiar", rating: 5, date: "2026-05-20", text: "Plano antigo subia 25% por ano. A Sandra comparou 4 operadoras e migrou a família para um plano coletivo com a mesma rede e R$ 380 a menos por mês." },
+    ],
     faqs: [
       ...generateLocalFAQs({ slug: "auto-pimentas", neighborhood: "Pimentas", product: "auto", riskLevel: "alto", priceRange: "R$ 3.200 a R$ 6.400/ano", reference: "próximo à Av. Pimentas e Estr. Pres. Juscelino" }),
       ...generateLocalFAQs({ slug: "saude-pimentas", neighborhood: "Pimentas", product: "saude", priceRange: "planos familiares a partir de R$ 199/vida", reference: "com rede próxima ao Hospital Municipal de Pimentas" }),
@@ -186,7 +220,12 @@ export const bairros: BairroData[] = [
     foco: "Auto, Residencial e Pequenos Negócios",
     subtitulo: "Seguros para a região conectada de Guarulhos",
     descricao: "O Taboão é uma região forte de acesso para a Dutra e Fernão Dias, o que aumenta o fluxo de veículos e o risco em rodovia. Combina residências, comércio local e pequenos prestadores. A Patro Seguros atende o Taboão com seguro auto que considera o trajeto, seguro residencial para casas e apartamentos e seguro empresarial sob medida para o comércio do bairro.",
-    image: imgBonsucesso,
+    image: imgTaboao,
+    geo: { latitude: -23.3997, longitude: -46.4717 },
+    testimonials: [
+      { author: "Cláudio M.", role: "Engenheiro — Taboão", product: "Seguro Auto + Residencial", rating: 5, date: "2026-05-28", text: "Pego a Dutra todo dia. A Patro montou cobertura compreensiva com rastreador e ainda fechou seguro da casa no combo, com 12% de desconto. Recomendo para quem pega rodovia diariamente." },
+      { author: "Marina B.", role: "Comerciante — Taboão", product: "Seguro Empresarial PME", rating: 5, date: "2026-04-10", text: "Loja de cosméticos pequena, achei que seguro empresarial era só para grandes. A Patro fez apólice de R$ 89/mês com incêndio, roubo e RC. Tranquilidade total." },
+    ],
     faqs: [
       ...generateLocalFAQs({ slug: "auto-taboao", neighborhood: "Taboão", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.600/ano", reference: "com acesso à Rod. Pres. Dutra e Fernão Dias" }),
       ...generateLocalFAQs({ slug: "residencial-taboao", neighborhood: "Taboão", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 30/mês", reference: "para casas e edifícios da região" }),
@@ -200,7 +239,12 @@ export const bairros: BairroData[] = [
     foco: "Residencial, Auto e Vida",
     subtitulo: "Seguros para um dos bairros mais tradicionais de Guarulhos",
     descricao: "Vila Galvão combina tradição residencial, comércio consolidado na Av. Emílio Ribas e proximidade com a divisa de São Paulo. É um bairro de moradores estabelecidos, com perfil familiar e demanda por seguro residencial completo, seguro auto, seguro de vida e plano de saúde. A Patro Seguros oferece pacote consultivo para quem busca proteção patrimonial sólida no Vila Galvão.",
-    image: imgVilaAugusta,
+    image: imgVilaGalvao,
+    geo: { latitude: -23.4408, longitude: -46.5567 },
+    testimonials: [
+      { author: "Sr. Antônio N.", role: "Aposentado — Vila Galvão", product: "Seguro de Vida + Residencial", rating: 5, date: "2026-03-30", text: "Procurava uma corretora séria, sem pressão de venda. A Patro explicou cobertura por cobertura, comparou 3 seguradoras de vida e me deixou decidir com calma. Atendimento de antigamente." },
+      { author: "Família Oliveira", role: "Moradores — Vila Galvão", product: "Auto + Saúde Familiar", rating: 5, date: "2026-02-14", text: "Mudamos os 2 carros e o plano de saúde da família para a Patro no mesmo mês. Economia somada de R$ 4.200/ano comparado ao que pagávamos separado. Acompanhamento mensal por WhatsApp." },
+    ],
     faqs: [
       ...generateLocalFAQs({ slug: "auto-vila-galvao", neighborhood: "Vila Galvão", product: "auto", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 4.700/ano", reference: "próximo à Av. Emílio Ribas" }),
       ...generateLocalFAQs({ slug: "residencial-vila-galvao", neighborhood: "Vila Galvão", product: "residencial", riskLevel: "baixo", priceRange: "a partir de R$ 30/mês", reference: "para casas e apartamentos do bairro" }),

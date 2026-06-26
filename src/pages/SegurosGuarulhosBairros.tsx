@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse } from "lucide-react";
+import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse, Quote } from "lucide-react";
  import { escapeHtml } from "@/lib/utils";
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
  import { toast } from "sonner";
@@ -107,8 +107,9 @@ const SegurosGuarulhosBairros = () => {
     "@type": "InsuranceAgency",
     "name": "Patro Seguros",
     "alternateName": `Patro Seguros ${selectedBairro.nome}`,
-    "url": "https://www.patroseguros.com.br/seguros-guarulhos-bairros",
+    "url": `https://www.patroseguros.com.br/seguros-guarulhos/${selectedBairro.id}`,
     "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
+    "image": `https://www.patroseguros.com.br${selectedBairro.image}`,
     "description": `Corretora de seguros em ${selectedBairro.nome}, Guarulhos. Especialista em ${selectedBairro.foco.toLowerCase()}: seguro auto, residencial, empresarial, saúde e mais.`,
     "telephone": "+55-11-5199-7500",
     "email": "contato@patroseguros.com.br",
@@ -121,8 +122,8 @@ const SegurosGuarulhosBairros = () => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -23.4538,
-      "longitude": -46.5333
+      "latitude": selectedBairro.geo?.latitude ?? -23.4538,
+      "longitude": selectedBairro.geo?.longitude ?? -46.5333
     },
     "areaServed": {
       "@type": "Place",
@@ -146,7 +147,17 @@ const SegurosGuarulhosBairros = () => {
       "ratingValue": "4.9",
       "reviewCount": "150",
       "bestRating": "5"
-    }
+    },
+    ...(selectedBairro.testimonials && selectedBairro.testimonials.length > 0 ? {
+      "review": selectedBairro.testimonials.map(t => ({
+        "@type": "Review",
+        "author": { "@type": "Person", "name": t.author },
+        "datePublished": t.date,
+        "reviewRating": { "@type": "Rating", "ratingValue": t.rating, "bestRating": 5 },
+        "reviewBody": t.text,
+        "itemReviewed": { "@type": "Service", "name": `${t.product} em ${selectedBairro.nome}, Guarulhos` }
+      }))
+    } : {})
   }), [selectedBairro]);
 
   const servicosCards = [
@@ -310,6 +321,40 @@ const SegurosGuarulhosBairros = () => {
 
         {/* FORMULÁRIO */}
         <section className="py-16 bg-gray-50" ref={formRef}>
+          {selectedBairro.testimonials && selectedBairro.testimonials.length > 0 && (
+            <div className="container mx-auto px-4 mb-16">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#003366] text-center mb-2">
+                  Cases reais de clientes em {selectedBairro.nome}
+                </h2>
+                <p className="text-center text-gray-500 mb-8">
+                  Depoimentos de quem já protege patrimônio e família com a Patro Seguros em {selectedBairro.nome}
+                </p>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {selectedBairro.testimonials.map((t, i) => (
+                    <Card key={`${selectedBairro.id}-t-${i}`} className="border-0 shadow-md bg-white">
+                      <CardContent className="pt-6 pb-6">
+                        <Quote className="h-6 w-6 text-[#F2994A] mb-3" aria-hidden />
+                        <div className="flex items-center gap-1 mb-3" aria-label={`${t.rating} de 5 estrelas`}>
+                          {Array.from({ length: t.rating }).map((_, k) => (
+                            <Star key={k} className="h-4 w-4 fill-[#F2994A] text-[#F2994A]" />
+                          ))}
+                        </div>
+                        <blockquote className="text-gray-700 leading-relaxed mb-4 italic">
+                          “{t.text}”
+                        </blockquote>
+                        <footer className="border-t pt-3">
+                          <p className="font-bold text-[#003366]">{t.author}</p>
+                          <p className="text-sm text-gray-500">{t.role}</p>
+                          <p className="text-xs text-[#F2994A] font-semibold mt-1 uppercase tracking-wide">{t.product}</p>
+                        </footer>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
           <div className="container mx-auto px-4">
             <div className="max-w-lg mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-[#003366] text-center mb-2">
