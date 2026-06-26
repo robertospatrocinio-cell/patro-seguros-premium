@@ -45,6 +45,9 @@ const faqs = [
   { question: "A cotação é realmente gratuita?", answer: "Sim. Todas as nossas cotações de seguro são 100% gratuitas e sem compromisso. Compare à vontade." },
   { question: "Quais tipos de seguro a Patro Seguros oferece em Guarulhos?", answer: "Seguro auto, seguro residencial, seguro de vida, seguro empresarial, seguro de frota, planos de saúde, consórcio e muito mais. Atendemos pessoas físicas, famílias e empresas de todos os portes." },
   { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
+  { question: "Vocês atendem em todos os bairros de Guarulhos?", answer: "Sim. A Patro Seguros atende toda Guarulhos — Centro, Cumbica, Pimentas, Bonsucesso, Taboão, Vila Galvão, Macedo, Cidade Maia, Gopoúva, Ponte Grande, Vila Augusta, Jardim Maia, Picanço — e também cidades vizinhas como Arujá, Itaquaquecetuba, Mairiporã e a zona leste de São Paulo." },
+  { question: "Qual a diferença entre contratar com a Patro Seguros e direto com a seguradora?", answer: "Você paga o mesmo preço de tabela, mas ganha um corretor que compara várias seguradoras, recomenda a melhor cobertura para o seu perfil e cuida da sua apólice na hora do sinistro. Nossa remuneração vem da seguradora, não do cliente." },
+  { question: "Posso comparar planos de saúde por bairro de Guarulhos?", answer: "Sim. Validamos a rede credenciada por bairro antes de fechar — hospitais, laboratórios e clínicas próximos da sua casa ou empresa em Guarulhos. Isso evita contratar um plano que tenha rede só do outro lado da cidade." },
 ];
 
 const sinistroFaqs = [
