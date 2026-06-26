@@ -98,7 +98,7 @@ const Patro = () => {
               src={heroImage}
               alt=""
               className="w-full h-full object-cover"
-              priority
+              eager
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-[#003366] via-[#003366]/95 to-[#1e3a5f]/90" />
