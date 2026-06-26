@@ -64,6 +64,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     setMetaContent('meta[property="og:image"]', ogImage ?? DEFAULT_OG_IMAGE);
 
     // Twitter
+    setMetaContent('meta[name="twitter:card"]', 'summary_large_image');
     setMetaContent('meta[name="twitter:title"]', fullTitle);
     setMetaContent('meta[name="twitter:description"]', description);
     setMetaContent('meta[name="twitter:image"]', ogImage ?? DEFAULT_OG_IMAGE);
