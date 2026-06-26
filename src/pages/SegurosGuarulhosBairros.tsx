@@ -97,7 +97,6 @@ const SegurosGuarulhosBairros = () => {
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}`)}`;
 
   const breadcrumbItems = [
-    { label: "Início", href: "/" },
     { label: "Guarulhos", href: "/sobre-guarulhos" },
     { label: `Seguros em ${selectedBairro.nome}` },
   ];
