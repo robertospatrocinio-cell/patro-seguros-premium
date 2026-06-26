@@ -1,0 +1,27 @@
+name: SEO Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  jsonld:
+    name: JSON-LD & breadcrumbs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Unit tests - JSON-LD validator
+        run: bun run test:jsonld
+
+      - name: Build (prerender + validate-jsonld-build)
+        run: bun run build
+
+      - name: Re-validar JSON-LD em dist/
+        run: bun run validate:jsonld

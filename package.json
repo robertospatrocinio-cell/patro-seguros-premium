@@ -9,7 +9,10 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "check:links": "node scripts/check-internal-links.mjs"
+    "check:links": "node scripts/check-internal-links.mjs",
+    "test": "vitest run",
+    "test:jsonld": "vitest run scripts/lib/jsonld-validator.test.mjs",
+    "validate:jsonld": "node scripts/validate-jsonld-build.mjs"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
