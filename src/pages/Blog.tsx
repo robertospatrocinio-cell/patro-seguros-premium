@@ -1,11 +1,12 @@
 import { useState, useMemo, Fragment, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, User } from "lucide-react";
+import { ArrowRight, Calendar, Clock, User, Search, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@/lib/blogData";
@@ -13,16 +14,49 @@ import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@
 const POSTS_PER_PAGE = 9;
 
 const Blog = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryFromUrl = searchParams.get("q") ?? "";
+  const categoryFromUrl = searchParams.get("categoria") ?? "";
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [query, setQuery] = useState(queryFromUrl);
+
+  // Hydrate from URL params (?q=...&categoria=...) so search is shareable + SEO-aware.
+  useEffect(() => {
+    setQuery(queryFromUrl);
+    setSelectedCategory(
+      categoryFromUrl
+        ? allCategories.find(c => slugifyCategory(c) === categoryFromUrl) ?? null
+        : null,
+    );
+  }, [queryFromUrl, categoryFromUrl]);
+
+  // Reflect query/category state back into the URL (debounced via useEffect).
+  useEffect(() => {
+    const next = new URLSearchParams(searchParams);
+    if (query.trim()) next.set("q", query.trim()); else next.delete("q");
+    if (selectedCategory) next.set("categoria", slugifyCategory(selectedCategory));
+    else next.delete("categoria");
+    if (next.toString() !== searchParams.toString()) {
+      setSearchParams(next, { replace: true });
+    }
+  }, [query, selectedCategory, searchParams, setSearchParams]);
 
   const filtered = useMemo(() => {
     let list = [...articles].sort((a, b) => b.date.localeCompare(a.date));
     if (selectedCategory) list = list.filter(a => a.category === selectedCategory);
     if (selectedTag) list = list.filter(a => a.tags.includes(selectedTag));
+    const q = query.trim().toLowerCase();
+    if (q) {
+      list = list.filter(a =>
+        a.title.toLowerCase().includes(q) ||
+        a.excerpt.toLowerCase().includes(q) ||
+        a.tags.some(t => t.toLowerCase().includes(q)),
+      );
+    }
     return list;
-  }, [selectedCategory, selectedTag]);
+  }, [selectedCategory, selectedTag, query]);
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const currentArticles = useMemo(() => {
@@ -32,12 +66,23 @@ const Blog = () => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, selectedTag]);
+  }, [selectedCategory, selectedTag, query]);
 
+  const isSearching = query.trim().length > 0 || !!selectedCategory;
+  const pageTitle = isSearching
+    ? `Busca${query.trim() ? `: "${query.trim()}"` : ""}${selectedCategory ? ` em ${selectedCategory}` : ""} | Blog Patro Seguros`
+    : "Blog – Dicas e Guias sobre Seguros";
+  const pageDescription = isSearching
+    ? `${filtered.length} ${filtered.length === 1 ? "artigo encontrado" : "artigos encontrados"}${query.trim() ? ` para "${query.trim()}"` : ""}${selectedCategory ? ` na categoria ${selectedCategory}` : ""} no blog da Patro Seguros.`
+    : "Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio.";
 
   return (
     <Fragment>
-      <PageMeta title="Blog – Dicas e Guias sobre Seguros" description="Blog da Patro Seguros — artigos sobre seguro auto, residencial, empresarial, saúde, vida e mais. Dicas, guias e informações para proteger seu patrimônio." />
+      <PageMeta
+        title={pageTitle}
+        description={pageDescription}
+        noindex={isSearching}
+      />
       <Header />
       <main id="main-content" className="outline-none">
         <section className="gradient-hero py-20">
@@ -83,24 +128,69 @@ const Blog = () => {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
+            {/* Search bar */}
+            <div className="mb-8 max-w-2xl mx-auto">
+              <label htmlFor="blog-search" className="sr-only">Buscar no blog</label>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                <Input
+                  id="blog-search"
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Buscar por título, descrição ou tag..."
+                  className="pl-10 pr-10 h-12 rounded-xl"
+                  aria-label="Buscar artigos no blog"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    aria-label="Limpar busca"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+              {selectedCategory && (
+                <div className="mt-3 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                  <span>Filtrando por categoria:</span>
+                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-primary/10 text-primary font-semibold">
+                    {selectedCategory}
+                    <button
+                      type="button"
+                      onClick={() => setSelectedCategory(null)}
+                      aria-label={`Remover filtro ${selectedCategory}`}
+                      className="hover:text-primary/70"
+                    >
+                      <X className="h-3 w-3" />
+                    </button>
+                  </span>
+                </div>
+              )}
+            </div>
+
             {/* Filters */}
             <div className="mb-10 space-y-4">
               {/* Categories */}
               <div className="flex flex-wrap gap-2 justify-center">
                 <button
-                  onClick={() => { setSelectedCategory(null); setSelectedTag(null); }}
+                  onClick={() => { setSelectedCategory(null); setSelectedTag(null); setQuery(""); }}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${!selectedCategory && !selectedTag ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
                 >
                   Todos
                 </button>
                 {allCategories.map(cat => (
-                  <Link
+                  <button
                     key={cat}
-                    to={`/blog/categoria/${slugifyCategory(cat)}`}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium transition-colors bg-muted text-muted-foreground hover:bg-muted/80"
+                    type="button"
+                    onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${selectedCategory === cat ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
+                    aria-pressed={selectedCategory === cat}
                   >
                     {cat}
-                  </Link>
+                  </button>
                 ))}
               </div>
               {/* Tags */}
@@ -123,7 +213,7 @@ const Blog = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentArticles.map((article) => (
-                <Link key={article.slug} to={`/blog/${article.slug}`}>
+                <Link key={article.slug} to={`/artigos/${article.slug}`}>
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
                     <div className="aspect-video w-full overflow-hidden">
                       <OptimizedImage
@@ -151,6 +241,22 @@ const Blog = () => {
                 </Link>
               ))}
             </div>
+
+            {currentArticles.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">
+                  Nenhum artigo encontrado{query.trim() ? ` para "${query.trim()}"` : ""}{selectedCategory ? ` em ${selectedCategory}` : ""}.
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-4"
+                  onClick={() => { setQuery(""); setSelectedCategory(null); setSelectedTag(null); }}
+                >
+                  Limpar filtros
+                </Button>
+              </div>
+            )}
 
             {totalPages > 1 && (
               <div className="mt-12 flex justify-center items-center gap-4">
