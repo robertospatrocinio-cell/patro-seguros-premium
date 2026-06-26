@@ -244,6 +244,53 @@ function sitemapPlugin(): Plugin {
       }
       console.log(`✅ sitemap-index.xml generated with ${Object.keys(files).length - 1} cluster sitemaps`);
 
+      // ---- robots.txt otimizado (gerado automaticamente a cada build) ------
+      // Mantém Sitemap-index + referência explícita ao sitemap-guarulhos.xml
+      // (foco SEO local) e bloqueia rotas internas/admin.
+      const SITE = "https://www.patroseguros.com.br";
+      const robotsTxt = [
+        "# Gerado automaticamente pelo sitemapPlugin — não editar manualmente.",
+        "User-agent: *",
+        "Allow: /",
+        "Disallow: /admin/",
+        "Disallow: /api/",
+        "Disallow: /~api/",
+        "Disallow: /~flock.js",
+        "Disallow: /ebook-consorcio/",
+        "Disallow: /avaliar-no-google/",
+        "Disallow: /performance-diagnostico",
+        "Disallow: /conversion-dashboard",
+        "Disallow: /seo-technical-report",
+        "Disallow: /pagespeed-history",
+        "",
+        "# Allow public high-value paths",
+        "Allow: /lp/",
+        "Allow: /blog/",
+        "Allow: /seguros-guarulhos/",
+        "Allow: /planos-de-saude/",
+        "",
+        "# Sitemaps",
+        `Sitemap: ${SITE}/sitemap-index.xml`,
+        `Sitemap: ${SITE}/sitemap-guarulhos.xml`,
+        `Sitemap: ${SITE}/sitemap-bairros.xml`,
+        `Sitemap: ${SITE}/sitemap-auto.xml`,
+        `Sitemap: ${SITE}/sitemap-vida-saude.xml`,
+        `Sitemap: ${SITE}/sitemap-empresarial.xml`,
+        `Sitemap: ${SITE}/sitemap-geral.xml`,
+        "",
+        "# Optimization for Search Bots",
+        "User-agent: Googlebot",
+        "Allow: /",
+        "Crawl-delay: 0.1",
+        "",
+        "User-agent: Bingbot",
+        "Allow: /",
+        "Crawl-delay: 0.5",
+        "",
+      ].join("\n");
+      fs.writeFileSync(path.join(outDir, "robots.txt"), robotsTxt, "utf-8");
+      console.log("✅ robots.txt gerado (com Sitemap-index + sitemap-guarulhos.xml).");
+
 
        // Final validation step for XML and UTF-8 encoding
        try {
