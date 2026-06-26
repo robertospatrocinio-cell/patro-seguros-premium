@@ -91,69 +91,14 @@ async function run() {
       html = html.replace("</head>", `${schemaScript}\n</head>`);
     }
 
-    // Inject Extensive Content for Crawlers
-    const detailedDesc = metadata.detailedDescription ? `<p>${metadata.detailedDescription.replace(/\n/g, '<br>')}</p>` : '';
-    const faqs = (metadata.faqs || []).map(f => `<h3>${f.question}</h3><p>${f.answer}</p>`).join('');
-    const whoNeeds = (metadata.whoNeeds || []).length > 0 ? `<h2>Quem precisa?</h2><ul>${metadata.whoNeeds.map(i => `<li>${i}</li>`).join('')}</ul>` : '';
-    const whyPatro = (metadata.whyPatro || []).length > 0 ? `<h2>Por que a Patro Seguros?</h2><ul>${metadata.whyPatro.map(i => `<li>${i}</li>`).join('')}</ul>` : '';
-
-    const crawlerContent = `
-      <div id="crawler-content" style="display:none" aria-hidden="true">
-        <h1>${metadata.h1}</h1>
-        <p>${metadata.description}</p>
-        <img src="/images/logo-full.webp" alt="Patro Seguros" />
-        <img src="/images/selo-melhor-corretora@2x.webp" alt="Selo de avaliação da Patro Seguros" />
-        
-        <div class="seo-text-boost">
-          <h2>Sobre a Patro Seguros em Guarulhos</h2>
-          <p>A Patro Seguros é uma corretora de seguros estabelecida em Guarulhos, com sede estratégica no Edifício Via Alameda, em frente ao Shopping Maia (Cidade Maia). Com mais de 15 anos de experiência no mercado de seguros, nossa equipe de consultores especializados oferece atendimento humanizado e soluções personalizadas para proteger o que é mais importante para você: sua família, seu patrimônio e sua empresa.</p>
-          
-          <p>Diferente de contratar diretamente com um banco ou pelo site de uma única seguradora, a Patro atua como sua consultora técnica. Nós comparamos simultaneamente as cotações em mais de 16 seguradoras parceiras, incluindo gigantes como Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco Seguros, SulAmérica, Liberty, Mapfre e Azul Seguros. Nosso objetivo é encontrar a melhor relação custo-benefício, garantindo que sua apólice não tenha brechas e que o preço seja justo.</p>
-          
-          <h3>Especialistas em Seguro Auto e Frotas</h3>
-          <p>Em Guarulhos, o seguro auto exige um conhecimento profundo da geografia local. Sabemos que o CEP de pernoite e o CEP de trabalho influenciam diretamente no prêmio. Moradores de bairros como Vila Augusta, Vila Galvão, Jardim Maia, Cumbica e Pimentas possuem perfis de risco distintos, e nossa consultoria utiliza esses dados para otimizar sua cotação. Oferecemos coberturas completas contra roubo, furto, colisão, incêndio, danos a terceiros (RCF-V), além de assistência 24h com guincho ilimitado em Guarulhos e região.</p>
-          
-          <p>Para empresas, estruturamos seguros de frotas com descontos progressivos e gestão de sinistros dedicada. Também somos especialistas em seguros para motoristas de aplicativo (Uber/99), garantindo a cobertura APP obrigatória e suporte 24 horas para que você nunca fique parado.</p>
-          
-          <h3>Proteção Patrimonial e Empresarial</h3>
-          <p>Além do seguro veicular, a Patro Seguros é referência em Seguro Residencial e Seguro Empresarial em Guarulhos. Protegemos sua casa ou apartamento contra incêndio, danos elétricos, vendaval e roubo de bens, com serviços de assistência residencial inclusos. Para o empresário guarulhense, oferecemos seguros para galpões logísticos (especialmente no polo de Cumbica e arredores do Aeroporto), seguros para restaurantes, lojas de shopping e indústrias, cobrindo lucros cessantes e responsabilidade civil.</p>
-          
-          <h3>Planos de Saúde e Vida</h3>
-          <p>Cuidar da saúde é prioridade. A Patro Seguros ajuda você a comparar os melhores planos de saúde em Guarulhos e São Paulo. Trabalhamos com Bradesco Saúde, Amil, SulAmérica, Porto Saúde, MedSenior e planos regionais. Analisamos carências, rede credenciada de hospitais e laboratórios para que sua família ou seus funcionários tenham o melhor atendimento médico disponível.</p>
-          
-          <p>Nossa consultoria de Seguro de Vida foca no planejamento sucessório e na proteção financeira, com coberturas para doenças graves, invalidez e auxílio funeral, garantindo tranquilidade para quem você ama.</p>
-          
-          <h3>Por que escolher a Patro Seguros?</h3>
-          <ul>
-            <li>Atendimento local e presencial em Guarulhos (Cidade Maia).</li>
-            <li>Cotação comparativa em 9+ seguradoras em até 2 horas úteis.</li>
-            <li>Suporte real em caso de sinistro com acompanhamento de perícia.</li>
-            <li>Consultoria gratuita: a corretora é remunerada pela seguradora, sem custo extra para você.</li>
-            <li>Renovação otimizada: recotamos seu seguro todo ano para garantir que você continue pagando o menor preço.</li>
-          </ul>
-          
-          <p>Entre em contato conosco hoje mesmo e descubra por que somos a corretora de seguros que mais cresce em Guarulhos. Atendemos via WhatsApp (11 5199-7500), telefone ou em nosso escritório físico.</p>
-        </div>
-
-        ${detailedDesc}
-        ${whoNeeds}
-        ${whyPatro}
-        ${faqs}
-        
-        <nav>
-          <a href="/">Home Patro Seguros</a> | 
-          <a href="/seguro-auto">Seguro Auto Guarulhos</a> | 
-          <a href="/planos-de-saude">Planos de Saúde Guarulhos</a> | 
-          <a href="/seguro-empresarial">Seguro Empresarial Guarulhos</a> | 
-          <a href="/cotacao">Solicitar Cotação de Seguro</a> |
-          <a href="/sobre">Sobre a Corretora</a> |
-          <a href="/contato">Fale Conosco</a>
-        </nav>
-      </div>
-    `;
-    html = html.replace(/<div id="root"[^>]*>/, (match) => `${crawlerContent}\n    ${match}`);
-
-
+    // NOTA: o bloco #crawler-content (display:none + aria-hidden) foi REMOVIDO
+    // intencionalmente. Era cloaking — conteúdo só para crawlers, com H1 oculto
+    // duplicando o H1 visível do React. Causava:
+    //  - 2 H1 na home (um escondido, um visível)
+    //  - Sinal de "conteúdo artificial para SEO" (penalizável pelo Google)
+    // O prerender-react.mjs (passo seguinte do build) sobrescreve o HTML de
+    // todas as rotas indexáveis com o conteúdo real do React, então não há
+    // perda de conteúdo legítimo para crawlers.
 
     // Write file
     if (route === "/") {
