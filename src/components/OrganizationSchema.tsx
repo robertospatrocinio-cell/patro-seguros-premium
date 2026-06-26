@@ -20,6 +20,7 @@ const OrganizationSchema = () => {
       "height": 60
     },
     "image": `${CANONICAL_BASE_URL}/images/logo-full.webp`,
+    "telephone": "+551151997500",
     "description": "Corretora de seguros em Guarulhos com atendimento personalizado. Seguros auto, vida, residencial, saúde, empresarial e frotas para famílias e PMEs.",
     "priceRange": "$$",
     "foundingDate": "2020-01-01",
