@@ -44,7 +44,7 @@ const BlogCategory = () => {
 
   return (
     <Fragment>
-      <PageMeta title={title} description={description} canonical={canonical} />
+      <PageMeta title={title} description={description} />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },
