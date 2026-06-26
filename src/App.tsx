@@ -94,6 +94,7 @@ const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
 const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"), "BlogCategory");
+const BlogAuthor = lazyWithRetry(() => import("./pages/BlogAuthor"), "BlogAuthor");
 const BlogCalendario90Dias = lazyWithRetry(() => import("./pages/BlogCalendario90Dias"), "BlogCalendario90Dias");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
