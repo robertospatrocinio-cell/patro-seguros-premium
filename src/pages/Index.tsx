@@ -365,8 +365,69 @@ const Index = () => {
             <h2 className="text-3xl font-bold mb-8">Especialistas em Guarulhos e Região</h2>
             <div className="prose prose-lg mx-auto text-muted-foreground">
               <p>
-                A Patro Seguros nasceu em Guarulhos com um objetivo claro: trazer a modernidade das grandes corretoras para o atendimento consultivo que o guarulhense valoriza. Localizados no Cidade Maia, conhecemos profundamente os riscos e as necessidades de cada bairro, da Vila Augusta ao Bonsucesso.
+                A Patro Seguros é uma corretora de seguros em Guarulhos que ajuda pessoas, famílias e empresas a compararem opções de seguros e planos de saúde com atendimento consultivo. Atuamos com seguro auto, seguro empresarial, plano de saúde, seguro de vida, seguro residencial, seguro frota, seguro de carga e outras soluções para Guarulhos e região — sempre comparando 16+ seguradoras parceiras para encontrar a melhor cobertura pelo melhor preço.
               </p>
+            </div>
+
+            {/* Atendimento regional — bairros + links contextuais */}
+            <div className="mt-12 text-left">
+              <h3 className="text-xl font-bold text-slate-900 mb-3 text-center">
+                Atendimento em todos os bairros de Guarulhos
+              </h3>
+              <p className="text-sm text-muted-foreground text-center mb-6 max-w-2xl mx-auto">
+                Atuamos presencialmente no Cidade Maia e atendemos toda a cidade — incluindo cotações para seguros de carros, residências, empresas e planos de saúde com rede credenciada validada por bairro.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {[
+                  { label: "Centro", href: "/seguros-guarulhos/centro" },
+                  { label: "Cumbica", href: "/seguros-guarulhos/cumbica" },
+                  { label: "Pimentas", href: "/seguro-auto-pimentas" },
+                  { label: "Bonsucesso", href: "/seguro-auto-bonsucesso" },
+                  { label: "Taboão", href: "/seguros-guarulhos/taboao" },
+                  { label: "Vila Galvão", href: "/seguros-guarulhos/vila-galvao" },
+                  { label: "Macedo", href: "/seguros-guarulhos" },
+                  { label: "Cidade Maia", href: "/seguro-auto-maia" },
+                  { label: "Vila Augusta", href: "/seguro-auto-vila-augusta" },
+                  { label: "Gopoúva", href: "/seguros-guarulhos" },
+                  { label: "Ponte Grande", href: "/seguros-guarulhos" },
+                  { label: "Jardim Maia", href: "/seguros-guarulhos" },
+                  { label: "Picanço", href: "/seguros-guarulhos" },
+                ].map((b) => (
+                  <Link
+                    key={b.label}
+                    to={b.href}
+                    className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-primary/5 text-primary text-sm font-semibold border border-primary/10 hover:bg-primary hover:text-white transition-colors"
+                  >
+                    {b.label}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto">
+                {[
+                  { label: "Seguro Auto em Guarulhos", href: "/seguro-auto-guarulhos" },
+                  { label: "Plano de Saúde em Guarulhos", href: "/plano-saude-guarulhos" },
+                  { label: "Plano de Saúde Empresarial", href: "/plano-saude-empresarial-guarulhos" },
+                  { label: "Seguro Empresarial em Guarulhos", href: "/seguro-empresarial-guarulhos" },
+                  { label: "Seguro Frota em Guarulhos", href: "/seguro-frota-guarulhos" },
+                  { label: "Seguro de Carga em Guarulhos", href: "/seguro-transporte-carga-guarulhos" },
+                  { label: "Seguro Residencial em Guarulhos", href: "/seguro-residencial-guarulhos" },
+                  { label: "Seguro de Vida em Guarulhos", href: "/seguro-vida-guarulhos" },
+                  { label: "Seguro Condomínio em Guarulhos", href: "/seguro-condominio-guarulhos" },
+                  { label: "Plano Odontológico em Guarulhos", href: "/plano-odontologico-guarulhos" },
+                  { label: "Seguro Moto em Guarulhos", href: "/seguro-moto-guarulhos" },
+                  { label: "Corretora de Seguros em Guarulhos", href: "/sobre-guarulhos" },
+                ].map((s) => (
+                  <Link
+                    key={s.href}
+                    to={s.href}
+                    className="text-sm text-slate-700 hover:text-primary font-medium inline-flex items-center gap-1 group"
+                  >
+                    <ArrowRight className="h-3.5 w-3.5 text-primary/60 group-hover:translate-x-0.5 transition-transform" />
+                    {s.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </section>
