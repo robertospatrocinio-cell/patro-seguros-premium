@@ -244,6 +244,7 @@ export function generateSitemap(blogSlugs: string[]): string {
    blogSlugs: string[],
    localPageSlugs: string[] = [],
    segmentSlugs: string[] = [],
+   blogCategorySlugs: string[] = [],
  ): SitemapBundle {
    const segmentEntries: SitemapEntry[] = segmentSlugs.map(slug => ({
      loc: `/seguro-empresarial/${slug}`,
@@ -263,6 +264,21 @@ export function generateSitemap(blogSlugs: string[]): string {
       e.priority = "0.7";
     }
   });
+
+  // Mirror of each blog post under the new canonical-friendly /artigos/:slug route.
+  // Both URLs serve the same component; canonical points at the chosen URL.
+  const artigosEntries: SitemapEntry[] = blogSlugs.map(slug => ({
+    loc: `/artigos/${slug}`,
+    priority: "0.6",
+    changefreq: "monthly",
+  }));
+
+  // Blog category hub pages — `/blog/categoria/:slug`.
+  const blogCategoryEntries: SitemapEntry[] = blogCategorySlugs.map(slug => ({
+    loc: `/blog/categoria/${slug}`,
+    priority: "0.6",
+    changefreq: "weekly",
+  }));
 
   // Local SEO pages auto-discovered from `src/data/seoLocalAutoPages.ts`.
   // Includes bairro pages (seguro-auto-vila-galvao, ...), modelo pages
@@ -377,6 +393,8 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...bairroEntries,
     ...localPageEntries,
     ...blogEntries,
+    ...artigosEntries,
+    ...blogCategoryEntries,
     ...legal,
     ...restoredRoutes,
   ];
