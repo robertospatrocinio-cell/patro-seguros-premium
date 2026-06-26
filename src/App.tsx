@@ -93,6 +93,7 @@ const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
 const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
+const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"), "BlogCategory");
 const BlogCalendario90Dias = lazyWithRetry(() => import("./pages/BlogCalendario90Dias"), "BlogCalendario90Dias");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
@@ -464,6 +465,8 @@ const App = () => {
                   <Route path="/cotacao-seguro-auto" element={<CotacaoSeguroAuto />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/calendario-90-dias" element={<BlogCalendario90Dias />} />
+                  <Route path="/blog/categoria/:categoria" element={<BlogCategory />} />
+                  <Route path="/artigos/:slug" element={<BlogArticle />} />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
                   <Route path="/seguro-auto-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-maia-guarulhos" }); return <Comp />; })()} />

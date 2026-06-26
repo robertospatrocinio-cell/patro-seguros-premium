@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { getArticleImage } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
-import { articles, allCategories, allTags, formatDate } from "@/lib/blogData";
+import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@/lib/blogData";
 
 const POSTS_PER_PAGE = 9;
 
@@ -94,13 +94,13 @@ const Blog = () => {
                   Todos
                 </button>
                 {allCategories.map(cat => (
-                  <button
+                  <Link
                     key={cat}
-                    onClick={() => { setSelectedCategory(cat); setSelectedTag(null); }}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${selectedCategory === cat ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
+                    to={`/blog/categoria/${slugifyCategory(cat)}`}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium transition-colors bg-muted text-muted-foreground hover:bg-muted/80"
                   >
                     {cat}
-                  </button>
+                  </Link>
                 ))}
               </div>
               {/* Tags */}
