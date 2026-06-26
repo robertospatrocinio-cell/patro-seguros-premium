@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse } from "lucide-react";
+import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse, Quote } from "lucide-react";
  import { escapeHtml } from "@/lib/utils";
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
  import { toast } from "sonner";
@@ -107,8 +107,9 @@ const SegurosGuarulhosBairros = () => {
     "@type": "InsuranceAgency",
     "name": "Patro Seguros",
     "alternateName": `Patro Seguros ${selectedBairro.nome}`,
-    "url": "https://www.patroseguros.com.br/seguros-guarulhos-bairros",
+    "url": `https://www.patroseguros.com.br/seguros-guarulhos/${selectedBairro.id}`,
     "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
+    "image": `https://www.patroseguros.com.br${selectedBairro.image}`,
     "description": `Corretora de seguros em ${selectedBairro.nome}, Guarulhos. Especialista em ${selectedBairro.foco.toLowerCase()}: seguro auto, residencial, empresarial, saúde e mais.`,
     "telephone": "+55-11-5199-7500",
     "email": "contato@patroseguros.com.br",
@@ -121,8 +122,8 @@ const SegurosGuarulhosBairros = () => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -23.4538,
-      "longitude": -46.5333
+      "latitude": selectedBairro.geo?.latitude ?? -23.4538,
+      "longitude": selectedBairro.geo?.longitude ?? -46.5333
     },
     "areaServed": {
       "@type": "Place",
@@ -146,7 +147,17 @@ const SegurosGuarulhosBairros = () => {
       "ratingValue": "4.9",
       "reviewCount": "150",
       "bestRating": "5"
-    }
+    },
+    ...(selectedBairro.testimonials && selectedBairro.testimonials.length > 0 ? {
+      "review": selectedBairro.testimonials.map(t => ({
+        "@type": "Review",
+        "author": { "@type": "Person", "name": t.author },
+        "datePublished": t.date,
+        "reviewRating": { "@type": "Rating", "ratingValue": t.rating, "bestRating": 5 },
+        "reviewBody": t.text,
+        "itemReviewed": { "@type": "Service", "name": `${t.product} em ${selectedBairro.nome}, Guarulhos` }
+      }))
+    } : {})
   }), [selectedBairro]);
 
   const servicosCards = [
