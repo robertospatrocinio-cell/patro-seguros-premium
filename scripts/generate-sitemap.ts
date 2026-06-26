@@ -245,6 +245,7 @@ export function generateSitemap(blogSlugs: string[]): string {
    localPageSlugs: string[] = [],
    segmentSlugs: string[] = [],
    blogCategorySlugs: string[] = [],
+   blogAuthorSlugs: string[] = [],
  ): SitemapBundle {
    const segmentEntries: SitemapEntry[] = segmentSlugs.map(slug => ({
      loc: `/seguro-empresarial/${slug}`,
@@ -278,6 +279,15 @@ export function generateSitemap(blogSlugs: string[]): string {
     loc: `/blog/categoria/${slug}`,
     priority: "0.6",
     changefreq: "weekly",
+  }));
+
+  // Blog author profile pages — `/blog/autor/:slug`.
+  // Strengthens E-E-A-T (Person schema) and gives Google a stable canonical
+  // URL for the author entity referenced by every Article JSON-LD.
+  const blogAuthorEntries: SitemapEntry[] = blogAuthorSlugs.map(slug => ({
+    loc: `/blog/autor/${slug}`,
+    priority: "0.5",
+    changefreq: "monthly",
   }));
 
   // Local SEO pages auto-discovered from `src/data/seoLocalAutoPages.ts`.
@@ -395,6 +405,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...blogEntries,
     ...artigosEntries,
     ...blogCategoryEntries,
+    ...blogAuthorEntries,
     ...legal,
     ...restoredRoutes,
   ];
