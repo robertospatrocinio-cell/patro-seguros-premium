@@ -42,7 +42,7 @@ const ArticleSchema = ({
     "@type": "BlogPosting",
     "@id": `${url}#article`,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
-    headline,
+    headline: headline.length > 110 ? headline.slice(0, 107).trim() + "..." : headline,
     description,
     image: [image],
     datePublished,

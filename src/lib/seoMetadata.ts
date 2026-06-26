@@ -575,7 +575,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         schema: {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "headline": post.title,
+          "headline": post.title.length > 110 ? post.title.slice(0, 107).trim() + "..." : post.title,
           "description": post.excerpt,
           "image": [`${DOMAIN}/images/og-cover.webp`],
           "datePublished": post.date,
