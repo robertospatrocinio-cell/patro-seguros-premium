@@ -142,12 +142,6 @@ const SegurosGuarulhosBairros = () => {
       }
     ],
     "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "150",
-      "bestRating": "5"
-    },
     ...(selectedBairro.testimonials && selectedBairro.testimonials.length > 0 ? {
       "review": selectedBairro.testimonials.map(t => ({
         "@type": "Review",
