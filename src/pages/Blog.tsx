@@ -128,24 +128,69 @@ const Blog = () => {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
+            {/* Search bar */}
+            <div className="mb-8 max-w-2xl mx-auto">
+              <label htmlFor="blog-search" className="sr-only">Buscar no blog</label>
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+                <Input
+                  id="blog-search"
+                  type="search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Buscar por título, descrição ou tag..."
+                  className="pl-10 pr-10 h-12 rounded-xl"
+                  aria-label="Buscar artigos no blog"
+                />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery("")}
+                    aria-label="Limpar busca"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </div>
+              {selectedCategory && (
+                <div className="mt-3 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                  <span>Filtrando por categoria:</span>
+                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-primary/10 text-primary font-semibold">
+                    {selectedCategory}
+                    <button
+                      type="button"
+                      onClick={() => setSelectedCategory(null)}
+                      aria-label={`Remover filtro ${selectedCategory}`}
+                      className="hover:text-primary/70"
+                    >
+                      <X className="h-3 w-3" />
+                    </button>
+                  </span>
+                </div>
+              )}
+            </div>
+
             {/* Filters */}
             <div className="mb-10 space-y-4">
               {/* Categories */}
               <div className="flex flex-wrap gap-2 justify-center">
                 <button
-                  onClick={() => { setSelectedCategory(null); setSelectedTag(null); }}
+                  onClick={() => { setSelectedCategory(null); setSelectedTag(null); setQuery(""); }}
                   className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${!selectedCategory && !selectedTag ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
                 >
                   Todos
                 </button>
                 {allCategories.map(cat => (
-                  <Link
+                  <button
                     key={cat}
-                    to={`/blog/categoria/${slugifyCategory(cat)}`}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium transition-colors bg-muted text-muted-foreground hover:bg-muted/80"
+                    type="button"
+                    onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${selectedCategory === cat ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:bg-muted/80"}`}
+                    aria-pressed={selectedCategory === cat}
                   >
                     {cat}
-                  </Link>
+                  </button>
                 ))}
               </div>
               {/* Tags */}
@@ -168,7 +213,7 @@ const Blog = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {currentArticles.map((article) => (
-                <Link key={article.slug} to={`/blog/${article.slug}`}>
+                <Link key={article.slug} to={`/artigos/${article.slug}`}>
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
                     <div className="aspect-video w-full overflow-hidden">
                       <OptimizedImage
@@ -196,6 +241,22 @@ const Blog = () => {
                 </Link>
               ))}
             </div>
+
+            {currentArticles.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">
+                  Nenhum artigo encontrado{query.trim() ? ` para "${query.trim()}"` : ""}{selectedCategory ? ` em ${selectedCategory}` : ""}.
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="mt-4"
+                  onClick={() => { setQuery(""); setSelectedCategory(null); setSelectedTag(null); }}
+                >
+                  Limpar filtros
+                </Button>
+              </div>
+            )}
 
             {totalPages > 1 && (
               <div className="mt-12 flex justify-center items-center gap-4">
