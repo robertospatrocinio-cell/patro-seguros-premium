@@ -41,7 +41,11 @@ async function run() {
   Object.values(bundle.files).forEach(xml => {
     const matches = xml.matchAll(/<loc>https:\/\/www\.patroseguros\.com\.br([^<]*)<\/loc>/g);
     for (const match of matches) {
-      routes.add(match[1] || "/");
+      const loc = match[1] || "/";
+      // Ignora entradas que apontam para arquivos (ex.: sitemap-*.xml dentro
+      // do sitemap-index) — não devem virar pasta + index.html no dist.
+      if (/\.[a-z0-9]+$/i.test(loc)) continue;
+      routes.add(loc);
     }
   });
 
@@ -156,6 +160,7 @@ async function run() {
       fs.writeFileSync(INDEX_HTML, html, "utf-8");
     } else {
       const routeDir = path.join(DIST, route);
+      // Defensivo: cria a pasta de saída antes de gravar o index.html.
       fs.mkdirSync(routeDir, { recursive: true });
       fs.writeFileSync(path.join(routeDir, "index.html"), html, "utf-8");
     }
