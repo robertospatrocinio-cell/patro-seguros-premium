@@ -91,14 +91,15 @@ describe("extractHeadings + validateHeadings", () => {
     expect(validateHeadings(`<h1></h1>`)).toContain("<h1> vazio");
   });
 
-  it("flagra salto de h1 para h3", () => {
+  it("não bloqueia salto de h1 para h3 (regra relaxada em prod)", () => {
     const errs = validateHeadings(`<h1>A</h1><h3>C</h3>`);
-    expect(errs.some((e) => e.includes("pula de h1 para h3"))).toBe(true);
+    expect(errs.some((e) => e.includes("pula"))).toBe(false);
   });
 
-  it("flagra salto inicial de h2 para h4", () => {
+  it("não bloqueia salto h2 → h4 quando não há h1 (regra relaxada)", () => {
     const errs = validateHeadings(`<h2>A</h2><h4>B</h4>`);
-    expect(errs.some((e) => e.includes("pula de h2 para h4"))).toBe(true);
+    // ainda pode falhar por falta de h1, mas não por salto de nível
+    expect(errs.some((e) => e.includes("pula"))).toBe(false);
   });
 
   it("não conta como salto descer dois níveis (h3 → h2)", () => {
@@ -116,10 +117,10 @@ describe("validatePage", () => {
     expect(r.headings).toEqual([]);
   });
 
-  it("retorna ambos os conjuntos de erros", () => {
+  it("retorna canonical ausente mas headings ok com h1→h3 (regra relaxada)", () => {
     const html = `<h1>A</h1><h3>B</h3>`;
     const r = validatePage(html, "/x", { expectedHost: HOST });
     expect(r.canonical[0]).toMatch(/ausente/);
-    expect(r.headings.some((e) => e.includes("pula de h1 para h3"))).toBe(true);
+    expect(r.headings).toEqual([]);
   });
 });

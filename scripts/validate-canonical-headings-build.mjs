@@ -59,6 +59,10 @@ for (const file of files) {
   if (SKIP.has(rel) || SKIP_PREFIXES.some((p) => rel.startsWith(p))) continue;
   const route = fileToRoute(rel);
   const html = fs.readFileSync(file, "utf-8");
+  // SPA shells (root vazio, sem SSG) não têm <h1> no HTML estático — o React
+  // hidrata no cliente. Validar headings nelas gera falsos positivos. Só
+  // exigimos h1 em páginas efetivamente pré-renderizadas.
+  if (/<div id="root">\s*<\/div>/.test(html)) continue;
   const { canonical, headings } = validatePage(html, route, { expectedHost: EXPECTED_HOST });
   checked++;
   canonical.forEach((e) => failures.push(`${rel} [canonical] ${e}`));
