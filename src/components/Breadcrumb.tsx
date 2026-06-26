@@ -21,7 +21,7 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
         "@type": "ListItem",
         position: i + 2,
         name: item.label,
-        ...(item.href ? { item: getCanonicalUrl(item.href) } : {}),
+        item: getCanonicalUrl(item.href ?? "/"),
       })),
     ],
   };
