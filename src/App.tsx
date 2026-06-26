@@ -158,6 +158,9 @@ const SeoSeguroEmpresaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroE
 const SeoSeguroVidaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaGuarulhos"), "SeoSeguroVidaGuarulhos");
 const SeoSeguroMotoristaAppGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"), "SeoSeguroMotoristaAppGuarulhos");
 const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
+const PlanoSaudeEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhos"), "PlanoSaudeEmpresarialGuarulhos");
+const PlanoOdontologicoGuarulhos = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhos"), "PlanoOdontologicoGuarulhos");
+const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/SeguroTransporteCargaGuarulhos"), "SeguroTransporteCargaGuarulhos");
 const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
 
 const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
@@ -608,17 +611,20 @@ const App = () => {
                   <Route path="/seguros-para-clinicas-odontologicas" element={<Navigate to="/parcerias-clinicas-odontologicas" replace />} />
                   <Route path="/seguros-para-clinicas-veterinarias" element={<Navigate to="/parcerias-clinicas-veterinarias" replace />} />
                   {/* Planos de saúde — variantes */}
-                  <Route path="/plano-saude-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
-                  <Route path="/plano-saude-empresarial-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
+                  <Route path="/plano-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
+                  <Route path="/plano-de-saude-guarulhos" element={<Navigate to="/plano-saude-guarulhos" replace />} />
+                  <Route path="/plano-saude-empresarial-guarulhos" element={<PlanoSaudeEmpresarialGuarulhos />} />
                   <Route path="/plano-saude-familia-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   <Route path="/plano-saude-mei-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
                   <Route path="/plano-saude-pme-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
-                  <Route path="/plano-odontologico-guarulhos" element={<Navigate to="/seguro-odonto" replace />} />
+                  <Route path="/plano-odontologico-guarulhos" element={<PlanoOdontologicoGuarulhos />} />
                   {/* Patrimônio / empresas — variantes */}
                   <Route path="/seguro-galpao-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-galpao-cumbica" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-logistica-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-transportadora-guarulhos" element={<Navigate to="/seguro-transporte" replace />} />
+                  <Route path="/seguro-transporte-carga-guarulhos" element={<SeguroTransporteCargaGuarulhos />} />
+                  <Route path="/seguro-carga-guarulhos" element={<Navigate to="/seguro-transporte-carga-guarulhos" replace />} />
                   <Route path="/seguro-loja-guarulhos" element={<Navigate to="/seguro-lojas-shopping" replace />} />
                   <Route path="/seguro-restaurante-guarulhos" element={<Navigate to="/seguro-restaurante" replace />} />
                   {/* Auto — variantes e modelos */}
