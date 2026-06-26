@@ -265,6 +265,16 @@ function spaFallbackPlugin(): Plugin {
         const msg = err instanceof Error ? err.message : String(err);
         console.warn("⚠️  React SSG pass falhou — Fase 1 mantém prerender.mjs apenas:", msg);
       }
+
+      // Validação final de JSON-LD / breadcrumbs em dist/. Aborta o build
+      // se qualquer página pré-renderizada tiver schema quebrado.
+      try {
+        console.log("🔎 Validando JSON-LD e breadcrumbs nas páginas pré-renderizadas...");
+        execSync("node scripts/validate-jsonld-build.mjs", { stdio: "inherit" });
+      } catch (err) {
+        console.error("❌ Validação de JSON-LD falhou. Build abortado.");
+        process.exit(1);
+      }
     },
   };
 }
