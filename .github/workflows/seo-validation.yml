@@ -20,8 +20,14 @@ jobs:
       - name: Unit tests - JSON-LD validator
         run: bun run test:jsonld
 
+      - name: Unit tests - canonical & headings validator
+        run: bun run test:canonical
+
       - name: Build (prerender + validate-jsonld-build)
         run: bun run build
 
       - name: Re-validar JSON-LD em dist/
         run: bun run validate:jsonld
+
+      - name: Validar canonical & headings em dist/
+        run: bun run validate:canonical
