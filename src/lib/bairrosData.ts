@@ -201,7 +201,12 @@ export const bairros: BairroData[] = [
     foco: "Seguro Auto, Moto e Saúde Familiar",
     subtitulo: "Proteção acessível para a maior região populacional de Guarulhos",
     descricao: "Pimentas é uma das regiões mais populosas de Guarulhos, com forte demanda por seguro auto, seguro moto e planos de saúde familiares. O índice de roubo/furto na região exige seguros bem calibrados — com rastreador, garagem e franquia ajustada ao perfil. A Patro Seguros compara as 16+ seguradoras parceiras para encontrar o melhor preço para o morador de Pimentas, sem abrir mão de assistência 24h e atendimento humano em sinistro.",
-    image: imgParaventi,
+    image: imgPimentas,
+    geo: { latitude: -23.4631, longitude: -46.3814 },
+    testimonials: [
+      { author: "Luís F.", role: "Motorista de aplicativo — Pimentas", product: "Seguro Auto com EAR", rating: 5, date: "2026-06-05", text: "Era impossível achar seguro com cobertura para Uber em Pimentas. A Patro encontrou apólice 22% mais barata que a anterior, com assistência 24h e carro reserva. Atende rápido pelo WhatsApp." },
+      { author: "Renata C.", role: "Mãe de família — Pimentas", product: "Plano de Saúde Familiar", rating: 5, date: "2026-05-20", text: "Plano antigo subia 25% por ano. A Sandra comparou 4 operadoras e migrou a família para um plano coletivo com a mesma rede e R$ 380 a menos por mês." },
+    ],
     faqs: [
       ...generateLocalFAQs({ slug: "auto-pimentas", neighborhood: "Pimentas", product: "auto", riskLevel: "alto", priceRange: "R$ 3.200 a R$ 6.400/ano", reference: "próximo à Av. Pimentas e Estr. Pres. Juscelino" }),
       ...generateLocalFAQs({ slug: "saude-pimentas", neighborhood: "Pimentas", product: "saude", priceRange: "planos familiares a partir de R$ 199/vida", reference: "com rede próxima ao Hospital Municipal de Pimentas" }),
@@ -215,7 +220,12 @@ export const bairros: BairroData[] = [
     foco: "Auto, Residencial e Pequenos Negócios",
     subtitulo: "Seguros para a região conectada de Guarulhos",
     descricao: "O Taboão é uma região forte de acesso para a Dutra e Fernão Dias, o que aumenta o fluxo de veículos e o risco em rodovia. Combina residências, comércio local e pequenos prestadores. A Patro Seguros atende o Taboão com seguro auto que considera o trajeto, seguro residencial para casas e apartamentos e seguro empresarial sob medida para o comércio do bairro.",
-    image: imgBonsucesso,
+    image: imgTaboao,
+    geo: { latitude: -23.3997, longitude: -46.4717 },
+    testimonials: [
+      { author: "Cláudio M.", role: "Engenheiro — Taboão", product: "Seguro Auto + Residencial", rating: 5, date: "2026-05-28", text: "Pego a Dutra todo dia. A Patro montou cobertura compreensiva com rastreador e ainda fechou seguro da casa no combo, com 12% de desconto. Recomendo para quem pega rodovia diariamente." },
+      { author: "Marina B.", role: "Comerciante — Taboão", product: "Seguro Empresarial PME", rating: 5, date: "2026-04-10", text: "Loja de cosméticos pequena, achei que seguro empresarial era só para grandes. A Patro fez apólice de R$ 89/mês com incêndio, roubo e RC. Tranquilidade total." },
+    ],
     faqs: [
       ...generateLocalFAQs({ slug: "auto-taboao", neighborhood: "Taboão", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.600/ano", reference: "com acesso à Rod. Pres. Dutra e Fernão Dias" }),
       ...generateLocalFAQs({ slug: "residencial-taboao", neighborhood: "Taboão", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 30/mês", reference: "para casas e edifícios da região" }),
@@ -229,7 +239,12 @@ export const bairros: BairroData[] = [
     foco: "Residencial, Auto e Vida",
     subtitulo: "Seguros para um dos bairros mais tradicionais de Guarulhos",
     descricao: "Vila Galvão combina tradição residencial, comércio consolidado na Av. Emílio Ribas e proximidade com a divisa de São Paulo. É um bairro de moradores estabelecidos, com perfil familiar e demanda por seguro residencial completo, seguro auto, seguro de vida e plano de saúde. A Patro Seguros oferece pacote consultivo para quem busca proteção patrimonial sólida no Vila Galvão.",
-    image: imgVilaAugusta,
+    image: imgVilaGalvao,
+    geo: { latitude: -23.4408, longitude: -46.5567 },
+    testimonials: [
+      { author: "Sr. Antônio N.", role: "Aposentado — Vila Galvão", product: "Seguro de Vida + Residencial", rating: 5, date: "2026-03-30", text: "Procurava uma corretora séria, sem pressão de venda. A Patro explicou cobertura por cobertura, comparou 3 seguradoras de vida e me deixou decidir com calma. Atendimento de antigamente." },
+      { author: "Família Oliveira", role: "Moradores — Vila Galvão", product: "Auto + Saúde Familiar", rating: 5, date: "2026-02-14", text: "Mudamos os 2 carros e o plano de saúde da família para a Patro no mesmo mês. Economia somada de R$ 4.200/ano comparado ao que pagávamos separado. Acompanhamento mensal por WhatsApp." },
+    ],
     faqs: [
       ...generateLocalFAQs({ slug: "auto-vila-galvao", neighborhood: "Vila Galvão", product: "auto", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 4.700/ano", reference: "próximo à Av. Emílio Ribas" }),
       ...generateLocalFAQs({ slug: "residencial-vila-galvao", neighborhood: "Vila Galvão", product: "residencial", riskLevel: "baixo", priceRange: "a partir de R$ 30/mês", reference: "para casas e apartamentos do bairro" }),
