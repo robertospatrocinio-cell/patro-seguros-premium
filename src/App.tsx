@@ -68,6 +68,7 @@ const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/Segur
 
 // === Patro Private (camada premium) ===
 const PatroPrivate = lazyWithRetry(() => import("./pages/PatroPrivate"), "PatroPrivate");
+const Patro = lazyWithRetry(() => import("./pages/Patro"), "Patro");
 const SeguroAutoPremiumGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroAutoPremiumGuarulhos"), "SeguroAutoPremiumGuarulhos");
 const SeguroCarrosLuxoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroCarrosLuxoGuarulhos"), "SeguroCarrosLuxoGuarulhos");
 const SeguroResidencialAltoPadraoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroResidencialAltoPadraoGuarulhos"), "SeguroResidencialAltoPadraoGuarulhos");
@@ -573,6 +574,7 @@ const App = () => {
                   <Route path="/seguro-vida-clinicas-odontologicas" element={<SeguroVidaClinicasOdontologicas />} />
                   {/* === Patro Private === */}
                   <Route path="/patro-private" element={<PatroPrivate />} />
+                  <Route path="/patro" element={<Patro />} />
                   <Route path="/seguro-auto-premium-guarulhos" element={<SeguroAutoPremiumGuarulhos />} />
                   <Route path="/seguro-carros-luxo-guarulhos" element={<SeguroCarrosLuxoGuarulhos />} />
                   <Route path="/seguro-residencial-alto-padrao-guarulhos" element={<SeguroResidencialAltoPadraoGuarulhos />} />
