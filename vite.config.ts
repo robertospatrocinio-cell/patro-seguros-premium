@@ -230,6 +230,9 @@ function sitemapPlugin(): Plugin {
       // Cluster sitemaps + legacy flat sitemap.xml
        for (const [name, xml] of Object.entries(files as Record<string, string>)) {
          const filePath = path.join(outDir, name);
+         // Garante que a pasta de saída exista antes de gravar o arquivo
+         // (cobre subdiretórios futuros e protege contra dist ausente).
+         fs.mkdirSync(path.dirname(filePath), { recursive: true });
          // If a directory exists with the same name, we need to remove it (unlikely but safe)
          if (fs.existsSync(filePath) && fs.lstatSync(filePath).isDirectory()) {
            fs.rmSync(filePath, { recursive: true });
