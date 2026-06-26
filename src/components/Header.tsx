@@ -12,6 +12,7 @@ import { logForgottenQuote } from "@/lib/quoteHistory";
 
 const logoFull = "/images/logo-full.webp";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
+const WHATSAPP_SINISTRO_URL = "https://wa.me/551151997500?text=" + encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.");
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -612,7 +613,7 @@ const Header = memo(() => {
           </Link>
           
           <a 
-            href={WHATSAPP_URL}
+            href={WHATSAPP_SINISTRO_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("floating-desktop-sinistro")}
@@ -620,7 +621,9 @@ const Header = memo(() => {
           >
             <span className="text-xs font-bold whitespace-nowrap">WhatsApp de Emergência</span>
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-green-600">
-              <MessageCircle className="h-4 w-4 fill-current" />
+              <svg viewBox="0 0 32 32" className="h-4 w-4 fill-current" aria-hidden="true">
+                <path d="M16.003 3C9.374 3 4 8.373 4 15.002c0 2.295.638 4.531 1.847 6.476L4 29l7.706-1.819a12.94 12.94 0 0 0 4.297.736h.005C22.637 27.917 28 22.544 28 15.915 28 12.7 26.748 9.681 24.471 7.404 22.193 5.126 19.218 3 16.003 3Zm0 21.832h-.004a10.78 10.78 0 0 1-5.493-1.503l-.394-.234-4.575 1.08 1.099-4.46-.257-.41a10.78 10.78 0 0 1-1.65-5.752c0-5.962 4.851-10.813 10.815-10.813 2.888 0 5.604 1.126 7.646 3.17a10.74 10.74 0 0 1 3.168 7.65c-.001 5.962-4.853 10.272-10.355 10.272Zm5.93-8.094c-.325-.163-1.924-.949-2.222-1.057-.298-.108-.515-.163-.732.163-.217.325-.84 1.057-1.03 1.275-.19.217-.379.244-.704.081-.325-.163-1.372-.506-2.614-1.613-.966-.862-1.618-1.927-1.808-2.252-.19-.325-.02-.5.143-.663.147-.146.325-.379.488-.569.163-.19.217-.325.325-.542.108-.217.054-.407-.027-.569-.081-.163-.732-1.765-1.003-2.418-.264-.635-.533-.549-.732-.559l-.624-.011a1.2 1.2 0 0 0-.867.407c-.298.325-1.139 1.113-1.139 2.715 0 1.602 1.165 3.15 1.328 3.367.163.217 2.293 3.502 5.555 4.911.776.335 1.382.535 1.853.685.778.247 1.487.213 2.047.13.625-.093 1.924-.787 2.196-1.547.272-.76.272-1.41.19-1.547-.081-.135-.298-.217-.624-.379Z"/>
+              </svg>
             </div>
           </a>
         </div>
