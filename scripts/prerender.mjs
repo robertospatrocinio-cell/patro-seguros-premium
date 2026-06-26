@@ -26,13 +26,15 @@ async function run() {
   const { seoLocalPageSlugs: saudeSlugs } = await loadDataModule("src/data/seoLocalSaudePages.ts");
   const { seoLocalPageSlugs: modeloSlugs } = await loadDataModule("src/data/seoModelosAutoPages.ts");
   const { segmentos } = await loadDataModule("src/data/segmentosEmpresariais.ts");
+  const { blogAuthors } = await loadDataModule("src/lib/blogAuthors.ts");
 
   const blogSlugs = articles.map(a => a.slug);
   const localSlugs = [...(autoSlugs || []), ...(saudeSlugs || []), ...(modeloSlugs || [])];
   const segmentSlugs = (segmentos || []).map(s => s.slug);
   const blogCategorySlugs = (allCategories || []).map(c => slugifyCategory(c));
+  const blogAuthorSlugs = (blogAuthors || []).map(a => a.slug);
 
-  const bundle = generateSitemapBundle(blogSlugs, localSlugs, segmentSlugs, blogCategorySlugs);
+  const bundle = generateSitemapBundle(blogSlugs, localSlugs, segmentSlugs, blogCategorySlugs, blogAuthorSlugs);
   
   // Collect all unique routes from sitemaps
   const routes = new Set();
