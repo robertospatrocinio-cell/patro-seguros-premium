@@ -10,7 +10,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { getArticleImage } from "@/lib/blogImages";
 import { articles, formatDate } from "@/lib/blogData";
 import { getAuthorBySlug } from "@/lib/blogAuthors";
-import { getCanonicalUrl } from "@/lib/canonical";
+import { getCanonicalUrl, CANONICAL_BASE_URL } from "@/lib/canonical";
 
 const BlogAuthor = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -58,6 +58,9 @@ const BlogAuthor = () => {
 
   const title = `${author.name} — ${author.role.split("—")[0].trim()} | Patro Seguros`;
   const description = author.shortBio;
+  // Absolute URL for social crawlers (WhatsApp, Facebook, LinkedIn, Twitter).
+  const ogImage = `${CANONICAL_BASE_URL}${author.image}`;
+  const ogImageAlt = `Foto de ${author.name}, ${author.role}`;
 
   const personSchema = {
     "@context": "https://schema.org",
@@ -78,7 +81,13 @@ const BlogAuthor = () => {
 
   return (
     <Fragment>
-      <PageMeta title={title} description={description} />
+      <PageMeta
+        title={title}
+        description={description}
+        ogType="profile"
+        ogImage={ogImage}
+        ogImageAlt={ogImageAlt}
+      />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },
