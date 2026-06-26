@@ -606,7 +606,17 @@ const App = () => {
                   <Route path="/planejamento-patrimonial" element={<Navigate to="/investimentos" replace />} />
                   <Route path="/responsabilidade-civil-dentistas" element={<Navigate to="/seguro-rc-dentistas" replace />} />
                   <Route path="/seguro-responsabilidade-civil" element={<Navigate to="/seguro-rc" replace />} />
-                  <Route path="/corretora-seguros-guarulhos" element={<Navigate to="/sobre-guarulhos" replace />} />
+                  {/* Pilar SEO: corretora de seguros em Guarulhos */}
+                  <Route path="/corretora-de-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
+                  <Route path="/corretora-seguros-guarulhos" element={<Navigate to="/corretora-de-seguros-guarulhos" replace />} />
+                  {/* Variantes locais por bairro (pilar corretora + bairro) -> páginas regionais existentes */}
+                  <Route path="/corretora-de-seguros-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
+                  <Route path="/corretora-de-seguros-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
+                  <Route path="/corretora-de-seguros-pimentas" element={<Navigate to="/seguros-guarulhos/pimentas" replace />} />
+                  <Route path="/corretora-de-seguros-bonsucesso" element={<Navigate to="/seguros-guarulhos/bonsucesso" replace />} />
+                  <Route path="/corretora-de-seguros-tabao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  <Route path="/corretora-de-seguros-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  <Route path="/corretora-de-seguros-vila-galvao" element={<Navigate to="/seguros-guarulhos/vila-galvao" replace />} />
                   <Route path="/cotacao-seguro-auto-guarulhos" element={<Navigate to="/cotacao-seguro-auto" replace />} />
                   <Route path="/seguros-para-clinicas-odontologicas" element={<Navigate to="/parcerias-clinicas-odontologicas" replace />} />
                   <Route path="/seguros-para-clinicas-veterinarias" element={<Navigate to="/parcerias-clinicas-veterinarias" replace />} />
