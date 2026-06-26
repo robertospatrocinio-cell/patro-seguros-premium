@@ -131,7 +131,10 @@ const allFaqs = faqCategories.flatMap(cat => cat.faqs);
 
   return (
     <>
-      <PageMeta title="Perguntas Frequentes (FAQ)" description="Tire suas dúvidas sobre seguros, planos de saúde, consórcios e mais. FAQ completo com respostas de especialistas — Patro Seguros, Guarulhos." />
+      <PageMeta
+        title="Perguntas Frequentes sobre Seguros | Patro Seguros"
+        description="Tire dúvidas sobre seguro auto, saúde, vida, empresarial, residencial, sinistro, cotação e atendimento da Patro Seguros em Guarulhos."
+      />
       <FAQSchema faqs={allFaqs} />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
