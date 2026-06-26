@@ -167,6 +167,18 @@ function sitemapPlugin(): Plugin {
         slugs.push(match[1]);
       }
 
+      // Derive unique blog category slugs (slugified, accent-stripped) from blogData.
+      const categoryRegex = /category:\s*"([^"]+)"/g;
+      const categorySet = new Set<string>();
+      let catMatch: RegExpExecArray | null;
+      const slugifyCat = (s: string) =>
+        s.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      while ((catMatch = categoryRegex.exec(blogSrc)) !== null) {
+        categorySet.add(slugifyCat(catMatch[1]));
+      }
+      const blogCategorySlugs = [...categorySet];
+
       // Load local SEO page slugs at build time so sitemap-bairros.xml stays
       // in sync automatically with all local SEO data files.
       const localSlugs: string[] = [];
@@ -200,7 +212,7 @@ function sitemapPlugin(): Plugin {
          console.warn("⚠️  sitemap: falha ao carregar segmentos empresariais —", err instanceof Error ? err.message : err);
        }
  
-       const { index, files } = (generateSitemapBundle as any)(slugs, localSlugs, segmentSlugs);
+       const { index, files } = (generateSitemapBundle as any)(slugs, localSlugs, segmentSlugs, blogCategorySlugs);
       const outDir = path.resolve(__dirname, "dist");
       fs.mkdirSync(outDir, { recursive: true });
       // Cluster sitemaps + legacy flat sitemap.xml
