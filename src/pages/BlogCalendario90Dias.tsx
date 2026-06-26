@@ -45,7 +45,9 @@ const BlogCalendario90Dias = () => {
       <main id="main-content" className="outline-none">
         <section className="gradient-hero py-16">
           <div className="container mx-auto px-4">
-            <Breadcrumb items={[{ label: "Blog", href: "/blog" }, { label: "Calendário 90 dias" }]} className="text-white/70 mb-6" />
+            <div className="text-white/70 mb-6">
+              <Breadcrumb items={[{ label: "Blog", href: "/blog" }, { label: "Calendário 90 dias" }]} />
+            </div>
             <div className="text-center text-white">
               <span className="inline-block text-xs font-semibold uppercase tracking-wider bg-white/15 px-3 py-1 rounded-full mb-4">
                 Calendário editorial · 90 dias
