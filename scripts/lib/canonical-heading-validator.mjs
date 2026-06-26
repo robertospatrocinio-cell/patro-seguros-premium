@@ -53,10 +53,10 @@ export function validateCanonical(html, route, { expectedHost } = {}) {
   if (expectedHost && url.host !== expectedHost) {
     errors.push(`canonical host esperado ${expectedHost}, recebido ${url.host}`);
   }
-  const norm = (p) => (p.endsWith("/") && p.length > 1 ? p.slice(0, -1) : p);
-  if (norm(url.pathname) !== norm(route)) {
-    errors.push(`canonical aponta para ${url.pathname}, esperado ${route}`);
-  }
+  // Self-reference NÃO é mais obrigatória: várias páginas long-tail
+  // (ex.: /seguro-tcross-guarulhos → /seguro-auto-guarulhos) usam canonical
+  // cruzado de propósito para consolidar autoridade no hub. Validamos só
+  // host + URL absoluta — o destino fica a critério da estratégia de SEO.
   return errors;
 }
 
