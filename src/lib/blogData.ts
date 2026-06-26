@@ -261,6 +261,25 @@ export const allTags = [...new Set(articles.flatMap(a => a.tags))].sort();
 // All unique categories sorted
 export const allCategories = [...new Set(articles.map(a => a.category))].sort();
 
+/** Slugify a category name to URL-safe form (NFD + lowercase + dashes). */
+export const slugifyCategory = (cat: string): string =>
+  cat
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+/** Resolve a category slug back to its original display name. */
+export const getCategoryBySlug = (slug: string): string | undefined =>
+  allCategories.find(c => slugifyCategory(c) === slug);
+
+/** All articles within a category (by display name). */
+export const getArticlesByCategory = (category: string): BlogArticleMeta[] =>
+  articles
+    .filter(a => a.category === category)
+    .sort((a, b) => b.date.localeCompare(a.date));
+
 // Get article metadata by slug
 export const getArticleMeta = (slug: string): BlogArticleMeta | undefined =>
   articles.find(a => a.slug === slug);
