@@ -94,6 +94,7 @@ const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
 const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"), "BlogCategory");
+const BlogAuthor = lazyWithRetry(() => import("./pages/BlogAuthor"), "BlogAuthor");
 const BlogCalendario90Dias = lazyWithRetry(() => import("./pages/BlogCalendario90Dias"), "BlogCalendario90Dias");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
@@ -466,6 +467,7 @@ const App = () => {
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/calendario-90-dias" element={<BlogCalendario90Dias />} />
                   <Route path="/blog/categoria/:categoria" element={<BlogCategory />} />
+                  <Route path="/blog/autor/:slug" element={<BlogAuthor />} />
                   <Route path="/artigos/:slug" element={<BlogArticle />} />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />

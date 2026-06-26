@@ -14,6 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
+import { getAuthorSlugByName } from "@/lib/blogAuthors";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -119,6 +120,7 @@ const BlogArticle = () => {
               image={imageUrl}
               datePublished={meta.date}
               authorName={meta.author}
+              authorUrl={`${CANONICAL_BASE_URL}/blog/autor/${getAuthorSlugByName(meta.author)}`}
               category={meta.category}
               tags={meta.tags}
               wordCount={article.content.split(/\s+/).length}
@@ -163,7 +165,12 @@ const BlogArticle = () => {
             <h1 className="text-white mb-4">{article.title}</h1>
             {meta && (
               <div className="flex flex-wrap items-center gap-4 text-sm text-white/60">
-                <span className="flex items-center gap-1.5"><User className="h-3.5 w-3.5" />{meta.author}</span>
+                <Link
+                  to={`/blog/autor/${getAuthorSlugByName(meta.author)}`}
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <User className="h-3.5 w-3.5" />{meta.author}
+                </Link>
                 <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{formatDate(meta.date)}</span>
                 <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{meta.readTime} min de leitura</span>
                 <span className="bg-white/10 px-2 py-0.5 rounded text-xs">{meta.category}</span>

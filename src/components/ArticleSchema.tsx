@@ -49,6 +49,7 @@ const ArticleSchema = ({
     dateModified: dateModified || datePublished,
     author: {
       "@type": "Person",
+      "@id": `${authorUrl}#person`,
       name: authorName,
       url: authorUrl,
       jobTitle: "Corretor(a) de Seguros — SUSEP",
