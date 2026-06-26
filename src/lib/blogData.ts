@@ -6,6 +6,7 @@ import { blogVeterinariaData } from "@/data/blogVeterinariaData";
 import { patroPrivateArticles } from "@/data/blogPatroPrivateData";
 import { agroArticles } from "@/data/blogAgroData";
 import { autoArticles } from "@/data/blogAutoData";
+import { calendar90dArticles } from "@/data/blogCalendar90dData";
 
 export interface BlogArticleMeta {
   slug: string;
@@ -27,6 +28,7 @@ export const articles: BlogArticleMeta[] = [
   ...patroPrivateArticles,
   ...agroArticles,
   ...autoArticles,
+  ...calendar90dArticles,
   { 
     slug: "por-que-seguro-auto-guarulhos-diferente-roubo-furto", 
     title: "Por que o seguro auto em Guarulhos é diferente? (Roubo e Furto na região)", 
