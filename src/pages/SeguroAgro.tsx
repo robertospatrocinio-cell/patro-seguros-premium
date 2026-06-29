@@ -182,7 +182,7 @@ const SeguroAgro = () => {
     provider: {
       "@type": "InsuranceAgency",
       name: "Patro Seguros",
-      url: "https://patroseguros.com.br/",
+      url: "https://www.patroseguros.com.br/",
       telephone: "+55-11-5199-7500",
       image: "https://www.patroseguros.com.br/images/logo-full.webp",
       priceRange: "$$",
@@ -208,7 +208,7 @@ const SeguroAgro = () => {
         ...TRANSPORTE,
       ].map((it) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: it.name, url: `https://patroseguros.com.br/${it.slug}` },
+        itemOffered: { "@type": "Service", name: it.name, url: `https://www.patroseguros.com.br/${it.slug}` },
       })),
     },
   };
@@ -220,7 +220,7 @@ const SeguroAgro = () => {
         description="Hub completo de seguro agro: lavoura (PSR), pecuário, trator, colheitadeira, pulverizador, silo, propriedade rural e transporte agro. Atendimento nacional pela Patro Seguros."
       />
       <Helmet>
-        <link rel="canonical" href="https://patroseguros.com.br/seguro-agro" />
+        <link rel="canonical" href="https://www.patroseguros.com.br/seguro-agro" />
         <script type="application/ld+json">{JSON.stringify(agriculturalServiceSchema)}</script>
       </Helmet>
       <FAQSchema faqs={FAQS} />

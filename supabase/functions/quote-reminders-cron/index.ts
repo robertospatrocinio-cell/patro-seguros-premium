@@ -51,7 +51,7 @@ Deno.serve(async (req) => {
         timestamp: Date.now(),
         nonce: Math.random().toString(36).substring(7) 
       };
-      const resumeLink = `${Deno.env.get("PUBLIC_URL") || 'https://patroseguros.com.br'}/cotacao?resume=${btoa(JSON.stringify(payload))}`;
+      const resumeLink = `${Deno.env.get("PUBLIC_URL") || 'https://www.patroseguros.com.br'}/cotacao?resume=${btoa(JSON.stringify(payload))}`;
 
       // Call the existing email sending function or use a direct mailer
       // For this demo, we'll use a mocked call to send-form-email or similar

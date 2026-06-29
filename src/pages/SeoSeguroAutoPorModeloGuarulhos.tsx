@@ -63,8 +63,8 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
       description="Hub navegável de seguro auto por modelo em Guarulhos: Onix, Corolla, HB20, T-Cross, Hilux, Civic e mais 40 modelos. Compare seguradoras pelo seu carro."
     />
     <Helmet>
-      <link rel="canonical" href="https://patroseguros.com.br/seguro-auto/modelos" />
-      <meta property="og:url" content="https://patroseguros.com.br/seguro-auto/modelos" />
+      <link rel="canonical" href="https://www.patroseguros.com.br/seguro-auto/modelos" />
+      <meta property="og:url" content="https://www.patroseguros.com.br/seguro-auto/modelos" />
       <meta property="og:title" content="Seguro Auto por Modelo em Guarulhos | Patro Seguros" />
     </Helmet>
     <BreadcrumbSchema
