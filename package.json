@@ -14,11 +14,10 @@
     "test:jsonld": "vitest run scripts/lib/jsonld-validator.test.mjs",
     "test:canonical": "vitest run scripts/lib/canonical-heading-validator.test.mjs",
     "validate:jsonld": "node scripts/validate-jsonld-build.mjs",
-    "validate:canonical": "node scripts/validate-canonical-headings-build.mjs"
-    ,
-    "validate:schema-uniqueness": "node scripts/validate-schema-uniqueness.mjs"
-    ,
-    "report:schema-uniqueness": "node scripts/report-schema-uniqueness.mjs"
+    "validate:canonical": "node scripts/validate-canonical-headings-build.mjs",
+    "validate:schema-uniqueness": "node scripts/validate-schema-uniqueness.mjs",
+    "report:schema-uniqueness": "node scripts/report-schema-uniqueness.mjs",
+    "validate:headings": "node scripts/validate-heading-uniqueness.mjs"
   },
   "dependencies": {
     "@fontsource/epilogue": "^5.2.8",
