@@ -486,7 +486,14 @@ const Header = memo(() => {
             </div>
 
 
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2"
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              type="button"
+            >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </nav>
