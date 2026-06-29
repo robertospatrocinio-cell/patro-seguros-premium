@@ -1,3 +1,5 @@
+# Gerado automaticamente por scripts/refresh-sitemaps.mjs — não editar manualmente.
+# Última atualização: 2026-06-29T11:59:47.408Z
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -17,14 +19,15 @@ Allow: /blog/
 Allow: /seguros-guarulhos/
 Allow: /planos-de-saude/
 
-# Sitemaps
+# Sitemaps (auto-descobertos)
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-guarulhos.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-auto.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-vida-saude.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-empresarial.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-geral.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-guarulhos.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-vida-saude.xml
+Sitemap: https://www.patroseguros.com.br/sitemap.xml
 
 # Optimization for Search Bots
 User-agent: Googlebot
