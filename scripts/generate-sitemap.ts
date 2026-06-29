@@ -287,6 +287,90 @@ export interface SitemapBundle {
   files: Record<string, string>;
 }
 
+/**
+ * Constrói o sitemap-images.xml a partir de imagens estáveis em /public,
+ * associando cada imagem à página onde aparece. Usa o protocolo
+ * sitemaps.org/schemas/sitemap-image/1.1 (suportado por Google).
+ * Importante: apenas imagens com URL pública estável (não-hashed) entram —
+ * assets bundleados pelo Vite mudam de hash a cada build e não devem ser
+ * listados aqui (Google trataria como links quebrados a cada deploy).
+ */
+function buildImageSitemap(): string {
+  type ImgEntry = { page: string; images: { loc: string; title?: string; caption?: string }[] };
+
+  const partners = [
+    "akad","allianz","amil","axa","azos","azul","bradesco","bradesco-saude","darwin",
+    "hapvida","hdi","itau","ituran","justos","liberty","mapfre","medsenior","omint",
+    "porto","porto-saude","prevent-senior","sompo","suhai","sulamerica","sura",
+    "tokio-marine","unimed","zurich",
+  ];
+
+  const entries: ImgEntry[] = [
+    {
+      page: "/",
+      images: [
+        { loc: "/images/hero-home.webp", title: "Patro Seguros — Corretora em Guarulhos", caption: "Hero principal da home" },
+        { loc: "/images/hero-familia.webp", title: "Proteção para sua família", caption: "Família protegida pelos seguros Patro" },
+        { loc: "/images/og-cover.webp", title: "Patro Seguros — Capa social" },
+        { loc: "/images/logo-full.webp", title: "Logo Patro Seguros" },
+        { loc: "/images/selo-melhor-corretora.webp", title: "Selo Melhor Corretora de Seguros" },
+        ...partners.map((p) => ({
+          loc: `/logos/${p}.png`,
+          title: `Logo ${p.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}`,
+          caption: "Seguradora parceira Patro Seguros",
+        })),
+      ],
+    },
+    {
+      page: "/corretora-seguros-guarulhos/",
+      images: [
+        { loc: "/images/hero-home.webp", title: "Corretora de Seguros em Guarulhos" },
+        { loc: "/images/selo-melhor-corretora.webp", title: "Selo Melhor Corretora de Guarulhos" },
+      ],
+    },
+    {
+      page: "/sobre/",
+      images: [
+        { loc: "/images/logo-full.webp", title: "Sobre a Patro Seguros" },
+        { loc: "/images/selo-melhor-corretora.webp", title: "Reconhecimentos Patro Seguros" },
+      ],
+    },
+  ];
+
+  const esc = (s: string) =>
+    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  const urlBlocks = entries.map((e) => {
+    const imgs = e.images
+      .map((i) => {
+        const lines = [`      <image:loc>${esc(`${DOMAIN}${i.loc}`)}</image:loc>`];
+        if (i.title) lines.push(`      <image:title>${esc(i.title)}</image:title>`);
+        if (i.caption) lines.push(`      <image:caption>${esc(i.caption)}</image:caption>`);
+        return `    <image:image>\n${lines.join("\n")}\n    </image:image>`;
+      })
+      .join("\n");
+    return [
+      "  <url>",
+      `    <loc>${esc(`${DOMAIN}${e.page}`)}</loc>`,
+      `    <lastmod>${TODAY}</lastmod>`,
+      imgs,
+      "  </url>",
+    ].join("\n");
+  });
+
+  const totalImages = entries.reduce((a, e) => a + e.images.length, 0);
+
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    `<!-- ${entries.length} páginas / ${totalImages} imagens -->`,
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+    '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+    ...urlBlocks,
+    "</urlset>",
+    "",
+  ].join("\n");
+}
+
 export function generateSitemap(blogSlugs: string[]): string {
   // Backward-compatible API: returns the flat sitemap.xml content.
   return generateSitemapBundle(blogSlugs, []).files["sitemap.xml"];
