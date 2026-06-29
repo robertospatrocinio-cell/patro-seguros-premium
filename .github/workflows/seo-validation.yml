@@ -17,13 +17,20 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Install puppeteer (Chromium) for React SSG
+        # Necessário para o passo `prerender-react.mjs` rodar com ENABLE_REACT_SSG=1
+        # e gerar HTML estático real das 836 rotas (Fase 1+2+3).
+        run: bun add -d puppeteer
+
       - name: Unit tests - JSON-LD validator
         run: bun run test:jsonld
 
       - name: Unit tests - canonical & headings validator
         run: bun run test:canonical
 
-      - name: Build (prerender + validate-jsonld-build)
+      - name: Build com SSG real (prerender.mjs + prerender-react.mjs + validate-jsonld-build)
+        env:
+          ENABLE_REACT_SSG: "1"
         run: bun run build
 
       - name: Re-validar JSON-LD em dist/
@@ -31,3 +38,6 @@ jobs:
 
       - name: Validar canonical & headings em dist/
         run: bun run validate:canonical
+
+      - name: Validar unicidade de H2 (heading uniqueness) em dist/
+        run: bun run validate:headings
