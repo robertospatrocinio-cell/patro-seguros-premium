@@ -79,7 +79,7 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       realScenarios={realScenarios}
       coverages={config.coverages}
       whoNeeds={config.whoNeeds ?? ["Moradores de Guarulhos", "Empresários locais"]}
-      whyPatro={config.whyPatro ?? ["Nota 4.9 no Google", "Comparativo de 16+ seguradoras"]}
+      whyPatro={config.whyPatro ?? ["Nota 4.7 no Google", "Comparativo de 16+ seguradoras"]}
       tips={config.tips ?? ["Compare sempre", "Fale com um especialista"]}
       nearbyAreas={config.nearbyAreas}
       relatedInsurances={config.relatedInsurances}

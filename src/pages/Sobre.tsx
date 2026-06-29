@@ -18,7 +18,7 @@ const stats = [
   { value: "+30", label: "Anos de Experiência", desc: "Combinados entre os sócios" },
   { value: "2.500+", label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
   { value: "1.800+", label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
-  { value: "4.9", label: "Nota no Google", desc: "150+ avaliações reais" },
+  { value: "4.7", label: "Nota no Google", desc: "27 avaliações reais" },
 ];
 
 const equipe = [
@@ -85,7 +85,7 @@ const Sobre = () => {
               </p>
               <p>
                 Hoje, somos reconhecidos como a <strong className="text-foreground">melhor corretora de seguros de Guarulhos</strong>,
-                com nota 4.9 no Google e mais de 2.500 clientes atendidos — famílias, profissionais liberais, empresas e
+                com nota 4.7 no Google e mais de 2.500 clientes atendidos — famílias, profissionais liberais, empresas e
                 produtores rurais que confiam na nossa expertise e compromisso com a proteção de seus patrimônios e vidas.
               </p>
             </div>

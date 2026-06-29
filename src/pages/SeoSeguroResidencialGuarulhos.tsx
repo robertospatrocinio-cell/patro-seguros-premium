@@ -74,7 +74,7 @@ Um dado importante: o seguro residencial é um dos mais acessíveis do mercado, 
     ]}
     whyPatro={[
       "Corretora local em Guarulhos com atendimento presencial no Cidade Maia",
-      "Mais de 300 residências protegidas em Guarulhos — nota 4.9 no Google",
+      "Mais de 300 residências protegidas em Guarulhos — nota 4.7 no Google",
       "Comparação entre Porto Seguro, Tokio Marine, Allianz e mais",
       "Cotação em até 2 horas com propostas comparativas detalhadas",
       "Conhecemos os riscos específicos de cada bairro de Guarulhos",

@@ -70,7 +70,7 @@ const FACTS = [
   "Hub de mais de 16 seguradoras e 20+ operadoras de saúde.",
   "Especialização em galpões e riscos patrimoniais (Guarulhos, Cumbica e nacional).",
   "Mais de 500 cases atendidos para PMEs e pessoas físicas.",
-  "Nota 4.9 no Google Business com mais de 150 avaliações reais.",
+  "Nota 4.7 no Google Business com 27 avaliações reais.",
   "Atendimento Agro com cobertura nacional para máquinas, lavoura e propriedades rurais.",
 ];
 

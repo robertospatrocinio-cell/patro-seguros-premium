@@ -307,7 +307,7 @@ const SegurosGuarulhosBairros = () => {
               </div>
               <div className="flex flex-col items-center gap-3">
                 <Star className="h-10 w-10 text-[#F2994A]" />
-                <h3 className="text-white font-bold text-lg">Nota 4.9 no Google</h3>
+                <h3 className="text-white font-bold text-lg">Nota 4.7 no Google</h3>
                 <p className="text-white/70 text-sm">Avaliação de excelência no Google com centenas de clientes satisfeitos</p>
               </div>
             </div>

@@ -9,8 +9,8 @@
  */
 
 export const PATRO_RATING = {
-  ratingValue: "4.9",
-  reviewCount: "150",
+  ratingValue: "4.7",
+  reviewCount: "27",
   bestRating: "5",
   worstRating: "1",
 } as const;
@@ -22,7 +22,7 @@ interface AggregateRatingSchemaProps {
   url: string;
   /** Optional short description shown in rich results context */
   description?: string;
-  /** Override rating numbers if needed (defaults to consolidated 4.9 / 150) */
+  /** Override rating numbers if needed (defaults to consolidated 4.7 / 27) */
   rating?: typeof PATRO_RATING;
 }
 

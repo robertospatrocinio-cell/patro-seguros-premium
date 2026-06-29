@@ -492,7 +492,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
         <div className="flex flex-col items-center gap-2 mt-4">
           <div className="flex items-center justify-center gap-2 text-[10px] text-foreground/70">
             <TrendingDown className="h-3 w-3 text-green-600" />
-            <span>Nota 4.9 no Google | Comparativo de 16+ seguradoras</span>
+            <span>Nota 4.7 no Google | Comparativo de 16+ seguradoras</span>
           </div>
           <div className="flex items-center justify-center gap-1.5 text-[10px] text-muted-foreground/60">
             <Save className="h-3 w-3" />

@@ -16,13 +16,13 @@ const SeoParceriaVistoriaGuarulhos = () => (
     benefits={[
       { icon: "💰", title: "Renda Extra", description: "Comissões agressivas sobre cada seguro de veículo fechado por indicação." },
       { icon: "⚡", title: "Rapidez", description: "Cotação em 2h para seu cliente, garantindo satisfação e agilidade no pátio." },
-      { icon: "🛡️", title: "Confiança", description: "Sua marca associada a uma corretora com nota 4.9 no Google." }
+      { icon: "🛡️", title: "Confiança", description: "Sua marca associada a uma corretora com nota 4.7 no Google." }
     ]}
     stats={[
       { value: "16+", label: "Seguradoras" },
       { value: "2h", label: "Prazo Cotação" },
       { value: "100%", label: "Grátis p/ ECV" },
-      { value: "4.9", label: "Nota Google" }
+      { value: "4.7", label: "Nota Google" }
     ]}
     testimonials={[
       { name: "Ricardo", role: "ECV Cumbica", content: "A parceria com a Patro aumentou nosso faturamento mensal em 20% apenas com indicações.", stars: 5 },

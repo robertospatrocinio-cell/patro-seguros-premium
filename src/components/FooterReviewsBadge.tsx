@@ -5,7 +5,7 @@ const LEAVE_REVIEW_URL = "https://g.page/r/patroseguros/review";
 
 /**
  * Compact Google Reviews badge for the footer.
- * Reinforces local SEO trust signals (4.9★ · 150+ avaliações no Google).
+ * Reinforces local SEO trust signals (4.7★ · 27 avaliações no Google).
  * The aggregateRating is also embedded in LocalBusinessSchema (JSON-LD)
  * so Google can render rich snippets in the SERP.
  */
@@ -26,14 +26,14 @@ const FooterReviewsBadge = () => (
     </div>
 
     <div className="flex items-end gap-3">
-      <span className="text-3xl font-bold text-white leading-none">4.9</span>
+      <span className="text-3xl font-bold text-white leading-none">4.7</span>
       <div className="pb-0.5">
-        <div className="flex gap-0.5 mb-1" role="img" aria-label="Nota 4.9 de 5 estrelas">
+        <div className="flex gap-0.5 mb-1" role="img" aria-label="Nota 4.7 de 5 estrelas">
           {[1, 2, 3, 4, 5].map(i => (
             <Star key={i} className="h-3.5 w-3.5 fill-amber-500 text-amber-500" aria-hidden="true" />
           ))}
         </div>
-        <p className="text-[11px] text-white/80">+150 avaliações reais</p>
+        <p className="text-[11px] text-white/80">27 avaliações reais</p>
       </div>
     </div>
 
