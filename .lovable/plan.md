@@ -1,88 +1,84 @@
-## Contexto
+# Plano de correção técnica/SEO/UX — Patro Seguros
 
-O site da Patro Seguros já tem **204 páginas** e a maioria das URLs prioritárias citadas no briefing **já existe** (algumas como redirect 301):
+Escopo grande (21 frentes). Vou primeiro **auditar** o estado real do código e do site publicado para não refazer o que já está correto (ex.: muita coisa do briefing já foi feita nas últimas iterações), depois corrigir só o que ainda falha, em 4 ondas. Tudo verificado com Playwright + parse de HTML antes/depois.
 
-| URL pedida | Status atual |
-|---|---|
-| /seguro-auto-guarulhos | ✅ existe (`SeoSeguroAutoGuarulhos`) |
-| /seguro-empresarial-guarulhos | ✅ existe |
-| /seguro-frota-guarulhos | ✅ existe |
-| /seguro-residencial-guarulhos | ✅ existe |
-| /seguro-vida-guarulhos | ✅ existe |
-| /seguro-condominio-guarulhos | ✅ existe |
-| /seguro-moto-guarulhos | ✅ existe |
-| /plano-saude-empresarial-guarulhos | 🔁 hoje redireciona p/ `/plano-saude-empresarial` |
-| /plano-saude-guarulhos | 🔁 redireciona p/ `/planos-de-saude` |
-| /plano-odontologico-guarulhos | 🔁 redireciona p/ `/seguro-odonto` |
-| /corretora-seguros-guarulhos | 🔁 redireciona p/ `/sobre-guarulhos` |
-| /seguro-transporte-carga-guarulhos | ❌ não existe (há `/seguro-transporte` e redirect `/seguro-transportadora-guarulhos`) |
-| /seguro-fianca-guarulhos | ❌ não existe |
+## Onda 0 — Auditoria (1 passo, ~3 min)
 
-Como você pediu para **não inflar o site com páginas de texto raso**, o plano abaixo prioriza ganhos sem inchar a arquitetura.
+Rodar varredura única que mede o estado atual em produção (`www.patroseguros.com.br`) e no `dist/`:
 
-> Obs.: O arquivo de keywords mencionado no briefing **não foi anexado** nesta conversa. Vou trabalhar com as keywords listadas no texto. Se quiser usar a planilha cheia, me envie que ajusto headings/copy.
+- conta de `<h1>` por rota (lista de 18 rotas-chave do briefing)
+- presença literal de “Carregando Patro Seguros…”, “Edit with lovable.dev”, “Lovable”
+- detecção de bloco SEO “antes do hero” (texto longo dentro do `<body>` antes do `<header>` visível ou de `[data-hero]`)
+- valores de `ratingValue`/`reviewCount` em todo HTML + componentes que renderizam estrelas/contagens
+- links internos com host malformado (`httpswww`, `hwww`, sem `www`, `http://`)
+- títulos/descriptions/canonicals/og por rota (duplicados, “Faq”, “Procurando por…”)
+- status HTTP de 30 URLs amostradas (200 vs 301 vs 404)
+- presença de schemas obrigatórios por tipo de página
+- imagens sem `alt` em rotas-chave
 
-## Escopo (tudo "leve", sem redesign)
+A saída é um relatório `audit-report.md`. Tudo abaixo só toca o que o relatório acusar como falho.
 
-### 1. Home (`src/pages/Index.tsx`)
-- Reforçar o parágrafo de abertura com a linha sugerida ("corretora de seguros em Guarulhos que atende pessoas, famílias e empresas…").
-- Adicionar 1 bloco discreto de **atendimento regional** (chips/lista de bairros: Centro, Cumbica, Pimentas, Bonsucesso, Taboão, Vila Galvão, Macedo, Cidade Maia, Gopoúva, Ponte Grande, Vila Augusta, Picanço) com link para a página de cada produto local correspondente — sem listão sem contexto.
-- Acrescentar 2-3 FAQs reais ("Vocês atendem em todo Guarulhos e região?", "Posso comparar planos de saúde por bairro?", "Qual a diferença entre corretora local e seguradora direta?") — somam ao FAQSchema já existente.
+## Onda 1 — Bloqueadores de indexação e confiança (P0)
 
-### 2. Páginas Guarulhos que existem (revisão pontual)
-Em cada uma destas: revisar **<title>** (≤60), **meta description** (≤155), **H1 único**, garantir **H2** com variação natural da keyword, e checar CTAs (Cotação / WhatsApp / Comparar):
-- `SeoSeguroAutoGuarulhos`
-- `SeoSeguroEmpresaGuarulhos` (rota `/seguro-empresarial-guarulhos`)
-- `SeoSeguroFrotaGuarulhos`
-- `SeoSeguroResidencialGuarulhos`
-- `SeoSeguroVidaSaudeGuarulhos` (atende `/seguro-vida-guarulhos`)
-- `SeoSeguroCondominioGuarulhos`
-- `SeoPlanoSaudeGuarulhos`
-- `SeoCorretoraGuarulhos`
+1. **H1 único** — remover qualquer `<h1>` extra na home e nas rotas que o auditor acusar como duplicado. Manter o H1 visível do hero. Sem h1 oculto / `sr-only` / width:0.
+2. **Bloco SEO artificial antes do hero** — remover qualquer componente que injete texto longo fora do fluxo visual; mover apenas o que for genuinamente útil para seções visíveis.
+3. **“Carregando Patro Seguros…”** — onde for tela de loading do Suspense em rota indexável, trocar por skeleton sem texto comercial e/ou pré-renderizar o conteúdo principal de forma síncrona. Verificar nas 18 rotas listadas.
+4. **Badge Lovable** — remover qualquer marca remanescente (`Edit with lovable.dev`, badge flutuante, link `lovable.dev`). Confirmar `publish_settings--set_badge_visibility` está em `hide_badge: true`.
+5. **Avaliações padronizadas** — escolher 1 par único `(ratingValue, reviewCount)`. Vou perguntar ao usuário o número real do Perfil da Empresa do Google (não invento). Até a resposta, **remover `aggregateRating` do JSON-LD** e trocar todas as variações textuais por um placeholder neutro (“Avaliações no Google” sem número). Quando o usuário responder, atualizo numa pequena PR seguinte.
 
-Nenhuma reescrita massiva — apenas ajustes de meta/heading/CTA onde estiverem fora do padrão.
+## Onda 2 — Higiene de URL/host/redirects (P0)
 
-### 3. Reativar 3 URLs que hoje só redirecionam
-Trocar o `Navigate` por uma página local real (usando `LocalPageTemplate`/`InsurancePageTemplate` existente), com conteúdo curto mas legítimo (sem boilerplate copiado de outra cidade):
-- `/plano-saude-guarulhos` → nova `SeoPlanoSaudeGuarulhos` reativa (atualmente o nome existe mas a rota redireciona — vou apontar a rota para o componente)
-- `/plano-saude-empresarial-guarulhos` → nova página focada em PME/MEI Guarulhos
-- `/plano-odontologico-guarulhos` → nova página odonto Guarulhos
+6. **Hosts malformados** — varrer `src/`, `public/`, `dist/`, sitemaps, schemas. Qualquer ocorrência de `httpswww`, `hwww`, `http://patroseguros`, `https://patroseguros.com.br` (sem www) vira `https://www.patroseguros.com.br`.
+7. **Links internos** — normalizar para paths relativos (`/seguro-auto`) ou absolutos com `https://www.`. Remover trailing-slash inconsistente que gere 301.
+8. **404 amigável** — garantir `dist/404.html` com `<meta name="robots" content="noindex,follow">`, title correto, links para Home/Cotação/Contato/principais seguros. Status HTTP 404 já é entregue pela hospedagem; só ajustar conteúdo + meta.
+9. **`sitemap.xml` + `robots.txt`** — auditor lista o que está faltando ou sobrando; ajustar `scripts/generate-sitemap*.ts` para entregar só URLs canônicas (https + www, sem preview, sem 404, sem noindex). Robots deve listar o `Sitemap:` correto e não bloquear JS/CSS.
 
-Cada uma com: H1 único, 2 H2, FAQ (FAQPage schema), bloco regional, CTA WhatsApp/Cotação, Schema `InsuranceAgency`/`LocalBusiness` via componentes já existentes.
+## Onda 3 — Schemas, metadados, FAQ e Consórcio (P1)
 
-### 4. Criar 1 página nova (única adição real)
-- `/seguro-transporte-carga-guarulhos` — keyword tem demanda real e hoje só há `/seguro-transporte` genérico + redirect de transportadora. Reuso de `InsurancePageTemplate`.
+10. **Schemas** — manter o que a auditoria anterior já confirmou limpo (1 Organization + 1 InsuranceAgency/LocalBusiness por rota, com `@id` estáveis). Corrigir só desvios encontrados. Remover `aggregateRating` enquanto não houver número validado. Garantir `Service`+`BreadcrumbList`+`FAQPage` (quando FAQ visível) nas páginas de serviço; `BlogPosting` com `author/publisher/datePublished/dateModified/image/mainEntityOfPage` no blog.
+11. **Metadados por rota** — para cada rota da lista do briefing, garantir title/description únicos, canonical self-reference, OG e Twitter completos. Substituir o `Faq` / `Procurando por faq?` pelos textos do briefing.
+12. **/faq premium** — refazer a página com:
+    - H1 “Perguntas frequentes sobre seguros”
+    - 8 categorias com as perguntas listadas no briefing (Auto, Empresarial, Saúde, Residencial, Vida, Consórcio, Sinistro, Cotação)
+    - Accordion shadcn, busca client-side
+    - JSON-LD `FAQPage` espelhando 1:1 só perguntas visíveis
+    - Title/description/canonical do briefing
+13. **/consorcio premium** — auditar a página atual; completar seções faltantes do briefing (hero, simulador simples, 6 tipos, “o que é”, contemplação, sorteio/lance, taxa adm, vs financiamento, como a Patro ajuda, vantagens, cuidados, atendimento, FAQ de 12 perguntas, aviso de transparência obrigatório). Schemas `Service`+`FAQPage`+`BreadcrumbList`. Title/description/canonical/H1 do briefing.
+14. **Imagens sem alt** — adicionar alt descritivo nas imagens importantes apontadas pelo auditor; manter `alt=""` em decorativas.
 
-(Não vou criar `/seguro-fianca-guarulhos` agora — sem conteúdo diferenciador suficiente. Pode entrar depois se você priorizar.)
+## Onda 4 — Performance, design, mobile (P2)
 
-### 5. Linkagem interna
-- Adicionar links contextuais cruzados entre as páginas Guarulhos revisadas (auto ↔ frota ↔ transporte; residencial ↔ condomínio; vida ↔ saúde ↔ odonto).
-- Garantir que a home e o Header/Footer apontem para as páginas Guarulhos principais (sem mexer no menu principal).
+15. **Dependência de JS** — confirmar que as 836 rotas pré-renderizadas (já existentes em `dist/`) contêm o conteúdo principal sem JS. Onda 1 já elimina “Carregando…” como conteúdo SSR. Não vou reescrever para SSR completo (fora do escopo razoável); foco é garantir que o snapshot estático tenha hero, H1, copy principal e schemas.
+16. **CWV** — manter as otimizações já em vigor (code-split, hidden source maps, OptimizedImage, preload do LCP). Verificar e ajustar apenas regressões introduzidas pelas mudanças desta tarefa.
+17. **Design premium** — ajustes pontuais quando uma das ondas acima encostar no layout (faixa CTA, header, FAQ, Consórcio). Sem refatoração geral.
+18. **Smoke mobile** — Playwright em viewport 390×844 nas 6 rotas mais críticas (`/`, `/seguro-auto`, `/planos-de-saude`, `/consorcio`, `/faq`, `/contato`): screenshot, contar h1, verificar WhatsApp fixo não cobre CTA, menu abre/fecha, sem erros de console.
 
-### 6. Não vou mexer
-- Layout, cores, tipografia, navegação principal.
-- Sitemap automático (regenera no build).
-- Páginas de bairro existentes (já validadas por `validate-local-pages`).
-- Estrutura do CRM / Edge Functions / formulários.
+## Onda 5 — Validação e relatório
+
+- Rebuild com `ENABLE_BUILD_VALIDATORS=1 npm run build`
+- Re-rodar o auditor da Onda 0 e diffar antes/depois
+- Inspeção URL no Search Console para `/`, `/seguro-auto`, `/faq`, `/consorcio`
+- Entregar `audit-report.md` final com:
+  - rotas tocadas + H1 / title / description finais
+  - status de `/faq` e `/consorcio`
+  - confirmação de remoção de Lovable, “Carregando…”, bloco SEO artificial, hosts malformados
+  - sitemap/robots finais
+  - schemas por tipo de rota
+  - mobile + desktop screenshots
+  - lista de itens que dependem só do GSC re-crawlar (não dá pra resolver no código)
 
 ## Detalhes técnicos
 
-- Reuso de componentes existentes: `PageMeta`, `FAQSchema`, `LocalBusinessSchema`, `InsurancePageTemplate`, `LocalPageTemplate`, `Breadcrumb`.
-- Schemas: `InsuranceAgency` + `FAQPage` por página; `LocalBusiness` permanece global.
-- Após mudanças: `tsgo --noEmit` para validar tipos. Sem build manual (harness roda).
-- Sem alterações em `tailwind.config.ts`, `index.css`, fontes (SF Pro já configurada).
+- **Stack tocado**: `index.html`, `src/pages/*`, `src/components/*` (Header, Footer, Hero, FAQ, Consorcio), `src/components/seo/*`, `scripts/generate-sitemap*.ts`, `public/robots.txt`, `public/404.html`.
+- **Não tocar**: `src/integrations/supabase/*`, `supabase/config.toml`, sistema de blog (60+ posts), formulários funcionando, edge functions, paleta/tokens existentes (#003366, #F2994A), Instrument Serif / Work Sans.
+- **Pergunta única ao usuário antes de iniciar** (não bloqueia o resto): qual é o número **real** de avaliações no Google Business Profile da Patro hoje (`ratingValue` e `reviewCount`)? Se não for fornecido, removo `aggregateRating` e qualquer número textual de avaliação até receber a fonte oficial.
 
-## Entregáveis
+## O que NÃO está no plano
 
-1. `src/pages/Index.tsx` — bloco regional + 2-3 FAQs + parágrafo institucional.
-2. Revisão de meta/H1/H2 em 8 páginas Guarulhos existentes.
-3. 3 páginas locais reativadas (saúde, saúde empresarial, odonto) substituindo redirects.
-4. 1 página nova: `/seguro-transporte-carga-guarulhos`.
-5. `src/App.tsx` — trocar 3 `Navigate` por componentes reais + 1 rota nova.
+- Mudar domínio, deletar páginas, remover CTAs de WhatsApp/telefone/cotação.
+- Criar reviews/números falsos.
+- Migração para SSR/Next (fora de escopo; o site já pré-renderiza 836 rotas).
+- Reescrita do blog (apenas confirmar schema `BlogPosting`).
+- Tradução, novos idiomas, novos produtos.
 
-## Antes de eu começar
-
-Confirma 2 coisas, por favor:
-
-1. **OK reativar os 3 redirects** (`/plano-saude-guarulhos`, `/plano-saude-empresarial-guarulhos`, `/plano-odontologico-guarulhos`) como páginas próprias? Isso adiciona 3 páginas de verdade ao site.
-2. **A planilha de keywords** — você pretende reenviar? Sem ela, vou trabalhar só com as keywords do briefing.
+Aprovado isso, começo pela Onda 0 (auditoria) e depois sigo onda a onda, mostrando diff por onda.

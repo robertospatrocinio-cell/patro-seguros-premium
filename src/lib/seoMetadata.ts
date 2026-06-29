@@ -365,7 +365,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       title: "Patro Seguros | Corretora de Seguros em Guarulhos",
       description: "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação em 2h. Patro Seguros (11) 5199-7500.",
       canonical: DOMAIN,
-      h1: "Patro Seguros: Corretora de Seguros em Guarulhos",
+      h1: "Corretora de seguros em Guarulhos para você e sua empresa",
       ogUrl: DOMAIN,
       ogType: "website",
       // NOTE: home não emite schema próprio aqui — o `index.html` já carrega
