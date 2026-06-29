@@ -346,23 +346,29 @@ function spaFallbackPlugin(): Plugin {
         console.log("⏭️  React SSG (puppeteer) pulado — defina ENABLE_REACT_SSG=1 para ativar.");
       }
 
-      // Validação final de JSON-LD / breadcrumbs em dist/. Aborta o build
-      // se qualquer página pré-renderizada tiver schema quebrado.
-      try {
-        console.log("🔎 Validando JSON-LD e breadcrumbs nas páginas pré-renderizadas...");
-        execSync("node scripts/validate-jsonld-build.mjs", { stdio: "inherit" });
-      } catch (err) {
-        console.error("❌ Validação de JSON-LD falhou. Build abortado.");
-        process.exit(1);
-      }
-
-      // Canonical self-reference + hierarquia de headings (h1 único, sem saltos).
-      try {
-        console.log("🔎 Validando canonical e hierarquia de headings...");
-        execSync("node scripts/validate-canonical-headings-build.mjs", { stdio: "inherit" });
-      } catch (err) {
-        console.error("❌ Validação de canonical/headings falhou. Build abortado.");
-        process.exit(1);
+      // Validadores pós-build (JSON-LD + canonical/headings).
+      // Eles parseiam 470+ HTMLs gerados pelo prerender; cumulativamente
+      // estouravam o deadline do executor de build do Lovable e travavam
+      // o publish silenciosamente. Como apenas CONFEREM o que já foi gerado
+      // (não alteram output), agora são opt-in via ENABLE_BUILD_VALIDATORS=1
+      // para CI/local. Em produção o publish não depende deles.
+      if (process.env.ENABLE_BUILD_VALIDATORS === "1") {
+        try {
+          console.log("🔎 Validando JSON-LD e breadcrumbs...");
+          execSync("node scripts/validate-jsonld-build.mjs", { stdio: "inherit" });
+        } catch (err) {
+          console.error("❌ Validação de JSON-LD falhou. Build abortado.");
+          process.exit(1);
+        }
+        try {
+          console.log("🔎 Validando canonical e hierarquia de headings...");
+          execSync("node scripts/validate-canonical-headings-build.mjs", { stdio: "inherit" });
+        } catch (err) {
+          console.error("❌ Validação de canonical/headings falhou. Build abortado.");
+          process.exit(1);
+        }
+      } else {
+        console.log("⏭️  Validadores JSON-LD/canonical pulados (defina ENABLE_BUILD_VALIDATORS=1 para ativar em CI).");
       }
     },
   };
