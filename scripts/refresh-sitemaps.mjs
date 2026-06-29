@@ -108,7 +108,7 @@ function processCluster(xml) {
   return { xml: out, touched, total };
 }
 
-function run() {
+async function run() {
   if (!fs.existsSync(SITEMAP_DIR)) {
     console.error(`❌ Diretório não encontrado: ${SITEMAP_DIR}`);
     process.exit(1);
