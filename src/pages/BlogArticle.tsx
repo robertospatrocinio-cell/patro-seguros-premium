@@ -119,6 +119,7 @@ const BlogArticle = () => {
               description={meta.excerpt}
               image={imageUrl}
               datePublished={meta.date}
+              dateModified={meta.updatedAt || meta.date}
               authorName={meta.author}
               authorUrl={`${CANONICAL_BASE_URL}/blog/autor/${getAuthorSlugByName(meta.author)}`}
               category={meta.category}

@@ -16,6 +16,8 @@ export interface BlogArticleMeta {
   tags: string[];
   author: string;
   date: string; // ISO date
+  /** Última revisão editorial. Se ausente, dateModified usa `date`. ISO date. */
+  updatedAt?: string;
   readTime: number; // minutes
 }
 
