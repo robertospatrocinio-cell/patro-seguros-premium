@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 3 páginas / 37 imagens -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.patroseguros.com.br/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/hero-home.webp</image:loc>
+      <image:title>Patro Seguros — Corretora em Guarulhos</image:title>
+      <image:caption>Hero principal da home</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/hero-familia.webp</image:loc>
+      <image:title>Proteção para sua família</image:title>
+      <image:caption>Família protegida pelos seguros Patro</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/og-cover.webp</image:loc>
+      <image:title>Patro Seguros — Capa social</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/logo-full.webp</image:loc>
+      <image:title>Logo Patro Seguros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/selo-melhor-corretora.webp</image:loc>
+      <image:title>Selo Melhor Corretora de Seguros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/akad.png</image:loc>
+      <image:title>Logo Akad</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/allianz.png</image:loc>
+      <image:title>Logo Allianz</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/amil.png</image:loc>
+      <image:title>Logo Amil</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/axa.png</image:loc>
+      <image:title>Logo Axa</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/azos.png</image:loc>
+      <image:title>Logo Azos</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/azul.png</image:loc>
+      <image:title>Logo Azul</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/bradesco.png</image:loc>
+      <image:title>Logo Bradesco</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/bradesco-saude.png</image:loc>
+      <image:title>Logo Bradesco Saude</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/darwin.png</image:loc>
+      <image:title>Logo Darwin</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/hapvida.png</image:loc>
+      <image:title>Logo Hapvida</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/hdi.png</image:loc>
+      <image:title>Logo Hdi</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/itau.png</image:loc>
+      <image:title>Logo Itau</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/ituran.png</image:loc>
+      <image:title>Logo Ituran</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/justos.png</image:loc>
+      <image:title>Logo Justos</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/liberty.png</image:loc>
+      <image:title>Logo Liberty</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/mapfre.png</image:loc>
+      <image:title>Logo Mapfre</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/medsenior.png</image:loc>
+      <image:title>Logo Medsenior</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/omint.png</image:loc>
+      <image:title>Logo Omint</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/porto.png</image:loc>
+      <image:title>Logo Porto</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/porto-saude.png</image:loc>
+      <image:title>Logo Porto Saude</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/prevent-senior.png</image:loc>
+      <image:title>Logo Prevent Senior</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/sompo.png</image:loc>
+      <image:title>Logo Sompo</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/suhai.png</image:loc>
+      <image:title>Logo Suhai</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/sulamerica.png</image:loc>
+      <image:title>Logo Sulamerica</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/sura.png</image:loc>
+      <image:title>Logo Sura</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/tokio-marine.png</image:loc>
+      <image:title>Logo Tokio Marine</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/unimed.png</image:loc>
+      <image:title>Logo Unimed</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/logos/zurich.png</image:loc>
+      <image:title>Logo Zurich</image:title>
+      <image:caption>Seguradora parceira Patro Seguros</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.patroseguros.com.br/corretora-seguros-guarulhos/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/hero-home.webp</image:loc>
+      <image:title>Corretora de Seguros em Guarulhos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/selo-melhor-corretora.webp</image:loc>
+      <image:title>Selo Melhor Corretora de Guarulhos</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.patroseguros.com.br/sobre/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/logo-full.webp</image:loc>
+      <image:title>Sobre a Patro Seguros</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.patroseguros.com.br/images/selo-melhor-corretora.webp</image:loc>
+      <image:title>Reconhecimentos Patro Seguros</image:title>
+    </image:image>
+  </url>
+</urlset>
