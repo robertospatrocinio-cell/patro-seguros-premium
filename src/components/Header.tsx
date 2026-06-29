@@ -210,7 +210,7 @@ const Header = memo(() => {
           aria-controls={`mobile-section-${id}`}
         >
           {label}
-          <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground/50 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
+          <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
         </button>
         {isOpen && (
           <div id={`mobile-section-${id}`} className="pb-3 px-3" role="region">
@@ -248,7 +248,7 @@ const Header = memo(() => {
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" role="presentation" />
                 <span>(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" aria-label="Enviar e-mail" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
+              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
                 <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" role="presentation" />
                 <span className="hidden md:inline truncate">contato@patroseguros.com.br</span>
               </a>
@@ -289,7 +289,7 @@ const Header = memo(() => {
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="grid grid-cols-2 gap-8">
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-3">Mobilidade e Vida</p>
+                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Mobilidade e Vida</p>
                         <div className="space-y-0.5 text-[13px]">
                           <SmartLink to="/seguro-auto" className="block py-1 hover:text-primary">Seguro Auto</SmartLink>
                           <SmartLink to="/seguro-moto" className="block py-1 hover:text-primary">Seguro Moto</SmartLink>
@@ -299,7 +299,7 @@ const Header = memo(() => {
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-3">Patrimônio e Outros</p>
+                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Patrimônio e Outros</p>
                         <div className="space-y-0.5 text-[13px]">
                           <SmartLink to="/seguro-residencial" className="block py-1 hover:text-primary">Seguro Residencial</SmartLink>
                           <SmartLink to="/seguro-celular" className="block py-1 hover:text-primary">Seguro Celular</SmartLink>
@@ -322,7 +322,7 @@ const Header = memo(() => {
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="grid grid-cols-2 gap-8">
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-3">Proteção Empresarial</p>
+                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Proteção Empresarial</p>
                         <div className="space-y-0.5 text-[13px]">
                           <SmartLink to="/seguro-empresarial" className="block py-1 hover:text-primary">Seguro Empresarial</SmartLink>
                           <SmartLink to="/seguro-frota" className="block py-1 hover:text-primary">Seguro Frota</SmartLink>
@@ -332,7 +332,7 @@ const Header = memo(() => {
                         </div>
                       </div>
                       <div>
-                        <p className="text-[10px] font-medium text-muted-foreground/50 uppercase tracking-[0.1em] mb-3">Riscos e Benefícios</p>
+                        <p className="text-[10px] font-medium text-muted-foreground uppercase tracking-[0.1em] mb-3">Riscos e Benefícios</p>
                         <div className="space-y-0.5 text-[13px]">
                           <SmartLink to="/seguro-rc" className="block py-1 hover:text-primary">Responsabilidade Civil</SmartLink>
                           <SmartLink to="/seguro-cyber" className="block py-1 hover:text-primary">Seguro Cyber</SmartLink>
@@ -539,7 +539,7 @@ const Header = memo(() => {
 
           <div className="relative mb-4">
 
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground/50" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="search"
               placeholder="Buscar seguro…"
