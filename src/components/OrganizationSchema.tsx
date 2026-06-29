@@ -1,30 +1,17 @@
-import { Helmet } from "react-helmet-async";
-import { CANONICAL_BASE_URL } from "@/lib/canonical";
-
 /**
- * Componente que renderiza o Schema.org (JSON-LD) para a Organização (Patro Corretora).
+ * OrganizationSchema — NO-OP.
+ *
+ * O bloco Organization (@id = #organization) agora é emitido estaticamente
+ * em `index.html` e copiado para todas as rotas pelo prerender. Emitir aqui
+ * via Helmet criava um segundo nó com mesmo @id mas dados ligeiramente
+ * diferentes — Google reporta como conflito no URL Inspection.
+ *
+ * Mantemos o componente exportado para não quebrar os ~40 imports
+ * existentes; pode ser removido em refactor futuro.
  */
-const OrganizationSchema = () => {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${CANONICAL_BASE_URL}/#organization`,
-    "name": "Patro Corretora de Seguros",
-    "alternateName": "Patro Seguros",
-    "url": CANONICAL_BASE_URL,
-    "logo": {
-      "@type": "ImageObject",
-      "@id": `${CANONICAL_BASE_URL}/#logo`,
-      "url": `${CANONICAL_BASE_URL}/images/logo-full.webp`,
-      "width": 300,
-      "height": 60
-    },
-    "image": `${CANONICAL_BASE_URL}/images/logo-full.webp`,
-    "telephone": "+551151997500",
-    "description": "Corretora de seguros em Guarulhos com atendimento personalizado. Seguros auto, vida, residencial, saúde, empresarial e frotas para famílias e PMEs.",
-    "priceRange": "$$",
-    "foundingDate": "2020-01-01",
-    "location": {
+const OrganizationSchema = () => null;
+
+export default OrganizationSchema;
       "@type": "Place",
       "name": "Guarulhos, SP, Brasil",
       "address": {
