@@ -420,6 +420,22 @@ export default defineConfig(({ mode }) => ({
   build: {
     target: "es2020",
     minify: "esbuild",
+    /**
+     * Vite preloads, por padrão, todos os chunks alcançáveis a partir do
+     * entry — inclusive dependências de rotas lazy (admin/CRM/dashboards).
+     * Isso enchia o `<head>` da home com `modulepreload` de
+     * vendor-charts/supabase/tanstack/dates (>800 KB), inflando o Render
+     * Delay do LCP mobile. Filtramos esses vendors para que só sejam
+     * baixados quando a rota lazy correspondente for navegada.
+     */
+    modulePreload: {
+      resolveDependencies(_filename, deps) {
+        return deps.filter(
+          (d) =>
+            !/vendor-(charts|supabase|tanstack|dates)-/.test(d),
+        );
+      },
+    },
     rollupOptions: {
         output: {
           /**
