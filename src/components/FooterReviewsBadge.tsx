@@ -28,9 +28,9 @@ const FooterReviewsBadge = () => (
     <div className="flex items-end gap-3">
       <span className="text-3xl font-bold text-white leading-none">4.9</span>
       <div className="pb-0.5">
-        <div className="flex gap-0.5 mb-1" aria-label="Nota 4.9 de 5 estrelas">
+        <div className="flex gap-0.5 mb-1" role="img" aria-label="Nota 4.9 de 5 estrelas">
           {[1, 2, 3, 4, 5].map(i => (
-            <Star key={i} className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+            <Star key={i} className="h-3.5 w-3.5 fill-amber-500 text-amber-500" aria-hidden="true" />
           ))}
         </div>
         <p className="text-[11px] text-white/80">+150 avaliações reais</p>
