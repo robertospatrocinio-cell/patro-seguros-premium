@@ -20,6 +20,11 @@ Allow: /planos-de-saude/
 # Sitemaps
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-guarulhos.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-auto.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-vida-saude.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-empresarial.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-geral.xml
 
 # Optimization for Search Bots
 User-agent: Googlebot
