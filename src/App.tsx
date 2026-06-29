@@ -617,6 +617,12 @@ const App = () => {
                   <Route path="/planejamento-patrimonial" element={<Navigate to="/investimentos" replace />} />
                   <Route path="/responsabilidade-civil-dentistas" element={<Navigate to="/seguro-rc-dentistas" replace />} />
                   <Route path="/seguro-responsabilidade-civil" element={<Navigate to="/seguro-rc" replace />} />
+                  {/* Redirecionamentos de URLs antigas que retornavam 404 (removidas do sitemap) */}
+                  <Route path="/seguro-empresa-guarulhos" element={<Navigate to="/seguro-empresarial" replace />} />
+                  <Route path="/seguros-em-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
+                  <Route path="/seguros-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
+                  <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
+                  <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   {/* Pilar SEO: corretora de seguros em Guarulhos */}
                   <Route path="/corretora-de-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
                   <Route path="/corretora-seguros-guarulhos" element={<Navigate to="/corretora-de-seguros-guarulhos" replace />} />
