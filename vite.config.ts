@@ -367,6 +367,13 @@ function spaFallbackPlugin(): Plugin {
           console.error("❌ Validação de canonical/headings falhou. Build abortado.");
           process.exit(1);
         }
+        try {
+          console.log("🔎 Validando unicidade de Organization/InsuranceAgency...");
+          execSync("node scripts/validate-schema-uniqueness.mjs", { stdio: "inherit" });
+        } catch (err) {
+          console.error("❌ Validação de unicidade de schema falhou. Build abortado.");
+          process.exit(1);
+        }
       } else {
         console.log("⏭️  Validadores JSON-LD/canonical pulados (defina ENABLE_BUILD_VALIDATORS=1 para ativar em CI).");
       }
