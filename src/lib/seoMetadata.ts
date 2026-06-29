@@ -368,22 +368,11 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       h1: "Patro Seguros: Corretora de Seguros em Guarulhos",
       ogUrl: DOMAIN,
       ogType: "website",
-      schema: {
-        "@context": "https://schema.org",
-        "@type": ["InsuranceAgency", "LocalBusiness"],
-        "name": "Patro Seguros",
-        "description": "Corretora de seguros em Guarulhos especializada em seguros auto, residenciais e empresariais.",
-        "url": DOMAIN,
-        "telephone": "+55-11-5199-7500",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
-          "addressLocality": "Guarulhos",
-          "addressRegion": "SP",
-          "postalCode": "07115-000",
-          "addressCountry": "BR"
-        }
-      }
+      // NOTE: home não emite schema próprio aqui — o `index.html` já carrega
+      // o bloco rico de InsuranceAgency/LocalBusiness + Organization.
+      // Emitir aqui criava duplicata com dados conflitantes (sem geo, sem
+      // openingHours, sem aggregateRating) que o Google reportava como
+      // "Invalid object type for field <parent_node>" no Review snippet.
     };
   }
 
