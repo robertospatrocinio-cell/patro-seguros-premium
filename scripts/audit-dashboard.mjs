@@ -155,11 +155,14 @@ for (const file of files) {
 rows.sort((a, b) => Number(a.ok) - Number(b.ok) || a.route.localeCompare(b.route));
 
 const generatedAt = new Date().toISOString();
+// Detecta build sem ENABLE_REACT_SSG: se >80% dos HTMLs não têm H1 estático,
+// é o shell SPA — o relatório vira ruído. Banner avisa o usuário.
+const ssgLikelyOff = totals.missingH1 / Math.max(1, totals.files) > 0.8;
 const sitemapsMeta = {
   files: sitemapFiles, totalUrls: sitemapUrls.size,
   robotsTxt: hasRobots, robotsHasSitemap, robotsDisallowAll,
 };
-const jsonReport = { generatedAt, totals, sitemaps: sitemapsMeta, rows };
+const jsonReport = { generatedAt, ssgLikelyOff, totals, sitemaps: sitemapsMeta, rows };
 const jsonPath = path.join(outDir, "audit-dashboard.json");
 fs.writeFileSync(jsonPath, JSON.stringify(jsonReport, null, 2));
 
@@ -205,6 +208,13 @@ const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/>
   </div>
   <div class="meta">SSG real das 836 rotas: <code>ENABLE_REACT_SSG=1 bun run build</code></div>
 </header>
+
+${ssgLikelyOff ? `<div style="background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin-bottom:16px;color:#78350f;font-size:13px">
+  <b>⚠ Build sem SSG real detectado</b> — ${totals.missingH1}/${totals.files} HTMLs estão como shell SPA (sem H1 estático).
+  As métricas de headings e JSON-LD por rota só são confiáveis após
+  <code>ENABLE_REACT_SSG=1 bun run build</code> (ou no CI <code>seo-validation.yml</code>, que já roda assim).
+  Sitemap/robots e os contadores agregados continuam válidos.
+</div>` : ""}
 
 <div class="cards">
   <div class="card"><div class="label">Arquivos auditados</div><div class="value">${totals.files}</div></div>
