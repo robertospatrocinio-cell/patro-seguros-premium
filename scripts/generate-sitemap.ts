@@ -260,7 +260,12 @@ const restoredRoutes: SitemapEntry[] = [
  }
  
  function entryToXml(e: SitemapEntry): string {
-   const lastmod = e.lastmod || TODAY;
+    // Resolução de lastmod (em ordem):
+    //  1. valor explícito definido na entry (ex.: posts do blog com data real)
+    //  2. lastmod anterior preservado do sitemap commitado em public/
+    //     → mantém o sinal estável; Google só "vê novidade" em URL nova/alterada
+    //  3. TODAY → apenas para URLs novas (primeira aparição)
+    const lastmod = e.lastmod || PRIOR_LASTMOD.get(e.loc) || TODAY;
    const loc = cleanXmlString(`${DOMAIN}${e.loc}`);
    return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;
  }
