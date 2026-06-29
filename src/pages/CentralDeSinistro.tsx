@@ -117,8 +117,8 @@ const CentralDeSinistro = () => {
         {/* Hero Section */}
         <section className="relative bg-primary py-20 md:py-32 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-64 h-64 bg-orange-500 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-500 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" />
+            <div className="absolute top-0 left-0 w-64 h-64 bg-orange-600 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-600 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl" />
           </div>
           
           <div className="container mx-auto px-4 relative z-10 text-center">
@@ -136,7 +136,7 @@ const CentralDeSinistro = () => {
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("central-sinistro-hero")}
               >
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-bold h-14 px-8 rounded-xl shadow-lg shadow-orange-500/20 transition-all hover:scale-105">
+                <Button size="lg" className="bg-orange-600 hover:bg-orange-600 text-white font-bold h-14 px-8 rounded-xl shadow-lg shadow-orange-500/20 transition-all hover:scale-105">
                   <MessageCircle className="mr-2 h-6 w-6" />
                   Falar com a Patro no WhatsApp
                 </Button>
@@ -258,7 +258,7 @@ const CentralDeSinistro = () => {
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("central-sinistro-cta-final")}
               >
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-bold h-16 px-10 rounded-2xl shadow-xl shadow-orange-500/20 transition-all hover:scale-105">
+                <Button size="lg" className="bg-orange-600 hover:bg-orange-600 text-white font-bold h-16 px-10 rounded-2xl shadow-xl shadow-orange-500/20 transition-all hover:scale-105">
                   <MessageCircle className="mr-2 h-6 w-6" />
                   Falar com a Patro agora
                 </Button>
