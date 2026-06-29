@@ -49,7 +49,7 @@ const SeoVistoriaCautelarGuarulhos = () => (
       { title: "Danos Elétricos", description: "Proteção contra picos de energia." }
     ]}
     whoNeeds={["Peritos Automotivos", "Empresas de Perícia Cautelar", "Franquias de Vistoria", "Avaliadores de Veículos"]}
-    whyPatro={["Líder em Guarulhos", "Atendimento no Cidade Maia", "Especialistas no Setor", "Nota 4.9 no Google"]}
+    whyPatro={["Líder em Guarulhos", "Atendimento no Cidade Maia", "Especialistas no Setor", "Nota 4.7 no Google"]}
     tips={["Sempre fotografe o estado do veículo antes de iniciar a perícia.", "Mantenha o backup dos laudos em nuvem segura.", "Avalie a cobertura de Lucros Cessantes para pátios."]}
     relatedInsurances={[
       { title: "Seguro Vistoria Veicular", link: "/seguro-para-empresas-de-vistoria-veicular" },

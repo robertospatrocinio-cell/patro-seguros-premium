@@ -45,7 +45,7 @@ const products = [
 ];
 
 const proof = [
-  { value: "4.9/5", label: "Avaliação no Google" },
+  { value: "4.7/5", label: "Avaliação no Google" },
   { value: "500+", label: "PMEs atendidas" },
   { value: "16+", label: "Seguradoras parceiras" },
   { value: "2h", label: "Cotação comparativa" },
@@ -107,7 +107,7 @@ const Patro = () => {
             {/* Texto */}
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold tracking-wider uppercase">
-                <Award className="h-3.5 w-3.5 text-[#F2994A]" /> Nota 4.9 no Google · SUSEP
+                <Award className="h-3.5 w-3.5 text-[#F2994A]" /> Nota 4.7 no Google · SUSEP
               </span>
               <h1
                 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-white"

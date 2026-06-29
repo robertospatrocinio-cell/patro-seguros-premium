@@ -147,7 +147,7 @@ const SeguroAuto = () => {
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span>Nota 4.9/5 no Google | Mais de 2.500 clientes protegidos em Guarulhos</span>
+                <span>Nota 4.7/5 no Google | Mais de 2.500 clientes protegidos em Guarulhos</span>
               </div>
             </div>
           </div>

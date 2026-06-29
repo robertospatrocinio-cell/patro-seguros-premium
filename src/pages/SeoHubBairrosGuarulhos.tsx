@@ -144,7 +144,7 @@ const SeoHubBairrosGuarulhos = () => {
                   </div>
                   <div className="flex items-center gap-1 ml-2">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-bold">4.9/5</span>
+                    <span className="text-sm font-bold">4.7/5</span>
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-4">O que dizem os clientes de Guarulhos</h3>

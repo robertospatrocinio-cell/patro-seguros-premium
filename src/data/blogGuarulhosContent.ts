@@ -71,7 +71,7 @@ export const guarulhosArticlesContent = {
   },
   "melhores-corretoras-seguros-guarulhos": {
     title: "As Melhores Corretoras de Seguros em Guarulhos",
-    content: "Escolher entre as melhores corretoras de seguros em Guarulhos exige atenção ao atendimento e à transparência. A Patro Seguros se destaca pelo atendimento presencial no Cidade Maia e pela nota 4.9 no Google. Uma boa corretora deve comparar várias seguradoras e oferecer suporte total em caso de sinistro. Não contrate apenas pelo preço, avalie a consultoria prestada.",
+    content: "Escolher entre as melhores corretoras de seguros em Guarulhos exige atenção ao atendimento e à transparência. A Patro Seguros se destaca pelo atendimento presencial no Cidade Maia e pela nota 4.7 no Google. Uma boa corretora deve comparar várias seguradoras e oferecer suporte total em caso de sinistro. Não contrate apenas pelo preço, avalie a consultoria prestada.",
     faqs: [
       { q: "Por que escolher uma corretora local?", a: "O conhecimento dos riscos da cidade permite recomendar as melhores coberturas." }
     ]

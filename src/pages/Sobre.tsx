@@ -85,7 +85,7 @@ const Sobre = () => {
               </p>
               <p>
                 Hoje, somos reconhecidos como a <strong className="text-foreground">melhor corretora de seguros de Guarulhos</strong>,
-                com nota 4.9 no Google e mais de 2.500 clientes atendidos — famílias, profissionais liberais, empresas e
+                com nota 4.7 no Google e mais de 2.500 clientes atendidos — famílias, profissionais liberais, empresas e
                 produtores rurais que confiam na nossa expertise e compromisso com a proteção de seus patrimônios e vidas.
               </p>
             </div>

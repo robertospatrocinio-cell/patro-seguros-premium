@@ -38,7 +38,7 @@ const faqs = [
              </div>
              <div>
                <p className="text-sm font-bold text-slate-900 leading-tight">Patro Seguros Guarulhos</p>
-               <p className="text-xs text-slate-500">Nota 4.9/5 no Google</p>
+               <p className="text-xs text-slate-500">Nota 4.7/5 no Google</p>
              </div>
            </div>
            <div className="flex-1 flex gap-2 md:gap-3 max-w-md ml-auto">

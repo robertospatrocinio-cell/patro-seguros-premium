@@ -308,7 +308,7 @@ const Depoimentos = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-white mb-4">Quer ser o próximo a recomendar?</h2>
             <p className="text-white/60 mb-10 max-w-md mx-auto text-sm">
-              Solicite sua cotação gratuita e descubra por que nossos clientes nos dão nota 4.9.
+              Solicite sua cotação gratuita e descubra por que nossos clientes nos dão nota 4.7.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao">

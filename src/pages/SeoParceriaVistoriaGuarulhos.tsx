@@ -16,7 +16,7 @@ const SeoParceriaVistoriaGuarulhos = () => (
     benefits={[
       { icon: "💰", title: "Renda Extra", description: "Comissões agressivas sobre cada seguro de veículo fechado por indicação." },
       { icon: "⚡", title: "Rapidez", description: "Cotação em 2h para seu cliente, garantindo satisfação e agilidade no pátio." },
-      { icon: "🛡️", title: "Confiança", description: "Sua marca associada a uma corretora com nota 4.9 no Google." }
+      { icon: "🛡️", title: "Confiança", description: "Sua marca associada a uma corretora com nota 4.7 no Google." }
     ]}
     stats={[
       { value: "16+", label: "Seguradoras" },
