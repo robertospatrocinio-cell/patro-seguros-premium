@@ -248,7 +248,7 @@ const Header = memo(() => {
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" role="presentation" />
                 <span>(11) 5199-7500</span>
               </a>
-              <a href="mailto:contato@patroseguros.com.br" aria-label="Enviar e-mail" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
+              <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
                 <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" role="presentation" />
                 <span className="hidden md:inline truncate">contato@patroseguros.com.br</span>
               </a>

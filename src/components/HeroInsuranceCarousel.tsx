@@ -583,7 +583,6 @@ const HeroInsuranceCarousel = ({
                     <Link
                       to={card.href}
                       onClick={() => handleCardClick(card)}
-                      aria-label={`${card.title} — ${card.short}`}
                       className="group relative isolate flex h-full min-h-[220px] flex-col justify-between overflow-hidden rounded-2xl border border-white/12 p-4 text-left shadow-[0_4px_16px_-8px_rgba(0,0,0,0.4)] transition-all duration-300 hover:-translate-y-1 hover:border-white/40 hover:shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:min-h-[240px] sm:p-5 motion-reduce:transform-none motion-reduce:transition-none"
                       style={{
                         backgroundColor: `hsl(${theme.accent} / 0.22)`,
@@ -660,7 +659,7 @@ const HeroInsuranceCarousel = ({
               aria-label="Ver seguros anteriores"
               onClick={() => emblaApi?.scrollPrev()}
               disabled={!canPrev}
-              className="pointer-events-auto -ml-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/80 text-white shadow-lg backdrop-blur transition-opacity hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-30"
+              className="pointer-events-auto ml-1 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/80 text-white shadow-lg backdrop-blur transition-opacity hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-30"
             >
               <ArrowLeft className="h-5 w-5" aria-hidden />
             </button>
@@ -669,7 +668,7 @@ const HeroInsuranceCarousel = ({
               aria-label="Ver mais seguros"
               onClick={() => emblaApi?.scrollNext()}
               disabled={!canNext}
-              className="pointer-events-auto -mr-4 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/80 text-white shadow-lg backdrop-blur transition-opacity hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-30"
+              className="pointer-events-auto mr-1 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-slate-900/80 text-white shadow-lg backdrop-blur transition-opacity hover:bg-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:cursor-not-allowed disabled:opacity-30"
             >
               <ArrowRight className="h-5 w-5" aria-hidden />
             </button>
