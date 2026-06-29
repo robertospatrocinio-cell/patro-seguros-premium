@@ -13,6 +13,9 @@
 // The legacy public/sitemap.xml is also regenerated as an equivalent flat
 // sitemap for backward compatibility with already-submitted URLs.
 
+import fs from "node:fs";
+import path from "node:path";
+
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -22,6 +25,53 @@ interface SitemapEntry {
   changefreq: string;
   lastmod?: string;
 }
+
+/**
+ * Lê os sitemaps anteriores em `public/sitemap-*.xml` (commitados no repo) e
+ * monta um mapa `path → lastmod`. Usado para preservar a data por URL entre
+ * builds: Google trata sitemaps onde tudo muda toda hora como ruído e
+ * descarta o sinal de freshness. Só novas URLs (ou as marcadas explicitamente
+ * via `e.lastmod`) recebem a data de hoje, sinalizando recrawl real.
+ */
+function loadPriorLastmodMap(): Map<string, string> {
+  const map = new Map<string, string>();
+  const publicDir = path.resolve(process.cwd(), "public");
+  if (!fs.existsSync(publicDir)) return map;
+  const candidates = [
+    "sitemap.xml",
+    "sitemap-guarulhos.xml",
+    "sitemap-bairros.xml",
+    "sitemap-auto.xml",
+    "sitemap-vida-saude.xml",
+    "sitemap-empresarial.xml",
+    "sitemap-geral.xml",
+  ];
+  const urlRe = /<url>([\s\S]*?)<\/url>/g;
+  const locRe = /<loc>([^<]+)<\/loc>/;
+  const lastmodRe = /<lastmod>([^<]+)<\/lastmod>/;
+  for (const name of candidates) {
+    const filePath = path.join(publicDir, name);
+    if (!fs.existsSync(filePath)) continue;
+    try {
+      const xml = fs.readFileSync(filePath, "utf-8");
+      let m: RegExpExecArray | null;
+      while ((m = urlRe.exec(xml)) !== null) {
+        const block = m[1];
+        const loc = locRe.exec(block)?.[1];
+        const lastmod = lastmodRe.exec(block)?.[1];
+        if (loc && lastmod) {
+          const pathOnly = loc.replace(DOMAIN, "").trim();
+          if (!map.has(pathOnly)) map.set(pathOnly, lastmod.trim());
+        }
+      }
+    } catch {
+      // arquivo inválido: ignora, cairá em TODAY na URL afetada
+    }
+  }
+  return map;
+}
+
+const PRIOR_LASTMOD = loadPriorLastmodMap();
 
 // Priority tiers based on search intent
 // 1.0 = homepage
@@ -210,7 +260,12 @@ const restoredRoutes: SitemapEntry[] = [
  }
  
  function entryToXml(e: SitemapEntry): string {
-   const lastmod = e.lastmod || TODAY;
+    // Resolução de lastmod (em ordem):
+    //  1. valor explícito definido na entry (ex.: posts do blog com data real)
+    //  2. lastmod anterior preservado do sitemap commitado em public/
+    //     → mantém o sinal estável; Google só "vê novidade" em URL nova/alterada
+    //  3. TODAY → apenas para URLs novas (primeira aparição)
+    const lastmod = e.lastmod || PRIOR_LASTMOD.get(e.loc) || TODAY;
    const loc = cleanXmlString(`${DOMAIN}${e.loc}`);
    return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;
  }
