@@ -47,7 +47,7 @@ const LocalTestimonials = () => {
           
           <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-4">
             <div className="flex flex-col items-center border-r pr-4 border-slate-100">
-              <span className="text-2xl font-bold text-foreground">5.0</span>
+              <span className="text-2xl font-bold text-foreground">4.9</span>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
               </div>
@@ -57,7 +57,7 @@ const LocalTestimonials = () => {
                 <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" width={46} height={15} className="h-4 w-auto object-contain" />
                 <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Reviews</span>
               </div>
-              <p className="text-[11px] text-muted-foreground font-medium">Baseado em 340+ avaliações reais</p>
+              <p className="text-[11px] text-muted-foreground font-medium">Baseado em 150+ avaliações no Google</p>
             </div>
           </div>
         </div>

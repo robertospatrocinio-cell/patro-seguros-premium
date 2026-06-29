@@ -238,7 +238,7 @@ const Header = memo(() => {
                 <div className="flex text-yellow-400">
                   {[...Array(5)].map((_, i) => <Star key={i} className="h-2.5 w-2.5 fill-current" aria-hidden="true" />)}
                 </div>
-                <span className="text-[10px] text-white font-bold">5.0 no Google</span>
+                <span className="text-[10px] text-white font-bold">4.9 no Google</span>
               </div>
               <span className="hidden lg:flex items-center gap-1.5 text-white/60 text-[10px]">
                 <MapPin className="h-3 w-3" aria-hidden="true" role="presentation" />
