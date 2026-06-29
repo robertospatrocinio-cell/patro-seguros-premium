@@ -197,10 +197,18 @@ const Index = () => {
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-sm">{t.name}</h4>
+                      <p className="font-bold text-slate-900 text-sm">{t.name}</p>
                       <p className="text-xs text-slate-500">{t.loc}, Guarulhos</p>
                     </div>
-                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" width={92} height={30} decoding="async" className="h-3 ml-auto opacity-50" loading="lazy" />
+                    <img
+                      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                      alt="Avaliação verificada no Google"
+                      width={46}
+                      height={15}
+                      decoding="async"
+                      loading="lazy"
+                      className="h-[15px] w-auto ml-auto opacity-50"
+                    />
                   </div>
                 </div>
               ))}
