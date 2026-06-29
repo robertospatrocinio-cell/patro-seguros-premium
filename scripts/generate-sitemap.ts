@@ -507,6 +507,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     "sitemap-vida-saude.xml",
     "sitemap-empresarial.xml",
     "sitemap-geral.xml",
+    "sitemap-images.xml",
   ];
 
   const index = [
@@ -527,6 +528,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     "sitemap-vida-saude.xml": urlsetFor(vidaSaudeEntries),
     "sitemap-empresarial.xml": urlsetFor(empresarialEntries),
     "sitemap-geral.xml": urlsetFor(geralEntries),
+    "sitemap-images.xml": buildImageSitemap(),
     // Legacy flat sitemap kept for backward compatibility with already-submitted URLs
     "sitemap.xml": urlsetFor(allEntries),
     // Mirror of index for compatibility
