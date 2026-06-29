@@ -286,7 +286,7 @@ const seguroShoppingBonsucesso: SeoLocalPageConfig = {
     { question: "Quanto tempo leva para a apólice ficar pronta?", answer: "Após a aprovação, a emissão costuma ocorrer no mesmo dia útil." }
   ],
   whoNeeds: ["Comerciantes de Bonsucesso", "Franquias", "Restaurantes"],
-  whyPatro: ["Nota 4.9 no Google", "Referência em Guarulhos", "Suporte total"],
+  whyPatro: ["Nota 4.7 no Google", "Referência em Guarulhos", "Suporte total"],
   coverages: baseCoverages,
   realScenarios: [
     { title: "Tentativa de Arrombamento", description: "Uma loja sofreu danos na porta de enrolar durante uma madrugada. O seguro cobriu o conserto da estrutura e os itens levados." },
@@ -359,10 +359,10 @@ const cotacaoSeguroAuto: SeoLocalPageConfig = {
 const melhorCorretora: SeoLocalPageConfig = {
   slug: "melhor-corretora-de-seguros-guarulhos",
   title: "Melhor Corretora de Seguros em Guarulhos — Patro Seguros",
-  subtitle: "Patro Seguros: corretora SUSEP em Guarulhos desde 2008, com 4.9 no Google, mais de 500 apólices ativas e atendimento presencial no Cidade Maia.",
-  description: `Procurando a melhor corretora de seguros em Guarulhos? A Patro Seguros é referência local há mais de 17 anos: registro SUSEP, escritório físico no Cidade Maia, nota 4.9 no Google e mais de 500 apólices ativas em seguro auto, vida, residencial, empresarial e plano de saúde. ${partnersLine}`,
+  subtitle: "Patro Seguros: corretora SUSEP em Guarulhos desde 2008, com 4.7 no Google, mais de 500 apólices ativas e atendimento presencial no Cidade Maia.",
+  description: `Procurando a melhor corretora de seguros em Guarulhos? A Patro Seguros é referência local há mais de 17 anos: registro SUSEP, escritório físico no Cidade Maia, nota 4.7 no Google e mais de 500 apólices ativas em seguro auto, vida, residencial, empresarial e plano de saúde. ${partnersLine}`,
   detailedDescription: `### O que Define a Melhor Corretora em Guarulhos?\n\nO que define a melhor corretora de seguros em Guarulhos não é tamanho de marca — é registro regulatório, presença local, transparência na cotação, qualidade do suporte em sinistro e capacidade de renovar a apólice anualmente sem deixar o cliente refém de aumentos abusivos.\n\n### Tradição e Tecnologia: Patro Seguros\n\nA Patro Seguros é uma corretora familiar fundada por Roberto e Sandra Patrocínio, com escritório físico no Cidade Maia e atendimento que combina tradição (visita presencial, café no escritório) com tecnologia (cotação por WhatsApp, assinatura digital). O time conhece os CEPs da cidade, as oficinas referenciadas e os perfis de risco de cada bairro de Guarulhos.\n\n### Acompanhamento Individualizado\n\nDiferentemente de corretoras nacionais que tratam o cliente como número, na Patro cada apólice é acompanhada individualmente: recotação anual automática, lembretes de vencimento, suporte completo em caso de sinistro e renovação otimizada para garantir que você nunca pague mais do que o mercado oferece.`,
-  metaDescription: "Melhor corretora de seguros em Guarulhos: Patro Seguros. SUSEP, 4.9 no Google, atendimento presencial no Cidade Maia, 9 seguradoras parceiras.",
+  metaDescription: "Melhor corretora de seguros em Guarulhos: Patro Seguros. SUSEP, 4.7 no Google, atendimento presencial no Cidade Maia, 9 seguradoras parceiras.",
   icon: "🏆",
   pricingIntro: "Trabalhar com a Patro não custa nada para o cliente. A corretora é remunerada pela seguradora apenas quando há contratação efetiva. O preço da apólice é exatamente o mesmo que você pagaria contratando direto no site — só que com comparativo entre 9 seguradoras, suporte em sinistro e renovação otimizada.",
   pricingFactors: [
@@ -374,7 +374,7 @@ const melhorCorretora: SeoLocalPageConfig = {
   ],
   pricingNote: "Garantia Patro: se a renovação proposta tiver aumento acima de 15% sem agravamento de risco, recotamos com 9 seguradoras e mostramos alternativas reais.",
   faqs: [
-    { question: "Por que a Patro é considerada a melhor corretora de seguros em Guarulhos?", answer: "Por reunir presença local (escritório físico no Cidade Maia desde 2008), credenciais regulatórias (SUSEP), reputação comprovada (4.9 no Google com avaliações reais), portfólio amplo (9 seguradoras e 16 operadoras de saúde) e atendimento personalizado em todas as etapas." },
+    { question: "Por que a Patro é considerada a melhor corretora de seguros em Guarulhos?", answer: "Por reunir presença local (escritório físico no Cidade Maia desde 2008), credenciais regulatórias (SUSEP), reputação comprovada (4.7 no Google com avaliações reais), portfólio amplo (9 seguradoras e 16 operadoras de saúde) e atendimento personalizado em todas as etapas." },
     { question: "Qual a diferença entre a Patro e uma corretora nacional?", answer: "A Patro tem escritório físico em Guarulhos onde você pode visitar, time que conhece os CEPs e oficinas da região e atendimento individualizado. Corretoras nacionais costumam ter call centers terceirizados e tratam o cliente como número de protocolo." },
     { question: "Contratar com corretora é mais caro do que direto na seguradora?", answer: "Não. O preço final é exatamente o mesmo, pois a remuneração da corretora já está embutida no prêmio da seguradora. A diferença é que pela corretora você tem comparativo entre 9 seguradoras, suporte em sinistro e renovação otimizada." },
   { question: "A Patro tem registro na SUSEP?", answer: "Sim. A Patro Seguros possui registro ativo na SUSEP (Superintendência de Seguros Privados), órgão regulador do mercado de seguros no Brasil. Sempre verifique o registro de qualquer corretora antes de contratar." },
@@ -391,7 +391,7 @@ const melhorCorretora: SeoLocalPageConfig = {
   ],
   whyPatro: [
     "Mais de 17 anos de mercado em Guarulhos (fundada em 2008)",
-    "Nota 4.9 no Google com avaliações de clientes reais da região",
+    "Nota 4.7 no Google com avaliações de clientes reais da região",
     "Escritório físico no Cidade Maia, próximo ao Shopping Maia",
     "Registro SUSEP ativo e equipe capacitada",
     "Parceria com 9 grandes seguradoras e 16 operadoras de saúde",
@@ -1805,7 +1805,7 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
       },
       {
         question: `Por que contratar seguro auto em ${c.city} com a Patro, sediada em Guarulhos?`,
-        answer: `Porque seguro auto é produto regulado pela SUSEP e a corretora atua em todo o território nacional, independentemente da cidade da sede física. A Patro tem registro SUSEP ativo, 17+ anos de mercado, nota 4.9 no Google e parceria com as principais seguradoras do país. O modelo remoto garante o mesmo nível de atendimento que clientes de Guarulhos recebem — com a vantagem adicional de comparativo entre 9 seguradoras em uma única cotação, em vez de você precisar cotar separadamente em cada site.`,
+        answer: `Porque seguro auto é produto regulado pela SUSEP e a corretora atua em todo o território nacional, independentemente da cidade da sede física. A Patro tem registro SUSEP ativo, 17+ anos de mercado, nota 4.7 no Google e parceria com as principais seguradoras do país. O modelo remoto garante o mesmo nível de atendimento que clientes de Guarulhos recebem — com a vantagem adicional de comparativo entre 9 seguradoras em uma única cotação, em vez de você precisar cotar separadamente em cada site.`,
       },
     ],
   });
@@ -1845,7 +1845,7 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
       `Atendimento 100% remoto para ${c.city} — WhatsApp, e-mail, telefone e vistoria por app`,
       "17+ anos de mercado e registro SUSEP ativo",
       "Comparativo entre 9 seguradoras em até 2 horas úteis",
-      "Nota 4.9 no Google com avaliações verificadas",
+      "Nota 4.7 no Google com avaliações verificadas",
       "Suporte em sinistro com argumentação técnica — sem custo adicional",
       "Renovação anual revista automaticamente para evitar aumentos abusivos",
       "Sede física no Cidade Maia, Guarulhos, para encontros presenciais quando desejado",
