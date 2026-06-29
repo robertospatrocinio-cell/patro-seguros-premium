@@ -112,20 +112,6 @@ const WhatsAppButton = () => {
 
   return (
     <>
-      {/* Barra Fixa Desktop (Central de Sinistro) */}
-      <div className={`hidden lg:flex fixed top-[84px] right-0 z-[40] transition-all duration-500 ${visible ? "translate-x-0" : "translate-x-full"}`}>
-        <Link 
-          to="/central-de-sinistro"
-          className="bg-orange-600 text-white px-5 py-3 rounded-l-2xl shadow-2xl flex items-center gap-3 font-black text-sm uppercase tracking-wider hover:bg-orange-700 transition-all hover:pr-8"
-        >
-          <div className="bg-white/20 p-1.5 rounded-lg">
-            <ShieldCheck className="h-5 w-5" />
-          </div>
-          Central de Sinistro
-          <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-
       <div
         className={`fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-50 flex flex-col items-end gap-2 transition-all duration-300 motion-reduce:transition-none lg:bottom-4 lg:right-4 ${
           visible && (!isMobileViewport || !isUserScrolling || open) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
