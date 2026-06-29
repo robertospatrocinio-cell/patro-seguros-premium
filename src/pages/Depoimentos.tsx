@@ -289,9 +289,9 @@ const Depoimentos = () => {
                 <Star key={j} className="h-6 w-6 fill-primary text-primary" aria-hidden="true" />
               ))}
             </div>
-            <p className="text-3xl font-bold mb-1">4.9</p>
+            <p className="text-3xl font-bold mb-1">4.7</p>
             <p className="text-sm text-muted-foreground mb-2">Nota no Google Meu Negócio</p>
-            <p className="text-xs text-muted-foreground mb-6">Baseado em 150+ avaliações reais de clientes</p>
+            <p className="text-xs text-muted-foreground mb-6">Baseado em 27 avaliações reais de clientes</p>
             <a
               href="https://www.google.com/maps/place/Patro+Seguros/"
               target="_blank"

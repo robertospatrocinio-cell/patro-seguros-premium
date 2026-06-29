@@ -9,8 +9,8 @@
  */
 
 export const PATRO_RATING = {
-  ratingValue: "4.9",
-  reviewCount: "150",
+  ratingValue: "4.7",
+  reviewCount: "27",
   bestRating: "5",
   worstRating: "1",
 } as const;

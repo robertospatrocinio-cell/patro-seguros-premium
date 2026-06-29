@@ -18,7 +18,7 @@ const stats = [
   { value: "+30", label: "Anos de Experiência", desc: "Combinados entre os sócios" },
   { value: "2.500+", label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
   { value: "1.800+", label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
-  { value: "4.9", label: "Nota no Google", desc: "150+ avaliações reais" },
+  { value: "4.7", label: "Nota no Google", desc: "27 avaliações reais" },
 ];
 
 const equipe = [

@@ -37,14 +37,14 @@ const GoogleBusinessWidget = () => {
 
       {/* Rating */}
       <div className="flex items-center gap-3 mb-6 pb-6 border-b">
-        <span className="text-4xl font-bold text-foreground">4.9</span>
+        <span className="text-4xl font-bold text-foreground">4.7</span>
         <div>
           <div className="flex gap-0.5 mb-1">
             {[1, 2, 3, 4, 5].map(i => (
               <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
             ))}
           </div>
-          <p className="text-xs text-muted-foreground">150+ avaliações no Google</p>
+          <p className="text-xs text-muted-foreground">27 avaliações no Google</p>
         </div>
       </div>
 

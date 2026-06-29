@@ -22,7 +22,7 @@ const SeoParceriaVistoriaGuarulhos = () => (
       { value: "16+", label: "Seguradoras" },
       { value: "2h", label: "Prazo Cotação" },
       { value: "100%", label: "Grátis p/ ECV" },
-      { value: "4.9", label: "Nota Google" }
+      { value: "4.7", label: "Nota Google" }
     ]}
     testimonials={[
       { name: "Ricardo", role: "ECV Cumbica", content: "A parceria com a Patro aumentou nosso faturamento mensal em 20% apenas com indicações.", stars: 5 },
