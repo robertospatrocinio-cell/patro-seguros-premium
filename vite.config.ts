@@ -332,12 +332,18 @@ function spaFallbackPlugin(): Plugin {
 
       // Fase 1 — SSG real (puppeteer) sobreposto às ~40 rotas curadas.
       // Falha silenciosa: build não quebra se Chromium estiver indisponível.
-      try {
-        console.log("🚀 Starting React SSG pass (Phase 1)...");
-        execSync("node scripts/prerender-react.mjs", { stdio: "inherit" });
-      } catch (err) {
-        const msg = err instanceof Error ? err.message : String(err);
-        console.warn("⚠️  React SSG pass falhou — Fase 1 mantém prerender.mjs apenas:", msg);
+      // Puppeteer (Chromium + ~40 rotas) excede o deadline do executor de
+      // build do Lovable. Mantemos opt-in via ENABLE_REACT_SSG=1 para CI/local.
+      if (process.env.ENABLE_REACT_SSG === "1") {
+        try {
+          console.log("🚀 Starting React SSG pass (Phase 1)...");
+          execSync("node scripts/prerender-react.mjs", { stdio: "inherit" });
+        } catch (err) {
+          const msg = err instanceof Error ? err.message : String(err);
+          console.warn("⚠️  React SSG pass falhou — Fase 1 mantém prerender.mjs apenas:", msg);
+        }
+      } else {
+        console.log("⏭️  React SSG (puppeteer) pulado — defina ENABLE_REACT_SSG=1 para ativar.");
       }
 
       // Validação final de JSON-LD / breadcrumbs em dist/. Aborta o build
