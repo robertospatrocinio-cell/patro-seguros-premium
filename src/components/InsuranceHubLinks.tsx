@@ -40,7 +40,7 @@ import { INSURANCE_HUB } from "@/lib/insuranceHubLinks";
                   return (
                     <li key={link.href}>
                       {isCurrent ? (
-                        <span className="text-sm text-foreground/40 cursor-default">
+                        <span className="text-sm text-muted-foreground cursor-default">
                           {link.label}
                         </span>
                       ) : (

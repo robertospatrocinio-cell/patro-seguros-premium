@@ -314,7 +314,7 @@ const Index = () => {
                   {name}
                 </a>
               ) : (
-                <span key={`${name}-${i}`} className="mx-8 text-lg font-bold text-muted-foreground/50">
+                <span key={`${name}-${i}`} className="mx-8 text-lg font-bold text-muted-foreground">
                   {name}
                 </span>
               );

@@ -216,7 +216,7 @@ const HubSegurosGuarulhos = () => {
                             <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed">{link.description}</p>
                           )}
                         </div>
-                        <ArrowRight className="h-4 w-4 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-0.5" />
+                        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all flex-shrink-0 mt-0.5" />
                       </div>
                     </Link>
                   </li>
