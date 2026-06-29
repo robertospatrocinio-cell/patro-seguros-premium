@@ -45,6 +45,8 @@ const MIN_AGE_DAYS = Number(process.env.MIN_AGE_DAYS || 14);
 const MAX_PER_FILE = Number(process.env.MAX_PER_FILE || 25);
 const DRY = Boolean(flag("dry"));
 const TODAY = new Date().toISOString().slice(0, 10);
+const SITE_URL = (process.env.SITE_URL || "https://www.patroseguros.com.br").replace(/\/$/, "");
+const WRITE_ROBOTS = String(process.env.WRITE_ROBOTS || "1") !== "0";
 
 // -------- Helpers ---------------------------------------------------------
 function daysBetween(iso, ref) {
@@ -149,6 +151,67 @@ function run() {
   const totalTouched = summary.reduce((a, s) => a + s.touched, 0);
   console.log(`✅ Concluído — arquivos alterados: ${summary.filter((s) => s.changed).length}/${files.length}  URLs renovadas: ${totalTouched}`);
   if (DRY) console.log("   (dry-run: nenhum arquivo foi gravado)");
+
+  // ---- robots.txt sempre sincronizado com os sitemaps presentes -----------
+  if (WRITE_ROBOTS) {
+    const robotsPath = path.join(SITEMAP_DIR, "robots.txt");
+    // ordem preferida: index primeiro, depois clusters em ordem alfabética
+    const sitemapFiles = files
+      .slice()
+      .sort((a, b) => {
+        const ai = /sitemap-?index/i.test(a) ? 0 : 1;
+        const bi = /sitemap-?index/i.test(b) ? 0 : 1;
+        if (ai !== bi) return ai - bi;
+        return a.localeCompare(b);
+      });
+
+    const robotsTxt = [
+      "# Gerado automaticamente por scripts/refresh-sitemaps.mjs — não editar manualmente.",
+      `# Última atualização: ${new Date().toISOString()}`,
+      "User-agent: *",
+      "Allow: /",
+      "Disallow: /admin/",
+      "Disallow: /api/",
+      "Disallow: /~api/",
+      "Disallow: /~flock.js",
+      "Disallow: /ebook-consorcio/",
+      "Disallow: /avaliar-no-google/",
+      "Disallow: /performance-diagnostico",
+      "Disallow: /conversion-dashboard",
+      "Disallow: /seo-technical-report",
+      "Disallow: /pagespeed-history",
+      "",
+      "# Allow public high-value paths",
+      "Allow: /lp/",
+      "Allow: /blog/",
+      "Allow: /seguros-guarulhos/",
+      "Allow: /planos-de-saude/",
+      "",
+      "# Sitemaps (auto-descobertos)",
+      ...sitemapFiles.map((f) => `Sitemap: ${SITE_URL}/${f}`),
+      "",
+      "# Optimization for Search Bots",
+      "User-agent: Googlebot",
+      "Allow: /",
+      "Crawl-delay: 0.1",
+      "",
+      "User-agent: Bingbot",
+      "Allow: /",
+      "Crawl-delay: 0.5",
+      "",
+    ].join("\n");
+
+    let prev = "";
+    try { prev = fs.readFileSync(robotsPath, "utf-8"); } catch { /* nuevo */ }
+    // ignora a linha de timestamp para detectar mudança real
+    const strip = (s) => s.replace(/^# Última atualização:.*$/m, "");
+    if (strip(prev) !== strip(robotsTxt)) {
+      if (!DRY) fs.writeFileSync(robotsPath, robotsTxt, "utf-8");
+      console.log(`✓ robots.txt atualizado (${sitemapFiles.length} sitemaps).`);
+    } else {
+      console.log("· robots.txt já em dia.");
+    }
+  }
 }
 
 run();
