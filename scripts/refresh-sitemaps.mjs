@@ -47,6 +47,8 @@ const DRY = Boolean(flag("dry"));
 const TODAY = new Date().toISOString().slice(0, 10);
 const SITE_URL = (process.env.SITE_URL || "https://www.patroseguros.com.br").replace(/\/$/, "");
 const WRITE_ROBOTS = String(process.env.WRITE_ROBOTS || "1") !== "0";
+const NOTIFY = String(process.env.NOTIFY || "1") !== "0";
+const SITEMAP_INDEX_URL = `${SITE_URL}/sitemap-index.xml`;
 
 // -------- Helpers ---------------------------------------------------------
 function daysBetween(iso, ref) {
@@ -210,6 +212,75 @@ function run() {
       console.log(`✓ robots.txt atualizado (${sitemapFiles.length} sitemaps).`);
     } else {
       console.log("· robots.txt já em dia.");
+    }
+  }
+
+  // ---- Notifica search engines (sempre que houve alteração e não é dry) ---
+  const anyChanged = summary.some((s) => s.changed);
+  if (NOTIFY && !DRY && anyChanged) {
+    await notifySearchEngines();
+  } else if (!anyChanged) {
+    console.log("· notify: nada mudou, ping não enviado.");
+  }
+}
+
+/**
+ * Dispara reindex no Google (via edge function resubmit-sitemaps quando
+ * SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY estão presentes) e ping no Bing
+ * (endpoint público, sem credencial). Google /ping foi descontinuado em
+ * jun/2023 — só usamos a Search Console API via gateway.
+ */
+async function notifySearchEngines() {
+  console.log("→ notify: disparando reindex em GSC e Bing…");
+
+  // 1) Google Search Console (via edge function da Lovable Cloud)
+  const SUPABASE_URL = process.env.SUPABASE_URL;
+  const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (SUPABASE_URL && SERVICE_KEY) {
+    const url = `${SUPABASE_URL.replace(/\/$/, "")}/functions/v1/resubmit-sitemaps`;
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${SERVICE_KEY}`,
+        },
+        body: "{}",
+      });
+      const txt = await res.text().catch(() => "");
+      console.log(`  GSC resubmit  → HTTP ${res.status}  ${txt.slice(0, 200)}`);
+    } catch (err) {
+      console.warn(`  ⚠ GSC resubmit falhou: ${err.message}`);
+    }
+  } else {
+    console.log("  · GSC: SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY ausentes — pulado.");
+  }
+
+  // 2) Bing Webmaster (ping público, ainda suportado)
+  const bingUrl = `https://www.bing.com/ping?sitemap=${encodeURIComponent(SITEMAP_INDEX_URL)}`;
+  try {
+    const res = await fetch(bingUrl, { method: "GET" });
+    console.log(`  Bing ping     → HTTP ${res.status}  ${bingUrl}`);
+  } catch (err) {
+    console.warn(`  ⚠ Bing ping falhou: ${err.message}`);
+  }
+
+  // 3) IndexNow (Bing/Yandex/Seznam) — só se INDEXNOW_KEY estiver definido
+  const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
+  if (INDEXNOW_KEY) {
+    try {
+      const res = await fetch("https://api.indexnow.org/indexnow", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          host: new URL(SITE_URL).host,
+          key: INDEXNOW_KEY,
+          urlList: [SITEMAP_INDEX_URL],
+        }),
+      });
+      console.log(`  IndexNow      → HTTP ${res.status}`);
+    } catch (err) {
+      console.warn(`  ⚠ IndexNow falhou: ${err.message}`);
     }
   }
 }
