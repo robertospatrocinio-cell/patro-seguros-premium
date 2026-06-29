@@ -17,6 +17,10 @@ SITE_URL="${SITE_URL:-https://www.patroseguros.com.br}"
 SITEMAP_URL="${SITEMAP_URL:-$SITE_URL/sitemap-index.xml}"
 NODE_BIN="${NODE_BIN:-/usr/bin/node}"
 LOG_DIR="${LOG_DIR:-$SITE_DIR/logs}"
+# Opcionais para reindex automático:
+#   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY  → dispara edge function resubmit-sitemaps (GSC)
+#   INDEXNOW_KEY                             → dispara IndexNow (Bing/Yandex/Seznam)
+export SITE_URL SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY INDEXNOW_KEY
 
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/sitemap-refresh-$(date +%Y%m%d).log"
@@ -25,17 +29,9 @@ LOG_FILE="$LOG_DIR/sitemap-refresh-$(date +%Y%m%d).log"
   echo "==== $(date -u +%FT%TZ) refresh-sitemaps start ===="
   echo "SITE_DIR=$SITE_DIR  SITEMAP=$SITEMAP_URL"
 
-  # 1) Atualiza <lastmod> em rotação
+  # 1) Atualiza <lastmod>, regrava robots.txt e dispara reindex (GSC + Bing)
+  #    O próprio script faz o ping/notify quando há alterações.
   "$NODE_BIN" "$SITE_DIR/scripts/refresh-sitemaps.mjs" --dir "$SITE_DIR"
-
-  # 2) Pings públicos (não exigem credencial)
-  for endpoint in \
-    "https://www.google.com/ping?sitemap=$SITEMAP_URL" \
-    "https://www.bing.com/ping?sitemap=$SITEMAP_URL"
-  do
-    code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "$endpoint" || echo "000")
-    echo "  ping  $endpoint  →  HTTP $code"
-  done
 
   echo "==== $(date -u +%FT%TZ) done ===="
 } >> "$LOG_FILE" 2>&1
