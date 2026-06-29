@@ -690,15 +690,20 @@ const HeroInsuranceCarousel = ({
                       aria-selected={active}
                       aria-label={`Ir para o slide ${i + 1}`}
                       onClick={() => emblaApi?.scrollTo(i)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        active ? "w-6" : "w-1.5 bg-white/30"
-                      }`}
-                      style={
-                        active
-                          ? { background: `linear-gradient(90deg, hsl(${theme.accent}), hsl(${theme.accentSoft}))` }
-                          : undefined
-                      }
-                    />
+                      className="inline-flex h-6 w-6 items-center justify-center"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={`block h-1.5 rounded-full transition-all duration-300 ${
+                          active ? "w-6" : "w-1.5 bg-white/30"
+                        }`}
+                        style={
+                          active
+                            ? { background: `linear-gradient(90deg, hsl(${theme.accent}), hsl(${theme.accentSoft}))` }
+                            : undefined
+                        }
+                      />
+                    </button>
                   );
                 })}
               </div>
