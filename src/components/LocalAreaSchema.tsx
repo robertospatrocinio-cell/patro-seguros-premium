@@ -13,8 +13,6 @@
  *      we never emit two FAQPage blocks on the same URL
  */
 
-import { PATRO_RATING } from "@/components/AggregateRatingSchema";
-
 interface LocalAreaSchemaProps {
   serviceName: string;
   url: string;
@@ -50,7 +48,6 @@ const LocalAreaSchema = ({
     });
   }
 
-  const ratingId = `${url}#aggregate-rating`;
   const agencyId = "https://www.patroseguros.com.br/#insurance-agency";
   const serviceId = `${url}#service`;
 
