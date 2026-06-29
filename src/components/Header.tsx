@@ -486,7 +486,14 @@ const Header = memo(() => {
             </div>
 
 
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="lg:hidden p-2">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2"
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
+              type="button"
+            >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
           </nav>
@@ -494,7 +501,7 @@ const Header = memo(() => {
       </div>
 
       {isMenuOpen && (
-        <div className="lg:hidden bg-background border-b shadow-lg max-h-[80vh] overflow-y-auto p-4">
+        <div id="mobile-menu" className="lg:hidden bg-background border-b shadow-lg max-h-[80vh] overflow-y-auto p-4">
           {recoverableSession && !location.pathname.includes('cotacao') && !location.pathname.includes('formulario') && (
             <div className="mb-4 bg-primary/5 border border-primary/10 rounded-2xl overflow-hidden animate-in slide-in-from-right-4 duration-300">
               <button 

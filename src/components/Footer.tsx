@@ -61,8 +61,14 @@ const Footer = memo(() => {
                 ].map(({ href, icon: Icon, label }) => (
                   <Tooltip key={label}>
                     <TooltipTrigger asChild>
-                      <a href={href} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-                        <Icon className="h-4 w-4" />
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={label}
+                        className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+                      >
+                        <Icon className="h-4 w-4" aria-hidden="true" />
                       </a>
                     </TooltipTrigger>
                     <TooltipContent side="top" className="text-[10px]">{label}</TooltipContent>
