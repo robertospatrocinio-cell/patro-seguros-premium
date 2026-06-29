@@ -156,14 +156,14 @@ const GlossarioSeguros = () => {
     "@type": "DefinedTermSet",
     name: "Glossário de Seguros — Patro Seguros",
     description: `${ALL_TERMS_COUNT}+ termos do mercado de seguros brasileiro explicados de forma simples por um corretor SUSEP.`,
-    url: "https://patroseguros.com.br/glossario-seguros",
-    inDefinedTermSet: "https://patroseguros.com.br/glossario-seguros",
+    url: "https://www.patroseguros.com.br/glossario-seguros",
+    inDefinedTermSet: "https://www.patroseguros.com.br/glossario-seguros",
     hasDefinedTerm: CATEGORIES.flatMap((cat) =>
       cat.terms.map((t) => ({
         "@type": "DefinedTerm",
         name: t.term,
         description: t.definition,
-        inDefinedTermSet: "https://patroseguros.com.br/glossario-seguros",
+        inDefinedTermSet: "https://www.patroseguros.com.br/glossario-seguros",
         termCode: t.term
           .toLowerCase()
           .normalize("NFD")
@@ -181,7 +181,7 @@ const GlossarioSeguros = () => {
         description={`Glossário com ${ALL_TERMS_COUNT}+ termos de seguros explicados de forma simples: apólice, sinistro, franquia, RCF, lucros cessantes, PSR, RCTR-C e mais. Por corretor SUSEP.`}
       />
       <Helmet>
-        <link rel="canonical" href="https://patroseguros.com.br/glossario-seguros" />
+        <link rel="canonical" href="https://www.patroseguros.com.br/glossario-seguros" />
         <script type="application/ld+json">{JSON.stringify(definedTermSet)}</script>
       </Helmet>
       <BreadcrumbSchema
