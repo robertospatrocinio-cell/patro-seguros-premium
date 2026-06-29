@@ -222,6 +222,78 @@ async function run() {
   } else if (!anyChanged) {
     console.log("· notify: nada mudou, ping não enviado.");
   }
+
+  // ---- Validação final: robots.txt + integridade dos sitemaps -------------
+  const problems = validateOutputs(files);
+  if (problems.length > 0) {
+    console.error("❌ Validação falhou:");
+    for (const p of problems) console.error(`   - ${p}`);
+    process.exit(2);
+  }
+  console.log("✓ Validação OK: robots.txt e sitemaps consistentes.");
+}
+
+/**
+ * Checa, ao final da execução, que:
+ *   1. robots.txt existe no SITEMAP_DIR
+ *   2. Aponta para sitemap-index.xml (linha Sitemap: …/sitemap-index.xml)
+ *   3. Todos os Sitemap: declarados no robots.txt existem em disco
+ *   4. Todos os sitemap*.xml em disco estão declarados no robots.txt
+ *   5. Cada sitemap-*.xml referenciado pelo sitemap-index.xml existe em disco
+ */
+function validateOutputs(filesOnDisk) {
+  const problems = [];
+  const robotsPath = path.join(SITEMAP_DIR, "robots.txt");
+  if (!fs.existsSync(robotsPath)) {
+    problems.push("robots.txt não encontrado em " + SITEMAP_DIR);
+    return problems;
+  }
+
+  const robots = fs.readFileSync(robotsPath, "utf-8");
+  const declared = [...robots.matchAll(/^\s*Sitemap:\s*(\S+)\s*$/gim)].map((m) => m[1]);
+
+  // (2) tem que referenciar o sitemap-index.xml
+  const hasIndex = declared.some((u) => /\/sitemap-?index\.xml$/i.test(u));
+  if (!hasIndex) {
+    problems.push("robots.txt não referencia sitemap-index.xml");
+  }
+
+  // (3) cada Sitemap: declarado existe em disco
+  const onDisk = new Set(filesOnDisk);
+  for (const u of declared) {
+    const fname = u.split("/").pop();
+    if (!fname || !onDisk.has(fname)) {
+      problems.push(`Sitemap declarado em robots.txt sem arquivo correspondente: ${u}`);
+    }
+  }
+
+  // (4) cada sitemap*.xml em disco está declarado
+  const declaredFnames = new Set(declared.map((u) => u.split("/").pop()));
+  for (const f of filesOnDisk) {
+    if (!declaredFnames.has(f)) {
+      problems.push(`Arquivo presente mas não declarado em robots.txt: ${f}`);
+    }
+  }
+
+  // (5) integridade do sitemap-index: filhos existem em disco
+  const indexPath = path.join(SITEMAP_DIR, "sitemap-index.xml");
+  if (fs.existsSync(indexPath)) {
+    const xml = fs.readFileSync(indexPath, "utf-8");
+    const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim());
+    for (const loc of locs) {
+      const fname = loc.split("/").pop();
+      if (!fname || !onDisk.has(fname)) {
+        problems.push(`sitemap-index.xml referencia arquivo ausente: ${loc}`);
+      }
+    }
+    if (locs.length === 0) {
+      problems.push("sitemap-index.xml não contém nenhum <loc>");
+    }
+  } else {
+    problems.push("sitemap-index.xml não encontrado em " + SITEMAP_DIR);
+  }
+
+  return problems;
 }
 
 /**
