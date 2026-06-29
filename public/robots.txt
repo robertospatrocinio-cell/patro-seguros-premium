@@ -1,5 +1,5 @@
 # Gerado automaticamente por scripts/refresh-sitemaps.mjs — não editar manualmente.
-# Última atualização: 2026-06-29T11:59:47.408Z
+# Última atualização: 2026-06-29T12:03:55.290Z
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -26,6 +26,7 @@ Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-empresarial.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-geral.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-guarulhos.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-images.xml
 Sitemap: https://www.patroseguros.com.br/sitemap-vida-saude.xml
 Sitemap: https://www.patroseguros.com.br/sitemap.xml
 
