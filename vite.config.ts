@@ -421,14 +421,65 @@ export default defineConfig(({ mode }) => ({
     target: "es2020",
     minify: "esbuild",
     rollupOptions: {
-        // Intentionally NO manualChunks — custom splits caused cross-chunk
-        // TDZ ("Cannot access 'X' before initialization") because libs like
-        // sonner that depend on React ended up in a chunk evaluated before
-        // the React chunk. Let Rollup compute a safe import graph.
+        output: {
+          /**
+           * Code-splitting conservador para reduzir o entry e melhorar LCP mobile.
+           *
+           * Regras de segurança (evitam o TDZ que motivou a remoção anterior):
+           *  - NUNCA separar `react`, `react-dom`, `scheduler`, `react-router*`
+           *    ou qualquer wrapper que dependa deles (sonner, radix, hookform)
+           *    em chunk próprio — eles ficam no chunk default e são avaliados
+           *    antes de quem os consome.
+           *  - Apenas libs "folha" (sem cadeia de dependentes críticos para
+           *    o boot) são extraídas em chunks dedicados, e somente quando
+           *    são pesadas e/ou usadas em rotas/seções não-críticas.
+           *  - Tudo o que não casa retorna `undefined` → Rollup decide.
+           */
+          manualChunks(id: string) {
+            if (!id.includes("node_modules")) return undefined;
+
+            // Recharts: ~250 KB, só usado no CRM/dashboards (lazy).
+            if (/[\\/]node_modules[\\/](recharts|d3-[^\\/]+|victory-vendor|internmap|delaunator|robust-predicates)[\\/]/.test(id)) {
+              return "vendor-charts";
+            }
+
+            // Embla carousel: usado apenas no hero da home (já dentro do entry,
+            // mas isolar permite cache independente de updates do entry).
+            if (/[\\/]node_modules[\\/]embla-carousel(-react)?[\\/]/.test(id)) {
+              return "vendor-embla";
+            }
+
+            // Supabase client: ~80 KB, usado em rotas auth/CRM (lazy).
+            if (/[\\/]node_modules[\\/]@supabase[\\/]/.test(id)) {
+              return "vendor-supabase";
+            }
+
+            // TanStack Query: usado em hooks do CRM (lazy).
+            if (/[\\/]node_modules[\\/]@tanstack[\\/]/.test(id)) {
+              return "vendor-tanstack";
+            }
+
+            // Lucide-react: árvore enorme; tree-shaking individual já ocorre,
+            // mas o que sobra agrupado fica fora do entry.
+            if (/[\\/]node_modules[\\/]lucide-react[\\/]/.test(id)) {
+              return "vendor-icons";
+            }
+
+            // date-fns + react-day-picker (calendário, usado em forms tardios).
+            if (/[\\/]node_modules[\\/](date-fns|react-day-picker)[\\/]/.test(id)) {
+              return "vendor-dates";
+            }
+
+            return undefined;
+          },
+        },
     },
     cssMinify: true,
     reportCompressedSize: true,
-    sourcemap: false,
+    // 'hidden' gera .map para debug/Sentry sem expor //# sourceMappingURL
+    // no JS final — resolve o audit `valid-source-maps` do Lighthouse sem
+    // vazar código-fonte para o cliente.
+    sourcemap: "hidden",
     chunkSizeWarningLimit: 1000,
   },
   plugins: [
