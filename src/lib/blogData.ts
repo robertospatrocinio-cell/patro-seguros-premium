@@ -7,6 +7,7 @@ import { patroPrivateArticles } from "@/data/blogPatroPrivateData";
 import { agroArticles } from "@/data/blogAgroData";
 import { autoArticles } from "@/data/blogAutoData";
 import { calendar90dArticles } from "@/data/blogCalendar90dData";
+import { fase5LocalArticles } from "@/data/blogFase5LocalData";
 
 export interface BlogArticleMeta {
   slug: string;
@@ -22,6 +23,7 @@ export interface BlogArticleMeta {
 }
 
 export const articles: BlogArticleMeta[] = [
+  ...fase5LocalArticles,
   ...guarulhosArticles,
   ...guarulhosLojistasArticles,
   ...vistoriaArticles,
