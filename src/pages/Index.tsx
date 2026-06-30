@@ -145,6 +145,130 @@ const Index = () => {
           <QuickLeadForm />
         </Suspense>
 
+        {/* BLOCO SEO LOCAL — visível, sem texto escondido, links âncora descritivos.
+            Fica logo abaixo do hero/form para garantir que crawlers simples leiam
+            parágrafos reais, H2s e <a href> com contexto antes dos componentes pesados. */}
+        <section className="py-14 md:py-20 bg-white border-t border-slate-100" aria-labelledby="home-seo-intro">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2
+              id="home-seo-intro"
+              className="text-2xl md:text-3xl font-bold text-slate-900 mb-6"
+            >
+              Corretora de Seguros em Guarulhos e Região
+            </h2>
+            <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
+              <p>
+                A Patro Seguros é uma corretora de seguros em Guarulhos especializada
+                em comparar seguradoras e orientar clientes na escolha de seguros
+                para auto, saúde, vida, residência, empresas, frotas e consórcios.
+              </p>
+              <p>
+                Com atendimento consultivo no Cidade Maia, a Patro ajuda pessoas,
+                famílias e empresas a encontrarem proteção adequada ao seu perfil
+                — analisando coberturas, preços, perfil de risco e suporte em caso
+                de sinistro.
+              </p>
+              <p>
+                Nosso trabalho é simplificar a contratação do seguro, explicar as
+                diferenças entre as seguradoras e acompanhar o cliente antes,
+                durante e depois da contratação. Conheça nossa{" "}
+                <Link to="/corretora-de-seguros-em-guarulhos" className="text-primary font-semibold hover:underline">
+                  página completa da corretora em Guarulhos
+                </Link>{" "}
+                ou explore as principais soluções abaixo.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-10 mt-12">
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Seguros para Você</h3>
+                <ul className="space-y-2 text-[15px]">
+                  <li>
+                    <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">
+                      Seguro Auto em Guarulhos
+                    </Link>{" "}
+                    — proteção contra colisão, roubo e assistência 24h.
+                  </li>
+                  <li>
+                    <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline">
+                      Seguro Residencial em Guarulhos
+                    </Link>{" "}
+                    — incêndio, danos elétricos, roubo e responsabilidade civil familiar.
+                  </li>
+                  <li>
+                    <Link to="/seguro-vida-guarulhos" className="text-primary hover:underline">
+                      Seguro de Vida em Guarulhos
+                    </Link>{" "}
+                    — morte, invalidez e doenças graves para proteger sua família.
+                  </li>
+                  <li>
+                    <Link to="/plano-saude-guarulhos" className="text-primary hover:underline">
+                      Plano de Saúde em Guarulhos
+                    </Link>{" "}
+                    — individual, familiar ou por adesão, com comparação de rede.
+                  </li>
+                  <li>
+                    <Link to="/consorcio-guarulhos" className="text-primary hover:underline">
+                      Consórcio em Guarulhos
+                    </Link>{" "}
+                    — carro, imóvel e caminhão sem juros, com administradoras BACEN.
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Seguros para Empresas</h3>
+                <ul className="space-y-2 text-[15px]">
+                  <li>
+                    <Link to="/seguro-empresarial-guarulhos" className="text-primary hover:underline">
+                      Seguro Empresarial em Guarulhos
+                    </Link>{" "}
+                    — patrimônio, lucros cessantes e responsabilidade civil.
+                  </li>
+                  <li>
+                    <Link to="/seguro-frota-empresas-guarulhos" className="text-primary hover:underline">
+                      Seguro Frota para Empresas em Guarulhos
+                    </Link>{" "}
+                    — gestão centralizada para qualquer porte de frota.
+                  </li>
+                  <li>
+                    <Link to="/seguro-transporte-carga-guarulhos" className="text-primary hover:underline">
+                      Seguro Transporte de Cargas em Guarulhos
+                    </Link>{" "}
+                    — RCTR-C, RCF-DC e cargas para transportadoras em Cumbica.
+                  </li>
+                  <li>
+                    <Link to="/plano-saude-empresarial-guarulhos" className="text-primary hover:underline">
+                      Plano de Saúde Empresarial em Guarulhos
+                    </Link>{" "}
+                    — planos PME e corporativos para reter talentos.
+                  </li>
+                  <li>
+                    <Link to="/seguros-guarulhos" className="text-primary hover:underline">
+                      Cotação de Seguro em Guarulhos por bairro
+                    </Link>{" "}
+                    — Cidade Maia, Centro, Cumbica, Bonsucesso, Pimentas e mais.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+              <Link to="/cotacao" onClick={() => trackCotacaoClick("home-seo-block")}>
+                <Button size="lg" className="rounded-xl font-bold">
+                  Solicitar cotação de seguro
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <Link to="/faq">
+                <Button size="lg" variant="outline" className="rounded-xl font-semibold">
+                  Ver dúvidas frequentes sobre seguros
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* HERO CARROSSEL — Conversion shortcut: toggle Pessoa/Empresa + cards principais */}
         <Suspense fallback={<div style={{ minHeight: 520 }} aria-hidden="true" />}>
           <HeroInsuranceCarousel />
