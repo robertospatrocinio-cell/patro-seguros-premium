@@ -61,6 +61,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.patroseguros.com.br/consorcio-guarulhos</loc>
+    <priority>0.9</priority>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://www.patroseguros.com.br/seguro-condominio-guarulhos</loc>
     <priority>0.9</priority>
     <lastmod>2026-06-16</lastmod>
