@@ -1,84 +1,56 @@
-# Plano de correção técnica/SEO/UX — Patro Seguros
 
-Escopo grande (21 frentes). Vou primeiro **auditar** o estado real do código e do site publicado para não refazer o que já está correto (ex.: muita coisa do briefing já foi feita nas últimas iterações), depois corrigir só o que ainda falha, em 4 ondas. Tudo verificado com Playwright + parse de HTML antes/depois.
+# Otimização SEO Local — Patro Seguros (Guarulhos)
 
-## Onda 0 — Auditoria (1 passo, ~3 min)
+Escopo grande. Para entregar com qualidade e sem quebrar nada, proponho dividir em **5 fases**. Você aprova o plano inteiro e eu executo fase por fase, validando cada uma antes de seguir.
 
-Rodar varredura única que mede o estado atual em produção (`www.patroseguros.com.br`) e no `dist/`:
+## Fase 1 — Página pilar nova (alta prioridade)
 
-- conta de `<h1>` por rota (lista de 18 rotas-chave do briefing)
-- presença literal de “Carregando Patro Seguros…”, “Edit with lovable.dev”, “Lovable”
-- detecção de bloco SEO “antes do hero” (texto longo dentro do `<body>` antes do `<header>` visível ou de `[data-hero]`)
-- valores de `ratingValue`/`reviewCount` em todo HTML + componentes que renderizam estrelas/contagens
-- links internos com host malformado (`httpswww`, `hwww`, sem `www`, `http://`)
-- títulos/descriptions/canonicals/og por rota (duplicados, “Faq”, “Procurando por…”)
-- status HTTP de 30 URLs amostradas (200 vs 301 vs 404)
-- presença de schemas obrigatórios por tipo de página
-- imagens sem `alt` em rotas-chave
+**Criar** `/corretora-de-seguros-em-guarulhos` como página de SEO local principal.
 
-A saída é um relatório `audit-report.md`. Tudo abaixo só toca o que o relatório acusar como falho.
+- Novo arquivo `src/pages/CorretoraSegurosGuarulhos.tsx` (~1.500 palavras, conteúdo único, escrito do zero — sem copiar concorrentes).
+- Estrutura de headings exatamente como você listou (H1 → H2/H3 de pessoas/empresas/bairros/FAQ/CTA).
+- Title, meta description, canonical `https://www.patroseguros.com.br/corretora-de-seguros-em-guarulhos`.
+- Schemas em JSON-LD: `InsuranceAgency` + `LocalBusiness` + `Service` + `BreadcrumbList` + `FAQPage` (só FAQs visíveis).
+- AggregateRating só se a nota/contagem real do GBP for confirmada (ver Fase 5). Por padrão deixo **sem** rating até você confirmar os números.
+- Links internos para `/seguro-auto-guarulhos`, `/seguro-empresarial-guarulhos`, `/plano-saude-guarulhos`, `/seguro-residencial-guarulhos`, `/seguro-vida-guarulhos`, `/consorcio`, `/cotacao`, `/contato`, `/faq`, `/blog`, e para as páginas de bairro existentes.
+- CTAs visíveis: cotação, WhatsApp, telefone.
+- Registro da rota em `src/App.tsx`.
+- Incluir no `scripts/generate-sitemap.ts` / sitemaps relevantes.
 
-## Onda 1 — Bloqueadores de indexação e confiança (P0)
+## Fase 2 — Home + crawlabilidade
 
-1. **H1 único** — remover qualquer `<h1>` extra na home e nas rotas que o auditor acusar como duplicado. Manter o H1 visível do hero. Sem h1 oculto / `sr-only` / width:0.
-2. **Bloco SEO artificial antes do hero** — remover qualquer componente que injete texto longo fora do fluxo visual; mover apenas o que for genuinamente útil para seções visíveis.
-3. **“Carregando Patro Seguros…”** — onde for tela de loading do Suspense em rota indexável, trocar por skeleton sem texto comercial e/ou pré-renderizar o conteúdo principal de forma síncrona. Verificar nas 18 rotas listadas.
-4. **Badge Lovable** — remover qualquer marca remanescente (`Edit with lovable.dev`, badge flutuante, link `lovable.dev`). Confirmar `publish_settings--set_badge_visibility` está em `hide_badge: true`.
-5. **Avaliações padronizadas** — escolher 1 par único `(ratingValue, reviewCount)`. Vou perguntar ao usuário o número real do Perfil da Empresa do Google (não invento). Até a resposta, **remover `aggregateRating` do JSON-LD** e trocar todas as variações textuais por um placeholder neutro (“Avaliações no Google” sem número). Quando o usuário responder, atualizo numa pequena PR seguinte.
+- Adicionar bloco textual visível abaixo do hero (3–4 parágrafos naturais, como você sugeriu), com H2s reais (`Seguros para Você`, `Seguros para Empresas`, `Corretora de Seguros em Guarulhos e Região`, `Por que escolher a Patro Seguros`, `Dúvidas Frequentes`, `Solicite sua Cotação`).
+- Garantir que H1, parágrafos, `<a href>`, `<img alt>` estejam no HTML inicial (não só montados via JS pesado). Mover seções críticas para fora de `LazySection` quando estiverem acima da dobra.
+- Cinta de links internos com textos âncora descritivos (Seguro Auto em Guarulhos, Seguro Empresarial em Guarulhos, etc.).
+- Auditar e corrigir botões/links sem nome acessível na home + Header + Footer (aria-label nos icon-only, texto descritivo em vez de "saiba mais").
 
-## Onda 2 — Higiene de URL/host/redirects (P0)
+## Fase 3 — Cluster local e serviços
 
-6. **Hosts malformados** — varrer `src/`, `public/`, `dist/`, sitemaps, schemas. Qualquer ocorrência de `httpswww`, `hwww`, `http://patroseguros`, `https://patroseguros.com.br` (sem www) vira `https://www.patroseguros.com.br`.
-7. **Links internos** — normalizar para paths relativos (`/seguro-auto`) ou absolutos com `https://www.`. Remover trailing-slash inconsistente que gere 301.
-8. **404 amigável** — garantir `dist/404.html` com `<meta name="robots" content="noindex,follow">`, title correto, links para Home/Cotação/Contato/principais seguros. Status HTTP 404 já é entregue pela hospedagem; só ajustar conteúdo + meta.
-9. **`sitemap.xml` + `robots.txt`** — auditor lista o que está faltando ou sobrando; ajustar `scripts/generate-sitemap*.ts` para entregar só URLs canônicas (https + www, sem preview, sem 404, sem noindex). Robots deve listar o `Sitemap:` correto e não bloquear JS/CSS.
+- Revisar/normalizar headings das páginas de serviço (`/seguro-auto`, `/seguro-empresarial`, `/planos-de-saude`, `/seguro-residencial`, `/seguro-vida`, `/seguro-frota`, `/seguro-transporte`, `/consorcio`) — trocar H2 do tipo "Sobre o Seguro X | Cotação em 2h | Patro Seguros" por títulos naturais.
+- Verificar existência das páginas locais (`/seguro-auto-guarulhos`, `/seguro-empresarial-guarulhos`, `/plano-saude-guarulhos`, `/seguro-residencial-guarulhos`, `/seguro-vida-guarulhos`) e páginas de bairro (`/seguros-guarulhos/<bairro>`). Onde já existem (a maioria já existe via `LocalPageTemplate` / `seoLocalPageSlugs`), só reforço links internos e checo title/meta/H1 únicos. Onde faltar, crio com `LocalPageTemplate`.
+- Adicionar BreadcrumbList onde não houver.
 
-## Onda 3 — Schemas, metadados, FAQ e Consórcio (P1)
+## Fase 4 — Performance, A11y, Schema, Sitemap/Robots
 
-10. **Schemas** — manter o que a auditoria anterior já confirmou limpo (1 Organization + 1 InsuranceAgency/LocalBusiness por rota, com `@id` estáveis). Corrigir só desvios encontrados. Remover `aggregateRating` enquanto não houver número validado. Garantir `Service`+`BreadcrumbList`+`FAQPage` (quando FAQ visível) nas páginas de serviço; `BlogPosting` com `author/publisher/datePublished/dateModified/image/mainEntityOfPage` no blog.
-11. **Metadados por rota** — para cada rota da lista do briefing, garantir title/description únicos, canonical self-reference, OG e Twitter completos. Substituir o `Faq` / `Procurando por faq?` pelos textos do briefing.
-12. **/faq premium** — refazer a página com:
-    - H1 “Perguntas frequentes sobre seguros”
-    - 8 categorias com as perguntas listadas no briefing (Auto, Empresarial, Saúde, Residencial, Vida, Consórcio, Sinistro, Cotação)
-    - Accordion shadcn, busca client-side
-    - JSON-LD `FAQPage` espelhando 1:1 só perguntas visíveis
-    - Title/description/canonical do briefing
-13. **/consorcio premium** — auditar a página atual; completar seções faltantes do briefing (hero, simulador simples, 6 tipos, “o que é”, contemplação, sorteio/lance, taxa adm, vs financiamento, como a Patro ajuda, vantagens, cuidados, atendimento, FAQ de 12 perguntas, aviso de transparência obrigatório). Schemas `Service`+`FAQPage`+`BreadcrumbList`. Title/description/canonical/H1 do briefing.
-14. **Imagens sem alt** — adicionar alt descritivo nas imagens importantes apontadas pelo auditor; manter `alt=""` em decorativas.
+- Performance mobile (LCP 5,2s → meta <2,5s): preload do hero LCP, garantir AVIF/WebP via `OptimizedImage`, width/height explícitos, lazy nas demais, `font-display: swap`, revisar carrosséis acima da dobra, dividir bundles pesados.
+- A11y: aria-label em todos botões icon-only (WhatsApp flutuante, menu, fechar), texto descritivo em links, contraste, foco visível, labels em formulários, landmark único `<main>`.
+- Schema: revisar e consolidar — sem aggregateRating duplicado, URLs sempre `https://www.patroseguros.com.br`, logo oficial, sameAs reais.
+- Sitemap + robots: garantir que a nova página entra, remover qualquer URL Lovable, conferir `Sitemap:` no robots, sem bloqueio de JS/CSS.
 
-## Onda 4 — Performance, design, mobile (P2)
+## Fase 5 — Blog + itens que dependem de você
 
-15. **Dependência de JS** — confirmar que as 836 rotas pré-renderizadas (já existentes em `dist/`) contêm o conteúdo principal sem JS. Onda 1 já elimina “Carregando…” como conteúdo SSR. Não vou reescrever para SSR completo (fora do escopo razoável); foco é garantir que o snapshot estático tenha hero, H1, copy principal e schemas.
-16. **CWV** — manter as otimizações já em vigor (code-split, hidden source maps, OptimizedImage, preload do LCP). Verificar e ajustar apenas regressões introduzidas pelas mudanças desta tarefa.
-17. **Design premium** — ajustes pontuais quando uma das ondas acima encostar no layout (faixa CTA, header, FAQ, Consórcio). Sem refatoração geral.
-18. **Smoke mobile** — Playwright em viewport 390×844 nas 6 rotas mais críticas (`/`, `/seguro-auto`, `/planos-de-saude`, `/consorcio`, `/faq`, `/contato`): screenshot, contar h1, verificar WhatsApp fixo não cobre CTA, menu abre/fecha, sem erros de console.
+- Reservar slugs / criar esqueletos dos 10 artigos locais que você listou (ou priorizar 3–4 primeiros se preferir). Conteúdo real precisa ser escrito — confirmo se você quer que eu rascunhe ou só prepare a estrutura.
+- **Dependências externas** que eu não consigo executar e vou listar como recomendação no relatório final:
+  - Google Business Profile (nota/contagem reais para usarmos no `AggregateRating`).
+  - Search Console / Bing Webmaster (envio do sitemap, inspeção de URL).
+  - Backlinks locais (parcerias, imprensa Guarulhos, citações NAP).
+  - DNS/headers de cache no Hostinger.
 
-## Onda 5 — Validação e relatório
+## Pontos que preciso confirmar antes de executar
 
-- Rebuild com `ENABLE_BUILD_VALIDATORS=1 npm run build`
-- Re-rodar o auditor da Onda 0 e diffar antes/depois
-- Inspeção URL no Search Console para `/`, `/seguro-auto`, `/faq`, `/consorcio`
-- Entregar `audit-report.md` final com:
-  - rotas tocadas + H1 / title / description finais
-  - status de `/faq` e `/consorcio`
-  - confirmação de remoção de Lovable, “Carregando…”, bloco SEO artificial, hosts malformados
-  - sitemap/robots finais
-  - schemas por tipo de rota
-  - mobile + desktop screenshots
-  - lista de itens que dependem só do GSC re-crawlar (não dá pra resolver no código)
+1. **AggregateRating**: posso usar `4,7/5` com X avaliações (que já aparece na `SeoCorretoraGuarulhos.tsx`)? Ou prefere que eu **remova** todos os ratings até você me passar o número real do GBP? Você foi explícito sobre não inventar — quero alinhar antes de mexer.
+2. **`/consorcio-guarulhos`**: criar página dedicada nova, ou manter foco local dentro de `/consorcio` (mais simples, menos risco de canibalização)?
+3. **Blog (Fase 5)**: rascunho conteúdo dos 10 artigos agora, ou só prep da estrutura (slug, template, schema) e você escreve depois?
+4. **Ordem de execução**: começo pela Fase 1 (página pilar — maior impacto SEO) e sigo sequencial, ok?
 
-## Detalhes técnicos
-
-- **Stack tocado**: `index.html`, `src/pages/*`, `src/components/*` (Header, Footer, Hero, FAQ, Consorcio), `src/components/seo/*`, `scripts/generate-sitemap*.ts`, `public/robots.txt`, `public/404.html`.
-- **Não tocar**: `src/integrations/supabase/*`, `supabase/config.toml`, sistema de blog (60+ posts), formulários funcionando, edge functions, paleta/tokens existentes (#003366, #F2994A), Instrument Serif / Work Sans.
-- **Pergunta única ao usuário antes de iniciar** (não bloqueia o resto): qual é o número **real** de avaliações no Google Business Profile da Patro hoje (`ratingValue` e `reviewCount`)? Se não for fornecido, removo `aggregateRating` e qualquer número textual de avaliação até receber a fonte oficial.
-
-## O que NÃO está no plano
-
-- Mudar domínio, deletar páginas, remover CTAs de WhatsApp/telefone/cotação.
-- Criar reviews/números falsos.
-- Migração para SSR/Next (fora de escopo; o site já pré-renderiza 836 rotas).
-- Reescrita do blog (apenas confirmar schema `BlogPosting`).
-- Tradução, novos idiomas, novos produtos.
-
-Aprovado isso, começo pela Onda 0 (auditoria) e depois sigo onda a onda, mostrando diff por onda.
+Assim que você responder esses 4 pontos eu começo pela Fase 1.

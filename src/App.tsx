@@ -150,6 +150,7 @@ const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
 const SeoPlanoSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoPlanoSaudeGuarulhos"), "SeoPlanoSaudeGuarulhos");
 const SeoSeguroEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresarialGuarulhos"), "SeoSeguroEmpresarialGuarulhos");
 const SeoCorretoraGuarulhos = lazyWithRetry(() => import("./pages/SeoCorretoraGuarulhos"), "SeoCorretoraGuarulhos");
+const CorretoraDeSegurosEmGuarulhos = lazyWithRetry(() => import("./pages/CorretoraDeSegurosEmGuarulhos"), "CorretoraDeSegurosEmGuarulhos");
 const SeoSeguroResidencialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroResidencialGuarulhos"), "SeoSeguroResidencialGuarulhos");
 const SeoSeguroVidaSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaSaudeGuarulhos"), "SeoSeguroVidaSaudeGuarulhos");
 const SeoSeguroFrotaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroFrotaGuarulhos"), "SeoSeguroFrotaGuarulhos");
@@ -624,8 +625,10 @@ const App = () => {
                   <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   {/* Pilar SEO: corretora de seguros em Guarulhos */}
-                  <Route path="/corretora-de-seguros-guarulhos" element={<SeoCorretoraGuarulhos />} />
-                  <Route path="/corretora-seguros-guarulhos" element={<Navigate to="/corretora-de-seguros-guarulhos" replace />} />
+                  <Route path="/corretora-de-seguros-em-guarulhos" element={<CorretoraDeSegurosEmGuarulhos />} />
+                  {/* Redirecionamos variantes mais curtas para a URL canônica (full phrase match). */}
+                  <Route path="/corretora-de-seguros-guarulhos" element={<Navigate to="/corretora-de-seguros-em-guarulhos" replace />} />
+                  <Route path="/corretora-seguros-guarulhos" element={<Navigate to="/corretora-de-seguros-em-guarulhos" replace />} />
                   {/* Variantes locais por bairro (pilar corretora + bairro) -> páginas regionais existentes */}
                   <Route path="/corretora-de-seguros-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
                   <Route path="/corretora-de-seguros-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
