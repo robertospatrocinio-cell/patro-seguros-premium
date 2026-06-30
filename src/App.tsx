@@ -629,6 +629,9 @@ const App = () => {
                   {/* Redirecionamos variantes mais curtas para a URL canônica (full phrase match). */}
                   <Route path="/corretora-de-seguros-guarulhos" element={<Navigate to="/corretora-de-seguros-em-guarulhos" replace />} />
                   <Route path="/corretora-seguros-guarulhos" element={<Navigate to="/corretora-de-seguros-em-guarulhos" replace />} />
+                  {/* Pilar SEO: consórcio em Guarulhos */}
+                  <Route path="/consorcio-guarulhos" element={<ConsorcioGuarulhos />} />
+                  <Route path="/consorcio-em-guarulhos" element={<Navigate to="/consorcio-guarulhos" replace />} />
                   {/* Variantes locais por bairro (pilar corretora + bairro) -> páginas regionais existentes */}
                   <Route path="/corretora-de-seguros-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
                   <Route path="/corretora-de-seguros-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
