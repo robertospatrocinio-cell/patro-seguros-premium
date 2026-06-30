@@ -50,6 +50,96 @@ const SEO_CONTENT = {
       <p>Sem juros, parcelas mais leves, possibilidade de lance e contemplação por sorteio. Ideal para planejamento de médio e longo prazo.</p>
     `,
   },
+  "/seguro-empresarial-guarulhos": {
+    h1: "Seguro Empresarial em Guarulhos",
+    body: `
+      <p><strong>Seguro empresarial em Guarulhos</strong> sob medida para indústrias, comércios, escritórios e prestadores de serviço. A <strong>Patro Seguros</strong>, corretora com sede na Cidade Maia, cota com 16+ seguradoras para entregar a melhor cobertura para sua empresa em Guarulhos, Cumbica e região.</p>
+      <h2>Coberturas do seguro empresarial</h2>
+      <p>Incêndio, raio e explosão; danos elétricos; vendaval; roubo e furto qualificado; responsabilidade civil (RC); lucros cessantes; equipamentos eletrônicos; vidros; tumultos. Coberturas adicionais sob medida para o seu CNAE.</p>
+      <h2>Para quem é o seguro empresarial</h2>
+      <p>Indústrias, galpões, depósitos, escritórios, lojas, restaurantes, clínicas e prestadores de serviço em <strong>Guarulhos</strong>. Veja também <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>.</p>
+    `,
+  },
+  "/seguros-empresariais-pme-guarulhos": {
+    h1: "Seguros Empresariais para PMEs em Guarulhos",
+    body: `
+      <p><strong>Seguro empresarial para PMEs em Guarulhos</strong> com a Patro Seguros: pacotes acessíveis para pequenas e médias empresas, com mais de 500 cases atendidos no segmento.</p>
+      <h2>Por que sua PME em Guarulhos precisa de seguro</h2>
+      <p>Proteção patrimonial, continuidade do negócio em caso de sinistro, RC frente a terceiros e tranquilidade para focar no crescimento. Cotação multi-seguradora em até 24h.</p>
+      <h2>Coberturas para PMEs</h2>
+      <p>Incêndio, roubo, RC, danos elétricos, equipamentos, vidros e lucros cessantes. Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial completo</a> e <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a>.</p>
+    `,
+  },
+  "/seguro-frota-empresas-guarulhos": {
+    h1: "Seguro de Frota para Empresas em Guarulhos",
+    body: `
+      <p><strong>Seguro de frota em Guarulhos</strong> para empresas com 4 ou mais veículos. A Patro Seguros cota com as principais seguradoras (Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Sompo) e entrega economia média de 15% a 30% vs. apólices individuais.</p>
+      <h2>Vantagens do seguro frota</h2>
+      <p>Gestão centralizada, prêmio único, indicadores de sinistralidade, renovação simplificada e atendimento dedicado em caso de sinistro em <strong>Guarulhos</strong> e em todo o Brasil.</p>
+      <h2>Tipos de frota atendidos</h2>
+      <p>Frotas leves (passeio/utilitário), pesadas (caminhões e cavalos mecânicos), locadoras, transportadoras e frotas mistas. Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>.</p>
+    `,
+  },
+  "/seguro-condominio-guarulhos": {
+    h1: "Seguro Condomínio em Guarulhos",
+    body: `
+      <p><strong>Seguro condomínio em Guarulhos</strong> obrigatório pela Lei 4.591/64 e essencial para proteger áreas comuns, condôminos e síndico. A Patro Seguros atende condomínios residenciais e comerciais em toda Guarulhos.</p>
+      <h2>Coberturas obrigatórias e adicionais</h2>
+      <p>Incêndio, raio, explosão e queda de aeronave (obrigatórias); vendaval, danos elétricos, RC do síndico, RC condomínio, equipamentos, vidros e portões automáticos.</p>
+      <h2>Para quais condomínios em Guarulhos</h2>
+      <p>Residenciais (apartamentos, casas em condomínio fechado), comerciais e mistos. Cotação com 10+ seguradoras. Veja também <a href="/seguro-residencial-guarulhos">seguro residencial</a>.</p>
+    `,
+  },
+  "/seguro-residencial-guarulhos": {
+    h1: "Seguro Residencial em Guarulhos",
+    body: `
+      <p><strong>Seguro residencial em Guarulhos</strong> a partir de R$ 25/mês com cobertura completa para casas e apartamentos. A Patro Seguros cota com Porto, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty, Mapfre e Itaú.</p>
+      <h2>Coberturas do seguro residencial</h2>
+      <p>Incêndio, raio, explosão; roubo e furto qualificado; danos elétricos; vendaval; RC familiar; despesas extras; vazamento de tubulação; quebra de vidros. Serviços de assistência 24h (chaveiro, eletricista, encanador).</p>
+      <h2>Por que contratar com corretora em Guarulhos</h2>
+      <p>Cotação multi-seguradora, atendimento próximo na Cidade Maia e suporte completo em caso de sinistro. Veja também <a href="/seguro-condominio-guarulhos">seguro condomínio</a> e <a href="/seguro-vida-saude-guarulhos">seguro de vida</a>.</p>
+    `,
+  },
+  "/seguro-vida-saude-guarulhos": {
+    h1: "Seguro de Vida e Saúde em Guarulhos",
+    body: `
+      <p><strong>Seguro de vida e plano de saúde em Guarulhos</strong> com a Patro Seguros: parceira de 16+ seguradoras de vida e 20+ operadoras de saúde para entregar a melhor proteção para você e sua família.</p>
+      <h2>Seguro de vida individual e empresarial</h2>
+      <p>Morte natural e acidental, invalidez por acidente, doenças graves, assistência funeral, diárias por internação. Análise detalhada de perfil para cobertura ideal.</p>
+      <h2>Plano de saúde individual, familiar e empresarial</h2>
+      <p>Cotação com Bradesco Saúde, SulAmérica, Amil, Hapvida-NotreDame, Porto Saúde, Unimed e Omint. Veja também <a href="/plano-saude-guarulhos">plano de saúde em Guarulhos</a>.</p>
+    `,
+  },
+  "/seguro-moto-guarulhos": {
+    h1: "Seguro Moto em Guarulhos",
+    body: `
+      <p><strong>Seguro moto em Guarulhos</strong> com a Patro Seguros: cotação online com Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Suhai e Mitsui.</p>
+      <h2>Coberturas do seguro moto</h2>
+      <p>Roubo e furto, colisão, incêndio, danos a terceiros (RCFV), APP (acidentes pessoais ao passageiro), assistência 24h (guincho, socorro mecânico) e carro reserva conforme plano.</p>
+      <h2>Seguro moto para motoboys e entregadores em Guarulhos</h2>
+      <p>Apólices específicas para uso comercial (motoboy, delivery, iFood, Rappi). Veja também <a href="/seguro-auto-guarulhos">seguro auto em Guarulhos</a>.</p>
+    `,
+  },
+  "/plano-saude-guarulhos": {
+    h1: "Plano de Saúde em Guarulhos",
+    body: `
+      <p><strong>Plano de saúde em Guarulhos</strong> com a Patro Seguros: parceira de 20+ operadoras (Bradesco Saúde, SulAmérica, Amil, Hapvida-NotreDame, Porto Saúde, Unimed, Omint, Care Plus, Prevent Senior).</p>
+      <h2>Tipos de plano de saúde</h2>
+      <p>Individual e familiar, empresarial (PJ a partir de 2 vidas), coletivo por adesão, odontológico e seguro saúde reembolso. Cobertura ambulatorial, hospitalar com obstetrícia e plano referência.</p>
+      <h2>Rede credenciada em Guarulhos e SP</h2>
+      <p>Hospital Stella Maris, Bom Clima, Albert Einstein, Sírio-Libanês, Oswaldo Cruz e demais hospitais de referência conforme plano contratado. Veja também <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a>.</p>
+    `,
+  },
+  "/seguro-auto-guarulhos": {
+    h1: "Seguro Auto em Guarulhos",
+    body: `
+      <p><strong>Seguro auto em Guarulhos</strong> com a Patro Seguros: cotação online em 1 minuto com 12+ seguradoras (Porto, Bradesco, Allianz, HDI, Liberty, Mapfre, Tokio Marine, Azul, Mitsui, Itaú, Sompo, Suhai).</p>
+      <h2>Coberturas do seguro auto</h2>
+      <p>Colisão, incêndio, roubo e furto, RCFV (danos a terceiros), APP (acidentes pessoais ao passageiro), vidros, carro reserva, assistência 24h em todo o Brasil.</p>
+      <h2>Por que cotar seguro auto com corretora em Guarulhos</h2>
+      <p>Comparação multi-seguradora, perfil tarifado corretamente, suporte completo em caso de sinistro e renovação automática. Veja também <a href="/seguro-moto-guarulhos">seguro moto</a> e <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a>.</p>
+    `,
+  },
 };
 
 function buildSeoBlock(route) {
