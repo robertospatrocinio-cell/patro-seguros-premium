@@ -73,6 +73,18 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguros-guarulhos",
   "/seguro-auto-guarulhos",
   "/comparativo-planos-saude-guarulhos",
+
+  // Páginas pilares locais (Fases 1 e 3 SEO Guarulhos)
+  "/corretora-de-seguros-em-guarulhos",
+  "/consorcio-guarulhos",
+  "/seguro-empresarial-guarulhos",
+  "/seguro-frota-empresas-guarulhos",
+  "/seguros-empresariais-pme-guarulhos",
+  "/seguro-condominio-guarulhos",
+  "/seguro-residencial-guarulhos",
+  "/seguro-vida-saude-guarulhos",
+  "/seguro-moto-guarulhos",
+  "/plano-saude-guarulhos",
 ];
 
 /**
