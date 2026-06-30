@@ -65,6 +65,7 @@ const StickyQuoteBar = ({
               size="icon" 
               onClick={() => setIsFormOpen(false)}
               className="h-8 w-8 rounded-full"
+              aria-label="Fechar cotação expressa"
             >
               <X className="h-5 w-5" />
             </Button>
