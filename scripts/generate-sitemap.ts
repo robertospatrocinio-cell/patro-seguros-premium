@@ -101,6 +101,7 @@ const seoLocalGuarulhos: SitemapEntry[] = [
   "/plano-saude-guarulhos",
   "/corretora-de-seguros-em-guarulhos",
   "/seguro-condominio-guarulhos",
+  "/consorcio-guarulhos",
   "/plano-saude-empresarial-guarulhos",
   "/plano-odontologico-guarulhos",
   "/seguro-transporte-carga-guarulhos",
