@@ -55,11 +55,13 @@ const SEO_CONTENT = {
 function buildSeoBlock(route) {
   const c = SEO_CONTENT[route];
   if (!c) return "";
-  // style="display:contents" mantém o bloco no fluxo do DOM (não é cloaking),
-  // mas o React substitui #root inteiro no hydrate.
+  // Conteúdo VISÍVEL renderizado antes do React hidratar. Funciona como
+  // SSR-lite: usuários sem JS (ou em conexões lentas) veem o conteúdo
+  // real; o React substitui #root no hydrate. Não é cloaking — o texto
+  // está visível no DOM inicial entregue pelo servidor.
   return `
-      <div data-prerender-seo style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
-        <h1>${c.h1}</h1>
+      <div data-prerender-seo style="max-width:960px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#003366;line-height:1.6">
+        <h1 style="font-size:32px;margin:0 0 16px;color:#003366">${c.h1}</h1>
         ${c.body.trim()}
       </div>`;
 }
