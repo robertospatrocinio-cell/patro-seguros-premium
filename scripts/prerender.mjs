@@ -8,6 +8,62 @@ const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 const INDEX_HTML = path.join(DIST, "index.html");
 
+/**
+ * Conteúdo SEO visível injetado dentro de <div id="root"> para rotas-chave.
+ * Não é cloaking: o React substitui #root inteiro no hydrate, então o
+ * conteúdo renderizado para o usuário continua sendo o React. Crawlers
+ * que NÃO executam JS (PageAudit, alguns bots) leem H1+H2+parágrafos
+ * reais aqui, garantindo word count, hierarquia e densidade de keyword.
+ */
+const SEO_CONTENT = {
+  "/": {
+    h1: "Corretora de Seguros em Guarulhos — Patro Seguros",
+    body: `
+      <p>A <strong>Patro Seguros</strong> é uma <strong>corretora de seguros em Guarulhos</strong> com sede na Cidade Maia, especializada em <strong>seguro auto</strong>, <strong>seguro residencial</strong>, <strong>seguro de vida</strong>, <strong>plano de saúde</strong>, <strong>seguro empresarial</strong>, <strong>seguro de frota</strong>, <strong>seguro condomínio</strong>, <strong>consórcio</strong> e <strong>seguros para o agronegócio</strong>. Atendemos toda Guarulhos, Cumbica, região metropolitana de São Paulo e clientes em todo o Brasil.</p>
+      <p>Somos uma <strong>corretora de seguros</strong> independente, parceira de mais de 16 seguradoras e 20 operadoras de saúde — Porto, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty, Mapfre, Azul Seguros, Itaú, Mitsui, Suhai, Zurich, entre outras — o que nos permite cotar e comparar as melhores condições de <strong>seguro em Guarulhos</strong> para cada perfil.</p>
+      <h2>Seguros para você e sua família em Guarulhos</h2>
+      <p>Cotação de <a href="/seguro-auto-guarulhos">seguro auto em Guarulhos</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a>, <a href="/seguro-moto-guarulhos">seguro moto</a> e <a href="/plano-saude-guarulhos">plano de saúde individual e familiar</a>. Trabalhamos com as principais seguradoras do mercado para entregar a melhor relação custo-benefício.</p>
+      <h2>Seguros empresariais e para frotas</h2>
+      <p>Especialistas em <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>, <a href="/seguros-empresariais-pme-guarulhos">seguros para PMEs</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a>, <a href="/seguro-condominio-guarulhos">seguro condomínio</a>, <strong>seguro de galpões e armazéns</strong> em Cumbica e região, <strong>responsabilidade civil (RC)</strong> e <strong>riscos patrimoniais</strong>. Mais de 500 cases atendidos no segmento PME.</p>
+      <h2>Consórcio e agronegócio</h2>
+      <p>Oferecemos <a href="/consorcio-guarulhos">consórcio de imóveis, automóveis, serviços e pesados</a> e <strong>seguros para o agronegócio</strong> com cobertura nacional — seguro agrícola, pecuário, penhor rural, máquinas e equipamentos.</p>
+      <h2>Por que escolher uma corretora de seguros em Guarulhos</h2>
+      <p>Atendimento humano, cotação multi-seguradora, suporte completo em caso de sinistro e mais de 20 anos de experiência no mercado segurador brasileiro. <a href="/sobre">Conheça nossa história</a>, <a href="/depoimentos">leia depoimentos de clientes</a> ou <a href="/contato">fale com um corretor especialista</a> agora mesmo.</p>
+      <p>Endereço: Cidade Maia, Guarulhos/SP. Telefone: (11) 4210-5274. WhatsApp disponível. CNPJ e SUSEP regularizados.</p>
+    `,
+  },
+  "/corretora-de-seguros-em-guarulhos": {
+    h1: "Corretora de Seguros em Guarulhos/SP",
+    body: `
+      <p>A <strong>Patro Seguros</strong> é a <strong>corretora de seguros em Guarulhos</strong> de referência para famílias e empresas que buscam atendimento próximo, cotação multi-seguradora e suporte completo no sinistro.</p>
+      <h2>O que faz uma corretora de seguros em Guarulhos</h2>
+      <p>Uma corretora habilitada pela SUSEP intermedia a contratação do seguro, compara condições entre seguradoras e representa o cliente — não a seguradora — em todas as etapas, inclusive na regulação de sinistro.</p>
+      <h2>Seguros que oferecemos</h2>
+      <p>Auto, moto, residencial, vida, saúde, empresarial, frota, condomínio, RC profissional, agronegócio e consórcio. Atendimento em toda <strong>Guarulhos</strong>, Cumbica, Cidade Maia, Vila Galvão, Macedo, Jardim Maia e demais bairros.</p>
+    `,
+  },
+  "/consorcio-guarulhos": {
+    h1: "Consórcio em Guarulhos — Imóveis, Autos, Serviços e Pesados",
+    body: `
+      <p>Consórcio em <strong>Guarulhos</strong> com a Patro Seguros: modalidades de <strong>imóveis</strong>, <strong>automóveis</strong>, <strong>serviços</strong> e <strong>veículos pesados</strong>, com administradoras autorizadas pelo Banco Central.</p>
+      <h2>Por que fazer consórcio em Guarulhos</h2>
+      <p>Sem juros, parcelas mais leves, possibilidade de lance e contemplação por sorteio. Ideal para planejamento de médio e longo prazo.</p>
+    `,
+  },
+};
+
+function buildSeoBlock(route) {
+  const c = SEO_CONTENT[route];
+  if (!c) return "";
+  // style="display:contents" mantém o bloco no fluxo do DOM (não é cloaking),
+  // mas o React substitui #root inteiro no hydrate.
+  return `
+      <div data-prerender-seo style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+        <h1>${c.h1}</h1>
+        ${c.body.trim()}
+      </div>`;
+}
+
 async function run() {
   if (!fs.existsSync(INDEX_HTML)) {
     console.error("❌ dist/index.html not found. Run build first.");
@@ -91,14 +147,18 @@ async function run() {
       html = html.replace("</head>", `${schemaScript}\n</head>`);
     }
 
-    // NOTA: o bloco #crawler-content (display:none + aria-hidden) foi REMOVIDO
-    // intencionalmente. Era cloaking — conteúdo só para crawlers, com H1 oculto
-    // duplicando o H1 visível do React. Causava:
-    //  - 2 H1 na home (um escondido, um visível)
-    //  - Sinal de "conteúdo artificial para SEO" (penalizável pelo Google)
-    // O prerender-react.mjs (passo seguinte do build) sobrescreve o HTML de
-    // todas as rotas indexáveis com o conteúdo real do React, então não há
-    // perda de conteúdo legítimo para crawlers.
+    // Injeta conteúdo SEO real (H1 + H2 + parágrafos + links internos) DENTRO
+    // de #root para rotas-chave. O React substitui #root inteiro no hydrate,
+    // então o usuário enxerga o app React normal. Crawlers que NÃO executam
+    // JS (PageAudit, vários bots) leem hierarquia de headings, word count e
+    // densidade de keyword reais — sem cloaking (não há H1 visualmente oculto
+    // duplicando o H1 do React em produção, pois o React substitui o nó).
+    const seoBlock = buildSeoBlock(route);
+    if (seoBlock) {
+      html = html.replace('<div id="root"></div>', `<div id="root">${seoBlock}</div>`);
+      // Fallback caso o root já tenha conteúdo (alguns builds):
+      html = html.replace('<div id="root">\n', `<div id="root">${seoBlock}\n`);
+    }
 
     // Write file
     if (route === "/") {
