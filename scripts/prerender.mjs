@@ -157,9 +157,12 @@ async function run() {
     // duplicando o H1 do React em produção, pois o React substitui o nó).
     const seoBlock = buildSeoBlock(route);
     if (seoBlock) {
-      html = html.replace('<div id="root"></div>', `<div id="root">${seoBlock}</div>`);
-      // Fallback caso o root já tenha conteúdo (alguns builds):
-      html = html.replace('<div id="root">\n', `<div id="root">${seoBlock}\n`);
+      if (html.includes('<div id="root"></div>')) {
+        html = html.replace('<div id="root"></div>', `<div id="root">${seoBlock}</div>`);
+      } else {
+        // Fallback caso o root já tenha conteúdo (alguns builds).
+        html = html.replace(/<div id="root">/, `<div id="root">${seoBlock}`);
+      }
     }
 
     // Write file
