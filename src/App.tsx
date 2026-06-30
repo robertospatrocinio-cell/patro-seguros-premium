@@ -149,7 +149,6 @@ const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "
 const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
 const SeoPlanoSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoPlanoSaudeGuarulhos"), "SeoPlanoSaudeGuarulhos");
 const SeoSeguroEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresarialGuarulhos"), "SeoSeguroEmpresarialGuarulhos");
-const SeoCorretoraGuarulhos = lazyWithRetry(() => import("./pages/SeoCorretoraGuarulhos"), "SeoCorretoraGuarulhos");
 const CorretoraDeSegurosEmGuarulhos = lazyWithRetry(() => import("./pages/CorretoraDeSegurosEmGuarulhos"), "CorretoraDeSegurosEmGuarulhos");
 const SeoSeguroResidencialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroResidencialGuarulhos"), "SeoSeguroResidencialGuarulhos");
 const SeoSeguroVidaSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaSaudeGuarulhos"), "SeoSeguroVidaSaudeGuarulhos");
