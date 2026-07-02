@@ -284,6 +284,8 @@ const HDI = lazy(() => import("./pages/seguradoras/HDI"));
 const ItauSeguros = lazy(() => import("./pages/seguradoras/Itau"));
 const BradescoSeguros = lazy(() => import("./pages/seguradoras/Bradesco"));
 const Mitsui = lazy(() => import("./pages/seguradoras/Mitsui"));
+const SeguradorasHub = lazy(() => import("./pages/seguradoras/SeguradorasHub"));
+const PartnerInsurerPage = lazy(() => import("./components/PartnerInsurerPage"));
 const SeguroBMW = lazy(() => import("./pages/SeguroBMW"));
 const SeguroMarcaPremium = lazy(() => import("./pages/SeguroMarcaPremium"));
 
@@ -721,6 +723,9 @@ const App = () => {
                   <Route path="/seguro-empresarial-bonsucesso" element={<Navigate to="/seguros-guarulhos/bonsucesso" replace />} />
                   <Route path="/seguro-empresarial-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
                   <Route path="/seguro-empresarial-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
+                  {/* Hub de Seguradoras Parceiras */}
+                  <Route path="/seguradoras" element={<SeguradorasHub />} />
+                  <Route path="/seguradoras/:slug" element={<PartnerInsurerPage />} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>

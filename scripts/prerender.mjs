@@ -142,6 +142,61 @@ const SEO_CONTENT = {
   },
 };
 
+/**
+ * Hub /seguradoras e páginas por seguradora parceira em Guarulhos.
+ * Injeta H1+H2+parágrafos no HTML cru para PageAudit/bots sem JS.
+ */
+const PARTNER_INSURERS_PRERENDER = [
+  { slug: "porto-seguro-guarulhos", name: "Porto Seguro", foco: "tradição, ampla rede de assistência e portfólio completo" },
+  { slug: "tokio-marine-guarulhos", name: "Tokio Marine", foco: "análise técnica cuidadosa em auto, empresarial e vida" },
+  { slug: "suhai-guarulhos", name: "Suhai Seguradora", foco: "alternativa em auto e moto com foco em roubo e furto" },
+  { slug: "allianz-guarulhos", name: "Allianz", foco: "solidez internacional em auto, residencial e empresarial" },
+  { slug: "azul-seguros-guarulhos", name: "Azul Seguros", foco: "preço competitivo em auto, especialmente em populares" },
+  { slug: "bradesco-seguros-guarulhos", name: "Bradesco Seguros", foco: "estrutura de grande grupo em auto, vida e saúde" },
+  { slug: "mapfre-guarulhos", name: "Mapfre", foco: "assistência 24h robusta em auto, residencial e empresarial" },
+  { slug: "hdi-guarulhos", name: "HDI Seguros", foco: "boa aceitação em auto, residencial e empresarial" },
+  { slug: "yelum-guarulhos", name: "Yelum Seguradora", foco: "sucessora da Liberty no Brasil em auto e residencial" },
+  { slug: "sompo-guarulhos", name: "Sompo Seguros", foco: "forte em auto, empresarial e transporte de cargas" },
+  { slug: "mitsui-guarulhos", name: "Mitsui Sumitomo", foco: "análise técnica em empresarial e transporte" },
+  { slug: "sulamerica-guarulhos", name: "SulAmérica", foco: "referência em saúde, vida individual e Vida Grupo" },
+];
+
+SEO_CONTENT["/seguradoras"] = {
+  h1: "Seguradoras parceiras da Patro Seguros em Guarulhos",
+  body: `
+    <p>A <strong>Patro Seguros</strong> é uma corretora consultiva em <strong>Guarulhos</strong> que compara seguradoras, orienta o cliente e ajuda a contratar a melhor opção de seguro conforme perfil, cobertura, franquia e custo-benefício. Cada seguradora tem apetite e tabela diferentes — comparar é essencial.</p>
+    <h2>Como a Patro compara seguradoras para você</h2>
+    <p>Coletamos seu perfil, cotamos com as seguradoras parceiras compatíveis e apresentamos as opções lado a lado: preço, franquia, cobertura, assistência e condições. Você decide com informação clara.</p>
+    <h2>Seguradoras para seguro auto, residencial, vida e empresa</h2>
+    <p>Trabalhamos com ${PARTNER_INSURERS_PRERENDER.map((i) => `<a href="/seguradoras/${i.slug}">${i.name}</a>`).join(", ")} e outras seguradoras parceiras conforme disponibilidade e perfil.</p>
+    <h2>Atendimento em Guarulhos e região</h2>
+    <p>Atendimento presencial em Guarulhos (Cidade Maia) e remoto em toda a Grande São Paulo. Cotação gratuita e sem compromisso — <a href="/cotacao">solicite agora</a> ou <a href="/contato">fale com um consultor</a>.</p>
+    <p>As seguradoras mencionadas são marcas de seus respectivos titulares. A disponibilidade de cotação, aceitação, coberturas e condições depende da análise de cada seguradora.</p>
+  `,
+};
+
+for (const i of PARTNER_INSURERS_PRERENDER) {
+  SEO_CONTENT[`/seguradoras/${i.slug}`] = {
+    h1: `Cotação ${i.name} em Guarulhos com a Patro Seguros`,
+    body: `
+      <p>A <strong>Patro Seguros</strong> ajuda você a entender se a <strong>${i.name}</strong> é uma boa opção para o seu perfil em <strong>Guarulhos</strong>, comparando coberturas, preço, assistência, franquia e condições com outras seguradoras parceiras. Foco editorial: ${i.foco}.</p>
+      <h2>Sobre a ${i.name}</h2>
+      <p>A ${i.name} é uma das seguradoras que a Patro utiliza em cotações para clientes de Guarulhos, com produtos que fazem sentido para perfis específicos. O resultado final depende do perfil (idade, CEP, veículo/imóvel/empresa, uso e histórico) e da análise da seguradora.</p>
+      <h2>Quais seguros podem ser cotados com a ${i.name}</h2>
+      <p>Cotamos com a ${i.name} conforme disponibilidade e perfil do cliente — seguro auto, residencial, vida, empresarial, frota, transporte, saúde e outros, quando aplicável ao portfólio da seguradora.</p>
+      <h2>O que comparar antes de contratar</h2>
+      <p>Preço, franquia obrigatória e reduzida, coberturas essenciais e adicionais (vidros, faróis, carro reserva, RCF-V), pacote de assistência 24h, rede referenciada em Guarulhos e regras específicas de aceitação. Comparamos com pelo menos duas outras seguradoras.</p>
+      <h2>Como a Patro Seguros ajuda na cotação</h2>
+      <p>Somos corretora. Nosso papel é comparar a ${i.name} com outras seguradoras parceiras e ajudar você a decidir com base em preço, cobertura, assistência e condições — não em pressão de venda. Cotação gratuita e sem compromisso.</p>
+      <h2>Atendimento em Guarulhos e região</h2>
+      <p>Presencial em Guarulhos (Cidade Maia) e remoto em toda a Grande São Paulo. Considere bairros como Cidade Maia, Vila Galvão, Vila Augusta, Bonsucesso, Cumbica, Pimentas, Centro, Taboão, Jardim São João e Gopouva — o CEP impacta diretamente a cotação da ${i.name}.</p>
+      <h2>Solicite sua cotação</h2>
+      <p><a href="/cotacao">Solicitar cotação online</a>, <a href="/contato">falar com consultor</a> ou voltar para <a href="/seguradoras">todas as seguradoras parceiras</a>.</p>
+      <p><em>As marcas citadas pertencem aos seus respectivos titulares. A disponibilidade de cotação, aceitação, coberturas e condições depende da análise de cada seguradora. A Patro Seguros atua como corretora, orientando o cliente na comparação de opções de seguro.</em></p>
+    `,
+  };
+}
+
 function buildSeoBlock(route) {
   const c = SEO_CONTENT[route];
   if (!c) return "";
