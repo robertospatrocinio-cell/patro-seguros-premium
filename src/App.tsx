@@ -723,6 +723,9 @@ const App = () => {
                   <Route path="/seguro-empresarial-bonsucesso" element={<Navigate to="/seguros-guarulhos/bonsucesso" replace />} />
                   <Route path="/seguro-empresarial-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
                   <Route path="/seguro-empresarial-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
+                  {/* Hub de Seguradoras Parceiras */}
+                  <Route path="/seguradoras" element={<SeguradorasHub />} />
+                  <Route path="/seguradoras/:slug" element={<PartnerInsurerPage />} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
