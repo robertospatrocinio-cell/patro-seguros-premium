@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import HowToSchema from "@/components/HowToSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -149,6 +151,20 @@ const Contato = () => {
         description="Contato Patro Seguros Guarulhos: WhatsApp (11) 5199-7500, e-mail e endereço na Cidade Maia. Cotações e dúvidas respondidas em até 2 horas úteis."
       />
       <FAQSchema faqs={contatoFaqs} />
+      <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Contato", url: "/contato" }]} />
+      <HowToSchema
+        name="Como falar com a Patro Seguros em Guarulhos"
+        description="Passos para entrar em contato com um consultor da Patro Seguros e receber cotação em até 2 horas úteis."
+        totalTime="PT5M"
+        estimatedCost="0"
+        url="https://www.patroseguros.com.br/contato"
+        steps={[
+          { name: "Escolha o canal preferido", text: "WhatsApp (11) 5199-7500 para atendimento imediato, telefone fixo (11) 5199-7500 em horário comercial ou e-mail contato@patroseguros.com.br." },
+          { name: "Informe o tipo de seguro", text: "Diga qual produto interessa (auto, vida, saúde, residencial, empresarial, agro, consórcio) ou descreva o que quer proteger." },
+          { name: "Envie seus dados básicos", text: "Nome, telefone, e-mail e cidade. Para cotações, adicione dados do bem/pessoa a ser segurado (placa, endereço, faturamento, idade)." },
+          { name: "Receba a proposta consultiva", text: "Em até 2 horas úteis um corretor da Patro retorna com propostas comparadas de 16 seguradoras parceiras e orienta a melhor escolha." },
+        ]}
+      />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         {/* Hero */}
