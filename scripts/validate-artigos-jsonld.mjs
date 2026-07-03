@@ -105,6 +105,7 @@ for (const slug of slugs) {
   const articles = nodes.filter((n) => nodeTypeMatches(n, ARTICLE_TYPES));
   const orgs = nodes.filter((n) => nodeTypeMatches(n, new Set(["Organization", "InsuranceAgency"])));
   const breadcrumbs = nodes.filter((n) => nodeTypeMatches(n, new Set(["BreadcrumbList"])));
+  const faqPages = nodes.filter((n) => nodeTypeMatches(n, new Set(["FAQPage"])));
 
   if (articles.length === 0) {
     failures.push(`/artigos/${slug}: sem schema Article/BlogPosting`);
@@ -140,6 +141,28 @@ for (const slug of slugs) {
       if (bad) {
         failures.push(`/artigos/${slug}: BreadcrumbList com item inválido (position/name/item)`);
       }
+    }
+  }
+
+  // FAQPage é opcional (só existe quando o artigo tem FAQs), mas se
+  // presente precisa ter mainEntity válido com Question/Answer.
+  for (const fp of faqPages) {
+    const entities = Array.isArray(fp.mainEntity) ? fp.mainEntity : [];
+    if (entities.length === 0) {
+      failures.push(`/artigos/${slug}: FAQPage sem mainEntity`);
+      break;
+    }
+    const bad = entities.find(
+      (q) =>
+        q?.["@type"] !== "Question" ||
+        !q?.name ||
+        !q?.acceptedAnswer ||
+        q?.acceptedAnswer?.["@type"] !== "Answer" ||
+        !q?.acceptedAnswer?.text
+    );
+    if (bad) {
+      failures.push(`/artigos/${slug}: FAQPage com Question/Answer inválido`);
+      break;
     }
   }
 
