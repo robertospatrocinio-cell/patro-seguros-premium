@@ -131,6 +131,11 @@ export interface LocalPageProps {
 
   /** Mensagem custom para o CTA WhatsApp */
   whatsappMessage?: string;
+  /**
+   * Opcional: schema.org/HowTo — passa direto para InsurancePageTemplate.
+   * Habilita rich results "How to" em páginas de bairro/produto local.
+   */
+  howto?: import("@/components/InsurancePageTemplate").InsurancePageProps["howto"];
 }
 
 const WHATSAPP_BASE = "https://wa.me/551151997500?text=";
