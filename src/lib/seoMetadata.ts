@@ -12,6 +12,8 @@ export interface Metadata {
   h1: string;
   ogUrl: string;
   ogType: "website" | "article";
+  /** Título expandido para OG/Twitter (aceitam ~90-110 chars). Usado quando `title` foi truncado para caber em ≤60 do <title>. */
+  socialTitle?: string;
   schema?: any;
   detailedDescription?: string;
   faqs?: { question: string; answer: string }[];
@@ -605,6 +607,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       h1: humanTitle,
       ogUrl: canonicalUrl,
       ogType: "article",
+      // OG/Twitter aceitam títulos maiores — usa o humanTitle completo com sufixo,
+      // evitando cortes no meio da palavra que aparecem no <title> (≤60 chars).
+      socialTitle: `${humanTitle} | Patro Seguros`,
       ...(post ? {
         schema: {
           "@context": "https://schema.org",

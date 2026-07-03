@@ -324,13 +324,14 @@ async function run() {
     }
 
     // Replace Open Graph & Twitter
-    html = html.replace(/<meta property="og:title" content="[^"]*"/g, `<meta property="og:title" content="${metadata.title}"`);
+    const socialTitle = metadata.socialTitle || metadata.title;
+    html = html.replace(/<meta property="og:title" content="[^"]*"/g, `<meta property="og:title" content="${socialTitle}"`);
     html = html.replace(/<meta property="og:description" content="[^"]*"/g, `<meta property="og:description" content="${metadata.description}"`);
     // Robust regex for og:url
     html = html.replace(/<meta property="og:url" content="[^"]*"/g, `<meta property="og:url" content="${metadata.ogUrl}"`);
     html = html.replace(/<meta property="og:type" content="[^"]*"/g, `<meta property="og:type" content="${metadata.ogType}"`);
     
-    html = html.replace(/<meta name="twitter:title" content="[^"]*"/g, `<meta name="twitter:title" content="${metadata.title}"`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*"/g, `<meta name="twitter:title" content="${socialTitle}"`);
     html = html.replace(/<meta name="twitter:description" content="[^"]*"/g, `<meta name="twitter:description" content="${metadata.description}"`);
 
     // Inject Schema JSON-LD
