@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -177,6 +178,7 @@ const SegurosGuarulhosBairros = () => {
       />
 
       <FAQSchema faqs={mergedFaqs} />
+      <SpeakableSchema />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
