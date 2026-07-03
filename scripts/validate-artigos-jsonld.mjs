@@ -104,6 +104,7 @@ for (const slug of slugs) {
   const nodes = parsed.flatMap(collectNodes);
   const articles = nodes.filter((n) => nodeTypeMatches(n, ARTICLE_TYPES));
   const orgs = nodes.filter((n) => nodeTypeMatches(n, new Set(["Organization", "InsuranceAgency"])));
+  const breadcrumbs = nodes.filter((n) => nodeTypeMatches(n, new Set(["BreadcrumbList"])));
 
   if (articles.length === 0) {
     failures.push(`/artigos/${slug}: sem schema Article/BlogPosting`);
@@ -119,6 +120,27 @@ for (const slug of slugs) {
 
   if (orgs.length === 0) {
     failures.push(`/artigos/${slug}: sem schema Organization/InsuranceAgency`);
+  }
+
+  if (breadcrumbs.length === 0) {
+    failures.push(`/artigos/${slug}: sem schema BreadcrumbList no HTML pré-renderizado`);
+  } else {
+    const bc = breadcrumbs[0];
+    const items = Array.isArray(bc.itemListElement) ? bc.itemListElement : [];
+    if (items.length < 3) {
+      failures.push(`/artigos/${slug}: BreadcrumbList com menos de 3 itens (${items.length})`);
+    } else {
+      const bad = items.find(
+        (it, i) =>
+          it?.["@type"] !== "ListItem" ||
+          it?.position !== i + 1 ||
+          !it?.name ||
+          !it?.item
+      );
+      if (bad) {
+        failures.push(`/artigos/${slug}: BreadcrumbList com item inválido (position/name/item)`);
+      }
+    }
   }
 
   checked++;
