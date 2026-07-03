@@ -4,6 +4,7 @@ import { Star, MessageCircle, Play, ChevronLeft, ChevronRight, ArrowRight, Quote
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -145,6 +146,7 @@ const Depoimentos = () => {
         title="Depoimentos de Clientes"
         description="Depoimentos reais de clientes Patro Seguros: empresários, médicos, produtores rurais e famílias protegidas em Guarulhos e região."
       />
+      <SpeakableSchema url="https://www.patroseguros.com.br/depoimentos" />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Depoimentos" }]} />

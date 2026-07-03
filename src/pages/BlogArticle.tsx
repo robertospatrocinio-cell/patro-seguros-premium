@@ -3,6 +3,7 @@ import { Fragment, lazy, Suspense, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import WebSiteSchema from "@/components/WebSiteSchema";
@@ -70,6 +71,10 @@ const BlogArticle = () => {
         ogType="article"
         ogImage={articleImageUrl}
         ogImageAlt={slug ? getArticleImageAlt(slug, article.title) : undefined}
+      />
+      <SpeakableSchema
+        url={slug ? `https://www.patroseguros.com.br/blog/${slug}` : undefined}
+        selectors={["h1", "article h2", "article h3", '[data-speakable="answer"]', '[data-speakable="faq"] h3']}
       />
       {allFaqs.length > 0 && (
         <FAQSchema faqs={allFaqs.map(f => ({ question: f.q, answer: f.a }))} />

@@ -13,6 +13,7 @@ import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -67,6 +68,7 @@ const Index = () => {
         absoluteTitle={true}
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
+      <SpeakableSchema url={CANONICAL_BASE_URL} />
       <LocalBusinessSchema />
       <OrganizationSchema />
       <WebSiteSchema />
