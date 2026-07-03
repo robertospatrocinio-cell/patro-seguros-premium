@@ -660,7 +660,8 @@ const App = () => {
                   <Route path="/plano-odontologico-guarulhos" element={<PlanoOdontologicoGuarulhos />} />
                   {/* Patrimônio / empresas — variantes */}
                   <Route path="/seguro-galpao-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
-                  <Route path="/seguro-galpao-cumbica" element={<Navigate to="/seguro-galpao" replace />} />
+                  <Route path="/seguro-galpao-cumbica" element={<SeguroGalpaoCumbica />} />
+                  <Route path="/seguro-taxi-guarulhos" element={<SeguroTaxiGuarulhos />} />
                   <Route path="/seguro-logistica-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-transportadora-guarulhos" element={<Navigate to="/seguro-transporte" replace />} />
                   <Route path="/seguro-transporte-carga-guarulhos" element={<SeguroTransporteCargaGuarulhos />} />
@@ -719,7 +720,7 @@ const App = () => {
                   <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
                   <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
                   <Route path="/seguro-condominio-guarulhos" element={<SeoSeguroCondominioGuarulhos />} />
-                  <Route path="/seguro-fianca-guarulhos" element={<Navigate to="/seguro-fianca" replace />} />
+                  <Route path="/seguro-fianca-guarulhos" element={<SeguroFiancaGuarulhos />} />
                   <Route path="/seguro-carro-eletrico-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-civic-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-compass-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
