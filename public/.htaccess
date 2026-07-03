@@ -188,6 +188,9 @@
     RewriteRule ^seguro-auto-lexus/?$ /seguro-lexus [R=301,L,NC]
     RewriteRule ^seguro-auto-guarulhos/?$ /lp/seguro-auto-guarulhos [R=301,L,NC]
 
+    # Short branded URL -> Segfy quote form (302 temporary; may change in the future)
+    RewriteRule ^cotacao-auto/?$ https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D [R=302,L,NE]
+
     # Specific redirects requested (Direct 301 to final canonical URL)
     RewriteRule ^seguro-valores/?$ https://www.patroseguros.com.br/cotacao/ [R=301,L]
     RewriteRule ^nossos-parceiros/?$ https://www.patroseguros.com.br/parceiros/ [R=301,L]
