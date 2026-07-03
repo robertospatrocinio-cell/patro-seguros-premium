@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
-import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText } from "lucide-react";
+import { Shield, ShieldCheck, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
