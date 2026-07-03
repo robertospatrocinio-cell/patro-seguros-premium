@@ -176,6 +176,9 @@ const SeguroPropriedadeRural = lazy(() => import("./pages/SeguroPropriedadeRural
 const SeguroAcidentesPessoais = lazy(() => import("./pages/SeguroAcidentesPessoais"));
 const SeguroEstagiario = lazy(() => import("./pages/SeguroEstagiario"));
 const SeguroFiancaLocaticia = lazy(() => import("./pages/SeguroFiancaLocaticia"));
+const SeguroFiancaGuarulhos = lazy(() => import("./pages/SeguroFiancaGuarulhos"));
+const SeguroGalpaoCumbica = lazy(() => import("./pages/SeguroGalpaoCumbica"));
+const SeguroTaxiGuarulhos = lazy(() => import("./pages/SeguroTaxiGuarulhos"));
 const SeguroCaminhao = lazy(() => import("./pages/SeguroCaminhao"));
 const SeguroMicroOnibus = lazy(() => import("./pages/SeguroMicroOnibus"));
 const SeguroVidaPME = lazy(() => import("./pages/SeguroVidaPME"));
