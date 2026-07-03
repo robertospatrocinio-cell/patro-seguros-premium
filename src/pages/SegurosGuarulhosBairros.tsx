@@ -15,6 +15,7 @@ import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, Chevron
  import { toast } from "sonner";
 import { bairros, type BairroData } from "@/lib/bairrosData";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import BairroStickyCTABar from "@/components/BairroStickyCTABar";
 
 const WHATSAPP_NUMBER = "5511951997500";
 
@@ -178,6 +179,11 @@ const SegurosGuarulhosBairros = () => {
       <Header />
 
       <main id="main-content" tabIndex={-1} className="outline-none">
+        <BairroStickyCTABar
+          bairroNome={selectedBairro.nome}
+          bairroSlug={selectedBairro.id}
+          onQuoteClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
+        />
         {/* HERO SECTION */}
         <section className="relative min-h-[70vh] flex items-center overflow-hidden">
           <div
