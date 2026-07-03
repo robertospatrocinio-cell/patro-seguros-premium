@@ -150,7 +150,7 @@ const BlogArticle = () => {
               items={[
                 { name: "Início", url: "/" },
                 { name: "Blog", url: "/blog" },
-                { name: meta.category, url: "/blog" },
+                { name: meta.category, url: `/blog/categoria/${slugifyCategory(meta.category)}` },
                 { name: article.title, url: articleUrl },
               ]}
             />
