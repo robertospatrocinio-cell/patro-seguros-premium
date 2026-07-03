@@ -136,6 +136,20 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         { id: "capital", label: "Capital desejado", placeholder: "Selecione", type: "select", options: ["Até R$ 100.000", "R$ 100.000 a R$ 300.000", "R$ 300.000 a R$ 500.000", "Acima de R$ 500.000", "Não sei / quero orientação"] },
       ]}
       canonicalUrl="https://www.patroseguros.com.br/seguro-vida"
+      howto={{
+        name: "Como contratar um seguro de vida em Guarulhos",
+        description: "Passo a passo para contratar o seguro de vida certo, com capital adequado à sua renda e responsabilidades familiares.",
+        totalTime: "PT48H",
+        supply: ["CPF", "Data de nascimento", "Renda mensal aproximada", "Dependentes financeiros"],
+        tool: ["WhatsApp Patro Seguros", "Formulário online"],
+        steps: [
+          { name: "Levante suas responsabilidades", text: "Some renda anual x anos que sua família precisaria de suporte + dívidas em aberto (financiamento, escola, cartão). Esse é o capital-alvo do seu seguro." },
+          { name: "Escolha as coberturas essenciais", text: "Além de morte, inclua Invalidez Permanente Total ou Parcial por Acidente (IPTA/IPPA) e Doenças Graves — as coberturas mais acionadas na prática." },
+          { name: "Solicite cotação comparativa", text: "Envie os dados à Patro Seguros pelo WhatsApp (11) 5199-7500 ou pelo formulário. Comparamos em até 6 seguradoras (Prudential, MetLife, Icatu, Bradesco, Porto, SulAmérica)." },
+          { name: "Analise a proposta e a declaração de saúde", text: "Preencha a DPS (declaração pessoal de saúde) com veracidade — omissões são a causa nº 1 de sinistros negados. A Patro te orienta em cada campo." },
+          { name: "Assine digitalmente e ative a apólice", text: "Assinatura eletrônica em até 10 minutos. A apólice entra em vigor no dia útil seguinte ao primeiro pagamento aprovado." },
+        ],
+      }}
     />
     <ExitIntentPopup />
     </>
