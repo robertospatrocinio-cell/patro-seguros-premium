@@ -52,6 +52,7 @@ const HubPatrimonio = () => {
         title="Guia de Seguro Residencial e Fiança Locatícia em Guarulhos | Patro" 
         description="Proteja seu patrimônio com o melhor seguro residencial em Guarulhos. Fiança locatícia, seguro para celular e placas solares com assistência 24h local." 
       />
+      <SpeakableSchema />
       <FAQSchema faqs={FAQS} />
       <AggregateRatingSchema
         serviceName="Seguros de Patrimônio em Guarulhos"

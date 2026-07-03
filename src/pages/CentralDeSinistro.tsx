@@ -110,6 +110,7 @@ const CentralDeSinistro = () => {
         title="Central de Sinistro | Patro Seguros Guarulhos"
         description="Sofreu um sinistro? Veja o que fazer em caso de colisão, roubo, furto, enchente ou danos a terceiros. Fale com a Patro Seguros pelo WhatsApp."
       />
+      <SpeakableSchema />
       {/* HowTo schema — passo-a-passo para acionamento de sinistro (AEO/GEO) */}
       <script
         type="application/ld+json"

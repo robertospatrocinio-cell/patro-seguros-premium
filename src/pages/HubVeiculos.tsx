@@ -61,6 +61,7 @@ const HubVeiculos = () => {
         title="Guia de Seguros de Veículos em Guarulhos: Auto e Frota | Patro" 
         description="A melhor corretora de seguros de veículos em Guarulhos. Cotação de seguro auto, moto, caminhão e frota com as 16 principais seguradoras. Resposta em 2h." 
       />
+      <SpeakableSchema />
       <FAQSchema faqs={FAQS} />
       <AggregateRatingSchema
         serviceName="Seguros de Veículos em Guarulhos"
