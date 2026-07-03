@@ -345,7 +345,7 @@ async function run() {
     // JS (PageAudit, vários bots) leem hierarquia de headings, word count e
     // densidade de keyword reais — sem cloaking (não há H1 visualmente oculto
     // duplicando o H1 do React em produção, pois o React substitui o nó).
-    const seoBlock = buildSeoBlock(route);
+    const seoBlock = buildSeoBlock(route, metadata);
     if (seoBlock) {
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', `<div id="root">${seoBlock}</div>`);
