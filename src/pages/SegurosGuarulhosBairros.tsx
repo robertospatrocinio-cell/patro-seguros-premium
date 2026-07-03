@@ -221,7 +221,7 @@ const SegurosGuarulhosBairros = () => {
                 {selectedBairro.subtitulo}
               </p>
               {/* Answer-first (AEO/GEO) — resposta direta para LLMs e usuários */}
-              <div className="bg-white/10 backdrop-blur border-l-4 border-[#F2994A] rounded-r-lg p-4 mb-6 max-w-2xl">
+              <div data-speakable="answer" className="bg-white/10 backdrop-blur border-l-4 border-[#F2994A] rounded-r-lg p-4 mb-6 max-w-2xl">
                 <p className="text-white text-sm md:text-base leading-relaxed">
                   <strong className="text-[#F2994A]">Resposta rápida:</strong>{" "}
                   A Patro Seguros é a corretora local de referência para moradores e empresas do{" "}
