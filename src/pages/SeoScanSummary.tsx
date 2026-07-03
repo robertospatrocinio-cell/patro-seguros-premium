@@ -71,6 +71,9 @@ export default function SeoScanSummary() {
             <Button asChild variant="outline" size="sm">
               <Link to="/admin/schemas">Auditoria de schemas</Link>
             </Button>
+            <Button asChild variant="default" size="sm">
+              <Link to="/admin/seo-monitor">Monitor contínuo</Link>
+            </Button>
           </div>
         </div>
 
