@@ -211,7 +211,24 @@ const BlogArticle = () => {
 
 
             <div className="prose prose-lg max-w-none">
-              {article.content.split("\n\n").map((p, i) => {
+              {(() => {
+                const paragraphs = article.content.split("\n\n");
+                // Midpoint injection: escolhe um ponto ~50% dos parágrafos,
+                // avançando até o próximo início de parágrafo "normal" (não
+                // marcador especial). Se o artigo for muito curto (<6), pula.
+                let midIdx = -1;
+                if (paragraphs.length >= 6) {
+                  const target = Math.floor(paragraphs.length / 2);
+                  for (let k = target; k < paragraphs.length; k++) {
+                    const t = paragraphs[k].trim();
+                    if (!t.startsWith("[[CTA_") && !t.startsWith("#") && t.length > 40) {
+                      midIdx = k;
+                      break;
+                    }
+                  }
+                }
+                return paragraphs.map((p, i) => {
+                  const node = (() => {
                 // Inline CTA block para o post Agrishow 2026
                 if (p.trim() === "[[CTA_AGRISHOW]]") {
                   return (
@@ -305,7 +322,23 @@ const BlogArticle = () => {
                     })}
                   </p>
                 );
-              })}
+                  })();
+                  if (i === midIdx) {
+                    return (
+                      <Fragment key={`mid-${i}`}>
+                        {node}
+                        <ArticleInlineCTA
+                          quoteHref={quoteHref}
+                          whatsappUrl={whatsappUrl}
+                          source={`blog-article-mid-${slug || "unknown"}`}
+                          variant="soft"
+                        />
+                      </Fragment>
+                    );
+                  }
+                  return node;
+                });
+              })()}
 
               {/* Novo bloco de CTA no meio do conteúdo (dinâmico) */}
               <div className="my-12 p-8 rounded-2xl bg-slate-900 text-white shadow-2xl relative overflow-hidden group">
