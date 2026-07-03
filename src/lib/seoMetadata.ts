@@ -607,6 +607,9 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       h1: humanTitle,
       ogUrl: canonicalUrl,
       ogType: "article",
+      // OG/Twitter aceitam títulos maiores — usa o humanTitle completo com sufixo,
+      // evitando cortes no meio da palavra que aparecem no <title> (≤60 chars).
+      socialTitle: `${humanTitle} | Patro Seguros`,
       ...(post ? {
         schema: {
           "@context": "https://schema.org",
