@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
+import HowToSchema, { type HowToStep } from "@/components/HowToSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
@@ -134,7 +135,7 @@ interface FeaturedArticle {
   image?: string;
 }
 
-interface InsurancePageProps {
+export interface InsurancePageProps {
   title: string;
   /**
    * H1 visível no hero. Quando omitido, usa `title` (o mesmo do <title> SEO),
@@ -198,6 +199,18 @@ interface InsurancePageProps {
    * Fornece o URL canônico para as schemas internas.
    */
   canonicalUrl?: string;
+  /**
+   * Emite schema.org/HowTo — elegível para rich results "How to" e
+   * citação direta por LLMs em queries "como fazer".
+   */
+  howto?: {
+    name: string;
+    description?: string;
+    totalTime?: string;
+    supply?: string[];
+    tool?: string[];
+    steps: HowToStep[];
+  };
 }
 
 const InsurancePageTemplate = ({
@@ -230,6 +243,7 @@ const InsurancePageTemplate = ({
   skipAggregateRating,
   faqs = [],
   canonicalUrl: canonicalUrlProp,
+  howto,
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
@@ -283,6 +297,17 @@ const InsurancePageTemplate = ({
       <OrganizationSchema />
       <WebSiteSchema />
       {!skipFAQSchemaManual && faqs.length > 0 && <FAQSchema faqs={faqs} />}
+      {howto && (
+        <HowToSchema
+          name={howto.name}
+          description={howto.description}
+          totalTime={howto.totalTime}
+          supply={howto.supply}
+          tool={howto.tool}
+          steps={howto.steps}
+          url={canonicalUrl}
+        />
+      )}
       <LocalAreaSchema
         serviceName={title}
         url={canonicalUrl}

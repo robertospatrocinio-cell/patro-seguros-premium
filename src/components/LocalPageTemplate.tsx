@@ -131,6 +131,11 @@ export interface LocalPageProps {
 
   /** Mensagem custom para o CTA WhatsApp */
   whatsappMessage?: string;
+  /**
+   * Opcional: schema.org/HowTo — passa direto para InsurancePageTemplate.
+   * Habilita rich results "How to" em páginas de bairro/produto local.
+   */
+  howto?: import("@/components/InsurancePageTemplate").InsurancePageProps["howto"];
 }
 
 const WHATSAPP_BASE = "https://wa.me/551151997500?text=";
@@ -181,6 +186,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
     relatedInsurances,
     heroImage,
     whatsappMessage,
+    howto,
   } = props;
 
   const canonicalUrl = `https://www.patroseguros.com.br/${slug}`;
@@ -266,6 +272,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         realScenarios={realScenarios}
         tips={tips}
         relatedInsurances={relatedInsurances}
+        howto={howto}
         importantDetails={[
           /* Seguradoras parceiras */
           {
