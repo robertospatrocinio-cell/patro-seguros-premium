@@ -16,6 +16,7 @@
     "validate:jsonld": "node scripts/validate-jsonld-build.mjs",
     "validate:canonical": "node scripts/validate-canonical-headings-build.mjs",
     "validate:schema-uniqueness": "node scripts/validate-schema-uniqueness.mjs",
+    "validate:artigos-jsonld": "node scripts/validate-artigos-jsonld.mjs",
     "report:schema-uniqueness": "node scripts/report-schema-uniqueness.mjs",
     "validate:headings": "node scripts/validate-heading-uniqueness.mjs",
     "report:audit": "node scripts/audit-dashboard.mjs"
