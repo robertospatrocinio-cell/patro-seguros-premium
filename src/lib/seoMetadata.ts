@@ -12,6 +12,8 @@ export interface Metadata {
   h1: string;
   ogUrl: string;
   ogType: "website" | "article";
+  /** Título expandido para OG/Twitter (aceitam ~90-110 chars). Usado quando `title` foi truncado para caber em ≤60 do <title>. */
+  socialTitle?: string;
   schema?: any;
   detailedDescription?: string;
   faqs?: { question: string; answer: string }[];
