@@ -202,6 +202,7 @@ const CorretoraDeSegurosEmGuarulhos = () => {
         title="Corretora de Seguros em Guarulhos | Patro Seguros"
         description="Corretora de seguros em Guarulhos com atendimento consultivo. Compare seguradoras para seguro auto, saúde, vida, residencial, empresarial e consórcio."
       />
+      <SpeakableSchema />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },
