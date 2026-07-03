@@ -23,6 +23,17 @@ export interface BlogArticleMeta {
 }
 
 export const articles: BlogArticleMeta[] = [
+  {
+    slug: "estudo-custo-seguro-auto-guarulhos-bairros-2026",
+    title: "Estudo Patro Seguros 2026: Custo Médio do Seguro Auto em Guarulhos por Bairro",
+    excerpt: "500+ cotações analisadas em 10 bairros de Guarulhos. Cidade Maia é 62% mais barata que Cumbica. Estudo original com metodologia declarada e dados de 12 seguradoras.",
+    category: "Estudos Patro",
+    tags: ["estudo original", "seguro auto", "guarulhos", "bairros", "dados", "sinistralidade"],
+    author: "Roberto Patro",
+    date: "2026-11-15",
+    updatedAt: "2026-11-15",
+    readTime: 9,
+  },
   ...fase5LocalArticles,
   ...guarulhosArticles,
   ...guarulhosLojistasArticles,

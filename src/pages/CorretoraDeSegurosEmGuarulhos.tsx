@@ -18,6 +18,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import { Button } from "@/components/ui/button";
@@ -201,6 +202,7 @@ const CorretoraDeSegurosEmGuarulhos = () => {
         title="Corretora de Seguros em Guarulhos | Patro Seguros"
         description="Corretora de seguros em Guarulhos com atendimento consultivo. Compare seguradoras para seguro auto, saúde, vida, residencial, empresarial e consórcio."
       />
+      <SpeakableSchema />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

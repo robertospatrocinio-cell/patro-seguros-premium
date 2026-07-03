@@ -5,6 +5,7 @@
  import PageMeta from "@/components/PageMeta";
   import Breadcrumb from "@/components/Breadcrumb";
   import FAQSchema from "@/components/FAQSchema";
+ import SpeakableSchema from "@/components/SpeakableSchema";
   import AggregateRatingSchema from "@/components/AggregateRatingSchema";
   import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
@@ -60,6 +61,7 @@ const HubVeiculos = () => {
         title="Guia de Seguros de Veículos em Guarulhos: Auto e Frota | Patro" 
         description="A melhor corretora de seguros de veículos em Guarulhos. Cotação de seguro auto, moto, caminhão e frota com as 16 principais seguradoras. Resposta em 2h." 
       />
+      <SpeakableSchema />
       <FAQSchema faqs={FAQS} />
       <AggregateRatingSchema
         serviceName="Seguros de Veículos em Guarulhos"

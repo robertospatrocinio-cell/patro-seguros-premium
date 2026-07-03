@@ -2,6 +2,7 @@ import { lazy } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { 
@@ -108,6 +109,41 @@ const CentralDeSinistro = () => {
       <PageMeta 
         title="Central de Sinistro | Patro Seguros Guarulhos"
         description="Sofreu um sinistro? Veja o que fazer em caso de colisão, roubo, furto, enchente ou danos a terceiros. Fale com a Patro Seguros pelo WhatsApp."
+      />
+      <SpeakableSchema />
+      {/* HowTo schema — passo-a-passo para acionamento de sinistro (AEO/GEO) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            name: "Como acionar o seguro após um sinistro em Guarulhos",
+            description:
+              "Passo-a-passo oficial da Patro Corretora de Seguros para acionar o seguro auto imediatamente após um sinistro (colisão, roubo, furto, enchente ou danos a terceiros).",
+            inLanguage: "pt-BR",
+            totalTime: "PT30M",
+            supply: [
+              { "@type": "HowToSupply", name: "CNH do condutor" },
+              { "@type": "HowToSupply", name: "CRLV do veículo" },
+              { "@type": "HowToSupply", name: "Apólice ou número do seguro" },
+              { "@type": "HowToSupply", name: "Boletim de Ocorrência (quando aplicável)" },
+              { "@type": "HowToSupply", name: "Fotos e vídeos do ocorrido" },
+            ],
+            tool: [
+              { "@type": "HowToTool", name: "Central 24h da seguradora" },
+              { "@type": "HowToTool", name: "WhatsApp da Patro Seguros — (11) 5199-7500" },
+            ],
+            step: [
+              { "@type": "HowToStep", position: 1, name: "Verifique se todos estão bem", text: "A segurança em primeiro lugar. Em caso de vítimas, acione o SAMU (192) ou Bombeiros (193)." },
+              { "@type": "HowToStep", position: 2, name: "Não assuma culpa no local", text: "Evite discussões sobre responsabilidades. Deixe que a perícia e as seguradoras analisem o ocorrido." },
+              { "@type": "HowToStep", position: 3, name: "Tire fotos e vídeos", text: "Registre os danos de todos os veículos, a posição deles na via, placas e sinalizações próximas." },
+              { "@type": "HowToStep", position: 4, name: "Pegue os dados dos envolvidos", text: "Anote nome, telefone, CPF e placa dos veículos de todos os terceiros envolvidos." },
+              { "@type": "HowToStep", position: 5, name: "Faça o Boletim de Ocorrência", text: "O B.O. é essencial em casos de roubo, furto ou quando há feridos e danos a terceiros." },
+              { "@type": "HowToStep", position: 6, name: "Acione a Patro Seguros", text: "Entre em contato pelo WhatsApp (11) 5199-7500 para orientarmos a abertura correta do sinistro." },
+            ],
+          }),
+        }}
       />
       <Header />
       

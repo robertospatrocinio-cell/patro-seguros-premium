@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -177,6 +178,7 @@ const SegurosGuarulhosBairros = () => {
       />
 
       <FAQSchema faqs={mergedFaqs} />
+      <SpeakableSchema />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -219,7 +221,7 @@ const SegurosGuarulhosBairros = () => {
                 {selectedBairro.subtitulo}
               </p>
               {/* Answer-first (AEO/GEO) — resposta direta para LLMs e usuários */}
-              <div className="bg-white/10 backdrop-blur border-l-4 border-[#F2994A] rounded-r-lg p-4 mb-6 max-w-2xl">
+              <div data-speakable="answer" className="bg-white/10 backdrop-blur border-l-4 border-[#F2994A] rounded-r-lg p-4 mb-6 max-w-2xl">
                 <p className="text-white text-sm md:text-base leading-relaxed">
                   <strong className="text-[#F2994A]">Resposta rápida:</strong>{" "}
                   A Patro Seguros é a corretora local de referência para moradores e empresas do{" "}
