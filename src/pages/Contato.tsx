@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { nameSchema, phoneSchema, emailSchema, messageSchema, firstZodMessage } from "@/lib/leadValidation";
@@ -420,6 +421,7 @@ const Contato = () => {
             </div>
           </div>
         </section>
+      <SpeakableSchema />
       </main>
       <Footer />
     </Fragment>

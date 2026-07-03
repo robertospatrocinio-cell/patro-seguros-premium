@@ -8,6 +8,7 @@ import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { trackInternalLinkClick, trackWhatsAppClick } from "@/lib/tracking";
 
 const PHONE = "551151997500";
@@ -328,6 +329,7 @@ const GlossarioSeguros = () => {
             </a>
           </div>
         </section>
+      <SpeakableSchema />
       </main>
       <Footer />
       <StickyQuoteBar
