@@ -1,5 +1,5 @@
 # Gerado automaticamente por scripts/refresh-sitemaps.mjs — não editar manualmente.
-# Última atualização: 2026-07-03T17:25:33.127Z
+# Última atualização: 2026-07-03T17:56:25.360Z
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -38,3 +38,70 @@ Crawl-delay: 0.1
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 0.5
+
+# AI Search Crawlers (AEO/GEO) — autorização explícita
+# ChatGPT / OpenAI Search
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini / AI Overviews (exige token específico — não usa Googlebot)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon / Alexa / Rufus
+User-agent: Amazonbot
+Allow: /
+
+# ByteDance / Doubao
+User-agent: Bytespider
+Allow: /
+
+# Mistral AI
+User-agent: MistralAI-User
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Diffbot (usado por vários LLMs)
+User-agent: Diffbot
+Allow: /
