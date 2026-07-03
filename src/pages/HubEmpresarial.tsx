@@ -51,8 +51,8 @@ const HubEmpresarial = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageMeta 
-        title="Guia de Seguro Empresarial em Guarulhos: Proteção Completa para sua Empresa" 
-        description="Especialistas em seguro empresarial em Guarulhos. Proteção para galpões, indústrias e PMEs. Consultoria técnica e gestão de riscos em Cumbica."
+        title="Seguro Empresarial em Guarulhos — Guia Completo PME"
+        description="Seguro empresarial em Guarulhos e Cumbica: galpões, indústrias, frotas, RC, cyber e vida em grupo. Consultoria técnica de risco para PMEs. Cotação em 24h."
       />
       <FAQSchema faqs={FAQS} />
       <AggregateRatingSchema
@@ -69,7 +69,7 @@ const HubEmpresarial = () => {
             <div className="flex justify-center mb-6">
               <Building2 className="h-16 w-16 text-white opacity-20" />
             </div>
-            <h1 className="text-white mb-6">Seguro Empresarial em Guarulhos — Blindagem Estratégica</h1>
+            <h1 className="text-white mb-6">Seguro Empresarial em Guarulhos: Proteção Estratégica para sua Empresa</h1>
             <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
               Proteção para empresas em Guarulhos. Consultoria especializada para converter riscos operacionais em previsibilidade financeira e continuidade do negócio.
             </p>
