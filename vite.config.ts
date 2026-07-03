@@ -374,6 +374,13 @@ function spaFallbackPlugin(): Plugin {
           console.error("❌ Validação de unicidade de schema falhou. Build abortado.");
           process.exit(1);
         }
+        try {
+          console.log("🔎 Validando JSON-LD específico de /artigos/*...");
+          execSync("node scripts/validate-artigos-jsonld.mjs", { stdio: "inherit" });
+        } catch (err) {
+          console.error("❌ Validação de /artigos/* JSON-LD falhou. Build abortado.");
+          process.exit(1);
+        }
       } else {
         console.log("⏭️  Validadores JSON-LD/canonical pulados (defina ENABLE_BUILD_VALIDATORS=1 para ativar em CI).");
       }
