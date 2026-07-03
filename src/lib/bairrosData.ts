@@ -87,6 +87,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-cidade-maia", neighborhood: "Cidade Maia", product: "residencial", riskLevel: "baixo", priceRange: "a partir de R$ 35/mês", reference: "no entorno do Bosque Maia" }),
        ...generateLocalFAQs({ slug: "empresarial-cidade-maia", neighborhood: "Cidade Maia", product: "empresarial", riskLevel: "baixo", priceRange: "a partir de R$ 89/mês", reference: "próximo ao Centro de Guarulhos" }),
      ],
+     localFaqs: [
+       { question: "Seguradoras aplicam desconto para condomínios do Cidade Maia com portaria 24h?", answer: "Sim. Condomínios verticais da região do Bosque Maia e da Av. Paulo Faccini que comprovem portaria 24h, garagem coberta e CFTV têm redução média de 15–25% no prêmio residencial. Para autos guardados na garagem do condomínio, o desconto adicional chega a 8–12%. Comprovação por foto/laudo simples via WhatsApp." },
+       { question: "Vocês atendem apartamentos de alto padrão próximos ao Shopping Maia?", answer: "Sim, atendemos todos os empreendimentos do eixo Shopping Maia / Av. Emílio Ribas / Av. Paulo Faccini. Para imóveis acima de R$ 900 mil oferecemos seguro premium com cobertura para joias, obras de arte, home office e RC familiar ampliada. Vistoria opcional feita presencialmente pela equipe do escritório no Ed. Via Alameda." },
+       { question: "Qual seguradora cobre melhor SUV importado no Cidade Maia?", answer: "Porto Seguro, Tokio Marine e HDI costumam trazer as melhores condições para SUV importado (BMW, Audi, Range Rover) com garagem no bairro, com franquia reduzida negociada e assistência 24h em rodovia. Cliente do bairro economiza em média R$ 1.800–4.000/ano ao trocar de seguradora com a comparação da corretora." },
+     ],
      intel: {
        demographics: "Bairro planejado de alto padrão em Guarulhos, com condomínios verticais recentes e forte concentração de profissionais liberais e famílias com renda AB.",
        landmarks: {
