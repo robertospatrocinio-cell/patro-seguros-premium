@@ -30,6 +30,12 @@ const SegurosGuarulhosBairros = () => {
   const [selectedBairro, setSelectedBairro] = useState<BairroData>(initialBairro);
   const [transitioning, setTransitioning] = useState(false);
 
+  // FAQs exclusivas do bairro (se houver) renderizadas antes das FAQs geradas.
+  const mergedFaqs = useMemo(
+    () => [...(selectedBairro.localFaqs ?? []), ...selectedBairro.faqs],
+    [selectedBairro]
+  );
+
   // Sync state when URL param changes
   useEffect(() => {
     if (bairroSlug) {
@@ -170,7 +176,7 @@ const SegurosGuarulhosBairros = () => {
         description={`Corretora de seguros em ${selectedBairro.nome}, Guarulhos. ${selectedBairro.foco}: seguro auto, residencial, empresarial, saúde e mais. Cotação rápida pelo WhatsApp.`}
       />
 
-      <FAQSchema faqs={selectedBairro.faqs} />
+      <FAQSchema faqs={mergedFaqs} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -564,7 +570,7 @@ const SegurosGuarulhosBairros = () => {
                 Dúvidas comuns sobre seguros em {selectedBairro.nome}, Guarulhos
               </p>
               <Accordion type="single" collapsible className="w-full">
-                {selectedBairro.faqs.map((faq, idx) => (
+                {mergedFaqs.map((faq, idx) => (
                   <AccordionItem key={`${selectedBairro.id}-${idx}`} value={`faq-${idx}`}>
                     <AccordionTrigger className="text-left text-[#003366] font-medium">
                       {faq.question}

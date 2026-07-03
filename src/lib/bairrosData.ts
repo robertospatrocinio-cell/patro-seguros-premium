@@ -29,6 +29,9 @@ export interface BairroData {
   descricao: string;
   image: string;
   faqs: BairroFAQ[];
+  /** FAQs exclusivas do bairro (marcos, ruas, riscos específicos).
+   *  Renderizadas antes das FAQs geradas para reforçar unicidade e SEO local. */
+  localFaqs?: BairroFAQ[];
   testimonials?: BairroTestimonial[];
   geo?: { latitude: number; longitude: number };
   intel?: BairroLocalIntel;
@@ -84,6 +87,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-cidade-maia", neighborhood: "Cidade Maia", product: "residencial", riskLevel: "baixo", priceRange: "a partir de R$ 35/mês", reference: "no entorno do Bosque Maia" }),
        ...generateLocalFAQs({ slug: "empresarial-cidade-maia", neighborhood: "Cidade Maia", product: "empresarial", riskLevel: "baixo", priceRange: "a partir de R$ 89/mês", reference: "próximo ao Centro de Guarulhos" }),
      ],
+     localFaqs: [
+       { question: "Seguradoras aplicam desconto para condomínios do Cidade Maia com portaria 24h?", answer: "Sim. Condomínios verticais da região do Bosque Maia e da Av. Paulo Faccini que comprovem portaria 24h, garagem coberta e CFTV têm redução média de 15–25% no prêmio residencial. Para autos guardados na garagem do condomínio, o desconto adicional chega a 8–12%. Comprovação por foto/laudo simples via WhatsApp." },
+       { question: "Vocês atendem apartamentos de alto padrão próximos ao Shopping Maia?", answer: "Sim, atendemos todos os empreendimentos do eixo Shopping Maia / Av. Emílio Ribas / Av. Paulo Faccini. Para imóveis acima de R$ 900 mil oferecemos seguro premium com cobertura para joias, obras de arte, home office e RC familiar ampliada. Vistoria opcional feita presencialmente pela equipe do escritório no Ed. Via Alameda." },
+       { question: "Qual seguradora cobre melhor SUV importado no Cidade Maia?", answer: "Porto Seguro, Tokio Marine e HDI costumam trazer as melhores condições para SUV importado (BMW, Audi, Range Rover) com garagem no bairro, com franquia reduzida negociada e assistência 24h em rodovia. Cliente do bairro economiza em média R$ 1.800–4.000/ano ao trocar de seguradora com a comparação da corretora." },
+     ],
      intel: {
        demographics: "Bairro planejado de alto padrão em Guarulhos, com condomínios verticais recentes e forte concentração de profissionais liberais e famílias com renda AB.",
        landmarks: {
@@ -116,6 +124,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-vila-augusta", neighborhood: "Vila Augusta", product: "residencial", riskLevel: "baixo", priceRange: "a partir de R$ 30/mês", reference: "na região do Parque Fracalanza" }),
        ...generateLocalFAQs({ slug: "vida-vila-augusta", neighborhood: "Vila Augusta", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "com fácil acesso à Via Dutra" }),
        ...generateLocalFAQs({ slug: "empresarial-vila-augusta", neighborhood: "Vila Augusta", product: "empresarial", riskLevel: "baixo", priceRange: "a partir de R$ 95/mês", reference: "próximo ao Centro" }),
+     ],
+     localFaqs: [
+       { question: "Comprei apartamento na planta na Vila Augusta — quando começa o seguro?", answer: "O seguro residencial começa após a entrega das chaves e mudança para o imóvel. Para financiamento da Caixa/bancos, o seguro habitacional obrigatório já vem embutido, mas é limitado — recomendamos o residencial próprio a partir de R$ 30/mês para cobrir eletrônicos, móveis, danos elétricos e RC familiar, que o obrigatório não cobre." },
+       { question: "Quem mora perto da Dutra na Vila Augusta precisa de cobertura de vidros?", answer: "Sim, é altamente recomendado. Moradores com acesso frequente à Rodovia Pres. Dutra têm sinistralidade de quebra de para-brisa acima da média. A cobertura adicional de vidros, faróis e retrovisores custa R$ 12–20/mês e evita gasto de R$ 1.200–2.800 do bolso em uma única troca de para-brisa." },
+       { question: "Vocês atendem lançamentos imobiliários novos do bairro?", answer: "Sim. Trabalhamos com síndicos e construtoras de empreendimentos recentes da Vila Augusta, oferecendo seguro obrigatório de condomínio + proposta coletiva de residencial individual para moradores (desconto de 8–15% na adesão em grupo). Fazemos apresentação em assembleia sem custo." },
      ],
      intel: {
        demographics: "Bairro em forte expansão vertical, com lançamentos residenciais recentes e perfil de moradores jovens e famílias novas.",
@@ -154,6 +167,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-cumbica", neighborhood: "Cumbica", product: "vida", priceRange: "a partir de R$ 50/mês", reference: "para profissionais do setor logístico" }),
        ...generateLocalFAQs({ slug: "residencial-cumbica", neighborhood: "Cumbica", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 40/mês", reference: "nas áreas residenciais do bairro" }),
      ],
+     localFaqs: [
+       { question: "Preciso de escolta armada para carga de eletrônicos saindo de Cumbica?", answer: "Depende do valor por embarque e do trajeto. Em geral, cargas acima de R$ 300 mil entre Cumbica/GRU e centros de distribuição no ABC ou interior exigem gerenciamento de risco com rastreamento em tempo real (Sascar, Onixsat, Autotrac). Escolta armada é exigida a partir de R$ 800 mil–1,2 milhão por embarque, dependendo da seguradora e do horário." },
+       { question: "Galpão logístico em Cumbica precisa de sprinkler para reduzir prêmio?", answer: "Não é obrigatório, mas reduz muito o custo. Galpões com sprinkler ativo, hidrantes pressurizados e brigada treinada obtêm 25–40% de desconto no prêmio patrimonial. Para operações acima de R$ 5 milhões em ativos, o investimento em sprinkler geralmente se paga em 3–4 anos só pela redução do seguro." },
+       { question: "Transportadora de Cumbica pode ter RCTR-C e RCF-DC na mesma apólice?", answer: "Sim, e é o padrão. RCTR-C (danos físicos à carga) e RCF-DC (desaparecimento/roubo) são complementares e emitidas juntas. Sem RCF-DC, o roubo de carga não é indenizado. Estruturamos LMI conjunto conforme valor médio e pico de embarque, com prêmio variável mensal por averbação." },
+     ],
      intel: {
        demographics: "Polo logístico e industrial de Guarulhos, com forte presença de galpões, transportadoras e serviços de apoio ao Aeroporto Internacional (GRU Airport).",
        landmarks: {
@@ -191,6 +209,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-centro", neighborhood: "Centro", product: "vida", priceRange: "a partir de R$ 45/mês", reference: "para profissionais liberais e comerciantes" }),
        ...generateLocalFAQs({ slug: "residencial-centro", neighborhood: "Centro", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 38/mês", reference: "nos edifícios residenciais centrais" }),
      ],
+     localFaqs: [
+       { question: "Consultório de dentista/médico no Centro precisa de RC Profissional obrigatória?", answer: "Não é obrigatória por lei, mas é altamente recomendada e exigida por convênios/planos para credenciamento. Cobre erro/omissão profissional, incluindo defesa jurídica. Para dentistas do eixo Av. Salgado Filho/Poli Shopping, o prêmio anual fica entre R$ 780 e R$ 2.400 conforme especialidade (implantodontia e ortodontia pagam mais)." },
+       { question: "Loja de rua no Centro tem cobertura para saque em ATM/PIX sob coação?", answer: "As apólices empresariais padrão cobrem roubo qualificado do estabelecimento (com arrombamento). Para saque forçado no ATM ou PIX sob coação (crime moderno), existe a cobertura adicional 'Roubo de Valores em Trânsito e por Coação Pessoal' — recomendada para lojistas do Centro por R$ 25–70/mês, cobrindo até R$ 30 mil por evento." },
+       { question: "Prédio antigo no Centro consegue seguro residencial?", answer: "Sim, com ressalvas. Prédios com mais de 40 anos e sem laudo elétrico recente têm restrição da cobertura de 'danos elétricos' e são aceitos com franquia agravada. Com laudo do CREA atualizado apresentado pelo síndico, a apólice sai em condições normais. Ajudamos a identificar quais seguradoras aceitam o perfil do seu prédio." },
+     ],
      intel: {
        demographics: "Coração comercial e administrativo de Guarulhos, com alta concentração de escritórios, consultórios, lojas de rua e prédios residenciais antigos.",
        landmarks: {
@@ -224,6 +247,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-picanco", neighborhood: "Picanço", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para proteção de famílias e casais" }),
        ...generateLocalFAQs({ slug: "empresarial-picanco", neighborhood: "Picanço", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 75/mês", reference: "para o comércio local do bairro" }),
      ],
+     localFaqs: [
+       { question: "Casa no Picanço com garagem fechada paga quanto de auto?", answer: "Casas do Picanço com garagem fechada (portão automático + muro) reduzem o prêmio em 15–25% versus veículo em rua. Para um Onix 2022 na faixa de 35–45 anos, o compreensivo fica em R$ 2.400–3.200/ano com garagem, contra R$ 2.900–3.900/ano sem. Informar a garagem correta é essencial — omitir pode gerar recusa de sinistro." },
+       { question: "Seguradoras dão desconto para famílias com bônus alto no Picanço?", answer: "Sim, é o principal fator de desconto. O bônus é acumulado ano a ano sem sinistro (0 a 10). Famílias tradicionais com bônus 8–10 pagam 30–50% menos que motoristas iniciantes. Trocar de seguradora sem lacuna de mais de 24 meses preserva o bônus — não recomeça do zero." },
+       { question: "Meu filho recém-habilitado vai dirigir o carro da família — como declarar?", answer: "Deve ser declarado como 'condutor eventual menor de 25 anos' ou incluído como condutor principal, dependendo do uso real. Não declarar é uma das principais causas de negativa em sinistro. O acréscimo médio no prêmio é 15–35% — negociável entre seguradoras. Fazemos essa comparação sem custo." },
+     ],
      intel: {
        demographics: "Bairro predominantemente residencial e familiar, com casas em rua tranquila e comércio de vizinhança no entorno.",
        landmarks: {
@@ -256,6 +284,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-macedo", neighborhood: "Macedo", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "para sócios e colaboradores de PMEs" }),
        ...generateLocalFAQs({ slug: "auto-macedo", neighborhood: "Macedo", product: "auto", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 4.800/ano", reference: "na região da Av. Tiradentes" }),
      ],
+     localFaqs: [
+       { question: "Clínica no Macedo tem plano de saúde coletivo com a mesma rede do Bom Clima?", answer: "Sim. SulAmérica, Bradesco Saúde, Amil e Notre Dame Intermédica têm o Hospital Bom Clima e clínicas da Av. Tiradentes na rede credenciada. Para PMEs do Macedo com 2–29 vidas, o plano coletivo empresarial custa entre R$ 240 e R$ 460 por vida (enfermaria) — mantém a mesma rede e tem reajuste 4–8 p.p. menor que individual." },
+       { question: "Consultório odontológico no Macedo precisa cobrir equipamento?", answer: "Sim. Consultórios da região da Av. Tiradentes têm exposição alta de equipamentos (cadeira, motor, raio-x, autoclave). A cobertura de 'equipamentos estacionários e eletrônicos' custa R$ 25–65/mês e cobre danos elétricos, quebra acidental e roubo qualificado. Sem ela, queima de placa da cadeira (R$ 8–18 mil) fica por conta do dentista." },
+       { question: "Seguro de vida em grupo para 5 colaboradores da clínica vale a pena?", answer: "Vale — é dos benefícios com melhor custo-percepção. Vida em grupo para 5–15 colaboradores fica em R$ 12–28/vida/mês para capital de R$ 30–50 mil + auxílio funeral. Ajuda na retenção e é dedutível como despesa operacional. Estruturamos com Bradesco, MetLife, Icatu e Prudential." },
+     ],
      intel: {
        demographics: "Região com forte presença de clínicas, consultórios e pequenas e médias empresas de serviço, além de áreas residenciais consolidadas.",
        landmarks: {
@@ -287,6 +320,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-gopouva", neighborhood: "Gopouva", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 32/mês", reference: "nas áreas residenciais tradicionais" }),
        ...generateLocalFAQs({ slug: "auto-gopouva", neighborhood: "Gopouva", product: "auto", riskLevel: "médio", priceRange: "R$ 2.450 a R$ 4.700/ano", reference: "com fácil acesso ao Centro" }),
        ...generateLocalFAQs({ slug: "saude-gopouva", neighborhood: "Gopouva", product: "saude", priceRange: "consultas e exames completos", reference: "com ampla rede em Guarulhos" }),
+     ],
+     localFaqs: [
+       { question: "Casa antiga em Gopouva tem restrição para seguro residencial?", answer: "Casas com mais de 40 anos podem ter restrição na cobertura de 'danos elétricos' se não houver laudo elétrico atualizado. Sem o laudo, a apólice sai normal para incêndio + roubo + RC familiar, mas danos elétricos ficam com franquia agravada. Com laudo do CREA (R$ 400–800 uma vez), a cobertura completa é liberada — o investimento se paga na primeira queima de eletrônico." },
+       { question: "Aposentado em Gopouva consegue seguro de vida?", answer: "Sim, até 70 anos na maioria das seguradoras e até 75–80 anos em algumas (Bradesco Prime, Prudential Sênior). Para aposentados sem dependentes financeiros, faz mais sentido priorizar cobertura de 'doenças graves' e 'despesas médicas' do que morte. Prêmios a partir de R$ 68/mês para R$ 40 mil de capital na faixa 60–70." },
+       { question: "Plano de saúde individual em Gopouva ainda existe?", answer: "Sim, com poucas opções: Hapvida NotreDame, Amil One e Bradesco Saúde ainda vendem individual. Preços de R$ 189/mês (faixa 0–18) a R$ 950–1.400/mês (faixa 59+). Para reduzir em 30–40%, aconselhamos abertura de MEI gratuito e migração para coletivo empresarial mantendo a mesma rede." },
      ],
     intel: {
       demographics: "Bairro tradicional de Guarulhos, com forte identidade comunitária, comércio consolidado e mistura de casas antigas e prédios residenciais de médio padrão.",
@@ -325,6 +363,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-bonsucesso", neighborhood: "Bonsucesso", product: "vida", priceRange: "a partir de R$ 42/mês", reference: "para empreendedores e famílias locais" }),
        ...generateLocalFAQs({ slug: "residencial-bonsucesso", neighborhood: "Bonsucesso", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 35/mês", reference: "nas novas expansões do bairro" }),
      ],
+     localFaqs: [
+       { question: "Loja no Shopping Bonsucesso precisa de apólice com Lucros Cessantes?", answer: "Sim — geralmente é exigência da administração do shopping. Lucros Cessantes cobre o faturamento perdido enquanto a loja não pode operar após sinistro. Para lojas de 40–120 m² no Shopping Bonsucesso, o prêmio adicional é R$ 25–90/mês cobrindo 3–12 meses de faturamento — indispensável para reabertura sem crédito emergencial." },
+       { question: "Quem pega a Dutra saindo de Bonsucesso precisa de assistência 24h em rodovia?", answer: "Altamente recomendado. Moradores com acesso diário à Dutra têm sinistralidade de pane/pneu furado/quebra de para-brisa acima da média urbana. A assistência 24h com guincho ilimitado em rodovia (não só até 100 km) custa a mais R$ 8–15/mês e evita gasto de R$ 800–1.800 em uma única acionada, especialmente noturna." },
+       { question: "Novos empreendimentos no entorno do Shopping Bonsucesso têm seguro coletivo?", answer: "Sim. Trabalhamos com síndicos de condomínios recentes oferecendo seguro obrigatório de condomínio + proposta coletiva de residencial individual com desconto de 8–15% por adesão em grupo. Apresentação em assembleia e cotação sem custo para o síndico." },
+     ],
      intel: {
        demographics: "Bairro em expansão, misturando shopping âncora, condomínios residenciais recentes e polo de comércio ao longo da Dutra.",
        landmarks: {
@@ -357,6 +400,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-paraventi", neighborhood: "Paraventi", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 25/mês", reference: "nas ruas residenciais do Paraventi" }),
        ...generateLocalFAQs({ slug: "vida-paraventi", neighborhood: "Paraventi", product: "vida", priceRange: "a partir de R$ 30/mês", reference: "para proteção familiar básica" }),
      ],
+     localFaqs: [
+       { question: "Trabalhador do SESI/SENAI Paraventi tem convênio com corretora?", answer: "Não temos convênio institucional, mas trabalhadores do SESI, SENAI e entidades do Sistema Fiesp têm acesso a planos coletivos por adesão via entidade de classe com 25–40% de desconto versus individual. Ajudamos a identificar se a sua carteira dá direito e comparamos as opções sem custo — famílias do Paraventi economizam R$ 200–380/mês na migração." },
+       { question: "Seguro auto no Paraventi cobre quem estaciona na rua?", answer: "Sim, mas o prêmio sobe. Veículos declarados como 'guardados em via pública' pagam 15–30% a mais que os com garagem fechada. Recomendamos declarar corretamente — omitir e ter o carro roubado na rua pode gerar recusa. Rastreador reduz parte do agravamento em cerca de 10–15%." },
+       { question: "Plano de saúde individual acessível existe para família do Paraventi?", answer: "Existe, a partir de R$ 189/mês na Hapvida (faixa 0–18) e Amil One. Para reduzir ainda mais, orientamos abertura de MEI gratuito de um titular da família e enquadramento no plano coletivo empresarial — economia média de 35% versus individual mantendo mesma rede em Guarulhos." },
+     ],
     intel: {
       demographics: "Bairro residencial de classe média com forte presença de famílias trabalhadoras e comércio de vizinhança, tendo o SESI Guarulhos como principal marco.",
       landmarks: {
@@ -388,6 +436,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "auto-continental", neighborhood: "Continental", product: "auto", riskLevel: "médio", priceRange: "R$ 2.600 a R$ 4.900/ano", reference: "com garagem coberta nos edifícios" }),
        ...generateLocalFAQs({ slug: "vida-continental", neighborhood: "Continental", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para moradores de condomínios verticais" }),
        ...generateLocalFAQs({ slug: "saude-continental", neighborhood: "Continental", product: "saude", priceRange: "ampla rede de atendimento local", reference: "próximo à região central" }),
+     ],
+     localFaqs: [
+       { question: "Apartamento no Continental tem seguro mais barato que casa?", answer: "Sim, 20% a 35% mais barato em média. Apartamentos em condomínios verticais (portaria 24h, garagem coberta, CFTV) reduzem drasticamente o risco de roubo e incêndio versus casas. Para apto avaliado em R$ 320 mil com R$ 25 mil em bens, o prêmio anual fica em R$ 320–560 — barato para o padrão de vida do bairro." },
+       { question: "Condomínio grande do Continental consegue seguro coletivo com desconto?", answer: "Sim. Condomínios com 60+ unidades têm poder de negociação para apresentar proposta coletiva de residencial individual aos moradores, com desconto de 10–18% versus contratação isolada. O seguro obrigatório do condomínio (áreas comuns) continua separado. Fazemos apresentação em assembleia sem custo." },
+       { question: "Moradores do Continental têm rede de plano de saúde na Papa João Paulo I?", answer: "Sim. Bradesco Saúde, SulAmérica, Amil e Hapvida NotreDame têm rede credenciada com UPA Continental, Hospital Padre Bento e clínicas do eixo Papa João Paulo I. Para famílias, coletivos por adesão ficam entre R$ 230 e R$ 450 por vida — economia média de R$ 200–400/mês versus individuais." },
      ],
     intel: {
       demographics: "Um dos bairros mais populosos de Guarulhos, com alta densidade vertical (condomínios e apartamentos populares) e forte demanda por seguros de baixo ticket.",
