@@ -64,7 +64,7 @@ const Index = () => {
     <>
       <PageMeta 
         title="Corretora de Seguros em Guarulhos | Patro Seguros"
-        description="Corretora de seguros em Guarulhos com atendimento consultivo. Compare 16+ seguradoras para seguro auto, saúde, vida, empresa e residencial."
+        description="Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras para auto, vida, saúde, residencial e empresa. Cotação em 24h. SUSEP 212113511."
         absoluteTitle={true}
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
@@ -114,7 +114,7 @@ const Index = () => {
               <div className="max-w-3xl">
                 <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
                 <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                  Corretora de seguros em Guarulhos para você e sua empresa
+                  Corretora de Seguros em Guarulhos para Você e sua Empresa
                 </h1>
                 <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   Compare seguradoras e encontre proteção para seu carro, família ou empresa com atendimento consultivo da Patro Seguros.
