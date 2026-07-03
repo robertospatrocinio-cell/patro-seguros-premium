@@ -135,7 +135,7 @@ interface FeaturedArticle {
   image?: string;
 }
 
-interface InsurancePageProps {
+export interface InsurancePageProps {
   title: string;
   /**
    * H1 visível no hero. Quando omitido, usa `title` (o mesmo do <title> SEO),
