@@ -68,9 +68,16 @@ const LocalBusinessSchema = () => {
       "@id": `${CANONICAL_BASE_URL}/#service-catalog`
     },
     "sameAs": [
+      "https://www.google.com/maps?cid=273879799324962533",
       "https://www.instagram.com/patroseguros",
       "https://www.facebook.com/patroseguros",
-      "https://www.linkedin.com/company/patro-seguros"
+      "https://www.linkedin.com/company/patro-seguros",
+      "https://www.youtube.com/@patroseguros",
+      "https://www.tiktok.com/@patroseguros",
+      "https://twitter.com/patroseguros",
+      "https://www.reclameaqui.com.br/empresa/patro-corretora-de-seguros/",
+      "https://wa.me/551151997500",
+      "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
     ],
     "contactPoint": [
       {
