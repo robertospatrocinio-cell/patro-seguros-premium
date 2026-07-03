@@ -41,7 +41,8 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
         items={[
           { name: "Início", url: "/" },
           { name: "Seguro Auto", url: "/seguro-auto" },
-          { name: config.name, url: `/seguro-${config.slug}` },
+          // Reflete a rota real (`/seguro/:brand`) — nunca invente URL alternativa.
+          { name: config.name, url: `/seguro/${brandSlug}` },
         ]}
       />
       <LocalAreaSchema
