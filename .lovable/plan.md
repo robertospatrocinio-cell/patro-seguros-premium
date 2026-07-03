@@ -1,56 +1,87 @@
+## Monitoramento contínuo de SEO — plano
 
-# Otimização SEO Local — Patro Seguros (Guarulhos)
+Cron diário audita todas as ~836 rotas do sitemap, persiste resultados, compara com a rodada anterior e dispara email quando aparecem falhas novas. Um dashboard admin mostra o histórico e permite drill-down por rota.
 
-Escopo grande. Para entregar com qualidade e sem quebrar nada, proponho dividir em **5 fases**. Você aprova o plano inteiro e eu executo fase por fase, validando cada uma antes de seguir.
+---
 
-## Fase 1 — Página pilar nova (alta prioridade)
+### 1. Modelo de dados (migration)
 
-**Criar** `/corretora-de-seguros-em-guarulhos` como página de SEO local principal.
+Duas tabelas em `public`, com RLS restrita a admins (função `has_role` já existe):
 
-- Novo arquivo `src/pages/CorretoraSegurosGuarulhos.tsx` (~1.500 palavras, conteúdo único, escrito do zero — sem copiar concorrentes).
-- Estrutura de headings exatamente como você listou (H1 → H2/H3 de pessoas/empresas/bairros/FAQ/CTA).
-- Title, meta description, canonical `https://www.patroseguros.com.br/corretora-de-seguros-em-guarulhos`.
-- Schemas em JSON-LD: `InsuranceAgency` + `LocalBusiness` + `Service` + `BreadcrumbList` + `FAQPage` (só FAQs visíveis).
-- AggregateRating só se a nota/contagem real do GBP for confirmada (ver Fase 5). Por padrão deixo **sem** rating até você confirmar os números.
-- Links internos para `/seguro-auto-guarulhos`, `/seguro-empresarial-guarulhos`, `/plano-saude-guarulhos`, `/seguro-residencial-guarulhos`, `/seguro-vida-guarulhos`, `/consorcio`, `/cotacao`, `/contato`, `/faq`, `/blog`, e para as páginas de bairro existentes.
-- CTAs visíveis: cotação, WhatsApp, telefone.
-- Registro da rota em `src/App.tsx`.
-- Incluir no `scripts/generate-sitemap.ts` / sitemaps relevantes.
+- **`seo_audit_runs`** — uma linha por execução do cron
+  - `id uuid pk`, `started_at`, `finished_at`, `total_urls`, `passed`, `warned`, `failed`, `new_failures`, `duration_ms`, `triggered_by text` (`cron`/`manual`)
+- **`seo_audit_findings`** — uma linha por falha/aviso detectado numa rodada
+  - `id uuid pk`, `run_id fk`, `route text`, `severity` (`error`|`warn`), `rule text` (ex.: `title_too_long`, `missing_canonical`), `message text`, `first_seen_at`, `is_new boolean`, `ignored boolean default false`
 
-## Fase 2 — Home + crawlabilidade
+GRANT SELECT/INSERT ao `service_role`; SELECT ao `authenticated` filtrado por `has_role(auth.uid(), 'admin')` via policy.
 
-- Adicionar bloco textual visível abaixo do hero (3–4 parágrafos naturais, como você sugeriu), com H2s reais (`Seguros para Você`, `Seguros para Empresas`, `Corretora de Seguros em Guarulhos e Região`, `Por que escolher a Patro Seguros`, `Dúvidas Frequentes`, `Solicite sua Cotação`).
-- Garantir que H1, parágrafos, `<a href>`, `<img alt>` estejam no HTML inicial (não só montados via JS pesado). Mover seções críticas para fora de `LazySection` quando estiverem acima da dobra.
-- Cinta de links internos com textos âncora descritivos (Seguro Auto em Guarulhos, Seguro Empresarial em Guarulhos, etc.).
-- Auditar e corrigir botões/links sem nome acessível na home + Header + Footer (aria-label nos icon-only, texto descritivo em vez de "saiba mais").
+### 2. Edge Function `seo-audit-crawler`
 
-## Fase 3 — Cluster local e serviços
+Percorre `sitemap-index.xml` → todos os sub-sitemaps → todas as URLs (~836). Concorrência de 10 fetches paralelos (limite HTTP do runtime). Aplica as mesmas regras já usadas em `scripts/audit-seo-runtime.mjs`:
 
-- Revisar/normalizar headings das páginas de serviço (`/seguro-auto`, `/seguro-empresarial`, `/planos-de-saude`, `/seguro-residencial`, `/seguro-vida`, `/seguro-frota`, `/seguro-transporte`, `/consorcio`) — trocar H2 do tipo "Sobre o Seguro X | Cotação em 2h | Patro Seguros" por títulos naturais.
-- Verificar existência das páginas locais (`/seguro-auto-guarulhos`, `/seguro-empresarial-guarulhos`, `/plano-saude-guarulhos`, `/seguro-residencial-guarulhos`, `/seguro-vida-guarulhos`) e páginas de bairro (`/seguros-guarulhos/<bairro>`). Onde já existem (a maioria já existe via `LocalPageTemplate` / `seoLocalPageSlugs`), só reforço links internos e checo title/meta/H1 únicos. Onde faltar, crio com `LocalPageTemplate`.
-- Adicionar BreadcrumbList onde não houver.
+- HTTP 200
+- `<title>` único, 10–60 chars, sem "Lovable"
+- description única, 50–160 chars
+- canonical https absoluto único
+- og:title/description/url/type/image absolutos + twitter:card
+- ≥1 JSON-LD parseável, exatamente 1 `<h1>`
+- robots sem `noindex` (respeitando `NOINDEX_ALLOW`)
 
-## Fase 4 — Performance, A11y, Schema, Sitemap/Robots
+Ao final:
+1. Insere 1 linha em `seo_audit_runs`.
+2. Insere N linhas em `seo_audit_findings`.
+3. Compara `route+rule` com a última rodada anterior: marca `is_new=true` nas que não existiam.
+4. Se `new_failures > 0`, invoca `send-form-email` (SMTP existente) com resumo consolidado + top 20 novas falhas + link do dashboard.
 
-- Performance mobile (LCP 5,2s → meta <2,5s): preload do hero LCP, garantir AVIF/WebP via `OptimizedImage`, width/height explícitos, lazy nas demais, `font-display: swap`, revisar carrosséis acima da dobra, dividir bundles pesados.
-- A11y: aria-label em todos botões icon-only (WhatsApp flutuante, menu, fechar), texto descritivo em links, contraste, foco visível, labels em formulários, landmark único `<main>`.
-- Schema: revisar e consolidar — sem aggregateRating duplicado, URLs sempre `https://www.patroseguros.com.br`, logo oficial, sameAs reais.
-- Sitemap + robots: garantir que a nova página entra, remover qualquer URL Lovable, conferir `Sitemap:` no robots, sem bloqueio de JS/CSS.
+### 3. Agendamento (cron)
 
-## Fase 5 — Blog + itens que dependem de você
+Habilita `pg_cron` e `pg_net`. Usa o padrão já presente em `trigger_monitor_rich_results` — insert via ferramenta insert (não migration, pois embute service key):
 
-- Reservar slugs / criar esqueletos dos 10 artigos locais que você listou (ou priorizar 3–4 primeiros se preferir). Conteúdo real precisa ser escrito — confirmo se você quer que eu rascunhe ou só prepare a estrutura.
-- **Dependências externas** que eu não consigo executar e vou listar como recomendação no relatório final:
-  - Google Business Profile (nota/contagem reais para usarmos no `AggregateRating`).
-  - Search Console / Bing Webmaster (envio do sitemap, inspeção de URL).
-  - Backlinks locais (parcerias, imprensa Guarulhos, citações NAP).
-  - DNS/headers de cache no Hostinger.
+```sql
+select cron.schedule(
+  'seo-audit-daily', '0 6 * * *',   -- 06:00 UTC = 03:00 BRT
+  $$ select net.http_post(url:='...functions/v1/seo-audit-crawler', ...) $$
+);
+```
 
-## Pontos que preciso confirmar antes de executar
+### 4. Dashboard `/admin/seo-monitor`
 
-1. **AggregateRating**: posso usar `4,7/5` com X avaliações (que já aparece na `SeoCorretoraGuarulhos.tsx`)? Ou prefere que eu **remova** todos os ratings até você me passar o número real do GBP? Você foi explícito sobre não inventar — quero alinhar antes de mexer.
-2. **`/consorcio-guarulhos`**: criar página dedicada nova, ou manter foco local dentro de `/consorcio` (mais simples, menos risco de canibalização)?
-3. **Blog (Fase 5)**: rascunho conteúdo dos 10 artigos agora, ou só prep da estrutura (slug, template, schema) e você escreve depois?
-4. **Ordem de execução**: começo pela Fase 1 (página pilar — maior impacto SEO) e sigo sequencial, ok?
+Nova página React protegida por `<RequireAdmin>`:
 
-Assim que você responder esses 4 pontos eu começo pela Fase 1.
+- **Header:** stats da última rodada (total, passed, warned, failed, novas falhas, duração) + botão "Rodar agora".
+- **Timeline:** últimas 30 rodadas em gráfico linha (failed/warned/passed).
+- **Tabela de findings** da rodada selecionada: filtros por severidade, regra e busca de rota; badge `NOVO` em `is_new=true`; botão ignorar (`ignored=true`, muda a política de alerta).
+- **Drill-down:** clicar numa rota abre modal com histórico da regra nas últimas 30 rodadas.
+
+Rota adicionada em `src/App.tsx`, link no menu admin existente.
+
+### 5. Email de alerta
+
+Um único email por rodada quando `new_failures > 0`:
+
+- Assunto: `[SEO Alert] N novas falhas em www.patroseguros.com.br`
+- Corpo: contagem por regra + até 20 exemplos + link `/admin/seo-monitor?run={id}`.
+- Remetente: `alertas@patroseguros.com.br` via SMTP HostGator já configurado.
+- Destinatário: primeiro admin registrado em `user_roles` (fallback para `contato@patroseguros.com.br`).
+
+Nenhum email quando `new_failures = 0` (evita ruído — o dashboard sempre reflete o estado atual).
+
+---
+
+### Detalhes técnicos
+
+**Runtime da edge function:** timeout 400s. 836 URLs com concorrência 10 e ~500ms por fetch → ~45s. Se um sitemap crescer muito, o worker faz batching interno.
+
+**Idempotência:** `run_id` uuid v4 gerado no início; findings inseridos em bulk via um único `insert` com array — se a função reiniciar no meio, o run fica sem `finished_at` e é ignorado pelo dashboard (marcado como "aborted").
+
+**Segurança:** RLS permite SELECT apenas para `has_role(auth.uid(), 'admin')`. Service role usado pela edge function bypassa RLS conforme padrão. Nenhum dado sensível — só URLs públicas.
+
+**Retrocompatibilidade:** não altera nenhum script existente (`audit-seo-runtime.mjs`, `validate-jsonld-build.mjs`, `validate-artigos-jsonld.mjs`). Este monitor é um observador em produção; os validadores de build continuam sendo o gate pré-deploy.
+
+**Arquivos criados/modificados:**
+- `supabase/migrations/<ts>_seo_monitor.sql` (novo)
+- `supabase/functions/seo-audit-crawler/index.ts` (novo)
+- `src/pages/AdminSeoMonitor.tsx` (novo)
+- `src/App.tsx` (nova rota)
+- `src/components/crm/DashboardOverview.tsx` ou header admin (link)
+- Insert SQL do `cron.schedule` (via insert tool, não migration)
