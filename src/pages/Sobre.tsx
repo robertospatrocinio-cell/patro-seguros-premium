@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
-import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText } from "lucide-react";
+import { Shield, ShieldCheck, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -292,6 +292,32 @@ const Sobre = () => {
               conferíveis nas fontes oficiais linkadas. Esta seção não constitui certificação independente — é o
               nosso compromisso público de transparência sobre quem produz o conteúdo aqui publicado.
             </p>
+          </div>
+        </section>
+
+        {/* Verificação pública SUSEP — cross-link E-E-A-T */}
+        <section aria-labelledby="verificar-susep-cta" className="py-14">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 via-background to-background p-6 md:p-8 shadow-sm">
+              <div className="grid md:grid-cols-[auto_1fr_auto] items-center gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                  <ShieldCheck className="h-8 w-8" />
+                </div>
+                <div>
+                  <h2 id="verificar-susep-cta" className="text-xl md:text-2xl font-bold mb-1">
+                    Confira você mesmo o registro SUSEP da Patro
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    Publicamos um passo a passo público em 5 minutos para você validar, nas fontes oficiais, o
+                    registro <strong className="text-foreground">SUSEP 212113511</strong> e o CNPJ
+                    <strong className="text-foreground"> 41.641.558/0001-33</strong> — dos autores e da corretora.
+                  </p>
+                </div>
+                <Link to="/verificar-susep" className="shrink-0">
+                  <Button className="rounded-lg">Ver passo a passo</Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

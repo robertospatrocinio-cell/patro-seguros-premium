@@ -103,6 +103,7 @@ const ComparativoPlanosSaude = lazyWithRetry(() => import("./pages/ComparativoPl
 const CRM = lazyWithRetry(() => import("./pages/CRM"), "CRM");
 const AdminLogin = lazyWithRetry(() => import("./pages/AdminLogin"), "AdminLogin");
 const Sobre = lazyWithRetry(() => import("./pages/Sobre"), "Sobre");
+const VerificarSusep = lazyWithRetry(() => import("./pages/VerificarSusep"), "VerificarSusep");
 const Parceiros = lazyWithRetry(() => import("./pages/Parceiros"), "Parceiros");
 const Contato = lazyWithRetry(() => import("./pages/Contato"), "Contato");
 const Servicos = lazyWithRetry(() => import("./pages/Servicos"), "Servicos");
@@ -436,6 +437,7 @@ const App = () => {
                   <Route path="/admin/login" element={<AdminLogin />} />
                   <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
                   <Route path="/sobre" element={<Sobre />} />
+                  <Route path="/verificar-susep" element={<VerificarSusep />} />
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
                   <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
