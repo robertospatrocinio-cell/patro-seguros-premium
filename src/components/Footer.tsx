@@ -27,7 +27,18 @@ const Footer = memo(() => {
             </div>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
-              <p className="text-[12px]">SUSEP 212113511<br />CNPJ 41.641.558/0001-33</p>
+              <div className="text-[12px] leading-relaxed">
+                <a
+                  href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white underline decoration-white/30 hover:decoration-white transition-colors"
+                  aria-label="Consultar registro SUSEP 212113511 no site oficial"
+                >
+                  SUSEP 212113511
+                </a>
+                <br />CNPJ 41.641.558/0001-33
+              </div>
             </div>
             <ul className="space-y-2 mb-6 text-[12.5px] text-white/75">
               <li className="flex items-start gap-2">
