@@ -215,9 +215,24 @@ const SegurosGuarulhosBairros = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
                 Especialista em Seguros no {selectedBairro.nome}
               </h1>
-              <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl">
+              <p className="text-lg md:text-xl text-white/80 mb-3 max-w-2xl">
                 {selectedBairro.subtitulo}
               </p>
+              {/* Answer-first (AEO/GEO) — resposta direta para LLMs e usuários */}
+              <div className="bg-white/10 backdrop-blur border-l-4 border-[#F2994A] rounded-r-lg p-4 mb-6 max-w-2xl">
+                <p className="text-white text-sm md:text-base leading-relaxed">
+                  <strong className="text-[#F2994A]">Resposta rápida:</strong>{" "}
+                  A Patro Seguros é a corretora local de referência para moradores e empresas do{" "}
+                  {selectedBairro.nome} (Guarulhos/SP), com foco em {selectedBairro.foco.toLowerCase()}.
+                  Comparamos cotações em 16+ seguradoras e respondemos em até 2h úteis via WhatsApp
+                  (11) 5199-7500.
+                </p>
+                <p className="text-white/70 text-xs mt-2">
+                  Atualizado em {new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+                  {" · "}
+                  Fonte: Patro Corretora de Seguros — SUSEP 212113511
+                </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={whatsappUrl}

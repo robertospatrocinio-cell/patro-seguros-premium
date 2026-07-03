@@ -14,7 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
-import { getAuthorSlugByName } from "@/lib/blogAuthors";
+import { getAuthorSlugByName, getAuthorByName } from "@/lib/blogAuthors";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -43,6 +43,7 @@ const BlogArticle = () => {
   const article = useMemo(() => getBlogContent(slug) ?? defaultArticle, [slug]);
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
+  const authorInfo = meta ? getAuthorByName(meta.author) : undefined;
   const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;
   const allFaqs = [
     ...(article?.faqs ?? []).map((f: any) => ({ q: f.q, a: f.a })),
@@ -123,6 +124,13 @@ const BlogArticle = () => {
               dateModified={meta.updatedAt || meta.date}
               authorName={meta.author}
               authorUrl={`${CANONICAL_BASE_URL}/blog/autor/${getAuthorSlugByName(meta.author)}`}
+              authorImage={authorInfo ? `${CANONICAL_BASE_URL}${authorInfo.image}` : undefined}
+              authorSusep={authorInfo?.susep}
+              authorKnowsAbout={authorInfo?.expertise}
+              authorSameAs={[
+                `${CANONICAL_BASE_URL}/sobre`,
+                "https://www.instagram.com/patroseguros",
+              ]}
               category={meta.category}
               tags={meta.tags}
               wordCount={article.content.split(/\s+/).length}
@@ -176,6 +184,11 @@ const BlogArticle = () => {
                 <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5" />{formatDate(meta.date)}</span>
                 <span className="flex items-center gap-1.5"><Clock className="h-3.5 w-3.5" />{meta.readTime} min de leitura</span>
                 <span className="bg-white/10 px-2 py-0.5 rounded text-xs">{meta.category}</span>
+                {meta.updatedAt && meta.updatedAt !== meta.date && (
+                  <span className="flex items-center gap-1.5 bg-[#F2994A]/20 text-white px-2 py-0.5 rounded text-xs font-medium">
+                    Atualizado em {formatDate(meta.updatedAt)}
+                  </span>
+                )}
               </div>
             )}
           </div>
