@@ -1239,6 +1239,98 @@ export type Database = {
         }
         Relationships: []
       }
+      seo_audit_findings: {
+        Row: {
+          created_at: string
+          first_seen_at: string
+          id: string
+          ignored: boolean
+          is_new: boolean
+          message: string
+          route: string
+          rule: string
+          run_id: string
+          severity: string
+        }
+        Insert: {
+          created_at?: string
+          first_seen_at?: string
+          id?: string
+          ignored?: boolean
+          is_new?: boolean
+          message: string
+          route: string
+          rule: string
+          run_id: string
+          severity: string
+        }
+        Update: {
+          created_at?: string
+          first_seen_at?: string
+          id?: string
+          ignored?: boolean
+          is_new?: boolean
+          message?: string
+          route?: string
+          rule?: string
+          run_id?: string
+          severity?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "seo_audit_findings_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "seo_audit_runs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      seo_audit_runs: {
+        Row: {
+          alert_sent: boolean
+          duration_ms: number | null
+          error_message: string | null
+          failed: number
+          finished_at: string | null
+          id: string
+          new_failures: number
+          passed: number
+          started_at: string
+          total_urls: number
+          triggered_by: string
+          warned: number
+        }
+        Insert: {
+          alert_sent?: boolean
+          duration_ms?: number | null
+          error_message?: string | null
+          failed?: number
+          finished_at?: string | null
+          id?: string
+          new_failures?: number
+          passed?: number
+          started_at?: string
+          total_urls?: number
+          triggered_by?: string
+          warned?: number
+        }
+        Update: {
+          alert_sent?: boolean
+          duration_ms?: number | null
+          error_message?: string | null
+          failed?: number
+          finished_at?: string | null
+          id?: string
+          new_failures?: number
+          passed?: number
+          started_at?: string
+          total_urls?: number
+          triggered_by?: string
+          warned?: number
+        }
+        Relationships: []
+      }
       seo_rich_results_checks: {
         Row: {
           checked_at: string
