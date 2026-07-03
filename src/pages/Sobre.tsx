@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import PersonAuthorsSchema from "@/components/PersonAuthorsSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -36,6 +37,7 @@ const Sobre = () => {
     <Fragment>
       <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
       <PersonAuthorsSchema />
+      <SpeakableSchema url="https://www.patroseguros.com.br/sobre" />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />
