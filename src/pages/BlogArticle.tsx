@@ -14,7 +14,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
-import { getAuthorSlugByName } from "@/lib/blogAuthors";
+import { getAuthorSlugByName, getAuthorByName } from "@/lib/blogAuthors";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -43,6 +43,7 @@ const BlogArticle = () => {
   const article = useMemo(() => getBlogContent(slug) ?? defaultArticle, [slug]);
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
+  const authorInfo = meta ? getAuthorByName(meta.author) : undefined;
   const extraFaqBlock = slug ? extraFaqsBySlug[slug] : undefined;
   const allFaqs = [
     ...(article?.faqs ?? []).map((f: any) => ({ q: f.q, a: f.a })),
@@ -123,6 +124,13 @@ const BlogArticle = () => {
               dateModified={meta.updatedAt || meta.date}
               authorName={meta.author}
               authorUrl={`${CANONICAL_BASE_URL}/blog/autor/${getAuthorSlugByName(meta.author)}`}
+              authorImage={authorInfo ? `${CANONICAL_BASE_URL}${authorInfo.image}` : undefined}
+              authorSusep={authorInfo?.susep}
+              authorKnowsAbout={authorInfo?.expertise}
+              authorSameAs={[
+                `${CANONICAL_BASE_URL}/sobre`,
+                "https://www.instagram.com/patroseguros",
+              ]}
               category={meta.category}
               tags={meta.tags}
               wordCount={article.content.split(/\s+/).length}
