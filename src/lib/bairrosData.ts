@@ -357,6 +357,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-paraventi", neighborhood: "Paraventi", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 25/mês", reference: "nas ruas residenciais do Paraventi" }),
        ...generateLocalFAQs({ slug: "vida-paraventi", neighborhood: "Paraventi", product: "vida", priceRange: "a partir de R$ 30/mês", reference: "para proteção familiar básica" }),
      ],
+    intel: {
+      demographics: "Bairro residencial de classe média com forte presença de famílias trabalhadoras e comércio de vizinhança, tendo o SESI Guarulhos como principal marco.",
+      landmarks: {
+        business: ["SESI Guarulhos", "SENAI Guarulhos (proximidade)"],
+        streets: ["Av. Papa João Paulo I", "Estr. Guarulhos-Nazaré", "Av. Paraventi"],
+        schools: ["Rede SESI/SENAI de educação técnica"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Trânsito intenso no eixo Papa João Paulo I eleva risco de colisão; residências em casa fechada com portão automático reduzem prêmio residencial em ~15%.",
+      },
+      localCase: {
+        title: "Plano de saúde individual acessível para trabalhador do SESI",
+        description: "Trabalhador do Paraventi com dependente conseguiu migrar de plano individual antigo (reajuste 22% ano) para coletivo por adesão via entidade de classe. Economia de R$ 240/mês com a mesma rede credenciada na região.",
+      },
+    },
    },
    {
      id: "continental",
@@ -371,6 +389,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-continental", neighborhood: "Continental", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para moradores de condomínios verticais" }),
        ...generateLocalFAQs({ slug: "saude-continental", neighborhood: "Continental", product: "saude", priceRange: "ampla rede de atendimento local", reference: "próximo à região central" }),
      ],
+    intel: {
+      demographics: "Um dos bairros mais populosos de Guarulhos, com alta densidade vertical (condomínios e apartamentos populares) e forte demanda por seguros de baixo ticket.",
+      landmarks: {
+        streets: ["Av. Papa João Paulo I", "Av. Otávio Braga de Mesquita", "Av. Emílio Ribas"],
+        hospitals: ["UPA Continental", "Hospital Padre Bento (proximidade)"],
+        business: ["Comércio local intenso e concentração de condomínios verticais"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Apartamentos com portaria 24h e garagem coberta reduzem prêmio residencial e auto; concentração de veículos em avenidas eleva sinistralidade de colisão leve.",
+      },
+      localCase: {
+        title: "Seguro condomínio + residencial individual para edifício do Continental",
+        description: "Síndico contratou seguro obrigatório de condomínio e ofereceu proposta coletiva de residencial individual para os 84 apartamentos. Adesão de 41 moradores gerou desconto de 18% sobre o prêmio individual médio da região.",
+      },
+    },
    },
   {
     id: "pimentas",
