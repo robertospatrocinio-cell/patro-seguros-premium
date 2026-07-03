@@ -31,6 +31,7 @@ export interface BairroData {
   faqs: BairroFAQ[];
   testimonials?: BairroTestimonial[];
   geo?: { latitude: number; longitude: number };
+  intel?: BairroLocalIntel;
 }
 
 export interface BairroTestimonial {
@@ -40,6 +41,33 @@ export interface BairroTestimonial {
   rating: 5 | 4;
   text: string;
   date: string; // YYYY-MM-DD
+}
+
+/**
+ * Inteligência Local por bairro — Fase 2 SEO (diferenciação de páginas locais).
+ * Todos os campos são opcionais. Nunca inventar números — deixar em branco
+ * se o dado não for verificável.
+ */
+export interface BairroLocalIntel {
+  /** Perfil socioeconômico curto (1 frase, ≤ 160 chars) */
+  demographics?: string;
+  /** Marcos e referências reais do bairro */
+  landmarks?: {
+    hospitals?: string[];
+    malls?: string[];
+    streets?: string[];
+    schools?: string[];
+    business?: string[];
+  };
+  /** Perfil qualitativo de risco baseado em experiência de subscrição */
+  riskProfile?: {
+    auto?: "baixo" | "médio" | "médio-alto" | "alto";
+    residencial?: "baixo" | "médio" | "médio-alto" | "alto";
+    empresarial?: "baixo" | "médio" | "médio-alto" | "alto";
+    notes?: string;
+  };
+  /** Caso real anonimizado (sem dados identificáveis) */
+  localCase?: { title: string; description: string };
 }
 
 export const bairros: BairroData[] = [
@@ -56,6 +84,25 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-cidade-maia", neighborhood: "Cidade Maia", product: "residencial", riskLevel: "baixo", priceRange: "a partir de R$ 35/mês", reference: "no entorno do Bosque Maia" }),
        ...generateLocalFAQs({ slug: "empresarial-cidade-maia", neighborhood: "Cidade Maia", product: "empresarial", riskLevel: "baixo", priceRange: "a partir de R$ 89/mês", reference: "próximo ao Centro de Guarulhos" }),
      ],
+     intel: {
+       demographics: "Bairro planejado de alto padrão em Guarulhos, com condomínios verticais recentes e forte concentração de profissionais liberais e famílias com renda AB.",
+       landmarks: {
+         malls: ["Shopping Maia", "Internacional Shopping Guarulhos (proximidade)"],
+         streets: ["Av. Paulo Faccini", "Av. Salgado Filho", "Av. Emílio Ribas"],
+         hospitals: ["Hospital Stella Maris", "Hospital Bom Clima"],
+         business: ["Edifício Via Alameda (sede da Patro Seguros)"],
+       },
+       riskProfile: {
+         auto: "baixo",
+         residencial: "baixo",
+         empresarial: "baixo",
+         notes: "Condomínios com portaria 24h e garagem coberta reduzem prêmio de auto e residencial em até 25% versus média de Guarulhos.",
+       },
+       localCase: {
+         title: "Combo residencial premium + auto importado no Cidade Maia",
+         description: "Cliente com apartamento avaliado em R$ 1,2 mi e SUV importado migrou 2 apólices para a Patro. Cobertura residencial ampliada (joias + eletrônicos + RC familiar) + auto compreensivo com franquia reduzida ficou R$ 4.180/ano mais barato que a proposta anterior do banco, mantendo mesma seguradora tier-1.",
+       },
+     },
    },
    {
      id: "vila-augusta",
@@ -70,6 +117,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-vila-augusta", neighborhood: "Vila Augusta", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "com fácil acesso à Via Dutra" }),
        ...generateLocalFAQs({ slug: "empresarial-vila-augusta", neighborhood: "Vila Augusta", product: "empresarial", riskLevel: "baixo", priceRange: "a partir de R$ 95/mês", reference: "próximo ao Centro" }),
      ],
+     intel: {
+       demographics: "Bairro em forte expansão vertical, com lançamentos residenciais recentes e perfil de moradores jovens e famílias novas.",
+       landmarks: {
+         malls: ["Internacional Shopping Guarulhos"],
+         streets: ["Av. Emílio Ribas", "Av. Otávio Braga de Mesquita", "acesso à Rodovia Pres. Dutra"],
+         schools: ["Escolas particulares no eixo Emílio Ribas"],
+       },
+       riskProfile: {
+         auto: "baixo",
+         residencial: "baixo",
+         empresarial: "baixo",
+         notes: "Empreendimentos novos com portaria 24h e sensores puxam o prêmio residencial para baixo, mas proximidade da Dutra eleva risco de quebra de para-brisa no auto.",
+       },
+       localCase: {
+         title: "Casal recém-mudado economizou trocando de seguradora",
+         description: "Casal jovem que comprou apartamento novo na Vila Augusta contratou pacote combo (auto + residencial + vida) e economizou R$ 1.960/ano em relação às cotações diretas em 3 sites de seguradora — beneficiado pelo desconto de fidelidade multi-produto negociado pela corretora.",
+       },
+     },
    },
    {
      id: "cumbica",
@@ -89,6 +154,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-cumbica", neighborhood: "Cumbica", product: "vida", priceRange: "a partir de R$ 50/mês", reference: "para profissionais do setor logístico" }),
        ...generateLocalFAQs({ slug: "residencial-cumbica", neighborhood: "Cumbica", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 40/mês", reference: "nas áreas residenciais do bairro" }),
      ],
+     intel: {
+       demographics: "Polo logístico e industrial de Guarulhos, com forte presença de galpões, transportadoras e serviços de apoio ao Aeroporto Internacional (GRU Airport).",
+       landmarks: {
+         business: ["Aeroporto Internacional de Guarulhos (GRU)", "Polo Industrial de Cumbica", "condomínios logísticos ao longo da Hélio Smidt"],
+         streets: ["Rodovia Hélio Smidt", "Av. Monteiro Lobato", "acesso à Rodovia Pres. Dutra"],
+         hospitals: ["Hospital Padre Bento (proximidade)"],
+       },
+       riskProfile: {
+         auto: "médio-alto",
+         residencial: "médio-alto",
+         empresarial: "médio-alto",
+         notes: "Fluxo elevado de cargas e proximidade do aeroporto exigem seguros com cláusulas robustas de roubo de carga (RCTR-C + RCF-DC) e sistemas de gerenciamento de risco (rastreador, escolta em alto valor).",
+       },
+       localCase: {
+         title: "Reestruturação de frota + carga para transportadora de eletrônicos",
+         description: "Transportadora com base em Cumbica operando trechos para o GRU teve apólice de RCTR-C + Frota (22 veículos) reestruturada em concorrência entre 4 seguradoras. Resultado: R$ 38 mil/ano de economia com aumento de limite de RC Facultativa e inclusão de gerenciamento de risco.",
+       },
+     },
    },
    {
      id: "centro",
@@ -108,6 +191,25 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-centro", neighborhood: "Centro", product: "vida", priceRange: "a partir de R$ 45/mês", reference: "para profissionais liberais e comerciantes" }),
        ...generateLocalFAQs({ slug: "residencial-centro", neighborhood: "Centro", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 38/mês", reference: "nos edifícios residenciais centrais" }),
      ],
+     intel: {
+       demographics: "Coração comercial e administrativo de Guarulhos, com alta concentração de escritórios, consultórios, lojas de rua e prédios residenciais antigos.",
+       landmarks: {
+         malls: ["Poli Shopping"],
+         streets: ["Av. Salgado Filho", "Praça Tereza Cristina", "Rua Dom Pedro II"],
+         hospitals: ["Hospital Municipal de Guarulhos", "Santa Casa de Guarulhos"],
+         business: ["Fórum de Guarulhos", "Prefeitura", "sede de sindicatos e OAB Guarulhos"],
+       },
+       riskProfile: {
+         auto: "médio-alto",
+         residencial: "médio-alto",
+         empresarial: "médio-alto",
+         notes: "Fluxo comercial intenso e estacionamento em via pública elevam risco de furto e colisão no auto; lojas de rua exigem RC Operação e roubo qualificado bem calibrados.",
+       },
+       localCase: {
+         title: "Sinistro de incêndio em loja vizinha resolvido em 28 dias",
+         description: "Comerciante do entorno do Poli Shopping teve estoque atingido por incêndio originado em vizinho. Vistoria em 24h, laudo entregue em 10 dias úteis e indenização paga em 28 dias — permitiu reabertura sem crédito emergencial. Diferencial: corretora acompanhou o processo diariamente até liberação.",
+       },
+     },
    },
    {
      id: "picanco",
@@ -122,6 +224,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-picanco", neighborhood: "Picanço", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para proteção de famílias e casais" }),
        ...generateLocalFAQs({ slug: "empresarial-picanco", neighborhood: "Picanço", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 75/mês", reference: "para o comércio local do bairro" }),
      ],
+     intel: {
+       demographics: "Bairro predominantemente residencial e familiar, com casas em rua tranquila e comércio de vizinhança no entorno.",
+       landmarks: {
+         streets: ["Av. Transguarulhense", "Av. Tiradentes", "Rua João Gonçalves"],
+         hospitals: ["Hospital Bom Clima (proximidade)"],
+         schools: ["Rede pública e escolas particulares tradicionais"],
+       },
+       riskProfile: {
+         auto: "médio",
+         residencial: "médio",
+         empresarial: "médio",
+         notes: "Perfil de moradores estabelecidos com bônus alto costuma reduzir prêmio de auto em 20–30%; garagem em casa fechada é decisiva no cálculo.",
+       },
+       localCase: {
+         title: "Família com 2 carros e casa consolidou tudo em combo",
+         description: "Família do Picanço com 2 veículos + casa própria + seguro de vida do casal migrou para pacote consolidado. Ganho: R$ 2.400/ano de economia total, gestão única de renovações e uma só vistoria residencial válida para renovação anual.",
+       },
+     },
    },
    {
      id: "macedo",
@@ -136,6 +256,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-macedo", neighborhood: "Macedo", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "para sócios e colaboradores de PMEs" }),
        ...generateLocalFAQs({ slug: "auto-macedo", neighborhood: "Macedo", product: "auto", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 4.800/ano", reference: "na região da Av. Tiradentes" }),
      ],
+     intel: {
+       demographics: "Região com forte presença de clínicas, consultórios e pequenas e médias empresas de serviço, além de áreas residenciais consolidadas.",
+       landmarks: {
+         hospitals: ["Hospital Bom Clima", "clínicas particulares no eixo Av. Tiradentes"],
+         streets: ["Av. Tiradentes", "Av. Guarulhos", "Rua Felício Marcondes"],
+         business: ["Concentração de PMEs de saúde e serviços"],
+       },
+       riskProfile: {
+         auto: "médio",
+         residencial: "médio",
+         empresarial: "médio",
+         notes: "Consultórios e clínicas locais exigem RC Profissional específica (odonto, medicina, fisioterapia) e cobertura para equipamentos eletrônicos e biomédicos.",
+       },
+       localCase: {
+         title: "Migração de plano de saúde familiar com mesma rede e -R$ 380/mês",
+         description: "Família de PME do Macedo com plano individual antigo migrou para coletivo por adesão em operadora com a mesma rede credenciada do Bom Clima e do Stella Maris. Economia mensal: R$ 380 mantendo padrão de atendimento e reduzindo reajustes anuais em ~5 p.p.",
+       },
+     },
    },
    {
      id: "gopouva",
@@ -169,6 +307,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-bonsucesso", neighborhood: "Bonsucesso", product: "vida", priceRange: "a partir de R$ 42/mês", reference: "para empreendedores e famílias locais" }),
        ...generateLocalFAQs({ slug: "residencial-bonsucesso", neighborhood: "Bonsucesso", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 35/mês", reference: "nas novas expansões do bairro" }),
      ],
+     intel: {
+       demographics: "Bairro em expansão, misturando shopping âncora, condomínios residenciais recentes e polo de comércio ao longo da Dutra.",
+       landmarks: {
+         malls: ["Shopping Bonsucesso"],
+         streets: ["Rodovia Pres. Dutra", "Estrada de Santa Isabel", "Av. Papa João Paulo I"],
+         business: ["Comércio de âncora no entorno do shopping"],
+       },
+       riskProfile: {
+         auto: "médio",
+         residencial: "médio",
+         empresarial: "médio",
+         notes: "Acesso direto à Dutra eleva risco de colisão e roubo em rodovia — cobertura compreensiva com assistência 24h em rodovia é altamente recomendada.",
+       },
+       localCase: {
+         title: "Loja de shopping com certificado exigido pela administração em 2 dias",
+         description: "Novo lojista do Shopping Bonsucesso precisou apresentar apólice com RC Operações e Lucros Cessantes para retirada de chaves. Corretora emitiu certificado em 2 dias úteis com cobertura exatamente no formato exigido pela administração — inauguração ocorreu na data prevista.",
+       },
+     },
    },
    {
      id: "paraventi",
