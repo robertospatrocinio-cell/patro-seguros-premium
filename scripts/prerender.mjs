@@ -197,9 +197,54 @@ for (const i of PARTNER_INSURERS_PRERENDER) {
   };
 }
 
-function buildSeoBlock(route) {
+/**
+ * Escapa entidades HTML mínimas em strings vindas de metadata dinâmica
+ * (títulos e descrições de blog, LPs, hubs). Evita quebrar o HTML se
+ * algum título contiver `<`, `>` ou `&`.
+ */
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+/**
+ * Fallback SEO-block builder — usado para toda rota que NÃO tenha entrada
+ * em SEO_CONTENT. Deriva H1 + parágrafo do metadata da rota (mesma fonte
+ * usada para title/description) e adiciona um H2 + CTA links internos.
+ *
+ * Rotas com SEO_CONTENT explícito (curated) continuam recebendo o bloco
+ * rico. Rotas dinâmicas (blog, LPs, planos de saúde por bairro, seguradoras
+ * individuais, artigos etc.) passam a ter H1 no HTML cru, resolvendo o
+ * "SPA shell sem H1" apontado pelo audit-seo-runtime.mjs.
+ */
+function buildFallbackSeoBlock(route, metadata) {
+  if (!metadata) return "";
+  const h1 = escapeHtml(metadata.h1 || metadata.title || "Patro Seguros");
+  const desc = escapeHtml(metadata.description || "");
+  const isBlog = route.startsWith("/blog/") || route.startsWith("/artigos/");
+  const h2 = isBlog
+    ? "Sobre este artigo"
+    : "Cotação e atendimento em Guarulhos";
+  const bodyIntro = desc
+    ? `<p>${desc}</p>`
+    : `<p>A <strong>Patro Seguros</strong> é uma corretora em Guarulhos que ajuda você a escolher, comparar e contratar seguros com orientação consultiva.</p>`;
+  const ctaBlock = isBlog
+    ? `<p>Precisa de orientação? <a href="/cotacao">Solicitar cotação</a> ou <a href="/contato">falar com um consultor</a> da Patro Seguros.</p>`
+    : `<p>Solicite sua <a href="/cotacao">cotação online</a>, fale conosco pelo <a href="/contato">canal de contato</a> ou explore mais <a href="/">soluções de seguro em Guarulhos</a>.</p>`;
+  return `
+      <div data-prerender-seo data-fallback="1" style="max-width:960px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#003366;line-height:1.6">
+        <h1 style="font-size:32px;margin:0 0 16px;color:#003366">${h1}</h1>
+        ${bodyIntro}
+        <h2 style="font-size:22px;margin:24px 0 12px;color:#003366">${h2}</h2>
+        ${ctaBlock}
+      </div>`;
+}
+
+function buildSeoBlock(route, metadata) {
   const c = SEO_CONTENT[route];
-  if (!c) return "";
+  if (!c) return buildFallbackSeoBlock(route, metadata);
   // Conteúdo VISÍVEL renderizado antes do React hidratar. Funciona como
   // SSR-lite: usuários sem JS (ou em conexões lentas) veem o conteúdo
   // real; o React substitui #root no hydrate. Não é cloaking — o texto
