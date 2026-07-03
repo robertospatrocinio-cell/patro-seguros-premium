@@ -13,6 +13,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import HowToSchema from "@/components/HowToSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
 import { trackInternalLinkClick, trackWhatsAppClick } from "@/lib/tracking";
@@ -400,6 +401,22 @@ const AvaliarNoGoogle = () => {
             </div>
           </div>
         </section>
+            <HowToSchema
+        name='Como avaliar a Patro Seguros no Google'
+        description='Passo a passo para deixar uma avaliação com nota e comentário no perfil da Patro Corretora de Seguros no Google Maps.'
+        totalTime='PT2M'
+        estimatedCost='0'
+        tool={['Conta Google', 'Celular ou navegador']}
+        url='https://www.patroseguros.com.br/avaliar-no-google'
+        steps={[
+          { name: 'Abra o perfil da Patro Seguros no Google', text: "Acesse https://www.google.com/maps?cid=273879799324962533 ou busque por 'Patro Seguros' no Google Maps." },
+          { name: 'Faça login com sua conta Google', text: "Se ainda não estiver logado, clique em 'Entrar' no canto superior direito e use qualquer conta Google (Gmail)." },
+          { name: "Clique em 'Escrever uma avaliação'", text: "Role até a seção 'Avaliações' no card do lado esquerdo e clique no botão 'Escrever uma avaliação'." },
+          { name: 'Selecione a nota', text: 'Escolha de 1 a 5 estrelas — 5 estrelas é a nota máxima.' },
+          { name: 'Escreva um comentário breve', text: 'Descreva sua experiência: atendimento, agilidade, produto contratado. Comentários com detalhes ajudam outros clientes.' },
+          { name: 'Publique', text: "Clique em 'Publicar'. A avaliação aparece imediatamente no perfil e no Knowledge Panel do Google." }
+        ]}
+      />
       </main>
 
       <Footer />

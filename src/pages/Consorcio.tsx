@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import HowToSchema from "@/components/HowToSchema";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ServiceSchema from "@/components/ServiceSchema";
@@ -660,6 +661,23 @@ const Consorcio = () => {
             </p>
           </div>
         </aside>
+            <HowToSchema
+        name='Como funciona o consórcio para carro, imóvel ou veículo pesado'
+        description='Passo a passo do consórcio contemplado: da adesão à retirada do bem.'
+        totalTime='P60M'
+        estimatedCost='0'
+        supply={['CPF ativo', 'Comprovante de renda']}
+        tool={['WhatsApp Patro Seguros', 'Navegador web']}
+        url='https://www.patroseguros.com.br/consorcio'
+        steps={[
+          { name: 'Escolha a carta de crédito', text: 'Defina o valor do bem (carro, imóvel, moto, veículo pesado ou serviços) e o prazo (60, 100, 180 ou 240 meses).' },
+          { name: 'Assine o contrato de adesão', text: 'Contrato eletrônico via corretora. Sem análise de crédito no ato — só é exigida na contemplação.' },
+          { name: 'Pague as parcelas mensais', text: 'Débito automático ou boleto. Sem juros, apenas taxa de administração diluída (0,15–0,25% ao mês).' },
+          { name: 'Concorra às assembleias', text: 'Todo mês há sorteio e lances. Você pode ser contemplado por sorteio (sorte) ou lance (antecipar parcelas). Prazo médio de contemplação por lance: 8–24 meses.' },
+          { name: 'Use a carta contemplada', text: 'Comprove renda 3x o valor da parcela, faça análise de crédito, e escolha qualquer marca/modelo do bem. A administradora paga o vendedor à vista.' },
+          { name: 'Continue pagando até o fim', text: 'As parcelas restantes seguem inalteradas. Ao final, você quita o consórcio e o bem passa a ser 100% seu, sem alienação.' }
+        ]}
+      />
       </main>
 
       <Footer />
