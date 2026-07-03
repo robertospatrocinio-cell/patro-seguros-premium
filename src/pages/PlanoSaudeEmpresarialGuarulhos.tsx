@@ -85,6 +85,24 @@ A Patro Seguros é uma corretora de seguros em Guarulhos especializada em saúde
         { title: "Seguro Empresarial em Guarulhos", link: "/seguro-empresarial-guarulhos" },
         { title: "Seguro de Vida PME", link: "/seguro-vida-pme" },
       ]}
+      howto={{
+        name: "Como contratar plano de saúde empresarial em Guarulhos",
+        description: "Passo a passo para contratar plano de saúde PME com CNPJ ativo, a partir de 2 vidas, com adesão em até 5 dias úteis.",
+        totalTime: "P5D",
+        supply: [
+          "Contrato social ou MEI ativo há 6+ meses",
+          "CNPJ",
+          "Lista de beneficiários (nome, CPF, data de nascimento, dependentes)",
+        ],
+        tool: ["WhatsApp Patro Seguros", "Formulário online"],
+        steps: [
+          { name: "Envie a base de vidas", text: "Compartilhe com a Patro a lista de titulares e dependentes por faixa etária. Isso define preço e rede." },
+          { name: "Escolha rede e coparticipação", text: "Rede referenciada ou credenciada em Guarulhos — Bradesco Saúde, SulAmérica, Amil, Notre Dame, Porto Seguro Saúde e Hapvida. Coparticipação reduz mensalidade em até 30%." },
+          { name: "Receba cotação comparativa em 24h", text: "A Patro devolve 4 a 6 propostas com rede hospitalar, mensalidade por faixa e coparticipação lado a lado." },
+          { name: "Assine contrato e envie documentação", text: "Assinatura digital + envio de contrato social, comprovante de vínculo (CTPS ou pró-labore) e RG/CPF dos beneficiários." },
+          { name: "Ative carteirinhas em até 5 dias úteis", text: "Após aprovação, a operadora libera carteirinhas digitais e a Patro entrega manual de utilização + canal direto de gestão." },
+        ],
+      }}
     />
   );
 };
