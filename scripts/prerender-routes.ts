@@ -74,6 +74,11 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-auto-guarulhos",
   "/comparativo-planos-saude-guarulhos",
 
+  // Fase 4 SEO — Nichos defensáveis
+  "/seguro-galpao-cumbica",
+  "/seguro-fianca-guarulhos",
+  "/seguro-taxi-guarulhos",
+
   // Páginas pilares locais (Fases 1 e 3 SEO Guarulhos)
   "/corretora-de-seguros-em-guarulhos",
   "/consorcio-guarulhos",
