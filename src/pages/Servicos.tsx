@@ -60,8 +60,8 @@ const Servicos = () => {
   return (
     <Fragment>
       <PageMeta
-        title="Serviços | Todos os Seguros da Patro Seguros"
-        description="Conheça todas as categorias de seguros e consórcios oferecidos pela Patro Seguros: auto, vida, residencial, empresarial, frota, galpões, agro, RC, cyber e mais. Cotação rápida e atendimento humano."
+        title="Serviços de Seguros em Guarulhos — Catálogo Completo"
+        description="Todos os serviços de seguros e consórcios em Guarulhos: auto, vida, residencial, empresarial, frota, galpões, agro, RC e cyber. 40+ produtos, 16 seguradoras."
       />
       <Header />
       <main id="main-content" className="outline-none bg-slate-50/50 pb-32">
@@ -77,7 +77,7 @@ const Servicos = () => {
                 <ShieldCheck className="w-4 h-4" /> Catálogo completo de proteção
               </div>
               <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-slate-900 mb-6">
-                Todos os <span className="text-primary italic">seguros</span> em um só lugar
+                Serviços de <span className="text-primary italic">Seguros</span> em Guarulhos
               </h1>
               <p className="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
                 Mais de 40 produtos de seguros e consórcios com 16+ seguradoras parceiras.
