@@ -428,6 +428,25 @@ export const bairros: BairroData[] = [
       { question: "Tem hospital credenciado próximo a Pimentas?", answer: "Sim. Dependendo da operadora (Bradesco, SulAmérica, Amil, Hapvida, Notre Dame Intermédica), a rede em Pimentas e arredores inclui Hospital Stella Maris, Hospital Padre Bento, clínicas em Bonsucesso e pronto-atendimentos próximos à Av. Pimentas. Em uma cotação real comparamos qual operadora cobre melhor o seu bairro específico." },
       { question: "Seguro residencial em Pimentas cobre roubo de eletrônicos?", answer: "Sim. A cobertura básica obrigatória é incêndio, mas a contratação típica em Pimentas inclui adicional de roubo/furto qualificado de bens, danos elétricos e RC familiar. Para uma casa avaliada em R$ 250 mil com R$ 30 mil em bens, o prêmio fica em torno de R$ 32–55/mês. Indicamos cobertura de roubo qualificada porque furto simples (sem arrombamento) não é coberto por padrão." },
     ],
+    intel: {
+      demographics: "Maior região populacional de Guarulhos, com perfil de famílias trabalhadoras, motoristas de aplicativo, motoboys e forte demanda por seguros de baixo/médio ticket.",
+      landmarks: {
+        hospitals: ["Hospital Municipal de Pimentas", "UBS Pimentas"],
+        streets: ["Av. Pimentas", "Estr. Pres. Juscelino Kubitschek", "Av. Nações Unidas"],
+        schools: ["Universidade Federal de São Paulo — Campus Guarulhos (proximidade)"],
+        business: ["Comércio de rua e concentração de motoboys/entregadores"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio-alto",
+        empresarial: "médio",
+        notes: "CEP com sinistralidade de roubo/furto até 40% acima da média de Guarulhos. Rastreador obrigatório para FIPE > R$ 50 mil e para motos populares (CG, Fan, Factor).",
+      },
+      localCase: {
+        title: "Apólice viável para motorista de app em Pimentas com -22% de prêmio",
+        description: "Motorista de aplicativo no Pimentas com Onix 2021 estava sendo recusado em 2 seguradoras. A corretora estruturou apólice com cláusula EAR (Porto Conecta), rastreador embutido e franquia calibrada, resultando em R$ 3.180/ano — 22% abaixo da última cotação aceita.",
+      },
+    },
   },
   {
     id: "taboao",
@@ -449,6 +468,23 @@ export const bairros: BairroData[] = [
       { question: "Atendem comércio na Av. Monteiro Lobato e entorno?", answer: "Sim, atendemos todo o eixo comercial do Taboão (Av. Monteiro Lobato, Rua Antônio Nunes da Cunha, entorno do Cecap e acesso à Marginal). Fazemos visita técnica gratuita para vistoria do imóvel comercial antes da contratação, o que ajuda a evitar problemas em sinistro." },
       { question: "Como funciona seguro de vida para autônomos do Taboão?", answer: "Comerciantes e prestadores autônomos do Taboão geralmente contratam seguro de vida individual com cobertura de morte + invalidez + DIT (Diária por Incapacidade Temporária). Para R$ 100 mil de capital, sai a partir de R$ 38/mês na faixa de 30–45 anos. A DIT é essencial: paga uma diária se você ficar afastado do trabalho por acidente ou doença, o que para autônomo equivale a manter a renda durante a recuperação." },
     ],
+    intel: {
+      demographics: "Bairro de conexão rodoviária (Dutra + Fernão Dias), com mistura de residências (casas e Cecap), comércio de rua e pequenos prestadores de serviço.",
+      landmarks: {
+        streets: ["Rodovia Pres. Dutra", "Rodovia Fernão Dias (acesso)", "Av. Monteiro Lobato", "entorno do Pq. Cecap"],
+        business: ["Comércio de rua no eixo Av. Monteiro Lobato", "acesso a distribuidores da Dutra"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Proximidade de Dutra e Fernão Dias eleva risco de colisão e quebra de para-brisa — assistência 24h em rodovia é essencial. Apartamentos do Cecap têm prêmio residencial ~25% menor por conta de portaria e edifícios verticais.",
+      },
+      localCase: {
+        title: "Combo auto + residencial para engenheiro que roda Dutra diariamente",
+        description: "Engenheiro do Taboão com uso pendular diário na Dutra fechou compreensiva com rastreador + cobertura de vidros/faróis + residencial da casa em combo. Desconto de 12% sobre o total e assistência 24h ativada 3 vezes no primeiro ano (para-brisa e pane elétrica).",
+      },
+    },
   },
   {
     id: "vila-galvao",
