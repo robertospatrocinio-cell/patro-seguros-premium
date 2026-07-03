@@ -383,6 +383,48 @@ async function run() {
       };
       const breadcrumbScript = `\n    <script type="application/ld+json" data-breadcrumb="1">\n      ${JSON.stringify(breadcrumbSchema, null, 2)}\n    </script>`;
       html = html.replace("</head>", `${breadcrumbScript}\n</head>`);
+
+      // FAQPage JSON-LD — usa a mesma fonte que o BlogArticle.tsx (article.faqs
+      // + extraFaqsBySlug com timeline/comparison rows). Emitir no HTML cru
+      // permite que o Google gere rich snippet de FAQ sem depender do React.
+      const contentArticle = getBlogContent(slug);
+      const extraBlock = extraFaqsBySlug?.[slug];
+      const faqList = [
+        ...((contentArticle?.faqs ?? []).map((f) => ({ q: f.q, a: f.a }))),
+        ...((extraBlock?.faqs ?? []).map((f) => ({ q: f.q, a: f.a }))),
+        ...((extraBlock?.timeline?.stages ?? [])
+          .filter((s) => s.faqQ && s.faqA)
+          .map((s) => ({ q: s.faqQ, a: s.faqA }))),
+        ...((extraBlock?.comparison?.rows ?? [])
+          .filter((r) => r.faqQ && r.faqA)
+          .map((r) => ({ q: r.faqQ, a: r.faqA }))),
+      ].filter((f) => f.q && f.a);
+
+      // Deduplica por pergunta (case-insensitive) preservando a ordem.
+      const seen = new Set();
+      const uniqueFaqs = faqList.filter((f) => {
+        const k = String(f.q).trim().toLowerCase();
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
+
+      if (uniqueFaqs.length > 0) {
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": uniqueFaqs.map((f) => ({
+            "@type": "Question",
+            "name": String(f.q).trim(),
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": String(f.a).trim(),
+            },
+          })),
+        };
+        const faqScript = `\n    <script type="application/ld+json" data-faqpage="1">\n      ${JSON.stringify(faqSchema, null, 2)}\n    </script>`;
+        html = html.replace("</head>", `${faqScript}\n</head>`);
+      }
     }
 
     // Injeta conteúdo SEO real (H1 + H2 + parágrafos + links internos) DENTRO
