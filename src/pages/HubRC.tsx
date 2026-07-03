@@ -12,6 +12,7 @@
   import InsuranceHubLinks from "@/components/InsuranceHubLinks";
   import StickyQuoteBar from "@/components/StickyQuoteBar";
   import FormCTASection from "@/components/FormCTASection";
+  import SpeakableSchema from "@/components/SpeakableSchema";
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro de Responsabilidade Civil Profissional.";
  
@@ -173,6 +174,7 @@ const HubRC = () => {
         </section>
 
         <InsuranceHubLinks heading="Outros Seguros em Guarulhos" />
+      <SpeakableSchema />
       </main>
       <Footer />
       <StickyQuoteBar 
