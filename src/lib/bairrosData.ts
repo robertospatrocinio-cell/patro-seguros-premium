@@ -506,6 +506,25 @@ export const bairros: BairroData[] = [
       { question: "Posso combinar auto + residencial + vida na mesma corretora?", answer: "Sim, e recomendamos. Concentrar as apólices na Patro permite descontos de combo (em média 8–15% sobre o total), uma única gestão de renovações e atendimento unificado em sinistro. Famílias do Vila Galvão que migram 3+ apólices para a Patro economizam, em média, R$ 1.800 a R$ 4.500/ano somando todos os produtos." },
       { question: "Vocês fazem atendimento presencial em Vila Galvão?", answer: "Fazemos. O escritório fica no Cidade Maia (Av. Salgado Filho, 2120), a poucos minutos do Vila Galvão. Para clientes de alto patrimônio ou casos complexos (vida com declaração de saúde, imóveis acima de R$ 1 milhão, frota), agendamos visita no endereço do cliente sem custo." },
     ],
+    intel: {
+      demographics: "Bairro tradicional de médio-alto padrão, com moradores estabelecidos, comércio consolidado na Av. Emílio Ribas e forte demanda por seguros de vida e patrimoniais.",
+      landmarks: {
+        streets: ["Av. Emílio Ribas", "Av. São Luís", "Divisa com São Paulo (Zona Norte)"],
+        hospitals: ["Hospital Stella Maris (proximidade)", "rede de clínicas particulares na Emílio Ribas"],
+        schools: ["Colégios particulares tradicionais no eixo Emílio Ribas"],
+        business: ["Comércio consolidado e agências bancárias na Av. Emílio Ribas"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "baixo",
+        empresarial: "médio",
+        notes: "Moradores estabelecidos com bônus 8–10 e casas com garagem fechada obtêm até 30–40% de desconto no auto. Apartamentos novos no eixo Emílio Ribas têm prêmio residencial reduzido pela portaria 24h.",
+      },
+      localCase: {
+        title: "Consolidação de 3 apólices para família tradicional do Vila Galvão",
+        description: "Família Oliveira migrou 2 autos + plano de saúde familiar para a Patro no mesmo mês. Economia consolidada de R$ 4.200/ano versus contratação separada, com gestão única e acompanhamento mensal por WhatsApp.",
+      },
+    },
   },
   {
     id: "aeroporto-guarulhos",
@@ -527,6 +546,24 @@ export const bairros: BairroData[] = [
       { question: "Como funciona seguro de RC Operacional para serviços em pista?", answer: "RC Operacional cobre danos causados pela sua empresa a aeronaves, equipamentos de solo (GSE), instalações do aeroporto e terceiros durante a operação. Indispensável para handling, abastecimento, limpeza de aeronaves, transporte de tripulação e manutenção de equipamentos. Trabalhamos com seguradoras especializadas em aviation (Allianz, AIG, Tokio, Zurich) e dimensionamos LMI conforme contrato com a tomadora (geralmente R$ 5 a 50 milhões)." },
       { question: "Atendem motoristas de aplicativo e taxistas que operam no GRU?", answer: "Sim. Motoristas de Uber, 99, taxistas e transfer privado que rodam intensamente entre o GRU e a Grande SP têm perfil de risco diferenciado — alta quilometragem, presença em área de risco e exposição em fila do desembarque. Trabalhamos com Porto Conecta, Mobi7 e seguradoras que oferecem cobertura específica para motorista de app, com franquia ajustada e assistência 24h compatível com a operação." },
     ],
+    intel: {
+      demographics: "Entorno do maior hub aéreo da América Latina, com forte concentração de transportadoras, operadores logísticos, comissárias, hotéis, locadoras e prestadores B2B que atendem o GRU Airport 24/7.",
+      landmarks: {
+        business: ["Aeroporto Internacional de Guarulhos (GRU)", "TECA — Terminal de Cargas GRU", "condomínios logísticos ao longo da Hélio Smidt"],
+        streets: ["Rodovia Hélio Smidt", "Av. Monteiro Lobato", "acesso à Rodovia Pres. Dutra"],
+        hospitals: ["Hospital Padre Bento (proximidade)"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio-alto",
+        empresarial: "alto",
+        notes: "Operação 24/7 e alto valor agregado das cargas exigem RCTR-C + RCF-DC robustos, gerenciamento de risco (rastreador, escolta) e RC Operacional dimensionado ao contrato com a GRU Airport (R$ 1 a 50 milhões de LMI).",
+      },
+      localCase: {
+        title: "Reestruturação de frota rodoaérea com -R$ 71 mil/ano",
+        description: "Transportadora rodoaérea com base em Cumbica trocou de corretora após 8 anos. A Patro renegociou frota de 34 cavalos mecânicos e incluiu RC Operacional para serviços em pátio do GRU. Redução de R$ 71 mil/ano com relatório mensal de sinistralidade incluído.",
+      },
+    },
   },
   {
     id: "cidade-industrial-satelite",
@@ -548,6 +585,24 @@ export const bairros: BairroData[] = [
       { question: "Plano de saúde para chão de fábrica é viável?", answer: "Sim, e é cada vez mais comum como ferramenta de retenção. Para indústrias com 30+ colaboradores oferecemos planos coletivos empresariais com Hapvida NotreDame, Unimed, Amil, SulAmérica e Bradesco. Mensalidade média de R$ 230 a R$ 480 por colaborador (faixa etária 18–58, padrão enfermaria ou apartamento). Coparticipação reduz custo da empresa em até 25%." },
       { question: "Atendem indústrias com risco ambiental?", answer: "Sim. Indústrias com risco de poluição (químicas, galvânicas, tratamento de efluentes) precisam de RC Poluição Súbita (cobertura padrão das apólices empresariais limitada) e idealmente Seguro Ambiental específico (EIA — Environmental Impairment Liability). Trabalhamos com AIG, Chubb e Zurich em apólices ambientais com LMI de R$ 5 a R$ 100 milhões, cobrindo contaminação súbita, gradual, custos de descontaminação e defesa em ações ambientais." },
     ],
+    intel: {
+      demographics: "Segundo maior polo industrial de São Paulo, concentrando indústrias químicas, metalúrgicas, farmacêuticas, autopeças e centros de distribuição ao longo da Via Dutra.",
+      landmarks: {
+        business: ["Cidade Industrial Satélite (CIS)", "centros de distribuição na Via Dutra", "indústrias químicas e metalúrgicas do entorno"],
+        streets: ["Rodovia Pres. Dutra", "Av. Industrial", "Av. Otávio Braga de Mesquita"],
+        hospitals: ["Hospital Padre Bento", "rede SESI/SESI Saúde para trabalhadores industriais"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "alto",
+        notes: "Classe de ocupação industrial (química, metalúrgica, farma) pesa fortemente no prêmio patrimonial. Vistoria de engenharia, brigada própria, sprinkler e distância de hidrantes podem reduzir tarifa em até 40%. RC Produto e Ambiental são frequentemente exigidas por contratos com grandes clientes.",
+      },
+      localCase: {
+        title: "Indústria química com -22% de prêmio patrimonial após vistoria conjunta",
+        description: "Indústria química da CIS com R$ 42 milhões em ativos + estoque teve apólice reestruturada em concorrência entre 4 seguradoras. Vistoria conjunta com engenharia de risco ajustou classe de ocupação e sistemas de combate a incêndio — redução de 22% no prêmio com cobertura ampliada para danos elétricos e BME.",
+      },
+    },
   },
   {
     id: "jardim-cumbica",
@@ -569,5 +624,23 @@ export const bairros: BairroData[] = [
       { question: "Posso contratar plano de saúde sem CNPJ morando no Jardim Cumbica?", answer: "Sim. Planos individuais e familiares são mais caros que coletivos, mas existem opções acessíveis: Hapvida individual a partir de R$ 189/mês (faixa 0–18), Notre Dame Intermédica e Amil One Saúde também têm planos individuais. Para reduzir custo, abrimos MEI gratuito (atividade compatível com seu trabalho) e enquadramos no plano coletivo empresarial — economia média de 35% versus individual." },
       { question: "Vocês atendem presencial ou só por WhatsApp?", answer: "Atendemos das duas formas. Para quem prefere presencial, o escritório fica no Cidade Maia (Av. Salgado Filho, 2120) — fácil acesso pela Av. Monteiro Lobato e Av. Otávio Braga de Mesquita. Para quem tem rotina apertada (motoristas, comissários, motoboys), resolvemos 100% por WhatsApp, com envio de proposta, contrato e boleto digital. Apólice ativada em 24h." },
     ],
+    intel: {
+      demographics: "Bairro residencial dos trabalhadores do Aeroporto de Guarulhos e do polo logístico do entorno — famílias, motoristas de aplicativo, motoboys, comissários e equipes de handling.",
+      landmarks: {
+        streets: ["Av. Monteiro Lobato", "Av. Otávio Braga de Mesquita", "Rod. Hélio Smidt (proximidade)"],
+        hospitals: ["Hospital Stella Maris (proximidade)", "UBS Jardim Cumbica"],
+        business: ["Comércio de vizinhança e concentração de motoristas/motoboys do GRU"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio-alto",
+        empresarial: "médio",
+        notes: "Proximidade do aeroporto e índice de roubo/furto elevado exigem rastreador para veículos de médio/alto valor e cobertura EAR obrigatória para motoristas de app e motoboys.",
+      },
+      localCase: {
+        title: "Apólice viável para motorista de app com sinistro pago em 7 dias",
+        description: "Motorista de aplicativo do Jardim Cumbica com HB20 e 5 mil km/mês no GRU contratou compreensiva com rastreador por R$ 2.480/ano. Sinistro de colisão com Uber foi indenizado e oficina liberada em 7 dias úteis — sem interrupção significativa da operação.",
+      },
+    },
   },
 ];
