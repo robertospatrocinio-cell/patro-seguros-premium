@@ -186,6 +186,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
     relatedInsurances,
     heroImage,
     whatsappMessage,
+    howto,
   } = props;
 
   const canonicalUrl = `https://www.patroseguros.com.br/${slug}`;
