@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
+import FAQSchema from "@/components/FAQSchema";
+import FAQBlock from "@/components/FAQBlock";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { 
@@ -104,6 +106,33 @@ const CentralDeSinistro = () => {
     "Relato por escrito detalhando o ocorrido"
   ];
 
+  const sinistroFaqs = [
+    {
+      question: "Em quanto tempo devo acionar o seguro após um sinistro?",
+      answer: "Você deve comunicar o sinistro à seguradora em até 72h, mas o ideal é fazê-lo assim que a situação estiver segura — idealmente ainda no local. A Patro Seguros atende no WhatsApp (11) 5199-7500 24h para orientar a abertura correta e evitar erros que causam negativa.",
+    },
+    {
+      question: "Preciso registrar Boletim de Ocorrência (B.O.) em todo sinistro?",
+      answer: "Não em todos, mas é obrigatório em caso de roubo, furto, tentativa de roubo, colisão com vítimas, danos a terceiros e sinistros envolvendo pessoas não identificadas. Em pequenas colisões consensuais, o B.O. pode ser dispensado — mas a Patro sempre recomenda registrar para blindar futuras discussões.",
+    },
+    {
+      question: "Vou perder meu bônus se acionar o seguro?",
+      answer: "Depende do tipo de sinistro e da seguradora. Sinistros de vidros, assistência 24h (guincho, pane) e alguns danos parciais não afetam o bônus. Perda parcial e perda total quase sempre reduzem 1 classe. Antes de acionar, ligue para a Patro: em alguns casos vale pagar do bolso para manter o bônus (que pode representar até 45% de desconto na renovação).",
+    },
+    {
+      question: "O que fazer se meu carro foi roubado ou furtado em Guarulhos?",
+      answer: "1) Vá à delegacia mais próxima (ou registre B.O. online no site da Polícia Civil de SP) — o B.O. é obrigatório; 2) Acione a Patro no WhatsApp (11) 5199-7500 com o número do B.O.; 3) Notifique o Detran para bloqueio do documento; 4) Se houver rastreador, avise a central de monitoramento. O prazo médio de indenização por perda total após roubo, na nossa base, é de 18 dias úteis.",
+    },
+    {
+      question: "Preciso pagar franquia em roubo ou perda total?",
+      answer: "Não. A franquia só se aplica a perdas parciais (colisões que dão conserto). Em roubo, furto, perda total por colisão ou incêndio, você recebe 100% do valor de mercado (referenciado) ou valor determinado (fixo), sem franquia.",
+    },
+    {
+      question: "A Patro acompanha o sinistro do início ao fim?",
+      answer: "Sim. Diferente de contratar direto na seguradora, a Patro faz a interface completa: abre o sinistro, acompanha o regulador, cobra o pagamento e resolve pendências. Nossa base histórica registra prazo médio de 11 dias úteis para indenização, após regulação concluída — abaixo da média do setor (18 dias).",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <PageMeta 
@@ -111,6 +140,7 @@ const CentralDeSinistro = () => {
         description="Sofreu um sinistro? Veja o que fazer em caso de colisão, roubo, furto, enchente ou danos a terceiros. Fale com a Patro Seguros pelo WhatsApp."
       />
       <SpeakableSchema />
+      <FAQSchema faqs={sinistroFaqs} />
       {/* HowTo schema — passo-a-passo para acionamento de sinistro (AEO/GEO) */}
       <script
         type="application/ld+json"
