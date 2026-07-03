@@ -31,6 +31,7 @@ export interface BairroData {
   faqs: BairroFAQ[];
   testimonials?: BairroTestimonial[];
   geo?: { latitude: number; longitude: number };
+  intel?: BairroLocalIntel;
 }
 
 export interface BairroTestimonial {
@@ -40,6 +41,33 @@ export interface BairroTestimonial {
   rating: 5 | 4;
   text: string;
   date: string; // YYYY-MM-DD
+}
+
+/**
+ * Inteligência Local por bairro — Fase 2 SEO (diferenciação de páginas locais).
+ * Todos os campos são opcionais. Nunca inventar números — deixar em branco
+ * se o dado não for verificável.
+ */
+export interface BairroLocalIntel {
+  /** Perfil socioeconômico curto (1 frase, ≤ 160 chars) */
+  demographics?: string;
+  /** Marcos e referências reais do bairro */
+  landmarks?: {
+    hospitals?: string[];
+    malls?: string[];
+    streets?: string[];
+    schools?: string[];
+    business?: string[];
+  };
+  /** Perfil qualitativo de risco baseado em experiência de subscrição */
+  riskProfile?: {
+    auto?: "baixo" | "médio" | "médio-alto" | "alto";
+    residencial?: "baixo" | "médio" | "médio-alto" | "alto";
+    empresarial?: "baixo" | "médio" | "médio-alto" | "alto";
+    notes?: string;
+  };
+  /** Caso real anonimizado (sem dados identificáveis) */
+  localCase?: { title: string; description: string };
 }
 
 export const bairros: BairroData[] = [
