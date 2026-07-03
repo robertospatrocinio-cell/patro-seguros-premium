@@ -67,16 +67,66 @@ const BlogAuthor = () => {
     "@type": "Person",
     "@id": `${canonical}#person`,
     name: author.name,
+    givenName: author.name.split(" ")[0],
+    familyName: author.name.split(" ").slice(1).join(" ") || undefined,
     url: canonical,
     image: `https://www.patroseguros.com.br${author.image}`,
     jobTitle: author.role,
     description: author.shortBio,
     knowsAbout: author.expertise,
+    knowsLanguage: ["pt-BR"],
+    nationality: { "@type": "Country", name: "Brasil" },
+    ...(author.susep
+      ? {
+          identifier: {
+            "@type": "PropertyValue",
+            propertyID: "SUSEP",
+            value: author.susep,
+          },
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Registro Profissional",
+            recognizedBy: {
+              "@type": "GovernmentOrganization",
+              name: "SUSEP — Superintendência de Seguros Privados",
+              url: "https://www.gov.br/susep",
+            },
+            identifier: author.susep,
+          },
+        }
+      : {}),
+    sameAs: [
+      "https://www.patroseguros.com.br/sobre",
+      "https://www.instagram.com/patroseguros",
+      "https://www.facebook.com/patroseguros",
+      "https://www.linkedin.com/company/patro-seguros",
+    ],
     worksFor: {
       "@type": "Organization",
+      "@id": "https://www.patroseguros.com.br/#organization",
       name: "Patro Seguros",
       url: "https://www.patroseguros.com.br",
     },
+  };
+
+  const profilePageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${canonical}#profilepage`,
+    url: canonical,
+    name: `${author.name} — ${author.role}`,
+    description: author.shortBio,
+    inLanguage: "pt-BR",
+    dateModified: new Date().toISOString().slice(0, 10),
+    mainEntity: { "@id": `${canonical}#person` },
+    about: { "@id": `${canonical}#person` },
+    hasPart: authorArticles.slice(0, 20).map(a => ({
+      "@type": "BlogPosting",
+      "@id": `${CANONICAL_BASE_URL}/blog/${a.slug}#article`,
+      headline: a.title,
+      url: `${CANONICAL_BASE_URL}/blog/${a.slug}`,
+      datePublished: a.date,
+    })),
   };
 
   return (
@@ -98,6 +148,10 @@ const BlogAuthor = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
       />
       <Header />
       <main id="main-content" className="outline-none">
