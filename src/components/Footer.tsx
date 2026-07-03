@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { SmartLink } from "./SmartLink";
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock, ShieldCheck } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
@@ -121,6 +121,12 @@ const Footer = memo(() => {
             <ul className="space-y-2.5 text-[13px] mb-8">
               <li><SmartLink to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</SmartLink></li>
               <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>
+              <li>
+                <SmartLink to="/verificar-susep" className="inline-flex items-center gap-1.5 text-white font-semibold hover:text-primary transition-colors">
+                  <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                  Verificar habilitação SUSEP
+                </SmartLink>
+              </li>
               <li>
                 <SmartLink
                   to="/patro-private"
