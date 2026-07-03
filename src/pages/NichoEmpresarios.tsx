@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
  import FAQSchema from "@/components/FAQSchema";
  import LocalBusinessSchema from "@/components/LocalBusinessSchema";
  import OrganizationSchema from "@/components/OrganizationSchema";
- import WebSiteSchema from "@/components/WebSiteSchema";
  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
  import BreadcrumbSchema from "@/components/BreadcrumbSchema";
  import Breadcrumb from "@/components/Breadcrumb";
@@ -49,7 +48,6 @@ const NichoEmpresarios = () => (
      <FAQSchema faqs={faqs} />
      <LocalBusinessSchema />
      <OrganizationSchema />
-     <WebSiteSchema />
      <AggregateRatingSchema
        serviceName="Seguros para Empresários e Empresas"
        url="https://www.patroseguros.com.br/seguros/empresarios"

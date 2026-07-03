@@ -86,6 +86,7 @@ import PageSkeleton from "@/components/PageSkeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
+import WebSiteSchema from "@/components/WebSiteSchema";
 
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const CookieBanner = lazy(() => import("@/components/CookieBanner"));
@@ -427,6 +428,7 @@ const App = () => {
           <TooltipProvider>
             <BrowserRouter>
               <SkipLink />
+              <WebSiteSchema />
               <Toaster />
               <Sonner position="top-right" closeButton richColors />
               <DeferredGlobalUi />

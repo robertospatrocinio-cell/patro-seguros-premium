@@ -15,7 +15,6 @@ import LazySection from "@/components/LazySection";
 import { Button } from "@/components/ui/button";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
@@ -88,7 +87,6 @@ const SeguroAuto = () => {
       />
       <OrganizationSchema />
       <LocalBusinessSchema />
-      <WebSiteSchema />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },
