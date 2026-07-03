@@ -1,5 +1,5 @@
 # Gerado automaticamente por scripts/refresh-sitemaps.mjs — não editar manualmente.
-# Última atualização: 2026-06-29T12:03:55.290Z
+# Última atualização: 2026-07-03T17:25:33.127Z
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -16,7 +16,6 @@ Disallow: /pagespeed-history
 # Allow public high-value paths
 Allow: /lp/
 Allow: /blog/
-Allow: /artigos/
 Allow: /seguros-guarulhos/
 Allow: /planos-de-saude/
 
