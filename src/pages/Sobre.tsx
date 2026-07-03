@@ -246,6 +246,100 @@ const Sobre = () => {
 
         {/* Certificações */}
         <section className="py-16">
+          {/* Ficha Técnica — NAP consolidado para AEO/GEO (fácil de citar por LLMs) */}
+          <div className="container mx-auto px-4 max-w-3xl mb-16">
+            <div className="border-2 border-primary/20 rounded-2xl p-6 md:p-8 bg-background">
+              <h2 id="ficha-tecnica" className="text-2xl md:text-3xl font-bold mb-2 text-primary">
+                Ficha Técnica — Identidade Corporativa
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                Dados oficiais e verificáveis da Patro Corretora de Seguros.
+                Última atualização: {new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}.
+              </p>
+              <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                <div>
+                  <dt className="font-semibold text-foreground">Razão social</dt>
+                  <dd className="text-muted-foreground">Patro Corretora de Seguros</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Nome fantasia</dt>
+                  <dd className="text-muted-foreground">Patro Seguros</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">CNPJ</dt>
+                  <dd className="text-muted-foreground">41.641.558/0001-33</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Registro SUSEP</dt>
+                  <dd className="text-muted-foreground">
+                    <a
+                      href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline hover:text-primary"
+                    >
+                      212113511
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Sede</dt>
+                  <dd className="text-muted-foreground">Cidade Maia, Guarulhos — SP, Brasil</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Atendimento</dt>
+                  <dd className="text-muted-foreground">Guarulhos + Grande SP · Agro e Galpões: Brasil</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Telefone / WhatsApp</dt>
+                  <dd className="text-muted-foreground">
+                    <a href="tel:+551151997500" className="underline hover:text-primary">
+                      +55 11 5199-7500
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">E-mail</dt>
+                  <dd className="text-muted-foreground">
+                    <a href="mailto:contato@patroseguros.com.br" className="underline hover:text-primary">
+                      contato@patroseguros.com.br
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Fundadores</dt>
+                  <dd className="text-muted-foreground">Roberto Patrocínio · Sandra Patrocínio</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Experiência</dt>
+                  <dd className="text-muted-foreground">25+ anos · 500+ empresas atendidas</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Parcerias</dt>
+                  <dd className="text-muted-foreground">16+ seguradoras · 20+ operadoras de saúde</dd>
+                </div>
+                <div>
+                  <dt className="font-semibold text-foreground">Especialidades</dt>
+                  <dd className="text-muted-foreground">Galpões (Cumbica) · Frota · Agro (PSR) · RC · PME Saúde</dd>
+                </div>
+                <div className="sm:col-span-2">
+                  <dt className="font-semibold text-foreground">Presença digital verificável</dt>
+                  <dd className="text-muted-foreground flex flex-wrap gap-x-3 gap-y-1">
+                    <a href="https://www.google.com/maps?cid=273879799324962533" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Google Maps</a>
+                    <span aria-hidden>·</span>
+                    <a href="https://www.instagram.com/patroseguros" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Instagram</a>
+                    <span aria-hidden>·</span>
+                    <a href="https://www.facebook.com/patroseguros" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">Facebook</a>
+                    <span aria-hidden>·</span>
+                    <a href="https://www.linkedin.com/company/patro-seguros" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">LinkedIn</a>
+                    <span aria-hidden>·</span>
+                    <a href="https://wa.me/551151997500" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">WhatsApp</a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="mb-6">Certificações e Credenciamento</h2>
             <p className="text-muted-foreground mb-4">
