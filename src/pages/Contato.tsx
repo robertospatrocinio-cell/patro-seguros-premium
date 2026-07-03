@@ -144,7 +144,10 @@ const Contato = () => {
 
   return (
     <Fragment>
-      <PageMeta title="Contato | Fale com a Patro Seguros em Guarulhos" description="Fale com a Patro Seguros em Guarulhos. Atendimento por WhatsApp, telefone e e-mail. Solicite cotações e tire suas dúvidas com nossos especialistas." />
+      <PageMeta
+        title="Fale Conosco — Patro Seguros em Guarulhos"
+        description="Contato Patro Seguros Guarulhos: WhatsApp (11) 5199-7500, e-mail e endereço na Cidade Maia. Cotações e dúvidas respondidas em até 2 horas úteis."
+      />
       <FAQSchema faqs={contatoFaqs} />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
@@ -152,7 +155,7 @@ const Contato = () => {
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-white mb-6">Fale Conosco</h1>
+              <h1 className="text-white mb-6">Fale com a Patro Seguros em Guarulhos</h1>
               <p className="text-xl text-white/70">
                 Conte com uma consultoria próxima, técnica e sem pressa. Escolha o canal que preferir — respondemos em até 2 horas úteis.
               </p>
