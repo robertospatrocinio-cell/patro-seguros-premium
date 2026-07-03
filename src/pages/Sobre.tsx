@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
-import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User } from "lucide-react";
+import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import PersonAuthorsSchema from "@/components/PersonAuthorsSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -34,6 +35,7 @@ const Sobre = () => {
   return (
     <Fragment>
       <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
+      <PersonAuthorsSchema />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />
@@ -169,8 +171,130 @@ const Sobre = () => {
           </div>
         </section>
 
+        {/* Credenciais & Autoridade dos Autores (E-E-A-T) */}
+        <section id="credenciais-autores" className="py-16">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-3">
+                <BadgeCheck className="h-4 w-4" /> Autoridade verificável (E-E-A-T)
+              </div>
+              <h2 className="mb-3">Credenciais e Evidências dos Autores</h2>
+              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                Todo o conteúdo publicado no site e no blog da Patro Seguros é assinado por corretores habilitados
+                pela SUSEP, com identidade, especialidades e evidências públicas verificáveis abaixo.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  nome: "Roberto Patrocínio",
+                  cargo: "Sócio-Fundador · Diretor Comercial",
+                  susep: "SUSEP 212113511",
+                  experiencia: "15+ anos em seguros empresariais",
+                  especialidades: [
+                    "Galpões e Riscos Patrimoniais (Cumbica/Guarulhos)",
+                    "Seguro Agrícola (PSR) — atendimento nacional",
+                    "Responsabilidade Civil (RC)",
+                    "Seguros de Frota e Transportes",
+                  ],
+                  evidencias: [
+                    { icon: Linkedin, label: "LinkedIn verificado", href: "https://www.linkedin.com/in/roberto-patrocinio" },
+                    { icon: BookOpen, label: "Artigos publicados no blog", href: "/blog/autor/roberto-patro" },
+                    { icon: FileText, label: "Estudo Patro Insights 2026 (autoral)", href: "/blog/estudo-custo-seguro-auto-guarulhos-bairros-2026" },
+                    { icon: BadgeCheck, label: "Consultar registro na SUSEP", href: "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" },
+                  ],
+                },
+                {
+                  nome: "Sandra Patrocínio",
+                  cargo: "Sócia-Fundadora · Diretora de Operações",
+                  susep: "SUSEP 212113511",
+                  experiencia: "15+ anos em saúde e vida",
+                  especialidades: [
+                    "Planos de Saúde PME (20+ operadoras)",
+                    "Seguro de Vida e APH",
+                    "Odontologia Empresarial",
+                    "Gestão de Sinistros e Regulação",
+                  ],
+                  evidencias: [
+                    { icon: Linkedin, label: "LinkedIn verificado", href: "https://www.linkedin.com/in/sandra-patrocinio" },
+                    { icon: BookOpen, label: "Artigos publicados no blog", href: "/blog/autor/sandra-patro" },
+                    { icon: MapPin, label: "Avaliações no Google (4.7★)", href: "https://www.google.com/maps?cid=273879799324962533" },
+                    { icon: BadgeCheck, label: "Consultar registro na SUSEP", href: "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" },
+                  ],
+                },
+              ].map((autor) => (
+                <article key={autor.nome} className="bg-background border rounded-2xl p-6 shadow-sm">
+                  <header className="flex items-start justify-between gap-3 mb-4">
+                    <div>
+                      <h3 className="text-lg font-bold">{autor.nome}</h3>
+                      <p className="text-xs text-primary font-medium">{autor.cargo}</p>
+                    </div>
+                    <span className="shrink-0 inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-[11px] font-semibold px-2 py-1 rounded border border-emerald-200">
+                      <BadgeCheck className="h-3 w-3" /> Habilitado
+                    </span>
+                  </header>
+
+                  <dl className="grid grid-cols-2 gap-3 text-xs mb-4">
+                    <div className="bg-muted/50 rounded-lg p-3">
+                      <dt className="text-muted-foreground">Registro oficial</dt>
+                      <dd className="font-semibold mt-0.5">{autor.susep}</dd>
+                    </div>
+                    <div className="bg-muted/50 rounded-lg p-3">
+                      <dt className="text-muted-foreground">Experiência</dt>
+                      <dd className="font-semibold mt-0.5">{autor.experiencia}</dd>
+                    </div>
+                  </dl>
+
+                  <div className="mb-4">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Especialidades</p>
+                    <ul className="space-y-1.5">
+                      {autor.especialidades.map((esp) => (
+                        <li key={esp} className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
+                          <span>{esp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Evidências verificáveis</p>
+                    <ul className="grid grid-cols-1 gap-1.5">
+                      {autor.evidencias.map((ev) => {
+                        const Icon = ev.icon;
+                        const isExternal = ev.href.startsWith("http");
+                        return (
+                          <li key={ev.label}>
+                            <a
+                              href={ev.href}
+                              target={isExternal ? "_blank" : undefined}
+                              rel={isExternal ? "noopener noreferrer" : undefined}
+                              className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors group"
+                            >
+                              <Icon className="h-3.5 w-3.5 text-primary" />
+                              <span className="underline-offset-2 group-hover:underline">{ev.label}</span>
+                              {isExternal && <ExternalLink className="h-3 w-3 opacity-50" />}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <p className="text-center text-xs text-muted-foreground mt-8 max-w-2xl mx-auto">
+              Página mantida pela Patro Corretora de Seguros. Os dados de registro SUSEP, endereço e telefone são
+              conferíveis nas fontes oficiais linkadas. Esta seção não constitui certificação independente — é o
+              nosso compromisso público de transparência sobre quem produz o conteúdo aqui publicado.
+            </p>
+          </div>
+        </section>
+
         {/* Vídeo de Apresentação */}
-        <section className="py-16">
+        <section className="py-16 bg-muted/50">
           <div className="container mx-auto px-4 max-w-3xl text-center">
             <h2 className="mb-4">Conheça a Patro por Dentro</h2>
             <p className="text-muted-foreground mb-8 text-sm">Assista ao vídeo de apresentação da nossa equipe e descubra como trabalhamos.</p>
