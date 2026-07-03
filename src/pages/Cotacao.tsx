@@ -12,6 +12,7 @@ import { cotacaoSchema as formSchema } from "@/lib/leadValidation";
 import type { z } from "zod";
 import Header from "@/components/Header";
 import FAQSchema from "@/components/FAQSchema";
+import HowToSchema from "@/components/HowToSchema";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import HeroInsuranceCarousel from "@/components/HeroInsuranceCarousel";
@@ -777,6 +778,22 @@ const Cotacao = () => {
             </div>
           </div>
         </section>
+            <HowToSchema
+        name='Como pedir cotação de seguro com a Patro Seguros'
+        description='Passo a passo para receber cotação personalizada em até 24 horas com comparação entre 16+ seguradoras.'
+        totalTime='PT5M'
+        estimatedCost='0'
+        supply={['CPF ou CNPJ', 'Dados do bem a segurar (CRLV, endereço ou vidas)']}
+        tool={['WhatsApp', 'Navegador web']}
+        url='https://www.patroseguros.com.br/cotacao'
+        steps={[
+          { name: 'Escolha o tipo de seguro', text: 'Selecione no formulário o produto desejado: auto, residencial, vida, saúde, empresarial, galpão, agro ou outro.' },
+          { name: 'Preencha seus dados básicos', text: 'Informe nome, telefone, e-mail e cidade. A Patro Seguros protege seus dados conforme LGPD.' },
+          { name: 'Detalhe o objeto do seguro', text: 'Envie CRLV (auto), endereço e valor de reconstrução (residencial), lista de vidas (saúde), ou CNPJ + memorial (empresarial).' },
+          { name: 'Receba a comparação', text: 'Em até 24 horas úteis, um consultor envia por WhatsApp/e-mail as cotações comparadas entre 16+ seguradoras com destaque para o melhor custo-benefício.' },
+          { name: 'Aceite e emita a apólice', text: 'Após aprovação, a apólice em PDF é emitida em até 48 horas úteis e enviada por e-mail. Pagamento via boleto, cartão ou débito recorrente.' }
+        ]}
+      />
       </main>
       <Footer />
     </Fragment>
