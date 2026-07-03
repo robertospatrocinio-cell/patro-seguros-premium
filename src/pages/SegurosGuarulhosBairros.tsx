@@ -176,7 +176,7 @@ const SegurosGuarulhosBairros = () => {
         description={`Corretora de seguros em ${selectedBairro.nome}, Guarulhos. ${selectedBairro.foco}: seguro auto, residencial, empresarial, saúde e mais. Cotação rápida pelo WhatsApp.`}
       />
 
-      <FAQSchema faqs={selectedBairro.faqs} />
+      <FAQSchema faqs={mergedFaqs} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -570,7 +570,7 @@ const SegurosGuarulhosBairros = () => {
                 Dúvidas comuns sobre seguros em {selectedBairro.nome}, Guarulhos
               </p>
               <Accordion type="single" collapsible className="w-full">
-                {selectedBairro.faqs.map((faq, idx) => (
+                {mergedFaqs.map((faq, idx) => (
                   <AccordionItem key={`${selectedBairro.id}-${idx}`} value={`faq-${idx}`}>
                     <AccordionTrigger className="text-left text-[#003366] font-medium">
                       {faq.question}
