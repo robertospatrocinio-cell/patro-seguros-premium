@@ -199,6 +199,18 @@ interface InsurancePageProps {
    * Fornece o URL canônico para as schemas internas.
    */
   canonicalUrl?: string;
+  /**
+   * Emite schema.org/HowTo — elegível para rich results "How to" e
+   * citação direta por LLMs em queries "como fazer".
+   */
+  howto?: {
+    name: string;
+    description?: string;
+    totalTime?: string;
+    supply?: string[];
+    tool?: string[];
+    steps: HowToStep[];
+  };
 }
 
 const InsurancePageTemplate = ({
@@ -231,6 +243,7 @@ const InsurancePageTemplate = ({
   skipAggregateRating,
   faqs = [],
   canonicalUrl: canonicalUrlProp,
+  howto,
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
