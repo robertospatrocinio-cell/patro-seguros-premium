@@ -4,7 +4,6 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -51,7 +50,6 @@ const NichoClinicasOdontologicas = () => (
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />
     <OrganizationSchema />
-    <WebSiteSchema />
     <AggregateRatingSchema
       serviceName="Seguro para Clínicas Odontológicas em Guarulhos"
       url="https://www.patroseguros.com.br/seguros-para-clinicas-odontologicas"

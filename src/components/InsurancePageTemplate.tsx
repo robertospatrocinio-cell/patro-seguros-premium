@@ -15,7 +15,6 @@ import { Button } from "@/components/ui/button";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
@@ -296,7 +295,6 @@ const InsurancePageTemplate = ({
        
       <LocalBusinessSchema />
       <OrganizationSchema />
-      <WebSiteSchema />
       {!skipFAQSchemaManual && faqs.length > 0 && <FAQSchema faqs={faqs} />}
       <SpeakableSchema url={canonicalUrl} />
       {howto && (

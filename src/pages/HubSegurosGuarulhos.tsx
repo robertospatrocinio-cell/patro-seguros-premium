@@ -7,7 +7,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { Button } from "@/components/ui/button";
 import { getCanonicalUrl } from "@/lib/canonical";
@@ -141,7 +140,6 @@ const HubSegurosGuarulhos = () => {
       <FAQSchema faqs={FAQS} />
       <LocalBusinessSchema />
       <OrganizationSchema />
-      <WebSiteSchema />
       <AggregateRatingSchema
         serviceName="Seguros em Guarulhos"
         url={canonicalUrl}

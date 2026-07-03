@@ -6,7 +6,6 @@ import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import ArticleSchema from "@/components/ArticleSchema";
 import { getCanonicalUrl, CANONICAL_BASE_URL } from "@/lib/canonical";
@@ -155,7 +154,6 @@ const BlogArticle = () => {
                 { name: article.title, url: articleUrl },
               ]}
             />
-            <WebSiteSchema />
             <OrganizationSchema />
           </>
         );

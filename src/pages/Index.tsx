@@ -8,7 +8,6 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 
@@ -71,7 +70,6 @@ const Index = () => {
       <SpeakableSchema url={CANONICAL_BASE_URL} />
       <LocalBusinessSchema />
       <OrganizationSchema />
-      <WebSiteSchema />
       <ServiceSchema 
         name="Consultoria de Seguros em Guarulhos" 
         description="Serviços profissionais de corretagem e consultoria de seguros para pessoas físicas e empresas."

@@ -4,7 +4,6 @@ import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
-import WebSiteSchema from "@/components/WebSiteSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -60,7 +59,6 @@ const NichoLojistasGuarulhos = () => (
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />
     <OrganizationSchema />
-    <WebSiteSchema />
     <AggregateRatingSchema
       serviceName="Seguros para Lojistas em Guarulhos"
       url="https://www.patroseguros.com.br/seguros-para-lojistas-guarulhos"
