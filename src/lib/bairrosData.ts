@@ -29,6 +29,9 @@ export interface BairroData {
   descricao: string;
   image: string;
   faqs: BairroFAQ[];
+  /** FAQs exclusivas do bairro (marcos, ruas, riscos específicos).
+   *  Renderizadas antes das FAQs geradas para reforçar unicidade e SEO local. */
+  localFaqs?: BairroFAQ[];
   testimonials?: BairroTestimonial[];
   geo?: { latitude: number; longitude: number };
   intel?: BairroLocalIntel;
