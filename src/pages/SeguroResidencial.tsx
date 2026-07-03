@@ -133,6 +133,20 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { id: "condicao", label: "Condicao", placeholder: "Selecione", type: "select", options: ["Próprio (moradia)", "Alugado (inquilino)", "Alugado (proprietário)", "Veraneio / temporada"] },
       ]}
       canonicalUrl="https://www.patroseguros.com.br/seguro-residencial"
+      howto={{
+        name: "Como contratar seguro residencial em Guarulhos",
+        description: "Passo a passo para proteger casa ou apartamento com incêndio, roubo, danos elétricos e RC familiar.",
+        totalTime: "PT24H",
+        supply: ["Endereço completo com CEP", "Metragem construída", "Valor aproximado do conteúdo (móveis + eletrônicos)"],
+        tool: ["WhatsApp Patro Seguros", "Formulário online"],
+        steps: [
+          { name: "Some o valor do conteúdo", text: "Liste móveis, eletrônicos, eletrodomésticos e itens de valor. A soma vira o LMI (Limite Máximo Indenizável) do item conteúdo — subseguro é a principal causa de indenização parcial." },
+          { name: "Escolha as coberturas certas para Guarulhos", text: "Além do incêndio (obrigatório), inclua danos elétricos (a mais acionada na cidade, ticket médio R$ 1.850) e RC Familiar (dano ao vizinho, R$ 20 mil mínimo)." },
+          { name: "Solicite cotação em 5 seguradoras", text: "Envie CEP + metragem + valor do conteúdo pela Patro (WhatsApp ou site). Comparamos Porto, Bradesco, Allianz, Tokio Marine e Liberty em até 2h úteis." },
+          { name: "Reveja franquia e assistência 24h", text: "A assistência (chaveiro, encanador, eletricista) evita gasto do bolso em pequenos incidentes. Franquia costuma ser 10% do prejuízo, com mínimo entre R$ 400 e R$ 800." },
+          { name: "Contrate e agende inspeção (se exigida)", text: "Casas acima de R$ 800 mil de conteúdo ou em condomínio fechado podem exigir foto de portaria/alarme. Apólice ativa em até 24h após pagamento." },
+        ],
+      }}
     />
     <ExitIntentPopup />
     </>
