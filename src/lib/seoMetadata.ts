@@ -578,6 +578,45 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     }
   }
 
+  // 6b. Artigos (compartilham slugs com /blog/) — título curto, sem prefixo "Artigos/"
+  if (cleanPath.startsWith("/artigos/")) {
+    const articleSlug = cleanPath.replace("/artigos/", "");
+    const post = blogArticles.find(p => p.slug === articleSlug);
+    // Título humanizado do slug, sem o prefixo "artigos/" que gerava
+    // "Artigos/carros Mais Roubados..." no fallback genérico.
+    const humanTitle = post
+      ? post.title
+      : articleSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    const rawTitle = `${humanTitle} | Patro Seguros`;
+    // Alvo ≤60 chars para passar no audit-seo-runtime.
+    const title = rawTitle.length > 60
+      ? `${humanTitle.slice(0, 60 - " | Patro".length).trim()} | Patro`
+      : rawTitle;
+    const rawDesc = post?.excerpt
+      || `Leia o artigo "${humanTitle}" no blog da Patro Seguros — corretora em Guarulhos especialista em seguros e planos de saúde.`;
+    const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    return {
+      title,
+      description,
+      canonical: `${DOMAIN}${cleanPath}`,
+      h1: humanTitle,
+      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogType: "article",
+      ...(post ? {
+        schema: {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": humanTitle.length > 110 ? humanTitle.slice(0, 107).trim() + "..." : humanTitle,
+          "description": post.excerpt,
+          "image": [`${DOMAIN}/images/og-cover.webp`],
+          "datePublished": post.date,
+          "dateModified": post.date,
+          "author": { "@type": "Person", "name": post.author }
+        }
+      } : {}),
+    };
+  }
+
   // 7. Generic Fallback for all other sitemap routes
   if (slug && slug !== "/") {
     const titleParts = slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1));
@@ -585,7 +624,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const isGuarulhos = slug.includes("guarulhos");
     
     const rawTitle = `${pageTitle}${isGuarulhos ? "" : " em Guarulhos"} | Patro`;
-    const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
+    const title = rawTitle.length > 60 ? rawTitle.slice(0, 57).trim() + "..." : rawTitle;
     const rawDesc = `Procurando por ${pageTitle.toLowerCase()}? A Patro Seguros é especialista em soluções de proteção em Guarulhos.`;
     const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
 
