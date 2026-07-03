@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import HowToSchema, { type HowToStep } from "@/components/HowToSchema";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Button } from "@/components/ui/button";
@@ -297,6 +298,7 @@ const InsurancePageTemplate = ({
       <OrganizationSchema />
       <WebSiteSchema />
       {!skipFAQSchemaManual && faqs.length > 0 && <FAQSchema faqs={faqs} />}
+      <SpeakableSchema url={canonicalUrl} />
       {howto && (
         <HowToSchema
           name={howto.name}
