@@ -21,6 +21,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
 import { getBlogContent } from "@/data/blogContentIndex";
 import { useABTest } from "@/hooks/useABTest";
+import ArticleInlineCTA from "@/components/ArticleInlineCTA";
 
 const PHONE = "551151997500";
 const WHATSAPP_BASE_URL = `https://wa.me/${PHONE}`;
@@ -203,7 +204,7 @@ const BlogArticle = () => {
                   onClick={() => trackCotacaoClick("blog-article-top")}
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs font-bold hover:opacity-90 transition-opacity whitespace-nowrap"
                 >
-                  Simular Agora <ArrowRight className="h-4 w-4" />
+                  Pedir Cotação <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
