@@ -197,6 +197,30 @@ export const trackCotacaoClick = (source?: string, meta?: ConversionMeta) => {
   });
 };
 
+// ---------- URL helpers with UTM attribution ----------
+
+/**
+ * Build an internal /cotacao URL with UTM parameters so downstream analytics
+ * (GA4, Segfy) preserves the CTA origin even after the SPA route change.
+ *
+ * Example:
+ *   buildCotacaoUrl("verificar-susep-cta", { tipo: "empresarial" })
+ *   → "/cotacao?tipo=empresarial&utm_source=site&utm_medium=cta&utm_campaign=verificar-susep-cta&utm_content=verificar-susep-cta"
+ */
+export const buildCotacaoUrl = (
+  source: string,
+  opts?: { tipo?: string; basePath?: string },
+): string => {
+  const base = opts?.basePath || "/cotacao";
+  const params = new URLSearchParams();
+  if (opts?.tipo) params.set("tipo", opts.tipo);
+  params.set("utm_source", "site");
+  params.set("utm_medium", "cta");
+  params.set("utm_campaign", source);
+  params.set("utm_content", source);
+  return `${base}?${params.toString()}`;
+};
+
 // Init early so attribution is captured even before any click
 if (typeof window !== "undefined") {
   try { captureAttribution(); } catch { /* noop */ }

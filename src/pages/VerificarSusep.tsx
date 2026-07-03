@@ -11,7 +11,7 @@ import FAQSchema from "@/components/FAQSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import PersonAuthorsSchema from "@/components/PersonAuthorsSchema";
 import { Button } from "@/components/ui/button";
-import { trackWhatsAppClick } from "@/lib/tracking";
+import { trackWhatsAppClick, trackCotacaoClick, buildCotacaoUrl } from "@/lib/tracking";
 
 const CANONICAL = "https://www.patroseguros.com.br/verificar-susep";
 const SUSEP_URL = "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp";
@@ -19,6 +19,9 @@ const CNPJ_URL = "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpj
 const WHATSAPP_MESSAGE =
   "Olá! Vim pela página /verificar-susep e gostaria de receber o print da consulta oficial confirmando o registro SUSEP 212113511 e o CNPJ 41.641.558/0001-33 da Patro Corretora de Seguros. Pode me enviar por aqui, por favor?";
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+const COTACAO_URL = buildCotacaoUrl("verificar-susep-cta");
+const CTA_SOURCE = "verificar-susep-cta";
+const CTA_META = { origin: "verificar_susep", insuranceType: "verificacao_credenciais" } as const;
 
 const passos = [
   {
@@ -299,16 +302,26 @@ const VerificarSusep = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 Quer que a Patro envie o print da consulta SUSEP direto no seu WhatsApp?
               </p>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("verificar-susep-cta")}
-              >
-                <Button variant="cta" size="lg" className="rounded-lg">
-                  <MessageCircle className="mr-2 h-5 w-5" /> Receber comprovante no WhatsApp
-                </Button>
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick(CTA_SOURCE, CTA_META)}
+                >
+                  <Button variant="cta" size="lg" className="rounded-lg w-full sm:w-auto">
+                    <MessageCircle className="mr-2 h-5 w-5" /> Receber comprovante no WhatsApp
+                  </Button>
+                </a>
+                <Link
+                  to={COTACAO_URL}
+                  onClick={() => trackCotacaoClick(CTA_SOURCE, CTA_META)}
+                >
+                  <Button variant="outline" size="lg" className="rounded-lg w-full sm:w-auto">
+                    Pedir cotação com corretora verificada
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
