@@ -381,6 +381,10 @@ const Header = memo(() => {
                       <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</SmartLink>
                       <SmartLink to="/contato" className="block py-1 hover:text-primary">Segunda Via</SmartLink>
                       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-primary">Falar com Consultor</a>
+                      <SmartLink to="/verificar-susep" className="flex items-center gap-1.5 py-1 font-semibold text-primary hover:text-primary/80">
+                        <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                        Verificar habilitação SUSEP
+                      </SmartLink>
                       <SmartLink to="/crm" className="block py-1 font-semibold text-primary">Área do Cliente</SmartLink>
                     </div>
                   </div>
@@ -575,6 +579,7 @@ const Header = memo(() => {
               <MobileLink to="/cotacao">Solicitar Cotação</MobileLink>
               <MobileLink to="/contato">Renovar Seguro</MobileLink>
               <MobileLink to="/central-de-sinistro">Central de Sinistro</MobileLink>
+              <MobileLink to="/verificar-susep">Verificar habilitação SUSEP</MobileLink>
               <Link to="/crm" className="block py-2 px-2 text-[13px] font-bold text-primary" onClick={close}>Área do Cliente</Link>
             </MobileSection>
 
