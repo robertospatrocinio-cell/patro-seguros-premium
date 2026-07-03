@@ -321,6 +321,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "auto-gopouva", neighborhood: "Gopouva", product: "auto", riskLevel: "médio", priceRange: "R$ 2.450 a R$ 4.700/ano", reference: "com fácil acesso ao Centro" }),
        ...generateLocalFAQs({ slug: "saude-gopouva", neighborhood: "Gopouva", product: "saude", priceRange: "consultas e exames completos", reference: "com ampla rede em Guarulhos" }),
      ],
+     localFaqs: [
+       { question: "Casa antiga em Gopouva tem restrição para seguro residencial?", answer: "Casas com mais de 40 anos podem ter restrição na cobertura de 'danos elétricos' se não houver laudo elétrico atualizado. Sem o laudo, a apólice sai normal para incêndio + roubo + RC familiar, mas danos elétricos ficam com franquia agravada. Com laudo do CREA (R$ 400–800 uma vez), a cobertura completa é liberada — o investimento se paga na primeira queima de eletrônico." },
+       { question: "Aposentado em Gopouva consegue seguro de vida?", answer: "Sim, até 70 anos na maioria das seguradoras e até 75–80 anos em algumas (Bradesco Prime, Prudential Sênior). Para aposentados sem dependentes financeiros, faz mais sentido priorizar cobertura de 'doenças graves' e 'despesas médicas' do que morte. Prêmios a partir de R$ 68/mês para R$ 40 mil de capital na faixa 60–70." },
+       { question: "Plano de saúde individual em Gopouva ainda existe?", answer: "Sim, com poucas opções: Hapvida NotreDame, Amil One e Bradesco Saúde ainda vendem individual. Preços de R$ 189/mês (faixa 0–18) a R$ 950–1.400/mês (faixa 59+). Para reduzir em 30–40%, aconselhamos abertura de MEI gratuito e migração para coletivo empresarial mantendo a mesma rede." },
+     ],
     intel: {
       demographics: "Bairro tradicional de Guarulhos, com forte identidade comunitária, comércio consolidado e mistura de casas antigas e prédios residenciais de médio padrão.",
       landmarks: {
@@ -358,6 +363,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-bonsucesso", neighborhood: "Bonsucesso", product: "vida", priceRange: "a partir de R$ 42/mês", reference: "para empreendedores e famílias locais" }),
        ...generateLocalFAQs({ slug: "residencial-bonsucesso", neighborhood: "Bonsucesso", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 35/mês", reference: "nas novas expansões do bairro" }),
      ],
+     localFaqs: [
+       { question: "Loja no Shopping Bonsucesso precisa de apólice com Lucros Cessantes?", answer: "Sim — geralmente é exigência da administração do shopping. Lucros Cessantes cobre o faturamento perdido enquanto a loja não pode operar após sinistro. Para lojas de 40–120 m² no Shopping Bonsucesso, o prêmio adicional é R$ 25–90/mês cobrindo 3–12 meses de faturamento — indispensável para reabertura sem crédito emergencial." },
+       { question: "Quem pega a Dutra saindo de Bonsucesso precisa de assistência 24h em rodovia?", answer: "Altamente recomendado. Moradores com acesso diário à Dutra têm sinistralidade de pane/pneu furado/quebra de para-brisa acima da média urbana. A assistência 24h com guincho ilimitado em rodovia (não só até 100 km) custa a mais R$ 8–15/mês e evita gasto de R$ 800–1.800 em uma única acionada, especialmente noturna." },
+       { question: "Novos empreendimentos no entorno do Shopping Bonsucesso têm seguro coletivo?", answer: "Sim. Trabalhamos com síndicos de condomínios recentes oferecendo seguro obrigatório de condomínio + proposta coletiva de residencial individual com desconto de 8–15% por adesão em grupo. Apresentação em assembleia e cotação sem custo para o síndico." },
+     ],
      intel: {
        demographics: "Bairro em expansão, misturando shopping âncora, condomínios residenciais recentes e polo de comércio ao longo da Dutra.",
        landmarks: {
@@ -390,6 +400,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-paraventi", neighborhood: "Paraventi", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 25/mês", reference: "nas ruas residenciais do Paraventi" }),
        ...generateLocalFAQs({ slug: "vida-paraventi", neighborhood: "Paraventi", product: "vida", priceRange: "a partir de R$ 30/mês", reference: "para proteção familiar básica" }),
      ],
+     localFaqs: [
+       { question: "Trabalhador do SESI/SENAI Paraventi tem convênio com corretora?", answer: "Não temos convênio institucional, mas trabalhadores do SESI, SENAI e entidades do Sistema Fiesp têm acesso a planos coletivos por adesão via entidade de classe com 25–40% de desconto versus individual. Ajudamos a identificar se a sua carteira dá direito e comparamos as opções sem custo — famílias do Paraventi economizam R$ 200–380/mês na migração." },
+       { question: "Seguro auto no Paraventi cobre quem estaciona na rua?", answer: "Sim, mas o prêmio sobe. Veículos declarados como 'guardados em via pública' pagam 15–30% a mais que os com garagem fechada. Recomendamos declarar corretamente — omitir e ter o carro roubado na rua pode gerar recusa. Rastreador reduz parte do agravamento em cerca de 10–15%." },
+       { question: "Plano de saúde individual acessível existe para família do Paraventi?", answer: "Existe, a partir de R$ 189/mês na Hapvida (faixa 0–18) e Amil One. Para reduzir ainda mais, orientamos abertura de MEI gratuito de um titular da família e enquadramento no plano coletivo empresarial — economia média de 35% versus individual mantendo mesma rede em Guarulhos." },
+     ],
     intel: {
       demographics: "Bairro residencial de classe média com forte presença de famílias trabalhadoras e comércio de vizinhança, tendo o SESI Guarulhos como principal marco.",
       landmarks: {
@@ -421,6 +436,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "auto-continental", neighborhood: "Continental", product: "auto", riskLevel: "médio", priceRange: "R$ 2.600 a R$ 4.900/ano", reference: "com garagem coberta nos edifícios" }),
        ...generateLocalFAQs({ slug: "vida-continental", neighborhood: "Continental", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para moradores de condomínios verticais" }),
        ...generateLocalFAQs({ slug: "saude-continental", neighborhood: "Continental", product: "saude", priceRange: "ampla rede de atendimento local", reference: "próximo à região central" }),
+     ],
+     localFaqs: [
+       { question: "Apartamento no Continental tem seguro mais barato que casa?", answer: "Sim, 20% a 35% mais barato em média. Apartamentos em condomínios verticais (portaria 24h, garagem coberta, CFTV) reduzem drasticamente o risco de roubo e incêndio versus casas. Para apto avaliado em R$ 320 mil com R$ 25 mil em bens, o prêmio anual fica em R$ 320–560 — barato para o padrão de vida do bairro." },
+       { question: "Condomínio grande do Continental consegue seguro coletivo com desconto?", answer: "Sim. Condomínios com 60+ unidades têm poder de negociação para apresentar proposta coletiva de residencial individual aos moradores, com desconto de 10–18% versus contratação isolada. O seguro obrigatório do condomínio (áreas comuns) continua separado. Fazemos apresentação em assembleia sem custo." },
+       { question: "Moradores do Continental têm rede de plano de saúde na Papa João Paulo I?", answer: "Sim. Bradesco Saúde, SulAmérica, Amil e Hapvida NotreDame têm rede credenciada com UPA Continental, Hospital Padre Bento e clínicas do eixo Papa João Paulo I. Para famílias, coletivos por adesão ficam entre R$ 230 e R$ 450 por vida — economia média de R$ 200–400/mês versus individuais." },
      ],
     intel: {
       demographics: "Um dos bairros mais populosos de Guarulhos, com alta densidade vertical (condomínios e apartamentos populares) e forte demanda por seguros de baixo ticket.",
