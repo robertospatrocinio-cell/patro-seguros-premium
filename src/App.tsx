@@ -437,6 +437,7 @@ const App = () => {
                   <Route path="/admin/login" element={<AdminLogin />} />
                   <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
                   <Route path="/sobre" element={<Sobre />} />
+                  <Route path="/verificar-susep" element={<VerificarSusep />} />
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
                   <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
