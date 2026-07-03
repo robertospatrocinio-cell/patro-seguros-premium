@@ -16,7 +16,9 @@ import { trackWhatsAppClick } from "@/lib/tracking";
 const CANONICAL = "https://www.patroseguros.com.br/verificar-susep";
 const SUSEP_URL = "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp";
 const CNPJ_URL = "https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp";
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20confirmar%20o%20registro%20SUSEP%20da%20Patro.";
+const WHATSAPP_MESSAGE =
+  "Olá! Vim pela página /verificar-susep e gostaria de receber o print da consulta oficial confirmando o registro SUSEP 212113511 e o CNPJ 41.641.558/0001-33 da Patro Corretora de Seguros. Pode me enviar por aqui, por favor?";
+const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const passos = [
   {
