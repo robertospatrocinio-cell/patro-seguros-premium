@@ -30,6 +30,12 @@ const SegurosGuarulhosBairros = () => {
   const [selectedBairro, setSelectedBairro] = useState<BairroData>(initialBairro);
   const [transitioning, setTransitioning] = useState(false);
 
+  // FAQs exclusivas do bairro (se houver) renderizadas antes das FAQs geradas.
+  const mergedFaqs = useMemo(
+    () => [...(selectedBairro.localFaqs ?? []), ...selectedBairro.faqs],
+    [selectedBairro]
+  );
+
   // Sync state when URL param changes
   useEffect(() => {
     if (bairroSlug) {
