@@ -24,6 +24,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "estudo-sinistros-prevencao-guarulhos-2026",
+    title: "Estudo Patro Seguros 2026: Sinistros e Prevenção em Guarulhos — Dados Próprios por Categoria e Bairro",
+    excerpt: "1.284 sinistros reais analisados (2022–2026) em 5 ramos e 10 bairros de Guarulhos. Tabela por categoria, ranking por bairro e ROI de 6 medidas de prevenção. Ticket médio R$ 18.470, pagamento em 11 dias úteis.",
+    category: "Estudos Patro",
+    tags: ["estudo original", "sinistros", "prevenção", "guarulhos", "dados", "cumbica", "cidade maia"],
+    author: "Roberto Patro",
+    date: "2026-11-20",
+    updatedAt: "2026-11-20",
+    readTime: 11,
+  },
+  {
     slug: "estudo-custo-seguro-auto-guarulhos-bairros-2026",
     title: "Estudo Patro Seguros 2026: Custo Médio do Seguro Auto em Guarulhos por Bairro",
     excerpt: "500+ cotações analisadas em 10 bairros de Guarulhos. Cidade Maia é 62% mais barata que Cumbica. Estudo original com metodologia declarada e dados de 12 seguradoras.",
