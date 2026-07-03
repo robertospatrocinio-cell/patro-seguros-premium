@@ -428,6 +428,7 @@ const App = () => {
           <TooltipProvider>
             <BrowserRouter>
               <SkipLink />
+              <WebSiteSchema />
               <Toaster />
               <Sonner position="top-right" closeButton richColors />
               <DeferredGlobalUi />
