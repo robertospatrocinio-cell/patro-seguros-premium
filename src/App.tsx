@@ -315,6 +315,7 @@ const PagespeedHistory = lazy(() => import("./pages/PagespeedHistory"));
 const DynamicLandingPage = lazy(() => import("./pages/DynamicLandingPage"));
 const SchemaDashboard = lazy(() => import("./pages/SchemaDashboard"));
 const SeoScanSummary = lazy(() => import("./pages/SeoScanSummary"));
+const AdminSeoMonitor = lazy(() => import("./pages/AdminSeoMonitor"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 
@@ -490,6 +491,7 @@ const App = () => {
                   <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
                   <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
                   <Route path="/admin/seo-resumo" element={<RequireAdmin><SeoScanSummary /></RequireAdmin>} />
+                  <Route path="/admin/seo-monitor" element={<RequireAdmin><AdminSeoMonitor /></RequireAdmin>} />
                   <Route path="/investimentos" element={<Investimentos />} />
                   {/* === Rotas restauradas (Fase 1: correção de 73 links quebrados no menu/hubs) === */}
                   <Route path="/central-de-sinistro" element={<CentralDeSinistro />} />
