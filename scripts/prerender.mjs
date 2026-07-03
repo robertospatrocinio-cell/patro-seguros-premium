@@ -340,6 +340,49 @@ async function run() {
       html = html.replace("</head>", `${schemaScript}\n</head>`);
     }
 
+    // Injeta BreadcrumbList JSON-LD no HTML pré-renderizado das rotas /artigos/*
+    // (e também /blog/*) para garantir rich results de breadcrumb sem depender
+    // do React/Helmet — o BreadcrumbSchema.tsx só roda após hidratação, e
+    // crawlers que não executam JS (Google mobile-first parcial, PageAudit,
+    // Bing, etc.) precisam da estrutura já presente na resposta HTML.
+    if (route.startsWith("/artigos/") || route.startsWith("/blog/")) {
+      const slug = route.replace(/^\/(artigos|blog)\//, "");
+      const section = route.startsWith("/artigos/") ? "artigos" : "blog";
+      const sectionName = section === "artigos" ? "Artigos" : "Blog";
+      const humanTitle = escapeHtml(
+        metadata.h1 || metadata.title || slug
+          .split("-")
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(" ")
+      );
+      const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Início",
+            "item": "https://www.patroseguros.com.br/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": sectionName,
+            "item": `https://www.patroseguros.com.br/${section}`,
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": humanTitle,
+            "item": `https://www.patroseguros.com.br/${section}/${slug}`,
+          },
+        ],
+      };
+      const breadcrumbScript = `\n    <script type="application/ld+json" data-breadcrumb="1">\n      ${JSON.stringify(breadcrumbSchema, null, 2)}\n    </script>`;
+      html = html.replace("</head>", `${breadcrumbScript}\n</head>`);
+    }
+
     // Injeta conteúdo SEO real (H1 + H2 + parágrafos + links internos) DENTRO
     // de #root para rotas-chave. O React substitui #root inteiro no hydrate,
     // então o usuário enxerga o app React normal. Crawlers que NÃO executam
