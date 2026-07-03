@@ -132,6 +132,7 @@ const SeguroCelular = lazyWithRetry(() => import("./pages/SeguroCelular"), "Segu
 const PlanosDeSaude = lazyWithRetry(() => import("./pages/PlanosDeSaude"), "PlanosDeSaude");
 const IndiqueAmigo = lazyWithRetry(() => import("./pages/IndiqueAmigo"), "IndiqueAmigo");
 const CotacaoSeguroAuto = lazyWithRetry(() => import("./pages/CotacaoSeguroAuto"), "CotacaoSeguroAuto");
+const CotacaoAutoRedirect = lazyWithRetry(() => import("./pages/CotacaoAutoRedirect"), "CotacaoAutoRedirect");
 const SeguroMaquinasAgricolas = lazyWithRetry(() => import("./pages/SeguroMaquinasAgricolas"), "SeguroMaquinasAgricolas");
 const SeguroEquipamentosAgricolas = lazyWithRetry(() => import("./pages/SeguroEquipamentosAgricolas"), "SeguroEquipamentosAgricolas");
 const SeguroGalpoesIndustriais = lazyWithRetry(() => import("./pages/SeguroGalpoesIndustriais"), "SeguroGalpoesIndustriais");
@@ -476,6 +477,7 @@ const App = () => {
                   <Route path="/planos-de-saude" element={<PlanosDeSaude />} />
                   <Route path="/indique-um-amigo" element={<IndiqueAmigo />} />
                   <Route path="/cotacao-seguro-auto" element={<CotacaoSeguroAuto />} />
+                  <Route path="/cotacao-auto" element={<CotacaoAutoRedirect />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/calendario-90-dias" element={<BlogCalendario90Dias />} />
                   <Route path="/blog/categoria/:categoria" element={<BlogCategory />} />
