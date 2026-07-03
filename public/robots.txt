@@ -16,6 +16,7 @@ Disallow: /pagespeed-history
 # Allow public high-value paths
 Allow: /lp/
 Allow: /blog/
+Allow: /artigos/
 Allow: /seguros-guarulhos/
 Allow: /planos-de-saude/
 

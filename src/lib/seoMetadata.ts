@@ -595,12 +595,15 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const rawDesc = post?.excerpt
       || `Leia o artigo "${humanTitle}" no blog da Patro Seguros — corretora em Guarulhos especialista em seguros e planos de saúde.`;
     const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).trim() + "..." : rawDesc;
+    // Deduplicação: /artigos/{slug} e /blog/{slug} servem o mesmo conteúdo.
+    // A URL canônica oficial (também listada no sitemap) é /blog/{slug}.
+    const canonicalUrl = `${DOMAIN}/blog/${articleSlug}`;
     return {
       title,
       description,
-      canonical: `${DOMAIN}${cleanPath}`,
+      canonical: canonicalUrl,
       h1: humanTitle,
-      ogUrl: `${DOMAIN}${cleanPath}`,
+      ogUrl: canonicalUrl,
       ogType: "article",
       ...(post ? {
         schema: {
