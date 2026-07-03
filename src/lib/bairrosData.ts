@@ -125,6 +125,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-vila-augusta", neighborhood: "Vila Augusta", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "com fácil acesso à Via Dutra" }),
        ...generateLocalFAQs({ slug: "empresarial-vila-augusta", neighborhood: "Vila Augusta", product: "empresarial", riskLevel: "baixo", priceRange: "a partir de R$ 95/mês", reference: "próximo ao Centro" }),
      ],
+     localFaqs: [
+       { question: "Comprei apartamento na planta na Vila Augusta — quando começa o seguro?", answer: "O seguro residencial começa após a entrega das chaves e mudança para o imóvel. Para financiamento da Caixa/bancos, o seguro habitacional obrigatório já vem embutido, mas é limitado — recomendamos o residencial próprio a partir de R$ 30/mês para cobrir eletrônicos, móveis, danos elétricos e RC familiar, que o obrigatório não cobre." },
+       { question: "Quem mora perto da Dutra na Vila Augusta precisa de cobertura de vidros?", answer: "Sim, é altamente recomendado. Moradores com acesso frequente à Rodovia Pres. Dutra têm sinistralidade de quebra de para-brisa acima da média. A cobertura adicional de vidros, faróis e retrovisores custa R$ 12–20/mês e evita gasto de R$ 1.200–2.800 do bolso em uma única troca de para-brisa." },
+       { question: "Vocês atendem lançamentos imobiliários novos do bairro?", answer: "Sim. Trabalhamos com síndicos e construtoras de empreendimentos recentes da Vila Augusta, oferecendo seguro obrigatório de condomínio + proposta coletiva de residencial individual para moradores (desconto de 8–15% na adesão em grupo). Fazemos apresentação em assembleia sem custo." },
+     ],
      intel: {
        demographics: "Bairro em forte expansão vertical, com lançamentos residenciais recentes e perfil de moradores jovens e famílias novas.",
        landmarks: {
@@ -161,6 +166,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "auto-cumbica", neighborhood: "Cumbica", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 3.100 a R$ 6.200/ano", reference: "próximo à Rodovia Hélio Smidt" }),
        ...generateLocalFAQs({ slug: "vida-cumbica", neighborhood: "Cumbica", product: "vida", priceRange: "a partir de R$ 50/mês", reference: "para profissionais do setor logístico" }),
        ...generateLocalFAQs({ slug: "residencial-cumbica", neighborhood: "Cumbica", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 40/mês", reference: "nas áreas residenciais do bairro" }),
+     ],
+     localFaqs: [
+       { question: "Preciso de escolta armada para carga de eletrônicos saindo de Cumbica?", answer: "Depende do valor por embarque e do trajeto. Em geral, cargas acima de R$ 300 mil entre Cumbica/GRU e centros de distribuição no ABC ou interior exigem gerenciamento de risco com rastreamento em tempo real (Sascar, Onixsat, Autotrac). Escolta armada é exigida a partir de R$ 800 mil–1,2 milhão por embarque, dependendo da seguradora e do horário." },
+       { question: "Galpão logístico em Cumbica precisa de sprinkler para reduzir prêmio?", answer: "Não é obrigatório, mas reduz muito o custo. Galpões com sprinkler ativo, hidrantes pressurizados e brigada treinada obtêm 25–40% de desconto no prêmio patrimonial. Para operações acima de R$ 5 milhões em ativos, o investimento em sprinkler geralmente se paga em 3–4 anos só pela redução do seguro." },
+       { question: "Transportadora de Cumbica pode ter RCTR-C e RCF-DC na mesma apólice?", answer: "Sim, e é o padrão. RCTR-C (danos físicos à carga) e RCF-DC (desaparecimento/roubo) são complementares e emitidas juntas. Sem RCF-DC, o roubo de carga não é indenizado. Estruturamos LMI conjunto conforme valor médio e pico de embarque, com prêmio variável mensal por averbação." },
      ],
      intel: {
        demographics: "Polo logístico e industrial de Guarulhos, com forte presença de galpões, transportadoras e serviços de apoio ao Aeroporto Internacional (GRU Airport).",
@@ -199,6 +209,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-centro", neighborhood: "Centro", product: "vida", priceRange: "a partir de R$ 45/mês", reference: "para profissionais liberais e comerciantes" }),
        ...generateLocalFAQs({ slug: "residencial-centro", neighborhood: "Centro", product: "residencial", riskLevel: "médio-alto", priceRange: "a partir de R$ 38/mês", reference: "nos edifícios residenciais centrais" }),
      ],
+     localFaqs: [
+       { question: "Consultório de dentista/médico no Centro precisa de RC Profissional obrigatória?", answer: "Não é obrigatória por lei, mas é altamente recomendada e exigida por convênios/planos para credenciamento. Cobre erro/omissão profissional, incluindo defesa jurídica. Para dentistas do eixo Av. Salgado Filho/Poli Shopping, o prêmio anual fica entre R$ 780 e R$ 2.400 conforme especialidade (implantodontia e ortodontia pagam mais)." },
+       { question: "Loja de rua no Centro tem cobertura para saque em ATM/PIX sob coação?", answer: "As apólices empresariais padrão cobrem roubo qualificado do estabelecimento (com arrombamento). Para saque forçado no ATM ou PIX sob coação (crime moderno), existe a cobertura adicional 'Roubo de Valores em Trânsito e por Coação Pessoal' — recomendada para lojistas do Centro por R$ 25–70/mês, cobrindo até R$ 30 mil por evento." },
+       { question: "Prédio antigo no Centro consegue seguro residencial?", answer: "Sim, com ressalvas. Prédios com mais de 40 anos e sem laudo elétrico recente têm restrição da cobertura de 'danos elétricos' e são aceitos com franquia agravada. Com laudo do CREA atualizado apresentado pelo síndico, a apólice sai em condições normais. Ajudamos a identificar quais seguradoras aceitam o perfil do seu prédio." },
+     ],
      intel: {
        demographics: "Coração comercial e administrativo de Guarulhos, com alta concentração de escritórios, consultórios, lojas de rua e prédios residenciais antigos.",
        landmarks: {
@@ -232,6 +247,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-picanco", neighborhood: "Picanço", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para proteção de famílias e casais" }),
        ...generateLocalFAQs({ slug: "empresarial-picanco", neighborhood: "Picanço", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 75/mês", reference: "para o comércio local do bairro" }),
      ],
+     localFaqs: [
+       { question: "Casa no Picanço com garagem fechada paga quanto de auto?", answer: "Casas do Picanço com garagem fechada (portão automático + muro) reduzem o prêmio em 15–25% versus veículo em rua. Para um Onix 2022 na faixa de 35–45 anos, o compreensivo fica em R$ 2.400–3.200/ano com garagem, contra R$ 2.900–3.900/ano sem. Informar a garagem correta é essencial — omitir pode gerar recusa de sinistro." },
+       { question: "Seguradoras dão desconto para famílias com bônus alto no Picanço?", answer: "Sim, é o principal fator de desconto. O bônus é acumulado ano a ano sem sinistro (0 a 10). Famílias tradicionais com bônus 8–10 pagam 30–50% menos que motoristas iniciantes. Trocar de seguradora sem lacuna de mais de 24 meses preserva o bônus — não recomeça do zero." },
+       { question: "Meu filho recém-habilitado vai dirigir o carro da família — como declarar?", answer: "Deve ser declarado como 'condutor eventual menor de 25 anos' ou incluído como condutor principal, dependendo do uso real. Não declarar é uma das principais causas de negativa em sinistro. O acréscimo médio no prêmio é 15–35% — negociável entre seguradoras. Fazemos essa comparação sem custo." },
+     ],
      intel: {
        demographics: "Bairro predominantemente residencial e familiar, com casas em rua tranquila e comércio de vizinhança no entorno.",
        landmarks: {
@@ -263,6 +283,11 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "empresarial-macedo", neighborhood: "Macedo", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 85/mês", reference: "para clínicas e escritórios locais" }),
        ...generateLocalFAQs({ slug: "vida-macedo", neighborhood: "Macedo", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "para sócios e colaboradores de PMEs" }),
        ...generateLocalFAQs({ slug: "auto-macedo", neighborhood: "Macedo", product: "auto", riskLevel: "médio", priceRange: "R$ 2.500 a R$ 4.800/ano", reference: "na região da Av. Tiradentes" }),
+     ],
+     localFaqs: [
+       { question: "Clínica no Macedo tem plano de saúde coletivo com a mesma rede do Bom Clima?", answer: "Sim. SulAmérica, Bradesco Saúde, Amil e Notre Dame Intermédica têm o Hospital Bom Clima e clínicas da Av. Tiradentes na rede credenciada. Para PMEs do Macedo com 2–29 vidas, o plano coletivo empresarial custa entre R$ 240 e R$ 460 por vida (enfermaria) — mantém a mesma rede e tem reajuste 4–8 p.p. menor que individual." },
+       { question: "Consultório odontológico no Macedo precisa cobrir equipamento?", answer: "Sim. Consultórios da região da Av. Tiradentes têm exposição alta de equipamentos (cadeira, motor, raio-x, autoclave). A cobertura de 'equipamentos estacionários e eletrônicos' custa R$ 25–65/mês e cobre danos elétricos, quebra acidental e roubo qualificado. Sem ela, queima de placa da cadeira (R$ 8–18 mil) fica por conta do dentista." },
+       { question: "Seguro de vida em grupo para 5 colaboradores da clínica vale a pena?", answer: "Vale — é dos benefícios com melhor custo-percepção. Vida em grupo para 5–15 colaboradores fica em R$ 12–28/vida/mês para capital de R$ 30–50 mil + auxílio funeral. Ajuda na retenção e é dedutível como despesa operacional. Estruturamos com Bradesco, MetLife, Icatu e Prudential." },
      ],
      intel: {
        demographics: "Região com forte presença de clínicas, consultórios e pequenas e médias empresas de serviço, além de áreas residenciais consolidadas.",
