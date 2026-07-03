@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
-import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User } from "lucide-react";
+import { Shield, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import PersonAuthorsSchema from "@/components/PersonAuthorsSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -34,6 +35,7 @@ const Sobre = () => {
   return (
     <Fragment>
       <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
+      <PersonAuthorsSchema />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />
