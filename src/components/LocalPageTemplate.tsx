@@ -272,6 +272,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         realScenarios={realScenarios}
         tips={tips}
         relatedInsurances={relatedInsurances}
+        howto={howto}
         importantDetails={[
           /* Seguradoras parceiras */
           {
