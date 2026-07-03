@@ -288,6 +288,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "auto-gopouva", neighborhood: "Gopouva", product: "auto", riskLevel: "médio", priceRange: "R$ 2.450 a R$ 4.700/ano", reference: "com fácil acesso ao Centro" }),
        ...generateLocalFAQs({ slug: "saude-gopouva", neighborhood: "Gopouva", product: "saude", priceRange: "consultas e exames completos", reference: "com ampla rede em Guarulhos" }),
      ],
+    intel: {
+      demographics: "Bairro tradicional de Guarulhos, com forte identidade comunitária, comércio consolidado e mistura de casas antigas e prédios residenciais de médio padrão.",
+      landmarks: {
+        streets: ["Av. Guarulhos", "Rua Dona Glória Pagnoncelli", "Praça Getúlio Vargas (Igreja de Santo Antônio)"],
+        hospitals: ["Hospital Bom Clima (proximidade)", "Santa Casa de Guarulhos (acesso rápido)"],
+        business: ["Comércio de rua tradicional no eixo Av. Guarulhos"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Perfil de moradores estabelecidos com bônus alto e casas com garagem reduz prêmio de auto. Comércio de rua exige RC Operação e roubo qualificado bem calibrados.",
+      },
+      localCase: {
+        title: "Renovação consolidada para moradora aposentada de Gopouva",
+        description: "Cliente idosa com casa própria + auto compacto + plano de saúde individual antigo teve as 3 apólices reavaliadas. Migração parcial (residencial + auto) para seguradora tier-1 gerou R$ 1.180/ano de economia, mantendo mesma cobertura e sem perda de bônus.",
+      },
+    },
    },
    {
      id: "bonsucesso",
