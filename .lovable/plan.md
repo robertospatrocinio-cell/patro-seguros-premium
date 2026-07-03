@@ -1,87 +1,110 @@
-## Monitoramento contínuo de SEO — plano
+# Plano — 8 Sugestões de Melhoria SEO/AEO Patro Seguros
 
-Cron diário audita todas as ~836 rotas do sitemap, persiste resultados, compara com a rodada anterior e dispara email quando aparecem falhas novas. Um dashboard admin mostra o histórico e permite drill-down por rota.
+Status inicial: Fase 0 concluída (itens 4 e 7). Demais fases aguardam aprovação.
 
----
+## Fase 0 — Rápidas (FEITO)
 
-### 1. Modelo de dados (migration)
+### #7 Dados estruturados LocalBusiness + FAQ + Service
+Já implementados no projeto:
+- `LocalBusinessSchema` (@type InsuranceAgency) global na Home e em hubs locais.
+- `FAQSchema` (@type FAQPage) nas páginas com Q&A.
+- `ServiceSchema` (@type Service + OfferCatalog) nas páginas de produto.
+- `OrganizationSchema`, `WebSiteSchema`, `BreadcrumbSchema` ativos.
+- Validação: `schema-validation-report.json` = SUCCESS.
+Ação restante: nenhuma. Marcar #7 como concluído.
 
-Duas tabelas em `public`, com RLS restrita a admins (função `has_role` já existe):
-
-- **`seo_audit_runs`** — uma linha por execução do cron
-  - `id uuid pk`, `started_at`, `finished_at`, `total_urls`, `passed`, `warned`, `failed`, `new_failures`, `duration_ms`, `triggered_by text` (`cron`/`manual`)
-- **`seo_audit_findings`** — uma linha por falha/aviso detectado numa rodada
-  - `id uuid pk`, `run_id fk`, `route text`, `severity` (`error`|`warn`), `rule text` (ex.: `title_too_long`, `missing_canonical`), `message text`, `first_seen_at`, `is_new boolean`, `ignored boolean default false`
-
-GRANT SELECT/INSERT ao `service_role`; SELECT ao `authenticated` filtrado por `has_role(auth.uid(), 'admin')` via policy.
-
-### 2. Edge Function `seo-audit-crawler`
-
-Percorre `sitemap-index.xml` → todos os sub-sitemaps → todas as URLs (~836). Concorrência de 10 fetches paralelos (limite HTTP do runtime). Aplica as mesmas regras já usadas em `scripts/audit-seo-runtime.mjs`:
-
-- HTTP 200
-- `<title>` único, 10–60 chars, sem "Lovable"
-- description única, 50–160 chars
-- canonical https absoluto único
-- og:title/description/url/type/image absolutos + twitter:card
-- ≥1 JSON-LD parseável, exatamente 1 `<h1>`
-- robots sem `noindex` (respeitando `NOINDEX_ALLOW`)
-
-Ao final:
-1. Insere 1 linha em `seo_audit_runs`.
-2. Insere N linhas em `seo_audit_findings`.
-3. Compara `route+rule` com a última rodada anterior: marca `is_new=true` nas que não existiam.
-4. Se `new_failures > 0`, invoca `send-form-email` (SMTP existente) com resumo consolidado + top 20 novas falhas + link do dashboard.
-
-### 3. Agendamento (cron)
-
-Habilita `pg_cron` e `pg_net`. Usa o padrão já presente em `trigger_monitor_rich_results` — insert via ferramenta insert (não migration, pois embute service key):
-
-```sql
-select cron.schedule(
-  'seo-audit-daily', '0 6 * * *',   -- 06:00 UTC = 03:00 BRT
-  $$ select net.http_post(url:='...functions/v1/seo-audit-crawler', ...) $$
-);
-```
-
-### 4. Dashboard `/admin/seo-monitor`
-
-Nova página React protegida por `<RequireAdmin>`:
-
-- **Header:** stats da última rodada (total, passed, warned, failed, novas falhas, duração) + botão "Rodar agora".
-- **Timeline:** últimas 30 rodadas em gráfico linha (failed/warned/passed).
-- **Tabela de findings** da rodada selecionada: filtros por severidade, regra e busca de rota; badge `NOVO` em `is_new=true`; botão ignorar (`ignored=true`, muda a política de alerta).
-- **Drill-down:** clicar numa rota abre modal com histórico da regra nas últimas 30 rodadas.
-
-Rota adicionada em `src/App.tsx`, link no menu admin existente.
-
-### 5. Email de alerta
-
-Um único email por rodada quando `new_failures > 0`:
-
-- Assunto: `[SEO Alert] N novas falhas em www.patroseguros.com.br`
-- Corpo: contagem por regra + até 20 exemplos + link `/admin/seo-monitor?run={id}`.
-- Remetente: `alertas@patroseguros.com.br` via SMTP HostGator já configurado.
-- Destinatário: primeiro admin registrado em `user_roles` (fallback para `contato@patroseguros.com.br`).
-
-Nenhum email quando `new_failures = 0` (evita ruído — o dashboard sempre reflete o estado atual).
+### #4 SUSEP + credenciais visíveis
+Footer já exibia SUSEP 212113511 + CNPJ 41.641.558/0001-33 + Selo Melhor Corretora.
+Reforço aplicado: SUSEP agora é link para consulta pública oficial (prova verificável).
 
 ---
 
-### Detalhes técnicos
+## Fase 1 — Prova social citável (#3)   [aguarda dados reais do cliente]
 
-**Runtime da edge function:** timeout 400s. 836 URLs com concorrência 10 e ~500ms por fetch → ~45s. Se um sitemap crescer muito, o worker faz batching interno.
+Requer conteúdo real que a Patro precisa fornecer:
+- 5–10 depoimentos com nome completo + cidade + produto contratado (autorização LGPD).
+- 3 casos de sinistro resolvidos (tipo, valor indenizado, prazo). Sem dados sensíveis.
+- Contadores reais: nº de clientes ativos, nº de apólices/ano, ticket médio.
+- Links públicos: perfil Google Business, Reclame Aqui (RA1000/verificado), LinkedIn.
 
-**Idempotência:** `run_id` uuid v4 gerado no início; findings inseridos em bulk via um único `insert` com array — se a função reiniciar no meio, o run fica sem `finished_at` e é ignorado pelo dashboard (marcado como "aborted").
+Entrega: componente `SocialProofBlock` na Home + página `/prova-social` + schema `Review` e `AggregateRating` (com nota real, não inventada).
 
-**Segurança:** RLS permite SELECT apenas para `has_role(auth.uid(), 'admin')`. Service role usado pela edge function bypassa RLS conforme padrão. Nenhum dado sensível — só URLs públicas.
+---
 
-**Retrocompatibilidade:** não altera nenhum script existente (`audit-seo-runtime.mjs`, `validate-jsonld-build.mjs`, `validate-artigos-jsonld.mjs`). Este monitor é um observador em produção; os validadores de build continuam sendo o gate pré-deploy.
+## Fase 2 — Diferenciar páginas locais (#2)
 
-**Arquivos criados/modificados:**
-- `supabase/migrations/<ts>_seo_monitor.sql` (novo)
-- `supabase/functions/seo-audit-crawler/index.ts` (novo)
-- `src/pages/AdminSeoMonitor.tsx` (novo)
-- `src/App.tsx` (nova rota)
-- `src/components/crm/DashboardOverview.tsx` ou header admin (link)
-- Insert SQL do `cron.schedule` (via insert tool, não migration)
+Problema atual: `LocalPageTemplate` gera muitas páginas de bairro com estrutura idêntica.
+Solução: enriquecer `src/lib/bairrosData.ts` com por bairro:
+- Índice de risco local (auto/residencial/empresarial) — fonte SSP-SP.
+- 2–3 hospitais/postos, 2–3 shoppings/centros comerciais, principais vias.
+- Exemplo real anonimizado ("cliente do Jd. Maia economizou X%").
+- Perfil socioeconômico curto (2 linhas) para variar copy.
+
+Entrega: campos novos em `Bairro` type + variação de copy no template + geração via `localFAQGenerator` com dados reais por bairro.
+
+---
+
+## Fase 3 — FAQs e comparativos por ramo × bairro (#1)
+
+Criar matriz produto × bairro para os combos de maior valor:
+- Ramos: auto, fiança, táxi/app, residencial, empresarial (galpão).
+- Bairros prioritários: Cumbica, Cidade Maia, V. Augusta, Centro, Pimentas, Bonsucesso, Macedo.
+
+Entregas:
+1. `src/data/comparativoCoberturas.ts` — tabelas de cobertura por ramo (compreensiva vs RC vs APP) com valores/franquia típicos.
+2. Componente `<ComparativoCoberturas ramo="auto" />` reutilizável.
+3. Ampliar `localFAQGenerator` com perguntas reais coletadas de "People Also Ask" (item plugado ao Semrush).
+4. 15–20 páginas ramo×bairro novas roteadas em `App.tsx` + adicionadas ao sitemap.
+
+---
+
+## Fase 4 — Nichos defensáveis (#6)
+
+Expandir páginas onde a concorrência é fraca:
+- `/seguro-taxi-guarulhos` — requisitos ANTT, franquia, GLP/CNG, passo-a-passo.
+- `/seguro-app-motorista-guarulhos` (Uber/99) — cobertura APP, RCFV incluído.
+- `/seguro-galpao-cumbica` — já existe cluster; incluir tabela de valores por m², CFTV, sprinkler.
+- `/seguro-fianca-locaticia-guarulhos` — parcelamento, análise de crédito, aceite imobiliárias.
+
+Cada página: preço médio (faixa), requisitos, checklist, FAQs específicas, CTA cotação segmentada.
+
+---
+
+## Fase 5 — Blog/guia local Guarulhos (#5)
+
+Publicar 8–12 artigos long-tail em `src/data/blogGuarulhosContent.ts` (já existe base):
+1. "Melhor seguro auto por bairro em Guarulhos [ano]"
+2. "Seguro para táxi em Guarulhos: quanto custa e como contratar"
+3. "Fiança locatícia em Guarulhos: guia para inquilino e proprietário"
+4. "Roubo de carga em Cumbica: como proteger o galpão"
+5. "Comparativo planos de saúde por bairro de Guarulhos"
+6. "Seguro residencial em condomínio Cidade Maia"
+7. "Motorista de app em Guarulhos: seguro que vale a pena"
+8. "Índice de sinistralidade auto por CEP em Guarulhos"
+
+Cada artigo: 1200–1800 palavras, 3+ estatísticas, links internos para páginas de produto/bairro, `ArticleSchema` + `BreadcrumbSchema`.
+
+---
+
+## Fase 6 — Menções externas / diretórios (#8)   [ação off-site]
+
+Fora do código. Checklist para a equipe:
+- Cadastro em: Encontre Seu Corretor (Fenacor), Portal SUSEP, Segs.com.br, Sonho Seguro, CQCS, Apólice.
+- Portais locais Guarulhos: Guarulhos Web, Folha Metropolitana, Diário de Guarulhos.
+- Parcerias: publicar case em blog de seguradora parceira (Porto, Allianz, HDI).
+- Guest posts em 2–3 blogs de nicho (frota, condomínio).
+
+Entrega no código: página `/imprensa` já existe — adicionar seção "Onde a Patro é mencionada" conforme menções forem conquistadas.
+
+---
+
+## Ordem sugerida de execução
+
+1. Fase 2 (diferenciar locais) — maior impacto/menor esforço.
+2. Fase 4 (nichos defensáveis) — ganho competitivo rápido.
+3. Fase 3 (matriz ramo×bairro) — depende de 2 e 4.
+4. Fase 5 (blog) — em paralelo com 3.
+5. Fase 1 (prova social) — quando cliente fornecer dados.
+6. Fase 6 — trilha off-site contínua.
+
+Cada fase deve ser aprovada individualmente antes da execução.
