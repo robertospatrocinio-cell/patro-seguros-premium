@@ -297,6 +297,17 @@ const InsurancePageTemplate = ({
       <OrganizationSchema />
       <WebSiteSchema />
       {!skipFAQSchemaManual && faqs.length > 0 && <FAQSchema faqs={faqs} />}
+      {howto && (
+        <HowToSchema
+          name={howto.name}
+          description={howto.description}
+          totalTime={howto.totalTime}
+          supply={howto.supply}
+          tool={howto.tool}
+          steps={howto.steps}
+          url={canonicalUrl}
+        />
+      )}
       <LocalAreaSchema
         serviceName={title}
         url={canonicalUrl}
