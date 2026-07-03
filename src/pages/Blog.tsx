@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, User, Search, X } from "lucide-react";
@@ -83,6 +84,7 @@ const Blog = () => {
         description={pageDescription}
         noindex={isSearching}
       />
+      <SpeakableSchema url="https://www.patroseguros.com.br/blog" />
       <Header />
       <main id="main-content" className="outline-none">
         <section className="gradient-hero py-20">
