@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import {
   cardsPessoa,
@@ -46,6 +48,25 @@ const SECTIONS = [
   },
 ] as const;
 
+const SERVICOS_FAQS = [
+  {
+    question: "Quais tipos de seguro a Patro Seguros oferece?",
+    answer: "Mais de 40 produtos entre seguros e consórcios: auto, moto, vida, residencial, viagem, plano de saúde, empresarial, frota, transporte, galpões, RC, cyber, agro e consórcios de carro, moto e imóveis. Comparamos 16 seguradoras parceiras para cada cotação.",
+  },
+  {
+    question: "Como solicitar uma cotação de seguro na Patro?",
+    answer: "Escolha o produto na página de serviços, clique em 'Solicitar Cotação' ou fale direto pelo WhatsApp (11) 5199-7500. Retornamos com propostas de múltiplas seguradoras em até 24 horas úteis.",
+  },
+  {
+    question: "A Patro atende empresas em Guarulhos e região?",
+    answer: "Sim. Somos especialistas em seguro empresarial para galpões (Cumbica), indústrias, comércios, frotas e PMEs em Guarulhos, com consultoria de riscos gratuita e visita presencial quando necessário.",
+  },
+  {
+    question: "É possível contratar seguro agro pela Patro em qualquer estado?",
+    answer: "Sim. A carteira agro (lavoura, máquinas, propriedade rural, pecuário, transporte) tem atendimento nacional, integrando seguradoras especializadas em cada modalidade.",
+  },
+];
+
 const Servicos = () => {
   const waUrl = buildWhatsAppUrl({
     origem: "pagina_servicos",
@@ -63,6 +84,8 @@ const Servicos = () => {
         title="Serviços de Seguros em Guarulhos — Catálogo Completo"
         description="Todos os serviços de seguros e consórcios em Guarulhos: auto, vida, residencial, empresarial, frota, galpões, agro, RC e cyber. 40+ produtos, 16 seguradoras."
       />
+      <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Serviços", url: "/servicos" }]} />
+      <FAQSchema faqs={SERVICOS_FAQS} />
       <Header />
       <main id="main-content" className="outline-none bg-slate-50/50 pb-32">
         {/* Hero */}
