@@ -7,6 +7,8 @@ import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import PersonAuthorsSchema from "@/components/PersonAuthorsSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -15,6 +17,29 @@ import socioRoberto from "@/assets/socio-roberto.webp";
 import sociaSandra from "@/assets/socia-sandra.webp";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
+
+const SOBRE_FAQS = [
+  {
+    question: "Quem é a Patro Seguros?",
+    answer: "A Patro Seguros é uma corretora de seguros com sede em Guarulhos/SP, registrada na SUSEP sob o número 212113511 e CNPJ 41.641.558/0001-33. Atende pessoas físicas e empresas em todo o Brasil desde 2010, com equipe própria e parceria ativa com mais de 16 seguradoras.",
+  },
+  {
+    question: "Onde fica a sede da Patro Seguros?",
+    answer: "Av. Salgado Filho, 2120 — Sala 219, Edifício Via Alameda, bairro Cidade Maia, Guarulhos/SP. Atendimento presencial de segunda a sexta, das 8h30 às 18h; WhatsApp 24h em (11) 5199-7500.",
+  },
+  {
+    question: "A Patro Seguros é regulamentada pela SUSEP?",
+    answer: "Sim. A Patro Corretora de Seguros possui registro ativo na SUSEP nº 212113511 e pode ser consultada publicamente no portal oficial da Superintendência de Seguros Privados.",
+  },
+  {
+    question: "Quantos clientes a Patro atende?",
+    answer: "Mais de 2.500 clientes ativos entre pessoas físicas, famílias e empresas, com 1.800+ sinistros resolvidos e nota 4.7 no Google (27+ avaliações reais).",
+  },
+  {
+    question: "Quais tipos de seguro a Patro comercializa?",
+    answer: "Auto, moto, vida, residencial, viagem, plano de saúde, empresarial, frota, transporte, galpões, responsabilidade civil, cyber, agro, consórcio e previdência privada — via 16+ seguradoras parceiras.",
+  },
+];
 
 const stats = [
   { value: "+30", label: "Anos de Experiência", desc: "Combinados entre os sócios" },
@@ -38,6 +63,8 @@ const Sobre = () => {
       <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
       <PersonAuthorsSchema />
       <SpeakableSchema url="https://www.patroseguros.com.br/sobre" />
+      <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Sobre Nós", url: "/sobre" }]} />
+      <FAQSchema faqs={SOBRE_FAQS} />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />
