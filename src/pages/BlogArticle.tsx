@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MessageCircle, ArrowLeft, ArrowRight, Calendar, Clock, User, Check, X, Scale, TrendingDown } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
-import { getArticleMeta, getRelatedArticles, formatDate } from "@/lib/blogData";
+import { getArticleMeta, getRelatedArticles, formatDate, slugifyCategory } from "@/lib/blogData";
 import { getAuthorSlugByName, getAuthorByName } from "@/lib/blogAuthors";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
@@ -150,7 +150,7 @@ const BlogArticle = () => {
               items={[
                 { name: "Início", url: "/" },
                 { name: "Blog", url: "/blog" },
-                { name: meta.category, url: "/blog" },
+                { name: meta.category, url: `/blog/categoria/${slugifyCategory(meta.category)}` },
                 { name: article.title, url: articleUrl },
               ]}
             />

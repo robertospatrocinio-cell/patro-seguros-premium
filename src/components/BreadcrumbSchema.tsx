@@ -43,45 +43,73 @@ const routeNameMap: Record<string, string> = {
 
 const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
   const location = useLocation();
-  
-  let breadcrumbItems;
+
+  // Normaliza uma URL para o formato absoluto exigido pelo schema.org.
+  const toAbsolute = (url: string): string => {
+    if (!url) return CANONICAL_BASE_URL;
+    if (url.startsWith("http")) return url.replace(/\/+$/, "") || CANONICAL_BASE_URL;
+    const path = url.startsWith("/") ? url : `/${url}`;
+    // remove trailing slash exceto para "/"
+    const clean = path === "/" ? "" : path.replace(/\/+$/, "");
+    return `${CANONICAL_BASE_URL}${clean}`;
+  };
+
+  const currentPath = location.pathname.replace(/\/+$/, "") || "/";
+  const currentAbsolute = toAbsolute(currentPath);
+
+  let raw: BreadcrumbItem[];
 
   if (items && items.length > 0) {
-    breadcrumbItems = items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": item.url.startsWith("http") ? item.url : `${CANONICAL_BASE_URL}${item.url.startsWith("/") ? "" : "/"}${item.url}`
-    }));
+    raw = [...items];
+    // Garante que "Início" seja o primeiro item (padroniza label).
+    const first = raw[0];
+    const firstAbs = toAbsolute(first.url);
+    if (firstAbs !== CANONICAL_BASE_URL && firstAbs !== `${CANONICAL_BASE_URL}/`) {
+      raw = [{ name: "Início", url: "/" }, ...raw];
+    } else if (first.name !== "Início") {
+      raw = [{ name: "Início", url: "/" }, ...raw.slice(1)];
+    }
+    // Rotas dinâmicas: força o último item a apontar para a URL real da página,
+    // evitando drift entre o caminho declarado no schema e o path renderizado
+    // (ex.: `/seguro/:brand` vs `/seguro-bmw`).
+    const last = raw[raw.length - 1];
+    if (toAbsolute(last.url) !== currentAbsolute) {
+      if (import.meta.env.DEV) {
+        console.warn(
+          `[BreadcrumbSchema] último item ("${last.name}") tinha url=${last.url}; ` +
+            `alinhando com a rota atual ${currentPath}.`,
+        );
+      }
+      raw[raw.length - 1] = { ...last, url: currentPath };
+    }
   } else {
-    const pathnames = location.pathname.split("/").filter((x) => x);
-    breadcrumbItems = [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": CANONICAL_BASE_URL
-      },
-      ...pathnames.map((name, index) => {
-        const routePath = `/${pathnames.slice(0, index + 1).join("/")}`;
-        const displayName = routeNameMap[name] || name
-          .split("-")
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(" ");
-
-        return {
-          "@type": "ListItem",
-          "position": index + 2,
-          "name": displayName,
-          "item": `${CANONICAL_BASE_URL}${routePath}`
-        };
-      })
+    // Fallback: deriva breadcrumb do próprio pathname.
+    const parts = currentPath.split("/").filter(Boolean);
+    raw = [
+      { name: "Início", url: "/" },
+      ...parts.map((seg, i) => ({
+        name:
+          routeNameMap[seg] ||
+          seg
+            .split("-")
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" "),
+        url: `/${parts.slice(0, i + 1).join("/")}`,
+      })),
     ];
   }
+
+  const breadcrumbItems = raw.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: toAbsolute(item.url),
+  }));
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${currentAbsolute}#breadcrumb`,
     "itemListElement": breadcrumbItems
   };
 
