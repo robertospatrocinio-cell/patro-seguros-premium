@@ -275,6 +275,8 @@ async function run() {
   const { seoLocalPageSlugs: modeloSlugs } = await loadDataModule("src/data/seoModelosAutoPages.ts");
   const { segmentos } = await loadDataModule("src/data/segmentosEmpresariais.ts");
   const { blogAuthors } = await loadDataModule("src/lib/blogAuthors.ts");
+  const { getBlogContent } = await loadDataModule("src/data/blogContentIndex.ts");
+  const { extraFaqsBySlug } = await loadDataModule("src/data/blogExtraData.ts");
 
   const blogSlugs = articles.map(a => a.slug);
   const localSlugs = [...(autoSlugs || []), ...(saudeSlugs || []), ...(modeloSlugs || [])];
