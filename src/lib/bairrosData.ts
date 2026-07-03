@@ -288,6 +288,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "auto-gopouva", neighborhood: "Gopouva", product: "auto", riskLevel: "médio", priceRange: "R$ 2.450 a R$ 4.700/ano", reference: "com fácil acesso ao Centro" }),
        ...generateLocalFAQs({ slug: "saude-gopouva", neighborhood: "Gopouva", product: "saude", priceRange: "consultas e exames completos", reference: "com ampla rede em Guarulhos" }),
      ],
+    intel: {
+      demographics: "Bairro tradicional de Guarulhos, com forte identidade comunitária, comércio consolidado e mistura de casas antigas e prédios residenciais de médio padrão.",
+      landmarks: {
+        streets: ["Av. Guarulhos", "Rua Dona Glória Pagnoncelli", "Praça Getúlio Vargas (Igreja de Santo Antônio)"],
+        hospitals: ["Hospital Bom Clima (proximidade)", "Santa Casa de Guarulhos (acesso rápido)"],
+        business: ["Comércio de rua tradicional no eixo Av. Guarulhos"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Perfil de moradores estabelecidos com bônus alto e casas com garagem reduz prêmio de auto. Comércio de rua exige RC Operação e roubo qualificado bem calibrados.",
+      },
+      localCase: {
+        title: "Renovação consolidada para moradora aposentada de Gopouva",
+        description: "Cliente idosa com casa própria + auto compacto + plano de saúde individual antigo teve as 3 apólices reavaliadas. Migração parcial (residencial + auto) para seguradora tier-1 gerou R$ 1.180/ano de economia, mantendo mesma cobertura e sem perda de bônus.",
+      },
+    },
    },
    {
      id: "bonsucesso",
@@ -339,6 +357,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "residencial-paraventi", neighborhood: "Paraventi", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 25/mês", reference: "nas ruas residenciais do Paraventi" }),
        ...generateLocalFAQs({ slug: "vida-paraventi", neighborhood: "Paraventi", product: "vida", priceRange: "a partir de R$ 30/mês", reference: "para proteção familiar básica" }),
      ],
+    intel: {
+      demographics: "Bairro residencial de classe média com forte presença de famílias trabalhadoras e comércio de vizinhança, tendo o SESI Guarulhos como principal marco.",
+      landmarks: {
+        business: ["SESI Guarulhos", "SENAI Guarulhos (proximidade)"],
+        streets: ["Av. Papa João Paulo I", "Estr. Guarulhos-Nazaré", "Av. Paraventi"],
+        schools: ["Rede SESI/SENAI de educação técnica"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Trânsito intenso no eixo Papa João Paulo I eleva risco de colisão; residências em casa fechada com portão automático reduzem prêmio residencial em ~15%.",
+      },
+      localCase: {
+        title: "Plano de saúde individual acessível para trabalhador do SESI",
+        description: "Trabalhador do Paraventi com dependente conseguiu migrar de plano individual antigo (reajuste 22% ano) para coletivo por adesão via entidade de classe. Economia de R$ 240/mês com a mesma rede credenciada na região.",
+      },
+    },
    },
    {
      id: "continental",
@@ -353,6 +389,24 @@ export const bairros: BairroData[] = [
        ...generateLocalFAQs({ slug: "vida-continental", neighborhood: "Continental", product: "vida", priceRange: "a partir de R$ 35/mês", reference: "para moradores de condomínios verticais" }),
        ...generateLocalFAQs({ slug: "saude-continental", neighborhood: "Continental", product: "saude", priceRange: "ampla rede de atendimento local", reference: "próximo à região central" }),
      ],
+    intel: {
+      demographics: "Um dos bairros mais populosos de Guarulhos, com alta densidade vertical (condomínios e apartamentos populares) e forte demanda por seguros de baixo ticket.",
+      landmarks: {
+        streets: ["Av. Papa João Paulo I", "Av. Otávio Braga de Mesquita", "Av. Emílio Ribas"],
+        hospitals: ["UPA Continental", "Hospital Padre Bento (proximidade)"],
+        business: ["Comércio local intenso e concentração de condomínios verticais"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Apartamentos com portaria 24h e garagem coberta reduzem prêmio residencial e auto; concentração de veículos em avenidas eleva sinistralidade de colisão leve.",
+      },
+      localCase: {
+        title: "Seguro condomínio + residencial individual para edifício do Continental",
+        description: "Síndico contratou seguro obrigatório de condomínio e ofereceu proposta coletiva de residencial individual para os 84 apartamentos. Adesão de 41 moradores gerou desconto de 18% sobre o prêmio individual médio da região.",
+      },
+    },
    },
   {
     id: "pimentas",
@@ -374,6 +428,25 @@ export const bairros: BairroData[] = [
       { question: "Tem hospital credenciado próximo a Pimentas?", answer: "Sim. Dependendo da operadora (Bradesco, SulAmérica, Amil, Hapvida, Notre Dame Intermédica), a rede em Pimentas e arredores inclui Hospital Stella Maris, Hospital Padre Bento, clínicas em Bonsucesso e pronto-atendimentos próximos à Av. Pimentas. Em uma cotação real comparamos qual operadora cobre melhor o seu bairro específico." },
       { question: "Seguro residencial em Pimentas cobre roubo de eletrônicos?", answer: "Sim. A cobertura básica obrigatória é incêndio, mas a contratação típica em Pimentas inclui adicional de roubo/furto qualificado de bens, danos elétricos e RC familiar. Para uma casa avaliada em R$ 250 mil com R$ 30 mil em bens, o prêmio fica em torno de R$ 32–55/mês. Indicamos cobertura de roubo qualificada porque furto simples (sem arrombamento) não é coberto por padrão." },
     ],
+    intel: {
+      demographics: "Maior região populacional de Guarulhos, com perfil de famílias trabalhadoras, motoristas de aplicativo, motoboys e forte demanda por seguros de baixo/médio ticket.",
+      landmarks: {
+        hospitals: ["Hospital Municipal de Pimentas", "UBS Pimentas"],
+        streets: ["Av. Pimentas", "Estr. Pres. Juscelino Kubitschek", "Av. Nações Unidas"],
+        schools: ["Universidade Federal de São Paulo — Campus Guarulhos (proximidade)"],
+        business: ["Comércio de rua e concentração de motoboys/entregadores"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio-alto",
+        empresarial: "médio",
+        notes: "CEP com sinistralidade de roubo/furto até 40% acima da média de Guarulhos. Rastreador obrigatório para FIPE > R$ 50 mil e para motos populares (CG, Fan, Factor).",
+      },
+      localCase: {
+        title: "Apólice viável para motorista de app em Pimentas com -22% de prêmio",
+        description: "Motorista de aplicativo no Pimentas com Onix 2021 estava sendo recusado em 2 seguradoras. A corretora estruturou apólice com cláusula EAR (Porto Conecta), rastreador embutido e franquia calibrada, resultando em R$ 3.180/ano — 22% abaixo da última cotação aceita.",
+      },
+    },
   },
   {
     id: "taboao",
@@ -395,6 +468,23 @@ export const bairros: BairroData[] = [
       { question: "Atendem comércio na Av. Monteiro Lobato e entorno?", answer: "Sim, atendemos todo o eixo comercial do Taboão (Av. Monteiro Lobato, Rua Antônio Nunes da Cunha, entorno do Cecap e acesso à Marginal). Fazemos visita técnica gratuita para vistoria do imóvel comercial antes da contratação, o que ajuda a evitar problemas em sinistro." },
       { question: "Como funciona seguro de vida para autônomos do Taboão?", answer: "Comerciantes e prestadores autônomos do Taboão geralmente contratam seguro de vida individual com cobertura de morte + invalidez + DIT (Diária por Incapacidade Temporária). Para R$ 100 mil de capital, sai a partir de R$ 38/mês na faixa de 30–45 anos. A DIT é essencial: paga uma diária se você ficar afastado do trabalho por acidente ou doença, o que para autônomo equivale a manter a renda durante a recuperação." },
     ],
+    intel: {
+      demographics: "Bairro de conexão rodoviária (Dutra + Fernão Dias), com mistura de residências (casas e Cecap), comércio de rua e pequenos prestadores de serviço.",
+      landmarks: {
+        streets: ["Rodovia Pres. Dutra", "Rodovia Fernão Dias (acesso)", "Av. Monteiro Lobato", "entorno do Pq. Cecap"],
+        business: ["Comércio de rua no eixo Av. Monteiro Lobato", "acesso a distribuidores da Dutra"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Proximidade de Dutra e Fernão Dias eleva risco de colisão e quebra de para-brisa — assistência 24h em rodovia é essencial. Apartamentos do Cecap têm prêmio residencial ~25% menor por conta de portaria e edifícios verticais.",
+      },
+      localCase: {
+        title: "Combo auto + residencial para engenheiro que roda Dutra diariamente",
+        description: "Engenheiro do Taboão com uso pendular diário na Dutra fechou compreensiva com rastreador + cobertura de vidros/faróis + residencial da casa em combo. Desconto de 12% sobre o total e assistência 24h ativada 3 vezes no primeiro ano (para-brisa e pane elétrica).",
+      },
+    },
   },
   {
     id: "vila-galvao",
@@ -416,6 +506,25 @@ export const bairros: BairroData[] = [
       { question: "Posso combinar auto + residencial + vida na mesma corretora?", answer: "Sim, e recomendamos. Concentrar as apólices na Patro permite descontos de combo (em média 8–15% sobre o total), uma única gestão de renovações e atendimento unificado em sinistro. Famílias do Vila Galvão que migram 3+ apólices para a Patro economizam, em média, R$ 1.800 a R$ 4.500/ano somando todos os produtos." },
       { question: "Vocês fazem atendimento presencial em Vila Galvão?", answer: "Fazemos. O escritório fica no Cidade Maia (Av. Salgado Filho, 2120), a poucos minutos do Vila Galvão. Para clientes de alto patrimônio ou casos complexos (vida com declaração de saúde, imóveis acima de R$ 1 milhão, frota), agendamos visita no endereço do cliente sem custo." },
     ],
+    intel: {
+      demographics: "Bairro tradicional de médio-alto padrão, com moradores estabelecidos, comércio consolidado na Av. Emílio Ribas e forte demanda por seguros de vida e patrimoniais.",
+      landmarks: {
+        streets: ["Av. Emílio Ribas", "Av. São Luís", "Divisa com São Paulo (Zona Norte)"],
+        hospitals: ["Hospital Stella Maris (proximidade)", "rede de clínicas particulares na Emílio Ribas"],
+        schools: ["Colégios particulares tradicionais no eixo Emílio Ribas"],
+        business: ["Comércio consolidado e agências bancárias na Av. Emílio Ribas"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "baixo",
+        empresarial: "médio",
+        notes: "Moradores estabelecidos com bônus 8–10 e casas com garagem fechada obtêm até 30–40% de desconto no auto. Apartamentos novos no eixo Emílio Ribas têm prêmio residencial reduzido pela portaria 24h.",
+      },
+      localCase: {
+        title: "Consolidação de 3 apólices para família tradicional do Vila Galvão",
+        description: "Família Oliveira migrou 2 autos + plano de saúde familiar para a Patro no mesmo mês. Economia consolidada de R$ 4.200/ano versus contratação separada, com gestão única e acompanhamento mensal por WhatsApp.",
+      },
+    },
   },
   {
     id: "aeroporto-guarulhos",
@@ -437,6 +546,24 @@ export const bairros: BairroData[] = [
       { question: "Como funciona seguro de RC Operacional para serviços em pista?", answer: "RC Operacional cobre danos causados pela sua empresa a aeronaves, equipamentos de solo (GSE), instalações do aeroporto e terceiros durante a operação. Indispensável para handling, abastecimento, limpeza de aeronaves, transporte de tripulação e manutenção de equipamentos. Trabalhamos com seguradoras especializadas em aviation (Allianz, AIG, Tokio, Zurich) e dimensionamos LMI conforme contrato com a tomadora (geralmente R$ 5 a 50 milhões)." },
       { question: "Atendem motoristas de aplicativo e taxistas que operam no GRU?", answer: "Sim. Motoristas de Uber, 99, taxistas e transfer privado que rodam intensamente entre o GRU e a Grande SP têm perfil de risco diferenciado — alta quilometragem, presença em área de risco e exposição em fila do desembarque. Trabalhamos com Porto Conecta, Mobi7 e seguradoras que oferecem cobertura específica para motorista de app, com franquia ajustada e assistência 24h compatível com a operação." },
     ],
+    intel: {
+      demographics: "Entorno do maior hub aéreo da América Latina, com forte concentração de transportadoras, operadores logísticos, comissárias, hotéis, locadoras e prestadores B2B que atendem o GRU Airport 24/7.",
+      landmarks: {
+        business: ["Aeroporto Internacional de Guarulhos (GRU)", "TECA — Terminal de Cargas GRU", "condomínios logísticos ao longo da Hélio Smidt"],
+        streets: ["Rodovia Hélio Smidt", "Av. Monteiro Lobato", "acesso à Rodovia Pres. Dutra"],
+        hospitals: ["Hospital Padre Bento (proximidade)"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio-alto",
+        empresarial: "alto",
+        notes: "Operação 24/7 e alto valor agregado das cargas exigem RCTR-C + RCF-DC robustos, gerenciamento de risco (rastreador, escolta) e RC Operacional dimensionado ao contrato com a GRU Airport (R$ 1 a 50 milhões de LMI).",
+      },
+      localCase: {
+        title: "Reestruturação de frota rodoaérea com -R$ 71 mil/ano",
+        description: "Transportadora rodoaérea com base em Cumbica trocou de corretora após 8 anos. A Patro renegociou frota de 34 cavalos mecânicos e incluiu RC Operacional para serviços em pátio do GRU. Redução de R$ 71 mil/ano com relatório mensal de sinistralidade incluído.",
+      },
+    },
   },
   {
     id: "cidade-industrial-satelite",
@@ -458,6 +585,24 @@ export const bairros: BairroData[] = [
       { question: "Plano de saúde para chão de fábrica é viável?", answer: "Sim, e é cada vez mais comum como ferramenta de retenção. Para indústrias com 30+ colaboradores oferecemos planos coletivos empresariais com Hapvida NotreDame, Unimed, Amil, SulAmérica e Bradesco. Mensalidade média de R$ 230 a R$ 480 por colaborador (faixa etária 18–58, padrão enfermaria ou apartamento). Coparticipação reduz custo da empresa em até 25%." },
       { question: "Atendem indústrias com risco ambiental?", answer: "Sim. Indústrias com risco de poluição (químicas, galvânicas, tratamento de efluentes) precisam de RC Poluição Súbita (cobertura padrão das apólices empresariais limitada) e idealmente Seguro Ambiental específico (EIA — Environmental Impairment Liability). Trabalhamos com AIG, Chubb e Zurich em apólices ambientais com LMI de R$ 5 a R$ 100 milhões, cobrindo contaminação súbita, gradual, custos de descontaminação e defesa em ações ambientais." },
     ],
+    intel: {
+      demographics: "Segundo maior polo industrial de São Paulo, concentrando indústrias químicas, metalúrgicas, farmacêuticas, autopeças e centros de distribuição ao longo da Via Dutra.",
+      landmarks: {
+        business: ["Cidade Industrial Satélite (CIS)", "centros de distribuição na Via Dutra", "indústrias químicas e metalúrgicas do entorno"],
+        streets: ["Rodovia Pres. Dutra", "Av. Industrial", "Av. Otávio Braga de Mesquita"],
+        hospitals: ["Hospital Padre Bento", "rede SESI/SESI Saúde para trabalhadores industriais"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "alto",
+        notes: "Classe de ocupação industrial (química, metalúrgica, farma) pesa fortemente no prêmio patrimonial. Vistoria de engenharia, brigada própria, sprinkler e distância de hidrantes podem reduzir tarifa em até 40%. RC Produto e Ambiental são frequentemente exigidas por contratos com grandes clientes.",
+      },
+      localCase: {
+        title: "Indústria química com -22% de prêmio patrimonial após vistoria conjunta",
+        description: "Indústria química da CIS com R$ 42 milhões em ativos + estoque teve apólice reestruturada em concorrência entre 4 seguradoras. Vistoria conjunta com engenharia de risco ajustou classe de ocupação e sistemas de combate a incêndio — redução de 22% no prêmio com cobertura ampliada para danos elétricos e BME.",
+      },
+    },
   },
   {
     id: "jardim-cumbica",
@@ -479,5 +624,23 @@ export const bairros: BairroData[] = [
       { question: "Posso contratar plano de saúde sem CNPJ morando no Jardim Cumbica?", answer: "Sim. Planos individuais e familiares são mais caros que coletivos, mas existem opções acessíveis: Hapvida individual a partir de R$ 189/mês (faixa 0–18), Notre Dame Intermédica e Amil One Saúde também têm planos individuais. Para reduzir custo, abrimos MEI gratuito (atividade compatível com seu trabalho) e enquadramos no plano coletivo empresarial — economia média de 35% versus individual." },
       { question: "Vocês atendem presencial ou só por WhatsApp?", answer: "Atendemos das duas formas. Para quem prefere presencial, o escritório fica no Cidade Maia (Av. Salgado Filho, 2120) — fácil acesso pela Av. Monteiro Lobato e Av. Otávio Braga de Mesquita. Para quem tem rotina apertada (motoristas, comissários, motoboys), resolvemos 100% por WhatsApp, com envio de proposta, contrato e boleto digital. Apólice ativada em 24h." },
     ],
+    intel: {
+      demographics: "Bairro residencial dos trabalhadores do Aeroporto de Guarulhos e do polo logístico do entorno — famílias, motoristas de aplicativo, motoboys, comissários e equipes de handling.",
+      landmarks: {
+        streets: ["Av. Monteiro Lobato", "Av. Otávio Braga de Mesquita", "Rod. Hélio Smidt (proximidade)"],
+        hospitals: ["Hospital Stella Maris (proximidade)", "UBS Jardim Cumbica"],
+        business: ["Comércio de vizinhança e concentração de motoristas/motoboys do GRU"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio-alto",
+        empresarial: "médio",
+        notes: "Proximidade do aeroporto e índice de roubo/furto elevado exigem rastreador para veículos de médio/alto valor e cobertura EAR obrigatória para motoristas de app e motoboys.",
+      },
+      localCase: {
+        title: "Apólice viável para motorista de app com sinistro pago em 7 dias",
+        description: "Motorista de aplicativo do Jardim Cumbica com HB20 e 5 mil km/mês no GRU contratou compreensiva com rastreador por R$ 2.480/ano. Sinistro de colisão com Uber foi indenizado e oficina liberada em 7 dias úteis — sem interrupção significativa da operação.",
+      },
+    },
   },
 ];
