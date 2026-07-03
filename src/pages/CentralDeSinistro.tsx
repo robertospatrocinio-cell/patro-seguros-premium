@@ -311,20 +311,13 @@ const CentralDeSinistro = () => {
         </section>
 
         {/* Final CTA Section */}
-        <section className="py-20 bg-slate-50/50 border-t">
-          <div className="container mx-auto px-4 max-w-3xl">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-3">
-                <HelpCircle className="h-4 w-4" /> Perguntas frequentes
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary">Dúvidas sobre acionar seu seguro</h2>
-              <p className="text-sm text-muted-foreground mt-3 max-w-2xl mx-auto">
-                Respostas objetivas para as 6 perguntas que mais recebemos na central da Patro Seguros em Guarulhos.
-              </p>
-            </div>
-            <FAQBlock faqs={sinistroFaqs} />
-          </div>
-        </section>
+        <FAQBlock
+          eyebrow="Perguntas frequentes"
+          title="Dúvidas sobre acionar seu seguro"
+          items={sinistroFaqs.map((f) => ({ question: f.question, answer: f.answer }))}
+          headingId="faq-central-sinistro"
+          className="py-20 bg-slate-50/50 border-t"
+        />
 
         <section className="py-24 text-center">
           <div className="container mx-auto px-4 max-w-3xl">
