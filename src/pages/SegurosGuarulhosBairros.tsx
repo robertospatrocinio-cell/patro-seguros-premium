@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse, Quote } from "lucide-react";
+import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, ChevronRight, MessageCircle, HeartPulse, Quote, Hospital, Store, Route, GraduationCap, Briefcase, TrendingUp, Award } from "lucide-react";
  import { escapeHtml } from "@/lib/utils";
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
  import { toast } from "sonner";
@@ -266,6 +266,145 @@ const SegurosGuarulhosBairros = () => {
             </div>
           </div>
         </section>
+
+        {/* INTELIGÊNCIA LOCAL — dados únicos por bairro (evita conteúdo duplicado) */}
+        {selectedBairro.intel && (
+          <section className="py-16 bg-white border-t">
+            <div className="container mx-auto px-4">
+              <div className={`max-w-5xl mx-auto transition-all duration-500 ${transitioning ? "opacity-0" : "opacity-100"}`}>
+                <div className="flex items-center gap-3 mb-3">
+                  <TrendingUp className="h-6 w-6 text-[#F2994A] shrink-0" />
+                  <h2 className="text-2xl md:text-3xl font-bold text-[#003366]">
+                    Inteligência local: {selectedBairro.nome} de perto
+                  </h2>
+                </div>
+                {selectedBairro.intel.demographics && (
+                  <p className="text-base text-gray-600 mb-8 max-w-3xl">
+                    {selectedBairro.intel.demographics}
+                  </p>
+                )}
+
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  {/* MARCOS LOCAIS */}
+                  {selectedBairro.intel.landmarks && (
+                    <Card className="border-0 shadow-md">
+                      <CardContent className="pt-6 pb-6">
+                        <h3 className="text-lg font-bold text-[#003366] mb-4 flex items-center gap-2">
+                          <MapPin className="h-5 w-5 text-[#F2994A]" aria-hidden />
+                          Referências do bairro
+                        </h3>
+                        <dl className="space-y-3 text-sm text-gray-700">
+                          {selectedBairro.intel.landmarks.hospitals?.length ? (
+                            <div className="flex gap-2">
+                              <Hospital className="h-4 w-4 text-[#003366] mt-0.5 shrink-0" aria-hidden />
+                              <div>
+                                <dt className="font-semibold text-[#003366]">Saúde:</dt>
+                                <dd>{selectedBairro.intel.landmarks.hospitals.join(" • ")}</dd>
+                              </div>
+                            </div>
+                          ) : null}
+                          {selectedBairro.intel.landmarks.malls?.length ? (
+                            <div className="flex gap-2">
+                              <Store className="h-4 w-4 text-[#003366] mt-0.5 shrink-0" aria-hidden />
+                              <div>
+                                <dt className="font-semibold text-[#003366]">Comércio âncora:</dt>
+                                <dd>{selectedBairro.intel.landmarks.malls.join(" • ")}</dd>
+                              </div>
+                            </div>
+                          ) : null}
+                          {selectedBairro.intel.landmarks.streets?.length ? (
+                            <div className="flex gap-2">
+                              <Route className="h-4 w-4 text-[#003366] mt-0.5 shrink-0" aria-hidden />
+                              <div>
+                                <dt className="font-semibold text-[#003366]">Vias principais:</dt>
+                                <dd>{selectedBairro.intel.landmarks.streets.join(" • ")}</dd>
+                              </div>
+                            </div>
+                          ) : null}
+                          {selectedBairro.intel.landmarks.schools?.length ? (
+                            <div className="flex gap-2">
+                              <GraduationCap className="h-4 w-4 text-[#003366] mt-0.5 shrink-0" aria-hidden />
+                              <div>
+                                <dt className="font-semibold text-[#003366]">Educação:</dt>
+                                <dd>{selectedBairro.intel.landmarks.schools.join(" • ")}</dd>
+                              </div>
+                            </div>
+                          ) : null}
+                          {selectedBairro.intel.landmarks.business?.length ? (
+                            <div className="flex gap-2">
+                              <Briefcase className="h-4 w-4 text-[#003366] mt-0.5 shrink-0" aria-hidden />
+                              <div>
+                                <dt className="font-semibold text-[#003366]">Polos e negócios:</dt>
+                                <dd>{selectedBairro.intel.landmarks.business.join(" • ")}</dd>
+                              </div>
+                            </div>
+                          ) : null}
+                        </dl>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* PERFIL DE RISCO */}
+                  {selectedBairro.intel.riskProfile && (
+                    <Card className="border-0 shadow-md">
+                      <CardContent className="pt-6 pb-6">
+                        <h3 className="text-lg font-bold text-[#003366] mb-4 flex items-center gap-2">
+                          <Shield className="h-5 w-5 text-[#F2994A]" aria-hidden />
+                          Perfil de risco (subscrição Patro)
+                        </h3>
+                        <div className="grid grid-cols-3 gap-3 mb-4">
+                          {(["auto", "residencial", "empresarial"] as const).map((k) => {
+                            const level = selectedBairro.intel?.riskProfile?.[k];
+                            if (!level) return null;
+                            const color =
+                              level === "baixo"
+                                ? "bg-green-100 text-green-800"
+                                : level === "médio"
+                                ? "bg-yellow-100 text-yellow-800"
+                                : "bg-red-100 text-red-800";
+                            return (
+                              <div key={k} className="text-center">
+                                <div className="text-[10px] uppercase tracking-wide text-gray-500 mb-1">{k}</div>
+                                <div className={`text-xs font-bold px-2 py-1 rounded-full ${color}`}>{level}</div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                        {selectedBairro.intel.riskProfile.notes && (
+                          <p className="text-sm text-gray-600 leading-relaxed border-t pt-3">
+                            {selectedBairro.intel.riskProfile.notes}
+                          </p>
+                        )}
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
+
+                {/* CASO LOCAL */}
+                {selectedBairro.intel.localCase && (
+                  <Card className="border-0 shadow-md bg-gradient-to-br from-[#003366] to-[#00264d] text-white">
+                    <CardContent className="pt-6 pb-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        <Award className="h-6 w-6 text-[#F2994A] shrink-0 mt-1" aria-hidden />
+                        <div>
+                          <div className="text-[10px] uppercase tracking-widest text-[#F2994A] font-bold mb-1">
+                            Caso real anonimizado
+                          </div>
+                          <h3 className="text-lg md:text-xl font-bold">
+                            {selectedBairro.intel.localCase.title}
+                          </h3>
+                        </div>
+                      </div>
+                      <p className="text-sm md:text-base text-white/85 leading-relaxed pl-9">
+                        {selectedBairro.intel.localCase.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* GRADE DE SERVIÇOS — 4 CARDS */}
         <section className="py-16">
