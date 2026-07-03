@@ -17,6 +17,10 @@ interface ArticleSchemaProps {
   dateModified?: string; // ISO, defaults to datePublished
   authorName: string;
   authorUrl?: string;
+  authorImage?: string;
+  authorSusep?: string;
+  authorKnowsAbout?: string[];
+  authorSameAs?: string[];
   category?: string;
   tags?: string[];
   wordCount?: number;
@@ -32,6 +36,10 @@ const ArticleSchema = ({
   dateModified,
   authorName,
   authorUrl = "https://www.patroseguros.com.br/sobre",
+  authorImage,
+  authorSusep,
+  authorKnowsAbout = [],
+  authorSameAs = [],
   category,
   tags = [],
   wordCount,
@@ -57,7 +65,25 @@ const ArticleSchema = ({
         "@type": "Organization",
         name: "Patro Seguros",
         url: "https://www.patroseguros.com.br",
+        sameAs: [
+          "https://www.instagram.com/patroseguros",
+          "https://www.facebook.com/patroseguros",
+          "https://www.linkedin.com/company/patro-seguros",
+          "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp",
+        ],
       },
+      ...(authorImage ? { image: authorImage } : {}),
+      ...(authorSusep
+        ? {
+            identifier: {
+              "@type": "PropertyValue",
+              propertyID: "SUSEP",
+              value: authorSusep,
+            },
+          }
+        : {}),
+      ...(authorKnowsAbout.length ? { knowsAbout: authorKnowsAbout } : {}),
+      ...(authorSameAs.length ? { sameAs: authorSameAs } : {}),
     },
     publisher: {
       "@type": "Organization",
