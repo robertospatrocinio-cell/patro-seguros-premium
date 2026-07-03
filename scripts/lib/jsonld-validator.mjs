@@ -59,6 +59,27 @@ export function validateFAQ(node, errors, label) {
   });
 }
 
+export function validateHowTo(node, errors, label) {
+  if (!node.name || !String(node.name).trim()) {
+    errors.push(`${label} HowTo: faltando name`);
+  }
+  const steps = node.step;
+  if (!Array.isArray(steps) || steps.length === 0) {
+    errors.push(`${label} HowTo: step[] vazio ou ausente`);
+    return;
+  }
+  steps.forEach((s, i) => {
+    const type = Array.isArray(s?.["@type"]) ? s["@type"][0] : s?.["@type"];
+    if (type !== "HowToStep") errors.push(`${label} HowTo: step[${i}] @type deveria ser HowToStep`);
+    if (!s?.name) errors.push(`${label} HowTo: step[${i}] sem name`);
+    if (!s?.text && !s?.itemListElement) errors.push(`${label} HowTo: step[${i}] sem text nem itemListElement`);
+  });
+  const ISO_DUR = /^P(T\d+[HMS])?/;
+  if (node.totalTime && !ISO_DUR.test(String(node.totalTime))) {
+    errors.push(`${label} HowTo: totalTime não está em ISO 8601 duration (${node.totalTime})`);
+  }
+}
+
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?$/;
 
 function authorName(author) {
@@ -116,6 +137,7 @@ export function validateNode(node, errors, label = "root") {
   if (type === "BreadcrumbList") validateBreadcrumb(node, errors, label);
   else if (type === "LocalBusiness" || type === "InsuranceAgency" || type === "Organization") validateLocalBusiness(node, errors, label);
   else if (type === "FAQPage") validateFAQ(node, errors, label);
+  else if (type === "HowTo") validateHowTo(node, errors, label);
   else if (type === "Article" || type === "BlogPosting" || type === "NewsArticle") validateArticle(node, errors, label);
 }
 
