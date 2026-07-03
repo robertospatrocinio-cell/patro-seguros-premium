@@ -2,6 +2,7 @@ import { lazy } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import SpeakableSchema from "@/components/SpeakableSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { 

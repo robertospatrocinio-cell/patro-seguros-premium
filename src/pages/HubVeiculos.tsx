@@ -5,6 +5,7 @@
  import PageMeta from "@/components/PageMeta";
   import Breadcrumb from "@/components/Breadcrumb";
   import FAQSchema from "@/components/FAQSchema";
+ import SpeakableSchema from "@/components/SpeakableSchema";
   import AggregateRatingSchema from "@/components/AggregateRatingSchema";
   import { getCanonicalUrl } from "@/lib/canonical";
  import { Button } from "@/components/ui/button";
