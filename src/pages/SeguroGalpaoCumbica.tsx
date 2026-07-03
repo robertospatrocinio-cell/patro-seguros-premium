@@ -98,6 +98,25 @@ Trabalhamos com Porto Empresarial, Tokio Marine, Allianz, HDI, Chubb e Zurich em
       { title: "Hub de Seguros em Guarulhos", link: "/seguros-em-guarulhos" },
     ]}
     whatsappMessage="Olá! Quero uma cotação de seguro para galpão em Cumbica. Podemos agendar vistoria consultiva?"
+    howto={{
+      name: "Como contratar seguro de galpão em Cumbica (Guarulhos)",
+      description: "Passo a passo para segurar galpão logístico ou industrial em Cumbica com incêndio, roubo de mercadoria e RC operacional.",
+      totalTime: "P7D",
+      supply: [
+        "IPTU ou contrato de locação do galpão",
+        "Valor de reposição da estrutura (m² x custo de construção)",
+        "Valor médio e valor máximo do estoque em 24h",
+        "Fotos internas, externas e do sistema de combate a incêndio",
+      ],
+      tool: ["Vistoria consultiva Patro", "WhatsApp Patro Seguros"],
+      steps: [
+        { name: "Solicite vistoria consultiva gratuita", text: "A Patro visita seu galpão em Cumbica em até 48h úteis para identificar riscos de aceite (hidrantes, brigada, CFTV, portaria)." },
+        { name: "Dimensione o LMI de estoque corretamente", text: "Subseguro é a causa nº 1 de indenização parcial. Use o pico dos últimos 12 meses, não a média — sazonalidade em Cumbica varia até 3x." },
+        { name: "Contrate lucros cessantes de 6+ meses", text: "Reconstrução de galpão sinistrado leva em média 8 a 14 meses. Sem lucros cessantes, o negócio para junto com o telhado." },
+        { name: "Compare 5 seguradoras especializadas", text: "A Patro cota em Tokio Marine, Allianz, Zurich, Bradesco e Porto Empresarial — as que mais aceitam risco logístico próximo ao GRU Airport." },
+        { name: "Ative apólice e revise anualmente", text: "Após pagamento e aceite técnico (até 7 dias), agende revisão anual do LMI de estoque conforme o negócio cresce." },
+      ],
+    }}
   />
 );
 
