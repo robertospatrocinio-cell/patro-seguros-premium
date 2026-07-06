@@ -12,6 +12,7 @@ import SpeakableSchema from "@/components/SpeakableSchema";
 import PersonAuthorsSchema from "@/components/PersonAuthorsSchema";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick, buildCotacaoUrl } from "@/lib/tracking";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const CANONICAL = "https://www.patroseguros.com.br/verificar-susep";
 const SUSEP_URL = "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp";
@@ -44,7 +45,7 @@ const passos = [
   },
   {
     name: "Ver perfis públicos e reputação",
-    text: "Cruze com fontes independentes: perfil no Google Business (4.7★, 27+ avaliações), LinkedIn corporativo e Reclame Aqui — todos abertos e verificáveis.",
+    text: `Cruze com fontes independentes: perfil no Google Business (${PATRO_SOCIAL_PROOF.googleRating}★, ${PATRO_SOCIAL_PROOF.googleReviewCount}+ avaliações), LinkedIn corporativo e Reclame Aqui — todos abertos e verificáveis.`,
   },
 ];
 
@@ -235,7 +236,7 @@ const VerificarSusep = () => {
               {[
                 { label: "Ficha técnica completa da corretora", href: "/sobre#ficha-tecnica", internal: true },
                 { label: "Credenciais dos autores (Roberto e Sandra)", href: "/sobre#credenciais-autores", internal: true },
-                { label: "Página no Google Maps (4.7★)", href: "https://www.google.com/maps?cid=273879799324962533" },
+                { label: `Página no Google Maps (${PATRO_SOCIAL_PROOF.googleRating}★)`, href: "https://www.google.com/maps?cid=273879799324962533" },
                 { label: "LinkedIn corporativo", href: "https://www.linkedin.com/company/patro-seguros" },
                 { label: "Site oficial da SUSEP", href: "https://www.gov.br/susep" },
                 { label: "Lei 4.594/1964 (regulamento do corretor)", href: "https://www.planalto.gov.br/ccivil_03/leis/l4594.htm" },

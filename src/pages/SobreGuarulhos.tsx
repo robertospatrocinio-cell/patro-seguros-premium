@@ -9,12 +9,13 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, MessageCircle, ArrowRight, MapPin, Building2, Users, TrendingUp, Plane, Shield } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20sobre%20Guarulhos%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.";
 
 const faqs = [
   { question: "A Patro Seguros atende apenas Guarulhos?", answer: "Não. Nossa sede fica em Guarulhos, mas atendemos toda a Região Metropolitana de São Paulo, interior do estado e, para seguros Agro, todo o Brasil. O atendimento é presencial, por WhatsApp, telefone e videochamada." },
-  { question: "Qual é a melhor corretora de seguros em Guarulhos?", answer: "A Patro Seguros é referência em Guarulhos, com nota 4.7 no Google, 27 avaliações positivas e registro na SUSEP (nº 212113511). Comparamos cotações de 16+ seguradoras para encontrar o melhor custo-benefício." },
+  { question: "Qual é a melhor corretora de seguros em Guarulhos?", answer: `A Patro Seguros é referência em Guarulhos, com nota ${PATRO_SOCIAL_PROOF.googleRating} no Google, ${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações positivas e registro na SUSEP (nº 212113511). Comparamos cotações de 16+ seguradoras para encontrar o melhor custo-benefício.` },
   { question: "Vocês fazem seguro para empresas em Guarulhos?", answer: "Sim! Temos ampla experiência com empresas de Guarulhos — desde pequenas lojas até indústrias e transportadoras. Oferecemos Seguro Empresarial, RC, Frota, Cyber, Plano de Saúde Empresarial e mais." },
   { question: "Como funciona o atendimento presencial?", answer: "Nosso escritório fica na Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia, com fácil acesso e estacionamento. Atendemos de segunda a sexta das 9h às 18h e sábados das 9h às 13h. Recomendamos agendar pelo WhatsApp." },
   { question: "Vocês trabalham com planos de saúde em Guarulhos?", answer: "Sim! Trabalhamos com as principais operadoras que atendem Guarulhos: Amil, Bradesco Saúde, SulAmérica, Hapvida/NotreDame, Prevent Senior, Unimed e mais. Comparamos preços e coberturas para encontrar o ideal." },
@@ -41,7 +42,7 @@ const SobreGuarulhos = () => (
   <>
     <PageMeta
       title="Corretora de Seguros em Guarulhos | Patro Seguros"
-      description="A Patro Seguros é a corretora de seguros referência em Guarulhos/SP. Seguro Auto, Empresarial, Saúde, Vida, Frota e mais. Nota 4.7 no Google. Cotação grátis!"
+      description=`A Patro Seguros é a corretora de seguros referência em Guarulhos/SP. Seguro Auto, Empresarial, Saúde, Vida, Frota e mais. Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google. Cotação grátis!`
     />
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />
@@ -119,7 +120,7 @@ const SobreGuarulhos = () => (
             {[
               "Sede em Guarulhos — conhecemos a realidade local, os bairros e os riscos da região",
               "Registrada na SUSEP (nº 212113511) — corretora regulamentada e fiscalizada",
-              "Nota 4.7 no Google com 27 avaliações de clientes reais",
+              `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google com ${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações de clientes reais`,
               "Comparamos cotações de 16+ seguradoras e 20 operadoras de saúde",
               "Atendimento presencial no escritório ou 100% online (WhatsApp, e-mail, videochamada)",
               "Resposta em até 2 horas com propostas comparativas",

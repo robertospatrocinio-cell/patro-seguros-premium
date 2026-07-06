@@ -1,5 +1,6 @@
 import LocalPageTemplate from "@/components/LocalPageTemplate";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const SeoECVGuarulhos = () => (
   <LocalPageTemplate
@@ -49,7 +50,7 @@ const SeoECVGuarulhos = () => (
       { title: "Incêndio", description: "Proteção para a estrutura física." }
     ]}
     whoNeeds={["Empresários de ECV", "Sócios de Vistoria", "Gestores Automotivos", "Novas Empresas de Vistoria"]}
-    whyPatro={["Referência em Guarulhos", "Nota 4.7 no Google", "Experiência com Detran", "Cotação em 2h"]}
+    whyPatro={["Referência em Guarulhos", `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google`, "Experiência com Detran", "Cotação em 2h"]}
     tips={["Verifique os limites mínimos exigidos no último edital do Detran.", "Mantenha o inventário de equipamentos atualizado.", "Contrate também cobertura de Lucros Cessantes."]}
     relatedInsurances={[
       { title: "Seguro Vistoria Veicular", link: "/seguro-para-empresas-de-vistoria-veicular" },

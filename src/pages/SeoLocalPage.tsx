@@ -12,6 +12,7 @@ import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 import LazySection from "@/components/LazySection";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const GalpaoStickyCTABar = lazy(() => import("@/components/GalpaoStickyCTABar"));
 
@@ -79,7 +80,7 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
       realScenarios={realScenarios}
       coverages={config.coverages}
       whoNeeds={config.whoNeeds ?? ["Moradores de Guarulhos", "Empresários locais"]}
-      whyPatro={config.whyPatro ?? ["Nota 4.7 no Google", "Comparativo de 16+ seguradoras"]}
+      whyPatro={config.whyPatro ?? [`Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google`, "Comparativo de 16+ seguradoras"]}
       tips={config.tips ?? ["Compare sempre", "Fale com um especialista"]}
       nearbyAreas={config.nearbyAreas}
       relatedInsurances={config.relatedInsurances}

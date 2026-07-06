@@ -10,6 +10,7 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { bairros } from "@/lib/bairrosData";
 import { getCanonicalUrl } from "@/lib/canonical";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const SeoHubBairrosGuarulhos = () => {
   const canonicalUrl = getCanonicalUrl("/seguros-em-guarulhos-bairros");
@@ -144,7 +145,7 @@ const SeoHubBairrosGuarulhos = () => {
                   </div>
                   <div className="flex items-center gap-1 ml-2">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-bold">4.7/5</span>
+                    <span className="text-sm font-bold">{PATRO_SOCIAL_PROOF.googleRating}/5</span>
                   </div>
                 </div>
                 <h3 className="text-xl font-bold mb-4">O que dizem os clientes de Guarulhos</h3>
