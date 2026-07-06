@@ -955,6 +955,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.patroseguros.com.br/avaliacoes-clientes</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.patroseguros.com.br/parceiros</loc>
     <priority>0.5</priority>
     <lastmod>2026-06-16</lastmod>
