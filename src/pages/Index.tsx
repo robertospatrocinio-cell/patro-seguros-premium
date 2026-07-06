@@ -19,6 +19,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
+import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
 const HeroInsuranceCarousel = lazy(() => import("@/components/HeroInsuranceCarousel"));
@@ -455,6 +456,13 @@ const Index = () => {
             <LocalTestimonials />
           </Suspense>
         </LazySection>
+
+        {/* 6b. PROVA SOCIAL UNIFICADA (fonte única + CTAs) */}
+        <section className="py-14 bg-white" aria-label="Prova social consolidada">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <ProvaSocialPatro variant="default" trackingContext="home:prova-social" />
+          </div>
+        </section>
 
         {/* 7. SOLUÇÕES PARA EMPRESAS (Patro Empresas) */}
         <section className="py-20 bg-slate-900 text-white">

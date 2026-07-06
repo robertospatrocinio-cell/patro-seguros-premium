@@ -18,6 +18,7 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
+import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
@@ -326,6 +327,9 @@ const SeguroAuto = () => {
         {/* ===== Formulário Rápido ===== */}
         <section className="py-24 gradient-surface" aria-labelledby="formulario-heading">
           <div className="container mx-auto px-4 max-w-xl">
+            <div className="mb-8">
+              <ProvaSocialPatro variant="default" trackingContext="hub-auto:form" />
+            </div>
             <Suspense fallback={null}>
               <QuickQuoteForm
                 insuranceType="Seguro Auto"
