@@ -286,7 +286,7 @@ const Depoimentos = () => {
         {/* Nota Google */}
         <section className="py-16 bg-muted/50">
           <div className="container mx-auto px-4 text-center max-w-lg">
-            <div className="flex gap-1 justify-center mb-4" aria-label="4.9 de 5 estrelas">
+            <div className="flex gap-1 justify-center mb-4" aria-label={`${PATRO_SOCIAL_PROOF.googleRating} de 5 estrelas`}>
               {Array.from({ length: 5 }).map((_, j) => (
                 <Star key={j} className="h-6 w-6 fill-primary text-primary" aria-hidden="true" />
               ))}
