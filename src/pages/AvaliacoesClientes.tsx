@@ -41,8 +41,6 @@ import { PATRO_TESTIMONIALS } from "@/data/patroTestimonials";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { trackWhatsAppClick } from "@/lib/tracking";
 
-const CANONICAL = `${CANONICAL_BASE_URL}/avaliacoes-clientes`;
-
 const VALORIZAM = [
   { icon: Heart, title: "Atendimento humano", copy: "Consultor real que entende o momento do cliente e responde sem robotizar." },
   { icon: Scale, title: "Clareza na explicação", copy: "Coberturas, franquias e exclusões traduzidas em linguagem simples." },
