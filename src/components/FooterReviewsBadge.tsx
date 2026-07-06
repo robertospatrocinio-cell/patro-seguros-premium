@@ -1,7 +1,11 @@
 import { Star, MessageSquare } from "lucide-react";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
-const GOOGLE_REVIEWS_URL = "https://www.google.com/maps/place/Patro+Seguros/";
-const LEAVE_REVIEW_URL = "https://g.page/r/patroseguros/review";
+// Fonte única: src/lib/patroSocialProof.ts
+const GOOGLE_REVIEWS_URL = PATRO_SOCIAL_PROOF.googleProfileUrl;
+const LEAVE_REVIEW_URL = PATRO_SOCIAL_PROOF.leaveReviewUrl;
+const RATING = PATRO_SOCIAL_PROOF.googleRating;
+const REVIEW_COUNT = PATRO_SOCIAL_PROOF.googleReviewCount;
 
 /**
  * Compact Google Reviews badge for the footer.
@@ -26,14 +30,14 @@ const FooterReviewsBadge = () => (
     </div>
 
     <div className="flex items-end gap-3">
-      <span className="text-3xl font-bold text-white leading-none">4.7</span>
+      <span className="text-3xl font-bold text-white leading-none">{RATING}</span>
       <div className="pb-0.5">
-        <div className="flex gap-0.5 mb-1" role="img" aria-label="Nota 4.7 de 5 estrelas">
+        <div className="flex gap-0.5 mb-1" role="img" aria-label={`Nota ${RATING} de 5 estrelas`}>
           {[1, 2, 3, 4, 5].map(i => (
             <Star key={i} className="h-3.5 w-3.5 fill-amber-500 text-amber-500" aria-hidden="true" />
           ))}
         </div>
-        <p className="text-[11px] text-white/80">27 avaliações reais</p>
+        <p className="text-[11px] text-white/80">{REVIEW_COUNT} avaliações reais</p>
       </div>
     </div>
 
