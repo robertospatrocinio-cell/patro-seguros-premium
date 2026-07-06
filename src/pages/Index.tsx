@@ -21,6 +21,7 @@ import LazySection from "@/components/LazySection";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
+import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
 const HeroInsuranceCarousel = lazy(() => import("@/components/HeroInsuranceCarousel"));
