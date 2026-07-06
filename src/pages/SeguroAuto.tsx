@@ -20,6 +20,7 @@ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
+import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
