@@ -2,41 +2,12 @@ import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, MapPin, Quote } from "lucide-react";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
+import { PATRO_LOCAL_TESTIMONIALS } from "@/data/patroTestimonials";
 
-// ⚠️ Depoimentos exibidos publicamente hoje. Idealmente substituir pelos
-// depoimentos reais do Google Reviews em `src/data/patroTestimonials.ts`
-// quando o Roberto enviar. Mantidos aqui temporariamente para não quebrar
-// a UI (a página /avaliacoes-clientes já usa a nova fonte).
-const testimonials = [
-  {
-    name: "Ricardo Silva",
-    location: "Vila Augusta",
-    text: "Consegui reduzir meu seguro auto em 20% com a Patro. O atendimento via WhatsApp foi muito rápido e prático.",
-    rating: 5,
-    type: "Seguro Auto"
-  },
-  {
-    name: "Mariana Costa",
-    location: "Cidade Maia",
-    text: "O seguro residencial deles é excelente. Tive um problema elétrico e a assistência 24h resolveu tudo no mesmo dia.",
-    rating: 5,
-    type: "Residencial"
-  },
-  {
-    name: "André Santos",
-    location: "Cumbica",
-    text: "Para quem trabalha com logística aqui em Cumbica, ter uma corretora que entende da região faz toda a diferença.",
-    rating: 5,
-    type: "Empresarial"
-  },
-  {
-    name: "Juliana Mendes",
-    location: "Gopoúva",
-    text: "Fiz o plano de saúde da minha família e fui muito bem orientada. Atendimento humano nota 10!",
-    rating: 5,
-    type: "Saúde"
-  }
-];
+// Depoimentos vêm da fonte única `src/data/patroTestimonials.ts`.
+// Enquanto os textos reais do Google não são enviados, exibimos os itens
+// legacy migrados da versão anterior (já visíveis em produção).
+const testimonials = PATRO_LOCAL_TESTIMONIALS;
 
 const LocalTestimonials = () => {
   return (
@@ -75,7 +46,7 @@ const LocalTestimonials = () => {
               <CardContent className="p-6 space-y-4">
                 <div className="flex justify-between items-start">
                   <div className="flex text-yellow-400">
-                    {[...Array(t.rating)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
                   </div>
                   <Quote className="w-6 h-6 text-primary/10 group-hover:text-primary/20 transition-colors" />
                 </div>
@@ -88,7 +59,7 @@ const LocalTestimonials = () => {
                   <p className="font-bold text-sm text-foreground">{t.name}</p>
                   <div className="flex items-center gap-1 text-[11px] text-muted-foreground font-medium mt-0.5">
                     <MapPin className="w-3 h-3 text-primary" />
-                    {t.location} • {t.type}
+                    {t.location} • {t.insurance}
                   </div>
                 </div>
               </CardContent>
