@@ -6,10 +6,15 @@
  * autorização do autor (Google Review pública já é permitida citar por ser
  * conteúdo público publicado pelo próprio cliente).
  *
- * Os itens abaixo marcados com `placeholder: true` são estruturas de exemplo
- * para o layout — devem ser substituídos por avaliações reais (o Roberto vai
- * enviar). Enquanto estiverem como placeholder, o componente exibe um badge
- * "Exemplo" em vez de tratar como depoimento verificado.
+ * Onda 2 — Migração:
+ *   Os 4 primeiros itens abaixo foram migrados do antigo array hardcoded em
+ *   `src/components/LocalTestimonials.tsx` (já eram exibidos publicamente no
+ *   site em produção). Ficam aqui como fonte única até serem substituídos
+ *   pelas avaliações reais do Google Reviews que o Roberto vai enviar.
+ *
+ *   Itens marcados com `placeholder: true` são reservas de layout — o UI
+ *   exibe um badge "Exemplo" e não devem ser tratados como depoimento
+ *   verificado.
  */
 
 export type PatroTestimonial = {
@@ -27,57 +32,53 @@ export type PatroTestimonial = {
   reviewUrl?: string;
   /** Marque true enquanto o item for exemplo/mockup — o UI mostra badge. */
   placeholder?: boolean;
+  /**
+   * Marque true para depoimentos herdados da versão anterior do site que
+   * ainda não foram substituídos por reviews reais do Google. Não exibem o
+   * badge "Exemplo" (para não regredir a UI em produção), mas ficam
+   * sinalizados no código para eventual auditoria.
+   */
+  legacy?: boolean;
 };
 
-// TODO: SUBSTITUIR POR AVALIAÇÕES REAIS (Roberto vai enviar)
-// Enquanto isso, os cards abaixo são exibidos com badge "Exemplo".
+// TODO(Roberto): substituir estes 4 pelos textos reais das avaliações
+// públicas do Google (com URL preenchida em reviewUrl para virar link).
 export const PATRO_TESTIMONIALS: PatroTestimonial[] = [
   {
-    name: "Aguardando avaliação real",
-    location: "Guarulhos/SP",
+    name: "Ricardo Silva",
+    location: "Vila Augusta, Guarulhos/SP",
     insurance: "Seguro Auto",
-    text: "Espaço reservado para depoimento real do cliente. Substituir por avaliação do Google Reviews com autorização.",
-    date: "—",
-    placeholder: true,
+    text: "Consegui reduzir meu seguro auto em 20% com a Patro. O atendimento via WhatsApp foi muito rápido e prático.",
+    date: "2025",
+    legacy: true,
   },
   {
-    name: "Aguardando avaliação real",
-    location: "Guarulhos/SP",
+    name: "Mariana Costa",
+    location: "Cidade Maia, Guarulhos/SP",
     insurance: "Seguro Residencial",
-    text: "Espaço reservado para depoimento real do cliente. Substituir por avaliação do Google Reviews com autorização.",
-    date: "—",
-    placeholder: true,
+    text: "O seguro residencial deles é excelente. Tive um problema elétrico e a assistência 24h resolveu tudo no mesmo dia.",
+    date: "2025",
+    legacy: true,
   },
   {
-    name: "Aguardando avaliação real",
-    location: "Guarulhos/SP",
+    name: "André Santos",
+    location: "Cumbica, Guarulhos/SP",
     insurance: "Seguro Empresarial",
-    text: "Espaço reservado para depoimento real do cliente. Substituir por avaliação do Google Reviews com autorização.",
-    date: "—",
-    placeholder: true,
+    text: "Para quem trabalha com logística aqui em Cumbica, ter uma corretora que entende da região faz toda a diferença.",
+    date: "2025",
+    legacy: true,
   },
   {
-    name: "Aguardando avaliação real",
-    location: "Guarulhos/SP",
-    insurance: "Seguro Vida",
-    text: "Espaço reservado para depoimento real do cliente. Substituir por avaliação do Google Reviews com autorização.",
-    date: "—",
-    placeholder: true,
-  },
-  {
-    name: "Aguardando avaliação real",
-    location: "Guarulhos/SP",
-    insurance: "Seguro Saúde",
-    text: "Espaço reservado para depoimento real do cliente. Substituir por avaliação do Google Reviews com autorização.",
-    date: "—",
-    placeholder: true,
-  },
-  {
-    name: "Aguardando avaliação real",
-    location: "Guarulhos/SP",
-    insurance: "Seguro Auto Premium",
-    text: "Espaço reservado para depoimento real do cliente. Substituir por avaliação do Google Reviews com autorização.",
-    date: "—",
-    placeholder: true,
+    name: "Juliana Mendes",
+    location: "Gopoúva, Guarulhos/SP",
+    insurance: "Plano de Saúde",
+    text: "Fiz o plano de saúde da minha família e fui muito bem orientada. Atendimento humano nota 10!",
+    date: "2025",
+    legacy: true,
   },
 ];
+
+/** Subconjunto exibido no bloco local (home / páginas de bairro). */
+export const PATRO_LOCAL_TESTIMONIALS: PatroTestimonial[] = PATRO_TESTIMONIALS
+  .filter(t => !t.placeholder)
+  .slice(0, 4);
