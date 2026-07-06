@@ -448,6 +448,7 @@ const App = () => {
                   <Route path="/contato" element={<Contato />} />
                   <Route path="/servicos" element={<Servicos />} />
                   <Route path="/depoimentos" element={<Depoimentos />} />
+                  <Route path="/avaliacoes-clientes" element={<AvaliacoesClientes />} />
                   <Route path="/seguro-bmw" element={<SeguroBMW />} />
                   <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
                   <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
