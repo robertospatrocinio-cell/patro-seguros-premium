@@ -317,6 +317,7 @@ const CentralDeSinistro = () => {
           items={sinistroFaqs.map((f) => ({ question: f.question, answer: f.answer }))}
           headingId="faq-central-sinistro"
           className="py-20 bg-slate-50/50 border-t"
+          skipSchema
         />
 
         <section className="py-24 text-center">
