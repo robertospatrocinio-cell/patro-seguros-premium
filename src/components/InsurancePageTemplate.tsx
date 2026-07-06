@@ -20,6 +20,7 @@ import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
+import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 import {
   detectGuarulhosNeighborhood,
   isGuarulhosContext,
@@ -769,6 +770,17 @@ const InsurancePageTemplate = ({
              <div className="mb-10">
                <AutoridadePatro />
              </div>
+             {/* Como a Patro ajuda — 4 passos + CTA duplo consistente.
+                 Suprimido quando a página traz `howItWorks` próprio para
+                 evitar dois blocos "como funciona" no mesmo URL. */}
+             {!(howItWorks && howItWorks.length > 0) && (
+               <div className="mb-10">
+                 <ComoPatroAjuda
+                   product={title}
+                   trackingContext={`product-page:${title.toLowerCase().replace(/\s+/g, "-")}:como-ajuda`}
+                 />
+               </div>
+             )}
              <div className="grid lg:grid-cols-2 gap-12 items-center">
                <div>
                  <span className="section-label mb-4 inline-block">Cotação Gratuita</span>
