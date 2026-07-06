@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import FAQSchema from "@/components/FAQSchema";
 
 export interface FAQItem {
   question: string;
@@ -16,6 +17,13 @@ interface FAQBlockProps {
   headingId?: string;
   /** Tailwind override for outer <section>. */
   className?: string;
+  /**
+   * Suprime a emissão automática de `<FAQSchema>` (JSON-LD FAQPage).
+   * Use apenas quando a página já emite FAQPage por outro caminho
+   * (ex.: FAQ.tsx renderiza categorias em blocos separados, ou
+   * LocalAreaSchema já injetou a mesma lista).
+   */
+  skipSchema?: boolean;
 }
 
 /**
@@ -29,11 +37,13 @@ const FAQBlock = ({
   items,
   headingId = "faq-heading",
   className = "py-16",
+  skipSchema = false,
 }: FAQBlockProps) => {
   if (!items?.length) return null;
 
   return (
     <section className={className} aria-labelledby={headingId}>
+      {!skipSchema && <FAQSchema faqs={items} />}
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-10">
           {eyebrow && <span className="section-label">{eyebrow}</span>}
