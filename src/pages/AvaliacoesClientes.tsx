@@ -62,7 +62,7 @@ const AvaliacoesClientes = () => {
       <BreadcrumbSchema
         items={[
           { name: "Início", url: CANONICAL_BASE_URL },
-          { name: "Avaliações dos Clientes", url: CANONICAL },
+          { name: "Avaliações dos Clientes", url: `${CANONICAL_BASE_URL}/avaliacoes-clientes` },
         ]}
       />
 
