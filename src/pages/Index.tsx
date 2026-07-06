@@ -21,6 +21,7 @@ import LazySection from "@/components/LazySection";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
+import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
 const HeroInsuranceCarousel = lazy(() => import("@/components/HeroInsuranceCarousel"));
@@ -469,6 +470,13 @@ const Index = () => {
         <section className="py-14 bg-slate-50" aria-label="Autoridade e credenciais">
           <div className="container mx-auto px-4 max-w-4xl">
             <AutoridadePatro />
+          </div>
+        </section>
+
+        {/* 6d. COMO A PATRO AJUDA — 4 passos + CTA duplo consistente */}
+        <section className="py-14 bg-white" aria-label="Como a Patro ajuda">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <ComoPatroAjuda trackingContext="home:como-ajuda" quoteHref="/cotacao" />
           </div>
         </section>
 
