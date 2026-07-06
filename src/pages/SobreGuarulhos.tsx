@@ -42,7 +42,7 @@ const SobreGuarulhos = () => (
   <>
     <PageMeta
       title="Corretora de Seguros em Guarulhos | Patro Seguros"
-      description=`A Patro Seguros é a corretora de seguros referência em Guarulhos/SP. Seguro Auto, Empresarial, Saúde, Vida, Frota e mais. Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google. Cotação grátis!`
+      description={`A Patro Seguros é a corretora de seguros referência em Guarulhos/SP. Seguro Auto, Empresarial, Saúde, Vida, Frota e mais. Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google. Cotação grátis!`}
     />
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />
