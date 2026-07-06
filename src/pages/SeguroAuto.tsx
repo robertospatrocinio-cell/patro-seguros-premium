@@ -335,6 +335,13 @@ const SeguroAuto = () => {
             <div className="mb-8">
               <AutoridadePatro />
             </div>
+            <div className="mb-8">
+              <ComoPatroAjuda
+                product="Seguro Auto"
+                trackingContext="hub-auto:como-ajuda"
+                quoteHref="#formulario"
+              />
+            </div>
             <Suspense fallback={null}>
               <QuickQuoteForm
                 insuranceType="Seguro Auto"
