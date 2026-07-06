@@ -476,7 +476,11 @@ const Index = () => {
         {/* 6d. COMO A PATRO AJUDA — 4 passos + CTA duplo consistente */}
         <section className="py-14 bg-white" aria-label="Como a Patro ajuda">
           <div className="container mx-auto px-4 max-w-5xl">
-            <ComoPatroAjuda trackingContext="home:como-ajuda" quoteHref="/cotacao" />
+            <ComoPatroAjuda
+              trackingContext="home:como-ajuda"
+              quoteHref="/cotacao"
+              pageUrl="https://www.patroseguros.com.br/"
+            />
           </div>
         </section>
 
