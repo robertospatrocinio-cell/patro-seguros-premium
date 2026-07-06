@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
+import AutoridadePatro from "@/components/AutoridadePatro";
 import socioRoberto from "@/assets/socio-roberto.webp";
 import sociaSandra from "@/assets/socia-sandra.webp";
 
@@ -60,7 +61,10 @@ const equipe = [
 const Sobre = () => {
   return (
     <Fragment>
-      <PageMeta title="Sobre a Patro Seguros | Corretora em Guarulhos" description="Conheça a Patro Seguros, sua corretora em Guarulhos. Atendimento especializado, consultoria de seguros e parceria com as melhores seguradoras do mercado." />
+      <PageMeta
+        title="Sobre a Patro Seguros — Corretora habilitada SUSEP em Guarulhos/SP"
+        description="Corretora registrada na SUSEP nº 212113511, fundada em 2010 em Cidade Maia (Guarulhos/SP). 2.500+ clientes, 16+ seguradoras parceiras e sócios com 30+ anos de mercado. Conheça Roberto e Sandra Patrocínio, credenciais verificáveis e nossa forma de atender."
+      />
       <PersonAuthorsSchema />
       <SpeakableSchema url="https://www.patroseguros.com.br/sobre" />
       <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Sobre Nós", url: "/sobre" }]} />
