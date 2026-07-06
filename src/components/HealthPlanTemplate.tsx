@@ -31,6 +31,7 @@ const HealthPlanTemplate = ({ operator, description, benefits, faqs, accentColor
         { name: "Planos de Saúde", url: `${CANONICAL_BASE_URL}/planos-de-saude` },
         { name: operator, url: window.location.href },
       ]} />
+      <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <Header />
       
       <main>
