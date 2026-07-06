@@ -217,6 +217,25 @@ export interface InsurancePageProps {
     tool?: string[];
     steps: HowToStep[];
   };
+  /**
+   * SEO local (Guarulhos/bairros) — reforça o `LocalAreaSchema`.
+   *
+   * Se omitido, o template detecta automaticamente o bairro a partir do
+   * `title` / pathname (Cumbica, Cidade Maia, Bonsucesso, Vila Galvão, etc.)
+   * e injeta as coordenadas correspondentes. Passe explicitamente para
+   * sobrescrever ou para páginas de nichos com endereço específico.
+   *
+   * Use `skip: true` em páginas não-Guarulhos (Agro nacional, etc.) para
+   * suprimir totalmente o schema local — evita sinal geo enganoso.
+   */
+  localSeo?: {
+    city?: string;
+    neighborhood?: string;
+    geo?: { latitude: number; longitude: number };
+    priceRange?: { min: number; max: number; currency?: string };
+    /** Suprime totalmente a emissão do LocalAreaSchema. */
+    skip?: boolean;
+  };
 }
 
 const InsurancePageTemplate = ({
@@ -250,6 +269,7 @@ const InsurancePageTemplate = ({
   faqs = [],
   canonicalUrl: canonicalUrlProp,
   howto,
+  localSeo,
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
