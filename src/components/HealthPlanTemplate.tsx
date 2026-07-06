@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
 interface PlanPageProps {
@@ -30,6 +31,7 @@ const HealthPlanTemplate = ({ operator, description, benefits, faqs, accentColor
         { name: "Planos de Saúde", url: `${CANONICAL_BASE_URL}/planos-de-saude` },
         { name: operator, url: window.location.href },
       ]} />
+      <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <Header />
       
       <main>

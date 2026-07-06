@@ -417,6 +417,7 @@ const SeguroAgro = () => {
           items={FAQS}
           headingId="faq-agro-heading"
           className="py-14"
+          skipSchema
         />
 
         {/* Cross-link */}

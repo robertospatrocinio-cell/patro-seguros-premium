@@ -324,6 +324,7 @@ const SeguroAuto = () => {
           items={faqs}
           headingId="faq-heading"
           className="py-24"
+          skipSchema
         />
 
         {/* ===== Formulário Rápido ===== */}
