@@ -5,6 +5,7 @@ import heroMobileImg from "@/assets/hero-agro-sm.webp";
 const SeguroRural = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
       title="Seguro Rural"

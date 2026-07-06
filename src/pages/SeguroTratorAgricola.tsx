@@ -5,6 +5,7 @@ import heroImg from "@/assets/hero-agro-maquinas.jpg";
 const SeguroTratorAgricola = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Trator Agrícola"
       subtitle="Proteção premium para o motor da sua produtividade. Cobertura completa em todo o território nacional."

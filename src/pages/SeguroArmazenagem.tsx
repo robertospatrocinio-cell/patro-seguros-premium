@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rural.webp";
 const SeguroArmazenagem = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro Armazenagem — Proteção para Grãos e Produtos Agrícolas"
       subtitle="Proteja seus grãos, sementes e produtos armazenados contra perdas e danos. Atendemos produtores de todos os estados do Brasil."

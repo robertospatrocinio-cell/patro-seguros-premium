@@ -3,6 +3,7 @@ import heroImg from "@/assets/hero-seguro-ambiental.webp";
 
 const SeguroAmbiental = () => (
   <InsurancePageTemplate
+      localSeo={{ skip: true }}
     heroImage={heroImg}
     title="Seguro Ambiental"
     subtitle="Proteção contra riscos de danos ambientais e responsabilidade por poluição. Atendemos empresas de todos os estados do Brasil."

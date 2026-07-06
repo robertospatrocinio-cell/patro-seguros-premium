@@ -5,6 +5,7 @@ import heroImg from "@/assets/hero-agro-maquinas.jpg";
 const SeguroPulverizadorAgricola = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Pulverizador Agrícola"
       subtitle="Proteção para pulverizadores autopropelidos e de arrasto. Cobertura nacional com foco em tecnologia e precisão."

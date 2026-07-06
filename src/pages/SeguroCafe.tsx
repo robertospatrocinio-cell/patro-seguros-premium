@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rural.webp";
 const SeguroCafe = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro Café — Proteção para sua Lavoura Cafeeira"
       subtitle="Proteja sua produção de café contra geada, seca, granizo e outros riscos. Atendemos cafeicultores de todos os estados do Brasil."

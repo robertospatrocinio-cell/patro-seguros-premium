@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-granja.webp";
 const SeguroGranja = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro Granja — Proteção para Aviários e Suinoculturas"
       subtitle="Proteja suas granjas de aves, suínos e outras criações contra incêndios, vendavais, doenças e outros riscos. Atendimento em todo o Brasil."

@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rural.webp";
 const SeguroPropriedadeRural = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro Propriedade Rural"
       subtitle="Consultoria patrimonial dedicada para proteger sedes, benfeitorias e instalações que sustentam a sua operação rural."
