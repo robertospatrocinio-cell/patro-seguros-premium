@@ -18,6 +18,7 @@ import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
 import { trackWhatsAppClick, trackInternalLinkClick } from "@/lib/tracking";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const PHONE = "551151997500";
 const EMAIL = "imprensa@patroseguros.com.br";
@@ -70,7 +71,7 @@ const FACTS = [
   "Hub de mais de 16 seguradoras e 20+ operadoras de saúde.",
   "Especialização em galpões e riscos patrimoniais (Guarulhos, Cumbica e nacional).",
   "Mais de 500 cases atendidos para PMEs e pessoas físicas.",
-  "Nota 4.7 no Google Business com 27 avaliações reais.",
+  `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google Business com ${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais.`,
   "Atendimento Agro com cobertura nacional para máquinas, lavoura e propriedades rurais.",
 ];
 

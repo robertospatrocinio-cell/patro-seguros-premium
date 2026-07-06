@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import AutoridadePatro from "@/components/AutoridadePatro";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import socioRoberto from "@/assets/socio-roberto.webp";
 import sociaSandra from "@/assets/socia-sandra.webp";
 
@@ -34,7 +35,7 @@ const SOBRE_FAQS = [
   },
   {
     question: "Quantos clientes a Patro atende?",
-    answer: "Mais de 2.500 clientes ativos entre pessoas físicas, famílias e empresas, com 1.800+ sinistros resolvidos e nota 4.7 no Google (27+ avaliações reais).",
+    answer: `Mais de 2.500 clientes ativos entre pessoas físicas, famílias e empresas, com 1.800+ sinistros resolvidos e nota ${PATRO_SOCIAL_PROOF.googleRating} no Google (${PATRO_SOCIAL_PROOF.googleReviewCount}+ avaliações reais).`,
   },
   {
     question: "Quais tipos de seguro a Patro comercializa?",
@@ -46,7 +47,7 @@ const stats = [
   { value: "+30", label: "Anos de Experiência", desc: "Combinados entre os sócios" },
   { value: "2.500+", label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
   { value: "1.800+", label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
-  { value: "4.7", label: "Nota no Google", desc: "27 avaliações reais" },
+  { value: PATRO_SOCIAL_PROOF.googleRating, label: "Nota no Google", desc: `${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais` },
 ];
 
 const equipe = [
@@ -170,7 +171,7 @@ const Sobre = () => {
               </p>
               <p>
                 Hoje, somos reconhecidos como a <strong className="text-foreground">melhor corretora de seguros de Guarulhos</strong>,
-                com nota 4.7 no Google e mais de 2.500 clientes atendidos — famílias, profissionais liberais, empresas e
+                com nota {PATRO_SOCIAL_PROOF.googleRating} no Google e mais de 2.500 clientes atendidos — famílias, profissionais liberais, empresas e
                 produtores rurais que confiam na nossa expertise e compromisso com a proteção de seus patrimônios e vidas.
               </p>
             </div>
@@ -302,7 +303,7 @@ const Sobre = () => {
                   evidencias: [
                     { icon: Linkedin, label: "LinkedIn verificado", href: "https://www.linkedin.com/in/sandra-patrocinio" },
                     { icon: BookOpen, label: "Artigos publicados no blog", href: "/blog/autor/sandra-patro" },
-                    { icon: MapPin, label: "Avaliações no Google (4.7★)", href: "https://www.google.com/maps?cid=273879799324962533" },
+                    { icon: MapPin, label: `Avaliações no Google (${PATRO_SOCIAL_PROOF.googleRating}★)`, href: "https://www.google.com/maps?cid=273879799324962533" },
                     { icon: BadgeCheck, label: "Consultar registro na SUSEP", href: "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" },
                   ],
                 },

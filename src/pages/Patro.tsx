@@ -26,6 +26,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import heroImage from "@/assets/hero-home.webp";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const WHATSAPP_URL =
   "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pela%20landing%20Patro%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.";
@@ -45,7 +46,7 @@ const products = [
 ];
 
 const proof = [
-  { value: "4.7/5", label: "Avaliação no Google" },
+  { value: `${PATRO_SOCIAL_PROOF.googleRating}/5`, label: "Avaliação no Google" },
   { value: "500+", label: "PMEs atendidas" },
   { value: "16+", label: "Seguradoras parceiras" },
   { value: "2h", label: "Cotação comparativa" },
@@ -107,7 +108,7 @@ const Patro = () => {
             {/* Texto */}
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold tracking-wider uppercase">
-                <Award className="h-3.5 w-3.5 text-[#F2994A]" /> Nota 4.7 no Google · SUSEP
+                <Award className="h-3.5 w-3.5 text-[#F2994A]" /> Nota {PATRO_SOCIAL_PROOF.googleRating} no Google · SUSEP
               </span>
               <h1
                 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-white"

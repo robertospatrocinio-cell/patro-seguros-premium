@@ -17,6 +17,7 @@ import HowToSchema from "@/components/HowToSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
 import { trackInternalLinkClick, trackWhatsAppClick } from "@/lib/tracking";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const REVIEW_URL = "https://g.page/r/patroseguros/review";
 const MAPS_URL = "https://www.google.com/maps/place/Patro+Seguros/";
@@ -178,13 +179,13 @@ const AvaliarNoGoogle = () => {
               Avalie a Patro Seguros no Google
             </h1>
             <div className="mt-5 inline-flex items-center gap-2 text-sm text-muted-foreground">
-              <span className="text-3xl font-bold text-foreground leading-none">4.7</span>
+              <span className="text-3xl font-bold text-foreground leading-none">{PATRO_SOCIAL_PROOF.googleRating}</span>
               <div className="flex gap-0.5">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span>· 27 avaliações reais de clientes em Guarulhos</span>
+              <span>· {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais de clientes em Guarulhos</span>
             </div>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Sua avaliação no Google ajuda outras pessoas de Guarulhos, Cidade Maia, Cumbica e
