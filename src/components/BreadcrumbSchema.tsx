@@ -19,6 +19,7 @@ const routeNameMap: Record<string, string> = {
   "cotacao": "Cotação Online",
   "contato": "Contato",
   "depoimentos": "Depoimentos",
+  "avaliacoes-clientes": "Avaliações dos Clientes",
   "seguro-auto": "Seguro Auto",
   "seguro-vida": "Seguro de Vida",
   "seguro-residencial": "Seguro Residencial",
