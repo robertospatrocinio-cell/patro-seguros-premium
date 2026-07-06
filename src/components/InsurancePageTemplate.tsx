@@ -334,13 +334,41 @@ const InsurancePageTemplate = ({
           url={canonicalUrl}
         />
       )}
-      <LocalAreaSchema
-        serviceName={title}
-        url={canonicalUrl}
-        description={metaDescription || subtitle}
-        city="Guarulhos"
-        faqs={faqs}
-      />
+      {(() => {
+        if (localSeo?.skip) return null;
+
+        // Se caller passou dados explícitos, respeitamos. Senão, tentamos
+        // detectar bairro pelo título + pathname para reforçar sinal local.
+        const detected = localSeo?.neighborhood
+          ? null
+          : detectGuarulhosNeighborhood(title, subtitle, location.pathname);
+
+        const city = localSeo?.city ?? "Guarulhos";
+        const neighborhood = localSeo?.neighborhood ?? detected?.name;
+        const isGuarulhos = city.toLowerCase().includes("guarulhos");
+
+        // Geo: caller > bairro detectado > sede (Cidade Maia) para Guarulhos city-wide.
+        const geo =
+          localSeo?.geo ??
+          (detected
+            ? { latitude: detected.latitude, longitude: detected.longitude }
+            : isGuarulhos && isGuarulhosContext(title, subtitle, location.pathname)
+              ? { latitude: GUARULHOS_SEDE_GEO.latitude, longitude: GUARULHOS_SEDE_GEO.longitude }
+              : undefined);
+
+        return (
+          <LocalAreaSchema
+            serviceName={title}
+            url={canonicalUrl}
+            description={metaDescription || subtitle}
+            city={city}
+            neighborhood={neighborhood}
+            geo={geo}
+            priceRange={localSeo?.priceRange}
+            faqs={faqs}
+          />
+        );
+      })()}
 
       <BreadcrumbSchema
         items={[
