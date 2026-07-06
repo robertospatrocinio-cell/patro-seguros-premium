@@ -20,6 +20,7 @@ import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
+import AutoridadePatro from "@/components/AutoridadePatro";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
 const HeroInsuranceCarousel = lazy(() => import("@/components/HeroInsuranceCarousel"));
@@ -461,6 +462,13 @@ const Index = () => {
         <section className="py-14 bg-white" aria-label="Prova social consolidada">
           <div className="container mx-auto px-4 max-w-4xl">
             <ProvaSocialPatro variant="default" trackingContext="home:prova-social" />
+          </div>
+        </section>
+
+        {/* 6c. AUTORIDADE / E-E-A-T — fundadores + credenciais */}
+        <section className="py-14 bg-slate-50" aria-label="Autoridade e credenciais">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <AutoridadePatro />
           </div>
         </section>
 

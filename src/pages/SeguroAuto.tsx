@@ -19,6 +19,7 @@ import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
+import AutoridadePatro from "@/components/AutoridadePatro";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
@@ -329,6 +330,9 @@ const SeguroAuto = () => {
           <div className="container mx-auto px-4 max-w-xl">
             <div className="mb-8">
               <ProvaSocialPatro variant="default" trackingContext="hub-auto:form" />
+            </div>
+            <div className="mb-8">
+              <AutoridadePatro />
             </div>
             <Suspense fallback={null}>
               <QuickQuoteForm

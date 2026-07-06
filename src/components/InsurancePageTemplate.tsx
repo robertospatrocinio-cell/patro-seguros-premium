@@ -19,6 +19,7 @@ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
+import AutoridadePatro from "@/components/AutoridadePatro";
 import {
   detectGuarulhosNeighborhood,
   isGuarulhosContext,
@@ -763,6 +764,10 @@ const InsurancePageTemplate = ({
                  variant="default"
                  trackingContext={`product-page:${title.toLowerCase().replace(/\s+/g, "-")}`}
                />
+             </div>
+             {/* Bloco de autoridade / E-E-A-T — fundadores + credenciais */}
+             <div className="mb-10">
+               <AutoridadePatro />
              </div>
              <div className="grid lg:grid-cols-2 gap-12 items-center">
                <div>
