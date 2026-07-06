@@ -341,6 +341,7 @@ const SeguroAuto = () => {
                 product="Seguro Auto"
                 trackingContext="hub-auto:como-ajuda"
                 quoteHref="#formulario"
+                pageUrl="https://www.patroseguros.com.br/seguro-auto"
               />
             </div>
             <Suspense fallback={null}>
