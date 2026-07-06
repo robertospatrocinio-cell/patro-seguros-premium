@@ -148,6 +148,7 @@ const SeguroAutoComparativoCoberturas = lazyWithRetry(() => import("./pages/Segu
 const SeguroAgro = lazyWithRetry(() => import("./pages/SeguroAgro"), "SeguroAgro");
 const GlossarioSeguros = lazyWithRetry(() => import("./pages/GlossarioSeguros"), "GlossarioSeguros");
 const AvaliarNoGoogle = lazyWithRetry(() => import("./pages/AvaliarNoGoogle"), "AvaliarNoGoogle");
+const AvaliacoesClientes = lazyWithRetry(() => import("./pages/AvaliacoesClientes"), "AvaliacoesClientes");
 const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "ParceirosLocais");
 const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
 const SeoPlanoSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoPlanoSaudeGuarulhos"), "SeoPlanoSaudeGuarulhos");
@@ -447,6 +448,7 @@ const App = () => {
                   <Route path="/contato" element={<Contato />} />
                   <Route path="/servicos" element={<Servicos />} />
                   <Route path="/depoimentos" element={<Depoimentos />} />
+                  <Route path="/avaliacoes-clientes" element={<AvaliacoesClientes />} />
                   <Route path="/seguro-bmw" element={<SeguroBMW />} />
                   <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
                   <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />

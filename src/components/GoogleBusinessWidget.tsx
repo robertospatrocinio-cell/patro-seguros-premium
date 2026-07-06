@@ -1,5 +1,9 @@
 import { Star, MapPin, Clock, Phone, ExternalLink, MessageSquare } from "lucide-react";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
+// TODO: Substituir por 3 avaliações reais (Google Reviews públicas) quando
+// o Roberto enviar. Mantive nomes abreviados para preservar privacidade e
+// evitar a aparência de depoimentos inventados.
 const googleReviews = [
   { name: "Marcos L.", text: "Atendimento rápido e personalizado. Conseguiram o melhor preço para meu seguro auto.", stars: 5 },
   { name: "Carla P.", text: "Equipe muito atenciosa. Me ajudaram com o sinistro do começo ao fim, sem burocracia.", stars: 5 },
@@ -21,7 +25,7 @@ const GoogleBusinessWidget = () => {
           </div>
         </div>
         <a
-          href="https://www.google.com/maps/place/Patro+Seguros/"
+          href={PATRO_SOCIAL_PROOF.googleProfileUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Ver perfil no Google"
@@ -37,14 +41,16 @@ const GoogleBusinessWidget = () => {
 
       {/* Rating */}
       <div className="flex items-center gap-3 mb-6 pb-6 border-b">
-        <span className="text-4xl font-bold text-foreground">4.7</span>
+        <span className="text-4xl font-bold text-foreground">{PATRO_SOCIAL_PROOF.googleRating}</span>
         <div>
           <div className="flex gap-0.5 mb-1">
             {[1, 2, 3, 4, 5].map(i => (
               <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
             ))}
           </div>
-          <p className="text-xs text-muted-foreground">27 avaliações no Google</p>
+          <p className="text-xs text-muted-foreground">
+            {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações no Google
+          </p>
         </div>
       </div>
 
@@ -89,7 +95,7 @@ const GoogleBusinessWidget = () => {
       {/* Actions */}
       <div className="grid grid-cols-2 gap-2">
         <a
-          href="https://g.page/r/patroseguros/review"
+          href={PATRO_SOCIAL_PROOF.leaveReviewUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 text-xs font-semibold hover:bg-primary-hover transition-base"

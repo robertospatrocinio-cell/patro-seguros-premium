@@ -1,7 +1,12 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, MapPin, Quote } from "lucide-react";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
+// ⚠️ Depoimentos exibidos publicamente hoje. Idealmente substituir pelos
+// depoimentos reais do Google Reviews em `src/data/patroTestimonials.ts`
+// quando o Roberto enviar. Mantidos aqui temporariamente para não quebrar
+// a UI (a página /avaliacoes-clientes já usa a nova fonte).
 const testimonials = [
   {
     name: "Ricardo Silva",
@@ -47,7 +52,7 @@ const LocalTestimonials = () => {
           
           <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex items-center gap-4">
             <div className="flex flex-col items-center border-r pr-4 border-slate-100">
-              <span className="text-2xl font-bold text-foreground">4.7</span>
+              <span className="text-2xl font-bold text-foreground">{PATRO_SOCIAL_PROOF.googleRating}</span>
               <div className="flex text-yellow-400">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
               </div>
@@ -57,7 +62,9 @@ const LocalTestimonials = () => {
                 <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" width={46} height={15} className="h-4 w-auto object-contain" />
                 <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Reviews</span>
               </div>
-              <p className="text-[11px] text-muted-foreground font-medium">Baseado em 27 avaliações no Google</p>
+              <p className="text-[11px] text-muted-foreground font-medium">
+                Baseado em {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações no Google
+              </p>
             </div>
           </div>
         </div>
