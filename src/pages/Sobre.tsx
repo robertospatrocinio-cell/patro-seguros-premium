@@ -101,6 +101,56 @@ const Sobre = () => {
           </div>
         </section>
 
+        {/* Autoridade & Credenciais — bloco reutilizável (mesmo das páginas de produto) */}
+        <section className="py-14 bg-slate-50" aria-labelledby="autoridade-heading">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="text-center mb-8">
+              <span className="inline-block text-xs font-semibold tracking-wider uppercase text-primary/80 mb-2">
+                Autoridade & Credenciais
+              </span>
+              <h2 id="autoridade-heading" className="mb-3">
+                Uma corretora habilitada, regulada e verificável
+              </h2>
+              <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+                Não somos um comparador nem uma plataforma anônima. A Patro é uma corretora com CNPJ ativo,
+                registro na SUSEP, sede física em Guarulhos e sócios com nome, rosto e trajetória públicas —
+                todos os dados abaixo podem ser conferidos em fontes oficiais.
+              </p>
+            </div>
+            <AutoridadePatro />
+            <div className="mt-8 rounded-xl border border-emerald-200 bg-emerald-50/60 p-5 md:p-6 flex flex-col md:flex-row md:items-center gap-4 justify-between">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="h-5 w-5 text-emerald-700 mt-0.5 shrink-0" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-semibold text-emerald-900">
+                    Verifique nosso registro na SUSEP
+                  </p>
+                  <p className="text-xs text-emerald-900/80 mt-0.5">
+                    Consulta pública direto no portal oficial da Superintendência de Seguros Privados — Registro nº 212113511.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-2 md:shrink-0">
+                <Link to="/verificar-susep">
+                  <Button variant="outline" size="sm" className="w-full sm:w-auto">
+                    <BadgeCheck className="mr-2 h-4 w-4" /> Como verificar
+                  </Button>
+                </Link>
+                <a
+                  href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
+                  <Button size="sm" className="w-full sm:w-auto">
+                    Consultar SUSEP <ExternalLink className="ml-2 h-4 w-4" />
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Nossa História */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-3xl">
