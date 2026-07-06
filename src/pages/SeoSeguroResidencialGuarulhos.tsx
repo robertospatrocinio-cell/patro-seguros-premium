@@ -1,6 +1,7 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import PrerenderText from "@/components/PrerenderText";
 import heroImg from "@/assets/hero-seguro-residencial.webp";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const SeoSeguroResidencialGuarulhos = () => (
   <>
