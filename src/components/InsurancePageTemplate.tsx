@@ -778,6 +778,10 @@ const InsurancePageTemplate = ({
                  <ComoPatroAjuda
                    product={title}
                    trackingContext={`product-page:${title.toLowerCase().replace(/\s+/g, "-")}:como-ajuda`}
+                   pageUrl={canonicalUrl}
+                   /* Evita duplicar HowTo quando a página já emite um
+                      HowTo específico via prop `howto`. */
+                   skipSchema={!!howto}
                  />
                </div>
              )}

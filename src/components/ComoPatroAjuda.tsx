@@ -22,6 +22,19 @@ interface ComoPatroAjudaProps {
   /** Destino do CTA "Cotação online". Padrão: âncora #formulario. */
   quoteHref?: string;
   className?: string;
+  /**
+   * URL canônica da página onde o bloco é renderizado. Usada como `@id`
+   * do HowTo/ItemList JSON-LD para desambiguar entre páginas.
+   * Se omitida, o schema é emitido sem `@id`.
+   */
+  pageUrl?: string;
+  /**
+   * Suprime a emissão do JSON-LD (HowTo + ItemList). Use apenas se a
+   * página já emite um `HowTo` específico via outro caminho (ex.: prop
+   * `howto` do `InsurancePageTemplate`) para evitar dois nodos HowTo
+   * concorrentes no mesmo URL.
+   */
+  skipSchema?: boolean;
 }
 
 const STEPS = [
@@ -63,16 +76,75 @@ const ComoPatroAjuda = ({
   trackingContext,
   quoteHref = "#formulario",
   className = "",
+  pageUrl,
+  skipSchema = false,
 }: ComoPatroAjudaProps) => {
   const ctxWa = trackingContext ? `${trackingContext}:whatsapp` : "como-patro-ajuda:whatsapp";
   const ctxQuote = trackingContext ? `${trackingContext}:cotacao` : "como-patro-ajuda:cotacao";
   const heading = product ? `Como a Patro ajuda com ${product}` : "Como a Patro ajuda você";
+
+  // ---- JSON-LD: HowTo (rich results) + ItemList (LLM/AI Overviews) ----
+  const schemaName = heading;
+  const schemaDescription = product
+    ? `Como a Patro Seguros ajuda você a contratar ${product} em 4 passos: atendimento humano, comparativo entre seguradoras e suporte na apólice e sinistro.`
+    : "Como a Patro Seguros ajuda você a contratar seu seguro em 4 passos: atendimento humano, comparativo entre seguradoras e suporte na apólice e sinistro.";
+
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: schemaName,
+    description: schemaDescription,
+    totalTime: "PT24H",
+    estimatedCost: {
+      "@type": "MonetaryAmount",
+      currency: "BRL",
+      value: "0",
+    },
+    inLanguage: "pt-BR",
+    step: STEPS.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.title,
+      text: s.description,
+    })),
+    ...(pageUrl ? { url: pageUrl, "@id": `${pageUrl}#como-patro-ajuda-howto` } : {}),
+  };
+
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: schemaName,
+    description: schemaDescription,
+    numberOfItems: STEPS.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: STEPS.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: s.title,
+      description: s.description,
+    })),
+    ...(pageUrl ? { url: pageUrl, "@id": `${pageUrl}#como-patro-ajuda-itemlist` } : {}),
+  };
 
   return (
     <section
       className={`rounded-2xl border border-slate-200 bg-white p-8 md:p-10 shadow-sm ${className}`}
       aria-labelledby="como-patro-ajuda-heading"
     >
+      {!skipSchema && (
+        <>
+          <script
+            type="application/ld+json"
+            data-schema="como-patro-ajuda-howto"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            data-schema="como-patro-ajuda-itemlist"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+          />
+        </>
+      )}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <span className="inline-block text-xs font-semibold tracking-wider uppercase text-primary/80 mb-3">
           Passo a passo
