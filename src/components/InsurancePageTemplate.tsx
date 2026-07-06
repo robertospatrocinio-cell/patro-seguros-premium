@@ -19,6 +19,11 @@ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
+import {
+  detectGuarulhosNeighborhood,
+  isGuarulhosContext,
+  GUARULHOS_SEDE_GEO,
+} from "@/lib/guarulhosGeo";
 
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
