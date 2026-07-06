@@ -1,0 +1,66 @@
+name: Validate /cotacao-auto redirect
+
+# Executa o script scripts/validate-cotacao-auto-redirect.mjs após cada deploy
+# no Hostinger, garantindo que https://patroseguros.com.br/cotacao-auto
+# continua respondendo 302 com Location apontando para o formulário da Segfy.
+#
+# Gatilhos:
+#   1) workflow_dispatch  → rodar manualmente pelo GitHub UI
+#   2) repository_dispatch (event_type: hostinger-deploy-finished)
+#       → dispare via webhook/API assim que o deploy no Hostinger terminar:
+#         curl -X POST \
+#           -H "Accept: application/vnd.github+json" \
+#           -H "Authorization: Bearer $GH_TOKEN" \
+#           https://api.github.com/repos/<owner>/<repo>/dispatches \
+#           -d '{"event_type":"hostinger-deploy-finished"}'
+#   3) schedule           → checagem periódica (a cada 6h) como safety net
+#   4) push em main       → também valida quando o código do redirect muda
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [hostinger-deploy-finished]
+  schedule:
+    - cron: "0 */6 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "public/.htaccess"
+      - "src/pages/CotacaoAutoRedirect.tsx"
+      - "scripts/validate-cotacao-auto-redirect.mjs"
+      - ".github/workflows/validate-cotacao-auto-redirect.yml"
+
+jobs:
+  validate-redirect:
+    name: Check 302 → Segfy
+    runs-on: ubuntu-latest
+    # Deploy no Hostinger pode levar alguns segundos para propagar cache/edge.
+    # Damos uma pequena janela de retry antes de falhar o pipeline.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Aguardar propagação do deploy (30s)
+        if: github.event_name == 'repository_dispatch'
+        run: sleep 30
+
+      - name: Validar redirect (com retry)
+        run: |
+          set -e
+          for attempt in 1 2 3; do
+            echo "── Tentativa $attempt ──"
+            if node scripts/validate-cotacao-auto-redirect.mjs; then
+              echo "✓ Redirect validado com sucesso."
+              exit 0
+            fi
+            echo "Falhou. Aguardando 20s antes de tentar novamente..."
+            sleep 20
+          done
+          echo "✗ Redirect /cotacao-auto continua inválido após 3 tentativas."
+          exit 1
+
+      - name: Validar também via www (defensivo)
+        run: node scripts/validate-cotacao-auto-redirect.mjs --url https://www.patroseguros.com.br/cotacao-auto
