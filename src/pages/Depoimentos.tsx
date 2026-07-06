@@ -8,6 +8,7 @@ import SpeakableSchema from "@/components/SpeakableSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 import avatarMaria from "@/assets/avatar-maria.webp";
 import avatarJoao from "@/assets/avatar-joao.webp";
@@ -291,11 +292,11 @@ const Depoimentos = () => {
                 <Star key={j} className="h-6 w-6 fill-primary text-primary" aria-hidden="true" />
               ))}
             </div>
-            <p className="text-3xl font-bold mb-1">4.7</p>
+            <p className="text-3xl font-bold mb-1">{PATRO_SOCIAL_PROOF.googleRating}</p>
             <p className="text-sm text-muted-foreground mb-2">Nota no Google Meu Negócio</p>
-            <p className="text-xs text-muted-foreground mb-6">Baseado em 27 avaliações reais de clientes</p>
+            <p className="text-xs text-muted-foreground mb-6">Baseado em {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais de clientes</p>
             <a
-              href="https://www.google.com/maps/place/Patro+Seguros/"
+              href={PATRO_SOCIAL_PROOF.googleProfileUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm text-primary font-medium hover:underline"
@@ -310,7 +311,7 @@ const Depoimentos = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-white mb-4">Quer ser o próximo a recomendar?</h2>
             <p className="text-white/60 mb-10 max-w-md mx-auto text-sm">
-              Solicite sua cotação gratuita e descubra por que nossos clientes nos dão nota 4.7.
+              Solicite sua cotação gratuita e descubra por que nossos clientes nos dão nota {PATRO_SOCIAL_PROOF.googleRating}.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link to="/cotacao">
