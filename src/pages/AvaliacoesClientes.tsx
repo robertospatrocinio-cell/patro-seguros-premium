@@ -10,6 +10,7 @@
  *   - Depoimentos          → src/data/patroTestimonials.ts
  */
 
+import type { ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -188,7 +189,7 @@ const AvaliacoesClientes = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {PATRO_TESTIMONIALS.map((t, i) => {
-                const Wrapper: React.ElementType = t.reviewUrl ? "a" : "div";
+                const Wrapper: ElementType = t.reviewUrl ? "a" : "div";
                 const wrapperProps = t.reviewUrl
                   ? { href: t.reviewUrl, target: "_blank", rel: "noopener noreferrer" }
                   : {};
