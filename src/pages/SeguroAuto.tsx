@@ -21,6 +21,7 @@ import ServiceSchema from "@/components/ServiceSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
 import ComoPatroAjuda from "@/components/ComoPatroAjuda";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
@@ -148,7 +149,7 @@ const SeguroAuto = () => {
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span>Nota 4.7/5 no Google | Mais de 2.500 clientes protegidos em Guarulhos</span>
+                <span>Nota {PATRO_SOCIAL_PROOF.googleRating}/5 no Google | Mais de 2.500 clientes protegidos em Guarulhos</span>
               </div>
             </div>
           </div>

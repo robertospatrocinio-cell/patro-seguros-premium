@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-agro-maquinas.jpg";
 const SeguroMaquinasAgricolas = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Máquinas Agrícolas"
       subtitle="Proteja tratores, colheitadeiras, plantadeiras e todo seu maquinário agrícola. Atendemos produtores de todos os estados do Brasil."

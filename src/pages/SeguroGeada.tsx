@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rural.webp";
 const SeguroGeada = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro Geada — Proteção para sua Lavoura"
       subtitle="Proteja sua produção agrícola contra perdas causadas por geada. Atendemos produtores de todos os estados do Brasil."

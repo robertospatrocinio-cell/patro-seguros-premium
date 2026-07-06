@@ -5,6 +5,7 @@ import heroImg from "@/assets/hero-agro-maquinas.jpg";
 const SeguroColhedoraCana = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Colhedora de Cana"
       subtitle="Proteção premium para o ativo mais valioso da sua colheita. Cobertura nacional com consultoria técnica especializada."

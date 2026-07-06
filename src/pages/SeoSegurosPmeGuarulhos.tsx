@@ -10,6 +10,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguros%20para%20minha%20empresa.";
 
@@ -53,7 +54,7 @@ const casesReais = [
 
 const estatisticas = [
   { numero: "200+", label: "Empresas protegidas em Guarulhos" },
-  { numero: "4.7★", label: "Avaliação Google (27 reviews)" },
+  { numero: `${PATRO_SOCIAL_PROOF.googleRating}★`, label: `Avaliação Google (${PATRO_SOCIAL_PROOF.googleReviewCount} reviews)` },
   { numero: "R$ 2M+", label: "Em sinistros empresariais resolvidos" },
   { numero: "40%", label: "Economia média na primeira cotação" },
 ];

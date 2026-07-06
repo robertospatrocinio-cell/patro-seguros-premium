@@ -17,6 +17,7 @@ import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, Chevron
 import { bairros, type BairroData } from "@/lib/bairrosData";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import BairroStickyCTABar from "@/components/BairroStickyCTABar";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const WHATSAPP_NUMBER = "5511951997500";
 
@@ -475,7 +476,7 @@ const SegurosGuarulhosBairros = () => {
               </div>
               <div className="flex flex-col items-center gap-3">
                 <Star className="h-10 w-10 text-[#F2994A]" />
-                <h3 className="text-white font-bold text-lg">Nota 4.7 no Google</h3>
+                <h3 className="text-white font-bold text-lg">Nota {PATRO_SOCIAL_PROOF.googleRating} no Google</h3>
                 <p className="text-white/70 text-sm">Avaliação de excelência no Google com centenas de clientes satisfeitos</p>
               </div>
             </div>

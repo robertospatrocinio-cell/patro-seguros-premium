@@ -1,15 +1,6 @@
 import { Star, MapPin, Clock, Phone, ExternalLink, MessageSquare } from "lucide-react";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
-// TODO: Substituir por 3 avaliações reais (Google Reviews públicas) quando
-// o Roberto enviar. Mantive nomes abreviados para preservar privacidade e
-// evitar a aparência de depoimentos inventados.
-const googleReviews = [
-  { name: "Marcos L.", text: "Atendimento rápido e personalizado. Conseguiram o melhor preço para meu seguro auto.", stars: 5 },
-  { name: "Carla P.", text: "Equipe muito atenciosa. Me ajudaram com o sinistro do começo ao fim, sem burocracia.", stars: 5 },
-  { name: "Eduardo S.", text: "Profissionais de confiança. Já renovo meu seguro empresarial há 3 anos com eles.", stars: 5 },
-];
-
 const GoogleBusinessWidget = () => {
   return (
     <div className="border rounded-2xl p-6 md:p-8 bg-background shadow-sm">
@@ -54,26 +45,20 @@ const GoogleBusinessWidget = () => {
         </div>
       </div>
 
-      {/* Sample Reviews */}
-      <div className="space-y-4 mb-6">
-        {googleReviews.map((review, i) => (
-          <div key={i} className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center flex-shrink-0 text-xs font-bold text-muted-foreground">
-              {review.name.charAt(0)}
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-2 mb-0.5">
-                <p className="text-xs font-semibold">{review.name}</p>
-                <div className="flex gap-px">
-                  {Array.from({ length: review.stars }).map((_, j) => (
-                    <Star key={j} className="h-2.5 w-2.5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">{review.text}</p>
-            </div>
-          </div>
-        ))}
+      {/* Reviews CTA — sem depoimentos inventados. Avaliações reais ficam no perfil público. */}
+      <div className="mb-6 rounded-xl border border-dashed bg-muted/40 p-4 text-center">
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          As avaliações completas ficam no <strong>perfil público da Patro no Google</strong> —
+          transparência total, sem depoimentos editados.
+        </p>
+        <a
+          href={PATRO_SOCIAL_PROOF.googleProfileUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+        >
+          <ExternalLink className="h-3 w-3" /> Ler avaliações no Google
+        </a>
       </div>
 
       {/* Info */}

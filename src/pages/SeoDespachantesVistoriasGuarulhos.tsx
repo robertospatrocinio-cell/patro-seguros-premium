@@ -1,5 +1,6 @@
 import LocalPageTemplate from "@/components/LocalPageTemplate";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const SeoDespachantesVistoriasGuarulhos = () => (
   <LocalPageTemplate
@@ -49,7 +50,7 @@ const SeoDespachantesVistoriasGuarulhos = () => (
       { title: "Interrupção de Atividade", description: "Garante faturamento se o escritório fechar por sinistro." }
     ]}
     whoNeeds={["Despachantes Documentalistas", "Escritórios de Trânsito", "ECVs Parceiras", "Empresas de Regularização"]}
-    whyPatro={["Atendimento no Cidade Maia", "Conhecimento do Mercado Local", "Zero Burocracia", "Nota 4.7 no Google"]}
+    whyPatro={["Atendimento no Cidade Maia", "Conhecimento do Mercado Local", "Zero Burocracia", `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google`]}
     tips={["Verifique se sua apólice de RC cobre custos de defesa judicial.", "Mantenha o backup digital dos arquivos atualizado.", "Informe à seguradora se o escritório possui pátio para veículos."]}
     relatedInsurances={[
       { title: "Seguro Vistoria Veicular", link: "/seguro-para-empresas-de-vistoria-veicular" },

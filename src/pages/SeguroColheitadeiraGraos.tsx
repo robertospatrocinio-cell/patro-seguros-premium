@@ -5,6 +5,7 @@ import heroImg from "@/assets/hero-agro-maquinas.jpg";
 const SeguroColheitadeiraGraos = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Colheitadeira de Grãos"
       subtitle="Proteção premium para colheitadeiras de soja, milho e trigo. Cobertura nacional com consultoria especializada."

@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-agro-maquinas.jpg";
 const SeguroEquipamentosAgricolas = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Equipamentos Agrícolas"
       subtitle="Proteção completa para implementos, pulverizadores, irrigação e equipamentos de precisão. Atendemos produtores de todos os estados do Brasil."

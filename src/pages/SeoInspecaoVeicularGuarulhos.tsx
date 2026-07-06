@@ -1,5 +1,6 @@
 import LocalPageTemplate from "@/components/LocalPageTemplate";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const SeoInspecaoVeicularGuarulhos = () => (
   <LocalPageTemplate
@@ -49,7 +50,7 @@ const SeoInspecaoVeicularGuarulhos = () => (
       { title: "Incêndio e Vendaval", description: "Proteção patrimonial completa." }
     ]}
     whoNeeds={["Centros de Inspeção Técnica", "Engenheiros Mecânicos", "Gestores de Pátio", "Empresas de Laudo"]}
-    whyPatro={["Especialistas em Guarulhos", "Nota 4.7 no Google", "Consultoria Técnica", "Comparativo Real"]}
+    whyPatro={["Especialistas em Guarulhos", `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google`, "Consultoria Técnica", "Comparativo Real"]}
     tips={["Mantenha as manutenções preventivas dos equipamentos em dia.", "Verifique se a cobertura de RC contempla a LGPD.", "Considere o seguro de Vida em Grupo para os técnicos."]}
     relatedInsurances={[
       { title: "Seguro Vistoria Veicular", link: "/seguro-para-empresas-de-vistoria-veicular" },

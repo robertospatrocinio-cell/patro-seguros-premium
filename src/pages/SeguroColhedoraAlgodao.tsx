@@ -5,6 +5,7 @@ import heroImg from "@/assets/hero-agro-maquinas.jpg";
 const SeguroColhedoraAlgodao = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Colhedora de Algodão"
       subtitle="Proteção premium para colhedoras de fardos e cestos. Cobertura nacional para o 'Ouro Branco' do agronegócio."

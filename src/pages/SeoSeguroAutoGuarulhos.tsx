@@ -5,6 +5,7 @@ import ModelHub, { type ModelLink } from "@/components/ModelHub";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 import heroMobileImg from "@/assets/hero-seguro-auto.webp"; // Using desktop image as fallback since home-sm is missing
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const NEIGHBORHOODS: NeighborhoodLink[] = [
   { name: "Cidade Maia", link: "/seguro-auto-maia-guarulhos", riskLevel: "baixo", priceRange: "R$ 2.100 a R$ 4.000/ano" },
@@ -105,7 +106,7 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
     ]}
     whyPatro={[
       "Corretora local em Guarulhos com atendimento presencial no Cidade Maia",
-      "Mais de 500 clientes atendidos desde 2020 — nota 4.7 no Google",
+      `Mais de 500 clientes atendidos desde 2020 — nota ${PATRO_SOCIAL_PROOF.googleRating} no Google`,
       "Comparação entre 8+ seguradoras: Porto, Tokio, Allianz, HDI, Mapfre e mais",
       "Cotação em até 2 horas — as mais rápidas da região",
       "Suporte completo em sinistros: abertura, vistoria, oficina e indenização",

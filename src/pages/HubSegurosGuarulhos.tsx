@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { getCanonicalUrl } from "@/lib/canonical";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.";
 
@@ -256,7 +257,7 @@ const HubSegurosGuarulhos = () => {
                 "500+ empresas atendidas em Guarulhos",
                 "Especialistas em RC profissional e agronegócio",
                 "Suporte completo em sinistros — você não fica sozinho",
-                "Avaliação 4.7 estrelas no Google (27 reviews)",
+                `Avaliação ${PATRO_SOCIAL_PROOF.googleRating} estrelas no Google (${PATRO_SOCIAL_PROOF.googleReviewCount} reviews)`,
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 bg-card rounded-xl p-5 border">
                   <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />

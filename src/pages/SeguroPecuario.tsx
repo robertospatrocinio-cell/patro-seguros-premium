@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-seguro-rural.webp";
 const SeguroPecuario = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro Pecuário — Proteção para seu Rebanho"
       subtitle="Proteja bovinos, equinos, suínos e outros animais contra morte por doenças, acidentes e fenômenos naturais. Atendemos pecuaristas de todos os estados do Brasil."

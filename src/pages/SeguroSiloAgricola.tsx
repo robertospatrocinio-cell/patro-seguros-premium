@@ -4,6 +4,7 @@ import heroImg from "@/assets/hero-agro-silo.jpg";
 const SeguroSiloAgricola = () => {
   return (
     <InsurancePageTemplate
+      localSeo={{ skip: true }}
       heroImage={heroImg}
       title="Seguro de Silo Agrícola"
       subtitle="Proteção para unidades de armazenamento e beneficiamento de grãos. Segurança total para o seu estoque e infraestrutura."
