@@ -19,6 +19,11 @@ import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
+import {
+  detectGuarulhosNeighborhood,
+  isGuarulhosContext,
+  GUARULHOS_SEDE_GEO,
+} from "@/lib/guarulhosGeo";
 
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
@@ -212,6 +217,25 @@ export interface InsurancePageProps {
     tool?: string[];
     steps: HowToStep[];
   };
+  /**
+   * SEO local (Guarulhos/bairros) — reforça o `LocalAreaSchema`.
+   *
+   * Se omitido, o template detecta automaticamente o bairro a partir do
+   * `title` / pathname (Cumbica, Cidade Maia, Bonsucesso, Vila Galvão, etc.)
+   * e injeta as coordenadas correspondentes. Passe explicitamente para
+   * sobrescrever ou para páginas de nichos com endereço específico.
+   *
+   * Use `skip: true` em páginas não-Guarulhos (Agro nacional, etc.) para
+   * suprimir totalmente o schema local — evita sinal geo enganoso.
+   */
+  localSeo?: {
+    city?: string;
+    neighborhood?: string;
+    geo?: { latitude: number; longitude: number };
+    priceRange?: { min: number; max: number; currency?: string };
+    /** Suprime totalmente a emissão do LocalAreaSchema. */
+    skip?: boolean;
+  };
 }
 
 const InsurancePageTemplate = ({
@@ -245,6 +269,7 @@ const InsurancePageTemplate = ({
   faqs = [],
   canonicalUrl: canonicalUrlProp,
   howto,
+  localSeo,
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
@@ -309,13 +334,41 @@ const InsurancePageTemplate = ({
           url={canonicalUrl}
         />
       )}
-      <LocalAreaSchema
-        serviceName={title}
-        url={canonicalUrl}
-        description={metaDescription || subtitle}
-        city="Guarulhos"
-        faqs={faqs}
-      />
+      {(() => {
+        if (localSeo?.skip) return null;
+
+        // Se caller passou dados explícitos, respeitamos. Senão, tentamos
+        // detectar bairro pelo título + pathname para reforçar sinal local.
+        const detected = localSeo?.neighborhood
+          ? null
+          : detectGuarulhosNeighborhood(title, subtitle, location.pathname);
+
+        const city = localSeo?.city ?? "Guarulhos";
+        const neighborhood = localSeo?.neighborhood ?? detected?.name;
+        const isGuarulhos = city.toLowerCase().includes("guarulhos");
+
+        // Geo: caller > bairro detectado > sede (Cidade Maia) para Guarulhos city-wide.
+        const geo =
+          localSeo?.geo ??
+          (detected
+            ? { latitude: detected.latitude, longitude: detected.longitude }
+            : isGuarulhos && isGuarulhosContext(title, subtitle, location.pathname)
+              ? { latitude: GUARULHOS_SEDE_GEO.latitude, longitude: GUARULHOS_SEDE_GEO.longitude }
+              : undefined);
+
+        return (
+          <LocalAreaSchema
+            serviceName={title}
+            url={canonicalUrl}
+            description={metaDescription || subtitle}
+            city={city}
+            neighborhood={neighborhood}
+            geo={geo}
+            priceRange={localSeo?.priceRange}
+            faqs={faqs}
+          />
+        );
+      })()}
 
       <BreadcrumbSchema
         items={[
