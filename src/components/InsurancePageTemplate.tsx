@@ -18,6 +18,7 @@ import OrganizationSchema from "@/components/OrganizationSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
+import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
@@ -703,6 +704,13 @@ const InsurancePageTemplate = ({
          {/* CTA Form Integrado */}
          <section className="py-24 bg-muted/30" aria-labelledby="formulario-heading">
            <div className="container mx-auto px-4 max-w-5xl">
+             {/* Prova social unificada — reforça confiança antes do formulário */}
+             <div className="mb-10">
+               <ProvaSocialPatro
+                 variant="default"
+                 trackingContext={`product-page:${title.toLowerCase().replace(/\s+/g, "-")}`}
+               />
+             </div>
              <div className="grid lg:grid-cols-2 gap-12 items-center">
                <div>
                  <span className="section-label mb-4 inline-block">Cotação Gratuita</span>
