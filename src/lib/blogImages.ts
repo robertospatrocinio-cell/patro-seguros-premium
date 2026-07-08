@@ -312,7 +312,7 @@ export const blogImageMap: Record<string, string> = {
 
 
 export const getArticleImage = (slug: string): string => {
-  return blogImageMap[slug] || blogDicas;
+  return generatedCoverBySlug[slug] || blogImageMap[slug] || blogDicas;
 };
 
 /**
