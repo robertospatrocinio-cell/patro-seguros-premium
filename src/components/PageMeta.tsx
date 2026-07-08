@@ -17,6 +17,8 @@ interface PageMetaProps {
   preloadImage?: string;
   /** URL of the mobile hero image to preload with media query */
   preloadMobileImage?: string;
+  /** Override the canonical URL pathname (with optional query string). Useful for paginated collections. */
+  canonicalPath?: string;
 }
 
 const BASE_URL = CANONICAL_BASE_URL;
@@ -24,7 +26,7 @@ const DEFAULT_OG_IMAGE = `${CANONICAL_BASE_URL}/images/og-cover.webp`;
 const TITLE_SUFFIX = " | Patro Seguros";
 const MAX_TITLE_LENGTH = 60;
 
-const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage }: PageMetaProps) => {
+const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath }: PageMetaProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -44,8 +46,11 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     // Description
     setMetaContent('meta[name="description"]', description);
 
-    // Canonical URL — single source of truth
-    const canonicalUrl = getCanonicalUrl(location.pathname);
+    // Canonical URL — single source of truth. Paginated collections pass canonicalPath
+    // (e.g. "/blog?page=2") so each page self-references and avoids duplicate content.
+    const canonicalUrl = canonicalPath
+      ? `${CANONICAL_BASE_URL}${canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`}`
+      : getCanonicalUrl(location.pathname);
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
       canonical = document.createElement('link');
@@ -115,7 +120,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     managePreload('dynamic-hero-mobile-preload', preloadMobileImage, '(max-width: 640px)');
 
     // No cleanup required to avoid resetting meta tags during hydration or fast navigation
-  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage]);
+  }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath]);
 
   return null;
 };
