@@ -1,4 +1,4 @@
-import { useState, useMemo, Fragment, useEffect } from "react";
+import { useState, useMemo, Fragment, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -118,9 +118,10 @@ const Blog = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const queryFromUrl = searchParams.get("q") ?? "";
   const categoryFromUrl = searchParams.get("categoria") ?? "";
+  const pageFromUrl = Math.max(1, parseInt(searchParams.get("page") ?? "1", 10) || 1);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(pageFromUrl);
   const [query, setQuery] = useState(queryFromUrl);
 
   // Hydrate from URL params (?q=...&categoria=...) so search is shareable + SEO-aware.
@@ -131,7 +132,8 @@ const Blog = () => {
         ? allCategories.find(c => slugifyCategory(c) === categoryFromUrl) ?? null
         : null,
     );
-  }, [queryFromUrl, categoryFromUrl]);
+    setCurrentPage(pageFromUrl);
+  }, [queryFromUrl, categoryFromUrl, pageFromUrl]);
 
   // Reflect query/category state back into the URL (debounced via useEffect).
   useEffect(() => {
@@ -139,10 +141,12 @@ const Blog = () => {
     if (query.trim()) next.set("q", query.trim()); else next.delete("q");
     if (selectedCategory) next.set("categoria", slugifyCategory(selectedCategory));
     else next.delete("categoria");
+    if (currentPage > 1) next.set("page", String(currentPage));
+    else next.delete("page");
     if (next.toString() !== searchParams.toString()) {
       setSearchParams(next, { replace: true });
     }
-  }, [query, selectedCategory, searchParams, setSearchParams]);
+  }, [query, selectedCategory, currentPage, searchParams, setSearchParams]);
 
   const filtered = useMemo(() => {
     let list = [...articles].sort((a, b) => b.date.localeCompare(a.date));
@@ -161,21 +165,58 @@ const Blog = () => {
 
   const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
   const currentArticles = useMemo(() => {
-    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    const safePage = Math.min(Math.max(1, currentPage), Math.max(1, totalPages));
+    const start = (safePage - 1) * POSTS_PER_PAGE;
     return filtered.slice(start, start + POSTS_PER_PAGE);
-  }, [filtered, currentPage]);
+  }, [filtered, currentPage, totalPages]);
 
+  // Reset to page 1 only when filters *change* — never on initial mount, so
+  // deep-links like /blog?page=3 are preserved on first render.
+  const filterKey = `${selectedCategory ?? ""}|${selectedTag ?? ""}|${query}`;
+  const lastFilterKey = useRef(filterKey);
   useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, selectedTag, query]);
+    if (lastFilterKey.current !== filterKey) {
+      lastFilterKey.current = filterKey;
+      setCurrentPage(1);
+    }
+  }, [filterKey]);
 
   const isSearching = query.trim().length > 0 || !!selectedCategory;
+  const pageSuffix = currentPage > 1 ? ` — Página ${currentPage}` : "";
   const pageTitle = isSearching
     ? `Busca${query.trim() ? `: "${query.trim()}"` : ""}${selectedCategory ? ` em ${selectedCategory}` : ""} | Blog Patro Seguros`
-    : "Blog de Seguros em Guarulhos | Patro Seguros";
+    : `Blog de Seguros em Guarulhos${pageSuffix} | Patro Seguros`;
   const pageDescription = isSearching
     ? `${filtered.length} ${filtered.length === 1 ? "artigo encontrado" : "artigos encontrados"}${query.trim() ? ` para "${query.trim()}"` : ""}${selectedCategory ? ` na categoria ${selectedCategory}` : ""} no blog da Patro Seguros.`
-    : "Guias da Patro sobre seguro auto, empresarial, saúde, vida, residência e consórcio em Guarulhos. Conteúdo local para escolher melhor.";
+    : currentPage > 1
+      ? `Página ${currentPage} do blog da Patro Seguros — mais guias sobre seguro auto, empresarial, saúde, vida, residência e consórcio em Guarulhos.`
+      : "Guias da Patro sobre seguro auto, empresarial, saúde, vida, residência e consórcio em Guarulhos. Conteúdo local para escolher melhor.";
+
+  // Clean canonical per page: /blog for page 1, /blog?page=N for N>1.
+  // Paginated pages are noindex,follow to prevent duplicate content while
+  // keeping crawlers walking through the article links.
+  const canonicalPath = currentPage > 1 ? `/blog?page=${currentPage}` : "/blog";
+  const prevUrl = currentPage > 2
+    ? `${CANONICAL_BASE_URL}/blog?page=${currentPage - 1}`
+    : currentPage === 2 ? `${CANONICAL_BASE_URL}/blog` : null;
+  const nextUrl = currentPage < totalPages
+    ? `${CANONICAL_BASE_URL}/blog?page=${currentPage + 1}`
+    : null;
+
+  const buildPageHref = (n: number) => (n <= 1 ? "/blog" : `/blog?page=${n}`);
+
+  // Compact page number list (1 … c-1 c c+1 … total)
+  const pageNumbers = useMemo<(number | "…")[]>(() => {
+    if (totalPages <= 7) return Array.from({ length: totalPages }, (_, i) => i + 1);
+    const set = new Set<number>([1, 2, totalPages - 1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+    const list = [...set].filter((n) => n >= 1 && n <= totalPages).sort((a, b) => a - b);
+    const out: (number | "…")[] = [];
+    list.forEach((n, i) => {
+      if (i > 0 && n - (list[i - 1] as number) > 1) out.push("…");
+      out.push(n);
+    });
+    return out;
+  }, [currentPage, totalPages]);
 
   // Artigo em destaque: pega o mais recente que tenha capa dedicada.
   const sortedAll = useMemo(
@@ -256,11 +297,16 @@ const Blog = () => {
       <PageMeta
         title={pageTitle}
         description={pageDescription}
-        noindex={isSearching}
+        noindex={isSearching || currentPage > 1}
         ogType="website"
         ogImage={`${CANONICAL_BASE_URL}${featuredImg}`}
         ogImageAlt={`Blog Patro Seguros — ${featured.title}`}
+        canonicalPath={canonicalPath}
       />
+      <Helmet>
+        {prevUrl && <link rel="prev" href={prevUrl} />}
+        {nextUrl && <link rel="next" href={nextUrl} />}
+      </Helmet>
       <SpeakableSchema url="https://www.patroseguros.com.br/blog" />
       <BreadcrumbSchema
         items={[
@@ -571,28 +617,79 @@ const Blog = () => {
             )}
 
             {totalPages > 1 && (
-              <nav className="mt-12 flex justify-center items-center gap-4" aria-label="Paginação do blog">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                  disabled={currentPage === 1}
-                  aria-label="Página anterior"
-                >
-                  Anterior
-                </Button>
-                <span className="text-sm text-muted-foreground" aria-current="page">
+              <nav
+                className="mt-12 flex flex-col items-center gap-3"
+                aria-label={`Paginação do blog — página ${currentPage} de ${totalPages}`}
+                role="navigation"
+              >
+                <ul className="flex flex-wrap justify-center items-center gap-1.5">
+                  <li>
+                    {currentPage > 1 ? (
+                      <Link
+                        to={buildPageHref(currentPage - 1)}
+                        rel="prev"
+                        aria-label={`Ir para a página anterior (página ${currentPage - 1})`}
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm hover:bg-muted transition-colors"
+                      >
+                        ← Anterior
+                      </Link>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm text-muted-foreground/60 cursor-not-allowed"
+                      >
+                        ← Anterior
+                      </span>
+                    )}
+                  </li>
+                  {pageNumbers.map((n, i) =>
+                    n === "…" ? (
+                      <li key={`gap-${i}`} className="px-2 text-muted-foreground text-sm" aria-hidden="true">…</li>
+                    ) : n === currentPage ? (
+                      <li key={n}>
+                        <span
+                          aria-current="page"
+                          aria-label={`Página ${n}, página atual`}
+                          className="inline-flex items-center justify-center h-9 min-w-9 px-3 rounded-md bg-primary text-primary-foreground text-sm font-semibold"
+                        >
+                          {n}
+                        </span>
+                      </li>
+                    ) : (
+                      <li key={n}>
+                        <Link
+                          to={buildPageHref(n)}
+                          aria-label={`Ir para a página ${n}`}
+                          className="inline-flex items-center justify-center h-9 min-w-9 px-3 rounded-md border text-sm hover:bg-muted transition-colors"
+                        >
+                          {n}
+                        </Link>
+                      </li>
+                    ),
+                  )}
+                  <li>
+                    {currentPage < totalPages ? (
+                      <Link
+                        to={buildPageHref(currentPage + 1)}
+                        rel="next"
+                        aria-label={`Ir para a próxima página (página ${currentPage + 1})`}
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm hover:bg-muted transition-colors"
+                      >
+                        Próxima →
+                      </Link>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm text-muted-foreground/60 cursor-not-allowed"
+                      >
+                        Próxima →
+                      </span>
+                    )}
+                  </li>
+                </ul>
+                <p className="text-xs text-muted-foreground" aria-live="polite">
                   Página {currentPage} de {totalPages}
-                </span>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                  disabled={currentPage === totalPages}
-                  aria-label="Próxima página"
-                >
-                  Próxima
-                </Button>
+                </p>
               </nav>
             )}
           </div>
