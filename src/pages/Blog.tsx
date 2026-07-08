@@ -1,4 +1,4 @@
-import { useState, useMemo, Fragment, useEffect } from "react";
+import { useState, useMemo, Fragment, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -170,9 +170,16 @@ const Blog = () => {
     return filtered.slice(start, start + POSTS_PER_PAGE);
   }, [filtered, currentPage, totalPages]);
 
+  // Reset to page 1 only when filters *change* — never on initial mount, so
+  // deep-links like /blog?page=3 are preserved on first render.
+  const filterKey = `${selectedCategory ?? ""}|${selectedTag ?? ""}|${query}`;
+  const lastFilterKey = useRef(filterKey);
   useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, selectedTag, query]);
+    if (lastFilterKey.current !== filterKey) {
+      lastFilterKey.current = filterKey;
+      setCurrentPage(1);
+    }
+  }, [filterKey]);
 
   const isSearching = query.trim().length > 0 || !!selectedCategory;
   const pageSuffix = currentPage > 1 ? ` — Página ${currentPage}` : "";
