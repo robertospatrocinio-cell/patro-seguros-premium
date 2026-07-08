@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
 import { Helmet } from "react-helmet-async";
 import { Card, CardContent } from "@/components/ui/card";
@@ -308,12 +308,6 @@ const Blog = () => {
         {nextUrl && <link rel="next" href={nextUrl} />}
       </Helmet>
       <SpeakableSchema url="https://www.patroseguros.com.br/blog" />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Blog", url: "/blog" },
-        ]}
-      />
       {!isSearching && (
         <>
           <FAQSchema faqs={BLOG_FAQS.map((f) => ({ question: f.question, answer: f.answer }))} />
