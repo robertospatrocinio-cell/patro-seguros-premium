@@ -769,6 +769,7 @@ const BlogArticle = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick("blog-article-bottom")}
+                  aria-label={`Falar no WhatsApp sobre ${insuranceType} — abre em nova aba`}
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[#25D366] text-white text-base font-semibold hover:bg-[#1ebe57] transition-colors"
                 >
                   <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
@@ -776,6 +777,7 @@ const BlogArticle = () => {
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-bottom")}
+                  aria-label={`Pedir cotação de ${insuranceType} — abrir formulário`}
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-base font-semibold hover:opacity-90 transition-opacity"
                 >
                   Pedir Cotação <ArrowRight className="h-5 w-5" />
