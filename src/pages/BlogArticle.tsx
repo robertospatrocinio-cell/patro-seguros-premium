@@ -152,6 +152,15 @@ const BlogArticle = () => {
       })()}
       <Header />
       <main id="main-content" className="outline-none">
+        {meta && (
+          <Breadcrumb
+            items={[
+              { label: "Blog", href: "/blog" },
+              { label: meta.category, href: `/blog?categoria=${slugifyCategory(meta.category)}` },
+              { label: article.title },
+            ]}
+          />
+        )}
         <section className="gradient-hero py-16 relative overflow-hidden">
           {slug && (
             <OptimizedImage
