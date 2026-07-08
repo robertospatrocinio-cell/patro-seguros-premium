@@ -610,28 +610,79 @@ const Blog = () => {
             )}
 
             {totalPages > 1 && (
-              <nav className="mt-12 flex justify-center items-center gap-4" aria-label="Paginação do blog">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                  disabled={currentPage === 1}
-                  aria-label="Página anterior"
-                >
-                  Anterior
-                </Button>
-                <span className="text-sm text-muted-foreground" aria-current="page">
+              <nav
+                className="mt-12 flex flex-col items-center gap-3"
+                aria-label={`Paginação do blog — página ${currentPage} de ${totalPages}`}
+                role="navigation"
+              >
+                <ul className="flex flex-wrap justify-center items-center gap-1.5">
+                  <li>
+                    {currentPage > 1 ? (
+                      <Link
+                        to={buildPageHref(currentPage - 1)}
+                        rel="prev"
+                        aria-label={`Ir para a página anterior (página ${currentPage - 1})`}
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm hover:bg-muted transition-colors"
+                      >
+                        ← Anterior
+                      </Link>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm text-muted-foreground/60 cursor-not-allowed"
+                      >
+                        ← Anterior
+                      </span>
+                    )}
+                  </li>
+                  {pageNumbers.map((n, i) =>
+                    n === "…" ? (
+                      <li key={`gap-${i}`} className="px-2 text-muted-foreground text-sm" aria-hidden="true">…</li>
+                    ) : n === currentPage ? (
+                      <li key={n}>
+                        <span
+                          aria-current="page"
+                          aria-label={`Página ${n}, página atual`}
+                          className="inline-flex items-center justify-center h-9 min-w-9 px-3 rounded-md bg-primary text-primary-foreground text-sm font-semibold"
+                        >
+                          {n}
+                        </span>
+                      </li>
+                    ) : (
+                      <li key={n}>
+                        <Link
+                          to={buildPageHref(n)}
+                          aria-label={`Ir para a página ${n}`}
+                          className="inline-flex items-center justify-center h-9 min-w-9 px-3 rounded-md border text-sm hover:bg-muted transition-colors"
+                        >
+                          {n}
+                        </Link>
+                      </li>
+                    ),
+                  )}
+                  <li>
+                    {currentPage < totalPages ? (
+                      <Link
+                        to={buildPageHref(currentPage + 1)}
+                        rel="next"
+                        aria-label={`Ir para a próxima página (página ${currentPage + 1})`}
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm hover:bg-muted transition-colors"
+                      >
+                        Próxima →
+                      </Link>
+                    ) : (
+                      <span
+                        aria-disabled="true"
+                        className="inline-flex items-center h-9 px-3 rounded-md border text-sm text-muted-foreground/60 cursor-not-allowed"
+                      >
+                        Próxima →
+                      </span>
+                    )}
+                  </li>
+                </ul>
+                <p className="text-xs text-muted-foreground" aria-live="polite">
                   Página {currentPage} de {totalPages}
-                </span>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                  disabled={currentPage === totalPages}
-                  aria-label="Próxima página"
-                >
-                  Próxima
-                </Button>
+                </p>
               </nav>
             )}
           </div>
