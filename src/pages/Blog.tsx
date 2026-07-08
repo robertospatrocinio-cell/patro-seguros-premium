@@ -343,11 +343,11 @@ const Blog = () => {
             </p>
             <div className="mt-7 flex flex-wrap gap-3 justify-center">
               <Link to="/cotacao">
-                <Button size="lg" className="rounded-lg h-11 bg-[#F2994A] hover:bg-[#e0873a] text-white">
+                <Button size="lg" className="rounded-lg h-11 bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">
                   Cotar meu seguro agora
                 </Button>
               </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Cotar pelo WhatsApp">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp — abre em nova aba">
                 <Button size="lg" variant="outline" className="rounded-lg h-11 bg-white/5 border-white/30 text-white hover:bg-white/15">
                   <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                   Falar no WhatsApp
@@ -366,7 +366,6 @@ const Blog = () => {
             <Link
               to={`/artigos/${featured.slug}`}
               className="block max-w-5xl mx-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
-              aria-label={`Ler artigo em destaque: ${featured.title}`}
             >
               <Card className="overflow-hidden group md:flex hover:shadow-xl transition-base">
                 <div className="md:w-1/2 aspect-video md:aspect-auto overflow-hidden">
@@ -415,7 +414,7 @@ const Blog = () => {
               </div>
               <div className="flex gap-2 flex-wrap">
                 <Link to="/contato"><Button variant="outline" size="sm">Falar com consultor</Button></Link>
-                <Link to="/cotacao"><Button size="sm" className="bg-[#F2994A] hover:bg-[#e0873a] text-white">Cotar agora</Button></Link>
+                <Link to="/cotacao"><Button size="sm" className="bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">Cotar agora</Button></Link>
               </div>
             </div>
           </div>
@@ -439,7 +438,7 @@ const Blog = () => {
                   </div>
                   <h3 className="text-base font-semibold mb-1.5">{c.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed flex-1">{c.description}</p>
-                  <div className="mt-4 flex flex-col gap-1.5">
+                  <div className="mt-4 flex flex-col gap-2">
                     <button
                       type="button"
                       onClick={() => {
@@ -448,14 +447,14 @@ const Blog = () => {
                         setQuery("");
                         document.getElementById("artigos-lista")?.scrollIntoView({ behavior: "smooth", block: "start" });
                       }}
-                      className="text-xs font-medium text-primary hover:underline text-left"
+                      className="min-h-[32px] py-1.5 text-sm font-medium text-primary underline underline-offset-2 hover:no-underline text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
                     >
                       Ver artigos de {c.title} →
                     </button>
-                    <Link to={c.href} className="text-xs text-muted-foreground hover:text-primary">
+                    <Link to={c.href} className="min-h-[32px] py-1.5 text-sm text-muted-foreground hover:text-foreground underline underline-offset-2">
                       Página do serviço
                     </Link>
-                    <Link to={c.ctaHref} className="text-xs font-semibold text-[#F2994A] hover:underline mt-1">
+                    <Link to={c.ctaHref} className="min-h-[32px] py-1.5 text-sm font-semibold text-[#B45309] underline underline-offset-2 hover:no-underline mt-1">
                       {c.ctaLabel} →
                     </Link>
                   </div>
@@ -560,7 +559,6 @@ const Blog = () => {
                 <Link
                   key={article.slug}
                   to={`/artigos/${article.slug}`}
-                  aria-label={`Ler artigo: ${article.title}`}
                   className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
                 >
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
@@ -704,18 +702,18 @@ const Blog = () => {
             <h2 id="local-heading" className="text-2xl md:text-3xl font-semibold mb-4">
               Seguros em Guarulhos e Região
             </h2>
-            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            <p className="text-sm md:text-base text-muted-foreground leading-relaxed [&_a]:underline [&_a]:underline-offset-2 [&_a]:font-medium">
               A Patro Seguros acompanha as necessidades de proteção de famílias, profissionais e empresas em{" "}
-              <Link to="/seguros-guarulhos" className="text-primary hover:underline">Guarulhos</Link>,
+              <Link to="/seguros-guarulhos" className="text-foreground hover:text-primary">Guarulhos</Link>,
               Cumbica, Centro, Vila Galvão, Pimentas, Bonsucesso e região. Nossos conteúdos consideram dúvidas reais de
               clientes locais e ajudam na escolha de seguros mais adequados para cada perfil — do{" "}
-              <Link to="/seguro-auto-guarulhos" className="text-primary hover:underline">seguro auto</Link> ao{" "}
-              <Link to="/seguro-empresarial-guarulhos" className="text-primary hover:underline">seguro empresarial</Link>,
+              <Link to="/seguro-auto-guarulhos" className="text-foreground hover:text-primary">seguro auto</Link> ao{" "}
+              <Link to="/seguro-empresarial-guarulhos" className="text-foreground hover:text-primary">seguro empresarial</Link>,
               passando por{" "}
-              <Link to="/planos-de-saude" className="text-primary hover:underline">plano de saúde</Link>,{" "}
-              <Link to="/seguro-residencial" className="text-primary hover:underline">seguro residencial</Link>,{" "}
-              <Link to="/seguro-vida" className="text-primary hover:underline">seguro de vida</Link> e{" "}
-              <Link to="/consorcio" className="text-primary hover:underline">consórcio</Link>.
+              <Link to="/planos-de-saude" className="text-foreground hover:text-primary">plano de saúde</Link>,{" "}
+              <Link to="/seguro-residencial" className="text-foreground hover:text-primary">seguro residencial</Link>,{" "}
+              <Link to="/seguro-vida" className="text-foreground hover:text-primary">seguro de vida</Link> e{" "}
+              <Link to="/consorcio" className="text-foreground hover:text-primary">consórcio</Link>.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <Link to="/corretora-de-seguros-em-guarulhos"><Button variant="outline" size="sm">Sobre a corretora em Guarulhos</Button></Link>
@@ -762,7 +760,7 @@ const Blog = () => {
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">FAQ</span>
               <h2 id="faq-heading" className="mt-2 text-2xl md:text-3xl font-semibold">Dúvidas Frequentes sobre Seguros</h2>
             </div>
-            <dl className="space-y-4">
+            <div className="space-y-4">
               {BLOG_FAQS.map((f) => (
                 <details key={f.question} className="group rounded-xl border bg-background p-4">
                   <summary className="cursor-pointer list-none font-semibold text-sm md:text-base flex justify-between items-center">
@@ -772,7 +770,7 @@ const Blog = () => {
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{f.answer}</p>
                 </details>
               ))}
-            </dl>
+            </div>
           </div>
         </section>
 
@@ -788,11 +786,11 @@ const Blog = () => {
               </p>
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
                 <Link to="/cotacao">
-                  <Button size="lg" className="rounded-lg bg-[#F2994A] hover:bg-[#e0873a] text-white">
+                  <Button size="lg" className="rounded-lg bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">
                     Cotar meu seguro agora
                   </Button>
                 </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Cotar seguro pelo WhatsApp">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Cotar pelo WhatsApp — abre em nova aba">
                   <Button size="lg" variant="outline" className="rounded-lg bg-white/5 border-white/30 text-white hover:bg-white/15">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Cotar pelo WhatsApp
