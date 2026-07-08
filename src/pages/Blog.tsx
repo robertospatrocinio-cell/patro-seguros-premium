@@ -43,6 +43,7 @@ const CLUSTERS = [
     title: "Seguro Auto",
     description:
       "Guias, comparativos e estudos locais sobre seguro para carros em Guarulhos, Cumbica e região.",
+    hubHref: "/blog/cluster/seguro-auto",
     href: "/seguro-auto-guarulhos",
     ctaHref: "/cotacao/auto",
     ctaLabel: "Cotar seguro auto",
@@ -53,6 +54,7 @@ const CLUSTERS = [
     title: "Seguro Empresarial",
     description:
       "Conteúdos para lojistas, PMEs, galpões em Cumbica e empresas de vistoria e logística.",
+    hubHref: "/blog/cluster/seguro-empresarial",
     href: "/seguro-empresarial-guarulhos",
     ctaHref: "/cotacao/empresarial",
     ctaLabel: "Proteger minha empresa",
@@ -63,6 +65,7 @@ const CLUSTERS = [
     title: "Plano de Saúde",
     description:
       "Plano de saúde empresarial, MEI e coletivo em Guarulhos — comparativos e regras práticas.",
+    hubHref: "/blog/cluster/plano-de-saude",
     href: "/planos-de-saude",
     ctaHref: "/cotacao/saude",
     ctaLabel: "Simular plano de saúde",
@@ -73,6 +76,7 @@ const CLUSTERS = [
     title: "Consórcio",
     description:
       "Consórcio de imóveis, veículos, elétricos e planejamento patrimonial em Guarulhos.",
+    hubHref: "/blog/cluster/consorcio",
     href: "/consorcio",
     ctaHref: "/cotacao/consorcio",
     ctaLabel: "Falar sobre consórcio",
@@ -452,18 +456,12 @@ const Blog = () => {
                   <h3 className="text-base font-semibold mb-1.5">{c.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed flex-1">{c.description}</p>
                   <div className="mt-4 flex flex-col gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedCategory(c.categoryFilter);
-                        setSelectedTag(null);
-                        setQuery("");
-                        document.getElementById("artigos-lista")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }}
-                      className="min-h-[32px] py-1.5 text-sm font-medium text-primary underline underline-offset-2 hover:no-underline text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                    <Link
+                      to={c.hubHref}
+                      className="min-h-[32px] py-1.5 text-sm font-semibold text-primary underline underline-offset-2 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
                     >
-                      Ver artigos de {c.title} →
-                    </button>
+                      Abrir hub {c.title} →
+                    </Link>
                     <Link to={c.href} className="min-h-[32px] py-1.5 text-sm text-muted-foreground hover:text-foreground underline underline-offset-2">
                       Página do serviço
                     </Link>

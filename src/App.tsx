@@ -97,6 +97,7 @@ const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArti
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"), "BlogCategory");
 const BlogAuthor = lazyWithRetry(() => import("./pages/BlogAuthor"), "BlogAuthor");
 const BlogCalendario90Dias = lazyWithRetry(() => import("./pages/BlogCalendario90Dias"), "BlogCalendario90Dias");
+const BlogCluster = lazyWithRetry(() => import("./pages/BlogCluster"), "BlogCluster");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
 
@@ -482,6 +483,7 @@ const App = () => {
                   <Route path="/cotacao-auto" element={<CotacaoAutoRedirect />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/calendario-90-dias" element={<BlogCalendario90Dias />} />
+                  <Route path="/blog/cluster/:cluster" element={<BlogCluster />} />
                   <Route path="/blog/categoria/:categoria" element={<BlogCategory />} />
                   <Route path="/blog/autor/:slug" element={<BlogAuthor />} />
                   <Route path="/artigos/:slug" element={<BlogArticle />} />
