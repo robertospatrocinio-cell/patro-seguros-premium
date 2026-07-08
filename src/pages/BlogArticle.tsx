@@ -212,6 +212,7 @@ const BlogArticle = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick("blog-article-top")}
+                  aria-label={`Falar no WhatsApp sobre ${insuranceType} — abre em nova aba`}
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[#25D366] text-white text-xs font-bold hover:bg-[#1ebe57] transition-colors whitespace-nowrap"
                 >
                   <MessageCircle className="h-4 w-4" /> WhatsApp
@@ -219,6 +220,7 @@ const BlogArticle = () => {
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-top")}
+                  aria-label={`Pedir cotação de ${insuranceType} — abrir formulário`}
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-xs font-bold hover:opacity-90 transition-opacity whitespace-nowrap"
                 >
                   Pedir Cotação <ArrowRight className="h-4 w-4" />
@@ -265,6 +267,7 @@ const BlogArticle = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 justify-center">
                           <Link to="/cotacao" onClick={() => trackCotacaoClick("blog-agrishow-inline")}>
+                          {/* accessible name inherited from button text */}
                             <Button size="lg" variant="cta" className="w-full sm:w-auto font-semibold">
                               Pedir Cotação Agora <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
@@ -274,6 +277,7 @@ const BlogArticle = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackWhatsAppClick("blog-agrishow-inline")}
+                            aria-label="Falar no WhatsApp sobre seguro de máquinas agrícolas — abre em nova aba"
                           >
                             <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
                               <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
@@ -312,6 +316,7 @@ const BlogArticle = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => trackWhatsAppClick("blog-frota-inline")}
+                            aria-label="Falar no WhatsApp sobre seguro de frota — abre em nova aba"
                           >
                             <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
                               <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
@@ -379,6 +384,7 @@ const BlogArticle = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                       onClick={() => trackWhatsAppClick("blog-middle-cta")}
+                      aria-label={`Falar no WhatsApp sobre ${insuranceType} — abre em nova aba`}
                     >
                       <Button variant="outline" size="lg" className="w-full h-14 px-8 rounded-xl border-white/10 bg-white/5 text-white hover:bg-white/10 font-bold transition-all">
                         <MessageCircle className="mr-2 h-5 w-5 text-green-500" /> Falar no WhatsApp
@@ -414,6 +420,7 @@ const BlogArticle = () => {
                       </Button>
                     </Link>
                     <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`blog-faq-before-whatsapp-v${variant}`)}>
+                    {/* button text supplies name */}
                       <Button variant="outline" size="sm" className="w-full sm:w-auto font-bold border-primary text-primary hover:bg-primary hover:text-white transition-all">
                         <MessageCircle className="mr-2 h-4 w-4" /> {variant === 'A' ? 'Consultoria via WhatsApp' : 'Falar com Especialista de Frota'}
                       </Button>
@@ -762,6 +769,7 @@ const BlogArticle = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick("blog-article-bottom")}
+                  aria-label={`Falar no WhatsApp sobre ${insuranceType} — abre em nova aba`}
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[#25D366] text-white text-base font-semibold hover:bg-[#1ebe57] transition-colors"
                 >
                   <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
@@ -769,6 +777,7 @@ const BlogArticle = () => {
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-bottom")}
+                  aria-label={`Pedir cotação de ${insuranceType} — abrir formulário`}
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[hsl(var(--cta))] text-[hsl(var(--cta-foreground))] text-base font-semibold hover:opacity-90 transition-opacity"
                 >
                   Pedir Cotação <ArrowRight className="h-5 w-5" />

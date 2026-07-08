@@ -30,6 +30,7 @@ import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@/lib/blogData";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
 const POSTS_PER_PAGE = 9;
 
@@ -359,12 +360,22 @@ const Blog = () => {
               No Blog da Patro Seguros você encontra conteúdos sobre seguro auto, empresarial, plano de saúde, residencial, vida, consórcio e proteção patrimonial — sempre com foco em decisões mais seguras e bem informadas.
             </p>
             <div className="mt-7 flex flex-wrap gap-3 justify-center">
-              <Link to="/cotacao">
+              <Link
+                to="/cotacao"
+                onClick={() => trackCotacaoClick("blog-hero")}
+                aria-label="Cotar meu seguro agora — abrir formulário de cotação"
+              >
                 <Button size="lg" className="rounded-lg h-11 bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">
                   Cotar meu seguro agora
                 </Button>
               </Link>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp — abre em nova aba">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("blog-hero")}
+                aria-label="Falar com a Patro Seguros no WhatsApp — abre em nova aba"
+              >
                 <Button size="lg" variant="outline" className="rounded-lg h-11 bg-white/5 border-white/30 text-white hover:bg-white/15">
                   <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                   Falar no WhatsApp
@@ -430,8 +441,20 @@ const Blog = () => {
                 </p>
               </div>
               <div className="flex gap-2 flex-wrap">
-                <Link to="/contato"><Button variant="outline" size="sm">Falar com consultor</Button></Link>
-                <Link to="/cotacao"><Button size="sm" className="bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">Cotar agora</Button></Link>
+                <Link
+                  to="/contato"
+                  aria-label="Falar com um consultor da Patro Seguros"
+                  onClick={() => trackCotacaoClick("blog-featured-consultor")}
+                >
+                  <Button variant="outline" size="sm">Falar com consultor</Button>
+                </Link>
+                <Link
+                  to="/cotacao"
+                  aria-label="Cotar seguro agora — abrir formulário"
+                  onClick={() => trackCotacaoClick("blog-featured-cotacao")}
+                >
+                  <Button size="sm" className="bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">Cotar agora</Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -458,14 +481,24 @@ const Blog = () => {
                   <div className="mt-4 flex flex-col gap-2">
                     <Link
                       to={c.hubHref}
+                      aria-label={`Abrir hub editorial de ${c.title}`}
                       className="min-h-[32px] py-1.5 text-sm font-semibold text-primary underline underline-offset-2 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
                     >
                       Abrir hub {c.title} →
                     </Link>
-                    <Link to={c.href} className="min-h-[32px] py-1.5 text-sm text-muted-foreground hover:text-foreground underline underline-offset-2">
+                    <Link
+                      to={c.href}
+                      aria-label={`Ver página do serviço de ${c.title}`}
+                      className="min-h-[32px] py-1.5 text-sm text-muted-foreground hover:text-foreground underline underline-offset-2"
+                    >
                       Página do serviço
                     </Link>
-                    <Link to={c.ctaHref} className="min-h-[32px] py-1.5 text-sm font-semibold text-[#B45309] underline underline-offset-2 hover:no-underline mt-1">
+                    <Link
+                      to={c.ctaHref}
+                      aria-label={`${c.ctaLabel} — abrir formulário de cotação`}
+                      onClick={() => trackCotacaoClick(`blog-cluster-${c.categoryFilter}`)}
+                      className="min-h-[32px] py-1.5 text-sm font-semibold text-[#B45309] underline underline-offset-2 hover:no-underline mt-1"
+                    >
                       {c.ctaLabel} →
                     </Link>
                   </div>
@@ -727,9 +760,22 @@ const Blog = () => {
               <Link to="/consorcio" className="text-foreground hover:text-primary">consórcio</Link>.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              <Link to="/corretora-de-seguros-em-guarulhos"><Button variant="outline" size="sm">Sobre a corretora em Guarulhos</Button></Link>
-              <Link to="/seguradoras"><Button variant="outline" size="sm">Seguradoras parceiras</Button></Link>
-              <Link to="/contato"><Button variant="outline" size="sm">Falar com consultor</Button></Link>
+              <Link
+                to="/corretora-de-seguros-em-guarulhos"
+                aria-label="Conhecer a corretora de seguros em Guarulhos"
+              >
+                <Button variant="outline" size="sm">Sobre a corretora em Guarulhos</Button>
+              </Link>
+              <Link to="/seguradoras" aria-label="Ver seguradoras parceiras da Patro Seguros">
+                <Button variant="outline" size="sm">Seguradoras parceiras</Button>
+              </Link>
+              <Link
+                to="/contato"
+                aria-label="Falar com um consultor da Patro Seguros"
+                onClick={() => trackCotacaoClick("blog-local-consultor")}
+              >
+                <Button variant="outline" size="sm">Falar com consultor</Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -796,12 +842,22 @@ const Blog = () => {
                 Nosso time analisa seu perfil, compara 16+ seguradoras e envia a melhor recomendação — sem custo e sem compromisso.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 justify-center">
-                <Link to="/cotacao">
+                <Link
+                  to="/cotacao"
+                  aria-label="Cotar meu seguro agora — abrir formulário de cotação"
+                  onClick={() => trackCotacaoClick("blog-cta-final")}
+                >
                   <Button size="lg" className="rounded-lg bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">
                     Cotar meu seguro agora
                   </Button>
                 </Link>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Cotar pelo WhatsApp — abre em nova aba">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("blog-cta-final")}
+                  aria-label="Cotar seguro pelo WhatsApp com a Patro Seguros — abre em nova aba"
+                >
                   <Button size="lg" variant="outline" className="rounded-lg bg-white/5 border-white/30 text-white hover:bg-white/15">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Cotar pelo WhatsApp
