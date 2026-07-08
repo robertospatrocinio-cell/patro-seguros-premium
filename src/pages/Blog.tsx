@@ -456,18 +456,12 @@ const Blog = () => {
                   <h3 className="text-base font-semibold mb-1.5">{c.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed flex-1">{c.description}</p>
                   <div className="mt-4 flex flex-col gap-2">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedCategory(c.categoryFilter);
-                        setSelectedTag(null);
-                        setQuery("");
-                        document.getElementById("artigos-lista")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                      }}
-                      className="min-h-[32px] py-1.5 text-sm font-medium text-primary underline underline-offset-2 hover:no-underline text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                    <Link
+                      to={c.hubHref}
+                      className="min-h-[32px] py-1.5 text-sm font-semibold text-primary underline underline-offset-2 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
                     >
-                      Ver artigos de {c.title} →
-                    </button>
+                      Abrir hub {c.title} →
+                    </Link>
                     <Link to={c.href} className="min-h-[32px] py-1.5 text-sm text-muted-foreground hover:text-foreground underline underline-offset-2">
                       Página do serviço
                     </Link>
