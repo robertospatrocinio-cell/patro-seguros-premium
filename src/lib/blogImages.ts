@@ -86,6 +86,27 @@ import blogSeguroTratorVsAuto from "@/assets/blog/blog-seguro-trator-vs-auto.web
 import blogSeguroSiloMetalico from "@/assets/blog/blog-seguro-silo-metalico.webp";
 import blogDroneAgricolaRcf from "@/assets/blog/blog-drone-agricola-rcf.webp";
 
+/**
+ * Capas exclusivas geradas por IA (uma por slug de artigo).
+ * Pasta `src/assets/blog-generated/` — Vite processa cada .webp
+ * como asset hashado; apenas as imagens realmente renderizadas
+ * são baixadas pelo cliente. A ordem de precedência abaixo é:
+ *   1. Capa exclusiva por slug (`blog-generated/{slug}.webp`)
+ *   2. Capa curada legada em `blogImageMap`
+ *   3. Fallback genérico `blogDicas`
+ */
+const generatedCovers = import.meta.glob(
+  "@/assets/blog-generated/*.webp",
+  { eager: true, import: "default", query: "?url" }
+) as Record<string, string>;
+
+const generatedCoverBySlug: Record<string, string> = Object.fromEntries(
+  Object.entries(generatedCovers).map(([path, url]) => {
+    const slug = path.split("/").pop()!.replace(/\.webp$/, "");
+    return [slug, url];
+  })
+);
+
 // Map each article slug to its specific image
 export const blogImageMap: Record<string, string> = {
   // Seguro Auto
@@ -291,7 +312,7 @@ export const blogImageMap: Record<string, string> = {
 
 
 export const getArticleImage = (slug: string): string => {
-  return blogImageMap[slug] || blogDicas;
+  return generatedCoverBySlug[slug] || blogImageMap[slug] || blogDicas;
 };
 
 /**
