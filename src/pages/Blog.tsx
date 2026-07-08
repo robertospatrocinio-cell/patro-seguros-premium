@@ -319,6 +319,25 @@ const Blog = () => {
       )}
       <Header />
       <main id="main-content" className="outline-none">
+        <Breadcrumb items={[{ label: "Blog", href: "/blog" }]} />
+        {/* Sumário / navegação intra-página */}
+        <nav
+          aria-label="Nesta página"
+          className="container mx-auto px-4 pb-3 -mt-1"
+        >
+          <ul className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+            <li className="font-semibold text-foreground/70 uppercase tracking-wider mr-1">Nesta página:</li>
+            <li><a href="#destaque-heading" className="underline underline-offset-2 hover:text-primary">Destaque</a></li>
+            <li aria-hidden="true">·</li>
+            <li><a href="#clusters-heading" className="underline underline-offset-2 hover:text-primary">Clusters</a></li>
+            <li aria-hidden="true">·</li>
+            <li><a href="#artigos-lista" className="underline underline-offset-2 hover:text-primary">Artigos</a></li>
+            <li aria-hidden="true">·</li>
+            <li><a href="#local-heading" className="underline underline-offset-2 hover:text-primary">Guarulhos</a></li>
+            <li aria-hidden="true">·</li>
+            <li><a href="#faq-heading" className="underline underline-offset-2 hover:text-primary">FAQ</a></li>
+          </ul>
+        </nav>
         {/* Hero editorial */}
         <section className="gradient-hero py-16 md:py-20" aria-labelledby="blog-heading">
           <div className="container mx-auto px-4 max-w-4xl text-center">
