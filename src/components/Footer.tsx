@@ -136,7 +136,7 @@ const Footer = memo(() => {
                   Patro Private →
                 </SmartLink>
               </li>
-              <li><SmartLink to="/crm" className="text-primary font-bold hover:text-primary/80">Área do Cliente</SmartLink></li>
+              <li><SmartLink to="/crm" className="text-[#F2994A] font-bold hover:text-white">Área do Cliente</SmartLink></li>
             </ul>
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Conteúdo</h3>
             <ul className="space-y-2.5 text-[13px]">
