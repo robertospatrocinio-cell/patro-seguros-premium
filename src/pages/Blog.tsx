@@ -43,6 +43,7 @@ const CLUSTERS = [
     title: "Seguro Auto",
     description:
       "Guias, comparativos e estudos locais sobre seguro para carros em Guarulhos, Cumbica e região.",
+    hubHref: "/blog/cluster/seguro-auto",
     href: "/seguro-auto-guarulhos",
     ctaHref: "/cotacao/auto",
     ctaLabel: "Cotar seguro auto",
@@ -53,6 +54,7 @@ const CLUSTERS = [
     title: "Seguro Empresarial",
     description:
       "Conteúdos para lojistas, PMEs, galpões em Cumbica e empresas de vistoria e logística.",
+    hubHref: "/blog/cluster/seguro-empresarial",
     href: "/seguro-empresarial-guarulhos",
     ctaHref: "/cotacao/empresarial",
     ctaLabel: "Proteger minha empresa",
@@ -63,6 +65,7 @@ const CLUSTERS = [
     title: "Plano de Saúde",
     description:
       "Plano de saúde empresarial, MEI e coletivo em Guarulhos — comparativos e regras práticas.",
+    hubHref: "/blog/cluster/plano-de-saude",
     href: "/planos-de-saude",
     ctaHref: "/cotacao/saude",
     ctaLabel: "Simular plano de saúde",
@@ -73,6 +76,7 @@ const CLUSTERS = [
     title: "Consórcio",
     description:
       "Consórcio de imóveis, veículos, elétricos e planejamento patrimonial em Guarulhos.",
+    hubHref: "/blog/cluster/consorcio",
     href: "/consorcio",
     ctaHref: "/cotacao/consorcio",
     ctaLabel: "Falar sobre consórcio",
