@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import FAQSchema from "@/components/FAQSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import Breadcrumb from "@/components/Breadcrumb";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import ArticleSchema from "@/components/ArticleSchema";
 import { getCanonicalUrl, CANONICAL_BASE_URL } from "@/lib/canonical";
@@ -146,14 +146,6 @@ const BlogArticle = () => {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
               />
             )}
-            <BreadcrumbSchema
-              items={[
-                { name: "Início", url: "/" },
-                { name: "Blog", url: "/blog" },
-                { name: meta.category, url: `/blog/categoria/${slugifyCategory(meta.category)}` },
-                { name: article.title, url: articleUrl },
-              ]}
-            />
             <OrganizationSchema />
           </>
         );
