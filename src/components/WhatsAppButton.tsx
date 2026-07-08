@@ -125,6 +125,7 @@ const WhatsAppButton = () => {
               open ? "opacity-100 scale-100 pointer-events-auto" : "opacity-0 scale-90 pointer-events-none"
             }`}
             aria-hidden={!open}
+            {...(!open ? { inert: "" as unknown as boolean } : {})}
           >
             {!isSinistroPage && (
               <Link
