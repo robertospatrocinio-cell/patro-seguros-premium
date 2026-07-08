@@ -164,6 +164,10 @@ const nichos: SitemapEntry[] = [
 
 const informational: SitemapEntry[] = [
   { loc: "/blog", priority: "0.7", changefreq: "weekly" },
+  { loc: "/blog/cluster/seguro-auto", priority: "0.7", changefreq: "weekly" },
+  { loc: "/blog/cluster/seguro-empresarial", priority: "0.7", changefreq: "weekly" },
+  { loc: "/blog/cluster/plano-de-saude", priority: "0.7", changefreq: "weekly" },
+  { loc: "/blog/cluster/consorcio", priority: "0.7", changefreq: "weekly" },
   { loc: "/faq", priority: "0.7", changefreq: "weekly" },
   { loc: "/sobre", priority: "0.6", changefreq: "monthly" },
   { loc: "/depoimentos", priority: "0.5", changefreq: "monthly" },
