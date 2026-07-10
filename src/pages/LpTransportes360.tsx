@@ -396,10 +396,10 @@ const LpTransportes360 = () => {
                   Solicitar diagnóstico da operação
                 </Button>
                 <a
-                  href={WHATSAPP_URL}
+                  href={buildWhatsAppUrl("hero")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleWhatsApp(`${SOURCE}-hero`)}
+                  onClick={() => handleWhatsApp("hero")}
                   aria-label="Falar com a Patro Seguros no WhatsApp"
                   className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
                 >
@@ -675,10 +675,10 @@ const LpTransportes360 = () => {
                 </p>
                 <div className="mt-6">
                   <a
-                    href={WHATSAPP_URL}
+                    href={buildWhatsAppUrl("success")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => handleWhatsApp(`${SOURCE}-success`)}
+                    onClick={() => handleWhatsApp("success")}
                     className="inline-flex items-center gap-2 rounded-md bg-accent hover:bg-[hsl(var(--accent-hover))] text-accent-foreground font-semibold px-6 py-3"
                   >
                     <MessageCircle className="h-5 w-5" /> Falar pelo WhatsApp agora
@@ -880,10 +880,10 @@ const LpTransportes360 = () => {
                 Solicitar diagnóstico da operação
               </Button>
               <a
-                href={WHATSAPP_URL}
+                href={buildWhatsAppUrl("cta-final")}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => handleWhatsApp(`${SOURCE}-cta-final`)}
+                onClick={() => handleWhatsApp("cta-final")}
                 aria-label="Conversar pelo WhatsApp"
                 className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
               >
