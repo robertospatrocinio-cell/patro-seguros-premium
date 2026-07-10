@@ -542,6 +542,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...segmentEntries,
     ...nichos,
     ...informational,
+    ...enterpriseLps,
     ...investments,
     ...hubs,
     ...landingPages,
