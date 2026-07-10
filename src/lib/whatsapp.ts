@@ -173,3 +173,96 @@ export function buildWhatsAppLink({
       }${detalhe ? `. ${detalhe}` : "."}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base)}`;
 }
+
+// ---------------------------------------------------------------------------
+// Landing Pages — mensagens pré-preenchidas por CTA (hero / cta-final / success)
+// Fonte única de verdade. Edite aqui para ajustar textos de qualquer LP.
+// ---------------------------------------------------------------------------
+
+export type LpCtaKey = "hero" | "cta-final" | "success" | (string & {});
+
+export interface LpWhatsAppTemplate {
+  hero: string;
+  "cta-final": string;
+  success: string;
+  /** Mensagem padrão caso o CTA solicitado não exista. */
+  default?: string;
+}
+
+/** Mensagem genérica de fallback quando a LP não tem template dedicado. */
+const GENERIC_LP_MESSAGE =
+  "Olá! Vim pelo site da Patro Seguros e gostaria de mais informações.";
+
+export const LP_WHATSAPP_TEMPLATES: Record<string, LpWhatsAppTemplate> = {
+  "lp-transportes-360": {
+    hero: "Olá! Vim pela landing page do Patro Transportes 360 e gostaria de solicitar um diagnóstico da operação da minha transportadora.",
+    "cta-final":
+      "Olá! Estou na página do Patro Transportes 360 e quero conversar sobre proteção completa para frota, cargas e motoristas.",
+    success:
+      "Olá! Acabei de enviar o formulário do Patro Transportes 360 e gostaria de agilizar o diagnóstico pelo WhatsApp.",
+    default:
+      "Olá! Vim pela landing page do Patro Transportes 360 e gostaria de mais informações.",
+  },
+  "lp-maquinas-equipamentos": {
+    hero: "Olá! Vim pela landing page de Seguro de Máquinas e Equipamentos e gostaria de solicitar uma análise de risco.",
+    "cta-final":
+      "Olá! Estou na página de Seguro de Máquinas e Equipamentos e quero conversar sobre proteção para meus equipamentos.",
+    success:
+      "Olá! Acabei de enviar o formulário de Seguro de Máquinas e Equipamentos e gostaria de agilizar o atendimento pelo WhatsApp.",
+    default:
+      "Olá! Vim pela landing page de Seguro de Máquinas e Equipamentos e gostaria de mais informações.",
+  },
+  "lp-galpoes-centros-distribuicao": {
+    hero: "Olá! Vim pela landing page Patro Galpões 360 e gostaria de solicitar um diagnóstico do meu galpão.",
+    "cta-final":
+      "Olá! Estou na página Patro Galpões 360 e quero conversar sobre proteção do meu galpão / CD.",
+    success:
+      "Olá! Acabei de enviar o formulário Patro Galpões 360 e gostaria de agilizar o diagnóstico pelo WhatsApp.",
+  },
+  "lp-cibernetico-empresas": {
+    hero: "Olá! Vim pela landing page Patro Cyber PME e gostaria de solicitar um diagnóstico cibernético inicial.",
+    "cta-final":
+      "Olá! Estou na página Patro Cyber PME e quero conversar sobre proteção cibernética para a minha empresa.",
+    success:
+      "Olá! Acabei de enviar o formulário Patro Cyber PME e gostaria de agilizar o diagnóstico pelo WhatsApp.",
+  },
+  "lp-locadoras-equipamentos": {
+    hero: "Olá! Vim pela landing page Patro Locadoras 360 e gostaria de solicitar uma análise da minha locadora.",
+    "cta-final":
+      "Olá! Estou na página Patro Locadoras 360 e quero conversar sobre proteção completa da minha frota locada.",
+    success:
+      "Olá! Acabei de enviar o formulário Patro Locadoras 360 e gostaria de agilizar a análise pelo WhatsApp.",
+  },
+  "lp-responsabilidade-admin-profissionais": {
+    hero: "Olá! Vim pela landing page Patro Responsabilidade Empresarial e gostaria de solicitar uma análise das responsabilidades da minha empresa.",
+    "cta-final":
+      "Olá! Estou na página Patro Responsabilidade Empresarial e quero conversar sobre D&O, E&O e responsabilidade civil profissional.",
+    success:
+      "Olá! Acabei de enviar o formulário Patro Responsabilidade Empresarial e gostaria de agilizar a análise pelo WhatsApp.",
+  },
+};
+
+/**
+ * Resolve a mensagem de WhatsApp de um CTA em uma landing page e retorna a URL wa.me.
+ *
+ * Uso:
+ *   buildLpWhatsAppUrl("lp-transportes-360", "hero")
+ */
+export function buildLpWhatsAppUrl(source: string, cta: LpCtaKey = "hero"): string {
+  const template = LP_WHATSAPP_TEMPLATES[source];
+  const message =
+    template?.[cta as keyof LpWhatsAppTemplate] ??
+    template?.default ??
+    GENERIC_LP_MESSAGE;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+/** Retorna somente o texto pré-preenchido (útil p/ campos `whatsappSuccessMessage`). */
+export function getLpWhatsAppMessage(source: string, cta: LpCtaKey = "hero"): string {
+  const template = LP_WHATSAPP_TEMPLATES[source];
+  return (
+    template?.[cta as keyof LpWhatsAppTemplate] ??
+    template?.default ??
+    GENERIC_LP_MESSAGE
+  );
+}

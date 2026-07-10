@@ -9,18 +9,15 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import {
   HeroSection, LpSectionHeader, LpSteps, LpFAQ, LpFinalCTA,
-  useFormScroller, buildWhatsAppUrl,
+  useFormScroller,
 } from "@/components/lp/LpShared";
 import LpEnterpriseForm from "@/components/lp/LpEnterpriseForm";
+import { buildLpWhatsAppUrl, getLpWhatsAppMessage } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
 const SOURCE = "lp-responsabilidade-admin-profissionais";
-// Mensagens pré-preenchidas do WhatsApp por CTA. Edite aqui para ajustar o texto de cada botão.
-const WA_MESSAGES: Record<string, string> = {
-  hero: "Olá! Vim pela landing page Patro Responsabilidade Empresarial e gostaria de solicitar uma análise das responsabilidades da minha empresa.",
-  "cta-final": "Olá! Estou na página Patro Responsabilidade Empresarial e quero conversar sobre D&O, E&O e responsabilidade civil profissional.",
-  success: "Olá! Acabei de enviar o formulário Patro Responsabilidade Empresarial e gostaria de agilizar a análise pelo WhatsApp.",
-};
+// Templates de WhatsApp por CTA vivem em `src/lib/whatsapp.ts`
+// (`LP_WHATSAPP_TEMPLATES["lp-responsabilidade-admin-profissionais"]`).
 // TODO: substituir pelo link oficial da Susep sobre seguros de responsabilidade.
 const SUSEP_LINK = "";
 
@@ -108,7 +105,7 @@ const ResponsabilidadeAdministradoresProfissionais = () => {
           imageAlt="Reunião executiva em ambiente corporativo"
           source={SOURCE}
           onPrimary={() => scrollToForm("hero")}
-          whatsappUrl={buildWhatsAppUrl(WA_MESSAGES.hero)}
+          whatsappUrl={buildLpWhatsAppUrl(SOURCE, "hero")}
           onWhatsApp={() => trackWa("hero")}
         />
 
@@ -223,7 +220,7 @@ const ResponsabilidadeAdministradoresProfissionais = () => {
               source={SOURCE}
               insuranceType="responsabilidade-empresarial"
               submitLabel="Solicitar análise"
-              whatsappSuccessMessage={WA_MESSAGES.success}
+              whatsappSuccessMessage={getLpWhatsAppMessage(SOURCE, "success")}
               fields={[
                 { name: "name", label: "Nome", required: true, autoComplete: "name" },
                 { name: "company", label: "Empresa", required: true, autoComplete: "organization" },
@@ -278,7 +275,7 @@ const ResponsabilidadeAdministradoresProfissionais = () => {
           title="Proteja a empresa, quem decide e quem presta o serviço."
           primaryCta="Solicitar análise de responsabilidade"
           onPrimary={() => scrollToForm("cta-final")}
-          whatsappUrl={buildWhatsAppUrl(WA_MESSAGES["cta-final"])}
+          whatsappUrl={buildLpWhatsAppUrl(SOURCE, "cta-final")}
           onWhatsApp={() => trackWa("cta-final")}
           legalNote="A contratação de seguros está sujeita às condições do produto e à análise e aceitação do risco pela seguradora."
         />
