@@ -9,18 +9,15 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import {
   HeroSection, LpSectionHeader, LpSteps, LpFAQ, LpFinalCTA,
-  useFormScroller, buildWhatsAppUrl,
+  useFormScroller,
 } from "@/components/lp/LpShared";
 import LpEnterpriseForm from "@/components/lp/LpEnterpriseForm";
+import { buildLpWhatsAppUrl, getLpWhatsAppMessage } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-seguro-galpoes.webp";
 
 const SOURCE = "lp-galpoes-centros-distribuicao";
-// Mensagens pré-preenchidas do WhatsApp por CTA. Edite aqui para ajustar o texto de cada botão.
-const WA_MESSAGES: Record<string, string> = {
-  hero: "Olá! Vim pela landing page Patro Galpões 360 e gostaria de solicitar um diagnóstico do meu galpão.",
-  "cta-final": "Olá! Estou na página Patro Galpões 360 e quero conversar sobre proteção do meu galpão / CD.",
-  success: "Olá! Acabei de enviar o formulário Patro Galpões 360 e gostaria de agilizar o diagnóstico pelo WhatsApp.",
-};
+// Templates de WhatsApp por CTA vivem em `src/lib/whatsapp.ts`
+// (`LP_WHATSAPP_TEMPLATES["lp-galpoes-centros-distribuicao"]`).
 
 const riskAreas = [
   { icon: Building2, label: "Prédio e estrutura" },
@@ -114,7 +111,7 @@ const SeguroGalpoesCentrosDistribuicao = () => {
           imageAlt="Centro de distribuição moderno com docas e estoque"
           source={SOURCE}
           onPrimary={() => scrollToForm("hero")}
-          whatsappUrl={buildWhatsAppUrl(WA_MESSAGES.hero)}
+          whatsappUrl={buildLpWhatsAppUrl(SOURCE, "hero")}
           onWhatsApp={() => trackWa("hero")}
         />
 
@@ -225,7 +222,7 @@ const SeguroGalpoesCentrosDistribuicao = () => {
               source={SOURCE}
               insuranceType="galpoes-cd"
               submitLabel="Solicitar diagnóstico"
-              whatsappSuccessMessage={WA_MESSAGES.success}
+              whatsappSuccessMessage={getLpWhatsAppMessage(SOURCE, "success")}
               fields={[
                 { name: "name", label: "Nome", required: true, autoComplete: "name" },
                 { name: "company", label: "Empresa", required: true, autoComplete: "organization" },
@@ -254,7 +251,7 @@ const SeguroGalpoesCentrosDistribuicao = () => {
           title="Descubra as vulnerabilidades antes que elas interrompam sua operação."
           primaryCta="Solicitar diagnóstico de risco"
           onPrimary={() => scrollToForm("cta-final")}
-          whatsappUrl={buildWhatsAppUrl(WA_MESSAGES["cta-final"])}
+          whatsappUrl={buildLpWhatsAppUrl(SOURCE, "cta-final")}
           onWhatsApp={() => trackWa("cta-final")}
           legalNote="A contratação de seguros está sujeita às condições do produto e à análise e aceitação do risco pela seguradora."
         />
