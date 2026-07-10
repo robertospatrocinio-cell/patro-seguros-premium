@@ -174,6 +174,11 @@ const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/Segur
 const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
 const LpMaquinasEquipamentos = lazyWithRetry(() => import("./pages/LpMaquinasEquipamentos"), "LpMaquinasEquipamentos");
 const LpTransportes360 = lazyWithRetry(() => import("./pages/LpTransportes360"), "LpTransportes360");
+const SolucoesEmpresariais = lazyWithRetry(() => import("./pages/SolucoesEmpresariais"), "SolucoesEmpresariais");
+const LpSeguroLocadorasEquipamentos = lazyWithRetry(() => import("./pages/lp/SeguroLocadorasEquipamentos"), "SeguroLocadorasEquipamentos");
+const LpSeguroGalpoesCentrosDistribuicao = lazyWithRetry(() => import("./pages/lp/SeguroGalpoesCentrosDistribuicao"), "SeguroGalpoesCentrosDistribuicao");
+const LpSeguroCiberneticoEmpresas = lazyWithRetry(() => import("./pages/lp/SeguroCiberneticoEmpresas"), "SeguroCiberneticoEmpresas");
+const LpResponsabilidadeAdminProf = lazyWithRetry(() => import("./pages/lp/ResponsabilidadeAdministradoresProfissionais"), "ResponsabilidadeAdministradoresProfissionais");
 
 const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
@@ -498,6 +503,11 @@ const App = () => {
                   <Route path="/lp/:slug" element={<DynamicLandingPage />} />
                   <Route path="/lp-maquinas-equipamentos" element={<LpMaquinasEquipamentos />} />
                   <Route path="/lp-transportes-360" element={<LpTransportes360 />} />
+                  <Route path="/solucoes-empresariais" element={<SolucoesEmpresariais />} />
+                  <Route path="/seguro-locadoras-equipamentos" element={<LpSeguroLocadorasEquipamentos />} />
+                  <Route path="/seguro-galpoes-centros-distribuicao" element={<LpSeguroGalpoesCentrosDistribuicao />} />
+                  <Route path="/seguro-cibernetico-empresas" element={<LpSeguroCiberneticoEmpresas />} />
+                  <Route path="/responsabilidade-administradores-profissionais" element={<LpResponsabilidadeAdminProf />} />
                   <Route path="/diagnostico" element={<Diagnostico />} />
 
                   {/* ... other specific routes ... */}
