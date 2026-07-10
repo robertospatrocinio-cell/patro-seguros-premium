@@ -34,37 +34,19 @@ import { toast } from "sonner";
 import { submitLead } from "@/lib/leadsApi";
 import { trackCotacaoClick, trackWhatsAppClick, trackCotacaoSubmit } from "@/lib/tracking";
 import { maskPhone } from "@/lib/utils";
+import { WHATSAPP_NUMBER, buildLpWhatsAppUrl } from "@/lib/whatsapp";
 import heroImg from "@/assets/hero-seguro-transporte.webp";
 
 // ---------- Config editável ----------
-// Altere aqui número, contatos e as mensagens pré-preenchidas de cada CTA de WhatsApp.
-const WHATSAPP_NUMBER = "551151997500";
+// Número e templates de WhatsApp por CTA vivem em `src/lib/whatsapp.ts`.
+// Para ajustar os textos desta LP, edite `LP_WHATSAPP_TEMPLATES["lp-transportes-360"]` lá.
 const CONTACT_EMAIL = "contato@patroseguros.com.br";
 const CONTACT_PHONE = "(11) 5199-7500";
 const CITY = "Guarulhos / SP";
 
 const SOURCE = "lp-transportes-360";
 
-/**
- * Mensagens pré-preenchidas do WhatsApp por CTA.
- * A chave é a origem do clique (também usada no tracking); o valor é o texto que
- * aparecerá pronto na conversa do WhatsApp.
- */
-const WHATSAPP_MESSAGES: Record<string, string> = {
-  hero: "Olá! Vim pela landing page do Patro Transportes 360 e gostaria de solicitar um diagnóstico da operação da minha transportadora.",
-  "cta-final":
-    "Olá! Estou na página do Patro Transportes 360 e quero conversar sobre proteção completa para frota, cargas e motoristas.",
-  success:
-    "Olá! Acabei de enviar o formulário do Patro Transportes 360 e gostaria de agilizar o diagnóstico pelo WhatsApp.",
-};
-
-const DEFAULT_WHATSAPP_MESSAGE =
-  "Olá! Vim pela landing page do Patro Transportes 360 e gostaria de mais informações.";
-
-const buildWhatsAppUrl = (key: keyof typeof WHATSAPP_MESSAGES | string) => {
-  const text = WHATSAPP_MESSAGES[key] ?? DEFAULT_WHATSAPP_MESSAGE;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-};
+const buildWhatsAppUrl = (cta: string) => buildLpWhatsAppUrl(SOURCE, cta);
 
 // ---------- Máscara CNPJ ----------
 const maskCNPJ = (v: string) => {
