@@ -278,15 +278,42 @@ const LpTransportes360 = () => {
       "@context": "https://schema.org",
       "@type": "Service",
       name: "Patro Transportes 360 — Seguros para transportadoras",
+      url: "https://patroseguros.lovable.app/lp-transportes-360",
+      serviceType: "Seguro para transportadoras, frota e cargas",
+      category: "Seguros empresariais para transporte rodoviário de cargas",
+      description:
+        "Programa consultivo de seguros e gestão de riscos para transportadoras rodoviárias: frota, RCTR-C, RCF-DC, cargas, roubo, avarias, vida de motoristas, instalações e apoio em sinistros.",
+      areaServed: [
+        { "@type": "City", name: "Guarulhos" },
+        { "@type": "AdministrativeArea", name: "Grande São Paulo" },
+        { "@type": "Country", name: "Brasil" },
+      ],
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Transportadoras rodoviárias de cargas",
+      },
       provider: {
         "@type": "InsuranceAgency",
         name: "Patro Seguros",
-        areaServed: "Guarulhos, Grande São Paulo",
+        url: "https://patroseguros.lovable.app",
         telephone: `+${WHATSAPP_NUMBER}`,
+        areaServed: "BR",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Av. Salgado Filho, 2120 – Sala 219 – Edifício Via Alameda",
+          addressLocality: "Guarulhos",
+          addressRegion: "SP",
+          addressCountry: "BR",
+        },
       },
-      serviceType: "Programa de seguros e gestão de riscos para transportadoras",
-      description:
-        "Análise integrada de frota, cargas, responsabilidades, motoristas, instalações e sinistros para transportadoras rodoviárias.",
+      offers: {
+        "@type": "Offer",
+        name: "Diagnóstico gratuito da operação de transporte",
+        price: "0",
+        priceCurrency: "BRL",
+        availability: "https://schema.org/InStock",
+        url: "https://patroseguros.lovable.app/lp-transportes-360#formulario",
+      },
     }),
     [],
   );
@@ -294,8 +321,12 @@ const LpTransportes360 = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <PageMeta
-        title="Seguro para Transportadoras e Cargas"
-        description="Programa de seguros para transportadoras: frota, cargas, responsabilidade civil, motoristas, instalações, gerenciamento de riscos e sinistros integrados."
+        title="Seguro para Transportadoras e Frota de Cargas"
+        description="Patro Transportes 360: seguro para transportadoras com análise de frota, cargas (RCTR-C/RCF-DC), motoristas e gerenciamento de riscos. Solicite um diagnóstico."
+        ogType="website"
+        ogImage="https://patroseguros.lovable.app/images/og-cover.webp"
+        ogImageAlt="Frota de caminhões — Patro Transportes 360, seguros para transportadoras"
+        preloadImage={heroImg}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
