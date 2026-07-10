@@ -17,7 +17,12 @@ import LpEnterpriseForm from "@/components/lp/LpEnterpriseForm";
 import heroImg from "@/assets/hero-seguro-cyber.webp";
 
 const SOURCE = "lp-cibernetico-empresas";
-const WA_MSG = "Olá! Vim pela landing page Patro Cyber PME e gostaria de solicitar um diagnóstico cibernético inicial.";
+// Mensagens pré-preenchidas do WhatsApp por CTA. Edite aqui para ajustar o texto de cada botão.
+const WA_MESSAGES: Record<string, string> = {
+  hero: "Olá! Vim pela landing page Patro Cyber PME e gostaria de solicitar um diagnóstico cibernético inicial.",
+  "cta-final": "Olá! Estou na página Patro Cyber PME e quero conversar sobre proteção cibernética para a minha empresa.",
+  success: "Olá! Acabei de enviar o formulário Patro Cyber PME e gostaria de agilizar o diagnóstico pelo WhatsApp.",
+};
 // TODO: substituir pelo link oficial da Susep sobre cibernético.
 const SUSEP_LINK = "";
 
@@ -141,7 +146,7 @@ const SeguroCiberneticoEmpresas = () => {
           imageAlt="Equipe trabalhando com computadores e sistemas em ambiente corporativo"
           source={SOURCE}
           onPrimary={() => scrollToForm("hero")}
-          whatsappUrl={buildWhatsAppUrl(WA_MSG)}
+          whatsappUrl={buildWhatsAppUrl(WA_MESSAGES.hero)}
           onWhatsApp={() => trackWa("hero")}
         />
 
@@ -265,7 +270,7 @@ const SeguroCiberneticoEmpresas = () => {
               source={SOURCE}
               insuranceType="cibernetico-empresas"
               submitLabel="Solicitar diagnóstico"
-              whatsappSuccessMessage={WA_MSG}
+              whatsappSuccessMessage={WA_MESSAGES.success}
               fields={[
                 { name: "name", label: "Nome", required: true, autoComplete: "name" },
                 { name: "company", label: "Empresa", required: true, autoComplete: "organization" },
@@ -320,7 +325,7 @@ const SeguroCiberneticoEmpresas = () => {
           title="Proteja a continuidade da empresa, não apenas os computadores."
           primaryCta="Solicitar diagnóstico cibernético"
           onPrimary={() => scrollToForm("cta-final")}
-          whatsappUrl={buildWhatsAppUrl(WA_MSG)}
+          whatsappUrl={buildWhatsAppUrl(WA_MESSAGES["cta-final"])}
           onWhatsApp={() => trackWa("cta-final")}
           legalNote="A contratação de seguros está sujeita às condições do produto e à análise e aceitação do risco pela seguradora."
         />
