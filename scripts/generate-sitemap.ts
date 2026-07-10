@@ -179,6 +179,14 @@ const informational: SitemapEntry[] = [
   { loc: "/seguros-guarulhos", priority: "0.8", changefreq: "monthly" },
 ];
 
+const enterpriseLps: SitemapEntry[] = [
+  { loc: "/solucoes-empresariais", priority: "0.8", changefreq: "monthly" },
+  { loc: "/seguro-locadoras-equipamentos", priority: "0.8", changefreq: "monthly" },
+  { loc: "/seguro-galpoes-centros-distribuicao", priority: "0.8", changefreq: "monthly" },
+  { loc: "/seguro-cibernetico-empresas", priority: "0.8", changefreq: "monthly" },
+  { loc: "/responsabilidade-administradores-profissionais", priority: "0.8", changefreq: "monthly" },
+];
+
  const hubs: SitemapEntry[] = [
    { loc: "/seguros-em-guarulhos", priority: "0.9", changefreq: "daily" },
    { loc: "/seguros-de-veiculos", priority: "0.8", changefreq: "weekly" },
