@@ -185,6 +185,8 @@ const enterpriseLps: SitemapEntry[] = [
   { loc: "/seguro-galpoes-centros-distribuicao", priority: "0.8", changefreq: "monthly" },
   { loc: "/seguro-cibernetico-empresas", priority: "0.8", changefreq: "monthly" },
   { loc: "/responsabilidade-administradores-profissionais", priority: "0.8", changefreq: "monthly" },
+  { loc: "/lp-transportes-360", priority: "0.85", changefreq: "weekly" },
+  { loc: "/lp-maquinas-equipamentos", priority: "0.85", changefreq: "weekly" },
 ];
 
  const hubs: SitemapEntry[] = [
