@@ -38,16 +38,34 @@ import { maskPhone } from "@/lib/utils";
 import heroImg from "@/assets/hero-seguro-maquinas.webp";
 
 // ---------- Config editável ----------
+// Altere aqui número, contatos e as mensagens pré-preenchidas de cada CTA de WhatsApp.
 const WHATSAPP_NUMBER = "551151997500";
-const WHATSAPP_MSG = encodeURIComponent(
-  "Olá! Vim pela landing page de seguro de máquinas e equipamentos e gostaria de solicitar uma análise de risco.",
-);
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 const CONTACT_EMAIL = "contato@patroseguros.com.br";
 const CONTACT_PHONE = "(11) 5199-7500";
 const CITY = "Guarulhos / SP";
 
 const SOURCE = "lp-maquinas-equipamentos";
+
+/**
+ * Mensagens pré-preenchidas do WhatsApp por CTA.
+ * A chave é a origem do clique (também usada no tracking); o valor é o texto que
+ * aparecerá pronto na conversa do WhatsApp.
+ */
+const WHATSAPP_MESSAGES: Record<string, string> = {
+  hero: "Olá! Vim pela landing page de Seguro de Máquinas e Equipamentos e gostaria de solicitar uma análise de risco.",
+  "cta-final":
+    "Olá! Estou na página de Seguro de Máquinas e Equipamentos e quero conversar sobre proteção para meus equipamentos.",
+  success:
+    "Olá! Acabei de enviar o formulário de Seguro de Máquinas e Equipamentos e gostaria de agilizar o atendimento pelo WhatsApp.",
+};
+
+const DEFAULT_WHATSAPP_MESSAGE =
+  "Olá! Vim pela landing page de Seguro de Máquinas e Equipamentos e gostaria de mais informações.";
+
+const buildWhatsAppUrl = (key: keyof typeof WHATSAPP_MESSAGES | string) => {
+  const text = WHATSAPP_MESSAGES[key] ?? DEFAULT_WHATSAPP_MESSAGE;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+};
 
 // ---------- Validação ----------
 const formSchema = z.object({
