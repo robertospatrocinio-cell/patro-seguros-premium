@@ -172,6 +172,7 @@ const PlanoSaudeEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/Plano
 const PlanoOdontologicoGuarulhos = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhos"), "PlanoOdontologicoGuarulhos");
 const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/SeguroTransporteCargaGuarulhos"), "SeguroTransporteCargaGuarulhos");
 const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
+const LpMaquinasEquipamentos = lazyWithRetry(() => import("./pages/LpMaquinasEquipamentos"), "LpMaquinasEquipamentos");
 
 const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
@@ -494,6 +495,7 @@ const App = () => {
                   <Route path="/seguro-auto-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-bonsucesso-guarulhos-v2" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-pimentas" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-pimentas-guarulhos" }); return <Comp />; })()} />
                   <Route path="/lp/:slug" element={<DynamicLandingPage />} />
+                  <Route path="/lp-maquinas-equipamentos" element={<LpMaquinasEquipamentos />} />
                   <Route path="/diagnostico" element={<Diagnostico />} />
 
                   {/* ... other specific routes ... */}
