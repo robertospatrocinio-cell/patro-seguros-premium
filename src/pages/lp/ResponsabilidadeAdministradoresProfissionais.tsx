@@ -15,7 +15,12 @@ import LpEnterpriseForm from "@/components/lp/LpEnterpriseForm";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
 
 const SOURCE = "lp-responsabilidade-admin-profissionais";
-const WA_MSG = "Olá! Vim pela landing page Patro Responsabilidade Empresarial e gostaria de solicitar uma análise das responsabilidades da minha empresa.";
+// Mensagens pré-preenchidas do WhatsApp por CTA. Edite aqui para ajustar o texto de cada botão.
+const WA_MESSAGES: Record<string, string> = {
+  hero: "Olá! Vim pela landing page Patro Responsabilidade Empresarial e gostaria de solicitar uma análise das responsabilidades da minha empresa.",
+  "cta-final": "Olá! Estou na página Patro Responsabilidade Empresarial e quero conversar sobre D&O, E&O e responsabilidade civil profissional.",
+  success: "Olá! Acabei de enviar o formulário Patro Responsabilidade Empresarial e gostaria de agilizar a análise pelo WhatsApp.",
+};
 // TODO: substituir pelo link oficial da Susep sobre seguros de responsabilidade.
 const SUSEP_LINK = "";
 
