@@ -321,7 +321,7 @@ const LpMaquinasEquipamentos = () => {
                   Solicitar análise de risco
                 </Button>
                 <a
-                  href={WHATSAPP_URL}
+                  href={buildWhatsAppUrl("hero")}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => handleWhatsApp(`${SOURCE}-hero`)}
@@ -568,7 +568,7 @@ const LpMaquinasEquipamentos = () => {
                 </p>
                 <div className="mt-6">
                   <a
-                    href={WHATSAPP_URL}
+                    href={buildWhatsAppUrl("success")}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => handleWhatsApp(`${SOURCE}-success`)}
@@ -794,7 +794,7 @@ const LpMaquinasEquipamentos = () => {
                 Solicitar análise de risco
               </Button>
               <a
-                href={WHATSAPP_URL}
+                href={buildWhatsAppUrl("cta-final")}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleWhatsApp(`${SOURCE}-cta-final`)}
