@@ -37,16 +37,34 @@ import { maskPhone } from "@/lib/utils";
 import heroImg from "@/assets/hero-seguro-transporte.webp";
 
 // ---------- Config editável ----------
+// Altere aqui número, contatos e as mensagens pré-preenchidas de cada CTA de WhatsApp.
 const WHATSAPP_NUMBER = "551151997500";
-const WHATSAPP_MSG = encodeURIComponent(
-  "Olá! Vim pela landing page do Patro Transportes 360 e gostaria de solicitar um diagnóstico da operação.",
-);
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
 const CONTACT_EMAIL = "contato@patroseguros.com.br";
 const CONTACT_PHONE = "(11) 5199-7500";
 const CITY = "Guarulhos / SP";
 
 const SOURCE = "lp-transportes-360";
+
+/**
+ * Mensagens pré-preenchidas do WhatsApp por CTA.
+ * A chave é a origem do clique (também usada no tracking); o valor é o texto que
+ * aparecerá pronto na conversa do WhatsApp.
+ */
+const WHATSAPP_MESSAGES: Record<string, string> = {
+  hero: "Olá! Vim pela landing page do Patro Transportes 360 e gostaria de solicitar um diagnóstico da operação da minha transportadora.",
+  "cta-final":
+    "Olá! Estou na página do Patro Transportes 360 e quero conversar sobre proteção completa para frota, cargas e motoristas.",
+  success:
+    "Olá! Acabei de enviar o formulário do Patro Transportes 360 e gostaria de agilizar o diagnóstico pelo WhatsApp.",
+};
+
+const DEFAULT_WHATSAPP_MESSAGE =
+  "Olá! Vim pela landing page do Patro Transportes 360 e gostaria de mais informações.";
+
+const buildWhatsAppUrl = (key: keyof typeof WHATSAPP_MESSAGES | string) => {
+  const text = WHATSAPP_MESSAGES[key] ?? DEFAULT_WHATSAPP_MESSAGE;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+};
 
 // ---------- Máscara CNPJ ----------
 const maskCNPJ = (v: string) => {
@@ -194,8 +212,11 @@ const LpTransportes360 = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const handleWhatsApp = (source: string) => {
-    trackWhatsAppClick(source, { insuranceType: "transporte", origin: SOURCE });
+  const handleWhatsApp = (ctaKey: string) => {
+    trackWhatsAppClick(`${SOURCE}-${ctaKey}`, {
+      insuranceType: "transporte",
+      origin: SOURCE,
+    });
   };
 
   const handleChange = (field: keyof FormState, val: string | boolean) => {
@@ -375,10 +396,10 @@ const LpTransportes360 = () => {
                   Solicitar diagnóstico da operação
                 </Button>
                 <a
-                  href={WHATSAPP_URL}
+                  href={buildWhatsAppUrl("hero")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleWhatsApp(`${SOURCE}-hero`)}
+                  onClick={() => handleWhatsApp("hero")}
                   aria-label="Falar com a Patro Seguros no WhatsApp"
                   className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
                 >
@@ -654,10 +675,10 @@ const LpTransportes360 = () => {
                 </p>
                 <div className="mt-6">
                   <a
-                    href={WHATSAPP_URL}
+                    href={buildWhatsAppUrl("success")}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => handleWhatsApp(`${SOURCE}-success`)}
+                    onClick={() => handleWhatsApp("success")}
                     className="inline-flex items-center gap-2 rounded-md bg-accent hover:bg-[hsl(var(--accent-hover))] text-accent-foreground font-semibold px-6 py-3"
                   >
                     <MessageCircle className="h-5 w-5" /> Falar pelo WhatsApp agora
@@ -859,10 +880,10 @@ const LpTransportes360 = () => {
                 Solicitar diagnóstico da operação
               </Button>
               <a
-                href={WHATSAPP_URL}
+                href={buildWhatsAppUrl("cta-final")}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => handleWhatsApp(`${SOURCE}-cta-final`)}
+                onClick={() => handleWhatsApp("cta-final")}
                 aria-label="Conversar pelo WhatsApp"
                 className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
               >
