@@ -35,36 +35,6 @@ export const LpSectionHeader = ({
   </div>
 );
 
-// ---------- Hero reutilizável ----------
-export const LpHero = ({
-  brand,
-  title,
-  subtitle,
-  description,
-  supportLine,
-  primaryCta,
-  secondaryCta,
-  image,
-  imageAlt,
-  source,
-  whatsappMessage,
-}: {
-  brand: string;
-  title: string;
-  subtitle: string;
-  description?: string;
-  supportLine?: string;
-  primaryCta: string;
-  secondaryCta: string;
-  image: string;
-  imageAlt: string;
-  source: string;
-  whatsappMessage: string;
-  onCtaClick?: () => void;
-}) => {
-  return null; // placeholder never used (JSX below); kept for type ergonomics
-};
-
 // ---------- Hero component (inline JSX) ----------
 interface HeroProps {
   brand: string;
