@@ -158,6 +158,12 @@ export const QuickLeadForm = () => {
                 </span>
                 <span className="italic line-clamp-1 max-w-[60%] text-right">"{whatsappMessage}"</span>
               </div>
+              <p className="text-[11px] text-slate-500 leading-relaxed">
+                Ao enviar, você concorda com a nossa{" "}
+                <a href="/politica-privacidade" target="_blank" rel="noreferrer" className="underline hover:text-slate-700">Política de Privacidade</a>{" "}
+                e os{" "}
+                <a href="/termos-de-uso" target="_blank" rel="noreferrer" className="underline hover:text-slate-700">Termos de Uso</a>.
+              </p>
             </div>
           </form>
         </div>
