@@ -216,8 +216,6 @@ const LpTransportes360 = () => {
     trackWhatsAppClick(`${SOURCE}-${ctaKey}`, {
       insuranceType: "transporte",
       origin: SOURCE,
-      cta: ctaKey,
-      message: WHATSAPP_MESSAGES[ctaKey] ?? DEFAULT_WHATSAPP_MESSAGE,
     });
   };
 
