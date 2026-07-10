@@ -294,50 +294,100 @@ const LpTransportes360 = () => {
     }
   };
 
-  const structuredData = useMemo(
-    () => ({
+  const structuredData = useMemo(() => {
+    const pageUrl = "https://patroseguros.lovable.app/lp-transportes-360";
+    return {
       "@context": "https://schema.org",
       "@type": "Service",
+      "@id": `${pageUrl}#service`,
       name: "Patro Transportes 360 — Seguros para transportadoras",
-      url: "https://patroseguros.lovable.app/lp-transportes-360",
+      alternateName: "Seguro para Transportadoras e Frota de Cargas",
+      url: pageUrl,
       serviceType: "Seguro para transportadoras, frota e cargas",
       category: "Seguros empresariais para transporte rodoviário de cargas",
       description:
         "Programa consultivo de seguros e gestão de riscos para transportadoras rodoviárias: frota, RCTR-C, RCF-DC, cargas, roubo, avarias, vida de motoristas, instalações e apoio em sinistros.",
+      termsOfService: "https://patroseguros.lovable.app/termos-de-uso",
       areaServed: [
         { "@type": "City", name: "Guarulhos" },
         { "@type": "AdministrativeArea", name: "Grande São Paulo" },
-        { "@type": "Country", name: "Brasil" },
+        { "@type": "Country", name: "Brazil" },
       ],
       audience: {
         "@type": "BusinessAudience",
         audienceType: "Transportadoras rodoviárias de cargas",
       },
+      brand: { "@type": "Brand", name: "Patro Transportes 360" },
       provider: {
         "@type": "InsuranceAgency",
+        "@id": "https://www.patroseguros.com.br/#insurance-agency",
         name: "Patro Seguros",
-        url: "https://patroseguros.lovable.app",
+        url: "https://www.patroseguros.com.br",
+        logo: "https://www.patroseguros.com.br/images/logo-full.webp",
+        image: "https://www.patroseguros.com.br/images/logo-full.webp",
         telephone: `+${WHATSAPP_NUMBER}`,
+        email: CONTACT_EMAIL,
+        priceRange: "$$",
         areaServed: "BR",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Av. Salgado Filho, 2120 – Sala 219 – Edifício Via Alameda",
           addressLocality: "Guarulhos",
           addressRegion: "SP",
+          postalCode: "07115-000",
           addressCountry: "BR",
         },
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: `+${WHATSAPP_NUMBER}`,
+          contactType: "sales",
+          areaServed: "BR",
+          availableLanguage: ["Portuguese"],
+        },
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Coberturas analisadas para transportadoras",
+        itemListElement: [
+          "Seguro de frota (Auto pesados e leves)",
+          "Responsabilidade Civil (RCTR-C, RCF-DC, RC Ambiental)",
+          "Seguros obrigatórios (DPVAT / seguro obrigatório de veículo)",
+          "Seguro de carga (transporte nacional e internacional)",
+          "Roubo e avarias de cargas",
+          "Seguro de vida e acidentes para motoristas",
+          "Seguro empresarial de instalações e pátios",
+          "Gerenciamento de riscos e telemetria",
+          "Assistência e apoio em sinistros",
+        ].map((coverage) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: coverage },
+        })),
       },
       offers: {
         "@type": "Offer",
-        name: "Diagnóstico gratuito da operação de transporte",
+        name: "Diagnóstico consultivo gratuito da operação de transporte",
+        description:
+          "Análise inicial sem custo para identificar riscos, lacunas e oportunidades de proteção. Não representa proposta, contratação ou aceitação do risco pela seguradora.",
         price: "0",
         priceCurrency: "BRL",
         availability: "https://schema.org/InStock",
-        url: "https://patroseguros.lovable.app/lp-transportes-360#formulario",
+        url: `${pageUrl}#formulario`,
+        seller: { "@id": "https://www.patroseguros.com.br/#insurance-agency" },
       },
-    }),
-    [],
-  );
+      potentialAction: {
+        "@type": "ReserveAction",
+        name: "Solicitar diagnóstico da operação",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${pageUrl}#formulario`,
+          actionPlatform: [
+            "https://schema.org/DesktopWebPlatform",
+            "https://schema.org/MobileWebPlatform",
+          ],
+        },
+      },
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
