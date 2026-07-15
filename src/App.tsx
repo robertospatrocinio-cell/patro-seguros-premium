@@ -301,6 +301,8 @@ const BradescoSeguros = lazy(() => import("./pages/seguradoras/Bradesco"));
 const Mitsui = lazy(() => import("./pages/seguradoras/Mitsui"));
 const SeguradorasHub = lazy(() => import("./pages/seguradoras/SeguradorasHub"));
 const PartnerInsurerPage = lazy(() => import("./components/PartnerInsurerPage"));
+const SeguradorasParceirasHub = lazy(() => import("./pages/SeguradorasParceirasHub"));
+const SeguradoraParceiraSeoPage = lazy(() => import("./pages/SeguradoraParceiraSeoPage"));
 const SeguroBMW = lazy(() => import("./pages/SeguroBMW"));
 const SeguroMarcaPremium = lazy(() => import("./pages/SeguroMarcaPremium"));
 
