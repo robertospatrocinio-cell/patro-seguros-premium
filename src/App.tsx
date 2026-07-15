@@ -301,6 +301,8 @@ const BradescoSeguros = lazy(() => import("./pages/seguradoras/Bradesco"));
 const Mitsui = lazy(() => import("./pages/seguradoras/Mitsui"));
 const SeguradorasHub = lazy(() => import("./pages/seguradoras/SeguradorasHub"));
 const PartnerInsurerPage = lazy(() => import("./components/PartnerInsurerPage"));
+const SeguradorasParceirasHub = lazy(() => import("./pages/SeguradorasParceirasHub"));
+const SeguradoraParceiraSeoPage = lazy(() => import("./pages/SeguradoraParceiraSeoPage"));
 const SeguroBMW = lazy(() => import("./pages/SeguroBMW"));
 const SeguroMarcaPremium = lazy(() => import("./pages/SeguroMarcaPremium"));
 
@@ -756,6 +758,24 @@ const App = () => {
                   {/* Hub de Seguradoras Parceiras */}
                   <Route path="/seguradoras" element={<SeguradorasHub />} />
                   <Route path="/seguradoras/:slug" element={<PartnerInsurerPage />} />
+                  {/* Nova área SEO — Seguradoras Parceiras (páginas top-level /<slug>-guarulhos) */}
+                  <Route path="/seguradoras-parceiras" element={<SeguradorasParceirasHub />} />
+                  <Route path="/porto-seguro-guarulhos" element={<SeguradoraParceiraSeoPage slug="porto-seguro-guarulhos" />} />
+                  <Route path="/mapfre-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="mapfre-seguros-guarulhos" />} />
+                  <Route path="/allianz-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="allianz-seguros-guarulhos" />} />
+                  <Route path="/tokio-marine-guarulhos" element={<SeguradoraParceiraSeoPage slug="tokio-marine-guarulhos" />} />
+                  <Route path="/azul-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="azul-seguros-guarulhos" />} />
+                  <Route path="/suhai-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="suhai-seguros-guarulhos" />} />
+                  <Route path="/bradesco-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="bradesco-seguros-guarulhos" />} />
+                  <Route path="/sulamerica-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="sulamerica-seguros-guarulhos" />} />
+                  <Route path="/hdi-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="hdi-seguros-guarulhos" />} />
+                  <Route path="/liberty-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="liberty-seguros-guarulhos" />} />
+                  <Route path="/mitsui-sumitomo-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="mitsui-sumitomo-seguros-guarulhos" />} />
+                  <Route path="/sompo-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="sompo-seguros-guarulhos" />} />
+                  <Route path="/zurich-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="zurich-seguros-guarulhos" />} />
+                  <Route path="/pottencial-seguradora-guarulhos" element={<SeguradoraParceiraSeoPage slug="pottencial-seguradora-guarulhos" />} />
+                  <Route path="/akad-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="akad-seguros-guarulhos" />} />
+                  <Route path="/ezze-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="ezze-seguros-guarulhos" />} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
