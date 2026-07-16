@@ -70,11 +70,11 @@
     <!-- Preconnect to third-party hosts that serve content just below the fold -->
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <!-- Analytics endpoints (loaded post-consent, but warm the TCP/TLS handshake) -->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-    <link rel="dns-prefetch" href="https://connect.facebook.net" />
-    <link rel="dns-prefetch" href="https://www.facebook.com" />
+    <!-- Backend (Lovable Cloud) — Web Vitals sendBeacon dispara logo após o load -->
+    <link rel="preconnect" href="https://vjzsekwkeixbbpldiqmd.supabase.co" crossorigin />
+    <!-- Analytics (GA4 + Meta Pixel) só carregam pós-consent + primeira interação.
+         DNS resolvido on-demand naquele momento; pré-resolver aqui só desperdiça
+         handshakes em visitantes que saem antes de interagir. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

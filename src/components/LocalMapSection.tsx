@@ -1,6 +1,7 @@
 import { MapPin, Navigation, Clock, Shield } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import LazyMapEmbed from "@/components/LazyMapEmbed";
 
 interface RouteInfo {
   neighborhood: string;
@@ -38,17 +39,11 @@ const LocalMapSection = ({
             viewport={{ once: true }}
             className="rounded-2xl overflow-hidden shadow-elegant h-[450px] bg-white border border-border"
           >
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d14637.362140417646!2d-46.54133405!3d-23.44813585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef563a921d003%3A0xf69372225e373a4b!2sPatro%20Seguros!5e0!3m2!1spt-BR!2sbr!4v1714574921932!5m2!1spt-BR!2sbr" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
+            <LazyMapEmbed
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d14637.362140417646!2d-46.54133405!3d-23.44813585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef563a921d003%3A0xf69372225e373a4b!2sPatro%20Seguros!5e0!3m2!1spt-BR!2sbr!4v1714574921932!5m2!1spt-BR!2sbr"
               title="Mapa Patro Seguros Guarulhos"
-              className="grayscale-[0.2] contrast-[1.1]"
-            ></iframe>
+              className="grayscale-[0.2] contrast-[1.1] w-full h-full"
+            />
           </motion.div>
 
           {/* Route Details */}

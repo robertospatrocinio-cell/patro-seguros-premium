@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LazyMapEmbed from "@/components/LazyMapEmbed";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
@@ -177,18 +178,12 @@ const SobreGuarulhos = () => (
                 </ul>
               </div>
             </div>
-            <div className="rounded-xl overflow-hidden border" style={{ minHeight: 450 }}>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8547956844783!2d-46.44936132378558!3d-23.44622945767449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8f1f8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sAv.%20Salgado%20Filho%2C%202120%20-%20Guarulhos%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: 450 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Localização Patro Seguros em Guarulhos"
-              />
-            </div>
+            <LazyMapEmbed
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8547956844783!2d-46.44936132378558!3d-23.44622945767449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8f1f8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sAv.%20Salgado%20Filho%2C%202120%20-%20Guarulhos%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+              title="Localização Patro Seguros em Guarulhos"
+              className="rounded-xl overflow-hidden border"
+              height={450}
+            />
           </div>
         </div>
       </section>
