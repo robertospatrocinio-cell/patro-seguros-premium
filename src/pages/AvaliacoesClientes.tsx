@@ -58,7 +58,9 @@ const AvaliacoesClientes = () => {
       <PageMeta
         title="Avaliações dos Clientes da Patro Seguros em Guarulhos"
         description="Veja avaliações reais de clientes da Patro Seguros em Guarulhos. Atendimento humano, corretora registrada na SUSEP e soluções em seguro auto, residencial, vida, saúde, empresarial e muito mais."
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: CANONICAL_BASE_URL },

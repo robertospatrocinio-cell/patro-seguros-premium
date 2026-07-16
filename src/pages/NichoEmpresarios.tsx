@@ -44,6 +44,8 @@ const NichoEmpresarios = () => (
     <PageMeta
       title="Seguros para Empresários e Empresas | Patro Seguros"
       description="Pacote completo de seguros para empresas: Empresarial, Cyber, RC, D&O, Plano de Saúde e Vida em Grupo. Cotação grátis em Guarulhos e SP."
+    
+      skipBreadcrumb
     />
      <FAQSchema faqs={faqs} />
      <LocalBusinessSchema />

@@ -66,6 +66,8 @@ const SeguroAutoMarcas = () => (
     <PageMeta
       title="Seguro Auto por Marca em Guarulhos — Volkswagen, Toyota, BMW, BYD e mais"
       description="Cotação de seguro auto por marca em Guarulhos: Volkswagen, Chevrolet, Toyota, Honda, BMW, Mercedes, Audi, BYD, GWM e mais. Compare 16 seguradoras com a Patro."
+    
+      skipBreadcrumb
     />
     <FAQSchema faqs={FAQS} />
     <BreadcrumbSchema

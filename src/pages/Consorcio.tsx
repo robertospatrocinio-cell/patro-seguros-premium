@@ -259,7 +259,9 @@ const Consorcio = () => {
       <PageMeta
         title="Consórcio em Guarulhos | Imóveis, Veículos e Empresas"
         description="Consórcio em Guarulhos com orientação consultiva. Simule crédito para imóvel, veículo, empresa ou serviços com explicação clara da Patro Seguros."
-      />
+      
+      skipBreadcrumb
+    />
       <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <BreadcrumbSchema items={[
         { name: "Início", url: "https://www.patroseguros.com.br/" },

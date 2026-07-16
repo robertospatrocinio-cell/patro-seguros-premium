@@ -218,7 +218,9 @@ const SeguroAgro = () => {
       <PageMeta
         title="Seguro Agro — Lavoura, Máquinas, Silo e Propriedade Rural | Patro Seguros"
         description="Hub completo de seguro agro: lavoura (PSR), pecuário, trator, colheitadeira, pulverizador, silo, propriedade rural e transporte agro. Atendimento nacional pela Patro Seguros."
-      />
+      
+      skipBreadcrumb
+    />
       <Helmet>
         <link rel="canonical" href="https://www.patroseguros.com.br/seguro-agro" />
         <script type="application/ld+json">{JSON.stringify(agriculturalServiceSchema)}</script>

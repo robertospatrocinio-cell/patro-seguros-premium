@@ -101,7 +101,9 @@ const ConsorcioGuarulhos = () => {
       <PageMeta
         title="Consórcio em Guarulhos | Patro Seguros"
         description="Consórcio em Guarulhos: simulação de carro, imóvel e caminhão com administradoras autorizadas pelo Banco Central. Compare prazos, taxas e cenários de lance."
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

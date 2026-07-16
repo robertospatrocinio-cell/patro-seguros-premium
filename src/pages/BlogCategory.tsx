@@ -44,7 +44,9 @@ const BlogCategory = () => {
 
   return (
     <Fragment>
-      <PageMeta title={title} description={description} />
+      <PageMeta title={title} description={description} 
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

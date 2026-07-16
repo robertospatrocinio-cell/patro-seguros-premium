@@ -149,7 +149,9 @@ const Contato = () => {
       <PageMeta
         title="Fale Conosco — Patro Seguros em Guarulhos"
         description="Contato Patro Seguros Guarulhos: WhatsApp (11) 5199-7500, e-mail e endereço na Cidade Maia. Cotações e dúvidas respondidas em até 2 horas úteis."
-      />
+      
+      skipBreadcrumb
+    />
       <FAQSchema faqs={contatoFaqs} />
       <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Contato", url: "/contato" }]} />
       <HowToSchema

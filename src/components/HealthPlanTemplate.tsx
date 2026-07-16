@@ -25,7 +25,9 @@ const HealthPlanTemplate = ({ operator, description, benefits, faqs, accentColor
       <PageMeta 
         title={`${operator} Guarulhos | Planos de Saúde e Preços | Patro Seguros`}
         description={`Confira preços e rede credenciada do plano de saúde ${operator} em Guarulhos. Cotação online gratuita em 2h com especialistas em saúde local.`}
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema items={[
         { name: "Início", url: CANONICAL_BASE_URL },
         { name: "Planos de Saúde", url: `${CANONICAL_BASE_URL}/planos-de-saude` },

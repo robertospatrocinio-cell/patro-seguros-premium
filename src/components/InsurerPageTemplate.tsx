@@ -82,7 +82,9 @@ const InsurerPageTemplate = ({ insurer, description, benefits, keywords, accentC
       <PageMeta 
         title={`${insurer} em Guarulhos | Seguro Auto e Preços | Patro Seguros`}
         description={`Cotação de Seguro Auto ${insurer} em Guarulhos. A Patro Seguros é parceira oficial ${insurer}. Compare preços e coberturas com especialistas locais.`}
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema items={[
         { name: "Início", url: CANONICAL_BASE_URL },
         { name: "Seguradoras", url: `${CANONICAL_BASE_URL}/parceiros` },

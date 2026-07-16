@@ -83,7 +83,9 @@ const Servicos = () => {
       <PageMeta
         title="Serviços de Seguros em Guarulhos — Catálogo Completo"
         description="Todos os serviços de seguros e consórcios em Guarulhos: auto, vida, residencial, empresarial, frota, galpões, agro, RC e cyber. 40+ produtos, 16 seguradoras."
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Serviços", url: "/servicos" }]} />
       <FAQSchema faqs={SERVICOS_FAQS} />
       <Header />

@@ -22,6 +22,8 @@ const ParceriasClinicasOdontologicas = () => (
     <PageMeta
       title="Parcerias com Clínicas Odontológicas | Patro Seguros"
       description="Programa de parceria Patro Seguros para clínicas e consultórios odontológicos. Atendimento especializado, condições diferenciadas e programa de indicações."
+    
+      skipBreadcrumb
     />
     <BreadcrumbSchema items={[
       { name: "Início", url: "/" },

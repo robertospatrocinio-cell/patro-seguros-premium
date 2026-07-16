@@ -87,7 +87,9 @@ const SeguradoraParceiraSeoPage = ({ slug: propSlug }: Props) => {
         description={`Cote seguros da ${insurer.name} em Guarulhos com atendimento da Patro Seguros. Compare opções para auto, residencial, empresarial, vida e outros produtos.`}
         ogImage={`${CANONICAL_BASE_URL}/images/og-seguradoras-parceiras.jpg`}
         ogImageAlt={`Cotação ${insurer.name} em Guarulhos com a Patro Seguros — corretora parceira em Guarulhos/SP com atendimento consultivo.`}
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: `${CANONICAL_BASE_URL}/` },
