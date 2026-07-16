@@ -33,7 +33,7 @@ const DIST = path.join(ROOT, "dist");
 
 // Rota → tipos de rich snippet esperados. Ajuste conforme novas páginas.
 const EXPECTED_ROUTES = {
-  "/": ["BreadcrumbList", "Organization"],
+  "/": ["BreadcrumbList", "Organization", "WebSite", "SiteNavigationElement"],
   "/sobre": ["BreadcrumbList", "FAQPage", "Organization"],
   "/servicos": ["BreadcrumbList", "FAQPage"],
   "/contato": ["BreadcrumbList", "FAQPage", "HowTo"],

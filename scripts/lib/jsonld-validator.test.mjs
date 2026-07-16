@@ -10,12 +10,100 @@ import {
   validateJsonLdBlock,
   validateHtml,
   validateUrls,
+  validateWebSite,
+  validateSiteNavigation,
 } from "./jsonld-validator.mjs";
 
 const breadcrumb = (items) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: items,
+});
+
+describe("validateWebSite — SearchAction / Sitelinks Search Box", () => {
+  const validSearch = {
+    "@type": "WebSite",
+    name: "Patro",
+    url: "https://www.patroseguros.com.br",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: { "@type": "EntryPoint", urlTemplate: "https://www.patroseguros.com.br/?q={search_term_string}" },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  it("passa com SearchAction bem-formado", () => {
+    const errors = []; validateWebSite(validSearch, errors, "L", { strict: true });
+    expect(errors).toEqual([]);
+  });
+
+  it("flagra name/url ausentes", () => {
+    const errors = []; validateWebSite({ "@type": "WebSite" }, errors, "L");
+    expect(errors.some((e) => e.includes("website.name"))).toBe(true);
+    expect(errors.some((e) => e.includes("website.url"))).toBe(true);
+  });
+
+  it("strict: exige https em url", () => {
+    const errors = []; validateWebSite({ ...validSearch, url: "http://x" }, errors, "L", { strict: true });
+    expect(errors.some((e) => e.includes("website.url.https"))).toBe(true);
+  });
+
+  it("flagra urlTemplate sem {search_term_string}", () => {
+    const errors = []; validateWebSite({
+      ...validSearch,
+      potentialAction: { ...validSearch.potentialAction, target: { urlTemplate: "https://x/?q=" } },
+    }, errors, "L");
+    expect(errors.some((e) => e.includes("searchAction.placeholder"))).toBe(true);
+  });
+
+  it("flagra query-input malformado", () => {
+    const errors = []; validateWebSite({
+      ...validSearch,
+      potentialAction: { ...validSearch.potentialAction, "query-input": "name=q" },
+    }, errors, "L");
+    expect(errors.some((e) => e.includes("searchAction.queryInput"))).toBe(true);
+  });
+
+  it("é despachado por validateNode via @type WebSite", () => {
+    const errors = []; validateNode({
+      "@context": "https://schema.org", "@type": "WebSite", name: "X", url: "https://x",
+    }, errors, "root");
+    expect(errors).toEqual([]);
+  });
+});
+
+describe("validateSiteNavigation", () => {
+  it("aceita array de itens com name+url absoluta", () => {
+    const errors = []; validateSiteNavigation([
+      { "@type": "SiteNavigationElement", name: "Início", url: "https://x/" },
+      { "@type": "SiteNavigationElement", name: "Sobre", url: "https://x/sobre" },
+    ], errors, "L");
+    expect(errors).toEqual([]);
+  });
+
+  it("flagra url relativa", () => {
+    const errors = []; validateSiteNavigation(
+      { "@type": "SiteNavigationElement", name: "X", url: "/x" }, errors, "L");
+    expect(errors.some((e) => e.includes("siteNav.url.absolute"))).toBe(true);
+  });
+
+  it("flagra item sem name/url", () => {
+    const errors = []; validateSiteNavigation(
+      { "@type": "SiteNavigationElement" }, errors, "L");
+    expect(errors.some((e) => e.includes("siteNav.name"))).toBe(true);
+    expect(errors.some((e) => e.includes("siteNav.url"))).toBe(true);
+  });
+
+  it("é despachado via validateNode em @graph", () => {
+    const errors = []; validateNode({
+      "@context": "https://schema.org",
+      "@graph": [
+        { "@type": "SiteNavigationElement", name: "A", url: "https://x/a" },
+        { "@type": "SiteNavigationElement", name: "B", url: "/b" },
+      ],
+    }, errors, "root");
+    expect(errors.some((e) => e.includes("siteNav.url.absolute"))).toBe(true);
+  });
 });
 
 describe("extractBlocks", () => {
@@ -153,7 +241,7 @@ describe("validateNode / validateJsonLdBlock", () => {
   it("aceita arrays de nós", () => {
     const errors = [];
     validateNode([
-      { "@context": "https://schema.org", "@type": "WebSite" },
+      { "@context": "https://schema.org", "@type": "WebSite", name: "X", url: "https://x" },
       breadcrumb([
         { position: 1, name: "Início", item: "https://x/" },
         { position: 2, name: "Fim" },
