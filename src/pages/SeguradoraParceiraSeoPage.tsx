@@ -336,6 +336,9 @@ const SeguradoraParceiraSeoPage = ({ slug: propSlug }: Props) => {
             <Link to="/consorcio" className="p-3 border rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-sm font-semibold">
               Consórcio
             </Link>
+            <Link to="/como-comparar-seguradoras-guarulhos" className="p-3 border rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-sm font-semibold">
+              Como comparar seguradoras
+            </Link>
             <Link to="/contato" className="p-3 border rounded-lg hover:border-primary hover:bg-primary/5 transition-colors text-sm font-semibold">
               Falar com consultor
             </Link>
