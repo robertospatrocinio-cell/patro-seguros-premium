@@ -1,9 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import QuickQuoteForm from "./QuickQuoteForm";
 import { toast } from "sonner";
 
-// Mock sonner toast
 vi.mock("sonner", () => ({
   toast: {
     error: vi.fn(),
@@ -11,56 +10,35 @@ vi.mock("sonner", () => ({
   },
 }));
 
-// Mock window.open
 const windowOpenMock = vi.fn();
 vi.stubGlobal("open", windowOpenMock);
 
 describe("QuickQuoteForm Validation", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    localStorage.clear();
   });
 
-  it("should show error toast if name is empty", async () => {
+  it("shows an error toast when the name is empty", () => {
     render(<QuickQuoteForm insuranceType="Seguro Auto" trackingLabel="test" />);
-    
-    const submitButton = screen.getByRole("button", { name: /Solicitar Cotação Gratuita/i });
-    fireEvent.click(submitButton);
-    
-    expect(toast.error).toHaveBeenCalledWith("Por favor, informe seu nome.");
+    fireEvent.click(screen.getByRole("button", { name: /Cotar agora/i }));
+    expect(toast.error).toHaveBeenCalledWith("Seu nome é necessário para o orçamento");
   });
 
-  it("should show error toast if phone is invalid", async () => {
+  it("shows an error toast when the phone number is invalid", () => {
     render(<QuickQuoteForm insuranceType="Seguro Auto" trackingLabel="test" />);
-    
-    // Fill name
-    const nameInput = screen.getByLabelText(/Nome \*/i);
-    fireEvent.change(nameInput, { target: { value: "John Doe" } });
-    
-    // Fill invalid phone
-    const phoneInput = screen.getByLabelText(/WhatsApp \*/i);
-    fireEvent.change(phoneInput, { target: { value: "123" } });
-    
-    const submitButton = screen.getByRole("button", { name: /Solicitar Cotação Gratuita/i });
-    fireEvent.click(submitButton);
-    
-    expect(toast.error).toHaveBeenCalledWith("Por favor, informe um telefone válido com DDD.");
-  });
-
-  it("should show error toast if email is provided but invalid", async () => {
-    render(<QuickQuoteForm insuranceType="Seguro Auto" trackingLabel="test" />);
-    
-    // Fill name
     fireEvent.change(screen.getByLabelText(/Nome \*/i), { target: { value: "John Doe" } });
-    
-    // Fill valid phone
+    fireEvent.change(screen.getByLabelText(/WhatsApp \*/i), { target: { value: "123" } });
+    fireEvent.click(screen.getByRole("button", { name: /Cotar agora/i }));
+    expect(toast.error).toHaveBeenCalledWith("Use o formato (11) 99999-9999");
+  });
+
+  it("shows an error toast when an invalid e-mail is provided", () => {
+    render(<QuickQuoteForm insuranceType="Seguro Auto" trackingLabel="test" />);
+    fireEvent.change(screen.getByLabelText(/Nome \*/i), { target: { value: "John Doe" } });
     fireEvent.change(screen.getByLabelText(/WhatsApp \*/i), { target: { value: "11999999999" } });
-    
-    // Fill invalid email
     fireEvent.change(screen.getByLabelText(/E-mail/i), { target: { value: "invalid-email" } });
-    
-    const submitButton = screen.getByRole("button", { name: /Solicitar Cotação Gratuita/i });
-    fireEvent.click(submitButton);
-    
-    expect(toast.error).toHaveBeenCalledWith("Por favor, informe um e-mail válido.");
+    fireEvent.click(screen.getByRole("button", { name: /Cotar agora/i }));
+    expect(toast.error).toHaveBeenCalledWith("Formato de e-mail inválido. Ex: nome@email.com");
   });
 });

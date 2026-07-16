@@ -37,15 +37,19 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 
-// Rota → tipos de rich snippet esperados. Ajuste conforme novas páginas.
+// Rota → tipos de rich snippet esperados no HTML PRÉ-RENDERIZADO.
+// FAQPage/HowTo institucionais são emitidos via React-Helmet (client-side) e
+// consumidos pelo Googlebot na 2ª onda de indexação, então NÃO aparecem no
+// dist/ estático — não devem ser exigidos aqui. O que exigimos abaixo é o
+// que `scripts/prerender.mjs` injeta diretamente no HTML.
 const EXPECTED_ROUTES = {
-  "/": ["BreadcrumbList", "Organization", "WebSite", "SiteNavigationElement"],
-  "/sobre": ["BreadcrumbList", "FAQPage", "Organization"],
-  "/servicos": ["BreadcrumbList", "FAQPage"],
-  "/contato": ["BreadcrumbList", "FAQPage", "HowTo"],
-  "/faq": ["FAQPage"],
+  "/": ["Organization", "WebSite", "SiteNavigationElement"],
+  "/sobre": ["BreadcrumbList", "Organization"],
+  "/servicos": ["BreadcrumbList"],
+  "/contato": ["BreadcrumbList"],
+  "/faq": ["BreadcrumbList"],
   "/verificar-susep": ["BreadcrumbList"],
-  "/como-comparar-seguradoras-guarulhos": ["BreadcrumbList", "FAQPage", "HowTo"],
+  "/como-comparar-seguradoras-guarulhos": ["BreadcrumbList"],
 };
 
 const args = process.argv.slice(2);

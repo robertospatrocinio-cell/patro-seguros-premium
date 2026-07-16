@@ -343,6 +343,97 @@ async function run() {
       html = html.replace("</head>", `${schemaScript}\n</head>`);
     }
 
+    // ── Injeção universal de BreadcrumbList/WebSite/SiteNavigationElement ──
+    // Estes três schemas antes só existiam via React-Helmet (client-side).
+    // Crawlers que não executam JS (Bing, PageAudit, alguns bots) precisam
+    // vê-los no HTML cru. Injetamos aqui derivando os breadcrumbs do path.
+    const BASE = "https://www.patroseguros.com.br";
+    const SEG_LABELS = {
+      "sobre": "Sobre",
+      "contato": "Contato",
+      "servicos": "Serviços",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "artigos": "Artigos",
+      "parceiros": "Parceiros",
+      "parceiros-locais": "Parceiros Locais",
+      "depoimentos": "Depoimentos",
+      "imprensa": "Imprensa",
+      "glossario-seguros": "Glossário de Seguros",
+      "central-de-sinistro": "Central de Sinistro",
+      "politica-privacidade": "Política de Privacidade",
+      "termos-de-uso": "Termos de Uso",
+      "verificar-susep": "Verificar SUSEP",
+      "como-comparar-seguradoras-guarulhos": "Como Comparar Seguradoras em Guarulhos",
+    };
+    const humanize = (seg) =>
+      SEG_LABELS[seg] || seg.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    const segs = route.split("/").filter(Boolean);
+    const crumbs = [{ name: "Início", url: `${BASE}/` }];
+    let acc = "";
+    for (const s of segs) {
+      acc += `/${s}`;
+      crumbs.push({ name: humanize(s), url: `${BASE}${acc}` });
+    }
+    // Só injeta se ainda não houver breadcrumb no HTML (evita duplicar com /blog/ e /artigos/ acima)
+    // E somente se houver 2+ itens — BreadcrumbList com 1 item é inválido para rich results
+    if (!html.includes('data-breadcrumb="1"') && crumbs.length >= 2) {
+      const bc = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: crumbs.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: c.name,
+          item: c.url,
+        })),
+      };
+      const bcScript = `\n    <script type="application/ld+json" data-breadcrumb="1">\n      ${JSON.stringify(bc)}\n    </script>`;
+      html = html.replace("</head>", `${bcScript}\n</head>`);
+    }
+
+    // WebSite (com SearchAction) + SiteNavigationElement — só na home.
+    if (route === "/") {
+      const website = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        name: "Patro Seguros",
+        alternateName: "Patro Corretora de Seguros",
+        url: BASE,
+        description:
+          "Corretora de seguros em Guarulhos — cotação online grátis para auto, vida, residencial, saúde, empresarial e frotas.",
+        publisher: { "@id": `${BASE}/#organization` },
+        inLanguage: "pt-BR",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: { "@type": "EntryPoint", urlTemplate: `${BASE}/?q={search_term_string}` },
+          "query-input": "required name=search_term_string",
+        },
+      };
+      const NAV = [
+        { name: "Início", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+        { name: "Sobre", path: "/sobre" },
+        { name: "Blog", path: "/blog" },
+        { name: "FAQ", path: "/faq" },
+        { name: "Contato", path: "/contato" },
+      ];
+      const siteNav = {
+        "@context": "https://schema.org",
+        "@graph": NAV.map((n, i) => ({
+          "@type": "SiteNavigationElement",
+          "@id": `${BASE}/#nav-${i + 1}`,
+          position: i + 1,
+          name: n.name,
+          url: n.path === "/" ? BASE : `${BASE}${n.path}`,
+          isPartOf: { "@id": `${BASE}/#website` },
+        })),
+      };
+      const extra = `\n    <script type="application/ld+json" data-website="1">${JSON.stringify(website)}</script>\n    <script type="application/ld+json" data-sitenav="1">${JSON.stringify(siteNav)}</script>`;
+      html = html.replace("</head>", `${extra}\n</head>`);
+    }
+
     // Injeta BreadcrumbList JSON-LD no HTML pré-renderizado das rotas /artigos/*
     // (e também /blog/*) para garantir rich results de breadcrumb sem depender
     // do React/Helmet — o BreadcrumbSchema.tsx só roda após hidratação, e

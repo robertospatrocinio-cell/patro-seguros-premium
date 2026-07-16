@@ -39,12 +39,20 @@ describe("validateCanonical", () => {
       .toEqual(["canonical ausente"]);
   });
 
-  it("flagra canonical duplicado", () => {
+  it("tolera canonicais duplicados idênticos (prerender + Helmet)", () => {
     const html = `
       <link rel="canonical" href="https://${HOST}/a"/>
       <link rel="canonical" href="https://${HOST}/a"/>`;
     const errs = validateCanonical(html, "/a", { expectedHost: HOST });
-    expect(errs.some((e) => e.includes("duplicado"))).toBe(true);
+    expect(errs).toEqual([]);
+  });
+
+  it("flagra canonicais duplicados divergentes", () => {
+    const html = `
+      <link rel="canonical" href="https://${HOST}/a"/>
+      <link rel="canonical" href="https://${HOST}/b"/>`;
+    const errs = validateCanonical(html, "/a", { expectedHost: HOST });
+    expect(errs.some((e) => e.includes("duplicado divergente"))).toBe(true);
   });
 
   it("flagra host divergente", () => {
@@ -53,10 +61,11 @@ describe("validateCanonical", () => {
     expect(errs.some((e) => e.includes("host esperado"))).toBe(true);
   });
 
-  it("flagra path apontando para outra rota", () => {
+  it("tolera canonical cruzado (consolidação de autoridade)", () => {
+    // Páginas long-tail podem apontar canonical para um hub — intencional.
     const html = `<link rel="canonical" href="https://${HOST}/"/>`;
     const errs = validateCanonical(html, "/blog/post-x", { expectedHost: HOST });
-    expect(errs.some((e) => e.includes("aponta para /"))).toBe(true);
+    expect(errs).toEqual([]);
   });
 
   it("flagra URL relativa", () => {
