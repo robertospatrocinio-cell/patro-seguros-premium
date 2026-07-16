@@ -459,6 +459,9 @@ const SeguroAuto = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Motoristas de aplicativo precisam de <Link to="/seguro-motorista-app" className="text-primary hover:underline font-medium">cobertura específica para uso profissional</Link>. E não esqueça do <Link to="/planos-de-saude" className="text-primary hover:underline font-medium">plano de saúde</Link> — proteção completa é cuidar do patrimônio e de quem dirige.
                 </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Trabalhamos com as principais <Link to="/seguradoras-parceiras" className="text-primary hover:underline font-medium">seguradoras parceiras</Link> do mercado (Porto Seguro, Tokio Marine, Allianz, Azul, Mapfre e outras) para comparar preços e coberturas em Guarulhos e São Paulo.
+                </p>
               </div>
               <div className="flex flex-wrap gap-2 mt-5">
                 {[
@@ -467,6 +470,7 @@ const SeguroAuto = () => {
                   { title: "Seguro de Moto", link: "/seguro-moto" },
                   { title: "Seguro de Frota", link: "/seguro-frota" },
                   { title: "Planos de Saúde", link: "/planos-de-saude" },
+                  { title: "Seguradoras Parceiras", link: "/seguradoras-parceiras" },
                   { title: "Cotação Gratuita", link: "/cotacao" },
                 ].map((item, i) => (
                   <Link key={i} to={item.link} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.06] text-primary text-sm font-medium hover:bg-primary/[0.12] transition-colors">
