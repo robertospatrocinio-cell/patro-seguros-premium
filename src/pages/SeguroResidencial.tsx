@@ -111,6 +111,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         paragraphs: [
           "O seguro residencial é apenas uma parte da proteção completa que sua família merece. Se você já protege seu lar, considere também proteger quem mora nele com um seguro de vida — que garante estabilidade financeira em caso de imprevistos graves.",
           "Se você tem veículo, o seguro auto complementa a proteção do patrimônio familiar. E para quem mora em condomínio, o seguro condominial é obrigatório por lei e protege as áreas comuns do prédio. Já pensou também em um plano de saúde para toda a família?",
+          "Como corretora independente, cotamos sua apólice com as principais seguradoras parceiras (Porto Seguro, Tokio Marine, Allianz, Mapfre, Bradesco e outras) para você comparar preços e coberturas.",
         ],
         links: [
           { text: "Seguro de Vida", href: "/seguro-vida" },
@@ -118,6 +119,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
           { text: "Seguro Condomínio", href: "/seguro-condominio" },
           { text: "Planos de Saúde", href: "/planos-de-saude" },
           { text: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
+          { text: "Seguradoras Parceiras", href: "/seguradoras-parceiras" },
           { text: "Cotação Gratuita", href: "/cotacao" },
         ],
       }}
