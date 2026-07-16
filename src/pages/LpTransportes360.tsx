@@ -892,7 +892,16 @@ const LpTransportes360 = () => {
         {/* CTA FINAL */}
         <section className="relative py-20 bg-primary text-white overflow-hidden">
           <div className="absolute inset-0 opacity-10">
-            <img src={heroImg} alt="" className="w-full h-full object-cover" aria-hidden="true" />
+            <img
+              src={heroImg}
+              alt=""
+              width={1600}
+              height={900}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+              aria-hidden="true"
+            />
           </div>
           <div className="relative container mx-auto px-4 max-w-4xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold">

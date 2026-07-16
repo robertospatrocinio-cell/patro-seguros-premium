@@ -273,7 +273,16 @@ const Header = memo(() => {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
             <SmartLink to="/" className="flex items-center relative z-[60]" onClick={() => window.scrollTo(0,0)}>
-              <img src={logoFull} alt="Patro Seguros" width={160} height={80} className="h-20 w-auto object-contain -my-2 relative z-50" />
+              <img
+                src={logoFull}
+                alt="Patro Seguros"
+                width={160}
+                height={80}
+                decoding="sync"
+                loading="eager"
+                {...({ fetchpriority: "high" } as any)}
+                className="h-20 w-auto object-contain -my-2 relative z-50"
+              />
             </SmartLink>
 
             <div className="hidden lg:flex items-center gap-1">

@@ -156,8 +156,10 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0 bg-zinc-900" />
           <div className="absolute right-0 top-0 w-1/2 h-full hidden lg:block">
-            <img 
-              src={config.middleImage} 
+            <img
+              src={config.middleImage}
+              srcSet={unsplashSrcSet(config.middleImage)}
+              sizes={FULL_WIDTH_SIZES}
               alt={`Detalhe ${config.name} — Seguro de carros de luxo na Patro Seguros, Corretora em Guarulhos/SP`}
               title={`Seguro ${config.name} — Patro Seguros, Corretora em Guarulhos/SP`}
               width={1974}

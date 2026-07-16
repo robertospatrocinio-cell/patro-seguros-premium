@@ -190,7 +190,7 @@ const Sobre = () => {
               {/* Roberto */}
               <div className="bg-background rounded-2xl overflow-hidden border shadow-sm">
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  <img src={socioRoberto} alt="Roberto Patrocínio — Sócio-fundador da Patro Seguros" width={400} height={300} className="w-full h-full object-cover object-top" loading="lazy" />
+                  <img src={socioRoberto} alt="Roberto Patrocínio — Sócio-fundador da Patro Seguros" width={400} height={300} sizes="(max-width: 640px) 100vw, 400px" className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Roberto Patrocínio</h3>
@@ -220,7 +220,7 @@ const Sobre = () => {
               {/* Sandra */}
               <div className="bg-background rounded-2xl overflow-hidden border shadow-sm">
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  <img src={sociaSandra} alt="Sandra Patrocínio — Sócia-fundadora da Patro Seguros" width={400} height={300} className="w-full h-full object-cover object-top" loading="lazy" />
+                  <img src={sociaSandra} alt="Sandra Patrocínio — Sócia-fundadora da Patro Seguros" width={400} height={300} sizes="(max-width: 640px) 100vw, 400px" className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold">Sandra Patrocínio</h3>
