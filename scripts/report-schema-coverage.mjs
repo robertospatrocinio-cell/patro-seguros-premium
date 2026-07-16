@@ -138,13 +138,29 @@ for (const file of files) {
   const present = TRACKED.filter((t) => types.has(t));
   const missing = TRACKED.filter((t) => !types.has(t));
   for (const t of present) totals[t] += 1;
-  rows.push({ route, file: rel, blocks, parseErrors, present, missing });
+  // Cálculo do que essa rota deveria ter, filtrado pelas regras de CI.
+  const required = [
+    ...UNIVERSAL_REQUIRED,
+    ...(REQUIRED_BY_ROUTE[route] ?? []),
+  ];
+  const ciMissing = required.filter((t) => FAIL_ON.has(t) && !types.has(t));
+  rows.push({ route, file: rel, blocks, parseErrors, present, missing, required, ciMissing });
 }
 
 rows.sort((a, b) => a.route.localeCompare(b.route));
 
 const generatedAt = new Date().toISOString();
-const report = { generatedAt, tracked: TRACKED, totals, rows };
+const failingRows = rows.filter((r) => r.ciMissing.length > 0);
+const report = {
+  generatedAt,
+  tracked: TRACKED,
+  ciMode: CI_MODE,
+  failOn: [...FAIL_ON],
+  requiredByRoute: REQUIRED_BY_ROUTE,
+  universalRequired: UNIVERSAL_REQUIRED,
+  totals: { ...totals, ciFailingRoutes: failingRows.length },
+  rows,
+};
 const jsonPath = path.join(outDir, "schema-coverage-report.json");
 fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2));
 
