@@ -35,7 +35,15 @@ const LazySection = ({
   }, [rootMargin]);
 
   return (
-    <div ref={ref} className={className} style={visible ? undefined : { minHeight }}>
+    <div
+      ref={ref}
+      className={className}
+      style={
+        visible
+          ? { contentVisibility: "auto", containIntrinsicSize: `1px ${minHeight}` } as any
+          : { minHeight, contentVisibility: "auto", containIntrinsicSize: `1px ${minHeight}` } as any
+      }
+    >
       {visible ? children : (
         <div className="space-y-4 p-4">
           <Skeleton className="h-6 w-1/3" />
