@@ -303,6 +303,7 @@ const SeguradorasHub = lazy(() => import("./pages/seguradoras/SeguradorasHub"));
 const PartnerInsurerPage = lazy(() => import("./components/PartnerInsurerPage"));
 const SeguradorasParceirasHub = lazy(() => import("./pages/SeguradorasParceirasHub"));
 const SeguradoraParceiraSeoPage = lazy(() => import("./pages/SeguradoraParceiraSeoPage"));
+const ComoCompararSeguradorasGuarulhos = lazy(() => import("./pages/ComoCompararSeguradorasGuarulhos"));
 const SeguroBMW = lazy(() => import("./pages/SeguroBMW"));
 const SeguroMarcaPremium = lazy(() => import("./pages/SeguroMarcaPremium"));
 
@@ -760,6 +761,7 @@ const App = () => {
                   <Route path="/seguradoras/:slug" element={<PartnerInsurerPage />} />
                   {/* Nova área SEO — Seguradoras Parceiras (páginas top-level /<slug>-guarulhos) */}
                   <Route path="/seguradoras-parceiras" element={<SeguradorasParceirasHub />} />
+                  <Route path="/como-comparar-seguradoras-guarulhos" element={<ComoCompararSeguradorasGuarulhos />} />
                   <Route path="/porto-seguro-guarulhos" element={<SeguradoraParceiraSeoPage slug="porto-seguro-guarulhos" />} />
                   <Route path="/mapfre-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="mapfre-seguros-guarulhos" />} />
                   <Route path="/allianz-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="allianz-seguros-guarulhos" />} />

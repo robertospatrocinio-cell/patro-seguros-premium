@@ -207,6 +207,11 @@ const SeguradorasParceirasHub = () => {
               dos produtos e a aceitação do risco seguem sempre as regras da própria seguradora.
             </p>
           </div>
+          <div className="mt-6 text-sm">
+            <Link to="/como-comparar-seguradoras-guarulhos" className="text-primary hover:underline font-medium">
+              Guia: como escolher e comparar seguradoras em Guarulhos →
+            </Link>
+          </div>
         </section>
 
         {/* FAQ */}
