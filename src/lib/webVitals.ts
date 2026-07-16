@@ -1,5 +1,79 @@
 import { onLCP, onCLS, onINP, type Metric } from 'web-vitals';
 
+const INGEST_URL =
+  `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/log-web-vitals`;
+const ANON_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as
+  | string
+  | undefined;
+
+function getDeviceType(): string {
+  if (typeof navigator === 'undefined') return 'unknown';
+  const w = window.innerWidth;
+  if (w < 640) return 'mobile';
+  if (w < 1024) return 'tablet';
+  return 'desktop';
+}
+
+function getConnectionType(): string | undefined {
+  const c = (navigator as any).connection;
+  return c?.effectiveType;
+}
+
+function getSessionId(): string {
+  try {
+    const k = 'cwv_sid';
+    let sid = sessionStorage.getItem(k);
+    if (!sid) {
+      sid = crypto.randomUUID();
+      sessionStorage.setItem(k, sid);
+    }
+    return sid;
+  } catch {
+    return 'anon';
+  }
+}
+
+function persistToProd(entry: VitalEntry) {
+  // Ignore localhost/preview traffic to keep prod dataset clean
+  if (typeof location === 'undefined') return;
+  if (/localhost|127\.0\.0\.1|\.lovable\.app$/.test(location.hostname)) return;
+  if (!ANON_KEY) return;
+
+  const payload = JSON.stringify({
+    name: entry.name,
+    value: entry.value,
+    rating: entry.rating,
+    page: entry.page,
+    device_type: getDeviceType(),
+    connection_type: getConnectionType(),
+    session_id: getSessionId(),
+    metric_id: entry.id,
+    phase: entry.phase,
+  });
+
+  try {
+    // sendBeacon can't set custom headers → include apikey as query param
+    // fallback: use fetch keepalive with headers
+    const blob = new Blob([payload], { type: 'application/json' });
+    const url = `${INGEST_URL}?apikey=${encodeURIComponent(ANON_KEY)}`;
+    const ok = navigator.sendBeacon?.(url, blob);
+    if (!ok) {
+      fetch(INGEST_URL, {
+        method: 'POST',
+        keepalive: true,
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: ANON_KEY,
+          Authorization: `Bearer ${ANON_KEY}`,
+        },
+        body: payload,
+      }).catch(() => {});
+    }
+  } catch {
+    // fail silent — monitoring must never break the page
+  }
+}
+
 const THRESHOLDS = {
   LCP: { good: 2500, poor: 4000 },
   CLS: { good: 0.1, poor: 0.25 },
@@ -95,6 +169,7 @@ function handleMetric(metric: Metric) {
     phase,
   };
   storeEntry(entry);
+  persistToProd(entry);
 }
 
 export function initWebVitals() {
