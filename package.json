@@ -15,6 +15,7 @@
     "test:canonical": "vitest run scripts/lib/canonical-heading-validator.test.mjs",
     "validate:jsonld": "node scripts/validate-jsonld-build.mjs",
     "validate:rich-snippets": "node scripts/validate-rich-snippets.mjs",
+    "postbuild": "node scripts/validate-rich-snippets.mjs",
     "validate:canonical": "node scripts/validate-canonical-headings-build.mjs",
     "validate:schema-uniqueness": "node scripts/validate-schema-uniqueness.mjs",
     "validate:artigos-jsonld": "node scripts/validate-artigos-jsonld.mjs",
