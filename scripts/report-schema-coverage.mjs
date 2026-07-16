@@ -31,7 +31,7 @@ if (!fs.existsSync(DIST)) {
   process.exit(1);
 }
 
-const TRACKED = ["BreadcrumbList", "FAQPage", "HowTo", "Organization", "LocalBusiness"];
+const TRACKED = ["BreadcrumbList", "FAQPage", "HowTo", "Organization", "LocalBusiness", "WebSite", "SiteNavigationElement"];
 // InsuranceAgency é subtipo de LocalBusiness → conta como LocalBusiness.
 const TYPE_ALIASES = { InsuranceAgency: "LocalBusiness" };
 
