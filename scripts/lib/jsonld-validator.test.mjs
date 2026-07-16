@@ -241,7 +241,7 @@ describe("validateNode / validateJsonLdBlock", () => {
   it("aceita arrays de nós", () => {
     const errors = [];
     validateNode([
-      { "@context": "https://schema.org", "@type": "WebSite" },
+      { "@context": "https://schema.org", "@type": "WebSite", name: "X", url: "https://x" },
       breadcrumb([
         { position: 1, name: "Início", item: "https://x/" },
         { position: 2, name: "Fim" },
