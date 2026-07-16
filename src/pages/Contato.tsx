@@ -322,15 +322,10 @@ const Contato = () => {
               <div className="space-y-6">
                 <Card>
                   <CardContent className="p-0 overflow-hidden rounded-xl">
-                    <iframe
+                    <LazyMapEmbed
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8!2d-46.4494!3d-23.4462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8a1b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sAv.+Salgado+Filho%2C+2120+-+Centro%2C+Guarulhos+-+SP%2C+07115-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                      width="100%"
-                      height="320"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
                       title="Localização Patro Seguros — Av. Salgado Filho, 2120, Guarulhos"
+                      height={320}
                     />
                   </CardContent>
                 </Card>
