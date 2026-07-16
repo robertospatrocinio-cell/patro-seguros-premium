@@ -98,7 +98,10 @@ for (const file of files) {
   const relFile = path.relative(ROOT, file);
   rawBlocks.forEach((raw, idx) => {
     const label = `[route=${route} file=${relFile} block#${idx}]`;
-    const e = validateJsonLdBlock(raw, label, { strict: true });
+    const e = validateJsonLdBlock(raw, label, {
+      strict: true,
+      canonicalHost: "www.patroseguros.com.br",
+    });
     blockErrors.push(...e);
     try { collectTypes(JSON.parse(raw), types); } catch { /* JSON error já reportado */ }
   });
