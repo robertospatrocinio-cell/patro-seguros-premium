@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
+import HowToSchema from "@/components/HowToSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
@@ -145,6 +146,48 @@ const ComoCompararSeguradorasGuarulhos = () => (
       ]}
     />
     <FAQSchema faqs={FAQS} />
+    <HowToSchema
+      name="Como comparar seguradoras em Guarulhos"
+      description="Passo a passo para escolher e comparar seguradoras em Guarulhos e São Paulo com cobertura equivalente, franquia adequada e rede referenciada local."
+      totalTime="PT10M"
+      estimatedCost="0"
+      url={CANONICAL}
+      supply={[
+        "Dados do veículo, imóvel ou empresa",
+        "CEP de pernoite ou endereço do risco",
+        "Perfil do condutor ou responsáveis",
+      ]}
+      tool={["Cotação online da Patro Seguros", "WhatsApp da Patro Seguros"]}
+      steps={[
+        {
+          name: "Reúna dados do risco e do seu perfil",
+          text: "Separe os dados do veículo, imóvel ou empresa, o CEP de pernoite ou endereço do risco e o perfil do principal condutor ou responsáveis. Esses dados definem preço e aceitação em cada seguradora.",
+        },
+        {
+          name: "Cote nas seguradoras parceiras compatíveis",
+          text: "Solicite cotação em várias seguradoras ao mesmo tempo através de uma corretora independente como a Patro Seguros, que compara Porto Seguro, Mapfre, Allianz, Tokio Marine, Azul, Bradesco, SulAmérica, HDI, Liberty e outras em uma única simulação.",
+          url: `${CANONICAL_BASE_URL}/cotacao`,
+        },
+        {
+          name: "Padronize coberturas e franquias antes de comparar",
+          text: "Coloque as propostas lado a lado com as mesmas coberturas (compreensiva, RCF-V, APP, vidros, assistência 24h) e franquias equivalentes. Preço só faz sentido quando a cobertura é a mesma.",
+        },
+        {
+          name: "Avalie serviços agregados e rede referenciada em Guarulhos",
+          text: "Verifique guincho, carro reserva, chaveiro e assistência 24h, e confirme se há oficinas, clínicas e prestadores próximos ao seu bairro em Guarulhos e Grande SP (Cidade Maia, Bonsucesso, Cumbica, entre outros).",
+          url: `${CANONICAL_BASE_URL}/seguradoras-parceiras`,
+        },
+        {
+          name: "Analise regulação de sinistro e reputação",
+          text: "Compare prazo médio de vistoria, oficinas homologadas, canais de acompanhamento, avaliações públicas e tempo de mercado da seguradora. Uma seguradora barata que demora a pagar não compensa a diferença.",
+        },
+        {
+          name: "Escolha a apólice mais adequada e formalize com a corretora",
+          text: "Selecione a proposta com melhor equilíbrio entre cobertura, franquia, serviços e reputação. A Patro Seguros formaliza a contratação, envia a apólice e acompanha o cliente em caso de sinistro sem custo adicional.",
+          url: `${CANONICAL_BASE_URL}/cotacao`,
+        },
+      ]}
+    />
     <Helmet>
       <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
     </Helmet>
