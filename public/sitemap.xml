@@ -913,6 +913,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://www.patroseguros.com.br/planos-saude-senior-guarulhos</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://www.patroseguros.com.br/depoimentos</loc>
     <priority>0.5</priority>
     <lastmod>2026-06-16</lastmod>
