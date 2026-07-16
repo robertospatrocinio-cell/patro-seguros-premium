@@ -118,9 +118,10 @@ export function locateFieldInBlock(rawUntrimmed, fieldPath) {
  *   [route=X file=Y block#N] TIPO: mensagem  [field=..., rule=...]
  */
 export function buildAnnotationFromError({ file, block, errorMsg }) {
-  const fieldMatch = errorMsg.match(/\[field=([^,\]]+)(?:,\s*rule=([^\]]+))?\]/);
-  const field = fieldMatch?.[1]?.trim();
-  const rule = fieldMatch?.[2]?.trim();
+  // [field=... , rule=...]  — field pode conter colchetes ("mainEntity[0].name").
+  const suffix = errorMsg.match(/\[([^\[]*(?:field=|rule=)[^\[]*)\]\s*$/)?.[1] ?? "";
+  const field = suffix.match(/field=([^,]+?)(?=,\s*rule=|$)/)?.[1]?.trim();
+  const rule = suffix.match(/rule=([^,\]]+)/)?.[1]?.trim();
   const cleaned = errorMsg.replace(/\s*\[route=[^\]]+\]\s*/, "").trim();
   let line = block.startLine;
   let col = block.startCol;
