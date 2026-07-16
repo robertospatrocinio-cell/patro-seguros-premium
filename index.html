@@ -53,13 +53,15 @@
     <meta property="og:locale" content="pt_BR" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="manifest" href="/manifest.webmanifest">
-    <!-- Preload LCP candidates -->
+    <!-- Preload LCP candidates — só a imagem exata que cada breakpoint irá pintar -->
+    <!-- Logo do header (above-the-fold em todos os viewports) -->
     <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
-    <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
+    <!-- Hero LCP: variante mobile OU desktop, nunca as duas -->
     <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high" />
-    <!-- Critical above-the-fold seal (hero region, mobile + desktop) -->
-    <link rel="preload" href="/images/selo-melhor-corretora.webp" as="image" type="image/webp" />
-    <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" media="(min-resolution: 2dppx)" />
+    <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
+    <!-- Selo: só desktop (em mobile fica abaixo do H1 e competiria banda com o hero LCP).
+         Uma única variante @2x em desktop cobre monitores retina sem duplicar download. -->
+    <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" media="(min-width: 1024px)" />
 
     <!-- Theme color for instant UA chrome paint (no layout cost) -->
     <meta name="theme-color" content="#003366" />
