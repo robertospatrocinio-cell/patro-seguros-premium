@@ -26,6 +26,12 @@ import path from "node:path";
 import { execSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { extractBlocks, validateJsonLdBlock } from "./lib/jsonld-validator.mjs";
+import {
+  extractBlocksWithLocation,
+  buildAnnotationFromError,
+  emitAnnotation,
+  isGithubActions,
+} from "./lib/github-annotations.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -45,6 +51,7 @@ const EXPECTED_ROUTES = {
 const args = process.argv.slice(2);
 const wantBuild = args.includes("--build") || !fs.existsSync(DIST);
 const routeArg = args.find((a) => a.startsWith("--route="))?.split("=")[1];
+const ANNOTATE = isGithubActions() || args.includes("--annotate");
 
 if (wantBuild) {
   console.log("🔨 Gerando build para inspeção (vite build)…");
@@ -91,19 +98,25 @@ for (const file of files) {
   const route = routeFromFile(file);
   if (routeArg && route !== routeArg) continue;
   const html = fs.readFileSync(file, "utf-8");
-  const rawBlocks = extractBlocks(html);
-  totalBlocks += rawBlocks.length;
+  const blocksLoc = extractBlocksWithLocation(html);
+  totalBlocks += blocksLoc.length;
   const types = new Set();
   const blockErrors = [];
   const relFile = path.relative(ROOT, file);
-  rawBlocks.forEach((raw, idx) => {
+  blocksLoc.forEach((block, idx) => {
     const label = `[route=${route} file=${relFile} block#${idx}]`;
-    const e = validateJsonLdBlock(raw, label, {
+    const e = validateJsonLdBlock(block.raw, label, {
       strict: true,
       canonicalHost: "www.patroseguros.com.br",
     });
     blockErrors.push(...e);
-    try { collectTypes(JSON.parse(raw), types); } catch { /* JSON error já reportado */ }
+    try { collectTypes(JSON.parse(block.raw), types); } catch { /* JSON error já reportado */ }
+    if (ANNOTATE) {
+      for (const errorMsg of e) {
+        const ann = buildAnnotationFromError({ file: relFile, block, errorMsg });
+        emitAnnotation({ level: "error", ...ann });
+      }
+    }
   });
   const expected = EXPECTED_ROUTES[route] ?? [];
   const missing = expected.filter((t) => !types.has(t));
@@ -111,9 +124,20 @@ for (const file of files) {
     ...blockErrors,
     ...missing.map((t) => `${route}: rich snippet esperado ausente — ${t}`),
   ];
+  if (ANNOTATE && missing.length) {
+    for (const t of missing) {
+      emitAnnotation({
+        level: "error",
+        file: relFile,
+        line: 1,
+        title: `JSON-LD ausente: ${t}`,
+        message: `${route}: rich snippet esperado ausente — ${t}`,
+      });
+    }
+  }
   report.routes[route] = {
     file: path.relative(ROOT, file),
-    blocks: rawBlocks.length,
+    blocks: blocksLoc.length,
     types: [...types],
     expected,
     missing,
@@ -129,6 +153,15 @@ for (const route of Object.keys(EXPECTED_ROUTES)) {
     const msg = `${route}: nenhum HTML pré-renderizado encontrado em dist/`;
     errors.push(msg);
     report.routes[route] = { file: null, blocks: 0, types: [], expected: EXPECTED_ROUTES[route], missing: EXPECTED_ROUTES[route], errors: [msg] };
+    if (ANNOTATE) {
+      emitAnnotation({
+        level: "error",
+        file: `dist${route === "/" ? "/index.html" : route + "/index.html"}`,
+        line: 1,
+        title: "Rota não pré-renderizada",
+        message: msg,
+      });
+    }
   }
 }
 
