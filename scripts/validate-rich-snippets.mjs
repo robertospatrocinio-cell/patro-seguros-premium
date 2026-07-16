@@ -97,7 +97,7 @@ for (const file of files) {
   const blockErrors = [];
   rawBlocks.forEach((raw, idx) => {
     const label = `${route}#${idx}`;
-    const e = validateJsonLdBlock(raw, label);
+    const e = validateJsonLdBlock(raw, label, { strict: true });
     blockErrors.push(...e);
     try { collectTypes(JSON.parse(raw), types); } catch { /* JSON error já reportado */ }
   });
