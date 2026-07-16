@@ -111,6 +111,7 @@ Cada tipo de empresa tem riscos específicos: um restaurante tem risco de incên
         { title: "Seguro Ambiental", link: "/seguro-ambiental" },
         { title: "Seguro de Vida PME", link: "/seguro-vida-pme" },
         { title: "Seguradoras Parceiras", link: "/seguradoras-parceiras" },
+        { title: "Como comparar seguradoras", link: "/como-comparar-seguradoras-guarulhos" },
       ]}
       quoteFormFields={[
         { id: "empresa", label: "Nome da empresa", placeholder: "Razão social ou nome fantasia" },
