@@ -1470,6 +1470,51 @@ export type Database = {
         }
         Relationships: []
       }
+      web_vitals_metrics: {
+        Row: {
+          connection_type: string | null
+          created_at: string
+          device_type: string | null
+          id: string
+          metric_id: string | null
+          metric_name: string
+          page: string
+          phase: string | null
+          rating: string
+          session_id: string | null
+          user_agent: string | null
+          value: number
+        }
+        Insert: {
+          connection_type?: string | null
+          created_at?: string
+          device_type?: string | null
+          id?: string
+          metric_id?: string | null
+          metric_name: string
+          page: string
+          phase?: string | null
+          rating: string
+          session_id?: string | null
+          user_agent?: string | null
+          value: number
+        }
+        Update: {
+          connection_type?: string | null
+          created_at?: string
+          device_type?: string | null
+          id?: string
+          metric_id?: string | null
+          metric_name?: string
+          page?: string
+          phase?: string | null
+          rating?: string
+          session_id?: string | null
+          user_agent?: string | null
+          value?: number
+        }
+        Relationships: []
+      }
       whatsapp_history: {
         Row: {
           attachment_url: string | null
