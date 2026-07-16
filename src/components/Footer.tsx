@@ -17,7 +17,15 @@ const Footer = memo(() => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <SmartLink to="/" className="inline-block mb-6">
-              <img src={logoFull} alt="Patro Seguros" width={160} height={80} className="h-20 w-auto object-contain brightness-200" />
+              <img
+                src={logoFull}
+                alt="Patro Seguros"
+                width={160}
+                height={80}
+                loading="lazy"
+                decoding="async"
+                className="h-20 w-auto object-contain brightness-200"
+              />
             </SmartLink>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
               A experiência digital de uma grande corretora, com o atendimento próximo de uma especialista em Guarulhos e região.
