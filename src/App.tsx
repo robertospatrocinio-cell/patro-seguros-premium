@@ -170,6 +170,7 @@ const SeoSeguroVidaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVida
 const SeoSeguroMotoristaAppGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"), "SeoSeguroMotoristaAppGuarulhos");
 const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
 const PlanoSaudeEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhos"), "PlanoSaudeEmpresarialGuarulhos");
+const PlanosSaudeSeniorGuarulhos = lazyWithRetry(() => import("./pages/PlanosSaudeSeniorGuarulhos"), "PlanosSaudeSeniorGuarulhos");
 const PlanoOdontologicoGuarulhos = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhos"), "PlanoOdontologicoGuarulhos");
 const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/SeguroTransporteCargaGuarulhos"), "SeguroTransporteCargaGuarulhos");
 const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
@@ -687,6 +688,7 @@ const App = () => {
                   <Route path="/plano-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
                   <Route path="/plano-de-saude-guarulhos" element={<Navigate to="/plano-saude-guarulhos" replace />} />
                   <Route path="/plano-saude-empresarial-guarulhos" element={<PlanoSaudeEmpresarialGuarulhos />} />
+                  <Route path="/planos-saude-senior-guarulhos" element={<PlanosSaudeSeniorGuarulhos />} />
                   <Route path="/plano-saude-familia-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   <Route path="/plano-saude-mei-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
                   <Route path="/plano-saude-pme-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
