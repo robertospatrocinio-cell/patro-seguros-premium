@@ -4,3 +4,5 @@ project_id = "vjzsekwkeixbbpldiqmd"
 verify_jwt = true
 [functions.monitor-sitemap-errors]
 verify_jwt = true
+[functions.log-web-vitals]
+verify_jwt = false
