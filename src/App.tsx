@@ -339,7 +339,12 @@ const AdminSeoMonitor = lazy(() => import("./pages/AdminSeoMonitor"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 
-import RequireAdmin from "@/components/RequireAdmin";
+// RequireAdmin puxa `@/integrations/supabase/client` estaticamente (~50 KB).
+// Como só é usado em rotas /admin/* e /crm (todas lazy), carregamos sob demanda
+// para manter o bundle do entry livre do Supabase.
+const RequireAdmin = lazy(
+  () => import("@/components/RequireAdmin"),
+) as React.LazyExoticComponent<React.ComponentType<{ children: React.ReactNode }>>;
 
 const queryClient = new QueryClient({
   defaultOptions: {
