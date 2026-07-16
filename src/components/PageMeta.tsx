@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 interface PageMetaProps {
   title: string;
@@ -19,6 +20,12 @@ interface PageMetaProps {
   preloadMobileImage?: string;
   /** Override the canonical URL pathname (with optional query string). Useful for paginated collections. */
   canonicalPath?: string;
+  /**
+   * Suprime a emissão automática de `<BreadcrumbSchema />` (JSON-LD BreadcrumbList).
+   * Use apenas quando a página já emite BreadcrumbList por outro caminho
+   * (breadcrumb custom com labels específicos ou templates que já injetam).
+   */
+  skipBreadcrumb?: boolean;
 }
 
 const BASE_URL = CANONICAL_BASE_URL;
@@ -26,7 +33,7 @@ const DEFAULT_OG_IMAGE = `${CANONICAL_BASE_URL}/images/og-cover.webp`;
 const TITLE_SUFFIX = " | Patro Seguros";
 const MAX_TITLE_LENGTH = 60;
 
-const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath }: PageMetaProps) => {
+const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false }: PageMetaProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -122,7 +129,13 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     // No cleanup required to avoid resetting meta tags during hydration or fast navigation
   }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath]);
 
-  return null;
+  // Emite BreadcrumbList automaticamente para toda página indexável.
+  // A raiz `/` não precisa de breadcrumb (sem hierarquia). Rotas administrativas
+  // devem passar `skipBreadcrumb` explicitamente ou usar `noindex`.
+  const path = location.pathname.replace(/\/+$/, "") || "/";
+  const shouldEmitBreadcrumb = !skipBreadcrumb && !noindex && path !== "/";
+
+  return shouldEmitBreadcrumb ? <BreadcrumbSchema /> : null;
 };
 
 export default PageMeta;

@@ -78,7 +78,9 @@ const VerificarSusep = () => {
       <PageMeta
         title="Como Verificar o Registro SUSEP da Patro Seguros | Passo a Passo Oficial"
         description="Passo a passo para conferir o registro SUSEP 212113511 e o CNPJ 41.641.558/0001-33 da Patro Corretora nas fontes oficiais. Links diretos, FAQ e evidências públicas."
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

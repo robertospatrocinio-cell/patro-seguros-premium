@@ -137,7 +137,9 @@ const BlogAuthor = () => {
         ogType="profile"
         ogImage={ogImage}
         ogImageAlt={ogImageAlt}
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

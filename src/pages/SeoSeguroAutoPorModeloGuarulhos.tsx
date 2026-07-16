@@ -61,6 +61,8 @@ const SeoSeguroAutoPorModeloGuarulhos = () => (
     <PageMeta
       title="Seguro Auto por Modelo em Guarulhos — Cotação por Carro 2026"
       description="Hub navegável de seguro auto por modelo em Guarulhos: Onix, Corolla, HB20, T-Cross, Hilux, Civic e mais 40 modelos. Compare seguradoras pelo seu carro."
+    
+      skipBreadcrumb
     />
     <Helmet>
       <link rel="canonical" href="https://www.patroseguros.com.br/seguro-auto/modelos" />

@@ -64,6 +64,8 @@ const SeoSegurosPmeGuarulhos = () => (
     <PageMeta
       title="Seguros Empresariais para PME em Guarulhos | Patro"
       description="Pacote completo de seguros para PMEs em Guarulhos: empresarial, frota, vida grupo, saúde e RC. Cotação gratuita e consultoria personalizada. Patro Seguros."
+    
+      skipBreadcrumb
     />
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />

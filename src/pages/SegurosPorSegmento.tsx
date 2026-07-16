@@ -12,7 +12,9 @@ const SegurosPorSegmento = () => {
       <PageMeta
         title="Seguros por Segmento de Negócio | Patro Seguros"
         description="Seguro Empresarial sob medida para roupas, bares, restaurantes, farmácias, escritórios, escolas, hotéis e muito mais. Cotação grátis."
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },

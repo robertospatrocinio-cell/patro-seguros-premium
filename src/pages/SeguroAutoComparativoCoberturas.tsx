@@ -145,6 +145,8 @@ const SeguroAutoComparativoCoberturas = () => (
     <PageMeta
       title="Seguro Auto: Comparativo de Coberturas (Básica, Intermediária e Compreensiva)"
       description="Comparativo claro de coberturas de seguro auto: RCF, colisão, roubo, vidros, carro reserva, APP e mais. Entenda o que cada nível cobre antes de cotar."
+    
+      skipBreadcrumb
     />
     <FAQSchema faqs={FAQS} />
     <BreadcrumbSchema

@@ -51,6 +51,8 @@ const NichoClinicasVeterinarias = () => (
     <PageMeta
       title="Seguro para Clínicas Veterinárias em Guarulhos | Patro Seguros"
       description="Proteja sua clínica, hospital veterinário ou pet shop com as soluções completas da Patro Seguros: RC, Equipamentos, Vida e Saúde."
+    
+      skipBreadcrumb
     />
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />

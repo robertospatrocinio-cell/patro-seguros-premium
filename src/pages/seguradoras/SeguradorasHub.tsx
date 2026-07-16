@@ -68,7 +68,9 @@ const SeguradorasHub = () => {
       <PageMeta
         title="Seguradoras Parceiras em Guarulhos | Patro Seguros"
         description="Compare seguradoras em Guarulhos com a Patro Seguros. Cotação consultiva para seguro auto, residencial, vida, saúde, empresarial, frota e consórcio."
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: `${CANONICAL_BASE_URL}/` },

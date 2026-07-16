@@ -319,7 +319,9 @@ const InsurancePageTemplate = ({
          description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
          preloadImage={heroImage}
          preloadMobileImage={mobileHeroImage}
-       />
+       
+      skipBreadcrumb
+    />
        
       <LocalBusinessSchema />
       <OrganizationSchema />

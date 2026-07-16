@@ -180,7 +180,9 @@ const GlossarioSeguros = () => {
       <PageMeta
         title={`Glossário de Seguros — ${ALL_TERMS_COUNT}+ termos explicados | Patro Seguros`}
         description={`Glossário com ${ALL_TERMS_COUNT}+ termos de seguros explicados de forma simples: apólice, sinistro, franquia, RCF, lucros cessantes, PSR, RCTR-C e mais. Por corretor SUSEP.`}
-      />
+      
+      skipBreadcrumb
+    />
       <Helmet>
         <link rel="canonical" href="https://www.patroseguros.com.br/glossario-seguros" />
         <script type="application/ld+json">{JSON.stringify(definedTermSet)}</script>

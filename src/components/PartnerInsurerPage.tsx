@@ -49,7 +49,9 @@ const PartnerInsurerPage = () => {
       <PageMeta
         title={`${insurer.name} em Guarulhos | Cotação com a Patro Seguros`}
         description={`Cote ${insurer.name} em Guarulhos com orientação da Patro Seguros. Compare coberturas, preço, assistência e condições antes de contratar.`}
-      />
+      
+      skipBreadcrumb
+    />
       <BreadcrumbSchema
         items={[
           { name: "Início", url: `${CANONICAL_BASE_URL}/` },
