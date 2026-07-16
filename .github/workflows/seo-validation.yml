@@ -41,3 +41,6 @@ jobs:
 
       - name: Validar unicidade de H2 (heading uniqueness) em dist/
         run: bun run validate:headings
+
+      - name: Validar rich results (FAQPage + HowTo + BreadcrumbList) em dist/
+        run: bun run validate:rich-snippets

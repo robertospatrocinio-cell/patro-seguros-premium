@@ -39,6 +39,7 @@ const EXPECTED_ROUTES = {
   "/contato": ["BreadcrumbList", "FAQPage", "HowTo"],
   "/faq": ["FAQPage"],
   "/verificar-susep": ["BreadcrumbList"],
+  "/como-comparar-seguradoras-guarulhos": ["BreadcrumbList", "FAQPage", "HowTo"],
 };
 
 const args = process.argv.slice(2);
