@@ -88,6 +88,8 @@ const SeguradorasParceirasHub = () => {
       <PageMeta
         title="Seguradoras Parceiras em Guarulhos"
         description="Conheça as seguradoras parceiras da Patro Seguros em Guarulhos e região. Cote Porto Seguro, Mapfre, Allianz, Tokio Marine, Azul, Suhai e outras."
+        ogImage={`${CANONICAL_BASE_URL}/images/og-seguradoras-parceiras.jpg`}
+        ogImageAlt="Seguradoras parceiras da Patro Seguros — corretora em Guarulhos/SP com cotação Porto Seguro, Mapfre, Allianz, Tokio Marine, Azul e outras."
       />
       <BreadcrumbSchema
         items={[
