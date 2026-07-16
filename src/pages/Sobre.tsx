@@ -63,7 +63,7 @@ const Sobre = () => {
   return (
     <Fragment>
       <PageMeta
-        title="Sobre a Patro Seguros — Corretora habilitada SUSEP em Guarulhos/SP"
+        title="Sobre a Patro Seguros — Corretora SUSEP em Guarulhos"
         description="Corretora registrada na SUSEP nº 212113511, fundada em 2010 em Cidade Maia (Guarulhos/SP). 2.500+ clientes, 16+ seguradoras parceiras e sócios com 30+ anos de mercado. Conheça Roberto e Sandra Patrocínio, credenciais verificáveis e nossa forma de atender."
       
       skipBreadcrumb
