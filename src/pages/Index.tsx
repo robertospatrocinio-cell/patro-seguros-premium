@@ -67,7 +67,7 @@ const Index = () => {
     <>
       <PageMeta 
         title="Corretora de Seguros em Guarulhos | Patro Seguros"
-        description="Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras para auto, vida, saúde, residencial e empresa. Cotação em 24h. SUSEP 212113511."
+        description="Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras para auto, vida, saúde e empresa. Cotação em 24h."
         absoluteTitle={true}
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
