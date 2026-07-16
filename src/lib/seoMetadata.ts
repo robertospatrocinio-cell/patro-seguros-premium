@@ -455,7 +455,27 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         title: "Consórcio | Como Funciona e Vantagens",
         description: "Entenda como funciona o consórcio para carro, imóvel e caminhão, suas vantagens, regras e quando vale a pena contratar.",
         h1: "Consórcio: Como Funciona",
-      }
+      },
+      "/servicos": {
+        title: "Serviços | Patro Seguros — Corretora em Guarulhos",
+        description: "Conheça todos os serviços da Patro Seguros: seguro auto, vida, residencial, saúde, empresarial, frota, consórcio e agronegócio em Guarulhos.",
+        h1: "Nossos Serviços",
+      },
+      "/faq": {
+        title: "Perguntas Frequentes | Patro Seguros",
+        description: "Tire suas dúvidas sobre seguros, cotação, apólice, sinistro e coberturas. FAQ completo da Patro Seguros, corretora em Guarulhos.",
+        h1: "Perguntas Frequentes",
+      },
+      "/verificar-susep": {
+        title: "Verificar Registro SUSEP | Patro Seguros",
+        description: "Verifique o registro SUSEP da Patro Seguros e confirme a habilitação da corretora junto ao órgão regulador de seguros no Brasil.",
+        h1: "Verificar Registro SUSEP",
+      },
+      "/como-comparar-seguradoras-guarulhos": {
+        title: "Como Comparar Seguradoras em Guarulhos | Guia",
+        description: "Guia passo a passo para comparar seguradoras em Guarulhos: preço, cobertura, franquia, assistência 24h e reputação. Escolha o melhor seguro.",
+        h1: "Como Comparar Seguradoras em Guarulhos",
+      },
     };
 
     const staticPage = staticPages[cleanPath];
