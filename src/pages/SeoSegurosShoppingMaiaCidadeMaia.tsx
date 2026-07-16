@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import LazyMapEmbed from "@/components/LazyMapEmbed";
 import heroImg from "@/assets/hero-shopping-maia.webp";
 import { MapPin, Navigation, Building2, Search } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -95,15 +96,10 @@ const LocalInfoBlock = ({ position }: { position: "top" | "bottom" }) => (
 
         {/* Map */}
         <div className="rounded-lg overflow-hidden border border-border shadow-sm bg-background">
-          <iframe
+          <LazyMapEmbed
             title="Mapa — Patro Seguros em frente ao Shopping Maia, Cidade Maia, Guarulhos"
             src="https://www.google.com/maps?q=Av.+Salgado+Filho,+2120,+Cidade+Maia,+Guarulhos,+SP&output=embed"
-            width="100%"
-            height="320"
-            style={{ border: 0 }}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
+            height={320}
           />
           <div className="px-4 py-3 text-xs text-muted-foreground border-t border-border">
             Referências próximas: <strong>Shopping Maia</strong>, Parque Cidade Maia, condomínios Cidade Maia e Maia Premium,
