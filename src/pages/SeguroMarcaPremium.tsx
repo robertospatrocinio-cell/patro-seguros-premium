@@ -13,6 +13,7 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { PREMIUM_BRANDS } from "@/data/premiumBrandsConfig";
+import { unsplashSrcSet, FULL_WIDTH_SIZES } from "@/lib/imageSrcSet";
 
 const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
   const { brand: brandParam } = useParams();

@@ -12,6 +12,7 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import { unsplashSrcSet, FULL_WIDTH_SIZES } from "@/lib/imageSrcSet";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Seguro%20BMW.%20Gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20exclusiva%20para%20o%20meu%20ve%C3%ADculo.";
 
