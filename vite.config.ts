@@ -515,13 +515,30 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === "development" && componentTagger(),
-    // Convert standard CSS imports to preloads in development/preview as well to fix render blocking
-    {
-      name: "preview-css-optimizer",
+    // Torna o CSS gerado pelo Vite não-bloqueante em produção:
+    // troca `<link rel="stylesheet" href="/assets/index-*.css">` por
+    // `<link rel="preload" as="style" onload="this.rel='stylesheet'">`
+    // com fallback `<noscript>`. O CSS crítico inline no <head> cobre
+    // a dobra; o restante pinta sem bloquear o FCP.
+    mode === "production" && {
+      name: "async-non-critical-css",
       transformIndexHtml(html: string) {
-        // Only apply in production builds to avoid breaking development HMR
-        return html;
-      }
+        const noscriptFallbacks: string[] = [];
+        const rewritten = html.replace(
+          /<link\s+rel="stylesheet"\s+crossorigin\s+href="([^"]+\.css)"\s*\/?>/g,
+          (_m, href) => {
+            noscriptFallbacks.push(
+              `<link rel="stylesheet" crossorigin href="${href}">`,
+            );
+            return `<link rel="preload" as="style" crossorigin href="${href}" onload="this.onload=null;this.rel='stylesheet'">`;
+          },
+        );
+        if (noscriptFallbacks.length === 0) return html;
+        return rewritten.replace(
+          /<\/head>/,
+          `<noscript>${noscriptFallbacks.join("")}</noscript></head>`,
+        );
+      },
     },
     mode === "production" && compression({ algorithms: ["gzip", "brotliCompress"], threshold: 1024, deleteOriginalAssets: false }),
     mode === "production" && sitemapPlugin(),
