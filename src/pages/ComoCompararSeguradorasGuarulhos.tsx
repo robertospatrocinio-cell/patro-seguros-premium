@@ -13,6 +13,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 import { SEGURADORAS_PARCEIRAS } from "@/data/seguradorasParceirasSeo";
+import ComparadorSeguradoras from "@/components/ComparadorSeguradoras";
 
 const CANONICAL = `${CANONICAL_BASE_URL}/como-comparar-seguradoras-guarulhos`;
 
@@ -203,6 +204,21 @@ const ComoCompararSeguradorasGuarulhos = () => (
             </Card>
           ))}
         </div>
+      </section>
+
+      {/* Tabela comparativa interativa */}
+      <section className="container mx-auto px-4 py-10" id="comparativo">
+        <div className="max-w-3xl mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+            Tabela comparativa interativa das seguradoras
+          </h2>
+          <p className="text-muted-foreground">
+            Selecione até 3 seguradoras parceiras e veja lado a lado como cada uma se posiciona nos
+            5 critérios que mais pesam na decisão em Guarulhos e Grande SP: cobertura × franquia,
+            serviços agregados, regulação de sinistro, rede referenciada local e reputação.
+          </p>
+        </div>
+        <ComparadorSeguradoras />
       </section>
 
       {/* Como a Patro compara */}
