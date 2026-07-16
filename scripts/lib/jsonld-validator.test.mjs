@@ -153,7 +153,10 @@ describe("validateNode / validateJsonLdBlock", () => {
     const errors = [];
     validateNode([
       { "@context": "https://schema.org", "@type": "WebSite" },
-      breadcrumb([{ position: 1, name: "Início" }]),
+      breadcrumb([
+        { position: 1, name: "Início", item: "https://x/" },
+        { position: 2, name: "Fim" },
+      ]),
     ], errors);
     expect(errors).toEqual([]);
   });
