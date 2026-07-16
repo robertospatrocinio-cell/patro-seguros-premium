@@ -381,11 +381,16 @@ const InsurancePageTemplate = ({
           { name: title, url: location.pathname },
         ]}
       />
-      <ServiceSchema 
-        name={title} 
-        description={description} 
-        serviceType={inferQuoteType(title) === "saude" ? "HealthInsurance" : "Insurance"}
-      />
+      {/* Emite <ServiceSchema/> apenas quando LocalAreaSchema não vai gerar
+          um nó Service (localSeo.skip=true). Assim garantimos exatamente
+          um Service por rota, com @id canônico `${url}#service`. */}
+      {localSeo?.skip && (
+        <ServiceSchema
+          name={title}
+          description={description}
+          serviceType={inferQuoteType(title) === "saude" ? "HealthInsurance" : "Insurance"}
+        />
+      )}
       {(inferQuoteType(title) === "saude" || title.toLowerCase().includes("plano")) && <MedicalOrganizationSchema />}
       <Header />
       <main id="main-content" className="outline-none">

@@ -10,12 +10,14 @@ interface ServiceSchemaProps {
 
 const ServiceSchema = ({ name, description, serviceType = "Insurance" }: ServiceSchemaProps) => {
   const { pathname } = useLocation();
-  // Normalize: strip trailing slash so we never emit `//#service`
+  // Normaliza: sem trailing slash antes de `#service` para alinhar com o
+  // @id emitido por <LocalAreaSchema /> e permitir que ambos sejam
+  // tratados como o mesmo nó (evita "Service" duplicado no rich result).
   const cleanPath = pathname === "/" ? "" : pathname.replace(/\/+$/, "");
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${CANONICAL_BASE_URL}${cleanPath}/#service`,
+    "@id": `${CANONICAL_BASE_URL}${cleanPath}#service`,
     "name": name,
     "description": description,
     "provider": {
