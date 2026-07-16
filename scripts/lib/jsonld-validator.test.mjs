@@ -3,6 +3,7 @@ import {
   extractBlocks,
   validateBreadcrumb,
   validateLocalBusiness,
+  validateOrganization,
   validateFAQ,
   validateArticle,
   validateNode,
@@ -152,7 +153,10 @@ describe("validateNode / validateJsonLdBlock", () => {
     const errors = [];
     validateNode([
       { "@context": "https://schema.org", "@type": "WebSite" },
-      breadcrumb([{ position: 1, name: "Início" }]),
+      breadcrumb([
+        { position: 1, name: "Início", item: "https://x/" },
+        { position: 2, name: "Fim" },
+      ]),
     ], errors);
     expect(errors).toEqual([]);
   });
@@ -266,5 +270,92 @@ describe("validateArticle / BlogPosting", () => {
     const e3 = []; validateNode(art, e3);
     expect(e1).toEqual([]); expect(e2).toEqual([]);
     expect(e3.some((e) => e.includes("faltando headline"))).toBe(true);
+  });
+});
+
+describe("Rich results — modo estrito (eligibility)", () => {
+  it("Breadcrumb: exige ao menos 2 itens", () => {
+    const errors = [];
+    validateBreadcrumb(breadcrumb([{ position: 1, name: "Só" }]), errors);
+    expect(errors.some((e) => e.includes("ao menos 2 itens"))).toBe(true);
+  });
+
+  it("Breadcrumb: rejeita item.item não absoluto", () => {
+    const errors = [];
+    validateBreadcrumb(breadcrumb([
+      { position: 1, name: "A", item: "/relative" },
+      { position: 2, name: "B" },
+    ]), errors);
+    expect(errors.some((e) => e.includes("URL absoluta"))).toBe(true);
+  });
+
+  it("LocalBusiness estrito: exige url, image/logo, addressLocality/Region/Country", () => {
+    const errors = [];
+    validateLocalBusiness({
+      "@type": "InsuranceAgency",
+      name: "X", telephone: "+55", address: { streetAddress: "R" },
+    }, errors, "L", { strict: true });
+    expect(errors.some((e) => e.includes("exigem url"))).toBe(true);
+    expect(errors.some((e) => e.includes("image ou logo"))).toBe(true);
+    expect(errors.some((e) => e.includes("addressLocality"))).toBe(true);
+    expect(errors.some((e) => e.includes("addressRegion"))).toBe(true);
+    expect(errors.some((e) => e.includes("addressCountry"))).toBe(true);
+  });
+
+  it("LocalBusiness estrito: geo fora de faixa é rejeitado", () => {
+    const errors = [];
+    validateLocalBusiness({
+      "@type": "InsuranceAgency", name: "X", telephone: "+55",
+      url: "https://x", image: "https://x/i.png",
+      address: { streetAddress: "R", addressLocality: "G", addressRegion: "SP", addressCountry: "BR" },
+      geo: { latitude: 999, longitude: 0 },
+    }, errors, "L", { strict: true });
+    expect(errors.some((e) => e.includes("geo.latitude"))).toBe(true);
+  });
+
+  it("LocalBusiness estrito: openingHours HH:MM inválido é rejeitado", () => {
+    const errors = [];
+    validateLocalBusiness({
+      "@type": "InsuranceAgency", name: "X", telephone: "+55",
+      url: "https://x", image: "https://x/i.png",
+      address: { streetAddress: "R", addressLocality: "G", addressRegion: "SP", addressCountry: "BR" },
+      openingHoursSpecification: [{ opens: "9h", closes: "18:00" }],
+    }, errors, "L", { strict: true });
+    expect(errors.some((e) => e.includes("opens formato inválido"))).toBe(true);
+  });
+
+  it("Organization estrito: exige url, logo e sameAs", () => {
+    const errors = [];
+    validateOrganization({ "@type": "Organization", name: "X" }, errors, "L", { strict: true });
+    expect(errors.some((e) => e.includes("exigem url"))).toBe(true);
+    expect(errors.some((e) => e.includes("logo"))).toBe(true);
+    expect(errors.some((e) => e.includes("sameAs"))).toBe(true);
+  });
+
+  it("Organization estrito: contactPoint incompleto é rejeitado", () => {
+    const errors = [];
+    validateOrganization({
+      "@type": "Organization", name: "X", url: "https://x",
+      logo: "https://x/logo.png", sameAs: ["https://x"],
+      contactPoint: [{ telephone: "+55" }],
+    }, errors, "L", { strict: true });
+    expect(errors.some((e) => e.includes("contactType"))).toBe(true);
+  });
+
+  it("validateNode passa options.strict aos validadores", () => {
+    const errors = [];
+    validateNode({
+      "@context": "https://schema.org", "@type": "Organization", name: "X",
+    }, errors, "root", { strict: true });
+    expect(errors.some((e) => e.includes("Organization"))).toBe(true);
+  });
+
+  it("Modo não-estrito preserva compat: LocalBusiness mínimo continua válido", () => {
+    const errors = [];
+    validateLocalBusiness({
+      "@type": "InsuranceAgency", name: "X", telephone: "+55",
+      address: { streetAddress: "R" },
+    }, errors, "L");
+    expect(errors).toEqual([]);
   });
 });
