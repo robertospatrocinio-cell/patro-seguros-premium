@@ -9,14 +9,24 @@
  *   - HowTo
  *   - Organization
  *   - LocalBusiness  (inclui InsuranceAgency como subtipo)
+ *   - WebSite
+ *   - SiteNavigationElement
  *
  * Saída:
  *   - Console: tabela resumo + totais
- *   - /mnt/documents/schema-coverage-report.json (fallback: reports/)
- *   - /mnt/documents/schema-coverage-report.html (visualização filtrável)
+ *   - <outDir>/schema-coverage-report.json (default: /mnt/documents ou reports/)
+ *   - <outDir>/schema-coverage-report.html (visualização filtrável)
  *
  * Uso:
  *   node scripts/report-schema-coverage.mjs [outDir]
+ *   node scripts/report-schema-coverage.mjs --ci                  # falha o build se algo faltar
+ *   node scripts/report-schema-coverage.mjs --ci --fail-on=BreadcrumbList,FAQPage,HowTo
+ *
+ * Modo CI:
+ *   - Exit code 1 se qualquer rota REQUERIDA estiver sem um schema listado em --fail-on.
+ *   - BreadcrumbList é obrigatório em TODAS as rotas.
+ *   - FAQPage/HowTo são obrigatórios apenas nas rotas listadas em REQUIRED_BY_ROUTE
+ *     (espelha EXPECTED_ROUTES de scripts/validate-rich-snippets.mjs).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -35,7 +45,36 @@ const TRACKED = ["BreadcrumbList", "FAQPage", "HowTo", "Organization", "LocalBus
 // InsuranceAgency é subtipo de LocalBusiness → conta como LocalBusiness.
 const TYPE_ALIASES = { InsuranceAgency: "LocalBusiness" };
 
-const argOut = process.argv[2];
+// -------- CLI args --------
+const rawArgs = process.argv.slice(2);
+const flags = rawArgs.filter((a) => a.startsWith("--"));
+const positional = rawArgs.filter((a) => !a.startsWith("--"));
+
+const CI_MODE = flags.includes("--ci") || process.env.CI_SCHEMA_COVERAGE === "1";
+const failOnRaw = flags.find((f) => f.startsWith("--fail-on="))?.split("=")[1];
+const FAIL_ON = new Set(
+  (failOnRaw ? failOnRaw.split(",") : ["BreadcrumbList", "FAQPage", "HowTo"])
+    .map((s) => s.trim())
+    .filter(Boolean),
+);
+
+/**
+ * Regras de obrigatoriedade por rota. BreadcrumbList é universal (aplicado a
+ * todas as rotas). FAQPage e HowTo só falham o build nas rotas onde a página
+ * semanticamente deve exibir essas seções (espelha EXPECTED_ROUTES do
+ * validador de rich snippets).
+ */
+const UNIVERSAL_REQUIRED = ["BreadcrumbList"];
+const REQUIRED_BY_ROUTE = {
+  "/": [],
+  "/sobre": ["FAQPage"],
+  "/servicos": ["FAQPage"],
+  "/contato": ["FAQPage", "HowTo"],
+  "/faq": ["FAQPage"],
+  "/como-comparar-seguradoras-guarulhos": ["FAQPage", "HowTo"],
+};
+
+const argOut = positional[0];
 const outDir = argOut
   || (fs.existsSync("/mnt/documents") ? "/mnt/documents" : path.join(ROOT, "reports"));
 fs.mkdirSync(outDir, { recursive: true });
@@ -99,13 +138,29 @@ for (const file of files) {
   const present = TRACKED.filter((t) => types.has(t));
   const missing = TRACKED.filter((t) => !types.has(t));
   for (const t of present) totals[t] += 1;
-  rows.push({ route, file: rel, blocks, parseErrors, present, missing });
+  // Cálculo do que essa rota deveria ter, filtrado pelas regras de CI.
+  const required = [
+    ...UNIVERSAL_REQUIRED,
+    ...(REQUIRED_BY_ROUTE[route] ?? []),
+  ];
+  const ciMissing = required.filter((t) => FAIL_ON.has(t) && !types.has(t));
+  rows.push({ route, file: rel, blocks, parseErrors, present, missing, required, ciMissing });
 }
 
 rows.sort((a, b) => a.route.localeCompare(b.route));
 
 const generatedAt = new Date().toISOString();
-const report = { generatedAt, tracked: TRACKED, totals, rows };
+const failingRows = rows.filter((r) => r.ciMissing.length > 0);
+const report = {
+  generatedAt,
+  tracked: TRACKED,
+  ciMode: CI_MODE,
+  failOn: [...FAIL_ON],
+  requiredByRoute: REQUIRED_BY_ROUTE,
+  universalRequired: UNIVERSAL_REQUIRED,
+  totals: { ...totals, ciFailingRoutes: failingRows.length },
+  rows,
+};
 const jsonPath = path.join(outDir, "schema-coverage-report.json");
 fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2));
 
@@ -202,3 +257,28 @@ if (totals.parseErrors) {
 console.log(`\n📝 Relatórios:`);
 console.log(`   • ${jsonPath}`);
 console.log(`   • ${htmlPath}`);
+
+// -------- CI enforcement --------
+if (CI_MODE) {
+  console.log(`\n🛡️  CI mode ativo — fail-on: [${[...FAIL_ON].join(", ")}]`);
+  console.log(`   Universal: [${UNIVERSAL_REQUIRED.join(", ")}]  ·  Por-rota: ${Object.keys(REQUIRED_BY_ROUTE).length} regra(s)`);
+
+  if (failingRows.length === 0 && totals.parseErrors === 0) {
+    console.log("✅ Cobertura de schemas obrigatórios OK — build liberado.");
+    process.exit(0);
+  }
+
+  if (failingRows.length) {
+    console.error(`\n❌ ${failingRows.length} rota(s) sem schema(s) obrigatório(s):`);
+    for (const r of failingRows.slice(0, 40)) {
+      console.error(`   • ${r.route}  faltando: ${r.ciMissing.join(", ")}  (arquivo: ${r.file})`);
+    }
+    if (failingRows.length > 40) {
+      console.error(`   … (+${failingRows.length - 40} rotas — veja o JSON/HTML)`);
+    }
+  }
+  if (totals.parseErrors) {
+    console.error(`\n❌ ${totals.parseErrors} bloco(s) JSON-LD com sintaxe inválida — bloqueia o build.`);
+  }
+  process.exit(1);
+}
