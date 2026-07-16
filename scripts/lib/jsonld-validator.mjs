@@ -335,6 +335,65 @@ export function validateUrls(node, errors, label, options = {}) {
   walk(node, "");
 }
 
+/**
+ * WebSite — rich results (Sitelinks Search Box).
+ *   Requer: name, url absoluta.
+ *   Se potentialAction for SearchAction, exige target.urlTemplate contendo
+ *   {search_term_string} e query-input="required name=search_term_string".
+ */
+export function validateWebSite(node, errors, label, options = {}) {
+  const { strict = false } = options;
+  if (!node.name) push(errors, `${label} WebSite: faltando name`,
+    { field: "name", rule: "website.name" });
+  if (!node.url) push(errors, `${label} WebSite: faltando url`,
+    { field: "url", rule: "website.url" });
+  else if (strict && !/^https:\/\//i.test(String(node.url))) {
+    push(errors, `${label} WebSite: url deve ser https (recebido "${node.url}")`,
+      { field: "url", rule: "website.url.https" });
+  }
+  const actions = node.potentialAction
+    ? (Array.isArray(node.potentialAction) ? node.potentialAction : [node.potentialAction])
+    : [];
+  actions.forEach((a, i) => {
+    const t = Array.isArray(a?.["@type"]) ? a["@type"][0] : a?.["@type"];
+    if (t !== "SearchAction") return;
+    const target = a.target;
+    const urlTemplate = typeof target === "string" ? target : target?.urlTemplate;
+    if (!urlTemplate) {
+      push(errors, `${label} WebSite: potentialAction[${i}].target.urlTemplate ausente`,
+        { field: `potentialAction[${i}].target.urlTemplate`, rule: "website.searchAction.urlTemplate" });
+    } else if (!/\{search_term_string\}/.test(urlTemplate)) {
+      push(errors, `${label} WebSite: potentialAction[${i}].target.urlTemplate precisa conter {search_term_string}`,
+        { field: `potentialAction[${i}].target.urlTemplate`, rule: "website.searchAction.placeholder" });
+    }
+    const qi = a["query-input"];
+    if (typeof qi !== "string" || !/^required\s+name=search_term_string$/.test(qi)) {
+      push(errors, `${label} WebSite: potentialAction[${i}]["query-input"] deve ser "required name=search_term_string"`,
+        { field: `potentialAction[${i}].query-input`, rule: "website.searchAction.queryInput" });
+    }
+  });
+}
+
+/**
+ * SiteNavigationElement — usado para descrever menus globais.
+ * Aceita nó único ou array; cada elemento precisa de name + url absoluta.
+ * Recomenda position quando emitido em @graph para preservar ordem.
+ */
+export function validateSiteNavigation(node, errors, label) {
+  const list = Array.isArray(node) ? node : [node];
+  list.forEach((n, i) => {
+    const path = list.length > 1 ? `[${i}]` : "";
+    if (!n?.name) push(errors, `${label} SiteNavigationElement${path}: faltando name`,
+      { field: `${path || "root"}.name`, rule: "siteNav.name" });
+    if (!n?.url) push(errors, `${label} SiteNavigationElement${path}: faltando url`,
+      { field: `${path || "root"}.url`, rule: "siteNav.url" });
+    else if (!/^https?:\/\//i.test(String(n.url))) {
+      push(errors, `${label} SiteNavigationElement${path}: url deve ser absoluta http(s) (recebido "${n.url}")`,
+        { field: `${path || "root"}.url`, rule: "siteNav.url.absolute" });
+    }
+  });
+}
+
 export function validateNode(node, errors, label = "root", options = {}) {
   if (!node || typeof node !== "object") return;
   if (Array.isArray(node)) {
@@ -357,6 +416,8 @@ export function validateNode(node, errors, label = "root", options = {}) {
   else if (type === "FAQPage") validateFAQ(node, errors, label);
   else if (type === "HowTo") validateHowTo(node, errors, label);
   else if (type === "Article" || type === "BlogPosting" || type === "NewsArticle") validateArticle(node, errors, label);
+  else if (type === "WebSite") validateWebSite(node, errors, label, options);
+  else if (type === "SiteNavigationElement") validateSiteNavigation(node, errors, label);
   // Verificação genérica de URLs em qualquer nó tipado
   validateUrls(node, errors, label, options);
 }
