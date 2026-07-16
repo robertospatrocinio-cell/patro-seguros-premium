@@ -170,6 +170,8 @@ const informational: SitemapEntry[] = [
   { loc: "/blog/cluster/consorcio", priority: "0.7", changefreq: "weekly" },
   { loc: "/faq", priority: "0.7", changefreq: "weekly" },
   { loc: "/sobre", priority: "0.6", changefreq: "monthly" },
+  { loc: "/verificar-susep", priority: "0.4", changefreq: "yearly" },
+  { loc: "/como-comparar-seguradoras-guarulhos", priority: "0.7", changefreq: "monthly" },
   { loc: "/depoimentos", priority: "0.5", changefreq: "monthly" },
   { loc: "/parceiros", priority: "0.5", changefreq: "monthly" },
   { loc: "/parceiros-locais", priority: "0.5", changefreq: "monthly" },
