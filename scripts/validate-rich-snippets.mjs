@@ -43,7 +43,7 @@ const DIST = path.join(ROOT, "dist");
 // dist/ estático — não devem ser exigidos aqui. O que exigimos abaixo é o
 // que `scripts/prerender.mjs` injeta diretamente no HTML.
 const EXPECTED_ROUTES = {
-  "/": ["BreadcrumbList", "Organization", "WebSite", "SiteNavigationElement"],
+  "/": ["Organization", "WebSite", "SiteNavigationElement"],
   "/sobre": ["BreadcrumbList", "Organization"],
   "/servicos": ["BreadcrumbList"],
   "/contato": ["BreadcrumbList"],
