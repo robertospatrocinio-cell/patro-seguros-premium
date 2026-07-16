@@ -9,6 +9,7 @@ import {
   validateNode,
   validateJsonLdBlock,
   validateHtml,
+  validateUrls,
 } from "./jsonld-validator.mjs";
 
 const breadcrumb = (items) => ({
@@ -357,5 +358,90 @@ describe("Rich results — modo estrito (eligibility)", () => {
       address: { streetAddress: "R" },
     }, errors, "L");
     expect(errors).toEqual([]);
+  });
+});
+
+describe("validateUrls — URLs absolutas https e host canônico", () => {
+  const H = "www.patroseguros.com.br";
+
+  it("aceita URLs https absolutas com host canônico", () => {
+    const errors = [];
+    validateUrls({
+      "@id": "https://www.patroseguros.com.br/#org",
+      url: "https://www.patroseguros.com.br/sobre",
+      logo: "https://www.patroseguros.com.br/logo.png",
+      sameAs: ["https://facebook.com/patro", "https://instagram.com/patro"],
+    }, errors, "L", { strict: true, canonicalHost: H });
+    expect(errors).toEqual([]);
+  });
+
+  it("aceita fragmentos e URNs em @id", () => {
+    const errors = [];
+    validateUrls({ "@id": "#organization" }, errors, "L", { strict: true, canonicalHost: H });
+    expect(errors).toEqual([]);
+  });
+
+  it("rejeita URL relativa em url/logo/@id", () => {
+    const errors = [];
+    validateUrls({ url: "/sobre", logo: "images/logo.png", "@id": "//x.com" }, errors, "L");
+    expect(errors.some((e) => e.includes("url.absolute"))).toBe(true);
+    expect(errors.filter((e) => e.includes("url.absolute")).length).toBeGreaterThanOrEqual(2);
+  });
+
+  it("strict: rejeita http:// (exige https)", () => {
+    const errors = [];
+    validateUrls({ url: "http://www.patroseguros.com.br/x" }, errors, "L",
+      { strict: true, canonicalHost: H });
+    expect(errors.some((e) => e.includes("url.https"))).toBe(true);
+  });
+
+  it("canonicalHost: rejeita host irmão (apex sem www)", () => {
+    const errors = [];
+    validateUrls({ url: "https://patroseguros.com.br/sobre" }, errors, "L",
+      { strict: true, canonicalHost: H });
+    expect(errors.some((e) => e.includes("url.canonicalHost"))).toBe(true);
+  });
+
+  it("canonicalHost: aceita hosts externos (schema.org, redes sociais)", () => {
+    const errors = [];
+    validateUrls({
+      "@context": "https://schema.org",
+      sameAs: ["https://linkedin.com/company/patro"],
+    }, errors, "L", { strict: true, canonicalHost: H });
+    // schema.org está em @context (não em URL_FIELDS), então nem é checado.
+    // linkedin.com não é host irmão → aceito.
+    expect(errors).toEqual([]);
+  });
+
+  it("valida item[] dentro de itemListElement (Breadcrumb) via URL_FIELDS", () => {
+    const errors = [];
+    validateUrls({
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { position: 1, name: "A", item: "http://patroseguros.com.br/" },
+        { position: 2, name: "B", item: "https://www.patroseguros.com.br/b" },
+      ],
+    }, errors, "L", { strict: true, canonicalHost: H });
+    expect(errors.some((e) => e.includes("url.https"))).toBe(true);
+    expect(errors.some((e) => e.includes("url.canonicalHost"))).toBe(true);
+  });
+
+  it("valida logo como ImageObject (extrai url interna)", () => {
+    const errors = [];
+    validateUrls({
+      logo: { "@type": "ImageObject", url: "/logo.png" },
+    }, errors, "L", { strict: true, canonicalHost: H });
+    expect(errors.some((e) => e.includes("url.absolute"))).toBe(true);
+  });
+
+  it("integra em validateNode com strict/canonicalHost", () => {
+    const errors = [];
+    validateNode({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      url: "http://patroseguros.com.br",
+    }, errors, "root", { strict: true, canonicalHost: H });
+    expect(errors.some((e) => e.includes("url.https"))).toBe(true);
+    expect(errors.some((e) => e.includes("url.canonicalHost"))).toBe(true);
   });
 });

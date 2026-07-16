@@ -235,6 +235,106 @@ export function validateArticle(node, errors, label) {
   }
 }
 
+/**
+ * URL fields cujo valor precisa ser URL absoluta (http/https).
+ * Se strict=true, exige https. Se canonicalHost for informado, URLs que
+ * apontem para o próprio site (mesmo apex sem `www.`, com trailing slash
+ * divergente, etc.) devem bater exatamente com o host canônico.
+ */
+const URL_FIELDS = new Set([
+  "@id", "url", "logo", "image", "sameAs", "item",
+  "mainEntityOfPage", "contentUrl", "thumbnailUrl", "identifier",
+  "significantLink", "significantLinks", "primaryImageOfPage",
+  "potentialAction", "target",
+]);
+
+// Hosts "irmãos" (mesmo site) que devem ser normalizados para o canonicalHost.
+// Ex.: canonicalHost="www.patroseguros.com.br" → "patroseguros.com.br" é o mesmo site.
+function siblingHosts(canonicalHost) {
+  if (!canonicalHost) return new Set();
+  const bare = canonicalHost.replace(/^www\./, "");
+  return new Set([bare, `www.${bare}`]);
+}
+
+function extractUrlLike(v) {
+  if (typeof v === "string") return [v];
+  if (!v || typeof v !== "object") return [];
+  if (Array.isArray(v)) return v.flatMap(extractUrlLike);
+  const out = [];
+  if (typeof v["@id"] === "string") out.push(v["@id"]);
+  if (typeof v.url === "string") out.push(v.url);
+  return out;
+}
+
+function isJsonLdInternalRef(url) {
+  // JSON-LD permite @id como fragmento local (#organization) ou URN.
+  return /^#/.test(url) || /^urn:/i.test(url);
+}
+
+/**
+ * Percorre recursivamente o nó e valida cada campo listado em URL_FIELDS.
+ * Regras:
+ *   1. URL deve ser absoluta http(s) (rejeita relativa / protocolo ausente).
+ *   2. Se options.strict: rejeita http:// (exige https).
+ *   3. Se options.canonicalHost: URLs no mesmo site (hosts irmãos) precisam
+ *      usar exatamente o host canônico (evita mix www / apex, http/https).
+ */
+export function validateUrls(node, errors, label, options = {}) {
+  const { strict = false, canonicalHost = null } = options;
+  const siblings = siblingHosts(canonicalHost);
+
+  const check = (raw, path) => {
+    if (typeof raw !== "string" || !raw.trim()) return;
+    if (isJsonLdInternalRef(raw)) return;
+    // Precisa ter esquema absoluto http/https
+    if (!/^https?:\/\//i.test(raw)) {
+      push(errors, `${label}: ${path} não é URL absoluta http(s) (recebido "${raw}")`,
+        { field: path, rule: "url.absolute" });
+      return;
+    }
+    let u;
+    try { u = new URL(raw); } catch {
+      push(errors, `${label}: ${path} URL malformada ("${raw}")`,
+        { field: path, rule: "url.malformed" });
+      return;
+    }
+    if (strict && u.protocol !== "https:") {
+      push(errors, `${label}: ${path} deve usar https (recebido "${raw}")`,
+        { field: path, rule: "url.https" });
+    }
+    if (canonicalHost && siblings.has(u.host) && u.host !== canonicalHost) {
+      push(errors, `${label}: ${path} host inconsistente com canônico — esperado "${canonicalHost}", recebido "${u.host}"`,
+        { field: path, rule: "url.canonicalHost" });
+    }
+  };
+
+  const walk = (n, base) => {
+    if (!n || typeof n !== "object") return;
+    if (Array.isArray(n)) { n.forEach((item, i) => walk(item, `${base}[${i}]`)); return; }
+    for (const [k, v] of Object.entries(n)) {
+      const path = base ? `${base}.${k}` : k;
+      if (URL_FIELDS.has(k)) {
+        const urls = extractUrlLike(v);
+        if (Array.isArray(v)) {
+          v.forEach((it, i) => {
+            const sub = `${path}[${i}]`;
+            extractUrlLike(it).forEach((u) => check(u, sub));
+            // continua recursando estruturas aninhadas dentro do array
+            if (it && typeof it === "object" && !Array.isArray(it)) walk(it, sub);
+          });
+        } else {
+          urls.forEach((u) => check(u, path));
+          if (v && typeof v === "object" && !Array.isArray(v)) walk(v, path);
+        }
+      } else if (v && typeof v === "object") {
+        walk(v, path);
+      }
+    }
+  };
+
+  walk(node, "");
+}
+
 export function validateNode(node, errors, label = "root", options = {}) {
   if (!node || typeof node !== "object") return;
   if (Array.isArray(node)) {
@@ -257,6 +357,8 @@ export function validateNode(node, errors, label = "root", options = {}) {
   else if (type === "FAQPage") validateFAQ(node, errors, label);
   else if (type === "HowTo") validateHowTo(node, errors, label);
   else if (type === "Article" || type === "BlogPosting" || type === "NewsArticle") validateArticle(node, errors, label);
+  // Verificação genérica de URLs em qualquer nó tipado
+  validateUrls(node, errors, label, options);
 }
 
 export function validateJsonLdBlock(raw, label = "block", options = {}) {
