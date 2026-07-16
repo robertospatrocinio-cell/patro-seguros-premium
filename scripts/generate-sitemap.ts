@@ -467,14 +467,6 @@ export function generateSitemap(blogSlugs: string[]): string {
     "/seguro-odonto", "/seguro-acidentes-pessoais", "/seguro-funeral",
     "/seguro-decesso", "/seguro-viagem", "/previdencia-privada",
     "/plano-pet",
-    "/planos-de-saude/amil-saude-guarulhos",
-    "/planos-de-saude/porto-saude-guarulhos",
-    "/planos-de-saude/hapvida-guarulhos",
-    "/planos-de-saude/medsenior-guarulhos",
-    "/planos-de-saude/bradesco-saude-guarulhos",
-    "/planos-de-saude/sami-guarulhos",
-    "/planos-de-saude/unimed-guarulhos",
-    "/planos-de-saude/alice-guarulhos",
   ]);
 
   const empresarialRoutes = new Set([
@@ -509,16 +501,9 @@ export function generateSitemap(blogSlugs: string[]): string {
   autoRoutes.add("/seguradoras/bradesco-seguros-guarulhos");
   autoRoutes.add("/seguradoras/mitsui-guarulhos");
 
-  const healthPlanEntries: SitemapEntry[] = [
-    "/planos-de-saude/amil-saude-guarulhos",
-    "/planos-de-saude/porto-saude-guarulhos",
-    "/planos-de-saude/hapvida-guarulhos",
-    "/planos-de-saude/medsenior-guarulhos",
-    "/planos-de-saude/bradesco-saude-guarulhos",
-    "/planos-de-saude/sami-guarulhos",
-    "/planos-de-saude/unimed-guarulhos",
-    "/planos-de-saude/alice-guarulhos",
-  ].map(loc => ({ loc, priority: "0.8", changefreq: "weekly" }));
+  // Rotas por operadora de saúde foram removidas — as URLs redirecionam para
+  // /planos-de-saude e não devem entrar no sitemap (evita 301 chain).
+  const healthPlanEntries: SitemapEntry[] = [];
 
   const insurerEntries: SitemapEntry[] = [
     "/seguradoras/porto-seguro-guarulhos",
