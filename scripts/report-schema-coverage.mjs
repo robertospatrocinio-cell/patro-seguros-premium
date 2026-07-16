@@ -257,3 +257,28 @@ if (totals.parseErrors) {
 console.log(`\n📝 Relatórios:`);
 console.log(`   • ${jsonPath}`);
 console.log(`   • ${htmlPath}`);
+
+// -------- CI enforcement --------
+if (CI_MODE) {
+  console.log(`\n🛡️  CI mode ativo — fail-on: [${[...FAIL_ON].join(", ")}]`);
+  console.log(`   Universal: [${UNIVERSAL_REQUIRED.join(", ")}]  ·  Por-rota: ${Object.keys(REQUIRED_BY_ROUTE).length} regra(s)`);
+
+  if (failingRows.length === 0 && totals.parseErrors === 0) {
+    console.log("✅ Cobertura de schemas obrigatórios OK — build liberado.");
+    process.exit(0);
+  }
+
+  if (failingRows.length) {
+    console.error(`\n❌ ${failingRows.length} rota(s) sem schema(s) obrigatório(s):`);
+    for (const r of failingRows.slice(0, 40)) {
+      console.error(`   • ${r.route}  faltando: ${r.ciMissing.join(", ")}  (arquivo: ${r.file})`);
+    }
+    if (failingRows.length > 40) {
+      console.error(`   … (+${failingRows.length - 40} rotas — veja o JSON/HTML)`);
+    }
+  }
+  if (totals.parseErrors) {
+    console.error(`\n❌ ${totals.parseErrors} bloco(s) JSON-LD com sintaxe inválida — bloqueia o build.`);
+  }
+  process.exit(1);
+}
