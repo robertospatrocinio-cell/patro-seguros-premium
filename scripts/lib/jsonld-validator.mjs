@@ -19,16 +19,26 @@ export function validateBreadcrumb(node, errors, label = "BreadcrumbList") {
     errors.push(`${label}: itemListElement vazio ou ausente`);
     return;
   }
+  if (items.length < 2) {
+    errors.push(`${label}: rich results exigem ao menos 2 itens (recebido ${items.length})`);
+  }
   items.forEach((it, i) => {
     if (it.position !== i + 1) {
       errors.push(`${label}: position[${i}] esperado ${i + 1}, recebido ${it.position}`);
     }
     if (!it.name) errors.push(`${label}: item[${i}] sem name`);
     if (!it.item && i < items.length - 1) errors.push(`${label}: item[${i}] sem URL`);
+    if (it.item) {
+      const url = typeof it.item === "string" ? it.item : it.item?.["@id"] || it.item?.url;
+      if (typeof url === "string" && !/^https?:\/\//i.test(url)) {
+        errors.push(`${label}: item[${i}].item deve ser URL absoluta http(s) (recebido "${url}")`);
+      }
+    }
   });
 }
 
-export function validateLocalBusiness(node, errors, label) {
+export function validateLocalBusiness(node, errors, label, options = {}) {
+  const { strict = false } = options;
   if (!node.name) errors.push(`${label} ${node["@type"]}: faltando name`);
   if (!node.address) errors.push(`${label} ${node["@type"]}: faltando address`);
   else if (!node.address.streetAddress) errors.push(`${label} ${node["@type"]}: address.streetAddress ausente`);
@@ -44,6 +54,50 @@ export function validateLocalBusiness(node, errors, label) {
       }
       if (!r.author) errors.push(`${label} review[${i}] sem author`);
     });
+  }
+  if (strict) {
+    const type = Array.isArray(node["@type"]) ? node["@type"].join("/") : node["@type"];
+    if (!node.url) errors.push(`${label} ${type}: rich results exigem url (site oficial)`);
+    if (!node.image && !node.logo) errors.push(`${label} ${type}: rich results exigem image ou logo`);
+    if (node.address && typeof node.address === "object") {
+      if (!node.address.addressLocality) errors.push(`${label} ${type}: address.addressLocality ausente`);
+      if (!node.address.addressRegion) errors.push(`${label} ${type}: address.addressRegion ausente`);
+      if (!node.address.addressCountry) errors.push(`${label} ${type}: address.addressCountry ausente`);
+    }
+    if (node.geo) {
+      const lat = Number(node.geo.latitude);
+      const lng = Number(node.geo.longitude);
+      if (Number.isNaN(lat) || lat < -90 || lat > 90) errors.push(`${label} ${type}: geo.latitude inválida`);
+      if (Number.isNaN(lng) || lng < -180 || lng > 180) errors.push(`${label} ${type}: geo.longitude inválida`);
+    }
+    if (Array.isArray(node.openingHoursSpecification)) {
+      const H = /^([01]\d|2[0-3]):[0-5]\d$/;
+      node.openingHoursSpecification.forEach((oh, i) => {
+        if (oh.opens && !H.test(oh.opens)) errors.push(`${label} openingHoursSpecification[${i}].opens formato inválido (HH:MM)`);
+        if (oh.closes && !H.test(oh.closes)) errors.push(`${label} openingHoursSpecification[${i}].closes formato inválido (HH:MM)`);
+      });
+    }
+  }
+}
+
+export function validateOrganization(node, errors, label, options = {}) {
+  const { strict = false } = options;
+  if (!node.name) errors.push(`${label} Organization: faltando name`);
+  if (strict) {
+    if (!node.url) errors.push(`${label} Organization: rich results exigem url`);
+    const logo = node.logo;
+    const logoUrl = typeof logo === "string" ? logo : logo?.url || logo?.["@id"];
+    if (!logoUrl) errors.push(`${label} Organization: rich results (Logo) exigem logo (URL ou ImageObject.url)`);
+    else if (!/^https?:\/\//i.test(logoUrl)) errors.push(`${label} Organization: logo deve ser URL absoluta http(s)`);
+    if (!Array.isArray(node.sameAs) || node.sameAs.length === 0) {
+      errors.push(`${label} Organization: sameAs[] recomendado (perfis oficiais) ausente`);
+    }
+    if (Array.isArray(node.contactPoint)) {
+      node.contactPoint.forEach((cp, i) => {
+        if (!cp.telephone) errors.push(`${label} Organization: contactPoint[${i}] sem telephone`);
+        if (!cp.contactType) errors.push(`${label} Organization: contactPoint[${i}] sem contactType`);
+      });
+    }
   }
 }
 
@@ -121,40 +175,42 @@ export function validateArticle(node, errors, label) {
   }
 }
 
-export function validateNode(node, errors, label = "root") {
+export function validateNode(node, errors, label = "root", options = {}) {
   if (!node || typeof node !== "object") return;
   if (Array.isArray(node)) {
-    node.forEach((n, i) => validateNode(n, errors, `${label}[${i}]`));
+    node.forEach((n, i) => validateNode(n, errors, `${label}[${i}]`, options));
     return;
   }
   if (!node["@context"]) errors.push(`${label}: faltando @context`);
   if (Array.isArray(node["@graph"])) {
-    node["@graph"].forEach((n, i) => validateNode({ "@context": node["@context"], ...n }, errors, `${label}@graph[${i}]`));
+    node["@graph"].forEach((n, i) => validateNode({ "@context": node["@context"], ...n }, errors, `${label}@graph[${i}]`, options));
     return;
   }
   if (!node["@type"]) { errors.push(`${label}: faltando @type`); return; }
-  const type = Array.isArray(node["@type"]) ? node["@type"][0] : node["@type"];
+  const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
+  const type = types[0];
   if (type === "BreadcrumbList") validateBreadcrumb(node, errors, label);
-  else if (type === "LocalBusiness" || type === "InsuranceAgency" || type === "Organization") validateLocalBusiness(node, errors, label);
+  else if (types.some((t) => t === "LocalBusiness" || t === "InsuranceAgency")) validateLocalBusiness(node, errors, label, options);
+  else if (type === "Organization") validateOrganization(node, errors, label, options);
   else if (type === "FAQPage") validateFAQ(node, errors, label);
   else if (type === "HowTo") validateHowTo(node, errors, label);
   else if (type === "Article" || type === "BlogPosting" || type === "NewsArticle") validateArticle(node, errors, label);
 }
 
-export function validateJsonLdBlock(raw, label = "block") {
+export function validateJsonLdBlock(raw, label = "block", options = {}) {
   const errors = [];
   let parsed;
   try { parsed = JSON.parse(raw); }
   catch (e) { return [`${label}: JSON inválido — ${e.message}`]; }
-  validateNode(parsed, errors, label);
+  validateNode(parsed, errors, label, options);
   return errors;
 }
 
-export function validateHtml(html, label = "page") {
+export function validateHtml(html, label = "page", options = {}) {
   const errors = [];
   const blocks = extractBlocks(html);
   blocks.forEach((raw, idx) => {
-    errors.push(...validateJsonLdBlock(raw, `${label}#${idx}`));
+    errors.push(...validateJsonLdBlock(raw, `${label}#${idx}`, options));
   });
   return { blocks: blocks.length, errors };
 }
