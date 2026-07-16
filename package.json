@@ -21,6 +21,7 @@
     "validate:artigos-jsonld": "node scripts/validate-artigos-jsonld.mjs",
     "report:schema-uniqueness": "node scripts/report-schema-uniqueness.mjs",
     "report:schema-coverage": "node scripts/report-schema-coverage.mjs",
+    "report:schema-coverage:ci": "node scripts/report-schema-coverage.mjs --ci --fail-on=BreadcrumbList,FAQPage,HowTo",
     "validate:headings": "node scripts/validate-heading-uniqueness.mjs",
     "report:audit": "node scripts/audit-dashboard.mjs"
   },
