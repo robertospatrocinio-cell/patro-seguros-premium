@@ -3,6 +3,7 @@ import {
   extractBlocks,
   validateBreadcrumb,
   validateLocalBusiness,
+  validateOrganization,
   validateFAQ,
   validateArticle,
   validateNode,
