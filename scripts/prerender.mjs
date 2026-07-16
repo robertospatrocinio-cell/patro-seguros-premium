@@ -376,7 +376,8 @@ async function run() {
       crumbs.push({ name: humanize(s), url: `${BASE}${acc}` });
     }
     // Só injeta se ainda não houver breadcrumb no HTML (evita duplicar com /blog/ e /artigos/ acima)
-    if (!html.includes('data-breadcrumb="1"')) {
+    // E somente se houver 2+ itens — BreadcrumbList com 1 item é inválido para rich results
+    if (!html.includes('data-breadcrumb="1"') && crumbs.length >= 2) {
       const bc = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
