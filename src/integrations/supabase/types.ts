@@ -1586,6 +1586,37 @@ export type Database = {
         Args: { payload: Json; queue_name: string }
         Returns: number
       }
+      get_web_vitals_correlation: {
+        Args: { p_days?: number; p_device?: string }
+        Returns: {
+          conversion_rate: number
+          conversions: number
+          device_type: string
+          good_cls_pct: number
+          good_inp_pct: number
+          good_lcp_pct: number
+          lead_rate: number
+          leads_count: number
+          p75_cls: number
+          p75_inp: number
+          p75_lcp: number
+          page: string
+          sessions: number
+        }[]
+      }
+      get_web_vitals_timeseries: {
+        Args: {
+          p_days?: number
+          p_device?: string
+          p_metric: string
+          p_page?: string
+        }
+        Returns: {
+          day: string
+          p75_value: number
+          samples: number
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
