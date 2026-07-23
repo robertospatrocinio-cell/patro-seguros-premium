@@ -338,6 +338,7 @@ const SeoScanSummary = lazy(() => import("./pages/SeoScanSummary"));
 const AdminSeoMonitor = lazy(() => import("./pages/AdminSeoMonitor"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
+const WebVitalsCorrelation = lazy(() => import("./pages/admin/WebVitalsCorrelation"));
 
 // RequireAdmin puxa `@/integrations/supabase/client` estaticamente (~50 KB).
 // Como só é usado em rotas /admin/* e /crm (todas lazy), carregamos sob demanda
