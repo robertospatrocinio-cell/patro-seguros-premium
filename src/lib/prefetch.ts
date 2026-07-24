@@ -41,6 +41,15 @@ function schedule(cb: () => void, timeout = 2000) {
   else setTimeout(cb, 200);
 }
 
+/**
+ * scheduleIdle — expõe o `schedule` interno para outros módulos poderem
+ * adiar trabalho não-crítico (auth warm-up, checagem de sessões salvas,
+ * banner de cookies) para depois do LCP, sem inflar o TBT.
+ */
+export function scheduleIdle(cb: () => void, timeout = 2000): void {
+  schedule(cb, timeout);
+}
+
 export function prefetchOnIdle(loader: Loader, timeout = 2000): void {
   schedule(() => once(loader), timeout);
 }
