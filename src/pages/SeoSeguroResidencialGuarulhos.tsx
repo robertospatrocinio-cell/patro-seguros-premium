@@ -8,6 +8,7 @@ const SeoSeguroResidencialGuarulhos = () => (
     <PrerenderText slug="seguro-residencial-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
+    quoteUrl="https://patro.seucorretor.digital/#/formularios/residencial"
     title="Seguro Residencial em Guarulhos | Sua Casa Protegida | Patro Seguros"
     subtitle="Seguro Residencial em Guarulhos — Sua Casa Protegida"
     description="Proteja sua residência em Guarulhos com seguro residencial completo. Cobertura contra incêndio, roubo e danos elétricos. Cotação grátis em 2h."
