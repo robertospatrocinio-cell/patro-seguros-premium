@@ -1,5 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
+import { trilhaSaude } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-saude.webp";
 
 const SeguroSaude = () => {
@@ -105,6 +106,11 @@ Trabalhamos com as maiores operadoras — Bradesco Saúde, Amil, SulAmérica, Po
         { title: "Acidentes Pessoais (Contratar)", link: "/lp/seguro-acidentes-pessoais" },
         { title: "Seguradoras Parceiras", link: "/seguradoras-parceiras" },
       ]}
+      trilhaSeo={{
+        subtitle:
+          "Coberturas de saúde e proteção pessoal frequentemente contratadas em conjunto em Guarulhos.",
+        items: trilhaSaude,
+      }}
     />
     <ExitIntentPopup />
     </>

@@ -32,6 +32,7 @@ import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
+import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import SmartText from "@/components/SmartText";
 import { getBreadcrumbCategory } from "@/lib/breadcrumbCategory";
 import { getRelatedLinks } from "@/lib/relatedFromText";
@@ -187,6 +188,15 @@ export interface InsurancePageProps {
   /** Conteúdo extra renderizado após "Relacionados" e antes do Footer */
   extraSections?: ReactNode;
   /**
+   * Trilha SEO "Você também pode precisar" — cards contextuais que
+   * distribuem PageRank interno para páginas descobertas / recentes.
+   */
+  trilhaSeo?: {
+    title?: string;
+    subtitle?: string;
+    items: TrilhaSeoItem[];
+  };
+  /**
    * Quando true, suprime o `<FAQSchema>` injetado por este template.
    * Use em páginas locais que já emitem FAQPage via `LocalAreaSchema`
    * para evitar dois blocos FAQPage no mesmo URL.
@@ -265,6 +275,7 @@ const InsurancePageTemplate = ({
   showEbookConsorcio,
   showAgrishowBanner,
   extraSections,
+  trilhaSeo,
   skipFAQSchema,
   skipFAQSchemaManual,
   skipAggregateRating,
@@ -1035,6 +1046,13 @@ const InsurancePageTemplate = ({
 
         {/* Hub completo de links internos para fortalecer crawl & autoridade tópica */}
         <InsuranceHubLinks />
+        {trilhaSeo && trilhaSeo.items.length > 0 && (
+          <TrilhaSeoRelacionados
+            title={trilhaSeo.title}
+            subtitle={trilhaSeo.subtitle}
+            items={trilhaSeo.items}
+          />
+        )}
         {extraSections}
       </main>
       <Footer />

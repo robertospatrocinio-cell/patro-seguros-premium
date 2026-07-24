@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { trilhaEmpresarial } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
 import heroMobileImg from "@/assets/hero-empresa-sm.webp";
 
@@ -120,6 +121,11 @@ Cada tipo de empresa tem riscos específicos: um restaurante tem risco de incên
         { id: "funcionarios", label: "Nº de funcionários", placeholder: "Selecione", type: "select", options: ["1 a 5", "6 a 20", "21 a 50", "51 a 100", "Mais de 100"] },
       ]}
       canonicalUrl="https://www.patroseguros.com.br/seguro-empresarial"
+      trilhaSeo={{
+        subtitle:
+          "Coberturas e recursos que gestores em Guarulhos costumam avaliar junto com o Seguro Empresarial.",
+        items: trilhaEmpresarial,
+      }}
     />
   );
 };
