@@ -350,7 +350,9 @@ const Index = () => {
         {/* GOOGLE BUSINESS WIDGET (Mobile Only Version for immediate social proof) */}
         <div className="lg:hidden container mx-auto px-4 pt-12">
           <div className="bg-slate-50 p-1 rounded-2xl border border-slate-100">
-            <GoogleBusinessWidget />
+            <Suspense fallback={<div style={{ minHeight: 300 }} aria-hidden="true" />}>
+              <GoogleBusinessWidget />
+            </Suspense>
           </div>
         </div>
 
