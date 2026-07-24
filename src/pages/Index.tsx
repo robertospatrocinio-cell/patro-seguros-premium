@@ -18,6 +18,8 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
+import { useEffect } from "react";
+import { prefetchOnIdleAll } from "@/lib/prefetch";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
@@ -75,6 +77,19 @@ const sinistroFaqs = [
 ];
 
 const Index = () => {
+  // Warm-up dos chunks acima-da-dobra em requestIdleCallback: como o Hero
+  // Carousel / QuickLeadForm / HomeSelector / GoogleBusinessWidget não
+  // estão dentro de <LazySection>, disparamos o import() manualmente
+  // quando a main thread ficar ociosa — Suspense resolve sem espera de
+  // rede e sem inflar o TBT do LCP.
+  useEffect(() => {
+    prefetchOnIdleAll([
+      loadHeroInsuranceCarousel,
+      loadQuickLeadForm,
+      loadHomeSelector,
+      loadGoogleBusinessWidget,
+    ]);
+  }, []);
   return (
     <>
       <PageMeta 
