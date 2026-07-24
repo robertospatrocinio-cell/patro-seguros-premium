@@ -2,6 +2,7 @@ import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { articles as blogArticles } from "@/lib/blogData";
+import { getArticleImage } from "@/lib/blogImages";
 import { landingPagesData } from "@/data/landingPages";
 import { servicePagesContent } from "@/data/seoServiceContent";
 
