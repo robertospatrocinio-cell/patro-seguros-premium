@@ -66,6 +66,12 @@ export interface ConversionMeta {
 /**
  * Persists a conversion event (click) to the Supabase database.
  * Includes full attribution context, session ID, and performance metrics.
+ *
+ * Perf: o envio é adiado para uma microtask e usa `navigator.sendBeacon`
+ * quando disponível, para tirar 100% do trabalho síncrono do caminho do
+ * clique (leitura de sessionStorage + construção do payload + fetch).
+ * O CTA nativo (<a>/<Link>) navega instantaneamente; o beacon sobe em
+ * background sem competir com a navegação.
  */
  const recordConversionClick = (
   eventType: "cotacao_click" | "whatsapp_click",
@@ -76,25 +82,28 @@ export interface ConversionMeta {
   const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
   if (!url || !key) return;
 
-  const attr = captureAttribution();
+  // Snapshot do timestamp ANTES da microtask, para métrica correta.
+  const startedAt = Number((performance.now() / 1000).toFixed(3));
+  const path = window.location.pathname;
+  const analyticsLoaded = Boolean(window.__analyticsLoaded);
+  const ua = navigator.userAgent;
 
-  fetch(`${url}/rest/v1/conversion_click_events`, {
-    method: "POST",
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
-    keepalive: true,
-    body: JSON.stringify({
+  const send = () => {
+    let attr: Attribution = {};
+    let sessionId = "";
+    try {
+      attr = captureAttribution();
+      sessionId = getSessionId();
+    } catch { /* storage unavailable */ }
+
+    const payload = JSON.stringify({
       event_type: eventType,
       source: source || "geral",
-      page_path: window.location.pathname,
-      analytics_loaded: Boolean(window.__analyticsLoaded),
-      seconds_since_page_start: Number((performance.now() / 1000).toFixed(3)),
-      session_id: getSessionId(),
-      user_agent: navigator.userAgent,
+      page_path: path,
+      analytics_loaded: analyticsLoaded,
+      seconds_since_page_start: startedAt,
+      session_id: sessionId,
+      user_agent: ua,
       utm_source: attr.utm_source,
       utm_medium: attr.utm_medium,
       utm_campaign: attr.utm_campaign,
@@ -104,8 +113,43 @@ export interface ConversionMeta {
       landing_page: attr.landing_page,
       insurance_type: meta?.insuranceType,
       origin: meta?.origin,
-    }),
-  }).catch(() => undefined);
+    });
+
+    const endpoint = `${url}/rest/v1/conversion_click_events`;
+
+    // sendBeacon: assíncrono, sobrevive à navegação, não bloqueia a thread
+    // principal e não conta como fetch pendente da página atual.
+    // PostgREST aceita o Content-Type "application/json" via Blob.
+    const beacon = navigator.sendBeacon;
+    if (beacon) {
+      try {
+        // sendBeacon não permite cabeçalhos customizados (apikey/Authorization),
+        // então concatenamos as chaves na query string — o PostgREST aceita
+        // `apikey=...` como query param.
+        const beaconUrl = `${endpoint}?apikey=${encodeURIComponent(key)}`;
+        const blob = new Blob([payload], { type: "application/json" });
+        if (beacon.call(navigator, beaconUrl, blob)) return;
+      } catch { /* fallback abaixo */ }
+    }
+
+    // Fallback: fetch com keepalive, mantendo o comportamento anterior.
+    fetch(endpoint, {
+      method: "POST",
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+      },
+      keepalive: true,
+      body: payload,
+    }).catch(() => undefined);
+  };
+
+  // Adia para depois do handler do clique: o navigate/window.open acontece
+  // primeiro, e só depois a microtask constrói o payload + dispara o beacon.
+  if (typeof queueMicrotask === "function") queueMicrotask(send);
+  else Promise.resolve().then(send);
 };
 
 export const trackWhatsAppClick = (source?: string, meta?: ConversionMeta) => {

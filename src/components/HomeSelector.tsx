@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Car, Bike, Home, Users, Heart, Building2, Truck, Package, ShieldCheck, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -16,7 +16,7 @@ const options = [
   { label: 'Minhas máquinas', icon: Settings, path: '/seguro-maquinas' },
 ];
 
-export const HomeSelector = () => {
+const HomeSelectorImpl = () => {
   const navigate = useNavigate();
 
   return (
@@ -39,3 +39,8 @@ export const HomeSelector = () => {
     </section>
   );
 };
+
+// memo: blindagem defensiva — hoje o pai (Index) não passa props e não
+// tem state que mude após mount, mas isolar evita regressões futuras se
+// Index ganhar state que force um re-render do subtree.
+export const HomeSelector = memo(HomeSelectorImpl);

@@ -8,6 +8,7 @@ import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 import { toast } from "sonner";
 import { logForgottenQuote } from "@/lib/quoteHistory";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
+import { scheduleIdle } from "@/lib/prefetch";
 
 
 
@@ -97,15 +98,40 @@ const Header = memo(() => {
     };
 
 
-    checkSessions();
-    // Listen for storage changes in other tabs
-    window.addEventListener('storage', checkSessions);
-    // Also check on interval as state might change in same tab
-    const interval = setInterval(checkSessions, 15000); // Increased interval to 15s for better performance
-    
-    return () => {
-      window.removeEventListener('storage', checkSessions);
+    // Perf: a checagem inicial é adiada para requestIdleCallback (parse
+    // de até 8 chaves de localStorage não pode competir com o LCP do
+    // Hero). O polling é pausado quando a aba fica oculta para não
+    // gastar CPU em segundo plano.
+    let cancelled = false;
+    let interval: ReturnType<typeof setInterval> | undefined;
+
+    const startPolling = () => {
+      if (interval || cancelled) return;
+      interval = setInterval(checkSessions, 15000);
+    };
+    const stopPolling = () => {
+      if (!interval) return;
       clearInterval(interval);
+      interval = undefined;
+    };
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") stopPolling();
+      else startPolling();
+    };
+
+    scheduleIdle(() => {
+      if (cancelled) return;
+      checkSessions();
+      window.addEventListener("storage", checkSessions);
+      document.addEventListener("visibilitychange", onVisibility);
+      if (document.visibilityState !== "hidden") startPolling();
+    }, 2500);
+
+    return () => {
+      cancelled = true;
+      stopPolling();
+      window.removeEventListener("storage", checkSessions);
+      document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);
 

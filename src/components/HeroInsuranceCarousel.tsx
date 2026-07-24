@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import type { LucideIcon } from "lucide-react";
@@ -717,4 +717,6 @@ const HeroInsuranceCarousel = ({
   );
 };
 
-export default HeroInsuranceCarousel;
+// memo: blindagem defensiva — o pai (Index) chama sem props, mas isolar
+// evita re-renders em cascata caso Index ganhe state no futuro.
+export default memo(HeroInsuranceCarousel);

@@ -88,6 +88,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
 import WebSiteSchema from "@/components/WebSiteSchema";
 import SiteNavigationSchema from "@/components/SiteNavigationSchema";
+import { scheduleIdle } from "@/lib/prefetch";
 
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const CookieBanner = lazy(() => import("@/components/CookieBanner"));
@@ -391,7 +392,11 @@ const App = () => {
   useEffect(() => {
     let cleanup: (() => void) | undefined;
     let cancelled = false;
-    const timer = globalThis.setTimeout(() => {
+    // Adia o warm-up do Supabase auth para requestIdleCallback (fallback
+    // para setTimeout via scheduleIdle) — assim o import do client (~50 KB
+    // gz) não compete com o LCP em devices lentos.
+    scheduleIdle(() => {
+      if (cancelled) return;
       import("@/integrations/supabase/client").then(({ supabase }) => {
         if (cancelled) return;
         const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
@@ -403,11 +408,10 @@ const App = () => {
         });
         cleanup = () => subscription.unsubscribe();
       });
-    }, 1500);
+    }, 3000);
 
     return () => {
       cancelled = true;
-      globalThis.clearTimeout(timer);
       cleanup?.();
     };
   }, []);
