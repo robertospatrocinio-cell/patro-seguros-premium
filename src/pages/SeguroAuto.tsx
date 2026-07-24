@@ -13,6 +13,8 @@ import FAQBlock from "@/components/FAQBlock";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import LazySection from "@/components/LazySection";
 import { Button } from "@/components/ui/button";
+import TrilhaSeoRelacionados from "@/components/TrilhaSeoRelacionados";
+import { trilhaAuto } from "@/lib/trilhaSeoRecomendacoes";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
@@ -508,6 +510,11 @@ const SeguroAuto = () => {
             </div>
           </div>
         </section>
+
+        <TrilhaSeoRelacionados
+          subtitle="Motoristas que contratam Seguro Auto em Guarulhos frequentemente avançam para estas coberturas."
+          items={trilhaAuto}
+        />
       </main>
       <Footer />
       <Suspense fallback={null}>
