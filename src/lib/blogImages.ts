@@ -321,8 +321,14 @@ export const blogImageMap: Record<string, string> = {
 };
 
 
+// Fallback estático usado quando o módulo roda em Node (prerender/sitemap):
+// nesses contextos, imports de `.webp` viram objetos vazios do esbuild em vez
+// de URLs, o que quebra o JSON-LD com "[object Object]".
+const FALLBACK_COVER_URL = "/images/logo-full.webp";
+
 export const getArticleImage = (slug: string): string => {
-  return generatedCoverBySlug[slug] || blogImageMap[slug] || blogDicas;
+  const raw = generatedCoverBySlug[slug] ?? blogImageMap[slug] ?? blogDicas;
+  return typeof raw === "string" && raw.length > 0 ? raw : FALLBACK_COVER_URL;
 };
 
 /**
