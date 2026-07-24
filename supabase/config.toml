@@ -6,3 +6,5 @@ verify_jwt = true
 verify_jwt = true
 [functions.log-web-vitals]
 verify_jwt = false
+[functions.monitor-gsc-indexation]
+verify_jwt = true
