@@ -21,7 +21,8 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
     "name": name,
     "description": description,
     "provider": {
-      "@id": `${CANONICAL_BASE_URL}/#organization`
+      "@type": "InsuranceAgency",
+      "@id": `${CANONICAL_BASE_URL}/#insurance-agency`
     },
     "areaServed": [
       {
