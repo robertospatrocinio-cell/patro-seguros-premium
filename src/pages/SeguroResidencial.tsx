@@ -111,7 +111,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         heading: "Conversemos sobre proteger mais do que o imóvel",
         paragraphs: [
           "O seguro residencial é apenas uma parte da proteção completa que sua família merece. Se você já protege seu lar, considere também proteger quem mora nele com um seguro de vida — que garante estabilidade financeira em caso de imprevistos graves.",
-          "Se você tem veículo, o seguro auto complementa a proteção do patrimônio familiar. E para quem mora em condomínio, o seguro condominial é obrigatório por lei e protege as áreas comuns do prédio. Já pensou também em um plano de saúde para toda a família?",
+          "Se você tem veículo, o seguro auto complementa a proteção do patrimônio familiar. E para quem mora em condomínio, o seguro condominial é obrigatório por lei e protege as áreas comuns do prédio. Já pensou também em um plano de saúde para toda a família — inclusive um plano específico para idosos 60+ em Guarulhos? Para autônomos e profissionais liberais, complemente com um seguro de acidentes pessoais de contratação rápida.",
           "Como corretora independente, cotamos sua apólice com as principais seguradoras parceiras (Porto Seguro, Tokio Marine, Allianz, Mapfre, Bradesco e outras) para você comparar preços e coberturas. Confira também nosso guia de como escolher e comparar seguradoras em Guarulhos.",
         ],
         links: [
@@ -119,6 +119,8 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
           { text: "Seguro Auto", href: "/seguro-auto" },
           { text: "Seguro Condomínio", href: "/seguro-condominio" },
           { text: "Planos de Saúde", href: "/planos-de-saude" },
+          { text: "Plano Saúde Sênior em Guarulhos", href: "/planos-saude-senior-guarulhos" },
+          { text: "Acidentes Pessoais (Contratar)", href: "/lp/seguro-acidentes-pessoais" },
           { text: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
           { text: "Seguradoras Parceiras", href: "/seguradoras-parceiras" },
           { text: "Como comparar seguradoras em Guarulhos", href: "/como-comparar-seguradoras-guarulhos" },
