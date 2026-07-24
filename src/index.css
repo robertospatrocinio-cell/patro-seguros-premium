@@ -1,20 +1,9 @@
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url('/fonts/inter-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600 700;
-  font-display: swap;
-  src: url('/fonts/poppins-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF;
-}
+/*
+ * Fontes: Inter é declarado no CSS crítico inline do index.html (font-display: swap)
+ * como fallback da stack -apple-system → SF Pro. Poppins/Work Sans/Instrument Serif
+ * foram removidos porque nenhum componente referenciava essas famílias — as classes
+ * Tailwind font-sans/serif/heading/display apontam todas para SF Pro / Inter / system.
+ */
 
 @tailwind base;
 @tailwind components;
