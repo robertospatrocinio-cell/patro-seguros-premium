@@ -1,4 +1,9 @@
 import { onLCP, onCLS, onINP, type Metric } from 'web-vitals';
+import {
+  getMonitoringSessionId,
+  updateVitalsSnapshot,
+  type VitalsSnapshot,
+} from '@/lib/monitoringSession';
 
 const INGEST_URL =
   `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/log-web-vitals`;
@@ -20,17 +25,7 @@ function getConnectionType(): string | undefined {
 }
 
 function getSessionId(): string {
-  try {
-    const k = 'cwv_sid';
-    let sid = sessionStorage.getItem(k);
-    if (!sid) {
-      sid = crypto.randomUUID();
-      sessionStorage.setItem(k, sid);
-    }
-    return sid;
-  } catch {
-    return 'anon';
-  }
+  return getMonitoringSessionId();
 }
 
 function persistToProd(entry: VitalEntry) {
@@ -78,6 +73,7 @@ const THRESHOLDS = {
   LCP: { good: 2500, poor: 4000 },
   CLS: { good: 0.1, poor: 0.25 },
   INP: { good: 200, poor: 500 },
+  TBT: { good: 200, poor: 600 },
 };
 
 type VitalName = keyof typeof THRESHOLDS;
@@ -132,6 +128,16 @@ function handleMetric(metric: Metric) {
   const rating = getRating(name, value);
   const phase = getCurrentPhase();
 
+  // Publish the latest sample so CTA click tracking can attach it.
+  const patch: Partial<VitalsSnapshot> = {
+    device_type: getDeviceType(),
+    connection_type: getConnectionType(),
+  };
+  if (name === 'LCP') patch.lcp = value;
+  else if (name === 'CLS') patch.cls = value;
+  else if (name === 'INP') patch.inp = value;
+  updateVitalsSnapshot(patch);
+
   // Send to GA4
   window.gtag?.('event', 'web_vitals', {
     event_category: 'Web Vitals',
@@ -176,6 +182,7 @@ export function initWebVitals() {
   onLCP(handleMetric);
   onCLS(handleMetric);
   onINP(handleMetric);
+  observeTBT();
 
   // Monitor total rendering performance
   if (typeof window !== 'undefined' && window.performance && window.performance.mark) {
@@ -196,6 +203,61 @@ export function initWebVitals() {
       }
     }, { once: true });
   }
+}
+
+/**
+ * Field proxy for Total Blocking Time: sum of long-task blocking time
+ * (duration - 50ms) between navigation start and the first user interaction
+ * (or a 10s ceiling). Emitted once per page load as a `TBT` sample so we can
+ * correlate main-thread jank with CTA conversion.
+ */
+function observeTBT() {
+  if (typeof PerformanceObserver === 'undefined') return;
+  const supported = (PerformanceObserver as unknown as { supportedEntryTypes?: string[] })
+    .supportedEntryTypes;
+  if (!supported?.includes('longtask')) return;
+
+  let blocking = 0;
+  let stopped = false;
+  const start = performance.now();
+
+  const observer = new PerformanceObserver((list) => {
+    if (stopped) return;
+    for (const entry of list.getEntries()) {
+      if (entry.startTime > start + 10000) continue;
+      const dur = entry.duration;
+      if (dur > 50) blocking += dur - 50;
+    }
+  });
+
+  try { observer.observe({ type: 'longtask', buffered: true }); }
+  catch { return; }
+
+  const flush = () => {
+    if (stopped) return;
+    stopped = true;
+    try { observer.disconnect(); } catch { /* noop */ }
+    const value = Math.round(blocking);
+    const rating = getRating('TBT', value);
+    updateVitalsSnapshot({ tbt: value });
+    const entry: VitalEntry = {
+      name: 'TBT',
+      value,
+      rating,
+      id: `tbt-${getSessionId()}`,
+      page: window.location.pathname,
+      timestamp: Date.now(),
+      phase: getCurrentPhase(),
+    };
+    storeEntry(entry);
+    persistToProd(entry);
+  };
+
+  const opts = { once: true, capture: true, passive: true } as AddEventListenerOptions;
+  window.addEventListener('pointerdown', flush, opts);
+  window.addEventListener('keydown', flush, opts);
+  window.addEventListener('pagehide', flush, opts);
+  setTimeout(flush, 10000);
 }
 
 /**

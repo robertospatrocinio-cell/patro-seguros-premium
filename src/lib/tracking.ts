@@ -1,3 +1,8 @@
+import {
+  getMonitoringSessionId,
+  readVitalsSnapshot,
+} from "@/lib/monitoringSession";
+
 // Meta Pixel & GA4 event helpers
 declare global {
   interface Window {
@@ -10,14 +15,9 @@ declare global {
 
 const ensureAnalytics = () => window.__loadAnalytics?.();
 
-const getSessionId = () => {
-  const key = "patro_conversion_session_id";
-  const existing = sessionStorage.getItem(key);
-  if (existing) return existing;
-  const next = crypto.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  sessionStorage.setItem(key, next);
-  return next;
-};
+// Unified with the Web Vitals collector so LCP/TBT samples and CTA clicks
+// share the same session_id and can be joined for correlation queries.
+const getSessionId = () => getMonitoringSessionId();
 
 // ---------- UTM / attribution capture ----------
 const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"] as const;
@@ -91,6 +91,7 @@ export interface ConversionMeta {
   const send = () => {
     let attr: Attribution = {};
     let sessionId = "";
+    const vitals = readVitalsSnapshot();
     try {
       attr = captureAttribution();
       sessionId = getSessionId();
@@ -113,6 +114,14 @@ export interface ConversionMeta {
       landing_page: attr.landing_page,
       insurance_type: meta?.insuranceType,
       origin: meta?.origin,
+      // Perceived performance at click time — correlates slow pages with
+      // lower CTA conversion.
+      lcp_ms: vitals.lcp != null ? Math.round(vitals.lcp) : undefined,
+      inp_ms: vitals.inp != null ? Math.round(vitals.inp) : undefined,
+      tbt_ms: vitals.tbt != null ? Math.round(vitals.tbt) : undefined,
+      cls: vitals.cls,
+      device_type: vitals.device_type,
+      connection_type: vitals.connection_type,
     });
 
     const endpoint = `${url}/rest/v1/conversion_click_events`;
