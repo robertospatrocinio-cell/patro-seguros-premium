@@ -17,6 +17,7 @@ const landingPages = [
   { title: "Seguro Motorista App", description: "Uber, 99, inDrive — cobertura durante corridas, RC passageiros e carro reserva.", icon: MapPin, link: "/lp/seguro-motorista-app", color: "bg-violet-500/10 text-violet-600" },
   { title: "MedSênior Infinite", description: "Plano premium 49+ sem coparticipação — Oswaldo Cruz, 9 de Julho e Samaritano.", icon: Stethoscope, link: "/lp/medsenior", color: "bg-teal-500/10 text-teal-600" },
   { title: "Alice Saúde", description: "Plano empresarial com menor reajuste — Einstein, Oswaldo Cruz, BP. A partir de 1 vida.", icon: Heart, link: "/lp/alice", color: "bg-pink-500/10 text-pink-600" },
+  { title: "Acidentes Pessoais", description: "Landing focada em conversão — morte acidental, invalidez e despesas médicas.", icon: Shield, link: "/lp/seguro-acidentes-pessoais", color: "bg-emerald-500/10 text-emerald-600" },
 ];
 
 const LandingPages = () => (
