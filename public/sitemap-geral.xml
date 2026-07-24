@@ -367,6 +367,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.patroseguros.com.br/lp/seguro-acidentes-pessoais</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://www.patroseguros.com.br/seguro-de-vida-para-socios</loc>
     <priority>0.8</priority>
     <lastmod>2026-06-16</lastmod>

@@ -32,13 +32,19 @@ interface LandingPageProps {
   guaranteeText?: string;
   ebookUrl?: string;
   extraSections?: ReactNode;
+  /** Torna a LP indexável (por padrão LPs de mídia paga usam noindex). */
+  indexable?: boolean;
+  /** Imagem absoluta para og:image / twitter:image. */
+  ogImage?: string;
+  /** Alt da og:image. */
+  ogImageAlt?: string;
 }
 
 const LandingPageTemplate = ({
   title, headline, subheadline, painPoints, benefits, stats,
   testimonials, objections, ctaText, ctaUrl, urgencyText,
   metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText, ebookUrl,
-  extraSections,
+  extraSections, indexable = false, ogImage, ogImageAlt,
 }: LandingPageProps) => {
 
   const mainCtaLink = ctaUrl || "/cotacao";
@@ -67,7 +73,13 @@ const LandingPageTemplate = ({
 
   return (
     <>
-      <PageMeta title={title} description={metaDescription} noindex />
+      <PageMeta
+        title={title}
+        description={metaDescription}
+        noindex={!indexable}
+        ogImage={ogImage}
+        ogImageAlt={ogImageAlt}
+      />
 
       {/* Minimal header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b">

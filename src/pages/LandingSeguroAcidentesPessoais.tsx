@@ -1,6 +1,8 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import FAQSchema from "@/components/FAQSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import heroImg from "@/assets/lp-seguro-acidentes-pessoais.jpg";
 
 const QUOTE_URL = "https://patro.seucorretor.digital/#/formularios/acidentes-pessoais";
@@ -9,6 +11,17 @@ const WHATSAPP_URL =
   encodeURIComponent(
     "Olá! Vim pela landing page de Seguro de Acidentes Pessoais e gostaria de uma cotação."
   );
+
+const FAQS = [
+  { question: "Qual a diferença entre seguro de vida e seguro de acidentes pessoais?", answer: "O seguro de vida cobre morte por qualquer causa (natural ou acidental). O seguro de acidentes pessoais cobre exclusivamente eventos acidentais — por isso costuma custar muito menos. É comum contratar os dois em conjunto para uma proteção completa." },
+  { question: "Quanto custa o seguro de acidentes pessoais?", answer: "A partir de aproximadamente R$ 15 por mês, dependendo da idade do segurado, do capital segurado escolhido (indenização) e das coberturas adicionais como diária de internação e despesas médicas. A Patro Seguros faz cotação gratuita em mais de 16 seguradoras." },
+  { question: "O seguro cobre acidentes em qualquer lugar?", answer: "Sim. A cobertura vale 24 horas por dia, 7 dias por semana, em qualquer lugar do Brasil, e a maioria das apólices também cobre acidentes no exterior. Vale para eventos em casa, no trabalho, no trânsito, na prática esportiva, em viagens e no lazer." },
+  { question: "Preciso fazer exames médicos para contratar?", answer: "Não. O seguro de acidentes pessoais dispensa exames médicos e não exige questionário de saúde extenso. A contratação é rápida e a apólice geralmente é emitida em até 24 horas." },
+  { question: "Sou autônomo ou MEI, faz sentido contratar acidentes pessoais?", answer: "Sim. Profissionais autônomos e MEIs normalmente não contam com auxílio-doença ativo do INSS. O seguro de acidentes pessoais funciona como uma rede de segurança, pagando indenização e diárias que substituem parte da renda em caso de afastamento por acidente." },
+  { question: "Como funciona o pagamento da indenização?", answer: "Em caso de sinistro, o segurado ou o beneficiário aciona a Patro Seguros e nós conduzimos todo o processo junto à seguradora. Após a análise da documentação, a indenização é depositada diretamente na conta indicada, normalmente em até 30 dias." },
+  { question: "Posso incluir a família na mesma apólice?", answer: "Sim. Existem planos individuais e planos familiares que incluem cônjuge e filhos com condições diferenciadas. Também é possível contratar coberturas específicas para crianças, com foco em despesas médicas e diária de internação." },
+  { question: "Quais coberturas adicionais estão disponíveis?", answer: "Além de morte acidental, invalidez permanente e despesas médicas, é possível adicionar diária de internação hospitalar (DIH), auxílio-funeral, cesta básica em caso de afastamento e assistências 24h (residencial, pet, viagem)." },
+];
 
 const StickyCta = () => (
   <>
@@ -41,11 +54,20 @@ const StickyCta = () => (
 
 const LandingSeguroAcidentesPessoais = () => (
   <>
+    <FAQSchema faqs={FAQS} />
+    <ServiceSchema
+      name="Seguro de Acidentes Pessoais"
+      description="Corretagem de Seguro de Acidentes Pessoais em Guarulhos e São Paulo, com cotação em mais de 16 seguradoras. Coberturas de morte acidental, invalidez permanente, despesas médicas e diária de internação."
+      serviceType="AccidentInsurance"
+    />
     <LandingPageTemplate
       heroImage={heroImg}
       title="Seguro de Acidentes Pessoais"
       heroEmoji="🛡️"
       ctaUrl={QUOTE_URL}
+      indexable
+      ogImage="https://www.patroseguros.com.br/images/og-cover.webp"
+      ogImageAlt="Seguro de Acidentes Pessoais — Patro Seguros"
       headline="Um acidente pode mudar tudo. Você e sua família estão protegidos?"
       subheadline="Indenização por morte acidental, invalidez permanente e despesas médicas. Um dos seguros com melhor custo-benefício do mercado — cotação gratuita em minutos."
       metaDescription="Seguro de Acidentes Pessoais: indenização por morte acidental, invalidez e despesas médicas. A partir de R$ 15/mês. Cotação grátis com a Patro Seguros."
@@ -78,14 +100,7 @@ const LandingSeguroAcidentesPessoais = () => (
         { name: "Patrícia S.", role: "Mãe de 2", stars: 5, content: "Meu marido teve um acidente grave no trabalho e ficou com invalidez parcial. A indenização ajudou a pagar próteses e adaptar a casa. Não sei o que faríamos sem o seguro." },
         { name: "Rogério T.", role: "Autônomo", stars: 5, content: "Sou autônomo e não tenho INSS ativo. O seguro de acidentes pessoais é minha rede de segurança. Pago menos de R$ 30 por mês e durmo tranquilo." },
       ]}
-      objections={[
-        { question: "Qual a diferença entre seguro de vida e acidentes pessoais?", answer: "O seguro de vida cobre morte por qualquer causa (natural ou acidental). O seguro de acidentes pessoais cobre exclusivamente eventos acidentais — por isso é muito mais barato. Muita gente contrata os dois." },
-        { question: "Quanto custa por mês?", answer: "A partir de R$ 15/mês, dependendo da idade, do capital segurado escolhido e das coberturas adicionais. Enviamos uma cotação personalizada e você escolhe o plano que cabe no seu bolso." },
-        { question: "A cobertura vale em qualquer lugar?", answer: "Sim. A cobertura é 24 horas por dia, 7 dias por semana, em qualquer lugar do Brasil (e a maioria das apólices também vale no exterior). Vale para acidentes em casa, trabalho, lazer, trânsito e viagens." },
-        { question: "Preciso fazer exames médicos?", answer: "Não. O seguro de acidentes pessoais dispensa exames médicos e questionários extensos. A contratação é rápida — em geral a apólice é emitida em 24 horas." },
-        { question: "Sou autônomo/MEI, faz sentido para mim?", answer: "Muito. Autônomos não têm seguridade do INSS ativa como um CLT. O seguro de acidentes pessoais é a forma mais barata de garantir uma renda de emergência caso um acidente te afaste do trabalho." },
-        { question: "Como recebo a indenização?", answer: "Em caso de sinistro, basta acionar a Patro Seguros e nós conduzimos todo o processo com a seguradora. A indenização é paga diretamente na conta do beneficiário indicado, geralmente em até 30 dias após a documentação completa." },
-      ]}
+      objections={FAQS}
     />
     <StickyCta />
   </>
