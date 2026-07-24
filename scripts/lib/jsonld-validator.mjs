@@ -458,6 +458,7 @@ export function validateNode(node, errors, label = "root", options = {}) {
   else if (type === "Article" || type === "BlogPosting" || type === "NewsArticle") validateArticle(node, errors, label);
   else if (type === "WebSite") validateWebSite(node, errors, label, options);
   else if (type === "SiteNavigationElement") validateSiteNavigation(node, errors, label);
+  else if (type === "Service") validateService(node, errors, label, options);
   // Verificação genérica de URLs em qualquer nó tipado
   validateUrls(node, errors, label, options);
 }
