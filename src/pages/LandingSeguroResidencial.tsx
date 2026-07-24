@@ -10,6 +10,7 @@ const LandingSeguroResidencial = () => (
     subheadline="De incêndio a danos elétricos, de roubo a assistência 24h. Proteja sua família e seu lar por menos do que você imagina."
     metaDescription="Seguro Residencial a partir de R$ 15/mês. Cobertura contra incêndio, roubo, danos elétricos e assistência 24h. Cotação grátis. Patro Seguros."
     ctaText="Proteger Minha Casa Agora"
+    ctaUrl="https://patro.seucorretor.digital/#/formularios/residencial"
     urgencyText="Sua casa não pode esperar"
     priceAnchor="A partir de R$ 15/mês* — menos que um café por dia"
     guaranteeText="Cotação 100% gratuita, sem compromisso. Apresentamos as melhores opções e você decide com calma."
