@@ -124,19 +124,25 @@ const Index = () => {
         <section className="relative min-h-[600px] flex items-center bg-slate-900 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <picture>
-              {/* Mobile variant (≤600px) — keeps weight low on slow connections */}
+              {/* AVIF primeiro (menor payload em ~20-40% vs WebP). Browsers sem
+                  suporte descartam a <source> e caem para WebP; se nem WebP, o
+                  <img> serve como último fallback. srcSet responsivo evita
+                  baixar 1280px num celular. */}
               <source
-                media="(max-width: 600px)"
-                srcSet="/images/hero-home-sm.webp"
-                type="image/webp"
+                type="image/avif"
+                srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
+                sizes="100vw"
               />
-              {/* Desktop / tablet */}
-              <source srcSet="/images/hero-home.webp" type="image/webp" />
+              <source
+                type="image/webp"
+                srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
+                sizes="100vw"
+              />
               <img
-                src="/images/hero-home.webp"
+                src="/images/hero-home-960.webp"
                 alt="Corretora de Seguros em Guarulhos"
-                width={960}
-                height={540}
+                width={1280}
+                height={720}
                 sizes="100vw"
                 loading="eager"
                 decoding="async"
