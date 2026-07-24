@@ -328,6 +328,7 @@ function spaFallbackPlugin(): Plugin {
         execSync("node scripts/prerender.mjs", { stdio: "inherit" });
       } catch (err) {
         console.error("❌ Prerender failed:", err);
+        process.exit(1);
       }
 
       // Fase 1 — SSG real (puppeteer) sobreposto às ~40 rotas curadas.
