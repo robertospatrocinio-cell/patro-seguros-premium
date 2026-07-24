@@ -1046,6 +1046,13 @@ const InsurancePageTemplate = ({
 
         {/* Hub completo de links internos para fortalecer crawl & autoridade tópica */}
         <InsuranceHubLinks />
+        {trilhaSeo && trilhaSeo.items.length > 0 && (
+          <TrilhaSeoRelacionados
+            title={trilhaSeo.title}
+            subtitle={trilhaSeo.subtitle}
+            items={trilhaSeo.items}
+          />
+        )}
         {extraSections}
       </main>
       <Footer />
