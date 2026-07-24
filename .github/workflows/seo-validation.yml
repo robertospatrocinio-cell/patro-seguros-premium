@@ -45,6 +45,17 @@ jobs:
       - name: Validar rich results (FAQPage + HowTo + BreadcrumbList) em dist/
         run: bun run validate:rich-snippets
 
+      - name: Validar schemas críticos (FAQPage, Service, BreadcrumbList, Organization) — falha em qualquer erro
+        run: bun run validate:critical-schemas
+
+      - name: Upload do relatório de schemas críticos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: critical-schemas-report
+          path: dist/critical-schemas-report.json
+          if-no-files-found: ignore
+
       - name: Relatório de cobertura JSON-LD (CI — falha se rota estiver sem Breadcrumb/FAQ/HowTo obrigatório)
         run: bun run report:schema-coverage:ci ./reports
 

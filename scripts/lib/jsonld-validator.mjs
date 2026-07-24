@@ -394,6 +394,46 @@ export function validateSiteNavigation(node, errors, label) {
   });
 }
 
+/**
+ * Service — schema.org/Service.
+ *   Required (Google): name, provider (Organization/LocalBusiness/InsuranceAgency
+ *   com name ou @id). Recomendado: description, serviceType, areaServed.
+ *   Em strict, exige @id absoluto e provider tipado.
+ */
+export function validateService(node, errors, label, options = {}) {
+  const { strict = false } = options;
+  if (!node.name || !String(node.name).trim()) {
+    push(errors, `${label} Service: faltando name`,
+      { field: "name", rule: "service.name" });
+  }
+  if (!node.description || !String(node.description).trim()) {
+    push(errors, `${label} Service: faltando description`,
+      { field: "description", rule: "service.description" });
+  }
+  const provider = node.provider;
+  if (!provider) {
+    push(errors, `${label} Service: faltando provider (Organization/LocalBusiness)`,
+      { field: "provider", rule: "service.provider" });
+  } else if (typeof provider === "object" && !Array.isArray(provider)) {
+    const hasIdent = provider["@id"] || provider.name;
+    if (!hasIdent) push(errors, `${label} Service: provider precisa de @id ou name`,
+      { field: "provider", rule: "service.provider.ident" });
+    if (strict) {
+      const ptype = Array.isArray(provider["@type"]) ? provider["@type"][0] : provider["@type"];
+      if (!ptype) push(errors, `${label} Service: provider sem @type`,
+        { field: "provider.@type", rule: "service.provider.type" });
+    }
+  }
+  if (strict) {
+    if (!node["@id"]) push(errors, `${label} Service: rich results esperam @id estável`,
+      { field: "@id", rule: "service.strict.id" });
+    if (!node.serviceType) push(errors, `${label} Service: serviceType recomendado`,
+      { field: "serviceType", rule: "service.strict.serviceType" });
+    if (!node.areaServed) push(errors, `${label} Service: areaServed recomendado`,
+      { field: "areaServed", rule: "service.strict.areaServed" });
+  }
+}
+
 export function validateNode(node, errors, label = "root", options = {}) {
   if (!node || typeof node !== "object") return;
   if (Array.isArray(node)) {
@@ -418,6 +458,7 @@ export function validateNode(node, errors, label = "root", options = {}) {
   else if (type === "Article" || type === "BlogPosting" || type === "NewsArticle") validateArticle(node, errors, label);
   else if (type === "WebSite") validateWebSite(node, errors, label, options);
   else if (type === "SiteNavigationElement") validateSiteNavigation(node, errors, label);
+  else if (type === "Service") validateService(node, errors, label, options);
   // Verificação genérica de URLs em qualquer nó tipado
   validateUrls(node, errors, label, options);
 }
