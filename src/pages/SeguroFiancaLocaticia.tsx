@@ -5,6 +5,7 @@ const SeguroFiancaLocaticia = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
+      quoteUrl="https://patro.seucorretor.digital/#/formularios/aluguel"
       title="Seguro Fiança Locatícia"
       subtitle="A substituição inteligente do fiador para aluguel de imóveis residenciais e comerciais"
       icon="🏠"
