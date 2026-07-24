@@ -53,6 +53,13 @@ const ComoPatroAjuda = lazy(loadComoPatroAjuda);
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
+// Handlers dos CTAs extraídos para o escopo do módulo: closures estáveis
+// entre renders, sem realocação por render do <Index>, e prontas para
+// serem passadas como props para componentes memoizados sem quebrar memo.
+const handleHeroCotacaoClick = () => trackCotacaoClick("hero");
+const handleHeroWhatsAppClick = () => trackWhatsAppClick("hero");
+const handleSeoBlockCotacaoClick = () => trackCotacaoClick("home-seo-block");
+
 import { INSURER_WEBSITES } from "@/data/insurerWebsites";
 
 const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO", "DARWIN", "EZZE", "HAPVIDA/NOTREDAME", "HDI", "ITAÚ", "ITURAN", "JUSTOS", "LIBERTY", "MAG", "MAPFRE", "MEDSENIOR", "MITSUI", "OMINT", "PIER", "PORTO", "PREVENT SENIOR", "SOMPO", "SUHAI", "SULAMERICA", "SURA", "TOKIO MARINE", "UNIMED", "YOUSE", "ZURICH"];
@@ -149,13 +156,13 @@ const Index = () => {
                   Compare seguradoras e encontre proteção para seu carro, família ou empresa com atendimento consultivo da Patro Seguros.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>
+                  <Link to="/cotacao" onClick={handleHeroCotacaoClick}>
                     <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all">
                       Solicitar cotação agora
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleHeroWhatsAppClick}>
                     <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-green-500 hover:bg-green-600 text-white border-green-600 hover:border-green-700 font-bold shadow-lg shadow-green-500/20 transition-all">
                       <MessageCircle className="mr-2 h-5 w-5" />
                       Falar no WhatsApp
@@ -287,7 +294,7 @@ const Index = () => {
             </div>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
-              <Link to="/cotacao" onClick={() => trackCotacaoClick("home-seo-block")}>
+              <Link to="/cotacao" onClick={handleSeoBlockCotacaoClick}>
                 <Button size="lg" className="rounded-xl font-bold">
                   Solicitar cotação de seguro
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
