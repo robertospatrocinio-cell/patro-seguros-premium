@@ -101,6 +101,9 @@ Trabalhamos com as maiores operadoras — Bradesco Saúde, Amil, SulAmérica, Po
         { title: "Seguro Odonto", link: "/seguro-odonto" },
         { title: "Seguro de Vida", link: "/seguro-vida" },
         { title: "Seguro Viagem", link: "/seguro-viagem" },
+        { title: "Plano Saúde Sênior Guarulhos", link: "/planos-saude-senior-guarulhos" },
+        { title: "Acidentes Pessoais (Contratar)", link: "/lp/seguro-acidentes-pessoais" },
+        { title: "Seguradoras Parceiras", link: "/seguradoras-parceiras" },
       ]}
     />
     <ExitIntentPopup />
