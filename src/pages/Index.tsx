@@ -18,10 +18,6 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
-import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
-import ProvaSocialPatro from "@/components/ProvaSocialPatro";
-import AutoridadePatro from "@/components/AutoridadePatro";
-import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
@@ -36,6 +32,11 @@ const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalcu
 const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
 const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
 const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
+// Below-the-fold — dynamic import reduz TBT ao remover ~40KB do bundle inicial
+const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
+const ProvaSocialPatro = lazy(() => import("@/components/ProvaSocialPatro"));
+const AutoridadePatro = lazy(() => import("@/components/AutoridadePatro"));
+const ComoPatroAjuda = lazy(() => import("@/components/ComoPatroAjuda"));
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
