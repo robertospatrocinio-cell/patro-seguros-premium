@@ -517,8 +517,8 @@ const App = () => {
                   <Route path="/seguro-auto-vila-augusta" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-vila-augusta-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-bonsucesso-guarulhos-v2" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-pimentas" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-pimentas-guarulhos" }); return <Comp />; })()} />
-                  <Route path="/lp/:slug" element={<DynamicLandingPage />} />
                   <Route path="/lp/seguro-acidentes-pessoais" element={<LandingSeguroAcidentesPessoais />} />
+                  <Route path="/lp/:slug" element={<DynamicLandingPage />} />
                   <Route path="/lp-maquinas-equipamentos" element={<LpMaquinasEquipamentos />} />
                   <Route path="/lp-transportes-360" element={<LpTransportes360 />} />
                   <Route path="/solucoes-empresariais" element={<SolucoesEmpresariais />} />
