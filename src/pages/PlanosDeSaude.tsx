@@ -320,6 +320,33 @@ const PlanosDeSaude = () => {
             </div>
           </div>
         </section>
+
+        {/* Links internos de reforço */}
+        <section className="py-12" aria-labelledby="links-relacionados-saude">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="premium-card p-6 md:p-8">
+              <h2 id="links-relacionados-saude" className="text-base font-semibold mb-4">Continue explorando</h2>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                Cuida dos pais ou avós? Conheça nosso <Link to="/planos-saude-senior-guarulhos" className="text-primary hover:underline font-medium">plano de saúde sênior em Guarulhos</Link> — cobertura pensada para 60+ com atendimento humanizado.
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                Complemente o plano com um <Link to="/lp/seguro-acidentes-pessoais" className="text-primary hover:underline font-medium">seguro de acidentes pessoais</Link> (contratação em minutos) e conheça as <Link to="/seguradoras-parceiras" className="text-primary hover:underline font-medium">seguradoras parceiras</Link> da Patro.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {[
+                  { title: "Plano Saúde Sênior Guarulhos", link: "/planos-saude-senior-guarulhos" },
+                  { title: "Acidentes Pessoais (Contratar)", link: "/lp/seguro-acidentes-pessoais" },
+                  { title: "Seguradoras Parceiras", link: "/seguradoras-parceiras" },
+                  { title: "Comparar Planos de Saúde", link: "/comparativo-planos-saude-guarulhos" },
+                ].map((item, i) => (
+                  <Link key={i} to={item.link} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/[0.06] text-primary text-sm font-medium hover:bg-primary/[0.12] transition-colors">
+                    <ArrowRight className="h-3 w-3" aria-hidden="true" /> {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <StickyQuoteBar 
         source="planos-saude" 
