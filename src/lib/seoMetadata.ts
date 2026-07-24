@@ -589,13 +589,16 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
           "@type": "BlogPosting",
           "headline": post.title.length > 110 ? post.title.slice(0, 107).trim() + "..." : post.title,
           "description": post.excerpt,
-          "image": [`${DOMAIN}/images/og-cover.webp`],
-          "datePublished": post.date,
-          "dateModified": post.date,
-          "author": {
-            "@type": "Person",
-            "name": post.author
-          }
+          "image": [`${DOMAIN}${getArticleImage(blogSlug)}`],
+          "datePublished": `${post.date}T09:00:00-03:00`,
+          "dateModified": `${post.date}T09:00:00-03:00`,
+          "author": { "@type": "Person", "name": post.author },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Patro Seguros",
+            "logo": { "@type": "ImageObject", "url": `${DOMAIN}/images/logo-patro.webp` }
+          },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": `${DOMAIN}${cleanPath}` }
         }
       };
     }
@@ -637,10 +640,16 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
           "@type": "Article",
           "headline": humanTitle.length > 110 ? humanTitle.slice(0, 107).trim() + "..." : humanTitle,
           "description": post.excerpt,
-          "image": [`${DOMAIN}/images/og-cover.webp`],
-          "datePublished": post.date,
-          "dateModified": post.date,
-          "author": { "@type": "Person", "name": post.author }
+          "image": [`${DOMAIN}${getArticleImage(articleSlug)}`],
+          "datePublished": `${post.date}T09:00:00-03:00`,
+          "dateModified": `${post.date}T09:00:00-03:00`,
+          "author": { "@type": "Person", "name": post.author },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Patro Seguros",
+            "logo": { "@type": "ImageObject", "url": `${DOMAIN}/images/logo-patro.webp` }
+          },
+          "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl }
         }
       } : {}),
     };
