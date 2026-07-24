@@ -4,8 +4,9 @@ import nodemailer from "npm:nodemailer@6.9.8";
 
 const SITE_URL = "https://www.patroseguros.com.br/";
 
-// URLs monitoradas para transição Descoberta → Indexada
-const MONITORED_URLS: string[] = [
+// Fallback caso a tabela `monitored_urls` esteja vazia (bootstrap ou primeiro deploy).
+// A lista oficial vive no banco e é editada em /admin/monitor-indexacao.
+const FALLBACK_URLS: string[] = [
   "https://www.patroseguros.com.br/planos-saude-senior-guarulhos",
   "https://www.patroseguros.com.br/seguradoras-parceiras",
   "https://www.patroseguros.com.br/lp/seguro-acidentes-pessoais",
@@ -66,10 +67,24 @@ serve(async (req) => {
 
     const admin = createClient(Deno.env.get("SUPABASE_URL")!, serviceKey);
 
+    // Carrega URLs ativas do banco; usa o fallback se a tabela estiver vazia/inacessível.
+    let urls: string[] = FALLBACK_URLS;
+    try {
+      const { data: rows, error } = await admin
+        .from("monitored_urls")
+        .select("url")
+        .eq("active", true)
+        .order("created_at", { ascending: true });
+      if (error) throw error;
+      if (rows && rows.length > 0) urls = rows.map((r: { url: string }) => r.url);
+    } catch (e) {
+      console.warn("monitor-gsc-indexation: usando FALLBACK_URLS:", e);
+    }
+
     const transitions: Array<{ url: string; previous: string | null; current: string; type: string }> = [];
     const results: Array<{ url: string; coverage: string | null; verdict: string | null }> = [];
 
-    for (const url of MONITORED_URLS) {
+    for (const url of urls) {
       try {
         const data = await inspectUrl(url, LOVABLE_API_KEY, GSC_API_KEY);
         const result = data?.inspectionResult ?? {};
@@ -160,7 +175,7 @@ serve(async (req) => {
     return new Response(
       JSON.stringify({
         status: transitions.length > 0 ? "alert" : "ok",
-        checked: MONITORED_URLS.length,
+        checked: urls.length,
         transitions,
         results,
       }),
