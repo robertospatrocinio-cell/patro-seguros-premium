@@ -86,8 +86,6 @@ import PageSkeleton from "@/components/PageSkeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
-import WebSiteSchema from "@/components/WebSiteSchema";
-import SiteNavigationSchema from "@/components/SiteNavigationSchema";
 import { scheduleIdle } from "@/lib/prefetch";
 
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
@@ -455,8 +453,10 @@ const App = () => {
           <TooltipProvider>
             <BrowserRouter>
               <SkipLink />
-              <WebSiteSchema />
-              <SiteNavigationSchema />
+              {/* WebSite + SiteNavigationElement agora vivem estaticamente em
+                  index.html para sobreviver ao prerender (ex.: validador de
+                  rich snippets). Não emitir via Helmet aqui para evitar
+                  duplicidade após hidratação. */}
               <Toaster />
               <Sonner position="top-right" closeButton richColors />
               <DeferredGlobalUi />
