@@ -1,6 +1,7 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
+import { trilhaResidencial } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-residencial.webp";
 
 const SeguroResidencial = () => {
@@ -152,6 +153,11 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
           { name: "Reveja franquia e assistência 24h", text: "A assistência (chaveiro, encanador, eletricista) evita gasto do bolso em pequenos incidentes. Franquia costuma ser 10% do prejuízo, com mínimo entre R$ 400 e R$ 800." },
           { name: "Contrate e agende inspeção (se exigida)", text: "Casas acima de R$ 800 mil de conteúdo ou em condomínio fechado podem exigir foto de portaria/alarme. Apólice ativa em até 24h após pagamento." },
         ],
+      }}
+      trilhaSeo={{
+        subtitle:
+          "Complementos que quem contrata seguro residencial em Guarulhos costuma avaliar em seguida.",
+        items: trilhaResidencial,
       }}
     />
     <ExitIntentPopup />
