@@ -17,6 +17,7 @@ const SeguroEmpresarialSegmento = ({ segmento: segmentoProp }: SeguroEmpresarial
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
+      quoteUrl="https://patro.seucorretor.digital/#/formularios/empresarial"
       title={`Seguro para ${data.nome} em Guarulhos`}
       subtitle={data.subtitle}
       icon={data.icon}
