@@ -21,22 +21,33 @@ import LazySection from "@/components/LazySection";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
-const HeroInsuranceCarousel = lazy(() => import("@/components/HeroInsuranceCarousel"));
-const QuickLeadForm = lazy(() =>
-  import("@/components/QuickLeadForm").then((m) => ({ default: m.QuickLeadForm }))
-);
-const HomeSelector = lazy(() =>
-  import("@/components/HomeSelector").then((m) => ({ default: m.HomeSelector }))
-);
-const LocalSavingsCalculator = lazy(() => import("@/components/LocalSavingsCalculator"));
-const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
-const HomeBlogSection = lazy(() => import("@/components/HomeBlogSection"));
-const PortoPartnershipSection = lazy(() => import("@/components/PortoPartnershipSection"));
-// Below-the-fold — dynamic import reduz TBT ao remover ~40KB do bundle inicial
-const GoogleBusinessWidget = lazy(() => import("@/components/GoogleBusinessWidget"));
-const ProvaSocialPatro = lazy(() => import("@/components/ProvaSocialPatro"));
-const AutoridadePatro = lazy(() => import("@/components/AutoridadePatro"));
-const ComoPatroAjuda = lazy(() => import("@/components/ComoPatroAjuda"));
+// Loaders expostos como constantes para que possamos passar o MESMO
+// `() => import(...)` para React.lazy e para o prefetch do LazySection —
+// isso garante que o chunk pré-carregado seja exatamente o que o Suspense
+// vai consumir (dedupe via WeakSet em prefetch.ts).
+const loadHeroInsuranceCarousel = () => import("@/components/HeroInsuranceCarousel");
+const loadQuickLeadForm = () => import("@/components/QuickLeadForm");
+const loadHomeSelector = () => import("@/components/HomeSelector");
+const loadLocalSavingsCalculator = () => import("@/components/LocalSavingsCalculator");
+const loadLocalTestimonials = () => import("@/components/LocalTestimonials");
+const loadHomeBlogSection = () => import("@/components/HomeBlogSection");
+const loadPortoPartnershipSection = () => import("@/components/PortoPartnershipSection");
+const loadGoogleBusinessWidget = () => import("@/components/GoogleBusinessWidget");
+const loadProvaSocialPatro = () => import("@/components/ProvaSocialPatro");
+const loadAutoridadePatro = () => import("@/components/AutoridadePatro");
+const loadComoPatroAjuda = () => import("@/components/ComoPatroAjuda");
+
+const HeroInsuranceCarousel = lazy(loadHeroInsuranceCarousel);
+const QuickLeadForm = lazy(() => loadQuickLeadForm().then((m) => ({ default: m.QuickLeadForm })));
+const HomeSelector = lazy(() => loadHomeSelector().then((m) => ({ default: m.HomeSelector })));
+const LocalSavingsCalculator = lazy(loadLocalSavingsCalculator);
+const LocalTestimonials = lazy(loadLocalTestimonials);
+const HomeBlogSection = lazy(loadHomeBlogSection);
+const PortoPartnershipSection = lazy(loadPortoPartnershipSection);
+const GoogleBusinessWidget = lazy(loadGoogleBusinessWidget);
+const ProvaSocialPatro = lazy(loadProvaSocialPatro);
+const AutoridadePatro = lazy(loadAutoridadePatro);
+const ComoPatroAjuda = lazy(loadComoPatroAjuda);
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
