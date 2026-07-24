@@ -139,7 +139,9 @@ const Index = () => {
               </div>
 
               <div className="hidden lg:block animate-in fade-in slide-in-from-right duration-700">
-                <GoogleBusinessWidget />
+                <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
+                  <GoogleBusinessWidget />
+                </Suspense>
               </div>
             </div>
           </div>
@@ -462,29 +464,41 @@ const Index = () => {
         </LazySection>
 
         {/* 6b. PROVA SOCIAL UNIFICADA (fonte única + CTAs) */}
-        <section className="py-14 bg-white" aria-label="Prova social consolidada">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <ProvaSocialPatro variant="default" trackingContext="home:prova-social" />
-          </div>
-        </section>
+        <LazySection minHeight="380px" rootMargin="400px" className="py-14 bg-white">
+          <section aria-label="Prova social consolidada">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <Suspense fallback={null}>
+                <ProvaSocialPatro variant="default" trackingContext="home:prova-social" />
+              </Suspense>
+            </div>
+          </section>
+        </LazySection>
 
         {/* 6c. AUTORIDADE / E-E-A-T — fundadores + credenciais */}
-        <section className="py-14 bg-slate-50" aria-label="Autoridade e credenciais">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <AutoridadePatro />
-          </div>
-        </section>
+        <LazySection minHeight="420px" rootMargin="400px" className="py-14 bg-slate-50">
+          <section aria-label="Autoridade e credenciais">
+            <div className="container mx-auto px-4 max-w-4xl">
+              <Suspense fallback={null}>
+                <AutoridadePatro />
+              </Suspense>
+            </div>
+          </section>
+        </LazySection>
 
         {/* 6d. COMO A PATRO AJUDA — 4 passos + CTA duplo consistente */}
-        <section className="py-14 bg-white" aria-label="Como a Patro ajuda">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <ComoPatroAjuda
-              trackingContext="home:como-ajuda"
-              quoteHref="/cotacao"
-              pageUrl="https://www.patroseguros.com.br/"
-            />
-          </div>
-        </section>
+        <LazySection minHeight="480px" rootMargin="400px" className="py-14 bg-white">
+          <section aria-label="Como a Patro ajuda">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <Suspense fallback={null}>
+                <ComoPatroAjuda
+                  trackingContext="home:como-ajuda"
+                  quoteHref="/cotacao"
+                  pageUrl="https://www.patroseguros.com.br/"
+                />
+              </Suspense>
+            </div>
+          </section>
+        </LazySection>
 
         {/* 7. SOLUÇÕES PARA EMPRESAS (Patro Empresas) */}
         <section className="py-20 bg-slate-900 text-white">
@@ -514,7 +528,9 @@ const Index = () => {
                     <div className="h-1 w-12 bg-primary rounded-full" />
                     <span className="text-xs font-bold uppercase tracking-widest">Nossa Sede em Guarulhos</span>
                   </div>
-                  <GoogleBusinessWidget />
+                  <Suspense fallback={<div style={{ minHeight: 300 }} aria-hidden="true" />}>
+                    <GoogleBusinessWidget />
+                  </Suspense>
                 </div>
               </div>
             </div>
