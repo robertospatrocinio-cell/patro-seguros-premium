@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,7 +8,7 @@ import { expressLeadSchema, firstZodMessage } from "@/lib/leadValidation";
 import { showFriendlyError, showValidationError } from "@/lib/friendlyToast";
 import { trackCotacaoSubmit } from "@/lib/tracking";
 
-export const QuickLeadForm = () => {
+const QuickLeadFormImpl = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -171,3 +171,7 @@ export const QuickLeadForm = () => {
     </div>
   );
 };
+
+// memo: blindagem defensiva contra re-renders do pai (Index). O componente
+// só re-renderiza quando seu próprio state muda (form fields).
+export const QuickLeadForm = memo(QuickLeadFormImpl);
