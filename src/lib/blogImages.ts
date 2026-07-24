@@ -95,10 +95,20 @@ import blogDroneAgricolaRcf from "@/assets/blog/blog-drone-agricola-rcf.webp";
  *   2. Capa curada legada em `blogImageMap`
  *   3. Fallback genérico `blogDicas`
  */
-const generatedCovers = import.meta.glob(
-  "@/assets/blog-generated/*.webp",
-  { eager: true, import: "default", query: "?url" }
-) as Record<string, string>;
+// `import.meta.glob` só existe no bundler do Vite. Scripts Node (prerender,
+// generate-sitemap, etc.) importam este módulo compilado via esbuild → CJS,
+// onde `import.meta.glob` é undefined e quebra o build inteiro. Guardamos
+// com typeof e devolvemos {} nesses contextos — as capas geradas só são
+// necessárias no runtime do cliente.
+const generatedCovers = (typeof (import.meta as unknown as { glob?: unknown }).glob === "function"
+  ? (import.meta as unknown as {
+      glob: (pattern: string, opts: unknown) => Record<string, string>;
+    }).glob("@/assets/blog-generated/*.webp", {
+      eager: true,
+      import: "default",
+      query: "?url",
+    })
+  : {}) as Record<string, string>;
 
 const generatedCoverBySlug: Record<string, string> = Object.fromEntries(
   Object.entries(generatedCovers).map(([path, url]) => {
@@ -311,8 +321,14 @@ export const blogImageMap: Record<string, string> = {
 };
 
 
+// Fallback estático usado quando o módulo roda em Node (prerender/sitemap):
+// nesses contextos, imports de `.webp` viram objetos vazios do esbuild em vez
+// de URLs, o que quebra o JSON-LD com "[object Object]".
+const FALLBACK_COVER_URL = "/images/logo-full.webp";
+
 export const getArticleImage = (slug: string): string => {
-  return generatedCoverBySlug[slug] || blogImageMap[slug] || blogDicas;
+  const raw = generatedCoverBySlug[slug] ?? blogImageMap[slug] ?? blogDicas;
+  return typeof raw === "string" && raw.length > 0 ? raw : FALLBACK_COVER_URL;
 };
 
 /**
