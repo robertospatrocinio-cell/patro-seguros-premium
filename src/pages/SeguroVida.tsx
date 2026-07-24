@@ -1,6 +1,7 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
+import { trilhaVida } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-vida.webp";
 import heroMobileImg from "@/assets/hero-familia-sm.webp";
 
@@ -151,6 +152,11 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
           { name: "Analise a proposta e a declaração de saúde", text: "Preencha a DPS (declaração pessoal de saúde) com veracidade — omissões são a causa nº 1 de sinistros negados. A Patro te orienta em cada campo." },
           { name: "Assine digitalmente e ative a apólice", text: "Assinatura eletrônica em até 10 minutos. A apólice entra em vigor no dia útil seguinte ao primeiro pagamento aprovado." },
         ],
+      }}
+      trilhaSeo={{
+        subtitle:
+          "Proteções complementares mais contratadas junto ao Seguro de Vida em Guarulhos.",
+        items: trilhaVida,
       }}
     />
     <ExitIntentPopup />
