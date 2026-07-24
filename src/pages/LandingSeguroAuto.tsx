@@ -10,7 +10,7 @@ const LandingSeguroAuto = () => (
     subheadline="Compare cotações de 16+ seguradoras em minutos. Encontre o melhor preço sem sair de casa — com atendimento humano e personalizado."
     metaDescription="Cotação de Seguro Auto gratuita. Compare Porto, Tokio Marine, Allianz, HDI e mais. Resultado em 2 horas. Patro Seguros Guarulhos."
     ctaText="Cotar Meu Seguro Auto Grátis"
-    ctaUrl="https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D"
+    ctaUrl="https://patro.seucorretor.digital/#/formularios/auto"
     urgencyText="Cotações com preço especial esta semana"
     priceAnchor="A partir de R$ 89/mês* — parcele em até 10x sem juros"
     guaranteeText="Se não encontrarmos uma opção melhor que sua atual, devolvemos seu tempo. Nosso compromisso é apresentar a melhor relação custo-benefício do mercado, sem enrolação."

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import PageMeta from "@/components/PageMeta";
 
 const SEGFY_URL =
-  "https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D";
+  "https://patro.seucorretor.digital/#/formularios/auto";
 
 const CotacaoAutoRedirect = () => {
   useEffect(() => {
