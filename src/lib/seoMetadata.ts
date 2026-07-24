@@ -596,7 +596,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
           "publisher": {
             "@type": "Organization",
             "name": "Patro Seguros",
-            "logo": { "@type": "ImageObject", "url": `${DOMAIN}/images/logo-patro.webp` }
+            "logo": { "@type": "ImageObject", "url": `${DOMAIN}/images/logo-full.webp` }
           },
           "mainEntityOfPage": { "@type": "WebPage", "@id": `${DOMAIN}${cleanPath}` }
         }
@@ -647,7 +647,7 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
           "publisher": {
             "@type": "Organization",
             "name": "Patro Seguros",
-            "logo": { "@type": "ImageObject", "url": `${DOMAIN}/images/logo-patro.webp` }
+            "logo": { "@type": "ImageObject", "url": `${DOMAIN}/images/logo-full.webp` }
           },
           "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl }
         }
