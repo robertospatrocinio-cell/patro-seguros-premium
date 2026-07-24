@@ -305,17 +305,23 @@ export type Database = {
       conversion_click_events: {
         Row: {
           analytics_loaded: boolean
+          cls: number | null
+          connection_type: string | null
           created_at: string
+          device_type: string | null
           event_type: string
           id: string
+          inp_ms: number | null
           insurance_type: string | null
           landing_page: string | null
+          lcp_ms: number | null
           origin: string | null
           page_path: string | null
           referrer: string | null
           seconds_since_page_start: number | null
           session_id: string | null
           source: string | null
+          tbt_ms: number | null
           user_agent: string | null
           utm_campaign: string | null
           utm_content: string | null
@@ -325,17 +331,23 @@ export type Database = {
         }
         Insert: {
           analytics_loaded?: boolean
+          cls?: number | null
+          connection_type?: string | null
           created_at?: string
+          device_type?: string | null
           event_type: string
           id?: string
+          inp_ms?: number | null
           insurance_type?: string | null
           landing_page?: string | null
+          lcp_ms?: number | null
           origin?: string | null
           page_path?: string | null
           referrer?: string | null
           seconds_since_page_start?: number | null
           session_id?: string | null
           source?: string | null
+          tbt_ms?: number | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_content?: string | null
@@ -345,17 +357,23 @@ export type Database = {
         }
         Update: {
           analytics_loaded?: boolean
+          cls?: number | null
+          connection_type?: string | null
           created_at?: string
+          device_type?: string | null
           event_type?: string
           id?: string
+          inp_ms?: number | null
           insurance_type?: string | null
           landing_page?: string | null
+          lcp_ms?: number | null
           origin?: string | null
           page_path?: string | null
           referrer?: string | null
           seconds_since_page_start?: number | null
           session_id?: string | null
           source?: string | null
+          tbt_ms?: number | null
           user_agent?: string | null
           utm_campaign?: string | null
           utm_content?: string | null

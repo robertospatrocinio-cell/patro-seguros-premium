@@ -3,7 +3,7 @@ import { createClient } from 'npm:@supabase/supabase-js@2'
 import { z } from 'npm:zod@3'
 
 const MetricSchema = z.object({
-  name: z.enum(['LCP', 'CLS', 'INP', 'FCP', 'TTFB']),
+  name: z.enum(['LCP', 'CLS', 'INP', 'FCP', 'TTFB', 'TBT']),
   value: z.number().finite().nonnegative().max(600000),
   rating: z.enum(['good', 'needs-improvement', 'poor']),
   page: z.string().min(1).max(500),

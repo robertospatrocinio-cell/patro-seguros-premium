@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, ReactNode } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { prefetchOnIdle, prefetchOnVisible } from "@/lib/prefetch";
+import { getLazyMarginMultiplier } from "@/lib/monitoringSession";
 
 interface LazySectionProps {
   children: ReactNode;
@@ -36,6 +37,12 @@ const LazySection = ({
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
+  // Adaptive threshold: expand on fast connections (prefetch further out),
+  // shrink on slow / Save-Data links to protect data + main-thread time.
+  const baseMargin = parseInt(rootMargin, 10) || 600;
+  const effectiveMarginPx = Math.round(baseMargin * getLazyMarginMultiplier());
+  const effectiveMargin = `${effectiveMarginPx}px`;
+
   useEffect(() => {
     if (!ref.current) return;
     const observer = new IntersectionObserver(
@@ -45,11 +52,11 @@ const LazySection = ({
           observer.disconnect();
         }
       },
-      { rootMargin }
+      { rootMargin: effectiveMargin }
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [rootMargin]);
+  }, [effectiveMargin]);
 
   // Prefetch em idle + antecipação por proximidade de scroll.
   useEffect(() => {
@@ -59,13 +66,13 @@ const LazySection = ({
     // 2) Visibilidade adiantada: se o usuário scrollar rápido, garante que
     // o download já começou antes do rootMargin de renderização.
     if (!ref.current) return;
-    const marginPx = parseInt(rootMargin, 10) || 600;
-    const eagerMargin = prefetchRootMargin ?? `${Math.max(marginPx * 2, 800)}px`;
+    const eagerMargin =
+      prefetchRootMargin ?? `${Math.max(effectiveMarginPx * 2, 800)}px`;
     const disposers = prefetch.map((l) =>
       prefetchOnVisible(ref.current, l, { rootMargin: eagerMargin }),
     );
     return () => disposers.forEach((d) => d && d());
-  }, [prefetch, rootMargin, prefetchRootMargin]);
+  }, [prefetch, effectiveMarginPx, prefetchRootMargin]);
 
   return (
     <div
