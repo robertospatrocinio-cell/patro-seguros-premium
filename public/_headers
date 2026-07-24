@@ -11,8 +11,8 @@
 
 /
   Cache-Control: public, max-age=0, s-maxage=3600, must-revalidate
-  Link: </images/hero-home.webp>; rel=preload; as=image; type="image/webp"; media="(min-width: 601px)"
-  Link: </images/hero-home-sm.webp>; rel=preload; as=image; type="image/webp"; media="(max-width: 600px)"
+  Link: </images/hero-home-960.avif>; rel=preload; as=image; type="image/avif"; imagesrcset="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"; imagesizes="100vw"
+  Link: </images/hero-home-960.webp>; rel=preload; as=image; type="image/webp"; imagesrcset="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"; imagesizes="100vw"
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
