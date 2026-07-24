@@ -39,6 +39,9 @@ jobs:
       - name: Validar canonical & headings em dist/
         run: bun run validate:canonical
 
+      - name: Validar canonical STRICT (presença + URL correta em todas as páginas de dist/)
+        run: bun run validate:canonical-strict
+
       - name: Validar unicidade de H2 (heading uniqueness) em dist/
         run: bun run validate:headings
 
