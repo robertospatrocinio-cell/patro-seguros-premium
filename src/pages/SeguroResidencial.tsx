@@ -15,6 +15,7 @@ const SeguroResidencial = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Seguro Residencial em Guarulhos | Cotação em 2h | Patro Seguros"
+      quoteUrl="https://patro.seucorretor.digital/#/formularios/residencial"
       headline="Seguro residencial em Guarulhos para casa e apartamento"
       subtitle="Consultoria dedicada para proteger seu lar, seus bens e a rotina da sua família"
       icon="🏠"
@@ -121,7 +122,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
           { text: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
           { text: "Seguradoras Parceiras", href: "/seguradoras-parceiras" },
           { text: "Como comparar seguradoras em Guarulhos", href: "/como-comparar-seguradoras-guarulhos" },
-          { text: "Cotação Gratuita", href: "/cotacao" },
+          { text: "Cotação Gratuita", href: "https://patro.seucorretor.digital/#/formularios/residencial" },
         ],
       }}
       relatedInsurances={[
