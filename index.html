@@ -267,6 +267,44 @@
       ]
     }
     </script>
+    <!-- WebSite (com SearchAction) + SiteNavigationElement — schemas sitewide,
+         injetados no template estático para que apareçam em TODAS as rotas
+         pré-renderizadas. Antes eram emitidos por react-helmet (client-side),
+         então não sobreviviam ao prerender e o validador exigia-os em `/`. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://www.patroseguros.com.br/#website",
+      "name": "Patro Seguros",
+      "alternateName": "Patro Corretora de Seguros",
+      "url": "https://www.patroseguros.com.br",
+      "description": "Corretora de seguros em Guarulhos — cotação online grátis para auto, vida, residencial, saúde, empresarial e frotas.",
+      "publisher": { "@id": "https://www.patroseguros.com.br/#organization" },
+      "inLanguage": "pt-BR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.patroseguros.com.br/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {"@type":"SiteNavigationElement","@id":"https://www.patroseguros.com.br/#nav-1","position":1,"name":"Início","url":"https://www.patroseguros.com.br","isPartOf":{"@id":"https://www.patroseguros.com.br/#website"}},
+        {"@type":"SiteNavigationElement","@id":"https://www.patroseguros.com.br/#nav-2","position":2,"name":"Serviços","url":"https://www.patroseguros.com.br/servicos","isPartOf":{"@id":"https://www.patroseguros.com.br/#website"}},
+        {"@type":"SiteNavigationElement","@id":"https://www.patroseguros.com.br/#nav-3","position":3,"name":"Sobre","url":"https://www.patroseguros.com.br/sobre","isPartOf":{"@id":"https://www.patroseguros.com.br/#website"}},
+        {"@type":"SiteNavigationElement","@id":"https://www.patroseguros.com.br/#nav-4","position":4,"name":"Blog","url":"https://www.patroseguros.com.br/blog","isPartOf":{"@id":"https://www.patroseguros.com.br/#website"}},
+        {"@type":"SiteNavigationElement","@id":"https://www.patroseguros.com.br/#nav-5","position":5,"name":"FAQ","url":"https://www.patroseguros.com.br/faq","isPartOf":{"@id":"https://www.patroseguros.com.br/#website"}},
+        {"@type":"SiteNavigationElement","@id":"https://www.patroseguros.com.br/#nav-6","position":6,"name":"Contato","url":"https://www.patroseguros.com.br/contato","isPartOf":{"@id":"https://www.patroseguros.com.br/#website"}}
+      ]
+    }
+    </script>
    <meta property="og:title" content="Corretora de Seguros em Guarulhos | Patro Seguros">
    <meta name="twitter:title" content="Corretora de Seguros em Guarulhos | Patro Seguros">
    <meta property="og:description" content="Corretora de seguros em Guarulhos com atendimento consultivo. Compare 16+ seguradoras para seguro auto, saúde, vida, empresa e residencial.">
