@@ -206,7 +206,7 @@ const enterpriseLps: SitemapEntry[] = [
    "/lp/seguro-empresarial", "/lp/seguro-residencial", "/lp/seguro-vida",
    "/lp/seguro-moto", "/lp/seguro-galpoes", "/lp/seguro-galpao-alugado",
    "/lp/consorcio", "/lp/seguro-celular", "/lp/seguro-motorista-app",
-   "/lp/medsenior", "/lp/alice",
+    "/lp/medsenior", "/lp/alice", "/lp/seguro-acidentes-pessoais",
    "/seguro-de-vida-para-socios"
  ].map(loc => ({ loc, priority: "0.8", changefreq: "weekly" }));
 
