@@ -79,6 +79,24 @@
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
     <!-- Backend (Lovable Cloud) — Web Vitals sendBeacon dispara logo após o load -->
     <link rel="preconnect" href="https://vjzsekwkeixbbpldiqmd.supabase.co" crossorigin />
+    <!-- Mídia acima/abaixo da dobra: avatares (prova social) e textura de fundo (seções).
+         Preconnect só no avatar (usado logo abaixo do hero); textura é decorativa e ganha
+         apenas dns-prefetch para não competir com o LCP. -->
+    <link rel="preconnect" href="https://i.pravatar.cc" crossorigin />
+    <link rel="dns-prefetch" href="https://i.pravatar.cc" />
+    <link rel="dns-prefetch" href="https://www.transparenttextures.com" />
+    <!-- Destinos dos CTAs principais: WhatsApp (wa.me) e formulário de cotação
+         (patro.seucorretor.digital). Preconnect antecipa TLS handshake para a
+         navegação de saída, sem baixar recursos. -->
+    <link rel="preconnect" href="https://wa.me" />
+    <link rel="dns-prefetch" href="https://wa.me" />
+    <link rel="preconnect" href="https://patro.seucorretor.digital" />
+    <link rel="dns-prefetch" href="https://patro.seucorretor.digital" />
+    <!-- Google Maps embed (lazy, abaixo da dobra) — só DNS para acelerar quando
+         entra em viewport, sem gastar handshake TLS antes do LCP. -->
+    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+    <link rel="dns-prefetch" href="https://maps.gstatic.com" />
+    <link rel="dns-prefetch" href="https://www.google.com" />
     <!-- Analytics (GA4 + Meta Pixel) só carregam pós-consent + primeira interação.
          DNS resolvido on-demand naquele momento; pré-resolver aqui só desperdiça
          handshakes em visitantes que saem antes de interagir. -->
