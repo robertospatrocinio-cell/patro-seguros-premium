@@ -112,11 +112,13 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         heading: "Vamos conversar sobre proteção patrimonial completa",
         paragraphs: [
           "O seguro de vida protege financeiramente quem você ama. Mas a proteção da família vai além: seu imóvel é provavelmente o maior patrimônio da família — e o seguro residencial protege contra incêndio, roubo e danos elétricos a partir de R$ 150/ano.",
-          "Se você é autônomo ou profissional liberal, considere também o seguro de acidentes pessoais para complementar a cobertura. Para quem busca construir patrimônio a longo prazo, a previdência privada é o complemento ideal ao seguro de vida. E não esqueça: um bom plano de saúde garante acesso rápido a tratamentos que podem salvar vidas.",
+          "Se você é autônomo ou profissional liberal, considere também o seguro de acidentes pessoais (veja nossa página dedicada de contratação rápida) para complementar a cobertura. Para quem busca construir patrimônio a longo prazo, a previdência privada é o complemento ideal ao seguro de vida. E não esqueça: um bom plano de saúde garante acesso rápido a tratamentos que podem salvar vidas — para pais e avós, temos plano específico para idosos 60+ em Guarulhos.",
         ],
         links: [
           { text: "Seguro Residencial", href: "/seguro-residencial" },
           { text: "Seguro Acidentes Pessoais", href: "/seguro-acidentes-pessoais" },
+          { text: "Contratar Acidentes Pessoais (LP)", href: "/lp/seguro-acidentes-pessoais" },
+          { text: "Plano de Saúde Sênior em Guarulhos", href: "/planos-saude-senior-guarulhos" },
           { text: "Previdência Privada", href: "/previdencia-privada" },
           { text: "Planos de Saúde", href: "/planos-de-saude" },
           { text: "Seguro Auto", href: "/seguro-auto" },
