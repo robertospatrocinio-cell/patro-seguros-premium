@@ -676,6 +676,78 @@ export type Database = {
         }
         Relationships: []
       }
+      gsc_indexation_alerts: {
+        Row: {
+          id: string
+          new_state: string
+          notified_at: string
+          previous_state: string | null
+          transition_type: string
+          url: string
+        }
+        Insert: {
+          id?: string
+          new_state: string
+          notified_at?: string
+          previous_state?: string | null
+          transition_type: string
+          url: string
+        }
+        Update: {
+          id?: string
+          new_state?: string
+          notified_at?: string
+          previous_state?: string | null
+          transition_type?: string
+          url?: string
+        }
+        Relationships: []
+      }
+      gsc_indexation_status: {
+        Row: {
+          checked_at: string
+          coverage_state: string | null
+          google_canonical: string | null
+          id: string
+          indexing_state: string | null
+          last_crawl_time: string | null
+          page_fetch_state: string | null
+          raw: Json | null
+          robots_txt_state: string | null
+          url: string
+          user_canonical: string | null
+          verdict: string | null
+        }
+        Insert: {
+          checked_at?: string
+          coverage_state?: string | null
+          google_canonical?: string | null
+          id?: string
+          indexing_state?: string | null
+          last_crawl_time?: string | null
+          page_fetch_state?: string | null
+          raw?: Json | null
+          robots_txt_state?: string | null
+          url: string
+          user_canonical?: string | null
+          verdict?: string | null
+        }
+        Update: {
+          checked_at?: string
+          coverage_state?: string | null
+          google_canonical?: string | null
+          id?: string
+          indexing_state?: string | null
+          last_crawl_time?: string | null
+          page_fetch_state?: string | null
+          raw?: Json | null
+          robots_txt_state?: string | null
+          url?: string
+          user_canonical?: string | null
+          verdict?: string | null
+        }
+        Relationships: []
+      }
       insurance_sales: {
         Row: {
           amount: number
