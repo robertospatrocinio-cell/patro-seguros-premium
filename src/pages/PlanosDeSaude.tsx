@@ -129,6 +129,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
+import TrilhaSeoRelacionados from "@/components/TrilhaSeoRelacionados";
+import { trilhaSaude } from "@/lib/trilhaSeoRecomendacoes";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20plano%20de%20sa%C3%BAde.";
 
@@ -347,6 +349,10 @@ const PlanosDeSaude = () => {
             </div>
           </div>
         </section>
+        <TrilhaSeoRelacionados
+          subtitle="Coberturas de saúde e proteção pessoal mais contratadas junto ao plano em Guarulhos."
+          items={trilhaSaude}
+        />
       </main>
       <StickyQuoteBar 
         source="planos-saude" 
