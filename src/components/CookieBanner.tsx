@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { scheduleIdle } from "@/lib/prefetch";
 
 declare global {
   interface Window {
@@ -15,10 +16,15 @@ const CookieBanner = () => {
 
   useEffect(() => {
     const accepted = localStorage.getItem(COOKIE_KEY);
-    if (!accepted) {
-      const timer = setTimeout(() => setVisible(true), 1500);
-      return () => clearTimeout(timer);
-    }
+    if (accepted) return;
+    // Adia a exibição do banner para requestIdleCallback (com timeout
+    // de 3s como safety net) — o banner não é crítico para LCP e não
+    // deve competir com hidratação/interatividade inicial.
+    let cancelled = false;
+    scheduleIdle(() => {
+      if (!cancelled) setVisible(true);
+    }, 3000);
+    return () => { cancelled = true; };
   }, []);
 
   const accept = () => {
