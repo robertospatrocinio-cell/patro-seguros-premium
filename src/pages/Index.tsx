@@ -470,14 +470,16 @@ const Index = () => {
         {/* Will be detailed in Phase 4 */}
 
         {/* 6. AVALIAÇÕES REAIS */}
-        <LazySection minHeight="420px" rootMargin="300px" className="bg-muted/10">
+        <LazySection minHeight="420px" rootMargin="300px" className="bg-muted/10"
+          prefetch={[loadLocalTestimonials]}>
           <Suspense fallback={null}>
             <LocalTestimonials />
           </Suspense>
         </LazySection>
 
         {/* 6b. PROVA SOCIAL UNIFICADA (fonte única + CTAs) */}
-        <LazySection minHeight="380px" rootMargin="400px" className="py-14 bg-white">
+        <LazySection minHeight="380px" rootMargin="400px" className="py-14 bg-white"
+          prefetch={[loadProvaSocialPatro]}>
           <section aria-label="Prova social consolidada">
             <div className="container mx-auto px-4 max-w-4xl">
               <Suspense fallback={null}>
@@ -488,7 +490,8 @@ const Index = () => {
         </LazySection>
 
         {/* 6c. AUTORIDADE / E-E-A-T — fundadores + credenciais */}
-        <LazySection minHeight="420px" rootMargin="400px" className="py-14 bg-slate-50">
+        <LazySection minHeight="420px" rootMargin="400px" className="py-14 bg-slate-50"
+          prefetch={[loadAutoridadePatro]}>
           <section aria-label="Autoridade e credenciais">
             <div className="container mx-auto px-4 max-w-4xl">
               <Suspense fallback={null}>
@@ -499,7 +502,8 @@ const Index = () => {
         </LazySection>
 
         {/* 6d. COMO A PATRO AJUDA — 4 passos + CTA duplo consistente */}
-        <LazySection minHeight="480px" rootMargin="400px" className="py-14 bg-white">
+        <LazySection minHeight="480px" rootMargin="400px" className="py-14 bg-white"
+          prefetch={[loadComoPatroAjuda]}>
           <section aria-label="Como a Patro ajuda">
             <div className="container mx-auto px-4 max-w-5xl">
               <Suspense fallback={null}>
@@ -624,7 +628,8 @@ const Index = () => {
         </section>
 
         {/* 9. CONTEÚDOS E FERRAMENTAS */}
-        <LazySection>
+        <LazySection
+          prefetch={[loadLocalSavingsCalculator, loadHomeBlogSection, loadPortoPartnershipSection]}>
           <Suspense fallback={null}>
             <LocalSavingsCalculator />
             <HomeBlogSection />
