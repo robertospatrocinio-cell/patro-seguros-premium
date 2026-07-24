@@ -1,0 +1,4 @@
+{
+  "_comment": "Rotas que legitimamente apontam canonical para OUTRA URL (consolidação de autoridade em hubs). Chave = rota renderizada, valor = URL canônica esperada (absoluta, host www.patroseguros.com.br).",
+  "overrides": {}
+}
