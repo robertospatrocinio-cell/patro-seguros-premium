@@ -7,6 +7,7 @@ const SeguroEmpresarial = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
+      quoteUrl="https://patro.seucorretor.digital/#/formularios/empresarial"
       title="Seguro Empresarial em Guarulhos | Cotação em 2h | Patro Seguros"
       headline="Seguro empresarial em Guarulhos para PMEs e indústrias"
       subtitle="Consultoria empresarial dedicada a proteger patrimônio, faturamento e a continuidade do seu negócio"

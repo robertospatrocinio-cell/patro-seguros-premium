@@ -4,6 +4,7 @@ import heroImg from "@/assets/lp-seguro-empresarial.webp";
 const LandingSeguroEmpresarial = () => (
   <LandingPageTemplate
     heroImage={heroImg}
+    ctaUrl="https://patro.seucorretor.digital/#/formularios/empresarial"
     title="Seguro Empresarial"
     heroEmoji="🏢"
     headline="Sua empresa pode fechar amanhã por um incêndio. Você está preparado?"
