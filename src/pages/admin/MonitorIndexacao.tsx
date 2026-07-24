@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RefreshCw, CheckCircle2, AlertTriangle, Clock } from "lucide-react";
+import { RefreshCw, CheckCircle2, AlertTriangle, Clock, Plus, Trash2, Pencil, Save, X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { supabase } from "@/integrations/supabase/client";
@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 
 type StatusRow = {
@@ -26,6 +28,15 @@ type AlertRow = {
   notified_at: string;
 };
 
+type MonitoredUrl = {
+  id: string;
+  url: string;
+  label: string | null;
+  active: boolean;
+  notes: string | null;
+  created_at: string;
+};
+
 function coverageBadge(c: string | null) {
   if (!c) return <Badge variant="outline">Sem dados</Badge>;
   const s = c.toLowerCase();
@@ -42,6 +53,10 @@ export default function MonitorIndexacao() {
   const [alerts, setAlerts] = useState<AlertRow[]>([]);
   const [loading, setLoading] = useState(false);
   const [running, setRunning] = useState(false);
+  const [urls, setUrls] = useState<MonitoredUrl[]>([]);
+  const [newUrl, setNewUrl] = useState("");
+  const [newLabel, setNewLabel] = useState("");
+  const [editing, setEditing] = useState<Record<string, { url: string; label: string }>>({});
 
   async function load() {
     setLoading(true);
@@ -61,6 +76,12 @@ export default function MonitorIndexacao() {
       .order("notified_at", { ascending: false })
       .limit(30);
     setAlerts((al ?? []) as AlertRow[]);
+
+    const { data: monitored } = await supabase
+      .from("monitored_urls")
+      .select("*")
+      .order("created_at", { ascending: true });
+    setUrls((monitored ?? []) as MonitoredUrl[]);
     setLoading(false);
   }
 
@@ -76,6 +97,57 @@ export default function MonitorIndexacao() {
     } catch (e) {
       toast.error("Falha ao executar verificação (verifique permissões).");
     } finally { setRunning(false); }
+  }
+
+  async function addUrl() {
+    const url = newUrl.trim();
+    if (!/^https?:\/\/.+/i.test(url)) {
+      toast.error("Informe uma URL válida (https://...).");
+      return;
+    }
+    const { error } = await supabase
+      .from("monitored_urls")
+      .insert({ url, label: newLabel.trim() || null });
+    if (error) {
+      toast.error(error.code === "23505" ? "Essa URL já está cadastrada." : "Falha ao cadastrar.");
+      return;
+    }
+    setNewUrl("");
+    setNewLabel("");
+    toast.success("URL cadastrada.");
+    await load();
+  }
+
+  async function toggleActive(row: MonitoredUrl, active: boolean) {
+    const { error } = await supabase.from("monitored_urls").update({ active }).eq("id", row.id);
+    if (error) return toast.error("Falha ao atualizar.");
+    setUrls((prev) => prev.map((u) => (u.id === row.id ? { ...u, active } : u)));
+  }
+
+  async function saveEdit(row: MonitoredUrl) {
+    const draft = editing[row.id];
+    if (!draft) return;
+    const url = draft.url.trim();
+    if (!/^https?:\/\/.+/i.test(url)) return toast.error("URL inválida.");
+    const { error } = await supabase
+      .from("monitored_urls")
+      .update({ url, label: draft.label.trim() || null })
+      .eq("id", row.id);
+    if (error) {
+      toast.error(error.code === "23505" ? "URL duplicada." : "Falha ao salvar.");
+      return;
+    }
+    setEditing((e) => { const n = { ...e }; delete n[row.id]; return n; });
+    toast.success("URL atualizada.");
+    await load();
+  }
+
+  async function removeUrl(row: MonitoredUrl) {
+    if (!confirm(`Remover ${row.url}?`)) return;
+    const { error } = await supabase.from("monitored_urls").delete().eq("id", row.id);
+    if (error) return toast.error("Falha ao remover.");
+    toast.success("URL removida.");
+    await load();
   }
 
   return (
@@ -100,6 +172,109 @@ export default function MonitorIndexacao() {
         </div>
 
         <div className="grid gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>URLs monitoradas</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Gerencie a lista consultada pelo cron diário. Somente URLs ativas são inspecionadas.
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Input
+                  placeholder="https://www.patroseguros.com.br/nova-pagina"
+                  value={newUrl}
+                  onChange={(e) => setNewUrl(e.target.value)}
+                  className="flex-1"
+                />
+                <Input
+                  placeholder="Rótulo (opcional)"
+                  value={newLabel}
+                  onChange={(e) => setNewLabel(e.target.value)}
+                  className="sm:w-56"
+                />
+                <Button onClick={addUrl}><Plus className="w-4 h-4 mr-2" />Adicionar</Button>
+              </div>
+
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>URL</TableHead>
+                    <TableHead>Rótulo</TableHead>
+                    <TableHead className="w-24">Ativa</TableHead>
+                    <TableHead className="w-32 text-right">Ações</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {urls.length === 0 && (
+                    <TableRow>
+                      <TableCell colSpan={4} className="text-center text-muted-foreground py-6">
+                        Nenhuma URL cadastrada.
+                      </TableCell>
+                    </TableRow>
+                  )}
+                  {urls.map((u) => {
+                    const draft = editing[u.id];
+                    return (
+                      <TableRow key={u.id}>
+                        <TableCell className="max-w-md">
+                          {draft ? (
+                            <Input
+                              value={draft.url}
+                              onChange={(e) => setEditing((s) => ({ ...s, [u.id]: { ...s[u.id], url: e.target.value } }))}
+                            />
+                          ) : (
+                            <a href={u.url} target="_blank" rel="noopener noreferrer" className="hover:underline text-sm">
+                              {u.url.replace("https://www.patroseguros.com.br", "")}
+                            </a>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          {draft ? (
+                            <Input
+                              value={draft.label}
+                              onChange={(e) => setEditing((s) => ({ ...s, [u.id]: { ...s[u.id], label: e.target.value } }))}
+                            />
+                          ) : (
+                            <span className="text-sm text-muted-foreground">{u.label ?? "—"}</span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <Switch checked={u.active} onCheckedChange={(v) => toggleActive(u, v)} />
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {draft ? (
+                            <div className="flex justify-end gap-1">
+                              <Button size="icon" variant="ghost" onClick={() => saveEdit(u)}>
+                                <Save className="w-4 h-4" />
+                              </Button>
+                              <Button size="icon" variant="ghost" onClick={() =>
+                                setEditing((e) => { const n = { ...e }; delete n[u.id]; return n; })
+                              }>
+                                <X className="w-4 h-4" />
+                              </Button>
+                            </div>
+                          ) : (
+                            <div className="flex justify-end gap-1">
+                              <Button size="icon" variant="ghost" onClick={() =>
+                                setEditing((s) => ({ ...s, [u.id]: { url: u.url, label: u.label ?? "" } }))
+                              }>
+                                <Pencil className="w-4 h-4" />
+                              </Button>
+                              <Button size="icon" variant="ghost" onClick={() => removeUrl(u)}>
+                                <Trash2 className="w-4 h-4 text-destructive" />
+                              </Button>
+                            </div>
+                          )}
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+
           <Card>
             <CardHeader><CardTitle>Status atual por URL</CardTitle></CardHeader>
             <CardContent>
