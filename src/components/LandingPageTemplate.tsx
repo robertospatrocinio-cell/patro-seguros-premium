@@ -153,7 +153,11 @@ const LandingPageTemplate = ({
         </section>
 
         {/* PAIN POINTS — Agitation */}
-        <section className="py-16 bg-background" aria-labelledby="problemas">
+        <section
+          className="py-16 bg-background"
+          aria-labelledby="problemas"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "1px 700px" } as any}
+        >
           <div className="container mx-auto px-4 max-w-2xl">
             <h2 id="problemas" className="text-center mb-10">
               Você se identifica com alguma dessas situações?
@@ -175,7 +179,7 @@ const LandingPageTemplate = ({
         {/* SOCIAL PROOF — Stats */}
         {extraSections && <div className="extra-lp-sections">{extraSections}</div>}
 
-        <section className="border-y bg-muted/30">
+        <section className="border-y bg-muted/30" style={{ contentVisibility: "auto", containIntrinsicSize: "1px 160px" } as any}>
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
               {stats.map((s) => (
@@ -189,7 +193,11 @@ const LandingPageTemplate = ({
         </section>
 
         {/* BENEFITS — Solution */}
-        <section className="py-20 bg-background" aria-labelledby="beneficios">
+        <section
+          className="py-20 bg-background"
+          aria-labelledby="beneficios"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "1px 900px" } as any}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
               <span className="section-label">Por que a Patro</span>
@@ -208,7 +216,10 @@ const LandingPageTemplate = ({
         </section>
 
         {/* MID CTA */}
-        <section className="py-14 gradient-hero relative overflow-hidden">
+        <section
+          className="py-14 gradient-hero relative overflow-hidden"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "1px 320px" } as any}
+        >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,60%,0.12),transparent)]" />
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-3 text-xl md:text-2xl font-bold">Não deixe para depois. Proteja-se agora.</h2>
@@ -221,7 +232,11 @@ const LandingPageTemplate = ({
         </section>
 
         {/* TESTIMONIALS — Social proof */}
-        <section className="py-20 bg-background" aria-labelledby="depoimentos">
+        <section
+          className="py-20 bg-background"
+          aria-labelledby="depoimentos"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "1px 700px" } as any}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
               <span className="section-label">Depoimentos</span>
@@ -254,7 +269,11 @@ const LandingPageTemplate = ({
         </section>
 
         {/* OBJECTIONS — FAQ style */}
-        <section className="py-20 gradient-surface" aria-labelledby="duvidas">
+        <section
+          className="py-20 gradient-surface"
+          aria-labelledby="duvidas"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "1px 800px" } as any}
+        >
           <div className="container mx-auto px-4 max-w-2xl">
             <div className="text-center mb-14">
               <h2 id="duvidas" className="mt-3">Ainda tem dúvidas?</h2>
@@ -303,7 +322,10 @@ const LandingPageTemplate = ({
         )}
 
         {/* FINAL CTA — Urgency */}
-        <section className="py-20 gradient-hero relative overflow-hidden">
+        <section
+          className="py-20 gradient-hero relative overflow-hidden"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "1px 500px" } as any}
+        >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,60%,0.15),transparent)]" />
           <div className="container mx-auto px-4 text-center relative">
             <h2 className="text-white mb-3 text-2xl md:text-3xl font-extrabold">
