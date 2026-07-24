@@ -3,7 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
-import heroImg from "@/assets/lp-seguro-acidentes-pessoais.jpg";
+import heroImg from "@/assets/lp-seguro-acidentes-pessoais.webp";
 
 const QUOTE_URL = "https://patro.seucorretor.digital/#/formularios/acidentes-pessoais";
 const WHATSAPP_URL =
