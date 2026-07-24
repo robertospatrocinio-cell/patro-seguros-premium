@@ -299,6 +299,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
     : {
         "@context": "https://schema.org",
         "@type": "Service",
+        "@id": `${DOMAIN}${cleanPath}#service`,
         "name": p.h1,
         "serviceType": p.serviceType || p.h1,
         "description": p.description,
@@ -515,9 +516,14 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
       schema: {
         "@context": "https://schema.org",
         "@type": "Service",
+        "@id": `${DOMAIN}${cleanPath}#service`,
         "name": localConfig.title,
+        "serviceType": localConfig.title,
+        "description": description,
+        "url": `${DOMAIN}${cleanPath}`,
         "provider": {
           "@type": "InsuranceAgency",
+          "@id": `${DOMAIN}/#insurance-agency`,
           "name": "Patro Seguros",
           "url": DOMAIN,
           "image": `${DOMAIN}/images/logo-full.webp`,
