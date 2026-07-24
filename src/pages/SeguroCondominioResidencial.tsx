@@ -5,7 +5,7 @@ const SeguroCondominioResidencial = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patro.seucorretor.digital/#/formularios/residencial"
+      quoteUrl="https://patro.seucorretor.digital/#/formularios/condominio"
       title="Seguro Condomínio Residencial"
       subtitle="Proteção completa para o patrimônio coletivo, áreas comuns e síndicos"
       icon="🏢"
