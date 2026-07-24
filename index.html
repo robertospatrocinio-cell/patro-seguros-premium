@@ -63,9 +63,28 @@
     <!-- Preload LCP candidates — só a imagem exata que cada breakpoint irá pintar -->
     <!-- Logo do header (above-the-fold em todos os viewports) -->
     <link rel="preload" href="/images/logo-full.webp" as="image" type="image/webp" fetchpriority="high" />
-    <!-- Hero LCP: variante mobile OU desktop, nunca as duas -->
-    <link rel="preload" href="/images/hero-home-sm.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high" />
-    <link rel="preload" href="/images/hero-home.webp" as="image" type="image/webp" media="(min-width: 601px)" fetchpriority="high" />
+    <!-- Hero LCP: AVIF responsivo com imagesrcset (browser escolhe a largura ideal).
+         `type=image/avif` faz o preload ser ignorado por browsers sem suporte, que
+         então usam os preloads WebP abaixo. Um único preload por formato/breakpoint
+         evita disputa de banda com a logo e o selo. -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      href="/images/hero-home-960.avif"
+      imagesrcset="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/images/hero-home-960.webp"
+      imagesrcset="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <!-- Selo: só desktop (em mobile fica abaixo do H1 e competiria banda com o hero LCP).
          Uma única variante @2x em desktop cobre monitores retina sem duplicar download. -->
     <link rel="preload" href="/images/selo-melhor-corretora@2x.webp" as="image" type="image/webp" media="(min-width: 1024px)" />
