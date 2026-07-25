@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import PageMeta from "./PageMeta";
 
 const setHostname = (hostname: string) => {
@@ -12,9 +13,11 @@ const setHostname = (hostname: string) => {
 
 const renderPage = () =>
   render(
-    <MemoryRouter initialEntries={["/seguro-auto"]}>
-      <PageMeta title="Teste" description="Descrição de teste para robots meta." />
-    </MemoryRouter>,
+    <HelmetProvider>
+      <MemoryRouter initialEntries={["/seguro-auto"]}>
+        <PageMeta title="Teste" description="Descrição de teste para robots meta." />
+      </MemoryRouter>
+    </HelmetProvider>,
   );
 
 describe("PageMeta robots meta by hostname", () => {
