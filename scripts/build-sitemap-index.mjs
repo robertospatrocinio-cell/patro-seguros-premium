@@ -83,6 +83,16 @@ const urlBlocks = [...masterXml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
   (m) => m[1],
 );
 
+// Guard rerun-safe: se o master já é um sitemapindex (0 <url>), aborta
+// para não sobrescrever os sitemaps de tipo com um index vazio.
+if (urlBlocks.length === 0) {
+  console.error(
+    `❌ ${MASTER} não contém <url> — provavelmente já é um sitemapindex.\n` +
+      `   Regere o master (build do Vite) antes de rodar este script.`,
+  );
+  process.exit(1);
+}
+
 const seen = new Set();
 const buckets = { pages: [], blog: [], seguros: [] };
 let skippedNonCanonical = 0;
