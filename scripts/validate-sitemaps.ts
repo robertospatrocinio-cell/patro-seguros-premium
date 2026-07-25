@@ -40,6 +40,16 @@ async function validateSitemap(filePath: string) {
     console.error(err);
     process.exit(1);
   }
+
+  // 3. Garantir que nenhuma URL do ambiente de preview (lovable.app) vaze para os
+  // sitemaps — apenas o domínio de produção pode ser indexado pelo Google.
+  if (/https?:\/\/[^<\s"']*lovable\.app/i.test(content)) {
+    console.error(
+      `❌ Erro: ${path.basename(filePath)} contém URL do ambiente de preview (lovable.app). ` +
+      `Sitemaps devem referenciar apenas https://www.patroseguros.com.br.`,
+    );
+    process.exit(1);
+  }
 }
 
 async function main() {
