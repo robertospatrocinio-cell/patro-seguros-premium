@@ -1,13 +1,18 @@
 /**
  * Bloco de confiança Patro Private.
- * Apenas dados reais (SUSEP, endereço). Sem números inventados.
+ * Dados vêm de `src/config/empresa.ts` (fonte única).
  */
+import { EMPRESA } from "@/config/empresa";
+
 export const PremiumTrustBlock = () => {
   const items = [
-    { label: "Registro SUSEP", value: "212113511" },
-    { label: "CNPJ", value: "41.641.558/0001-33" },
-    { label: "Sede", value: "Edifício Via Alameda · Cidade Maia · Guarulhos/SP" },
-    { label: "Telefone", value: "(11) 5199-7500" },
+    { label: "Registro SUSEP", value: EMPRESA.susep },
+    { label: "CNPJ", value: EMPRESA.cnpj },
+    {
+      label: "Sede",
+      value: `${EMPRESA.endereco.complemento} · ${EMPRESA.endereco.bairro} · ${EMPRESA.endereco.cidade}/${EMPRESA.endereco.estadoSigla}`,
+    },
+    { label: "Telefone", value: EMPRESA.telefone },
   ];
   return (
     <div
