@@ -30,7 +30,7 @@ const SEO_CONTENT = {
       <p>Oferecemos <a href="/consorcio-guarulhos">consórcio de imóveis, automóveis, serviços e pesados</a> e <strong>seguros para o agronegócio</strong> com cobertura nacional — seguro agrícola, pecuário, penhor rural, máquinas e equipamentos.</p>
       <h2>Por que escolher uma corretora de seguros em Guarulhos</h2>
       <p>Oferecemos atendimento humano, cotação multi-seguradora e suporte no sinistro. Temos mais de 20 anos de experiência com <strong>seguros Guarulhos</strong>. <a href="/sobre">Conheça nossa história</a>, <a href="/depoimentos">leia depoimentos</a> ou <a href="/contato">fale com um corretor</a>.</p>
-      <p>Endereço: Cidade Maia, Guarulhos/SP. Telefone: (11) 4210-5274. WhatsApp disponível. CNPJ e SUSEP regularizados.</p>
+      <p>Endereço: Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda, Cidade Maia, Guarulhos/SP. Telefone: (11) 5199-7500. WhatsApp disponível. CNPJ 41.641.558/0001-33 · SUSEP 212113511. (Mantido em sincronia com src/config/empresa.ts.)</p>
     `,
   },
   "/corretora-de-seguros-em-guarulhos": {

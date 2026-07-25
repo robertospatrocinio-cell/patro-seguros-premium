@@ -2,15 +2,16 @@ import { ReactNode, useRef, MutableRefObject } from "react";
 import { MessageCircle, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import { EMPRESA, WHATSAPP_DIGITS } from "@/config/empresa";
 
 // ---------- Config central editável (contato Patro Seguros) ----------
 export const PATRO_CONTACT = {
-  whatsappNumber: "551151997500",
-  phone: "(11) 5199-7500",
-  email: "contato@patroseguros.com.br",
-  address: "Cidade Maia, Guarulhos / SP",
-  cnpj: "—",
-  susep: "—",
+  whatsappNumber: WHATSAPP_DIGITS,
+  phone: EMPRESA.telefone,
+  email: EMPRESA.email,
+  address: `${EMPRESA.endereco.bairro}, ${EMPRESA.endereco.cidade} / ${EMPRESA.endereco.estadoSigla}`,
+  cnpj: EMPRESA.cnpj,
+  susep: EMPRESA.susep,
 };
 
 export const buildWhatsAppUrl = (msg: string) =>

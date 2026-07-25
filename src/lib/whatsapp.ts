@@ -2,9 +2,12 @@
  * Centralized WhatsApp CTA helper.
  * Garante mensagem pré-preenchida padronizada e parâmetros de rastreamento
  * consistentes em todas as CTAs (hero, cotação, fale conosco).
+ *
+ * Número e e-mail vêm de `src/config/empresa.ts` (fonte única da verdade).
  */
+import { EMPRESA, WHATSAPP_DIGITS } from "@/config/empresa";
 
-export const WHATSAPP_NUMBER = "551151997500";
+export const WHATSAPP_NUMBER = WHATSAPP_DIGITS;
 
 export type WhatsAppAudience = "pessoa" | "empresa" | "agro" | "consorcio" | "geral";
 
@@ -61,7 +64,7 @@ export const getWhatsAppUrl = (phone?: string | null, message?: string): string 
  * E-mail padrão para fallback quando o WhatsApp não estiver disponível
  * (popup bloqueado, dispositivo sem app instalado, etc.).
  */
-export const FALLBACK_EMAIL = "contato@patroseguros.com.br";
+export const FALLBACK_EMAIL = EMPRESA.email;
 
 export interface BuildMailtoOptions extends BuildWhatsAppOptions {
   /** Assunto do e-mail. Default reflete a origem. */
