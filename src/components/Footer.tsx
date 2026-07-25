@@ -6,6 +6,7 @@ import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { memo } from "react";
+import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS } from "@/config/empresa";
 
 const logoFull = "/images/logo-full.webp";
 
@@ -41,28 +42,32 @@ const Footer = memo(() => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white underline decoration-white/30 hover:decoration-white transition-colors"
-                  aria-label="Consultar registro SUSEP 212113511 no site oficial"
+                  aria-label={`Consultar registro SUSEP ${EMPRESA.susep} no site oficial`}
                 >
-                  SUSEP 212113511
+                  SUSEP {EMPRESA.susep}
                 </a>
-                <br />CNPJ 41.641.558/0001-33
+                <br />CNPJ {EMPRESA.cnpj}
               </div>
             </div>
             <ul className="space-y-2 mb-6 text-[12.5px] text-white/75">
               <li className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-white/50" aria-hidden="true" />
-                <span>Av. Salgado Filho, 2120 – Sala 219<br />Cidade Maia, Guarulhos/SP</span>
+                <span>
+                  {EMPRESA.endereco.logradouro}, {EMPRESA.endereco.numero} – Sala 219
+                  <br />
+                  {EMPRESA.endereco.bairro}, {EMPRESA.endereco.cidade}/{EMPRESA.endereco.estadoSigla}
+                </span>
               </li>
               <li>
-                <a href="tel:1151997500" className="flex items-center gap-2 hover:text-white transition-colors">
+                <a href={`tel:${TELEFONE_DIGITS}`} className="flex items-center gap-2 hover:text-white transition-colors">
                   <Phone className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
-                  <span>(11) 5199-7500</span>
+                  <span>{EMPRESA.telefone}</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:contato@patroseguros.com.br" className="flex items-center gap-2 hover:text-white transition-colors">
+                <a href={`mailto:${EMPRESA.email}`} className="flex items-center gap-2 hover:text-white transition-colors">
                   <Mail className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
-                  <span>contato@patroseguros.com.br</span>
+                  <span>{EMPRESA.email}</span>
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -73,7 +78,7 @@ const Footer = memo(() => {
             <div className="flex gap-3">
               <TooltipProvider>
                 {[
-                  { href: "https://wa.me/551151997500", icon: MessageCircle, label: "WhatsApp" },
+                  { href: `https://wa.me/${WHATSAPP_DIGITS}`, icon: MessageCircle, label: "WhatsApp" },
                   { href: "https://www.instagram.com/patroseguros", icon: Instagram, label: "Instagram" },
                   { href: "https://www.facebook.com/patroseguros", icon: Facebook, label: "Facebook" },
                   { href: "https://www.linkedin.com/company/patro-seguros", icon: Linkedin, label: "LinkedIn" },
@@ -165,7 +170,7 @@ const Footer = memo(() => {
             rel="noopener noreferrer"
             className="flex items-center gap-1 hover:text-white transition-colors"
           >
-            <MapPin className="h-3 w-3" /> Edifício Via Alameda – Av. Salgado Filho, 2120 – Sala 219 – Guarulhos/SP
+            <MapPin className="h-3 w-3" /> {EMPRESA.endereco.complemento} – {EMPRESA.endereco.logradouro}, {EMPRESA.endereco.numero} – Sala 219 – {EMPRESA.endereco.cidade}/{EMPRESA.endereco.estadoSigla}
           </a>
         </div>
       </div>
