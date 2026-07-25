@@ -11,6 +11,8 @@
     "preview": "vite preview",
     "check:links": "node scripts/check-internal-links.mjs",
     "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:install": "playwright install chromium",
     "test:jsonld": "vitest run scripts/lib/jsonld-validator.test.mjs",
     "test:canonical": "vitest run scripts/lib/canonical-heading-validator.test.mjs",
     "validate:jsonld": "node scripts/validate-jsonld-build.mjs",
