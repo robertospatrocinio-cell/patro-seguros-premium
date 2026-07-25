@@ -9,6 +9,19 @@
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
      <link rel="canonical" href="https://www.patroseguros.com.br/" />
+    <script>
+      // Evita canibalização SEO: ambientes de preview (lovable.app) nunca devem
+      // ser indexados. Ajusta robots antes de qualquer render/crawl JS.
+      (function () {
+        try {
+          if (/lovable\.app$/i.test(window.location.hostname)) {
+            var r = document.querySelector('meta[name="robots"]');
+            if (!r) { r = document.createElement('meta'); r.setAttribute('name','robots'); document.head.appendChild(r); }
+            r.setAttribute('content','noindex, nofollow');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <!--
       Fontes: o site inteiro renderiza com a stack `-apple-system, SF Pro, Inter, system-ui, ...`
       (definida em `tailwind.config.ts` e no CSS crítico abaixo). Nenhuma regra de CSS/componente

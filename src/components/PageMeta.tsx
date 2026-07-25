@@ -89,8 +89,13 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
 
     // Robots
     let robots = document.querySelector('meta[name="robots"]');
+    const isPreviewHost =
+      typeof window !== "undefined" && /lovable\.app$/i.test(window.location.hostname);
     if (robots) {
-      robots.setAttribute("content", noindex ? "noindex, nofollow" : "index, follow");
+      robots.setAttribute(
+        "content",
+        noindex || isPreviewHost ? "noindex, nofollow" : "index, follow",
+      );
     }
 
     // Image preloads
