@@ -25,8 +25,14 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const PUBLIC_DIR = path.resolve("public");
-const MASTER = path.join(PUBLIC_DIR, "sitemap.xml");
+// Diretório-alvo: por padrão public/, mas aceita --dir dist para rodar
+// no postbuild (o vite plugin regenera clusters em dist/ a cada build).
+const args = process.argv.slice(2);
+const dirIdx = args.indexOf("--dir");
+const TARGET_DIR = path.resolve(
+  dirIdx >= 0 && args[dirIdx + 1] ? args[dirIdx + 1] : "public",
+);
+const MASTER = path.join(TARGET_DIR, "sitemap.xml");
 const CANONICAL_HOST = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
 
@@ -69,6 +75,8 @@ if (!fs.existsSync(MASTER)) {
   console.error(`❌ master sitemap não encontrado: ${MASTER}`);
   process.exit(1);
 }
+
+console.log(`▶ build-sitemap-index  dir=${TARGET_DIR}`);
 
 const masterXml = fs.readFileSync(MASTER, "utf-8");
 const urlBlocks = [...masterXml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(
@@ -157,21 +165,21 @@ const outputs = {
 };
 
 for (const [name, entries] of Object.entries(outputs)) {
-  fs.writeFileSync(path.join(PUBLIC_DIR, name), buildUrlset(entries), "utf-8");
+  fs.writeFileSync(path.join(TARGET_DIR, name), buildUrlset(entries), "utf-8");
   console.log(`  ✓ ${name.padEnd(22)} ${entries.length} URLs`);
 }
 
 // Lista de arquivos no índice (mantém sitemap-images.xml se existir)
 const indexFiles = ["sitemap-pages.xml", "sitemap-blog.xml", "sitemap-seguros.xml"];
-if (fs.existsSync(path.join(PUBLIC_DIR, "sitemap-images.xml"))) {
+if (fs.existsSync(path.join(TARGET_DIR, "sitemap-images.xml"))) {
   indexFiles.push("sitemap-images.xml");
 }
 
-fs.writeFileSync(path.join(PUBLIC_DIR, "sitemap-index.xml"), buildIndex(indexFiles), "utf-8");
+fs.writeFileSync(path.join(TARGET_DIR, "sitemap-index.xml"), buildIndex(indexFiles), "utf-8");
 console.log(`  ✓ sitemap-index.xml     ${indexFiles.length} sitemaps`);
 
 // Mantém sitemap.xml como cópia do índice para autodiscovery em /sitemap.xml
-fs.writeFileSync(path.join(PUBLIC_DIR, "sitemap.xml"), buildIndex(indexFiles), "utf-8");
+fs.writeFileSync(path.join(TARGET_DIR, "sitemap.xml"), buildIndex(indexFiles), "utf-8");
 console.log(`  ✓ sitemap.xml           espelho do index (autodiscovery)`);
 
 // -------- Remove sitemaps antigos por categoria --------------------------
@@ -184,11 +192,27 @@ const LEGACY = [
   "sitemap-vida-saude.xml",
 ];
 for (const f of LEGACY) {
-  const fp = path.join(PUBLIC_DIR, f);
+  const fp = path.join(TARGET_DIR, f);
   if (fs.existsSync(fp)) {
     fs.unlinkSync(fp);
     console.log(`  ✗ removido legacy: ${f}`);
   }
+}
+
+// -------- robots.txt: sincroniza referências de Sitemap ------------------
+const robotsPath = path.join(TARGET_DIR, "robots.txt");
+if (fs.existsSync(robotsPath)) {
+  const original = fs.readFileSync(robotsPath, "utf-8");
+  const lines = original.split("\n");
+  const kept = lines.filter((l) => !/^\s*Sitemap:\s*\S+/i.test(l));
+  // Reinjeta apenas o sitemap-index canônico (crawlers descobrem os filhos)
+  const sitemapLine = `Sitemap: ${CANONICAL_HOST}/sitemap-index.xml`;
+  // Coloca a linha depois do primeiro bloco User-agent: * / Allow blocks;
+  // simples: adiciona no final se ainda não estiver presente.
+  const rebuilt = kept.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() +
+    `\n\n# Sitemaps (organizados por tipo)\n${sitemapLine}\n`;
+  fs.writeFileSync(robotsPath, rebuilt, "utf-8");
+  console.log(`  ✓ robots.txt            Sitemap: sitemap-index.xml`);
 }
 
 console.log(
