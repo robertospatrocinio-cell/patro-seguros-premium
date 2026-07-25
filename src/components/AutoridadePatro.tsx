@@ -18,12 +18,13 @@ import { Link } from "react-router-dom";
 import { ShieldCheck, Award, Users, Building2, ArrowRight } from "lucide-react";
 import roberto from "@/assets/socio-roberto.webp";
 import sandra from "@/assets/socia-sandra.webp";
+import { EMPRESA } from "@/config/empresa";
 
 const CREDENCIAIS = {
-  susep: "SUSEP nº 212113511",
-  cnpj: "CNPJ 41.641.558/0001-33",
-  fundacao: 2010,
-  sede: "Cidade Maia, Guarulhos/SP",
+  susep: `SUSEP nº ${EMPRESA.susep}`,
+  cnpj: `CNPJ ${EMPRESA.cnpj}`,
+  fundacao: Number(EMPRESA.fundacao),
+  sede: `${EMPRESA.endereco.bairro}, ${EMPRESA.endereco.cidade}/${EMPRESA.endereco.estadoSigla}`,
 } as const;
 
 const STATS: Array<{ icon: typeof ShieldCheck; value: string; label: string }> = [
