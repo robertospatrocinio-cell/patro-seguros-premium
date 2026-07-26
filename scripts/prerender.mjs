@@ -304,7 +304,10 @@ async function run() {
       // Ignora entradas que apontam para arquivos (ex.: sitemap-*.xml dentro
       // do sitemap-index) — não devem virar pasta + index.html no dist.
       if (/\.[a-z0-9]+$/i.test(loc)) continue;
-      routes.add(loc);
+      // Normaliza trailing slash — evita que "/sobre/" (sitemap-images) sobrescreva
+      // "/sobre" com o bloco fallback, jogando fora o SEO_CONTENT completo.
+      const normalized = loc.length > 1 && loc.endsWith("/") ? loc.slice(0, -1) : loc;
+      routes.add(normalized);
     }
   });
 
