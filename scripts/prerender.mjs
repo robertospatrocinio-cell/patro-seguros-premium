@@ -199,6 +199,13 @@ for (const i of PARTNER_INSURERS_PRERENDER) {
   };
 }
 
+// Sobrescreve as entradas curtas com o conteúdo COMPLETO (600-1500 palavras)
+// para as 13 rotas prioritárias — objetivo: GEO/AEO em bots que não executam
+// JavaScript (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, PageAudit).
+for (const [route, content] of Object.entries(FULL_SEO_CONTENT)) {
+  SEO_CONTENT[route] = content;
+}
+
 /**
  * Escapa entidades HTML mínimas em strings vindas de metadata dinâmica
  * (títulos e descrições de blog, LPs, hubs). Evita quebrar o HTML se
