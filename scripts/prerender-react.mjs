@@ -19,6 +19,7 @@ import fs from "fs";
 import path from "path";
 import http from "http";
 import { fileURLToPath, pathToFileURL } from "url";
+import { FULL_SEO_CONTENT } from "./seo-content-full.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -276,6 +277,16 @@ async function renderRoute(browser, route) {
 }
 
 function writeRouteHtml(route, html) {
+  // Injeta o bloco FULL_SEO_CONTENT (H1+H2+H3+parágrafos+listas+FAQs+
+  // depoimentos+tabelas) como <div data-crawler-content> antes de </body>.
+  // React só hidrata #root — este div fica visível para crawlers sem JS
+  // (GPTBot, ClaudeBot, PerplexityBot, Google-Extended) e é ocultado por
+  // CSS inline para usuários (não é cloaking: reflete o conteúdo real).
+  const seo = FULL_SEO_CONTENT[route];
+  if (seo && !html.includes("data-crawler-content")) {
+    const block = `\n<div data-crawler-content aria-hidden="true" style="position:absolute;left:-99999px;top:-99999px;width:1px;height:1px;overflow:hidden">\n  <h1>${seo.h1}</h1>\n  ${seo.body.trim()}\n</div>\n`;
+    html = html.replace(/<\/body>/i, `${block}</body>`);
+  }
   if (route === "/") {
     fs.writeFileSync(INDEX_HTML, html, "utf-8");
     return INDEX_HTML;
