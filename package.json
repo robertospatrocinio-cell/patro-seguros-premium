@@ -18,7 +18,7 @@
     "validate:jsonld": "node scripts/validate-jsonld-build.mjs",
     "validate:rich-snippets": "node scripts/validate-rich-snippets.mjs",
     "validate:critical-schemas": "node scripts/validate-critical-schemas.mjs",
-    "postbuild": "node scripts/ensure-prerender.mjs && node scripts/build-sitemap-index.mjs --dir dist && node scripts/validate-rich-snippets.mjs && node scripts/validate-critical-schemas.mjs && node scripts/validate-canonical-strict.mjs",
+    "postbuild": "node scripts/ensure-prerender.mjs && node scripts/build-sitemap-index.mjs --dir dist && node scripts/validate-rich-snippets.mjs && node scripts/validate-critical-schemas.mjs && node scripts/validate-canonical-strict.mjs && node scripts/validate-word-count.mjs",
     "validate:word-count": "node scripts/validate-word-count.mjs",
     "validate:canonical": "node scripts/validate-canonical-headings-build.mjs",
     "validate:canonical-strict": "node scripts/validate-canonical-strict.mjs",
