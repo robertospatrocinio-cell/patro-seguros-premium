@@ -97,6 +97,10 @@ Allow: /
 User-agent: Diffbot
 Allow: /
 
+# Common Crawl (dataset de treino de vários LLMs)
+User-agent: CCBot
+Allow: /
+
 # Sitemaps (organizados por tipo)
 
 # Sitemaps (organizados por tipo)
