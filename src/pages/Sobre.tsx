@@ -23,7 +23,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 const SOBRE_FAQS = [
   {
     question: "Quem é a Patro Seguros?",
-    answer: "A Patro Seguros é uma corretora de seguros com sede em Guarulhos/SP, registrada na SUSEP sob o número 212113511 e CNPJ 41.641.558/0001-33. Atende pessoas físicas e empresas em todo o Brasil desde 2010, com equipe própria e parceria ativa com mais de 16 seguradoras.",
+    answer: "A Patro Seguros é uma corretora de seguros com sede em Guarulhos/SP, registrada na SUSEP sob o número 212113511 e CNPJ 41.641.558/0001-33. Atende pessoas físicas e empresas em todo o Brasil desde 2021 (sócios com mais de 20 anos de mercado), com equipe própria e parceria ativa com mais de 16 seguradoras.",
   },
   {
     question: "Onde fica a sede da Patro Seguros?",
@@ -64,7 +64,7 @@ const Sobre = () => {
     <Fragment>
       <PageMeta
         title="Sobre a Patro Seguros — Corretora SUSEP em Guarulhos"
-        description="Corretora registrada na SUSEP nº 212113511, fundada em 2010 em Cidade Maia (Guarulhos/SP). 2.500+ clientes, 16+ seguradoras parceiras e sócios com 30+ anos de mercado. Conheça Roberto e Sandra Patrocínio, credenciais verificáveis e nossa forma de atender."
+        description="Corretora registrada na SUSEP nº 212113511, fundada em 2021 em Cidade Maia (Guarulhos/SP). 2.500+ clientes, 16+ seguradoras parceiras e sócios com 30+ anos de mercado. Conheça Roberto e Sandra Patrocínio, credenciais verificáveis e nossa forma de atender."
       
       skipBreadcrumb
     />

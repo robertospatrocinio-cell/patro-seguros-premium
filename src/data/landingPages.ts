@@ -23,7 +23,7 @@ export const landingPagesData: Record<string, LandingPageContent> = {
     insuranceType: "auto",
     icon: "🚗",
     location: "Guarulhos",
-    detailedDescription: "Guarulhos possui um dos trânsitos mais intensos do Brasil, com as rodovias Dutra e Fernão Dias. Isso afeta o custo do seguro. Nossa consultoria analisa perfil e CEP de pernoite para encontrar o melhor preço em Guarulhos, seja no Centro, Vila Augusta ou Pimentas.\n\nA Patro Seguros atua em Guarulhos desde 2008. Fazemos o comparativo completo entre Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul. Você recebe a tabela comparativa em 2h, sem compromisso.",
+    detailedDescription: "Guarulhos possui um dos trânsitos mais intensos do Brasil, com as rodovias Dutra e Fernão Dias. Isso afeta o custo do seguro. Nossa consultoria analisa perfil e CEP de pernoite para encontrar o melhor preço em Guarulhos, seja no Centro, Vila Augusta ou Pimentas.\n\nA Patro Seguros atua em Guarulhos com equipe de sócios que soma mais de 20 anos de mercado (fundada em 2021). Fazemos o comparativo completo entre Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul. Você recebe a tabela comparativa em 2h, sem compromisso.",
     whoNeeds: ["Proprietários de veículos em Guarulhos", "Motoristas de aplicativo", "Frotas locais"],
     whyPatro: ["Atendimento local no Cidade Maia", "Especialistas em Guarulhos", "Suporte em sinistro"],
   },

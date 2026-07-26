@@ -104,7 +104,7 @@ const SeguroGalpao = () => {
         "Consultoria para validação de cláusulas de seguro em contratos de locação",
         "Especialização em hubs como Guarulhos/Cumbica + atendimento nacional via 9 seguradoras",
         "Análise de risco técnica e vistoria gratuita para galpões de grande porte",
-        "Mais de 140 apólices ativas — especialistas no segmento logístico desde 2008",
+        "Mais de 140 apólices ativas — especialistas no segmento logístico, com sócios com 20+ anos de experiência",
         "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
         "Dimensionamento de LMI com cláusula de pico sazonal (Black Friday e fim de ano)",
         "Implementação de apólices All-risks para operações de alta complexidade",
