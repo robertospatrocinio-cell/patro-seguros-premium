@@ -1591,7 +1591,7 @@ const seguroGalpaoCumbica: SeoLocalPageConfig = {
   ],
   whyPatro: [
     "Mais de 60 apólices de galpão ativas em Cumbica e entorno do GRU Airport",
-    "Especialistas no polo logístico aeroportuário desde 2008",
+    "Especialistas no polo logístico aeroportuário, com sócios com 20+ anos de experiência no segmento",
     "Vistoria técnica gratuita em até 48h úteis (escritório a 12 min de Cumbica)",
     "Comparativo entre 9 seguradoras especializadas em risco logístico/aeroportuário",
     "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
