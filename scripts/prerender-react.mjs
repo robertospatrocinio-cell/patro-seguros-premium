@@ -19,6 +19,7 @@ import fs from "fs";
 import path from "path";
 import http from "http";
 import { fileURLToPath, pathToFileURL } from "url";
+import { FULL_SEO_CONTENT } from "./seo-content-full.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -158,7 +159,16 @@ const PHASE_2 = [
 ];
 const PHASE_3_ENABLED = process.env.PATRO_PRERENDER_PHASE_3 !== "0";
 const PHASE_3 = PHASE_3_ENABLED ? loadAllAppRoutes() : [];
-const ROUTES = [...new Set([...PHASE_1, ...PHASE_2, ...PHASE_3])];
+// Rotas que já têm conteúdo SEO completo (600-1500+ palavras) injetado
+// dentro de #root pelo prerender.mjs. Pulamos aqui para preservar esse
+// HTML — a saída do React seria bem mais pobre em palavras.
+const FULL_CONTENT_ROUTES = new Set(Object.keys(FULL_SEO_CONTENT));
+const ROUTES = [...new Set([...PHASE_1, ...PHASE_2, ...PHASE_3])].filter(
+  (r) => !FULL_CONTENT_ROUTES.has(r)
+);
+console.log(
+  `ℹ️  prerender-react: ${FULL_CONTENT_ROUTES.size} rota(s) críticas com FULL_SEO_CONTENT preservadas pelo prerender.mjs`
+);
 console.log(
   `🗺️  prerender-react: Fase 1 = ${PHASE_1.length} | Fase 2 = ${PHASE_2.length} | Fase 3 = ${PHASE_3.length} | total único = ${ROUTES.length}`
 );

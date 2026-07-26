@@ -416,12 +416,10 @@
     <div id="initial-loader" aria-hidden="true">
       <div class="loader-spinner"></div>
       <div class="loader-text"></div>
-      <button id="retry-load" class="retry-button" onclick="location.reload()">Recarregar página</button>
     </div>
     <script>
       (function() {
         var loader = document.getElementById('initial-loader');
-        var retry = document.getElementById('retry-load');
         var startTime = Date.now();
         var timeout = 12000;
         var checkInterval = setInterval(function() {
@@ -430,9 +428,16 @@
             document.body.classList.add('loaded');
             clearInterval(checkInterval);
           } else if (Date.now() - startTime > timeout) {
-            if (retry) retry.style.display = 'block';
             var text = document.querySelector('.loader-text');
-            if (text) text.textContent = 'O carregamento está demorando mais que o esperado.';
+            if (text) text.textContent = '';
+            // Cria botão de recarregar dinamicamente (fora do HTML servido
+            // aos crawlers, para não contaminar o conteúdo indexado).
+            var btn = document.createElement('button');
+            btn.className = 'retry-button';
+            btn.style.display = 'block';
+            btn.textContent = 'Recarregar';
+            btn.onclick = function () { location.reload(); };
+            if (loader) loader.appendChild(btn);
             clearInterval(checkInterval);
           }
         }, 100);

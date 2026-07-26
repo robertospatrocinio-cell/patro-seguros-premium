@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { loadDataModule } from "./load-data-module.mjs";
+import { FULL_SEO_CONTENT } from "./seo-content-full.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -196,6 +197,13 @@ for (const i of PARTNER_INSURERS_PRERENDER) {
       <p><em>As marcas citadas pertencem aos seus respectivos titulares. A disponibilidade de cotação, aceitação, coberturas e condições depende da análise de cada seguradora. A Patro Seguros atua como corretora, orientando o cliente na comparação de opções de seguro.</em></p>
     `,
   };
+}
+
+// Sobrescreve as entradas curtas com o conteúdo COMPLETO (600-1500 palavras)
+// para as 13 rotas prioritárias — objetivo: GEO/AEO em bots que não executam
+// JavaScript (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, PageAudit).
+for (const [route, content] of Object.entries(FULL_SEO_CONTENT)) {
+  SEO_CONTENT[route] = content;
 }
 
 /**
