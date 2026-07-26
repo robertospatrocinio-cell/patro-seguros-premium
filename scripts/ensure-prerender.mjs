@@ -8,6 +8,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { FULL_SEO_CONTENT } from "./seo-content-full.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -24,6 +25,11 @@ const REQUIRED_ROUTES = [
 ];
 
 const REQUIRED_HOME_TYPES = ["Organization", "WebSite", "SiteNavigationElement"];
+
+// Rotas cujo HTML precisa ter o bloco SEO COMPLETO (não o fallback) injetado
+// por scripts/prerender.mjs — são as mesmas rotas validadas por
+// scripts/validate-word-count.mjs (mínimo 600 palavras).
+const FULL_CONTENT_ROUTES = Object.keys(FULL_SEO_CONTENT);
 
 function routeToFile(route) {
   return route === "/"
@@ -68,6 +74,21 @@ function missingArtifacts() {
   const homeTypes = getJsonLdTypes(routeToFile("/"));
   for (const type of REQUIRED_HOME_TYPES) {
     if (!homeTypes.has(type)) missing.push(`/: schema ${type} ausente`);
+  }
+
+  // Detecta rotas críticas em fallback (SEO_CONTENT não aplicado): força
+  // re-run do prerender.mjs para injetar o conteúdo completo antes dos
+  // validadores de word-count/schemas rodarem.
+  for (const route of FULL_CONTENT_ROUTES) {
+    const file = routeToFile(route);
+    if (!fs.existsSync(file)) {
+      missing.push(`${route}: HTML ausente`);
+      continue;
+    }
+    const html = fs.readFileSync(file, "utf-8");
+    if (!html.includes("data-prerender-seo") || html.includes('data-fallback="1"')) {
+      missing.push(`${route}: bloco SEO completo ausente (fallback ou vazio)`);
+    }
   }
 
   return missing;
