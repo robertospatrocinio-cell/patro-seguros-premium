@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Cloc
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
+import NapBlock from "@/components/NapBlock";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { memo } from "react";
 import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS } from "@/config/empresa";
@@ -172,6 +173,11 @@ const Footer = memo(() => {
           >
             <MapPin className="h-3 w-3" /> {EMPRESA.endereco.complemento} – {EMPRESA.endereco.logradouro}, {EMPRESA.endereco.numero} – Sala 219 – {EMPRESA.endereco.cidade}/{EMPRESA.endereco.estadoSigla}
           </a>
+        </div>
+
+        {/* Bloco NAP canônico — obrigatório em 100% das páginas para SEO local + GEO */}
+        <div className="mt-8 pt-6 border-t border-white/5">
+          <NapBlock />
         </div>
       </div>
     </footer>
