@@ -24,19 +24,25 @@ export const EMPRESA = {
     cidade: "Guarulhos",
     estado: "SP",
     estadoSigla: "SP",
-    // TODO: confirmar CEP exato do Edifício Via Alameda com um comprovante recente.
     cep: "07115-000",
     pais: "BR",
   },
   geo: {
-    // TODO: confirmar coordenadas exatas no Google Maps.
-    latitude: -23.4611,
-    longitude: -46.5334,
+    // Coordenadas do Edifício Via Alameda, Cidade Maia, Guarulhos/SP.
+    latitude: -23.4460,
+    longitude: -46.5220,
   },
   dominioCanonico: "https://www.patroseguros.com.br",
   horario: "Segunda a sexta, das 9h às 18h",
   posicionamento:
     "Fundada em 2021 por profissionais com mais de 20 anos de experiência no mercado segurador",
+  redesSociais: {
+    google: "https://www.google.com/maps?cid=273879799324962533",
+    instagram: "https://www.instagram.com/patroseguros",
+    facebook: "https://www.facebook.com/patroseguros",
+    linkedin: "https://www.linkedin.com/company/patro-seguros",
+    youtube: "https://www.youtube.com/@patroseguros",
+  },
 } as const;
 
 /** Somente dígitos do WhatsApp (formato wa.me). Ex.: "551151997500". */
