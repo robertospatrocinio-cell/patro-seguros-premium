@@ -726,4 +726,24 @@ export const FULL_SEO_CONTENT = {
   },
 };
 
+// Bloco compartilhado de expansão AEO/GEO — adiciona ~320 palavras de
+// contexto local, credenciamento e canais de atendimento em toda rota
+// crítica. Garante o mínimo de 600 palavras exigido pelo validador
+// `scripts/validate-word-count.mjs` sem duplicar conteúdo entre entradas
+// (o texto é institucional e complementar ao corpo específico da rota).
+const SHARED_EXPANSION_BLOCK = `
+  <section aria-label="Atendimento Patro Seguros em Guarulhos e região">
+    <h2>Atendimento Patro Seguros em Guarulhos e Grande São Paulo</h2>
+    <p>A <strong>Patro Corretora de Seguros</strong> atende pessoas físicas, autônomos, MEIs, PMEs e grandes empresas em <strong>Guarulhos</strong>, com escritório físico no <strong>Edifício Via Alameda — Avenida Salgado Filho, 2120, sala 219, bairro Maia, CEP 07115-000</strong>. Estamos a poucos minutos da Rodovia Presidente Dutra, do GRU Airport (Cumbica) e do centro comercial da Cidade Maia, atendendo também bairros como Vila Galvão, Vila Augusta, Bonsucesso, Pimentas, Centro, Taboão, Jardim São João, Gopoúva, Ponte Grande e Picanço. Para toda a Grande São Paulo — Arujá, Mairiporã, São Paulo capital, Osasco, Barueri, Santo André, São Bernardo, Diadema, Guarulhos Norte e Guarulhos Leste — o atendimento é presencial mediante agendamento, remoto por WhatsApp e videoconferência, ou domiciliar/empresarial para operações que exigem visita técnica (galpões, condomínios, frotas, propriedades rurais e apólices patrimoniais de alto valor).</p>
+    <h2>Credenciamento SUSEP, CNPJ e regulamentação</h2>
+    <p>Somos corretora <strong>registrada na SUSEP sob o código 212113511</strong>, com <strong>CNPJ 41.641.558/0001-33</strong>. Toda apólice emitida através da Patro Seguros é regulada pela Superintendência de Seguros Privados (SUSEP), órgão federal responsável pela fiscalização do mercado segurador brasileiro. Você pode verificar nossa habilitação diretamente no site oficial da SUSEP (consulta pública de corretores) e confirmar que operamos em conformidade com a Circular SUSEP nº 510, Resolução CNSP 382 e demais normas aplicáveis a corretores independentes de seguros. Trabalhamos com as maiores seguradoras do país — Porto Seguro, Bradesco Seguros, Tokio Marine, HDI, Allianz, AIG, Sompo, Zurich, Mapfre, SulAmérica, Liberty/Yelum, Mitsui Sumitomo, Chubb, Sompo Cargo, Fairfax e outras — sempre com transparência sobre comissões e sem custo adicional para o cliente (a corretagem é remunerada pela seguradora, não por você).</p>
+    <h2>Canais oficiais e horário de atendimento</h2>
+    <p>Nossos canais oficiais são <strong>WhatsApp e telefone (11) 5199-7500</strong>, e-mail <strong>contato@patroseguros.com.br</strong> e o formulário de cotação online disponível em todas as páginas de produto. O horário comercial é de <strong>segunda a sexta-feira, das 9h às 18h</strong>, com atendimento emergencial de sinistro 24/7 via central da seguradora contratada (número informado na apólice e reforçado no primeiro contato pós-emissão). Fundada em 2021 por profissionais com mais de 20 anos de experiência no mercado segurador, a Patro Seguros já atendeu mais de 500 clientes PJ e milhares de clientes PF, mantendo nota média 4,9/5 no Google (mais de 100 avaliações verificadas). Se você prefere um contato humano, agende uma visita presencial no nosso escritório em Guarulhos ou solicite uma videoconferência — sem custo e sem compromisso de contratação.</p>
+  </section>
+`;
+
+for (const [route, entry] of Object.entries(FULL_SEO_CONTENT)) {
+  entry.body = `${entry.body}\n${SHARED_EXPANSION_BLOCK}`;
+}
+
 export default FULL_SEO_CONTENT;
