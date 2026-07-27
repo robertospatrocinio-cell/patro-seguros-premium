@@ -51,6 +51,13 @@ jobs:
       - name: Validar unicidade de H2 (heading uniqueness) em dist/
         run: bun run validate:headings
 
+      - name: Validar hierarquia de headings (H1 único, sem saltos H2→H4) em dist/
+        # Contrato do CI: hierarquia de headings correta em toda rota de dist/.
+        # Falha o build em qualquer H1 duplicado/ausente ou salto de nível
+        # (ex.: H2 seguido diretamente por H4), o que quebra navegação por
+        # landmarks em leitores de tela e prejudica compreensão semântica no Google.
+        run: bun run validate:heading-hierarchy
+
       - name: Validar rich results (FAQPage + HowTo + BreadcrumbList) em dist/
         run: bun run validate:rich-snippets
 
