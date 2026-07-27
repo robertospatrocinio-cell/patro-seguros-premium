@@ -601,6 +601,88 @@ export default function InternalLinkCorrelation() {
               </Card>
             )}
 
+            {priorities && Object.keys(priorities).length > 0 && (() => {
+              const rows = Object.values(priorities)
+                .map((r) => ({
+                  ...r,
+                  weight:
+                    (Number(r.score) || 0) *
+                    (1 + Math.max(0, Math.min(1, Number(r.conversion_rate) || 0)) * 10),
+                }))
+                .sort((a, b) => b.weight - a.weight)
+                .slice(0, 25);
+              const latest = rows.reduce(
+                (acc, r) => (new Date(r.updated_at) > new Date(acc) ? r.updated_at : acc),
+                rows[0].updated_at,
+              );
+              return (
+                <Card className="mb-6 border-primary/40 bg-primary/[0.02]">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <Zap className="h-4 w-4 text-primary" />
+                      Prioridades ativas em "Próximas leituras" ({Object.keys(priorities).length})
+                    </CardTitle>
+                    <p className="text-xs text-muted-foreground">
+                      Snapshot publicado em <code>anchor_priorities</code> — o front usa
+                      essa tabela para <strong>reordenar automaticamente</strong> os itens
+                      do bloco "Próximas leituras" nas long-tails. Peso final ={" "}
+                      <code>score × (1 + taxa × 10)</code>: potencial SEO amplificado pela
+                      conversão real medida. Atualizado em{" "}
+                      {new Date(latest).toLocaleString("pt-BR")}.
+                    </p>
+                  </CardHeader>
+                  <CardContent className="overflow-x-auto">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead className="w-12 text-right">#</TableHead>
+                          <TableHead className="min-w-[180px]">Âncora</TableHead>
+                          <TableHead className="text-right">Peso final</TableHead>
+                          <TableHead className="text-right">Score SEO</TableHead>
+                          <TableHead className="text-right">Taxa conv.</TableHead>
+                          <TableHead className="text-right">Sessões</TableHead>
+                          <TableHead className="text-right">Conv.</TableHead>
+                          <TableHead className="text-right">Impr.</TableHead>
+                          <TableHead className="text-right">Pos.</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {rows.map((r, i) => (
+                          <TableRow
+                            key={r.anchor}
+                            className="cursor-pointer"
+                            onClick={() => { setAnchor(r.anchor); load(); }}
+                          >
+                            <TableCell className="text-right tabular-nums text-muted-foreground">
+                              {i + 1}
+                            </TableCell>
+                            <TableCell><code className="text-xs">#{r.anchor}</code></TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              <Badge variant="default">{fmtInt(r.weight)}</Badge>
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(r.score)}</TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              {fmtPct(r.conversion_rate, 1)}
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(r.sessions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              {fmtInt(r.converting_sessions)}
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(r.impressions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtPos(r.position)}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                    <p className="text-[11px] text-muted-foreground mt-2">
+                      Clique em "Recalcular prioridades" para gerar um novo snapshot com
+                      a janela atual ({days} dias).
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })()}
+
             {data.anchorConversions && data.anchorConversions.length > 0 && (
               <Card className="mb-6 border-primary/40">
                 <CardHeader className="pb-2">
