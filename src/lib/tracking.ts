@@ -493,6 +493,35 @@ export const buildInternalLinkSource = (
 };
 
 /**
+ * Rastreia clique num CTA de "próxima seção" (inline, lista de rodapé
+ * ou pill flutuante mobile). Emite um evento GA4 dedicado
+ * `next_section_cta_click` com a `variant` — permite comparar a
+ * eficácia de cada placement no GA4 Explore — E persiste no
+ * `internal_link_click_events` com placement canônico `next-section-*`
+ * para o painel Admin correlacionar com conversões (`session_id`).
+ */
+export const trackNextSectionCtaClick = (
+  variant: NextSectionCtaVariant,
+  meta: Omit<InternalLinkClickMeta, "placement">,
+) => {
+  const placement = NEXT_SECTION_CTA_PLACEMENT[variant];
+  ensureAnalytics();
+  window.gtag?.("event", "next_section_cta_click", {
+    event_category: "engagement",
+    event_label: meta.label,
+    variant,
+    placement,
+    source: meta.source,
+    destination: meta.destination,
+    anchor: meta.anchor,
+    page_path: typeof window !== "undefined" ? window.location.pathname : undefined,
+  });
+  // Reutiliza toda a atribuição/persistência de trackInternalLinkClick
+  // — evita duplicar código de UTM/session/beacon.
+  trackInternalLinkClick({ ...meta, placement });
+};
+
+/**
  * Persiste o clique em `internal_link_click_events` (via sendBeacon quando
  * disponível) para alimentar o painel Admin de correlação com o GSC.
  * Falhas são silenciosas — telemetria nunca deve quebrar a navegação.
