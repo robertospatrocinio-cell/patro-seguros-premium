@@ -291,6 +291,30 @@ export default function InternalLinkCorrelation() {
     );
   };
 
+  // ── Helpers de filtro cluster + tipo de conversão ─────────────────────
+  // Aplicados client-side em cima da resposta de `internal-link-correlation`
+  // (anchorPotential, anchorConversions) e no snapshot `anchor_priorities`.
+  const matchesCluster = (pathname: string | null | undefined) =>
+    clusterFilter === "all" || getAnchorCluster(pathname) === clusterFilter;
+
+  const convTypeMatches = (whats: number, cot: number) => {
+    if (convTypeFilter === "whatsapp") return whats > 0;
+    if (convTypeFilter === "cotacao") return cot > 0;
+    return true;
+  };
+
+  const convTypeCount = (whats: number, cot: number) => {
+    if (convTypeFilter === "whatsapp") return whats;
+    if (convTypeFilter === "cotacao") return cot;
+    return whats + cot;
+  };
+
+  const filtersActive = clusterFilter !== "all" || convTypeFilter !== "all";
+  const filterSummary = [
+    clusterFilter !== "all" ? anchorClusterLabel(clusterFilter) : null,
+    convTypeFilter === "whatsapp" ? "só WhatsApp" : convTypeFilter === "cotacao" ? "só Cotação" : null,
+  ].filter(Boolean).join(" · ");
+
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
