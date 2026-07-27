@@ -324,6 +324,25 @@ const ComoCompararSeguradorasGuarulhos = () => (
         </div>
       </section>
 
+      {/* Comparativos long-tail */}
+      <section className="container mx-auto px-4 py-10">
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">Comparativos por produto que mais convertem em Guarulhos</h2>
+        <p className="text-muted-foreground mb-6">Guias diretos com preço real, ranking e comparativo lado a lado — para escolher em minutos.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {LONGTAIL_SPOTLIGHT.map((item) => (
+            <Link
+              key={item.link}
+              to={item.link}
+              className="p-5 border rounded-xl hover:border-primary hover:bg-primary/5 transition-colors block"
+              onClick={() => trackInternalLinkClick(`comparar_seguradoras_longtail_${item.link}`)}
+            >
+              <div className="font-semibold text-primary mb-1">{item.title}</div>
+              <div className="text-sm text-muted-foreground">{item.description}</div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* CTA final */}
       <section className="container mx-auto px-4 py-10">
         <div className="rounded-2xl bg-primary text-primary-foreground p-8 md:p-12 text-center">
