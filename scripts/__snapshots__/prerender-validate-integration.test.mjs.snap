@@ -1,0 +1,94 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`snapshot: google-rich-results-report.json (drift por rota e por @type) > congela breakdown por rota e por @type do fixture mínimo 1`] = `
+{
+  "byType": {
+    "BreadcrumbList": {
+      "eligible": 3,
+      "eligibleWarn": 0,
+      "ineligible": 0,
+      "total": 3,
+      "unsupported": 0,
+    },
+    "FAQPage": {
+      "eligible": 1,
+      "eligibleWarn": 0,
+      "ineligible": 0,
+      "total": 1,
+      "unsupported": 0,
+    },
+    "Organization": {
+      "eligible": 3,
+      "eligibleWarn": 0,
+      "ineligible": 0,
+      "total": 3,
+      "unsupported": 0,
+    },
+  },
+  "routes": {
+    "/": {
+      "nodes": [
+        {
+          "recommended": [],
+          "required": [],
+          "type": "Organization",
+          "verdict": "eligible",
+        },
+        {
+          "recommended": [],
+          "required": [],
+          "type": "BreadcrumbList",
+          "verdict": "eligible",
+        },
+      ],
+    },
+    "/faq": {
+      "nodes": [
+        {
+          "recommended": [],
+          "required": [],
+          "type": "Organization",
+          "verdict": "eligible",
+        },
+        {
+          "recommended": [],
+          "required": [],
+          "type": "BreadcrumbList",
+          "verdict": "eligible",
+        },
+        {
+          "recommended": [],
+          "required": [],
+          "type": "FAQPage",
+          "verdict": "eligible",
+        },
+      ],
+    },
+    "/seguro-auto": {
+      "nodes": [
+        {
+          "recommended": [],
+          "required": [],
+          "type": "Organization",
+          "verdict": "eligible",
+        },
+        {
+          "recommended": [],
+          "required": [],
+          "type": "BreadcrumbList",
+          "verdict": "eligible",
+        },
+      ],
+    },
+  },
+  "summary": {
+    "blocks": 7,
+    "eligible": 7,
+    "eligibleWarn": 0,
+    "files": 3,
+    "ineligible": 0,
+    "nodes": 7,
+    "unsupported": 0,
+  },
+}
+`;
