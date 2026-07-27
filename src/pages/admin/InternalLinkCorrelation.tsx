@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink, Sparkles, Copy, Check, CheckCircle2 } from "lucide-react";
+import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink, Sparkles, Copy, Check, CheckCircle2, X, XCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -109,30 +109,33 @@ export default function InternalLinkCorrelation() {
   const [data, setData] = useState<Resp | null>(null);
   const [loading, setLoading] = useState(false);
   const [applying, setApplying] = useState<string | null>(null);
-  const [applied, setApplied] = useState<Record<string, { id: string; applied_at: string }>>({});
+  type FeedbackEntry = { id: string; status: string; applied_at: string };
+  const [applied, setApplied] = useState<Record<string, FeedbackEntry>>({});
 
   const applyKey = (destination: string, placement: string, sources: string[]) =>
     `${destination}|${placement}|${sources.slice().sort().join(",")}`;
 
-  const loadApplied = async (periodDays: number) => {
-    const since = new Date(Date.now() - periodDays * 86400_000).toISOString();
+  const loadApplied = async () => {
     const { data: rows, error } = await supabase
       .from("internal_link_applications")
-      .select("id, destination, placement, sources, applied_at")
-      .gte("applied_at", since)
-      .order("applied_at", { ascending: false });
+      .select("id, destination, placement, sources, status, applied_at")
+      .order("applied_at", { ascending: false })
+      .limit(2000);
     if (error) return;
-    const map: Record<string, { id: string; applied_at: string }> = {};
+    const map: Record<string, FeedbackEntry> = {};
     for (const r of rows ?? []) {
-      map[applyKey(r.destination, r.placement, r.sources ?? [])] = {
-        id: r.id,
-        applied_at: r.applied_at,
-      };
+      const key = applyKey(r.destination, r.placement, r.sources ?? []);
+      if (!map[key]) {
+        map[key] = { id: r.id, status: r.status ?? "planned", applied_at: r.applied_at };
+      }
     }
     setApplied(map);
   };
 
-  const applyRecommendation = async (rec: Recommendation) => {
+  const setFeedback = async (
+    rec: Recommendation,
+    status: "accepted" | "rejected",
+  ) => {
     const sources = rec.suggestedSources.map((s) => s.pathname);
     const key = applyKey(rec.destination, rec.suggestedPlacement, sources);
     setApplying(key);
@@ -147,25 +150,24 @@ export default function InternalLinkCorrelation() {
             score: rec.score,
             reason: rec.reason,
             periodDays: days,
+            status,
           },
         },
       );
       if (error) throw error;
-      const app = (res as { application?: { id: string; applied_at: string } })?.application;
+      const app = (res as { application?: FeedbackEntry })?.application;
       if (app) {
-        setApplied((prev) => ({ ...prev, [key]: { id: app.id, applied_at: app.applied_at } }));
+        setApplied((prev) => ({
+          ...prev,
+          [key]: { id: app.id, status: app.status ?? status, applied_at: app.applied_at },
+        }));
       }
-      toast.success("Recomendação aplicada", {
-        description: `${rec.destination} · ${rec.suggestedPlacement}`,
-      });
+      toast.success(
+        status === "accepted" ? "Recomendação aceita" : "Recomendação rejeitada",
+        { description: `${rec.destination} · ${rec.suggestedPlacement}` },
+      );
     } catch (e) {
-      const msg = (e as Error).message || "erro desconhecido";
-      if (/already applied|409/.test(msg)) {
-        toast.info("Já aplicada anteriormente");
-        await loadApplied(days);
-      } else {
-        toast.error("Falha ao aplicar recomendação", { description: msg });
-      }
+      toast.error("Falha ao salvar feedback", { description: (e as Error).message });
     } finally {
       setApplying(null);
     }
@@ -185,7 +187,7 @@ export default function InternalLinkCorrelation() {
       });
       if (error) throw error;
       setData(res as Resp);
-      await loadApplied(days);
+      await loadApplied();
     } catch (e) {
       toast.error("Falha ao carregar correlação de links internos", {
         description: (e as Error).message,
@@ -374,7 +376,6 @@ export default function InternalLinkCorrelation() {
                   {data.recommendations.slice(0, 12).map((rec) => {
                     const sourcesList = rec.suggestedSources.map((s) => s.pathname);
                     const key = applyKey(rec.destination, rec.suggestedPlacement, sourcesList);
-                    const isApplied = Boolean(applied[key]);
                     const isApplying = applying === key;
                     return (
                     <div
@@ -404,35 +405,51 @@ export default function InternalLinkCorrelation() {
                           <Badge variant="outline" className="tabular-nums text-[10px]">
                             pos {rec.gsc ? rec.gsc.position.toFixed(1) : "—"}
                           </Badge>
-                          <Button
-                            size="sm"
-                            variant={isApplied ? "outline" : "default"}
-                            disabled={isApplied || isApplying}
-                            onClick={() => applyRecommendation(rec)}
-                            className="h-7 px-2 text-xs gap-1"
-                            title={
-                              isApplied
-                                ? `Aplicada em ${new Date(applied[key].applied_at).toLocaleString("pt-BR")}`
-                                : "Registra esta recomendação em internal_link_applications"
-                            }
-                          >
-                            {isApplied ? (
-                              <>
-                                <CheckCircle2 className="h-3 w-3" />
-                                Aplicada
-                              </>
-                            ) : isApplying ? (
-                              <>
-                                <RefreshCw className="h-3 w-3 animate-spin" />
-                                Aplicando…
-                              </>
-                            ) : (
-                              <>
-                                <Check className="h-3 w-3" />
-                                Aplicar
-                              </>
-                            )}
-                          </Button>
+                          {(() => {
+                            const fb = applied[key];
+                            const status = fb?.status;
+                            const isAccepted = status === "accepted" || status === "applied";
+                            const isRejected = status === "rejected";
+                            const stamp = fb
+                              ? `Salvo em ${new Date(fb.applied_at).toLocaleString("pt-BR")}`
+                              : "";
+                            return (
+                              <div className="flex items-center gap-1">
+                                <Button
+                                  size="sm"
+                                  variant={isAccepted ? "default" : "outline"}
+                                  disabled={isApplying}
+                                  onClick={() => setFeedback(rec, "accepted")}
+                                  className="h-7 px-2 text-xs gap-1"
+                                  title={isAccepted ? `Aceita · ${stamp}` : "Marcar como aceita"}
+                                >
+                                  {isApplying ? (
+                                    <RefreshCw className="h-3 w-3 animate-spin" />
+                                  ) : isAccepted ? (
+                                    <CheckCircle2 className="h-3 w-3" />
+                                  ) : (
+                                    <Check className="h-3 w-3" />
+                                  )}
+                                  Aceitar
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  variant={isRejected ? "destructive" : "outline"}
+                                  disabled={isApplying}
+                                  onClick={() => setFeedback(rec, "rejected")}
+                                  className="h-7 px-2 text-xs gap-1"
+                                  title={isRejected ? `Rejeitada · ${stamp}` : "Marcar como rejeitada"}
+                                >
+                                  {isRejected ? (
+                                    <XCircle className="h-3 w-3" />
+                                  ) : (
+                                    <X className="h-3 w-3" />
+                                  )}
+                                  Rejeitar
+                                </Button>
+                              </div>
+                            );
+                          })()}
                         </div>
                       </div>
 

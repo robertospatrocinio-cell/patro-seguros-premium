@@ -574,12 +574,30 @@ serve(async (req) => {
       return 0.15;
     };
 
+    // Feedback do admin: pula destinos já marcados como accepted/applied
+    // (a linkagem já foi feita) e como rejected (o admin descartou a ideia).
+    // O status mais recente por destino é o que vale.
+    const { data: feedbackRows } = await admin
+      .from("internal_link_applications")
+      .select("destination, status, applied_at")
+      .in("status", ["accepted", "applied", "rejected"])
+      .order("applied_at", { ascending: false })
+      .limit(5000);
+    const feedbackByDestination = new Map<string, string>();
+    for (const row of feedbackRows ?? []) {
+      if (!feedbackByDestination.has(row.destination)) {
+        feedbackByDestination.set(row.destination, row.status);
+      }
+    }
+    const suppressedDestinations = new Set(feedbackByDestination.keys());
+
     const recommendations = rows
       .filter((r) =>
         r.gsc &&
         r.gsc.impressions >= 30 &&
         r.gsc.position >= 4 &&
-        r.gsc.position <= 60,
+        r.gsc.position <= 60 &&
+        !suppressedDestinations.has(r.pathname),
       )
       .map((r) => {
         const impr = r.gsc!.impressions;
