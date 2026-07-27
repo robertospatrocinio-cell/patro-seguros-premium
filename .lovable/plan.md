@@ -1,105 +1,95 @@
+## Objetivo
 
-# Plano de execução — SEO técnico + GEO + YMYL
-
-Esta demanda é grande demais para um único turno. Proponho executá-la em **8 fases sequenciais**, cada uma entregue em um turno separado, com validação no final de cada uma. Cada fase abaixo já está detalhada o suficiente para eu implementar sem novas dúvidas, mas quero seu OK antes de começar — e principalmente decidir os **pontos bloqueantes** listados no fim.
+Transformar `/plano-de-saude-guarulhos` no hub canônico da vertical Saúde, resolver canibalização com `/seguro-saude`, `/planos-de-saude` e `/plano-de-saude/`, e cobrir 12 operadoras + 7 intenções por tipo de plano — mantendo header/footer/identidade atuais.
 
 ---
 
-## Fase 1 — Redirect 301 apex→www + canonical + HTTPS
-- Criar `public/.htaccess` (o projeto está hospedado no HostGator — memória confirma) com:
-  - `RewriteCond %{HTTPS} off` → 301 para https
-  - `RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br` → 301 para `www.patroseguros.com.br`
-- Auditar `src/lib/canonical.ts` (já usa www e sem trailing slash — OK, só confirmar) e varrer o projeto por URLs absolutas hardcoded `https://patroseguros.com.br` (sem www) para trocar por `CANONICAL_BASE_URL` ou caminhos relativos.
-- Rodar `rg` para garantir que todo `<Link>`/`<a>` interno use path relativo.
+## Fase 1 — Arquitetura e canonicalização (sem mudar UI global)
 
-## Fase 2 — Componente `NapBlock` + inserção global no Footer
-- Criar `src/components/NapBlock.tsx` com `<address itemscope itemtype="https://schema.org/InsuranceAgency">`, texto exato pedido, `tel:`, `mailto:` e link "Ver no mapa".
-- Inserir dentro de `src/components/Footer.tsx` (já é global). Garantir que apareça também no HTML pré-renderizado (Footer já entra no bundle prerender).
-- Todos os dados vêm de `src/config/empresa.ts` (Bloco 0 já existe).
+**Hub canônico:** `/plano-de-saude-guarulhos` (novo)
 
-## Fase 3 — `JsonLd.tsx` consolidado
-- Criar `src/components/JsonLd.tsx` como wrapper único.
-- **4.1 InsuranceAgency global**: hoje já existe `OrganizationSchema` + `LocalBusinessSchema`. Vou consolidar em um único nó `InsuranceAgency` com `@id=".../#organizacao"` no `App.tsx` (uma vez só, sitewide) e remover duplicidades. `sameAs` vai puxar Instagram/Facebook/LinkedIn de `empresa.ts` (adicionar campo `redesSociais`).
-- **4.2 Service**: já existe `ServiceSchema` referenciando `#organizacao` — validar `@id` e `description` em todas as rotas de produto.
-- **4.3 FAQPage**: `FAQSchema` já existe. Auditar que o texto do schema bate 1:1 com o visível.
-- **4.4 BreadcrumbList**: `BreadcrumbSchema` já é auto-emitido via `PageMeta`. Adicionar breadcrumb **visual** no topo das páginas de produto que ainda não têm.
-- **4.5 Review/AggregateRating**: só se depoimentos forem reais. **Pergunta bloqueante abaixo.**
+**Redirects 301** (via `src/lib/legacyBairroRedirects.ts` + `.htaccess`):
+- `/planos-de-saude` → `/plano-de-saude-guarulhos`
+- `/plano-de-saude` e `/plano-de-saude/` → `/plano-de-saude-guarulhos`
+- `/seguro-saude`: **mantida** com nova intenção "Seguro Saúde vs Plano de Saúde" (canonical próprio) — evita perder autoridade da URL antiga
 
-## Fase 4 — Reestruturação de conteúdo das páginas de produto (formato pergunta+resposta direta)
-Escopo: **13 páginas de produto** (`/seguro-auto-guarulhos`, `-moto-`, `-residencial-`, `-vida-saude-`, `-empresarial-`, `-pme-`, `-frota-empresas-`, `-condominio-`, `/plano-saude-guarulhos`, `/consorcio-guarulhos`, etc.).
-- Reescrever cada página seguindo o padrão:
-  - 1 H1 com termo exato + Guarulhos
-  - 6–8 H2 no formato pergunta real
-  - Primeira frase = resposta autocontida e citável
-  - Seção FAQ com 6–10 perguntas + `FAQSchema`
-  - Mínimo 1.200 palavras
-  - Ancoragem local obrigatória (bairros, referências, vias, cidades vizinhas) — de forma natural
-- Atualizar `scripts/seo-content-full.mjs` (já criado) para refletir esse novo texto em cada rota, para que o prerender sirva 1.200+ palavras aos crawlers sem JS.
-- Resolver o bug pendente do turno anterior: `prerender-react.mjs` sobrescrevendo o output rico de `prerender.mjs` nas 14 rotas críticas (adicionar exclusão dessas rotas ou merge do texto injetado).
+**Atualização de links internos:** varrer o projeto (`rg "planos-de-saude|seguro-saude|plano-de-saude"`) e apontar navegação/menus/cards/blog para o hub novo.
 
-**Esta é a fase mais pesada — provavelmente vou dividir em Fase 4a (Pessoa Física, 5 páginas) e Fase 4b (Pessoa Jurídica, 5 páginas) + 4c (Consórcio/Saúde/Auto premium, 3 páginas).**
+---
 
-## Fase 5 — E-E-A-T / YMYL cleanup
-- `rg` global por: `"20 anos"`, `"15 anos"`, `"duas décadas"`, `"500 apólices"`, `"mais de 500"`.
-- Substituir por: *"A Patro Seguros foi fundada em 2021 por profissionais com mais de 20 anos de experiência no mercado segurador."* (frase única, cadastrada em `EMPRESA.posicionamento` — já existe).
-- Auditar `AutoridadePatro.tsx`, `PremiumTrustBlock.tsx`, blog posts, dados em `src/data/*Content.ts`.
-- Criar seção **"Autoridade e regulamentação"** na `/sobre`: razão social, CNPJ, SUSEP com link `https://www2.susep.gov.br/...`, biografia dos corretores responsáveis com foto, aviso CNSP 382/2020 + CDC.
-- Adicionar `<meta name="author">`, `article:published_time`, `article:modified_time` em todos os blog posts (via Helmet no template do blog).
+## Fase 2 — Hub principal (nova página)
 
-**Pergunta bloqueante:** quem é o corretor responsável a exibir na /sobre? Nome, foto (upload) e bio de 3–4 linhas.
+`src/pages/PlanoDeSaudeGuarulhos.tsx` usando `InsurancePageTemplate` + composição, com:
 
-## Fase 6 — `robots.txt` + `sitemap.xml`
-- Reescrever `public/robots.txt` **exatamente** como pedido (o atual é maior, tem Disallows específicos). **Pergunta bloqueante:** preservo os `Disallow: /admin/`, `/api/`, `/ebook-consorcio/`, `/performance-diagnostico`, etc. (que existem hoje) ou faço substituição literal pela versão minimalista pedida? Recomendo **preservar** os Disallows atuais + adicionar os 8 user-agents de IA.
-- Sitemap: hoje existe `sitemap-index.xml` + 4 sub-sitemaps gerados por `scripts/build-sitemap-index.mjs` e `refresh-sitemaps.mjs`. O pedido é um **`sitemap.xml` único**. Recomendo **manter o index** (é padrão Google e já funciona) — apontar `Sitemap:` do robots para `sitemap-index.xml`. Confirmar OK.
-- Garantir `<lastmod>` real (não data de build — memória `sitemap-lastmod-policy`) e `<priority>` coerente (1.0 home, 0.8 produtos, 0.5 institucionais).
-- Filtrar URLs 404/redirect/noindex antes de gerar.
+- Hero (H1, subtítulo, CTA duplo, WhatsApp rastreável)
+- Grid "Qual plano você procura?" → 7 páginas filhas
+- Grid "Operadoras parceiras" → 12 páginas de operadora
+- Seções: "Como a Patro ajuda", "Rede credenciada em Guarulhos" (linguagem segura), "Tipos de contratação", "O que comparar", FAQ (10 Q&As)
+- Schemas: WebPage + InsuranceAgency + Service + FAQPage + BreadcrumbList + 2× ItemList
 
-## Fase 7 — Performance (PSI 90+ mobile)
-- Auditoria com Lighthouse local em `/` e `/seguro-auto-guarulhos`.
-- Ações: `OptimizedImage` já converte para WebP e força `width`/`height` (memória confirma). Verificar cobertura em todas as imagens.
-- `loading="lazy"` abaixo da dobra + `fetchpriority="high"` no LCP de cada rota (já parcialmente feito via `PageMeta.preloadImage`).
-- Fontes: revisar `index.html` para `font-display: swap`, remover pesos não usados.
-- Code splitting por rota (Vite já faz via `React.lazy` nas rotas — auditar `App.tsx`).
-- Facebook Pixel (`2108358063295698`): mover para `defer` / lazy após interação. Cuidado: `<noscript>` deve ficar no início do `<body>` (memória).
-- Purgar CSS/JS não usado (Tailwind purge já ativo; auditar bundle com `rollup-plugin-visualizer`).
-- Adicionar `<link rel="preconnect">` para GTM, Meta, Google Fonts, Supabase.
+---
 
-## Fase 8 — Silo temático + navegação interna
-- Auditar `insuranceHubLinks.ts` já existente e reforçar bidirecionalidade.
-- Cada pilar (Auto para PF, Empresarial para PJ) linka para todos os satélites com âncoras variadas.
-- Cada satélite linka de volta ao pilar + para 1–2 irmãos temáticos.
-- `TrilhaSeoRelacionados.tsx` já existe — garantir presença em todas as páginas de produto com 3–4 links contextuais.
-- Rodapé de navegação: `Footer.tsx` já lista os principais produtos — expandir para cobrir 100% das rotas de produto.
-- Validar profundidade ≤3 cliques da home com `scripts/check-internal-links.mjs` (já existe).
+## Fase 3 — Páginas filhas por intenção (7 rotas)
 
-## Checklist final (Bloco 8)
-Após todas as fases, rodo:
-- `curl -s https://.../ | wc -w` em cada rota
-- `rg "Recarregar página"` no `dist/`
-- `rg "4210-5274"` no repo
-- Rich Results Test via API (ou aviso manual)
-- PSI mobile via API (ou aviso manual)
-- Todos os itens do checklist marcados
+Template compartilhado `src/components/saude/SaudeSubPageTemplate.tsx` para reduzir duplicação:
+
+| Rota | Foco |
+|---|---|
+| `/plano-de-saude-individual-guarulhos` | PF, autônomo |
+| `/plano-de-saude-familiar-guarulhos` | Família, gestante, dependentes |
+| `/plano-de-saude-empresarial-guarulhos` | Corporativo, RH |
+| `/plano-de-saude-mei-guarulhos` | CNPJ MEI, 2 vidas |
+| `/plano-de-saude-pme-guarulhos` | 2-99 vidas |
+| `/plano-de-saude-idosos-guarulhos` | Sênior, Prevent/MedSenior |
+| `/plano-odontologico-guarulhos` | Odonto PF/empresa |
+
+Cada uma: 700-1000 palavras originais, FAQ 6-8 itens, CTA WhatsApp customizado, breadcrumbs, "Veja também", schemas Service + FAQPage + BreadcrumbList.
+
+---
+
+## Fase 4 — Páginas por operadora (12 rotas)
+
+Template `src/components/saude/OperadoraTemplate.tsx` com dados em `src/data/operadorasSaude.ts`:
+
+Bradesco Saúde, SulAmérica, Amil, Porto Saúde, Hapvida/NotreDame, Prevent Senior, Unimed, MedSenior, Sami, Alice, Omint, Care Plus.
+
+Cada página inclui **bloco de transparência jurídica obrigatório** ("Patro não é canal oficial", marcas dos titulares, disponibilidade sujeita a regras). Sem logos oficiais, sem promessas de preço/aceitação/rede. FAQ + CTA + schemas.
+
+---
+
+## Fase 5 — Blog cluster (12 artigos)
+
+Adicionar em `src/data/blog/` os posts listados apontando para hub + páginas filhas relevantes, com Article + FAQPage schema, autor Sandra Patro, datas publish/update, CTA meio + fim, links para ANS quando falar de regra.
+
+---
+
+## Fase 6 — SEO técnico e infra
+
+- Registrar todas as rotas em `src/App.tsx`, `scripts/generate-sitemap.ts`, `src/lib/seoMetadata.ts` (metadados premium)
+- Gerar OG images via `scripts/generate-og-images.mjs` para hub e filhas
+- Rodar validadores existentes (`validate-google-rich-results.mjs`, `validate-canonical-strict.mjs`, `validate-word-count.mjs`)
+- Confirmar breadcrumbs (`src/lib/breadcrumbCategory.ts` overrides)
 
 ---
 
 ## Detalhes técnicos
 
-- **Stack**: React 18 + Vite 5 + Tailwind + Helmet Async. Hospedagem HostGator (Apache → `.htaccess`).
-- **Prerender**: `scripts/prerender.mjs` + `scripts/prerender-react.mjs` (Chromium). Conflito pendente a resolver na Fase 4.
-- **Config única**: `src/config/empresa.ts` já é fonte da verdade (Bloco 0 do turno anterior).
-- **Testes existentes**: `scripts/validate-word-count.mjs`, `validate-rich-snippets.mjs`, `robots-http.test.ts`, `sitemap-canonical.test.ts`, `PageMeta.robots.test.tsx`, Playwright `e2e/seo-meta.spec.ts`. Vou estender, não recriar.
+- **Componentes reutilizáveis:** `SaudeSubPageTemplate`, `OperadoraTemplate`, `SaudeHubCards`, `OperadoraGrid` — evita duplicação de markup
+- **Dados centrais:** `src/data/planosSaudeSubtipos.ts` (7 subtipos) + `src/data/operadorasSaude.ts` (12 operadoras) — single source of truth para hub, grids e páginas
+- **WhatsApp:** usar `buildWhatsAppUrl` de `src/lib/whatsapp.ts` com template por página
+- **Legacy redirects:** estender `legacyBairroRedirects.ts` (ou criar `legacySaudeRedirects.ts`) + adicionar regras no `.htaccess` de produção
+- **Rich snippets:** aproveitar `PageMeta` que já injeta BreadcrumbList automaticamente; Service/FAQPage/ItemList via componentes existentes
+- **Sem alteração** em Header, Footer, Home, tokens de design ou identidade visual
 
 ---
 
-## Pontos bloqueantes — preciso da sua resposta antes de começar
+## Escopo excluído
 
-1. **Depoimentos reais (Fase 3.5)**: você tem depoimentos/notas verificáveis (Google Reviews, print, autorização por escrito) para emitir `Review`/`AggregateRating`? Se não, **NÃO emito** (risco de penalização manual).
-2. **Corretor responsável na /sobre (Fase 5)**: nome completo, foto (link/upload) e bio curta de quem é o(s) responsável(is) técnico(s) com os 20+ anos de experiência.
-3. **robots.txt (Fase 6)**: preservo os Disallows atuais (`/admin/`, `/api/`, `/ebook-consorcio/`, dashboards internos) e apenas adiciono os 8 user-agents de IA? Recomendo sim.
-4. **sitemap.xml (Fase 6)**: mantenho a estrutura atual `sitemap-index.xml` + 4 sub-sitemaps (padrão Google, já funcional) ou colapso tudo em um `sitemap.xml` único como pedido literalmente?
-5. **CEP e coordenadas (Bloco 0 pendente)**: `empresa.ts` tem TODOs para CEP exato do Edifício Via Alameda e latitude/longitude. Você confirma `07115-000` e `-23.4611, -46.5334`? Sem isso, o JSON-LD do InsuranceAgency vai com valores aproximados.
-6. **Redes sociais para `sameAs`**: já tenho Instagram (`patroseguros`), Facebook (`patroseguros`), LinkedIn (`patro-seguros`). Confirmar URL do **Google Business Profile** e Wikidata (docs sugerem existir).
-7. **Ordem de execução**: começo pela Fase 1 (mais rápida e destravante) ou você prefere que eu ataque a Fase 4 (conteúdo — a mais impactante para GEO) primeiro?
+- Não migrar template para TanStack/SSR
+- Não redesenhar componentes globais
+- Não trocar sistema de i18n/roteamento
+- Não criar automação de PDF/materiais ricos (fica para outra iteração)
 
-Assim que você responder esses 7 pontos, começo pela fase que você indicar.
+## Confirmação necessária
+
+Após aprovação, implemento em uma leva só (arquitetura + hub + 7 filhas + 12 operadoras + redirects + schemas + registro). Blog cluster (12 artigos) fica como fase 2 opcional, pois cada artigo requer conteúdo original extenso — quer que eu inclua tudo junto ou separo em uma próxima rodada?

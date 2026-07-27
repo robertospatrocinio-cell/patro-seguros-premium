@@ -154,6 +154,14 @@ const AvaliacoesClientes = lazyWithRetry(() => import("./pages/AvaliacoesCliente
 const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "ParceirosLocais");
 const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
 const SeoPlanoSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoPlanoSaudeGuarulhos"), "SeoPlanoSaudeGuarulhos");
+const PlanoDeSaudeGuarulhosHub = lazyWithRetry(() => import("./pages/PlanoDeSaudeGuarulhosHub"), "PlanoDeSaudeGuarulhosHub");
+const PlanoSaudeIndividualGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeIndividualGuarulhos"), "PlanoSaudeIndividualGuarulhos");
+const PlanoSaudeFamiliarGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeFamiliarGuarulhos"), "PlanoSaudeFamiliarGuarulhos");
+const PlanoSaudeMeiGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeMeiGuarulhos"), "PlanoSaudeMeiGuarulhos");
+const PlanoSaudePmeGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudePmeGuarulhos"), "PlanoSaudePmeGuarulhos");
+const PlanoSaudeEmpresarialGuarulhosCanonical = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhosCanonical"), "PlanoSaudeEmpresarialGuarulhosCanonical");
+const PlanoSaudeIdososGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeIdososGuarulhos"), "PlanoSaudeIdososGuarulhos");
+const PlanoOdontologicoGuarulhosCanonical = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhosCanonical"), "PlanoOdontologicoGuarulhosCanonical");
 const SeoSeguroEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresarialGuarulhos"), "SeoSeguroEmpresarialGuarulhos");
 const CorretoraDeSegurosEmGuarulhos = lazyWithRetry(() => import("./pages/CorretoraDeSegurosEmGuarulhos"), "CorretoraDeSegurosEmGuarulhos");
 const ConsorcioGuarulhos = lazyWithRetry(() => import("./pages/ConsorcioGuarulhos"), "ConsorcioGuarulhos");
@@ -295,6 +303,8 @@ const BradescoSaude = lazy(() => import("./pages/saude/Bradesco"));
 const Sami = lazy(() => import("./pages/saude/Sami"));
 const Unimed = lazy(() => import("./pages/saude/Unimed"));
 const Alice = lazy(() => import("./pages/saude/Alice"));
+const Omint = lazy(() => import("./pages/saude/Omint"));
+const CarePlus = lazy(() => import("./pages/saude/CarePlus"));
 
 const PortoSeguro = lazy(() => import("./pages/seguradoras/PortoSeguro"));
 const TokioMarine = lazy(() => import("./pages/seguradoras/TokioMarine"));
@@ -716,15 +726,35 @@ const App = () => {
                   <Route path="/cotacao-seguro-auto-guarulhos" element={<Navigate to="/cotacao-seguro-auto" replace />} />
                   <Route path="/seguros-para-clinicas-odontologicas" element={<Navigate to="/parcerias-clinicas-odontologicas" replace />} />
                   <Route path="/seguros-para-clinicas-veterinarias" element={<Navigate to="/parcerias-clinicas-veterinarias" replace />} />
-                  {/* Planos de saúde — variantes */}
-                  <Route path="/plano-saude-guarulhos" element={<SeoPlanoSaudeGuarulhos />} />
-                  <Route path="/plano-de-saude-guarulhos" element={<Navigate to="/plano-saude-guarulhos" replace />} />
-                  <Route path="/plano-saude-empresarial-guarulhos" element={<PlanoSaudeEmpresarialGuarulhos />} />
-                  <Route path="/planos-saude-senior-guarulhos" element={<PlanosSaudeSeniorGuarulhos />} />
-                  <Route path="/plano-saude-familia-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
-                  <Route path="/plano-saude-mei-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
-                  <Route path="/plano-saude-pme-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
-                  <Route path="/plano-odontologico-guarulhos" element={<PlanoOdontologicoGuarulhos />} />
+                  {/* Planos de saúde — hub canônico + subpáginas */}
+                  <Route path="/plano-de-saude-guarulhos" element={<PlanoDeSaudeGuarulhosHub />} />
+                  <Route path="/plano-saude-guarulhos" element={<Navigate to="/plano-de-saude-guarulhos" replace />} />
+                  <Route path="/plano-de-saude-individual-guarulhos" element={<PlanoSaudeIndividualGuarulhos />} />
+                  <Route path="/plano-de-saude-familiar-guarulhos" element={<PlanoSaudeFamiliarGuarulhos />} />
+                  <Route path="/plano-de-saude-mei-guarulhos" element={<PlanoSaudeMeiGuarulhos />} />
+                  <Route path="/plano-de-saude-pme-guarulhos" element={<PlanoSaudePmeGuarulhos />} />
+                  <Route path="/plano-de-saude-empresarial-guarulhos" element={<PlanoSaudeEmpresarialGuarulhosCanonical />} />
+                  <Route path="/plano-de-saude-idosos-guarulhos" element={<PlanoSaudeIdososGuarulhos />} />
+                  <Route path="/plano-odontologico-guarulhos" element={<PlanoOdontologicoGuarulhosCanonical />} />
+                  {/* Redirects legados de subpáginas de saúde */}
+                  <Route path="/plano-saude-empresarial-guarulhos" element={<Navigate to="/plano-de-saude-empresarial-guarulhos" replace />} />
+                  <Route path="/plano-saude-familia-guarulhos" element={<Navigate to="/plano-de-saude-familiar-guarulhos" replace />} />
+                  <Route path="/plano-saude-mei-guarulhos" element={<Navigate to="/plano-de-saude-mei-guarulhos" replace />} />
+                  <Route path="/plano-saude-pme-guarulhos" element={<Navigate to="/plano-de-saude-pme-guarulhos" replace />} />
+                  <Route path="/planos-saude-senior-guarulhos" element={<Navigate to="/plano-de-saude-idosos-guarulhos" replace />} />
+                  {/* Operadoras — páginas canônicas */}
+                  <Route path="/bradesco-saude-guarulhos" element={<BradescoSaude />} />
+                  <Route path="/sulamerica-saude-guarulhos" element={<SulAmericaSaude />} />
+                  <Route path="/amil-guarulhos" element={<AmilSaude />} />
+                  <Route path="/porto-saude-guarulhos" element={<PortoSaude />} />
+                  <Route path="/hapvida-notredame-guarulhos" element={<Hapvida />} />
+                  <Route path="/prevent-senior-guarulhos" element={<PreventSenior />} />
+                  <Route path="/unimed-guarulhos" element={<Unimed />} />
+                  <Route path="/medsenior-guarulhos" element={<Medsenior />} />
+                  <Route path="/sami-guarulhos" element={<Sami />} />
+                  <Route path="/alice-saude-guarulhos" element={<Alice />} />
+                  <Route path="/omint-guarulhos" element={<Omint />} />
+                  <Route path="/care-plus-guarulhos" element={<CarePlus />} />
                   {/* Long-tail SEO pages — linkam forte para o hub de bairros /seguros-guarulhos */}
                   <Route path="/planos-de-saude-guarulhos-comparativo" element={<LongtailPlanosSaudeGuarulhosComparativo />} />
                   <Route path="/valor-seguro-byd-dolphin" element={<LongtailValorSeguroBydDolphin />} />
