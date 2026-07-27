@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import heroImg from "@/assets/lp-seguro-acidentes-pessoais.webp";
 
 const QUOTE_URL = "https://patro.seucorretor.digital/#/formularios/acidentes-pessoais";
@@ -55,6 +56,12 @@ const StickyCta = () => (
 const LandingSeguroAcidentesPessoais = () => (
   <>
     <FAQSchema faqs={FAQS} />
+    <BreadcrumbSchema
+      items={[
+        { name: "Início", url: "https://www.patroseguros.com.br/" },
+        { name: "Seguro de Acidentes Pessoais", url: "https://www.patroseguros.com.br/lp-seguro-acidentes-pessoais" },
+      ]}
+    />
     <ServiceSchema
       name="Seguro de Acidentes Pessoais"
       description="Corretagem de Seguro de Acidentes Pessoais em Guarulhos e São Paulo, com cotação em mais de 16 seguradoras. Coberturas de morte acidental, invalidez permanente, despesas médicas e diária de internação."
