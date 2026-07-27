@@ -4,6 +4,7 @@ import { ArrowRight, Wrench, Warehouse, ShieldCheck, Scale } from "lucide-react"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import { buildSolucoesEmpresariaisCollectionSchema } from "@/lib/collectionPageSchemas";
 
 const solutions = [
   {
@@ -45,31 +46,7 @@ const SolucoesEmpresariais = () => {
       />
       <Helmet>
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollectionPage",
-            name: "Soluções empresariais Patro Seguros",
-            url: `https://www.patroseguros.com.br/solucoes-empresariais`,
-            isPartOf: { "@type": "WebSite", name: "Patro Seguros", url: "https://www.patroseguros.com.br" },
-            hasPart: solutions.map((s) => ({
-              "@type": "Service",
-              name: s.title,
-              url: `https://www.patroseguros.com.br${s.href}`,
-            })),
-            mainEntity: {
-              "@type": "ItemList",
-              "@id": "https://www.patroseguros.com.br/solucoes-empresariais#itemlist",
-              name: "Soluções empresariais Patro Seguros",
-              numberOfItems: solutions.length,
-              itemListOrder: "https://schema.org/ItemListOrderAscending",
-              itemListElement: solutions.map((s, i) => ({
-                "@type": "ListItem",
-                position: i + 1,
-                url: `https://www.patroseguros.com.br${s.href}`,
-                name: s.title,
-              })),
-            },
-          })}
+          {JSON.stringify(buildSolucoesEmpresariaisCollectionSchema(solutions))}
         </script>
       </Helmet>
 

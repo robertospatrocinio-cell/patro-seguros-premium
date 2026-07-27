@@ -23,6 +23,7 @@ import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { formatDate, getArticlesByCategory } from "@/lib/blogData";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import { getBlogCluster } from "@/data/blogClusters";
+import { buildBlogClusterCollectionSchema } from "@/lib/collectionPageSchemas";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
 const WHATSAPP_BASE = "https://wa.me/551151997500?text=";
@@ -42,32 +43,10 @@ const BlogCluster = () => {
   const clusterUrl = `${CANONICAL_BASE_URL}/blog/cluster/${config.slug}`;
   const whatsappUrl = `${WHATSAPP_BASE}${config.whatsappText}`;
 
-  const collectionSchema = useMemo(() => ({
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": `${clusterUrl}#collection`,
-    name: config.title,
-    description: config.metaDescription,
-    url: clusterUrl,
-    inLanguage: "pt-BR",
-    isPartOf: { "@id": `${CANONICAL_BASE_URL}/#website` },
-    about: [
-      { "@type": "Thing", name: config.title },
-      { "@type": "Place", name: "Guarulhos, SP" },
-    ],
-    publisher: { "@id": `${CANONICAL_BASE_URL}/#organization` },
-    mainEntity: {
-      "@type": "ItemList",
-      name: `Artigos — ${config.title}`,
-      numberOfItems: articles.length,
-      itemListElement: articles.slice(0, 20).map((a, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        url: `${CANONICAL_BASE_URL}/artigos/${a.slug}`,
-        name: a.title,
-      })),
-    },
-  }), [articles, clusterUrl, config]);
+  const collectionSchema = useMemo(
+    () => buildBlogClusterCollectionSchema(config, articles),
+    [articles, config],
+  );
 
   const featured = articles[0];
 
