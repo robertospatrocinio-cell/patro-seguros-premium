@@ -1261,36 +1261,60 @@ export type Database = {
           created_at: string | null
           id: string
           insurance_type_interest: string | null
+          ip_address: string | null
+          notes: string | null
           referred_email: string | null
           referred_name: string
           referred_phone: string | null
           referrer_customer_id: string | null
+          referrer_email: string | null
+          referrer_name: string | null
+          referrer_phone: string | null
+          referrer_relationship: string | null
           reward_given: boolean | null
+          source_page: string | null
           status: string | null
+          user_agent: string | null
         }
         Insert: {
           conversion_date?: string | null
           created_at?: string | null
           id?: string
           insurance_type_interest?: string | null
+          ip_address?: string | null
+          notes?: string | null
           referred_email?: string | null
           referred_name: string
           referred_phone?: string | null
           referrer_customer_id?: string | null
+          referrer_email?: string | null
+          referrer_name?: string | null
+          referrer_phone?: string | null
+          referrer_relationship?: string | null
           reward_given?: boolean | null
+          source_page?: string | null
           status?: string | null
+          user_agent?: string | null
         }
         Update: {
           conversion_date?: string | null
           created_at?: string | null
           id?: string
           insurance_type_interest?: string | null
+          ip_address?: string | null
+          notes?: string | null
           referred_email?: string | null
           referred_name?: string
           referred_phone?: string | null
           referrer_customer_id?: string | null
+          referrer_email?: string | null
+          referrer_name?: string | null
+          referrer_phone?: string | null
+          referrer_relationship?: string | null
           reward_given?: boolean | null
+          source_page?: string | null
           status?: string | null
+          user_agent?: string | null
         }
         Relationships: [
           {
