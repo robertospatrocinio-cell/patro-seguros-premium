@@ -533,6 +533,15 @@ export default function InternalLinkCorrelation() {
               <Download className="w-4 h-4 mr-2" /> CSV
             </Button>
             <Button
+              variant={recommendMode ? "default" : "outline"}
+              size="sm"
+              onClick={() => setRecommendMode((v) => !v)}
+              title="Sugere quais hashes substituir para aumentar CTR no GSC e melhorar conversões"
+            >
+              <Wand2 className="w-4 h-4 mr-2" />
+              {recommendMode ? "Recomendar: ON" : "Recomendar mudanças"}
+            </Button>
+            <Button
               variant="secondary"
               size="sm"
               onClick={refreshPriorities}
