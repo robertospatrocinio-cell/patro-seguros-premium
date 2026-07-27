@@ -46,6 +46,7 @@ const DIST = path.join(ROOT, "dist");
 const args = process.argv.slice(2);
 const routeArg = args.find((a) => a.startsWith("--route="))?.split("=")[1];
 const ALLOW_WARN = args.includes("--allow-warn");
+const STRICT_WARN = args.includes("--strict-warn");
 
 if (!fs.existsSync(DIST)) {
   console.error("❌ dist/ ausente. Rode `npm run build` antes.");
@@ -363,5 +364,9 @@ if (ineligibleTotal > 0) {
 }
 if (s.eligibleWarn > 0 && !ALLOW_WARN) {
   console.log(`\n⚠️  ${s.eligibleWarn} bloco(s) elegível(is) com recomendações pendentes (use --allow-warn para silenciar).`);
+  if (STRICT_WARN) {
+    console.error(`\n❌ --strict-warn ativo: falhando build por ${s.eligibleWarn} eligible-warn.`);
+    process.exit(1);
+  }
 }
 console.log("\n✅ Nenhum bloco INELIGIBLE. Rich results estão elegíveis.");
