@@ -1105,6 +1105,8 @@ const InsurancePageTemplate = ({
         <InsuranceHubLinks />
         {/* Próximas leituras — só renderiza em rotas listadas em LONGTAIL_CLUSTERS. */}
         <ProximasLeiturasCluster pathname={location.pathname} />
+        {/* Pager Prev/Next — navegação linear no cluster long-tail. */}
+        <LongtailPagerNav pathname={location.pathname} />
         {trilhaSeo && trilhaSeo.items.length > 0 && (
           <TrilhaSeoRelacionados
             title={trilhaSeo.title}
