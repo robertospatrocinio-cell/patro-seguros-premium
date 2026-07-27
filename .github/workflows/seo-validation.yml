@@ -60,7 +60,7 @@ jobs:
         # (padrão em push/PR: permite warn; disparo manual pode alternar).
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.allow_warn }}" = "false" ]; then
-            bun run validate:google-rich-results
+            bun run validate:google-rich-results -- --strict-warn
           else
             bun run validate:google-rich-results -- --allow-warn
           fi
