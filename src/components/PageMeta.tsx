@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import { getGeneratedOgImage } from "@/data/generatedOgImages";
 
 interface PageMetaProps {
   title: string;
@@ -73,13 +74,16 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     setMetaContent('meta[property="og:description"]', description);
     setMetaContent('meta[property="og:url"]', canonicalUrl);
     setMetaContent('meta[property="og:type"]', ogType);
-    setMetaContent('meta[property="og:image"]', ogImage ?? DEFAULT_OG_IMAGE);
+    // Precedência: prop explícita > OG gerado por bairro/produto×bairro > fallback global.
+    const resolvedOgImage =
+      ogImage ?? getGeneratedOgImage(location.pathname) ?? DEFAULT_OG_IMAGE;
+    setMetaContent('meta[property="og:image"]', resolvedOgImage);
 
     // Twitter
     setMetaContent('meta[name="twitter:card"]', 'summary_large_image');
     setMetaContent('meta[name="twitter:title"]', fullTitle);
     setMetaContent('meta[name="twitter:description"]', description);
-    setMetaContent('meta[name="twitter:image"]', ogImage ?? DEFAULT_OG_IMAGE);
+    setMetaContent('meta[name="twitter:image"]', resolvedOgImage);
 
     // Accessible alt text for the social-preview image
     if (ogImageAlt) {
