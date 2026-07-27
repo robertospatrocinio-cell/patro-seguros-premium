@@ -670,3 +670,85 @@ describe("determinismo: execuções repetidas do validador produzem o mesmo rela
     }
   });
 });
+
+// ============================================================================
+// SUITE — Snapshot do relatório (drift-detection por rota e por @type)
+// ============================================================================
+// Congela um snapshot canônico do `google-rich-results-report.json`
+// gerado sobre o fixture mínimo (ROUTES × fixtureBlocksFor). Se alguma
+// mudança no validador, nos checkers ou no shape do JSON-LD emitido pelos
+// componentes alterar:
+//   - o summary agregado,
+//   - o breakdown por @type,
+//   - o breakdown por rota (verdict + listas de required/recommended),
+// o snapshot quebra e força revisão explícita — evitando drift silencioso
+// no relatório que o CI publica em `dist/rich-results-by-route.json`.
+//
+// O snapshot é normalizado (chaves ordenadas, `generatedAt` removido) para
+// ser 100% determinístico entre máquinas e execuções.
+// ============================================================================
+
+describe("snapshot: google-rich-results-report.json (drift por rota e por @type)", () => {
+  function normalizeReport(report) {
+    const sortKeys = (obj) =>
+      Object.fromEntries(
+        Object.entries(obj)
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([k, v]) => [k, v]),
+      );
+
+    return {
+      summary: sortKeys(report.summary ?? {}),
+      byType: Object.fromEntries(
+        Object.entries(report.byType ?? {})
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([type, stats]) => [type, sortKeys(stats)]),
+      ),
+      routes: Object.fromEntries(
+        Object.entries(report.routes ?? {})
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([route, entry]) => [
+            route,
+            {
+              nodes: (entry.nodes ?? []).map((n) => ({
+                type: n.type,
+                verdict: n.verdict,
+                required: [...(n.required ?? [])].sort(),
+                recommended: [...(n.recommended ?? [])].sort(),
+              })),
+            },
+          ]),
+      ),
+    };
+  }
+
+  it("congela breakdown por rota e por @type do fixture mínimo", () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), "prv-snap-"));
+    try {
+      for (const route of ROUTES) {
+        const dir = path.join(dist, routeToRelDir(route));
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, "index.html"), htmlWith(...fixtureBlocksFor(route)), "utf-8");
+      }
+
+      const res = spawnSync(
+        "node",
+        [VALIDATOR, `--dist=${dist}`, "--strict-warn"],
+        { encoding: "utf-8", cwd: ROOT },
+      );
+      expect(
+        res.status,
+        `validador falhou:\nSTDOUT:\n${res.stdout}\nSTDERR:\n${res.stderr}`,
+      ).toBe(0);
+
+      const report = JSON.parse(
+        fs.readFileSync(path.join(dist, "google-rich-results-report.json"), "utf-8"),
+      );
+      const normalized = normalizeReport(report);
+
+      expect(normalized).toMatchSnapshot();
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+});
