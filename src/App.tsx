@@ -216,6 +216,8 @@ const SeguroEmbarcacoes = lazy(() => import("./pages/SeguroEmbarcacoes"));
 const SeguroAvioes = lazy(() => import("./pages/SeguroAvioes"));
 const SeguroHelicopteros = lazy(() => import("./pages/SeguroHelicopteros"));
 const SeguroCartaVerde = lazy(() => import("./pages/SeguroCartaVerde"));
+const IndiqueEGanhe = lazy(() => import("./pages/IndiqueEGanhe"));
+const ObrigadoIndicacao = lazy(() => import("./pages/ObrigadoIndicacao"));
 const SeguroDecesso = lazy(() => import("./pages/SeguroDecesso"));
 const SeguroGarantia = lazy(() => import("./pages/SeguroGarantia"));
 const SeguroRCMedicos = lazy(() => import("./pages/SeguroRCMedicos"));
@@ -471,6 +473,8 @@ const App = () => {
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
                   <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
+                  <Route path="/indique-e-ganhe" element={<IndiqueEGanhe />} />
+                  <Route path="/obrigado-indicacao" element={<ObrigadoIndicacao />} />
                   <Route path="/cotacao/auto" element={<Navigate to="/cotacao-seguro-auto" replace />} />
                   <Route path="/cotacao/empresarial" element={<Navigate to="/solucoes-empresariais" replace />} />
                   <Route path="/cotacao/saude" element={<Navigate to="/seguro-saude" replace />} />
