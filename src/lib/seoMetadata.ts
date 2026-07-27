@@ -350,6 +350,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
         "url": `${DOMAIN}${cleanPath}`,
         "isPartOf": { "@type": "WebSite", "name": "Patro Seguros", "url": DOMAIN },
         "hasPart": buildHubHasPart(cleanPath),
+        "mainEntity": buildHubMainEntity(cleanPath),
         "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN, "image": `${DOMAIN}/images/logo-full.webp`, "priceRange": "$$" },
       }
     : {
