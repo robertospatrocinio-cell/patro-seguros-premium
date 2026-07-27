@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prebuild": "node scripts/validate-source-word-count.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -20,6 +21,7 @@
     "validate:critical-schemas": "node scripts/validate-critical-schemas.mjs",
     "postbuild": "node scripts/ensure-prerender.mjs && node scripts/build-sitemap-index.mjs --dir dist && node scripts/validate-rich-snippets.mjs && node scripts/validate-critical-schemas.mjs && node scripts/validate-canonical-strict.mjs && node scripts/validate-word-count.mjs",
     "validate:word-count": "node scripts/validate-word-count.mjs",
+    "validate:source-word-count": "node scripts/validate-source-word-count.mjs",
     "validate:canonical": "node scripts/validate-canonical-headings-build.mjs",
     "validate:canonical-strict": "node scripts/validate-canonical-strict.mjs",
     "validate:schema-uniqueness": "node scripts/validate-schema-uniqueness.mjs",
