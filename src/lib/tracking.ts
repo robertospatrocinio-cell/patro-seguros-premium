@@ -433,6 +433,7 @@ const persistInternalLinkClick = (payload: {
   label: string;
   anchor: string | null;
   attr: Attribution;
+  eventKind?: "click" | "section-view";
 }) => {
   if (typeof window === "undefined") return;
   const url = import.meta.env.VITE_SUPABASE_URL;
@@ -459,6 +460,7 @@ const persistInternalLinkClick = (payload: {
     referrer: payload.attr.referrer ?? null,
     device_type: vitals.device_type ?? null,
     user_agent: ua.slice(0, 512),
+    event_kind: payload.eventKind ?? "click",
   });
 
   const endpoint = `${url}/rest/v1/internal_link_click_events`;
