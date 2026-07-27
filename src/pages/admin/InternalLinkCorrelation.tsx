@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink, Sparkles, Copy, Check, CheckCircle2, X, XCircle, Zap } from "lucide-react";
+import { Wand2, ArrowRight } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -119,6 +120,8 @@ export default function InternalLinkCorrelation() {
   const { data: priorities } = useAnchorPriorities();
   const [clusterFilter, setClusterFilter] = useState<AnchorClusterId | "all">("all");
   const [convTypeFilter, setConvTypeFilter] = useState<"all" | "whatsapp" | "cotacao">("all");
+  const [recommendMode, setRecommendMode] = useState(false);
+  const [copiedSwapKey, setCopiedSwapKey] = useState<string | null>(null);
 
   const refreshPriorities = async () => {
     setRefreshingPriorities(true);
@@ -315,6 +318,144 @@ export default function InternalLinkCorrelation() {
     convTypeFilter === "whatsapp" ? "só WhatsApp" : convTypeFilter === "cotacao" ? "só Cotação" : null,
   ].filter(Boolean).join(" · ");
 
+  // ── Modo "Recomendar mudanças" ────────────────────────────────────────
+  // Cruza âncoras perdedoras (muitas impressões no GSC + baixa CTR e/ou
+  // baixa conversão) com âncoras vencedoras (alta conversion rate) do
+  // mesmo cluster para propor swaps de hash.
+  //   • Ganho estimado = impressões × CTR-alvo(posição) × conversion_rate
+  //     do vencedor. Serve como ranking, não como forecast exato.
+  //   • Preferência dupla quando o vencedor já converte na mesma
+  //     página do perdedor (mesmo `topPage.pathname`).
+  //   • Respeita `clusterFilter` e `convTypeFilter` da toolbar.
+  type HashSwap = {
+    key: string;
+    loserAnchor: string;
+    winnerAnchor: string;
+    pathname: string;
+    cluster: AnchorClusterId;
+    impressions: number;
+    position: number | null;
+    loserCtr: number;
+    loserConversionRate: number;
+    winnerConversionRate: number;
+    winnerSessions: number;
+    winnerWhats: number;
+    winnerCotacao: number;
+    samePage: boolean;
+    projectedConversionsGain: number;
+    confidence: "alta" | "média" | "baixa";
+    reason: string;
+  };
+  const hashRecommendations = useMemo<HashSwap[]>(() => {
+    if (!data?.anchorPotential || !data?.anchorConversions) return [];
+    // CTR estimado por faixa de posição (proxy interno — evita curl em
+    // real time; mesma referência usada pelo dashboard de bairros).
+    const ctrForPosition = (pos: number | null): number => {
+      if (pos == null) return 0.01;
+      if (pos <= 3) return 0.25;
+      if (pos <= 5) return 0.12;
+      if (pos <= 10) return 0.06;
+      if (pos <= 20) return 0.02;
+      return 0.008;
+    };
+
+    const losers = data.anchorPotential.filter((a) => {
+      if (!a.topPage) return false;
+      if (!matchesCluster(a.topPage.pathname)) return false;
+      // Precisa de exposição real e sinal ruim de eficiência
+      if (a.impressions < 50) return false;
+      const ctr = a.clicks && a.impressions ? a.clicks / a.impressions : 0;
+      const badCtr = ctr < 0.02;
+      const badConv = a.conversionRate < 0.02;
+      return badCtr || badConv;
+    });
+
+    const winners = data.anchorConversions.filter((c) => {
+      if (c.sessions < 5) return false;
+      if (c.conversionRate < 0.05) return false;
+      if (!convTypeMatches(c.whatsappConversions, c.cotacaoConversions)) return false;
+      return true;
+    });
+    if (winners.length === 0 || losers.length === 0) return [];
+
+    // Indexa vencedores por cluster para lookup barato.
+    const winnersByCluster = new Map<AnchorClusterId, typeof winners>();
+    for (const w of winners) {
+      const cid = getAnchorCluster(w.topPage?.pathname);
+      const arr = winnersByCluster.get(cid) ?? [];
+      arr.push(w);
+      winnersByCluster.set(cid, arr);
+    }
+
+    const swaps: HashSwap[] = [];
+    for (const loser of losers) {
+      const cluster = getAnchorCluster(loser.topPage!.pathname);
+      const pool = (winnersByCluster.get(cluster) ?? []).filter(
+        (w) => w.anchor !== loser.anchor,
+      );
+      if (pool.length === 0) continue;
+
+      // Escolhe o melhor vencedor: prioriza mesma página → maior taxa
+      // ponderada pelo volume do tipo de conversão filtrado (ou total).
+      const scored = pool.map((w) => {
+        const samePage = w.topPage?.pathname === loser.topPage!.pathname;
+        const typedConv = convTypeCount(w.whatsappConversions, w.cotacaoConversions);
+        const weight = w.conversionRate * (1 + Math.log1p(typedConv)) * (samePage ? 1.5 : 1);
+        return { w, samePage, weight };
+      }).sort((a, b) => b.weight - a.weight);
+      const best = scored[0];
+      if (!best) continue;
+
+      const ctr = loser.clicks && loser.impressions ? loser.clicks / loser.impressions : 0;
+      const targetCtr = Math.max(ctrForPosition(loser.position), ctr);
+      const projected = loser.impressions * targetCtr * best.w.conversionRate;
+      const confidence: HashSwap["confidence"] =
+        best.samePage && best.w.sessions >= 20 ? "alta"
+          : best.w.sessions >= 10 ? "média"
+          : "baixa";
+
+      const reasonBits: string[] = [];
+      if (loser.impressions >= 200) reasonBits.push(`${fmtInt(loser.impressions)} impressões desperdiçadas`);
+      else reasonBits.push(`${fmtInt(loser.impressions)} impressões`);
+      if (ctr < 0.02) reasonBits.push(`CTR ${fmtPct(ctr, 1)}`);
+      if (loser.conversionRate < 0.02) reasonBits.push(`conversão ${fmtPct(loser.conversionRate, 1)}`);
+      reasonBits.push(`vencedor converte ${fmtPct(best.w.conversionRate, 1)}${best.samePage ? " na mesma página" : " no mesmo cluster"}`);
+
+      swaps.push({
+        key: `${loser.anchor}->${best.w.anchor}@${loser.topPage!.pathname}`,
+        loserAnchor: loser.anchor,
+        winnerAnchor: best.w.anchor,
+        pathname: loser.topPage!.pathname,
+        cluster,
+        impressions: loser.impressions,
+        position: loser.position,
+        loserCtr: ctr,
+        loserConversionRate: loser.conversionRate,
+        winnerConversionRate: best.w.conversionRate,
+        winnerSessions: best.w.sessions,
+        winnerWhats: best.w.whatsappConversions,
+        winnerCotacao: best.w.cotacaoConversions,
+        samePage: best.samePage,
+        projectedConversionsGain: projected,
+        confidence,
+        reason: reasonBits.join(" · "),
+      });
+    }
+    return swaps.sort((a, b) => b.projectedConversionsGain - a.projectedConversionsGain).slice(0, 30);
+  }, [data, clusterFilter, convTypeFilter]);
+
+  const copySwap = async (s: HashSwap) => {
+    const text = `Substituir #${s.loserAnchor} por #${s.winnerAnchor} em ${s.pathname} — ganho projetado ${s.projectedConversionsGain.toFixed(1)} conv./período (confiança ${s.confidence}).`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedSwapKey(s.key);
+      setTimeout(() => setCopiedSwapKey((k) => (k === s.key ? null : k)), 1500);
+      toast.success("Recomendação copiada");
+    } catch {
+      toast.error("Não foi possível copiar");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
@@ -390,6 +531,15 @@ export default function InternalLinkCorrelation() {
             </Button>
             <Button variant="outline" size="sm" onClick={exportCsv} disabled={!data}>
               <Download className="w-4 h-4 mr-2" /> CSV
+            </Button>
+            <Button
+              variant={recommendMode ? "default" : "outline"}
+              size="sm"
+              onClick={() => setRecommendMode((v) => !v)}
+              title="Sugere quais hashes substituir para aumentar CTR no GSC e melhorar conversões"
+            >
+              <Wand2 className="w-4 h-4 mr-2" />
+              {recommendMode ? "Recomendar: ON" : "Recomendar mudanças"}
             </Button>
             <Button
               variant="secondary"
@@ -580,6 +730,104 @@ export default function InternalLinkCorrelation() {
                       +{data.recommendations.length - 12} recomendações adicionais ocultas
                     </p>
                   )}
+                </CardContent>
+              </Card>
+            )}
+
+            {recommendMode && (
+              <Card className="mb-6 border-fuchsia-500/60 bg-fuchsia-500/[0.03]">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Wand2 className="h-4 w-4 text-fuchsia-600" />
+                    Recomendar mudanças — swaps de hash sugeridos ({hashRecommendations.length})
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground">
+                    Para cada âncora <strong>perdedora</strong> (alta impressão no GSC + baixa CTR
+                    ou baixa conversão), sugere um swap por uma âncora <strong>vencedora</strong>
+                    do mesmo cluster — priorizando quando o vencedor já converte na mesma página.
+                    Ganho projetado = <code>impressões × CTR-alvo(posição) × taxa do vencedor</code>.
+                    {filtersActive && (
+                      <span className="block mt-1 text-primary">Filtro ativo: {filterSummary}</span>
+                    )}
+                  </p>
+                </CardHeader>
+                <CardContent className="overflow-x-auto">
+                  {hashRecommendations.length === 0 ? (
+                    <p className="text-sm text-muted-foreground py-4 text-center">
+                      Nenhum swap seguro encontrado no período — precisa de âncoras perdedoras com
+                      ≥50 impressões e âncoras vencedoras com ≥5 sessões e ≥5% de conversão no
+                      mesmo cluster. Aumente a janela para 60–90 dias ou remova o filtro.
+                    </p>
+                  ) : (
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Página</TableHead>
+                          <TableHead>Swap sugerido</TableHead>
+                          <TableHead className="text-right">Ganho proj.</TableHead>
+                          <TableHead className="text-right">Impr.</TableHead>
+                          <TableHead className="text-right">Pos.</TableHead>
+                          <TableHead className="text-right">CTR atual</TableHead>
+                          <TableHead className="text-right">Conv. atual</TableHead>
+                          <TableHead className="text-right">Vencedor</TableHead>
+                          <TableHead>Confiança</TableHead>
+                          <TableHead className="text-right">Ações</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {hashRecommendations.map((s) => (
+                          <TableRow key={s.key}>
+                            <TableCell className="text-xs">
+                              <div className="flex flex-col">
+                                <span className="font-mono">{s.pathname}</span>
+                                <Badge variant="outline" className="text-[10px] mt-1 w-fit">
+                                  {anchorClusterLabel(s.cluster)}
+                                </Badge>
+                              </div>
+                            </TableCell>
+                            <TableCell className="text-xs">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <code className="line-through text-muted-foreground">#{s.loserAnchor}</code>
+                                <ArrowRight className="w-3 h-3 text-muted-foreground" />
+                                <code className="text-fuchsia-700 dark:text-fuchsia-300 font-semibold">#{s.winnerAnchor}</code>
+                                {s.samePage && (
+                                  <Badge variant="secondary" className="text-[10px]">mesma página</Badge>
+                                )}
+                              </div>
+                              <p className="text-[11px] text-muted-foreground mt-1">{s.reason}</p>
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              <Badge variant="default">+{s.projectedConversionsGain.toFixed(1)}</Badge>
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(s.impressions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtPos(s.position)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtPct(s.loserCtr, 1)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtPct(s.loserConversionRate, 1)}</TableCell>
+                            <TableCell className="text-right tabular-nums text-xs">
+                              {fmtPct(s.winnerConversionRate, 1)}
+                              <span className="block text-[10px] text-muted-foreground">
+                                {fmtInt(s.winnerSessions)} sess · W{s.winnerWhats}/C{s.winnerCotacao}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <Badge variant={s.confidence === "alta" ? "default" : s.confidence === "média" ? "secondary" : "outline"}>
+                                {s.confidence}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-right">
+                              <Button size="sm" variant="ghost" onClick={() => copySwap(s)}>
+                                {copiedSwapKey === s.key ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  )}
+                  <p className="text-[11px] text-muted-foreground mt-2">
+                    O ganho é um ranking (não forecast). Aplique um swap por vez, marque a
+                    recomendação como aceita e valide na próxima janela.
+                  </p>
                 </CardContent>
               </Card>
             )}
