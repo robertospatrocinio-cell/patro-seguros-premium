@@ -95,6 +95,8 @@ Atendemos motoristas de Guarulhos com perfil completo: quem dirige por Uber em t
       { title: "Seguro de Frota", link: "/seguro-frota" },
       { title: "Soluções para Motoristas de App", link: "/seguros/motoristas-app" },
       { title: "Soluções para Transportadoras", link: "/seguros/transportadoras" },
+      { title: "Melhor Seguro para Uber em Guarulhos — Ranking 2026", link: "/melhor-seguro-para-uber-guarulhos" },
+      { title: "Valor do Seguro BYD Dolphin (elétrico para app)", link: "/valor-seguro-byd-dolphin" },
     ]}
   />
 );
