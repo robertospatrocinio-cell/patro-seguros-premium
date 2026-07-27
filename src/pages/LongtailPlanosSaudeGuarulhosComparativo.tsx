@@ -2,6 +2,13 @@ import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 
 const LongtailPlanosSaudeGuarulhosComparativo = () => (
   <InsurancePageTemplate
+    jumpLinks={[
+      { label: "Comparativo de operadoras", href: "#coberturas-heading" },
+      { label: "Quanto custa", href: "#preco-heading" },
+      { label: "Para quem é indicado", href: "#quem-precisa-heading" },
+      { label: "Perguntas frequentes", href: "#faq-heading" },
+      { label: "Cotar agora", href: "#formulario-heading" },
+    ]}
     title="Planos de Saúde Guarulhos — Comparativo 2026 (Preços, Redes e Coberturas)"
     subtitle="Comparativo direto entre os principais planos de saúde em Guarulhos: Amil, Bradesco Saúde, SulAmérica, Hapvida NotreDame e Porto Saúde. Preço, rede credenciada em Guarulhos e cobertura, lado a lado."
     description="Comparativo completo dos planos de saúde disponíveis em Guarulhos, com preços atualizados, rede credenciada local, carências e diferenciais de cada operadora. A Patro Seguros é hub oficial de 20+ operadoras e faz a análise técnica gratuita para você escolher o melhor plano de saúde em Guarulhos sem perder benefício."
