@@ -41,6 +41,42 @@ const HEADING_TAGS = new Set(["h1", "h2", "h3"]);
 const ALLOWED_HIERARCHY_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
 
 /* -------------------------------------------------------------------------- */
+/* Formatação de issue (string legada usada por testes)                       */
+/* -------------------------------------------------------------------------- */
+
+function formatIssue(rec) {
+  switch (rec.kind) {
+    case "source-wrong-tag":
+      return `id="${rec.id}" está em <${rec.tag}>, deve estar em <h1|h2|h3> (ancora de seção)`;
+    case "hierarchy-skip":
+      return `pula de <h${rec.prevLevel}> para <${rec.tag}> (id=${rec.id ?? "—"}) — hierarquia inválida`;
+    case "jumplink-missing":
+      return `jumplink #${rec.id} → id inexistente no HTML`;
+    case "jumplink-wrong-tag":
+      return `jumplink #${rec.id} → id existe mas não está em <h1|h2|h3>`;
+    default:
+      return rec.message ?? "unknown issue";
+  }
+}
+
+function suggestionFor(rec) {
+  switch (rec.kind) {
+    case "source-wrong-tag":
+      return `Troque <${rec.tag} id="${rec.id}"> por <h2 id="${rec.id}"> (ou h1/h3 conforme o outline). Isso restaura o vínculo com aria-labelledby e permite que leitores de tela e crawlers reconheçam a seção.`;
+    case "hierarchy-skip": {
+      const suggested = `h${rec.prevLevel + 1}`;
+      return `Substitua <${rec.tag}${rec.id ? ` id="${rec.id}"` : ""}> por <${suggested}${rec.id ? ` id="${rec.id}"` : ""}> ou insira um <${suggested}> intermediário. Hierarquia esperada após <h${rec.prevLevel}> é no máximo <${suggested}>.`;
+    }
+    case "jumplink-missing":
+      return `Adicione <h2 id="${rec.id}"> na seção alvo ou remova/renomeie o href="#${rec.id}" no jumpLinks para bater com um id existente.`;
+    case "jumplink-wrong-tag":
+      return `Mova id="${rec.id}" para uma tag <h1|h2|h3> — atualmente está em <${rec.tag ?? "elemento não-heading"}>, que não é uma âncora de seção válida.`;
+    default:
+      return "Revisar manualmente.";
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /* Layer 1 — Source: id="*-heading" precisa estar em h1/h2/h3                 */
 /* -------------------------------------------------------------------------- */
 
@@ -54,22 +90,32 @@ function walkTsxFiles(dir) {
   return out;
 }
 
-function auditSourceFile(file) {
+function auditSourceFileDetailed(file) {
   const src = fs.readFileSync(file, "utf-8");
   const issues = [];
-  // Casa <tag ... id="foo-heading" ...> — captura a tag e o id.
   const re = /<([A-Za-z][A-Za-z0-9]*)\b[^>]*\bid=["']([a-z0-9-]+-heading)["'][^>]*>/g;
   let m;
   while ((m = re.exec(src)) !== null) {
     const tag = m[1].toLowerCase();
     const id = m[2];
     if (!HEADING_TAGS.has(tag)) {
-      issues.push(
-        `id="${id}" está em <${tag}>, deve estar em <h1|h2|h3> (ancora de seção)`,
-      );
+      // Localiza linha para o relatório.
+      const line = src.slice(0, m.index).split("\n").length;
+      issues.push({
+        layer: "source",
+        kind: "source-wrong-tag",
+        id,
+        tag,
+        element: m[0],
+        line,
+      });
     }
   }
   return issues;
+}
+
+function auditSourceFile(file) {
+  return auditSourceFileDetailed(file).map(formatIssue);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -105,27 +151,34 @@ function extractHeadingsOrdered(html) {
   return out;
 }
 
-function auditHierarchy(headings) {
+function auditHierarchyDetailed(headings) {
   const issues = [];
   let prev = 0;
   for (const h of headings) {
     if (prev === 0) {
-      // Primeiro heading pode ser qualquer nível (páginas às vezes começam
-      // com h2 quando o layout do shell já injeta um h1 fora do outlet).
       prev = h.level;
       continue;
     }
     if (h.level > prev + 1) {
-      issues.push(
-        `pula de <h${prev}> para <${h.tag}> (id=${h.id ?? "—"}) — hierarquia inválida`,
-      );
+      issues.push({
+        layer: "hierarchy",
+        kind: "hierarchy-skip",
+        id: h.id ?? null,
+        tag: h.tag,
+        level: h.level,
+        prevLevel: prev,
+      });
     }
     prev = h.level;
   }
   return issues;
 }
 
-function auditJumplinksInHtml(html, headings) {
+function auditHierarchy(headings) {
+  return auditHierarchyDetailed(headings).map(formatIssue);
+}
+
+function auditJumplinksInHtmlDetailed(html, headings) {
   // Rotas Long-tail passam jumpLinks para o template; o HTML servido precisa
   // conter cada id em um heading. Extraímos os hrefs do próprio HTML
   // (renderizados pelo <JumpLinksNav>) para tornar a checagem independente
@@ -140,31 +193,169 @@ function auditJumplinksInHtml(html, headings) {
   const headingIds = new Map(
     headings.filter((h) => h.id && HEADING_TAGS.has(h.tag)).map((h) => [h.id, h.tag]),
   );
-  const anyId = new Set(headings.filter((h) => h.id).map((h) => h.id));
+  const anyIdTag = new Map(
+    headings.filter((h) => h.id).map((h) => [h.id, h.tag]),
+  );
   const issues = [];
   for (const id of hrefs) {
     if (!headingIds.has(id)) {
-      if (!anyId.has(id)) {
-        issues.push(`jumplink #${id} → id inexistente no HTML`);
+      if (!anyIdTag.has(id)) {
+        issues.push({
+          layer: "jumplinks",
+          kind: "jumplink-missing",
+          id,
+          tag: null,
+        });
       } else {
-        issues.push(
-          `jumplink #${id} → id existe mas não está em <h1|h2|h3>`,
-        );
+        issues.push({
+          layer: "jumplinks",
+          kind: "jumplink-wrong-tag",
+          id,
+          tag: anyIdTag.get(id),
+        });
       }
     }
   }
   return issues;
 }
 
-function auditHtmlFile(file) {
+function auditJumplinksInHtml(html, headings) {
+  return auditJumplinksInHtmlDetailed(html, headings).map(formatIssue);
+}
+
+function auditHtmlFileDetailed(file) {
   const html = fs.readFileSync(file, "utf-8");
   const headings = extractHeadingsOrdered(html);
-  // Shells SPA (sem SSG) podem vir sem headings — nada a validar.
   if (headings.length === 0) return [];
   return [
-    ...auditHierarchy(headings),
-    ...auditJumplinksInHtml(html, headings),
+    ...auditHierarchyDetailed(headings),
+    ...auditJumplinksInHtmlDetailed(html, headings),
   ];
+}
+
+function auditHtmlFile(file) {
+  return auditHtmlFileDetailed(file).map(formatIssue);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Relatório (JSON + HTML)                                                    */
+/* -------------------------------------------------------------------------- */
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function enrichIssue(rec) {
+  return {
+    ...rec,
+    message: formatIssue(rec),
+    suggestion: suggestionFor(rec),
+  };
+}
+
+function buildReport({ source, dist, sourceFileCount, distSkipped }) {
+  const enrich = (group) =>
+    group.map((r) => ({ ...r, issues: r.issues.map(enrichIssue) }));
+  const enrichedSource = enrich(source);
+  const enrichedDist = enrich(dist);
+  const total =
+    enrichedSource.reduce((n, r) => n + r.issues.length, 0) +
+    enrichedDist.reduce((n, r) => n + r.issues.length, 0);
+  const byKind = {};
+  for (const g of [enrichedSource, enrichedDist]) {
+    for (const r of g)
+      for (const i of r.issues) byKind[i.kind] = (byKind[i.kind] ?? 0) + 1;
+  }
+  return {
+    generatedAt: new Date().toISOString(),
+    summary: {
+      totalIssues: total,
+      sourceFilesScanned: sourceFileCount,
+      distScanned: !distSkipped,
+      byKind,
+    },
+    source: enrichedSource,
+    dist: enrichedDist,
+  };
+}
+
+function renderReportHtml(report) {
+  const rows = (group, label) => {
+    if (group.length === 0)
+      return `<h2>${label}</h2><p class="ok">Sem problemas.</p>`;
+    const items = group
+      .map(
+        ({ file, issues }) => `
+        <details open>
+          <summary><code>${escapeHtml(file)}</code> — ${issues.length} problema(s)</summary>
+          <table>
+            <thead><tr><th>#</th><th>Tipo</th><th>Id</th><th>Elemento</th><th>Mensagem</th><th>Correção sugerida</th></tr></thead>
+            <tbody>
+            ${issues
+              .map(
+                (i, idx) => `
+              <tr>
+                <td>${idx + 1}</td>
+                <td><span class="kind kind-${i.kind}">${i.kind}</span></td>
+                <td><code>${escapeHtml(i.id ?? "—")}</code></td>
+                <td><code>${escapeHtml(i.element ?? (i.tag ? `<${i.tag}>` : "—"))}</code>${i.line ? ` <small>L${i.line}</small>` : ""}</td>
+                <td>${escapeHtml(i.message)}</td>
+                <td>${escapeHtml(i.suggestion)}</td>
+              </tr>`,
+              )
+              .join("")}
+            </tbody>
+          </table>
+        </details>`,
+      )
+      .join("");
+    return `<h2>${label}</h2>${items}`;
+  };
+  const byKindRows = Object.entries(report.summary.byKind)
+    .map(([k, n]) => `<li><code>${escapeHtml(k)}</code>: ${n}</li>`)
+    .join("");
+  return `<!doctype html>
+<html lang="pt-br"><head><meta charset="utf-8"/>
+<title>Relatório — Hierarquia de Headings</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:1100px;margin:2rem auto;padding:0 1rem;color:#1a1a1a}
+  h1{margin-bottom:.2rem}
+  .meta{color:#666;font-size:.9rem;margin-bottom:1.5rem}
+  .ok{color:#0a7d2b}
+  table{border-collapse:collapse;width:100%;margin:.5rem 0 1.5rem;font-size:.9rem}
+  th,td{border:1px solid #e2e2e2;padding:.4rem .6rem;text-align:left;vertical-align:top}
+  th{background:#f5f5f5}
+  code{background:#f0f0f0;padding:.1rem .3rem;border-radius:3px;font-size:.85rem}
+  .kind{font-size:.75rem;padding:.15rem .4rem;border-radius:3px;color:#fff;background:#666}
+  .kind-source-wrong-tag{background:#b45309}
+  .kind-hierarchy-skip{background:#b91c1c}
+  .kind-jumplink-missing{background:#7c2d12}
+  .kind-jumplink-wrong-tag{background:#9333ea}
+  details{margin:.5rem 0}
+  summary{cursor:pointer;padding:.3rem 0}
+  small{color:#888}
+</style></head><body>
+<h1>Relatório — Hierarquia de Headings</h1>
+<p class="meta">Gerado em ${escapeHtml(report.generatedAt)} · ${report.summary.totalIssues} problema(s) · ${report.summary.sourceFilesScanned} arquivo(s) de fonte · dist ${report.summary.distScanned ? "verificado" : "pulado"}</p>
+<h2>Resumo por tipo</h2>
+<ul>${byKindRows || "<li>Nenhum problema.</li>"}</ul>
+${rows(report.source, "Fonte (src/pages, src/components)")}
+${rows(report.dist, "HTML pré-renderizado (dist/)")}
+</body></html>`;
+}
+
+function writeReport(report) {
+  const outDir = fs.existsSync(DIST) ? DIST : path.join(ROOT, "reports");
+  fs.mkdirSync(outDir, { recursive: true });
+  const jsonPath = path.join(outDir, "heading-hierarchy-report.json");
+  const htmlPath = path.join(outDir, "heading-hierarchy-report.html");
+  fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2));
+  fs.writeFileSync(htmlPath, renderReportHtml(report));
+  return { jsonPath, htmlPath };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -184,14 +375,14 @@ function run() {
     ...walkTsxFiles(PAGES_DIR),
   ];
   for (const f of sourceFiles) {
-    const issues = auditSourceFile(f);
+    const issues = auditSourceFileDetailed(f);
     if (issues.length) report.source.push({ file: relative(f), issues });
   }
 
   // Layers 2 + 3: dist
   if (!SKIP_DIST) {
     for (const f of walkHtml(DIST)) {
-      const issues = auditHtmlFile(f);
+      const issues = auditHtmlFileDetailed(f);
       if (issues.length) report.dist.push({ file: relative(f), issues });
     }
   }
@@ -200,10 +391,19 @@ function run() {
     report.source.reduce((n, r) => n + r.issues.length, 0) +
     report.dist.reduce((n, r) => n + r.issues.length, 0);
 
+  const structured = buildReport({
+    source: report.source,
+    dist: report.dist,
+    sourceFileCount: sourceFiles.length,
+    distSkipped: SKIP_DIST,
+  });
+  const { jsonPath, htmlPath } = writeReport(structured);
+
   if (total === 0) {
     console.log(
       `✓ Hierarquia de headings OK (fonte: ${sourceFiles.length} arquivos, dist: ${SKIP_DIST ? "skipped" : "verificado"}).`,
     );
+    console.log(`  Relatório: ${relative(jsonPath)} · ${relative(htmlPath)}`);
     return;
   }
 
@@ -211,9 +411,15 @@ function run() {
   for (const group of ["source", "dist"]) {
     for (const { file, issues } of report[group]) {
       console.error(`  ${file}`);
-      for (const i of issues) console.error(`    · ${i}`);
+      for (const i of issues) {
+        console.error(`    · ${formatIssue(i)}`);
+        console.error(`      → ${suggestionFor(i)}`);
+      }
     }
   }
+  console.error(
+    `\nRelatório detalhado: ${relative(jsonPath)} · ${relative(htmlPath)}`,
+  );
   if (!WARN_ONLY) process.exit(1);
 }
 
@@ -225,8 +431,15 @@ if (invokedDirectly) run();
 // Expor helpers para testes unitários (Vitest).
 export {
   auditSourceFile,
+  auditSourceFileDetailed,
   extractHeadingsOrdered,
   auditHierarchy,
+  auditHierarchyDetailed,
   auditJumplinksInHtml,
+  auditJumplinksInHtmlDetailed,
+  formatIssue,
+  suggestionFor,
+  buildReport,
+  renderReportHtml,
   ALLOWED_HIERARCHY_TAGS,
 };
