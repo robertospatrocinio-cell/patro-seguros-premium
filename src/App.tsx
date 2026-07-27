@@ -87,6 +87,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SkipLink from "@/components/SkipLink";
 import { scheduleIdle } from "@/lib/prefetch";
+import { LEGACY_BAIRRO_REDIRECTS } from "@/lib/legacyBairroRedirects";
 
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const CookieBanner = lazy(() => import("@/components/CookieBanner"));
