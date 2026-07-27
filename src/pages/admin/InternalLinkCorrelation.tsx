@@ -45,6 +45,9 @@ type AnchorConversion = {
   cotacaoConversions: number;
   conversionRate: number;
   topPage: { pathname: string; clicks: number } | null;
+  views?: number;
+  viewSessions?: number;
+  clickThroughRate?: number | null;
 };
 type AnchorPotential = {
   anchor: string;
@@ -468,8 +471,10 @@ export default function InternalLinkCorrelation() {
                     <TableHeader>
                       <TableRow>
                         <TableHead className="min-w-[180px]">Âncora</TableHead>
+                        <TableHead className="text-right">Leituras</TableHead>
                         <TableHead className="text-right">Cliques</TableHead>
                         <TableHead className="text-right">Sessões</TableHead>
+                        <TableHead className="text-right">Leitura→Clique</TableHead>
                         <TableHead className="text-right">Sessões c/ conv.</TableHead>
                         <TableHead className="text-right">WhatsApp</TableHead>
                         <TableHead className="text-right">Cotação</TableHead>
@@ -488,8 +493,22 @@ export default function InternalLinkCorrelation() {
                             onClick={() => { setAnchor(a.anchor); load(); }}
                           >
                             <TableCell><code className="text-xs">#{a.anchor}</code></TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              {a.views != null && a.views > 0 ? (
+                                <span title={`${a.viewSessions ?? 0} sessões distintas`}>
+                                  {fmtInt(a.views)}
+                                </span>
+                              ) : <span className="text-muted-foreground">—</span>}
+                            </TableCell>
                             <TableCell className="text-right tabular-nums">{fmtInt(a.clicks)}</TableCell>
                             <TableCell className="text-right tabular-nums">{fmtInt(a.sessions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              {a.clickThroughRate == null
+                                ? <span className="text-muted-foreground">—</span>
+                                : <Badge variant={a.clickThroughRate >= 0.2 ? "default" : "secondary"}>
+                                    {fmtPct(a.clickThroughRate, 1)}
+                                  </Badge>}
+                            </TableCell>
                             <TableCell className="text-right tabular-nums">{fmtInt(a.convertingSessions)}</TableCell>
                             <TableCell className="text-right tabular-nums">{fmtInt(a.whatsappConversions)}</TableCell>
                             <TableCell className="text-right tabular-nums">{fmtInt(a.cotacaoConversions)}</TableCell>
@@ -509,6 +528,8 @@ export default function InternalLinkCorrelation() {
                   </Table>
                   <p className="text-[11px] text-muted-foreground mt-2">
                     Exibe apenas âncoras com ≥ 3 sessões no período para evitar viés de amostra pequena.
+                    <br />
+                    <strong>Leituras</strong>: <code>section_view</code> disparado pelo IntersectionObserver quando o usuário chega na seção (≥25% visível). <strong>Leitura→Clique</strong>: fração das sessões que, após ler a seção, clicaram em algum jump-link.
                   </p>
                 </CardContent>
               </Card>

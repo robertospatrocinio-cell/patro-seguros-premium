@@ -161,6 +161,55 @@ export interface ConversionMeta {
   else Promise.resolve().then(send);
 };
 
+/**
+ * Rastreia a "leitura" de uma seção quando o usuário realmente chega
+ * na âncora via scroll (disparado por IntersectionObserver no
+ * JumpLinksNav). Persiste na mesma tabela `internal_link_click_events`
+ * com `event_kind='section-view'` para correlacionar CLIQUE em
+ * jump-link com LEITURA real da seção no painel Admin.
+ *
+ * Dedupe por sessão: cada (pathname, anchor) só é registrado uma vez
+ * na mesma aba (sessionStorage), evitando inflacionar o volume quando
+ * o usuário rola pra frente e pra trás.
+ */
+export const trackSectionView = (anchor: string, label?: string) => {
+  if (typeof window === "undefined") return;
+  const id = (anchor || "").replace(/^#/, "").trim();
+  if (!id) return;
+  const path = window.location.pathname.replace(/\/$/, "") || "/";
+  const dedupeKey = `sv:${path}#${id}`;
+  try {
+    if (window.sessionStorage.getItem(dedupeKey)) return;
+    window.sessionStorage.setItem(dedupeKey, "1");
+  } catch { /* storage indisponível — segue sem dedupe */ }
+
+  ensureAnalytics();
+  const attr = captureAttribution();
+  const slug = path === "/" ? "home" : path.slice(1);
+  const source = normalizeSource(`landing:${slug || "geral"}`);
+  const destination = `${path}#${id}`;
+
+  window.gtag?.("event", "section_view", {
+    event_category: "engagement",
+    event_label: label || id,
+    placement: "section-view",
+    source,
+    destination,
+    anchor: id,
+    page_path: path,
+  });
+
+  persistInternalLinkClick({
+    placement: "section-view",
+    source,
+    destination,
+    label: label || "",
+    anchor: id,
+    attr,
+    eventKind: "section-view",
+  });
+};
+
 export const trackWhatsAppClick = (source?: string, meta?: ConversionMeta) => {
   recordConversionClick("whatsapp_click", source, meta);
   ensureAnalytics();
@@ -433,6 +482,7 @@ const persistInternalLinkClick = (payload: {
   label: string;
   anchor: string | null;
   attr: Attribution;
+  eventKind?: "click" | "section-view";
 }) => {
   if (typeof window === "undefined") return;
   const url = import.meta.env.VITE_SUPABASE_URL;
@@ -459,6 +509,7 @@ const persistInternalLinkClick = (payload: {
     referrer: payload.attr.referrer ?? null,
     device_type: vitals.device_type ?? null,
     user_agent: ua.slice(0, 512),
+    event_kind: payload.eventKind ?? "click",
   });
 
   const endpoint = `${url}/rest/v1/internal_link_click_events`;
