@@ -556,6 +556,7 @@ const App = () => {
                   <Route path="/admin/gsc-web-vitals" element={<RequireAdmin><GscWebVitals /></RequireAdmin>} />
                   <Route path="/admin/faq-underfilled" element={<RequireAdmin><FaqUnderfilled /></RequireAdmin>} />
                   <Route path="/admin/gsc-keywords" element={<RequireAdmin><GscKeywordPerformance /></RequireAdmin>} />
+                  <Route path="/admin/links-internos" element={<RequireAdmin><InternalLinkCorrelation /></RequireAdmin>} />
                   <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
                   <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
                   <Route path="/admin/seo-resumo" element={<RequireAdmin><SeoScanSummary /></RequireAdmin>} />
