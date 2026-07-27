@@ -45,6 +45,11 @@ const LandingSeguroResidencial = () => (
       { question: "A assistência 24h funciona mesmo?", answer: "Funciona sim, 365 dias por ano. Chaveiro, encanador, eletricista, vidraceiro — tudo incluso sem custo adicional, sem limite de uso." },
       { question: "Cobre danos por enchente?", answer: "Sim, com a cobertura adicional de alagamento/inundação. Recomendamos para quem mora em áreas de risco." },
       { question: "E se eu morar de aluguel, o proprietário não deveria pagar?", answer: "O proprietário geralmente faz seguro do imóvel (estrutura). Mas seus pertences, eletrodomésticos e responsabilidade civil são sua responsabilidade." },
+      { question: "A cotação de seguro residencial online é grátis?", answer: "100% grátis e sem compromisso. Você preenche um formulário rápido (leva menos de 2 minutos) e recebe até 6 opções de seguradoras diferentes para comparar preço e cobertura lado a lado." },
+      { question: "Quanto tempo demora para receber a cotação online?", answer: "Na Patro Seguros a resposta chega em até 2 horas úteis. Cotações mais simples (apartamento padrão, sem coberturas especiais) saem em minutos direto no seu WhatsApp." },
+      { question: "O que preciso informar para fazer a cotação online?", answer: "Apenas o essencial: CEP do imóvel, se é casa ou apartamento, área construída aproximada, se é próprio ou alugado, e o valor que quer segurar dos bens (móveis, eletrônicos). Não pedimos CPF nem documentos nessa etapa." },
+      { question: "Posso comparar várias seguradoras em uma única cotação?", answer: "Sim — esse é o principal motivo de cotar com uma corretora e não direto no site de uma seguradora. Trabalhamos com 16+ seguradoras (Porto, Bradesco, Allianz, Tokio, Mapfre, Liberty, HDI, Azul, Suhai, Sompo, entre outras) e apresentamos as 3 melhores para o seu perfil." },
+      { question: "Preciso morar em Guarulhos para cotar com a Patro Seguros?", answer: "Não. Somos corretora com sede em Guarulhos/SP mas atendemos todo o Brasil online. A cotação e a assinatura da apólice são 100% digitais, sem precisar sair de casa." },
     ]}
   />
 );
