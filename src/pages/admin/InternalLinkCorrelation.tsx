@@ -584,12 +584,23 @@ export default function InternalLinkCorrelation() {
               </Card>
             )}
 
-            {data.anchorPotential && data.anchorPotential.length > 0 && (
+            {data.anchorPotential && data.anchorPotential.length > 0 && (() => {
+              const filtered = data.anchorPotential.filter((a) =>
+                matchesCluster(a.topPage?.pathname) &&
+                (convTypeFilter === "all" ||
+                  // aproximação: se filtrou por tipo de conversão, só faz
+                  // sentido mostrar âncoras que já converteram nesse tipo.
+                  // (Detalhe por tipo mora em anchorConversions.)
+                  a.convertingSessions > 0),
+              );
+              if (filtered.length === 0) return null;
+              return (
               <Card className="mb-6 border-amber-500/50">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base flex items-center gap-2">
                     <TrendingUp className="h-4 w-4 text-amber-600" />
-                    Âncoras com maior potencial ({data.anchorPotential.length})
+                    Âncoras com maior potencial ({filtered.length}
+                    {filtersActive ? ` / ${data.anchorPotential.length}` : ""})
                   </CardTitle>
                   <p className="text-xs text-muted-foreground">
                     Âncoras expostas a muitas impressões no Search Console mas com
@@ -597,6 +608,9 @@ export default function InternalLinkCorrelation() {
                     Score = impressões × fator de posição (favorece 11–30) × fator de
                     ineficiência. Priorize essas âncoras na trilha recomendada, teste
                     novos rótulos e reforce links internos até elas.
+                    {filtersActive && (
+                      <span className="block mt-1 text-primary">Filtro ativo: {filterSummary}</span>
+                    )}
                   </p>
                 </CardHeader>
                 <CardContent className="overflow-x-auto">
@@ -615,7 +629,7 @@ export default function InternalLinkCorrelation() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {data.anchorPotential.slice(0, 25).map((a) => (
+                      {filtered.slice(0, 25).map((a) => (
                         <TableRow
                           key={a.anchor}
                           className="cursor-pointer"
@@ -632,7 +646,13 @@ export default function InternalLinkCorrelation() {
                           <TableCell className="text-right tabular-nums">{fmtPct(a.conversionRate, 1)}</TableCell>
                           <TableCell className="text-xs">
                             {a.topPage ? (
-                              <span>{a.topPage.pathname} <span className="text-muted-foreground">({a.topPage.clicks})</span></span>
+                              <span>
+                                {a.topPage.pathname}{" "}
+                                <span className="text-muted-foreground">({a.topPage.clicks})</span>
+                                <Badge variant="outline" className="ml-2 text-[10px]">
+                                  {anchorClusterLabel(getAnchorCluster(a.topPage.pathname))}
+                                </Badge>
+                              </span>
                             ) : <span className="text-muted-foreground">—</span>}
                           </TableCell>
                           <TableCell className="text-[11px] text-muted-foreground max-w-[280px]">
@@ -647,7 +667,8 @@ export default function InternalLinkCorrelation() {
                   </p>
                 </CardContent>
               </Card>
-            )}
+              );
+            })()}
 
             {priorities && Object.keys(priorities).length > 0 && (() => {
               const rows = Object.values(priorities)
