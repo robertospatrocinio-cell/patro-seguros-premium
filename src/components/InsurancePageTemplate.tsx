@@ -41,6 +41,7 @@ import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSe
 import ContextualSeoHub from "@/components/ContextualSeoHub";
 import SmartText from "@/components/SmartText";
 import { getBreadcrumbChain } from "@/lib/breadcrumbCategory";
+import { useBreadcrumbOverrides } from "@/hooks/useBreadcrumbOverrides";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 
 // Inferência de palavras-chave (em inglês) para a galeria temática automática
@@ -335,7 +336,8 @@ const InsurancePageTemplate = ({
     );
   };
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
-  const breadcrumbChain = getBreadcrumbChain(location.pathname);
+  const { data: breadcrumbOverrides } = useBreadcrumbOverrides();
+  const breadcrumbChain = getBreadcrumbChain(location.pathname, breadcrumbOverrides);
   const breadcrumbItems = [
     ...breadcrumbChain.map((c) => ({ label: c.label, href: c.href })),
     { label: title },
