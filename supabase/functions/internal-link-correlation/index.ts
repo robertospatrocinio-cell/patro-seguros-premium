@@ -324,6 +324,97 @@ serve(async (req) => {
       }))
       .sort((a, b) => b.clicks - a.clicks);
 
+    // 5c) Recomendações automáticas de linkagem interna.
+    //
+    // Objetivo: para cada página com alto potencial no GSC (muitas
+    // impressões e posição fora do top-3), sugerir:
+    //   • um DESTINO (a própria página) que merece mais links internos;
+    //   • um PLACEMENT recomendado (o que já converte melhor no site
+    //     ou o topPlacement da própria página);
+    //   • até 3 páginas SOURCE candidatas (páginas com muitos cliques
+    //     GSC — têm autoridade interna para "empurrar" o destino).
+    //
+    // A pontuação favorece páginas com impressão alta, posição no
+    // "no-man's-land" (11-30) e baixo volume atual de cliques internos.
+    const globalPlacementScore = new Map<string, number>();
+    for (const r of rows) {
+      if (r.topPlacement && r.gsc) {
+        globalPlacementScore.set(
+          r.topPlacement.key,
+          (globalPlacementScore.get(r.topPlacement.key) ?? 0) + r.gsc.clicks,
+        );
+      }
+    }
+    let bestGlobalPlacement: string | null = null;
+    let bestGlobalPlacementScore = -1;
+    for (const [k, v] of globalPlacementScore) {
+      if (v > bestGlobalPlacementScore) { bestGlobalPlacement = k; bestGlobalPlacementScore = v; }
+    }
+
+    // Fontes candidatas: páginas com mais cliques GSC (autoridade real).
+    const authorityPool = rows
+      .filter((r) => r.gsc && r.gsc.clicks > 0)
+      .sort((a, b) => (b.gsc!.clicks - a.gsc!.clicks))
+      .slice(0, 30);
+
+    const positionFactor = (pos: number) => {
+      if (pos >= 11 && pos <= 30) return 1.0;
+      if (pos >= 4 && pos <= 10) return 0.55;
+      if (pos > 30 && pos <= 60) return 0.35;
+      if (pos >= 1 && pos <= 3) return 0.1;
+      return 0.15;
+    };
+
+    const recommendations = rows
+      .filter((r) =>
+        r.gsc &&
+        r.gsc.impressions >= 30 &&
+        r.gsc.position >= 4 &&
+        r.gsc.position <= 60,
+      )
+      .map((r) => {
+        const impr = r.gsc!.impressions;
+        const pos = r.gsc!.position;
+        const clicksNeed = 1 / (r.internalClicks + 1);
+        const score = Math.round(impr * positionFactor(pos) * clicksNeed * 10) / 10;
+
+        // Placement sugerido: o que já performa nessa página, senão o
+        // global mais forte, senão smart-text como fallback seguro.
+        const suggestedPlacement =
+          r.topPlacement?.key ||
+          bestGlobalPlacement ||
+          "smart-text";
+
+        // Sources: top autoridade excluindo a própria página.
+        const suggestedSources = authorityPool
+          .filter((s) => s.pathname !== r.pathname)
+          .slice(0, 3)
+          .map((s) => ({
+            pathname: s.pathname,
+            gscClicks: s.gsc!.clicks,
+            gscImpressions: s.gsc!.impressions,
+          }));
+
+        const reasonParts: string[] = [];
+        reasonParts.push(`${impr} impressões`);
+        reasonParts.push(`posição ${pos.toFixed(1)}`);
+        if (pos >= 11 && pos <= 30) reasonParts.push("dentro da zona de escalada (11–30)");
+        if (r.internalClicks === 0) reasonParts.push("sem cliques internos");
+        else reasonParts.push(`apenas ${r.internalClicks} clique(s) interno(s)`);
+
+        return {
+          destination: r.pathname,
+          score,
+          gsc: r.gsc,
+          internalClicks: r.internalClicks,
+          suggestedPlacement,
+          suggestedSources,
+          reason: reasonParts.join(" · "),
+        };
+      })
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 25);
+
     // 5) Totais + coeficiente de correlação de Pearson entre cliques
     //    internos e impressões/posição (apenas onde os dois lados existem).
     const paired = rows.filter((r) => r.gsc && r.internalClicks > 0);
@@ -362,6 +453,7 @@ serve(async (req) => {
         totals,
         rows,
         anchorsGlobal,
+        recommendations,
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );
