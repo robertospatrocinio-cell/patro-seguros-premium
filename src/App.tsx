@@ -190,6 +190,7 @@ const LongtailPlanosSaudeGuarulhosComparativo = lazyWithRetry(() => import("./pa
 const LongtailValorSeguroBydDolphin = lazyWithRetry(() => import("./pages/LongtailValorSeguroBydDolphin"), "LongtailValorSeguroBydDolphin");
 const LongtailMelhorSeguroUberGuarulhos = lazyWithRetry(() => import("./pages/LongtailMelhorSeguroUberGuarulhos"), "LongtailMelhorSeguroUberGuarulhos");
 const LongtailCotacaoSeguroResidencialOnline = lazyWithRetry(() => import("./pages/LongtailCotacaoSeguroResidencialOnline"), "LongtailCotacaoSeguroResidencialOnline");
+const GuiaClusterLongtail = lazyWithRetry(() => import("./pages/GuiaClusterLongtail"), "GuiaClusterLongtail");
 const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
 const PlanoSaudeEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhos"), "PlanoSaudeEmpresarialGuarulhos");
 const PlanosSaudeSeniorGuarulhos = lazyWithRetry(() => import("./pages/PlanosSaudeSeniorGuarulhos"), "PlanosSaudeSeniorGuarulhos");
@@ -786,6 +787,7 @@ const App = () => {
                   <Route path="/valor-seguro-byd-dolphin" element={<LongtailValorSeguroBydDolphin />} />
                   <Route path="/melhor-seguro-para-uber-guarulhos" element={<LongtailMelhorSeguroUberGuarulhos />} />
                   <Route path="/cotacao-seguro-residencial-online" element={<LongtailCotacaoSeguroResidencialOnline />} />
+                  <Route path="/guia-cluster-longtail" element={<GuiaClusterLongtail />} />
                   {/* Patrimônio / empresas — variantes */}
                   <Route path="/seguro-galpao-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-galpao-cumbica" element={<SeguroGalpaoCumbica />} />
