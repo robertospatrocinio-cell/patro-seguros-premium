@@ -714,6 +714,7 @@ const InsurancePageTemplate = ({
                   </div>
                 )}
               </div>
+              {renderSectionCta("preco-heading")}
             </div>
           </section>
         )}
