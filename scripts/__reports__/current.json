@@ -1,0 +1,90 @@
+{
+  "summary": {
+    "blocks": 7,
+    "eligible": 7,
+    "eligibleWarn": 0,
+    "files": 3,
+    "ineligible": 0,
+    "nodes": 7,
+    "unsupported": 0
+  },
+  "byType": {
+    "BreadcrumbList": {
+      "eligible": 3,
+      "eligibleWarn": 0,
+      "ineligible": 0,
+      "total": 3,
+      "unsupported": 0
+    },
+    "FAQPage": {
+      "eligible": 1,
+      "eligibleWarn": 0,
+      "ineligible": 0,
+      "total": 1,
+      "unsupported": 0
+    },
+    "Organization": {
+      "eligible": 3,
+      "eligibleWarn": 0,
+      "ineligible": 0,
+      "total": 3,
+      "unsupported": 0
+    }
+  },
+  "routes": {
+    "/": {
+      "nodes": [
+        {
+          "type": "Organization",
+          "verdict": "eligible",
+          "required": [],
+          "recommended": []
+        },
+        {
+          "type": "BreadcrumbList",
+          "verdict": "eligible",
+          "required": [],
+          "recommended": []
+        }
+      ]
+    },
+    "/faq": {
+      "nodes": [
+        {
+          "type": "Organization",
+          "verdict": "eligible",
+          "required": [],
+          "recommended": []
+        },
+        {
+          "type": "BreadcrumbList",
+          "verdict": "eligible",
+          "required": [],
+          "recommended": []
+        },
+        {
+          "type": "FAQPage",
+          "verdict": "eligible",
+          "required": [],
+          "recommended": []
+        }
+      ]
+    },
+    "/seguro-auto": {
+      "nodes": [
+        {
+          "type": "Organization",
+          "verdict": "eligible",
+          "required": [],
+          "recommended": []
+        },
+        {
+          "type": "BreadcrumbList",
+          "verdict": "eligible",
+          "required": [],
+          "recommended": []
+        }
+      ]
+    }
+  }
+}
