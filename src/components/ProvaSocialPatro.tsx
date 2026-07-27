@@ -126,12 +126,17 @@ const ProvaSocialPatro = ({
         {/* Divisor + texto */}
         <div className={`hidden md:block h-16 w-px ${isHero ? "bg-white/15" : "bg-slate-200"}`} aria-hidden="true" />
         <div className="flex-1">
-          <p
+          {/*
+            Elemento referenciado por `aria-labelledby` da <section>: precisa
+            ser um heading (h1|h2|h3) para respeitar a hierarquia semântica
+            validada por `scripts/validate-heading-hierarchy.mjs`.
+          */}
+          <h3
             id="prova-social-heading"
-            className={`text-sm leading-relaxed ${isHero ? "text-white/85" : "text-foreground/85"}`}
+            className={`text-sm font-normal leading-relaxed ${isHero ? "text-white/85" : "text-foreground/85"}`}
           >
             {finalCopy}
-          </p>
+          </h3>
           <div className="mt-2 flex items-center gap-1.5 text-[11px] font-medium">
             <ShieldCheck className={`h-3.5 w-3.5 ${isHero ? "text-emerald-300" : "text-emerald-600"}`} aria-hidden="true" />
             <span className={isHero ? "text-white/80" : "text-muted-foreground"}>
