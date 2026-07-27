@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink, Sparkles, Copy, Check, CheckCircle2, X, XCircle, Zap } from "lucide-react";
+import { Wand2, ArrowRight } from "lucide-react";
 import { useQueryClient } from "@tanstack/react-query";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
