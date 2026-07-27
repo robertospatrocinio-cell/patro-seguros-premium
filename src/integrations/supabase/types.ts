@@ -14,6 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
+      anchor_alerts: {
+        Row: {
+          anchor: string
+          cluster_id: string | null
+          created_at: string
+          current_conversion_rate: number | null
+          current_score: number | null
+          first_detected_at: string
+          id: string
+          kind: string
+          last_detected_at: string
+          metrics: Json
+          previous_conversion_rate: number | null
+          reason: string | null
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: string
+          streak_days: number
+          top_pathname: string | null
+          updated_at: string
+        }
+        Insert: {
+          anchor: string
+          cluster_id?: string | null
+          created_at?: string
+          current_conversion_rate?: number | null
+          current_score?: number | null
+          first_detected_at?: string
+          id?: string
+          kind: string
+          last_detected_at?: string
+          metrics?: Json
+          previous_conversion_rate?: number | null
+          reason?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          streak_days?: number
+          top_pathname?: string | null
+          updated_at?: string
+        }
+        Update: {
+          anchor?: string
+          cluster_id?: string | null
+          created_at?: string
+          current_conversion_rate?: number | null
+          current_score?: number | null
+          first_detected_at?: string
+          id?: string
+          kind?: string
+          last_detected_at?: string
+          metrics?: Json
+          previous_conversion_rate?: number | null
+          reason?: string | null
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: string
+          streak_days?: number
+          top_pathname?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       anchor_priorities: {
         Row: {
           anchor: string
@@ -55,6 +118,57 @@ export type Database = {
           sessions?: number
           top_pathname?: string | null
           updated_at?: string
+          whatsapp_conversions?: number
+        }
+        Relationships: []
+      }
+      anchor_priority_history: {
+        Row: {
+          anchor: string
+          clicks: number
+          conversion_rate: number
+          converting_sessions: number
+          cotacao_conversions: number
+          created_at: string
+          id: string
+          impressions: number
+          position: number | null
+          score: number
+          sessions: number
+          snapshot_date: string
+          top_pathname: string | null
+          whatsapp_conversions: number
+        }
+        Insert: {
+          anchor: string
+          clicks?: number
+          conversion_rate?: number
+          converting_sessions?: number
+          cotacao_conversions?: number
+          created_at?: string
+          id?: string
+          impressions?: number
+          position?: number | null
+          score?: number
+          sessions?: number
+          snapshot_date: string
+          top_pathname?: string | null
+          whatsapp_conversions?: number
+        }
+        Update: {
+          anchor?: string
+          clicks?: number
+          conversion_rate?: number
+          converting_sessions?: number
+          cotacao_conversions?: number
+          created_at?: string
+          id?: string
+          impressions?: number
+          position?: number | null
+          score?: number
+          sessions?: number
+          snapshot_date?: string
+          top_pathname?: string | null
           whatsapp_conversions?: number
         }
         Relationships: []
