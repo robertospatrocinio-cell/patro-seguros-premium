@@ -379,6 +379,7 @@ const FaqUnderfilled = lazy(() => import("./pages/admin/FaqUnderfilled"));
 const GscKeywordPerformance = lazy(() => import("./pages/admin/GscKeywordPerformance"));
 const InternalLinkCorrelation = lazy(() => import("./pages/admin/InternalLinkCorrelation"));
 const NextSectionCtaReport = lazy(() => import("./pages/admin/NextSectionCtaReport"));
+const BreadcrumbsAdmin = lazy(() => import("./pages/admin/BreadcrumbsAdmin"));
 
 // RequireAdmin puxa `@/integrations/supabase/client` estaticamente (~50 KB).
 // Como só é usado em rotas /admin/* e /crm (todas lazy), carregamos sob demanda
