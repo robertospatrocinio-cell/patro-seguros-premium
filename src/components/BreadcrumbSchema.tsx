@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import { sanitizeBreadcrumbItems } from "@/lib/breadcrumbValidation";
 
 interface BreadcrumbItem {
   name: string;
@@ -100,11 +101,29 @@ const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {
     ];
   }
 
-  const breadcrumbItems = raw.map((item, index) => ({
+  // Resolve TODAS as URLs para absoluto antes de validar — a sanitização
+  // valida apenas hrefs http(s) e deduplica exatamente pelo href final.
+  const resolved = raw.map((item) => ({ name: item.name, url: toAbsolute(item.url) }));
+  const { items: sanitized, issues } = sanitizeBreadcrumbItems(resolved);
+
+  if (import.meta.env.DEV && issues.length > 0) {
+    for (const issue of issues) {
+      console.warn(
+        `[BreadcrumbSchema] descartando item na posição ${issue.index + 1} ` +
+          `(${issue.reason}): ${JSON.stringify(issue.item)}`,
+      );
+    }
+  }
+
+  // Se sobrar apenas 1 item (ou nenhum) após sanitização, não emite JSON-LD —
+  // um BreadcrumbList com um único elo é inelegível para rich result.
+  if (sanitized.length < 2) return null;
+
+  const breadcrumbItems = sanitized.map((item, index) => ({
     "@type": "ListItem",
     position: index + 1,
     name: item.name,
-    item: toAbsolute(item.url),
+    item: item.url,
   }));
 
   const schema = {
