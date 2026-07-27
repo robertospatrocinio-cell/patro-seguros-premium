@@ -429,7 +429,9 @@ export type InternalLinkPlacement =
   | "proximas-leituras"
   | "next-section-inline"
   | "next-section-list"
-  | "next-section-mobile";
+  | "next-section-mobile"
+  | "cluster-pager-prev"
+  | "cluster-pager-next";
 
 /**
  * Variantes de CTA de "próxima seção" — nomes canônicos para
