@@ -23,7 +23,10 @@ export function dedupe(faqs) {
 
 /**
  * Gera Q&A sugeridas — determinístico por (slug, title, category):
- * mesmas entradas ⇒ mesma saída exata.
+ * mesmas entradas ⇒ mesma saída exata. Retorna 3 candidatas para
+ * garantir 2 únicas mesmo quando alguma colide com Q&A existentes
+ * (fundamental para posts com 0 Q&A, que precisam alcançar exatamente
+ * 2 Question e evitar `eligible-warn`/`ineligible` no FAQPage).
  */
 export function suggestFaqs({ title, category }) {
   const topic = (category || "seguro").toLowerCase();
@@ -36,6 +39,10 @@ export function suggestFaqs({ title, category }) {
     {
       q: `A Patro Seguros atende ${topic} em toda Guarulhos e região metropolitana?`,
       a: `Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo "${cleanTitle}" pelo WhatsApp para receber a orientação adequada.`,
+    },
+    {
+      q: `Quais documentos são necessários para contratar ${topic} após ler este artigo?`,
+      a: `Para avançar com uma proposta de ${topic} após o artigo "${cleanTitle}" a Patro Seguros costuma solicitar: documento com foto do proponente/PJ, CNPJ ou CPF, endereço completo com CEP, dados do bem/atividade a ser segurado e histórico de sinistros (quando existir). Envie os documentos pelo WhatsApp da corretora — a equipe monta a cotação comparativa entre as principais seguradoras parceiras.`,
     },
   ];
 }
@@ -65,7 +72,7 @@ export function countFaqs(slug, contentIndex, extra, backfill) {
  */
 export function topUpBackfillForSlug({ existing = [], suggestions = [], currentCount = 0, target = 2 }) {
   const needed = Math.max(0, target - currentCount);
-  if (needed === 0) return { next: existing.slice(), added: 0 };
+  if (needed === 0) return { next: existing.slice(), added: 0, shortfall: 0 };
   const seen = new Set(existing.map((f) => normalizeQuestion(f.q)));
   const additions = [];
   for (const s of suggestions) {
@@ -76,7 +83,8 @@ export function topUpBackfillForSlug({ existing = [], suggestions = [], currentC
     additions.push({ q: s.q, a: s.a });
     seen.add(k);
   }
-  return { next: [...existing, ...additions], added: additions.length };
+  const shortfall = Math.max(0, needed - additions.length);
+  return { next: [...existing, ...additions], added: additions.length, shortfall };
 }
 
 /** Serialização determinística do arquivo `blogFaqBackfill.ts`. */

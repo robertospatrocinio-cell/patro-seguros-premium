@@ -44,7 +44,7 @@ describe("suggestFaqs — determinismo", () => {
   });
   it("gera pelo menos 2 sugestões distintas (case-insensitive)", () => {
     const s = suggestFaqs({ title: "Seguro X", category: "Auto" });
-    expect(s.length).toBeGreaterThanOrEqual(2);
+    expect(s.length).toBeGreaterThanOrEqual(3);
     const keys = new Set(s.map((f) => normalizeQuestion(f.q)));
     expect(keys.size).toBe(s.length);
   });
@@ -91,6 +91,43 @@ describe("topUpBackfillForSlug — idempotência e dedupe", () => {
     const r = topUpBackfillForSlug({ existing: [], suggestions, currentCount: 0, target: 2 });
     expect(r.added).toBe(2);
     expect(r.next).toEqual(suggestions);
+    expect(r.shortfall).toBe(0);
+  });
+  it("preenche exatamente 2 Q&A quando currentCount=0 e há 3+ sugestões", () => {
+    const three = [
+      { q: "Q1", a: "A1" },
+      { q: "Q2", a: "A2" },
+      { q: "Q3", a: "A3" },
+    ];
+    const r = topUpBackfillForSlug({ existing: [], suggestions: three, currentCount: 0, target: 2 });
+    expect(r.next).toHaveLength(2);
+    expect(r.shortfall).toBe(0);
+  });
+  it("usa fallback quando primeiras sugestões colidem com Q&A existente", () => {
+    const three = [
+      { q: "Q1", a: "A1" },
+      { q: "Q2", a: "A2" },
+      { q: "Q3", a: "A3" },
+    ];
+    // artigo com 0 Q&A e 1 backfill que colide com Q1 → deve usar Q2 e Q3
+    const r = topUpBackfillForSlug({
+      existing: [{ q: "q1", a: "old" }],
+      suggestions: three,
+      currentCount: 1,
+      target: 2,
+    });
+    expect(r.added).toBe(1);
+    expect(r.shortfall).toBe(0);
+    expect(r.next.map((f) => f.q)).toEqual(["q1", "Q2"]);
+  });
+  it("reporta shortfall > 0 quando sugestões insuficientes/colididas", () => {
+    const r = topUpBackfillForSlug({
+      existing: [{ q: "Q1", a: "x" }],
+      suggestions: [{ q: "q1", a: "dup" }],
+      currentCount: 0,
+      target: 2,
+    });
+    expect(r.shortfall).toBeGreaterThan(0);
   });
   it("não adiciona nada quando já atinge target", () => {
     const r = topUpBackfillForSlug({ existing: [{ q: "X", a: "1" }], suggestions, currentCount: 2, target: 2 });
