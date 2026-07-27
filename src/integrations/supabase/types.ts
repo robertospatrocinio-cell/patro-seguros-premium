@@ -846,6 +846,7 @@ export type Database = {
           created_at: string
           destination: string
           device_type: string | null
+          event_kind: string
           id: string
           label: string | null
           page_path: string
@@ -863,6 +864,7 @@ export type Database = {
           created_at?: string
           destination: string
           device_type?: string | null
+          event_kind?: string
           id?: string
           label?: string | null
           page_path: string
@@ -880,6 +882,7 @@ export type Database = {
           created_at?: string
           destination?: string
           device_type?: string | null
+          event_kind?: string
           id?: string
           label?: string | null
           page_path?: string
