@@ -342,6 +342,7 @@ const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const PurgeLogs = lazy(() => import("./pages/PurgeLogs"));
 const WebVitalsCorrelation = lazy(() => import("./pages/admin/WebVitalsCorrelation"));
 const MonitorIndexacao = lazy(() => import("./pages/admin/MonitorIndexacao"));
+const GscWebVitals = lazy(() => import("./pages/admin/GscWebVitals"));
 
 // RequireAdmin puxa `@/integrations/supabase/client` estaticamente (~50 KB).
 // Como só é usado em rotas /admin/* e /crm (todas lazy), carregamos sob demanda
@@ -544,6 +545,7 @@ const App = () => {
                   <Route path="/admin/conversoes" element={<RequireAdmin><ConversionDashboard /></RequireAdmin>} />
                   <Route path="/admin/web-vitals-correlacao" element={<RequireAdmin><WebVitalsCorrelation /></RequireAdmin>} />
                   <Route path="/admin/monitor-indexacao" element={<RequireAdmin><MonitorIndexacao /></RequireAdmin>} />
+                  <Route path="/admin/gsc-web-vitals" element={<RequireAdmin><GscWebVitals /></RequireAdmin>} />
                   <Route path="/admin/pagespeed" element={<RequireAdmin><PagespeedHistory /></RequireAdmin>} />
                   <Route path="/admin/schemas" element={<RequireAdmin><SchemaDashboard /></RequireAdmin>} />
                   <Route path="/admin/seo-resumo" element={<RequireAdmin><SeoScanSummary /></RequireAdmin>} />
