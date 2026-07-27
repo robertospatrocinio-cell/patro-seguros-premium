@@ -2,6 +2,54 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 /**
+ * Região aria-live única, criada preguiçosamente, usada para anunciar
+ * ao leitor de tela qual seção acabou de receber foco após a
+ * navegação por âncora profunda.
+ */
+const LIVE_REGION_ID = "sr-anchor-announcer";
+const ensureLiveRegion = (): HTMLElement => {
+  let region = document.getElementById(LIVE_REGION_ID);
+  if (region) return region;
+  region = document.createElement("div");
+  region.id = LIVE_REGION_ID;
+  region.setAttribute("role", "status");
+  region.setAttribute("aria-live", "polite");
+  region.setAttribute("aria-atomic", "true");
+  // Visualmente escondido mas exposto para AT (padrão sr-only)
+  region.style.cssText =
+    "position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;";
+  document.body.appendChild(region);
+  return region;
+};
+
+const announce = (message: string) => {
+  if (!message) return;
+  const region = ensureLiveRegion();
+  // Limpa e reescreve para forçar releitura mesmo em textos repetidos.
+  region.textContent = "";
+  window.setTimeout(() => {
+    region.textContent = message;
+  }, 50);
+};
+
+/**
+ * Dado o elemento alvo da âncora, devolve o heading (h1..h6) que
+ * deve receber o foco do teclado — priorizando o próprio heading,
+ * depois o heading referenciado por aria-labelledby, e por fim o
+ * primeiro heading dentro do container.
+ */
+const resolveHeadingTarget = (el: HTMLElement): HTMLElement => {
+  if (/^H[1-6]$/.test(el.tagName)) return el;
+  const labelledBy = el.getAttribute("aria-labelledby");
+  if (labelledBy) {
+    const referenced = document.getElementById(labelledBy);
+    if (referenced) return referenced;
+  }
+  const inner = el.querySelector<HTMLElement>("h1, h2, h3, h4, h5, h6");
+  return inner || el;
+};
+
+/**
  * Encontra a âncora "mais próxima" quando o id exato não existe na página.
  * Ordem de preferência:
  *   1. id com mesmo token base (ex.: "preco-heading" → "preco" | "precos" | "preco-hero-heading")
@@ -62,10 +110,19 @@ const ScrollToTop = () => {
       // Wait for the destination route to render, then scroll to the element.
       const id = hash.replace(/^#/, "");
       const focusEl = (el: HTMLElement) => {
+        // 1. Rola até o container da seção para preservar o contexto visual.
         el.scrollIntoView({ behavior, block: "start" });
-        const previousTabIndex = el.getAttribute("tabindex");
-        if (previousTabIndex === null) el.setAttribute("tabindex", "-1");
-        el.focus({ preventScroll: true });
+        // 2. Move o foco do teclado ao heading real da seção, para que o
+        //    leitor de tela anuncie "Título da seção, nível 2".
+        const heading = resolveHeadingTarget(el);
+        if (!heading.hasAttribute("tabindex")) {
+          heading.setAttribute("tabindex", "-1");
+        }
+        // Anuncia via live region antes do focus() para que NVDA/VoiceOver
+        // não engulam a mudança de foco simultânea.
+        const label = (heading.textContent || "").trim().replace(/\s+/g, " ");
+        if (label) announce(`Seção: ${label}`);
+        heading.focus({ preventScroll: true });
       };
       const scrollToAnchor = (attempt = 0) => {
         const el = document.getElementById(id);
