@@ -11,7 +11,9 @@ interface FAQSchemaProps {
 
 const FAQSchema = ({ faqs }: FAQSchemaProps) => {
   const validFaqs = faqs.filter(faq => faq.question?.trim() && faq.answer?.trim());
-  if (!validFaqs.length) return null;
+  // Google exige múltiplas Q&A para FAQPage rich result — não emite o schema
+  // quando há menos de 2 perguntas válidas (evita eligible-warn no relatório).
+  if (validFaqs.length < 2) return null;
 
   const schema = {
     "@context": "https://schema.org",
