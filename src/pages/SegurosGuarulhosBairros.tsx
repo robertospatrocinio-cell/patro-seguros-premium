@@ -669,6 +669,74 @@ const SegurosGuarulhosBairros = () => {
         </section>
 
         {/* FAQ POR BAIRRO */}
+        {/* BAIRROS VIZINHOS + VERTICAIS — interlinking contextual */}
+        <section className="py-14 bg-gray-50 border-t">
+          <div className="container mx-auto px-4">
+            <div className={`max-w-5xl mx-auto transition-all duration-500 ${transitioning ? "opacity-0" : "opacity-100"}`}>
+              <div className="grid md:grid-cols-2 gap-10">
+                {/* Bairros vizinhos */}
+                {neighbors.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <MapPin className="h-5 w-5 text-[#F2994A]" aria-hidden />
+                      <h2 className="text-xl md:text-2xl font-bold text-[#003366]">
+                        Bairros vizinhos ao {selectedBairro.nome}
+                      </h2>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Atendemos toda a região. Compare cotações também nos bairros próximos:
+                    </p>
+                    <nav aria-label={`Bairros vizinhos ao ${selectedBairro.nome}`}>
+                      <ul className="flex flex-wrap gap-2">
+                        {neighbors.map((n) => (
+                          <li key={n.id}>
+                            <Link
+                              to={n.href}
+                              className="inline-flex items-center gap-1 bg-white border border-gray-200 hover:border-[#003366] hover:text-[#003366] text-gray-700 text-sm font-medium px-3 py-2 rounded-full transition-colors"
+                            >
+                              Seguros em {n.nome}
+                              <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  </div>
+                )}
+
+                {/* Landing pages verticais correspondentes */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Shield className="h-5 w-5 text-[#F2994A]" aria-hidden />
+                    <h2 className="text-xl md:text-2xl font-bold text-[#003366]">
+                      Coberturas em destaque no {selectedBairro.nome}
+                    </h2>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Páginas dedicadas por produto com preço médio, coberturas e FAQ local:
+                  </p>
+                  <nav aria-label={`Coberturas em destaque no ${selectedBairro.nome}`}>
+                    <ul className="grid grid-cols-2 gap-2">
+                      {verticalLinks.map((v) => (
+                        <li key={v.href}>
+                          <Link
+                            to={v.href}
+                            className="flex items-center justify-between gap-2 bg-white border border-gray-200 hover:border-[#F2994A] hover:text-[#003366] text-gray-700 text-sm font-semibold px-3 py-2 rounded-lg transition-colors"
+                          >
+                            <span>{v.label}</span>
+                            <ChevronRight className="h-3.5 w-3.5 text-[#F2994A]" aria-hidden />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ POR BAIRRO */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
