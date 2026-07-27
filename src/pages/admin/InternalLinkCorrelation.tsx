@@ -376,7 +376,6 @@ export default function InternalLinkCorrelation() {
                   {data.recommendations.slice(0, 12).map((rec) => {
                     const sourcesList = rec.suggestedSources.map((s) => s.pathname);
                     const key = applyKey(rec.destination, rec.suggestedPlacement, sourcesList);
-                    const isApplied = Boolean(applied[key]);
                     const isApplying = applying === key;
                     return (
                     <div
