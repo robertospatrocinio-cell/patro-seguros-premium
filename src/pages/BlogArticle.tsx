@@ -827,6 +827,7 @@ const BlogArticle = () => {
           </div>
         </section>
       </main>
+      <ContextualSeoHub />
       <Suspense fallback={null}>
        <StickyQuoteBar 
          source={`blog:${slug}`} 
