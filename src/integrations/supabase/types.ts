@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      breadcrumb_overrides: {
+        Row: {
+          category_href: string | null
+          category_label: string | null
+          created_at: string
+          notes: string | null
+          pillar_href: string | null
+          pillar_label: string | null
+          slug: string
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          category_href?: string | null
+          category_label?: string | null
+          created_at?: string
+          notes?: string | null
+          pillar_href?: string | null
+          pillar_label?: string | null
+          slug: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          category_href?: string | null
+          category_label?: string | null
+          created_at?: string
+          notes?: string | null
+          pillar_href?: string | null
+          pillar_label?: string | null
+          slug?: string
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       claims: {
         Row: {
           carrier: string | null
