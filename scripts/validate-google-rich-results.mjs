@@ -64,6 +64,11 @@ const isPlainObj = (v) => v && typeof v === "object" && !Array.isArray(v);
 const isAbsUrl = (v) => typeof v === "string" && /^https?:\/\//i.test(v);
 const isIso8601Date = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?$/.test(v);
 const isIso8601Duration = (v) => typeof v === "string" && /^P(?:\d+[YMWD])*(?:T(?:\d+[HMS])+)?$/.test(v) && v !== "P";
+const isNonEmptyStr = (v) => typeof v === "string" && v.trim().length > 0;
+const isFiniteNumber = (v) => {
+  const n = typeof v === "number" ? v : Number(v);
+  return Number.isFinite(n);
+};
 
 function flattenNodes(root, out = []) {
   if (!root) return out;
@@ -238,9 +243,154 @@ function checkService(n) {
   return { req, rec, unsupported: true };
 }
 
+// -------- Review / AggregateRating (Google Review Snippet) --------------------
+function checkReview(n) {
+  const req = [], rec = [];
+  const item = n.itemReviewed;
+  if (!item) req.push("itemReviewed ausente");
+  else if (isPlainObj(item) && !item.name && !item["@id"]) req.push("itemReviewed sem name/@id");
+  const author = n.author;
+  const authorOk = typeof author === "string" ? !!author.trim()
+    : Array.isArray(author) ? author.some((a) => a?.name)
+    : isPlainObj(author) ? !!author.name : false;
+  if (!authorOk) req.push("author ausente ou sem name");
+  const r = n.reviewRating;
+  if (!isPlainObj(r)) req.push("reviewRating ausente");
+  else {
+    if (!isFiniteNumber(r.ratingValue)) req.push("reviewRating.ratingValue ausente/inválido");
+    else {
+      const rv = Number(r.ratingValue);
+      const bestRaw = r.bestRating !== undefined ? Number(r.bestRating) : 5;
+      const worstRaw = r.worstRating !== undefined ? Number(r.worstRating) : 1;
+      if (rv < worstRaw || rv > bestRaw) req.push(`reviewRating.ratingValue ${rv} fora de [${worstRaw}..${bestRaw}]`);
+    }
+    if (r.bestRating === undefined) rec.push("reviewRating.bestRating recomendado");
+  }
+  if (!n.datePublished) rec.push("datePublished recomendado");
+  else if (!isIso8601Date(n.datePublished)) req.push("datePublished fora do ISO 8601");
+  return { req, rec };
+}
+
+// -------- ItemList (Carousel rich result) ------------------------------------
+function checkItemList(n) {
+  const req = [], rec = [];
+  const items = n.itemListElement;
+  if (!Array.isArray(items) || items.length === 0) { req.push("itemListElement ausente/vazio"); return { req, rec }; }
+  if (items.length < 2) rec.push("Google recomenda ≥ 2 itens para carousel (recebido " + items.length + ")");
+  items.forEach((it, i) => {
+    if (!hasType(it, "ListItem")) req.push(`itemListElement[${i}].@type ≠ ListItem`);
+    if (it?.position !== i + 1) req.push(`itemListElement[${i}].position esperado ${i + 1}, recebido ${it?.position}`);
+    const url = typeof it?.url === "string" ? it.url
+      : typeof it?.item === "string" ? it.item
+      : it?.item?.url || it?.item?.["@id"];
+    const nested = isPlainObj(it?.item) && (it.item["@type"] || it.item.name);
+    if (!isAbsUrl(url) && !nested) req.push(`itemListElement[${i}] precisa de url absoluta ou item aninhado válido`);
+  });
+  return { req, rec };
+}
+
+// -------- Offer / AggregateOffer (usados em Product / Service richer cards) --
+function checkOffer(n) {
+  const req = [], rec = [];
+  if (!isFiniteNumber(n.price) && !n.priceSpecification) req.push("price (ou priceSpecification) ausente");
+  if (!isNonEmptyStr(n.priceCurrency) && !n.priceSpecification?.priceCurrency) req.push("priceCurrency ausente");
+  if (!n.availability) rec.push("availability recomendado (schema.org/ItemAvailability)");
+  if (!n.url) rec.push("url recomendado");
+  if (n.priceValidUntil && !isIso8601Date(n.priceValidUntil))
+    req.push(`priceValidUntil "${n.priceValidUntil}" fora do ISO 8601`);
+  return { req, rec };
+}
+
+function checkAggregateOffer(n) {
+  const req = [], rec = [];
+  if (!isFiniteNumber(n.lowPrice)) req.push("lowPrice ausente/inválido");
+  if (!isNonEmptyStr(n.priceCurrency)) req.push("priceCurrency ausente");
+  if (!isFiniteNumber(n.offerCount)) rec.push("offerCount recomendado");
+  if (n.highPrice !== undefined && !isFiniteNumber(n.highPrice)) req.push("highPrice inválido");
+  return { req, rec };
+}
+
+// -------- ProfilePage / Person / Place (Profile page rich result) ------------
+function checkProfilePage(n) {
+  const req = [], rec = [];
+  const me = n.mainEntity;
+  if (!isPlainObj(me)) req.push("mainEntity (Person/Organization) ausente");
+  else if (!hasType(me, "Person") && !hasType(me, "Organization"))
+    req.push("mainEntity deve ser Person ou Organization");
+  else if (!me.name) req.push("mainEntity.name ausente");
+  if (!n.dateCreated && !n.dateModified) rec.push("dateCreated ou dateModified recomendado");
+  return { req, rec };
+}
+
+function checkPerson(n) {
+  const req = [], rec = [];
+  if (!n.name) req.push("name ausente");
+  if (!n.url && !n.sameAs) rec.push("url ou sameAs recomendado");
+  if (!extractImageUrl(n.image)) rec.push("image recomendada");
+  return { req, rec };
+}
+
+function checkPlace(n) {
+  const req = [], rec = [];
+  if (!n.name && !n.address) req.push("name ou address ausente");
+  if (isPlainObj(n.geo)) {
+    const lat = Number(n.geo.latitude), lng = Number(n.geo.longitude);
+    if (Number.isNaN(lat) || lat < -90 || lat > 90) req.push("geo.latitude inválida");
+    if (Number.isNaN(lng) || lng < -180 || lng > 180) req.push("geo.longitude inválida");
+  }
+  return { req, rec };
+}
+
+// -------- WebPage / CollectionPage -------------------------------------------
+function checkWebPage(n) {
+  const req = [], rec = [];
+  if (!n.name && !n.headline) req.push("name (ou headline) ausente");
+  if (!isAbsUrl(n.url) && !isAbsUrl(n["@id"])) rec.push("url absoluta recomendada");
+  if (n.speakable && !isPlainObj(n.speakable) && !Array.isArray(n.speakable))
+    req.push("speakable inválido (esperado SpeakableSpecification)");
+  return { req, rec };
+}
+
+function checkCollectionPage(n) {
+  const req = [], rec = [];
+  if (!n.name) req.push("name ausente");
+  if (!n.hasPart && !n.mainEntity) rec.push("hasPart ou mainEntity recomendado");
+  return { req, rec };
+}
+
+// -------- Sub-entidades (validação leve) -------------------------------------
+function checkImageObject(n) {
+  const req = [], rec = [];
+  const url = n.contentUrl || n.url || n["@id"];
+  if (!isAbsUrl(url)) req.push("contentUrl/url absoluta ausente");
+  if (!isFiniteNumber(n.width) || !isFiniteNumber(n.height)) rec.push("width/height recomendados");
+  return { req, rec };
+}
+
+function checkContactPoint(n) {
+  const req = [], rec = [];
+  if (!n.telephone && !n.email) req.push("telephone ou email ausente");
+  if (!n.contactType) rec.push("contactType recomendado");
+  return { req, rec };
+}
+
+function checkSpeakable(n) {
+  const req = [], rec = [];
+  if (!n.xpath && !n.cssSelector) req.push("xpath ou cssSelector ausente");
+  return { req, rec };
+}
+
+function checkSiteNav(n) {
+  const req = [], rec = [];
+  if (!n.name) req.push("name ausente");
+  if (!isAbsUrl(n.url)) req.push("url absoluta ausente");
+  return { req, rec, unsupported: true };
+}
+
 const CHECKERS = {
   BreadcrumbList: checkBreadcrumbList,
   FAQPage: checkFAQPage,
+  QAPage: checkFAQPage,
   HowTo: checkHowTo,
   Article: checkArticle,
   BlogPosting: checkArticle,
@@ -248,8 +398,22 @@ const CHECKERS = {
   LocalBusiness: checkLocalBusiness,
   InsuranceAgency: checkLocalBusiness,
   Organization: checkOrganization,
+  GovernmentOrganization: checkOrganization,
   WebSite: checkWebSite,
   Service: checkService,
+  Review: checkReview,
+  ItemList: checkItemList,
+  Offer: checkOffer,
+  AggregateOffer: checkAggregateOffer,
+  ProfilePage: checkProfilePage,
+  Person: checkPerson,
+  Place: checkPlace,
+  WebPage: checkWebPage,
+  CollectionPage: checkCollectionPage,
+  ImageObject: checkImageObject,
+  ContactPoint: checkContactPoint,
+  SpeakableSpecification: checkSpeakable,
+  SiteNavigationElement: checkSiteNav,
 };
 
 // ---------- walker ------------------------------------------------------------
@@ -275,9 +439,20 @@ const files = walk(DIST);
 const report = { generatedAt: new Date().toISOString(), routes: {}, summary: {
   files: 0, blocks: 0, nodes: 0,
   eligible: 0, eligibleWarn: 0, ineligible: 0, unsupported: 0,
-} };
+}, byType: {} };
 
 let ineligibleTotal = 0;
+
+function bumpType(type, verdict) {
+  const t = report.byType[type] || (report.byType[type] = {
+    total: 0, eligible: 0, eligibleWarn: 0, ineligible: 0, unsupported: 0,
+  });
+  t.total++;
+  if (verdict === "eligible") t.eligible++;
+  else if (verdict === "eligible-warn") t.eligibleWarn++;
+  else if (verdict === "ineligible") t.ineligible++;
+  else if (verdict === "unsupported") t.unsupported++;
+}
 
 for (const file of files) {
   const route = routeFromFile(file);
@@ -309,6 +484,8 @@ for (const file of files) {
       const matched = types.find((t) => CHECKERS[t]);
       if (!matched) {
         report.summary.unsupported++;
+        const label = types[0] || "(sem @type)";
+        bumpType(label, "unsupported");
         routeEntry.nodes.push({
           block: bi, type: types.join("|") || "(sem @type)",
           verdict: "unsupported", required: [], recommended: [],
@@ -321,6 +498,7 @@ for (const file of files) {
       else if (result.req.length) { verdict = "ineligible"; report.summary.ineligible++; ineligibleTotal++; }
       else if (result.rec.length) { verdict = "eligible-warn"; report.summary.eligibleWarn++; }
       else { verdict = "eligible"; report.summary.eligible++; }
+      bumpType(matched, verdict);
       routeEntry.nodes.push({
         block: bi, type: matched, verdict,
         required: result.req, recommended: result.rec,
@@ -339,6 +517,17 @@ const s = report.summary;
 console.log("\n🔎 Google Rich Results — elegibilidade");
 console.log(`   arquivos: ${s.files}   blocos: ${s.blocks}   nodes: ${s.nodes}`);
 console.log(`   ✅ eligible: ${s.eligible}   ⚠️  eligible-warn: ${s.eligibleWarn}   ❌ ineligible: ${s.ineligible}   ➖ unsupported: ${s.unsupported}`);
+
+// Breakdown por @type
+const typeRows = Object.entries(report.byType).sort((a, b) => b[1].total - a[1].total);
+if (typeRows.length) {
+  console.log("\n   Por @type:");
+  const pad = (s, n) => String(s).padEnd(n);
+  console.log(`   ${pad("@type", 26)} ${pad("total", 6)} ${pad("elig", 5)} ${pad("warn", 5)} ${pad("inel", 5)} ${pad("unsup", 5)}`);
+  for (const [t, v] of typeRows) {
+    console.log(`   ${pad(t, 26)} ${pad(v.total, 6)} ${pad(v.eligible, 5)} ${pad(v.eligibleWarn, 5)} ${pad(v.ineligible, 5)} ${pad(v.unsupported, 5)}`);
+  }
+}
 
 // Imprime só rotas com problema (verdict ineligible ou warn)
 const problematic = Object.entries(report.routes).filter(([, r]) =>
