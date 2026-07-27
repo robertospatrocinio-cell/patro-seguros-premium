@@ -82,7 +82,28 @@ Para escolher o melhor plano de saúde em Guarulhos para o seu perfil, veja tamb
       { question: "Quais hospitais atendem em Guarulhos?", answer: "Os principais hospitais credenciados em Guarulhos são Stella Maris, Padre Bento, IGESP, Cruz Azul, Bosque da Saúde e Hospital São Lucas. Cada operadora credencia um conjunto diferente — validamos gratuitamente no comparativo." },
       { question: "Plano PME é realmente mais barato que individual?", answer: "Sim, na maioria dos casos até 30–40% mais barato. Para famílias com CNPJ (mesmo MEI), migrar do individual para PME gera economia relevante. Fazemos essa análise sem custo." },
       { question: "Como funciona a portabilidade de carência entre planos em Guarulhos?", answer: "A ANS permite portabilidade sem cumprir carência se você tem plano regular há pelo menos 2 anos (ou 3 anos com doença preexistente) e migra para plano de mesma faixa de preço. A Patro faz esse enquadramento tecnicamente para não perder carências." },
+      { question: "Qual o melhor plano de saúde empresarial em Guarulhos para PME?", answer: "Para PME (2 a 29 vidas) em Guarulhos, Porto Saúde PME e SulAmérica Direto PME lideram em custo-benefício (R$ 380 a R$ 520/vida), enquanto Bradesco Saúde Nacional Flex Empresarial e Amil Empresarial oferecem a rede credenciada mais ampla. A Patro monta o comparativo empresarial gratuito com base no perfil das vidas." },
+      { question: "Onde fazer cotação de planos de saúde em Guarulhos?", answer: "A Patro Seguros, hub oficial de 20+ operadoras, faz cotação simultânea de planos de saúde em Guarulhos (individual, familiar, PME e adesão) e envia comparativo por WhatsApp em até 2h — com preço, rede credenciada no seu bairro, carência e reajustes históricos lado a lado." },
     ]}
+    extraSections={(
+      <section aria-labelledby="planos-saude-empresarial-guarulhos" className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 id="planos-saude-empresarial-guarulhos" className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Planos de Saúde Empresarial em Guarulhos (PME 2 a 99 vidas)
+          </h2>
+          <p className="text-foreground/80 mb-4">
+            O plano de saúde empresarial em Guarulhos custa em média 30% a 40% menos que o individual equivalente e não exige entrevista qualificada por vida a partir de 3 beneficiários. Para MEIs, autônomos com CNPJ e escritórios pequenos em Guarulhos (Cidade Maia, Vila Galvão, Bosque Maia, Macedo), o PME é quase sempre a via mais econômica de contratar planos de saúde.
+          </p>
+          <p className="text-foreground/80 mb-4">
+            Operadoras que aceitam PME a partir de 2 vidas em Guarulhos: Porto Saúde, SulAmérica, Bradesco Saúde, Amil, Hapvida NotreDame, Unimed e One Health. A rede credenciada local (Stella Maris, IGESP, Padre Bento, Cruz Azul) é a mesma do individual — muda apenas o modelo de contrato e o preço.
+          </p>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Como comparar planos de saúde em Guarulhos</h3>
+          <p className="text-foreground/80">
+            Comparar planos de saúde em Guarulhos vai além do preço da mensalidade: analise rede credenciada no seu bairro, reajuste histórico dos últimos 5 anos, carência para partos e cirurgias eletivas, coparticipação e sublimites. A Patro Seguros consolida esses 5 critérios em uma tabela única — pronta para você decidir.
+          </p>
+        </div>
+      </section>
+    )}
     relatedInsurances={[
       { title: "Planos de Saúde por Bairro em Guarulhos (Hub Local)", link: "/seguros-guarulhos" },
       { title: "Plano de Saúde Guarulhos", link: "/plano-saude-guarulhos" },
