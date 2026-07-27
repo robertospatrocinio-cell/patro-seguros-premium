@@ -274,6 +274,8 @@ export const bairros: BairroData[] = [
     testimonials: [
       { author: "Dra. Camila L.", role: "Dentista — Centro de Guarulhos", product: "RC Profissional + Empresarial", rating: 5, date: "2026-05-18", text: "Atendimento presencial fez a diferença. Visitei o escritório no Cidade Maia, fechei RC Profissional e seguro do consultório no mesmo dia. Já indiquei para 3 colegas da Av. Salgado Filho." },
       { author: "Eduardo P.", role: "Comerciante — Poli Shopping", product: "Seguro Empresarial", rating: 5, date: "2026-02-22", text: "Tive sinistro de incêndio em loja vizinha que afetou meu estoque. A Patro acompanhou tudo, vistoria veio em 24h e indenização saiu em 28 dias. Profissionalismo raro." },
+       { author: "Dr. Henrique S.", role: "Advogado — Fórum de Guarulhos", product: "RC Profissional Advogado", rating: 5, date: "2026-06-30", text: "Contratei RC Profissional com defesa jurídica ampliada por indicação de colega do Fórum. LMI R$ 300 mil por R$ 1.180/ano, saiu em 2 dias úteis com carteirinha digital." },
+       { author: "Bianca R.", role: "Síndica — edifício antigo no Centro", product: "Condomínio + Residencial coletivo", rating: 4, date: "2026-04-04", text: "Prédio de 1978 estava com seguro obrigatório vencido e recusa das seguradoras. A Patro conseguiu apólice após laudo elétrico do CREA e ainda organizou plano coletivo residencial com desconto de 12% para os moradores." },
     ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-centro", neighborhood: "Centro", product: "empresarial", riskLevel: "médio-alto", priceRange: "a partir de R$ 99/mês", reference: "próximo ao Poli Shopping e Av. Salgado Filho" }),
@@ -303,7 +305,33 @@ export const bairros: BairroData[] = [
        localCase: {
          title: "Sinistro de incêndio em loja vizinha resolvido em 28 dias",
          description: "Comerciante do entorno do Poli Shopping teve estoque atingido por incêndio originado em vizinho. Vistoria em 24h, laudo entregue em 10 dias úteis e indenização paga em 28 dias — permitiu reabertura sem crédito emergencial. Diferencial: corretora acompanhou o processo diariamente até liberação.",
+          product: "Empresarial — Incêndio + Lucros Cessantes",
+          year: 2026,
+          metrics: ["Vistoria em 24h", "Indenização em 28 dias", "Reabertura sem crédito emergencial"],
        },
+        localCases: [
+          {
+            title: "RC Profissional para clínica odontológica na Av. Salgado Filho",
+            description: "Clínica com 4 dentistas (implantodontia + ortodontia) contratou RC Profissional coletiva com LMI R$ 1 milhão e defesa jurídica ampliada. Prêmio 28% menor que a soma das 4 apólices individuais, exigido para credenciamento em 3 convênios novos.",
+            product: "RC Profissional Coletiva (Odonto)",
+            year: 2026,
+            metrics: ["-28% vs. 4 apólices individuais", "LMI R$ 1 milhão", "Habilitou 3 convênios novos"],
+          },
+          {
+            title: "Condomínio antigo no Centro que estava sem seguro",
+            description: "Edifício residencial de 1978 próximo à Praça Tereza Cristina estava com seguro obrigatório vencido e recusas em 3 seguradoras. Corretora coordenou laudo elétrico do CREA e emitiu apólice em condições normais + plano residencial coletivo para moradores com 12% de desconto na adesão.",
+            product: "Condomínio Obrigatório + Residencial coletivo",
+            year: 2026,
+            metrics: ["Aceitação após laudo CREA", "-12% na adesão em grupo", "Prédio +40 anos regularizado"],
+          },
+          {
+            title: "Roubo de valores sob coação em loja de rua do Centro",
+            description: "Lojista do eixo Dom Pedro II acionou cobertura de 'Roubo de Valores por Coação Pessoal' após saque forçado no ATM. Indenização de R$ 22 mil paga em 15 dias corridos — cobertura que estava no adicional de R$ 45/mês contratado 6 meses antes.",
+            product: "Empresarial — Roubo por Coação",
+            year: 2025,
+            metrics: ["Indenização R$ 22 mil", "Pago em 15 dias", "Adicional de R$ 45/mês"],
+          },
+        ],
      },
    },
    {
