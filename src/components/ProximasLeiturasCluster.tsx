@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { getLongtailCluster } from "@/lib/longtailClusters";
 import { trackNextSectionCtaClick, buildInternalLinkSource } from "@/lib/tracking";
@@ -29,11 +30,37 @@ const ProximasLeiturasCluster = ({ pathname }: ProximasLeiturasClusterProps) => 
 
   const sourceSlug = normalized.replace(/^\/+/, "") || "home";
 
+  // JSON-LD ItemList: ajuda o Google a entender a cadeia de leitura sugerida
+  // dentro do cluster (ordem + destino de cada item, com âncora profunda).
+  const DOMAIN = "https://www.patroseguros.com.br";
+  const toAbsolute = (href: string) =>
+    href.startsWith("http") ? href : `${DOMAIN}${href.startsWith("/") ? "" : "/"}${href}`;
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${DOMAIN}${normalized}#proximas-leituras`,
+    name: "Próximas leituras do cluster",
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    numberOfItems: cluster.items.length,
+    itemListElement: cluster.items.map((item, idx) => ({
+      "@type": "ListItem",
+      position: idx + 1,
+      url: toAbsolute(item.href),
+      name: item.title,
+      ...(item.description ? { description: item.description } : {}),
+    })),
+  };
+
   return (
     <section
       className="py-16 border-t border-border/60 bg-background"
       aria-labelledby="proximas-leituras-heading"
     >
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(itemListJsonLd)}
+        </script>
+      </Helmet>
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="mb-8 max-w-2xl">
           <div className="inline-flex items-center gap-2 text-xs font-medium text-primary uppercase tracking-wide mb-2">
