@@ -168,6 +168,10 @@ const SeoSeguroUberGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroUber
 const SeoSeguroEmpresaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresaGuarulhos"), "SeoSeguroEmpresaGuarulhos");
 const SeoSeguroVidaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaGuarulhos"), "SeoSeguroVidaGuarulhos");
 const SeoSeguroMotoristaAppGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoristaAppGuarulhos"), "SeoSeguroMotoristaAppGuarulhos");
+const LongtailPlanosSaudeGuarulhosComparativo = lazyWithRetry(() => import("./pages/LongtailPlanosSaudeGuarulhosComparativo"), "LongtailPlanosSaudeGuarulhosComparativo");
+const LongtailValorSeguroBydDolphin = lazyWithRetry(() => import("./pages/LongtailValorSeguroBydDolphin"), "LongtailValorSeguroBydDolphin");
+const LongtailMelhorSeguroUberGuarulhos = lazyWithRetry(() => import("./pages/LongtailMelhorSeguroUberGuarulhos"), "LongtailMelhorSeguroUberGuarulhos");
+const LongtailCotacaoSeguroResidencialOnline = lazyWithRetry(() => import("./pages/LongtailCotacaoSeguroResidencialOnline"), "LongtailCotacaoSeguroResidencialOnline");
 const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
 const PlanoSaudeEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhos"), "PlanoSaudeEmpresarialGuarulhos");
 const PlanosSaudeSeniorGuarulhos = lazyWithRetry(() => import("./pages/PlanosSaudeSeniorGuarulhos"), "PlanosSaudeSeniorGuarulhos");
@@ -717,6 +721,11 @@ const App = () => {
                   <Route path="/plano-saude-mei-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
                   <Route path="/plano-saude-pme-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
                   <Route path="/plano-odontologico-guarulhos" element={<PlanoOdontologicoGuarulhos />} />
+                  {/* Long-tail SEO pages — linkam forte para o hub de bairros /seguros-guarulhos */}
+                  <Route path="/planos-de-saude-guarulhos-comparativo" element={<LongtailPlanosSaudeGuarulhosComparativo />} />
+                  <Route path="/valor-seguro-byd-dolphin" element={<LongtailValorSeguroBydDolphin />} />
+                  <Route path="/melhor-seguro-para-uber-guarulhos" element={<LongtailMelhorSeguroUberGuarulhos />} />
+                  <Route path="/cotacao-seguro-residencial-online" element={<LongtailCotacaoSeguroResidencialOnline />} />
                   {/* Patrimônio / empresas — variantes */}
                   <Route path="/seguro-galpao-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-galpao-cumbica" element={<SeguroGalpaoCumbica />} />

@@ -87,6 +87,10 @@ const highIntentTransactional: SitemapEntry[] = [
    { loc: "/cotacao", priority: "1.0", changefreq: "daily" },
    { loc: "/cotacao-seguro-auto", priority: "0.9", changefreq: "daily" },
    { loc: "/comparativo-planos-saude-guarulhos", priority: "0.9", changefreq: "daily" },
+   { loc: "/planos-de-saude-guarulhos-comparativo", priority: "0.9", changefreq: "weekly" },
+   { loc: "/valor-seguro-byd-dolphin", priority: "0.9", changefreq: "weekly" },
+   { loc: "/melhor-seguro-para-uber-guarulhos", priority: "0.9", changefreq: "weekly" },
+   { loc: "/cotacao-seguro-residencial-online", priority: "0.9", changefreq: "weekly" },
    { loc: "/contato", priority: "0.8", changefreq: "weekly" },
 ];
 
