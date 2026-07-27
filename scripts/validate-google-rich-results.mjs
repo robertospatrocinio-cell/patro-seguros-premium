@@ -61,7 +61,7 @@ if (!fs.existsSync(DIST_DIR)) {
 // ---------- walker ------------------------------------------------------------
 
 function routeFromFile(file) {
-  const rel = path.relative(DIST, file).replace(/\\/g, "/");
+  const rel = path.relative(DIST_DIR, file).replace(/\\/g, "/");
   if (rel === "index.html") return "/";
   if (rel.endsWith("/index.html")) return "/" + rel.slice(0, -"/index.html".length);
   if (rel.endsWith(".html")) return "/" + rel.slice(0, -".html".length);
@@ -77,7 +77,7 @@ function walk(dir, out = []) {
   return out;
 }
 
-const files = walk(DIST);
+const files = walk(DIST_DIR);
 const report = { generatedAt: new Date().toISOString(), routes: {}, summary: {
   files: 0, blocks: 0, nodes: 0,
   eligible: 0, eligibleWarn: 0, ineligible: 0, unsupported: 0,
@@ -152,7 +152,7 @@ for (const file of files) {
 
 // ---------- output ------------------------------------------------------------
 
-const out = path.join(DIST, "google-rich-results-report.json");
+const out = path.join(DIST_DIR, "google-rich-results-report.json");
 fs.writeFileSync(out, JSON.stringify(report, null, 2));
 
 // ---------- per-URL + per-type + log ----------------------------------------
@@ -207,7 +207,7 @@ for (const [route, r] of Object.entries(routeRollups).sort()) {
     r.supported,
   ].join(","));
 }
-fs.writeFileSync(path.join(DIST, "rich-results-by-url.csv"), csvUrl.join("\n"));
+fs.writeFileSync(path.join(DIST_DIR, "rich-results-by-url.csv"), csvUrl.join("\n"));
 
 // (2) CSV por @type
 const csvType = ["type,total,eligible,eligible_warn,ineligible,unsupported,eligible_pct"];
@@ -216,10 +216,10 @@ for (const [t, v] of Object.entries(report.byType).sort((a, b) => b[1].total - a
   const pct = supported ? ((v.eligible / supported) * 100).toFixed(1) : "n/a";
   csvType.push([t, v.total, v.eligible, v.eligibleWarn, v.ineligible, v.unsupported, pct].join(","));
 }
-fs.writeFileSync(path.join(DIST, "rich-results-by-type.csv"), csvType.join("\n"));
+fs.writeFileSync(path.join(DIST_DIR, "rich-results-by-type.csv"), csvType.join("\n"));
 
 // (3) Diff contra o snapshot anterior — log de correções/regressões
-const snapFile = path.join(DIST, ".rich-results-prev.json");
+const snapFile = path.join(DIST_DIR, ".rich-results-prev.json");
 let prev = null;
 try { prev = JSON.parse(fs.readFileSync(snapFile, "utf-8")); } catch { /* first run */ }
 
@@ -251,7 +251,7 @@ for (const [route, cur] of Object.entries(currentByRoute)) {
 }
 log.stillProblematic.sort((a, b) => (b.ineligible - a.ineligible) || (b.warn - a.warn));
 
-fs.writeFileSync(path.join(DIST, "rich-results-eligibility-log.json"), JSON.stringify(log, null, 2));
+fs.writeFileSync(path.join(DIST_DIR, "rich-results-eligibility-log.json"), JSON.stringify(log, null, 2));
 fs.writeFileSync(snapFile, JSON.stringify({ routes: currentByRoute }, null, 2));
 
 const s = report.summary;
@@ -299,9 +299,9 @@ for (const [route, r] of problematic.slice(0, 60)) {
 if (problematic.length > 60) console.log(`   … (+${problematic.length - 60} rotas omitidas)`);
 
 console.log(`\n📝 Relatório: ${path.relative(ROOT, out)}`);
-console.log(`   • Por URL:     ${path.relative(ROOT, path.join(DIST, "rich-results-by-url.csv"))}`);
-console.log(`   • Por @type:   ${path.relative(ROOT, path.join(DIST, "rich-results-by-type.csv"))}`);
-console.log(`   • Log:         ${path.relative(ROOT, path.join(DIST, "rich-results-eligibility-log.json"))}`);
+console.log(`   • Por URL:     ${path.relative(ROOT, path.join(DIST_DIR, "rich-results-by-url.csv"))}`);
+console.log(`   • Por @type:   ${path.relative(ROOT, path.join(DIST_DIR, "rich-results-by-type.csv"))}`);
+console.log(`   • Log:         ${path.relative(ROOT, path.join(DIST_DIR, "rich-results-eligibility-log.json"))}`);
 
 if (ineligibleTotal > 0) {
   console.error(`\n❌ ${ineligibleTotal} bloco(s) marcado(s) como INELIGIBLE — não vão gerar Google Rich Result.`);
