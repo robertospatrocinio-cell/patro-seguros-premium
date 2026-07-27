@@ -2,6 +2,7 @@ import { describe, it, expect, afterAll } from "vitest";
 import { CHECKERS } from "./rich-results-checkers.mjs";
 import { shrinkCounterexample, formatCounterexample } from "./jsonld-shrinker.mjs";
 import { FuzzCoverage } from "./fuzz-coverage.mjs";
+import { MESSAGE_PATTERNS, findUnknownMessages } from "./rich-results-message-patterns.mjs";
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -434,6 +435,99 @@ describe("fuzz+shrink: propriedades minimizadas em falha", () => {
           );
         }
       }
+    });
+  }
+});
+
+// ============================================================================
+// SUITE 7 — Wording contract: toda mensagem req/rec deve casar com um
+// padrão conhecido em rich-results-message-patterns.mjs.
+// ============================================================================
+// Motivo: o pipeline (validador, dashboards, admin/faq-underfilled) faz
+// grep em substrings específicas ("url absoluta", "≥ 2 Question", ...).
+// Se alguém reescrever uma mensagem sem atualizar os padrões, os testes
+// de shape continuam passando mas os greps do pipeline falham em silêncio,
+// classificando errado ineligible/warn.
+describe("fuzz: wording — toda mensagem req/rec bate com padrão esperado", () => {
+  // Sanity: todo @type registrado no CHECKERS tem entrada em MESSAGE_PATTERNS.
+  it("cobertura: MESSAGE_PATTERNS cobre todos os @type do CHECKERS", () => {
+    const missing = Object.keys(CHECKERS).filter((t) => !MESSAGE_PATTERNS[t]);
+    expect(
+      missing,
+      `Faltando padrões em rich-results-message-patterns.mjs para: ${missing.join(", ")}`,
+    ).toEqual([]);
+  });
+
+  for (const type of Object.keys(CHECKERS)) {
+    it(`${type}: ${ITERATIONS} inputs randômicos → toda msg req/rec casa com padrão`, () => {
+      const check = CHECKERS[type];
+      const unexpected = { req: new Set(), rec: new Set() };
+      for (let i = 0; i < ITERATIONS; i++) {
+        const node = fuzzNode(type);
+        let r;
+        try { r = check(node); } catch { continue; } // suite 1 já cobre throws
+        for (const kind of ["req", "rec"]) {
+          for (const msg of findUnknownMessages(type, kind, r[kind])) {
+            unexpected[kind].add(msg);
+          }
+        }
+      }
+      const problems = [
+        ...[...unexpected.req].map((m) => `  req: ${JSON.stringify(m)}`),
+        ...[...unexpected.rec].map((m) => `  rec: ${JSON.stringify(m)}`),
+      ];
+      expect(
+        problems.length,
+        `[${type}] mensagens sem padrão em MESSAGE_PATTERNS (seed=${SEED}):\n` +
+          problems.join("\n") +
+          `\n\nAtualize scripts/lib/rich-results-message-patterns.mjs se o wording mudou de propósito ` +
+          `e sincronize consumidores que fazem grep nessas strings.`,
+      ).toBe(0);
+    });
+  }
+
+  // Nós propositalmente "quebrados" para cada @type — garantem que as
+  // mensagens conhecidas realmente são geradas (não é só um teste vazio
+  // que "passa porque nunca falhou"). Cada nó abaixo DEVE disparar pelo
+  // menos um req casando com um padrão da lista.
+  const KNOWN_BAD_NODES = {
+    BreadcrumbList: { "@type": "BreadcrumbList", itemListElement: [] },
+    FAQPage: { "@type": "FAQPage", mainEntity: [] },
+    QAPage: { "@type": "QAPage", mainEntity: [] },
+    HowTo: { "@type": "HowTo" },
+    Article: { "@type": "Article" },
+    BlogPosting: { "@type": "BlogPosting" },
+    NewsArticle: { "@type": "NewsArticle" },
+    LocalBusiness: { "@type": "LocalBusiness" },
+    InsuranceAgency: { "@type": "InsuranceAgency" },
+    Organization: { "@type": "Organization" },
+    GovernmentOrganization: { "@type": "GovernmentOrganization" },
+    WebSite: { "@type": "WebSite" },
+    Service: { "@type": "Service" },
+    Review: { "@type": "Review" },
+    ItemList: { "@type": "ItemList" },
+    Offer: { "@type": "Offer" },
+    AggregateOffer: { "@type": "AggregateOffer" },
+    ProfilePage: { "@type": "ProfilePage" },
+    Person: { "@type": "Person" },
+    Place: { "@type": "Place" },
+    WebPage: { "@type": "WebPage" },
+    CollectionPage: { "@type": "CollectionPage", url: "https://patroseguros.com.br/blog" },
+    ImageObject: { "@type": "ImageObject" },
+    ContactPoint: { "@type": "ContactPoint" },
+    SpeakableSpecification: { "@type": "SpeakableSpecification" },
+    SiteNavigationElement: { "@type": "SiteNavigationElement" },
+  };
+
+  for (const type of Object.keys(CHECKERS)) {
+    it(`${type}: nó propositalmente inválido produz pelo menos 1 req/rec/unsupported reconhecido`, () => {
+      const node = KNOWN_BAD_NODES[type];
+      expect(node, `KNOWN_BAD_NODES sem entrada para ${type}`).toBeDefined();
+      const r = CHECKERS[type](node);
+      const anySignal = r.req.length > 0 || r.rec.length > 0 || r.unsupported === true;
+      expect(anySignal, `${type} não emitiu nenhum sinal para nó inválido`).toBe(true);
+      expect(findUnknownMessages(type, "req", r.req)).toEqual([]);
+      expect(findUnknownMessages(type, "rec", r.rec)).toEqual([]);
     });
   }
 });
