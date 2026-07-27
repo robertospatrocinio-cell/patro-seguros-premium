@@ -2,6 +2,7 @@ import { describe, it, expect, afterAll } from "vitest";
 import { CHECKERS } from "./rich-results-checkers.mjs";
 import { shrinkCounterexample, formatCounterexample } from "./jsonld-shrinker.mjs";
 import { FuzzCoverage } from "./fuzz-coverage.mjs";
+import { MESSAGE_PATTERNS, findUnknownMessages } from "./rich-results-message-patterns.mjs";
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
