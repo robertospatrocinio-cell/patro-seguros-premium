@@ -3,6 +3,11 @@ import { Helmet } from "react-helmet-async";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { getLongtailCluster } from "@/lib/longtailClusters";
 import { trackNextSectionCtaClick, buildInternalLinkSource } from "@/lib/tracking";
+import {
+  extractAnchor,
+  priorityWeight,
+  useAnchorPriorities,
+} from "@/hooks/useAnchorPriorities";
 
 interface ProximasLeiturasClusterProps {
   /** Path canônico da rota atual (ex.: `/valor-seguro-byd-dolphin`). */
@@ -30,6 +35,28 @@ const ProximasLeiturasCluster = ({ pathname }: ProximasLeiturasClusterProps) => 
 
   const sourceSlug = normalized.replace(/^\/+/, "") || "home";
 
+  // Priorização automática: reordena os itens do cluster em runtime
+  // segundo o snapshot mais recente de `anchor_priorities` (score de
+  // potencial × taxa de conversão). Itens sem sinal ficam no fim, na
+  // ordem original — para preservar o design da trilha quando os dados
+  // ainda são escassos.
+  const { data: priorities } = useAnchorPriorities();
+  const rankedItems = (() => {
+    if (!priorities) return cluster.items;
+    const decorated = cluster.items.map((item, originalIndex) => {
+      const anchor = extractAnchor(item.href);
+      const row = anchor ? priorities[anchor] : undefined;
+      return { item, anchor, weight: priorityWeight(row), originalIndex };
+    });
+    const anySignal = decorated.some((d) => d.weight > 0);
+    if (!anySignal) return cluster.items;
+    decorated.sort((a, b) => {
+      if (b.weight !== a.weight) return b.weight - a.weight;
+      return a.originalIndex - b.originalIndex;
+    });
+    return decorated.map((d) => d.item);
+  })();
+
   // JSON-LD ItemList: ajuda o Google a entender a cadeia de leitura sugerida
   // dentro do cluster (ordem + destino de cada item, com âncora profunda).
   const DOMAIN = "https://www.patroseguros.com.br";
@@ -41,8 +68,8 @@ const ProximasLeiturasCluster = ({ pathname }: ProximasLeiturasClusterProps) => 
     "@id": `${DOMAIN}${normalized}#proximas-leituras`,
     name: "Próximas leituras do cluster",
     itemListOrder: "https://schema.org/ItemListOrderAscending",
-    numberOfItems: cluster.items.length,
-    itemListElement: cluster.items.map((item, idx) => ({
+    numberOfItems: rankedItems.length,
+    itemListElement: rankedItems.map((item, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
       url: toAbsolute(item.href),
@@ -80,7 +107,7 @@ const ProximasLeiturasCluster = ({ pathname }: ProximasLeiturasClusterProps) => 
         </div>
 
         <ol className="space-y-3 list-none pl-0">
-          {cluster.items.map((item, idx) => {
+          {rankedItems.map((item, idx) => {
             // Extrai a âncora (#...) do href para etiquetar o drilldown.
             const hashIndex = item.href.indexOf("#");
             const anchor = hashIndex >= 0 ? item.href.slice(hashIndex + 1) : null;
