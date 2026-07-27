@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import ServiceSchema from "@/components/ServiceSchema";
-import FaqSchema from "@/components/FaqSchema";
+import FAQSchema from "@/components/FAQSchema";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -219,9 +219,9 @@ const IndiqueEGanhe = () => {
         name="Programa de Indicações Patro Seguros"
         description="Programa institucional de indicações da Patro Seguros: clientes e parceiros indicam amigos, familiares e colegas para receber cotação gratuita de seguros com atendimento consultivo em Guarulhos/SP."
         serviceType="ReferralProgram"
-        url="https://www.patroseguros.com.br/indique-e-ganhe"
+        
       />
-      <FaqSchema faqs={faqs} />
+      <FAQSchema faqs={faqs} />
       <Header />
 
       <main>
@@ -446,7 +446,7 @@ const IndiqueEGanhe = () => {
             <div className="mt-6 text-sm text-white/70">
               Prefere conversar direto?{" "}
               <a
-                href={buildWhatsAppUrl({ origin: "indique-e-ganhe" })}
+                href={buildWhatsAppUrl({ origem: "indique-e-ganhe" })}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("indique-e-ganhe-cta")}
