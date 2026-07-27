@@ -376,7 +376,8 @@ export type InternalLinkPlacement =
   | "footer-links"
   | "breadcrumb"
   | "cta-block"
-  | "jump-links";
+  | "jump-links"
+  | "proximas-leituras";
 
 /** Build a normalized `source` string. Always use this at call sites. */
 export const buildInternalLinkSource = (
