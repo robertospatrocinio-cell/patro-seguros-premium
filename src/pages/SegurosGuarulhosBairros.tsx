@@ -418,19 +418,74 @@ const SegurosGuarulhosBairros = () => {
                         <Award className="h-6 w-6 text-[#F2994A] shrink-0 mt-1" aria-hidden />
                         <div>
                           <div className="text-[10px] uppercase tracking-widest text-[#F2994A] font-bold mb-1">
-                            Caso real anonimizado
+                            Caso real anonimizado{selectedBairro.intel.localCase.year ? ` — ${selectedBairro.intel.localCase.year}` : ""}
                           </div>
                           <h3 className="text-lg md:text-xl font-bold">
                             {selectedBairro.intel.localCase.title}
                           </h3>
+                          {selectedBairro.intel.localCase.product && (
+                            <div className="text-xs text-white/70 mt-1">
+                              Produto: {selectedBairro.intel.localCase.product}
+                            </div>
+                          )}
                         </div>
                       </div>
                       <p className="text-sm md:text-base text-white/85 leading-relaxed pl-9">
                         {selectedBairro.intel.localCase.description}
                       </p>
+                      {selectedBairro.intel.localCase.metrics?.length ? (
+                        <ul className="pl-9 mt-4 flex flex-wrap gap-2">
+                          {selectedBairro.intel.localCase.metrics.map((m) => (
+                            <li
+                              key={m}
+                              className="text-xs font-semibold bg-[#F2994A]/20 text-[#F2994A] px-3 py-1 rounded-full border border-[#F2994A]/40"
+                            >
+                              {m}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
                     </CardContent>
                   </Card>
                 )}
+
+                {/* CASOS ADICIONAIS ANONIMIZADOS */}
+                {selectedBairro.intel.localCases?.length ? (
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {selectedBairro.intel.localCases.map((c) => (
+                      <Card key={c.title} className="border border-[#003366]/10 shadow-sm">
+                        <CardContent className="pt-5 pb-5">
+                          <div className="text-[10px] uppercase tracking-widest text-[#F2994A] font-bold mb-1">
+                            Caso real{c.year ? ` — ${c.year}` : ""}
+                          </div>
+                          <h4 className="text-base font-bold text-[#003366] leading-snug">
+                            {c.title}
+                          </h4>
+                          {c.product && (
+                            <div className="text-xs text-[#003366]/60 mt-1 mb-2">
+                              Produto: {c.product}
+                            </div>
+                          )}
+                          <p className="text-sm text-[#003366]/80 leading-relaxed mt-2">
+                            {c.description}
+                          </p>
+                          {c.metrics?.length ? (
+                            <ul className="mt-3 flex flex-wrap gap-2">
+                              {c.metrics.map((m) => (
+                                <li
+                                  key={m}
+                                  className="text-[11px] font-semibold bg-[#003366]/5 text-[#003366] px-2.5 py-1 rounded-full border border-[#003366]/10"
+                                >
+                                  {m}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : null}
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           </section>
