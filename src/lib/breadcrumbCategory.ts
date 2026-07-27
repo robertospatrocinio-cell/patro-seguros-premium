@@ -22,10 +22,21 @@ const SKIP_CATEGORY_TITLES = new Set<string>(["Seguros em Guarulhos"]);
 // Guarulhos hub which lists every product organized by section.
 const CATEGORY_HREF = "/seguros-em-guarulhos";
 
+// Overrides for long-tail / SEO pages that are not part of INSURANCE_HUB but
+// belong logically to a category. Keeps breadcrumb hierarchy consistent for
+// Google rich results and on-page navigation.
+const ROUTE_OVERRIDES: Record<string, BreadcrumbCategory> = {
+  "/valor-seguro-byd-dolphin": { label: "Seguro Auto", href: CATEGORY_HREF },
+  "/melhor-seguro-para-uber-guarulhos": { label: "Seguro Auto", href: CATEGORY_HREF },
+  "/cotacao-seguro-residencial-online": { label: "Seguro Residencial", href: CATEGORY_HREF },
+  "/planos-de-saude-guarulhos-comparativo": { label: "Planos de Saúde", href: CATEGORY_HREF },
+};
+
 export const getBreadcrumbCategory = (
   pathname: string,
 ): BreadcrumbCategory | null => {
   const normalized = pathname.replace(/\/+$/, "") || "/";
+  if (ROUTE_OVERRIDES[normalized]) return ROUTE_OVERRIDES[normalized];
   for (const cat of INSURANCE_HUB) {
     if (SKIP_CATEGORY_TITLES.has(cat.title)) continue;
     const match = cat.links.some((l) => l.href === normalized);
