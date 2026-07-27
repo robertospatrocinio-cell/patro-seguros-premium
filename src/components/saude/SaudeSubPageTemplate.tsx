@@ -29,7 +29,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
     extraLines: [whatsapp.extraLine],
   });
   const canonicalUrl = `${CANONICAL_BASE_URL}${subtype.path}`;
-  const source = buildInternalLinkSource("saude_subpage", subtype.slug);
+  const source = buildInternalLinkSource("landing", `saude-${subtype.slug}`);
   const otherSubtypes = SAUDE_SUBTYPES.filter((s) => s.slug !== subtype.slug).slice(0, 4);
   const operadoras = relatedOperadoras
     .map((slug) => SAUDE_OPERADORAS.find((o) => o.slug === slug))
@@ -50,8 +50,6 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
         name={seo.h1}
         serviceType={seo.serviceType}
         description={seo.description}
-        url={canonicalUrl}
-        areaServed="Guarulhos, SP"
       />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
@@ -84,7 +82,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
-                  trackWhatsAppClick(whatsapp.origem, { plano: subtype.slug })
+                  trackWhatsAppClick(whatsapp.origem, { insuranceType: subtype.slug })
                 }
               >
                 <Button size="lg" variant="cta" className="text-base px-6">
