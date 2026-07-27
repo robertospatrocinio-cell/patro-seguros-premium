@@ -104,20 +104,31 @@ if (JSON_OUT) {
 if (APPLY && affected.length > 0) {
   const merged = { ...blogFaqBackfill };
   let added = 0;
+  const shortfalls = [];
   for (const it of affected) {
     const existing = merged[it.slug] ?? [];
-    const { next, added: n } = topUpBackfillForSlug({
+    const { next, added: n, shortfall } = topUpBackfillForSlug({
       existing,
       suggestions: it.suggested,
       currentCount: it.currentCount,
       target: 2,
     });
-    if (n === 0) continue;
-    merged[it.slug] = next;
-    added += n;
+    if (n > 0) {
+      merged[it.slug] = next;
+      added += n;
+    }
+    if (shortfall > 0) shortfalls.push({ slug: it.slug, shortfall });
   }
   fs.writeFileSync(BACKFILL_FILE, serializeBackfill(merged), "utf-8");
   console.log(`\n✅ Gravado ${added} novo(s) Q&A de backfill em src/data/blogFaqBackfill.ts`);
+  if (shortfalls.length > 0) {
+    console.error(
+      `\n⚠️  ${shortfalls.length} slug(s) não atingiram 2 Q&A após o top-up ` +
+        `(sugestões colidiram com Q&A existentes). Adicione perguntas manuais para: ` +
+        shortfalls.map((s) => s.slug).join(", "),
+    );
+    if (CI) process.exit(1);
+  }
 } else if (APPLY) {
   console.log(`\n✅ Nada a gravar — todos os posts têm ≥ 2 Q&A ou já estão no backfill.`);
 } else if (affected.length > 0) {
