@@ -7,7 +7,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { LONGTAIL_CLUSTERS } from "@/lib/longtailClusters";
-import { seoMetadata } from "@/lib/seoMetadata";
 import {
   trackInternalLinkClick,
   trackWhatsAppClick,
@@ -81,7 +80,7 @@ const GuiaClusterLongtail = () => {
         description="Mapa de navegação entre as páginas long-tail da Patro Seguros: Uber, BYD Dolphin, cotação residencial online e planos de saúde em Guarulhos, conectados por âncoras profundas."
         canonicalPath="/guia-cluster-longtail"
       />
-      <FAQSchema faqs={FAQS} pageUrl="/guia-cluster-longtail" />
+      <FAQSchema faqs={FAQS} />
       <Header />
       <main className="min-h-screen bg-background">
         <div className="container mx-auto px-4 pt-6">
@@ -116,7 +115,9 @@ const GuiaClusterLongtail = () => {
                   onClick={() =>
                     trackInternalLinkClick({
                       destination: "#clusters",
-                      source: buildInternalLinkSource(sourceSlug, "hero-cta"),
+                      label: "Ver os 4 clusters",
+                      source: buildInternalLinkSource("landing", sourceSlug),
+                      placement: "cta-block",
                       anchor: "clusters",
                     })
                   }
@@ -131,9 +132,7 @@ const GuiaClusterLongtail = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
-                    trackWhatsAppClick({
-                      source: "guia-cluster-longtail-hero",
-                    })
+                    trackWhatsAppClick("guia-cluster-longtail-hero")
                   }
                 >
                   <MessageCircle
@@ -190,9 +189,8 @@ const GuiaClusterLongtail = () => {
             <div className="space-y-8">
               {CLUSTER_ORDER.map((slug) => {
                 const cluster = LONGTAIL_CLUSTERS[slug];
-                const meta = seoMetadata[slug as keyof typeof seoMetadata];
                 const cardTitle = CLUSTER_TITLES[slug] ?? slug;
-                const cardIntro = CLUSTER_INTRO[slug] ?? meta?.description ?? "";
+                const cardIntro = CLUSTER_INTRO[slug] ?? "";
 
                 return (
                   <article
@@ -211,10 +209,12 @@ const GuiaClusterLongtail = () => {
                           onClick={() =>
                             trackInternalLinkClick({
                               destination: slug,
+                              label: cardTitle,
                               source: buildInternalLinkSource(
+                                "landing",
                                 sourceSlug,
-                                "cluster-title",
                               ),
+                              placement: "hub-grid",
                             })
                           }
                         >
@@ -248,10 +248,12 @@ const GuiaClusterLongtail = () => {
                               onClick={() =>
                                 trackInternalLinkClick({
                                   destination: item.href,
+                                  label: item.title,
                                   source: buildInternalLinkSource(
+                                    "landing",
                                     sourceSlug,
-                                    `cluster-${slug.replace(/^\//, "")}`,
                                   ),
+                                  placement: "proximas-leituras",
                                   anchor: anchor ?? undefined,
                                 })
                               }
@@ -340,9 +342,7 @@ const GuiaClusterLongtail = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
-                    trackWhatsAppClick({
-                      source: "guia-cluster-longtail-final",
-                    })
+                    trackWhatsAppClick("guia-cluster-longtail-final")
                   }
                 >
                   <MessageCircle
