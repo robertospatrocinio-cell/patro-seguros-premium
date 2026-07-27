@@ -82,7 +82,31 @@ A Patro Seguros trabalha com Porto Seguro, Allianz, HDI, Tokio Marine e Bradesco
       { question: "Qual seguradora é melhor para BYD Dolphin?", answer: "Porto Seguro Elétricos, HDI Green, Allianz Elétricos e Tokio Marine EV têm produtos específicos para BYD Dolphin com cobertura de bateria e rede autorizada. O melhor varia por perfil — a Patro compara todas em uma única cotação." },
       { question: "Posso usar BYD Dolphin para Uber com seguro comum?", answer: "Não. Uso remunerado (Uber, 99, InDriver) exige cláusula específica de uso comercial. Sem essa cláusula, a seguradora nega o sinistro em corrida. A Patro contrata apólice para elétrico + uso remunerado no mesmo produto." },
       { question: "O seguro do Dolphin é mais caro que o de um Onix?", answer: "Em média 10–20% mais caro em 2026, por ser elétrico e ter menos dados de sinistralidade. A diferença tende a diminuir a cada ano. Modelos elétricos com garagem, rastreador e Wallbox têm preço competitivo em relação a hatches turbo do mesmo valor FIPE." },
+      { question: "Qual o valor do seguro do BYD Dolphin GS zero km em Guarulhos?", answer: "Para BYD Dolphin GS 0 km em Guarulhos (motorista 35 anos, garagem em Cidade Maia, sem sinistros), o valor do seguro em 2026 fica entre R$ 2.500 e R$ 3.400/ano com cobertura compreensiva 100% FIPE, cláusula de bateria de tração e rede autorizada BYD. Motoristas <25 anos podem ver preços 30–40% maiores." },
+      { question: "Como fazer cotação de seguro para BYD Dolphin online?", answer: "A Patro Seguros faz a cotação de seguro do BYD Dolphin em 4 seguradoras especializadas em elétricos (Porto Seguro Elétricos, Allianz Elétricos, HDI Green, Tokio Marine EV) em uma única passada. Envie placa/chassi e CEP pelo WhatsApp — o comparativo com preço, franquia e cláusula de bateria chega em até 2h." },
     ]}
+    extraSections={(
+      <section aria-labelledby="cotacao-seguro-byd-dolphin" className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 id="cotacao-seguro-byd-dolphin" className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Cotação de Seguro BYD Dolphin: preço em 2h nas 4 seguradoras que cobrem elétrico
+          </h2>
+          <p className="text-foreground/80 mb-4">
+            A cotação de seguro do BYD Dolphin exige seguradoras com produto específico para elétricos — Porto Seguro Elétricos, Allianz Elétricos, HDI Green e Tokio Marine EV são as únicas com cláusula robusta para bateria de tração (Blade Battery), rede autorizada BYD e guincho com prancha. A Patro cota nas 4 simultaneamente e envia o comparativo no WhatsApp em até 2h.
+          </p>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Valor do seguro por versão do BYD Dolphin (2026)</h3>
+          <ul className="list-disc pl-5 space-y-2 text-foreground/80 mb-4">
+            <li><strong>BYD Dolphin Mini:</strong> R$ 2.300 a R$ 3.100/ano — versão de entrada, seguro mais acessível da linha.</li>
+            <li><strong>BYD Dolphin GS:</strong> R$ 2.500 a R$ 3.400/ano — melhor custo-benefício para o mercado brasileiro.</li>
+            <li><strong>BYD Dolphin Plus:</strong> R$ 2.900 a R$ 3.900/ano — mais equipado, com autonomia estendida.</li>
+          </ul>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">BYD Dolphin para motorista de app (Uber/99)</h3>
+          <p className="text-foreground/80">
+            Para uso remunerado do BYD Dolphin (Uber, 99, InDriver) em Guarulhos, a apólice precisa ter cláusula expressa de uso por aplicativo — o valor sobe 15% a 25% em relação ao uso particular, ficando entre R$ 3.400 e R$ 4.800/ano. Sem essa cláusula, sinistros durante corrida são negados.
+          </p>
+        </div>
+      </section>
+    )}
     relatedInsurances={[
       { title: "Seguro Auto por Bairro em Guarulhos (Hub Local)", link: "/seguros-guarulhos" },
       { title: "Seguro BYD Dolphin Guarulhos", link: "/seguro-byd-dolphin-guarulhos" },
