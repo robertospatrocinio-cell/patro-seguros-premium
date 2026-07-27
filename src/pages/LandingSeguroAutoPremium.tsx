@@ -4,6 +4,7 @@ import { Shield, Star, Clock, Phone, Car, Gem, CheckCircle2, Crown, Sparkles, Ch
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import heroImg from "@/assets/lp-seguro-auto-premium.webp";
@@ -116,6 +117,7 @@ const LandingSeguroAutoPremium = () => {
         description="Seguro auto premium: franquia zero, carro reserva de categoria, reparo em concessionária e cobertura para blindagem. Veículos de alto valor."
         noindex
       />
+      <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
 
       {/* Hero */}
       <section className="relative min-h-[100vh] flex items-center overflow-hidden">
