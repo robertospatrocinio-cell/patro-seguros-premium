@@ -120,6 +120,8 @@ export default function InternalLinkCorrelation() {
   const { data: priorities } = useAnchorPriorities();
   const [clusterFilter, setClusterFilter] = useState<AnchorClusterId | "all">("all");
   const [convTypeFilter, setConvTypeFilter] = useState<"all" | "whatsapp" | "cotacao">("all");
+  const [recommendMode, setRecommendMode] = useState(false);
+  const [copiedSwapKey, setCopiedSwapKey] = useState<string | null>(null);
 
   const refreshPriorities = async () => {
     setRefreshingPriorities(true);
