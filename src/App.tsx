@@ -473,6 +473,8 @@ const App = () => {
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
                   <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
+                  <Route path="/indique-e-ganhe" element={<IndiqueEGanhe />} />
+                  <Route path="/obrigado-indicacao" element={<ObrigadoIndicacao />} />
                   <Route path="/cotacao/auto" element={<Navigate to="/cotacao-seguro-auto" replace />} />
                   <Route path="/cotacao/empresarial" element={<Navigate to="/solucoes-empresariais" replace />} />
                   <Route path="/cotacao/saude" element={<Navigate to="/seguro-saude" replace />} />
