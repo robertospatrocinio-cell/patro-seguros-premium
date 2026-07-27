@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink } from "lucide-react";
+import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink, Sparkles, Copy } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -36,6 +36,15 @@ type AnchorGlobal = {
   gscImpressionsAttributed: number;
   gscAveragePosition: number | null;
 };
+type Recommendation = {
+  destination: string;
+  score: number;
+  gsc: { clicks: number; impressions: number; ctr: number; position: number; url: string } | null;
+  internalClicks: number;
+  suggestedPlacement: string;
+  suggestedSources: Array<{ pathname: string; gscClicks: number; gscImpressions: number }>;
+  reason: string;
+};
 type Resp = {
   siteUrl: string;
   period: { startDate: string; endDate: string; days: number };
@@ -51,6 +60,7 @@ type Resp = {
   };
   rows: Row[];
   anchorsGlobal: AnchorGlobal[];
+  recommendations?: Recommendation[];
 };
 
 const fmtInt = (n: number) => new Intl.NumberFormat("pt-BR").format(Math.round(n));
