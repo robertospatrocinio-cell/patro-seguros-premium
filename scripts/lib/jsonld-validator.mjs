@@ -287,7 +287,7 @@ export function validateUrls(node, errors, label, options = {}) {
     if (typeof raw !== "string" || !raw.trim()) return;
     if (isJsonLdInternalRef(raw)) return;
     // Precisa ter esquema absoluto http/https
-    if (!/^https?:\/\//i.test(raw)) {
+    if (!isAbsUrl(raw)) {
       push(errors, `${label}: ${path} não é URL absoluta http(s) (recebido "${raw}")`,
         { field: path, rule: "url.absolute" });
       return;
@@ -347,7 +347,7 @@ export function validateWebSite(node, errors, label, options = {}) {
     { field: "name", rule: "website.name" });
   if (!node.url) push(errors, `${label} WebSite: faltando url`,
     { field: "url", rule: "website.url" });
-  else if (strict && !/^https:\/\//i.test(String(node.url))) {
+  else if (strict && !isHttpsUrl(String(node.url))) {
     push(errors, `${label} WebSite: url deve ser https (recebido "${node.url}")`,
       { field: "url", rule: "website.url.https" });
   }
@@ -387,7 +387,7 @@ export function validateSiteNavigation(node, errors, label) {
       { field: `${path || "root"}.name`, rule: "siteNav.name" });
     if (!n?.url) push(errors, `${label} SiteNavigationElement${path}: faltando url`,
       { field: `${path || "root"}.url`, rule: "siteNav.url" });
-    else if (!/^https?:\/\//i.test(String(n.url))) {
+    else if (!isAbsUrl(String(n.url))) {
       push(errors, `${label} SiteNavigationElement${path}: url deve ser absoluta http(s) (recebido "${n.url}")`,
         { field: `${path || "root"}.url`, rule: "siteNav.url.absolute" });
     }
