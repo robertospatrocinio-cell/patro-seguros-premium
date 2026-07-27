@@ -123,6 +123,7 @@ jobs:
           FUZZ_ITER: "500"
           FUZZ_SEED: ${{ inputs.seed != '' && inputs.seed || matrix.seed }}
           UPDATE_FUZZ_BASELINE: ${{ inputs.update_baseline && '1' || '' }}
+          FUZZ_ENFORCE_COVERAGE: "1"
         run: bun run test:fuzz
       - name: Upload relatório de coverage
         if: always()
