@@ -21,6 +21,7 @@ interface Body {
   limit?: number;
   placement?: string;
   source?: string;
+  anchor?: string;
 }
 
 interface GscRow {
@@ -144,12 +145,13 @@ serve(async (req) => {
 
     let clicksQuery = admin
       .from("internal_link_click_events")
-      .select("destination, source, placement, session_id, created_at")
+      .select("destination, source, placement, anchor, session_id, created_at")
       .gte("created_at", startA.toISOString())
       .lte("created_at", endA.toISOString())
       .limit(50000);
     if (body.placement) clicksQuery = clicksQuery.eq("placement", body.placement);
     if (body.source) clicksQuery = clicksQuery.eq("source", body.source);
+    if (body.anchor) clicksQuery = clicksQuery.eq("anchor", body.anchor);
 
     const { data: clicksData, error: clicksErr } = await clicksQuery;
     if (clicksErr) throw new Error(`DB read failed: ${clicksErr.message}`);
@@ -161,6 +163,7 @@ serve(async (req) => {
       sessions: Set<string>;
       sourcesTop: Map<string, number>;
       placementsTop: Map<string, number>;
+      anchorsTop: Map<string, number>;
     };
     const byDest = new Map<string, Agg>();
 
@@ -176,6 +179,7 @@ serve(async (req) => {
           sessions: new Set(),
           sourcesTop: new Map(),
           placementsTop: new Map(),
+          anchorsTop: new Map(),
         };
         byDest.set(pathname, agg);
       }
@@ -183,6 +187,7 @@ serve(async (req) => {
       if (row.session_id) agg.sessions.add(row.session_id);
       if (row.source) agg.sourcesTop.set(row.source, (agg.sourcesTop.get(row.source) ?? 0) + 1);
       if (row.placement) agg.placementsTop.set(row.placement, (agg.placementsTop.get(row.placement) ?? 0) + 1);
+      if (row.anchor) agg.anchorsTop.set(row.anchor, (agg.anchorsTop.get(row.anchor) ?? 0) + 1);
     }
 
     // 3) Buscar performance por página no GSC (janela alinhada com A)
@@ -240,12 +245,21 @@ serve(async (req) => {
         for (const [k, v] of m) if (!best || v > best[1]) best = [k, v];
         return best ? { key: best[0], count: best[1] } : null;
       };
+      const anchorBreakdown = (m: Map<string, number> | undefined) => {
+        if (!m || m.size === 0) return [] as Array<{ anchor: string; clicks: number }>;
+        return Array.from(m.entries())
+          .map(([anchor, clicks]) => ({ anchor, clicks }))
+          .sort((a, b) => b.clicks - a.clicks)
+          .slice(0, 8);
+      };
       return {
         pathname,
         internalClicks: agg?.clicks ?? 0,
         internalSessions: agg?.sessions.size ?? 0,
         topSource: top(agg?.sourcesTop),
         topPlacement: top(agg?.placementsTop),
+        topAnchor: top(agg?.anchorsTop),
+        anchors: anchorBreakdown(agg?.anchorsTop),
         gsc: gsc ? {
           clicks: gsc.clicks,
           impressions: gsc.impressions,
@@ -255,6 +269,60 @@ serve(async (req) => {
         } : null,
       };
     });
+
+    // 5b) Ranking global de âncoras (drilldown independente de página):
+    //     agrega TODAS as âncoras clicadas no período com um snapshot de
+    //     performance GSC da página onde cada clique foi disparado.
+    type AnchorRow = {
+      anchor: string;
+      clicks: number;
+      sessions: Set<string>;
+      pages: Map<string, number>;
+      impressionsSum: number;
+      positionWeightedSum: number;
+      positionImprWeight: number;
+    };
+    const anchorMap = new Map<string, AnchorRow>();
+    for (const [pathname, agg] of byDest) {
+      const gsc = gscByPath.get(pathname);
+      for (const [anchor, clicks] of agg.anchorsTop) {
+        let a = anchorMap.get(anchor);
+        if (!a) {
+          a = {
+            anchor, clicks: 0, sessions: new Set(),
+            pages: new Map(), impressionsSum: 0,
+            positionWeightedSum: 0, positionImprWeight: 0,
+          };
+          anchorMap.set(anchor, a);
+        }
+        a.clicks += clicks;
+        a.pages.set(pathname, (a.pages.get(pathname) ?? 0) + clicks);
+        if (gsc) {
+          // Atribui as impressões da página proporcionalmente aos cliques
+          // internos vindos dessa âncora nessa página.
+          const shareWeight = clicks;
+          a.impressionsSum += gsc.impressions * (clicks / Math.max(1, agg.clicks));
+          a.positionWeightedSum += gsc.position * shareWeight;
+          a.positionImprWeight += shareWeight;
+        }
+      }
+    }
+    const anchorsGlobal = Array.from(anchorMap.values())
+      .map((a) => ({
+        anchor: a.anchor,
+        clicks: a.clicks,
+        pages: a.pages.size,
+        topPage: (() => {
+          let best: [string, number] | null = null;
+          for (const [p, c] of a.pages) if (!best || c > best[1]) best = [p, c];
+          return best ? { pathname: best[0], clicks: best[1] } : null;
+        })(),
+        gscImpressionsAttributed: Math.round(a.impressionsSum),
+        gscAveragePosition: a.positionImprWeight > 0
+          ? a.positionWeightedSum / a.positionImprWeight
+          : null,
+      }))
+      .sort((a, b) => b.clicks - a.clicks);
 
     // 5) Totais + coeficiente de correlação de Pearson entre cliques
     //    internos e impressões/posição (apenas onde os dois lados existem).
@@ -293,6 +361,7 @@ serve(async (req) => {
         period: { startDate: fmt(startA), endDate: fmt(endA), days },
         totals,
         rows,
+        anchorsGlobal,
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
     );

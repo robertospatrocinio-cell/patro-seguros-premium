@@ -1,5 +1,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
+import {
+  buildInternalLinkSource,
+  trackInternalLinkClick,
+} from "@/lib/tracking";
 
 type JumpLink = { label: string; href: string };
 
@@ -45,11 +49,26 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
   }, [links]);
 
   const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string, label: string) => {
       const id = getId(href);
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
+      // Drilldown por âncora: cada pill clicada é rastreada como
+      // internal_link_click com `placement=jump-links` e `anchor=<id>`,
+      // alimentando o painel Admin `Links Internos × GSC`.
+      const pagePath =
+        typeof window !== "undefined"
+          ? window.location.pathname.replace(/\/$/, "") || "/"
+          : "/";
+      const slug = pagePath === "/" ? "home" : pagePath.slice(1);
+      trackInternalLinkClick({
+        source: buildInternalLinkSource("landing", slug),
+        destination: `${pagePath}#${id}`,
+        label,
+        placement: "jump-links",
+        anchor: id,
+      });
       const prefersReduced =
         typeof window !== "undefined" &&
         window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -87,7 +106,7 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
             <a
               key={l.href}
               href={l.href}
-              onClick={(e) => handleClick(e, l.href)}
+              onClick={(e) => handleClick(e, l.href, l.label)}
               aria-current={isActive ? "location" : undefined}
               className={cn(
                 "inline-flex items-center rounded-full border px-3 py-1 transition-colors",

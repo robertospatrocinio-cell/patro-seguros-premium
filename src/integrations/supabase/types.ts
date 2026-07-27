@@ -842,6 +842,7 @@ export type Database = {
       }
       internal_link_click_events: {
         Row: {
+          anchor: string | null
           created_at: string
           destination: string
           device_type: string | null
@@ -858,6 +859,7 @@ export type Database = {
           utm_source: string | null
         }
         Insert: {
+          anchor?: string | null
           created_at?: string
           destination: string
           device_type?: string | null
@@ -874,6 +876,7 @@ export type Database = {
           utm_source?: string | null
         }
         Update: {
+          anchor?: string | null
           created_at?: string
           destination?: string
           device_type?: string | null
