@@ -721,6 +721,11 @@ const App = () => {
                   <Route path="/plano-saude-mei-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
                   <Route path="/plano-saude-pme-guarulhos" element={<Navigate to="/plano-saude-empresarial" replace />} />
                   <Route path="/plano-odontologico-guarulhos" element={<PlanoOdontologicoGuarulhos />} />
+                  {/* Long-tail SEO pages — linkam forte para o hub de bairros /seguros-guarulhos */}
+                  <Route path="/planos-de-saude-guarulhos-comparativo" element={<LongtailPlanosSaudeGuarulhosComparativo />} />
+                  <Route path="/valor-seguro-byd-dolphin" element={<LongtailValorSeguroBydDolphin />} />
+                  <Route path="/melhor-seguro-para-uber-guarulhos" element={<LongtailMelhorSeguroUberGuarulhos />} />
+                  <Route path="/cotacao-seguro-residencial-online" element={<LongtailCotacaoSeguroResidencialOnline />} />
                   {/* Patrimônio / empresas — variantes */}
                   <Route path="/seguro-galpao-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-galpao-cumbica" element={<SeguroGalpaoCumbica />} />
