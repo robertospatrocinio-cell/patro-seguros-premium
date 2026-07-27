@@ -16,6 +16,7 @@ import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { getArticleMeta, getRelatedArticles, formatDate, slugifyCategory } from "@/lib/blogData";
 import { getAuthorSlugByName, getAuthorByName } from "@/lib/blogAuthors";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
+import ContextualSeoHub from "@/components/ContextualSeoHub";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
