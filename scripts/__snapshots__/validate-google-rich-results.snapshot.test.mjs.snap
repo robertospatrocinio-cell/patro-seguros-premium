@@ -1,0 +1,103 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dist/google-rich-results-report.json — snapshot > breakdown por @type — snapshot 1`] = `
+{
+  "Article": {
+    "eligible": 235,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 235,
+    "unsupported": 0,
+  },
+  "BlogPosting": {
+    "eligible": 235,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 235,
+    "unsupported": 0,
+  },
+  "BreadcrumbList": {
+    "eligible": 1400,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 1400,
+    "unsupported": 0,
+  },
+  "CollectionPage": {
+    "eligible": 5,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 5,
+    "unsupported": 0,
+  },
+  "FAQPage": {
+    "eligible": 448,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 448,
+    "unsupported": 0,
+  },
+  "InsuranceAgency": {
+    "eligible": 891,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 891,
+    "unsupported": 0,
+  },
+  "Organization": {
+    "eligible": 891,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 891,
+    "unsupported": 0,
+  },
+  "Service": {
+    "eligible": 0,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 172,
+    "unsupported": 172,
+  },
+  "SiteNavigationElement": {
+    "eligible": 0,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 5352,
+    "unsupported": 5352,
+  },
+  "WebSite": {
+    "eligible": 892,
+    "eligibleWarn": 0,
+    "ineligible": 0,
+    "total": 892,
+    "unsupported": 0,
+  },
+}
+`;
+
+exports[`dist/google-rich-results-report.json — snapshot > conjunto de @types cobertos — snapshot 1`] = `
+[
+  "Article",
+  "BlogPosting",
+  "BreadcrumbList",
+  "CollectionPage",
+  "FAQPage",
+  "InsuranceAgency",
+  "Organization",
+  "Service",
+  "SiteNavigationElement",
+  "WebSite",
+]
+`;
+
+exports[`dist/google-rich-results-report.json — snapshot > summary — snapshot 1`] = `
+{
+  "blocks": 6051,
+  "eligible": 4997,
+  "eligibleWarn": 0,
+  "files": 891,
+  "ineligible": 0,
+  "nodes": 10521,
+  "unsupported": 5524,
+}
+`;
