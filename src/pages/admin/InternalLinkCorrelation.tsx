@@ -36,6 +36,16 @@ type AnchorGlobal = {
   gscImpressionsAttributed: number;
   gscAveragePosition: number | null;
 };
+type AnchorConversion = {
+  anchor: string;
+  clicks: number;
+  sessions: number;
+  convertingSessions: number;
+  whatsappConversions: number;
+  cotacaoConversions: number;
+  conversionRate: number;
+  topPage: { pathname: string; clicks: number } | null;
+};
 type Recommendation = {
   destination: string;
   score: number;
@@ -60,6 +70,7 @@ type Resp = {
   };
   rows: Row[];
   anchorsGlobal: AnchorGlobal[];
+  anchorConversions?: AnchorConversion[];
   recommendations?: Recommendation[];
 };
 
