@@ -6,6 +6,7 @@ import { articles as blogArticles } from "@/lib/blogData";
 import { getArticleImage } from "@/lib/blogImages";
 import { landingPagesData } from "@/data/landingPages";
 import { servicePagesContent } from "@/data/seoServiceContent";
+import { SEO_HUBS } from "@/data/seoHubs";
 
 export interface Metadata {
   title: string;
@@ -295,6 +296,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
         "description": p.description,
         "url": `${DOMAIN}${cleanPath}`,
         "isPartOf": { "@type": "WebSite", "name": "Patro Seguros", "url": DOMAIN },
+        "hasPart": buildHubHasPart(cleanPath),
         "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN, "image": `${DOMAIN}/images/logo-full.webp`, "priceRange": "$$" },
       }
     : {
