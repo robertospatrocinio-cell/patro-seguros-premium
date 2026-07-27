@@ -15,6 +15,7 @@ import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, Chevron
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
  import { toast } from "sonner";
 import { bairros, type BairroData } from "@/lib/bairrosData";
+import { getNeighborBairros } from "@/lib/bairroNeighbors";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import BairroStickyCTABar from "@/components/BairroStickyCTABar";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
@@ -104,6 +105,41 @@ const SegurosGuarulhosBairros = () => {
   };
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}`)}`;
+
+  const neighbors = useMemo(
+    () => getNeighborBairros(selectedBairro.id),
+    [selectedBairro.id],
+  );
+
+  // Verticais mais buscadas por bairro — mesma paridade dos slugs
+  // publicados em `seoLocalProdutoBairroPages` + hubs globais.
+  const verticalLinks = useMemo(() => {
+    const slugMap: Record<string, string> = {
+      "jardim-maia": "cidade-maia",
+      "cumbica": "cumbica",
+      "centro": "centro-guarulhos",
+      "vila-augusta": "vila-augusta",
+      "bonsucesso": "bonsucesso",
+      "pimentas": "pimentas",
+      "taboao": "taboao-guarulhos",
+      "macedo": "macedo-guarulhos",
+      "gopouva": "gopouva-guarulhos",
+      "picanco": "picanco-guarulhos",
+    };
+    const localSlug = slugMap[selectedBairro.id];
+    return [
+      { label: "Seguro Auto", href: `/seguro-auto-guarulhos` },
+      localSlug
+        ? { label: "Seguro Residencial", href: `/seguro-residencial-${localSlug}` }
+        : { label: "Seguro Residencial", href: `/seguro-residencial-guarulhos` },
+      localSlug
+        ? { label: "Seguro de Vida", href: `/seguro-vida-${localSlug}` }
+        : { label: "Seguro de Vida", href: `/seguro-vida-guarulhos` },
+      localSlug
+        ? { label: "Seguro Empresarial", href: `/seguro-empresarial-${localSlug}` }
+        : { label: "Seguro Empresarial", href: `/seguro-empresarial-guarulhos` },
+    ];
+  }, [selectedBairro.id]);
 
   const breadcrumbItems = [
     { label: "Guarulhos", href: "/sobre-guarulhos" },
@@ -628,6 +664,73 @@ const SegurosGuarulhosBairros = () => {
                   Ao enviar, você será redirecionado para o WhatsApp para agilizar o atendimento.
                 </p>
               </form>
+            </div>
+          </div>
+        </section>
+
+        {/* BAIRROS VIZINHOS + VERTICAIS — interlinking contextual */}
+        <section className="py-14 bg-gray-50 border-t">
+          <div className="container mx-auto px-4">
+            <div className={`max-w-5xl mx-auto transition-all duration-500 ${transitioning ? "opacity-0" : "opacity-100"}`}>
+              <div className="grid md:grid-cols-2 gap-10">
+                {/* Bairros vizinhos */}
+                {neighbors.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <MapPin className="h-5 w-5 text-[#F2994A]" aria-hidden />
+                      <h2 className="text-xl md:text-2xl font-bold text-[#003366]">
+                        Bairros vizinhos ao {selectedBairro.nome}
+                      </h2>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4">
+                      Atendemos toda a região. Compare cotações também nos bairros próximos:
+                    </p>
+                    <nav aria-label={`Bairros vizinhos ao ${selectedBairro.nome}`}>
+                      <ul className="flex flex-wrap gap-2">
+                        {neighbors.map((n) => (
+                          <li key={n.id}>
+                            <Link
+                              to={n.href}
+                              className="inline-flex items-center gap-1 bg-white border border-gray-200 hover:border-[#003366] hover:text-[#003366] text-gray-700 text-sm font-medium px-3 py-2 rounded-full transition-colors"
+                            >
+                              Seguros em {n.nome}
+                              <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </nav>
+                  </div>
+                )}
+
+                {/* Landing pages verticais correspondentes */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Shield className="h-5 w-5 text-[#F2994A]" aria-hidden />
+                    <h2 className="text-xl md:text-2xl font-bold text-[#003366]">
+                      Coberturas em destaque no {selectedBairro.nome}
+                    </h2>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">
+                    Páginas dedicadas por produto com preço médio, coberturas e FAQ local:
+                  </p>
+                  <nav aria-label={`Coberturas em destaque no ${selectedBairro.nome}`}>
+                    <ul className="grid grid-cols-2 gap-2">
+                      {verticalLinks.map((v) => (
+                        <li key={v.href}>
+                          <Link
+                            to={v.href}
+                            className="flex items-center justify-between gap-2 bg-white border border-gray-200 hover:border-[#F2994A] hover:text-[#003366] text-gray-700 text-sm font-semibold px-3 py-2 rounded-lg transition-colors"
+                          >
+                            <span>{v.label}</span>
+                            <ChevronRight className="h-3.5 w-3.5 text-[#F2994A]" aria-hidden />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </section>
