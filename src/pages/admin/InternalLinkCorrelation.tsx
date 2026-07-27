@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import { supabase } from "@/integrations/supabase/client";
 import { useAnchorPriorities } from "@/hooks/useAnchorPriorities";
+import { ANCHOR_CLUSTERS, anchorClusterLabel, getAnchorCluster, type AnchorClusterId } from "@/lib/anchorClusters";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -116,6 +117,8 @@ export default function InternalLinkCorrelation() {
   const [refreshingPriorities, setRefreshingPriorities] = useState(false);
   const queryClient = useQueryClient();
   const { data: priorities } = useAnchorPriorities();
+  const [clusterFilter, setClusterFilter] = useState<AnchorClusterId | "all">("all");
+  const [convTypeFilter, setConvTypeFilter] = useState<"all" | "whatsapp" | "cotacao">("all");
 
   const refreshPriorities = async () => {
     setRefreshingPriorities(true);
