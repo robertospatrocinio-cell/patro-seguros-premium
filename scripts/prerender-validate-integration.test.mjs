@@ -312,6 +312,17 @@ function writeFixtureDist(distDir, perRouteBlocks) {
   }
 }
 
+function aggregateRoute(routeEntry) {
+  const c = { eligible: 0, eligibleWarn: 0, ineligible: 0, unsupported: 0 };
+  for (const n of routeEntry?.nodes ?? []) {
+    if (n.verdict === "eligible") c.eligible++;
+    else if (n.verdict === "eligible-warn") c.eligibleWarn++;
+    else if (n.verdict === "ineligible") c.ineligible++;
+    else if (n.verdict === "unsupported") c.unsupported++;
+  }
+  return c;
+}
+
 describe("invariância à ordem dos nós JSON-LD por rota", () => {
   // 2! + 2! + 3! = 2+2+6 = 10 combinações por rota. Para não explodir
   // (produto cartesiano seria 24 runs de validador), permutamos UMA
@@ -351,21 +362,15 @@ describe("invariância à ordem dos nós JSON-LD por rota", () => {
           for (const route of ROUTES) {
             const routeStats = report.routes[route];
             expect(routeStats, `[${target}] perm#${idx}: rota ${route} sumiu`).toBeDefined();
-            expect(routeStats.ineligible ?? 0, `[${target}] perm#${idx}: ${route} ineligible`).toBe(0);
-            expect(
-              routeStats.eligibleWarn ?? routeStats.eligible_warn ?? 0,
-              `[${target}] perm#${idx}: ${route} warn`,
-            ).toBe(0);
-            expect(routeStats.eligible ?? 0, `[${target}] perm#${idx}: ${route} eligible=0`).toBeGreaterThan(0);
+            const c = aggregateRoute(routeStats);
+            expect(c.ineligible, `[${target}] perm#${idx}: ${route} ineligible`).toBe(0);
+            expect(c.eligibleWarn, `[${target}] perm#${idx}: ${route} warn`).toBe(0);
+            expect(c.eligible, `[${target}] perm#${idx}: ${route} eligible=0`).toBeGreaterThan(0);
           }
 
           // Determinismo: contadores idênticos entre permutações.
           const currentByRoute = Object.fromEntries(
-            ROUTES.map((r) => [r, {
-              eligible: report.routes[r].eligible ?? 0,
-              eligibleWarn: report.routes[r].eligibleWarn ?? report.routes[r].eligible_warn ?? 0,
-              ineligible: report.routes[r].ineligible ?? 0,
-            }]),
+            ROUTES.map((r) => [r, aggregateRoute(report.routes[r])]),
           );
           if (previousByRoute) {
             expect(
