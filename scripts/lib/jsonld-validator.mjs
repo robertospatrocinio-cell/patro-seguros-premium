@@ -144,7 +144,7 @@ export function validateOrganization(node, errors, label, options = {}) {
     const logoUrl = typeof logo === "string" ? logo : logo?.url || logo?.["@id"];
     if (!logoUrl) push(errors, `${label} Organization: rich results (Logo) exigem logo (URL ou ImageObject.url)`,
       { field: "logo", rule: "organization.strict.logo" });
-    else if (!/^https?:\/\//i.test(logoUrl)) push(errors, `${label} Organization: logo deve ser URL absoluta http(s)`,
+    else if (!isAbsUrl(logoUrl)) push(errors, `${label} Organization: logo deve ser URL absoluta http(s)`,
       { field: "logo", rule: "organization.strict.logo.absoluteUrl" });
     if (!Array.isArray(node.sameAs) || node.sameAs.length === 0) {
       push(errors, `${label} Organization: sameAs[] recomendado (perfis oficiais) ausente`,
@@ -213,13 +213,7 @@ function authorName(author) {
   return null;
 }
 
-function hasImage(image) {
-  if (!image) return false;
-  if (typeof image === "string") return image.trim().length > 0;
-  if (Array.isArray(image)) return image.some(hasImage);
-  if (typeof image === "object") return Boolean(image.url || image["@id"]);
-  return false;
-}
+// hasImage / extractUrlLike vêm de ./url-image-helpers.mjs (importados no topo)
 
 export function validateArticle(node, errors, label) {
   const type = Array.isArray(node["@type"]) ? node["@type"][0] : node["@type"];
@@ -270,16 +264,6 @@ function siblingHosts(canonicalHost) {
   if (!canonicalHost) return new Set();
   const bare = canonicalHost.replace(/^www\./, "");
   return new Set([bare, `www.${bare}`]);
-}
-
-function extractUrlLike(v) {
-  if (typeof v === "string") return [v];
-  if (!v || typeof v !== "object") return [];
-  if (Array.isArray(v)) return v.flatMap(extractUrlLike);
-  const out = [];
-  if (typeof v["@id"] === "string") out.push(v["@id"]);
-  if (typeof v.url === "string") out.push(v.url);
-  return out;
 }
 
 function isJsonLdInternalRef(url) {
