@@ -399,7 +399,13 @@ export function generateSitemap(blogSlugs: string[]): string {
    segmentSlugs: string[] = [],
    blogCategorySlugs: string[] = [],
    blogAuthorSlugs: string[] = [],
+   bairroIds: string[] = DEFAULT_BAIRRO_IDS,
  ): SitemapBundle {
+   const bairroEntries: SitemapEntry[] = bairroIds.map(b => ({
+     loc: `/seguros-guarulhos/${b}`,
+     priority: "0.7",
+     changefreq: "monthly",
+   }));
    const segmentEntries: SitemapEntry[] = segmentSlugs.map(slug => ({
      loc: `/seguro-empresarial/${slug}`,
      priority: "0.8",
