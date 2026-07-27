@@ -350,6 +350,7 @@ const MonitorIndexacao = lazy(() => import("./pages/admin/MonitorIndexacao"));
 const GscWebVitals = lazy(() => import("./pages/admin/GscWebVitals"));
 const FaqUnderfilled = lazy(() => import("./pages/admin/FaqUnderfilled"));
 const GscKeywordPerformance = lazy(() => import("./pages/admin/GscKeywordPerformance"));
+const InternalLinkCorrelation = lazy(() => import("./pages/admin/InternalLinkCorrelation"));
 
 // RequireAdmin puxa `@/integrations/supabase/client` estaticamente (~50 KB).
 // Como só é usado em rotas /admin/* e /crm (todas lazy), carregamos sob demanda
