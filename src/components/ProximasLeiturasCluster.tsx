@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { getLongtailCluster } from "@/lib/longtailClusters";
-import { trackInternalLinkClick } from "@/lib/tracking";
+import { trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
 
 interface ProximasLeiturasClusterProps {
   /** Path canônico da rota atual (ex.: `/valor-seguro-byd-dolphin`). */
@@ -65,7 +65,7 @@ const ProximasLeiturasCluster = ({ pathname }: ProximasLeiturasClusterProps) => 
                   onClick={() =>
                     trackInternalLinkClick({
                       placement: "proximas-leituras",
-                      source: `longtail:${sourceSlug}`,
+                      source: buildInternalLinkSource("landing", sourceSlug),
                       destination: item.href,
                       label: item.title,
                       anchor: anchor ?? undefined,
