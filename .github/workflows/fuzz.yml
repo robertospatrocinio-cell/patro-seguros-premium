@@ -1,0 +1,162 @@
+name: JSON-LD Fuzzing
+
+# Estratégia de custo/cobertura:
+#   • FAST  (~20 iter)  — todo push/PR. Roda em < 30s. Pega regressões
+#                          óbvias (throws, propriedades quebradas). Bloqueia
+#                          merge.
+#   • FULL  (~500 iter × 3 seeds) — só em:
+#         - push em main / release/*
+#         - PR com o label `fuzz:full`
+#         - agendamento noturno (02:00 UTC)
+#         - workflow_dispatch (botão manual)
+#     Modo estatisticamente denso para caçar contraexemplos raros; falha
+#     do baseline de coverage vira erro.
+#
+# O baseline em scripts/lib/fuzz-coverage.baseline.json garante que a
+# variedade de regras exercitadas não caia entre runs — regenerável com
+# UPDATE_FUZZ_BASELINE=1 via workflow_dispatch.
+
+on:
+  push:
+    branches: [main, "release/**"]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled]
+  schedule:
+    - cron: "0 2 * * *"   # nightly full run
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Modo de execução do fuzz"
+        type: choice
+        options: [fast, full]
+        default: full
+      seed:
+        description: "FUZZ_SEED customizado (hex ou decimal). Vazio = default."
+        type: string
+        default: ""
+      update_baseline:
+        description: "Regenerar scripts/lib/fuzz-coverage.baseline.json"
+        type: boolean
+        default: false
+
+concurrency:
+  group: fuzz-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ────────────────────────────────────────────────────────────────────
+  # Decide qual modo rodar. Centraliza a lógica para não repetir ifs.
+  # ────────────────────────────────────────────────────────────────────
+  decide:
+    name: Decidir modo (fast/full)
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.pick.outputs.mode }}
+    steps:
+      - id: pick
+        env:
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          DISPATCH_MODE: ${{ inputs.mode }}
+          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: |
+          set -e
+          mode="fast"
+          if [ "$EVENT" = "schedule" ]; then mode="full"; fi
+          if [ "$EVENT" = "workflow_dispatch" ]; then mode="$DISPATCH_MODE"; fi
+          if [ "$EVENT" = "push" ]; then
+            case "$REF" in
+              refs/heads/main|refs/heads/release/*) mode="full" ;;
+            esac
+          fi
+          if [ "$EVENT" = "pull_request" ] && echo "$LABELS" | grep -q '"fuzz:full"'; then
+            mode="full"
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "→ modo escolhido: $mode (evento=$EVENT ref=$REF)"
+
+  # ────────────────────────────────────────────────────────────────────
+  # FAST — sempre roda. Bloqueia PR.
+  # ────────────────────────────────────────────────────────────────────
+  fast:
+    name: Fuzz fast (${{ needs.decide.outputs.mode == 'full' && 'skipped — full também roda' || 'ativo' }})
+    needs: decide
+    if: needs.decide.outputs.mode == 'fast'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install --frozen-lockfile
+      - name: Fuzz rápido (FUZZ_ITER=20)
+        env:
+          FUZZ_ITER: "20"
+        run: bun run test:fuzz
+      - name: Upload relatório de coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-coverage-fast
+          path: dist/fuzz-coverage.json
+          if-no-files-found: ignore
+
+  # ────────────────────────────────────────────────────────────────────
+  # FULL — matrix de seeds para diversificar contraexemplos.
+  # ────────────────────────────────────────────────────────────────────
+  full:
+    name: Fuzz full (seed=${{ matrix.seed }})
+    needs: decide
+    if: needs.decide.outputs.mode == 'full'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: ["0xC0FFEE", "0xDEADBEEF", "0x1337"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install --frozen-lockfile
+      - name: Fuzz completo (FUZZ_ITER=500)
+        env:
+          FUZZ_ITER: "500"
+          FUZZ_SEED: ${{ inputs.seed != '' && inputs.seed || matrix.seed }}
+          UPDATE_FUZZ_BASELINE: ${{ inputs.update_baseline && '1' || '' }}
+        run: bun run test:fuzz
+      - name: Upload relatório de coverage
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-coverage-full-${{ matrix.seed }}
+          path: dist/fuzz-coverage.json
+          if-no-files-found: ignore
+      - name: Upload baseline regenerado
+        if: ${{ inputs.update_baseline }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-coverage-baseline-${{ matrix.seed }}
+          path: scripts/lib/fuzz-coverage.baseline.json
+          if-no-files-found: ignore
+
+  # Gate final para "required check": passa se o modo escolhido passou.
+  gate:
+    name: Fuzz gate
+    needs: [decide, fast, full]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar resultado do modo escolhido
+        env:
+          MODE: ${{ needs.decide.outputs.mode }}
+          FAST_RESULT: ${{ needs.fast.result }}
+          FULL_RESULT: ${{ needs.full.result }}
+        run: |
+          set -e
+          if [ "$MODE" = "fast" ] && [ "$FAST_RESULT" != "success" ]; then
+            echo "fuzz fast falhou (result=$FAST_RESULT)"; exit 1
+          fi
+          if [ "$MODE" = "full" ] && [ "$FULL_RESULT" != "success" ]; then
+            echo "fuzz full falhou (result=$FULL_RESULT)"; exit 1
+          fi
+          echo "fuzz OK (modo=$MODE)"
