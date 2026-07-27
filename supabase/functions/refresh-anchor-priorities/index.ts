@@ -35,6 +35,7 @@ interface AnchorPotential {
   conversionRate: number;
   impressions: number;
   position: number | null;
+  topPage?: { pathname: string; clicks: number } | null;
 }
 
 interface AnchorConversion {
@@ -43,6 +44,9 @@ interface AnchorConversion {
   convertingSessions: number;
   conversionRate: number;
   clicks: number;
+  whatsappConversions?: number;
+  cotacaoConversions?: number;
+  topPage?: { pathname: string; clicks: number } | null;
 }
 
 interface CorrelationPayload {
@@ -99,6 +103,9 @@ serve(async (req) => {
       clicks: number;
       impressions: number;
       position: number | null;
+      top_pathname: string | null;
+      whatsapp_conversions: number;
+      cotacao_conversions: number;
     }>();
 
     for (const p of payload.anchorPotential ?? []) {
@@ -111,6 +118,9 @@ serve(async (req) => {
         clicks: p.clicks | 0,
         impressions: p.impressions | 0,
         position: p.position ?? null,
+        top_pathname: p.topPage?.pathname ?? null,
+        whatsapp_conversions: 0,
+        cotacao_conversions: 0,
       });
     }
     for (const c of payload.anchorConversions ?? []) {
@@ -121,6 +131,9 @@ serve(async (req) => {
         cur.sessions = Math.max(cur.sessions, c.sessions | 0);
         cur.converting_sessions = Math.max(cur.converting_sessions, c.convertingSessions | 0);
         cur.clicks = Math.max(cur.clicks, c.clicks | 0);
+        cur.whatsapp_conversions = Math.max(cur.whatsapp_conversions, c.whatsappConversions | 0);
+        cur.cotacao_conversions = Math.max(cur.cotacao_conversions, c.cotacaoConversions | 0);
+        if (!cur.top_pathname && c.topPage?.pathname) cur.top_pathname = c.topPage.pathname;
       } else {
         merged.set(c.anchor, {
           anchor: c.anchor,
@@ -131,6 +144,9 @@ serve(async (req) => {
           clicks: c.clicks | 0,
           impressions: 0,
           position: null,
+          top_pathname: c.topPage?.pathname ?? null,
+          whatsapp_conversions: c.whatsappConversions | 0,
+          cotacao_conversions: c.cotacaoConversions | 0,
         });
       }
     }
