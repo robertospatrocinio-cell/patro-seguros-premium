@@ -21,6 +21,7 @@ import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
 import ComoPatroAjuda from "@/components/ComoPatroAjuda";
+import JumpLinksNav from "@/components/JumpLinksNav";
 import {
   detectGuarulhosNeighborhood,
   isGuarulhosContext,
