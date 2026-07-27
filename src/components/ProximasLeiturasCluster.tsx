@@ -107,7 +107,7 @@ const ProximasLeiturasCluster = ({ pathname }: ProximasLeiturasClusterProps) => 
         </div>
 
         <ol className="space-y-3 list-none pl-0">
-          {cluster.items.map((item, idx) => {
+          {rankedItems.map((item, idx) => {
             // Extrai a âncora (#...) do href para etiquetar o drilldown.
             const hashIndex = item.href.indexOf("#");
             const anchor = hashIndex >= 0 ? item.href.slice(hashIndex + 1) : null;
