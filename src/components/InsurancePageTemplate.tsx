@@ -37,7 +37,7 @@ import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
 import SmartText from "@/components/SmartText";
-import { getBreadcrumbCategory } from "@/lib/breadcrumbCategory";
+import { getBreadcrumbCategory, getBreadcrumbChain } from "@/lib/breadcrumbCategory";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 
 // Inferência de palavras-chave (em inglês) para a galeria temática automática
@@ -333,9 +333,11 @@ const InsurancePageTemplate = ({
   };
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
   const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
-  const breadcrumbItems = breadcrumbCategory
-    ? [{ label: breadcrumbCategory.label, href: breadcrumbCategory.href }, { label: title }]
-    : [{ label: title }];
+  const breadcrumbChain = getBreadcrumbChain(location.pathname);
+  const breadcrumbItems = [
+    ...breadcrumbChain.map((c) => ({ label: c.label, href: c.href })),
+    { label: title },
+  ];
   // Shared set to dedupe contextual keyword links across all narrative blocks
   // of the page (description, detailedDescription, contextualLinks, importantDetails).
   const linkedKeywords = new Set<string>();
@@ -434,9 +436,7 @@ const InsurancePageTemplate = ({
       <BreadcrumbSchema
         items={[
           { name: "Início", url: "/" },
-          ...(breadcrumbCategory
-            ? [{ name: breadcrumbCategory.label, url: breadcrumbCategory.href }]
-            : []),
+          ...breadcrumbChain.map((c) => ({ name: c.label, url: c.href })),
           { name: title, url: location.pathname },
         ]}
       />
