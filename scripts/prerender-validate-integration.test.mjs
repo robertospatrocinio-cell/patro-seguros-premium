@@ -235,3 +235,149 @@ describe("prerender + validador: bundle mínimo com breadcrumb/FAQ/organization"
     }
   });
 });
+
+// ============================================================================
+// SUITE ADICIONAL — invariância à ordem dos nós JSON-LD
+// ============================================================================
+// Google Rich Results é indiferente à ordem em que os blocos JSON-LD
+// aparecem no HTML. Nosso validador precisa manter a mesma indiferença:
+// para cada rota do fixture, qualquer permutação da ordem dos <script
+// type="application/ld+json"> deve produzir EXATAMENTE o mesmo veredicto
+// por rota — ineligible=0, eligibleWarn=0, eligible>0.
+//
+// Se um dia o validador começar a depender de "o primeiro nó é o
+// principal" (regressão sutil), este teste quebra imediatamente.
+// ============================================================================
+
+function permutations(arr) {
+  if (arr.length <= 1) return [arr.slice()];
+  const out = [];
+  for (let i = 0; i < arr.length; i++) {
+    const rest = arr.slice(0, i).concat(arr.slice(i + 1));
+    for (const p of permutations(rest)) out.push([arr[i], ...p]);
+  }
+  return out;
+}
+
+// Fixtures (blocos JSON-LD por rota) — mesmos usados na suite acima,
+// só que expressos como arrays para poder permutar.
+function fixtureBlocksFor(route) {
+  switch (route) {
+    case "/":
+      return [
+        ORGANIZATION_JSONLD,
+        breadcrumbListJsonLd("/", [
+          { name: "Início", url: "/" },
+          { name: "Home", url: "/" },
+        ]),
+      ];
+    case "/seguro-auto":
+      return [
+        ORGANIZATION_JSONLD,
+        breadcrumbListJsonLd("/seguro-auto", [
+          { name: "Início", url: "/" },
+          { name: "Seguros", url: "/seguros" },
+          { name: "Seguro Auto", url: "/seguro-auto" },
+        ]),
+      ];
+    case "/faq":
+      return [
+        ORGANIZATION_JSONLD,
+        breadcrumbListJsonLd("/faq", [
+          { name: "Início", url: "/" },
+          { name: "FAQ", url: "/faq" },
+        ]),
+        faqPageJsonLd([
+          { q: "Como faço uma cotação?", a: "Preencha o formulário no site ou fale via WhatsApp." },
+          { q: "Vocês atendem fora de Guarulhos?", a: "Sim, atendemos em todo o Brasil via canais digitais." },
+          { q: "Qual o horário de atendimento?", a: "Segunda a sexta, das 9h às 18h, e sábado das 9h às 13h." },
+        ]),
+      ];
+    default:
+      throw new Error(`fixtureBlocksFor: rota desconhecida ${route}`);
+  }
+}
+
+const ROUTES = ["/", "/seguro-auto", "/faq"];
+
+function routeToRelDir(route) {
+  return route === "/" ? "" : route.replace(/^\//, "");
+}
+
+function writeFixtureDist(distDir, perRouteBlocks) {
+  for (const [route, blocks] of Object.entries(perRouteBlocks)) {
+    const dir = path.join(distDir, routeToRelDir(route));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, "index.html"), htmlWith(...blocks), "utf-8");
+  }
+}
+
+describe("invariância à ordem dos nós JSON-LD por rota", () => {
+  // 2! + 2! + 3! = 2+2+6 = 10 combinações por rota. Para não explodir
+  // (produto cartesiano seria 24 runs de validador), permutamos UMA
+  // rota por vez mantendo as outras na ordem canônica. Isso ainda
+  // exercita todas as permutações relevantes em O(soma) e não O(produto).
+  for (const target of ROUTES) {
+    const perms = permutations(fixtureBlocksFor(target));
+    it(`${target}: ${perms.length} permutações → ineligible=0, eligibleWarn=0, eligible>0`, () => {
+      const baseBlocks = Object.fromEntries(
+        ROUTES.map((r) => [r, fixtureBlocksFor(r)]),
+      );
+      // Cada permutação: mesmo dist temporário reescrito.
+      const dist = fs.mkdtempSync(path.join(os.tmpdir(), `prv-perm-${routeToRelDir(target) || "root"}-`));
+      try {
+        let previousByRoute = null;
+        perms.forEach((perm, idx) => {
+          writeFixtureDist(dist, { ...baseBlocks, [target]: perm });
+          const res = spawnSync(
+            "node",
+            [VALIDATOR, `--dist=${dist}`, "--strict-warn"],
+            { encoding: "utf-8", cwd: ROOT },
+          );
+          expect(
+            res.status,
+            `[${target}] perm#${idx} falhou:\nORDEM: ${perm.map((b) => b["@type"]).join(",")}\nSTDOUT:\n${res.stdout}\nSTDERR:\n${res.stderr}`,
+          ).toBe(0);
+
+          const report = JSON.parse(
+            fs.readFileSync(path.join(dist, "google-rich-results-report.json"), "utf-8"),
+          );
+          // Invariantes globais.
+          expect(report.summary.ineligible, `[${target}] perm#${idx}: ineligible`).toBe(0);
+          expect(report.summary.eligibleWarn, `[${target}] perm#${idx}: eligibleWarn`).toBe(0);
+          expect(report.summary.eligible, `[${target}] perm#${idx}: eligible=0`).toBeGreaterThan(0);
+
+          // Invariantes por rota — cada rota do fixture continua limpa.
+          for (const route of ROUTES) {
+            const routeStats = report.routes[route];
+            expect(routeStats, `[${target}] perm#${idx}: rota ${route} sumiu`).toBeDefined();
+            expect(routeStats.ineligible ?? 0, `[${target}] perm#${idx}: ${route} ineligible`).toBe(0);
+            expect(
+              routeStats.eligibleWarn ?? routeStats.eligible_warn ?? 0,
+              `[${target}] perm#${idx}: ${route} warn`,
+            ).toBe(0);
+            expect(routeStats.eligible ?? 0, `[${target}] perm#${idx}: ${route} eligible=0`).toBeGreaterThan(0);
+          }
+
+          // Determinismo: contadores idênticos entre permutações.
+          const currentByRoute = Object.fromEntries(
+            ROUTES.map((r) => [r, {
+              eligible: report.routes[r].eligible ?? 0,
+              eligibleWarn: report.routes[r].eligibleWarn ?? report.routes[r].eligible_warn ?? 0,
+              ineligible: report.routes[r].ineligible ?? 0,
+            }]),
+          );
+          if (previousByRoute) {
+            expect(
+              currentByRoute,
+              `[${target}] perm#${idx}: contadores por rota mudaram vs perm anterior`,
+            ).toEqual(previousByRoute);
+          }
+          previousByRoute = currentByRoute;
+        });
+      } finally {
+        fs.rmSync(dist, { recursive: true, force: true });
+      }
+    });
+  }
+});
