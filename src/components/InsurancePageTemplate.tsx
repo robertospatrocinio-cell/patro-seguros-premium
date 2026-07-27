@@ -33,6 +33,7 @@ import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
+import ContextualSeoHub from "@/components/ContextualSeoHub";
 import SmartText from "@/components/SmartText";
 import { getBreadcrumbCategory } from "@/lib/breadcrumbCategory";
 import { getRelatedLinks } from "@/lib/relatedFromText";
@@ -1053,6 +1054,8 @@ const InsurancePageTemplate = ({
             items={trilhaSeo.items}
           />
         )}
+        {/* Trilha automática por hub SEO — não renderiza fora de cluster. */}
+        <ContextualSeoHub />
         {extraSections}
       </main>
       <Footer />
