@@ -103,29 +103,22 @@ describe("topUpBackfillForSlug — idempotência e dedupe", () => {
     expect(r.next).toHaveLength(2);
     expect(r.shortfall).toBe(0);
   });
-  it("usa o 3º fallback quando 1ª sugestão colide com Q&A existente", () => {
+  it("usa fallback quando primeiras sugestões colidem com Q&A existente", () => {
     const three = [
       { q: "Q1", a: "A1" },
       { q: "Q2", a: "A2" },
       { q: "Q3", a: "A3" },
     ];
+    // artigo com 0 Q&A e 1 backfill que colide com Q1 → deve usar Q2 e Q3
     const r = topUpBackfillForSlug({
-      existing: [{ q: "q1", a: "old" }, { q: "q2", a: "old" }],
-      suggestions: three,
-      currentCount: 0, // artigo tem 0 Q&A próprias; existing é backfill parcial
-      target: 2,
-    });
-    // já tinha 2 existentes → not needed, shortfall=0; teste real do fallback:
-    expect(r.shortfall).toBe(0);
-
-    const r2 = topUpBackfillForSlug({
       existing: [{ q: "q1", a: "old" }],
       suggestions: three,
       currentCount: 1,
       target: 2,
     });
-    expect(r2.added).toBe(1);
-    expect(r2.next.map((f) => f.q)).toEqual(["q1", "Q2"]);
+    expect(r.added).toBe(1);
+    expect(r.shortfall).toBe(0);
+    expect(r.next.map((f) => f.q)).toEqual(["q1", "Q2"]);
   });
   it("reporta shortfall > 0 quando sugestões insuficientes/colididas", () => {
     const r = topUpBackfillForSlug({
