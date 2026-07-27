@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink, Sparkles, Copy, Check, CheckCircle2 } from "lucide-react";
+import { RefreshCw, Download, Link2, TrendingUp, TrendingDown, Minus, ExternalLink, Sparkles, Copy, Check, CheckCircle2, X, XCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -109,30 +109,33 @@ export default function InternalLinkCorrelation() {
   const [data, setData] = useState<Resp | null>(null);
   const [loading, setLoading] = useState(false);
   const [applying, setApplying] = useState<string | null>(null);
-  const [applied, setApplied] = useState<Record<string, { id: string; applied_at: string }>>({});
+  type FeedbackEntry = { id: string; status: string; applied_at: string };
+  const [applied, setApplied] = useState<Record<string, FeedbackEntry>>({});
 
   const applyKey = (destination: string, placement: string, sources: string[]) =>
     `${destination}|${placement}|${sources.slice().sort().join(",")}`;
 
-  const loadApplied = async (periodDays: number) => {
-    const since = new Date(Date.now() - periodDays * 86400_000).toISOString();
+  const loadApplied = async () => {
     const { data: rows, error } = await supabase
       .from("internal_link_applications")
-      .select("id, destination, placement, sources, applied_at")
-      .gte("applied_at", since)
-      .order("applied_at", { ascending: false });
+      .select("id, destination, placement, sources, status, applied_at")
+      .order("applied_at", { ascending: false })
+      .limit(2000);
     if (error) return;
-    const map: Record<string, { id: string; applied_at: string }> = {};
+    const map: Record<string, FeedbackEntry> = {};
     for (const r of rows ?? []) {
-      map[applyKey(r.destination, r.placement, r.sources ?? [])] = {
-        id: r.id,
-        applied_at: r.applied_at,
-      };
+      const key = applyKey(r.destination, r.placement, r.sources ?? []);
+      if (!map[key]) {
+        map[key] = { id: r.id, status: r.status ?? "planned", applied_at: r.applied_at };
+      }
     }
     setApplied(map);
   };
 
-  const applyRecommendation = async (rec: Recommendation) => {
+  const setFeedback = async (
+    rec: Recommendation,
+    status: "accepted" | "rejected",
+  ) => {
     const sources = rec.suggestedSources.map((s) => s.pathname);
     const key = applyKey(rec.destination, rec.suggestedPlacement, sources);
     setApplying(key);
@@ -147,25 +150,24 @@ export default function InternalLinkCorrelation() {
             score: rec.score,
             reason: rec.reason,
             periodDays: days,
+            status,
           },
         },
       );
       if (error) throw error;
-      const app = (res as { application?: { id: string; applied_at: string } })?.application;
+      const app = (res as { application?: FeedbackEntry })?.application;
       if (app) {
-        setApplied((prev) => ({ ...prev, [key]: { id: app.id, applied_at: app.applied_at } }));
+        setApplied((prev) => ({
+          ...prev,
+          [key]: { id: app.id, status: app.status ?? status, applied_at: app.applied_at },
+        }));
       }
-      toast.success("Recomendação aplicada", {
-        description: `${rec.destination} · ${rec.suggestedPlacement}`,
-      });
+      toast.success(
+        status === "accepted" ? "Recomendação aceita" : "Recomendação rejeitada",
+        { description: `${rec.destination} · ${rec.suggestedPlacement}` },
+      );
     } catch (e) {
-      const msg = (e as Error).message || "erro desconhecido";
-      if (/already applied|409/.test(msg)) {
-        toast.info("Já aplicada anteriormente");
-        await loadApplied(days);
-      } else {
-        toast.error("Falha ao aplicar recomendação", { description: msg });
-      }
+      toast.error("Falha ao salvar feedback", { description: (e as Error).message });
     } finally {
       setApplying(null);
     }
@@ -185,7 +187,7 @@ export default function InternalLinkCorrelation() {
       });
       if (error) throw error;
       setData(res as Resp);
-      await loadApplied(days);
+      await loadApplied();
     } catch (e) {
       toast.error("Falha ao carregar correlação de links internos", {
         description: (e as Error).message,
