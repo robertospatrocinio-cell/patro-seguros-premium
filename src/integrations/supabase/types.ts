@@ -840,6 +840,57 @@ export type Database = {
           },
         ]
       }
+      internal_link_click_events: {
+        Row: {
+          created_at: string
+          destination: string
+          device_type: string | null
+          id: string
+          label: string | null
+          page_path: string
+          placement: string
+          referrer: string | null
+          session_id: string | null
+          source: string
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          created_at?: string
+          destination: string
+          device_type?: string | null
+          id?: string
+          label?: string | null
+          page_path: string
+          placement: string
+          referrer?: string | null
+          session_id?: string | null
+          source: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          created_at?: string
+          destination?: string
+          device_type?: string | null
+          id?: string
+          label?: string | null
+          page_path?: string
+          placement?: string
+          referrer?: string | null
+          session_id?: string | null
+          source?: string
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       kanban_stages: {
         Row: {
           color: string | null

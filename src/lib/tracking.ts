@@ -389,4 +389,69 @@ export const buildInternalLinkSource = (
     destination,
     label,
   });
+  persistInternalLinkClick({ placement, source, destination, label, attr });
+};
+
+/**
+ * Persiste o clique em `internal_link_click_events` (via sendBeacon quando
+ * disponível) para alimentar o painel Admin de correlação com o GSC.
+ * Falhas são silenciosas — telemetria nunca deve quebrar a navegação.
+ */
+const persistInternalLinkClick = (payload: {
+  placement: string;
+  source: string;
+  destination: string;
+  label: string;
+  attr: Attribution;
+}) => {
+  if (typeof window === "undefined") return;
+  const url = import.meta.env.VITE_SUPABASE_URL;
+  const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (!url || !key) return;
+
+  const path = window.location.pathname;
+  const ua = navigator.userAgent;
+  const vitals = readVitalsSnapshot();
+  let sessionId = "";
+  try { sessionId = getSessionId(); } catch { /* noop */ }
+
+  const body = JSON.stringify({
+    placement: payload.placement.slice(0, 64),
+    source: payload.source.slice(0, 128),
+    destination: payload.destination.slice(0, 512),
+    label: payload.label ? payload.label.slice(0, 256) : null,
+    page_path: path.slice(0, 512),
+    session_id: sessionId || null,
+    utm_source: payload.attr.utm_source ?? null,
+    utm_medium: payload.attr.utm_medium ?? null,
+    utm_campaign: payload.attr.utm_campaign ?? null,
+    referrer: payload.attr.referrer ?? null,
+    device_type: vitals.device_type ?? null,
+    user_agent: ua.slice(0, 512),
+  });
+
+  const endpoint = `${url}/rest/v1/internal_link_click_events`;
+  const send = () => {
+    const beacon = navigator.sendBeacon;
+    if (beacon) {
+      try {
+        const beaconUrl = `${endpoint}?apikey=${encodeURIComponent(key)}`;
+        const blob = new Blob([body], { type: "application/json" });
+        if (beacon.call(navigator, beaconUrl, blob)) return;
+      } catch { /* fallback abaixo */ }
+    }
+    fetch(endpoint, {
+      method: "POST",
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+      },
+      keepalive: true,
+      body,
+    }).catch(() => undefined);
+  };
+  if (typeof queueMicrotask === "function") queueMicrotask(send);
+  else Promise.resolve().then(send);
 };
