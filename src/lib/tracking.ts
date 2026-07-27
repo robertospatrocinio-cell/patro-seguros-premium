@@ -426,7 +426,29 @@ export type InternalLinkPlacement =
   | "breadcrumb"
   | "cta-block"
   | "jump-links"
-  | "proximas-leituras";
+  | "proximas-leituras"
+  | "next-section-inline"
+  | "next-section-list"
+  | "next-section-mobile";
+
+/**
+ * Variantes de CTA de "próxima seção" — nomes canônicos para
+ * comparar conversão entre placements no painel Admin.
+ *
+ *  - `inline`  → `<NextSectionCta>` ancorado ao final de uma seção.
+ *  - `list`    → `<ProximasLeiturasCluster>` (bibliografia no rodapé).
+ *  - `mobile`  → `<MobileClusterNextCta>` (pill flutuante mobile).
+ */
+export type NextSectionCtaVariant = "inline" | "list" | "mobile";
+
+export const NEXT_SECTION_CTA_PLACEMENT: Record<
+  NextSectionCtaVariant,
+  Extract<InternalLinkPlacement, `next-section-${string}`>
+> = {
+  inline: "next-section-inline",
+  list: "next-section-list",
+  mobile: "next-section-mobile",
+};
 
 /** Build a normalized `source` string. Always use this at call sites. */
 export const buildInternalLinkSource = (
