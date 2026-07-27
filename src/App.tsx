@@ -303,6 +303,8 @@ const BradescoSaude = lazy(() => import("./pages/saude/Bradesco"));
 const Sami = lazy(() => import("./pages/saude/Sami"));
 const Unimed = lazy(() => import("./pages/saude/Unimed"));
 const Alice = lazy(() => import("./pages/saude/Alice"));
+const Omint = lazy(() => import("./pages/saude/Omint"));
+const CarePlus = lazy(() => import("./pages/saude/CarePlus"));
 
 const PortoSeguro = lazy(() => import("./pages/seguradoras/PortoSeguro"));
 const TokioMarine = lazy(() => import("./pages/seguradoras/TokioMarine"));
