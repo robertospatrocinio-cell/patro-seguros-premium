@@ -446,6 +446,12 @@ serve(async (req) => {
         const conversionRate = sessions > 0 ? convertingSessions / sessions : 0;
         let topPage: { pathname: string; clicks: number } | null = null;
         for (const [p, c] of a.pages) if (!topPage || c > topPage.clicks) topPage = { pathname: p, clicks: c };
+        const viewEntry = viewsByAnchor.get(a.anchor);
+        const views = viewEntry?.views ?? 0;
+        const viewSessions = viewEntry?.sessions.size ?? 0;
+        // Funil de leitura → clique: qual fração das sessões que
+        // *chegaram* na seção também clicou em algum jump-link.
+        const clickThroughRate = viewSessions > 0 ? sessions / viewSessions : null;
         return {
           anchor: a.anchor,
           clicks: a.clicks,
@@ -455,6 +461,9 @@ serve(async (req) => {
           cotacaoConversions: a.cotacaoConversions,
           conversionRate,
           topPage,
+          views,
+          viewSessions,
+          clickThroughRate,
         };
       })
       .sort((a, b) => {
