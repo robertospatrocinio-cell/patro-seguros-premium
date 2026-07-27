@@ -15,6 +15,12 @@ import imgVilaGalvao from "@/assets/bairros/vila-galvao.webp";
 import imgAeroporto from "@/assets/bairros/aeroporto-guarulhos.webp";
 import imgCidadeIndustrial from "@/assets/bairros/cidade-industrial-satelite.webp";
 import imgJardimCumbica from "@/assets/bairros/jardim-cumbica.webp";
+import imgVilaRio from "@/assets/bairros/vila-rio.webp";
+import imgPonteGrande from "@/assets/bairros/ponte-grande.webp";
+import imgAguaChata from "@/assets/bairros/agua-chata.webp";
+import imgJardimSaoJoao from "@/assets/bairros/jardim-sao-joao.webp";
+import imgCocaia from "@/assets/bairros/cocaia.webp";
+import imgJardimFatima from "@/assets/bairros/jardim-fatima.webp";
 
 export interface BairroFAQ {
   question: string;
