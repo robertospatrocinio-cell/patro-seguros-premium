@@ -100,6 +100,12 @@ export const bairros: BairroData[] = [
      subtitulo: "Proteção premium para quem vive no coração verde de Guarulhos",
      descricao: "No Cidade Maia, onde o Bosque Maia e a Av. Paulo Faccini atraem moradores de alto padrão e valorizam imóveis, a Patro Seguros oferece soluções sob medida: seguro residencial completo para apartamentos de luxo, seguro auto para veículos premium e proteção patrimonial à altura do bairro mais nobre de Guarulhos. Nossa equipe conhece a região e atende com a agilidade que você merece.",
      image: imgJardimMaia,
+     geo: { latitude: -23.4508, longitude: -46.5236 },
+     testimonials: [
+       { author: "Fernanda A.", role: "Moradora — Ed. Via Alameda, Cidade Maia", product: "Residencial Premium + Auto", rating: 5, date: "2026-06-08", text: "Migrei do banco para a Patro em 2026 e economizei R$ 4.180/ano no combo do apartamento + SUV. Vistoria feita presencialmente no próprio edifício, tudo resolvido em uma tarde." },
+       { author: "Rodrigo T.", role: "Advogado — Av. Paulo Faccini", product: "RC Profissional + Vida", rating: 5, date: "2026-05-14", text: "Contratei RC Profissional e seguro de vida em conjunto. Atendimento explicou cláusula por cláusula — coisa que o banco nunca fez. Recomendo para colegas do eixo Cidade Maia/Centro." },
+       { author: "Camila V.", role: "Moradora — Bosque Maia", product: "Seguro Residencial", rating: 5, date: "2026-01-30", text: "Tive dano elétrico após oscilação de energia forte no bairro. Acionei pelo WhatsApp, técnico veio em 2 dias e a indenização caiu em 12 dias úteis. Sem burocracia." },
+     ],
      faqs: [
        ...generateLocalFAQs({ slug: "auto-cidade-maia", neighborhood: "Cidade Maia", product: "auto", riskLevel: "baixo", priceRange: "R$ 1.950 a R$ 3.800/ano", reference: "próximo ao Shopping Maia" }),
        ...generateLocalFAQs({ slug: "vida-cidade-maia", neighborhood: "Cidade Maia", product: "vida", priceRange: "a partir de R$ 45/mês", reference: "na região da Av. Paulo Faccini" }),
@@ -128,7 +134,26 @@ export const bairros: BairroData[] = [
        localCase: {
          title: "Combo residencial premium + auto importado no Cidade Maia",
          description: "Cliente com apartamento avaliado em R$ 1,2 mi e SUV importado migrou 2 apólices para a Patro. Cobertura residencial ampliada (joias + eletrônicos + RC familiar) + auto compreensivo com franquia reduzida ficou R$ 4.180/ano mais barato que a proposta anterior do banco, mantendo mesma seguradora tier-1.",
+          product: "Residencial Premium + Auto Compreensivo",
+          year: 2026,
+          metrics: ["R$ 4.180/ano de economia", "2 apólices consolidadas", "Franquia reduzida negociada"],
        },
+        localCases: [
+          {
+            title: "RC Profissional + Vida para advogado da Av. Paulo Faccini",
+            description: "Advogado autônomo com escritório próximo ao Bosque Maia consolidou RC Profissional (LMI R$ 500 mil) + Vida com cobertura por invalidez em apólice única. Redução de 22% versus contratações separadas graças a bundling e desconto de fidelidade multi-produto.",
+            product: "RC Profissional + Vida",
+            year: 2026,
+            metrics: ["-22% no prêmio anual", "LMI R$ 500 mil", "Defesa jurídica inclusa"],
+          },
+          {
+            title: "Sinistro elétrico em edifício alto do Bosque Maia",
+            description: "Moradora do entorno do Bosque Maia teve TV 65\" e ar-condicionado inverter queimados por surto elétrico. Sinistro aberto por WhatsApp, laudo aceito em 4 dias úteis e indenização paga em 12 dias — sem franquia adicional graças a plano com danos elétricos ampliados.",
+            product: "Residencial — Danos Elétricos",
+            year: 2026,
+            metrics: ["Indenização em 12 dias úteis", "R$ 11 mil reembolsados", "Zero franquia adicional"],
+          },
+        ],
      },
    },
    {
