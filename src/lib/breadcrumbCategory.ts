@@ -15,6 +15,17 @@ export interface BreadcrumbCategory {
   href: string;
 }
 
+/**
+ * Overrides que vêm do painel `/admin/breadcrumbs`. Injetados em runtime
+ * por `useBreadcrumbOverrides` para permitir edição sem redeploy.
+ * Chave = pathname normalizado (sem trailing slash).
+ */
+export interface BreadcrumbOverride {
+  category?: BreadcrumbCategory | null;
+  pillar?: BreadcrumbCategory | null;
+}
+export type BreadcrumbOverrideMap = Record<string, BreadcrumbOverride>;
+
 // Categories that should NOT appear as a breadcrumb intermediate (already a hub).
 const SKIP_CATEGORY_TITLES = new Set<string>(["Seguros em Guarulhos"]);
 
@@ -63,8 +74,11 @@ const ROUTE_OVERRIDES: Record<string, BreadcrumbCategory> = {
 
 export const getBreadcrumbCategory = (
   pathname: string,
+  overrides?: BreadcrumbOverrideMap,
 ): BreadcrumbCategory | null => {
   const normalized = pathname.replace(/\/+$/, "") || "/";
+  const override = overrides?.[normalized];
+  if (override && override.category !== undefined) return override.category;
   if (ROUTE_OVERRIDES[normalized]) return ROUTE_OVERRIDES[normalized];
   for (const cat of INSURANCE_HUB) {
     if (SKIP_CATEGORY_TITLES.has(cat.title)) continue;
@@ -86,13 +100,35 @@ export const getBreadcrumbCategory = (
  * em seguida — assim o Google entende a hierarquia do mais amplo ao mais
  * específico e reforça a autoridade do pilar como pai direto da long-tail.
  */
-export const getBreadcrumbChain = (pathname: string): BreadcrumbCategory[] => {
+export const getBreadcrumbChain = (
+  pathname: string,
+  overrides?: BreadcrumbOverrideMap,
+): BreadcrumbCategory[] => {
   const normalized = pathname.replace(/\/+$/, "") || "/";
   const chain: BreadcrumbCategory[] = [];
-  const category = getBreadcrumbCategory(normalized);
+  const category = getBreadcrumbCategory(normalized, overrides);
   if (category) chain.push(category);
-  const pillar = CLUSTER_PILLAR[normalized];
+  const override = overrides?.[normalized];
+  const pillar =
+    override && override.pillar !== undefined
+      ? override.pillar
+      : CLUSTER_PILLAR[normalized];
   // Evita duplicar o pilar quando ele coincide com a própria categoria.
   if (pillar && pillar.href !== category?.href) chain.push(pillar);
   return chain;
 };
+
+/**
+ * Defaults estáticos expostos para o painel admin comparar com overrides.
+ */
+export const getStaticBreadcrumbDefaults = (
+  pathname: string,
+): BreadcrumbOverride => {
+  const normalized = pathname.replace(/\/+$/, "") || "/";
+  const category = getBreadcrumbCategory(normalized);
+  const pillar = CLUSTER_PILLAR[normalized] ?? null;
+  return { category, pillar };
+};
+
+/** Slugs conhecidos que participam de um cluster long-tail. */
+export const KNOWN_LONGTAIL_SLUGS: string[] = Object.keys(CLUSTER_PILLAR);
