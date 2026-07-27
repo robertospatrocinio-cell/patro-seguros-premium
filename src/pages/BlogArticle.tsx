@@ -20,6 +20,7 @@ import ContextualSeoHub from "@/components/ContextualSeoHub";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
+import { blogFaqBackfill } from "@/data/blogFaqBackfill";
 import { getBlogContent } from "@/data/blogContentIndex";
 import { useABTest } from "@/hooks/useABTest";
 import ArticleInlineCTA from "@/components/ArticleInlineCTA";
@@ -53,6 +54,9 @@ const BlogArticle = () => {
     ...((extraFaqBlock?.comparison?.rows ?? [])
       .filter((r: any) => r.faqQ && r.faqA)
       .map((r: any) => ({ q: r.faqQ as string, a: r.faqA as string }))),
+    // Backfill: garante ≥ 2 Q&A em posts que originalmente têm 1.
+    // Só entra se houver entrada para o slug em blogFaqBackfill.
+    ...((slug && blogFaqBackfill[slug]) ? blogFaqBackfill[slug] : []),
   ].filter(f => f.q && f.a);
 
 
