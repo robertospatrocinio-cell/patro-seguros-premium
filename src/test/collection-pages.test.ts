@@ -8,7 +8,7 @@ import {
   buildBlogClusterCollectionSchema,
 } from "@/lib/collectionPageSchemas";
 import { articles as blogArticles } from "@/lib/blogData";
-import { blogClusters } from "@/data/blogClusters";
+import { BLOG_CLUSTERS } from "@/data/blogClusters";
 
 /**
  * Validates every CollectionPage emitted by the app against the same rules
@@ -39,7 +39,7 @@ const sampleSolutions = [
 ];
 
 const sortedBlog = [...blogArticles].sort((a, b) => b.date.localeCompare(a.date));
-const firstCluster = Object.values(blogClusters)[0];
+const firstCluster = BLOG_CLUSTERS[0];
 
 const CASES: SchemaCase[] = [
   {
