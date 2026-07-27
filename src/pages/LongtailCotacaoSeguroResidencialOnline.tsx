@@ -1,8 +1,11 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import { getLongtailCluster } from "@/lib/longtailClusters";
+import { getLongtailCluster, getSectionCtasForSlug } from "@/lib/longtailClusters";
+
+const SLUG = "/cotacao-seguro-residencial-online";
 
 const LongtailCotacaoSeguroResidencialOnline = () => (
   <InsurancePageTemplate
+    sectionCtas={getSectionCtasForSlug(SLUG)}
     jumpLinks={[
       { label: "Quanto custa", href: "#preco-heading" },
       { label: "O que cobre", href: "#coberturas-heading" },
