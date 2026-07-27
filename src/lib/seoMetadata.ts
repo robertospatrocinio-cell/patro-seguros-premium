@@ -338,6 +338,60 @@ const premiumPages: Record<string, PremiumMeta> = {
       { question: "Com que frequência a apólice deve ser revisada?", answer: "Recomendamos revisão anual ou sempre que houver evento relevante: novo filho, mudança de imóvel, novo veículo, mudança de cargo ou de renda." },
     ],
   },
+  // ===== Long-tail SEO pages (Estratégia A — top 10 keywords) =====
+  "/valor-seguro-byd-dolphin": {
+    title: "Valor do Seguro BYD Dolphin 2026 — Preço e Cotação | Patro",
+    description: "Valor do seguro BYD Dolphin em 2026: R$ 2.500 a R$ 4.800/ano. Cotação Porto Seguro, Allianz e HDI para elétricos, com cobertura de bateria de tração.",
+    h1: "Valor do Seguro BYD Dolphin 2026 — Preço, Cotação e Cobertura",
+    serviceType: "Seguro para Carro Elétrico BYD Dolphin",
+    faqs: [
+      { question: "Quanto custa o seguro do BYD Dolphin em 2026?", answer: "O seguro do BYD Dolphin custa entre R$ 2.500 e R$ 4.800/ano para cobertura compreensiva completa, dependendo da versão (GS/Plus/Mini), CEP, idade do motorista e uso. Cotações reais em Guarulhos ficam próximas de R$ 2.800/ano para o GS em perfil médio." },
+      { question: "O seguro do BYD Dolphin cobre a bateria de tração?", answer: "Só cobre integralmente em apólices específicas para elétricos (Porto Seguro Elétricos, HDI Green, Allianz Elétricos, Tokio Marine EV). Apólices convencionais excluem ou limitam a cobertura da bateria — item mais caro do veículo. A Patro valida essa cláusula antes de qualquer contratação." },
+      { question: "Qual seguradora é melhor para BYD Dolphin?", answer: "Porto Seguro Elétricos, HDI Green, Allianz Elétricos e Tokio Marine EV têm produtos específicos para BYD Dolphin com cobertura de bateria e rede autorizada. O melhor varia por perfil — a Patro compara todas em uma única cotação." },
+      { question: "Posso usar BYD Dolphin para Uber com seguro comum?", answer: "Não. Uso remunerado (Uber, 99, InDriver) exige cláusula específica de uso comercial. Sem essa cláusula, a seguradora nega o sinistro em corrida. A Patro contrata apólice para elétrico + uso remunerado no mesmo produto." },
+      { question: "O seguro do Dolphin é mais caro que o de um Onix?", answer: "Em média 10–20% mais caro em 2026, por ser elétrico e ter menos dados de sinistralidade. A diferença tende a diminuir a cada ano. Modelos elétricos com garagem, rastreador e Wallbox têm preço competitivo em relação a hatches turbo do mesmo valor FIPE." },
+      { question: "Como fazer cotação de seguro para BYD Dolphin online?", answer: "A Patro Seguros faz a cotação de seguro do BYD Dolphin em 4 seguradoras especializadas em elétricos (Porto Seguro Elétricos, Allianz Elétricos, HDI Green, Tokio Marine EV) em uma única passada. Envie placa/chassi e CEP pelo WhatsApp — o comparativo com preço, franquia e cláusula de bateria chega em até 2h." },
+    ],
+  },
+  "/planos-de-saude-guarulhos-comparativo": {
+    title: "Planos de Saúde em Guarulhos 2026 — Comparativo | Patro",
+    description: "Comparativo dos melhores planos de saúde em Guarulhos: SulAmérica, Bradesco Saúde, Amil, Hapvida e Porto Saúde. Preços, rede credenciada e coberturas.",
+    h1: "Planos de Saúde em Guarulhos — Comparativo Completo 2026",
+    serviceType: "Comparativo e Contratação de Planos de Saúde em Guarulhos",
+    faqs: [
+      { question: "Qual o melhor plano de saúde em Guarulhos?", answer: "Depende do perfil: SulAmérica e Bradesco Saúde lideram em rede credenciada premium; Hapvida e NotreDame Intermédica têm melhor custo-benefício com rede própria; Amil tem forte cobertura nacional. A Patro compara todos com base em CID, faixa etária e uso previsto." },
+      { question: "Quanto custa um plano de saúde individual em Guarulhos?", answer: "Em 2026, planos individuais partem de R$ 320/mês (Hapvida, 0–18 anos) e chegam a R$ 2.400/mês (SulAmérica Prestige, 59+ anos). Planos coletivos por adesão (via CNPJ ou entidade) ficam 25–40% mais baratos que os individuais." },
+      { question: "Qual plano de saúde tem melhor rede em Guarulhos?", answer: "SulAmérica e Bradesco Saúde têm ampla rede em Guarulhos, incluindo Hospital Stella Maris, Hospital Padre Bento e clínicas na Cidade Maia. Hapvida opera com rede própria (Hospital Hapvida Guarulhos). Amil credencia o Hospital Bosque da Saúde e clínicas em Cumbica." },
+      { question: "Existe plano de saúde empresarial a partir de 2 vidas em Guarulhos?", answer: "Sim. Hapvida, NotreDame Intermédica e Bradesco Saúde aceitam PME a partir de 2 vidas (titular + 1 dependente) com CNPJ ativo há 6 meses. Preços 30–50% menores que planos individuais." },
+      { question: "Como fazer cotação de plano de saúde em Guarulhos?", answer: "A Patro Seguros cota 5 operadoras (SulAmérica, Bradesco, Amil, Hapvida, NotreDame) em até 2h. Envie CPFs, datas de nascimento e CEP pelo WhatsApp. Retornamos com tabela comparativa de preço, rede, coparticipação e carência." },
+    ],
+  },
+  "/melhor-seguro-para-uber-guarulhos": {
+    title: "Melhor Seguro para Uber em Guarulhos 2026 | Patro",
+    description: "Melhor seguro para Uber, 99 e InDriver em Guarulhos: cláusula de uso remunerado obrigatória, cobertura para passageiro e preço a partir de R$ 2.400/ano.",
+    h1: "Melhor Seguro para Uber em Guarulhos — Cláusula de App Obrigatória",
+    serviceType: "Seguro Auto para Motorista de Aplicativo (Uber, 99, InDriver)",
+    faqs: [
+      { question: "Qual o melhor seguro para motorista de Uber em Guarulhos?", answer: "Porto Seguro Motoristas de App, Allianz Mobilidade, HDI 4 Rodas e Azul Seguros têm produtos específicos para Uber/99 com cláusula de uso remunerado, cobertura para passageiro e franquia reduzida. A Patro compara todas em uma única cotação." },
+      { question: "Quanto custa o seguro para Uber em Guarulhos?", answer: "Em 2026, entre R$ 2.400 e R$ 4.200/ano para cobertura compreensiva com cláusula de app. Onix, HB20 e Kwid ficam próximos de R$ 2.400; Corolla, Yaris e Civic chegam a R$ 4.200 dependendo do perfil do motorista." },
+      { question: "Seguro comum cobre corrida de Uber?", answer: "Não. Sem cláusula expressa de uso remunerado, a seguradora nega qualquer sinistro ocorrido durante uma corrida de aplicativo. É a principal causa de sinistros negados para motoristas de app em Guarulhos." },
+      { question: "Preciso avisar a seguradora que dirijo para Uber?", answer: "Sim, obrigatoriamente. Omitir uso remunerado configura má-fé na contratação e permite à seguradora rescindir a apólice e negar sinistros — mesmo os que não aconteceram em corrida." },
+      { question: "Como contratar seguro para Uber em Guarulhos?", answer: "A Patro Seguros cota 4 seguradoras com produto para app (Porto, Allianz, HDI, Azul) em até 2h. Envie placa e CNH categoria B/EAR pelo WhatsApp — o comparativo com preço, franquia e cláusula de app chega no mesmo dia." },
+    ],
+  },
+  "/cotacao-seguro-residencial-online": {
+    title: "Cotação Seguro Residencial Online em 5 min | Patro",
+    description: "Cotação de seguro residencial online em 5 minutos: 6 seguradoras (Porto, Bradesco, Allianz, HDI, Mapfre, Tokio) comparadas com preço, franquia e cobertura.",
+    h1: "Cotação de Seguro Residencial Online — 6 Seguradoras em 5 Minutos",
+    serviceType: "Cotação Online de Seguro Residencial",
+    faqs: [
+      { question: "Como fazer cotação de seguro residencial online?", answer: "Envie CEP, área construída, valor do imóvel e conteúdo (móveis, eletrônicos) pelo WhatsApp da Patro Seguros. Cotamos em 6 seguradoras (Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine) e enviamos o comparativo em até 2h." },
+      { question: "Quanto custa o seguro residencial em Guarulhos?", answer: "Em 2026, entre R$ 450 e R$ 1.800/ano para imóvel de R$ 400 mil com conteúdo de R$ 80 mil e coberturas essenciais (incêndio, roubo, danos elétricos, vendaval). Casas com alarme e cerca elétrica pagam 15–25% menos." },
+      { question: "Cotação online de seguro residencial é confiável?", answer: "Sim, quando feita via corretora habilitada pela SUSEP. A Patro Seguros (SUSEP 212113511) faz cotação online consultando as tabelas oficiais das seguradoras e envia a apólice digital assinada — juridicamente idêntica à contratação presencial." },
+      { question: "Preciso ir até a corretora para contratar?", answer: "Não. Toda a contratação é 100% digital: cotação, escolha da apólice, assinatura eletrônica e envio da apólice em PDF. Se preferir, atendemos presencialmente na Cidade Maia, Guarulhos/SP." },
+      { question: "Qual a diferença entre seguro residencial e do condomínio?", answer: "O seguro do condomínio cobre áreas comuns (fachada, elevadores, hall, estrutura coletiva). O seguro residencial cobre sua unidade autônoma: paredes internas, piso, forro, conteúdo (móveis, eletrônicos) e responsabilidade civil familiar." },
+    ],
+  },
 };
 
 function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
