@@ -204,6 +204,8 @@ export const bairros: BairroData[] = [
     testimonials: [
       { author: "Marcelo R.", role: "Gerente de logística — Cumbica", product: "Seguro de Carga", rating: 5, date: "2026-04-12", text: "Operamos transporte de eletrônicos perto do aeroporto. A Patro reestruturou nossa apólice de RCTR-C e baixamos 18% o custo mantendo cobertura ampliada. Atendimento em sinistro foi resolvido em 48h." },
       { author: "Patrícia M.", role: "Sócia de transportadora — Cumbica", product: "Frota + RC", rating: 5, date: "2026-03-05", text: "Tínhamos seguro direto com a seguradora. A Patro renegociou frota de 22 veículos e incluiu RC Facultativa robusta. Reduziu prêmio anual em R$ 38 mil." },
+       { author: "Ricardo B.", role: "Diretor operacional — Condomínio Logístico Hélio Smidt", product: "Patrimonial Galpão + RC Operações", rating: 5, date: "2026-06-22", text: "Nosso galpão de 8.400 m² tinha prêmio anual de R$ 142 mil. Após vistoria conjunta com engenharia de risco, saímos para R$ 98 mil/ano com LMI maior. A corretora coordenou tudo, incluindo laudo de sprinkler." },
+       { author: "Juliana C.", role: "Coordenadora de RH — transportadora em Cumbica", product: "Plano de Saúde Empresarial", rating: 4, date: "2026-02-18", text: "Migramos 84 vidas do plano antigo para uma operadora regional recomendada pela Patro. Manteve rede de Guarulhos, incluiu Hospital Padre Bento e reduziu 14% na fatura mensal." },
     ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-cumbica", neighborhood: "Cumbica", product: "empresarial", riskLevel: "médio-alto", priceRange: "conforme porte da logística", reference: "no entorno do Aeroporto de Guarulhos" }),
@@ -232,7 +234,33 @@ export const bairros: BairroData[] = [
        localCase: {
          title: "Reestruturação de frota + carga para transportadora de eletrônicos",
          description: "Transportadora com base em Cumbica operando trechos para o GRU teve apólice de RCTR-C + Frota (22 veículos) reestruturada em concorrência entre 4 seguradoras. Resultado: R$ 38 mil/ano de economia com aumento de limite de RC Facultativa e inclusão de gerenciamento de risco.",
+          product: "RCTR-C + RCF-DC + Frota (22 veículos)",
+          year: 2026,
+          metrics: ["R$ 38 mil/ano de economia", "4 seguradoras em concorrência", "LMI de RC Facultativa ampliado"],
        },
+        localCases: [
+          {
+            title: "Galpão logístico de 8.400 m² com sprinkler no eixo Hélio Smidt",
+            description: "Operador logístico com galpão próximo ao GRU aplicou plano de mitigação (sprinkler ativo, brigada, CFTV com IA) e migrou o patrimonial para seguradora tier-1 com engenharia de risco. Prêmio anual caiu de R$ 142 mil para R$ 98 mil com LMI 30% maior.",
+            product: "Patrimonial Galpão + RC Operações",
+            year: 2026,
+            metrics: ["-31% no prêmio anual", "LMI +30%", "Vistoria de engenharia inclusa"],
+          },
+          {
+            title: "Sinistro de roubo de carga (eletrônicos) resolvido em 22 dias",
+            description: "Embarque de R$ 480 mil em eletrônicos roubado em trecho Cumbica → ABC. Apólice tinha RCTR-C + RCF-DC + rastreamento averbado. BO, laudo de gerenciamento e indenização concluídos em 22 dias corridos, sem impacto no fluxo de caixa da transportadora.",
+            product: "RCTR-C + RCF-DC (Carga)",
+            year: 2025,
+            metrics: ["Indenização R$ 480 mil", "Pago em 22 dias corridos", "Rastreamento averbado exigido"],
+          },
+          {
+            title: "Plano de saúde coletivo para 84 vidas na base logística",
+            description: "Transportadora sediada em Cumbica migrou plano de saúde empresarial para operadora regional com rede em Guarulhos (incluindo Hospital Padre Bento). Contratação em janeiro/2026 reduziu 14% na fatura mensal mantendo cobertura hospitalar e adicionando telemedicina.",
+            product: "Saúde Empresarial (84 vidas)",
+            year: 2026,
+            metrics: ["-14% na fatura mensal", "Rede Hospital Padre Bento", "Telemedicina inclusa"],
+          },
+        ],
      },
    },
    {
