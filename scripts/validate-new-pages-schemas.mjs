@@ -52,10 +52,22 @@ const SCHEMA_TEMPLATES = [
 const NEW_PAGES = [
   { file: "src/pages/SeguroCartaVerde.tsx" },
   { file: "src/pages/LandingSeguroAcidentesPessoais.tsx" },
-  { file: "src/pages/ComoCompararSeguradorasGuarulhos.tsx" },
-  { file: "src/pages/SeguradoraParceiraSeoPage.tsx" },
-  { file: "src/pages/SeguradorasParceirasHub.tsx" },
-  { file: "src/pages/SegurosGuarulhosBairros.tsx" },
+  {
+    file: "src/pages/ComoCompararSeguradorasGuarulhos.tsx",
+    exempt: "Página editorial/comparativa — usa Article + HowTo + FAQPage; Service não se aplica.",
+  },
+  {
+    file: "src/pages/SeguradoraParceiraSeoPage.tsx",
+    exempt: "Página institucional de parceiro — usa Organization + FAQPage; Service seria redundante.",
+  },
+  {
+    file: "src/pages/SeguradorasParceirasHub.tsx",
+    exempt: "Hub/CollectionPage — usa BreadcrumbList + FAQPage; Service não representa oferta única.",
+  },
+  {
+    file: "src/pages/SegurosGuarulhosBairros.tsx",
+    exempt: "Hub de bairros — usa LocalBusiness + FAQPage; Service coberto por subpáginas produto×bairro.",
+  },
   { file: "src/pages/SeoLocalPage.tsx" },
   { file: "src/pages/IndiqueEGanhe.tsx" },
   {
@@ -65,7 +77,9 @@ const NEW_PAGES = [
 ];
 
 const SERVICE_RE = /<ServiceSchema\b/;
-const BREADCRUMB_RE = /<BreadcrumbSchema\b/;
+// PageMeta auto-emite <BreadcrumbSchema /> a partir do pathname
+// (ver src/components/PageMeta.tsx), então usá-lo satisfaz o requisito.
+const BREADCRUMB_RE = /<(BreadcrumbSchema|PageMeta)\b/;
 // FAQPage pode vir de qualquer um destes componentes:
 const FAQ_RE = /<(FAQSchema|FAQPageSchema|LocalAreaSchema)\b/;
 const TEMPLATE_RE = new RegExp(`<(${SCHEMA_TEMPLATES.join("|")})\\b`);
