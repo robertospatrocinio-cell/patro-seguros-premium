@@ -18,6 +18,8 @@ type Row = {
   internalSessions: number;
   topSource: { key: string; count: number } | null;
   topPlacement: { key: string; count: number } | null;
+  topAnchor: { key: string; count: number } | null;
+  anchors: Array<{ anchor: string; clicks: number }>;
   gsc: {
     clicks: number;
     impressions: number;
@@ -25,6 +27,14 @@ type Row = {
     position: number;
     url: string;
   } | null;
+};
+type AnchorGlobal = {
+  anchor: string;
+  clicks: number;
+  pages: number;
+  topPage: { pathname: string; clicks: number } | null;
+  gscImpressionsAttributed: number;
+  gscAveragePosition: number | null;
 };
 type Resp = {
   siteUrl: string;
@@ -40,6 +50,7 @@ type Resp = {
     correlationInternalClicksVsPosition: number | null;
   };
   rows: Row[];
+  anchorsGlobal: AnchorGlobal[];
 };
 
 const fmtInt = (n: number) => new Intl.NumberFormat("pt-BR").format(Math.round(n));
@@ -54,6 +65,7 @@ export default function InternalLinkCorrelation() {
   const [days, setDays] = useState(28);
   const [placement, setPlacement] = useState("");
   const [source, setSource] = useState("");
+  const [anchor, setAnchor] = useState("");
   const [filter, setFilter] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("internalClicks");
   const [onlyOverlap, setOnlyOverlap] = useState(true);
@@ -68,6 +80,7 @@ export default function InternalLinkCorrelation() {
           days,
           placement: placement || undefined,
           source: source || undefined,
+          anchor: anchor || undefined,
           limit: 1000,
         },
       });
@@ -190,6 +203,12 @@ export default function InternalLinkCorrelation() {
               onChange={(e) => setSource(e.target.value)}
               className="w-36"
             />
+            <Input
+              placeholder="Anchor…"
+              value={anchor}
+              onChange={(e) => setAnchor(e.target.value)}
+              className="w-36"
+            />
             <Button onClick={load} disabled={loading} size="sm">
               <RefreshCw className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`} />
               Atualizar
@@ -237,6 +256,57 @@ export default function InternalLinkCorrelation() {
               Período: {data.period.startDate} → {data.period.endDate} · Propriedade: {data.siteUrl}
             </p>
 
+            {data.anchorsGlobal && data.anchorsGlobal.length > 0 && (
+              <Card className="mb-6">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base">
+                    Drilldown por âncora ({data.anchorsGlobal.length})
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground">
+                    Cliques agregados por âncora (jump link / hash), com impressões
+                    do GSC atribuídas proporcionalmente à página onde a âncora foi clicada.
+                    Clique numa linha para filtrar a tabela abaixo por essa âncora.
+                  </p>
+                </CardHeader>
+                <CardContent className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="min-w-[180px]">Âncora</TableHead>
+                        <TableHead className="text-right">Cliques</TableHead>
+                        <TableHead className="text-right">Páginas</TableHead>
+                        <TableHead>Página top</TableHead>
+                        <TableHead className="text-right">Impressões atribuídas</TableHead>
+                        <TableHead className="text-right">Posição média</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {data.anchorsGlobal.slice(0, 40).map((a) => (
+                        <TableRow
+                          key={a.anchor}
+                          className="cursor-pointer"
+                          onClick={() => { setAnchor(a.anchor); load(); }}
+                        >
+                          <TableCell>
+                            <code className="text-xs">#{a.anchor}</code>
+                          </TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtInt(a.clicks)}</TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtInt(a.pages)}</TableCell>
+                          <TableCell className="text-xs">
+                            {a.topPage ? (
+                              <span>{a.topPage.pathname} <span className="text-muted-foreground">({a.topPage.clicks})</span></span>
+                            ) : <span className="text-muted-foreground">—</span>}
+                          </TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtInt(a.gscImpressionsAttributed)}</TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtPos(a.gscAveragePosition)}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </CardContent>
+              </Card>
+            )}
+
             <Card>
               <CardHeader className="flex flex-row items-center justify-between gap-4 flex-wrap">
                 <CardTitle className="text-base">Páginas ({rows.length})</CardTitle>
@@ -265,6 +335,7 @@ export default function InternalLinkCorrelation() {
                       <TableHead className="text-right">Cliques internos</TableHead>
                       <TableHead className="text-right">Sessões</TableHead>
                       <TableHead>Origem/Placement top</TableHead>
+                      <TableHead>Âncoras (top)</TableHead>
                       <TableHead className="text-right">Impressões GSC</TableHead>
                       <TableHead className="text-right">Cliques GSC</TableHead>
                       <TableHead className="text-right">CTR</TableHead>
@@ -297,6 +368,26 @@ export default function InternalLinkCorrelation() {
                             <div>
                               <span className="text-muted-foreground">placement:</span> {r.topPlacement.key} ({r.topPlacement.count})
                             </div>
+                          )}
+                        </TableCell>
+                        <TableCell className="text-xs">
+                          {r.anchors && r.anchors.length > 0 ? (
+                            <div className="flex flex-wrap gap-1 max-w-[220px]">
+                              {r.anchors.slice(0, 4).map((a) => (
+                                <button
+                                  key={a.anchor}
+                                  type="button"
+                                  onClick={() => { setAnchor(a.anchor); load(); }}
+                                  className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-0.5 text-[11px] hover:border-primary hover:text-primary"
+                                  title={`Filtrar por âncora #${a.anchor}`}
+                                >
+                                  <code>#{a.anchor}</code>
+                                  <span className="text-muted-foreground">{a.clicks}</span>
+                                </button>
+                              ))}
+                            </div>
+                          ) : (
+                            <span className="text-muted-foreground">—</span>
                           )}
                         </TableCell>
                         <TableCell className="text-right tabular-nums">{r.gsc ? fmtInt(r.gsc.impressions) : "—"}</TableCell>
