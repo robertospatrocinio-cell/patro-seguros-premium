@@ -82,7 +82,32 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
       { question: "Preciso de visita técnica para contratar seguro residencial online?", answer: "Na maioria dos casos, não. Para apartamentos e casas de até R$ 1 milhão, a contratação é 100% online sem vistoria prévia. Imóveis acima disso ou com bens de alto valor (joias, obras de arte) podem exigir vistoria." },
       { question: "A cotação online da Patro é gratuita?", answer: "Sim, 100% gratuita e sem compromisso. Você recebe o comparativo completo e decide se quer ou não contratar — sem custo em nenhum caso." },
       { question: "Qual a diferença entre cotar direto no site da seguradora e cotar pela Patro?", answer: "No site da seguradora você vê o preço de uma única empresa. Pela Patro você vê 8 seguradoras lado a lado, com franquia, sublimites e assistência — e ainda tem suporte técnico em sinistro. Em 90% dos casos, o preço da mesma cobertura é melhor via corretora." },
+      { question: "A cotação online de seguro residencial serve para casas em toda Guarulhos?", answer: "Sim. A cotação online cobre todos os bairros de Guarulhos (Cidade Maia, Vila Galvão, Bosque Maia, Cocaia, Cumbica, Pimentas, Macedo, Vila Augusta, Jardim Maia, Ponte Grande) e Grande SP. O CEP entra no cálculo — bairros com menor índice de roubo recebem prêmio mais barato." },
+      { question: "Posso fazer cotação de seguro residencial online e contratar sem visita técnica?", answer: "Sim. Para apartamentos e casas de até R$ 1 milhão a contratação é 100% online — cotação, comparativo, assinatura digital e emissão de apólice em 24h, sem vistoria prévia. Imóveis maiores ou com bens de alto valor (joias, obras de arte) podem exigir vistoria simples por foto." },
     ]}
+    extraSections={(
+      <section aria-labelledby="cotacao-seguro-residencial-guarulhos" className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 id="cotacao-seguro-residencial-guarulhos" className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Cotação de seguro residencial online em Guarulhos: passo a passo
+          </h2>
+          <p className="text-foreground/80 mb-4">
+            A cotação de seguro residencial online da Patro Seguros foi desenhada para responder em 2h com preço real (não simulado) de 8 seguradoras. Diferente dos simuladores individuais das seguradoras, você recebe um comparativo consolidado — não só o valor da mensalidade, mas franquia, sublimites por cobertura, valor de bens coberto e assistência 24h.
+          </p>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Preço médio da cotação online por tipo de imóvel (2026)</h3>
+          <ul className="list-disc pl-5 space-y-2 text-foreground/80 mb-4">
+            <li><strong>Apartamento até R$ 300 mil (Guarulhos):</strong> R$ 25 a R$ 38/mês com cobertura básica + roubo + danos elétricos.</li>
+            <li><strong>Apartamento R$ 400–600 mil:</strong> R$ 32 a R$ 55/mês com cobertura ampliada.</li>
+            <li><strong>Casa térrea R$ 500–800 mil:</strong> R$ 45 a R$ 75/mês com todas as coberturas + vendaval.</li>
+            <li><strong>Imóvel &gt; R$ 1 mi:</strong> a partir de R$ 90/mês, geralmente com vistoria por foto.</li>
+          </ul>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Comparativo de seguradoras na cotação residencial online</h3>
+          <p className="text-foreground/80">
+            As 8 seguradoras cotadas simultaneamente pela Patro são Porto Seguro, Bradesco Auto RE, Allianz Casa, SulAmérica Residencial, HDI Residencial, Tokio Marine, Mapfre e Liberty. Cada uma tem forças diferentes: Porto lidera em assistência 24h, Allianz em preço para casa térrea, SulAmérica em danos elétricos, Bradesco em cobertura de joias. A cotação online mostra qual se encaixa melhor no seu perfil.
+          </p>
+        </div>
+      </section>
+    )}
     relatedInsurances={[
       { title: "Seguro Residencial por Bairro em Guarulhos (Hub Local)", link: "/seguros-guarulhos" },
       { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },

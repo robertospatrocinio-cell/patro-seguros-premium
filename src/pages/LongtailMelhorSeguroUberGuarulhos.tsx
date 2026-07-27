@@ -90,7 +90,37 @@ O critério mais importante para escolher o melhor seguro Uber em Guarulhos não
       { question: "Quais seguradoras aceitam Uber em Guarulhos com cláusula expressa?", answer: "Em 2026: Porto Seguro, Allianz, HDI e Tokio Marine. Bradesco, SulAmérica e Mapfre não aceitam expressamente — apólice contratada nelas para Uber corre alto risco de negativa em sinistro." },
       { question: "Posso usar meu seguro comum se não avisei que dirijo para Uber?", answer: "Não. Omitir uso remunerado configura má-fé contratual e permite à seguradora negar qualquer sinistro, mesmo em situações não ligadas às corridas. Sempre declare uso por app na contratação." },
       { question: "Vale a pena pagar mais caro por seguro Uber?", answer: "Sim. O custo adicional (R$ 500 a R$ 1.000/ano) é irrelevante comparado ao risco de perder o carro por negativa em sinistro. Um Onix roubado sem cobertura custa R$ 60 mil — 20 anos de diferença de prêmio." },
+      { question: "Qual o melhor seguro Uber em Guarulhos para BYD Dolphin e elétricos?", answer: "Para motorista Uber com BYD Dolphin (ou outro elétrico) em Guarulhos, a Porto Seguro Elétricos App e a HDI Green Motorista de App são as únicas que combinam cláusula de uso remunerado + cobertura de bateria de tração + rede autorizada BYD. Preço entre R$ 3.900 e R$ 4.800/ano." },
+      { question: "Como fazer cotação online do melhor seguro Uber em Guarulhos?", answer: "Envie CPF, CNH, modelo/ano do carro e CEP de Guarulhos pelo WhatsApp da Patro. Em até 2h você recebe o ranking das 4 seguradoras Uber-friendly (Porto, Allianz, HDI, Tokio) com preço real, franquia, cláusula de app e assistência 24h — comparativo pronto para decisão." },
     ]}
+    extraSections={(
+      <section aria-labelledby="ranking-seguro-uber-guarulhos" className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <h2 id="ranking-seguro-uber-guarulhos" className="text-2xl md:text-3xl font-bold text-primary mb-4">
+            Ranking do melhor seguro para Uber em Guarulhos por perfil de motorista
+          </h2>
+          <p className="text-foreground/80 mb-4">
+            Não existe um único &quot;melhor seguro Uber em Guarulhos&quot; — a resposta depende de idade, modelo do carro, CEP e horas rodadas. Este é o ranking técnico da Patro por perfil, com base em 200+ cotações reais em 2025-2026.
+          </p>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Motorista Uber jovem (21-27 anos)</h3>
+          <p className="text-foreground/80 mb-4">
+            <strong>Melhor opção:</strong> Tokio Marine App Protect (R$ 3.800–4.400/ano). Única que aceita motoristas jovens sem penalizar preço em excesso. Porto e Allianz frequentemente recusam esse perfil ou cobram &gt; R$ 5.000/ano.
+          </p>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Motorista Uber full-time (8h+/dia)</h3>
+          <p className="text-foreground/80 mb-4">
+            <strong>Melhor opção:</strong> Porto Seguro Auto Uber (R$ 3.100–3.500/ano). Combinação de menor franquia, carro reserva estendido (15 dias) e rede referenciada ampla em Cumbica, Cidade Maia e Pimentas.
+          </p>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Motorista Uber com carro elétrico (BYD Dolphin, Volt)</h3>
+          <p className="text-foreground/80 mb-4">
+            <strong>Melhor opção:</strong> Porto Seguro Elétricos App ou HDI Green Motorista de App (R$ 3.900–4.800/ano). Únicas que combinam cláusula de uso por aplicativo com cobertura de bateria de tração e guincho com prancha.
+          </p>
+          <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Cotação de seguro Uber online em Guarulhos</h3>
+          <p className="text-foreground/80">
+            A cotação online do seguro Uber pela Patro é gratuita e cobre as 4 seguradoras Uber-friendly em uma única passada. Envie os dados pelo WhatsApp e receba o ranking personalizado por perfil em até 2h — sem visita, sem burocracia.
+          </p>
+        </div>
+      </section>
+    )}
     relatedInsurances={[
       { title: "Seguro Uber por Bairro em Guarulhos (Hub Local)", link: "/seguros-guarulhos" },
       { title: "Seguro para Uber Guarulhos", link: "/seguro-uber-guarulhos" },
