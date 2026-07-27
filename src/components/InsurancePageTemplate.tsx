@@ -1101,6 +1101,8 @@ const InsurancePageTemplate = ({
 
         {/* Hub completo de links internos para fortalecer crawl & autoridade tópica */}
         <InsuranceHubLinks />
+        {/* Próximas leituras — só renderiza em rotas listadas em LONGTAIL_CLUSTERS. */}
+        <ProximasLeiturasCluster pathname={location.pathname} />
         {trilhaSeo && trilhaSeo.items.length > 0 && (
           <TrilhaSeoRelacionados
             title={trilhaSeo.title}
