@@ -1,6 +1,58 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterAll } from "vitest";
 import { CHECKERS } from "./rich-results-checkers.mjs";
 import { shrinkCounterexample, formatCounterexample } from "./jsonld-shrinker.mjs";
+import { FuzzCoverage } from "./fuzz-coverage.mjs";
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+// -------- Coverage global desta run de fuzz --------
+const COV = new FuzzCoverage();
+// Envolve o mapa CHECKERS: qualquer suite que chame `CHECKERS.X(node)`
+// registra invocação + regras acionadas automaticamente.
+for (const t of Object.keys(CHECKERS)) {
+  CHECKERS[t] = COV.wrap(t, CHECKERS[t]);
+}
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const BASELINE_PATH = resolve(HERE, "fuzz-coverage.baseline.json");
+const REPORT_PATH = resolve(HERE, "..", "..", "dist", "fuzz-coverage.json");
+
+afterAll(() => {
+  const report = COV.toReport();
+  try {
+    mkdirSync(dirname(REPORT_PATH), { recursive: true });
+    writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));
+  } catch { /* dist opcional em ambientes sem escrita */ }
+
+  // Log humano-legível (aparece no output do CI).
+  // eslint-disable-next-line no-console
+  console.log("\n" + COV.formatSummary({ topRules: 3 }));
+
+  // Enforcement contra baseline, a menos que UPDATE_FUZZ_BASELINE=1.
+  if (process.env.UPDATE_FUZZ_BASELINE === "1") {
+    const next = {};
+    for (const [t, data] of Object.entries(report.types)) {
+      next[t] = {
+        minInvocations: Math.max(1, Math.floor(data.invocations * 0.8)),
+        minDistinctReq: Math.max(1, Math.floor(data.distinctReq * 0.8)),
+      };
+    }
+    writeFileSync(BASELINE_PATH, JSON.stringify(next, null, 2) + "\n");
+    console.log(`[fuzz-coverage] baseline atualizado em ${BASELINE_PATH}`);
+    return;
+  }
+  if (!existsSync(BASELINE_PATH)) return;
+  const baseline = JSON.parse(readFileSync(BASELINE_PATH, "utf8"));
+  const violations = COV.compareBaseline(baseline);
+  if (violations.length > 0) {
+    throw new Error(
+      `Fuzz coverage caiu abaixo do baseline (${violations.length} violações):\n  - ` +
+      violations.join("\n  - ") +
+      `\n\nSe a mudança é intencional, rode: UPDATE_FUZZ_BASELINE=1 bunx vitest run scripts/lib/rich-results-fuzz.test.mjs`,
+    );
+  }
+});
 
 /**
  * Fuzzing dos checkers de Google Rich Results.
