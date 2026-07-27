@@ -188,6 +188,55 @@
     RewriteRule ^seguro-auto-lexus/?$ /seguro-lexus [R=301,L,NC]
     RewriteRule ^seguro-auto-guarulhos/?$ /lp/seguro-auto-guarulhos [R=301,L,NC]
 
+    # ----------------------------------------------------------------------
+    # | 301 legados de bairros e produto×bairro (Guarulhos)                |
+    # | Fonte única: src/lib/legacyBairroRedirects.ts (espelhado em SPA).  |
+    # ----------------------------------------------------------------------
+    # Hubs de bairro (variações de slug)
+    RewriteRule ^seguros-guarulhos/centro-guarulhos/?$ /seguros-guarulhos/centro [R=301,L,NC]
+    RewriteRule ^seguros-guarulhos/taboao-guarulhos/?$ /seguros-guarulhos/taboao [R=301,L,NC]
+    RewriteRule ^seguros-guarulhos/macedo-guarulhos/?$ /seguros-guarulhos/macedo [R=301,L,NC]
+    RewriteRule ^seguros-guarulhos/gopouva-guarulhos/?$ /seguros-guarulhos/gopouva [R=301,L,NC]
+    RewriteRule ^seguros-guarulhos/picanco-guarulhos/?$ /seguros-guarulhos/picanco [R=301,L,NC]
+    RewriteRule ^seguros-guarulhos/jardim-cidade-maia/?$ /seguros-guarulhos/cidade-maia [R=301,L,NC]
+    RewriteRule ^seguros-guarulhos/cidade-jardim-maia/?$ /seguros-guarulhos/jardim-maia [R=301,L,NC]
+    # Produto×bairro — Residencial
+    RewriteRule ^seguro-residencial-centro/?$ /seguro-residencial-centro-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-residencial-taboao/?$ /seguro-residencial-taboao-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-residencial-macedo/?$ /seguro-residencial-macedo-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-residencial-gopouva/?$ /seguro-residencial-gopouva-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-residencial-picanco/?$ /seguro-residencial-picanco-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-residencial-cumbica-guarulhos/?$ /seguro-residencial-cumbica [R=301,L,NC]
+    RewriteRule ^seguro-residencial-bonsucesso-guarulhos/?$ /seguro-residencial-bonsucesso [R=301,L,NC]
+    RewriteRule ^seguro-residencial-pimentas-guarulhos/?$ /seguro-residencial-pimentas [R=301,L,NC]
+    RewriteRule ^seguro-residencial-vila-augusta-guarulhos/?$ /seguro-residencial-vila-augusta [R=301,L,NC]
+    RewriteRule ^seguro-residencial-jardim-maia-guarulhos/?$ /seguro-residencial-jardim-maia [R=301,L,NC]
+    RewriteRule ^seguro-residencial-cidade-maia-guarulhos/?$ /seguro-residencial-cidade-maia [R=301,L,NC]
+    # Produto×bairro — Vida
+    RewriteRule ^seguro-vida-centro/?$ /seguro-vida-centro-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-vida-taboao/?$ /seguro-vida-taboao-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-vida-macedo/?$ /seguro-vida-macedo-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-vida-gopouva/?$ /seguro-vida-gopouva-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-vida-picanco/?$ /seguro-vida-picanco-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-vida-cumbica-guarulhos/?$ /seguro-vida-cumbica [R=301,L,NC]
+    RewriteRule ^seguro-vida-bonsucesso-guarulhos/?$ /seguro-vida-bonsucesso [R=301,L,NC]
+    RewriteRule ^seguro-vida-pimentas-guarulhos/?$ /seguro-vida-pimentas [R=301,L,NC]
+    RewriteRule ^seguro-vida-vila-augusta-guarulhos/?$ /seguro-vida-vila-augusta [R=301,L,NC]
+    RewriteRule ^seguro-vida-jardim-maia-guarulhos/?$ /seguro-vida-jardim-maia [R=301,L,NC]
+    RewriteRule ^seguro-vida-cidade-maia-guarulhos/?$ /seguro-vida-cidade-maia [R=301,L,NC]
+    # Produto×bairro — Empresarial
+    RewriteRule ^seguro-empresarial-centro/?$ /seguro-empresarial-centro-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-taboao/?$ /seguro-empresarial-taboao-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-macedo/?$ /seguro-empresarial-macedo-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-gopouva/?$ /seguro-empresarial-gopouva-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-picanco/?$ /seguro-empresarial-picanco-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-cumbica-guarulhos/?$ /seguro-empresarial-cumbica [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-bonsucesso-guarulhos/?$ /seguro-empresarial-bonsucesso [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-pimentas-guarulhos/?$ /seguro-empresarial-pimentas [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-vila-augusta-guarulhos/?$ /seguro-empresarial-vila-augusta [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-jardim-maia-guarulhos/?$ /seguro-empresarial-jardim-maia [R=301,L,NC]
+    RewriteRule ^seguro-empresarial-cidade-maia-guarulhos/?$ /seguro-empresarial-cidade-maia [R=301,L,NC]
+
     # Short branded URL -> Segfy quote form (302 temporary; may change in the future)
     RewriteRule ^cotacao-auto/?$ https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D [R=302,L,NE]
 
