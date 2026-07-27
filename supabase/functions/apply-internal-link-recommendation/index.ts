@@ -18,6 +18,7 @@ interface Body {
   reason?: string;
   periodDays?: number;
   notes?: string;
+  status?: string;
 }
 
 function json(status: number, body: unknown) {
@@ -67,6 +68,11 @@ serve(async (req) => {
     ? body.sources.map((s) => String(s).trim()).filter(Boolean)
     : [];
 
+  const allowedStatus = new Set(["planned", "accepted", "rejected", "applied"]);
+  const status = allowedStatus.has(String(body.status || "").toLowerCase())
+    ? String(body.status).toLowerCase()
+    : "planned";
+
   if (!destination.startsWith("/") || destination.length > 512) {
     return json(400, { error: "destination must be a site-relative path" });
   }
@@ -88,22 +94,19 @@ serve(async (req) => {
     reason: body.reason ? String(body.reason).slice(0, 1000) : null,
     period_days: typeof body.periodDays === "number" ? body.periodDays : null,
     notes: body.notes ? String(body.notes).slice(0, 2000) : null,
+    status,
     applied_by: userId,
   };
 
-  // Insert authenticated (respects RLS + applied_by = auth.uid()).
+  // Upsert on the unique (destination, placement, sources) index so that
+  // accept/reject/apply feedback can be flipped by the same admin without
+  // producing duplicate rows.
   const { data, error } = await authed
     .from("internal_link_applications")
-    .insert(payload)
+    .upsert(payload, { onConflict: "destination,placement,sources" })
     .select()
     .single();
 
-  if (error) {
-    if ((error as { code?: string }).code === "23505") {
-      return json(409, { error: "already applied", details: error.message });
-    }
-    return json(500, { error: error.message });
-  }
-
+  if (error) return json(500, { error: error.message });
   return json(200, { ok: true, application: data });
 });
