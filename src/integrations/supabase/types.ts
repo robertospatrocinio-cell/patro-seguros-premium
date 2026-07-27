@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      anchor_priorities: {
+        Row: {
+          anchor: string
+          clicks: number
+          conversion_rate: number
+          converting_sessions: number
+          impressions: number
+          position: number | null
+          score: number
+          sessions: number
+          updated_at: string
+        }
+        Insert: {
+          anchor: string
+          clicks?: number
+          conversion_rate?: number
+          converting_sessions?: number
+          impressions?: number
+          position?: number | null
+          score?: number
+          sessions?: number
+          updated_at?: string
+        }
+        Update: {
+          anchor?: string
+          clicks?: number
+          conversion_rate?: number
+          converting_sessions?: number
+          impressions?: number
+          position?: number | null
+          score?: number
+          sessions?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       breadcrumb_overrides: {
         Row: {
           category_href: string | null
