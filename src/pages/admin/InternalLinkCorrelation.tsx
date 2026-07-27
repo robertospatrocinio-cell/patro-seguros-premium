@@ -371,7 +371,12 @@ export default function InternalLinkCorrelation() {
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  {data.recommendations.slice(0, 12).map((rec) => (
+                  {data.recommendations.slice(0, 12).map((rec) => {
+                    const sourcesList = rec.suggestedSources.map((s) => s.pathname);
+                    const key = applyKey(rec.destination, rec.suggestedPlacement, sourcesList);
+                    const isApplied = Boolean(applied[key]);
+                    const isApplying = applying === key;
+                    return (
                     <div
                       key={rec.destination}
                       className="rounded-lg border border-border bg-background p-3"
@@ -399,6 +404,35 @@ export default function InternalLinkCorrelation() {
                           <Badge variant="outline" className="tabular-nums text-[10px]">
                             pos {rec.gsc ? rec.gsc.position.toFixed(1) : "—"}
                           </Badge>
+                          <Button
+                            size="sm"
+                            variant={isApplied ? "outline" : "default"}
+                            disabled={isApplied || isApplying}
+                            onClick={() => applyRecommendation(rec)}
+                            className="h-7 px-2 text-xs gap-1"
+                            title={
+                              isApplied
+                                ? `Aplicada em ${new Date(applied[key].applied_at).toLocaleString("pt-BR")}`
+                                : "Registra esta recomendação em internal_link_applications"
+                            }
+                          >
+                            {isApplied ? (
+                              <>
+                                <CheckCircle2 className="h-3 w-3" />
+                                Aplicada
+                              </>
+                            ) : isApplying ? (
+                              <>
+                                <RefreshCw className="h-3 w-3 animate-spin" />
+                                Aplicando…
+                              </>
+                            ) : (
+                              <>
+                                <Check className="h-3 w-3" />
+                                Aplicar
+                              </>
+                            )}
+                          </Button>
                         </div>
                       </div>
 
@@ -439,7 +473,8 @@ export default function InternalLinkCorrelation() {
                         </div>
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                   {data.recommendations.length > 12 && (
                     <p className="text-xs text-muted-foreground text-center pt-1">
                       +{data.recommendations.length - 12} recomendações adicionais ocultas
