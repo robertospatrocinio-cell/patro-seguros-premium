@@ -3,6 +3,7 @@ import {
   checkBreadcrumbList,
   checkFAQPage,
   checkOrganization,
+  checkCollectionPage,
   CHECKERS,
 } from "./rich-results-checkers.mjs";
 
