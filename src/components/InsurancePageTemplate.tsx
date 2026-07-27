@@ -1051,6 +1051,8 @@ const InsurancePageTemplate = ({
               ))}
             </div>
 
+            {renderSectionCta("faq-heading")}
+
             {/* CTA para clientes fora de Guarulhos */}
             <div className="mt-10 p-6 md:p-8 rounded-2xl border border-primary/10 bg-primary/[0.03] text-center">
               <p className="text-base md:text-lg font-semibold text-foreground mb-2">
