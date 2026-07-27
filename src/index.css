@@ -133,3 +133,19 @@
 #lovable-badge {
   display: none !important;
 }
+
+/*
+ * A11y: every section heading exposed as an in-page jump target uses the
+ * `-heading` id convention (validated by scripts/validate-jumplinks.mjs).
+ * Give them a scroll-margin so native URL-fragment navigation, browser
+ * "Find on page" jumps, and screen-reader region jumps land BELOW the
+ * sticky header (h-16 = 64px) + JumpLinksNav bar (~48px). Without this,
+ * hash deep-links land visually behind the sticky UI even though focus
+ * is on the correct element.
+ */
+[id$="-heading"] {
+  scroll-margin-top: 7rem;
+}
+[id$="-heading"]:focus {
+  outline: none;
+}
