@@ -30,6 +30,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { submitLead } from "@/lib/leadsApi";
@@ -259,6 +260,7 @@ const LpMaquinasEquipamentos = () => {
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
+      <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
 
       <Header />
 
