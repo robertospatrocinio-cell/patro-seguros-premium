@@ -87,6 +87,7 @@ function* candidates(value, opts) {
     }
     // Reduzir valor de cada chave.
     for (const k of keys) {
+      if (preserve.has(k)) continue; // valores de chaves preservadas são opacos
       for (const rc of candidates(value[k], opts)) {
         yield { ...value, [k]: rc };
       }
