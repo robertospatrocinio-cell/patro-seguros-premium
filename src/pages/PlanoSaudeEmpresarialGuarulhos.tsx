@@ -84,6 +84,7 @@ A Patro Seguros é uma corretora de seguros em Guarulhos especializada em saúde
         { title: "Plano Odontológico em Guarulhos", link: "/plano-odontologico-guarulhos" },
         { title: "Seguro Empresarial em Guarulhos", link: "/seguro-empresarial-guarulhos" },
         { title: "Seguro de Vida PME", link: "/seguro-vida-pme" },
+        { title: "Comparativo de Planos de Saúde em Guarulhos 2026", link: "/planos-de-saude-guarulhos-comparativo" },
       ]}
       howto={{
         name: "Como contratar plano de saúde empresarial em Guarulhos",
