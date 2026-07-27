@@ -53,6 +53,33 @@ function buildHubHasPart(cleanPath: string) {
 }
 
 /**
+ * Constrói `mainEntity` como `ItemList` referenciando os mesmos itens
+ * emitidos em `hasPart` — o Google recomenda `ItemList` para representar
+ * a coleção de forma indexável (posições explícitas). Mantemos ambos:
+ * `hasPart` para semântica schema.org clássica e `mainEntity` para
+ * elegibilidade a rich result de listagem.
+ */
+function buildHubMainEntity(cleanPath: string) {
+  const slug = HUB_PATH_TO_SLUG[cleanPath];
+  const hub = slug ? SEO_HUBS.find((h) => h.slug === slug) : undefined;
+  const paths = hub?.landingPaths?.slice(0, 12) ?? [];
+  if (!paths.length) return undefined;
+  return {
+    "@type": "ItemList",
+    "@id": `${DOMAIN}${cleanPath}#itemlist`,
+    "name": hub?.name ?? "Coleção",
+    "numberOfItems": paths.length,
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": paths.map((href, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "url": `${DOMAIN}${href}`,
+      "name": href.replace(/^\//, "").replace(/-/g, " "),
+    })),
+  };
+}
+
+/**
  * Premium metadata para rotas restauradas na Fase 1.
  * Title ≤65, description ≤160, schema dedicado (Service/FAQPage/CollectionPage).
  * Fica antes do fallback genérico para evitar títulos do tipo "Seguro Rc Medicos | Patro".
@@ -323,6 +350,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
         "url": `${DOMAIN}${cleanPath}`,
         "isPartOf": { "@type": "WebSite", "name": "Patro Seguros", "url": DOMAIN },
         "hasPart": buildHubHasPart(cleanPath),
+        "mainEntity": buildHubMainEntity(cleanPath),
         "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN, "image": `${DOMAIN}/images/logo-full.webp`, "priceRange": "$$" },
       }
     : {

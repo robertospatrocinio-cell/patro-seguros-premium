@@ -58,6 +58,19 @@ const collectionSchema = {
     name: `${s.name} em Guarulhos`,
     url: `${CANONICAL_BASE_URL}/${s.slug}`,
   })),
+  mainEntity: {
+    "@type": "ItemList",
+    "@id": `${CANONICAL}#itemlist`,
+    name: "Seguradoras parceiras da Patro Seguros",
+    numberOfItems: SEGURADORAS_PARCEIRAS.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: SEGURADORAS_PARCEIRAS.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${CANONICAL_BASE_URL}/${s.slug}`,
+      name: `${s.name} em Guarulhos`,
+    })),
+  },
 };
 
 const insuranceAgencySchema = {
