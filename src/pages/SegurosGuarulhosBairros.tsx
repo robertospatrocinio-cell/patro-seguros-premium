@@ -668,7 +668,6 @@ const SegurosGuarulhosBairros = () => {
           </div>
         </section>
 
-        {/* FAQ POR BAIRRO */}
         {/* BAIRROS VIZINHOS + VERTICAIS — interlinking contextual */}
         <section className="py-14 bg-gray-50 border-t">
           <div className="container mx-auto px-4">
