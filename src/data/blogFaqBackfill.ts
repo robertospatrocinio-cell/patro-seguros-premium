@@ -13,6 +13,7 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "como-evitar-prejuizos-incendio": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Como evitar prejuízos após um incêndio\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Como evitar prejuízos após um incêndio\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "como-proteger-dados-de-clientes-na-vistoria-veicular": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Como proteger dados de clientes na vistoria veicular.\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
@@ -25,21 +26,26 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "como-proteger-estoque-loja": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Como proteger o estoque da sua loja?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Como proteger o estoque da sua loja?\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "consorcio-veiculos-eletricos-compra-planejada": [
     { q: "Como solicitar uma cotação de consórcio em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Consórcio de Veículos Elétricos: A Alternativa Inteligente de Compra Planejada\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende consórcio em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Consórcio de Veículos Elétricos: A Alternativa Inteligente de Compra Planejada\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "diferenca-seguro-compreensivo-terceiros": [
     { q: "Como solicitar uma cotação de dicas em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Diferença entre Seguro Compreensivo e para Terceiros\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende dicas em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Diferença entre Seguro Compreensivo e para Terceiros\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "documentos-seguro-carro-guarulhos": [
     { q: "Como solicitar uma cotação de seguro auto em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Documentos para Seguro de Carro em Guarulhos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende seguro auto em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Documentos para Seguro de Carro em Guarulhos\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "empresas-de-vistoria-precisam-de-seguro": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Empresas de vistoria precisam de seguro?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "exigencias-shopping-seguro-lojista": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"O que o shopping exige dos lojistas em relação a seguros?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"O que o shopping exige dos lojistas em relação a seguros?\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "gestao-riscos-hospitais-veterinarios": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Gestão de riscos em hospitais veterinários\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
@@ -61,6 +67,7 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "plano-saude-empresarial-pequenas-lojas": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Plano de saúde empresarial para pequenas lojas\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Plano de saúde empresarial para pequenas lojas\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "plano-saude-equipes-veterinarias": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Plano de saúde para equipes veterinárias\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
@@ -82,6 +89,7 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "quanto-custa-seguro-empresarial-lojista": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Quanto custa um seguro empresarial para lojistas?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Quanto custa um seguro empresarial para lojistas?\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "quanto-custa-um-seguro-para-empresa-de-vistoria": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Quanto custa um seguro para empresa de vistoria?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
@@ -97,15 +105,18 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "seguro-empresarial-guarulhos-guia": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro empresarial em Guarulhos: guia completo\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro empresarial em Guarulhos: guia completo\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "seguro-empresarial-guarulhos-guia-completo": [
     { q: "Como solicitar uma cotação de empresarial em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro Empresarial em Guarulhos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende empresarial em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro Empresarial em Guarulhos\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "seguro-empresarial-para-vistoria-cautelar": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro empresarial para vistoria cautelar.\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "seguro-franquias-obrigatorio": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para franquias: o que é obrigatório?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro para franquias: o que é obrigatório?\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "seguro-gwm-haval-h6-guarulhos-precos": [
     { q: "Como solicitar uma cotação de seguro auto em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro GWM Haval H6 em Guarulhos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
@@ -127,20 +138,25 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "seguro-quiosque-vale-pena": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para quiosques vale a pena?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro para quiosques vale a pena?\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "seguro-residencial-guarulhos-proteja-imovel": [
     { q: "Como solicitar uma cotação de seguro residencial em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro Residencial em Guarulhos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende seguro residencial em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro Residencial em Guarulhos\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "seguro-vida-empresarios-socios": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro de vida para empresários e sócios\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro de vida para empresários e sócios\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "seguro-vida-guarulhos-por-contratar": [
     { q: "Como solicitar uma cotação de seguro vida em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro de Vida em Guarulhos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende seguro vida em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro de Vida em Guarulhos\" pelo WhatsApp para receber a orientação adequada." },
   ],
   "seguro-vida-para-veterinarios": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro de vida para veterinários: Por que contratar?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "vale-a-pena-seguro-loja-shopping": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Vale a pena ter seguro para loja em shopping?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+    { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Vale a pena ter seguro para loja em shopping?\" pelo WhatsApp para receber a orientação adequada." },
   ],
 };

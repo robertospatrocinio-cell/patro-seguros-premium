@@ -17,12 +17,14 @@
  *   node scripts/detect-faq-underfilled.mjs             # relatório (dry-run)
  *   node scripts/detect-faq-underfilled.mjs --apply     # grava em blogFaqBackfill.ts
  *   node scripts/detect-faq-underfilled.mjs --json      # imprime JSON
+ *   node scripts/detect-faq-underfilled.mjs --ci        # exit 1 se houver post < 2 Q&A
  *
  * Saída:
  *   dist/faq-underfilled-report.json (sempre que dist/ existe)
  *
  * Exit code:
- *   0 sempre — não bloqueia build (isso é papel do validador de Rich Results).
+ *   0 quando não há posts underfilled (ou em modo dry-run sem --ci).
+ *   1 no modo --ci quando existir ao menos 1 post com < 2 Q&A após o merge.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -37,6 +39,7 @@ const BACKFILL_FILE = path.join(ROOT, "src/data/blogFaqBackfill.ts");
 const args = process.argv.slice(2);
 const APPLY = args.includes("--apply");
 const JSON_OUT = args.includes("--json");
+const CI = args.includes("--ci");
 
 // ---------- suggestion generator --------------------------------------------
 
@@ -45,14 +48,19 @@ const JSON_OUT = args.includes("--json");
  * produza o mesmo output (idempotente). NÃO cita telefone/e-mail para
  * não desviar da fonte única `src/config/empresa.ts`.
  */
-function suggestFaq({ slug, title, category }) {
+function suggestFaqs({ slug, title, category }) {
   const topic = (category || "seguro").toLowerCase();
   const cleanTitle = String(title).replace(/\s*\|\s*.*$/, "").trim();
-  // Pergunta contextual + resposta orientando à ação — sem número.
-  return {
-    q: `Como solicitar uma cotação de ${topic} em Guarulhos citada neste artigo?`,
-    a: `Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo ("${cleanTitle}") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis.`,
-  };
+  return [
+    {
+      q: `Como solicitar uma cotação de ${topic} em Guarulhos citada neste artigo?`,
+      a: `Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo ("${cleanTitle}") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis.`,
+    },
+    {
+      q: `A Patro Seguros atende ${topic} em toda Guarulhos e região metropolitana?`,
+      a: `Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo "${cleanTitle}" pelo WhatsApp para receber a orientação adequada.`,
+    },
+  ];
 }
 
 // ---------- core ------------------------------------------------------------
@@ -125,7 +133,7 @@ for (const slug of slugs) {
   const total = countFaqs(slug, blogContentIndex, extraFaqsBySlug, blogFaqBackfill);
   if (total >= 2) continue;
   const meta = metaBySlug.get(slug);
-  const suggested = suggestFaq({
+  const suggested = suggestFaqs({
     slug,
     title: blogContentIndex[slug]?.title ?? meta?.title ?? slug,
     category: meta?.category,
@@ -153,8 +161,10 @@ if (JSON_OUT) {
   console.log(`\n📋 FAQ underfilled — ${affected.length} post(s) com < 2 Q&A`);
   for (const it of affected.slice(0, 40)) {
     console.log(`\n • ${it.slug}  (${it.currentCount} atual, categoria: ${it.category || "—"})`);
-    console.log(`   Sugestão Q: ${it.suggested.q}`);
-    console.log(`   Sugestão A: ${it.suggested.a.slice(0, 120)}…`);
+    for (const s of it.suggested) {
+      console.log(`   Sugestão Q: ${s.q}`);
+      console.log(`   Sugestão A: ${s.a.slice(0, 120)}…`);
+    }
   }
   if (affected.length > 40) console.log(`\n   … (+${affected.length - 40} omitidos — veja dist/faq-underfilled-report.json)`);
 }
@@ -164,17 +174,36 @@ if (APPLY && affected.length > 0) {
   const merged = { ...blogFaqBackfill };
   let added = 0;
   for (const it of affected) {
-    if (merged[it.slug]) continue; // preserva edições manuais
-    merged[it.slug] = [it.suggested];
-    added++;
+    const existing = merged[it.slug] ?? [];
+    const seen = new Set(existing.map((f) => String(f.q).trim().toLowerCase()));
+    // Top-up: adiciona sugestões distintas até total (existente + artigo) >= 2.
+    const needed = Math.max(0, 2 - it.currentCount);
+    const additions = [];
+    for (const s of it.suggested) {
+      if (additions.length >= needed) break;
+      const k = s.q.trim().toLowerCase();
+      if (seen.has(k)) continue;
+      additions.push(s);
+      seen.add(k);
+    }
+    if (additions.length === 0) continue;
+    merged[it.slug] = [...existing, ...additions];
+    added += additions.length;
   }
   fs.writeFileSync(BACKFILL_FILE, serializeBackfill(merged), "utf-8");
-  console.log(`\n✅ Gravado ${added} novo(s) backfill em src/data/blogFaqBackfill.ts`);
-  console.log(`   (${Object.keys(merged).length - added} entrada(s) já existente(s) preservada(s))`);
+  console.log(`\n✅ Gravado ${added} novo(s) Q&A de backfill em src/data/blogFaqBackfill.ts`);
 } else if (APPLY) {
   console.log(`\n✅ Nada a gravar — todos os posts têm ≥ 2 Q&A ou já estão no backfill.`);
 } else if (affected.length > 0) {
   console.log(`\n💡 Rode com --apply para gravar as sugestões em src/data/blogFaqBackfill.ts`);
+}
+
+if (CI && affected.length > 0) {
+  console.error(
+    `\n❌ CI: ${affected.length} post(s) do blog com FAQPage < 2 Question após merge do backfill.` +
+      `\n   Rode \`node scripts/detect-faq-underfilled.mjs --apply\` e commite src/data/blogFaqBackfill.ts.`,
+  );
+  process.exit(1);
 }
 
 process.exit(0);
