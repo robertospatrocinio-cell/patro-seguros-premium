@@ -436,6 +436,68 @@ serve(async (req) => {
         return b.convertingSessions - a.convertingSessions;
       });
 
+    // 5b'') Ranking de âncoras por POTENCIAL SEO:
+    //       cruza anchorsGlobal (impressões atribuídas + posição média GSC)
+    //       com anchorConversions (sessões e conversões) para achar âncoras
+    //       que já estão expostas a muita busca mas convertem/clicam pouco.
+    //
+    //   potentialScore = impressionsAttributed
+    //                  * positionFactor(pos)  (favorece posição 11–30)
+    //                  * inefficiencyFactor   (1 / (1 + convertingSessions + clicks/5))
+    //
+    // Assim, uma âncora com muitas impressões, posição fora do top-3 e
+    // baixa conversão / poucos cliques internos sobe no ranking.
+    const positionFactorAnchor = (pos: number | null) => {
+      if (pos == null) return 0.4;
+      if (pos >= 11 && pos <= 30) return 1.0;
+      if (pos >= 4 && pos <= 10) return 0.55;
+      if (pos > 30 && pos <= 60) return 0.35;
+      if (pos >= 1 && pos <= 3) return 0.1;
+      return 0.15;
+    };
+    const convByAnchor = new Map(anchorConversions.map((c) => [c.anchor, c]));
+    const anchorPotential = Array.from(anchorMap.values())
+      .map((a) => {
+        const impressions = Math.round(a.impressionsSum);
+        const position = a.positionImprWeight > 0
+          ? a.positionWeightedSum / a.positionImprWeight
+          : null;
+        const conv = convByAnchor.get(a.anchor);
+        const convertingSessions = conv?.convertingSessions ?? 0;
+        const sessions = conv?.sessions ?? 0;
+        const conversionRate = conv?.conversionRate ?? 0;
+        const inefficiency = 1 / (1 + convertingSessions + a.clicks / 5);
+        const posFactor = positionFactorAnchor(position);
+        const score = Math.round(impressions * posFactor * inefficiency * 10) / 10;
+        let topPage: { pathname: string; clicks: number } | null = null;
+        for (const [p, c] of a.pages) if (!topPage || c > topPage.clicks) topPage = { pathname: p, clicks: c };
+
+        const reasonParts: string[] = [];
+        reasonParts.push(`${impressions} impressões atribuídas`);
+        if (position != null) reasonParts.push(`posição média ${position.toFixed(1)}`);
+        if (position != null && position >= 11 && position <= 30) reasonParts.push("zona de escalada (11–30)");
+        if (convertingSessions === 0) reasonParts.push("nenhuma conversão");
+        else reasonParts.push(`taxa ${(conversionRate * 100).toFixed(1)}%`);
+        if (a.clicks <= 3) reasonParts.push(`só ${a.clicks} clique(s) internos`);
+
+        return {
+          anchor: a.anchor,
+          score,
+          clicks: a.clicks,
+          sessions,
+          convertingSessions,
+          conversionRate,
+          impressions,
+          position,
+          topPage,
+          reason: reasonParts.join(" · "),
+        };
+      })
+      // filtra ruído: só âncoras com sinal de busca real
+      .filter((a) => a.impressions >= 20)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 25);
+
     // 5c) Recomendações automáticas de linkagem interna.
     //
     // Objetivo: para cada página com alto potencial no GSC (muitas
@@ -566,6 +628,7 @@ serve(async (req) => {
         rows,
         anchorsGlobal,
         anchorConversions,
+        anchorPotential,
         recommendations,
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
