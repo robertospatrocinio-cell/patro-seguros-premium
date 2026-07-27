@@ -1,113 +1,375 @@
-import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import heroImg from "@/assets/hero-seguro-empresarial.webp";
+import { Link } from "react-router-dom";
+import { ShieldCheck, MessageCircle, ArrowRight, CheckCircle, FileText, Building2 } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import PageMeta from "@/components/PageMeta";
+import Breadcrumb from "@/components/Breadcrumb";
+import FAQSchema from "@/components/FAQSchema";
+import ServiceSchema from "@/components/ServiceSchema";
+import { Button } from "@/components/ui/button";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import {
+  trackWhatsAppClick,
+  trackInternalLinkClick,
+  buildInternalLinkSource,
+} from "@/lib/tracking";
+import {
+  GARANTIA_HUB_PATH,
+  GARANTIA_LOCAL_PATH,
+  GARANTIA_HUB_FAQS,
+  GARANTIA_INTENT_PAGES,
+  B2B_INSURERS_GARANTIA,
+  B2B_INSURER_PAGES,
+  PRUDENT_LANGUAGE,
+  TRANSPARENCY_NOTICE,
+} from "@/data/b2bVertical";
+
+const TIPOS = [
+  { title: "Seguro Garantia para licitação", desc: "Bid bond e performance bond em concorrências públicas e privadas." },
+  { title: "Seguro Garantia contratual", desc: "Execução de contratos privados, fornecimento, prestação de serviços." },
+  { title: "Seguro Garantia judicial", desc: "Substituição de depósitos e cauções em processos, quando aceito pelo juízo." },
+  { title: "Adiantamento de pagamento", desc: "Garantia sobre valores adiantados pelo contratante." },
+  { title: "Retenção de pagamento", desc: "Substituição da retenção contratual por apólice." },
+  { title: "Execução (performance)", desc: "Garantia de execução do objeto contratado." },
+  { title: "Construção civil", desc: "Modalidades específicas para obras públicas e privadas." },
+  { title: "Prestação de serviços", desc: "Contratos recorrentes de serviços." },
+  { title: "Fornecedores", desc: "Contratos B2B com grandes clientes." },
+];
+
+const DOCUMENTOS = [
+  "Cartão CNPJ e contrato social atualizados",
+  "Últimos balanços patrimoniais",
+  "Faturamento dos últimos 12 meses",
+  "Certidões negativas",
+  "Edital ou contrato (ou minuta) a ser garantido",
+  "Comprovante de endereço da empresa",
+  "Referências comerciais quando solicitadas",
+];
+
+const PUBLICOS = [
+  "Empresas que participam de licitações",
+  "Construtoras e incorporadoras",
+  "Prestadores de serviço",
+  "Fornecedores B2B",
+  "Indústrias e transportadoras",
+  "Empresas de tecnologia com contratos relevantes",
+  "Empresas de facilities e manutenção",
+  "Empresas de engenharia",
+  "Importadoras e exportadoras",
+  "Empresas com contratos públicos ou privados",
+];
 
 const SeguroGarantia = () => {
+  const canonicalUrl = `${CANONICAL_BASE_URL}${GARANTIA_HUB_PATH}`;
+  const source = buildInternalLinkSource("hub", "seguro-garantia");
+  const whatsappUrl = buildWhatsAppUrl({
+    origem: "b2b_garantia_hub",
+    extraLines: [
+      "Olá, quero cotar Seguro Garantia pela Patro Seguros. Posso enviar meu edital/contrato para análise?",
+    ],
+  });
+
+  const insurerPages = B2B_INSURER_PAGES.filter((p) => p.line === "garantia");
+
   return (
-    <InsurancePageTemplate
-      heroImage={heroImg}
-      title="Seguro Garantia"
-      subtitle="A alternativa inteligente à fiança bancária e ao depósito judicial"
-      icon="🔒"
-      metaDescription="Seguro Garantia para licitações, contratos, execução fiscal e judicial. Substitui fiança bancária com menor custo. Cotação grátis Patro Seguros."
-      description="O Seguro Garantia substitui fiança bancária e caução em contratos e processos judiciais. Libera o capital de giro e é aceito em licitações em todo o Brasil."
-      detailedDescription={`Previsto na Lei de Licitações (Lei 14.133/2021) e no Código de Processo Civil, o Seguro Garantia ganhou protagonismo nos últimos anos como a forma mais eficiente de apresentar garantias sem comprometer o caixa da empresa.
+    <>
+      <PageMeta
+        title="Seguro Garantia em Guarulhos e SP | Cotação Patro Seguros"
+        description="Cote Seguro Garantia com a Patro Seguros. Atendimento para empresas de Guarulhos, São Paulo e todo o Brasil em licitações, contratos e obrigações."
+      />
+      <FAQSchema faqs={GARANTIA_HUB_FAQS} />
+      <ServiceSchema
+        name="Seguro Garantia"
+        serviceType="Seguro Garantia"
+        description="Seguro Garantia para empresas, contratos e licitações — intermediação pela Patro Seguros."
+      />
+      <Header />
+      <main id="main-content" tabIndex={-1} className="outline-none">
+        <div className="container mx-auto px-4 pt-6">
+          <Breadcrumb items={[{ label: "Seguro Garantia" }]} />
+        </div>
 
-Enquanto uma fiança bancária consome o limite de crédito do empresário junto ao banco e um depósito caução imobiliza capital que poderia estar gerando receita, o Seguro Garantia exige apenas o pagamento de um prêmio — geralmente entre 0,5% e 3% do valor garantido por ano.
+        <section className="gradient-hero py-16 md:py-20">
+          <div className="container mx-auto px-4 max-w-4xl text-center">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 border border-white/20 text-white/90 mb-4">
+              Contratos • Licitações • Judicial
+            </span>
+            <h1 className="text-white mb-4">Seguro Garantia para empresas, contratos e licitações</h1>
+            <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">
+              A Patro Seguros compara opções de Seguro Garantia com seguradoras parceiras para empresas que precisam proteger contratos, participar de licitações ou substituir garantias tradicionais.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("b2b_garantia_hub")}
+              >
+                <Button size="lg" variant="cta" className="text-base px-6">
+                  <MessageCircle className="mr-2 h-5 w-5" /> Cotar Seguro Garantia
+                </Button>
+              </a>
+              <Link
+                to={GARANTIA_LOCAL_PATH}
+                onClick={() =>
+                  trackInternalLinkClick({
+                    placement: "cta-block",
+                    source,
+                    destination: GARANTIA_LOCAL_PATH,
+                    label: "Guarulhos e SP",
+                  })
+                }
+              >
+                <Button size="lg" variant="outline" className="text-base px-6 bg-white/10 border-white/40 text-white hover:bg-white/20">
+                  Empresa em Guarulhos <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
 
-Para empresas que participam de licitações públicas, o Seguro Garantia é praticamente obrigatório. Para empresas com execuções fiscais ou ações judiciais, é a forma mais inteligente de garantir o juízo sem descapitalizar o negócio.
+        <section className="py-14">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">O que é Seguro Garantia</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              O Seguro Garantia é uma modalidade que pode ser utilizada para garantir o cumprimento de obrigações assumidas em contratos, licitações, processos judiciais ou administrativos, conforme as condições da apólice e exigências do contratante.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              É frequentemente utilizado como alternativa a garantias tradicionais como caução em dinheiro ou fiança bancária. {PRUDENT_LANGUAGE}
+            </p>
+          </div>
+        </section>
 
-Na Patro Seguros, somos especialistas em Seguro Garantia para todos os segmentos: construção civil, engenharia, indústria, comércio, agronegócio e serviços. Trabalhamos com as principais seguradoras do mercado para encontrar a melhor condição para cada operação.`}
-      howItWorks={[
-        { step: "1", title: "Identificação da Necessidade", description: "Entendemos o tipo de garantia necessária: licitação, contrato, judicial, fiscal ou aduaneira. Cada modalidade tem regras e condições específicas." },
-        { step: "2", title: "Análise de Crédito da Empresa", description: "A seguradora analisa o balanço patrimonial, faturamento e saúde financeira da empresa. Quanto melhor a situação, melhores as condições e menor o custo." },
-        { step: "3", title: "Cotação com Múltiplas Seguradoras", description: "Cotamos com seguradoras especializadas em Seguro Garantia. Cada uma tem critérios e taxas diferentes — a comparação gera economia real." },
-        { step: "4", title: "Emissão da Apólice", description: "Após aprovação, a apólice é emitida com todos os dados do contrato, licitação ou processo judicial. A entrega é rápida — muitas vezes no mesmo dia." },
-        { step: "5", title: "Gestão e Renovação", description: "Acompanhamos prazos de vigência, necessidade de endossos (alterações) e renovações. Em caso de sinistro, damos suporte total ao segurado." },
-      ]}
-      coverages={[
-        { title: "Garantia do Licitante (Bid Bond)", description: "Garante que a empresa vencedora da licitação assinará o contrato. Exigida no edital, geralmente entre 1% e 5% do valor estimado da contratação. Substitui caução em dinheiro ou fiança bancária." },
-        { title: "Garantia do Executante (Performance Bond)", description: "Garante a execução do contrato conforme os termos pactuados. Cobre inadimplência do contratado em obras, fornecimentos e serviços. Geralmente de 5% a 30% do valor do contrato." },
-        { title: "Garantia de Pagamento (Payment Bond)", description: "Garante o pagamento de subcontratados, fornecedores e mão de obra vinculados ao contrato principal. Comum em grandes obras de engenharia e infraestrutura." },
-        { title: "Garantia Judicial", description: "Substitui o depósito judicial em ações cíveis, trabalhistas e tributárias. Permite que a empresa recorra ou garanta a execução sem imobilizar capital. Aceita em todos os tribunais do país." },
-        { title: "Garantia Fiscal (Execução Fiscal)", description: "Garante o juízo em execuções fiscais federais, estaduais e municipais. Substitui penhora de bens, depósito em dinheiro e fiança bancária. Libera patrimônio que seria bloqueado." },
-        { title: "Garantia Aduaneira", description: "Exigida pela Receita Federal em regimes aduaneiros especiais: admissão temporária, trânsito aduaneiro e drawback. Viabiliza operações de comércio exterior sem imobilizar capital." },
-        { title: "Garantia para Concessões e PPPs", description: "Garante obrigações em contratos de concessão, permissão e parcerias público-privadas. Exigida em licitações de infraestrutura, saneamento, energia e transportes." },
-        { title: "Garantia de Retenção de Pagamento (Maintenance Bond)", description: "Substitui a retenção contratual que o contratante faz sobre as medições. Libera o fluxo de caixa da empresa durante a execução da obra." },
-      ]}
-      coverageExclusions={[
-        "Descumprimento contratual doloso (intencional) pelo tomador",
-        "Obrigações não previstas no contrato ou edital garantido",
-        "Multas de trânsito, ambientais ou regulatórias não vinculadas ao contrato",
-        "Garantias retroativas (sinistros ocorridos antes da contratação do seguro)",
-        "Obrigações trabalhistas diretas do tomador (salários, FGTS) — exceto quando previsto na apólice",
-      ]}
-      pricingInfo={{
-        intro: "O custo do Seguro Garantia é significativamente menor que alternativas como fiança bancária ou depósito judicial. As taxas variam conforme modalidade, prazo, valor garantido e perfil da empresa.",
-        factors: [
-          "Modalidade — garantia judicial e fiscal costumam ter taxas menores que performance bond",
-          "Valor da garantia — quanto maior o valor, menor tende a ser a taxa percentual",
-          "Prazo — garantias de longo prazo (acima de 2 anos) têm custo proporcionalmente maior",
-          "Saúde financeira da empresa — balanço sólido e bom faturamento reduzem a taxa",
-          "Histórico de sinistros — empresas sem acionamentos anteriores pagam menos",
-          "Segmento de atuação — construção civil e engenharia têm taxas específicas",
-          "Contragarantias exigidas — menor exigência de contragarantia = menor custo total",
-        ],
-        note: "Em geral, o Seguro Garantia custa entre 0,5% e 3% do valor garantido por ano — contra 2% a 5% da fiança bancária. Para garantias judiciais, as taxas podem ser ainda menores (a partir de 0,4%/ano). Na Patro, negociamos as melhores condições com múltiplas seguradoras.",
-      }}
-      realScenarios={[
-        { title: "Construtora garantiu licitação de R$ 12 milhões", description: "Uma construtora de Guarulhos precisava de garantia de 5% (R$ 600.000) para participar de licitação pública. Com fiança bancária, pagaria R$ 30.000/ano e comprometeria limite de crédito. Com Seguro Garantia pela Patro, pagou R$ 7.200/ano (1,2%) sem afetar o crédito bancário." },
-        { title: "Indústria substituiu depósito judicial de R$ 2,5 milhões", description: "Uma indústria tinha R$ 2,5 milhões bloqueados em depósito judicial por execução fiscal. Com o Seguro Garantia Judicial, liberou o valor integral para capital de giro e pagou apenas R$ 15.000/ano de prêmio (0,6%). O dinheiro liberado gerou receita que cobriu várias vezes o custo do seguro." },
-        { title: "Empresa de TI garantiu contrato com órgão federal", description: "Uma empresa de tecnologia venceu pregão de R$ 3 milhões para fornecimento de serviços ao governo. O contrato exigia garantia de 10% (R$ 300.000). O Seguro Garantia custou R$ 4.500/ano — contra R$ 15.000 que pagaria em fiança bancária." },
-        { title: "Transportadora liberou caminhões penhorados", description: "Uma transportadora teve 3 caminhões penhorados em execução fiscal de R$ 800.000. Com Seguro Garantia Fiscal, substituiu a penhora dos veículos, que voltaram a operar e gerar receita. O custo do seguro foi de R$ 5.600/ano." },
-      ]}
-      importantDetails={[
-        { title: "Seguro Garantia vs. Fiança Bancária — Comparativo", content: "A fiança bancária exige que a empresa tenha limite de crédito disponível no banco, compromete a capacidade de financiamento e custa entre 2% e 5% ao ano do valor garantido. O Seguro Garantia não consome limite bancário, custa de 0,5% a 3% ao ano e é aceito em todas as situações onde a fiança bancária é aceita.\n\nAlém disso, a emissão do Seguro Garantia é mais ágil — enquanto a fiança bancária pode levar semanas para aprovação, o Seguro Garantia pode ser emitido em dias." },
-        { title: "Nova Lei de Licitações e o Seguro Garantia", content: "A Lei 14.133/2021 trouxe mudanças importantes para o Seguro Garantia. O artigo 102 permite que a Administração exija seguro garantia com cláusula de retomada — o que significa que, em caso de inadimplência do contratado, a seguradora pode assumir a execução do contrato, contratando nova empresa para concluir a obra ou serviço.\n\nIsso aumentou a relevância do Seguro Garantia em grandes obras públicas e tornou essencial contar com uma corretora especializada para negociar as melhores condições." },
-        { title: "Contragarantias — O Que São e Como Funcionam", content: "Para emitir o Seguro Garantia, a seguradora pode exigir contragarantias do tomador: nota promissória, aval dos sócios, alienação fiduciária de bens ou carta de fiança de outra empresa do grupo. A necessidade e o tipo de contragarantia dependem do porte da operação e da saúde financeira da empresa.\n\nEmpresas com balanço sólido e bom histórico podem conseguir emissão com contragarantias simplificadas (apenas nota promissória). Na Patro, negociamos as melhores condições de contragarantia com as seguradoras." },
-      ]}
-      tips={[
-        "Compare Seguro Garantia com fiança bancária — a economia pode chegar a 60% do custo anual.",
-        "Mantenha o balanço patrimonial atualizado — balanços defasados atrasam a análise de crédito.",
-        "Solicite a cotação com antecedência — especialmente para licitações com prazos curtos.",
-        "Considere substituir depósitos judiciais antigos por Seguro Garantia para liberar capital.",
-        "Negocie contragarantias — nem sempre é necessário oferecer garantias reais.",
-        "Avise sobre alterações no contrato — aditivos precisam ser refletidos na apólice via endosso.",
-      ]}
-      whoNeeds={[
-        "Empresas que participam de licitações públicas — municipais, estaduais e federais",
-        "Construtoras e empresas de engenharia — obras públicas e privadas",
-        "Empresas com execuções fiscais — federais, estaduais e municipais",
-        "Empresas com ações judiciais — cíveis, trabalhistas e tributárias",
-        "Fornecedores do governo — contratos administrativos de qualquer porte",
-        "Empresas de comércio exterior — regimes aduaneiros especiais",
-        "Concessionárias de serviços públicos — energia, saneamento, transportes",
-        "Qualquer empresa que precise apresentar garantia sem descapitalizar",
-      ]}
-      whyPatro={[
-        "Especialistas em Seguro Garantia para todas as modalidades — licitação, contrato, judicial, fiscal e aduaneiro",
-        "Cotação com múltiplas seguradoras especializadas — garantia do melhor custo-benefício",
-        "Agilidade na emissão — processos internos otimizados para entrega rápida",
-        "Negociação de contragarantias — buscamos as condições mais favoráveis para sua empresa",
-        "Acompanhamento de vigência e renovações — sem risco de vencimento sem aviso",
-        "Suporte em sinistros — orientação completa caso a garantia seja acionada",
-        "Experiência em grandes operações — licitações, obras públicas e execuções fiscais de alto valor",
-      ]}
-      faqs={[
-        { question: "O que é Seguro Garantia?", answer: "É uma modalidade de seguro que funciona como garantia financeira. Substitui a fiança bancária, o depósito caução e outras formas tradicionais de garantia em contratos, licitações e processos judiciais. A seguradora garante ao beneficiário (contratante/juízo) que a obrigação será cumprida ou indenizada." },
-        { question: "Quanto custa o Seguro Garantia?", answer: "Em geral, entre 0,5% e 3% do valor garantido por ano. Para uma garantia de R$ 1 milhão, o custo anual fica entre R$ 5.000 e R$ 30.000 — significativamente menos que a fiança bancária (2% a 5%) e sem comprometer limite de crédito bancário." },
-        { question: "O Seguro Garantia substitui a fiança bancária?", answer: "Sim, em praticamente todas as situações: licitações, contratos públicos e privados, depósitos judiciais e execuções fiscais. A Lei de Licitações (14.133/2021) e o CPC expressamente preveem o Seguro Garantia como alternativa à fiança bancária." },
-        { question: "Qualquer empresa pode contratar Seguro Garantia?", answer: "Em princípio, sim, mas a seguradora faz análise de crédito. Empresas com balanço patrimonial saudável, bom faturamento e histórico limpo conseguem melhores condições. Empresas em recuperação judicial podem ter dificuldade, mas há seguradoras especializadas." },
-        { question: "Quanto tempo leva para emitir o Seguro Garantia?", answer: "Depende da complexidade. Garantias de licitação (bid bond) podem ser emitidas em 1 a 3 dias úteis. Garantias de execução (performance bond) e judiciais costumam levar de 3 a 7 dias úteis, dependendo da análise de crédito e documentação." },
-        { question: "O que acontece se o seguro for acionado?", answer: "Se o tomador descumprir a obrigação garantida, o beneficiário aciona a seguradora, que indeniza até o limite da apólice. Depois, a seguradora cobra do tomador (direito de regresso). Por isso, o Seguro Garantia não é um 'fundo perdido' — o tomador continua responsável pela obrigação." },
-      ]}
-      relatedInsurances={[
-        { title: "Seguro Empresarial", link: "/seguro-empresarial" },
-        { title: "Seguro de Engenharia", link: "/seguro-engenharia" },
-        { title: "Seguro RC Profissional", link: "/seguro-rc-profissional" },
-        { title: "Seguro Fiança Locatícia", link: "/seguro-fianca-locaticia" },
-        { title: "Seguro de Transporte", link: "/seguro-transporte" },
-      ]}
-    />
+        <section className="py-14 bg-muted">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-4">Para que serve</h2>
+            <ul className="grid gap-3 sm:grid-cols-2 text-sm">
+              {[
+                "Participar de licitações públicas e privadas",
+                "Garantir a execução de contratos privados",
+                "Substituir depósitos judiciais quando aceito pelo juízo",
+                "Garantir adiantamentos recebidos do contratante",
+                "Substituir retenções contratuais",
+                "Garantir prestação de serviços contínuos",
+                "Garantir fornecimento a grandes contas",
+                "Atender exigências de manutenção pós-obra",
+              ].map((u) => (
+                <li key={u} className="flex items-start gap-2 p-3 bg-white border rounded">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
+                  <span>{u}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="py-14">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-6">Quem precisa contratar</h2>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+              {PUBLICOS.map((p) => (
+                <div key={p} className="flex items-start gap-2 p-3 bg-muted rounded">
+                  <Building2 className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
+                  <span>{p}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 bg-muted">
+          <div className="container mx-auto px-4 max-w-6xl">
+            <h2 className="text-2xl font-bold mb-6">Tipos de Seguro Garantia</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {TIPOS.map((t) => (
+                <div key={t.title} className="p-4 bg-white border rounded-lg">
+                  <div className="flex items-center gap-2 text-primary mb-1">
+                    <ShieldCheck className="h-4 w-4" />
+                    <span className="text-xs uppercase tracking-wider font-bold">Modalidade</span>
+                  </div>
+                  <h3 className="font-bold mb-1">{t.title}</h3>
+                  <p className="text-sm text-muted-foreground">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-6">Páginas dedicadas por intenção</h2>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {GARANTIA_INTENT_PAGES.map((p) => (
+                <Link
+                  key={p.slug}
+                  to={p.path}
+                  onClick={() =>
+                    trackInternalLinkClick({
+                      placement: "hub-grid",
+                      source,
+                      destination: p.path,
+                      label: p.h1,
+                    })
+                  }
+                  className="p-4 bg-white border rounded-lg hover:border-primary/60 transition"
+                >
+                  <span className="text-xs uppercase text-primary font-bold">{p.navLabel}</span>
+                  <h3 className="font-bold mt-1 mb-1 text-sm">{p.h1}</h3>
+                  <p className="text-xs text-muted-foreground line-clamp-3">{p.subtitle}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14 bg-muted">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl font-bold mb-4">Diferença entre Seguro Garantia, fiança bancária e caução</h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border-collapse">
+                <thead>
+                  <tr className="bg-white">
+                    <th className="text-left p-3 border">Aspecto</th>
+                    <th className="text-left p-3 border">Seguro Garantia</th>
+                    <th className="text-left p-3 border">Fiança bancária</th>
+                    <th className="text-left p-3 border">Caução em dinheiro</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="bg-white">
+                    <td className="p-3 border font-medium">Impacto no caixa</td>
+                    <td className="p-3 border">Baixo (paga prêmio)</td>
+                    <td className="p-3 border">Consome limite bancário</td>
+                    <td className="p-3 border">Imobiliza capital</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 border font-medium">Emitente</td>
+                    <td className="p-3 border">Seguradora</td>
+                    <td className="p-3 border">Banco</td>
+                    <td className="p-3 border">Empresa contratante</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 border font-medium">Prazo</td>
+                    <td className="p-3 border">Definido em apólice</td>
+                    <td className="p-3 border">Definido no contrato bancário</td>
+                    <td className="p-3 border">Até liberação do contratante</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 border font-medium">Aceitação</td>
+                    <td className="p-3 border" colSpan={3}>Depende de edital/contrato e regras do contratante.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-14">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+              <FileText className="h-6 w-6 text-primary" /> Documentos necessários
+            </h2>
+            <ul className="grid gap-2 sm:grid-cols-2 text-sm">
+              {DOCUMENTOS.map((d) => (
+                <li key={d} className="flex items-start gap-2 p-3 bg-muted rounded">
+                  <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-muted-foreground mt-3 italic">Lista varia por seguradora, valor e modalidade.</p>
+          </div>
+        </section>
+
+        <section className="py-14 bg-muted">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-4">Como cotar com a Patro</h2>
+            <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+              {[
+                "Envie edital, contrato ou minuta.",
+                "Analisamos o caso e o perfil da empresa.",
+                "Cotamos com múltiplas seguradoras parceiras.",
+                "Comparamos propostas e apoiamos a emissão.",
+              ].map((step, i) => (
+                <li key={step} className="p-4 bg-white border rounded-lg">
+                  <span className="text-xs uppercase font-bold text-primary">Passo {i + 1}</span>
+                  <p className="mt-1">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="py-14">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-2xl font-bold mb-4">Seguradoras parceiras</h2>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {B2B_INSURERS_GARANTIA.map((i) => (
+                <span key={i} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full font-medium">
+                  {i}
+                </span>
+              ))}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {insurerPages.map((p) => (
+                <Link
+                  key={p.slug}
+                  to={p.path}
+                  onClick={() =>
+                    trackInternalLinkClick({
+                      placement: "hub-grid",
+                      source,
+                      destination: p.path,
+                      label: `${p.insurer} — ${p.lineLabel}`,
+                    })
+                  }
+                  className="p-3 bg-white border rounded hover:border-primary/60 transition text-sm"
+                >
+                  <span className="font-bold">{p.insurer}</span>
+                  <span className="text-muted-foreground block text-xs">Página dedicada</span>
+                </Link>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground italic mt-4">{TRANSPARENCY_NOTICE}</p>
+          </div>
+        </section>
+
+        <section className="py-14 bg-muted">
+          <div className="container mx-auto px-4 max-w-3xl" data-speakable="faq">
+            <h2 className="text-center text-2xl md:text-3xl font-bold mb-10">Perguntas frequentes</h2>
+            <div className="space-y-6">
+              {GARANTIA_HUB_FAQS.map((f) => (
+                <div key={f.question}>
+                  <h3 className="text-lg font-semibold mb-2">{f.question}</h3>
+                  <p className="text-muted-foreground">{f.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 text-center">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <h2 className="text-3xl font-bold mb-4">Envie seu edital ou contrato para análise</h2>
+            <p className="text-muted-foreground mb-6">
+              A Patro Seguros analisa o caso e retorna com propostas comparadas de seguradoras parceiras.
+            </p>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("b2b_garantia_hub_cta_final")}
+            >
+              <Button size="lg" variant="cta" className="text-base px-8">
+                <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
+              </Button>
+            </a>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 };
 

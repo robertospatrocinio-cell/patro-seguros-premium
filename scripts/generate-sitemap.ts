@@ -15,6 +15,15 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import {
+  B2B_HUB_PATH,
+  GARANTIA_LOCAL_PATH,
+  CREDITO_HUB_PATH,
+  CREDITO_LOCAL_PATH,
+  GARANTIA_INTENT_PAGES,
+  CREDITO_INTENT_PAGES,
+  B2B_INSURER_PAGES,
+} from "../src/data/b2bVertical";
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -513,6 +522,13 @@ export function generateSitemap(blogSlugs: string[]): string {
     "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-imobiliario",
     "/seguro-condominio", "/seguro-residencial", "/seguro-celular",
     "/seguro-placa-solar",
+    B2B_HUB_PATH,
+    GARANTIA_LOCAL_PATH,
+    CREDITO_HUB_PATH,
+    CREDITO_LOCAL_PATH,
+    ...GARANTIA_INTENT_PAGES.map((p) => p.path),
+    ...CREDITO_INTENT_PAGES.map((p) => p.path),
+    ...B2B_INSURER_PAGES.map((p) => p.path),
   ]);
 
   autoRoutes.add("/seguradoras/porto-seguro-guarulhos");
@@ -558,6 +574,15 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...segmentEntries,
     ...nichos,
     ...informational,
+    ...([
+      { loc: B2B_HUB_PATH, priority: "0.9", changefreq: "weekly" },
+      { loc: GARANTIA_LOCAL_PATH, priority: "0.8", changefreq: "weekly" },
+      { loc: CREDITO_HUB_PATH, priority: "0.8", changefreq: "weekly" },
+      { loc: CREDITO_LOCAL_PATH, priority: "0.8", changefreq: "weekly" },
+      ...GARANTIA_INTENT_PAGES.map((p) => ({ loc: p.path, priority: "0.7", changefreq: "monthly" })),
+      ...CREDITO_INTENT_PAGES.map((p) => ({ loc: p.path, priority: "0.7", changefreq: "monthly" })),
+      ...B2B_INSURER_PAGES.map((p) => ({ loc: p.path, priority: "0.6", changefreq: "monthly" })),
+    ] as SitemapEntry[]),
     ...enterpriseLps,
     ...investments,
     ...hubs,
