@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { CHECKERS } from "./rich-results-checkers.mjs";
+import { shrinkCounterexample, formatCounterexample } from "./jsonld-shrinker.mjs";
 
 /**
  * Fuzzing dos checkers de Google Rich Results.
@@ -316,4 +317,67 @@ describe("fuzz: determinismo do PRNG", () => {
     for (let i = 0; i < 100; i++) if (a() !== b()) diffs++;
     expect(diffs).toBeGreaterThan(90);
   });
+});
+
+// ============================================================================
+// SUITE 6 — Property + Shrinker: contraexemplos minimizados
+// ============================================================================
+// Ao invés de falhar com o nó randômico "gordo" que primeiro violou a
+// propriedade, encontramos o menor nó equivalente e reportamos ELE. Isso
+// dá ao desenvolvedor um repro copiável (ex.: `{"@type":"Organization"}`)
+// em vez de 400 chars de lixo com o bug escondido no meio.
+describe("fuzz+shrink: propriedades minimizadas em falha", () => {
+  const PROPERTIES = [
+    {
+      type: "Organization",
+      // Todo Organization sem url válida DEVE ter req contendo "url absoluta".
+      generate: () => ({
+        "@type": "Organization",
+        name: pick(["", "  ", "X", "Patro"]),
+        url: pick([undefined, "", "/rel", "javascript:0", "https://ok.com"]),
+        logo: pick([undefined, "", "/rel.png", "https://ok.com/l.png"]),
+        extra: fuzzValue(),
+      }),
+      property: (r, n) => {
+        // Propriedade: se url é absoluta válida, r.req NÃO deve conter "url absoluta".
+        // Se aparece o req sem justificativa (url válida), é bug.
+        const urlOk = typeof n.url === "string" && /^https?:\/\//.test(n.url);
+        const flagged = r.req.some((m) => /url absoluta/.test(m));
+        return urlOk && flagged; // TRUE = quebra a propriedade
+      },
+    },
+    {
+      type: "FAQPage",
+      generate: () => ({
+        "@type": "FAQPage",
+        mainEntity: Array.from({ length: int(2, 4) }, () => ({
+          "@type": "Question",
+          name: pick(["P?", "Como funciona?"]),
+          acceptedAnswer: { "@type": "Answer", text: pick(["R", "resposta ok"]) },
+        })),
+        junk: fuzzValue(),
+      }),
+      // Propriedade: FAQ com ≥2 Q válidas NÃO pode ter req.
+      property: (r) => r.req.length > 0,
+    },
+  ];
+
+  for (const { type, generate, property } of PROPERTIES) {
+    it(`${type}: propriedade não viola em ${ITERATIONS} amostras (shrinker ativo se falhar)`, () => {
+      const check = CHECKERS[type];
+      for (let i = 0; i < ITERATIONS; i++) {
+        const node = generate();
+        let r;
+        try { r = check(node); } catch { continue; }
+        if (property(r, node)) {
+          const { shrunk, steps } = shrinkCounterexample(node, check, property);
+          throw new Error(
+            `[${type}] propriedade violada; contraexemplo minimizado após ${steps} passos:\n` +
+            `  ${formatCounterexample(shrunk, { seed: SEED, iter: i })}\n` +
+            `  original: ${JSON.stringify(node).slice(0, 200)}`,
+          );
+        }
+      }
+    });
+  }
 });
