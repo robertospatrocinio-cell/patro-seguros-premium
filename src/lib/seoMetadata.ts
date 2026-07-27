@@ -27,6 +27,32 @@ export interface Metadata {
 const DOMAIN = "https://www.patroseguros.com.br";
 
 /**
+ * Mapa de rotas /hub-* → slug do SEO_HUBS correspondente, usado para
+ * emitir `hasPart` no CollectionPage e passar a checagem do Google Rich
+ * Results (requer `hasPart` ou `mainEntity`).
+ */
+const HUB_PATH_TO_SLUG: Record<string, string> = {
+  "/hub-rc": "rc",
+  "/hub-empresarial": "empresarial",
+  "/hub-patrimonio": "patrimonio",
+  "/hub-veiculos": "auto",
+  "/hub-vida-saude": "vida-saude",
+};
+
+function buildHubHasPart(cleanPath: string) {
+  const slug = HUB_PATH_TO_SLUG[cleanPath];
+  const hub = slug ? SEO_HUBS.find((h) => h.slug === slug) : undefined;
+  const paths = hub?.landingPaths?.slice(0, 12) ?? [];
+  if (!paths.length) return undefined;
+  return paths.map((href) => ({
+    "@type": "WebPage",
+    "@id": `${DOMAIN}${href}`,
+    "url": `${DOMAIN}${href}`,
+    "name": href.replace(/^\//, "").replace(/-/g, " "),
+  }));
+}
+
+/**
  * Premium metadata para rotas restauradas na Fase 1.
  * Title ≤65, description ≤160, schema dedicado (Service/FAQPage/CollectionPage).
  * Fica antes do fallback genérico para evitar títulos do tipo "Seguro Rc Medicos | Patro".
