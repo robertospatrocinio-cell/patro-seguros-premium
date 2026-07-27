@@ -1116,6 +1116,8 @@ const InsurancePageTemplate = ({
         {extraSections}
       </main>
       <Footer />
+      {/* CTA flutuante (mobile) para saltar direto à próxima seção do cluster. */}
+      <MobileClusterNextCta />
     </>
   );
 };
