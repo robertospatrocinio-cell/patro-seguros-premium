@@ -236,4 +236,20 @@ function validate() {
   console.log("Jump links validados com sucesso.", summary);
 }
 
-validate();
+// CLI direto: mantém compat com o postbuild antigo, mas hoje o pipeline
+// unificado (`validate-jumplinks-headings.mjs`) executa esta função como
+// primeira camada. Guardamos para não rodar ao ser importado por testes ou
+// pelo runner unificado.
+const invokedDirectly =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (invokedDirectly) validate();
+
+export {
+  collectTemplateIds,
+  collectAriaLabelledBy,
+  collectPagesWithJumpLinks,
+  loadRoutesFromAppTsx,
+  distHtmlForRoute,
+  validate,
+  ID_REQUIREMENTS,
+};
