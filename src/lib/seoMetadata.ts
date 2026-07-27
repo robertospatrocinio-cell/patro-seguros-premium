@@ -6,6 +6,7 @@ import { articles as blogArticles } from "@/lib/blogData";
 import { getArticleImage } from "@/lib/blogImages";
 import { landingPagesData } from "@/data/landingPages";
 import { servicePagesContent } from "@/data/seoServiceContent";
+import { SEO_HUBS } from "@/data/seoHubs";
 
 export interface Metadata {
   title: string;
@@ -24,6 +25,32 @@ export interface Metadata {
 }
 
 const DOMAIN = "https://www.patroseguros.com.br";
+
+/**
+ * Mapa de rotas /hub-* → slug do SEO_HUBS correspondente, usado para
+ * emitir `hasPart` no CollectionPage e passar a checagem do Google Rich
+ * Results (requer `hasPart` ou `mainEntity`).
+ */
+const HUB_PATH_TO_SLUG: Record<string, string> = {
+  "/hub-rc": "rc",
+  "/hub-empresarial": "empresarial",
+  "/hub-patrimonio": "patrimonio",
+  "/hub-veiculos": "auto",
+  "/hub-vida-saude": "vida-saude",
+};
+
+function buildHubHasPart(cleanPath: string) {
+  const slug = HUB_PATH_TO_SLUG[cleanPath];
+  const hub = slug ? SEO_HUBS.find((h) => h.slug === slug) : undefined;
+  const paths = hub?.landingPaths?.slice(0, 12) ?? [];
+  if (!paths.length) return undefined;
+  return paths.map((href) => ({
+    "@type": "WebPage",
+    "@id": `${DOMAIN}${href}`,
+    "url": `${DOMAIN}${href}`,
+    "name": href.replace(/^\//, "").replace(/-/g, " "),
+  }));
+}
 
 /**
  * Premium metadata para rotas restauradas na Fase 1.
@@ -295,6 +322,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
         "description": p.description,
         "url": `${DOMAIN}${cleanPath}`,
         "isPartOf": { "@type": "WebSite", "name": "Patro Seguros", "url": DOMAIN },
+        "hasPart": buildHubHasPart(cleanPath),
         "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN, "image": `${DOMAIN}/images/logo-full.webp`, "priceRange": "$$" },
       }
     : {

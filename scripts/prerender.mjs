@@ -518,7 +518,10 @@ async function run() {
         return true;
       });
 
-      if (uniqueFaqs.length > 0) {
+      // Google só ranqueia rich result de FAQ com múltiplas Q&A — abaixo
+      // de 2 perguntas o FAQPage é considerado eligible-warn e não gera
+      // snippet. Nesses casos preferimos NÃO emitir o schema.
+      if (uniqueFaqs.length >= 2) {
         const faqSchema = {
           "@context": "https://schema.org",
           "@type": "FAQPage",
