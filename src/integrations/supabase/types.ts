@@ -20,33 +20,42 @@ export type Database = {
           clicks: number
           conversion_rate: number
           converting_sessions: number
+          cotacao_conversions: number
           impressions: number
           position: number | null
           score: number
           sessions: number
+          top_pathname: string | null
           updated_at: string
+          whatsapp_conversions: number
         }
         Insert: {
           anchor: string
           clicks?: number
           conversion_rate?: number
           converting_sessions?: number
+          cotacao_conversions?: number
           impressions?: number
           position?: number | null
           score?: number
           sessions?: number
+          top_pathname?: string | null
           updated_at?: string
+          whatsapp_conversions?: number
         }
         Update: {
           anchor?: string
           clicks?: number
           conversion_rate?: number
           converting_sessions?: number
+          cotacao_conversions?: number
           impressions?: number
           position?: number | null
           score?: number
           sessions?: number
+          top_pathname?: string | null
           updated_at?: string
+          whatsapp_conversions?: number
         }
         Relationships: []
       }
