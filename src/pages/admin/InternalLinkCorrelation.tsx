@@ -46,6 +46,18 @@ type AnchorConversion = {
   conversionRate: number;
   topPage: { pathname: string; clicks: number } | null;
 };
+type AnchorPotential = {
+  anchor: string;
+  score: number;
+  clicks: number;
+  sessions: number;
+  convertingSessions: number;
+  conversionRate: number;
+  impressions: number;
+  position: number | null;
+  topPage: { pathname: string; clicks: number } | null;
+  reason: string;
+};
 type Recommendation = {
   destination: string;
   score: number;
@@ -71,6 +83,7 @@ type Resp = {
   rows: Row[];
   anchorsGlobal: AnchorGlobal[];
   anchorConversions?: AnchorConversion[];
+  anchorPotential?: AnchorPotential[];
   recommendations?: Recommendation[];
 };
 
