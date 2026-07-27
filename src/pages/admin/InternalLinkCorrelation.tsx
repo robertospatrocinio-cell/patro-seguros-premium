@@ -36,6 +36,16 @@ type AnchorGlobal = {
   gscImpressionsAttributed: number;
   gscAveragePosition: number | null;
 };
+type AnchorConversion = {
+  anchor: string;
+  clicks: number;
+  sessions: number;
+  convertingSessions: number;
+  whatsappConversions: number;
+  cotacaoConversions: number;
+  conversionRate: number;
+  topPage: { pathname: string; clicks: number } | null;
+};
 type Recommendation = {
   destination: string;
   score: number;
@@ -60,6 +70,7 @@ type Resp = {
   };
   rows: Row[];
   anchorsGlobal: AnchorGlobal[];
+  anchorConversions?: AnchorConversion[];
   recommendations?: Recommendation[];
 };
 
@@ -355,6 +366,72 @@ export default function InternalLinkCorrelation() {
                       +{data.recommendations.length - 12} recomendações adicionais ocultas
                     </p>
                   )}
+                </CardContent>
+              </Card>
+            )}
+
+            {data.anchorConversions && data.anchorConversions.length > 0 && (
+              <Card className="mb-6 border-primary/40">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-primary" />
+                    Âncoras por conversão ({data.anchorConversions.length})
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground">
+                    Atribuição por <code>session_id</code>: uma âncora é creditada
+                    quando o mesmo visitante dispara <code>whatsapp_click</code> ou{" "}
+                    <code>cotacao_click</code> em até 30 min após clicar nela.
+                    Ordenado por taxa de conversão; use para priorizar âncoras
+                    na trilha recomendada e cortar as que só geram cliques sem conversão.
+                  </p>
+                </CardHeader>
+                <CardContent className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="min-w-[180px]">Âncora</TableHead>
+                        <TableHead className="text-right">Cliques</TableHead>
+                        <TableHead className="text-right">Sessões</TableHead>
+                        <TableHead className="text-right">Sessões c/ conv.</TableHead>
+                        <TableHead className="text-right">WhatsApp</TableHead>
+                        <TableHead className="text-right">Cotação</TableHead>
+                        <TableHead className="text-right">Taxa</TableHead>
+                        <TableHead>Página top</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {data.anchorConversions
+                        .filter((a) => a.sessions >= 3)
+                        .slice(0, 40)
+                        .map((a) => (
+                          <TableRow
+                            key={a.anchor}
+                            className="cursor-pointer"
+                            onClick={() => { setAnchor(a.anchor); load(); }}
+                          >
+                            <TableCell><code className="text-xs">#{a.anchor}</code></TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(a.clicks)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(a.sessions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(a.convertingSessions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(a.whatsappConversions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(a.cotacaoConversions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              <Badge variant={a.conversionRate >= 0.05 ? "default" : "secondary"}>
+                                {fmtPct(a.conversionRate, 1)}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-xs">
+                              {a.topPage ? (
+                                <span>{a.topPage.pathname} <span className="text-muted-foreground">({a.topPage.clicks})</span></span>
+                              ) : <span className="text-muted-foreground">—</span>}
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                    </TableBody>
+                  </Table>
+                  <p className="text-[11px] text-muted-foreground mt-2">
+                    Exibe apenas âncoras com ≥ 3 sessões no período para evitar viés de amostra pequena.
+                  </p>
                 </CardContent>
               </Card>
             )}

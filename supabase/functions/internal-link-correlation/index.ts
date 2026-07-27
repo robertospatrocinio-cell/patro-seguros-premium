@@ -156,6 +156,38 @@ serve(async (req) => {
     const { data: clicksData, error: clicksErr } = await clicksQuery;
     if (clicksErr) throw new Error(`DB read failed: ${clicksErr.message}`);
 
+    // 2b) Buscar conversões (cotacao_click / whatsapp_click) no mesmo período,
+    //     para atribuir por session_id às âncoras clicadas ANTES da conversão.
+    const { data: convData, error: convErr } = await admin
+      .from("conversion_click_events")
+      .select("session_id, event_type, created_at")
+      .gte("created_at", startA.toISOString())
+      .lte("created_at", endA.toISOString())
+      .not("session_id", "is", null)
+      .limit(100000);
+    if (convErr) throw new Error(`DB read conversions failed: ${convErr.message}`);
+
+    type SessionConv = {
+      firstAt: number;
+      types: Set<string>;
+      byType: Map<string, number[]>; // event_type -> timestamps
+    };
+    const convBySession = new Map<string, SessionConv>();
+    for (const c of convData ?? []) {
+      if (!c.session_id) continue;
+      const ts = new Date(c.created_at as string).getTime();
+      let s = convBySession.get(c.session_id as string);
+      if (!s) {
+        s = { firstAt: ts, types: new Set(), byType: new Map() };
+        convBySession.set(c.session_id as string, s);
+      }
+      if (ts < s.firstAt) s.firstAt = ts;
+      s.types.add(c.event_type as string);
+      const arr = s.byType.get(c.event_type as string) ?? [];
+      arr.push(ts);
+      s.byType.set(c.event_type as string, arr);
+    }
+
     type Agg = {
       destination: string;
       pathname: string;
@@ -166,6 +198,19 @@ serve(async (req) => {
       anchorsTop: Map<string, number>;
     };
     const byDest = new Map<string, Agg>();
+
+    // Atribuição de conversão por âncora — indexada aqui para reutilizar
+    // o loop principal sem custo extra de I/O.
+    type AnchorConv = {
+      anchor: string;
+      clicks: number;
+      sessions: Set<string>;
+      convertingSessions: Set<string>;
+      whatsappConversions: number;
+      cotacaoConversions: number;
+      pages: Map<string, number>;
+    };
+    const anchorConvMap = new Map<string, AnchorConv>();
 
     for (const row of clicksData ?? []) {
       const pathname = toPathname(row.destination);
@@ -188,6 +233,47 @@ serve(async (req) => {
       if (row.source) agg.sourcesTop.set(row.source, (agg.sourcesTop.get(row.source) ?? 0) + 1);
       if (row.placement) agg.placementsTop.set(row.placement, (agg.placementsTop.get(row.placement) ?? 0) + 1);
       if (row.anchor) agg.anchorsTop.set(row.anchor, (agg.anchorsTop.get(row.anchor) ?? 0) + 1);
+
+      // Atribuição por âncora: precisa de anchor + session_id.
+      if (row.anchor && row.session_id) {
+        let a = anchorConvMap.get(row.anchor);
+        if (!a) {
+          a = {
+            anchor: row.anchor as string,
+            clicks: 0,
+            sessions: new Set(),
+            convertingSessions: new Set(),
+            whatsappConversions: 0,
+            cotacaoConversions: 0,
+            pages: new Map(),
+          };
+          anchorConvMap.set(row.anchor as string, a);
+        }
+        a.clicks += 1;
+        a.sessions.add(row.session_id as string);
+        a.pages.set(pathname, (a.pages.get(pathname) ?? 0) + 1);
+
+        const sc = convBySession.get(row.session_id as string);
+        if (sc) {
+          const clickTs = new Date(row.created_at as string).getTime();
+          // conta apenas conversões POSTERIORES ao clique na âncora,
+          // com janela de atribuição de 30 min para evitar sessões longas
+          // acumulando conversões não relacionadas.
+          const windowMs = 30 * 60 * 1000;
+          let counted = false;
+          for (const [etype, tss] of sc.byType) {
+            for (const ts of tss) {
+              if (ts >= clickTs && ts - clickTs <= windowMs) {
+                if (etype === "whatsapp_click") a.whatsappConversions += 1;
+                else if (etype === "cotacao_click") a.cotacaoConversions += 1;
+                counted = true;
+                break;
+              }
+            }
+          }
+          if (counted) a.convertingSessions.add(row.session_id as string);
+        }
+      }
     }
 
     // 3) Buscar performance por página no GSC (janela alinhada com A)
@@ -324,6 +410,32 @@ serve(async (req) => {
       }))
       .sort((a, b) => b.clicks - a.clicks);
 
+    // 5b') Ranking de âncoras por CONVERSÃO (whatsapp + cotação), com
+    //      janela de atribuição de 30 min por sessão. Ordenado por taxa
+    //      de conversão descendente, com desempate por volume.
+    const anchorConversions = Array.from(anchorConvMap.values())
+      .map((a) => {
+        const sessions = a.sessions.size;
+        const convertingSessions = a.convertingSessions.size;
+        const conversionRate = sessions > 0 ? convertingSessions / sessions : 0;
+        let topPage: { pathname: string; clicks: number } | null = null;
+        for (const [p, c] of a.pages) if (!topPage || c > topPage.clicks) topPage = { pathname: p, clicks: c };
+        return {
+          anchor: a.anchor,
+          clicks: a.clicks,
+          sessions,
+          convertingSessions,
+          whatsappConversions: a.whatsappConversions,
+          cotacaoConversions: a.cotacaoConversions,
+          conversionRate,
+          topPage,
+        };
+      })
+      .sort((a, b) => {
+        if (b.conversionRate !== a.conversionRate) return b.conversionRate - a.conversionRate;
+        return b.convertingSessions - a.convertingSessions;
+      });
+
     // 5c) Recomendações automáticas de linkagem interna.
     //
     // Objetivo: para cada página com alto potencial no GSC (muitas
@@ -453,6 +565,7 @@ serve(async (req) => {
         totals,
         rows,
         anchorsGlobal,
+        anchorConversions,
         recommendations,
       }),
       { status: 200, headers: { ...corsHeaders, "Content-Type": "application/json" } },
