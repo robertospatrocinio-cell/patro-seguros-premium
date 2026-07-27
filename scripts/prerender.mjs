@@ -287,6 +287,7 @@ async function run() {
   const { blogAuthors } = await loadDataModule("src/lib/blogAuthors.ts");
   const { getBlogContent } = await loadDataModule("src/data/blogContentIndex.ts");
   const { extraFaqsBySlug } = await loadDataModule("src/data/blogExtraData.ts");
+  const { blogFaqBackfill: FAQ_BACKFILL } = await loadDataModule("src/data/blogFaqBackfill.ts");
 
   const blogSlugs = articles.map(a => a.slug);
   const localSlugs = [
