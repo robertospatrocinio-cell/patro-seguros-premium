@@ -498,6 +498,7 @@ async function run() {
       // permite que o Google gere rich snippet de FAQ sem depender do React.
       const contentArticle = getBlogContent(slug);
       const extraBlock = extraFaqsBySlug?.[slug];
+      const backfillFaqs = FAQ_BACKFILL?.[slug] ?? [];
       const faqList = [
         ...((contentArticle?.faqs ?? []).map((f) => ({ q: f.q, a: f.a }))),
         ...((extraBlock?.faqs ?? []).map((f) => ({ q: f.q, a: f.a }))),
@@ -507,6 +508,9 @@ async function run() {
         ...((extraBlock?.comparison?.rows ?? [])
           .filter((r) => r.faqQ && r.faqA)
           .map((r) => ({ q: r.faqQ, a: r.faqA }))),
+        // Backfill (mesma fonte que BlogArticle.tsx) — garante ≥ 2 Q&A
+        // em posts que originalmente têm apenas 1 FAQ.
+        ...backfillFaqs.map((f) => ({ q: f.q, a: f.a })),
       ].filter((f) => f.q && f.a);
 
       // Deduplica por pergunta (case-insensitive) preservando a ordem.
