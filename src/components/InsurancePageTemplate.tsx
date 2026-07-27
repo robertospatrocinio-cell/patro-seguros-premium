@@ -21,6 +21,7 @@ import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
 import ComoPatroAjuda from "@/components/ComoPatroAjuda";
+import JumpLinksNav from "@/components/JumpLinksNav";
 import {
   detectGuarulhosNeighborhood,
   isGuarulhosContext,
@@ -418,23 +419,7 @@ const InsurancePageTemplate = ({
       <main id="main-content" className="outline-none">
         <Breadcrumb items={breadcrumbItems} />
         {jumpLinks && jumpLinks.length > 0 && (
-          <nav
-            aria-label="Ir para a seção"
-            className="border-b border-border/60 bg-muted/30"
-          >
-            <div className="container mx-auto px-4 py-3 flex flex-wrap gap-2 text-sm">
-              <span className="text-muted-foreground mr-1 py-1">Nesta página:</span>
-              {jumpLinks.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1 text-foreground/80 hover:text-primary hover:border-primary/60 transition-colors"
-                >
-                  {l.label}
-                </a>
-              ))}
-            </div>
-          </nav>
+          <JumpLinksNav links={jumpLinks} />
         )}
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden min-h-[480px] md:min-h-[520px] flex items-center" aria-label={`${title} — cotação gratuita`}>
