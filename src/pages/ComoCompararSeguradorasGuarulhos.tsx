@@ -335,7 +335,12 @@ const ComoCompararSeguradorasGuarulhos = () => (
               key={item.link}
               to={item.link}
               className="p-5 border rounded-xl hover:border-primary hover:bg-primary/5 transition-colors block"
-              onClick={() => trackInternalLinkClick(`comparar_seguradoras_longtail_${item.link}`)}
+              onClick={() => trackInternalLinkClick({
+                source: "hub:como-comparar-seguradoras-guarulhos",
+                destination: item.link,
+                label: item.title,
+                placement: "longtail-spotlight",
+              })}
             >
               <div className="font-semibold text-primary mb-1">{item.title}</div>
               <div className="text-sm text-muted-foreground">{item.description}</div>
