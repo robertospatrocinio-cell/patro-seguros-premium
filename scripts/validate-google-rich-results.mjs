@@ -46,10 +46,12 @@ const DIST = path.join(ROOT, "dist");
 
 const args = process.argv.slice(2);
 const routeArg = args.find((a) => a.startsWith("--route="))?.split("=")[1];
+const distArg  = args.find((a) => a.startsWith("--dist="))?.split("=")[1];
 const ALLOW_WARN = args.includes("--allow-warn");
 const STRICT_WARN = args.includes("--strict-warn");
 
-if (!fs.existsSync(DIST)) {
+const DIST_DIR = distArg ? path.resolve(distArg) : DIST;
+if (!fs.existsSync(DIST_DIR)) {
   console.error("❌ dist/ ausente. Rode `npm run build` antes.");
   process.exit(1);
 }
