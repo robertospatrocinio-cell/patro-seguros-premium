@@ -318,6 +318,144 @@ export default function InternalLinkCorrelation() {
     convTypeFilter === "whatsapp" ? "só WhatsApp" : convTypeFilter === "cotacao" ? "só Cotação" : null,
   ].filter(Boolean).join(" · ");
 
+  // ── Modo "Recomendar mudanças" ────────────────────────────────────────
+  // Cruza âncoras perdedoras (muitas impressões no GSC + baixa CTR e/ou
+  // baixa conversão) com âncoras vencedoras (alta conversion rate) do
+  // mesmo cluster para propor swaps de hash.
+  //   • Ganho estimado = impressões × CTR-alvo(posição) × conversion_rate
+  //     do vencedor. Serve como ranking, não como forecast exato.
+  //   • Preferência dupla quando o vencedor já converte na mesma
+  //     página do perdedor (mesmo `topPage.pathname`).
+  //   • Respeita `clusterFilter` e `convTypeFilter` da toolbar.
+  type HashSwap = {
+    key: string;
+    loserAnchor: string;
+    winnerAnchor: string;
+    pathname: string;
+    cluster: AnchorClusterId;
+    impressions: number;
+    position: number | null;
+    loserCtr: number;
+    loserConversionRate: number;
+    winnerConversionRate: number;
+    winnerSessions: number;
+    winnerWhats: number;
+    winnerCotacao: number;
+    samePage: boolean;
+    projectedConversionsGain: number;
+    confidence: "alta" | "média" | "baixa";
+    reason: string;
+  };
+  const hashRecommendations = useMemo<HashSwap[]>(() => {
+    if (!data?.anchorPotential || !data?.anchorConversions) return [];
+    // CTR estimado por faixa de posição (proxy interno — evita curl em
+    // real time; mesma referência usada pelo dashboard de bairros).
+    const ctrForPosition = (pos: number | null): number => {
+      if (pos == null) return 0.01;
+      if (pos <= 3) return 0.25;
+      if (pos <= 5) return 0.12;
+      if (pos <= 10) return 0.06;
+      if (pos <= 20) return 0.02;
+      return 0.008;
+    };
+
+    const losers = data.anchorPotential.filter((a) => {
+      if (!a.topPage) return false;
+      if (!matchesCluster(a.topPage.pathname)) return false;
+      // Precisa de exposição real e sinal ruim de eficiência
+      if (a.impressions < 50) return false;
+      const ctr = a.clicks && a.impressions ? a.clicks / a.impressions : 0;
+      const badCtr = ctr < 0.02;
+      const badConv = a.conversionRate < 0.02;
+      return badCtr || badConv;
+    });
+
+    const winners = data.anchorConversions.filter((c) => {
+      if (c.sessions < 5) return false;
+      if (c.conversionRate < 0.05) return false;
+      if (!convTypeMatches(c.whatsappConversions, c.cotacaoConversions)) return false;
+      return true;
+    });
+    if (winners.length === 0 || losers.length === 0) return [];
+
+    // Indexa vencedores por cluster para lookup barato.
+    const winnersByCluster = new Map<AnchorClusterId, typeof winners>();
+    for (const w of winners) {
+      const cid = getAnchorCluster(w.topPage?.pathname);
+      const arr = winnersByCluster.get(cid) ?? [];
+      arr.push(w);
+      winnersByCluster.set(cid, arr);
+    }
+
+    const swaps: HashSwap[] = [];
+    for (const loser of losers) {
+      const cluster = getAnchorCluster(loser.topPage!.pathname);
+      const pool = (winnersByCluster.get(cluster) ?? []).filter(
+        (w) => w.anchor !== loser.anchor,
+      );
+      if (pool.length === 0) continue;
+
+      // Escolhe o melhor vencedor: prioriza mesma página → maior taxa
+      // ponderada pelo volume do tipo de conversão filtrado (ou total).
+      const scored = pool.map((w) => {
+        const samePage = w.topPage?.pathname === loser.topPage!.pathname;
+        const typedConv = convTypeCount(w.whatsappConversions, w.cotacaoConversions);
+        const weight = w.conversionRate * (1 + Math.log1p(typedConv)) * (samePage ? 1.5 : 1);
+        return { w, samePage, weight };
+      }).sort((a, b) => b.weight - a.weight);
+      const best = scored[0];
+      if (!best) continue;
+
+      const ctr = loser.clicks && loser.impressions ? loser.clicks / loser.impressions : 0;
+      const targetCtr = Math.max(ctrForPosition(loser.position), ctr);
+      const projected = loser.impressions * targetCtr * best.w.conversionRate;
+      const confidence: HashSwap["confidence"] =
+        best.samePage && best.w.sessions >= 20 ? "alta"
+          : best.w.sessions >= 10 ? "média"
+          : "baixa";
+
+      const reasonBits: string[] = [];
+      if (loser.impressions >= 200) reasonBits.push(`${fmtInt(loser.impressions)} impressões desperdiçadas`);
+      else reasonBits.push(`${fmtInt(loser.impressions)} impressões`);
+      if (ctr < 0.02) reasonBits.push(`CTR ${fmtPct(ctr, 1)}`);
+      if (loser.conversionRate < 0.02) reasonBits.push(`conversão ${fmtPct(loser.conversionRate, 1)}`);
+      reasonBits.push(`vencedor converte ${fmtPct(best.w.conversionRate, 1)}${best.samePage ? " na mesma página" : " no mesmo cluster"}`);
+
+      swaps.push({
+        key: `${loser.anchor}->${best.w.anchor}@${loser.topPage!.pathname}`,
+        loserAnchor: loser.anchor,
+        winnerAnchor: best.w.anchor,
+        pathname: loser.topPage!.pathname,
+        cluster,
+        impressions: loser.impressions,
+        position: loser.position,
+        loserCtr: ctr,
+        loserConversionRate: loser.conversionRate,
+        winnerConversionRate: best.w.conversionRate,
+        winnerSessions: best.w.sessions,
+        winnerWhats: best.w.whatsappConversions,
+        winnerCotacao: best.w.cotacaoConversions,
+        samePage: best.samePage,
+        projectedConversionsGain: projected,
+        confidence,
+        reason: reasonBits.join(" · "),
+      });
+    }
+    return swaps.sort((a, b) => b.projectedConversionsGain - a.projectedConversionsGain).slice(0, 30);
+  }, [data, clusterFilter, convTypeFilter]);
+
+  const copySwap = async (s: HashSwap) => {
+    const text = `Substituir #${s.loserAnchor} por #${s.winnerAnchor} em ${s.pathname} — ganho projetado ${s.projectedConversionsGain.toFixed(1)} conv./período (confiança ${s.confidence}).`;
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedSwapKey(s.key);
+      setTimeout(() => setCopiedSwapKey((k) => (k === s.key ? null : k)), 1500);
+      toast.success("Recomendação copiada");
+    } catch {
+      toast.error("Não foi possível copiar");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <PageMeta
