@@ -153,10 +153,121 @@ for (const file of files) {
 const out = path.join(DIST, "google-rich-results-report.json");
 fs.writeFileSync(out, JSON.stringify(report, null, 2));
 
+// ---------- per-URL + per-type + log ----------------------------------------
+// Relatórios adicionais consumíveis por planilha e por CI:
+//   1. rich-results-by-url.csv      → 1 linha por rota, com verdict agregado
+//   2. rich-results-by-type.csv     → 1 linha por @type, com percentuais
+//   3. rich-results-eligibility-log.json → diff contra o snapshot anterior
+//      (dist/.rich-results-prev.json). Lista rotas que viraram 100% eligible
+//      e rotas que regrediram desde o último build.
+// ----------------------------------------------------------------------------
+
+function rollupRoute(nodes) {
+  const counts = { eligible: 0, eligibleWarn: 0, ineligible: 0, unsupported: 0 };
+  const perType = {};
+  for (const n of nodes) {
+    if (n.verdict === "eligible") counts.eligible++;
+    else if (n.verdict === "eligible-warn") counts.eligibleWarn++;
+    else if (n.verdict === "ineligible") counts.ineligible++;
+    else if (n.verdict === "unsupported") counts.unsupported++;
+    const bucket = perType[n.type] || (perType[n.type] = { total: 0, eligible: 0, warn: 0, inel: 0, unsup: 0 });
+    bucket.total++;
+    if (n.verdict === "eligible") bucket.eligible++;
+    else if (n.verdict === "eligible-warn") bucket.warn++;
+    else if (n.verdict === "ineligible") bucket.inel++;
+    else bucket.unsup++;
+  }
+  const supported = counts.eligible + counts.eligibleWarn + counts.ineligible;
+  const verdict = counts.ineligible > 0
+    ? "ineligible"
+    : counts.eligibleWarn > 0
+      ? "eligible-warn"
+      : counts.eligible > 0 ? "eligible" : "unsupported-only";
+  return { counts, perType, supported, verdict, fullyEligible: verdict === "eligible" && counts.eligible > 0 };
+}
+
+const routeRollups = Object.fromEntries(
+  Object.entries(report.routes).map(([route, r]) => [route, { ...rollupRoute(r.nodes), file: r.file }]),
+);
+
+// (1) CSV por URL
+const csvUrl = ["url,file,verdict,fully_eligible,eligible,warn,ineligible,unsupported,supported_total"];
+for (const [route, r] of Object.entries(routeRollups).sort()) {
+  csvUrl.push([
+    route,
+    r.file,
+    r.verdict,
+    r.fullyEligible ? "yes" : "no",
+    r.counts.eligible,
+    r.counts.eligibleWarn,
+    r.counts.ineligible,
+    r.counts.unsupported,
+    r.supported,
+  ].join(","));
+}
+fs.writeFileSync(path.join(DIST, "rich-results-by-url.csv"), csvUrl.join("\n"));
+
+// (2) CSV por @type
+const csvType = ["type,total,eligible,eligible_warn,ineligible,unsupported,eligible_pct"];
+for (const [t, v] of Object.entries(report.byType).sort((a, b) => b[1].total - a[1].total)) {
+  const supported = v.eligible + v.eligibleWarn + v.ineligible;
+  const pct = supported ? ((v.eligible / supported) * 100).toFixed(1) : "n/a";
+  csvType.push([t, v.total, v.eligible, v.eligibleWarn, v.ineligible, v.unsupported, pct].join(","));
+}
+fs.writeFileSync(path.join(DIST, "rich-results-by-type.csv"), csvType.join("\n"));
+
+// (3) Diff contra o snapshot anterior — log de correções/regressões
+const snapFile = path.join(DIST, ".rich-results-prev.json");
+let prev = null;
+try { prev = JSON.parse(fs.readFileSync(snapFile, "utf-8")); } catch { /* first run */ }
+
+const currentByRoute = Object.fromEntries(
+  Object.entries(routeRollups).map(([r, v]) => [r, {
+    verdict: v.verdict, fullyEligible: v.fullyEligible,
+    warn: v.counts.eligibleWarn, ineligible: v.counts.ineligible,
+  }])
+);
+
+const log = {
+  generatedAt: report.generatedAt,
+  totals: {
+    routes: Object.keys(currentByRoute).length,
+    fullyEligible: Object.values(currentByRoute).filter((r) => r.fullyEligible).length,
+    withWarn: Object.values(currentByRoute).filter((r) => r.warn > 0).length,
+    withIneligible: Object.values(currentByRoute).filter((r) => r.ineligible > 0).length,
+  },
+  fixedSincePrev: [],   // rotas que viraram 100% eligible neste build
+  regressedSincePrev: [], // rotas que perderam o status 100% eligible
+  stillProblematic: [], // rotas com warn/ineligible neste build
+};
+
+for (const [route, cur] of Object.entries(currentByRoute)) {
+  const p = prev?.routes?.[route];
+  if (cur.fullyEligible && p && !p.fullyEligible) log.fixedSincePrev.push({ route, prev: p, now: cur });
+  if (!cur.fullyEligible && p?.fullyEligible) log.regressedSincePrev.push({ route, prev: p, now: cur });
+  if (!cur.fullyEligible) log.stillProblematic.push({ route, ...cur });
+}
+log.stillProblematic.sort((a, b) => (b.ineligible - a.ineligible) || (b.warn - a.warn));
+
+fs.writeFileSync(path.join(DIST, "rich-results-eligibility-log.json"), JSON.stringify(log, null, 2));
+fs.writeFileSync(snapFile, JSON.stringify({ routes: currentByRoute }, null, 2));
+
 const s = report.summary;
 console.log("\n🔎 Google Rich Results — elegibilidade");
 console.log(`   arquivos: ${s.files}   blocos: ${s.blocks}   nodes: ${s.nodes}`);
 console.log(`   ✅ eligible: ${s.eligible}   ⚠️  eligible-warn: ${s.eligibleWarn}   ❌ ineligible: ${s.ineligible}   ➖ unsupported: ${s.unsupported}`);
+
+console.log(`\n📊 Por URL: ${log.totals.fullyEligible}/${log.totals.routes} rotas 100% eligible` +
+  `   ⚠️ com warn: ${log.totals.withWarn}   ❌ com ineligible: ${log.totals.withIneligible}`);
+if (prev) {
+  console.log(`   Δ vs. build anterior: +${log.fixedSincePrev.length} viraram 100% eligible   -${log.regressedSincePrev.length} regrediram`);
+  for (const r of log.fixedSincePrev.slice(0, 10)) console.log(`   ✅ corrigido: ${r.route}`);
+  for (const r of log.regressedSincePrev.slice(0, 10)) console.log(`   ⛔ regrediu: ${r.route}  (${r.now.ineligible} inel, ${r.now.warn} warn)`);
+  if (log.fixedSincePrev.length > 10) console.log(`   … (+${log.fixedSincePrev.length - 10} corrigidos omitidos)`);
+  if (log.regressedSincePrev.length > 10) console.log(`   … (+${log.regressedSincePrev.length - 10} regressões omitidas)`);
+} else {
+  console.log(`   (primeiro build — snapshot base gravado em dist/.rich-results-prev.json)`);
+}
 
 // Breakdown por @type
 const typeRows = Object.entries(report.byType).sort((a, b) => b[1].total - a[1].total);
@@ -186,6 +297,9 @@ for (const [route, r] of problematic.slice(0, 60)) {
 if (problematic.length > 60) console.log(`   … (+${problematic.length - 60} rotas omitidas)`);
 
 console.log(`\n📝 Relatório: ${path.relative(ROOT, out)}`);
+console.log(`   • Por URL:     ${path.relative(ROOT, path.join(DIST, "rich-results-by-url.csv"))}`);
+console.log(`   • Por @type:   ${path.relative(ROOT, path.join(DIST, "rich-results-by-type.csv"))}`);
+console.log(`   • Log:         ${path.relative(ROOT, path.join(DIST, "rich-results-eligibility-log.json"))}`);
 
 if (ineligibleTotal > 0) {
   console.error(`\n❌ ${ineligibleTotal} bloco(s) marcado(s) como INELIGIBLE — não vão gerar Google Rich Result.`);
