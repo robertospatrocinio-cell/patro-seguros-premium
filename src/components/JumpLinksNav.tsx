@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { cn } from "@/lib/utils";
 import {
   buildInternalLinkSource,
@@ -17,9 +17,53 @@ interface JumpLinksNavProps {
  * driven by IntersectionObserver. Respects `prefers-reduced-motion`.
  */
 const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
-  const [activeId, setActiveId] = useState<string | null>(null);
-
   const getId = (href: string) => (href.startsWith("#") ? href.slice(1) : href);
+
+  const storageKey =
+    typeof window !== "undefined"
+      ? `patro:jumplink:${window.location.pathname.replace(/\/$/, "") || "/"}`
+      : "patro:jumplink";
+
+  // Hydrate from URL hash (deep link) or sessionStorage so the pill stays
+  // highlighted when the user comes back to the page or lands via anchor.
+  const [activeId, setActiveId] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    const ids = links.map((l) => getId(l.href));
+    const hash = window.location.hash.replace(/^#/, "");
+    if (hash && ids.includes(hash)) return hash;
+    try {
+      const stored = window.sessionStorage.getItem(storageKey);
+      if (stored && ids.includes(stored)) return stored;
+    } catch {
+      /* sessionStorage unavailable */
+    }
+    return null;
+  });
+
+  // Lock observer updates for a short window after a click, so smooth-scroll
+  // through intermediate sections doesn't flicker the active pill.
+  const lockUntilRef = useRef<number>(0);
+  const navRef = useRef<HTMLElement | null>(null);
+  const pillRefs = useRef<Map<string, HTMLAnchorElement>>(new Map());
+
+  // Persist the active pill so orientation survives re-renders and returns.
+  useEffect(() => {
+    if (typeof window === "undefined" || !activeId) return;
+    try {
+      window.sessionStorage.setItem(storageKey, activeId);
+    } catch {
+      /* ignore */
+    }
+  }, [activeId, storageKey]);
+
+  // Keep the active pill in view inside the horizontal nav on mobile.
+  useEffect(() => {
+    if (!activeId) return;
+    const el = pillRefs.current.get(activeId);
+    if (el?.scrollIntoView) {
+      el.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    }
+  }, [activeId]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -33,6 +77,7 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        if (performance.now() < lockUntilRef.current) return;
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -91,6 +136,9 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
         behavior: prefersReduced ? "auto" : "smooth",
       });
       setActiveId(id);
+      // Prevent the observer from overriding the user's explicit choice while
+      // smooth-scrolling through the sections above the target.
+      lockUntilRef.current = performance.now() + (prefersReduced ? 0 : 900);
       // Update URL hash without jumping
       if (history.replaceState) {
         history.replaceState(null, "", `#${id}`);
@@ -107,9 +155,10 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
   return (
     <nav
       aria-label="Ir para a seção"
+      ref={navRef}
       className="sticky top-16 z-30 border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70"
     >
-      <div className="container mx-auto px-4 py-3 flex flex-wrap gap-2 text-sm">
+      <div className="container mx-auto px-4 py-3 flex flex-nowrap md:flex-wrap gap-2 text-sm overflow-x-auto md:overflow-visible scroll-smooth">
         <span className="text-muted-foreground mr-1 py-1">Nesta página:</span>
         {links.map((l) => {
           const id = getId(l.href);
@@ -118,12 +167,16 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
             <a
               key={l.href}
               href={l.href}
+              ref={(el) => {
+                if (el) pillRefs.current.set(id, el);
+                else pillRefs.current.delete(id);
+              }}
               onClick={(e) => handleClick(e, l.href, l.label)}
               aria-current={isActive ? "location" : undefined}
               className={cn(
-                "inline-flex items-center rounded-full border px-3 py-1 transition-colors",
+                "inline-flex shrink-0 items-center rounded-full border px-3 py-1 transition-colors",
                 isActive
-                  ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                  ? "border-primary bg-primary text-primary-foreground shadow-sm font-medium ring-2 ring-primary/25 ring-offset-2 ring-offset-background"
                   : "border-border bg-background text-foreground/80 hover:text-primary hover:border-primary/60"
               )}
             >
