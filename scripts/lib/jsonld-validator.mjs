@@ -1,7 +1,23 @@
 /**
  * Pure JSON-LD validation helpers. No filesystem / no process.exit so they can
  * be unit-tested with Vitest and reused by the build-time CLI.
+ *
+ * Regras de URL/imagem (esquema absoluto http(s), extração de ImageObject,
+ * extração recursiva de campos URL-like) são delegadas a
+ * `./url-image-helpers.mjs` — ponto único da verdade compartilhado com
+ * `./rich-results-checkers.mjs`. Isso garante que a validação estrutural
+ * (aqui) e a checagem de elegibilidade a Google Rich Results (checkers)
+ * apliquem exatamente o mesmo predicado — evitando regressões silenciosas
+ * em que um dos lados aprova o que o outro reprova.
  */
+
+import {
+  ABS_URL_RE,
+  isAbsUrl,
+  isHttpsUrl,
+  hasImage,
+  extractUrlLike,
+} from "./url-image-helpers.mjs";
 
 const SCRIPT_RE = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -50,7 +66,7 @@ export function validateBreadcrumb(node, errors, label = "BreadcrumbList") {
       { field: `itemListElement[${i}].item`, rule: "breadcrumb.item.urlRequired" });
     if (it.item) {
       const url = typeof it.item === "string" ? it.item : it.item?.["@id"] || it.item?.url;
-      if (typeof url === "string" && !/^https?:\/\//i.test(url)) {
+      if (typeof url === "string" && !isAbsUrl(url)) {
         push(errors, `${label}: item[${i}].item deve ser URL absoluta http(s) (recebido "${url}")`,
           { field: `itemListElement[${i}].item`, rule: "breadcrumb.item.absoluteUrl" });
       }
