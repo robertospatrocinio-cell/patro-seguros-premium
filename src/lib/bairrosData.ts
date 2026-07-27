@@ -75,8 +75,21 @@ export interface BairroLocalIntel {
     empresarial?: "baixo" | "médio" | "médio-alto" | "alto";
     notes?: string;
   };
-  /** Caso real anonimizado (sem dados identificáveis) */
-  localCase?: { title: string; description: string };
+  /** Caso real anonimizado (sem dados identificáveis) — destaque principal */
+  localCase?: BairroLocalCase;
+  /** Casos adicionais anonimizados renderizados em grid abaixo do destaque */
+  localCases?: BairroLocalCase[];
+}
+
+export interface BairroLocalCase {
+  title: string;
+  description: string;
+  /** Produto/segmento envolvido (ex.: "Auto + Residencial", "RCTR-C + Frota") */
+  product?: string;
+  /** Ano do caso (ex.: 2025, 2026) */
+  year?: number;
+  /** Métricas destacadas (ex.: "R$ 38 mil/ano economizados", "Sinistro pago em 28 dias") */
+  metrics?: string[];
 }
 
 export const bairros: BairroData[] = [
