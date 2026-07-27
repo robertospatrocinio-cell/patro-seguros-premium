@@ -525,3 +525,148 @@ describe("negativos: Organization com url/logo inválidos derruba o validador", 
     }
   });
 });
+
+// ============================================================================
+// SUITE — Determinismo do pipeline
+// ============================================================================
+// Rodar o validador N vezes contra o MESMO dist prerenderizado deve
+// sempre produzir:
+//   1. o mesmo `summary` (eligible/eligibleWarn/ineligible/unsupported)
+//   2. o mesmo conjunto de `@type` em `byType`
+//   3. os mesmos contadores dentro de cada `byType[type]`
+//   4. o mesmo conjunto de rotas + mesmo verdict por nó em cada rota
+//
+// Se algum dia introduzirmos ordenação instável (Object.keys sem sort,
+// iteração dependente de timing, cache com TTL, PRNG não seedado), este
+// teste quebra imediatamente.
+// ============================================================================
+
+describe("determinismo: execuções repetidas do validador produzem o mesmo relatório", () => {
+  const RUNS = 5;
+
+  function readReport(distDir) {
+    return JSON.parse(
+      fs.readFileSync(path.join(distDir, "google-rich-results-report.json"), "utf-8"),
+    );
+  }
+
+  function snapshot(report) {
+    // Ignora `generatedAt` (timestamp) — o resto DEVE bater byte-a-byte.
+    return {
+      summary: report.summary,
+      byTypeKeys: Object.keys(report.byType ?? {}).sort(),
+      byType: Object.fromEntries(
+        Object.entries(report.byType ?? {})
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([k, v]) => [k, v]),
+      ),
+      routesKeys: Object.keys(report.routes ?? {}).sort(),
+      routeNodes: Object.fromEntries(
+        Object.entries(report.routes ?? {})
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([route, entry]) => [
+            route,
+            (entry.nodes ?? []).map((n) => ({
+              type: n.type,
+              verdict: n.verdict,
+              required: [...n.required].sort(),
+              recommended: [...n.recommended].sort(),
+            })),
+          ]),
+      ),
+    };
+  }
+
+  it(`${RUNS} execuções sobre o mesmo fixture → snapshots idênticos`, () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), "prv-det-"));
+    try {
+      // Popula o dist com as 3 rotas canônicas do fixture.
+      for (const route of ROUTES) {
+        const dir = path.join(dist, routeToRelDir(route));
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, "index.html"), htmlWith(...fixtureBlocksFor(route)), "utf-8");
+      }
+
+      const snapshots = [];
+      for (let i = 0; i < RUNS; i++) {
+        const res = spawnSync(
+          "node",
+          [VALIDATOR, `--dist=${dist}`, "--strict-warn"],
+          { encoding: "utf-8", cwd: ROOT },
+        );
+        expect(
+          res.status,
+          `run#${i} falhou:\nSTDOUT:\n${res.stdout}\nSTDERR:\n${res.stderr}`,
+        ).toBe(0);
+        snapshots.push(snapshot(readReport(dist)));
+      }
+
+      const first = snapshots[0];
+      for (let i = 1; i < snapshots.length; i++) {
+        expect(
+          snapshots[i].summary,
+          `run#${i}: summary divergiu de run#0`,
+        ).toEqual(first.summary);
+        expect(
+          snapshots[i].byTypeKeys,
+          `run#${i}: conjunto de @type divergiu (${snapshots[i].byTypeKeys.join(",")} vs ${first.byTypeKeys.join(",")})`,
+        ).toEqual(first.byTypeKeys);
+        expect(
+          snapshots[i].byType,
+          `run#${i}: contadores por @type divergiram`,
+        ).toEqual(first.byType);
+        expect(
+          snapshots[i].routesKeys,
+          `run#${i}: conjunto de rotas divergiu`,
+        ).toEqual(first.routesKeys);
+        expect(
+          snapshots[i].routeNodes,
+          `run#${i}: verdict por nó divergiu em alguma rota`,
+        ).toEqual(first.routeNodes);
+      }
+
+      // Sanity: o snapshot não é trivialmente vazio.
+      expect(first.byTypeKeys, "byType vazio — fixture não gerou nós?").not.toEqual([]);
+      expect(first.routesKeys.length, "nenhuma rota no relatório").toBeGreaterThan(0);
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+
+  it("mesmos blocos em ordem diferente entre runs → mesmo summary e mesmo conjunto de @type", () => {
+    // Complementa a suíte de invariância de ordem: aqui não permutamos
+    // exaustivamente, só rodamos duas vezes com ordens diferentes e
+    // exigimos summary + byType idênticos, provando que o pipeline
+    // agrega por @type/verdict e não por posição.
+    const distA = fs.mkdtempSync(path.join(os.tmpdir(), "prv-det-a-"));
+    const distB = fs.mkdtempSync(path.join(os.tmpdir(), "prv-det-b-"));
+    try {
+      for (const route of ROUTES) {
+        const blocks = fixtureBlocksFor(route);
+        const reversed = [...blocks].reverse();
+        const dirA = path.join(distA, routeToRelDir(route));
+        const dirB = path.join(distB, routeToRelDir(route));
+        fs.mkdirSync(dirA, { recursive: true });
+        fs.mkdirSync(dirB, { recursive: true });
+        fs.writeFileSync(path.join(dirA, "index.html"), htmlWith(...blocks), "utf-8");
+        fs.writeFileSync(path.join(dirB, "index.html"), htmlWith(...reversed), "utf-8");
+      }
+
+      for (const d of [distA, distB]) {
+        const res = spawnSync("node", [VALIDATOR, `--dist=${d}`, "--strict-warn"], {
+          encoding: "utf-8", cwd: ROOT,
+        });
+        expect(res.status, `run em ${d} falhou`).toBe(0);
+      }
+
+      const a = snapshot(readReport(distA));
+      const b = snapshot(readReport(distB));
+      expect(b.summary, "summary divergiu ao inverter a ordem dos blocos").toEqual(a.summary);
+      expect(b.byTypeKeys, "conjunto de @type divergiu ao inverter a ordem").toEqual(a.byTypeKeys);
+      expect(b.byType, "contadores por @type divergiram ao inverter a ordem").toEqual(a.byType);
+    } finally {
+      fs.rmSync(distA, { recursive: true, force: true });
+      fs.rmSync(distB, { recursive: true, force: true });
+    }
+  });
+});
