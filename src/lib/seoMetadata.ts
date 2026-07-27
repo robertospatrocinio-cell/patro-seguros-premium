@@ -67,7 +67,7 @@ function buildHubMainEntity(cleanPath: string) {
   return {
     "@type": "ItemList",
     "@id": `${DOMAIN}${cleanPath}#itemlist`,
-    "name": hub?.title ?? "Coleção",
+    "name": hub?.name ?? "Coleção",
     "numberOfItems": paths.length,
     "itemListOrder": "https://schema.org/ItemListOrderAscending",
     "itemListElement": paths.map((href, i) => ({
