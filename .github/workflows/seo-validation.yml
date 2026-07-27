@@ -34,6 +34,9 @@ jobs:
       - name: Unit tests - canonical & headings validator
         run: bun run test:canonical
 
+      - name: Unit tests - heading hierarchy validator (source + hierarquia + jumplinks)
+        run: bun run test:heading-hierarchy
+
       - name: Build com SSG real (prerender.mjs + prerender-react.mjs + validate-jsonld-build)
         env:
           ENABLE_REACT_SSG: "1"

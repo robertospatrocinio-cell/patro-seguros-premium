@@ -217,7 +217,11 @@ function run() {
   if (!WARN_ONLY) process.exit(1);
 }
 
-run();
+// Só executa como CLI quando invocado diretamente (não durante `import` em testes).
+const invokedDirectly =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (invokedDirectly) run();
+
 // Expor helpers para testes unitários (Vitest).
 export {
   auditSourceFile,

@@ -18,6 +18,7 @@
     "test:e2e:install": "playwright install chromium",
     "test:jsonld": "vitest run scripts/lib/jsonld-validator.test.mjs",
     "test:canonical": "vitest run scripts/lib/canonical-heading-validator.test.mjs",
+    "test:heading-hierarchy": "vitest run scripts/validate-heading-hierarchy.test.mjs",
     "test:integration": "vitest run scripts/prerender-validate-integration.test.mjs",
     "integration:report": "node scripts/build-integration-report.mjs",
     "integration:diff": "node scripts/diff-rich-results-report.mjs",
