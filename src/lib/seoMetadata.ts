@@ -1,5 +1,6 @@
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
+import { seoLocalProdutoBairroPages } from "@/data/seoLocalProdutoBairroPages";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { articles as blogArticles } from "@/lib/blogData";
 import { getArticleImage } from "@/lib/blogImages";
@@ -494,7 +495,11 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   }
 
   // 3. Local Pages (Auto, Saúde, Modelos)
-  const localConfig = seoLocalPages[slug] || seoLocalSaudePages[slug] || seoModeloAutoPages[slug];
+  const localConfig =
+    seoLocalPages[slug] ||
+    seoLocalSaudePages[slug] ||
+    seoLocalProdutoBairroPages[slug] ||
+    seoModeloAutoPages[slug];
   if (localConfig) {
     const rawTitle = localConfig.title.includes("Patro") ? localConfig.title : `${localConfig.title} | Patro`;
     const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
