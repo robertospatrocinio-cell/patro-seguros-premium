@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       allow_warn:
-        description: "Permitir eligible-warn no validador do Google Rich Results (não falha em warn)"
+        description: "Permitir eligible-warn no validador do Google Rich Results (por padrão o CI falha em warn)"
         type: boolean
-        default: true
+        default: false
 
 jobs:
   jsonld:
@@ -54,15 +54,15 @@ jobs:
       - name: Validar rich results (FAQPage + HowTo + BreadcrumbList) em dist/
         run: bun run validate:rich-snippets
 
-      - name: Validar elegibilidade Google Rich Results em dist/ (falha em ineligible)
-        # Falha o build se qualquer bloco JSON-LD ficar `ineligible` conforme regras
-        # do Google Search Central. `eligible-warn` só falha quando allow_warn=false
-        # (padrão em push/PR: permite warn; disparo manual pode alternar).
+      - name: Validar elegibilidade Google Rich Results em dist/ (STRICT — falha em warn OU ineligible)
+        # Contrato do CI: 0 `eligible-warn` e 0 `ineligible` em toda rota de dist/.
+        # `workflow_dispatch` com allow_warn=true é a única forma de rodar em modo
+        # permissivo (debug manual) — push/PR sempre em modo estrito.
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.allow_warn }}" = "false" ]; then
-            bun run validate:google-rich-results -- --strict-warn
-          else
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.allow_warn }}" = "true" ]; then
             bun run validate:google-rich-results -- --allow-warn
+          else
+            bun run validate:google-rich-results -- --strict-warn
           fi
 
       - name: Upload do relatório Google Rich Results
