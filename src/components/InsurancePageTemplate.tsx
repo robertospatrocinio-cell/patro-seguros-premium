@@ -24,6 +24,7 @@ import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 import JumpLinksNav from "@/components/JumpLinksNav";
 import NextSectionCta, { type NextSectionCtaProps } from "@/components/NextSectionCta";
 import ProximasLeiturasCluster from "@/components/ProximasLeiturasCluster";
+import LongtailPagerNav from "@/components/LongtailPagerNav";
 import MobileClusterNextCta from "@/components/MobileClusterNextCta";
 import {
   detectGuarulhosNeighborhood,
@@ -1104,6 +1105,8 @@ const InsurancePageTemplate = ({
         <InsuranceHubLinks />
         {/* Próximas leituras — só renderiza em rotas listadas em LONGTAIL_CLUSTERS. */}
         <ProximasLeiturasCluster pathname={location.pathname} />
+        {/* Pager Prev/Next — navegação linear no cluster long-tail. */}
+        <LongtailPagerNav pathname={location.pathname} />
         {trilhaSeo && trilhaSeo.items.length > 0 && (
           <TrilhaSeoRelacionados
             title={trilhaSeo.title}

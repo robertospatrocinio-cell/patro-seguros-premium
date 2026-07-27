@@ -285,3 +285,71 @@ const SECTION_CTAS: Record<LongtailSlug, SectionCtaMap> = {
 
 export const getSectionCtasForSlug = (slug: string): SectionCtaMap | undefined =>
   SECTION_CTAS[slug as LongtailSlug];
+
+/* -------------------------------------------------------------------------- */
+/* Pager Prev/Next — navegação linear entre páginas do mesmo cluster.         */
+/*                                                                            */
+/* Fluxo canônico: apresenta as long-tails como uma "leitura em série"        */
+/* (elétrico → app → imóvel → saúde) para reforçar a conexão interna do      */
+/* cluster e aumentar tempo de permanência com um próximo passo previsível.  */
+/* -------------------------------------------------------------------------- */
+
+export interface LongtailPagerEntry {
+  slug: LongtailSlug;
+  label: string;
+  hint: string;
+}
+
+/**
+ * Ordem linear ÚNICA do cluster long-tail. Se um dia surgir um segundo
+ * cluster (ex.: B2B), trocar para `LongtailPagerEntry[][]` e localizar
+ * o array que contém o slug atual.
+ */
+const LONGTAIL_PAGER: LongtailPagerEntry[] = [
+  {
+    slug: "/valor-seguro-byd-dolphin",
+    label: "Valor do seguro BYD Dolphin",
+    hint: "Faixa de preço e coberturas para elétricos",
+  },
+  {
+    slug: "/melhor-seguro-para-uber-guarulhos",
+    label: "Melhor seguro para Uber em Guarulhos",
+    hint: "Ranking de preço por seguradora com cláusula de app",
+  },
+  {
+    slug: "/cotacao-seguro-residencial-online",
+    label: "Cotação de seguro residencial online",
+    hint: "8 seguradoras comparadas em até 2 horas",
+  },
+  {
+    slug: "/planos-de-saude-guarulhos-comparativo",
+    label: "Comparativo de planos de saúde em Guarulhos",
+    hint: "Amil, Bradesco, SulAmérica e Hapvida lado a lado",
+  },
+];
+
+export interface LongtailPagerResult {
+  current: LongtailPagerEntry;
+  prev: LongtailPagerEntry | null;
+  next: LongtailPagerEntry | null;
+  position: number; // 1-based
+  total: number;
+}
+
+/**
+ * Resolve prev/next para o `pathname` atual. Retorna `null` fora do cluster.
+ * A ordem é circular NÃO — se estiver no primeiro item, `prev` é null; no
+ * último, `next` é null. Isso evita loops de crawler.
+ */
+export const getLongtailPager = (pathname: string): LongtailPagerResult | null => {
+  const normalized = (pathname.replace(/\/+$/, "") || "/") as LongtailSlug;
+  const index = LONGTAIL_PAGER.findIndex((entry) => entry.slug === normalized);
+  if (index === -1) return null;
+  return {
+    current: LONGTAIL_PAGER[index],
+    prev: index > 0 ? LONGTAIL_PAGER[index - 1] : null,
+    next: index < LONGTAIL_PAGER.length - 1 ? LONGTAIL_PAGER[index + 1] : null,
+    position: index + 1,
+    total: LONGTAIL_PAGER.length,
+  };
+};
