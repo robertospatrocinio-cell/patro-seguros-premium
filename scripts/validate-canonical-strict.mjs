@@ -34,6 +34,11 @@ const BASE = `https://${EXPECTED_HOST}`;
 // /artigos/* (canonical intencionalmente aponta para /blog/*).
 const SKIP = new Set(["404.html"]);
 const SKIP_PREFIXES = ["assets/", "admin/"];
+// Relatórios gerados pelo próprio build (não são páginas do site).
+const SKIP_FILES = new Set([
+  "rich-results-report.html",
+  "google-rich-results-report.html",
+]);
 
 // Overrides intencionais (long-tail → hub). Formato:
 // { "/seguro-tcross-guarulhos": "https://www.patroseguros.com.br/seguro-auto-guarulhos" }
@@ -97,7 +102,7 @@ let skippedShells = 0;
 
 for (const file of files) {
   const rel = path.relative(DIST, file).replace(/\\/g, "/");
-  if (SKIP.has(rel) || SKIP_PREFIXES.some((p) => rel.startsWith(p))) continue;
+  if (SKIP.has(rel) || SKIP_FILES.has(rel) || SKIP_PREFIXES.some((p) => rel.startsWith(p))) continue;
   const route = fileToRoute(rel);
   const html = fs.readFileSync(file, "utf-8");
 
