@@ -45,7 +45,9 @@ const NextSectionCta = ({
         to={href}
         onClick={() =>
           trackInternalLinkClick({
-            source: buildInternalLinkSource("in-section-cta", sourceSlug),
+            // "landing" é o surface canônico para páginas long-tail/produto;
+            // o placement (`in-section:<id>`) carrega a granularidade do CTA.
+            source: buildInternalLinkSource("landing", sourceSlug),
             destination: href,
             label,
             placement: `in-section:${sourceSection}`,
