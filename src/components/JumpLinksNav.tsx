@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import {
   buildInternalLinkSource,
   trackInternalLinkClick,
+  trackSectionView,
 } from "@/lib/tracking";
 
 type JumpLink = { label: string; href: string };
@@ -28,13 +29,24 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
       .filter((el): el is HTMLElement => !!el);
     if (sections.length === 0) return;
 
+    const labelById = new Map(links.map((l) => [getId(l.href), l.label] as const));
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
         if (visible[0]) {
-          setActiveId(visible[0].target.id);
+          const id = visible[0].target.id;
+          setActiveId(id);
+          // Registra `section_view` uma única vez por (page, anchor) na
+          // sessão — permite correlacionar CLIQUE em jump-link com
+          // LEITURA real da seção no painel Admin. Só conta quando a
+          // seção está de fato visível ≥ 25% (rating estável no
+          // rootMargin abaixo).
+          if (visible[0].intersectionRatio >= 0.25) {
+            trackSectionView(id, labelById.get(id));
+          }
         }
       },
       {
