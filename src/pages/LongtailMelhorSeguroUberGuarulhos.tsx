@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { getLongtailCluster } from "@/lib/longtailClusters";
 
 const LongtailMelhorSeguroUberGuarulhos = () => (
   <InsurancePageTemplate
@@ -138,6 +139,7 @@ O critério mais importante para escolher o melhor seguro Uber em Guarulhos não
       { title: "Como Comparar Seguradoras em Guarulhos", link: "/como-comparar-seguradoras-guarulhos" },
       { title: "Soluções para Motoristas de App", link: "/seguros/motoristas-app" },
     ]}
+    trilhaSeo={getLongtailCluster("/melhor-seguro-para-uber-guarulhos")}
   />
 );
 
