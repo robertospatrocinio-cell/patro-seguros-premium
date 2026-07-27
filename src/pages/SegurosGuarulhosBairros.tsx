@@ -15,6 +15,7 @@ import { Car, Home, Building2, Shield, Clock, Star, Phone, Mail, MapPin, Chevron
  import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
  import { toast } from "sonner";
 import { bairros, type BairroData } from "@/lib/bairrosData";
+import { getNeighborBairros } from "@/lib/bairroNeighbors";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import BairroStickyCTABar from "@/components/BairroStickyCTABar";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
@@ -104,6 +105,41 @@ const SegurosGuarulhosBairros = () => {
   };
 
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá, vi o site da Patro e quero uma cotação para o bairro ${selectedBairro.nome}`)}`;
+
+  const neighbors = useMemo(
+    () => getNeighborBairros(selectedBairro.id),
+    [selectedBairro.id],
+  );
+
+  // Verticais mais buscadas por bairro — mesma paridade dos slugs
+  // publicados em `seoLocalProdutoBairroPages` + hubs globais.
+  const verticalLinks = useMemo(() => {
+    const slugMap: Record<string, string> = {
+      "jardim-maia": "cidade-maia",
+      "cumbica": "cumbica",
+      "centro": "centro-guarulhos",
+      "vila-augusta": "vila-augusta",
+      "bonsucesso": "bonsucesso",
+      "pimentas": "pimentas",
+      "taboao": "taboao-guarulhos",
+      "macedo": "macedo-guarulhos",
+      "gopouva": "gopouva-guarulhos",
+      "picanco": "picanco-guarulhos",
+    };
+    const localSlug = slugMap[selectedBairro.id];
+    return [
+      { label: "Seguro Auto", href: `/seguro-auto-guarulhos` },
+      localSlug
+        ? { label: "Seguro Residencial", href: `/seguro-residencial-${localSlug}` }
+        : { label: "Seguro Residencial", href: `/seguro-residencial-guarulhos` },
+      localSlug
+        ? { label: "Seguro de Vida", href: `/seguro-vida-${localSlug}` }
+        : { label: "Seguro de Vida", href: `/seguro-vida-guarulhos` },
+      localSlug
+        ? { label: "Seguro Empresarial", href: `/seguro-empresarial-${localSlug}` }
+        : { label: "Seguro Empresarial", href: `/seguro-empresarial-guarulhos` },
+    ];
+  }, [selectedBairro.id]);
 
   const breadcrumbItems = [
     { label: "Guarulhos", href: "/sobre-guarulhos" },
