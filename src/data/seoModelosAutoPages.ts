@@ -245,14 +245,25 @@ const MODELOS: ModeloSeed[] = [
     priceRange: { min: 2500, max: 4800, label: "R$ 2.500 a R$ 4.800/ano" },
 
     theftProfile: "baixo",
-    pros: ["Tecnologia 100% elétrica", "Baixo custo de manutenção", "Isenção de rodízio em SP"],
-    cons: ["Rede de oficinas especializada restrita", "Custo de bateria elevado em sinistros"],
+    pros: [
+      "Tecnologia 100% elétrica — zero emissão e IPVA reduzido em SP",
+      "Baixo custo de manutenção (sem óleo, correia, filtros ou embreagem)",
+      "Isenção de rodízio municipal em São Paulo capital",
+      "Índice de furto baixo — reduz o valor do seguro em até 25% vs. combustão equivalente",
+      "Bateria com garantia de fábrica de 8 anos (não conta como sinistro em queda natural)",
+    ],
+    cons: [
+      "Rede de oficinas especializada restrita — cheque se a seguradora tem convênio BYD",
+      "Custo de bateria elevado em sinistros (30-40% do valor do carro se perda total do pack)",
+      "Peças importadas com prazo maior de reposição — exigir cobertura de carro reserva estendida",
+    ],
     bestInsurers: [
       { name: "Porto Seguro", reason: "Cobertura específica para bateria e Wallbox" },
       { name: "Tokio Marine", reason: "Parceria oficial com a BYD e assistência VIP" },
       { name: "Allianz", reason: "Expertise global em veículos elétricos" }
     ],
-    context: "O BYD Dolphin é o elétrico mais vendido do Brasil. Em Guarulhos, exige um seguro que cubra a bateria e o Wallbox de recarga."
+    context:
+      "**Valor do seguro do BYD Dolphin em Guarulhos: entre R$ 2.500 e R$ 4.800/ano** (média de R$ 3.400 para perfil 35 anos, casado, garagem coberta em bairros como Cidade Maia, Jardim Maia ou Vila Galvão). Três fatores movem o preço para cima ou para baixo: **(1) inclusão da bateria e do Wallbox de recarga** na cobertura de danos elétricos — sem isso, um curto no carregador tira R$ 15 mil do bolso; **(2) escolha da seguradora com rede BYD credenciada** — evita rebocar o carro para SP capital em cada revisão pós-sinistro; **(3) perfil de garagem** — Dolphin em bairros com baixo índice de furto (como Cidade Maia e Cocaia) puxa o valor para o piso da faixa. O Dolphin é o elétrico mais vendido do Brasil e a Patro Seguros negocia com Porto, Tokio e Allianz condições específicas para elétricos, incluindo o Wallbox instalado em casa como parte do capital segurado.",
   },
   {
     slug: "seguro-byd-song-plus-guarulhos",
