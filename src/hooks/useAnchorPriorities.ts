@@ -11,6 +11,9 @@ export interface AnchorPriorityRow {
   impressions: number;
   position: number | null;
   updated_at: string;
+  top_pathname: string | null;
+  whatsapp_conversions: number;
+  cotacao_conversions: number;
 }
 
 export type AnchorPriorityMap = Record<string, AnchorPriorityRow>;
@@ -19,7 +22,7 @@ async function fetchAnchorPriorities(): Promise<AnchorPriorityMap> {
   const { data, error } = await supabase
     .from("anchor_priorities")
     .select(
-      "anchor, score, conversion_rate, sessions, converting_sessions, clicks, impressions, position, updated_at",
+      "anchor, score, conversion_rate, sessions, converting_sessions, clicks, impressions, position, updated_at, top_pathname, whatsapp_conversions, cotacao_conversions",
     );
   if (error) throw error;
   const map: AnchorPriorityMap = {};
