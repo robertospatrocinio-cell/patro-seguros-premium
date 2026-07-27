@@ -40,6 +40,7 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
+const PUBLIC_ADMIN = path.join(ROOT, "public/admin");
 const BACKFILL_FILE = path.join(ROOT, "src/data/blogFaqBackfill.ts");
 
 const args = process.argv.slice(2);
@@ -76,13 +77,14 @@ for (const slug of slugs) {
   });
 }
 
-// Report
+// Report — grava em dist/ (pipeline) e em public/admin/ (consumido pela
+// página admin `/admin/faq-underfilled` em runtime).
+const report = { generatedAt: new Date().toISOString(), total: affected.length, items: affected };
 if (fs.existsSync(DIST)) {
-  fs.writeFileSync(
-    path.join(DIST, "faq-underfilled-report.json"),
-    JSON.stringify({ generatedAt: new Date().toISOString(), total: affected.length, items: affected }, null, 2),
-  );
+  fs.writeFileSync(path.join(DIST, "faq-underfilled-report.json"), JSON.stringify(report, null, 2));
 }
+fs.mkdirSync(PUBLIC_ADMIN, { recursive: true });
+fs.writeFileSync(path.join(PUBLIC_ADMIN, "faq-underfilled.json"), JSON.stringify(report, null, 2));
 
 if (JSON_OUT) {
   console.log(JSON.stringify(affected, null, 2));
