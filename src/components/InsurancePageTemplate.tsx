@@ -24,6 +24,7 @@ import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 import JumpLinksNav from "@/components/JumpLinksNav";
 import NextSectionCta, { type NextSectionCtaProps } from "@/components/NextSectionCta";
 import ProximasLeiturasCluster from "@/components/ProximasLeiturasCluster";
+import LongtailPagerNav from "@/components/LongtailPagerNav";
 import MobileClusterNextCta from "@/components/MobileClusterNextCta";
 import {
   detectGuarulhosNeighborhood,
