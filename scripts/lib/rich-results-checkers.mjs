@@ -301,7 +301,28 @@ export function checkWebPage(n) {
 export function checkCollectionPage(n) {
   const req = [], rec = [];
   if (!n.name) req.push("name ausente");
-  if (!n.hasPart && !n.mainEntity) rec.push("hasPart ou mainEntity recomendado");
+  // Só recomendamos hasPart/mainEntity quando o nó realmente descreve
+  // uma coleção. Sinais de "coleção real": presença de campos que só
+  // fazem sentido em listagens (numberOfItems, about[], significantLink[],
+  // itemListElement, keywords) OU um @id/url que aponta para uma rota
+  // com semântica de hub (/hub-*, /hubs/, /categorias, /solucoes-*,
+  // /seguradoras, /seguradoras-parceiras, /artigos, /blog).
+  // Para páginas comuns tipadas como CollectionPage (ex.: landing sem
+  // filhos indexáveis), não emitimos warning — tratamos como WebPage.
+  if (!n.hasPart && !n.mainEntity) {
+    const url = String(n.url || n["@id"] || "");
+    const looksLikeHub =
+      /\/(hub-|hubs\/|categorias?\/|solucoes-|seguradoras(-parceiras)?(\/|#|$)|artigos(\/|#|$)|blog(\/|#|$))/i.test(url);
+    const hasCollectionSignal =
+      Number.isFinite(n.numberOfItems) ||
+      Array.isArray(n.about) ||
+      Array.isArray(n.significantLink) ||
+      Array.isArray(n.itemListElement) ||
+      Array.isArray(n.keywords);
+    if (looksLikeHub || hasCollectionSignal) {
+      rec.push("hasPart ou mainEntity recomendado");
+    }
+  }
   return { req, rec };
 }
 

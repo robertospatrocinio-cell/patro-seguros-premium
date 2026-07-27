@@ -3,6 +3,7 @@ import {
   checkBreadcrumbList,
   checkFAQPage,
   checkOrganization,
+  checkCollectionPage,
   CHECKERS,
 } from "./rich-results-checkers.mjs";
 
@@ -193,5 +194,59 @@ describe("checkOrganization", () => {
 
     const r2 = checkOrganization({ ...valid, sameAs: [] });
     expect(r2.rec.some((m) => /sameAs/.test(m))).toBe(true);
+  });
+});
+
+// ---------- CollectionPage --------------------------------------------------
+
+describe("checkCollectionPage", () => {
+  const base = { name: "Hub RC", url: "https://www.patroseguros.com.br/hub-rc" };
+
+  it("rejeita name ausente", () => {
+    expect(checkCollectionPage({ url: base.url }).req[0]).toMatch(/name/);
+  });
+
+  it("aprova coleção com hasPart", () => {
+    const r = checkCollectionPage({ ...base, hasPart: [{ "@type": "WebPage", url: base.url }] });
+    expect(ok(r)).toBe(true);
+    expect(r.rec).toEqual([]);
+  });
+
+  it("aprova coleção com mainEntity ItemList", () => {
+    const r = checkCollectionPage({
+      ...base,
+      mainEntity: { "@type": "ItemList", itemListElement: [{ "@type": "ListItem", position: 1 }] },
+    });
+    expect(r.rec).toEqual([]);
+  });
+
+  it("emite warn quando a URL é de hub (/hub-*) e faltam hasPart/mainEntity", () => {
+    const r = checkCollectionPage(base);
+    expect(r.rec.some((m) => /hasPart ou mainEntity/.test(m))).toBe(true);
+  });
+
+  it("emite warn quando há sinais de coleção (numberOfItems) mas faltam hasPart/mainEntity", () => {
+    const r = checkCollectionPage({
+      name: "X",
+      url: "https://www.patroseguros.com.br/qualquer-rota",
+      numberOfItems: 12,
+    });
+    expect(r.rec.some((m) => /hasPart ou mainEntity/.test(m))).toBe(true);
+  });
+
+  it("NÃO emite warn quando a rota não parece hub e não há sinais de coleção", () => {
+    const r = checkCollectionPage({
+      name: "Landing genérica",
+      url: "https://www.patroseguros.com.br/depoimentos-clientes",
+    });
+    expect(r.req).toEqual([]);
+    expect(r.rec).toEqual([]);
+  });
+
+  it("reconhece /seguradoras, /seguradoras-parceiras e /artigos como hub", () => {
+    for (const p of ["/seguradoras", "/seguradoras-parceiras", "/artigos"]) {
+      const r = checkCollectionPage({ name: "X", url: `https://www.patroseguros.com.br${p}` });
+      expect(r.rec.some((m) => /hasPart ou mainEntity/.test(m))).toBe(true);
+    }
   });
 });
