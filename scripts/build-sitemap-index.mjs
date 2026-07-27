@@ -184,6 +184,12 @@ const indexFiles = ["sitemap-pages.xml", "sitemap-blog.xml", "sitemap-seguros.xm
 if (fs.existsSync(path.join(TARGET_DIR, "sitemap-images.xml"))) {
   indexFiles.push("sitemap-images.xml");
 }
+// sitemap-bairros.xml é gerado por scripts/generate-sitemap.ts (bairros +
+// subpáginas produto×bairro). Incluí-lo no índice garante que o GSC rastreie
+// o cluster hyper-local separadamente dos demais.
+if (fs.existsSync(path.join(TARGET_DIR, "sitemap-bairros.xml"))) {
+  indexFiles.push("sitemap-bairros.xml");
+}
 
 fs.writeFileSync(path.join(TARGET_DIR, "sitemap-index.xml"), buildIndex(indexFiles), "utf-8");
 console.log(`  ✓ sitemap-index.xml     ${indexFiles.length} sitemaps`);
@@ -195,7 +201,6 @@ console.log(`  ✓ sitemap.xml           espelho do index (autodiscovery)`);
 // -------- Remove sitemaps antigos por categoria --------------------------
 const LEGACY = [
   "sitemap-auto.xml",
-  "sitemap-bairros.xml",
   "sitemap-empresarial.xml",
   "sitemap-geral.xml",
   "sitemap-guarulhos.xml",
@@ -215,14 +220,17 @@ if (fs.existsSync(robotsPath)) {
   const original = fs.readFileSync(robotsPath, "utf-8");
   const lines = original.split("\n");
   const kept = lines.filter((l) => !/^\s*Sitemap:\s*\S+/i.test(l));
-  // Reinjeta apenas o sitemap-index canônico (crawlers descobrem os filhos)
-  const sitemapLine = `Sitemap: ${CANONICAL_HOST}/sitemap-index.xml`;
-  // Coloca a linha depois do primeiro bloco User-agent: * / Allow blocks;
-  // simples: adiciona no final se ainda não estiver presente.
+  // Referencia o índice canônico + sitemap-bairros.xml explicitamente para
+  // garantir descoberta imediata do cluster hyper-local (bairros e
+  // subpáginas produto×bairro), mesmo que algum crawler ignore o index.
+  const sitemapLines = [`Sitemap: ${CANONICAL_HOST}/sitemap-index.xml`];
+  if (fs.existsSync(path.join(TARGET_DIR, "sitemap-bairros.xml"))) {
+    sitemapLines.push(`Sitemap: ${CANONICAL_HOST}/sitemap-bairros.xml`);
+  }
   const rebuilt = kept.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() +
-    `\n\n# Sitemaps (organizados por tipo)\n${sitemapLine}\n`;
+    `\n\n# Sitemaps (organizados por tipo)\n${sitemapLines.join("\n")}\n`;
   fs.writeFileSync(robotsPath, rebuilt, "utf-8");
-  console.log(`  ✓ robots.txt            Sitemap: sitemap-index.xml`);
+  console.log(`  ✓ robots.txt            Sitemap: ${sitemapLines.length} entradas`);
 }
 
 console.log(
