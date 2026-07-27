@@ -108,7 +108,8 @@ export default function AnchorAlerts() {
       <PageMeta
         title="Alertas de Âncoras — Admin"
         description="Alertas automáticos para âncoras com alto potencial sustentado ou queda de eficiência."
-        canonical="/admin/alertas-ancoras"
+        canonicalPath="/admin/alertas-ancoras"
+        noindex
       />
       <Header />
       <main className="container mx-auto max-w-6xl px-4 py-10 space-y-6">
