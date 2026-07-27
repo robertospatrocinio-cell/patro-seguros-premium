@@ -113,6 +113,29 @@ export default function InternalLinkCorrelation() {
   const [applying, setApplying] = useState<string | null>(null);
   type FeedbackEntry = { id: string; status: string; applied_at: string };
   const [applied, setApplied] = useState<Record<string, FeedbackEntry>>({});
+  const [refreshingPriorities, setRefreshingPriorities] = useState(false);
+  const queryClient = useQueryClient();
+  const { data: priorities } = useAnchorPriorities();
+
+  const refreshPriorities = async () => {
+    setRefreshingPriorities(true);
+    try {
+      const { data: res, error } = await supabase.functions.invoke(
+        "refresh-anchor-priorities",
+        { body: { days } },
+      );
+      if (error) throw error;
+      const upserted = (res as { upserted?: number })?.upserted ?? 0;
+      await queryClient.invalidateQueries({ queryKey: ["anchor-priorities"] });
+      toast.success("Prioridades recalculadas", {
+        description: `${upserted} âncora(s) publicadas para "Próximas leituras".`,
+      });
+    } catch (e) {
+      toast.error("Falha ao recalcular prioridades", { description: (e as Error).message });
+    } finally {
+      setRefreshingPriorities(false);
+    }
+  };
 
   const applyKey = (destination: string, placement: string, sources: string[]) =>
     `${destination}|${placement}|${sources.slice().sort().join(",")}`;
