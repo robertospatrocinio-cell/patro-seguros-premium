@@ -34,11 +34,32 @@ const BASE = `https://${EXPECTED_HOST}`;
 // /artigos/* (canonical intencionalmente aponta para /blog/*).
 const SKIP = new Set(["404.html"]);
 const SKIP_PREFIXES = ["assets/", "admin/"];
-// Relatórios gerados pelo próprio build (não são páginas do site).
-const SKIP_FILES = new Set([
-  "rich-results-report.html",
-  "google-rich-results-report.html",
-]);
+
+/**
+ * Detecta heuristicamente HTMLs que não são rotas do site (relatórios gerados
+ * pelo build, dashboards internos, etc.). Evita a necessidade de manter uma
+ * allowlist manual toda vez que o pipeline gera um novo artefato .html em dist/.
+ *
+ * Um arquivo é considerado "não-rota" quando NENHUM dos marcadores típicos das
+ * páginas do app (SPA shell + PageMeta) está presente:
+ *   - `<div id="root">` (root do React montado pelo Vite/SSG)
+ *   - `<link rel="canonical"` (toda rota real emite canonical via PageMeta)
+ *   - `<meta property="og:` (PageMeta emite OG em todas as rotas)
+ * E, ao mesmo tempo, há um sinal explícito de "não indexar":
+ *   - `<meta name="robots" content="noindex...">`
+ *   - `<meta name="robots" content="none...">`
+ */
+function isNonRouteReport(html) {
+  const hasAppMarker =
+    /<div\s+id=["']root["']/i.test(html) ||
+    /<link[^>]+rel=["']canonical["']/i.test(html) ||
+    /<meta[^>]+property=["']og:/i.test(html);
+  if (hasAppMarker) return false;
+  const robots = html.match(/<meta[^>]+name=["']robots["'][^>]*content=["']([^"']+)["']/i);
+  if (robots && /\b(noindex|none)\b/i.test(robots[1])) return true;
+  // Sem marcador de app e sem canonical → provável artefato de build.
+  return true;
+}
 
 // Overrides intencionais (long-tail → hub). Formato:
 // { "/seguro-tcross-guarulhos": "https://www.patroseguros.com.br/seguro-auto-guarulhos" }
@@ -102,9 +123,11 @@ let skippedShells = 0;
 
 for (const file of files) {
   const rel = path.relative(DIST, file).replace(/\\/g, "/");
-  if (SKIP.has(rel) || SKIP_FILES.has(rel) || SKIP_PREFIXES.some((p) => rel.startsWith(p))) continue;
+  if (SKIP.has(rel) || SKIP_PREFIXES.some((p) => rel.startsWith(p))) continue;
   const route = fileToRoute(rel);
   const html = fs.readFileSync(file, "utf-8");
+
+  if (isNonRouteReport(html)) continue;
 
   // Shells SPA vazios (sem SSG hidratado no HTML) não têm canonical
   // final — o React Helmet injeta em runtime. Não bloqueia deploy.
