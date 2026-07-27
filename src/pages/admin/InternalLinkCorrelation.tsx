@@ -406,35 +406,51 @@ export default function InternalLinkCorrelation() {
                           <Badge variant="outline" className="tabular-nums text-[10px]">
                             pos {rec.gsc ? rec.gsc.position.toFixed(1) : "—"}
                           </Badge>
-                          <Button
-                            size="sm"
-                            variant={isApplied ? "outline" : "default"}
-                            disabled={isApplied || isApplying}
-                            onClick={() => applyRecommendation(rec)}
-                            className="h-7 px-2 text-xs gap-1"
-                            title={
-                              isApplied
-                                ? `Aplicada em ${new Date(applied[key].applied_at).toLocaleString("pt-BR")}`
-                                : "Registra esta recomendação em internal_link_applications"
-                            }
-                          >
-                            {isApplied ? (
-                              <>
-                                <CheckCircle2 className="h-3 w-3" />
-                                Aplicada
-                              </>
-                            ) : isApplying ? (
-                              <>
-                                <RefreshCw className="h-3 w-3 animate-spin" />
-                                Aplicando…
-                              </>
-                            ) : (
-                              <>
-                                <Check className="h-3 w-3" />
-                                Aplicar
-                              </>
-                            )}
-                          </Button>
+                          {(() => {
+                            const fb = applied[key];
+                            const status = fb?.status;
+                            const isAccepted = status === "accepted" || status === "applied";
+                            const isRejected = status === "rejected";
+                            const stamp = fb
+                              ? `Salvo em ${new Date(fb.applied_at).toLocaleString("pt-BR")}`
+                              : "";
+                            return (
+                              <div className="flex items-center gap-1">
+                                <Button
+                                  size="sm"
+                                  variant={isAccepted ? "default" : "outline"}
+                                  disabled={isApplying}
+                                  onClick={() => setFeedback(rec, "accepted")}
+                                  className="h-7 px-2 text-xs gap-1"
+                                  title={isAccepted ? `Aceita · ${stamp}` : "Marcar como aceita"}
+                                >
+                                  {isApplying ? (
+                                    <RefreshCw className="h-3 w-3 animate-spin" />
+                                  ) : isAccepted ? (
+                                    <CheckCircle2 className="h-3 w-3" />
+                                  ) : (
+                                    <Check className="h-3 w-3" />
+                                  )}
+                                  Aceitar
+                                </Button>
+                                <Button
+                                  size="sm"
+                                  variant={isRejected ? "destructive" : "outline"}
+                                  disabled={isApplying}
+                                  onClick={() => setFeedback(rec, "rejected")}
+                                  className="h-7 px-2 text-xs gap-1"
+                                  title={isRejected ? `Rejeitada · ${stamp}` : "Marcar como rejeitada"}
+                                >
+                                  {isRejected ? (
+                                    <XCircle className="h-3 w-3" />
+                                  ) : (
+                                    <X className="h-3 w-3" />
+                                  )}
+                                  Rejeitar
+                                </Button>
+                              </div>
+                            );
+                          })()}
                         </div>
                       </div>
 
