@@ -1,7 +1,22 @@
 /**
  * Pure JSON-LD validation helpers. No filesystem / no process.exit so they can
  * be unit-tested with Vitest and reused by the build-time CLI.
+ *
+ * Regras de URL/imagem (esquema absoluto http(s), extração de ImageObject,
+ * extração recursiva de campos URL-like) são delegadas a
+ * `./url-image-helpers.mjs` — ponto único da verdade compartilhado com
+ * `./rich-results-checkers.mjs`. Isso garante que a validação estrutural
+ * (aqui) e a checagem de elegibilidade a Google Rich Results (checkers)
+ * apliquem exatamente o mesmo predicado — evitando regressões silenciosas
+ * em que um dos lados aprova o que o outro reprova.
  */
+
+import {
+  isAbsUrl,
+  isHttpsUrl,
+  hasImage,
+  extractUrlLike,
+} from "./url-image-helpers.mjs";
 
 const SCRIPT_RE = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
@@ -50,7 +65,7 @@ export function validateBreadcrumb(node, errors, label = "BreadcrumbList") {
       { field: `itemListElement[${i}].item`, rule: "breadcrumb.item.urlRequired" });
     if (it.item) {
       const url = typeof it.item === "string" ? it.item : it.item?.["@id"] || it.item?.url;
-      if (typeof url === "string" && !/^https?:\/\//i.test(url)) {
+      if (typeof url === "string" && !isAbsUrl(url)) {
         push(errors, `${label}: item[${i}].item deve ser URL absoluta http(s) (recebido "${url}")`,
           { field: `itemListElement[${i}].item`, rule: "breadcrumb.item.absoluteUrl" });
       }
@@ -128,7 +143,7 @@ export function validateOrganization(node, errors, label, options = {}) {
     const logoUrl = typeof logo === "string" ? logo : logo?.url || logo?.["@id"];
     if (!logoUrl) push(errors, `${label} Organization: rich results (Logo) exigem logo (URL ou ImageObject.url)`,
       { field: "logo", rule: "organization.strict.logo" });
-    else if (!/^https?:\/\//i.test(logoUrl)) push(errors, `${label} Organization: logo deve ser URL absoluta http(s)`,
+    else if (!isAbsUrl(logoUrl)) push(errors, `${label} Organization: logo deve ser URL absoluta http(s)`,
       { field: "logo", rule: "organization.strict.logo.absoluteUrl" });
     if (!Array.isArray(node.sameAs) || node.sameAs.length === 0) {
       push(errors, `${label} Organization: sameAs[] recomendado (perfis oficiais) ausente`,
@@ -197,13 +212,7 @@ function authorName(author) {
   return null;
 }
 
-function hasImage(image) {
-  if (!image) return false;
-  if (typeof image === "string") return image.trim().length > 0;
-  if (Array.isArray(image)) return image.some(hasImage);
-  if (typeof image === "object") return Boolean(image.url || image["@id"]);
-  return false;
-}
+// hasImage / extractUrlLike vêm de ./url-image-helpers.mjs (importados no topo)
 
 export function validateArticle(node, errors, label) {
   const type = Array.isArray(node["@type"]) ? node["@type"][0] : node["@type"];
@@ -256,16 +265,6 @@ function siblingHosts(canonicalHost) {
   return new Set([bare, `www.${bare}`]);
 }
 
-function extractUrlLike(v) {
-  if (typeof v === "string") return [v];
-  if (!v || typeof v !== "object") return [];
-  if (Array.isArray(v)) return v.flatMap(extractUrlLike);
-  const out = [];
-  if (typeof v["@id"] === "string") out.push(v["@id"]);
-  if (typeof v.url === "string") out.push(v.url);
-  return out;
-}
-
 function isJsonLdInternalRef(url) {
   // JSON-LD permite @id como fragmento local (#organization) ou URN.
   return /^#/.test(url) || /^urn:/i.test(url);
@@ -287,7 +286,7 @@ export function validateUrls(node, errors, label, options = {}) {
     if (typeof raw !== "string" || !raw.trim()) return;
     if (isJsonLdInternalRef(raw)) return;
     // Precisa ter esquema absoluto http/https
-    if (!/^https?:\/\//i.test(raw)) {
+    if (!isAbsUrl(raw)) {
       push(errors, `${label}: ${path} não é URL absoluta http(s) (recebido "${raw}")`,
         { field: path, rule: "url.absolute" });
       return;
@@ -347,7 +346,7 @@ export function validateWebSite(node, errors, label, options = {}) {
     { field: "name", rule: "website.name" });
   if (!node.url) push(errors, `${label} WebSite: faltando url`,
     { field: "url", rule: "website.url" });
-  else if (strict && !/^https:\/\//i.test(String(node.url))) {
+  else if (strict && !isHttpsUrl(String(node.url))) {
     push(errors, `${label} WebSite: url deve ser https (recebido "${node.url}")`,
       { field: "url", rule: "website.url.https" });
   }
@@ -387,7 +386,7 @@ export function validateSiteNavigation(node, errors, label) {
       { field: `${path || "root"}.name`, rule: "siteNav.name" });
     if (!n?.url) push(errors, `${label} SiteNavigationElement${path}: faltando url`,
       { field: `${path || "root"}.url`, rule: "siteNav.url" });
-    else if (!/^https?:\/\//i.test(String(n.url))) {
+    else if (!isAbsUrl(String(n.url))) {
       push(errors, `${label} SiteNavigationElement${path}: url deve ser absoluta http(s) (recebido "${n.url}")`,
         { field: `${path || "root"}.url`, rule: "siteNav.url.absolute" });
     }

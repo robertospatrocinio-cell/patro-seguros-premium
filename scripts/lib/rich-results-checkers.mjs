@@ -7,15 +7,30 @@
  *   req.length > 0  → ineligible (não gera rich result)
  *   rec.length > 0  → eligible-warn (gera, mas Google recomenda ajustes)
  *   unsupported     → @type reconhecido porém sem rich result no Google
+ *
+ * Helpers de URL/imagem (`isAbsUrl`, `isPlainObj`, `extractImageUrl`) são
+ * importados de `./url-image-helpers.mjs` — ponto único da verdade
+ * compartilhado com `jsonld-validator.mjs`, evitando divergências entre
+ * validação estrutural e checagem de elegibilidade.
  */
+
+import {
+  isAbsUrl as _isAbsUrl,
+  isPlainObj as _isPlainObj,
+  extractImageUrl as _extractImageUrl,
+} from "./url-image-helpers.mjs";
+
+// Reexporta helpers compartilhados (mantém API pública desta lib intacta —
+// os testes existentes importam essas funções daqui).
+export const isPlainObj = _isPlainObj;
+export const isAbsUrl = _isAbsUrl;
+export const extractImageUrl = _extractImageUrl;
 
 export const typeOf = (n) => {
   const t = n?.["@type"];
   return Array.isArray(t) ? t : t ? [t] : [];
 };
 export const hasType = (n, t) => typeOf(n).includes(t);
-export const isPlainObj = (v) => v && typeof v === "object" && !Array.isArray(v);
-export const isAbsUrl = (v) => typeof v === "string" && /^https?:\/\//i.test(v);
 export const isIso8601Date = (v) =>
   typeof v === "string" &&
   /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?$/.test(v);
@@ -34,14 +49,6 @@ export function flattenNodes(root, out = []) {
   if (Array.isArray(root["@graph"])) root["@graph"].forEach((n) => flattenNodes(n, out));
   if (root["@type"]) out.push(root);
   return out;
-}
-
-export function extractImageUrl(image) {
-  if (!image) return null;
-  if (typeof image === "string") return image;
-  if (Array.isArray(image)) return image.map(extractImageUrl).find(Boolean) ?? null;
-  if (isPlainObj(image)) return image.url || image["@id"] || null;
-  return null;
 }
 
 // ---------- checkers --------------------------------------------------------
