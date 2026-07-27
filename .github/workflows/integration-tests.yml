@@ -95,6 +95,34 @@ jobs:
         # validando compatibilidade da suíte fora do runtime Bun.
         run: npx --yes vitest run scripts/prerender-validate-integration.test.mjs
 
+      # Sempre gera o relatório atual sobre o fixture canônico, mesmo
+      # quando a suíte falhou — assim o PR sempre tem o artefato + diff.
+      - name: Build current rich-results report
+        if: always()
+        run: node scripts/build-integration-report.mjs
+
+      - name: Upload current rich-results report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rich-results-report-${{ matrix.runtime }}-${{ matrix.version }}-${{ matrix.os }}
+          path: scripts/__reports__/current.json
+          if-no-files-found: warn
+
+      # Em falha, publica um diff Markdown (summary/byType/por rota)
+      # contra a baseline comitada, direto no resumo do job para o
+      # reviewer identificar o drift sem baixar o artefato.
+      - name: Diff vs baseline (on failure)
+        if: failure()
+        run: |
+          {
+            echo "### 🧪 ${{ matrix.runtime }} ${{ matrix.version }} on ${{ matrix.os }}"
+            echo ""
+            node scripts/diff-rich-results-report.mjs \
+              --baseline=scripts/__reports__/baseline.json \
+              --current=scripts/__reports__/current.json
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upload snapshot on failure
         if: failure()
         uses: actions/upload-artifact@v4
