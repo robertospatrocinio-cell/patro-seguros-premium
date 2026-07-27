@@ -1,8 +1,11 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import { getLongtailCluster } from "@/lib/longtailClusters";
+import { getLongtailCluster, getSectionCtasForSlug } from "@/lib/longtailClusters";
+
+const SLUG = "/planos-de-saude-guarulhos-comparativo";
 
 const LongtailPlanosSaudeGuarulhosComparativo = () => (
   <InsurancePageTemplate
+    sectionCtas={getSectionCtasForSlug(SLUG)}
     jumpLinks={[
       { label: "Comparativo de operadoras", href: "#coberturas-heading" },
       { label: "Quanto custa", href: "#preco-heading" },

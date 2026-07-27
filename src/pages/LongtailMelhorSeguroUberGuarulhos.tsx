@@ -1,8 +1,11 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import { getLongtailCluster } from "@/lib/longtailClusters";
+import { getLongtailCluster, getSectionCtasForSlug } from "@/lib/longtailClusters";
+
+const SLUG = "/melhor-seguro-para-uber-guarulhos";
 
 const LongtailMelhorSeguroUberGuarulhos = () => (
   <InsurancePageTemplate
+    sectionCtas={getSectionCtasForSlug(SLUG)}
     jumpLinks={[
       { label: "Melhores seguradoras", href: "#coberturas-heading" },
       { label: "Quanto custa", href: "#preco-heading" },

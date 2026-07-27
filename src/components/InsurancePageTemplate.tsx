@@ -22,6 +22,7 @@ import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
 import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 import JumpLinksNav from "@/components/JumpLinksNav";
+import NextSectionCta, { type NextSectionCtaProps } from "@/components/NextSectionCta";
 import {
   detectGuarulhosNeighborhood,
   isGuarulhosContext,
@@ -257,6 +258,18 @@ export interface InsurancePageProps {
    * Melhora escaneabilidade, dwell time e conecta intenção → resposta.
    */
   jumpLinks?: { label: string; href: string }[];
+  /**
+   * CTAs "próximo passo" renderizados ao final de seções específicas
+   * (preco/coberturas/cenarios/detalhes/faq). Usa deep anchors para levar
+   * o leitor direto à próxima resposta relevante do cluster.
+   * Chave = id do heading da seção (ex.: "preco-heading").
+   */
+  sectionCtas?: Partial<
+    Record<
+      "preco-heading" | "coberturas-heading" | "cenarios-heading" | "detalhes-heading" | "faq-heading",
+      Omit<NextSectionCtaProps, "sourceSection" | "sourceSlug">
+    >
+  >;
 }
 
 const InsurancePageTemplate = ({
@@ -293,8 +306,31 @@ const InsurancePageTemplate = ({
   howto,
   localSeo,
   jumpLinks,
+  sectionCtas,
 }: InsurancePageProps) => {
   const location = useLocation();
+  // Slug canônico da rota atual — usado para etiquetar o `source` dos CTAs
+  // "próximo passo" no painel de correlação de links internos × GSC.
+  const currentSlug =
+    location.pathname === "/" ? "home" : location.pathname.replace(/^\/+/, "").replace(/\/+$/, "");
+  const renderSectionCta = (
+    sectionId:
+      | "preco-heading"
+      | "coberturas-heading"
+      | "cenarios-heading"
+      | "detalhes-heading"
+      | "faq-heading",
+  ) => {
+    const cta = sectionCtas?.[sectionId];
+    if (!cta) return null;
+    return (
+      <NextSectionCta
+        {...cta}
+        sourceSection={sectionId}
+        sourceSlug={currentSlug}
+      />
+    );
+  };
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
   const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
   const breadcrumbItems = breadcrumbCategory
@@ -628,6 +664,7 @@ const InsurancePageTemplate = ({
                 </li>
               ))}
             </ul>
+            {renderSectionCta("coberturas-heading")}
           </div>
         </section>
 
@@ -677,6 +714,7 @@ const InsurancePageTemplate = ({
                   </div>
                 )}
               </div>
+              {renderSectionCta("preco-heading")}
             </div>
           </section>
         )}
@@ -698,6 +736,7 @@ const InsurancePageTemplate = ({
                   </article>
                 ))}
               </div>
+              {renderSectionCta("cenarios-heading")}
             </div>
           </section>
         )}
@@ -728,6 +767,7 @@ const InsurancePageTemplate = ({
                   </div>
                 ))}
               </div>
+              {renderSectionCta("detalhes-heading")}
             </div>
           </section>
         )}
@@ -1010,6 +1050,8 @@ const InsurancePageTemplate = ({
                 </details>
               ))}
             </div>
+
+            {renderSectionCta("faq-heading")}
 
             {/* CTA para clientes fora de Guarulhos */}
             <div className="mt-10 p-6 md:p-8 rounded-2xl border border-primary/10 bg-primary/[0.03] text-center">

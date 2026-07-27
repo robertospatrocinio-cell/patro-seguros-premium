@@ -1,8 +1,11 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import { getLongtailCluster } from "@/lib/longtailClusters";
+import { getLongtailCluster, getSectionCtasForSlug } from "@/lib/longtailClusters";
+
+const SLUG = "/valor-seguro-byd-dolphin";
 
 const LongtailValorSeguroBydDolphin = () => (
   <InsurancePageTemplate
+    sectionCtas={getSectionCtasForSlug(SLUG)}
     jumpLinks={[
       { label: "Valor médio", href: "#preco-heading" },
       { label: "Coberturas", href: "#coberturas-heading" },
