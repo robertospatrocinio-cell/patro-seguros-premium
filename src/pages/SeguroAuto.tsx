@@ -469,6 +469,9 @@ const SeguroAuto = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Motoristas rodam mais e se expõem a mais riscos: complemente com o <Link to="/lp/seguro-acidentes-pessoais" className="text-primary hover:underline font-medium">seguro de acidentes pessoais</Link> (contratação em poucos minutos) e, se você cuida dos pais, conheça nosso <Link to="/planos-saude-senior-guarulhos" className="text-primary hover:underline font-medium">plano de saúde sênior em Guarulhos</Link>.
                 </p>
+                <p className="mb-4">
+                  Para modelos elétricos, veja o guia com o <Link to="/valor-seguro-byd-dolphin" className="text-primary hover:underline font-medium">valor do seguro BYD Dolphin</Link> (faixa real de R$ 2.500 a R$ 4.800/ano). Motoristas de app têm ranking técnico dedicado no nosso comparativo do <Link to="/melhor-seguro-para-uber-guarulhos" className="text-primary hover:underline font-medium">melhor seguro para Uber em Guarulhos</Link>.
+                </p>
               </div>
               <div className="flex flex-wrap gap-2 mt-5">
                 {[
