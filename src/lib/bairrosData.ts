@@ -15,6 +15,12 @@ import imgVilaGalvao from "@/assets/bairros/vila-galvao.webp";
 import imgAeroporto from "@/assets/bairros/aeroporto-guarulhos.webp";
 import imgCidadeIndustrial from "@/assets/bairros/cidade-industrial-satelite.webp";
 import imgJardimCumbica from "@/assets/bairros/jardim-cumbica.webp";
+import imgVilaRio from "@/assets/bairros/vila-rio.webp";
+import imgPonteGrande from "@/assets/bairros/ponte-grande.webp";
+import imgAguaChata from "@/assets/bairros/agua-chata.webp";
+import imgJardimSaoJoao from "@/assets/bairros/jardim-sao-joao.webp";
+import imgCocaia from "@/assets/bairros/cocaia.webp";
+import imgJardimFatima from "@/assets/bairros/jardim-fatima.webp";
 
 export interface BairroFAQ {
   question: string;
@@ -693,6 +699,221 @@ export const bairros: BairroData[] = [
       localCase: {
         title: "Apólice viável para motorista de app com sinistro pago em 7 dias",
         description: "Motorista de aplicativo do Jardim Cumbica com HB20 e 5 mil km/mês no GRU contratou compreensiva com rastreador por R$ 2.480/ano. Sinistro de colisão com Uber foi indenizado e oficina liberada em 7 dias úteis — sem interrupção significativa da operação.",
+      },
+    },
+  },
+  {
+    id: "vila-rio",
+    nome: "Vila Rio",
+    foco: "Seguro Auto e Residencial de Classe Média",
+    subtitulo: "Proteção acessível para famílias da Vila Rio, Guarulhos",
+    descricao: "A Vila Rio é um bairro residencial consolidado em Guarulhos, com casas, sobrados e pequenos condomínios ocupados majoritariamente por famílias de classe média. A Patro Seguros atende moradores da região com seguro auto competitivo, seguro residencial completo e seguro de vida em folha — sempre com cotação em até 3 seguradoras e atendimento humanizado por WhatsApp.",
+    image: imgVilaRio,
+    faqs: [
+      ...generateLocalFAQs({ slug: "auto-vila-rio", neighborhood: "Vila Rio", product: "auto", riskLevel: "médio", priceRange: "R$ 2.400 a R$ 4.600/ano", reference: "com acesso à Av. Papa João Paulo I" }),
+      ...generateLocalFAQs({ slug: "residencial-vila-rio", neighborhood: "Vila Rio", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 32/mês", reference: "em ruas residenciais tranquilas" }),
+      ...generateLocalFAQs({ slug: "vida-vila-rio", neighborhood: "Vila Rio", product: "vida", priceRange: "a partir de R$ 38/mês", reference: "para trabalhadores da região" }),
+      ...generateLocalFAQs({ slug: "empresarial-vila-rio", neighborhood: "Vila Rio", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 95/mês", reference: "para comércios de rua" }),
+    ],
+    localFaqs: [
+      { question: "Vale a pena contratar rastreador para carro na Vila Rio?", answer: "Para veículos acima de R$ 45 mil ou populares muito visados (Onix, HB20, Kwid), o rastreador reduz o prêmio em 12–20% e amplia a lista de seguradoras dispostas a aceitar o risco. A Patro instala com parceiros homologados (Ituran, Getrak) sem custo de adesão em contratações combo auto + residencial." },
+      { question: "Meu comércio de rua na Vila Rio precisa de seguro empresarial?", answer: "Sim. Padarias, salões, mercadinhos e lanchonetes de rua na Vila Rio operam em imóveis de terceiros e enfrentam risco de incêndio, roubo e responsabilidade civil por acidente com cliente. O empresarial PME cobre esses três eventos + vidros e equipamentos a partir de R$ 95/mês para faturamento até R$ 40 mil/mês." },
+      { question: "Consigo seguro residencial para sobrado alugado na Vila Rio?", answer: "Sim. O seguro residencial pode ser contratado pelo inquilino (protege o conteúdo — móveis, eletrônicos, RC familiar) e/ou pelo proprietário (protege a estrutura — incêndio, danos elétricos, vendaval). Muitos moradores contratam os dois em conjunto e dividem o custo total (~R$ 55/mês) entre inquilino e locador." },
+    ],
+    intel: {
+      demographics: "Bairro residencial consolidado de classe média em Guarulhos, com casas, sobrados e pequenos condomínios e comércio de bairro ativo.",
+      landmarks: {
+        streets: ["Av. Papa João Paulo I", "Av. Otávio Braga de Mesquita"],
+        malls: ["Internacional Shopping Guarulhos (proximidade)"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Perfil equilibrado: risco de roubo moderado, mitigado por rastreador no auto e alarme + CFTV no residencial.",
+      },
+      localCase: {
+        title: "Família da Vila Rio economizou R$ 1.680/ano em combo auto + residencial",
+        description: "Família com Onix 2022 e casa própria migrou 2 apólices pulverizadas para a Patro em regime combo. Manteve a mesma seguradora tier-1 e reduziu prêmio anual em R$ 1.680, com franquia menor e assistência 24h incluída.",
+      },
+    },
+  },
+  {
+    id: "ponte-grande",
+    nome: "Ponte Grande",
+    foco: "Seguro Auto, Comércio e RC de Bairro Central",
+    subtitulo: "Seguros para quem vive e empreende na Ponte Grande",
+    descricao: "Localizada em uma das principais entradas de Guarulhos, com fácil acesso à Marginal Tietê e ao Centro, a Ponte Grande combina forte fluxo comercial com áreas residenciais tradicionais. A Patro Seguros atende comerciantes, motoristas de aplicativo e famílias da região com seguro auto, seguro empresarial PME, RC comercial e seguro residencial adaptados ao perfil urbano do bairro.",
+    image: imgPonteGrande,
+    faqs: [
+      ...generateLocalFAQs({ slug: "auto-ponte-grande", neighborhood: "Ponte Grande", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 2.700 a R$ 5.400/ano", reference: "com acesso à Marginal Tietê" }),
+      ...generateLocalFAQs({ slug: "empresarial-ponte-grande", neighborhood: "Ponte Grande", product: "empresarial", riskLevel: "médio-alto", priceRange: "a partir de R$ 110/mês", reference: "no eixo comercial da região" }),
+      ...generateLocalFAQs({ slug: "residencial-ponte-grande", neighborhood: "Ponte Grande", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 34/mês", reference: "próximo à Ponte da Vila Galvão" }),
+      ...generateLocalFAQs({ slug: "vida-ponte-grande", neighborhood: "Ponte Grande", product: "vida", priceRange: "a partir de R$ 40/mês", reference: "para trabalhadores da região" }),
+    ],
+    localFaqs: [
+      { question: "Motorista de app que roda pela Marginal Tietê saindo da Ponte Grande consegue seguro?", answer: "Sim. Trabalhamos com seguradoras que aceitam uso profissional (Uber/99) com apólice EAR — Extensão de Atividade Remunerada. Para carro popular com rastreador e rodagem de até 6 mil km/mês, o prêmio anual fica entre R$ 2.900 e R$ 4.200. Sem a EAR, o sinistro em corrida de app não é indenizado." },
+      { question: "Vocês fazem seguro para comércio na região da Ponte Grande?", answer: "Sim. Padarias, autopeças, oficinas e pequenos varejos do eixo comercial da Ponte Grande contratam nosso empresarial PME (incêndio, roubo, RC, vidros e equipamentos) a partir de R$ 110/mês para faturamento até R$ 50 mil/mês. Fazemos vistoria e cotação por WhatsApp em até 24 h." },
+      { question: "Preciso de RC (Responsabilidade Civil) para meu comércio na Ponte Grande?", answer: "É altamente recomendado. Um cliente que escorrega dentro da loja ou é atingido por letreiro/prateleira pode gerar processo indenizatório entre R$ 20 mil e R$ 150 mil. A cobertura de RC comercial custa a partir de R$ 22/mês adicionais na apólice PME e evita descapitalização do negócio em caso de sinistro com terceiros." },
+    ],
+    intel: {
+      demographics: "Bairro tradicional de Guarulhos com forte vocação comercial e residencial mista, próximo à divisa com São Paulo.",
+      landmarks: {
+        streets: ["Marginal Tietê (acesso)", "Ponte da Vila Galvão", "Av. Guarulhos"],
+        business: ["Eixo comercial da Av. Guarulhos"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio",
+        empresarial: "médio-alto",
+        notes: "Fluxo intenso na Marginal Tietê eleva sinistralidade de auto (colisão + para-brisa). Comércio de rua exige RC e cobertura de roubo qualificado.",
+      },
+      localCase: {
+        title: "Padaria da Ponte Grande economizou 22% com apólice reestruturada",
+        description: "Padaria com faturamento de R$ 65 mil/mês trocou apólice contratada em banco por PME estruturada pela Patro. Ganhou cobertura de RC e vidros que antes não tinha e reduziu prêmio anual em 22% (~R$ 2.100).",
+      },
+    },
+  },
+  {
+    id: "agua-chata",
+    nome: "Água Chata",
+    foco: "Seguro Auto, Frota e Empresarial Logístico",
+    subtitulo: "Seguros para o eixo Água Chata / Rodovia Presidente Dutra",
+    descricao: "Situada no eixo da Rodovia Presidente Dutra e próxima ao polo de Bonsucesso, a Água Chata concentra galpões, pequenas transportadoras, oficinas mecânicas e áreas residenciais periféricas. A Patro Seguros oferece seguro auto com cobertura reforçada de vidros e roubo, seguro de frota, seguro empresarial para galpões e RCTR-C para transportadoras que operam no corredor Guarulhos–Vale do Paraíba.",
+    image: imgAguaChata,
+    faqs: [
+      ...generateLocalFAQs({ slug: "auto-agua-chata", neighborhood: "Água Chata", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 2.900 a R$ 5.800/ano", reference: "com acesso à Rodovia Pres. Dutra" }),
+      ...generateLocalFAQs({ slug: "empresarial-agua-chata", neighborhood: "Água Chata", product: "empresarial", riskLevel: "médio-alto", priceRange: "conforme porte do galpão", reference: "no corredor logístico Guarulhos" }),
+      ...generateLocalFAQs({ slug: "residencial-agua-chata", neighborhood: "Água Chata", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 36/mês", reference: "nas áreas residenciais do bairro" }),
+      ...generateLocalFAQs({ slug: "vida-agua-chata", neighborhood: "Água Chata", product: "vida", priceRange: "a partir de R$ 42/mês", reference: "para profissionais da logística" }),
+    ],
+    localFaqs: [
+      { question: "Galpão pequeno na Água Chata precisa de seguro incêndio empresarial?", answer: "Sim, e o custo é muito acessível para pequenos galpões (300 a 1.000 m²). Para R$ 800 mil de estrutura + R$ 400 mil de mercadoria, o prêmio anual fica entre R$ 3.200 e R$ 6.500, dependendo de classe de ocupação, extintores e CFTV. Bancos financiadores geralmente exigem a contratação como garantia acessória." },
+      { question: "Transportadora pequena com 3 caminhões na Água Chata consegue apólice de frota?", answer: "Sim. A partir de 3 veículos leves ou 2 pesados já emitimos frota, com prêmio médio por veículo 12–20% menor do que apólices individuais. Combinamos casco + RCTR-C + RCF-DC na mesma cotação e mantemos uma única data de renovação, simplificando a gestão." },
+      { question: "Vidros e faróis quebram muito na Dutra — vale a pena a cobertura?", answer: "Vale muito. Motoristas que trafegam diariamente pela Rodovia Pres. Dutra têm sinistralidade de vidros 2–3× maior do que a média urbana. A cobertura adicional custa R$ 15–25/mês e evita gasto de R$ 1.400–3.500 do bolso a cada troca de para-brisa original." },
+    ],
+    intel: {
+      demographics: "Bairro periférico de Guarulhos no eixo da Rodovia Pres. Dutra, com forte presença de galpões, oficinas e pequenas transportadoras, além de áreas residenciais populares.",
+      landmarks: {
+        streets: ["Rodovia Pres. Dutra (acesso)", "Estrada Água Chata", "Av. Bonsucesso"],
+        business: ["Pequenos condomínios logísticos ao longo da Dutra"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio",
+        empresarial: "médio-alto",
+        notes: "Trajeto diário na Dutra eleva risco de colisão e vidros. Galpões demandam CFTV, cerca e brigada para obter melhor tarifa.",
+      },
+      localCase: {
+        title: "Transportadora de 4 caminhões estruturou apólice de frota + RCTR-C",
+        description: "Pequena transportadora com base na Água Chata unificou 4 apólices individuais em frota + RCTR-C na Patro. Prêmio anual caiu R$ 11.400 e cobertura de roubo de carga (RCF-DC) foi incluída — antes inexistente.",
+      },
+    },
+  },
+  {
+    id: "jardim-sao-joao",
+    nome: "Jardim São João",
+    foco: "Seguro Residencial, Auto e Vida para Famílias",
+    subtitulo: "Proteção completa para famílias do Jardim São João, Guarulhos",
+    descricao: "O Jardim São João é um bairro predominantemente residencial em Guarulhos, com casas, sobrados e pequeno comércio de bairro. A Patro Seguros atende famílias da região com seguro residencial completo (incluindo danos elétricos e RC familiar), seguro auto competitivo para veículos populares e intermediários e seguro de vida com valores acessíveis via débito ou folha.",
+    image: imgJardimSaoJoao,
+    faqs: [
+      ...generateLocalFAQs({ slug: "residencial-jardim-sao-joao", neighborhood: "Jardim São João", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 32/mês", reference: "em ruas residenciais arborizadas" }),
+      ...generateLocalFAQs({ slug: "auto-jardim-sao-joao", neighborhood: "Jardim São João", product: "auto", riskLevel: "médio", priceRange: "R$ 2.400 a R$ 4.700/ano", reference: "com garagem coberta em casa" }),
+      ...generateLocalFAQs({ slug: "vida-jardim-sao-joao", neighborhood: "Jardim São João", product: "vida", priceRange: "a partir de R$ 38/mês", reference: "para famílias do bairro" }),
+      ...generateLocalFAQs({ slug: "empresarial-jardim-sao-joao", neighborhood: "Jardim São João", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 92/mês", reference: "para comércios de bairro" }),
+    ],
+    localFaqs: [
+      { question: "Casa com garagem coberta no Jardim São João paga menos seguro auto?", answer: "Sim. Casas do Jardim São João com garagem fechada e portão automático têm redução de 8–15% no prêmio auto versus veículos que pernoitam na rua. A informação é confirmada na cotação e não exige comprovação documental, mas precisa refletir a realidade — sinistro em local diferente do declarado pode gerar redução de indenização." },
+      { question: "Danos elétricos por raio/queda de energia estão cobertos no residencial?", answer: "Sim, é uma das coberturas mais acionadas em bairros como o Jardim São João. A cobertura de danos elétricos indeniza geladeira, TV, computador, ar-condicionado e portão automático queimados por surto elétrico ou raio, com limite típico de R$ 5 mil a R$ 15 mil dentro da apólice básica (R$ 32–55/mês)." },
+      { question: "Seguro de vida em folha para servidor público que mora no Jardim São João?", answer: "Sim, trabalhamos com apólices coletivas para servidores municipais, estaduais e federais com desconto em folha e prêmios a partir de R$ 25–45/mês para capital de R$ 100 mil. Incluímos coberturas de invalidez, doenças graves e assistência funeral familiar." },
+    ],
+    intel: {
+      demographics: "Bairro residencial de perfil familiar em Guarulhos, com casas, sobrados e forte presença de servidores públicos, comerciantes e assalariados.",
+      landmarks: {
+        streets: ["Av. Papa João Paulo I (proximidade)", "vias internas do Jardim São João"],
+        schools: ["Escolas municipais e estaduais da região"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Garagem coberta e alarme reduzem prêmio auto e residencial. Bairro com boa aceitação por seguradoras tier-1.",
+      },
+      localCase: {
+        title: "Combo vida + residencial + auto para servidor público",
+        description: "Servidor público morador do Jardim São João contratou combo de 3 apólices (auto, residencial e vida em folha) por R$ 289/mês total. Antes pagava R$ 421/mês em contratos avulsos — economia de R$ 1.584/ano com coberturas ampliadas.",
+      },
+    },
+  },
+  {
+    id: "cocaia",
+    nome: "Cocaia",
+    foco: "Seguro Auto, Residencial e Vida Popular",
+    subtitulo: "Seguros acessíveis para moradores do Cocaia, Guarulhos",
+    descricao: "O Cocaia é um bairro residencial em relevo acidentado no extremo de Guarulhos, com casas e ruas de comunidade consolidada. A Patro Seguros atua na região com seguros de entrada e ticket acessível: seguro auto para populares e motos, seguro de vida coletivo em folha ou débito, seguro residencial básico (incêndio + danos elétricos + roubo) e cobertura para pequenos comércios de bairro." ,
+    image: imgCocaia,
+    faqs: [
+      ...generateLocalFAQs({ slug: "auto-cocaia", neighborhood: "Cocaia", product: "auto", riskLevel: "médio-alto", priceRange: "R$ 2.500 a R$ 5.100/ano", reference: "em ruas de relevo acidentado" }),
+      ...generateLocalFAQs({ slug: "residencial-cocaia", neighborhood: "Cocaia", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 28/mês", reference: "para casas do bairro" }),
+      ...generateLocalFAQs({ slug: "vida-cocaia", neighborhood: "Cocaia", product: "vida", priceRange: "a partir de R$ 32/mês", reference: "com desconto em folha" }),
+      ...generateLocalFAQs({ slug: "empresarial-cocaia", neighborhood: "Cocaia", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 89/mês", reference: "para comércios locais" }),
+    ],
+    localFaqs: [
+      { question: "Seguro para moto que roda no Cocaia — vale a pena?", answer: "Sim. Motos de até 250 cc usadas para deslocamento no Cocaia têm prêmio anual entre R$ 780 e R$ 1.600 na cobertura compreensiva (colisão + roubo + terceiros). Sem seguro, um único roubo (frequente na região) representa perda de R$ 8–14 mil e comprometimento da renda familiar. Financiamentos ativos geralmente exigem a apólice como garantia." },
+      { question: "Consigo seguro residencial básico e barato para casa no Cocaia?", answer: "Sim. Para casas de até R$ 250 mil, oferecemos plano básico (incêndio, raio, explosão, danos elétricos e roubo qualificado) a partir de R$ 28/mês. É a proteção mais essencial: um único sinistro de raio ou incêndio parcial já paga décadas de mensalidade." },
+      { question: "Quem trabalha registrado e mora no Cocaia consegue seguro de vida em folha?", answer: "Sim. Muitas empresas oferecem seguro de vida em grupo com desconto em folha por menos de R$ 30/mês para capital de R$ 80–120 mil. Se sua empresa não tem, oferecemos apólice individual em débito automático a partir de R$ 32/mês com aceitação simplificada até 55 anos e sem exame médico." },
+    ],
+    intel: {
+      demographics: "Bairro popular consolidado em região de relevo acidentado no extremo de Guarulhos, com predominância de casas próprias e trabalhadores assalariados.",
+      landmarks: {
+        streets: ["ruas internas do Cocaia", "acesso à Estrada Guarulhos–Nazaré"],
+      },
+      riskProfile: {
+        auto: "médio-alto",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Índice de roubo/furto moderado exige rastreador em veículos acima de R$ 40 mil. Casas próprias e comunidades consolidadas facilitam aceitação residencial.",
+      },
+      localCase: {
+        title: "Motorista de app do Cocaia protegeu Kwid com apólice EAR",
+        description: "Motorista de aplicativo com Kwid 2021 contratou compreensiva com EAR (uso profissional) e rastreador por R$ 2.190/ano. Sinistro de terceiro em corrida Uber foi coberto integralmente pela apólice — sem a EAR, o pagamento seria negado.",
+      },
+    },
+  },
+  {
+    id: "jardim-fatima",
+    nome: "Jardim Fátima",
+    foco: "Seguro Residencial, Vida e Auto Familiar",
+    subtitulo: "Proteção humanizada para famílias do Jardim Fátima, Guarulhos",
+    descricao: "O Jardim Fátima é um bairro tradicional e consolidado de Guarulhos, com forte perfil residencial familiar e comércio de bairro. A Patro Seguros atende moradores da região com seguro residencial completo, seguro auto para veículos populares e intermediários, seguro de vida acessível e seguro empresarial PME para padarias, salões e lojas de rua da região.",
+    image: imgJardimFatima,
+    faqs: [
+      ...generateLocalFAQs({ slug: "residencial-jardim-fatima", neighborhood: "Jardim Fátima", product: "residencial", riskLevel: "médio", priceRange: "a partir de R$ 32/mês", reference: "em ruas residenciais consolidadas" }),
+      ...generateLocalFAQs({ slug: "vida-jardim-fatima", neighborhood: "Jardim Fátima", product: "vida", priceRange: "a partir de R$ 36/mês", reference: "para famílias da região" }),
+      ...generateLocalFAQs({ slug: "auto-jardim-fatima", neighborhood: "Jardim Fátima", product: "auto", riskLevel: "médio", priceRange: "R$ 2.400 a R$ 4.700/ano", reference: "para veículos populares e intermediários" }),
+      ...generateLocalFAQs({ slug: "empresarial-jardim-fatima", neighborhood: "Jardim Fátima", product: "empresarial", riskLevel: "médio", priceRange: "a partir de R$ 92/mês", reference: "para comércios de bairro" }),
+    ],
+    localFaqs: [
+      { question: "Vale a pena contratar seguro de vida familiar morando no Jardim Fátima?", answer: "Sim. Uma família com um único provedor no Jardim Fátima fica em situação financeira grave se ele falece ou fica inválido sem seguro. Uma apólice de R$ 150–200 mil de capital custa R$ 36–65/mês em débito automático e cobre invalidez, doenças graves e assistência funeral familiar — protegendo escola dos filhos e prestação da casa por 2–4 anos." },
+      { question: "Comércio de bairro no Jardim Fátima consegue seguro PME acessível?", answer: "Sim. Salões, mercadinhos, padarias e lojas do Jardim Fátima contratam nosso empresarial PME (incêndio, roubo, RC comercial, vidros e equipamentos) a partir de R$ 92/mês para faturamento até R$ 40 mil/mês. Fazemos a vistoria por fotos via WhatsApp, sem visita presencial obrigatória." },
+      { question: "Casa com portão automático no Jardim Fátima — o seguro residencial cobre queima?", answer: "Sim. A cobertura de danos elétricos, inclusa nos planos residenciais a partir de R$ 32/mês, indeniza motor de portão automático, interfone, geladeira, TV, ar-condicionado e computador queimados por surto elétrico ou raio, com limite típico de R$ 5–15 mil dentro da apólice básica." },
+    ],
+    intel: {
+      demographics: "Bairro residencial consolidado em Guarulhos com forte identidade de vizinhança, comércio de rua ativo e perfil familiar de renda média.",
+      landmarks: {
+        streets: ["Av. Salgado Filho (proximidade)", "vias residenciais internas do Jardim Fátima"],
+        business: ["comércio de rua e serviços de bairro"],
+      },
+      riskProfile: {
+        auto: "médio",
+        residencial: "médio",
+        empresarial: "médio",
+        notes: "Bairro estável e bem aceito pelas seguradoras tier-1. Alarme + CFTV reduzem prêmio residencial e empresarial em 10–18%.",
+      },
+      localCase: {
+        title: "Padaria familiar do Jardim Fátima contratou PME + vida do titular",
+        description: "Padaria de 30 anos no Jardim Fátima contratou empresarial PME (R$ 148/mês) + seguro de vida do proprietário (R$ 68/mês com invalidez). Em 2 anos, acionou cobertura de danos elétricos após queda de energia, com indenização de R$ 8.400 em 21 dias.",
       },
     },
   },
