@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { getLongtailCluster } from "@/lib/longtailClusters";
 
 const LongtailPlanosSaudeGuarulhosComparativo = () => (
   <InsurancePageTemplate
@@ -121,6 +122,7 @@ Para escolher o melhor plano de saúde em Guarulhos para o seu perfil, veja tamb
       { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
       { title: "Como Comparar Seguradoras em Guarulhos", link: "/como-comparar-seguradoras-guarulhos" },
     ]}
+    trilhaSeo={getLongtailCluster("/planos-de-saude-guarulhos-comparativo")}
   />
 );
 
