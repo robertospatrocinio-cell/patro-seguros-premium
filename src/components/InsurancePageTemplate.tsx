@@ -249,6 +249,13 @@ export interface InsurancePageProps {
     /** Suprime totalmente a emissão do LocalAreaSchema. */
     skip?: boolean;
   };
+  /**
+   * Jump links (âncoras internas) exibidos logo abaixo do Breadcrumb.
+   * Cada item aponta para um `id` já existente no template (ex.:
+   * `coberturas-heading`, `preco-heading`, `faq-heading`, `formulario-heading`).
+   * Melhora escaneabilidade, dwell time e conecta intenção → resposta.
+   */
+  jumpLinks?: { label: string; href: string }[];
 }
 
 const InsurancePageTemplate = ({
@@ -284,6 +291,7 @@ const InsurancePageTemplate = ({
   canonicalUrl: canonicalUrlProp,
   howto,
   localSeo,
+  jumpLinks,
 }: InsurancePageProps) => {
   const location = useLocation();
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
