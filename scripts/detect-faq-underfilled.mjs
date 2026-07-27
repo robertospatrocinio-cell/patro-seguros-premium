@@ -17,12 +17,14 @@
  *   node scripts/detect-faq-underfilled.mjs             # relatório (dry-run)
  *   node scripts/detect-faq-underfilled.mjs --apply     # grava em blogFaqBackfill.ts
  *   node scripts/detect-faq-underfilled.mjs --json      # imprime JSON
+ *   node scripts/detect-faq-underfilled.mjs --ci        # exit 1 se houver post < 2 Q&A
  *
  * Saída:
  *   dist/faq-underfilled-report.json (sempre que dist/ existe)
  *
  * Exit code:
- *   0 sempre — não bloqueia build (isso é papel do validador de Rich Results).
+ *   0 quando não há posts underfilled (ou em modo dry-run sem --ci).
+ *   1 no modo --ci quando existir ao menos 1 post com < 2 Q&A após o merge.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -37,6 +39,7 @@ const BACKFILL_FILE = path.join(ROOT, "src/data/blogFaqBackfill.ts");
 const args = process.argv.slice(2);
 const APPLY = args.includes("--apply");
 const JSON_OUT = args.includes("--json");
+const CI = args.includes("--ci");
 
 // ---------- suggestion generator --------------------------------------------
 
@@ -175,6 +178,14 @@ if (APPLY && affected.length > 0) {
   console.log(`\n✅ Nada a gravar — todos os posts têm ≥ 2 Q&A ou já estão no backfill.`);
 } else if (affected.length > 0) {
   console.log(`\n💡 Rode com --apply para gravar as sugestões em src/data/blogFaqBackfill.ts`);
+}
+
+if (CI && affected.length > 0) {
+  console.error(
+    `\n❌ CI: ${affected.length} post(s) do blog com FAQPage < 2 Question após merge do backfill.` +
+      `\n   Rode \`node scripts/detect-faq-underfilled.mjs --apply\` e commite src/data/blogFaqBackfill.ts.`,
+  );
+  process.exit(1);
 }
 
 process.exit(0);
