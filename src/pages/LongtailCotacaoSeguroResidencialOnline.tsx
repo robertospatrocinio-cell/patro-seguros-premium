@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { getLongtailCluster } from "@/lib/longtailClusters";
 
 const LongtailCotacaoSeguroResidencialOnline = () => (
   <InsurancePageTemplate
@@ -125,6 +126,7 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
       { title: "Como Comparar Seguradoras em Guarulhos", link: "/como-comparar-seguradoras-guarulhos" },
       { title: "Seguradoras Parceiras", link: "/seguradoras-parceiras" },
     ]}
+    trilhaSeo={getLongtailCluster("/cotacao-seguro-residencial-online")}
   />
 );
 

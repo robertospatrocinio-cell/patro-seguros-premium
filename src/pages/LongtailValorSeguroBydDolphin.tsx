@@ -1,4 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
+import { getLongtailCluster } from "@/lib/longtailClusters";
 
 const LongtailValorSeguroBydDolphin = () => (
   <InsurancePageTemplate
@@ -124,6 +125,7 @@ A Patro Seguros trabalha com Porto Seguro, Allianz, HDI, Tokio Marine e Bradesco
       { title: "Seguro de Frota Empresas Guarulhos", link: "/seguro-frota-empresas-guarulhos" },
       { title: "Como Comparar Seguradoras em Guarulhos", link: "/como-comparar-seguradoras-guarulhos" },
     ]}
+    trilhaSeo={getLongtailCluster("/valor-seguro-byd-dolphin")}
   />
 );
 
