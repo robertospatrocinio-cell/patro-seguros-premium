@@ -746,7 +746,7 @@ const App = () => {
                   {/* Auto — bairros (vão ao hub de bairros) */}
                   <Route path="/seguro-auto-bonsucesso-guarulhos" element={<Navigate to="/seguro-auto-bonsucesso" replace />} />
                   <Route path="/seguro-auto-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
-                  <Route path="/seguro-auto-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
+                  <Route path="/seguro-auto-cumbica" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-cumbica" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-jardim-sao-joao" element={<Navigate to="/seguros-guarulhos/jardim-sao-joao" replace />} />
                   <Route path="/seguro-auto-maia-guarulhos" element={<Navigate to="/seguro-auto-maia" replace />} />
                   <Route path="/seguro-auto-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
@@ -756,13 +756,37 @@ const App = () => {
                   <Route path="/plano-saude-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
                   <Route path="/plano-saude-macedo-guarulhos" element={<Navigate to="/seguros-guarulhos/macedo" replace />} />
                   <Route path="/plano-saude-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
-                  <Route path="/seguro-residencial-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
-                  <Route path="/seguro-residencial-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
-                  <Route path="/seguro-residencial-jardim-maia" element={<Navigate to="/seguros-guarulhos/jardim-maia" replace />} />
-                  <Route path="/seguro-residencial-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
-                  <Route path="/seguro-empresarial-pimentas" element={<Navigate to="/seguros-guarulhos/pimentas" replace />} />
-                  <Route path="/seguro-empresarial-macedo-guarulhos" element={<Navigate to="/seguros-guarulhos/macedo" replace />} />
-                  <Route path="/seguro-empresarial-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  {/* Produto × bairro — subpáginas SEO dedicadas (cauda longa) */}
+                  <Route path="/seguro-residencial-centro-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-centro-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-gopouva-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-gopouva-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-jardim-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-jardim-maia" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-taboao-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-taboao-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-vila-augusta" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-vila-augusta" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-cidade-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-cidade-maia" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-cumbica" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-cumbica" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-bonsucesso" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-pimentas" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-pimentas" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-macedo-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-macedo-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-residencial-picanco-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-picanco-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-pimentas" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-pimentas" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-macedo-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-macedo-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-taboao-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-taboao-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-cidade-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-cidade-maia" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-centro-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-centro-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-vila-augusta" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-vila-augusta" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-jardim-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-jardim-maia" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-picanco-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-picanco-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-cidade-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-cidade-maia" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-cumbica" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-cumbica" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-centro-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-centro-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-vila-augusta" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-vila-augusta" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-jardim-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-jardim-maia" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-bonsucesso" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-pimentas" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-pimentas" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-taboao-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-taboao-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-macedo-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-macedo-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-gopouva-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-gopouva-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/seguro-vida-picanco-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-vida-picanco-guarulhos" }); return <Comp />; })()} />
                   {/* Tratores por marca → trator agrícola */}
                   <Route path="/seguro-jacto-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
                   <Route path="/seguro-john-deere-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
@@ -782,9 +806,9 @@ const App = () => {
                   <Route path="/seguro-compass-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-corolla-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-case-ih-guarulhos" element={<Navigate to="/seguro-trator-agricola" replace />} />
-                  <Route path="/seguro-empresarial-bonsucesso" element={<Navigate to="/seguros-guarulhos/bonsucesso" replace />} />
-                  <Route path="/seguro-empresarial-cumbica" element={<Navigate to="/seguros-guarulhos/cumbica" replace />} />
-                  <Route path="/seguro-empresarial-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
+                  <Route path="/seguro-empresarial-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-bonsucesso" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-cumbica" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-cumbica" }); return <Comp />; })()} />
+                  <Route path="/seguro-empresarial-gopouva-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-empresarial-gopouva-guarulhos" }); return <Comp />; })()} />
                   {/* Hub de Seguradoras Parceiras */}
                   <Route path="/seguradoras" element={<SeguradorasHub />} />
                   <Route path="/seguradoras/:slug" element={<PartnerInsurerPage />} />

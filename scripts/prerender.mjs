@@ -282,13 +282,19 @@ async function run() {
   const { seoLocalPageSlugs: autoSlugs } = await loadDataModule("src/data/seoLocalAutoPages.ts");
   const { seoLocalPageSlugs: saudeSlugs } = await loadDataModule("src/data/seoLocalSaudePages.ts");
   const { seoLocalPageSlugs: modeloSlugs } = await loadDataModule("src/data/seoModelosAutoPages.ts");
+  const { seoLocalProdutoBairroSlugs: produtoBairroSlugs } = await loadDataModule("src/data/seoLocalProdutoBairroPages.ts");
   const { segmentos } = await loadDataModule("src/data/segmentosEmpresariais.ts");
   const { blogAuthors } = await loadDataModule("src/lib/blogAuthors.ts");
   const { getBlogContent } = await loadDataModule("src/data/blogContentIndex.ts");
   const { extraFaqsBySlug } = await loadDataModule("src/data/blogExtraData.ts");
 
   const blogSlugs = articles.map(a => a.slug);
-  const localSlugs = [...(autoSlugs || []), ...(saudeSlugs || []), ...(modeloSlugs || [])];
+  const localSlugs = [
+    ...(autoSlugs || []),
+    ...(saudeSlugs || []),
+    ...(modeloSlugs || []),
+    ...(produtoBairroSlugs || []),
+  ];
   const segmentSlugs = (segmentos || []).map(s => s.slug);
   const blogCategorySlugs = (allCategories || []).map(c => slugifyCategory(c));
   const blogAuthorSlugs = (blogAuthors || []).map(a => a.slug);
