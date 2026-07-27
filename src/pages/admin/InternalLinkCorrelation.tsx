@@ -266,6 +266,99 @@ export default function InternalLinkCorrelation() {
               Período: {data.period.startDate} → {data.period.endDate} · Propriedade: {data.siteUrl}
             </p>
 
+            {data.recommendations && data.recommendations.length > 0 && (
+              <Card className="mb-6 border-primary/40 bg-primary/[0.02]">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-primary" />
+                    Recomendações automáticas de links internos ({data.recommendations.length})
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground">
+                    Páginas com alta impressão no GSC, posição fora do top-3 e pouca linkagem interna atual.
+                    Cada card sugere um <strong>destino</strong>, um <strong>placement</strong> e até 3
+                    <strong> páginas source</strong> com autoridade (cliques GSC) para empurrar o destino.
+                    Score = impressões × fator de posição ÷ (cliques internos + 1).
+                  </p>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {data.recommendations.slice(0, 12).map((rec) => (
+                    <div
+                      key={rec.destination}
+                      className="rounded-lg border border-border bg-background p-3"
+                    >
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <a
+                              href={rec.destination}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="font-mono text-sm text-primary hover:underline truncate max-w-[420px]"
+                              title={rec.destination}
+                            >
+                              {rec.destination}
+                            </a>
+                            <ExternalLink className="h-3 w-3 text-muted-foreground" />
+                          </div>
+                          <p className="text-xs text-muted-foreground mt-1">{rec.reason}</p>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <Badge variant="secondary" className="tabular-nums">
+                            score {fmtInt(rec.score)}
+                          </Badge>
+                          <Badge variant="outline" className="tabular-nums text-[10px]">
+                            pos {rec.gsc ? rec.gsc.position.toFixed(1) : "—"}
+                          </Badge>
+                        </div>
+                      </div>
+
+                      <div className="grid gap-2 md:grid-cols-[auto,1fr] text-xs">
+                        <div className="flex items-center gap-1.5 text-muted-foreground md:pr-3 md:border-r md:border-border">
+                          <span>Placement:</span>
+                          <Badge variant="outline" className="text-[11px]">
+                            {rec.suggestedPlacement}
+                          </Badge>
+                        </div>
+                        <div className="min-w-0">
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            <span className="text-muted-foreground">Sources sugeridas:</span>
+                            {rec.suggestedSources.length === 0 && (
+                              <span className="text-muted-foreground italic">
+                                nenhuma página com cliques GSC no período
+                              </span>
+                            )}
+                            {rec.suggestedSources.map((s) => (
+                              <button
+                                key={s.pathname}
+                                type="button"
+                                onClick={() => {
+                                  navigator.clipboard?.writeText(
+                                    `${s.pathname} → ${rec.destination} [${rec.suggestedPlacement}]`,
+                                  );
+                                  toast.success("Sugestão copiada");
+                                }}
+                                className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-0.5 hover:border-primary hover:text-primary"
+                                title={`${s.gscClicks} cliques GSC · ${s.gscImpressions} impressões · clique para copiar`}
+                              >
+                                <Copy className="h-3 w-3" />
+                                <code className="text-[11px]">{s.pathname}</code>
+                                <span className="text-muted-foreground">({s.gscClicks})</span>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                  {data.recommendations.length > 12 && (
+                    <p className="text-xs text-muted-foreground text-center pt-1">
+                      +{data.recommendations.length - 12} recomendações adicionais ocultas
+                    </p>
+                  )}
+                </CardContent>
+              </Card>
+            )}
+
             {data.anchorsGlobal && data.anchorsGlobal.length > 0 && (
               <Card className="mb-6">
                 <CardHeader className="pb-2">
