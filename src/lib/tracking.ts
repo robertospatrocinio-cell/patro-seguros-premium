@@ -319,6 +319,21 @@ const normalizeDestination = (value: string): string => {
   return path;
 };
 
+/**
+ * Extrai a âncora (id de seção) do destino. Retorna null quando não há hash
+ * ou quando o hash é inválido. Usado para drilldown por seção (`#preco-heading`,
+ * `#faq-heading`) no painel Admin de correlação com o GSC.
+ */
+const extractAnchor = (destination: string): string | null => {
+  if (!destination) return null;
+  const hashIndex = destination.indexOf("#");
+  if (hashIndex === -1) return null;
+  const raw = destination.slice(hashIndex + 1).split("?")[0].trim().toLowerCase();
+  // Aceita apenas ids razoáveis (letras/números/traços) para evitar ruído.
+  if (!raw || !/^[a-z0-9][a-z0-9_-]{0,127}$/.test(raw)) return null;
+  return raw;
+};
+
 export interface InternalLinkClickMeta {
   /** Where the link was rendered. Format "{surface}:{slug}" — normalized automatically. */
   source: string;
@@ -328,6 +343,13 @@ export interface InternalLinkClickMeta {
   label: string;
   /** Optional UI block grouping (e.g. "veja-tambem", "smart-text", "hub-grid"). */
   placement?: string;
+  /**
+   * Optional explicit anchor/section id (sem `#`). Quando omitido, é extraído
+   * automaticamente do hash de `destination` (ex.: `/foo#preco-heading` →
+   * `preco-heading`). Ex.: use quando o clique for numa aba/pill do
+   * `JumpLinksNav`, cujo href já é `#id`.
+   */
+  anchor?: string;
 }
 
 /**
@@ -353,7 +375,8 @@ export type InternalLinkPlacement =
   | "related-posts"
   | "footer-links"
   | "breadcrumb"
-  | "cta-block";
+  | "cta-block"
+  | "jump-links";
 
 /** Build a normalized `source` string. Always use this at call sites. */
 export const buildInternalLinkSource = (
@@ -372,12 +395,16 @@ export const buildInternalLinkSource = (
   const source = normalizeSource(meta.source);
   const destination = normalizeDestination(meta.destination);
   const label = (meta.label || "").trim();
+  const anchor =
+    (meta.anchor && extractAnchor(`#${meta.anchor.replace(/^#/, "")}`)) ||
+    extractAnchor(meta.destination);
   window.gtag?.("event", "internal_link_click", {
     event_category: "navigation",
     event_label: label,
     placement,
     source,
     destination,
+    anchor: anchor ?? undefined,
     page_path: typeof window !== "undefined" ? window.location.pathname : undefined,
     utm_source: attr.utm_source,
     utm_medium: attr.utm_medium,
@@ -387,9 +414,10 @@ export const buildInternalLinkSource = (
     placement,
     source,
     destination,
+    anchor,
     label,
   });
-  persistInternalLinkClick({ placement, source, destination, label, attr });
+  persistInternalLinkClick({ placement, source, destination, label, anchor, attr });
 };
 
 /**
@@ -402,6 +430,7 @@ const persistInternalLinkClick = (payload: {
   source: string;
   destination: string;
   label: string;
+  anchor: string | null;
   attr: Attribution;
 }) => {
   if (typeof window === "undefined") return;
@@ -420,6 +449,7 @@ const persistInternalLinkClick = (payload: {
     source: payload.source.slice(0, 128),
     destination: payload.destination.slice(0, 512),
     label: payload.label ? payload.label.slice(0, 256) : null,
+    anchor: payload.anchor ? payload.anchor.slice(0, 128) : null,
     page_path: path.slice(0, 512),
     session_id: sessionId || null,
     utm_source: payload.attr.utm_source ?? null,
