@@ -664,6 +664,7 @@ const InsurancePageTemplate = ({
                 </li>
               ))}
             </ul>
+            {renderSectionCta("coberturas-heading")}
           </div>
         </section>
 
