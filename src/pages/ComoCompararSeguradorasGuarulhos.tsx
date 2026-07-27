@@ -12,9 +12,10 @@ import HowToSchema from "@/components/HowToSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
-import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
+import { trackCotacaoClick, trackWhatsAppClick, trackInternalLinkClick } from "@/lib/tracking";
 import { SEGURADORAS_PARCEIRAS } from "@/data/seguradorasParceirasSeo";
 import ComparadorSeguradoras from "@/components/ComparadorSeguradoras";
+import { LONGTAIL_SPOTLIGHT } from "@/lib/longtailSpotlight";
 
 const CANONICAL = `${CANONICAL_BASE_URL}/como-comparar-seguradoras-guarulhos`;
 
