@@ -44,15 +44,14 @@ const CLEAN_BREADCRUMB = {
 // Bloco INELIGIBLE: FAQPage sem mainEntity → viola required do Google.
 const BROKEN_FAQ = { "@context": "https://schema.org", "@type": "FAQPage" };
 
-// Bloco eligible-warn: Article completa em required mas sem `image`
-// (recommended). Marca eligible-warn conforme os checkers.
-const WARN_ARTICLE = {
+// Bloco eligible-warn: Organization com required OK (name/url/logo) mas
+// sem `sameAs` — os checkers marcam essa lacuna como recommended.
+const WARN_ORG = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  headline: "H",
-  author: { "@type": "Person", name: "A" },
-  datePublished: "2026-01-01",
-  publisher: { "@type": "Organization", name: "P", logo: { "@type": "ImageObject", url: "https://x.test/l.png" } },
+  "@type": "Organization",
+  name: "Patro",
+  url: "https://x.test/",
+  logo: "https://x.test/logo.png",
 };
 
 // -------- fixture dir --------------------------------------------------------
@@ -65,7 +64,7 @@ beforeAll(() => {
   fs.mkdirSync(path.join(TMP, "broken"), { recursive: true });
   fs.writeFileSync(path.join(TMP, "index.html"), htmlWithLd(CLEAN_BREADCRUMB));
   fs.writeFileSync(path.join(TMP, "ok/index.html"), htmlWithLd(CLEAN_BREADCRUMB));
-  fs.writeFileSync(path.join(TMP, "warn/index.html"), htmlWithLd(WARN_ARTICLE));
+  fs.writeFileSync(path.join(TMP, "warn/index.html"), htmlWithLd(WARN_ORG));
   fs.writeFileSync(path.join(TMP, "broken/index.html"), htmlWithLd(BROKEN_FAQ));
 });
 afterAll(() => fs.rmSync(TMP, { recursive: true, force: true }));
