@@ -840,6 +840,54 @@ export type Database = {
           },
         ]
       }
+      internal_link_applications: {
+        Row: {
+          applied_at: string
+          applied_by: string | null
+          created_at: string
+          destination: string
+          id: string
+          notes: string | null
+          period_days: number | null
+          placement: string
+          reason: string | null
+          score: number | null
+          sources: string[]
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          applied_at?: string
+          applied_by?: string | null
+          created_at?: string
+          destination: string
+          id?: string
+          notes?: string | null
+          period_days?: number | null
+          placement: string
+          reason?: string | null
+          score?: number | null
+          sources?: string[]
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          applied_at?: string
+          applied_by?: string | null
+          created_at?: string
+          destination?: string
+          id?: string
+          notes?: string | null
+          period_days?: number | null
+          placement?: string
+          reason?: string | null
+          score?: number | null
+          sources?: string[]
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       internal_link_click_events: {
         Row: {
           anchor: string | null
