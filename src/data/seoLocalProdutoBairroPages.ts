@@ -1,5 +1,6 @@
 import type { SeoLocalPageConfig } from "@/data/seoLocalAutoPages";
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
+import { getNeighborIds } from "@/lib/bairroNeighbors";
 
 /**
  * Páginas SEO produto×bairro (Residencial, Vida e Empresarial) em Guarulhos.
@@ -80,6 +81,26 @@ const partnersLine =
 
 const slugFor = (produto: Produto, s: Seed) => `seguro-${produto}-${s.slugBairro}`;
 
+/**
+ * Interlinking produto×bairro: dado um bairro (hubSlug) e um produto,
+ * devolve links para as landing pages do mesmo produto nos bairros vizinhos
+ * que possuem página publicada. Usa `nearbyAreas` do LocalPageTemplate.
+ */
+function buildNearbyAreas(
+  s: Seed,
+  produto: Produto,
+): { name: string; link: string }[] {
+  const bySlug = new Map(SEEDS.map((seed) => [seed.hubSlug, seed]));
+  return getNeighborIds(s.hubSlug)
+    .map((id) => bySlug.get(id))
+    .filter((n): n is Seed => Boolean(n))
+    .slice(0, 4)
+    .map((n) => ({
+      name: `Seguro ${produto} em ${n.bairro}`,
+      link: `/${slugFor(produto, n)}`,
+    }));
+}
+
 // ---------------- RESIDENCIAL ----------------
 function buildResidencial(s: Seed): SeoLocalPageConfig {
   const slug = slugFor("residencial", s);
@@ -148,6 +169,7 @@ function buildResidencial(s: Seed): SeoLocalPageConfig {
       { title: "Seguro Fiança Locatícia", link: "/seguro-fianca-locaticia" },
       { title: `Todos os seguros no ${s.bairro}`, link: `/seguros-guarulhos/${s.hubSlug}` },
     ],
+    nearbyAreas: buildNearbyAreas(s, "residencial"),
     neighborhood: s.bairro,
     city: "Guarulhos",
   };
@@ -220,6 +242,7 @@ function buildVida(s: Seed): SeoLocalPageConfig {
       { title: "Plano de Saúde", link: "/plano-de-saude-guarulhos" },
       { title: `Todos os seguros no ${s.bairro}`, link: `/seguros-guarulhos/${s.hubSlug}` },
     ],
+    nearbyAreas: buildNearbyAreas(s, "vida"),
     neighborhood: s.bairro,
     city: "Guarulhos",
   };
@@ -294,6 +317,7 @@ function buildEmpresarial(s: Seed): SeoLocalPageConfig {
       { title: "Seguro Condomínio", link: "/seguro-condominio-guarulhos" },
       { title: `Todos os seguros no ${s.bairro}`, link: `/seguros-guarulhos/${s.hubSlug}` },
     ],
+    nearbyAreas: buildNearbyAreas(s, "empresarial"),
     neighborhood: s.bairro,
     city: "Guarulhos",
   };
