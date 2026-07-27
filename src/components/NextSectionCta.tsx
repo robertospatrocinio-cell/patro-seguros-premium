@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   buildInternalLinkSource,
-  trackInternalLinkClick,
+  trackNextSectionCtaClick,
 } from "@/lib/tracking";
 
 export interface NextSectionCtaProps {
@@ -44,13 +44,12 @@ const NextSectionCta = ({
       <Link
         to={href}
         onClick={() =>
-          trackInternalLinkClick({
+          trackNextSectionCtaClick("inline", {
             // "landing" é o surface canônico para páginas long-tail/produto;
-            // o placement (`in-section:<id>`) carrega a granularidade do CTA.
+            // a variant "inline" identifica o placement no painel.
             source: buildInternalLinkSource("landing", sourceSlug),
             destination: href,
-            label,
-            placement: `in-section:${sourceSection}`,
+            label: `${label} · from:${sourceSection}`,
             anchor,
           })
         }

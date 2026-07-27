@@ -8,3 +8,5 @@ verify_jwt = true
 verify_jwt = false
 [functions.monitor-gsc-indexation]
 verify_jwt = true
+[functions.next-section-cta-report]
+verify_jwt = true

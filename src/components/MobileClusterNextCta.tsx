@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, X } from "lucide-react";
 import { getLongtailCluster } from "@/lib/longtailClusters";
 import {
   buildInternalLinkSource,
-  trackInternalLinkClick,
+  trackNextSectionCtaClick,
 } from "@/lib/tracking";
 
 /**
@@ -114,8 +114,7 @@ const MobileClusterNextCta = () => {
         <Link
           to={nextItem.href}
           onClick={() =>
-            trackInternalLinkClick({
-              placement: "mobile-cluster-cta",
+            trackNextSectionCtaClick("mobile", {
               source: buildInternalLinkSource("landing", sourceSlug),
               destination: nextItem.href,
               label: nextItem.title,

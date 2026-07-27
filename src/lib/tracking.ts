@@ -426,7 +426,29 @@ export type InternalLinkPlacement =
   | "breadcrumb"
   | "cta-block"
   | "jump-links"
-  | "proximas-leituras";
+  | "proximas-leituras"
+  | "next-section-inline"
+  | "next-section-list"
+  | "next-section-mobile";
+
+/**
+ * Variantes de CTA de "próxima seção" — nomes canônicos para
+ * comparar conversão entre placements no painel Admin.
+ *
+ *  - `inline`  → `<NextSectionCta>` ancorado ao final de uma seção.
+ *  - `list`    → `<ProximasLeiturasCluster>` (bibliografia no rodapé).
+ *  - `mobile`  → `<MobileClusterNextCta>` (pill flutuante mobile).
+ */
+export type NextSectionCtaVariant = "inline" | "list" | "mobile";
+
+export const NEXT_SECTION_CTA_PLACEMENT: Record<
+  NextSectionCtaVariant,
+  Extract<InternalLinkPlacement, `next-section-${string}`>
+> = {
+  inline: "next-section-inline",
+  list: "next-section-list",
+  mobile: "next-section-mobile",
+};
 
 /** Build a normalized `source` string. Always use this at call sites. */
 export const buildInternalLinkSource = (
@@ -468,6 +490,35 @@ export const buildInternalLinkSource = (
     label,
   });
   persistInternalLinkClick({ placement, source, destination, label, anchor, attr });
+};
+
+/**
+ * Rastreia clique num CTA de "próxima seção" (inline, lista de rodapé
+ * ou pill flutuante mobile). Emite um evento GA4 dedicado
+ * `next_section_cta_click` com a `variant` — permite comparar a
+ * eficácia de cada placement no GA4 Explore — E persiste no
+ * `internal_link_click_events` com placement canônico `next-section-*`
+ * para o painel Admin correlacionar com conversões (`session_id`).
+ */
+export const trackNextSectionCtaClick = (
+  variant: NextSectionCtaVariant,
+  meta: Omit<InternalLinkClickMeta, "placement">,
+) => {
+  const placement = NEXT_SECTION_CTA_PLACEMENT[variant];
+  ensureAnalytics();
+  window.gtag?.("event", "next_section_cta_click", {
+    event_category: "engagement",
+    event_label: meta.label,
+    variant,
+    placement,
+    source: meta.source,
+    destination: meta.destination,
+    anchor: meta.anchor,
+    page_path: typeof window !== "undefined" ? window.location.pathname : undefined,
+  });
+  // Reutiliza toda a atribuição/persistência de trackInternalLinkClick
+  // — evita duplicar código de UTM/session/beacon.
+  trackInternalLinkClick({ ...meta, placement });
 };
 
 /**
