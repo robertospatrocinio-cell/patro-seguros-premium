@@ -336,7 +336,8 @@ const InsurancePageTemplate = ({
     );
   };
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
-  const breadcrumbChain = getBreadcrumbChain(location.pathname);
+  const { data: breadcrumbOverrides } = useBreadcrumbOverrides();
+  const breadcrumbChain = getBreadcrumbChain(location.pathname, breadcrumbOverrides);
   const breadcrumbItems = [
     ...breadcrumbChain.map((c) => ({ label: c.label, href: c.href })),
     { label: title },
