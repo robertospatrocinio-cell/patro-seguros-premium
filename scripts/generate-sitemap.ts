@@ -215,15 +215,14 @@ const investments: SitemapEntry[] = [
   { loc: "/planejamento-patrimonial", priority: "0.7", changefreq: "monthly" },
 ];
 
-const bairroIds = [
+// Fallback usado quando o vite.config não fornece a lista dinâmica
+// (mantido só para compatibilidade — o plugin agora passa `bairroIds`
+// lido diretamente de `src/lib/bairrosData.ts` em cada build).
+const DEFAULT_BAIRRO_IDS = [
   "jardim-maia", "vila-augusta", "cumbica", "centro", "picanco",
-   "macedo", "gopouva", "bonsucesso", "paraventi", "continental", "taboao", "pimentas",
+  "macedo", "gopouva", "bonsucesso", "paraventi", "continental",
+  "taboao", "pimentas",
 ];
-const bairroEntries: SitemapEntry[] = bairroIds.map(b => ({
-  loc: `/seguros-guarulhos/${b}`,
-  priority: "0.7",
-  changefreq: "monthly",
-}));
 
 const legal: SitemapEntry[] = [
   { loc: "/politica-privacidade", priority: "0.3", changefreq: "yearly" },
@@ -400,7 +399,13 @@ export function generateSitemap(blogSlugs: string[]): string {
    segmentSlugs: string[] = [],
    blogCategorySlugs: string[] = [],
    blogAuthorSlugs: string[] = [],
+   bairroIds: string[] = DEFAULT_BAIRRO_IDS,
  ): SitemapBundle {
+   const bairroEntries: SitemapEntry[] = bairroIds.map(b => ({
+     loc: `/seguros-guarulhos/${b}`,
+     priority: "0.7",
+     changefreq: "monthly",
+   }));
    const segmentEntries: SitemapEntry[] = segmentSlugs.map(slug => ({
      loc: `/seguro-empresarial/${slug}`,
      priority: "0.8",

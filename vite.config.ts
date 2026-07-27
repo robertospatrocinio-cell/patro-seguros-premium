@@ -197,20 +197,48 @@ function sitemapPlugin(): Plugin {
       const dataFiles = [
         "src/data/seoLocalAutoPages.ts", 
         "src/data/seoLocalSaudePages.ts",
-        "src/data/seoModelosAutoPages.ts"
+        "src/data/seoModelosAutoPages.ts",
+        "src/data/seoLocalProdutoBairroPages.ts",
       ];
 
       
       for (const file of dataFiles) {
         try {
           const mod = await loadDataModule(file);
-          const slugsFromMod = mod.seoLocalPageSlugs || mod.seoLocalSlugs || mod.seoLocalSaudeSlugs || mod.seoModeloAutoSlugs;
+          const slugsFromMod =
+            mod.seoLocalPageSlugs ||
+            mod.seoLocalSlugs ||
+            mod.seoLocalSaudeSlugs ||
+            mod.seoModeloAutoSlugs ||
+            mod.seoLocalProdutoBairroSlugs;
           if (Array.isArray(slugsFromMod)) {
             localSlugs.push(...slugsFromMod);
           }
         } catch (err) {
           console.warn(`⚠️  sitemap: falha ao carregar ${file} —`, err instanceof Error ? err.message : err);
         }
+      }
+
+      // Auto-descobre bairros a partir de src/lib/bairrosData.ts (regex-based,
+      // igual ao prerender-react.mjs) para manter sitemap-bairros.xml em
+      // sincronia com todos os bairros publicados sem edição manual.
+      const bairroIds: string[] = [];
+      try {
+        const bairrosSrc = fs.readFileSync(
+          path.resolve(__dirname, "src/lib/bairrosData.ts"),
+          "utf-8"
+        );
+        const idRegex = /id:\s*"([a-z0-9-]+)"/g;
+        const seen = new Set<string>();
+        let bMatch: RegExpExecArray | null;
+        while ((bMatch = idRegex.exec(bairrosSrc)) !== null) {
+          if (!seen.has(bMatch[1])) {
+            seen.add(bMatch[1]);
+            bairroIds.push(bMatch[1]);
+          }
+        }
+      } catch (err) {
+        console.warn("⚠️  sitemap: falha ao carregar bairrosData.ts —", err instanceof Error ? err.message : err);
       }
 
        // Load business insurance segments
@@ -224,7 +252,14 @@ function sitemapPlugin(): Plugin {
          console.warn("⚠️  sitemap: falha ao carregar segmentos empresariais —", err instanceof Error ? err.message : err);
        }
  
-       const { index, files } = (generateSitemapBundle as any)(slugs, localSlugs, segmentSlugs, blogCategorySlugs, blogAuthorSlugs);
+       const { index, files } = (generateSitemapBundle as any)(
+         slugs,
+         localSlugs,
+         segmentSlugs,
+         blogCategorySlugs,
+         blogAuthorSlugs,
+         bairroIds.length ? bairroIds : undefined,
+       );
       const outDir = path.resolve(__dirname, "dist");
       fs.mkdirSync(outDir, { recursive: true });
       // Cluster sitemaps + legacy flat sitemap.xml
