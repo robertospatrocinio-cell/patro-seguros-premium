@@ -734,6 +734,104 @@ export default function InternalLinkCorrelation() {
               </Card>
             )}
 
+            {recommendMode && (
+              <Card className="mb-6 border-fuchsia-500/60 bg-fuchsia-500/[0.03]">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Wand2 className="h-4 w-4 text-fuchsia-600" />
+                    Recomendar mudanças — swaps de hash sugeridos ({hashRecommendations.length})
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground">
+                    Para cada âncora <strong>perdedora</strong> (alta impressão no GSC + baixa CTR
+                    ou baixa conversão), sugere um swap por uma âncora <strong>vencedora</strong>
+                    do mesmo cluster — priorizando quando o vencedor já converte na mesma página.
+                    Ganho projetado = <code>impressões × CTR-alvo(posição) × taxa do vencedor</code>.
+                    {filtersActive && (
+                      <span className="block mt-1 text-primary">Filtro ativo: {filterSummary}</span>
+                    )}
+                  </p>
+                </CardHeader>
+                <CardContent className="overflow-x-auto">
+                  {hashRecommendations.length === 0 ? (
+                    <p className="text-sm text-muted-foreground py-4 text-center">
+                      Nenhum swap seguro encontrado no período — precisa de âncoras perdedoras com
+                      ≥50 impressões e âncoras vencedoras com ≥5 sessões e ≥5% de conversão no
+                      mesmo cluster. Aumente a janela para 60–90 dias ou remova o filtro.
+                    </p>
+                  ) : (
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Página</TableHead>
+                          <TableHead>Swap sugerido</TableHead>
+                          <TableHead className="text-right">Ganho proj.</TableHead>
+                          <TableHead className="text-right">Impr.</TableHead>
+                          <TableHead className="text-right">Pos.</TableHead>
+                          <TableHead className="text-right">CTR atual</TableHead>
+                          <TableHead className="text-right">Conv. atual</TableHead>
+                          <TableHead className="text-right">Vencedor</TableHead>
+                          <TableHead>Confiança</TableHead>
+                          <TableHead className="text-right">Ações</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {hashRecommendations.map((s) => (
+                          <TableRow key={s.key}>
+                            <TableCell className="text-xs">
+                              <div className="flex flex-col">
+                                <span className="font-mono">{s.pathname}</span>
+                                <Badge variant="outline" className="text-[10px] mt-1 w-fit">
+                                  {anchorClusterLabel(s.cluster)}
+                                </Badge>
+                              </div>
+                            </TableCell>
+                            <TableCell className="text-xs">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <code className="line-through text-muted-foreground">#{s.loserAnchor}</code>
+                                <ArrowRight className="w-3 h-3 text-muted-foreground" />
+                                <code className="text-fuchsia-700 dark:text-fuchsia-300 font-semibold">#{s.winnerAnchor}</code>
+                                {s.samePage && (
+                                  <Badge variant="secondary" className="text-[10px]">mesma página</Badge>
+                                )}
+                              </div>
+                              <p className="text-[11px] text-muted-foreground mt-1">{s.reason}</p>
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              <Badge variant="default">+{s.projectedConversionsGain.toFixed(1)}</Badge>
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(s.impressions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtPos(s.position)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtPct(s.loserCtr, 1)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtPct(s.loserConversionRate, 1)}</TableCell>
+                            <TableCell className="text-right tabular-nums text-xs">
+                              {fmtPct(s.winnerConversionRate, 1)}
+                              <span className="block text-[10px] text-muted-foreground">
+                                {fmtInt(s.winnerSessions)} sess · W{s.winnerWhats}/C{s.winnerCotacao}
+                              </span>
+                            </TableCell>
+                            <TableCell>
+                              <Badge variant={s.confidence === "alta" ? "default" : s.confidence === "média" ? "secondary" : "outline"}>
+                                {s.confidence}
+                              </Badge>
+                            </TableCell>
+                            <TableCell className="text-right">
+                              <Button size="sm" variant="ghost" onClick={() => copySwap(s)}>
+                                {copiedSwapKey === s.key ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  )}
+                  <p className="text-[11px] text-muted-foreground mt-2">
+                    O ganho é um ranking (não forecast). Aplique um swap por vez, marque a
+                    recomendação como aceita e valide na próxima janela.
+                  </p>
+                </CardContent>
+              </Card>
+            )}
+
             {data.anchorPotential && data.anchorPotential.length > 0 && (() => {
               const filtered = data.anchorPotential.filter((a) =>
                 matchesCluster(a.topPage?.pathname) &&
