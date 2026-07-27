@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Loader2, Plus, RefreshCw, Save, Trash2, RotateCcw } from "lucide-react";
 import { toast } from "sonner";
@@ -87,20 +87,23 @@ export default function BreadcrumbsAdmin() {
   const { data: overrides, isLoading, refetch } = useBreadcrumbOverrides();
   const [rowsById, setRowsById] = useState<Record<string, EditableRow>>({});
   const [newSlug, setNewSlug] = useState("");
+  const [dbRows, setDbRows] = useState<BreadcrumbOverrideRow[]>([]);
 
-  // Snapshot de linhas: overrides existentes + slugs long-tail conhecidos.
-  const dbRowsQuery = useMemo(async () => {
-    const { data } = await supabase
+  const loadDbRows = useCallback(async () => {
+    const { data, error } = await supabase
       .from("breadcrumb_overrides")
       .select("*")
       .order("slug", { ascending: true });
-    return (data ?? []) as BreadcrumbOverrideRow[];
-  }, [overrides]);
+    if (error) {
+      toast.error(`Erro ao carregar overrides: ${error.message}`);
+      return;
+    }
+    setDbRows((data ?? []) as BreadcrumbOverrideRow[]);
+  }, []);
 
-  const [dbRows, setDbRows] = useState<BreadcrumbOverrideRow[]>([]);
-  useMemo(() => {
-    dbRowsQuery.then(setDbRows).catch(() => setDbRows([]));
-  }, [dbRowsQuery]);
+  useEffect(() => {
+    loadDbRows();
+  }, [loadDbRows, overrides]);
 
   const displaySlugs = useMemo(() => {
     const set = new Set<string>(KNOWN_LONGTAIL_SLUGS);
@@ -142,12 +145,7 @@ export default function BreadcrumbsAdmin() {
     toast.success(`Override salvo para ${slug}`);
     await queryClient.invalidateQueries({ queryKey: ["breadcrumb-overrides"] });
     await refetch();
-    // Força releitura do snapshot cru também.
-    const { data } = await supabase
-      .from("breadcrumb_overrides")
-      .select("*")
-      .order("slug", { ascending: true });
-    setDbRows((data ?? []) as BreadcrumbOverrideRow[]);
+    await loadDbRows();
     setRowsById((p) => {
       const next = { ...p };
       delete next[slug];
@@ -167,11 +165,7 @@ export default function BreadcrumbsAdmin() {
     }
     toast.success(`Override removido para ${slug}`);
     await queryClient.invalidateQueries({ queryKey: ["breadcrumb-overrides"] });
-    const { data } = await supabase
-      .from("breadcrumb_overrides")
-      .select("*")
-      .order("slug", { ascending: true });
-    setDbRows((data ?? []) as BreadcrumbOverrideRow[]);
+    await loadDbRows();
     setRowsById((p) => {
       const next = { ...p };
       delete next[slug];
