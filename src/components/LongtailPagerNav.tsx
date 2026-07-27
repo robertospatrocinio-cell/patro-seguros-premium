@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getLongtailPager } from "@/lib/longtailClusters";
-import { CANONICAL_BASE_URL } from "@/lib/canonicalUrl";
+import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
 
 interface LongtailPagerNavProps {
