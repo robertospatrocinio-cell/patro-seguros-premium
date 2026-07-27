@@ -386,3 +386,142 @@ describe("invariância à ordem dos nós JSON-LD por rota", () => {
     });
   }
 });
+
+// ============================================================================
+// SUITE NEGATIVA — Organization com url/logo quebrados DEVE falhar
+// ============================================================================
+// Prova, contra o bundle prerenderizado real (mini-fixture), que o
+// validador detecta regressões nos campos obrigatórios da Organization
+// (url absoluta, logo absoluta). Cada caso injeta UM erro isolado e
+// confirma:
+//   - exit code ≠ 0
+//   - report.summary.ineligible > 0
+//   - a mensagem req esperada aparece na rota afetada
+//
+// Se um dia o checker de Organization for enfraquecido (ex.: aceitar
+// URL relativa), estes testes quebram antes do deploy.
+// ============================================================================
+
+describe("negativos: Organization com url/logo inválidos derruba o validador", () => {
+  const CASES = [
+    {
+      name: "url ausente",
+      mutate: (org) => { delete org.url; },
+      expectReq: /^url absoluta ausente$/,
+    },
+    {
+      name: "url relativa",
+      mutate: (org) => { org.url = "/rel"; },
+      expectReq: /^url absoluta ausente$/,
+    },
+    {
+      name: "url com esquema javascript:",
+      mutate: (org) => { org.url = "javascript:void(0)"; },
+      expectReq: /^url absoluta ausente$/,
+    },
+    {
+      name: "url protocol-relative",
+      mutate: (org) => { org.url = "//patroseguros.com.br"; },
+      expectReq: /^url absoluta ausente$/,
+    },
+    {
+      name: "logo ausente",
+      mutate: (org) => { delete org.logo; },
+      expectReq: /^logo absoluta ausente/,
+    },
+    {
+      name: "logo string relativa",
+      mutate: (org) => { org.logo = "/images/logo-full.webp"; },
+      expectReq: /^logo absoluta ausente/,
+    },
+    {
+      name: "logo ImageObject sem url absoluta",
+      mutate: (org) => { org.logo = { "@type": "ImageObject", url: "/rel.png", width: 300, height: 60 }; },
+      expectReq: /^logo absoluta ausente/,
+    },
+    {
+      name: "logo data: URI",
+      mutate: (org) => { org.logo = "data:image/png;base64,AAA"; },
+      expectReq: /^logo absoluta ausente/,
+    },
+  ];
+
+  for (const { name, mutate, expectReq } of CASES) {
+    it(`Organization: ${name} → validador falha`, () => {
+      const dist = fs.mkdtempSync(path.join(os.tmpdir(), "prv-neg-org-"));
+      try {
+        // Clona profundamente para não vazar mutações entre casos
+        const brokenOrg = JSON.parse(JSON.stringify(ORGANIZATION_JSONLD));
+        mutate(brokenOrg);
+
+        const dir = path.join(dist, ""); // rota "/"
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(
+          path.join(dir, "index.html"),
+          htmlWith(
+            brokenOrg,
+            breadcrumbListJsonLd("/", [
+              { name: "Início", url: "/" },
+              { name: "Home", url: "/" },
+            ]),
+          ),
+          "utf-8",
+        );
+
+        const res = spawnSync(
+          "node",
+          [VALIDATOR, `--dist=${dist}`],
+          { encoding: "utf-8", cwd: ROOT },
+        );
+        expect(
+          res.status,
+          `validador aprovou Organization quebrada (${name}):\nSTDOUT:\n${res.stdout}\nSTDERR:\n${res.stderr}`,
+        ).not.toBe(0);
+
+        const report = JSON.parse(
+          fs.readFileSync(path.join(dist, "google-rich-results-report.json"), "utf-8"),
+        );
+        expect(report.summary.ineligible, `${name}: ineligible deveria ser > 0`).toBeGreaterThan(0);
+
+        // Confirma que o motivo é o esperado (Organization) e não outro nó
+        const orgNode = (report.routes["/"]?.nodes ?? []).find(
+          (n) => n.type === "Organization",
+        );
+        expect(orgNode, `${name}: nó Organization ausente do relatório`).toBeDefined();
+        expect(orgNode.verdict, `${name}: Organization não marcada ineligible`).toBe("ineligible");
+        expect(
+          orgNode.required.some((m) => expectReq.test(m)),
+          `${name}: req esperado (${expectReq}) ausente — recebido ${JSON.stringify(orgNode.required)}`,
+        ).toBe(true);
+      } finally {
+        fs.rmSync(dist, { recursive: true, force: true });
+      }
+    });
+  }
+
+  it("controle: Organization intacta continua eligible (guarda contra falso-positivo)", () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), "prv-neg-org-ok-"));
+    try {
+      fs.mkdirSync(dist, { recursive: true });
+      fs.writeFileSync(
+        path.join(dist, "index.html"),
+        htmlWith(
+          ORGANIZATION_JSONLD,
+          breadcrumbListJsonLd("/", [
+            { name: "Início", url: "/" },
+            { name: "Home", url: "/" },
+          ]),
+        ),
+        "utf-8",
+      );
+      const res = spawnSync(
+        "node",
+        [VALIDATOR, `--dist=${dist}`, "--strict-warn"],
+        { encoding: "utf-8", cwd: ROOT },
+      );
+      expect(res.status, `controle falhou:\n${res.stdout}\n${res.stderr}`).toBe(0);
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+});
