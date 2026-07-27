@@ -339,6 +339,27 @@ export default function InternalLinkCorrelation() {
               onChange={(e) => setAnchor(e.target.value)}
               className="w-36"
             />
+            <Select value={clusterFilter} onValueChange={(v) => setClusterFilter(v as AnchorClusterId | "all")}>
+              <SelectTrigger className="w-44" title="Filtra rankings de âncora pelo cluster (Auto, Residencial, Saúde…)">
+                <SelectValue placeholder="Cluster" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Todos os clusters</SelectItem>
+                {ANCHOR_CLUSTERS.map((c) => (
+                  <SelectItem key={c.id} value={c.id}>{c.label}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <Select value={convTypeFilter} onValueChange={(v) => setConvTypeFilter(v as "all" | "whatsapp" | "cotacao")}>
+              <SelectTrigger className="w-44" title="Filtra por tipo de conversão atribuída à âncora">
+                <SelectValue placeholder="Conversão" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">Qualquer conversão</SelectItem>
+                <SelectItem value="whatsapp">Só WhatsApp</SelectItem>
+                <SelectItem value="cotacao">Só Cotação</SelectItem>
+              </SelectContent>
+            </Select>
             <Button onClick={load} disabled={loading} size="sm">
               <RefreshCw className={`w-4 h-4 mr-2 ${loading ? "animate-spin" : ""}`} />
               Atualizar
