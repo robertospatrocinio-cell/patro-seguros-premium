@@ -343,6 +343,16 @@ export default function InternalLinkCorrelation() {
             <Button variant="outline" size="sm" onClick={exportCsv} disabled={!data}>
               <Download className="w-4 h-4 mr-2" /> CSV
             </Button>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={refreshPriorities}
+              disabled={refreshingPriorities}
+              title="Recalcula anchor_priorities e reordena 'Próximas leituras' no site público"
+            >
+              <Zap className={`w-4 h-4 mr-2 ${refreshingPriorities ? "animate-pulse" : ""}`} />
+              Recalcular prioridades
+            </Button>
           </div>
         </div>
 
