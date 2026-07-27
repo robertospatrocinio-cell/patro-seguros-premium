@@ -5,6 +5,12 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      allow_warn:
+        description: "Permitir eligible-warn no validador do Google Rich Results (não falha em warn)"
+        type: boolean
+        default: true
 
 jobs:
   jsonld:
@@ -47,6 +53,25 @@ jobs:
 
       - name: Validar rich results (FAQPage + HowTo + BreadcrumbList) em dist/
         run: bun run validate:rich-snippets
+
+      - name: Validar elegibilidade Google Rich Results em dist/ (falha em ineligible)
+        # Falha o build se qualquer bloco JSON-LD ficar `ineligible` conforme regras
+        # do Google Search Central. `eligible-warn` só falha quando allow_warn=false
+        # (padrão em push/PR: permite warn; disparo manual pode alternar).
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.allow_warn }}" = "false" ]; then
+            bun run validate:google-rich-results -- --strict-warn
+          else
+            bun run validate:google-rich-results -- --allow-warn
+          fi
+
+      - name: Upload do relatório Google Rich Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: google-rich-results-report
+          path: dist/google-rich-results-report.json
+          if-no-files-found: ignore
 
       - name: Validar schemas críticos (FAQPage, Service, BreadcrumbList, Organization) — falha em qualquer erro
         run: bun run validate:critical-schemas
