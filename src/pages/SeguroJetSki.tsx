@@ -7,6 +7,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import heroImg from "@/assets/hero-seguro-jetski.webp";
@@ -119,6 +120,7 @@ const SeguroJetSki = () => {
         title="Seguro Jet Ski Premium | Proteção Sofisticada para Motonáutica — Patro Seguros"
         description="Seguro jet ski premium com assistência 24h, cobertura total no reboque e RC náutica. Proteção exclusiva Sea-Doo, Yamaha e Kawasaki."
       />
+      <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
 
       <Header />
 
