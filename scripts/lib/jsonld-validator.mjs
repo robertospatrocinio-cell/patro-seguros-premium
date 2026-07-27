@@ -12,7 +12,6 @@
  */
 
 import {
-  ABS_URL_RE,
   isAbsUrl,
   isHttpsUrl,
   hasImage,
