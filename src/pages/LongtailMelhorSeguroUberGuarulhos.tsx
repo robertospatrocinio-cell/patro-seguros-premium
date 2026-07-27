@@ -2,6 +2,13 @@ import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 
 const LongtailMelhorSeguroUberGuarulhos = () => (
   <InsurancePageTemplate
+    jumpLinks={[
+      { label: "Melhores seguradoras", href: "#coberturas-heading" },
+      { label: "Quanto custa", href: "#preco-heading" },
+      { label: "Quem precisa", href: "#quem-precisa-heading" },
+      { label: "Perguntas frequentes", href: "#faq-heading" },
+      { label: "Cotar agora", href: "#formulario-heading" },
+    ]}
     title="Qual o Melhor Seguro para Uber em Guarulhos? Ranking 2026"
     subtitle="Comparativo direto entre as 4 seguradoras que realmente cobrem Uber em Guarulhos: Porto Seguro, Allianz, HDI e Tokio Marine. Preço, franquia, aceitação de app e cobertura em corrida — lado a lado."
     description="Ranking técnico das melhores seguradoras para motorista Uber em Guarulhos, com base em 200+ cotações reais feitas pela Patro Seguros. Apenas produtos com cláusula expressa de uso por aplicativo — nenhum risco de negativa em sinistro durante corrida."

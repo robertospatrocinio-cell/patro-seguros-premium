@@ -2,6 +2,13 @@ import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 
 const LongtailCotacaoSeguroResidencialOnline = () => (
   <InsurancePageTemplate
+    jumpLinks={[
+      { label: "Quanto custa", href: "#preco-heading" },
+      { label: "O que cobre", href: "#coberturas-heading" },
+      { label: "Como funciona", href: "#como-funciona-heading" },
+      { label: "Perguntas frequentes", href: "#faq-heading" },
+      { label: "Cotar agora", href: "#formulario-heading" },
+    ]}
     title="Cotação de Seguro Residencial Online — Preço em 2 Minutos"
     subtitle="Faça sua cotação de seguro residencial online e receba propostas de Porto Seguro, Bradesco, Allianz, SulAmérica e HDI em até 2 horas. Cobertura completa a partir de R$ 25/mês para casas e apartamentos em Guarulhos e Grande SP."
     description="Cotação de seguro residencial online 100% gratuita e sem compromisso. A Patro Seguros compara 8 seguradoras em uma única cotação e envia o comparativo por WhatsApp em até 2h — com preço, coberturas, franquia e assistência 24h de cada uma."
