@@ -23,6 +23,7 @@ import AutoridadePatro from "@/components/AutoridadePatro";
 import ComoPatroAjuda from "@/components/ComoPatroAjuda";
 import JumpLinksNav from "@/components/JumpLinksNav";
 import NextSectionCta, { type NextSectionCtaProps } from "@/components/NextSectionCta";
+import ProximasLeiturasCluster from "@/components/ProximasLeiturasCluster";
 import {
   detectGuarulhosNeighborhood,
   isGuarulhosContext,
