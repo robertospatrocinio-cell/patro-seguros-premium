@@ -130,7 +130,9 @@ const ScrollToTop = () => {
           focusEl(el);
           return;
         }
-        if (attempt < 20) {
+        // Aumenta a janela de espera (2s) para páginas lazy-loaded/pesadas
+        // antes de dar como perdida a âncora.
+        if (attempt < 40) {
           window.setTimeout(() => scrollToAnchor(attempt + 1), 50);
           return;
         }
@@ -144,10 +146,26 @@ const ScrollToTop = () => {
             history.replaceState(null, "", `${window.location.pathname}${window.location.search}#${nearest.id}`);
           } catch { /* noop */ }
         } else {
+          // Sem seção equivalente: cai no topo da página irmã, remove o hash
+          // quebrado da URL (evita compartilhamento de link inválido) e
+          // anuncia para leitores de tela que o usuário está no topo.
           reportFallback(id, null);
+          try {
+            history.replaceState(
+              null,
+              "",
+              `${window.location.pathname}${window.location.search}`,
+            );
+          } catch { /* noop */ }
           window.scrollTo({ top: 0, behavior });
           const mainContent = document.getElementById("main-content");
-          mainContent?.focus();
+          if (mainContent) {
+            if (!mainContent.hasAttribute("tabindex")) {
+              mainContent.setAttribute("tabindex", "-1");
+            }
+            mainContent.focus({ preventScroll: true });
+          }
+          announce("Seção indisponível. Você foi levado ao topo da página.");
         }
       };
       scrollToAnchor();
