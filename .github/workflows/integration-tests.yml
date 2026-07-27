@@ -24,27 +24,81 @@ concurrency:
 
 jobs:
   integration:
-    name: prerender + rich-results validator (--strict-warn)
-    runs-on: ubuntu-latest
+    name: integration (${{ matrix.runtime }} ${{ matrix.version }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        runtime: [bun, node]
+        include:
+          # Bun: LTS estável + latest para pegar regressões cedo.
+          - runtime: bun
+            version: "1.1.34"
+            os: ubuntu-latest
+          - runtime: bun
+            version: "latest"
+            os: ubuntu-latest
+          # Node: LTS ativa (20) + LTS atual (22) — cobre o range suportado.
+          - runtime: node
+            version: "20"
+            os: ubuntu-latest
+          - runtime: node
+            version: "22"
+            os: ubuntu-latest
+          # Cross-OS smoke: garante que paths/EOL não regridem no macOS.
+          - runtime: bun
+            version: "latest"
+            os: macos-latest
+        exclude:
+          # A matriz base (os × runtime) gera combinações sem `version`;
+          # os `include` acima são a fonte de verdade.
+          - runtime: bun
+            os: ubuntu-latest
+          - runtime: node
+            os: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v1
+      - name: Setup Bun
+        if: matrix.runtime == 'bun'
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: ${{ matrix.version }}
+
+      - name: Setup Node
+        if: matrix.runtime == 'node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.version }}
+
+      # Bun é usado para instalar dependências em ambos runtimes: é rápido
+      # e o lockfile do projeto é `bun.lockb`. No job Node ele é usado
+      # apenas como package manager; a suíte roda com `npm test`.
+      - name: Setup Bun (installer for Node job)
+        if: matrix.runtime == 'node'
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: "latest"
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Run integration suite (strict)
-        # O teste chama o validador com `--strict-warn` internamente.
-        # Cobre: fixture mínimo, invariância à ordem, determinismo,
-        # testes negativos em Organization e snapshot do relatório.
+      - name: Run integration suite (strict) — Bun
+        if: matrix.runtime == 'bun'
         run: bun run test:integration
+
+      - name: Run integration suite (strict) — Node
+        if: matrix.runtime == 'node'
+        # `npx vitest` roda sob o Node selecionado pelo setup-node,
+        # validando compatibilidade da suíte fora do runtime Bun.
+        run: npx --yes vitest run scripts/prerender-validate-integration.test.mjs
 
       - name: Upload snapshot on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: integration-snapshot
+          name: integration-snapshot-${{ matrix.runtime }}-${{ matrix.version }}-${{ matrix.os }}
           path: scripts/__snapshots__/
           if-no-files-found: ignore
