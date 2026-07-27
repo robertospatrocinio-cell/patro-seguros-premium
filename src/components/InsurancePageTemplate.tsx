@@ -736,6 +736,7 @@ const InsurancePageTemplate = ({
                   </article>
                 ))}
               </div>
+              {renderSectionCta("cenarios-heading")}
             </div>
           </section>
         )}
