@@ -671,12 +671,36 @@ export default function InternalLinkCorrelation() {
             })()}
 
             {priorities && Object.keys(priorities).length > 0 && (() => {
-              const rows = Object.values(priorities)
+              const allValues = Object.values(priorities);
+              const filteredSource = allValues.filter((r) =>
+                matchesCluster(r.top_pathname) &&
+                convTypeMatches(
+                  Number(r.whatsapp_conversions) || 0,
+                  Number(r.cotacao_conversions) || 0,
+                ),
+              );
+              if (filteredSource.length === 0) return null;
+              const rows = filteredSource
                 .map((r) => ({
                   ...r,
-                  weight:
-                    (Number(r.score) || 0) *
-                    (1 + Math.max(0, Math.min(1, Number(r.conversion_rate) || 0)) * 10),
+                  // Peso final varia com o filtro de tipo de conversão:
+                  //   • all      → score × (1 + rate × 10)   [comportamento padrão]
+                  //   • whatsapp → score × (1 + whatsapp/sessions × 10)
+                  //   • cotacao  → score × (1 + cotacao/sessions × 10)
+                  weight: (() => {
+                    const score = Number(r.score) || 0;
+                    const sessions = Number(r.sessions) || 0;
+                    if (convTypeFilter === "all" || sessions === 0) {
+                      const rate = Math.max(0, Math.min(1, Number(r.conversion_rate) || 0));
+                      return score * (1 + rate * 10);
+                    }
+                    const typedConv =
+                      convTypeFilter === "whatsapp"
+                        ? Number(r.whatsapp_conversions) || 0
+                        : Number(r.cotacao_conversions) || 0;
+                    const typedRate = Math.max(0, Math.min(1, typedConv / sessions));
+                    return score * (1 + typedRate * 10);
+                  })(),
                 }))
                 .sort((a, b) => b.weight - a.weight)
                 .slice(0, 25);
@@ -689,7 +713,8 @@ export default function InternalLinkCorrelation() {
                   <CardHeader className="pb-2">
                     <CardTitle className="text-base flex items-center gap-2">
                       <Zap className="h-4 w-4 text-primary" />
-                      Prioridades ativas em "Próximas leituras" ({Object.keys(priorities).length})
+                      Prioridades ativas em "Próximas leituras" ({rows.length}
+                      {filtersActive ? ` / ${allValues.length}` : ""})
                     </CardTitle>
                     <p className="text-xs text-muted-foreground">
                       Snapshot publicado em <code>anchor_priorities</code> — o front usa
@@ -698,6 +723,12 @@ export default function InternalLinkCorrelation() {
                       <code>score × (1 + taxa × 10)</code>: potencial SEO amplificado pela
                       conversão real medida. Atualizado em{" "}
                       {new Date(latest).toLocaleString("pt-BR")}.
+                      {filtersActive && (
+                        <span className="block mt-1 text-primary">
+                          Filtro ativo: {filterSummary}
+                          {convTypeFilter !== "all" && " — peso recalculado usando só a taxa do tipo escolhido."}
+                        </span>
+                      )}
                     </p>
                   </CardHeader>
                   <CardContent className="overflow-x-auto">
@@ -711,6 +742,9 @@ export default function InternalLinkCorrelation() {
                           <TableHead className="text-right">Taxa conv.</TableHead>
                           <TableHead className="text-right">Sessões</TableHead>
                           <TableHead className="text-right">Conv.</TableHead>
+                          <TableHead className="text-right">WhatsApp</TableHead>
+                          <TableHead className="text-right">Cotação</TableHead>
+                          <TableHead>Cluster</TableHead>
                           <TableHead className="text-right">Impr.</TableHead>
                           <TableHead className="text-right">Pos.</TableHead>
                         </TableRow>
@@ -737,6 +771,13 @@ export default function InternalLinkCorrelation() {
                             <TableCell className="text-right tabular-nums">
                               {fmtInt(r.converting_sessions)}
                             </TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(r.whatsapp_conversions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">{fmtInt(r.cotacao_conversions)}</TableCell>
+                            <TableCell className="text-xs">
+                              <Badge variant="outline" className="text-[10px]">
+                                {anchorClusterLabel(getAnchorCluster(r.top_pathname))}
+                              </Badge>
+                            </TableCell>
                             <TableCell className="text-right tabular-nums">{fmtInt(r.impressions)}</TableCell>
                             <TableCell className="text-right tabular-nums">{fmtPos(r.position)}</TableCell>
                           </TableRow>
@@ -752,12 +793,30 @@ export default function InternalLinkCorrelation() {
               );
             })()}
 
-            {data.anchorConversions && data.anchorConversions.length > 0 && (
+            {data.anchorConversions && data.anchorConversions.length > 0 && (() => {
+              const filteredConv = data.anchorConversions.filter((a) =>
+                matchesCluster(a.topPage?.pathname) &&
+                convTypeMatches(a.whatsappConversions, a.cotacaoConversions) &&
+                a.sessions >= 3,
+              );
+              // Sort respects conversion type filter — se filtro=whatsapp,
+              // ordena por whatsappConversions desc; idem cotacao.
+              const sortedConv = filteredConv.slice().sort((a, b) => {
+                if (convTypeFilter !== "all") {
+                  return convTypeCount(b.whatsappConversions, b.cotacaoConversions) -
+                         convTypeCount(a.whatsappConversions, a.cotacaoConversions);
+                }
+                if (b.conversionRate !== a.conversionRate) return b.conversionRate - a.conversionRate;
+                return b.convertingSessions - a.convertingSessions;
+              });
+              if (sortedConv.length === 0) return null;
+              return (
               <Card className="mb-6 border-primary/40">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-base flex items-center gap-2">
                     <Sparkles className="h-4 w-4 text-primary" />
-                    Âncoras por conversão ({data.anchorConversions.length})
+                    Âncoras por conversão ({sortedConv.length}
+                    {filtersActive ? ` / ${data.anchorConversions.length}` : ""})
                   </CardTitle>
                   <p className="text-xs text-muted-foreground">
                     Atribuição por <code>session_id</code>: uma âncora é creditada
@@ -765,6 +824,12 @@ export default function InternalLinkCorrelation() {
                     <code>cotacao_click</code> em até 30 min após clicar nela.
                     Ordenado por taxa de conversão; use para priorizar âncoras
                     na trilha recomendada e cortar as que só geram cliques sem conversão.
+                    {filtersActive && (
+                      <span className="block mt-1 text-primary">
+                        Filtro ativo: {filterSummary}
+                        {convTypeFilter !== "all" && " — ordenação passa a ser pelo volume do tipo escolhido."}
+                      </span>
+                    )}
                   </p>
                 </CardHeader>
                 <CardContent className="overflow-x-auto">
@@ -784,8 +849,7 @@ export default function InternalLinkCorrelation() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {data.anchorConversions
-                        .filter((a) => a.sessions >= 3)
+                      {sortedConv
                         .slice(0, 40)
                         .map((a) => (
                           <TableRow
@@ -811,8 +875,16 @@ export default function InternalLinkCorrelation() {
                                   </Badge>}
                             </TableCell>
                             <TableCell className="text-right tabular-nums">{fmtInt(a.convertingSessions)}</TableCell>
-                            <TableCell className="text-right tabular-nums">{fmtInt(a.whatsappConversions)}</TableCell>
-                            <TableCell className="text-right tabular-nums">{fmtInt(a.cotacaoConversions)}</TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              <span className={convTypeFilter === "whatsapp" ? "font-semibold text-primary" : undefined}>
+                                {fmtInt(a.whatsappConversions)}
+                              </span>
+                            </TableCell>
+                            <TableCell className="text-right tabular-nums">
+                              <span className={convTypeFilter === "cotacao" ? "font-semibold text-primary" : undefined}>
+                                {fmtInt(a.cotacaoConversions)}
+                              </span>
+                            </TableCell>
                             <TableCell className="text-right tabular-nums">
                               <Badge variant={a.conversionRate >= 0.05 ? "default" : "secondary"}>
                                 {fmtPct(a.conversionRate, 1)}
@@ -820,7 +892,13 @@ export default function InternalLinkCorrelation() {
                             </TableCell>
                             <TableCell className="text-xs">
                               {a.topPage ? (
-                                <span>{a.topPage.pathname} <span className="text-muted-foreground">({a.topPage.clicks})</span></span>
+                                <span>
+                                  {a.topPage.pathname}{" "}
+                                  <span className="text-muted-foreground">({a.topPage.clicks})</span>
+                                  <Badge variant="outline" className="ml-2 text-[10px]">
+                                    {anchorClusterLabel(getAnchorCluster(a.topPage.pathname))}
+                                  </Badge>
+                                </span>
                               ) : <span className="text-muted-foreground">—</span>}
                             </TableCell>
                           </TableRow>
@@ -834,7 +912,8 @@ export default function InternalLinkCorrelation() {
                   </p>
                 </CardContent>
               </Card>
-            )}
+              );
+            })()}
 
             {data.anchorsGlobal && data.anchorsGlobal.length > 0 && (
               <Card className="mb-6">
