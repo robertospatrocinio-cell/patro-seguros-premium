@@ -67,6 +67,21 @@ function collectTemplateIds(src) {
   return ids;
 }
 
+/**
+ * A11y gate: cada id `<foo>-heading` do template DEVE ter uma <section>
+ * (ou landmark equivalente) que a referencie via `aria-labelledby="foo-heading"`.
+ * Sem esse par, screen readers não anunciam a região ao pular via link
+ * âncora do cluster, o que quebra o contrato de "jumping between clusters
+ * acessível" que os jump-links prometem.
+ */
+function collectAriaLabelledBy(src) {
+  const refs = new Set();
+  const re = /aria-labelledby="([a-z0-9-]+-heading)"/g;
+  let m;
+  while ((m = re.exec(src)) !== null) refs.add(m[1]);
+  return refs;
+}
+
 function collectPagesWithJumpLinks() {
   const results = [];
   for (const entry of fs.readdirSync(PAGES_DIR, { withFileTypes: true })) {
@@ -126,6 +141,25 @@ function validate() {
     if (!(id in ID_REQUIREMENTS)) {
       errors.push(
         `[template] id "${id}" existe em InsurancePageTemplate.tsx mas não está mapeado em ID_REQUIREMENTS (scripts/validate-jumplinks.mjs). Atualize o mapa.`
+      );
+    }
+  }
+
+  // Guard A11y: todo id `-heading` precisa de <section aria-labelledby>
+  // apontando pra ele. Isso garante que o cluster jumping expõe um
+  // landmark nomeado aos leitores de tela.
+  const labelledRefs = collectAriaLabelledBy(templateSrc);
+  for (const id of templateIds) {
+    if (!labelledRefs.has(id)) {
+      errors.push(
+        `[a11y] heading id "${id}" não é referenciado por nenhum aria-labelledby no InsurancePageTemplate. Adicione aria-labelledby="${id}" na <section> correspondente para que leitores de tela anunciem a região ao pular via jump-link.`
+      );
+    }
+  }
+  for (const ref of labelledRefs) {
+    if (!templateIds.has(ref)) {
+      errors.push(
+        `[a11y] aria-labelledby="${ref}" aponta para um id inexistente no template — âncora quebrada para tecnologias assistivas.`
       );
     }
   }
