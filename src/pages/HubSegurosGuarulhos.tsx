@@ -31,6 +31,8 @@ const SECTIONS: Section[] = [
       { label: "Seguro de Frota Empresarial", href: "/seguro-frota-empresas-guarulhos", description: "Para empresas de Guarulhos com 5+ veículos" },
       { label: "Seguro Caminhão", href: "/seguro-caminhao" },
       { label: "Seguro Motorista de App", href: "/seguro-motorista-app" },
+      { label: "Melhor Seguro para Uber em Guarulhos — Ranking 2026", href: "/melhor-seguro-para-uber-guarulhos", description: "Ranking Porto, Allianz, HDI e Tokio com cláusula de app" },
+      { label: "Valor do Seguro BYD Dolphin (Preço 2026)", href: "/valor-seguro-byd-dolphin", description: "Faixa real R$ 2.500–4.800/ano em seguradoras que cobrem elétricos" },
     ],
   },
   {
@@ -44,6 +46,7 @@ const SECTIONS: Section[] = [
       { label: "Seguros no Shopping/Cidade Maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos", description: "Especializado para a região nobre" },
       { label: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
       { label: "Seguro Placa Solar", href: "/seguro-placa-solar" },
+      { label: "Cotação de Seguro Residencial Online", href: "/cotacao-seguro-residencial-online", description: "Comparativo em 8 seguradoras via WhatsApp em 2h" },
     ],
   },
   {
@@ -58,6 +61,7 @@ const SECTIONS: Section[] = [
       { label: "Plano de Saúde Empresarial", href: "/plano-saude-empresarial" },
       { label: "Seguro Odontológico", href: "/seguro-odonto" },
       { label: "Plano Pet", href: "/plano-pet" },
+      { label: "Comparativo de Planos de Saúde em Guarulhos 2026", href: "/planos-de-saude-guarulhos-comparativo", description: "Amil, Bradesco, SulAmérica, Hapvida e Porto lado a lado" },
     ],
   },
   {
