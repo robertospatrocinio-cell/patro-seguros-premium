@@ -17,20 +17,31 @@ export interface BreadcrumbOverrideRow {
 
 const normalizeSlug = (slug: string) => slug.replace(/\/+$/, "") || "/";
 
-export const rowToOverride = (row: BreadcrumbOverrideRow): BreadcrumbOverride => ({
-  category:
-    row.category_label && row.category_href
-      ? { label: row.category_label, href: row.category_href }
-      : row.category_label === "" || row.category_href === ""
-        ? null
-        : undefined,
-  pillar:
-    row.pillar_label && row.pillar_href
-      ? { label: row.pillar_label, href: row.pillar_href }
-      : row.pillar_label === "" || row.pillar_href === ""
-        ? null
-        : undefined,
-});
+/**
+ * Interpretação dos campos de override:
+ *  - `null`  → mantém o valor default (não sobrescreve).
+ *  - `""`    → remove explicitamente aquele nível do breadcrumb.
+ *  - texto   → substitui o default por esse valor.
+ *
+ * Categoria e pilar só ficam ativos quando `label` E `href` estão
+ * ambos preenchidos; se qualquer um dos dois for `""`, o nível é
+ * removido do breadcrumb (retorna `null`).
+ */
+export const rowToOverride = (row: BreadcrumbOverrideRow): BreadcrumbOverride => {
+  const parse = (
+    label: string | null,
+    href: string | null,
+  ): BreadcrumbOverride["category"] => {
+    if (label === null && href === null) return undefined;
+    if (label === "" || href === "") return null;
+    if (label && href) return { label, href };
+    return undefined;
+  };
+  return {
+    category: parse(row.category_label, row.category_href),
+    pillar: parse(row.pillar_label, row.pillar_href),
+  };
+};
 
 async function fetchBreadcrumbOverrides(): Promise<BreadcrumbOverrideMap> {
   const { data, error } = await supabase
