@@ -1,0 +1,23 @@
+# Disavow file — Patro Seguros (patroseguros.com.br)
+# Formato oficial do Google: https://support.google.com/webmasters/answer/2648487
+# Como usar:
+#   1. Acesse https://search.google.com/search-console/disavow-links
+#   2. Selecione a propriedade patroseguros.com.br
+#   3. Faça upload deste arquivo (.txt UTF-8)
+#   4. Google reprocessa em 4-6 semanas
+#
+# Última revisão: 2026-07-27
+# Critério de inclusão:
+#   - Authority Score < 10, OU
+#   - Domínio claramente off-topic (gaming, sermões infantis, PBN de spam), OU
+#   - Anchor text não relacionado a seguros / padrão de PBN
+#
+# Domínios listados (99% dos backlinks tóxicos identificados via Semrush):
+
+domain:trinovarli.blogspot.com
+domain:phuketnews.info
+domain:wants.cfd
+domain:factmags.com
+domain:childrensermons.com
+domain:oldpcgaming.net
+domain:lugi.org
