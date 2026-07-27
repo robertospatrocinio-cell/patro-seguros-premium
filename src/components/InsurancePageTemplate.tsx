@@ -37,7 +37,7 @@ import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
 import SmartText from "@/components/SmartText";
-import { getBreadcrumbCategory, getBreadcrumbChain } from "@/lib/breadcrumbCategory";
+import { getBreadcrumbChain } from "@/lib/breadcrumbCategory";
 import { getRelatedLinks } from "@/lib/relatedFromText";
 
 // Inferência de palavras-chave (em inglês) para a galeria temática automática
@@ -332,7 +332,6 @@ const InsurancePageTemplate = ({
     );
   };
   const canonicalUrl = canonicalUrlProp || getCanonicalUrl(location.pathname);
-  const breadcrumbCategory = getBreadcrumbCategory(location.pathname);
   const breadcrumbChain = getBreadcrumbChain(location.pathname);
   const breadcrumbItems = [
     ...breadcrumbChain.map((c) => ({ label: c.label, href: c.href })),
