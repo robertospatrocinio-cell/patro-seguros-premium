@@ -46,6 +46,18 @@ type AnchorConversion = {
   conversionRate: number;
   topPage: { pathname: string; clicks: number } | null;
 };
+type AnchorPotential = {
+  anchor: string;
+  score: number;
+  clicks: number;
+  sessions: number;
+  convertingSessions: number;
+  conversionRate: number;
+  impressions: number;
+  position: number | null;
+  topPage: { pathname: string; clicks: number } | null;
+  reason: string;
+};
 type Recommendation = {
   destination: string;
   score: number;
@@ -71,6 +83,7 @@ type Resp = {
   rows: Row[];
   anchorsGlobal: AnchorGlobal[];
   anchorConversions?: AnchorConversion[];
+  anchorPotential?: AnchorPotential[];
   recommendations?: Recommendation[];
 };
 
@@ -366,6 +379,71 @@ export default function InternalLinkCorrelation() {
                       +{data.recommendations.length - 12} recomendações adicionais ocultas
                     </p>
                   )}
+                </CardContent>
+              </Card>
+            )}
+
+            {data.anchorPotential && data.anchorPotential.length > 0 && (
+              <Card className="mb-6 border-amber-500/50">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4 text-amber-600" />
+                    Âncoras com maior potencial ({data.anchorPotential.length})
+                  </CardTitle>
+                  <p className="text-xs text-muted-foreground">
+                    Âncoras expostas a muitas impressões no Search Console mas com
+                    baixa eficiência (poucas conversões e/ou poucos cliques internos).
+                    Score = impressões × fator de posição (favorece 11–30) × fator de
+                    ineficiência. Priorize essas âncoras na trilha recomendada, teste
+                    novos rótulos e reforce links internos até elas.
+                  </p>
+                </CardHeader>
+                <CardContent className="overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="min-w-[180px]">Âncora</TableHead>
+                        <TableHead className="text-right">Score</TableHead>
+                        <TableHead className="text-right">Impressões</TableHead>
+                        <TableHead className="text-right">Posição</TableHead>
+                        <TableHead className="text-right">Cliques</TableHead>
+                        <TableHead className="text-right">Conv.</TableHead>
+                        <TableHead className="text-right">Taxa</TableHead>
+                        <TableHead>Página top</TableHead>
+                        <TableHead>Motivo</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {data.anchorPotential.slice(0, 25).map((a) => (
+                        <TableRow
+                          key={a.anchor}
+                          className="cursor-pointer"
+                          onClick={() => { setAnchor(a.anchor); load(); }}
+                        >
+                          <TableCell><code className="text-xs">#{a.anchor}</code></TableCell>
+                          <TableCell className="text-right tabular-nums">
+                            <Badge variant="default">{fmtInt(a.score)}</Badge>
+                          </TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtInt(a.impressions)}</TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtPos(a.position)}</TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtInt(a.clicks)}</TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtInt(a.convertingSessions)}</TableCell>
+                          <TableCell className="text-right tabular-nums">{fmtPct(a.conversionRate, 1)}</TableCell>
+                          <TableCell className="text-xs">
+                            {a.topPage ? (
+                              <span>{a.topPage.pathname} <span className="text-muted-foreground">({a.topPage.clicks})</span></span>
+                            ) : <span className="text-muted-foreground">—</span>}
+                          </TableCell>
+                          <TableCell className="text-[11px] text-muted-foreground max-w-[280px]">
+                            {a.reason}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                  <p className="text-[11px] text-muted-foreground mt-2">
+                    Filtro: âncoras com ≥ 20 impressões atribuídas no período.
+                  </p>
                 </CardContent>
               </Card>
             )}
