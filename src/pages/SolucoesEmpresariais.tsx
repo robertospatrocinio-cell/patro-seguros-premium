@@ -49,7 +49,26 @@ const SolucoesEmpresariais = () => {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             name: "Soluções empresariais Patro Seguros",
-            hasPart: solutions.map((s) => ({ "@type": "Service", name: s.title, url: `https://patroseguros.lovable.app${s.href}` })),
+            url: `https://www.patroseguros.com.br/solucoes-empresariais`,
+            isPartOf: { "@type": "WebSite", name: "Patro Seguros", url: "https://www.patroseguros.com.br" },
+            hasPart: solutions.map((s) => ({
+              "@type": "Service",
+              name: s.title,
+              url: `https://www.patroseguros.com.br${s.href}`,
+            })),
+            mainEntity: {
+              "@type": "ItemList",
+              "@id": "https://www.patroseguros.com.br/solucoes-empresariais#itemlist",
+              name: "Soluções empresariais Patro Seguros",
+              numberOfItems: solutions.length,
+              itemListOrder: "https://schema.org/ItemListOrderAscending",
+              itemListElement: solutions.map((s, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                url: `https://www.patroseguros.com.br${s.href}`,
+                name: s.title,
+              })),
+            },
           })}
         </script>
       </Helmet>
