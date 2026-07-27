@@ -1054,6 +1054,8 @@ const InsurancePageTemplate = ({
             items={trilhaSeo.items}
           />
         )}
+        {/* Trilha automática por hub SEO — não renderiza fora de cluster. */}
+        <ContextualSeoHub />
         {extraSections}
       </main>
       <Footer />
