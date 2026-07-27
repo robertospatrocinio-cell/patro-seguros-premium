@@ -757,6 +757,11 @@ const App = () => {
                   <Route path="/plano-saude-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
                   <Route path="/plano-saude-macedo-guarulhos" element={<Navigate to="/seguros-guarulhos/macedo" replace />} />
                   <Route path="/plano-saude-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  {/* 301 legados de bairros e produto×bairro (variações com/sem sufixo -guarulhos).
+                      Fonte única: src/lib/legacyBairroRedirects.ts — espelhado em public/.htaccess. */}
+                  {LEGACY_BAIRRO_REDIRECTS.map((r) => (
+                    <Route key={r.from} path={r.from} element={<Navigate to={r.to} replace />} />
+                  ))}
                   {/* Produto × bairro — subpáginas SEO dedicadas (cauda longa) */}
                   <Route path="/seguro-residencial-centro-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-centro-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-residencial-gopouva-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-residencial-gopouva-guarulhos" }); return <Comp />; })()} />
