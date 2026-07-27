@@ -1,4 +1,14 @@
 import { lazy, Suspense, useEffect, useMemo, Component, ReactNode, memo } from "react";
+import {
+  B2B_HUB_PATH,
+  GARANTIA_HUB_PATH,
+  GARANTIA_LOCAL_PATH,
+  CREDITO_HUB_PATH,
+  CREDITO_LOCAL_PATH,
+  GARANTIA_INTENT_PAGES,
+  CREDITO_INTENT_PAGES,
+  B2B_INSURER_PAGES,
+} from "@/data/b2bVertical";
 
 // Helper for type-safe property passing to memoized components in lazy loading
 const withProps = <T extends object>(Component: React.ComponentType<T>, props: T) => {
@@ -485,6 +495,17 @@ const App = () => {
               <Suspense fallback={<PageSkeleton />}>
                 <Routes>
                   <Route path="/" element={<Index />} />
+                <Route path={B2B_HUB_PATH} element={<SegurosEmpresariaisEspecializados />} />
+                <Route path={GARANTIA_HUB_PATH} element={<SeguroGarantia />} />
+                <Route path={GARANTIA_LOCAL_PATH} element={<SeguroGarantiaGuarulhos />} />
+                <Route path={CREDITO_HUB_PATH} element={<SeguroDeCredito />} />
+                <Route path={CREDITO_LOCAL_PATH} element={<SeguroDeCreditoGuarulhos />} />
+                {[...GARANTIA_INTENT_PAGES, ...CREDITO_INTENT_PAGES].map((p) => (
+                  <Route key={p.slug} path={p.path} element={<B2bIntentRoute slug={p.slug} />} />
+                ))}
+                {B2B_INSURER_PAGES.map((p) => (
+                  <Route key={p.slug} path={p.path} element={<B2bInsurerRoute slug={p.slug} />} />
+                ))}
                   <Route path="/admin/login" element={<AdminLogin />} />
                   <Route path="/crm" element={<RequireAdmin><CRM /></RequireAdmin>} />
                   <Route path="/sobre" element={<Sobre />} />
