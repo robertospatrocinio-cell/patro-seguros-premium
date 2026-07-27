@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 import { SEGURADORAS_PARCEIRAS, AVISO_MARCAS } from "@/data/seguradorasParceirasSeo";
+import { buildSeguradorasParceirasHubCollectionSchema } from "@/lib/collectionPageSchemas";
 
 const CANONICAL = `${CANONICAL_BASE_URL}/seguradoras-parceiras`;
 
@@ -41,37 +42,7 @@ const HUB_FAQS = [
   },
 ];
 
-const collectionSchema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  name: "Seguradoras Parceiras em Guarulhos | Patro Seguros",
-  url: CANONICAL,
-  description:
-    "Página central das seguradoras parceiras da Patro Seguros em Guarulhos e região.",
-  isPartOf: {
-    "@type": "WebSite",
-    name: "Patro Seguros",
-    url: CANONICAL_BASE_URL,
-  },
-  hasPart: SEGURADORAS_PARCEIRAS.map((s) => ({
-    "@type": "WebPage",
-    name: `${s.name} em Guarulhos`,
-    url: `${CANONICAL_BASE_URL}/${s.slug}`,
-  })),
-  mainEntity: {
-    "@type": "ItemList",
-    "@id": `${CANONICAL}#itemlist`,
-    name: "Seguradoras parceiras da Patro Seguros",
-    numberOfItems: SEGURADORAS_PARCEIRAS.length,
-    itemListOrder: "https://schema.org/ItemListOrderAscending",
-    itemListElement: SEGURADORAS_PARCEIRAS.map((s, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      url: `${CANONICAL_BASE_URL}/${s.slug}`,
-      name: `${s.name} em Guarulhos`,
-    })),
-  },
-};
+const collectionSchema = buildSeguradorasParceirasHubCollectionSchema();
 
 const insuranceAgencySchema = {
   "@context": "https://schema.org",

@@ -30,6 +30,7 @@ import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@/lib/blogData";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import { buildBlogCollectionSchema } from "@/lib/collectionPageSchemas";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 
 const POSTS_PER_PAGE = 9;
@@ -233,38 +234,10 @@ const Blog = () => {
   const featuredAlt = getArticleImageAlt(featured.slug, featured.title);
 
   // ItemList JSON-LD com os 20 artigos mais recentes (evita payload gigante).
-  const itemListSchema = useMemo(() => {
-    const items = sortedAll.slice(0, 20).map((a, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      url: `${CANONICAL_BASE_URL}/artigos/${a.slug}`,
-      name: a.title,
-    }));
-    return {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "@id": `${CANONICAL_BASE_URL}/blog#collection`,
-      name: "Blog Patro Seguros",
-      description: pageDescription,
-      url: `${CANONICAL_BASE_URL}/blog`,
-      inLanguage: "pt-BR",
-      isPartOf: { "@id": `${CANONICAL_BASE_URL}/#website` },
-      about: [
-        { "@type": "Thing", name: "Seguro Auto" },
-        { "@type": "Thing", name: "Seguro Empresarial" },
-        { "@type": "Thing", name: "Plano de Saúde" },
-        { "@type": "Thing", name: "Consórcio" },
-        { "@type": "Place", name: "Guarulhos, SP" },
-      ],
-      publisher: { "@id": `${CANONICAL_BASE_URL}/#organization` },
-      mainEntity: {
-        "@type": "ItemList",
-        name: "Artigos recentes — Blog Patro Seguros",
-        numberOfItems: items.length,
-        itemListElement: items,
-      },
-    };
-  }, [sortedAll, pageDescription]);
+  const itemListSchema = useMemo(
+    () => buildBlogCollectionSchema(sortedAll, pageDescription),
+    [sortedAll, pageDescription],
+  );
 
   // Blog schema (com posts recentes como blogPost).
   const blogSchema = useMemo(() => {

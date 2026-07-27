@@ -7,9 +7,10 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { PARTNER_INSURERS } from "@/data/partnerInsurers";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
+import { PARTNER_INSURERS } from "@/data/partnerInsurers";
+import { buildSeguradorasHubCollectionSchema } from "@/lib/collectionPageSchemas";
 import { Helmet } from "react-helmet-async";
 
 const HUB_FAQS = [
@@ -44,37 +45,7 @@ const SeguradorasHub = () => {
   const waMessage = encodeURIComponent("Olá, quero comparar seguradoras com a Patro Seguros em Guarulhos.");
   const waUrl = `https://wa.me/551151997500?text=${waMessage}`;
 
-  const collectionSchema = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: "Seguradoras parceiras em Guarulhos — Patro Seguros",
-    url: canonical,
-    description:
-      "Hub de comparação de seguradoras parceiras da Patro Seguros para clientes de Guarulhos e região.",
-    isPartOf: {
-      "@type": "WebSite",
-      name: "Patro Seguros",
-      url: CANONICAL_BASE_URL,
-    },
-    hasPart: PARTNER_INSURERS.map((i) => ({
-      "@type": "WebPage",
-      name: `${i.name} em Guarulhos`,
-      url: `${CANONICAL_BASE_URL}/seguradoras/${i.slug}`,
-    })),
-    mainEntity: {
-      "@type": "ItemList",
-      "@id": `${canonical}#itemlist`,
-      name: "Seguradoras parceiras da Patro Seguros em Guarulhos",
-      numberOfItems: PARTNER_INSURERS.length,
-      itemListOrder: "https://schema.org/ItemListOrderAscending",
-      itemListElement: PARTNER_INSURERS.map((i, idx) => ({
-        "@type": "ListItem",
-        position: idx + 1,
-        url: `${CANONICAL_BASE_URL}/seguradoras/${i.slug}`,
-        name: `${i.name} em Guarulhos`,
-      })),
-    },
-  };
+  const collectionSchema = buildSeguradorasHubCollectionSchema();
 
   return (
     <div className="min-h-screen bg-background">
