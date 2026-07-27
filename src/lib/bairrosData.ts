@@ -75,8 +75,21 @@ export interface BairroLocalIntel {
     empresarial?: "baixo" | "médio" | "médio-alto" | "alto";
     notes?: string;
   };
-  /** Caso real anonimizado (sem dados identificáveis) */
-  localCase?: { title: string; description: string };
+  /** Caso real anonimizado (sem dados identificáveis) — destaque principal */
+  localCase?: BairroLocalCase;
+  /** Casos adicionais anonimizados renderizados em grid abaixo do destaque */
+  localCases?: BairroLocalCase[];
+}
+
+export interface BairroLocalCase {
+  title: string;
+  description: string;
+  /** Produto/segmento envolvido (ex.: "Auto + Residencial", "RCTR-C + Frota") */
+  product?: string;
+  /** Ano do caso (ex.: 2025, 2026) */
+  year?: number;
+  /** Métricas destacadas (ex.: "R$ 38 mil/ano economizados", "Sinistro pago em 28 dias") */
+  metrics?: string[];
 }
 
 export const bairros: BairroData[] = [
@@ -87,6 +100,12 @@ export const bairros: BairroData[] = [
      subtitulo: "Proteção premium para quem vive no coração verde de Guarulhos",
      descricao: "No Cidade Maia, onde o Bosque Maia e a Av. Paulo Faccini atraem moradores de alto padrão e valorizam imóveis, a Patro Seguros oferece soluções sob medida: seguro residencial completo para apartamentos de luxo, seguro auto para veículos premium e proteção patrimonial à altura do bairro mais nobre de Guarulhos. Nossa equipe conhece a região e atende com a agilidade que você merece.",
      image: imgJardimMaia,
+     geo: { latitude: -23.4508, longitude: -46.5236 },
+     testimonials: [
+       { author: "Fernanda A.", role: "Moradora — Ed. Via Alameda, Cidade Maia", product: "Residencial Premium + Auto", rating: 5, date: "2026-06-08", text: "Migrei do banco para a Patro em 2026 e economizei R$ 4.180/ano no combo do apartamento + SUV. Vistoria feita presencialmente no próprio edifício, tudo resolvido em uma tarde." },
+       { author: "Rodrigo T.", role: "Advogado — Av. Paulo Faccini", product: "RC Profissional + Vida", rating: 5, date: "2026-05-14", text: "Contratei RC Profissional e seguro de vida em conjunto. Atendimento explicou cláusula por cláusula — coisa que o banco nunca fez. Recomendo para colegas do eixo Cidade Maia/Centro." },
+       { author: "Camila V.", role: "Moradora — Bosque Maia", product: "Seguro Residencial", rating: 5, date: "2026-01-30", text: "Tive dano elétrico após oscilação de energia forte no bairro. Acionei pelo WhatsApp, técnico veio em 2 dias e a indenização caiu em 12 dias úteis. Sem burocracia." },
+     ],
      faqs: [
        ...generateLocalFAQs({ slug: "auto-cidade-maia", neighborhood: "Cidade Maia", product: "auto", riskLevel: "baixo", priceRange: "R$ 1.950 a R$ 3.800/ano", reference: "próximo ao Shopping Maia" }),
        ...generateLocalFAQs({ slug: "vida-cidade-maia", neighborhood: "Cidade Maia", product: "vida", priceRange: "a partir de R$ 45/mês", reference: "na região da Av. Paulo Faccini" }),
@@ -115,7 +134,26 @@ export const bairros: BairroData[] = [
        localCase: {
          title: "Combo residencial premium + auto importado no Cidade Maia",
          description: "Cliente com apartamento avaliado em R$ 1,2 mi e SUV importado migrou 2 apólices para a Patro. Cobertura residencial ampliada (joias + eletrônicos + RC familiar) + auto compreensivo com franquia reduzida ficou R$ 4.180/ano mais barato que a proposta anterior do banco, mantendo mesma seguradora tier-1.",
+          product: "Residencial Premium + Auto Compreensivo",
+          year: 2026,
+          metrics: ["R$ 4.180/ano de economia", "2 apólices consolidadas", "Franquia reduzida negociada"],
        },
+        localCases: [
+          {
+            title: "RC Profissional + Vida para advogado da Av. Paulo Faccini",
+            description: "Advogado autônomo com escritório próximo ao Bosque Maia consolidou RC Profissional (LMI R$ 500 mil) + Vida com cobertura por invalidez em apólice única. Redução de 22% versus contratações separadas graças a bundling e desconto de fidelidade multi-produto.",
+            product: "RC Profissional + Vida",
+            year: 2026,
+            metrics: ["-22% no prêmio anual", "LMI R$ 500 mil", "Defesa jurídica inclusa"],
+          },
+          {
+            title: "Sinistro elétrico em edifício alto do Bosque Maia",
+            description: "Moradora do entorno do Bosque Maia teve TV 65\" e ar-condicionado inverter queimados por surto elétrico. Sinistro aberto por WhatsApp, laudo aceito em 4 dias úteis e indenização paga em 12 dias — sem franquia adicional graças a plano com danos elétricos ampliados.",
+            product: "Residencial — Danos Elétricos",
+            year: 2026,
+            metrics: ["Indenização em 12 dias úteis", "R$ 11 mil reembolsados", "Zero franquia adicional"],
+          },
+        ],
      },
    },
    {
@@ -166,6 +204,8 @@ export const bairros: BairroData[] = [
     testimonials: [
       { author: "Marcelo R.", role: "Gerente de logística — Cumbica", product: "Seguro de Carga", rating: 5, date: "2026-04-12", text: "Operamos transporte de eletrônicos perto do aeroporto. A Patro reestruturou nossa apólice de RCTR-C e baixamos 18% o custo mantendo cobertura ampliada. Atendimento em sinistro foi resolvido em 48h." },
       { author: "Patrícia M.", role: "Sócia de transportadora — Cumbica", product: "Frota + RC", rating: 5, date: "2026-03-05", text: "Tínhamos seguro direto com a seguradora. A Patro renegociou frota de 22 veículos e incluiu RC Facultativa robusta. Reduziu prêmio anual em R$ 38 mil." },
+       { author: "Ricardo B.", role: "Diretor operacional — Condomínio Logístico Hélio Smidt", product: "Patrimonial Galpão + RC Operações", rating: 5, date: "2026-06-22", text: "Nosso galpão de 8.400 m² tinha prêmio anual de R$ 142 mil. Após vistoria conjunta com engenharia de risco, saímos para R$ 98 mil/ano com LMI maior. A corretora coordenou tudo, incluindo laudo de sprinkler." },
+       { author: "Juliana C.", role: "Coordenadora de RH — transportadora em Cumbica", product: "Plano de Saúde Empresarial", rating: 4, date: "2026-02-18", text: "Migramos 84 vidas do plano antigo para uma operadora regional recomendada pela Patro. Manteve rede de Guarulhos, incluiu Hospital Padre Bento e reduziu 14% na fatura mensal." },
     ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-cumbica", neighborhood: "Cumbica", product: "empresarial", riskLevel: "médio-alto", priceRange: "conforme porte da logística", reference: "no entorno do Aeroporto de Guarulhos" }),
@@ -194,7 +234,33 @@ export const bairros: BairroData[] = [
        localCase: {
          title: "Reestruturação de frota + carga para transportadora de eletrônicos",
          description: "Transportadora com base em Cumbica operando trechos para o GRU teve apólice de RCTR-C + Frota (22 veículos) reestruturada em concorrência entre 4 seguradoras. Resultado: R$ 38 mil/ano de economia com aumento de limite de RC Facultativa e inclusão de gerenciamento de risco.",
+          product: "RCTR-C + RCF-DC + Frota (22 veículos)",
+          year: 2026,
+          metrics: ["R$ 38 mil/ano de economia", "4 seguradoras em concorrência", "LMI de RC Facultativa ampliado"],
        },
+        localCases: [
+          {
+            title: "Galpão logístico de 8.400 m² com sprinkler no eixo Hélio Smidt",
+            description: "Operador logístico com galpão próximo ao GRU aplicou plano de mitigação (sprinkler ativo, brigada, CFTV com IA) e migrou o patrimonial para seguradora tier-1 com engenharia de risco. Prêmio anual caiu de R$ 142 mil para R$ 98 mil com LMI 30% maior.",
+            product: "Patrimonial Galpão + RC Operações",
+            year: 2026,
+            metrics: ["-31% no prêmio anual", "LMI +30%", "Vistoria de engenharia inclusa"],
+          },
+          {
+            title: "Sinistro de roubo de carga (eletrônicos) resolvido em 22 dias",
+            description: "Embarque de R$ 480 mil em eletrônicos roubado em trecho Cumbica → ABC. Apólice tinha RCTR-C + RCF-DC + rastreamento averbado. BO, laudo de gerenciamento e indenização concluídos em 22 dias corridos, sem impacto no fluxo de caixa da transportadora.",
+            product: "RCTR-C + RCF-DC (Carga)",
+            year: 2025,
+            metrics: ["Indenização R$ 480 mil", "Pago em 22 dias corridos", "Rastreamento averbado exigido"],
+          },
+          {
+            title: "Plano de saúde coletivo para 84 vidas na base logística",
+            description: "Transportadora sediada em Cumbica migrou plano de saúde empresarial para operadora regional com rede em Guarulhos (incluindo Hospital Padre Bento). Contratação em janeiro/2026 reduziu 14% na fatura mensal mantendo cobertura hospitalar e adicionando telemedicina.",
+            product: "Saúde Empresarial (84 vidas)",
+            year: 2026,
+            metrics: ["-14% na fatura mensal", "Rede Hospital Padre Bento", "Telemedicina inclusa"],
+          },
+        ],
      },
    },
    {
@@ -208,6 +274,8 @@ export const bairros: BairroData[] = [
     testimonials: [
       { author: "Dra. Camila L.", role: "Dentista — Centro de Guarulhos", product: "RC Profissional + Empresarial", rating: 5, date: "2026-05-18", text: "Atendimento presencial fez a diferença. Visitei o escritório no Cidade Maia, fechei RC Profissional e seguro do consultório no mesmo dia. Já indiquei para 3 colegas da Av. Salgado Filho." },
       { author: "Eduardo P.", role: "Comerciante — Poli Shopping", product: "Seguro Empresarial", rating: 5, date: "2026-02-22", text: "Tive sinistro de incêndio em loja vizinha que afetou meu estoque. A Patro acompanhou tudo, vistoria veio em 24h e indenização saiu em 28 dias. Profissionalismo raro." },
+       { author: "Dr. Henrique S.", role: "Advogado — Fórum de Guarulhos", product: "RC Profissional Advogado", rating: 5, date: "2026-06-30", text: "Contratei RC Profissional com defesa jurídica ampliada por indicação de colega do Fórum. LMI R$ 300 mil por R$ 1.180/ano, saiu em 2 dias úteis com carteirinha digital." },
+       { author: "Bianca R.", role: "Síndica — edifício antigo no Centro", product: "Condomínio + Residencial coletivo", rating: 4, date: "2026-04-04", text: "Prédio de 1978 estava com seguro obrigatório vencido e recusa das seguradoras. A Patro conseguiu apólice após laudo elétrico do CREA e ainda organizou plano coletivo residencial com desconto de 12% para os moradores." },
     ],
      faqs: [
        ...generateLocalFAQs({ slug: "empresarial-centro", neighborhood: "Centro", product: "empresarial", riskLevel: "médio-alto", priceRange: "a partir de R$ 99/mês", reference: "próximo ao Poli Shopping e Av. Salgado Filho" }),
@@ -237,7 +305,33 @@ export const bairros: BairroData[] = [
        localCase: {
          title: "Sinistro de incêndio em loja vizinha resolvido em 28 dias",
          description: "Comerciante do entorno do Poli Shopping teve estoque atingido por incêndio originado em vizinho. Vistoria em 24h, laudo entregue em 10 dias úteis e indenização paga em 28 dias — permitiu reabertura sem crédito emergencial. Diferencial: corretora acompanhou o processo diariamente até liberação.",
+          product: "Empresarial — Incêndio + Lucros Cessantes",
+          year: 2026,
+          metrics: ["Vistoria em 24h", "Indenização em 28 dias", "Reabertura sem crédito emergencial"],
        },
+        localCases: [
+          {
+            title: "RC Profissional para clínica odontológica na Av. Salgado Filho",
+            description: "Clínica com 4 dentistas (implantodontia + ortodontia) contratou RC Profissional coletiva com LMI R$ 1 milhão e defesa jurídica ampliada. Prêmio 28% menor que a soma das 4 apólices individuais, exigido para credenciamento em 3 convênios novos.",
+            product: "RC Profissional Coletiva (Odonto)",
+            year: 2026,
+            metrics: ["-28% vs. 4 apólices individuais", "LMI R$ 1 milhão", "Habilitou 3 convênios novos"],
+          },
+          {
+            title: "Condomínio antigo no Centro que estava sem seguro",
+            description: "Edifício residencial de 1978 próximo à Praça Tereza Cristina estava com seguro obrigatório vencido e recusas em 3 seguradoras. Corretora coordenou laudo elétrico do CREA e emitiu apólice em condições normais + plano residencial coletivo para moradores com 12% de desconto na adesão.",
+            product: "Condomínio Obrigatório + Residencial coletivo",
+            year: 2026,
+            metrics: ["Aceitação após laudo CREA", "-12% na adesão em grupo", "Prédio +40 anos regularizado"],
+          },
+          {
+            title: "Roubo de valores sob coação em loja de rua do Centro",
+            description: "Lojista do eixo Dom Pedro II acionou cobertura de 'Roubo de Valores por Coação Pessoal' após saque forçado no ATM. Indenização de R$ 22 mil paga em 15 dias corridos — cobertura que estava no adicional de R$ 45/mês contratado 6 meses antes.",
+            product: "Empresarial — Roubo por Coação",
+            year: 2025,
+            metrics: ["Indenização R$ 22 mil", "Pago em 15 dias", "Adicional de R$ 45/mês"],
+          },
+        ],
      },
    },
    {
