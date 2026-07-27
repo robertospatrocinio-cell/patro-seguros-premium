@@ -43,6 +43,10 @@ afterAll(() => {
     return;
   }
   if (!existsSync(BASELINE_PATH)) return;
+  // Enforcement só quando explicitamente ligado (modo full no CI).
+  // No modo fast (poucas iterações) o baseline naturalmente não é
+  // atingido — a fast serve para detectar throws/regressões óbvias.
+  if (process.env.FUZZ_ENFORCE_COVERAGE !== "1") return;
   const baseline = JSON.parse(readFileSync(BASELINE_PATH, "utf8"));
   const violations = COV.compareBaseline(baseline);
   if (violations.length > 0) {
