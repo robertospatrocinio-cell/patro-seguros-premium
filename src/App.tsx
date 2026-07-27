@@ -154,6 +154,14 @@ const AvaliacoesClientes = lazyWithRetry(() => import("./pages/AvaliacoesCliente
 const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "ParceirosLocais");
 const Imprensa = lazyWithRetry(() => import("./pages/Imprensa"), "Imprensa");
 const SeoPlanoSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoPlanoSaudeGuarulhos"), "SeoPlanoSaudeGuarulhos");
+const PlanoDeSaudeGuarulhosHub = lazyWithRetry(() => import("./pages/PlanoDeSaudeGuarulhosHub"), "PlanoDeSaudeGuarulhosHub");
+const PlanoSaudeIndividualGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeIndividualGuarulhos"), "PlanoSaudeIndividualGuarulhos");
+const PlanoSaudeFamiliarGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeFamiliarGuarulhos"), "PlanoSaudeFamiliarGuarulhos");
+const PlanoSaudeMeiGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeMeiGuarulhos"), "PlanoSaudeMeiGuarulhos");
+const PlanoSaudePmeGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudePmeGuarulhos"), "PlanoSaudePmeGuarulhos");
+const PlanoSaudeEmpresarialGuarulhosCanonical = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhosCanonical"), "PlanoSaudeEmpresarialGuarulhosCanonical");
+const PlanoSaudeIdososGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeIdososGuarulhos"), "PlanoSaudeIdososGuarulhos");
+const PlanoOdontologicoGuarulhosCanonical = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhosCanonical"), "PlanoOdontologicoGuarulhosCanonical");
 const SeoSeguroEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresarialGuarulhos"), "SeoSeguroEmpresarialGuarulhos");
 const CorretoraDeSegurosEmGuarulhos = lazyWithRetry(() => import("./pages/CorretoraDeSegurosEmGuarulhos"), "CorretoraDeSegurosEmGuarulhos");
 const ConsorcioGuarulhos = lazyWithRetry(() => import("./pages/ConsorcioGuarulhos"), "ConsorcioGuarulhos");
