@@ -243,6 +243,12 @@ const IndiqueEGanhe = lazy(() => import("./pages/IndiqueEGanhe"));
 const ObrigadoIndicacao = lazy(() => import("./pages/ObrigadoIndicacao"));
 const SeguroDecesso = lazy(() => import("./pages/SeguroDecesso"));
 const SeguroGarantia = lazy(() => import("./pages/SeguroGarantia"));
+const SegurosEmpresariaisEspecializados = lazy(() => import("./pages/SegurosEmpresariaisEspecializados"));
+const SeguroGarantiaGuarulhos = lazy(() => import("./pages/SeguroGarantiaGuarulhos"));
+const SeguroDeCredito = lazy(() => import("./pages/SeguroDeCredito"));
+const SeguroDeCreditoGuarulhos = lazy(() => import("./pages/SeguroDeCreditoGuarulhos"));
+const B2bIntentRoute = lazy(() => import("./pages/b2b/B2bIntentRoute"));
+const B2bInsurerRoute = lazy(() => import("./pages/b2b/B2bInsurerRoute"));
 const SeguroRCMedicos = lazy(() => import("./pages/SeguroRCMedicos"));
 const SeguroRCVeterinarios = lazy(() => import("./pages/SeguroRCVeterinarios"));
 const SeguroRCAdvogados = lazy(() => import("./pages/SeguroRCAdvogados"));
@@ -496,7 +502,6 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<Index />} />
                 <Route path={B2B_HUB_PATH} element={<SegurosEmpresariaisEspecializados />} />
-                <Route path={GARANTIA_HUB_PATH} element={<SeguroGarantia />} />
                 <Route path={GARANTIA_LOCAL_PATH} element={<SeguroGarantiaGuarulhos />} />
                 <Route path={CREDITO_HUB_PATH} element={<SeguroDeCredito />} />
                 <Route path={CREDITO_LOCAL_PATH} element={<SeguroDeCreditoGuarulhos />} />
