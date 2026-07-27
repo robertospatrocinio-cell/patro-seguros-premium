@@ -45,6 +45,9 @@ type AnchorConversion = {
   cotacaoConversions: number;
   conversionRate: number;
   topPage: { pathname: string; clicks: number } | null;
+  views?: number;
+  viewSessions?: number;
+  clickThroughRate?: number | null;
 };
 type AnchorPotential = {
   anchor: string;
