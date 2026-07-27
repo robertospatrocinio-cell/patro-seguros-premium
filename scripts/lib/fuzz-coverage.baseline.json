@@ -1,0 +1,23 @@
+{
+  "BreadcrumbList": { "minInvocations": 40, "minDistinctReq": 1 },
+  "FAQPage": { "minInvocations": 40, "minDistinctReq": 1 },
+  "HowTo": { "minInvocations": 40, "minDistinctReq": 1 },
+  "Article": { "minInvocations": 40, "minDistinctReq": 1 },
+  "LocalBusiness": { "minInvocations": 40, "minDistinctReq": 1 },
+  "Organization": { "minInvocations": 40, "minDistinctReq": 1 },
+  "WebSite": { "minInvocations": 40, "minDistinctReq": 1 },
+  "Service": { "minInvocations": 40, "minDistinctReq": 1 },
+  "Review": { "minInvocations": 40, "minDistinctReq": 1 },
+  "ItemList": { "minInvocations": 40, "minDistinctReq": 1 },
+  "Offer": { "minInvocations": 40, "minDistinctReq": 1 },
+  "AggregateOffer": { "minInvocations": 40, "minDistinctReq": 1 },
+  "ProfilePage": { "minInvocations": 40, "minDistinctReq": 1 },
+  "Person": { "minInvocations": 40, "minDistinctReq": 1 },
+  "Place": { "minInvocations": 40, "minDistinctReq": 1 },
+  "WebPage": { "minInvocations": 40, "minDistinctReq": 1 },
+  "CollectionPage": { "minInvocations": 40, "minDistinctReq": 1 },
+  "ImageObject": { "minInvocations": 40, "minDistinctReq": 1 },
+  "ContactPoint": { "minInvocations": 40, "minDistinctReq": 1 },
+  "SpeakableSpecification": { "minInvocations": 40, "minDistinctReq": 1 },
+  "SiteNavigationElement": { "minInvocations": 40, "minDistinctReq": 1 }
+}
