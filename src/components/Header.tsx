@@ -437,7 +437,9 @@ const Header = memo(() => {
                   <div className="bg-card rounded-xl shadow-xl border p-5">
                     <div className="space-y-0.5 text-[13px]">
                       <SmartLink to="/blog" className="block py-1 hover:text-primary">Blog</SmartLink>
-                      <SmartLink to="/imprensa" className="block py-1 hover:text-primary">Guias</SmartLink>
+                      <SmartLink to="/guias-seguros" className="block py-1 hover:text-primary">Central de Guias</SmartLink>
+                      <SmartLink to="/materiais-gratuitos-seguros" className="block py-1 hover:text-primary">Materiais Gratuitos</SmartLink>
+                      <SmartLink to="/glossario-seguros" className="block py-1 hover:text-primary">Glossário</SmartLink>
                       <SmartLink to="/faq" className="block py-1 hover:text-primary">Perguntas Frequentes</SmartLink>
                     </div>
                   </div>
@@ -620,6 +622,7 @@ const Header = memo(() => {
             </MobileSection>
 
             <Link to="/blog" className="block py-3 px-3 text-[13px] font-semibold border-b" onClick={close}>Blog</Link>
+            <Link to="/guias-seguros" className="block py-3 px-3 text-[13px] font-semibold border-b" onClick={close}>Central de Guias</Link>
             <Link to="/contato" className="block py-3 px-3 text-[13px] font-semibold border-b" onClick={close}>Contato</Link>
           </div>
         </div>
