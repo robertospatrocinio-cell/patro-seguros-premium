@@ -55,6 +55,8 @@ const CentralDeMateriais = lazyWithRetry(() => import("./pages/CentralDeMateriai
 const MaterialDetalhe = lazyWithRetry(() => import("./pages/MaterialDetalhe"), "MaterialDetalhe");
 const PerguntasCategoria = lazyWithRetry(() => import("./pages/PerguntasCategoria"), "PerguntasCategoria");
 const GuiaPilar = lazyWithRetry(() => import("./pages/GuiaPilar"), "GuiaPilar");
+const ComparativosSegurosHub = lazyWithRetry(() => import("./pages/ComparativosSegurosHub"), "ComparativosSegurosHub");
+const ComparativoCategoria = lazyWithRetry(() => import("./pages/ComparativoCategoria"), "ComparativoCategoria");
 const SeoECVGuarulhos = lazyWithRetry(() => import("./pages/SeoECVGuarulhos"), "SeoECVGuarulhos");
 const SeoInspecaoVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoInspecaoVeicularGuarulhos"), "SeoInspecaoVeicularGuarulhos");
 const SeoVistoriaCautelarGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaCautelarGuarulhos"), "SeoVistoriaCautelarGuarulhos");
@@ -894,6 +896,8 @@ const App = () => {
                   <Route path="/materiais-gratuitos-seguros" element={<CentralDeMateriais />} />
                   <Route path="/materiais/:slug" element={<MaterialDetalhe />} />
                   <Route path="/perguntas-frequentes-seguros/:categoria" element={<PerguntasCategoria />} />
+                  <Route path="/comparativos-seguros" element={<ComparativosSegurosHub />} />
+                  <Route path="/comparativos-seguros/:slug" element={<ComparativoCategoria />} />
                   <Route path="/guias/:slug" element={<GuiaPilar />} />
                   {/* Fase 3: últimos resíduos */}
                   <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
