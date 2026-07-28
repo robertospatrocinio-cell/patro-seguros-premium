@@ -65,6 +65,44 @@ const JumpLinksNav = ({ links }: JumpLinksNavProps) => {
     }
   }, [activeId]);
 
+  // Sync the URL hash with the currently active section as the user scrolls,
+  // without triggering the browser's default anchor jump. Uses replaceState
+  // so back/forward history stays clean, and debounces to avoid churn during
+  // fast scrolling. Sharing the URL now reflects the section in view.
+  useEffect(() => {
+    if (typeof window === "undefined" || !activeId) return;
+    const current = window.location.hash.replace(/^#/, "");
+    if (current === activeId) return;
+    const timer = window.setTimeout(() => {
+      try {
+        // Preserve pathname + search; only swap the hash. Using a full URL
+        // with replaceState avoids the implicit scroll-into-view that a bare
+        // `location.hash = ...` assignment would cause.
+        const url = `${window.location.pathname}${window.location.search}#${activeId}`;
+        window.history.replaceState(window.history.state, "", url);
+      } catch {
+        /* ignore */
+      }
+    }, 120);
+    return () => window.clearTimeout(timer);
+  }, [activeId]);
+
+  // Reflect back/forward hash changes in the active pill so browser
+  // navigation stays in sync with the visible section.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const ids = new Set(links.map((l) => getId(l.href)));
+    const onHashChange = () => {
+      const hash = window.location.hash.replace(/^#/, "");
+      if (hash && ids.has(hash)) {
+        lockUntilRef.current = performance.now() + 600;
+        setActiveId(hash);
+      }
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, [links]);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     const ids = links.map((l) => getId(l.href)).filter(Boolean);
