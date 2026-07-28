@@ -7,8 +7,40 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { ArrowRight, BookOpen, Clock, MessageCircle, CheckCircle2, ChevronRight } from "lucide-react";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { GUIAS_PILARES_BY_SLUG, GUIA_AUTHOR, type GuiaPilar } from "@/data/guiasPilaresData";
+import { ALL_GLOSSARY_TERMS, type FlatGlossaryTerm } from "@/data/glossarioSegurosData";
 
 const WA_BASE = "https://wa.me/5511913800021?text=";
+
+// Mapeia a "category" editorial do guia pilar para as categorias do glossário.
+const PILLAR_TO_GLOSSARY_CATEGORIES: Record<string, string[]> = {
+  "Seguros para Veículos": ["auto", "gerais"],
+  "Seguros para Empresas": ["empresarial", "gerais"],
+  "Planos de Saúde": ["vida-saude", "gerais"],
+  "Consórcios": ["gerais"],
+  "Seguros de Vida": ["vida-saude", "gerais"],
+  "Seguros Residenciais": ["empresarial", "gerais"],
+  "Consultórios e Clínicas": ["vida-saude", "empresarial"],
+  "Seguros B2B Especializados": ["empresarial", "gerais"],
+  "Transporte & Logística": ["transporte", "empresarial", "gerais"],
+  "Patrimônio Premium": ["empresarial", "gerais"],
+  "Agro e Rural": ["agro", "gerais"],
+};
+
+const pickRelatedGlossaryTerms = (category: string, limit = 8): FlatGlossaryTerm[] => {
+  const cats = PILLAR_TO_GLOSSARY_CATEGORIES[category] ?? ["gerais"];
+  const seen = new Set<string>();
+  const out: FlatGlossaryTerm[] = [];
+  for (const catId of cats) {
+    for (const t of ALL_GLOSSARY_TERMS) {
+      if (t.categoryId !== catId) continue;
+      if (seen.has(t.slug)) continue;
+      seen.add(t.slug);
+      out.push(t);
+      if (out.length >= limit) return out;
+    }
+  }
+  return out;
+};
 
 const buildSchemas = (guia: GuiaPilar) => {
   const url = `${CANONICAL_BASE_URL}/guias/${guia.slug}`;
@@ -192,6 +224,44 @@ const GuiaPilarPage = () => {
               ))}
             </Accordion>
           </section>
+
+          {/* Termos do glossário relacionados (Fase 6.1) */}
+          {(() => {
+            const terms = pickRelatedGlossaryTerms(guia.category);
+            if (terms.length === 0) return null;
+            return (
+              <section id="glossario-relacionado" className="scroll-mt-28" aria-labelledby="glossario-relacionado-heading">
+                <h2 id="glossario-relacionado-heading" className="text-2xl md:text-3xl font-bold mb-3">
+                  Termos do glossário relacionados
+                </h2>
+                <p className="text-muted-foreground mb-5 leading-relaxed">
+                  Definições rápidas dos termos que aparecem neste guia. Toque para ver a explicação
+                  completa no glossário A–Z.
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {terms.map((t) => (
+                    <li key={t.slug} className="border rounded-lg bg-card p-4">
+                      <Link
+                        to={`/glossario-seguros/letra/${t.letter.toLowerCase()}#term-${t.slug}`}
+                        className="font-semibold text-primary hover:underline"
+                      >
+                        {t.term}
+                      </Link>
+                      <p className="text-sm text-muted-foreground mt-1 line-clamp-3">{t.definition}</p>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-5">
+                  <Link
+                    to="/glossario-seguros"
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                  >
+                    Ver glossário completo <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </section>
+            );
+          })()}
         </div>
       </article>
 
