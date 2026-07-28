@@ -99,11 +99,8 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/melhor-seguro-para-uber-guarulhos",
   "/cotacao-seguro-residencial-online",
   "/planos-de-saude-guarulhos-comparativo",
-];
 
-// Rotas adicionadas para garantir HTML estático das verticais recentes
-// (auditoria out/2026 — retornavam fallback genérico em produção).
-PRERENDER_ROUTES_PHASE_1.push(
+  // Verticais recentes (auditoria out/2026 — precisam de HTML estático)
   "/plano-de-saude-guarulhos",
   "/guias-seguros",
   "/seguro-de-credito",
@@ -111,7 +108,7 @@ PRERENDER_ROUTES_PHASE_1.push(
   "/seguro-flat-guarulhos",
   "/seguro-sala-comercial-guarulhos",
   "/seguro-consultorio-guarulhos",
-);
+];
 
 /**
  * FASE 2 — Conteúdo de cauda longa (blog + bairros).
