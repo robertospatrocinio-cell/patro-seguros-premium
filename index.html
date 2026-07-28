@@ -10,11 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
      <link rel="canonical" href="https://www.patroseguros.com.br/" />
     <script>
-      // Evita canibalização SEO: ambientes de preview (lovable.app) nunca devem
+      // Evita canibalização SEO: ambientes de preview nunca devem
       // ser indexados. Ajusta robots antes de qualquer render/crawl JS.
       (function () {
         try {
-          if (/lovable\.app$/i.test(window.location.hostname)) {
+          var h = window.location.hostname;
+          if (/lovable\.app$/i.test(h) || h.endsWith('.lovable.dev')) {
             var r = document.querySelector('meta[name="robots"]');
             if (!r) { r = document.createElement('meta'); r.setAttribute('name','robots'); document.head.appendChild(r); }
             r.setAttribute('content','noindex, nofollow');
