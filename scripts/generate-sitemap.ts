@@ -172,7 +172,7 @@ const secondaryProducts: SitemapEntry[] = [
   "/perguntas-frequentes-seguros",
   "/materiais-gratuitos-seguros",
   ...GUIAS_PILARES_SLUGS.map((s) => `/guias/${s}`),
-  ...(await import("../src/data/materiaisData")).materiais.map((m) => m.href),
+  ...MATERIAIS_LIST.map((m) => m.href),
 ].map(loc => ({ loc, priority: "0.7", changefreq: "monthly" }));
 
 const tertiaryProducts: SitemapEntry[] = [
