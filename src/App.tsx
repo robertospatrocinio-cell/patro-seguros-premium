@@ -78,6 +78,7 @@ const SeguroConsultorioVeterinarioGuarulhos = lazyWithRetry(() => import("./page
 const SeguroClinicaEsteticaGuarulhos = lazyWithRetry(() => import("./pages/SeguroClinicaEsteticaGuarulhos"), "SeguroClinicaEsteticaGuarulhos");
 const SeguroClinicaPequenaGuarulhos = lazyWithRetry(() => import("./pages/SeguroClinicaPequenaGuarulhos"), "SeguroClinicaPequenaGuarulhos");
 const SeguroEquipamentosConsultorioGuarulhos = lazyWithRetry(() => import("./pages/SeguroEquipamentosConsultorioGuarulhos"), "SeguroEquipamentosConsultorioGuarulhos");
+const SeguroFlatGuarulhos = lazyWithRetry(() => import("./pages/SeguroFlatGuarulhos"), "SeguroFlatGuarulhos");
 const SeguroEquipamentosOdontologicos = lazyWithRetry(() => import("./pages/SeguroEquipamentosOdontologicos"), "SeguroEquipamentosOdontologicos");
 const PlanoSaudeClinicasOdontologicas = lazyWithRetry(() => import("./pages/PlanoSaudeClinicasOdontologicas"), "PlanoSaudeClinicasOdontologicas");
 const SeguroVidaClinicasOdontologicas = lazyWithRetry(() => import("./pages/SeguroVidaClinicasOdontologicas"), "SeguroVidaClinicasOdontologicas");
@@ -719,6 +720,7 @@ const App = () => {
                   <Route path="/seguro-clinica-estetica-guarulhos" element={<SeguroClinicaEsteticaGuarulhos />} />
                   <Route path="/seguro-clinica-pequena-guarulhos" element={<SeguroClinicaPequenaGuarulhos />} />
                   <Route path="/seguro-equipamentos-consultorio-guarulhos" element={<SeguroEquipamentosConsultorioGuarulhos />} />
+                  <Route path="/seguro-flat-guarulhos" element={<SeguroFlatGuarulhos />} />
                   <Route path="/plano-saude-clinicas-odontologicas" element={<PlanoSaudeClinicasOdontologicas />} />
                   <Route path="/seguro-vida-clinicas-odontologicas" element={<SeguroVidaClinicasOdontologicas />} />
                   {/* === Patro Private === */}
