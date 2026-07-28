@@ -24,12 +24,23 @@ const REQUIRED_ROUTES = [
   "/como-comparar-seguradoras-guarulhos",
 ];
 
+// Rotas legadas que existem apenas como redirect no React Router não geram
+// artefato estático próprio. Para o guard de build, valide sempre a URL
+// canônica final, evitando falso negativo em aliases antigos de SEO.
+const CANONICAL_ROUTE_ALIASES = new Map([
+  ["/plano-saude-guarulhos", "/plano-de-saude-guarulhos"],
+]);
+
 const REQUIRED_HOME_TYPES = ["Organization", "WebSite", "SiteNavigationElement"];
 
 // Rotas cujo HTML precisa ter o bloco SEO COMPLETO (não o fallback) injetado
 // por scripts/prerender.mjs — são as mesmas rotas validadas por
 // scripts/validate-word-count.mjs (mínimo 600 palavras).
-const FULL_CONTENT_ROUTES = Object.keys(FULL_SEO_CONTENT);
+const canonicalizeRoute = (route) => CANONICAL_ROUTE_ALIASES.get(route) || route;
+
+const FULL_CONTENT_ROUTES = [
+  ...new Set(Object.keys(FULL_SEO_CONTENT).map(canonicalizeRoute)),
+];
 
 function routeToFile(route) {
   return route === "/"
