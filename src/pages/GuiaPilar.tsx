@@ -181,6 +181,7 @@ const GuiaPilarPage = () => {
               </a>
             ))}
             <a href="#faq" className="text-sm px-3 py-1.5 rounded-full border bg-card hover:bg-primary hover:text-primary-foreground transition-colors">Perguntas frequentes</a>
+            <a href="#glossario-relacionado" className="text-sm px-3 py-1.5 rounded-full border bg-card hover:bg-primary hover:text-primary-foreground transition-colors">Glossário</a>
           </nav>
         </div>
       </section>
