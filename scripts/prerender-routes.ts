@@ -99,6 +99,15 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/melhor-seguro-para-uber-guarulhos",
   "/cotacao-seguro-residencial-online",
   "/planos-de-saude-guarulhos-comparativo",
+
+  // Verticais recentes (auditoria out/2026 — precisam de HTML estático)
+  "/plano-de-saude-guarulhos",
+  "/guias-seguros",
+  "/seguro-de-credito",
+  "/seguro-vistoriadora-veicular",
+  "/seguro-flat-guarulhos",
+  "/seguro-sala-comercial-guarulhos",
+  "/seguro-consultorio-guarulhos",
 ];
 
 /**
