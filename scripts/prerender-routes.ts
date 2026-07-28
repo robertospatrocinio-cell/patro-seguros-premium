@@ -113,14 +113,6 @@ export const PRERENDER_ROUTES_PHASE_2_EXTRA: string[] = [
 ];
 
 /**
- * FASE 6 — Glossário por letra (DefinedTerm por página).
- * Uma URL por letra do alfabeto que possui termos cadastrados.
- */
-import { GLOSSARY_LETTERS_WITH_TERMS } from "../src/data/glossarioSegurosData";
-export const PRERENDER_ROUTES_GLOSSARIO_LETRAS: string[] =
-  GLOSSARY_LETTERS_WITH_TERMS.map((L) => `/glossario-seguros/letra/${L.toLowerCase()}`);
-
-/**
  * Validação leve — garante que não haja duplicatas nem strings vazias.
  */
 export function dedupeRoutes(routes: string[]): string[] {
