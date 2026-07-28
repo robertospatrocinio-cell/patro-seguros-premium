@@ -96,6 +96,10 @@ A realidade brasileira mostra crescimento constante no número de processos cont
         { title: "Seguro Responsabilidade Civil", link: "/seguro-rc" },
         { title: "Seguro de Vida", link: "/seguro-vida" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
+        { title: "Seguro para Consultórios e Clínicas", link: "/seguro-consultorio-guarulhos" },
+        { title: "Consultório Médico em Guarulhos", link: "/seguro-consultorio-medico-guarulhos" },
+        { title: "Consultório Odontológico em Guarulhos", link: "/seguro-consultorio-odontologico-guarulhos" },
+        { title: "Clínica de Estética em Guarulhos", link: "/seguro-clinica-estetica-guarulhos" },
       ]}
     />
   );
