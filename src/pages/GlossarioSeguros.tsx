@@ -85,6 +85,7 @@ const CATEGORIES: Category[] = [
       { term: "D&O (Directors & Officers)", definition: "Seguro de responsabilidade civil para administradores, diretores e conselheiros por atos de gestão." },
       { term: "E&O (Errors & Omissions)", definition: "RC Profissional para prestadores de serviço técnico (engenharia, TI, consultoria, saúde) por erro ou omissão.", related: [{ label: "RC Profissional", href: "/seguro-rc-profissional" }] },
       { term: "Cyber Risk", definition: "Cobertura para incidentes cibernéticos — vazamento de dados, ransomware, interrupção de sistemas e LGPD." },
+      { term: "Seguro para Vistoriadora Veicular", definition: "Combinação de coberturas (empresarial, RC Operações, E&O, cyber e equipamentos) para ECVs, laudo cautelar, vistoria de transferência, perícia e inspeção automotiva. Cobertura sujeita à análise e aceitação da seguradora.", related: [{ label: "Ver guia completo", href: "/seguro-vistoriadora-veicular" }] },
     ],
   },
   {
