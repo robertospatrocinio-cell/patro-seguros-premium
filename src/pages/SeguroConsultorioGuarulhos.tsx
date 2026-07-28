@@ -1,6 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-planos-saude.webp";
-import ItemListSchema from "@/components/ItemListSchema";
+import { Helmet } from "react-helmet-async";
 
 const TIPOS = [
   { title: "Consultório Odontológico", link: "/seguro-consultorio-odontologico-guarulhos", summary: "Cadeira, raio-X, autoclave e RC Profissional para dentistas." },
@@ -111,10 +111,19 @@ const SeguroConsultorioGuarulhos = () => (
       canonicalUrl="https://www.patroseguros.com.br/seguro-consultorio-guarulhos"
       localSeo={{ city: "Guarulhos" }}
     />
-    <ItemListSchema
-      name="Tipos de consultórios e clínicas atendidos"
-      items={TIPOS.map((t) => ({ name: t.title, url: `https://www.patroseguros.com.br${t.link}` }))}
-    />
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Tipos de consultórios e clínicas atendidos em Guarulhos",
+        itemListElement: TIPOS.map((t, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: t.title,
+          url: `https://www.patroseguros.com.br${t.link}`,
+        })),
+      })}</script>
+    </Helmet>
   </>
 );
 
