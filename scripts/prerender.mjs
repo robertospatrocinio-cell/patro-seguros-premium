@@ -218,6 +218,131 @@ function escapeHtml(s) {
     .replace(/>/g, "&gt;");
 }
 
+const LONGTAIL_JUMP_LINK_SECTIONS = {
+  "/valor-seguro-byd-dolphin": [
+    {
+      id: "preco-heading",
+      title: "Valor médio do seguro BYD Dolphin",
+      body: "O seguro do BYD Dolphin costuma variar conforme versão, CEP, perfil do condutor, uso particular ou por aplicativo, franquia escolhida e aceitação da seguradora para veículos elétricos. A Patro compara preço, franquia e cláusulas de bateria de tração antes da contratação.",
+    },
+    {
+      id: "coberturas-heading",
+      title: "Coberturas importantes para elétricos",
+      body: "Além de colisão, roubo, furto, terceiros e assistência 24h, a cotação deve observar bateria de tração, guincho com prancha, rede autorizada BYD e regras para componentes de alta voltagem conforme apólice.",
+    },
+    {
+      id: "cenarios-heading",
+      title: "Cenários reais de contratação",
+      body: "Perfis em Guarulhos, motoristas de aplicativo e pequenas frotas podem receber preços muito diferentes para o mesmo modelo. A análise técnica evita contratar uma apólice barata sem cobertura adequada para elétrico.",
+    },
+    {
+      id: "faq-heading",
+      title: "Perguntas frequentes sobre seguro BYD Dolphin",
+      body: "As dúvidas mais comuns envolvem valor anual, cobertura da bateria, aceitação para Uber, rede autorizada e diferença entre seguro convencional e produto específico para veículos elétricos.",
+    },
+    {
+      id: "formulario-heading",
+      title: "Cotação de seguro BYD Dolphin",
+      body: "Envie os dados do veículo e do condutor para receber um comparativo com seguradoras que aceitam elétricos, incluindo preço, franquia, assistência e observações de cobertura conforme apólice.",
+    },
+  ],
+  "/melhor-seguro-para-uber-guarulhos": [
+    {
+      id: "coberturas-heading",
+      title: "Melhores seguradoras para motorista de app",
+      body: "O melhor seguro para Uber em Guarulhos é aquele que declara uso por aplicativo e combina preço, franquia, cobertura para terceiros, APP passageiros e assistência compatível com a rotina do motorista.",
+    },
+    {
+      id: "preco-heading",
+      title: "Quanto custa seguro para Uber em Guarulhos",
+      body: "O valor muda por idade, CEP, modelo do veículo, horas de uso em aplicativo, garagem, bônus e histórico de sinistros. A comparação entre seguradoras evita pagar caro por cobertura incompleta.",
+    },
+    {
+      id: "quem-precisa-heading",
+      title: "Quem precisa declarar uso por aplicativo",
+      body: "Motoristas Uber, 99 e outros aplicativos devem informar uso remunerado na contratação. Sem essa cláusula, a seguradora pode negar sinistro ocorrido durante ou relacionado à atividade.",
+    },
+    {
+      id: "faq-heading",
+      title: "Perguntas frequentes sobre seguro Uber",
+      body: "As dúvidas recorrentes tratam de seguradoras que aceitam aplicativo, diferença para seguro comum, custo adicional, cobertura em corrida e documentos necessários para cotação.",
+    },
+    {
+      id: "formulario-heading",
+      title: "Cotação de seguro para Uber",
+      body: "Solicite um ranking técnico com preço, franquia e cláusula de uso por aplicativo para o seu perfil em Guarulhos e região metropolitana de São Paulo.",
+    },
+  ],
+  "/cotacao-seguro-residencial-online": [
+    {
+      id: "preco-heading",
+      title: "Quanto custa seguro residencial online",
+      body: "O preço depende do tipo de imóvel, CEP, valor de reconstrução, bens declarados, coberturas escolhidas, franquias e sistemas de segurança. A cotação online compara essas variáveis em múltiplas seguradoras.",
+    },
+    {
+      id: "coberturas-heading",
+      title: "O que cobre o seguro residencial",
+      body: "As coberturas podem incluir incêndio, raio, explosão, roubo, danos elétricos, vendaval, vazamento, vidros, responsabilidade civil familiar e assistência residencial 24h, sempre conforme apólice.",
+    },
+    {
+      id: "como-funciona-heading",
+      title: "Como funciona a cotação online",
+      body: "O cliente informa dados básicos do imóvel e recebe um comparativo com preço, franquia, limites de cobertura e assistência. A contratação pode seguir digitalmente após análise das condições.",
+    },
+    {
+      id: "faq-heading",
+      title: "Perguntas frequentes sobre cotação residencial",
+      body: "As perguntas mais comuns envolvem vistoria, cobertura para bens, seguro para imóvel alugado, franquia, assistência e prazo de emissão da apólice.",
+    },
+    {
+      id: "formulario-heading",
+      title: "Solicitar cotação residencial",
+      body: "Peça uma cotação gratuita para casa ou apartamento em Guarulhos, São Paulo ou região metropolitana, com orientação para escolher coberturas adequadas ao imóvel.",
+    },
+  ],
+  "/planos-de-saude-guarulhos-comparativo": [
+    {
+      id: "coberturas-heading",
+      title: "Comparativo de operadoras de saúde",
+      body: "A escolha do plano deve comparar rede credenciada em Guarulhos, abrangência, acomodação, carências, coparticipação, reembolso, reajustes e perfil das vidas incluídas.",
+    },
+    {
+      id: "preco-heading",
+      title: "Quanto custam planos de saúde em Guarulhos",
+      body: "O valor varia por faixa etária, tipo de contrato, rede, acomodação e coparticipação. Planos PME podem ser mais competitivos para famílias com CNPJ e empresas de pequeno porte.",
+    },
+    {
+      id: "quem-precisa-heading",
+      title: "Para quem é indicado o comparativo",
+      body: "O comparativo ajuda famílias, MEIs, empresas e profissionais liberais que precisam equilibrar custo, rede local e segurança contratual antes de migrar ou contratar plano de saúde.",
+    },
+    {
+      id: "faq-heading",
+      title: "Perguntas frequentes sobre planos de saúde",
+      body: "As dúvidas mais frequentes envolvem portabilidade, carência, rede em Guarulhos, diferença entre individual, adesão e PME, além de reajustes por faixa etária.",
+    },
+    {
+      id: "formulario-heading",
+      title: "Cotação de planos de saúde em Guarulhos",
+      body: "Solicite análise gratuita para comparar operadoras, redes e preços conforme o perfil dos beneficiários, bairro de atendimento e necessidade de cobertura.",
+    },
+  ],
+};
+
+function buildLongtailJumpLinkSections(route) {
+  const sections = LONGTAIL_JUMP_LINK_SECTIONS[route];
+  if (!sections) return "";
+  return sections
+    .map(
+      (section) => `
+        <section aria-labelledby="${section.id}">
+          <h2 id="${section.id}" style="font-size:22px;margin:24px 0 12px;color:#003366">${escapeHtml(section.title)}</h2>
+          <p>${escapeHtml(section.body)}</p>
+        </section>`
+    )
+    .join("");
+}
+
 /**
  * Fallback SEO-block builder — usado para toda rota que NÃO tenha entrada
  * em SEO_CONTENT. Deriva H1 + parágrafo do metadata da rota (mesma fonte
@@ -233,6 +358,7 @@ function buildFallbackSeoBlock(route, metadata) {
   const h1 = escapeHtml(metadata.h1 || metadata.title || "Patro Seguros");
   const desc = escapeHtml(metadata.description || "");
   const isBlog = route.startsWith("/blog/") || route.startsWith("/artigos/");
+  const longtailSections = buildLongtailJumpLinkSections(route);
   const h2 = isBlog
     ? "Sobre este artigo"
     : "Cotação e atendimento em Guarulhos";
@@ -246,6 +372,7 @@ function buildFallbackSeoBlock(route, metadata) {
       <div data-prerender-seo data-fallback="1" style="max-width:960px;margin:0 auto;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#003366;line-height:1.6">
         <h1 style="font-size:32px;margin:0 0 16px;color:#003366">${h1}</h1>
         ${bodyIntro}
+        ${longtailSections}
         <h2 style="font-size:22px;margin:24px 0 12px;color:#003366">${h2}</h2>
         ${ctaBlock}
       </div>`;
