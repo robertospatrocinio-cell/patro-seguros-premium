@@ -71,6 +71,13 @@ const BlogOdontologia = lazyWithRetry(() => import("./pages/BlogOdontologia"), "
 const SeguroParaDentistas = lazyWithRetry(() => import("./pages/SeguroParaDentistas"), "SeguroParaDentistas");
 const SeguroConsultorioOdontologico = lazyWithRetry(() => import("./pages/SeguroConsultorioOdontologico"), "SeguroConsultorioOdontologico");
 const SeguroClinicaOdontologica = lazyWithRetry(() => import("./pages/SeguroClinicaOdontologica"), "SeguroClinicaOdontologica");
+const SeguroConsultorioGuarulhos = lazyWithRetry(() => import("./pages/SeguroConsultorioGuarulhos"), "SeguroConsultorioGuarulhos");
+const SeguroConsultorioOdontologicoGuarulhos = lazyWithRetry(() => import("./pages/SeguroConsultorioOdontologicoGuarulhos"), "SeguroConsultorioOdontologicoGuarulhos");
+const SeguroConsultorioMedicoGuarulhos = lazyWithRetry(() => import("./pages/SeguroConsultorioMedicoGuarulhos"), "SeguroConsultorioMedicoGuarulhos");
+const SeguroConsultorioVeterinarioGuarulhos = lazyWithRetry(() => import("./pages/SeguroConsultorioVeterinarioGuarulhos"), "SeguroConsultorioVeterinarioGuarulhos");
+const SeguroClinicaEsteticaGuarulhos = lazyWithRetry(() => import("./pages/SeguroClinicaEsteticaGuarulhos"), "SeguroClinicaEsteticaGuarulhos");
+const SeguroClinicaPequenaGuarulhos = lazyWithRetry(() => import("./pages/SeguroClinicaPequenaGuarulhos"), "SeguroClinicaPequenaGuarulhos");
+const SeguroEquipamentosConsultorioGuarulhos = lazyWithRetry(() => import("./pages/SeguroEquipamentosConsultorioGuarulhos"), "SeguroEquipamentosConsultorioGuarulhos");
 const SeguroEquipamentosOdontologicos = lazyWithRetry(() => import("./pages/SeguroEquipamentosOdontologicos"), "SeguroEquipamentosOdontologicos");
 const PlanoSaudeClinicasOdontologicas = lazyWithRetry(() => import("./pages/PlanoSaudeClinicasOdontologicas"), "PlanoSaudeClinicasOdontologicas");
 const SeguroVidaClinicasOdontologicas = lazyWithRetry(() => import("./pages/SeguroVidaClinicasOdontologicas"), "SeguroVidaClinicasOdontologicas");
@@ -704,6 +711,14 @@ const App = () => {
                   <Route path="/seguro-clinica-odontologica" element={<SeguroClinicaOdontologica />} />
                   <Route path="/seguro-consultorio-odontologico" element={<SeguroConsultorioOdontologico />} />
                   <Route path="/seguro-equipamentos-odontologicos" element={<SeguroEquipamentosOdontologicos />} />
+                  {/* === Vertical: Consultórios e Clínicas === */}
+                  <Route path="/seguro-consultorio-guarulhos" element={<SeguroConsultorioGuarulhos />} />
+                  <Route path="/seguro-consultorio-odontologico-guarulhos" element={<SeguroConsultorioOdontologicoGuarulhos />} />
+                  <Route path="/seguro-consultorio-medico-guarulhos" element={<SeguroConsultorioMedicoGuarulhos />} />
+                  <Route path="/seguro-consultorio-veterinario-guarulhos" element={<SeguroConsultorioVeterinarioGuarulhos />} />
+                  <Route path="/seguro-clinica-estetica-guarulhos" element={<SeguroClinicaEsteticaGuarulhos />} />
+                  <Route path="/seguro-clinica-pequena-guarulhos" element={<SeguroClinicaPequenaGuarulhos />} />
+                  <Route path="/seguro-equipamentos-consultorio-guarulhos" element={<SeguroEquipamentosConsultorioGuarulhos />} />
                   <Route path="/plano-saude-clinicas-odontologicas" element={<PlanoSaudeClinicasOdontologicas />} />
                   <Route path="/seguro-vida-clinicas-odontologicas" element={<SeguroVidaClinicasOdontologicas />} />
                   {/* === Patro Private === */}
