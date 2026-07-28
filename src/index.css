@@ -149,3 +149,13 @@
 [id$="-heading"]:focus {
   outline: none;
 }
+
+/* Print styles for interactive checklists (PDF export via browser) */
+.print-only-block { display: none; }
+@media print {
+  header, footer, nav[aria-label="Breadcrumb"], .no-print, .no-print-hidden { display: none !important; }
+  .print-only-block { display: block !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .print-checklist { page-break-inside: avoid; }
+  a[href]::after { content: ""; }
+}

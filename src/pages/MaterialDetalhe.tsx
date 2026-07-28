@@ -15,6 +15,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { materiais } from "@/data/materiaisData";
 import { materiaisConteudo } from "@/data/materiaisConteudoData";
+import InteractiveChecklist from "@/components/InteractiveChecklist";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { submitLead } from "@/lib/leadsApi";
 import { trackCotacaoSubmit } from "@/lib/tracking";
@@ -236,25 +237,10 @@ const MaterialDetalhePage = () => {
       <section className="py-12 bg-muted/30">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-bold mb-6">O que você recebe neste checklist</h2>
-          <div className="space-y-5">
-            {conteudo.checklist.map((section) => (
-              <Card key={section.title}>
-                <CardHeader>
-                  <CardTitle className="text-lg">{section.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {section.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <p className="text-sm text-muted-foreground mb-4">
+            Marque cada item conforme avança. O progresso fica salvo neste navegador. Use "Imprimir / PDF" para levar o checklist com você.
+          </p>
+          <InteractiveChecklist slug={material.slug} title={material.title} sections={conteudo.checklist} />
         </div>
       </section>
 

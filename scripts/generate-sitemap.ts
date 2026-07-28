@@ -27,6 +27,7 @@ import {
 import { GUIAS_PILARES_SLUGS } from "../src/data/guiasPilaresData";
 import { materiais as MATERIAIS_LIST } from "../src/data/materiaisData";
 import { faqCategories as FAQ_CATEGORIES } from "../src/data/perguntasHubData";
+import { COMPARATIVOS_SLUGS } from "../src/data/comparativosData";
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -175,6 +176,8 @@ const secondaryProducts: SitemapEntry[] = [
   ...GUIAS_PILARES_SLUGS.map((s) => `/guias/${s}`),
   ...MATERIAIS_LIST.map((m) => m.href),
   ...FAQ_CATEGORIES.map((c) => `/perguntas-frequentes-seguros/${c.id}`),
+  "/comparativos-seguros",
+  ...COMPARATIVOS_SLUGS.map((s) => `/comparativos-seguros/${s}`),
 ].map(loc => ({ loc, priority: "0.7", changefreq: "monthly" }));
 
 const tertiaryProducts: SitemapEntry[] = [
