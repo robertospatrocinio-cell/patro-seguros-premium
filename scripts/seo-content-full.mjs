@@ -40,7 +40,7 @@ export const FULL_SEO_CONTENT = {
       <p>Nossa atuação cobre <strong>seguro auto</strong>, <strong>seguro residencial</strong>, <strong>seguro de vida</strong>, <strong>plano de saúde</strong>, <strong>seguro empresarial</strong>, <strong>seguro de frota</strong>, <strong>seguro condomínio</strong>, <strong>consórcio</strong> e <strong>seguros para o agronegócio</strong> com alcance nacional. Somos independentes: cotamos com Porto, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty (Yelum), Mapfre, Azul Seguros, Itaú, Mitsui, Suhai, Sompo e Zurich, entre outras.</p>
 
       <h2>Seguros para você e sua família em Guarulhos</h2>
-      <p>Para pessoas físicas oferecemos <a href="/seguro-auto-guarulhos">seguro auto em Guarulhos</a>, <a href="/seguro-moto-guarulhos">seguro moto</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a> e <a href="/plano-saude-guarulhos">plano de saúde</a>. A Patro compara automaticamente as principais seguradoras do mercado e apresenta as opções lado a lado — você escolhe a melhor relação custo-benefício sem pressão de venda.</p>
+      <p>Para pessoas físicas oferecemos <a href="/seguro-auto-guarulhos">seguro auto em Guarulhos</a>, <a href="/seguro-moto-guarulhos">seguro moto</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a> e <a href="/plano-de-saude-guarulhos">plano de saúde</a>. A Patro compara automaticamente as principais seguradoras do mercado e apresenta as opções lado a lado — você escolhe a melhor relação custo-benefício sem pressão de venda.</p>
 
       <h3>Nossos diferenciais</h3>
       <ul>
@@ -236,7 +236,7 @@ export const FULL_SEO_CONTENT = {
         { q: "Seguro de vida cobre suicídio?", a: "Sim, após 24 meses de vigência (carência legal). Antes disso, apenas devolução dos prêmios pagos, conforme Código Civil." },
       ])}
 
-      <p>Veja também <a href="/plano-saude-guarulhos">plano de saúde em Guarulhos</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a> e <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>.</p>
+      <p>Veja também <a href="/plano-de-saude-guarulhos">plano de saúde em Guarulhos</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a> e <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>.</p>
     `,
   },
 
@@ -278,7 +278,7 @@ export const FULL_SEO_CONTENT = {
     `,
   },
 
-  "/plano-saude-guarulhos": {
+  "/plano-de-saude-guarulhos": {
     h1: "Plano de Saúde em Guarulhos",
     body: `
       <p><strong>Plano de saúde em Guarulhos</strong> com a Patro Seguros: cotação com 20+ operadoras (Bradesco Saúde, SulAmérica, Amil, Hapvida-NotreDame, Porto Saúde, Unimed Guarulhos, Omint, Care Plus e Prevent Senior). Estruturamos planos individuais/familiares, empresariais (PJ), coletivos por adesão, odontológicos e seguros saúde com reembolso.</p>
@@ -706,7 +706,7 @@ export const FULL_SEO_CONTENT = {
         <li><a href="/seguro-moto-guarulhos">Seguro moto</a></li>
         <li><a href="/seguro-residencial-guarulhos">Seguro residencial</a></li>
         <li><a href="/seguro-vida-saude-guarulhos">Seguro de vida</a></li>
-        <li><a href="/plano-saude-guarulhos">Plano de saúde</a></li>
+        <li><a href="/plano-de-saude-guarulhos">Plano de saúde</a></li>
         <li><a href="/seguro-empresarial-guarulhos">Seguro empresarial</a></li>
         <li><a href="/seguros-empresariais-pme-guarulhos">Seguro PME</a></li>
         <li><a href="/seguro-frota-empresas-guarulhos">Seguro de frota</a></li>

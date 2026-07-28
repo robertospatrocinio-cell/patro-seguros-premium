@@ -92,7 +92,6 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-residencial-guarulhos",
   "/seguro-vida-saude-guarulhos",
   "/seguro-moto-guarulhos",
-  "/plano-saude-guarulhos",
 
   // Long-tail SEO (jump links pré-renderizados)
   "/valor-seguro-byd-dolphin",

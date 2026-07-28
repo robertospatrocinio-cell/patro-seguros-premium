@@ -18,7 +18,7 @@ const CRITICAL_ROUTES = [
   "/seguro-residencial-guarulhos",
   "/seguro-vida-saude-guarulhos",
   "/seguro-moto-guarulhos",
-  "/plano-saude-guarulhos",
+  "/plano-de-saude-guarulhos",
   "/seguro-empresarial-guarulhos",
   "/seguros-empresariais-pme-guarulhos",
   "/seguro-frota-empresas-guarulhos",
