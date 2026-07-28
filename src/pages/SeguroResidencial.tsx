@@ -134,6 +134,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { title: "Seguro Auto", link: "/seguro-auto" },
         { title: "Seguro de Vida", link: "/seguro-vida" },
         { title: "Cotação de Seguro Residencial Online (2h)", link: "/cotacao-seguro-residencial-online" },
+        { title: "Seguro para Flats e Imóveis Mobiliados", link: "/seguro-flat-guarulhos" },
       ]}
       quoteFormFields={[
         { id: "tipo", label: "Tipo de imóvel", placeholder: "Selecione", type: "select", options: ["Apartamento", "Casa", "Sobrado", "Cobertura"] },
