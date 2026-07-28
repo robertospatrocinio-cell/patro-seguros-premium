@@ -16,6 +16,7 @@ import { blogVeterinariaArticlesContent } from "@/data/blogVeterinariaContent";
 import { vistoriaArticlesContent } from "@/data/blogVistoriaContent";
 import { odontologiaArticlesContent } from "@/data/blogOdontologiaContent";
 import { consultorioArticlesContent } from "@/data/blogConsultorioContent";
+import { flatArticlesContent } from "@/data/blogFlatContent";
 import { saudeAgroArticlesContent } from "@/data/blogSaudeAgroContent";
 import { dicasRcResidContent } from "@/data/blogDicasRcResidContent";
 import { lote5ArticlesContent } from "@/data/blogLote5Content";
@@ -43,6 +44,7 @@ export const blogContentIndex: Record<string, BlogArticleContent> = {
   ...(vistoriaArticlesContent as Record<string, BlogArticleContent>),
   ...(odontologiaArticlesContent as Record<string, BlogArticleContent>),
   ...(consultorioArticlesContent as Record<string, BlogArticleContent>),
+  ...(flatArticlesContent as Record<string, BlogArticleContent>),
   ...(saudeAgroArticlesContent as Record<string, BlogArticleContent>),
   ...(dicasRcResidContent as Record<string, BlogArticleContent>),
   ...(lote5ArticlesContent as Record<string, BlogArticleContent>),
