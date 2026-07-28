@@ -113,6 +113,7 @@ Cada tipo de empresa tem riscos específicos: um restaurante tem risco de incên
         { title: "Seguro Ambiental", link: "/seguro-ambiental" },
         { title: "Seguro de Vida PME", link: "/seguro-vida-pme" },
         { title: "Seguro para Consultórios em Guarulhos", link: "/seguro-consultorio-guarulhos" },
+        { title: "Seguro para Sala Comercial em Guarulhos", link: "/seguro-sala-comercial-guarulhos" },
         { title: "Seguradoras Parceiras", link: "/seguradoras-parceiras" },
         { title: "Como comparar seguradoras", link: "/como-comparar-seguradoras-guarulhos" },
       ]}

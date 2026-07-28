@@ -100,6 +100,7 @@ A realidade brasileira mostra crescimento constante no número de processos cont
         { title: "Consultório Médico em Guarulhos", link: "/seguro-consultorio-medico-guarulhos" },
         { title: "Consultório Odontológico em Guarulhos", link: "/seguro-consultorio-odontologico-guarulhos" },
         { title: "Clínica de Estética em Guarulhos", link: "/seguro-clinica-estetica-guarulhos" },
+        { title: "Seguro para Sala Comercial em Guarulhos", link: "/seguro-sala-comercial-guarulhos" },
       ]}
     />
   );
