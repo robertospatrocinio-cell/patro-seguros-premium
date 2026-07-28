@@ -101,6 +101,18 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/planos-de-saude-guarulhos-comparativo",
 ];
 
+// Rotas adicionadas para garantir HTML estático das verticais recentes
+// (auditoria out/2026 — retornavam fallback genérico em produção).
+PRERENDER_ROUTES_PHASE_1.push(
+  "/plano-de-saude-guarulhos",
+  "/guias-seguros",
+  "/seguro-de-credito",
+  "/seguro-vistoriadora-veicular",
+  "/seguro-flat-guarulhos",
+  "/seguro-sala-comercial-guarulhos",
+  "/seguro-consultorio-guarulhos",
+);
+
 /**
  * FASE 2 — Conteúdo de cauda longa (blog + bairros).
  *
