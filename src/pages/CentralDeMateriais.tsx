@@ -83,6 +83,18 @@ const CentralDeMateriais = () => {
           <p className="mt-10 text-xs text-muted-foreground text-center max-w-2xl mx-auto">
             Ao solicitar um material, você concorda em ser contatado pela Patro Seguros exclusivamente para envio do conteúdo e orientação sobre produtos, conforme nossa política de privacidade e LGPD. As coberturas descritas nos materiais são exemplificativas e variam conforme apólice, seguradora e aceitação.
           </p>
+
+          <div className="mt-10 rounded-xl border bg-muted/30 p-6 text-center">
+            <h2 className="text-xl md:text-2xl font-bold mb-2">Quer comparar planos antes de contratar?</h2>
+            <p className="text-sm text-muted-foreground mb-4 max-w-2xl mx-auto">
+              Nossa Central de Comparativos coloca lado a lado as principais modalidades de auto, empresarial, saúde, residencial, vida e consórcio.
+            </p>
+            <Button asChild>
+              <Link to="/comparativos-seguros">
+                Ver comparativos de seguros <ArrowRight className="h-4 w-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </div>
