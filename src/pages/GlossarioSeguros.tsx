@@ -10,6 +10,10 @@ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import { trackInternalLinkClick, trackWhatsAppClick } from "@/lib/tracking";
+import {
+  ALL_GLOSSARY_LETTERS,
+  GLOSSARY_LETTERS_WITH_TERMS,
+} from "@/data/glossarioSegurosData";
 
 const PHONE = "551151997500";
 const WA_MSG =
@@ -243,6 +247,43 @@ const GlossarioSeguros = () => {
                   {c.title}
                 </a>
               ))}
+            </nav>
+
+            {/* A–Z index → páginas por letra (SEO DefinedTerm) */}
+            <nav
+              className="mt-6 flex flex-wrap justify-center gap-1.5"
+              aria-label="Índice A a Z do glossário"
+            >
+              {ALL_GLOSSARY_LETTERS.map((L) => {
+                const enabled = GLOSSARY_LETTERS_WITH_TERMS.includes(L);
+                if (!enabled) {
+                  return (
+                    <span
+                      key={L}
+                      aria-disabled="true"
+                      className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border/60 text-xs font-semibold text-muted-foreground/40"
+                    >
+                      {L}
+                    </span>
+                  );
+                }
+                return (
+                  <Link
+                    key={L}
+                    to={`/glossario-seguros/letra/${L.toLowerCase()}`}
+                    onClick={() =>
+                      trackInternalLinkClick({
+                        source: "glossario:az-index",
+                        destination: `/glossario-seguros/letra/${L.toLowerCase()}`,
+                        label: `Letra ${L}`,
+                      })
+                    }
+                    className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-card text-xs font-semibold text-foreground hover:border-primary hover:text-primary transition-colors"
+                  >
+                    {L}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
         </section>
