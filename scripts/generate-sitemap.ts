@@ -295,6 +295,14 @@ const restoredRoutes: SitemapEntry[] = [
   "/seguro-equipamentos-odontologicos",
   "/plano-saude-clinicas-odontologicas",
   "/seguro-vida-clinicas-odontologicas",
+  // === Vertical: Consultórios e Clínicas (Guarulhos) ===
+  "/seguro-consultorio-guarulhos",
+  "/seguro-consultorio-odontologico-guarulhos",
+  "/seguro-consultorio-medico-guarulhos",
+  "/seguro-consultorio-veterinario-guarulhos",
+  "/seguro-clinica-estetica-guarulhos",
+  "/seguro-clinica-pequena-guarulhos",
+  "/seguro-equipamentos-consultorio-guarulhos",
   // === Patro Private (camada premium) ===
   "/patro-private",
   "/seguro-auto-premium-guarulhos",
