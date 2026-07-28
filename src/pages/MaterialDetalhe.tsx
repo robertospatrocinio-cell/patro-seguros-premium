@@ -102,7 +102,7 @@ const MaterialDetalhePage = () => {
       toast.error("Não foi possível enviar. Tente novamente.");
       return;
     }
-    trackCotacaoSubmit(material.category, { source: `material:${material.slug}` });
+    trackCotacaoSubmit(material.category, { origin: `material:${material.slug}` });
     setSent(true);
     toast.success("Material enviado! Confira seu WhatsApp e e-mail.");
   };
