@@ -17,7 +17,7 @@ import { materiais } from "@/data/materiaisData";
 import { materiaisConteudo } from "@/data/materiaisConteudoData";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { submitLead } from "@/lib/leadsApi";
-import { trackLeadSubmit } from "@/lib/tracking";
+import { trackCotacaoSubmit } from "@/lib/tracking";
 
 const schema = z.object({
   full_name: z.string().trim().min(2, "Informe seu nome").max(120),
@@ -102,7 +102,7 @@ const MaterialDetalhePage = () => {
       toast.error("Não foi possível enviar. Tente novamente.");
       return;
     }
-    trackLeadSubmit({ source: `material:${material.slug}`, insurance_type: material.category });
+    trackCotacaoSubmit(material.category, { source: `material:${material.slug}` });
     setSent(true);
     toast.success("Material enviado! Confira seu WhatsApp e e-mail.");
   };
