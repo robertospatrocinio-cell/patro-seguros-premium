@@ -79,11 +79,11 @@ const CentralDePerguntas = () => {
                   ))}
                 </Accordion>
                 <div className="mt-6 pt-6 border-t flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
-                  <Link to={cat.relatedHref} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
-                    {cat.relatedLabel} <ArrowRight className="h-4 w-4" />
+                  <Link to={`/perguntas-frequentes-seguros/${cat.id}`} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                    Ver todas as perguntas de {cat.title} <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <Link to="/guias-seguros" className="text-xs text-muted-foreground hover:text-primary">
-                    Ver Central de Guias
+                  <Link to={cat.relatedHref} className="text-xs text-muted-foreground hover:text-primary inline-flex items-center gap-1">
+                    {cat.relatedLabel} <ArrowRight className="h-3 w-3" />
                   </Link>
                 </div>
               </CardContent>
