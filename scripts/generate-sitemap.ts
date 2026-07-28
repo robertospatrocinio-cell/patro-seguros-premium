@@ -24,6 +24,7 @@ import {
   CREDITO_INTENT_PAGES,
   B2B_INSURER_PAGES,
 } from "../src/data/b2bVertical";
+import { GUIAS_PILARES_SLUGS } from "../src/data/guiasPilaresData";
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -169,6 +170,7 @@ const secondaryProducts: SitemapEntry[] = [
   "/guias-seguros",
   "/perguntas-frequentes-seguros",
   "/materiais-gratuitos-seguros",
+  ...GUIAS_PILARES_SLUGS.map((s) => `/guias/${s}`),
 ].map(loc => ({ loc, priority: "0.7", changefreq: "monthly" }));
 
 const tertiaryProducts: SitemapEntry[] = [
