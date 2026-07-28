@@ -97,6 +97,8 @@ Na Patro Seguros, avaliamos a maturidade de segurança da sua empresa e recomend
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Seguro RC", link: "/seguro-rc" },
         { title: "Seguro RC Profissional", link: "/seguro-rc-profissional" },
+        { title: "Seguro para Consultórios e Clínicas", link: "/seguro-consultorio-guarulhos" },
+        { title: "Consultório Médico", link: "/seguro-consultorio-medico-guarulhos" },
       ]}
     />
   );
