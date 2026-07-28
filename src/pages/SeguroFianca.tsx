@@ -96,6 +96,7 @@ Na Patro Seguros, trabalhamos com múltiplas seguradoras para encontrar a aprova
         { title: "Seguro Residencial", link: "/seguro-residencial" },
         { title: "Seguro Condomínio", link: "/seguro-condominio" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
+        { title: "Seguro para Flat Alugado", link: "/seguro-flat-guarulhos" },
       ]}
     />
   );
