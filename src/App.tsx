@@ -168,6 +168,7 @@ const SeguroAutoMarcas = lazyWithRetry(() => import("./pages/SeguroAutoMarcas"),
 const SeguroAutoComparativoCoberturas = lazyWithRetry(() => import("./pages/SeguroAutoComparativoCoberturas"), "SeguroAutoComparativoCoberturas");
 const SeguroAgro = lazyWithRetry(() => import("./pages/SeguroAgro"), "SeguroAgro");
 const GlossarioSeguros = lazyWithRetry(() => import("./pages/GlossarioSeguros"), "GlossarioSeguros");
+const GlossarioLetra = lazyWithRetry(() => import("./pages/GlossarioLetra"), "GlossarioLetra");
 const AvaliarNoGoogle = lazyWithRetry(() => import("./pages/AvaliarNoGoogle"), "AvaliarNoGoogle");
 const AvaliacoesClientes = lazyWithRetry(() => import("./pages/AvaliacoesClientes"), "AvaliacoesClientes");
 const ParceirosLocais = lazyWithRetry(() => import("./pages/ParceirosLocais"), "ParceirosLocais");
@@ -825,6 +826,7 @@ const App = () => {
                   {/* Hub Agro + Glossário */}
                   <Route path="/seguro-agro" element={<SeguroAgro />} />
                   <Route path="/glossario-seguros" element={<GlossarioSeguros />} />
+                  <Route path="/glossario-seguros/letra/:letra" element={<GlossarioLetra />} />
                   <Route path="/seguro-hb20-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-hilux-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-mobi-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
