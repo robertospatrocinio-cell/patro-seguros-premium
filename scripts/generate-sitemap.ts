@@ -25,6 +25,7 @@ import {
   B2B_INSURER_PAGES,
 } from "../src/data/b2bVertical";
 import { GUIAS_PILARES_SLUGS } from "../src/data/guiasPilaresData";
+import { materiais as MATERIAIS_LIST } from "../src/data/materiaisData";
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
