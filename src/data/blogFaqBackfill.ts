@@ -94,11 +94,17 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   "quanto-custa-um-seguro-para-empresa-de-vistoria": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Quanto custa um seguro para empresa de vistoria?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
+  "responsabilidade-civil-vistoria-veicular": [
+    { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Responsabilidade civil para vistoria veicular: quando faz sentido?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
   "seguro-cibernetico-para-empresas-de-vistoria": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro cibernético para empresas de vistoria.\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "seguro-clinicas-veterinarias-guarulhos": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para clínicas veterinárias em Guarulhos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
+  "seguro-cyber-para-vistoriadoras-veiculos": [
+    { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro cyber para vistoriadoras de veículos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "seguro-empresarial-clinicas-veterinarias": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro empresarial para clínicas veterinárias\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
@@ -114,6 +120,9 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   "seguro-empresarial-para-vistoria-cautelar": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro empresarial para vistoria cautelar.\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
+  "seguro-equipamentos-vistoria-veicular": [
+    { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para equipamentos de vistoria veicular\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
   "seguro-franquias-obrigatorio": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para franquias: o que é obrigatório?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
     { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"Seguro para franquias: o que é obrigatório?\" pelo WhatsApp para receber a orientação adequada." },
@@ -123,6 +132,9 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "seguro-hospitais-veterinarios-coberturas": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para hospitais veterinários: Coberturas essenciais\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
+  "seguro-laudo-cautelar-veicular": [
+    { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para empresa de laudo cautelar veicular\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "seguro-loja-shopping-guarulhos-internacional-maia": [
     { q: "Como solicitar uma cotação de seguro empresarial em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro para Lojas de Shopping em Guarulhos\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
