@@ -165,6 +165,7 @@ const secondaryProducts: SitemapEntry[] = [
   "/seguro-rural", "/seguro-maquinas-agricolas", "/seguro-granja",
   "/consorcio", "/previdencia-privada", "/plano-saude-empresarial",
   "/seguro-vida/formulario",
+  "/seguro-vistoriadora-veicular",
 ].map(loc => ({ loc, priority: "0.7", changefreq: "monthly" }));
 
 const tertiaryProducts: SitemapEntry[] = [
