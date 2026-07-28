@@ -52,6 +52,7 @@ const SeguroVistoriadoraVeicular = lazyWithRetry(() => import("./pages/SeguroVis
 const CentralDeGuias = lazyWithRetry(() => import("./pages/CentralDeGuias"), "CentralDeGuias");
 const CentralDePerguntas = lazyWithRetry(() => import("./pages/CentralDePerguntas"), "CentralDePerguntas");
 const CentralDeMateriais = lazyWithRetry(() => import("./pages/CentralDeMateriais"), "CentralDeMateriais");
+const MaterialDetalhe = lazyWithRetry(() => import("./pages/MaterialDetalhe"), "MaterialDetalhe");
 const GuiaPilar = lazyWithRetry(() => import("./pages/GuiaPilar"), "GuiaPilar");
 const SeoECVGuarulhos = lazyWithRetry(() => import("./pages/SeoECVGuarulhos"), "SeoECVGuarulhos");
 const SeoInspecaoVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoInspecaoVeicularGuarulhos"), "SeoInspecaoVeicularGuarulhos");
@@ -890,6 +891,7 @@ const App = () => {
                   <Route path="/guias-seguros" element={<CentralDeGuias />} />
                   <Route path="/perguntas-frequentes-seguros" element={<CentralDePerguntas />} />
                   <Route path="/materiais-gratuitos-seguros" element={<CentralDeMateriais />} />
+                  <Route path="/materiais/:slug" element={<MaterialDetalhe />} />
                   <Route path="/guias/:slug" element={<GuiaPilar />} />
                   {/* Fase 3: últimos resíduos */}
                   <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
