@@ -826,6 +826,7 @@ const App = () => {
                   {/* Hub Agro + Glossário */}
                   <Route path="/seguro-agro" element={<SeguroAgro />} />
                   <Route path="/glossario-seguros" element={<GlossarioSeguros />} />
+                  <Route path="/glossario-seguros/letra/:letra" element={<GlossarioLetra />} />
                   <Route path="/seguro-hb20-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-hilux-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-mobi-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
