@@ -115,6 +115,25 @@ function loadBairroRoutes() {
   return [...new Set(ids)].map((id) => `/seguros-guarulhos/${id}`);
 }
 
+function loadGlossarioLetraRoutes() {
+  // Extrai letras iniciais dos termos cadastrados em glossarioSegurosData.ts
+  // (Fase 6 — DefinedTerm por letra).
+  const file = path.join(ROOT, "src", "data", "glossarioSegurosData.ts");
+  if (!fs.existsSync(file)) return [];
+  const src = fs.readFileSync(file, "utf-8");
+  const letters = new Set();
+  const re = /term:\s*"([^"]+)"/g;
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    const first = m[1]
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toUpperCase()[0];
+    if (first && /[A-Z]/.test(first)) letters.add(first);
+  }
+  return [...letters].sort().map((L) => `/glossario-seguros/letra/${L.toLowerCase()}`);
+}
+
 function loadAllAppRoutes() {
   // Fase 3 — extrai TODAS as rotas estáticas registradas em src/App.tsx.
   const file = path.join(ROOT, "src", "App.tsx");
@@ -156,6 +175,7 @@ const PHASE_2 = [
   ...loadPhase2ExtraRoutes(),
   ...loadBairroRoutes(),
   ...loadBlogRoutes(),
+  ...loadGlossarioLetraRoutes(),
 ];
 const PHASE_3_ENABLED = process.env.PATRO_PRERENDER_PHASE_3 !== "0";
 const PHASE_3 = PHASE_3_ENABLED ? loadAllAppRoutes() : [];
