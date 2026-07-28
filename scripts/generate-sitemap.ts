@@ -305,6 +305,7 @@ const restoredRoutes: SitemapEntry[] = [
   "/seguro-equipamentos-consultorio-guarulhos",
   // === Vertical: Flats e Imóveis Compactos ===
   "/seguro-flat-guarulhos",
+  "/seguro-sala-comercial-guarulhos",
   // === Patro Private (camada premium) ===
   "/patro-private",
   "/seguro-auto-premium-guarulhos",

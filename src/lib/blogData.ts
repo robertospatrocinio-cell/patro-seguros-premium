@@ -4,6 +4,7 @@ import { vistoriaArticles } from "@/data/blogVistoriaData";
 import { odontologiaArticles } from "@/data/blogOdontologiaData";
 import { consultorioArticles } from "@/data/blogConsultorioData";
 import { flatArticles } from "@/data/blogFlatData";
+import { salaComercialArticles } from "@/data/blogSalaComercialData";
 import { blogVeterinariaData } from "@/data/blogVeterinariaData";
 import { patroPrivateArticles } from "@/data/blogPatroPrivateData";
 import { agroArticles } from "@/data/blogAgroData";
@@ -54,6 +55,7 @@ export const articles: BlogArticleMeta[] = [
   ...odontologiaArticles,
   ...consultorioArticles,
   ...flatArticles,
+  ...salaComercialArticles,
   ...blogVeterinariaData,
   ...patroPrivateArticles,
   ...agroArticles,
