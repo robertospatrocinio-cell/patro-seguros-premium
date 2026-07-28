@@ -392,6 +392,56 @@ const premiumPages: Record<string, PremiumMeta> = {
       { question: "Qual a diferença entre seguro residencial e do condomínio?", answer: "O seguro do condomínio cobre áreas comuns (fachada, elevadores, hall, estrutura coletiva). O seguro residencial cobre sua unidade autônoma: paredes internas, piso, forro, conteúdo (móveis, eletrônicos) e responsabilidade civil familiar." },
     ],
   },
+
+  // ===== Verticais publicadas recentemente — metadados curados =====
+  "/plano-de-saude-guarulhos": {
+    title: "Plano de Saúde em Guarulhos | Compare Operadoras",
+    description: "Plano de saúde em Guarulhos com Amil, Bradesco Saúde, SulAmérica, Hapvida, Notredame e mais. Individual, familiar, PME e coletivo. Compare em 24h.",
+    h1: "Plano de Saúde em Guarulhos",
+    serviceType: "Plano de Saúde em Guarulhos",
+  },
+  "/guias-seguros": {
+    title: "Central de Guias de Seguros | Patro Seguros",
+    description: "Guias práticos e completos sobre seguros: auto, residencial, empresarial, saúde, vida, agro e consórcio. Referência técnica atualizada da Patro Seguros.",
+    h1: "Central de Guias de Seguros",
+    serviceType: "Central editorial de guias de seguros",
+  },
+  "/glossario-seguros": {
+    title: "Glossário de Seguros de A a Z | Patro Seguros",
+    description: "Glossário completo de termos de seguros: apólice, franquia, sinistro, cobertura, endosso e mais de 60 verbetes explicados em linguagem simples.",
+    h1: "Glossário de Seguros",
+    serviceType: "Glossário de termos técnicos de seguros",
+  },
+  "/seguro-de-credito": {
+    title: "Seguro de Crédito para Empresas | Patro Seguros",
+    description: "Seguro de crédito para vendas a prazo, exportação, indústria e distribuidores. Proteja seu contas a receber contra inadimplência com Allianz, Coface, Atradius.",
+    h1: "Seguro de Crédito para Empresas",
+    serviceType: "Seguro de Crédito Comercial",
+  },
+  "/seguro-vistoriadora-veicular": {
+    title: "Seguro para Vistoriadora de Veículos | Patro",
+    description: "Seguro para empresas de vistoria veicular: RC Profissional, patrimonial, equipamentos, cyber e frota. Coberturas específicas para vistoriadoras credenciadas.",
+    h1: "Seguro para Vistoriadora de Veículos",
+    serviceType: "Seguro para Vistoriadoras Veiculares",
+  },
+  "/seguro-flat-guarulhos": {
+    title: "Seguro para Flat em Guarulhos | Patro Seguros",
+    description: "Seguro para flat em Guarulhos: residencial, mobiliado, locação tradicional e temporada (Airbnb). Coberturas para proprietário, inquilino e conteúdo.",
+    h1: "Seguro para Flat em Guarulhos",
+    serviceType: "Seguro Residencial para Flats",
+  },
+  "/seguro-sala-comercial-guarulhos": {
+    title: "Seguro Sala Comercial em Guarulhos | Patro",
+    description: "Seguro para sala comercial em Guarulhos: consultórios, escritórios, advocacia, contabilidade e coworking. Cobertura patrimonial, RC e equipamentos.",
+    h1: "Seguro para Sala Comercial em Guarulhos",
+    serviceType: "Seguro Empresarial para Salas Comerciais",
+  },
+  "/seguro-consultorio-guarulhos": {
+    title: "Seguro para Consultório em Guarulhos | Patro",
+    description: "Seguro para consultório em Guarulhos: médico, odontológico, veterinário, estética e equipamentos. RC Profissional, patrimonial, cyber e LGPD.",
+    h1: "Seguro para Consultório em Guarulhos",
+    serviceType: "Seguro Empresarial para Consultórios e Clínicas",
+  },
 };
 
 function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
