@@ -49,6 +49,9 @@ const lazyWithRetry = (componentImport: () => Promise<{ default: any }>, routeNa
 const NichoLojistasGuarulhos = lazyWithRetry(() => import("./pages/NichoLojistasGuarulhos"), "NichoLojistasGuarulhos");
 const SeoVistoriaVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaVeicularGuarulhos"), "SeoVistoriaVeicularGuarulhos");
 const SeguroVistoriadoraVeicular = lazyWithRetry(() => import("./pages/SeguroVistoriadoraVeicular"), "SeguroVistoriadoraVeicular");
+const CentralDeGuias = lazyWithRetry(() => import("./pages/CentralDeGuias"), "CentralDeGuias");
+const CentralDePerguntas = lazyWithRetry(() => import("./pages/CentralDePerguntas"), "CentralDePerguntas");
+const CentralDeMateriais = lazyWithRetry(() => import("./pages/CentralDeMateriais"), "CentralDeMateriais");
 const SeoECVGuarulhos = lazyWithRetry(() => import("./pages/SeoECVGuarulhos"), "SeoECVGuarulhos");
 const SeoInspecaoVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoInspecaoVeicularGuarulhos"), "SeoInspecaoVeicularGuarulhos");
 const SeoVistoriaCautelarGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaCautelarGuarulhos"), "SeoVistoriaCautelarGuarulhos");
@@ -883,6 +886,9 @@ const App = () => {
                   {/* Vistoria — empresas */}
                   <Route path="/seguro-para-empresas-de-vistoria-veicular" element={<Navigate to="/seguro-vistoria-veicular-guarulhos" replace />} />
                   <Route path="/seguro-vistoriadora-veicular" element={<SeguroVistoriadoraVeicular />} />
+                  <Route path="/guias-seguros" element={<CentralDeGuias />} />
+                  <Route path="/perguntas-frequentes-seguros" element={<CentralDePerguntas />} />
+                  <Route path="/materiais-gratuitos-seguros" element={<CentralDeMateriais />} />
                   {/* Fase 3: últimos resíduos */}
                   <Route path="/seguro-empresarial-guarulhos" element={<SeoSeguroEmpresaGuarulhos />} />
                   <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
