@@ -24,7 +24,7 @@ const SEO_CONTENT = {
       <p>Atuamos com <strong>seguro auto</strong>, <strong>residencial</strong>, <strong>vida</strong>, <strong>saúde</strong>, <strong>empresarial</strong>, <strong>frota</strong>, <strong>condomínio</strong>, <strong>consórcio</strong> e <strong>agronegócio</strong>. Atendemos Guarulhos, Cumbica, região metropolitana de SP e clientes em todo o Brasil.</p>
       <p>Somos independentes. Trabalhamos com Porto, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty, Mapfre, Azul Seguros, Itaú, Mitsui, Suhai e Zurich. Isso nos permite comparar preços e coberturas de <strong>seguros em Guarulhos</strong> para cada perfil.</p>
       <h2>Seguros para você e sua família em Guarulhos</h2>
-      <p>Faça cotação de <a href="/seguro-auto-guarulhos">seguro auto em Guarulhos</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a>, <a href="/seguro-moto-guarulhos">seguro moto</a> e <a href="/plano-saude-guarulhos">plano de saúde</a>. Comparamos as principais seguradoras. Você escolhe a melhor relação custo-benefício.</p>
+      <p>Faça cotação de <a href="/seguro-auto-guarulhos">seguro auto em Guarulhos</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a>, <a href="/seguro-moto-guarulhos">seguro moto</a> e <a href="/plano-de-saude-guarulhos">plano de saúde</a>. Comparamos as principais seguradoras. Você escolhe a melhor relação custo-benefício.</p>
       <h2>Seguros empresariais e para frotas</h2>
       <p>Somos especialistas em <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>, <a href="/seguros-empresariais-pme-guarulhos">seguros PME</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>. Também atendemos galpões e armazéns em Cumbica, responsabilidade civil (RC) e riscos patrimoniais. Já fechamos mais de 500 apólices para PMEs de Guarulhos.</p>
       <h2>Consórcio e agronegócio</h2>
@@ -109,7 +109,7 @@ const SEO_CONTENT = {
       <h2>Seguro de vida individual e empresarial</h2>
       <p>Morte natural e acidental, invalidez por acidente, doenças graves, assistência funeral, diárias por internação. Análise detalhada de perfil para cobertura ideal.</p>
       <h2>Plano de saúde individual, familiar e empresarial</h2>
-      <p>Cotação com Bradesco Saúde, SulAmérica, Amil, Hapvida-NotreDame, Porto Saúde, Unimed e Omint. Veja também <a href="/plano-saude-guarulhos">plano de saúde em Guarulhos</a>.</p>
+      <p>Cotação com Bradesco Saúde, SulAmérica, Amil, Hapvida-NotreDame, Porto Saúde, Unimed e Omint. Veja também <a href="/plano-de-saude-guarulhos">plano de saúde em Guarulhos</a>.</p>
     `,
   },
   "/seguro-moto-guarulhos": {
@@ -122,7 +122,7 @@ const SEO_CONTENT = {
       <p>Apólices específicas para uso comercial (motoboy, delivery, iFood, Rappi). Veja também <a href="/seguro-auto-guarulhos">seguro auto em Guarulhos</a>.</p>
     `,
   },
-  "/plano-saude-guarulhos": {
+  "/plano-de-saude-guarulhos": {
     h1: "Plano de Saúde em Guarulhos",
     body: `
       <p><strong>Plano de saúde em Guarulhos</strong> com a Patro Seguros: parceira de 20+ operadoras (Bradesco Saúde, SulAmérica, Amil, Hapvida-NotreDame, Porto Saúde, Unimed, Omint, Care Plus, Prevent Senior).</p>
