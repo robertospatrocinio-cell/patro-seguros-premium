@@ -18,6 +18,25 @@ export interface GuiaBlock {
 
 export const guiasBlocks: GuiaBlock[] = [
   {
+    id: "guias-aprofundados",
+    title: "Guias Aprofundados Patro Seguros",
+    intro: "Guias editoriais completos (2.000+ palavras) revisados por especialistas, com resposta rápida, FAQ e schemas otimizados para busca e IAs.",
+    cards: [
+      { title: "Seguro Auto em Guarulhos", description: "Coberturas, franquia, preço, seguradoras e assistência 24h para veículos particulares e de app.", level: "Básico", readTime: "16 min", href: "/guias/seguro-auto-guarulhos" },
+      { title: "Seguro Empresarial em Guarulhos", description: "Multirrisco para PME, indústria, comércio e galpão — incêndio, RC, danos elétricos e lucros cessantes.", level: "Intermediário", readTime: "18 min", href: "/guias/seguro-empresarial-guarulhos" },
+      { title: "Planos de Saúde em Guarulhos", description: "Comparativo de operadoras, carência, coparticipação, reembolso, reajuste e portabilidade ANS.", level: "Intermediário", readTime: "17 min", href: "/guias/plano-de-saude-guarulhos" },
+      { title: "Consórcio em Guarulhos", description: "Carta de crédito, sorteio, lance, taxas e regras do Banco Central para imóveis, veículos e serviços.", level: "Básico", readTime: "14 min", href: "/guias/consorcio-guarulhos" },
+      { title: "Seguro de Vida", description: "Coberturas, capital ideal, beneficiários, individual x grupo e planejamento sucessório.", level: "Intermediário", readTime: "15 min", href: "/guias/seguro-vida" },
+      { title: "Seguro Residencial em Guarulhos", description: "Casa, apartamento e imóvel alugado — danos elétricos, roubo, RC familiar e assistência 24h.", level: "Básico", readTime: "13 min", href: "/guias/seguro-residencial-guarulhos" },
+      { title: "Seguros para Consultórios e Clínicas", description: "RC Profissional, equipamentos, patrimonial, cyber e lucros cessantes para clínicas de saúde.", level: "Intermediário", readTime: "14 min", href: "/guias/seguros-para-consultorios" },
+      { title: "Seguro Garantia", description: "Licitação, contratual, judicial e substituição de fiança bancária pela Lei 14.133/2021.", level: "Avançado", readTime: "15 min", href: "/guias/seguro-garantia" },
+      { title: "Seguro de Crédito", description: "Proteção contra inadimplência B2B interna e exportação — reduz PDD e viabiliza financiamento.", level: "Avançado", readTime: "14 min", href: "/guias/seguro-de-credito" },
+      { title: "Seguro Cyber", description: "Ransomware, vazamento de dados, LGPD, fraude eletrônica e interrupção de negócio.", level: "Avançado", readTime: "14 min", href: "/guias/seguro-cyber" },
+      { title: "Seguro Transporte e Cargas", description: "RCTR-C, RCF-DC, RCTR-VI e cobertura do embarcador — nacional e internacional via Cumbica.", level: "Avançado", readTime: "15 min", href: "/guias/seguro-transporte-cargas" },
+      { title: "Patro Private", description: "Proteção patrimonial premium — HNW, D&O, kidnap, arte, náutico, aeronaves e cobertura mundial.", level: "Avançado", readTime: "13 min", href: "/guias/patro-private" },
+    ],
+  },
+  {
     id: "voce-familia",
     title: "Seguros para Você e Família",
     intro: "Proteção pessoal, familiar, patrimonial e do dia a dia — de auto e residência a vida, viagem e acidentes pessoais.",
