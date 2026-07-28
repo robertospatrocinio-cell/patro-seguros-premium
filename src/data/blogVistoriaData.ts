@@ -2,6 +2,66 @@ import { BlogArticleMeta } from "@/lib/blogData";
 
 export const vistoriaArticles: BlogArticleMeta[] = [
   {
+    slug: "seguro-para-vistoriadora-veicular",
+    title: "Seguro para vistoriadora veicular: o que contratar?",
+    excerpt: "Guia consultivo sobre as coberturas que empresas de vistoria veicular podem avaliar — patrimônio, RC, E&O, cyber e equipamentos, conforme apólice.",
+    category: "Vistoria Veicular",
+    tags: ["vistoriadora", "ECV", "seguro empresarial", "RC"],
+    author: "Roberto Patro",
+    date: "2026-07-28",
+    readTime: 10
+  },
+  {
+    slug: "seguro-ecv-empresa-credenciada-vistoria",
+    title: "Seguro para ECV: proteção para empresa credenciada de vistoria",
+    excerpt: "Como estruturar coberturas patrimoniais, responsabilidade civil e operação para empresas credenciadas de vistoria (ECVs).",
+    category: "Vistoria Veicular",
+    tags: ["ECV", "credenciamento", "RC", "empresarial"],
+    author: "Sandra Patro",
+    date: "2026-07-28",
+    readTime: 10
+  },
+  {
+    slug: "seguro-laudo-cautelar-veicular",
+    title: "Seguro para empresa de laudo cautelar veicular",
+    excerpt: "Empresas de laudo cautelar podem avaliar coberturas de RC Profissional/E&O, equipamentos e cyber, conforme apólice e aceitação.",
+    category: "Vistoria Veicular",
+    tags: ["laudo cautelar", "E&O", "vistoria"],
+    author: "Roberto Patro",
+    date: "2026-07-28",
+    readTime: 10
+  },
+  {
+    slug: "responsabilidade-civil-vistoria-veicular",
+    title: "Responsabilidade civil para vistoria veicular: quando faz sentido?",
+    excerpt: "Entenda a diferença entre RC Operações e RC Profissional/E&O para empresas de vistoria e como avaliar cada cobertura.",
+    category: "Vistoria Veicular",
+    tags: ["RC", "E&O", "responsabilidade civil"],
+    author: "Sandra Patro",
+    date: "2026-07-28",
+    readTime: 10
+  },
+  {
+    slug: "seguro-equipamentos-vistoria-veicular",
+    title: "Seguro para equipamentos de vistoria veicular",
+    excerpt: "Câmeras, computadores, tablets, scanners e servidores usados na vistoria podem ser incluídos em coberturas de equipamentos eletrônicos e portáteis.",
+    category: "Vistoria Veicular",
+    tags: ["equipamentos", "eletrônicos", "portáteis"],
+    author: "Roberto Patro",
+    date: "2026-07-28",
+    readTime: 9
+  },
+  {
+    slug: "seguro-cyber-para-vistoriadoras-veiculos",
+    title: "Seguro cyber para vistoriadoras de veículos",
+    excerpt: "Dados de clientes, fotos, laudos e sistemas exigem atenção com LGPD. Veja como avaliar seguro cyber para vistoriadoras.",
+    category: "Vistoria Veicular",
+    tags: ["cyber", "LGPD", "dados"],
+    author: "Sandra Patro",
+    date: "2026-07-28",
+    readTime: 10
+  },
+  {
     slug: "5-riscos-empresa-vistoria-veicular-proteger",
     title: "5 Riscos Que Toda Empresa de Vistoria Veicular Precisa Proteger",
     excerpt: "Conheça os principais riscos operacionais de uma ECV e como o seguro empresarial e de responsabilidade civil garantem a continuidade do negócio.",
