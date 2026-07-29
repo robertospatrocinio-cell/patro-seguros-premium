@@ -791,6 +791,9 @@ const App = () => {
                   {/* Planos de saúde — hub canônico + subpáginas */}
                   <Route path="/plano-de-saude-guarulhos" element={<PlanoDeSaudeGuarulhosHub />} />
                   <Route path="/plano-saude-guarulhos" element={<Navigate to="/plano-de-saude-guarulhos" replace />} />
+                  {/* 301 client-side: variantes legadas sem sufixo local caem no hub canônico. */}
+                  <Route path="/plano-de-saude" element={<Navigate to="/plano-de-saude-guarulhos" replace />} />
+                  <Route path="/plano-de-saude/" element={<Navigate to="/plano-de-saude-guarulhos" replace />} />
                   <Route path="/plano-de-saude-individual-guarulhos" element={<PlanoSaudeIndividualGuarulhos />} />
                   <Route path="/plano-de-saude-familiar-guarulhos" element={<PlanoSaudeFamiliarGuarulhos />} />
                   <Route path="/plano-de-saude-mei-guarulhos" element={<PlanoSaudeMeiGuarulhos />} />

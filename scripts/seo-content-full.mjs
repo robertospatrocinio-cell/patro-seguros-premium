@@ -724,6 +724,113 @@ export const FULL_SEO_CONTENT = {
       <p>Conheça <a href="/sobre">nossa história</a> ou <a href="/depoimentos">leia depoimentos de clientes</a>. Ou <a href="/cotacao">solicite sua cotação agora</a>.</p>
     `,
   },
+
+  "/seguradoras-parceiras": {
+    h1: "Seguradoras parceiras da Patro Seguros",
+    body: `
+      <p>A <strong>Patro Seguros</strong> é uma <strong>corretora de seguros independente</strong> em Guarulhos/SP e atua como intermediadora entre o cliente e as principais seguradoras do mercado brasileiro. Esta página não é o site oficial de nenhuma seguradora mencionada — marcas, logotipos e produtos pertencem aos respectivos titulares. Nosso papel é comparar apólices, coberturas, franquias, preços, assistências e política de sinistro para indicar a melhor opção para cada perfil de cliente, sem venda casada e sem custo adicional (a corretagem é remunerada pela própria seguradora).</p>
+
+      <h2>Seguradoras parceiras homologadas</h2>
+      <p>Trabalhamos com mais de 16 seguradoras reguladas pela SUSEP: <strong>Porto Seguro</strong>, <strong>Mapfre</strong>, <strong>Allianz</strong>, <strong>Tokio Marine</strong>, <strong>Azul Seguros</strong>, <strong>Suhai</strong>, <strong>Bradesco Seguros</strong>, <strong>SulAmérica</strong>, <strong>HDI</strong>, <strong>Liberty (Yelum)</strong>, <strong>Zurich</strong>, <strong>Sompo</strong>, <strong>Mitsui Sumitomo</strong>, <strong>Pottencial</strong>, <strong>Junto</strong>, <strong>Akad</strong> e <strong>Ezze</strong>. Cada seguradora tem apetite técnico próprio para tipos de risco, região, perfil de cliente e coberturas — cabe à corretora direcionar cada cotação para as companhias que efetivamente aceitam bem o risco em análise, o que aumenta a chance de aprovação e o desconto obtido.</p>
+
+      <h3>Como escolhemos a seguradora ideal</h3>
+      <ul>
+        <li>Perfil do segurado (idade, região, uso do bem, histórico de sinistros).</li>
+        <li>Apetite técnico da seguradora para o risco em questão.</li>
+        <li>Coberturas obrigatórias e adicionais desejadas.</li>
+        <li>Rede referenciada, assistência 24h e política de sinistro.</li>
+        <li>Preço final comparado lado a lado, sem viés comercial.</li>
+      </ul>
+
+      <h2>Aviso de transparência</h2>
+      <p>A Patro Seguros é corretora de seguros independente <strong>registrada na SUSEP sob o código 212113511</strong> e <strong>CNPJ 41.641.558/0001-33</strong>. Podemos intermediar cotações junto às seguradoras parceiras citadas nesta página. Não somos site oficial, filial, franquia ou representante exclusivo de nenhuma delas. Produtos, preços, coberturas, carências e aceitação do risco dependem exclusivamente das regras vigentes em cada seguradora no momento da cotação e podem ser alterados sem aviso prévio. Toda contratação está sujeita a análise, aceitação e emissão da apólice pela seguradora escolhida.</p>
+
+      <h2>Páginas dedicadas por seguradora em Guarulhos</h2>
+      <p>Publicamos páginas específicas com produtos, coberturas e diferenciais de cada parceira, todas com foco em atendimento em Guarulhos e região metropolitana: <a href="/porto-seguro-guarulhos">Porto Seguro Guarulhos</a>, <a href="/mapfre-seguros-guarulhos">Mapfre Seguros</a>, <a href="/allianz-seguros-guarulhos">Allianz</a>, <a href="/tokio-marine-guarulhos">Tokio Marine</a>, <a href="/azul-seguros-guarulhos">Azul Seguros</a>, <a href="/suhai-seguros-guarulhos">Suhai</a>, <a href="/bradesco-seguros-guarulhos">Bradesco Seguros</a>, <a href="/sulamerica-seguros-guarulhos">SulAmérica</a>, <a href="/hdi-seguros-guarulhos">HDI</a>, <a href="/liberty-seguros-guarulhos">Liberty</a>, <a href="/zurich-seguros-guarulhos">Zurich</a>, <a href="/sompo-seguros-guarulhos">Sompo</a>, <a href="/mitsui-sumitomo-seguros-guarulhos">Mitsui Sumitomo</a>, <a href="/pottencial-seguradora-guarulhos">Pottencial</a>, <a href="/akad-seguros-guarulhos">Akad</a> e <a href="/ezze-seguros-guarulhos">Ezze</a>.</p>
+
+      ${FAQ([
+        { q: "A Patro Seguros é filial de alguma seguradora?", a: "Não. A Patro é uma corretora de seguros independente, registrada na SUSEP sob o código 212113511. Representamos o cliente — não a seguradora — e comparamos cotações entre mais de 16 companhias antes de indicar a melhor opção." },
+        { q: "Contratar pela Patro é mais caro que direto na seguradora?", a: "Não. O preço final é o mesmo. A comissão da corretora já está embutida no prêmio pago à seguradora — você paga o mesmo valor, mas com atendimento consultivo, comparação técnica e representação em caso de sinistro." },
+        { q: "Quais seguradoras vocês representam?", a: "Trabalhamos com Porto Seguro, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty/Yelum, Mapfre, Azul, Zurich, Sompo, Mitsui, Suhai, Pottencial, Akad, Ezze e outras. A escolha depende do tipo de risco e perfil do cliente." },
+        { q: "Vocês vendem só de uma seguradora?", a: "Não. Cotamos com múltiplas seguradoras em cada solicitação e apresentamos as opções lado a lado. Você escolhe a melhor relação custo-benefício, sem pressão comercial." },
+        { q: "E se eu tiver problema no sinistro?", a: "A Patro acompanha o processo do aviso à indenização, intermediando toda a comunicação com a seguradora. É um dos principais benefícios de contratar via corretora." },
+      ])}
+
+      <p>Solicite sua <a href="/cotacao">cotação online</a>, fale com um consultor pelo <a href="/contato">canal de contato</a> ou volte para a <a href="/">página inicial</a>.</p>
+    `,
+  },
+
+  "/glossario-seguros": {
+    h1: "Glossário de Seguros",
+    body: `
+      <p>Este é o <strong>glossário de seguros da Patro Seguros</strong>: mais de 60 termos técnicos do mercado segurador brasileiro explicados em linguagem simples, sem juridiquês. Cada verbete cita, quando aplicável, a norma da <strong>SUSEP</strong>, da <strong>ANS</strong> ou do <strong>Banco Central</strong> que rege o conceito. O objetivo é dar autonomia para você ler apólices, comparar propostas e conversar de igual para igual com corretoras e seguradoras.</p>
+
+      <h2>Termos essenciais de uma apólice</h2>
+      <p><strong>Apólice:</strong> contrato escrito entre segurado e seguradora que formaliza a cobertura, o prazo, o prêmio e as condições gerais. <strong>Prêmio:</strong> valor pago pelo segurado à seguradora em troca da cobertura contratada (não confundir com "indenização"). <strong>Franquia:</strong> valor de participação obrigatória do segurado no prejuízo em caso de sinistro — quanto maior a franquia, menor o prêmio. <strong>Sinistro:</strong> ocorrência do evento previsto na apólice (colisão, incêndio, roubo, morte etc.) que aciona a cobertura. <strong>Endosso:</strong> alteração formal da apólice em vigor (troca de veículo, mudança de endereço, inclusão de condutor).</p>
+
+      <h3>Coberturas e exclusões</h3>
+      <p><strong>Cobertura:</strong> conjunto de eventos e prejuízos que a apólice garante indenizar. <strong>Cobertura básica ou compreensiva:</strong> pacote mínimo obrigatório (ex.: em auto, colisão + roubo + incêndio). <strong>Cobertura adicional:</strong> proteções contratadas separadamente (carro reserva, vidros, APP, RCF-V ampliada, danos elétricos, alagamento etc.). <strong>Exclusão:</strong> situação expressamente fora da cobertura (ex.: guerra, dolo, embriaguez ao volante). <strong>Carência:</strong> período inicial em que determinada cobertura ainda não é válida — comum em vida, saúde e odonto.</p>
+
+      <h3>Termos de saúde e odonto (ANS)</h3>
+      <p><strong>Coparticipação:</strong> percentual pago pelo beneficiário a cada uso do plano (consulta, exame). <strong>Rede credenciada / referenciada:</strong> hospitais, clínicas e laboratórios com contrato ativo com a operadora. <strong>Portabilidade de carências:</strong> direito garantido pela ANS de trocar de plano sem cumprir novas carências, se cumpridos requisitos. <strong>Beneficiário:</strong> pessoa que usufrui do plano (titular ou dependente).</p>
+
+      <h3>Termos empresariais e responsabilidade</h3>
+      <p><strong>Responsabilidade Civil (RC):</strong> cobertura para danos que o segurado cause a terceiros. <strong>Lucros cessantes:</strong> indenização pelo lucro que a empresa deixou de ter enquanto se recupera do sinistro. <strong>Danos elétricos:</strong> cobertura para equipamentos queimados por variação de tensão. <strong>D&O:</strong> Directors and Officers — proteção patrimonial de executivos contra ações civis. <strong>E&O:</strong> Errors and Omissions — RC Profissional para erros técnicos. <strong>Cyber:</strong> cobertura para ataques digitais, vazamento de dados (LGPD) e ransomware.</p>
+
+      <h3>Consórcio (regulado pelo Banco Central)</h3>
+      <p><strong>Carta de crédito:</strong> valor liberado ao consorciado contemplado para comprar o bem. <strong>Contemplação:</strong> momento em que o consorciado tem direito à carta, por <strong>sorteio</strong> ou <strong>lance</strong>. <strong>Taxa de administração:</strong> remuneração da administradora, prevista em contrato. <strong>Fundo de reserva:</strong> reserva coletiva do grupo para cobrir eventuais inadimplências.</p>
+
+      <h3>Reguladores e siglas oficiais</h3>
+      <p><strong>SUSEP:</strong> Superintendência de Seguros Privados — órgão federal que fiscaliza seguradoras, corretoras e capitalização. <strong>ANS:</strong> Agência Nacional de Saúde Suplementar — regula planos de saúde e odontológicos. <strong>Banco Central:</strong> regula e fiscaliza administradoras de consórcio. <strong>CNSP:</strong> Conselho Nacional de Seguros Privados. <strong>Segurado:</strong> pessoa física ou jurídica que contrata o seguro. <strong>Corretora:</strong> pessoa jurídica habilitada pela SUSEP para intermediar seguros — representa o cliente. <strong>Seguradora:</strong> instituição autorizada a emitir apólices e assumir o risco.</p>
+
+      ${FAQ([
+        { q: "Qual a diferença entre prêmio e indenização?", a: "Prêmio é o valor que o segurado paga à seguradora para ter direito à cobertura. Indenização é o valor que a seguradora paga ao segurado em caso de sinistro coberto." },
+        { q: "Franquia alta ou baixa: qual é melhor?", a: "Depende do perfil. Franquia alta reduz o prêmio mensal, mas exige mais desembolso em caso de sinistro. Franquia baixa aumenta o prêmio e reduz o desembolso na hora do sinistro. Consulte um corretor para simular." },
+        { q: "O que é portabilidade de carências?", a: "É o direito, regulado pela ANS, de trocar de operadora de plano de saúde sem cumprir novas carências, desde que atendidos os requisitos de tempo mínimo no plano atual e compatibilidade de faixa de preço." },
+        { q: "Consórcio tem juros?", a: "Consórcio não cobra juros de financiamento, mas possui taxa de administração, fundo de reserva, seguros e outros custos previstos em contrato, todos regulados pelo Banco Central." },
+      ])}
+
+      <p>Consulte também nossa <a href="/central-de-guias-de-seguros">Central de Guias</a>, o <a href="/faq">FAQ geral</a> ou <a href="/contato">fale com um consultor</a> se restar dúvida.</p>
+    `,
+  },
+
+  "/seguro-flat-guarulhos": {
+    h1: "Seguro para flats residenciais e de locação",
+    body: `
+      <p>O <strong>seguro para flat em Guarulhos</strong> é uma modalidade específica de seguro residencial voltada para <strong>flats mobiliados</strong>, <strong>flats de locação tradicional</strong>, <strong>flats de temporada</strong> (Airbnb, Booking, Vrbo) e <strong>flats como investimento</strong>. Diferente de uma apólice residencial padrão, ele considera o uso rotativo do imóvel, o valor da mobília, eletrodomésticos, itens de decoração e os riscos operacionais próprios da atividade de aluguel. A Patro Seguros compara seguradoras que aceitam bem esse perfil e monta a apólice adequada para <strong>proprietário</strong> ou <strong>inquilino</strong>, com foco em Guarulhos, Cidade Maia, Centro, Vila Galvão e São Paulo.</p>
+
+      <h2>Coberturas típicas de um seguro para flat</h2>
+      <ul>
+        <li><strong>Incêndio, raio e explosão</strong> — cobertura básica obrigatória.</li>
+        <li><strong>Roubo e furto qualificado</strong> — de conteúdo (mobília, eletrodomésticos, TV, notebook).</li>
+        <li><strong>Danos elétricos</strong> — queima de eletrodomésticos por variação de tensão.</li>
+        <li><strong>Vendaval, alagamento e impacto de veículos</strong>.</li>
+        <li><strong>Quebra de vidros</strong> e <strong>danos à mobília por causas acidentais</strong>.</li>
+        <li><strong>Responsabilidade Civil Familiar / RC Locatária</strong> — danos que o flat cause a terceiros ou a unidades vizinhas.</li>
+        <li><strong>Perda ou pagamento de aluguel</strong> — quando disponível para o proprietário, conforme apólice.</li>
+        <li><strong>Assistência 24h</strong> — chaveiro, encanador, eletricista, vidraceiro.</li>
+      </ul>
+
+      <h2>Flat residencial x flat de temporada (Airbnb, Booking)</h2>
+      <p>Nem toda seguradora aceita flats explorados em <strong>temporada por plataformas digitais</strong>. É essencial informar o uso real na cotação — omitir esse detalhe pode invalidar a apólice em sinistro. Para flats <strong>com hóspedes rotativos</strong>, a Patro direciona a cotação para seguradoras com apetite técnico para esse perfil e recomenda contratar RC ampliada (danos a terceiros e à unidade vizinha), cobertura de conteúdo em valor a novo e assistência 24h robusta. Para flats de <strong>locação tradicional</strong> (contrato de 30 meses), a cotação é mais próxima de um residencial padrão, mas ainda com atenção à mobília e ao contrato de locação (proprietário x inquilino).</p>
+
+      <h2>Proprietário ou inquilino: quem contrata?</h2>
+      <p>Ambos podem — e frequentemente devem — contratar seguros complementares. O <strong>proprietário</strong> costuma segurar a <strong>estrutura, mobília, benfeitorias, perda de aluguel e RC do imóvel</strong>. O <strong>inquilino</strong> costuma segurar <strong>conteúdo próprio, RC Locatária e assistência 24h</strong>. Em Guarulhos, empresas de administração de flats geralmente exigem seguro do inquilino como pré-requisito de contrato — a Patro emite apólices compatíveis com essa exigência em até 24h úteis.</p>
+
+      <h2>Atendimento Patro Seguros em Guarulhos</h2>
+      <p>Atendemos flats em toda Guarulhos e Grande São Paulo: <strong>Cidade Maia</strong>, <strong>Centro</strong>, <strong>Vila Galvão</strong>, <strong>Vila Augusta</strong>, <strong>Bonsucesso</strong>, <strong>Gopoúva</strong>, <strong>Jardim Maia</strong>, <strong>Macedo</strong>, <strong>Picanço</strong>, <strong>Taboão</strong>, <strong>Cumbica</strong> e cidades vizinhas. Também atendemos investidores que operam flats em <strong>São Paulo capital</strong> (Vila Olímpia, Itaim, Faria Lima, Berrini, Moema, Paulista) de forma remota. Nossa área <strong>Patro Private</strong> cuida de carteiras com múltiplos flats/imóveis com relatório consolidado e vencimentos unificados.</p>
+
+      ${FAQ([
+        { q: "Seguro residencial normal cobre flat de temporada?", a: "Nem sempre. Muitas apólices residenciais padrão excluem uso comercial rotativo (Airbnb, Booking). É preciso declarar o uso real na cotação e escolher seguradora com apetite para esse perfil, senão a apólice pode ser invalidada em sinistro." },
+        { q: "Quem paga o seguro do flat: proprietário ou inquilino?", a: "Ambos podem. O proprietário costuma segurar estrutura, mobília e perda de aluguel. O inquilino segura conteúdo próprio e RC Locatária. Contratos de administração muitas vezes exigem seguro do inquilino." },
+        { q: "Flat mobiliado precisa de seguro específico?", a: "Sim. A mobília, eletrodomésticos e itens de decoração compõem o capital segurado de conteúdo, que precisa ser dimensionado corretamente para não haver rateio no sinistro." },
+        { q: "Perda de aluguel é sempre coberta?", a: "Não. É uma cobertura adicional disponível em algumas seguradoras, contratada à parte, com limite e prazo previstos em apólice." },
+        { q: "Vocês atendem flats em São Paulo capital?", a: "Sim. Atendemos Guarulhos presencialmente e clientes em São Paulo capital e Grande SP de forma remota, com corretor dedicado e emissão de apólice em até 24h úteis." },
+      ])}
+
+      <p>Solicite sua <a href="/cotacao">cotação de seguro para flat</a>, conheça o <a href="/seguro-residencial-guarulhos">seguro residencial</a> ou <a href="/contato">fale com um consultor Patro</a>.</p>
+    `,
+  },
 };
 
 // Bloco compartilhado de expansão AEO/GEO — adiciona ~320 palavras de

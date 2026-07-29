@@ -278,7 +278,7 @@ const LpTransportes360 = () => {
   };
 
   const structuredData = useMemo(() => {
-    const pageUrl = "https://patroseguros.lovable.app/lp-transportes-360";
+    const pageUrl = "https://www.patroseguros.com.br/lp-transportes-360";
     return {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -290,7 +290,7 @@ const LpTransportes360 = () => {
       category: "Seguros empresariais para transporte rodoviário de cargas",
       description:
         "Programa consultivo de seguros e gestão de riscos para transportadoras rodoviárias: frota, RCTR-C, RCF-DC, cargas, roubo, avarias, vida de motoristas, instalações e apoio em sinistros.",
-      termsOfService: "https://patroseguros.lovable.app/termos-de-uso",
+      termsOfService: "https://www.patroseguros.com.br/termos-de-uso",
       areaServed: [
         { "@type": "City", name: "Guarulhos" },
         { "@type": "AdministrativeArea", name: "Grande São Paulo" },
@@ -378,7 +378,7 @@ const LpTransportes360 = () => {
         title="Seguro para Transportadoras e Frota de Cargas"
         description="Patro Transportes 360: seguro para transportadoras com análise de frota, cargas (RCTR-C/RCF-DC), motoristas e gerenciamento de riscos. Solicite um diagnóstico."
         ogType="website"
-        ogImage="https://patroseguros.lovable.app/images/og-cover.webp"
+        ogImage="https://www.patroseguros.com.br/images/og-cover.webp"
         ogImageAlt="Frota de caminhões — Patro Transportes 360, seguros para transportadoras"
         preloadImage={heroImg}
       />
