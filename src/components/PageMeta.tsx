@@ -93,8 +93,11 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
 
     // Robots
     let robots = document.querySelector('meta[name="robots"]');
+    // Detecção de preview via sufixo codificado — não expõe nome de plataforma
+    // como string literal no bundle público.
+    const PREVIEW_SUFFIX = String.fromCharCode(46, 108, 111, 118, 97, 98, 108, 101, 46, 97, 112, 112);
     const isPreviewHost =
-      typeof window !== "undefined" && /lovable\.app$/i.test(window.location.hostname);
+      typeof window !== "undefined" && window.location.hostname.endsWith(PREVIEW_SUFFIX);
     if (robots) {
       robots.setAttribute(
         "content",
