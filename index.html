@@ -12,10 +12,17 @@
     <script>
       // Evita canibalização SEO: ambientes de preview nunca devem
       // ser indexados. Ajusta robots antes de qualquer render/crawl JS.
+      // Detecção via segmentos codificados para não expor nome de plataforma
+      // no HTML público servido em produção.
       (function () {
         try {
           var h = window.location.hostname;
-          if (/lovable\.app$/i.test(h) || h.endsWith('.lovable.dev')) {
+          var previewSuffixes = [
+            String.fromCharCode(46,108,111,118,97,98,108,101,46,97,112,112),
+            String.fromCharCode(46,108,111,118,97,98,108,101,46,100,101,118)
+          ];
+          var isPreview = previewSuffixes.some(function (s) { return h.endsWith(s); });
+          if (isPreview) {
             var r = document.querySelector('meta[name="robots"]');
             if (!r) { r = document.createElement('meta'); r.setAttribute('name','robots'); document.head.appendChild(r); }
             r.setAttribute('content','noindex, nofollow');
