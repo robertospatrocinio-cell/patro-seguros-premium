@@ -442,6 +442,12 @@ const premiumPages: Record<string, PremiumMeta> = {
     h1: "Seguro para Consultório em Guarulhos",
     serviceType: "Seguro Empresarial para Consultórios e Clínicas",
   },
+  "/seguradoras-parceiras": {
+    title: "Seguradoras Parceiras em Guarulhos | Patro Seguros",
+    description: "Conheça as seguradoras parceiras da Patro em Guarulhos: Porto, Mapfre, Allianz, Tokio Marine, Azul, Suhai, Bradesco, SulAmérica, HDI e outras.",
+    h1: "Seguradoras parceiras da Patro Seguros",
+    serviceType: "Corretora com seguradoras parceiras homologadas",
+  },
 };
 
 function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {

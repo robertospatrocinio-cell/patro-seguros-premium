@@ -107,6 +107,9 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-flat-guarulhos",
   "/seguro-sala-comercial-guarulhos",
   "/seguro-consultorio-guarulhos",
+
+  // Bloco A (auditoria jul/2026) — hubs que estavam servindo HTML da home
+  "/seguradoras-parceiras",
 ];
 
 /**
