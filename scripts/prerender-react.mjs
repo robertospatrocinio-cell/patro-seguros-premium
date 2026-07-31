@@ -97,11 +97,10 @@ function loadBlogRoutes() {
     let m;
     while ((m = re.exec(src)) !== null) slugs.add(m[1]);
   }
-  // Espelha cada slug em /blog/:slug e /artigos/:slug — o sitemap publica ambos
-  // os caminhos, e o validador pós-build exige <h1> em todas as páginas de
-  // dist/. Sem o mirror, /artigos/* ficava como shell vazio (root sem h1) e
-  // o build abortava em "nenhum <h1> encontrado".
-  return [...slugs].flatMap((s) => [`/blog/${s}`, `/artigos/${s}`]);
+  // `/artigos/:slug` não é mais pré-renderizado como artigo: a estrutura
+  // definitiva é `/blog/:slug` e `/artigos/*` responde 301 (stub gerado por
+  // scripts/emit-redirect-stubs.mjs).
+  return [...slugs].map((s) => `/blog/${s}`);
 }
 
 function loadBairroRoutes() {

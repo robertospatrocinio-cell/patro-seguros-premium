@@ -4,7 +4,7 @@
 type Article = { title: string; content: string; faqs: { q: string; a: string }[] };
 
 const cta = (slug: string, label = "Solicitar Análise Patrimonial Patro Private") =>
-  `\n\n---\n\n**Próximo passo — análise consultiva e sigilosa.** A Patro Private é a vertical da [Patro Seguros](/sobre) dedicada a famílias, executivos e empresários que precisam de um especialista para estruturar — e não apenas cotar — sua proteção patrimonial.\n\n[${label}](/patro-private?origem=blog-${slug})`;
+  `\n\n---\n\n**Próximo passo — análise consultiva e sigilosa.** A Patro Private é a vertical da [Patro Seguros](/sobre) dedicada a famílias, executivos e empresários que precisam de um especialista para estruturar — e não apenas cotar — sua proteção patrimonial.\n\n[${label}](/patro-private)`;
 
 export const patroPrivateArticlesContent: Record<string, Article> = {
   "patro-private-protecao-patrimonial-familias-alto-padrao": {

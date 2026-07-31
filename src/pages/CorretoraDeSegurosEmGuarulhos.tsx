@@ -249,7 +249,7 @@ const CorretoraDeSegurosEmGuarulhos = () => {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                to="/cotacao?origem=corretora-de-seguros-em-guarulhos"
+                to="/cotacao"
                 onClick={() => trackCotacaoClick("corretora-de-seguros-em-guarulhos:hero")}
               >
                 <Button size="lg" variant="cta" className="text-base px-8 h-12 rounded-xl font-semibold">
@@ -563,7 +563,7 @@ const CorretoraDeSegurosEmGuarulhos = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
-                to="/cotacao?origem=corretora-de-seguros-em-guarulhos"
+                to="/cotacao"
                 onClick={() => trackCotacaoClick("corretora-de-seguros-em-guarulhos:final")}
               >
                 <Button size="lg" variant="cta" className="text-base px-8 h-12 rounded-xl font-semibold">

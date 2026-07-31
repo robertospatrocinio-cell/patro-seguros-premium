@@ -103,7 +103,7 @@ Medida — Redução de sinistro — Custo típico — Payback via desconto no p
 
 Se você é morador ou empresário em Guarulhos, use a **Tabela 3** para priorizar 1 intervenção de prevenção antes de renovar sua apólice — na renovação, apresente à corretora as medidas adotadas e peça requotação. Na base analisada, o desconto médio obtido foi de 8–17% no prêmio anual.
 
-Solicite uma [análise gratuita de prevenção e cotação em até 12 seguradoras](/cotacao?origem=estudo-sinistros-2026) ou fale conosco no [WhatsApp (11) 5199-7500](https://wa.me/551151997500?text=Vim%20pelo%20estudo%20de%20sinistros%20e%20preven%C3%A7%C3%A3o%20em%20Guarulhos).
+Solicite uma [análise gratuita de prevenção e cotação em até 12 seguradoras](/cotacao) ou fale conosco no [WhatsApp (11) 5199-7500](https://wa.me/551151997500?text=Vim%20pelo%20estudo%20de%20sinistros%20e%20preven%C3%A7%C3%A3o%20em%20Guarulhos).
 
 ## Como citar este estudo
 
@@ -186,7 +186,7 @@ Bairro — Risco — Faixa observada — Média anual
 
 Se você mora em Guarulhos e vai renovar seu seguro auto, use a tabela acima como **teto de referência**: se sua cotação está acima da média do seu bairro para o mesmo perfil, há espaço para renegociação. A Patro Seguros compara sua cotação atual em até 12 seguradoras e devolve a comparação em até 2h úteis via WhatsApp — sem custo e sem obrigação de fechar.
 
-Solicite sua [comparação gratuita agora](/cotacao?tipo=auto&origem=estudo-bairros-2026) ou fale conosco no [WhatsApp (11) 5199-7500](https://wa.me/551151997500?text=Vim%20pelo%20estudo%20de%20cust%C3%B3%20de%20seguro%20auto%20por%20bairro).
+Solicite sua [comparação gratuita agora](/cotacao?tipo=auto) ou fale conosco no [WhatsApp (11) 5199-7500](https://wa.me/551151997500?text=Vim%20pelo%20estudo%20de%20cust%C3%B3%20de%20seguro%20auto%20por%20bairro).
 
 ## Como citar este estudo
 

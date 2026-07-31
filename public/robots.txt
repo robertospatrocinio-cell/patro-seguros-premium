@@ -101,6 +101,11 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
+# Sitemap único — o índice já declara todos os sitemaps filhos
+
+# Sitemaps (organizados por tipo)
+
+# Sitemaps (organizados por tipo)
+
 # Sitemaps (organizados por tipo)
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
-Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml

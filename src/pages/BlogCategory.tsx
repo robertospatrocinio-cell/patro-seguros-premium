@@ -99,7 +99,7 @@ const BlogCategory = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {pageArticles.map(article => (
-                <Link key={article.slug} to={`/artigos/${article.slug}`}>
+                <Link key={article.slug} to={`/blog/${article.slug}`}>
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
                     <div className="aspect-video w-full overflow-hidden">
                       <OptimizedImage

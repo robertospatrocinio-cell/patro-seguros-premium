@@ -74,7 +74,7 @@ const NichoClinicasOdontologicas = () => (
             Seguros especializados para proteger sua estrutura, seus equipamentos, seus pacientes e o patrimônio construído ao longo de anos.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/cotacao?tipo=empresarial&origem=hub-odonto" onClick={() => trackCotacaoClick("hub-odonto")}>
+            <Link to="/cotacao?tipo=empresarial" onClick={() => trackCotacaoClick("hub-odonto")}>
               <Button size="lg" className="bg-white text-foreground hover:bg-white/90 font-semibold rounded-lg h-12 px-8">Solicitar Análise Gratuita</Button>
             </Link>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hub-odonto")}>
@@ -169,7 +169,7 @@ const NichoClinicasOdontologicas = () => (
                 <MessageCircle className="h-6 w-6" /> WhatsApp Especialista Odontologia
               </Button>
             </a>
-            <Link to="/cotacao?tipo=empresarial&origem=hub-odonto" className="w-full">
+            <Link to="/cotacao?tipo=empresarial" className="w-full">
               <Button variant="outline" className="w-full h-14 text-lg">Formulário de Cotação</Button>
             </Link>
           </div>

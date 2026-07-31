@@ -240,10 +240,38 @@
     # Short branded URL -> Segfy quote form (302 temporary; may change in the future)
     RewriteRule ^cotacao-auto/?$ https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D [R=302,L,NE]
 
-    # Specific redirects requested (Direct 301 to final canonical URL)
-    RewriteRule ^seguro-valores/?$ https://www.patroseguros.com.br/cotacao/ [R=301,L]
-    RewriteRule ^nossos-parceiros/?$ https://www.patroseguros.com.br/parceiros/ [R=301,L]
-    RewriteRule ^politica-de-privacidade/?$ https://www.patroseguros.com.br/politica-privacidade/ [R=301,L]
+    # Redirects específicos migrados para o bloco gerado abaixo
+    # (destinos antigos tinham barra final e criavam chain de 2 saltos).
+
+    # >>> BEGIN generated-redirects (scripts/sync-htaccess-redirects.mjs)
+    # NÃO EDITAR À MÃO — gerado de src/lib/redirects.ts
+
+    # 301 — conteúdo com substituto semanticamente equivalente (1 salto)
+    RewriteRule ^previdencia/?$ /previdencia-privada [R=301,L,NC]
+    RewriteRule ^odonto-personal/?$ /seguro-odonto [R=301,L,NC]
+    RewriteRule ^riscos-industriais/?$ /seguro-galpoes-industriais [R=301,L,NC]
+    RewriteRule ^planos-saude-empresarial/?$ /plano-saude-empresarial [R=301,L,NC]
+    RewriteRule ^planos-de-saude-empresarial/?$ /plano-de-saude-empresarial-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-do/?$ /seguro-rc-executivos [R=301,L,NC]
+    RewriteRule ^seguro-penhor-rural/?$ /seguro-rural [R=301,L,NC]
+    RewriteRule ^seguro-valores/?$ /seguro-empresarial [R=301,L,NC]
+    RewriteRule ^odonto-personal-guarulhos/?$ /plano-odontologico-guarulhos [R=301,L,NC]
+    RewriteRule ^blog-sobre-seguros/?$ /blog [R=301,L,NC]
+    RewriteRule ^nossos-parceiros/?$ /parceiros [R=301,L,NC]
+    RewriteRule ^politica-de-privacidade/?$ /politica-privacidade [R=301,L,NC]
+    RewriteRule ^artigos/?$ /blog [R=301,L,NC]
+
+    # 301 — unificação /artigos/{slug} → /blog/{slug} preservando o slug
+    RewriteRule ^artigos/([^/]+)/?$ /blog/$1 [R=301,L,NC]
+
+    # 410 — conteúdo removido definitivamente, sem substituto equivalente
+    RewriteRule ^tag(/.*)?$ - [G,L,NC]
+    RewriteRule ^category(/.*)?$ - [G,L,NC]
+    RewriteRule ^author(/.*)?$ - [G,L,NC]
+    RewriteRule (^|/)feed/?$ - [G,L,NC]
+    RewriteRule ^wp-(content|admin|includes|json)(/.*)?$ - [G,L,NC]
+    RewriteRule ^[0-9]{4}/[0-9]{2}(/.*)?$ - [G,L]
+    # <<< END generated-redirects
 
     # Strip trailing slash on non-asset URLs
     RewriteCond %{REQUEST_FILENAME} !-d

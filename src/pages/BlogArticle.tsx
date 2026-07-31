@@ -65,7 +65,7 @@ const BlogArticle = () => {
   const insuranceType = meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}&origem=blog-${slug}`;
+  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
 
   return (
     <>
@@ -311,7 +311,7 @@ const BlogArticle = () => {
                           Reduza custos de sinistralidade e garanta a operação 24h. Cotação personalizada para frotas a partir de 3 veículos.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                          <Link to="/cotacao?tipo=frota&origem=blog-inline-frota" onClick={() => trackCotacaoClick("blog-frota-inline")}>
+                          <Link to="/cotacao?tipo=frota" onClick={() => trackCotacaoClick("blog-frota-inline")}>
                             <Button size="lg" variant="cta" className="w-full sm:w-auto font-semibold">
                               Pedir Cotação Agora <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>

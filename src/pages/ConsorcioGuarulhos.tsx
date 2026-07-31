@@ -142,7 +142,7 @@ const ConsorcioGuarulhos = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                to="/cotacao?tipo=consorcio&origem=consorcio-guarulhos"
+                to="/cotacao?tipo=consorcio"
                 onClick={() => trackCotacaoClick("consorcio-guarulhos:hero")}
               >
                 <Button size="lg" variant="cta" className="text-base px-8 h-12 rounded-xl font-semibold">
@@ -324,7 +324,7 @@ const ConsorcioGuarulhos = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
-                to="/cotacao?tipo=consorcio&origem=consorcio-guarulhos"
+                to="/cotacao?tipo=consorcio"
                 onClick={() => trackCotacaoClick("consorcio-guarulhos:final")}
               >
                 <Button size="lg" variant="cta" className="text-base px-8 h-12 rounded-xl font-semibold">

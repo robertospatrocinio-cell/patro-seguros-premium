@@ -169,7 +169,7 @@ const BlogCluster = () => {
                 {articles.map((a, i) => (
                   <Link
                     key={a.slug}
-                    to={`/artigos/${a.slug}`}
+                    to={`/blog/${a.slug}`}
                     className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
                   >
                     <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">

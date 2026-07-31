@@ -170,7 +170,7 @@ const NichoLojistasGuarulhos = () => (
                   <MessageCircle className="h-6 w-6" /> WhatsApp Especialista Lojista
                 </Button>
               </a>
-              <Link to="/cotacao?tipo=empresarial&origem=hub-lojistas" className="w-full">
+              <Link to="/cotacao?tipo=empresarial" className="w-full">
                 <Button variant="outline" className="w-full h-14 text-lg">
                   Formulário de Cotação
                 </Button>
