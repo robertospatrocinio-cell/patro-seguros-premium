@@ -106,4 +106,6 @@ Allow: /
 # Sitemaps (organizados por tipo)
 
 # Sitemaps (organizados por tipo)
+
+# Sitemaps (organizados por tipo)
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
