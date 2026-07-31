@@ -170,9 +170,10 @@ for (const block of urlBlocks) {
   }
 
   // Normaliza: remove trailing slash (exceto root), remove query/hash
-  let pathname = u.pathname.replace(/\/+$/, "");
-  if (pathname === "") pathname = "/";
-  const canonical = `${CANONICAL_HOST}${pathname}`;
+  // A home é a origem nua (sem "/"), igual ao canonical do PageMeta.
+  const pathname = u.pathname.replace(/\/+$/, "") || "/";
+  const canonical =
+    pathname === "/" ? CANONICAL_HOST : `${CANONICAL_HOST}${pathname}`;
 
   // `/artigos/*` responde 301 para `/blog/*` — URLs redirecionadas ficam fora.
   if (/^\/artigos(\/|$)/i.test(pathname)) {
