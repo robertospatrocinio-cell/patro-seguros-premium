@@ -36,6 +36,48 @@ const MASTER = path.join(TARGET_DIR, "sitemap.xml");
 const CANONICAL_HOST = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
 
+// -------- lastmod real ----------------------------------------------------
+// Regra: `lastmod` só muda quando o conteúdo muda. Preservamos o valor já
+// publicado por URL (lido dos sitemaps commitados em public/) e só usamos a
+// data de hoje para URLs realmente novas. Rebuild sozinho nunca altera datas.
+function loadPublishedLastmod() {
+  const map = new Map();
+  const publicDir = path.resolve("public");
+  if (!fs.existsSync(publicDir)) return map;
+  const files = fs
+    .readdirSync(publicDir)
+    .filter((f) => /^sitemap.*\.xml$/i.test(f));
+  for (const f of files) {
+    let xml = "";
+    try {
+      xml = fs.readFileSync(path.join(publicDir, f), "utf-8");
+    } catch {
+      continue;
+    }
+    for (const m of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+      const loc = (m[1].match(/<loc>([^<]+)<\/loc>/) || [, ""])[1].trim();
+      const lastmod = (m[1].match(/<lastmod>([^<]+)<\/lastmod>/) || [, ""])[1].trim();
+      if (loc && lastmod && !map.has(loc)) map.set(loc, lastmod);
+    }
+  }
+  return map;
+}
+
+const PUBLISHED_LASTMOD = loadPublishedLastmod();
+
+// URLs que já pertencem ao cluster hyper-local não podem ser repetidas nos
+// demais sitemaps — cada URL aparece uma única vez na união dos sitemaps.
+function loadClaimedUrls(fileName) {
+  const claimed = new Set();
+  const fp = path.join(TARGET_DIR, fileName);
+  if (!fs.existsSync(fp)) return claimed;
+  const xml = fs.readFileSync(fp, "utf-8");
+  for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    claimed.add(m[1].trim().replace(/\/+$/, ""));
+  }
+  return claimed;
+}
+
 // -------- Classificação por tipo -----------------------------------------
 const SEGUROS_PATTERNS = [
   /^\/seguro(s)?(-|$|\/)/,
@@ -96,6 +138,13 @@ if (urlBlocks.length === 0) {
 const seen = new Set();
 const buckets = { pages: [], blog: [], seguros: [] };
 let skippedNonCanonical = 0;
+let skippedParams = 0;
+let skippedArtigos = 0;
+let skippedClaimed = 0;
+
+// sitemap-bairros.xml é gerado antes deste script e é dono exclusivo das
+// URLs hyper-locais.
+const BAIRROS_CLAIMED = loadClaimedUrls("sitemap-bairros.xml");
 
 for (const block of urlBlocks) {
   const locRaw = (block.match(/<loc>([^<]+)<\/loc>/) || [, ""])[1].trim();
@@ -114,15 +163,36 @@ for (const block of urlBlocks) {
     continue;
   }
 
+  // Nenhuma URL com parâmetros entra em sitemap.
+  if (u.search) {
+    skippedParams++;
+    continue;
+  }
+
   // Normaliza: remove trailing slash (exceto root), remove query/hash
   let pathname = u.pathname.replace(/\/+$/, "");
   if (pathname === "") pathname = "/";
   const canonical = `${CANONICAL_HOST}${pathname}`;
 
+  // `/artigos/*` responde 301 para `/blog/*` — URLs redirecionadas ficam fora.
+  if (/^\/artigos(\/|$)/i.test(pathname)) {
+    skippedArtigos++;
+    continue;
+  }
+
+  // Já publicada em sitemap-bairros.xml → não repetir em outro sitemap.
+  if (BAIRROS_CLAIMED.has(canonical)) {
+    skippedClaimed++;
+    continue;
+  }
+
   if (seen.has(canonical)) continue;
   seen.add(canonical);
 
-  const lastmod = (block.match(/<lastmod>([^<]+)<\/lastmod>/) || [, ""])[1].trim();
+  // lastmod: preserva a data já publicada para a URL; só cai no valor gerado
+  // quando a URL é nova (não existia em nenhum sitemap publicado).
+  const generatedLastmod = (block.match(/<lastmod>([^<]+)<\/lastmod>/) || [, ""])[1].trim();
+  const lastmod = PUBLISHED_LASTMOD.get(canonical) || generatedLastmod;
   const changefreq = (block.match(/<changefreq>([^<]+)<\/changefreq>/) || [, ""])[1].trim();
   const priority = (block.match(/<priority>([^<]+)<\/priority>/) || [, ""])[1].trim();
 
@@ -153,11 +223,33 @@ function buildUrlset(entries) {
   ].join("\n");
 }
 
+/**
+ * `lastmod` do sitemap filho = maior `lastmod` real entre suas URLs.
+ * Nunca a data de build: recompilar o site não é alteração de conteúdo.
+ */
+function childLastmod(fileName) {
+  const fp = path.join(TARGET_DIR, fileName);
+  if (!fs.existsSync(fp)) return null;
+  const xml = fs.readFileSync(fp, "utf-8");
+  const dates = [...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)]
+    .map((m) => m[1].trim())
+    .filter(Boolean)
+    .sort();
+  return dates.length ? dates[dates.length - 1] : null;
+}
+
 function buildIndex(files) {
-  const items = files.map(
-    (f) =>
-      `  <sitemap>\n    <loc>${CANONICAL_HOST}/${f}</loc>\n    <lastmod>${TODAY}</lastmod>\n  </sitemap>`,
-  );
+  const items = files.map((f) => {
+    const lastmod = childLastmod(f);
+    return [
+      `  <sitemap>`,
+      `    <loc>${CANONICAL_HOST}/${f}</loc>`,
+      lastmod ? `    <lastmod>${lastmod}</lastmod>` : null,
+      `  </sitemap>`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+  });
   return [
     `<?xml version="1.0" encoding="UTF-8"?>`,
     `<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
@@ -205,6 +297,9 @@ const LEGACY = [
   "sitemap-geral.xml",
   "sitemap-guarulhos.xml",
   "sitemap-vida-saude.xml",
+  // Espelho antigo do índice: mantinha um conjunto concorrente de URLs
+  // apontando para sitemaps já removidos.
+  "sitemap_index.xml",
 ];
 for (const f of LEGACY) {
   const fp = path.join(TARGET_DIR, f);
@@ -220,13 +315,9 @@ if (fs.existsSync(robotsPath)) {
   const original = fs.readFileSync(robotsPath, "utf-8");
   const lines = original.split("\n");
   const kept = lines.filter((l) => !/^\s*Sitemap:\s*\S+/i.test(l));
-  // Referencia o índice canônico + sitemap-bairros.xml explicitamente para
-  // garantir descoberta imediata do cluster hyper-local (bairros e
-  // subpáginas produto×bairro), mesmo que algum crawler ignore o index.
+  // Uma única referência: o índice canônico já declara todos os filhos.
+  // Declarar filhos de novo cria conjuntos concorrentes no Search Console.
   const sitemapLines = [`Sitemap: ${CANONICAL_HOST}/sitemap-index.xml`];
-  if (fs.existsSync(path.join(TARGET_DIR, "sitemap-bairros.xml"))) {
-    sitemapLines.push(`Sitemap: ${CANONICAL_HOST}/sitemap-bairros.xml`);
-  }
   const rebuilt = kept.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() +
     `\n\n# Sitemaps (organizados por tipo)\n${sitemapLines.join("\n")}\n`;
   fs.writeFileSync(robotsPath, rebuilt, "utf-8");
@@ -234,5 +325,29 @@ if (fs.existsSync(robotsPath)) {
 }
 
 console.log(
-  `\n✅ sitemap-index reorganizado por tipo (URLs não-canônicas descartadas: ${skippedNonCanonical})`,
+  `\n✅ sitemap-index reorganizado por tipo` +
+    `\n   descartadas → não-canônicas: ${skippedNonCanonical} | com parâmetros: ${skippedParams}` +
+    ` | /artigos/ (301): ${skippedArtigos} | já em sitemap-bairros: ${skippedClaimed}`,
 );
+
+// -------- Auditoria: nenhuma URL em dois sitemaps ------------------------
+{
+  const all = new Map();
+  let dupes = 0;
+  for (const f of indexFiles) {
+    const fp = path.join(TARGET_DIR, f);
+    if (!fs.existsSync(fp) || f === "sitemap-images.xml") continue;
+    const xml = fs.readFileSync(fp, "utf-8");
+    for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+      const loc = m[1].trim();
+      if (all.has(loc)) {
+        dupes++;
+        console.error(`  ⚠ duplicada: ${loc} (${all.get(loc)} e ${f})`);
+      } else {
+        all.set(loc, f);
+      }
+    }
+  }
+  console.log(`  ✓ auditoria: ${all.size} URLs únicas, ${dupes} duplicadas`);
+  if (dupes > 0) process.exitCode = 1;
+}

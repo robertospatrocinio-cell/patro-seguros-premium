@@ -105,7 +105,8 @@ const SeguroCarroBlindadoGuarulhos = lazyWithRetry(() => import("./pages/premium
 const ProtecaoPatrimonialFamiliarGuarulhos = lazyWithRetry(() => import("./pages/premium/ProtecaoPatrimonialFamiliarGuarulhos"), "ProtecaoPatrimonialFamiliarGuarulhos");
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams } from "react-router-dom";
+import { resolveRoute } from "@/lib/redirects";
 import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
@@ -368,17 +369,31 @@ const SeguroMarcaPremium = lazy(() => import("./pages/SeguroMarcaPremium"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 /**
- * Fallback client-side para URLs legadas do WordPress no formato `/slug-2/`.
- * O .htaccess no servidor já faz 301 server-side, mas este componente
- * garante o redirect caso o .htaccess não esteja propagado ainda.
+ * Fallback client-side para URLs desconhecidas.
+ *
+ * Consulta a camada central `src/lib/redirects.ts` (mesma fonte usada pelo
+ * .htaccess e pelos stubs estáticos): 301 quando existe substituto
+ * equivalente, 410 (tombstone noindex) para conteúdo removido sem
+ * substituto, e 404 real nos demais casos. Nunca serve a homepage.
  */
 const LegacyWpRedirect = () => {
   const { pathname, search, hash } = useLocation();
-  const match = pathname.match(/^\/([a-z0-9-]+)-2\/?$/i);
-  if (match) {
-    return <Navigate to={`/${match[1]}${search}${hash}`} replace />;
+  const resolved = resolveRoute(pathname);
+  if (resolved.kind === "redirect") {
+    return <Navigate to={`${resolved.to}${search}${hash}`} replace />;
+  }
+  if (resolved.kind === "gone") {
+    return <NotFound gone />;
   }
   return <NotFound />;
+};
+
+/** `/artigos/:slug` → `/blog/:slug` em um único salto, preservando o slug. */
+const ArtigosToBlogRedirect = () => {
+  const { slug } = useParams();
+  const { search, hash } = useLocation();
+  if (!slug) return <Navigate to="/blog" replace />;
+  return <Navigate to={`/blog/${slug}${search}${hash}`} replace />;
 };
 
 const PerformanceDiagnostico = lazy(() => import("./pages/PerformanceDiagnostico"));
@@ -587,7 +602,8 @@ const App = () => {
                   <Route path="/blog/cluster/:cluster" element={<BlogCluster />} />
                   <Route path="/blog/categoria/:categoria" element={<BlogCategory />} />
                   <Route path="/blog/autor/:slug" element={<BlogAuthor />} />
-                  <Route path="/artigos/:slug" element={<BlogArticle />} />
+                  <Route path="/artigos" element={<Navigate to="/blog" replace />} />
+                  <Route path="/artigos/:slug" element={<ArtigosToBlogRedirect />} />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
                   <Route path="/seguro-auto-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-maia-guarulhos" }); return <Comp />; })()} />

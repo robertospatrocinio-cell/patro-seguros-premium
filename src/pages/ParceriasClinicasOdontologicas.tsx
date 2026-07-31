@@ -99,7 +99,7 @@ const ParceriasClinicasOdontologicas = () => (
                 <MessageCircle className="h-6 w-6" /> Quero ser parceiro da Patro Seguros
               </Button>
             </a>
-            <Link to="/cotacao?tipo=empresarial&origem=parceria-odonto" className="w-full" onClick={() => trackCotacaoClick("parceria-odonto-form")}>
+            <Link to="/cotacao?tipo=empresarial" className="w-full" onClick={() => trackCotacaoClick("parceria-odonto-form")}>
               <Button variant="outline" className="w-full h-14 text-lg">Formulário de Cadastro</Button>
             </Link>
           </div>

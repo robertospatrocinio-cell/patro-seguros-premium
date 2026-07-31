@@ -52,6 +52,9 @@ function loadPriorLastmodMap(): Map<string, string> {
   if (!fs.existsSync(publicDir)) return map;
   const candidates = [
     "sitemap.xml",
+    "sitemap-pages.xml",
+    "sitemap-blog.xml",
+    "sitemap-seguros.xml",
     "sitemap-guarulhos.xml",
     "sitemap-bairros.xml",
     "sitemap-auto.xml",
@@ -422,7 +425,9 @@ function buildImageSitemap(): string {
       .join("\n");
     return [
       "  <url>",
-      `    <loc>${esc(`${DOMAIN}${e.page}`)}</loc>`,
+      // A home é `${DOMAIN}` sem barra final — igual ao canonical emitido
+      // pelo PageMeta. Publicar `${DOMAIN}/` criaria uma segunda URL.
+      `    <loc>${esc(`${DOMAIN}${e.page === "/" ? "" : e.page.replace(/\/+$/, "")}`)}</loc>`,
       `    <lastmod>${TODAY}</lastmod>`,
       imgs,
       "  </url>",
@@ -479,13 +484,9 @@ export function generateSitemap(blogSlugs: string[]): string {
     }
   });
 
-  // Mirror of each blog post under the new canonical-friendly /artigos/:slug route.
-  // Both URLs serve the same component; canonical points at the chosen URL.
-  const artigosEntries: SitemapEntry[] = blogSlugs.map(slug => ({
-    loc: `/artigos/${slug}`,
-    priority: "0.6",
-    changefreq: "monthly",
-  }));
+  // `/artigos/{slug}` foi unificado em `/blog/{slug}` e agora responde 301.
+  // URLs que redirecionam NÃO podem entrar em sitemap.
+  const artigosEntries: SitemapEntry[] = [];
 
   // Blog category hub pages — `/blog/categoria/:slug`.
   const blogCategoryEntries: SitemapEntry[] = blogCategorySlugs.map(slug => ({

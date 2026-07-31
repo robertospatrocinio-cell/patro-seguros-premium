@@ -31,16 +31,26 @@ const TOP_CATEGORY_TITLES = [
   "Seguros em Guarulhos",
 ];
 
-const NotFound = () => {
+interface NotFoundProps {
+  /**
+   * `true` quando a URL corresponde a conteúdo removido definitivamente
+   * (tombstone 410). Muda a mensagem, mas mantém a página não indexável.
+   */
+  gone?: boolean;
+}
+
+const NotFound = ({ gone = false }: NotFoundProps) => {
   const location = useLocation();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
     console.error(
-      "404 Error: User attempted to access non-existent route:",
+      gone
+        ? "410 Gone: conteúdo removido definitivamente:"
+        : "404 Error: User attempted to access non-existent route:",
       location.pathname,
     );
-  }, [location.pathname]);
+  }, [location.pathname, gone]);
 
   const categories = useMemo(
     () =>
@@ -73,8 +83,14 @@ const NotFound = () => {
   return (
     <>
       <PageMeta
-        title="Página Não Encontrada (404) | Patro Seguros"
+        title={
+          gone
+            ? "Conteúdo Removido (410) | Patro Seguros"
+            : "Página Não Encontrada (404) | Patro Seguros"
+        }
         description="A página que você está procurando não existe. Encontre o seguro ideal por categoria ou solicite uma cotação gratuita com a Patro Seguros."
+        noindex
+        skipBreadcrumb
       />
       <Header />
       <main id="main-content" className="outline-none">
@@ -84,14 +100,15 @@ const NotFound = () => {
           <div className="container mx-auto px-4 relative">
             <div className="py-20 md:py-28 max-w-3xl mx-auto text-center">
               <div className="text-6xl md:text-7xl font-heading font-bold text-white/90 mb-3 tracking-tight">
-                404
+                {gone ? "410" : "404"}
               </div>
               <h1 id="not-found-heading" className="text-white text-balance mb-4">
-                Não encontramos essa página
+                {gone ? "Este conteúdo foi removido" : "Não encontramos essa página"}
               </h1>
               <p className="text-base md:text-lg text-white/60 mb-8 max-w-xl mx-auto">
-                O endereço que você acessou não existe ou foi movido. Use a busca abaixo,
-                escolha uma categoria ou solicite uma cotação direto pelo WhatsApp.
+                {gone
+                  ? "Esta página foi descontinuada e não possui substituto direto. Use a busca abaixo, escolha uma categoria ou fale com um consultor."
+                  : "O endereço que você acessou não existe ou foi movido. Use a busca abaixo, escolha uma categoria ou solicite uma cotação direto pelo WhatsApp."}
               </p>
 
               {suggestion && (

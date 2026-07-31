@@ -365,7 +365,7 @@ const Blog = () => {
               Conteúdos em Destaque
             </h2>
             <Link
-              to={`/artigos/${featured.slug}`}
+              to={`/blog/${featured.slug}`}
               className="block max-w-5xl mx-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
             >
               <Card className="overflow-hidden group md:flex hover:shadow-xl transition-base">
@@ -575,7 +575,7 @@ const Blog = () => {
               {currentArticles.map((article, index) => (
                 <Link
                   key={article.slug}
-                  to={`/artigos/${article.slug}`}
+                  to={`/blog/${article.slug}`}
                   className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
                 >
                   <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
