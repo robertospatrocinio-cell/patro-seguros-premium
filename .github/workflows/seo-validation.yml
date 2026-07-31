@@ -51,6 +51,12 @@ jobs:
       - name: Validar canonical STRICT (presença + URL correta em todas as páginas de dist/)
         run: bun run validate:canonical-strict
 
+      - name: Verificar se .htaccess está sincronizado com src/lib/redirects.ts
+        run: node scripts/sync-htaccess-redirects.mjs --check
+
+      - name: Validar redirects (salto único, 301/410) e higiene dos sitemaps
+        run: bunx vitest run scripts/redirects-single-hop.test.ts scripts/sitemap-hygiene.test.ts
+
       - name: Validar unicidade de H2 (heading uniqueness) em dist/
         run: bun run validate:headings
 
