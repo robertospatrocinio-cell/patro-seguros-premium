@@ -27,7 +27,10 @@ describe("higiene dos sitemaps", () => {
   it("toda URL é https, www e sem barra final", () => {
     for (const f of urlsetFiles) {
       for (const loc of locsOf(f)) {
-        expect(loc.startsWith(`${ORIGIN}/`), `${loc} em ${f} não é canônica`).toBe(true);
+        expect(loc === ORIGIN || loc.startsWith(`${ORIGIN}/`), `${loc} em ${f} não é canônica`).toBe(
+          true,
+        );
+        // A home é a origem nua; nenhuma outra URL pode ter barra final.
         expect(loc.endsWith("/"), `${loc} em ${f} tem barra final`).toBe(false);
       }
     }
