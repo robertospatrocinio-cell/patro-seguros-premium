@@ -340,7 +340,10 @@ const restoredRoutes: SitemapEntry[] = [
     //     → mantém o sinal estável; Google só "vê novidade" em URL nova/alterada
     //  3. TODAY → apenas para URLs novas (primeira aparição)
     const lastmod = e.lastmod || PRIOR_LASTMOD.get(e.loc) || TODAY;
-   const loc = cleanXmlString(`${DOMAIN}${e.loc}`);
+   // Normaliza a barra final: a home vira a origem nua e as demais URLs
+   // perdem o "/" terminal, espelhando o canonical de PageMeta.
+   const normalizedPath = e.loc === "/" ? "" : e.loc.replace(/\/+$/, "");
+   const loc = cleanXmlString(`${DOMAIN}${normalizedPath}`);
    return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;
  }
  
