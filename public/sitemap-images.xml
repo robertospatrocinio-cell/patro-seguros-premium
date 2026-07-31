@@ -3,7 +3,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://www.patroseguros.com.br/</loc>
+    <loc>https://www.patroseguros.com.br</loc>
     <lastmod>2026-07-31</lastmod>
     <image:image>
       <image:loc>https://www.patroseguros.com.br/images/hero-home.webp</image:loc>
@@ -169,7 +169,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.patroseguros.com.br/corretora-seguros-guarulhos/</loc>
+    <loc>https://www.patroseguros.com.br/corretora-seguros-guarulhos</loc>
     <lastmod>2026-07-31</lastmod>
     <image:image>
       <image:loc>https://www.patroseguros.com.br/images/hero-home.webp</image:loc>
@@ -181,7 +181,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://www.patroseguros.com.br/sobre/</loc>
+    <loc>https://www.patroseguros.com.br/sobre</loc>
     <lastmod>2026-07-31</lastmod>
     <image:image>
       <image:loc>https://www.patroseguros.com.br/images/logo-full.webp</image:loc>
