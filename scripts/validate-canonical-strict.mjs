@@ -129,6 +129,11 @@ for (const file of files) {
 
   if (isNonRouteReport(html)) continue;
 
+  // Stubs de redirect 301 emitidos por scripts/emit-redirect-stubs.mjs:
+  // por definição apontam canonical para o DESTINO do redirect, não para
+  // si mesmos. Não são páginas indexáveis — ignorar na validação.
+  if (/<meta[^>]+http-equiv=["']refresh["']/i.test(html)) continue;
+
   // Shells SPA vazios (sem SSG hidratado no HTML) não têm canonical
   // final — o React Helmet injeta em runtime. Não bloqueia deploy.
   if (/<div id="root">\s*<\/div>/.test(html)) {
