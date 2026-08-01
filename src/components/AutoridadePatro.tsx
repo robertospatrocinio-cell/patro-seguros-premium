@@ -30,7 +30,7 @@ const CREDENCIAIS = {
 const STATS: Array<{ icon: typeof ShieldCheck; value: string; label: string }> = [
   { icon: Users,      value: "2.500+", label: "Clientes atendidos" },
   { icon: Building2,  value: "16+",    label: "Seguradoras parceiras" },
-  { icon: Award,      value: "15+",    label: "Anos de mercado" },
+  { icon: Award,      value: "30+",    label: "Anos de mercado" },
   { icon: ShieldCheck, value: "100%",  label: "Registrada na SUSEP" },
 ];
 
