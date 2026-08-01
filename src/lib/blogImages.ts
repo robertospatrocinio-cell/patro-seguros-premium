@@ -86,6 +86,12 @@ import blogSeguroTratorVsAuto from "@/assets/blog/blog-seguro-trator-vs-auto.web
 import blogSeguroSiloMetalico from "@/assets/blog/blog-seguro-silo-metalico.webp";
 import blogDroneAgricolaRcf from "@/assets/blog/blog-drone-agricola-rcf.webp";
 
+// Capas dos clusters Flat, Sala Comercial, Consultório/Clínica e Vistoriadora
+import blogSeguroFlat from "@/assets/blog/blog-seguro-flat.webp";
+import blogSalaComercial from "@/assets/blog/blog-sala-comercial.webp";
+import blogVistoriadora from "@/assets/blog/blog-vistoriadora.webp";
+import blogConsultorio from "@/assets/blog/blog-consultorio.webp";
+
 /**
  * Capas exclusivas geradas por IA (uma por slug de artigo).
  * Pasta `src/assets/blog-generated/` — Vite processa cada .webp
@@ -318,6 +324,58 @@ export const blogImageMap: Record<string, string> = {
   "seguro-franquias-odontologicas": blogSeguroOdonto,
   "como-proteger-patrimonio-dentista": blogSeguroVidaSucessao,
   "o-que-fazer-apos-sinistro-clinica-odontologica": blogSeguroOdonto,
+
+  // Categorias / hubs
+  "seguro-auto": blogSeguroAuto,
+  "seguro-empresarial": blogSeguroEmpresarial,
+  "plano-de-saude": blogPlanoSaude,
+  "consorcio": blogConsorcio,
+
+  // Cluster Consultórios e Clínicas
+  "seguro-consultorio-guarulhos-guia-completo": blogConsultorio,
+  "quanto-custa-seguro-consultorio-clinica": blogConsultorio,
+  "seguro-consultorio-alugado-sala-comercial": blogSalaComercial,
+  "seguro-equipamentos-medicos-odontologicos-esteticos": blogSeguroOdonto,
+  "rc-profissional-medicos-dentistas-veterinarios": blogRCMedicos,
+  "cyber-lgpd-clinicas-consultorios": blogSeguroCyber,
+  "clinica-estetica-riscos-seguros": blogRCClinicasEstetica,
+  "consultorio-veterinario-cobertura-refrigeracao-vacinas": blogConsultorio,
+  "consultorio-medico-prontuario-eletronico-riscos": blogSeguroCyber,
+  "clinica-pequena-multidisciplinar-seguro": blogConsultorio,
+  "lucros-cessantes-consultorio-clinica": blogLucrosCessantes,
+  "checklist-seguro-consultorio-clinica-guarulhos": blogConsultorio,
+
+  // Cluster Flats
+  "seguro-para-flat-o-que-cobre": blogSeguroFlat,
+  "seguro-flat-alugado-proprietario-ou-inquilino": blogSeguroFlat,
+  "seguro-airbnb-locacao-temporada": blogSeguroFlat,
+  "seguro-residencial-cobre-imovel-alugado": blogSeguroResidencial,
+  "como-proteger-imovel-mobiliado-para-locacao": blogSeguroFlat,
+  "seguro-fianca-para-flat-como-funciona": blogFiancaLocaticia,
+  "seguro-imoveis-compactos-sao-paulo-guarulhos": blogSeguroImobiliario,
+  "flat-como-investimento-quais-seguros-considerar": blogSeguroImobiliario,
+  "seguro-para-studio-kitnet-flat-diferencas": blogSeguroFlat,
+  "seguro-para-flat-cidade-maia-guarulhos": blogSeguroFlat,
+
+  // Cluster Salas Comerciais
+  "seguro-sala-comercial-guarulhos-o-que-cobre": blogSalaComercial,
+  "quem-paga-seguro-sala-comercial-proprietario-ou-inquilino": blogSalaComercial,
+  "seguro-consultorio-medico-guarulhos": blogConsultorio,
+  "seguro-clinica-odontologica-guarulhos": blogSeguroOdonto,
+  "seguro-escritorio-advocacia-guarulhos": blogSalaComercial,
+  "seguro-escritorio-contabilidade-guarulhos": blogSalaComercial,
+  "seguro-sala-alugada-empresa": blogSalaComercial,
+  "seguro-equipamentos-consultorio-escritorio": blogConsultorio,
+  "seguro-coworking-escritorios-compartilhados": blogSalaComercial,
+  "seguro-para-sala-comercial-cidade-maia-guarulhos": blogSalaComercial,
+
+  // Cluster Vistoriadoras Veiculares
+  "seguro-para-vistoriadora-veicular": blogVistoriadora,
+  "seguro-ecv-empresa-credenciada-vistoria": blogVistoriadora,
+  "seguro-laudo-cautelar-veicular": blogVistoriadora,
+  "responsabilidade-civil-vistoria-veicular": blogRCGeralProfissional,
+  "seguro-equipamentos-vistoria-veicular": blogVistoriadora,
+  "seguro-cyber-para-vistoriadoras-veiculos": blogSeguroCyber,
 };
 
 
