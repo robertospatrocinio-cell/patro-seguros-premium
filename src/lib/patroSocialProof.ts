@@ -13,7 +13,7 @@ export const PATRO_SOCIAL_PROOF = {
   /** Nota Google atual — string para preservar formato "4.9" no JSON-LD. */
   googleRating: "4.9",
   /** Nº de avaliações públicas no Google no momento da última atualização. */
-  googleReviewCount: 27,
+  googleReviewCount: 67,
   /** Escala do rating (schema.org). */
   bestRating: "5",
   worstRating: "1",
