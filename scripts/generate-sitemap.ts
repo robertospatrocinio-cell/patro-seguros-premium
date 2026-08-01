@@ -176,6 +176,8 @@ const secondaryProducts: SitemapEntry[] = [
   "/guias-seguros",
   "/perguntas-frequentes-seguros",
   "/materiais-gratuitos-seguros",
+  "/glossario-seguros",
+  "/seguradoras-parceiras",
   ...GUIAS_PILARES_SLUGS.map((s) => `/guias/${s}`),
   ...MATERIAIS_LIST.map((m) => m.href),
   ...FAQ_CATEGORIES.map((c) => `/perguntas-frequentes-seguros/${c.id}`),
