@@ -38,7 +38,9 @@ const PlanoSaudeGuarulhosVertical = () => {
         "Estudo de redução de custos sem perda de cobertura",
         "Especialista local em Guarulhos"
       ]}
+      faqs={[]}
       localSeo={{ city: "Guarulhos", neighborhood: "Centro" }}
+
     />
   );
 };
