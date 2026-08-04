@@ -13,6 +13,7 @@
  *  - Collapse the homepage to the bare origin (no trailing slash) to match the
  *    canonical link emitted by PageMeta.
  *  - Remove trailing slashes on subpaths to keep one URL per resource.
+ *  - NORMALIZE: Ensure the pathname is clean, lowercased, and follows the "no trailing slash" rule strictly.
  */
 
 export const CANONICAL_BASE_URL = "https://www.patroseguros.com.br";
