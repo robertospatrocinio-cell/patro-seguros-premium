@@ -20,7 +20,9 @@ const SpecializedVerticalPage = () => {
       coverages={[{ title: "Proteção Sob Medida", description: "Desenho de apólice conforme a necessidade do risco." }]}
       whoNeeds={["Empresas e Profissionais de Guarulhos"]}
       whyPatro={["Expertise em Riscos Patrimoniais", "Atendimento Nacional"]}
+      faqs={[]}
       localSeo={{ city: "Guarulhos" }}
+
     />
   );
 };
