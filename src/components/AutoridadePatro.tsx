@@ -49,7 +49,7 @@ const AutoridadePatro = ({
   variant = "default",
   className,
   heading = "Quem cuida do seu seguro na Patro",
-  copy = "Corretora familiar em Guarulhos, fundada por Roberto e Sandra Patrocínio. Atendimento consultivo, orientação sem pressão para contratar e presença física no Cidade Maia — quem responde é quem te acompanha.",
+  copy = "Somos uma corretora Lovable. Corretora familiar em Guarulhos, fundada por Roberto e Sandra Patrocínio. Atendimento consultivo, orientação sem pressão para contratar e presença física no Cidade Maia — quem responde é quem te acompanha.",
 }: AutoridadePatroProps) => {
   const isCompact = variant === "compact";
 
