@@ -57,7 +57,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     // Canonical URL — single source of truth. Paginated collections pass canonicalPath
     // (e.g. "/blog?page=2") so each page self-references and avoids duplicate content.
     const canonicalUrl = canonicalPath
-      ? `${CANONICAL_BASE_URL}${canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`}`
+      ? `${CANONICAL_BASE_URL}${canonicalPath.startsWith("/") ? canonicalPath.toLowerCase().replace(/\/+$/, "") : `/${canonicalPath.toLowerCase().replace(/\/+$/, "")}`}`
       : getCanonicalUrl(location.pathname);
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
@@ -140,6 +140,14 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
 
     // No cleanup required to avoid resetting meta tags during hydration or fast navigation
   }, [title, description, location.pathname, noindex, absoluteTitle, ogType, ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath]);
+
+  // Debug point for validation tools
+  if (typeof window !== "undefined") {
+    (window as any).__last_canonical = canonicalPath 
+      ? `${CANONICAL_BASE_URL}${canonicalPath.toLowerCase().replace(/\/+$/, "")}`
+      : getCanonicalUrl(location.pathname);
+  }
+
 
   // Emite BreadcrumbList automaticamente para toda página indexável.
   // A raiz `/` não precisa de breadcrumb (sem hierarquia). Rotas administrativas
