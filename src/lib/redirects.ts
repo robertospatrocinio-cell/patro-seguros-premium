@@ -36,6 +36,28 @@ export interface GoneRule {
  * Decisões documentadas caso a caso.
  */
 export const EXACT_REDIRECTS: RedirectRule[] = [
+  // --- Consolidação Planos de Saúde (Tarefa 2) -----------------------------
+  {
+    from: "/planos-de-saude",
+    to: "/plano-de-saude-guarulhos",
+    reason: "Consolidação de hub para evitar canibalização. URL canônica local.",
+  },
+  {
+    from: "/seguro-saude",
+    to: "/plano-de-saude-guarulhos",
+    reason: "Seguro saúde é sinônimo comercial de plano de saúde no contexto local.",
+  },
+  {
+    from: "/plano-de-saude",
+    to: "/plano-de-saude-guarulhos",
+    reason: "Normalização para slug geolocalizado.",
+  },
+  {
+    from: "/saude-empresarial",
+    to: "/plano-de-saude-empresarial-guarulhos",
+    reason: "Redirecionamento para página específica da vertical empresarial local.",
+  },
+
   // --- Soft 404 confirmados no Search Console -----------------------------
   {
     from: "/previdencia",
