@@ -348,6 +348,7 @@ const restoredRoutes: SitemapEntry[] = [
    const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : "";
 
    return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>${lastmodTag}\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;
+
  }
  
  function urlsetFor(entries: SitemapEntry[]): string {
