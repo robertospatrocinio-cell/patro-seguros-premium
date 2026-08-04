@@ -245,6 +245,8 @@ const SeguroArmazenagem = lazy(() => import("./pages/SeguroArmazenagem"));
 const SeguroPlacaSolar = lazy(() => import("./pages/SeguroPlacaSolar"));
 const SeguroPecuario = lazy(() => import("./pages/SeguroPecuario"));
 const SeguroCafe = lazy(() => import("./pages/SeguroCafe"));
+const SpecializedVerticalPage = lazyWithRetry(() => import("./pages/SpecializedVerticalPage"), "SpecializedVerticalPage");
+const PlanoSaudeGuarulhosVertical = lazyWithRetry(() => import("./pages/PlanoSaudeGuarulhosVertical"), "PlanoSaudeGuarulhosVertical");
 const ConsorcioGuarulhosVertical = lazyWithRetry(() => import("./pages/ConsorcioGuarulhosVertical"), "ConsorcioGuarulhosVertical");
 const Consorcio = lazy(() => import("./pages/Consorcio"));
 const ConsorcioCarro = lazy(() => import("./pages/ConsorcioCarro"));
@@ -692,6 +694,9 @@ const App = () => {
                   <Route path="/seguro-placa-solar" element={<SeguroPlacaSolar />} />
                   <Route path="/seguro-ambiental" element={<SeguroAmbiental />} />
                   <Route path="/seguro-garantia" element={<SeguroGarantia />} />
+                  <Route path="/seguro-garantia-judicial-guarulhos" element={<SpecializedVerticalPage />} />
+                  <Route path="/seguro-credito-empresarial-guarulhos" element={<SpecializedVerticalPage />} />
+                  <Route path="/seguro-carro-eletrico-guarulhos" element={<SpecializedVerticalPage />} />
                   <Route path="/seguro-maquinas-industriais" element={<SeguroMaquinasIndustriais />} />
                   <Route path="/seguro-maquinas-linha-amarela" element={<SeguroMaquinasLinhaAmarela />} />
                   <Route path="/seguro-trator-industrial" element={<SeguroTratorIndustrial />} />
@@ -727,6 +732,9 @@ const App = () => {
                   <Route path="/seguro-decesso" element={<SeguroDecesso />} />
                   <Route path="/seguro-fianca-locaticia" element={<SeguroFiancaLocaticia />} />
                   <Route path="/plano-pet" element={<PlanoPet />} />
+                  <Route path="/plano-de-saude-guarulhos" element={<PlanoSaudeGuarulhosVertical />} />
+                  <Route path="/plano-de-saude-empresarial-guarulhos" element={<PlanoSaudeGuarulhosVertical />} />
+                  <Route path="/plano-de-saude-para-mei-guarulhos" element={<PlanoSaudeGuarulhosVertical />} />
                   <Route path="/plano-saude-empresarial" element={<PlanoSaudeEmpresarial />} />
                   <Route path="/protecao-pet-premium" element={<ProtecaoPetPremium />} />
                   <Route path="/seguro-petshop" element={<SeguroPetshop />} />
