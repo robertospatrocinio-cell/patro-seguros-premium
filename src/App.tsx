@@ -245,6 +245,7 @@ const SeguroArmazenagem = lazy(() => import("./pages/SeguroArmazenagem"));
 const SeguroPlacaSolar = lazy(() => import("./pages/SeguroPlacaSolar"));
 const SeguroPecuario = lazy(() => import("./pages/SeguroPecuario"));
 const SeguroCafe = lazy(() => import("./pages/SeguroCafe"));
+const ConsorcioGuarulhosVertical = lazyWithRetry(() => import("./pages/ConsorcioGuarulhosVertical"), "ConsorcioGuarulhosVertical");
 const Consorcio = lazy(() => import("./pages/Consorcio"));
 const ConsorcioCarro = lazy(() => import("./pages/ConsorcioCarro"));
 const ConsorcioImoveis = lazy(() => import("./pages/ConsorcioImoveis"));
@@ -659,6 +660,11 @@ const App = () => {
                   <Route path="/seguro-auto-guarulhos" element={<SeoSeguroAutoGuarulhos />} />
                   {/* Consórcio */}
                   <Route path="/consorcio" element={<Consorcio />} />
+                  <Route path="/consorcio-guarulhos" element={<ConsorcioGuarulhosVertical />} />
+                  <Route path="/consorcio-imoveis-guarulhos" element={<ConsorcioGuarulhosVertical />} />
+                  <Route path="/consorcio-veiculos-guarulhos" element={<ConsorcioGuarulhosVertical />} />
+                  <Route path="/consorcio-caminhoes-guarulhos" element={<ConsorcioGuarulhosVertical />} />
+                  <Route path="/consorcio-empresarial-guarulhos" element={<ConsorcioGuarulhosVertical />} />
                   <Route path="/consorcio-guarulhos" element={<Navigate to="/consorcio" replace />} />
                   <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
                   <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
