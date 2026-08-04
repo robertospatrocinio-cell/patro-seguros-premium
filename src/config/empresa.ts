@@ -43,6 +43,16 @@ export const EMPRESA = {
     linkedin: "https://www.linkedin.com/company/patro-seguros",
     youtube: "https://www.youtube.com/@patroseguros",
   },
+  // Dados de Confiança e Prova Social (Tarefa 5)
+  metricas: {
+    googleRating: 4.9,
+    googleReviews: 67,
+    clientesAtendidos: "2.500+",
+    sinistrosPagos: "1.800+",
+    experienciaAnos: "30+",
+    seguradorasParceiras: "16+",
+    operadorasSaude: "20+",
+  },
 } as const;
 
 /** Somente dígitos do WhatsApp (formato wa.me). Ex.: "551151997500". */
