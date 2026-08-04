@@ -82,6 +82,16 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/plano-odontologico-guarulhos",
     reason: "Variante local do produto odontológico.",
   },
+  {
+    from: "/plano-saude-centro-guarulhos",
+    to: "/plano-de-saude-guarulhos",
+    reason: "Página programática fraca; consolidando no hub local principal.",
+  },
+  {
+    from: "/cotacao-seguro-auto",
+    to: "/seguro-auto",
+    reason: "URL de cotação antiga que redireciona para o produto principal para evitar Soft 404.",
+  },
 
   // --- Legados WordPress com substituto ------------------------------------
   {
@@ -140,6 +150,10 @@ export const GONE_PATTERNS: GoneRule[] = [
   { pattern: /^\/wp-(content|admin|includes|json)(\/|$)/i, reason: "Estrutura interna do WordPress removida." },
   { pattern: /^\/author(\/|$)/i, reason: "Arquivos de autor do WordPress descontinuados (autores vivem em /blog/autor/:slug)." },
   { pattern: /^\/\d{4}\/\d{2}(\/|$)/, reason: "Arquivos por data do WordPress descontinuados." },
+  { pattern: /^\/odonto-personal\/?$/i, reason: "Produto removido definitivamente." },
+  { pattern: /^\/riscos-industriais\/?$/i, reason: "Estrutura removida." },
+  { pattern: /^\/seguro-do\/?$/i, reason: "Alias removido em favor do canônico." },
+  { pattern: /^\/seguro-valores\/?$/i, reason: "Alias removido." },
 ];
 
 /** Normaliza um pathname para a forma canônica (sem barra final). */
