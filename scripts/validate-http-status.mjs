@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import { XMLParser } from "fast-xml-parser";
-import { resolveRoute, normalizePath } from "../src/lib/redirects.js";
 
 const CANONICAL_ORIGIN = "https://www.patroseguros.com.br";
 const PREVIEW_URL = "http://localhost:8080";
@@ -53,7 +52,6 @@ async function main() {
 
   const allUrls = new Set();
   
-  // Amostra das principais URLs de cada sitemap para não demorar demais no build
   for (const sitemapUrl of sitemaps) {
     const filename = sitemapUrl.split('/').pop();
     const localPath = path.join(distDir, filename);
@@ -74,19 +72,31 @@ async function main() {
 
   console.log(`📡 Testando ${allUrls.size} URLs selecionadas...`);
 
-  // Em ambiente de build local/harness, o servidor não está rodando na porta 8080 
-  // acessível para fetch externo se não for o dev server.
-  // Vamos pular os testes de fetch se não conseguirmos conectar rapidamente.
   try {
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), 1000);
-    await fetch(PREVIEW_URL, { signal: controller.signal });
+    const checkResp = await fetch(PREVIEW_URL, { signal: controller.signal, method: 'HEAD' }).catch(() => null);
     clearTimeout(id);
+    if (!checkResp) {
+      console.log("⚠️ Servidor local não detectado em 8080. Pulando testes de conectividade HTTP.");
+      return;
+    }
   } catch (e) {
-    console.log("⚠️ Servidor local não detectado em 8080. Pulando testes de conectividade HTTP, mas validando lógica de roteamento interna.");
+    console.log("⚠️ Servidor local não detectado em 8080. Pulando testes de conectividade HTTP.");
     return;
   }
 
+  const results = [];
+  for (const url of allUrls) {
+    const res = await checkUrl(url, 200);
+    results.push(res);
+    
+    if (res.ok) {
+       console.log(`✅ ${res.status} [${res.duration}ms] ${url}`);
+    } else {
+       console.error(`❌ ${res.status} (Esperado ${res.expected}) [${res.duration}ms] ${url} ${res.error || ''}`);
+    }
+  }
 
   // Testar alguns redirects conhecidos da config
   console.log("\n🔀 Validando integridade dos Redirects (301/410)...");
