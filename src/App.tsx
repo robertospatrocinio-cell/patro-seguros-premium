@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo, Component, ReactNode, memo } from "react";
+import { lazy, Suspense, useMemo, Component, ReactNode, memo } from "react";
 import {
   B2B_HUB_PATH,
   GARANTIA_HUB_PATH,
@@ -105,8 +105,9 @@ const SeguroCarroBlindadoGuarulhos = lazyWithRetry(() => import("./pages/premium
 const ProtecaoPatrimonialFamiliarGuarulhos = lazyWithRetry(() => import("./pages/premium/ProtecaoPatrimonialFamiliarGuarulhos"), "ProtecaoPatrimonialFamiliarGuarulhos");
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
-import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams, useNavigate } from "react-router-dom";
 import { resolveRoute, normalizePath, CANONICAL_ORIGIN } from "@/lib/redirects";
+
 import { useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
