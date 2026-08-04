@@ -58,6 +58,22 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     reason: "Redirecionamento para página específica da vertical empresarial local.",
   },
 
+  
+  {
+    from: "/seguro-garantia-judicial",
+    to: "/seguro-garantia-judicial-guarulhos",
+    reason: "Consolidação para URL local canônica.",
+  },
+  {
+    from: "/seguro-credito",
+    to: "/seguro-credito-empresarial-guarulhos",
+    reason: "Normalização para vertical B2B local.",
+  },
+  {
+    from: "/seguro-carro-eletrico",
+    to: "/seguro-carro-eletrico-guarulhos",
+    reason: "Foco em nicho de alta tecnologia local.",
+  },
   // --- Soft 404 confirmados no Search Console -----------------------------
   {
     from: "/previdencia",
