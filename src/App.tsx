@@ -106,7 +106,8 @@ const ProtecaoPatrimonialFamiliarGuarulhos = lazyWithRetry(() => import("./pages
 import { HelmetProvider } from "react-helmet-async";
 import { setUserContext } from "@/lib/monitoring";
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useParams } from "react-router-dom";
-import { resolveRoute } from "@/lib/redirects";
+import { resolveRoute, normalizePath, CANONICAL_ORIGIN } from "@/lib/redirects";
+import { useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
