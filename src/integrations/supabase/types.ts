@@ -1802,6 +1802,27 @@ export type Database = {
         }
         Relationships: []
       }
+      sitemap_history: {
+        Row: {
+          filename: string
+          hash: string
+          id: string
+          submitted_at: string | null
+        }
+        Insert: {
+          filename: string
+          hash: string
+          id?: string
+          submitted_at?: string | null
+        }
+        Update: {
+          filename?: string
+          hash?: string
+          id?: string
+          submitted_at?: string | null
+        }
+        Relationships: []
+      }
       suppressed_emails: {
         Row: {
           created_at: string
