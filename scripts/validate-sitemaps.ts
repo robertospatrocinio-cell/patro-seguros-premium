@@ -52,11 +52,38 @@ async function validateSitemap(filePath: string) {
   }
 }
 
+async function validateRobotsTxt(dir: string) {
+  const robotsPath = path.join(dir, "robots.txt");
+  if (!fs.existsSync(robotsPath)) return;
+
+  const content = fs.readFileSync(robotsPath, "utf-8");
+  const sitemapLines = content.match(/^Sitemap:\s*(https?:\/\/\S+)/gim) || [];
+  
+  console.log(`🤖 Validando robots.txt em ${path.basename(dir)}...`);
+  
+  if (sitemapLines.length === 0) {
+    console.warn("⚠️ robots.txt não contém nenhuma diretiva 'Sitemap:'.");
+    return;
+  }
+
+  for (const line of sitemapLines) {
+    const url = line.split("Sitemap:")[1].trim();
+    const filename = url.split("/").pop();
+    if (filename) {
+      const filePath = path.join(dir, filename);
+      if (!fs.existsSync(filePath)) {
+        console.error(`❌ Erro: robots.txt referencia sitemap inexistente: ${url}`);
+        process.exit(1);
+      }
+    }
+  }
+  console.log(`✅ robots.txt referencia ${sitemapLines.length} sitemaps válidos.`);
+}
+
 async function main() {
   const distDir = path.resolve(process.cwd(), "dist");
   const publicDir = path.resolve(process.cwd(), "public");
   
-  // Validar tanto no /dist quanto no /public para garantir integridade total
   const dirs = [distDir, publicDir];
   
   const sitemapFiles = [
@@ -68,13 +95,15 @@ async function main() {
     "sitemap-auto.xml",
     "sitemap-vida-saude.xml",
     "sitemap-empresarial.xml",
-    "sitemap-geral.xml"
+    "sitemap-geral.xml",
+    "sitemap-images.xml"
   ];
 
-  console.log("🚀 Iniciando validação rigorosa de sitemaps...");
+  console.log("🚀 Iniciando validação rigorosa de sitemaps e robots.txt...");
   
   for (const dir of dirs) {
     if (!fs.existsSync(dir)) continue;
+    await validateRobotsTxt(dir);
     for (const file of sitemapFiles) {
       await validateSitemap(path.join(dir, file));
     }
@@ -87,3 +116,4 @@ main().catch(err => {
   console.error(err);
   process.exit(1);
 });
+
