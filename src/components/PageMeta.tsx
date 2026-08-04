@@ -57,7 +57,7 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     // Canonical URL — single source of truth. Paginated collections pass canonicalPath
     // (e.g. "/blog?page=2") so each page self-references and avoids duplicate content.
     const canonicalUrl = canonicalPath
-      ? `${CANONICAL_BASE_URL}${canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`}`
+      ? `${CANONICAL_BASE_URL}${canonicalPath.startsWith("/") ? canonicalPath.toLowerCase().replace(/\/+$/, "") : `/${canonicalPath.toLowerCase().replace(/\/+$/, "")}`}`
       : getCanonicalUrl(location.pathname);
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
