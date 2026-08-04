@@ -336,28 +336,38 @@ const restoredRoutes: SitemapEntry[] = [
  }
  
  function entryToXml(e: SitemapEntry): string {
-    // Resolução de lastmod (em ordem):
-    //  1. valor explícito definido na entry (ex.: posts do blog com data real)
-    //  2. lastmod anterior preservado do sitemap commitado em public/
-    //     → mantém o sinal estável; Google só "vê novidade" em URL nova/alterada
-    //  3. TODAY → apenas para URLs novas (primeira aparição)
-    const lastmod = e.lastmod || PRIOR_LASTMOD.get(e.loc) || TODAY;
-    // Normaliza a barra final: a home vira a origem nua e as demais URLs
-    // perdem o "/" terminal e são forçadas a minúsculas, espelhando o canonical.
-    const normalizedPath = e.loc === "/" ? "" : e.loc.toLowerCase().replace(/\/+$/, "");
-    const loc = cleanXmlString(`${DOMAIN}${normalizedPath}`);
-   return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;
+   // Normaliza o path para busca no mapa e geração da loc
+   const normalizedPath = e.loc === "/" ? "" : e.loc.toLowerCase().replace(/\/+$/, "");
+   const loc = cleanXmlString(`${DOMAIN}${normalizedPath}`);
+   
+   // Resolução de lastmod (em ordem):
+   //  1. valor explícito definido na entry (ex.: posts do blog com data real)
+   //  2. lastmod anterior preservado do sitemap anterior
+   //  3. Se não houver data confiável, omite para evitar "data falsa"
+   const lastmod = e.lastmod || PRIOR_LASTMOD.get(normalizedPath) || PRIOR_LASTMOD.get(e.loc);
+   const lastmodTag = lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : "";
+
+   return `  <url>\n    <loc>${loc}</loc>\n    <priority>${e.priority}</priority>${lastmodTag}\n    <changefreq>${e.changefreq}</changefreq>\n  </url>`;
+
  }
  
  function urlsetFor(entries: SitemapEntry[]): string {
+   // Garante unicidade absoluta dentro de cada arquivo sitemap
+   const unique = new Map<string, SitemapEntry>();
+   for (const e of entries) {
+     const normalized = e.loc.toLowerCase().replace(/\/+$/, "") || "/";
+     if (!unique.has(normalized)) unique.set(normalized, e);
+   }
+
    return [
      '<?xml version="1.0" encoding="UTF-8"?>',
      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-     ...entries.map(entryToXml),
+     ...[...unique.values()].map(entryToXml),
      '</urlset>',
      '' // Final newline
    ].join('\n');
  }
+
 
 export interface SitemapBundle {
   /** sitemap-index.xml content */
