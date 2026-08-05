@@ -98,7 +98,7 @@ const LocalInfoBlock = ({ position }: { position: "top" | "bottom" }) => (
         <div className="rounded-lg overflow-hidden border border-border shadow-sm bg-background">
           <LazyMapEmbed
             title="Mapa — Patro Seguros em frente ao Shopping Maia, Cidade Maia, Guarulhos"
-            src="https://www.google.com/maps?q=Av.+Salgado+Filho,+2120,+Cidade+Maia,+Guarulhos,+SP&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8547956844783!2d-46.5220!3d-23.4460!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8bf9a8b8b8b8%3A0x3cd0b8b8b8b8b8b!2sPatro%20Seguros!5e0!3m2!1spt-BR!2sbr!4v1715000000000!5m2!1spt-BR!2sbr"
             height={320}
           />
           <div className="px-4 py-3 text-xs text-muted-foreground border-t border-border">

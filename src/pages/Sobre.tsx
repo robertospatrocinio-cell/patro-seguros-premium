@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Fragment } from "react";
-import { Shield, ShieldCheck, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText } from "lucide-react";
+import { Shield, ShieldCheck, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText, Navigation } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -256,6 +256,79 @@ const Sobre = () => {
             </div>
           </div>
         </section>
+
+        {/* Localização e Presença Física */}
+        <section className="py-16 bg-white border-y">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-10">
+              <h2 className="mb-3">Conheça Nosso Escritório em Guarulhos</h2>
+              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+                A Patro Seguros combina a conveniência do atendimento digital com a segurança de uma presença física sólida 
+                em um dos endereços mais modernos de Guarulhos.
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              <div className="space-y-6">
+                <div className="p-6 rounded-2xl border bg-slate-50/50 shadow-sm">
+                  <h3 className="text-lg font-bold flex items-center gap-2 mb-4 text-primary">
+                    <MapPin className="h-5 w-5" /> Localização Cidade Maia
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219<br />
+                    Cidade Maia, Guarulhos/SP – CEP 07115-000<br />
+                    <strong>Referência:</strong> Em frente ao Shopping Maia.
+                  </p>
+                  
+                  <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                    <div className="flex items-start gap-2">
+                      <Clock className="h-4 w-4 text-primary mt-1 shrink-0" />
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-primary">Horário</p>
+                        <p className="text-[13px] text-muted-foreground">Seg a Sex: 9h às 18h</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <ShieldCheck className="h-4 w-4 text-primary mt-1 shrink-0" />
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-primary">Infraestrutura</p>
+                        <p className="text-[13px] text-muted-foreground">Estacionamento no local</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link to="/contato" className="flex-1">
+                      <Button className="w-full gap-2 font-semibold">
+                        Como Chegar <Navigation className="h-4 w-4" />
+                      </Button>
+                    </Link>
+                    <a 
+                      href="https://www.google.com/maps?cid=273879799324962533" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="flex-1"
+                    >
+                      <Button variant="outline" className="w-full gap-2">
+                        Ver no Maps
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden border shadow-xl h-[360px]">
+                <img 
+                  src="/images/blog/cobertura-seguro-sala-comercial.webp" 
+                  alt="Escritório Patro Seguros no Edifício Via Alameda Guarulhos" 
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         {/* Credenciais & Autoridade dos Autores (E-E-A-T) */}
         <section id="credenciais-autores" className="py-16">

@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, Facebook, Linkedi
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LazyMapEmbed from "@/components/LazyMapEmbed";
+import ContactMapSection from "@/components/ContactMapSection";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
@@ -148,8 +149,8 @@ const Contato = () => {
   return (
     <Fragment>
       <PageMeta
-        title="Fale Conosco — Patro Seguros em Guarulhos"
-        description="Contato Patro Seguros Guarulhos: WhatsApp (11) 5199-7500, e-mail e endereço na Cidade Maia. Cotações e dúvidas respondidas em até 2 horas úteis."
+        title="Fale Conosco — Patro Seguros Guarulhos Cidade Maia"
+        description="Corretora de seguros em Guarulhos na Av. Salgado Filho (Cidade Maia), perto do Shopping Maia. Atendimento presencial, WhatsApp (11) 5199-7500 e consultoria técnica."
       
       skipBreadcrumb
     />
@@ -174,7 +175,7 @@ const Contato = () => {
         <section className="gradient-hero py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-white mb-6">Fale com a Patro Seguros em Guarulhos</h1>
+              <h1 className="text-white mb-6">Corretora de Seguros em Guarulhos — Cidade Maia</h1>
               <p className="text-xl text-white/70">
                 Conte com uma consultoria próxima, técnica e sem pressa. Escolha o canal que preferir — respondemos em até 2 horas úteis.
               </p>
@@ -319,18 +320,8 @@ const Contato = () => {
                 </CardContent>
               </Card>
 
-              {/* Mapa interativo */}
+              {/* Informações Institucionais Compactas */}
               <div className="space-y-6">
-                <Card>
-                  <CardContent className="p-0 overflow-hidden rounded-xl">
-                    <LazyMapEmbed
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8!2d-46.4494!3d-23.4462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8a1b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sAv.+Salgado+Filho%2C+2120+-+Centro%2C+Guarulhos+-+SP%2C+07115-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                      title="Localização Patro Seguros — Av. Salgado Filho, 2120, Guarulhos"
-                      height={320}
-                    />
-                  </CardContent>
-                </Card>
-
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-4 mb-5">
@@ -356,7 +347,14 @@ const Contato = () => {
                 </Card>
               </div>
             </div>
+          </div>
+        </section>
 
+        {/* Local SEO & Map Section - Como chegar à Patro Seguros */}
+        <ContactMapSection className="bg-slate-50/50" />
+
+        <section className="py-16">
+          <div className="container mx-auto px-4">
             {/* Redes Sociais */}
             <div className="mb-12">
               <h2 className="text-center text-xl font-bold mb-6">Siga a Patro nas Redes Sociais</h2>
@@ -377,6 +375,7 @@ const Contato = () => {
 
             {/* Google Business Widget */}
             <GoogleBusinessWidget />
+
           </div>
         </section>
 

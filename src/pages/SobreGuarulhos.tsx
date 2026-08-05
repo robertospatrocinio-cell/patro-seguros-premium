@@ -7,7 +7,7 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, MessageCircle, ArrowRight, MapPin, Building2, Users, TrendingUp, Plane, Shield } from "lucide-react";
+import { CheckCircle, MessageCircle, ArrowRight, MapPin, Building2, Users, TrendingUp, Plane, Shield, Navigation } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import GoogleBusinessWidget from "@/components/GoogleBusinessWidget";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
@@ -159,34 +159,62 @@ const SobreGuarulhos = () => (
 
       {/* Google Business + Mapa */}
       <section className="py-16">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-center mb-8">Visite Nosso Escritório</h2>
-          <div className="grid lg:grid-cols-2 gap-8">
-            <div>
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <h2 className="mb-4">Visite Nosso Escritório em Guarulhos</h2>
+          <p className="text-muted-foreground mb-12 max-w-2xl mx-auto">
+            Estamos estrategicamente localizados no Edifício Via Alameda, em frente ao Shopping Maia. 
+            Venha nos conhecer pessoalmente para uma consultoria exclusiva.
+          </p>
+          
+          <div className="grid lg:grid-cols-2 gap-8 items-start text-left">
+            <div className="space-y-6">
               <GoogleBusinessWidget />
-              <div className="mt-6 p-6 border rounded-xl">
-                <h3 className="font-semibold mb-3 flex items-center gap-2"><MapPin className="h-5 w-5 text-primary" /> Como Chegar</h3>
-                <p className="text-sm text-muted-foreground mb-3">
+              
+              <div className="p-6 border rounded-xl bg-slate-50/50">
+                <h3 className="font-semibold mb-3 flex items-center gap-2 text-primary">
+                  <MapPin className="h-5 w-5" /> Localização Privilegiada
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219<br />
                   Cidade Maia, Guarulhos/SP – CEP 07115-000
                 </p>
-                <ul className="text-sm text-muted-foreground space-y-1.5">
-                  <li>• Próximo ao Aeroporto Internacional de Guarulhos</li>
-                  <li>• Fácil acesso pela Rodovia Dutra</li>
-                  <li>• Estacionamento no local</li>
-                  <li>• Atendimento com hora marcada</li>
-                </ul>
+                
+                <div className="space-y-4">
+                  <ul className="text-sm text-muted-foreground space-y-2">
+                    <li className="flex items-center gap-2">• <span className="font-medium text-foreground">Shopping Maia:</span> Literalmente em frente ao shopping</li>
+                    <li className="flex items-center gap-2">• <span className="font-medium text-foreground">Estacionamento:</span> No próprio Edifício Via Alameda</li>
+                    <li className="flex items-center gap-2">• <span className="font-medium text-foreground">Referência:</span> Próximo ao Aeroporto de Guarulhos e Dutra</li>
+                  </ul>
+                  
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    <a 
+                      href="https://www.google.com/maps?cid=273879799324962533" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition"
+                    >
+                      <Navigation className="w-4 h-4" /> Ver no Maps
+                    </a>
+                    <Link to="/contato">
+                      <Button variant="outline" size="sm" className="rounded-lg">Falar com Consultor</Button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-            <LazyMapEmbed
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8547956844783!2d-46.44936132378558!3d-23.44622945767449!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8f1f8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sAv.%20Salgado%20Filho%2C%202120%20-%20Guarulhos%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
-              title="Localização Patro Seguros em Guarulhos"
-              className="rounded-xl overflow-hidden border"
-              height={450}
-            />
+            
+            <div className="rounded-xl overflow-hidden border shadow-lg h-[480px]">
+              <LazyMapEmbed
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8547956844783!2d-46.5220!3d-23.4460!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8bf9a8b8b8b8%3A0x3cd0b8b8b8b8b8b!2sPatro%20Seguros!5e0!3m2!1spt-BR!2sbr!4v1715000000000!5m2!1spt-BR!2sbr"
+                title="Mapa com a localização da Patro Seguros em Guarulhos"
+                className="w-full h-full"
+                height={480}
+              />
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* FAQ */}
       <section className="py-16 bg-muted/50">
