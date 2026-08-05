@@ -12,9 +12,10 @@ const SeoSeguroMotoGuarulhos = () => (
   <FAQSchema faqs={faqs} />
   <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro Moto Guarulhos — Cotação Porto, Tokio e HDI"
+    title="Seguro de Moto em Guarulhos | Cotação Porto e Tokio Marine"
+    headline="Seguro para Motocicletas em Guarulhos e Região"
     subtitle="Seguro moto Guarulhos com a melhor cotação de Porto Seguro, Tokio Marine, HDI e Liberty. Atendimento local Cidade Maia."
-    description="Seguro moto Guarulhos com a Patro Seguros, corretora Porto Seguro Guarulhos especialista em motocicletas. Comparamos Porto Seguro, Tokio Marine, HDI, Liberty e outras seguradoras para garantir a melhor proteção e o menor preço. Guarulhos tem alto índice de furto e roubo de motos, especialmente em Cumbica, Bonsucesso, Pimentas e ao longo da Dutra — atendemos motociclistas, motoboys e entregadores de aplicativo (iFood, Rappi, Loggi) com cobertura adequada."
+    description="Seguro moto Guarulhos com a Patro Seguros, corretora Porto Seguro Guarulhos especialista em motocicletas. Comparamos Porto Seguro, Tokio Marine, HDI, Liberty e outras seguradoras para garantir a melhor proteção e o menor preço."
     icon="🏍️"
     metaDescription="Seguro moto Guarulhos: cotação Porto Seguro, Tokio Marine, HDI e Liberty. Proteção contra roubo, furto e acidentes. Cotação grátis com a Patro Seguros."
     coverages={[

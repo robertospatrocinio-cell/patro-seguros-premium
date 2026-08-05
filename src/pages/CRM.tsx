@@ -266,7 +266,7 @@ const CRMPage = () => {
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
                 <h1 className="text-3xl font-bold tracking-tight text-slate-900" id="crm-main-heading">
-                  Patro CRM <span className="text-primary font-black">PRO</span>
+                  Sistema CRM para Corretores de Seguros
                 </h1>
               </div>
               <p className="text-muted-foreground ml-11">
