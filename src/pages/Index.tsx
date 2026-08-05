@@ -164,7 +164,7 @@ const Index = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link to="/cotacao" onClick={handleHeroCotacaoClick}>
                     <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all">
-                      Solicitar cotação agora
+                      Cotar agora com especialistas
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
@@ -219,7 +219,7 @@ const Index = () => {
                 diferenças entre as seguradoras e acompanhar o cliente antes,
                 durante e depois da contratação. Conheça nossa{" "}
                 <Link to="/corretora-de-seguros-em-guarulhos" className="text-primary font-semibold hover:underline">
-                  página completa da corretora em Guarulhos
+                  conhecer nossa atuação em Guarulhos
                 </Link>{" "}
                 ou explore as principais soluções abaixo.
               </p>

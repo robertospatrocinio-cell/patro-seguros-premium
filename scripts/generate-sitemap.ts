@@ -61,6 +61,7 @@ function loadPriorLastmodMap(): Map<string, string> {
     "sitemap-vida-saude.xml",
     "sitemap-empresarial.xml",
     "sitemap-geral.xml",
+    "sitemap-index.xml",
   ];
   const urlRe = /<url>([\s\S]*?)<\/url>/g;
   const locRe = /<loc>([^<]+)<\/loc>/;
@@ -76,6 +77,9 @@ function loadPriorLastmodMap(): Map<string, string> {
         const loc = locRe.exec(block)?.[1];
         const lastmod = lastmodRe.exec(block)?.[1];
         if (loc && lastmod) {
+          // Exclui URLs de redirecionamento conhecidas e rotas administrativas
+          if (loc.includes('redirect') || loc.includes('admin') || loc.includes('~')) continue;
+          
           const pathOnly = loc.replace(DOMAIN, "").trim();
           if (!map.has(pathOnly)) map.set(pathOnly, lastmod.trim());
         }
@@ -108,6 +112,7 @@ const highIntentTransactional: SitemapEntry[] = [
    { loc: "/melhor-seguro-para-uber-guarulhos", priority: "0.9", changefreq: "weekly" },
    { loc: "/cotacao-seguro-residencial-online", priority: "0.9", changefreq: "weekly" },
    { loc: "/contato", priority: "0.8", changefreq: "weekly" },
+   { loc: "/sobre", priority: "0.8", changefreq: "monthly" },
 ];
 
 const seoLocalGuarulhos: SitemapEntry[] = [

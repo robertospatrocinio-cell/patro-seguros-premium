@@ -7,6 +7,7 @@ import { getArticleImage } from "@/lib/blogImages";
 import { landingPagesData } from "@/data/landingPages";
 import { servicePagesContent } from "@/data/seoServiceContent";
 import { SEO_HUBS } from "@/data/seoHubs";
+import { EMPRESA } from "@/config/empresa";
 
 export interface Metadata {
   title: string;
@@ -64,12 +65,14 @@ function buildHubMainEntity(cleanPath: string) {
   const hub = slug ? SEO_HUBS.find((h) => h.slug === slug) : undefined;
   const paths = hub?.landingPaths?.slice(0, 12) ?? [];
   if (!paths.length) return undefined;
+  
+  // Usamos ItemList apenas em páginas de coleção (hubs)
+  // O Google exige posições explícitas para evitar erro de Carousel
   return {
     "@type": "ItemList",
     "@id": `${DOMAIN}${cleanPath}#itemlist`,
-    "name": hub?.name ?? "Coleção",
+    "name": hub?.name ?? "Coleção de Seguros",
     "numberOfItems": paths.length,
-    "itemListOrder": "https://schema.org/ItemListOrderAscending",
     "itemListElement": paths.map((href, i) => ({
       "@type": "ListItem",
       "position": i + 1,

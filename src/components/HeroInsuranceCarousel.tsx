@@ -640,7 +640,7 @@ const HeroInsuranceCarousel = ({
                         </p>
                       </div>
                       <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white drop-shadow sm:mt-5">
-                        Saiba mais
+                        Conhecer detalhes do {card.title}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden />
                       </span>
                     </Link>
