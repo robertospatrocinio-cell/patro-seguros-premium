@@ -1,5 +1,5 @@
 # Relatório de Auditoria SEO Técnica - Patro Seguros
-Data: 05/08/2026 18:56:49
+Data: 05/08/2026 18:56:54
 Domínio: https://www.patroseguros.com.br
 
 ## 1. Robots.txt
