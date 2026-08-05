@@ -77,8 +77,8 @@ function loadPriorLastmodMap(): Map<string, string> {
         const loc = locRe.exec(block)?.[1];
         const lastmod = lastmodRe.exec(block)?.[1];
         if (loc && lastmod) {
-          // Exclui URLs de redirecionamento conhecidas e rotas administrativas
-          if (loc.includes('redirect') || loc.includes('admin') || loc.includes('~')) continue;
+          // Exclui URLs técnicas, administrativas e de preview
+          if (loc.includes('redirect') || loc.includes('admin') || loc.includes('~') || loc.includes('.lovable.')) continue;
           
           const pathOnly = loc.replace(DOMAIN, "").trim();
           if (!map.has(pathOnly)) map.set(pathOnly, lastmod.trim());
@@ -629,6 +629,7 @@ export function generateSitemap(blogSlugs: string[]): string {
       ...B2B_INSURER_PAGES.map((p) => ({ loc: p.path, priority: "0.6", changefreq: "monthly" })),
     ] as SitemapEntry[]),
     ...enterpriseLps,
+    ...restoredRoutes,
     ...investments,
     ...hubs,
     ...landingPages,
@@ -639,7 +640,6 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...blogCategoryEntries,
     ...blogAuthorEntries,
     ...legal,
-    ...restoredRoutes,
   ];
 
   // Dedupe by loc, keeping the highest priority entry.

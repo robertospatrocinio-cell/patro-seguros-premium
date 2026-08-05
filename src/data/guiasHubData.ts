@@ -77,9 +77,9 @@ export const guiasBlocks: GuiaBlock[] = [
     intro: "Consórcios de imóveis, veículos, caminhões, galpões e serviços — regulados pelo Banco Central, sem juros de financiamento.",
     cards: [
       { title: "Consórcio", description: "Como funciona, carta de crédito, sorteio, lance, taxa de administração e fundo de reserva.", level: "Básico", readTime: "10 min", href: "/consorcio" },
-      { title: "Consórcio de Imóveis", description: "Casa, apartamento, terreno, imóvel comercial ou galpão.", level: "Intermediário", readTime: "9 min", href: "/consorcio/imoveis" },
-      { title: "Consórcio de Veículos", description: "Carros, motos, caminhões e utilitários.", level: "Básico", readTime: "8 min", href: "/consorcio/veiculos" },
-      { title: "Consórcio Empresarial", description: "Máquinas, equipamentos, veículos e imóveis para empresas.", level: "Intermediário", readTime: "9 min", href: "/consorcio/servicos" },
+      { title: "Consórcio de Imóveis", description: "Casa, apartamento, terreno, imóvel comercial ou galpão.", level: "Intermediário", readTime: "9 min", href: "/consorcio-imoveis" },
+      { title: "Consórcio de Veículos", description: "Carros, motos, caminhões e utilitários.", level: "Básico", readTime: "8 min", href: "/consorcio-carro" },
+      { title: "Consórcio Empresarial", description: "Máquinas, equipamentos, veículos e imóveis para empresas.", level: "Intermediário", readTime: "9 min", href: "/consorcio-veiculos-pesados" },
     ],
   },
   {
@@ -88,7 +88,7 @@ export const guiasBlocks: GuiaBlock[] = [
     intro: "Garantia, crédito, cyber, ambiental, D&O, E&O e outras coberturas específicas para operações mais complexas.",
     cards: [
       { title: "Seguro Garantia", description: "Licitação, contratual, judicial e substituição de fiança bancária/caução.", level: "Avançado", readTime: "12 min", href: "/seguro-garantia" },
-      { title: "Seguro de Crédito", description: "Proteção contra inadimplência em vendas a prazo B2B — nacional e exportação.", level: "Avançado", readTime: "11 min", href: "/seguro-de-credito" },
+      { title: "Seguro de Crédito", description: "Proteção contra inadimplência em vendas a prazo B2B — nacional e exportação.", level: "Avançado", readTime: "11 min", href: "/seguro-credito-empresarial-guarulhos" },
       { title: "Seguro Cyber", description: "Ataques, vazamentos, LGPD, ransomware e resposta a incidentes.", level: "Avançado", readTime: "12 min", href: "/seguro-cyber" },
       { title: "Seguro Ambiental", description: "Passivos ambientais, poluição súbita e gradual para atividades de risco.", level: "Avançado", readTime: "10 min", href: "/seguro-ambiental" },
       { title: "RC Profissional (E&O)", description: "Cobertura para erros e omissões em serviços técnicos e consultivos.", level: "Avançado", readTime: "10 min", href: "/seguro-rc-profissional" },

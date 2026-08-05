@@ -60,7 +60,7 @@ export const SEO_HUBS: SeoHub[] = [
       "/seguro-moto-guarulhos",
       "/seguro-frota",
       "/seguro-motorista-app",
-      "/seguro-motorista-app-guarulhos",
+      "/seguro-motorista-app",
       "/seguro-uber-guarulhos",
       "/seguro-taxi-guarulhos",
       "/seguro-carta-verde",
@@ -83,7 +83,7 @@ export const SEO_HUBS: SeoHub[] = [
       },
       {
         title: "Seguro para motorista de app",
-        href: "/seguro-motorista-app-guarulhos",
+        href: "/seguro-motorista-app",
         description: "Cobertura APP para Uber/99 operando em Cumbica.",
       },
     ],

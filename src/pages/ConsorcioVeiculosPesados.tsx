@@ -5,7 +5,8 @@ const ConsorcioVeiculosPesados = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Consórcio de Veículos Pesados Sem Juros"
+      title="Consórcio de Veículos Pesados | Caminhão e Ônibus | Patro"
+      headline="Consórcio para renovação de frota de veículos pesados"
       subtitle="Caminhões, ônibus, máquinas e implementos: renove ou amplie a frota sem comprometer o caixa, com parcelas planejadas e poder de compra à vista."
       icon="🚛"
       showEbookConsorcio
