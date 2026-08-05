@@ -5,8 +5,9 @@ const SeguroMaquinasLinhaAmarela = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro de Máquinas Linha Amarela"
-      subtitle="Proteção especializada para retroescavadeiras, escavadeiras, pás carregadeiras, tratores de esteira e equipamentos pesados de construção."
+      title="Seguro de Máquinas Linha Amarela | Construção Pesada | Patro"
+      headline="Proteção para Máquinas Pesadas de Construção e Terraplanagem"
+      subtitle="Seguro especializado para retroescavadeiras, escavadeiras, pás carregadeiras e tratores de esteira."
       description="Seguro Linha Amarela: proteção para retroescavadeiras e pás carregadeiras contra roubo e acidentes em obras em todo o Brasil. Atendimento 100% remoto."
       detailedDescription={`Máquinas linha amarela representam investimentos de R$ 200 mil a R$ 2 milhões ou mais. São equipamentos essenciais para construtoras, empreiteiras, empresas de terraplanagem, mineradoras e locadoras de máquinas pesadas. Operar sem seguro é arriscar o patrimônio e a continuidade dos contratos.
 

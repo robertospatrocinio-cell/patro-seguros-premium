@@ -224,7 +224,7 @@ const PlanosDeSaude = () => {
                       <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{op.name}</h3>
                       <p className="text-sm text-muted-foreground">{op.desc}</p>
                       <div className="mt-4 flex items-center text-[11px] font-bold text-primary uppercase tracking-wider">
-                        Ver detalhes <ArrowRight className="ml-1 h-3 w-3" />
+                        Ver detalhes do plano {op.name} <ArrowRight className="ml-1 h-3 w-3" />
                       </div>
                     </CardContent>
                   </Card>
@@ -261,7 +261,7 @@ const PlanosDeSaude = () => {
             <p className="text-xl mb-8 text-white/90">Use nosso simulador ou fale com um especialista</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button size="lg" variant="secondary" className="w-full sm:w-auto">Simular Agora</Button>
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto">Solicitar Simulação Grátis</Button>
               </a>
               <a href="tel:1151997500" className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary">

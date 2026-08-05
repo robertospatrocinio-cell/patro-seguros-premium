@@ -6,8 +6,9 @@ const SeguroMaquinasAgricolas = () => {
     <InsurancePageTemplate
       localSeo={{ skip: true }}
       heroImage={heroImg}
-      title="Seguro de Máquinas Agrícolas"
-      subtitle="Proteja tratores, colheitadeiras, plantadeiras e todo seu maquinário agrícola. Atendemos produtores de todos os estados do Brasil."
+      title="Seguro de Máquinas Agrícolas | Tratores e Colheitadeiras | Patro"
+      headline="Seguro para Máquinas e Implementos Agrícolas"
+      subtitle="Proteja tratores, colheitadeiras, plantadeiras e todo seu maquinário agrícola em qualquer estado do Brasil."
       description="Somos especialistas em seguros de máquinas e equipamentos agrícolas, com parcerias junto a fabricantes e concessionárias pelo Brasil. Protegemos tratores e colheitadeiras contra incêndio, roubo e acidentes em todo o Brasil com atendimento 100% remoto."
       icon="🚜"
       metaDescription="Seguro de Máquinas Agrícolas em todo o Brasil: tratores, colheitadeiras, plantadeiras e pulverizadores. Proteção contra incêndio, roubo e tombamento."
