@@ -320,15 +320,8 @@ const Contato = () => {
                 </CardContent>
               </Card>
 
-              {/* Mapa interativo substituído por seção completa abaixo */}
-            </div>
-          </div>
-        </section>
-
-        {/* Local SEO & Map Section */}
-        <ContactMapSection className="bg-slate-50/50" />
-
-
+              {/* Informações Institucionais Compactas */}
+              <div className="space-y-6">
                 <Card>
                   <CardContent className="pt-6">
                     <div className="flex items-start gap-4 mb-5">
@@ -354,7 +347,14 @@ const Contato = () => {
                 </Card>
               </div>
             </div>
+          </div>
+        </section>
 
+        {/* Local SEO & Map Section - Como chegar à Patro Seguros */}
+        <ContactMapSection className="bg-slate-50/50" />
+
+        <section className="py-16">
+          <div className="container mx-auto px-4">
             {/* Redes Sociais */}
             <div className="mb-12">
               <h2 className="text-center text-xl font-bold mb-6">Siga a Patro nas Redes Sociais</h2>
@@ -375,6 +375,7 @@ const Contato = () => {
 
             {/* Google Business Widget */}
             <GoogleBusinessWidget />
+
           </div>
         </section>
 
