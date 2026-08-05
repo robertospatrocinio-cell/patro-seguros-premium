@@ -171,7 +171,7 @@ const faqs = [
 const PlanosDeSaude = () => {
   return (
     <>
-      <PageMeta title="Plano de Saúde em Guarulhos | Compare Opções | Patro Seguros" description="Planos de saúde em Guarulhos com as melhores operadoras. Compare Bradesco, Amil, SulAmérica e mais. Cotação grátis para pessoa física e empresas." />
+      <PageMeta title="Planos de Saúde em Guarulhos | Compare 20+ Operadoras | Patro" description="Planos de saúde em Guarulhos: compare Bradesco, Amil, SulAmérica e mais 20 operadoras. Consultoria gratuita para encontrar o melhor preço para você ou sua empresa." />
       <FAQSchema faqs={faqs} />
       <ServiceSchema 
         name="Cotação de Plano de Saúde em Guarulhos" 
@@ -194,7 +194,7 @@ const PlanosDeSaude = () => {
           />
           <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
             <div className="text-6xl mb-6">🏥</div>
-             <h1 className="text-white mb-6">Plano de Saúde em Guarulhos</h1>
+             <h1 className="text-white mb-6">Compare Melhores Planos de Saúde em Guarulhos</h1>
              <p className="text-xl text-white/70 mb-8">
                Trabalhamos com as principais operadoras de Guarulhos e do Brasil para encontrar o plano de saúde ideal para você, sua família (individual) ou sua empresa (PME/MEI).
              </p>
