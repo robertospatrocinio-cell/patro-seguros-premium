@@ -31,7 +31,11 @@ const CANONICAL_ROUTE_ALIASES = new Map([
   ["/plano-saude-guarulhos", "/plano-de-saude-guarulhos"],
 ]);
 
-const REQUIRED_HOME_TYPES = ["Organization", "WebSite", "SiteNavigationElement"];
+// InsuranceAgency é um subtipo de LocalBusiness e Organization no Schema.org.
+// A home publica a entidade institucional como InsuranceAgency (mais específica),
+// portanto exigir também um nó Organization separado gerava falso negativo e
+// incentivava duplicidade da mesma empresa no JSON-LD.
+const REQUIRED_HOME_TYPES = ["InsuranceAgency", "WebSite", "SiteNavigationElement"];
 
 // Rotas cujo HTML precisa ter o bloco SEO COMPLETO (não o fallback) injetado
 // por scripts/prerender.mjs — são as mesmas rotas validadas por
