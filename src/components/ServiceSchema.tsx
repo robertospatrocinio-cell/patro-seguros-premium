@@ -10,9 +10,6 @@ interface ServiceSchemaProps {
 
 const ServiceSchema = ({ name, description, serviceType = "Insurance" }: ServiceSchemaProps) => {
   const { pathname } = useLocation();
-  // Normaliza: sem trailing slash antes de `#service` para alinhar com o
-  // @id emitido por <LocalAreaSchema /> e permitir que ambos sejam
-  // tratados como o mesmo nó (evita "Service" duplicado no rich result).
   const cleanPath = pathname === "/" ? "" : pathname.replace(/\/+$/, "");
   const schema = {
     "@context": "https://schema.org",
@@ -21,8 +18,7 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
     "name": name,
     "description": description,
     "provider": {
-      "@type": "InsuranceAgency",
-      "@id": `${CANONICAL_BASE_URL}/#insurance-agency`
+      "@id": "https://www.patroseguros.com.br/#insurance-agency"
     },
     "areaServed": [
       {
@@ -36,21 +32,7 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
         "sameAs": "https://pt.wikipedia.org/wiki/S%C3%A3o_Paulo"
       }
     ],
-    "serviceType": serviceType,
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Serviços de Corretagem de Seguros",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": name,
-            "description": `Cotação de ${name} personalizada.`
-          }
-        }
-      ]
-    }
+    "serviceType": serviceType
   };
 
   return (
