@@ -108,6 +108,7 @@ const highIntentTransactional: SitemapEntry[] = [
    { loc: "/melhor-seguro-para-uber-guarulhos", priority: "0.9", changefreq: "weekly" },
    { loc: "/cotacao-seguro-residencial-online", priority: "0.9", changefreq: "weekly" },
    { loc: "/contato", priority: "0.8", changefreq: "weekly" },
+   { loc: "/sobre", priority: "0.8", changefreq: "monthly" },
 ];
 
 const seoLocalGuarulhos: SitemapEntry[] = [
