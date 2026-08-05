@@ -38,12 +38,22 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
   const location = useLocation();
 
   useEffect(() => {
-    // Brand suffix logic
+    // Brand suffix logic: Ensure unique titles and avoid exact H1 matches
     const shouldAppendBrand =
       !absoluteTitle &&
       !title.includes("Patro Seguros") &&
       title.length + TITLE_SUFFIX.length <= MAX_TITLE_LENGTH;
-    const fullTitle = shouldAppendBrand ? `${title}${TITLE_SUFFIX}` : title;
+    
+    // SEO Enhancement: If title is too short, we can be more descriptive
+    let resolvedTitle = title;
+    if (title.length < 30 && !absoluteTitle && !title.includes("|")) {
+      // Small titles benefit from context
+      if (location.pathname.includes("guarulhos")) {
+        resolvedTitle = `${title} em Guarulhos`;
+      }
+    }
+
+    const fullTitle = shouldAppendBrand ? `${resolvedTitle}${TITLE_SUFFIX}` : resolvedTitle;
     document.title = fullTitle;
 
     const setMetaContent = (selector: string, value: string) => {
