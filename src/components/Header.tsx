@@ -301,7 +301,7 @@ const Header = memo(() => {
             <SmartLink to="/" className="flex items-center relative z-[60]" onClick={() => window.scrollTo(0,0)}>
               <img
                 src={logoFull}
-                alt="Patro Seguros"
+                alt="Patro Seguros Guarulhos - Corretora de Seguros"
                 width={160}
                 height={80}
                 decoding="sync"

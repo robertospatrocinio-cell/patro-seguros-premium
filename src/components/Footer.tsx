@@ -21,7 +21,7 @@ const Footer = memo(() => {
             <SmartLink to="/" className="inline-block mb-6">
               <img
                 src={logoFull}
-                alt="Patro Seguros"
+                alt="Patro Seguros Guarulhos - Corretora de Seguros"
                 width={160}
                 height={80}
                 loading="lazy"
