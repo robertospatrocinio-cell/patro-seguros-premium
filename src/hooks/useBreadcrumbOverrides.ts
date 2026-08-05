@@ -11,7 +11,8 @@ export interface BreadcrumbOverrideRow {
   category_href: string | null;
   pillar_label: string | null;
   pillar_href: string | null;
-  notes: string | null;
+  /** Coluna interna: legível apenas por admins autenticados. */
+  notes?: string | null;
   updated_at: string;
 }
 
@@ -46,7 +47,8 @@ export const rowToOverride = (row: BreadcrumbOverrideRow): BreadcrumbOverride =>
 async function fetchBreadcrumbOverrides(): Promise<BreadcrumbOverrideMap> {
   const { data, error } = await supabase
     .from("breadcrumb_overrides")
-    .select("slug, category_label, category_href, pillar_label, pillar_href, notes, updated_at");
+    // Somente colunas públicas — `notes`/`updated_by` são restritas a admins.
+    .select("slug, category_label, category_href, pillar_label, pillar_href, updated_at");
   if (error) throw error;
   const map: BreadcrumbOverrideMap = {};
   for (const row of (data ?? []) as BreadcrumbOverrideRow[]) {
