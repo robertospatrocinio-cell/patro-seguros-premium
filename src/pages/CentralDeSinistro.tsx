@@ -8,7 +8,7 @@ const CentralDeSinistro = () => (
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Central de Sinistros | Ajuda e Assistência 24h | Patro"
-      headline="O Que Fazer em Caso de Sinistro: Guia de Assistência"
+      headline="O que fazer em caso de sinistro: guia de assistência"
       subtitle="Suporte completo para colisão, roubo, furto e assistência 24h."
       description="Nossa central de sinistros está pronta para te auxiliar nos momentos mais difíceis. Saiba como proceder e quais documentos são necessários para garantir sua indenização com agilidade."
       icon="🆘"

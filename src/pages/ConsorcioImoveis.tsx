@@ -7,7 +7,7 @@ const ConsorcioImoveis = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       title="Consórcio de Imóveis em Guarulhos | Simulação Grátis"
-      headline="Consórcio Imobiliário em Guarulhos e Região"
+      headline="Consórcio imobiliário para compra, construção e reforma"
       subtitle="Conquiste sua casa, terreno ou imóvel comercial sem juros bancários. Use o FGTS para o lance."
       icon="🏠"
       showEbookConsorcio

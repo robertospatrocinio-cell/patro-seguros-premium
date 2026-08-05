@@ -8,7 +8,7 @@ const ConsorcioCarro = () => {
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
       title="Consórcio de Carros em Guarulhos | Planos Sem Juros"
-      headline="Consórcio de Automóveis e Veículos em Guarulhos"
+      headline="Consórcio de carros e veículos com estratégia de lance"
       subtitle="Troque de carro sem pagar juros bancários em Guarulhos: estratégia de lance, parcelas planejadas e poder de compra à vista."
       icon="🚗"
       showEbookConsorcio

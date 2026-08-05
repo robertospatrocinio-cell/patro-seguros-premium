@@ -252,7 +252,7 @@ const SegurosGuarulhosBairros = () => {
                 {selectedBairro.foco}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-                Especialista em Seguros no {selectedBairro.nome}
+                Corretora de seguros em {selectedBairro.nome}: atendimento local
               </h1>
               <p className="text-lg md:text-xl text-white/80 mb-3 max-w-2xl">
                 {selectedBairro.subtitulo}
