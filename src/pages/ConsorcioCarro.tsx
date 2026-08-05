@@ -7,8 +7,9 @@ const ConsorcioCarro = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
-      title="Consórcio de Carros Sem Juros"
-      subtitle="Troque de carro sem pagar juros bancários: estratégia de lance, parcelas planejadas e poder de compra à vista na concessionária."
+      title="Consórcio de Carros em Guarulhos | Planos Sem Juros"
+      headline="Consórcio de Automóveis e Veículos em Guarulhos"
+      subtitle="Troque de carro sem pagar juros bancários em Guarulhos: estratégia de lance, parcelas planejadas e poder de compra à vista."
       icon="🚗"
       showEbookConsorcio
       metaDescription="Consórcio de carros sem juros com a Patro Seguros: estudo estratégico de lance, parcelas planejadas e poder de compra à vista. Simule grátis em Guarulhos."

@@ -7,7 +7,8 @@ const SeoSeguroVidaGuarulhos = () => (
     <PrerenderText slug="seguro-vida-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro de Vida em Guarulhos | Proteja Sua Família | Patro Seguros"
+    title="Seguro de Vida em Guarulhos | Simulação Online | Patro"
+    headline="Seguro de Vida Individual e Familiar em Guarulhos"
     subtitle="Seguro de Vida em Guarulhos — Tranquilidade para Quem Você Ama"
     description="Seguro de vida em Guarulhos com coberturas completas. Proteja sua família com planos a partir de R$X,XX/mês. Cotação online grátis."
     detailedDescription={`O seguro de vida é, hoje, uma das proteções financeiras mais subutilizadas no Brasil. Estimativas indicam que apenas 15% dos brasileiros têm seguro de vida individual contratado — e em Guarulhos, com 1,4 milhão de habitantes e forte presença de profissionais autônomos, motoristas de aplicativo, comerciantes e trabalhadores em logística, esse índice expõe milhares de famílias a vulnerabilidade financeira em caso de falecimento ou invalidez do provedor.

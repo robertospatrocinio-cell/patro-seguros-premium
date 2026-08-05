@@ -6,8 +6,9 @@ const ConsorcioImoveis = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Consórcio de Imóveis Sem Juros"
-      subtitle="Conquiste casa própria, terreno ou imóvel comercial com FGTS no lance, créditos de até R$ 1 milhão e prazos de até 200 meses."
+      title="Consórcio de Imóveis em Guarulhos | Simulação Grátis"
+      headline="Consórcio Imobiliário em Guarulhos e Região"
+      subtitle="Conquiste sua casa, terreno ou imóvel comercial sem juros bancários. Use o FGTS para o lance."
       icon="🏠"
       showEbookConsorcio
       metaDescription="Consórcio de imóveis sem juros: use o FGTS para lance, créditos de R$ 100 mil a R$ 1 milhão e prazos de até 200 meses. Simule grátis com a Patro Seguros."
