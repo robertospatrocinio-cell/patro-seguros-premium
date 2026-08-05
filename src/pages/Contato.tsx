@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock, MessageCircle, Instagram, Facebook, Linkedi
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LazyMapEmbed from "@/components/LazyMapEmbed";
+import ContactMapSection from "@/components/ContactMapSection";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
@@ -319,17 +320,14 @@ const Contato = () => {
                 </CardContent>
               </Card>
 
-              {/* Mapa interativo */}
-              <div className="space-y-6">
-                <Card>
-                  <CardContent className="p-0 overflow-hidden rounded-xl">
-                    <LazyMapEmbed
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.8!2d-46.4494!3d-23.4462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8a1b8b8b8b8b%3A0x8b8b8b8b8b8b8b8b!2sAv.+Salgado+Filho%2C+2120+-+Centro%2C+Guarulhos+-+SP%2C+07115-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                      title="Localização Patro Seguros — Av. Salgado Filho, 2120, Guarulhos"
-                      height={320}
-                    />
-                  </CardContent>
-                </Card>
+              {/* Mapa interativo substituído por seção completa abaixo */}
+            </div>
+          </div>
+        </section>
+
+        {/* Local SEO & Map Section */}
+        <ContactMapSection className="bg-slate-50/50" />
+
 
                 <Card>
                   <CardContent className="pt-6">
