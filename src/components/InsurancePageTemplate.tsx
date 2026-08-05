@@ -385,9 +385,6 @@ const InsurancePageTemplate = ({
          absoluteTitle={!!headline && headline !== title}
        />
        
-      skipBreadcrumb
-    />
-       
       <LocalBusinessSchema />
       <OrganizationSchema />
       {!skipFAQSchemaManual && faqs.length > 0 && <FAQSchema faqs={faqs} />}
