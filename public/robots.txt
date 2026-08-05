@@ -3,8 +3,9 @@ Allow: /
 Allow: /assets/
 Allow: /images/
 Allow: /fonts/
-Allow: /*.js
-Allow: /*.css
+Disallow: /admin
+Disallow: /crm
+Disallow: /~*
 
 # AI & Search Crawlers
 User-agent: ChatGPT-User
