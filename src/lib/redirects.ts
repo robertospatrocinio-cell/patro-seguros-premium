@@ -189,6 +189,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/admin/monitor-indexacao",
     reason: "Execute esta instrucao no projeto: Configurar testes automatizados em CI que executem validação de structured data e métricas de PageSpeed/Core Web Vitals por rota.",
   },
+  {
+    from: "/revisar-metadados-sociais",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Revisar e padronizar Open Graph e Twitter Cards em todas as páginas, garantindo títulos, descrições e imagens corretos para compartilhamento.",
+  },
 ];
 
 /**
