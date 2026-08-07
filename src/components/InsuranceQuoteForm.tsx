@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Implementar CAPTCHA (hCaptcha ou reCAPTCHA) no formulário de cotação para reduzir envios fraudulentos e melhorar a qualidade dos leads. */
+/** Execute esta instrucao no projeto: Gerar link do WhatsApp com mensagem pré-preenchida usando os dados do formulário para aumentar a taxa de resposta do cliente. */
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

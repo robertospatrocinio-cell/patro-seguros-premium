@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Implementar CAPTCHA (hCaptcha ou reCAPTCHA) no formulário de cotação para reduzir envios fraudulentos e melhorar a qualidade dos leads. */
+/** Execute esta instrucao no projeto: Gerar link do WhatsApp com mensagem pré-preenchida usando os dados do formulário para aumentar a taxa de resposta do cliente. */
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
