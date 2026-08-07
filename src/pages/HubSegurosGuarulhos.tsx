@@ -26,7 +26,7 @@ const SECTIONS: Section[] = [
     icon: <Car className="h-6 w-6" />,
     intro: "Guarulhos tem alto índice de furto/roubo de veículos, especialmente nas regiões de Cumbica, Bonsucesso e ao longo da Dutra. Proteja seu carro, moto ou caminhão com as melhores seguradoras do mercado.",
     links: [
-      { label: "Seguro Auto em Guarulhos", href: "/seguro-auto-guarulhos", description: "Cotação local com Porto, Tokio, HDI e mais" },
+      { label: "Seguro Auto em Guarulhos", href: "/seguro-auto-guarulhos", description: "Cotação local com Porto, Tokio, HDI e mais em 2h" },
       { label: "Seguro Moto em Guarulhos", href: "/seguro-moto-guarulhos", description: "Proteção contra roubo e furto em vias de risco" },
       { label: "Seguro de Frota Empresarial", href: "/seguro-frota-empresas-guarulhos", description: "Para empresas de Guarulhos com 5+ veículos" },
       { label: "Seguro Caminhão", href: "/seguro-caminhao" },
@@ -41,7 +41,7 @@ const SECTIONS: Section[] = [
     icon: <Home className="h-6 w-6" />,
     intro: "Cobertura para casas, apartamentos e condomínios em Guarulhos — incêndio, roubo, danos elétricos, vendaval e responsabilidade civil familiar.",
     links: [
-      { label: "Seguro Residencial em Guarulhos", href: "/seguro-residencial-guarulhos", description: "Casas e apartamentos em todos os bairros" },
+      { label: "Seguro Residencial em Guarulhos", href: "/seguro-residencial-guarulhos", description: "Proteção para casas e apartamentos com assistência 24h" },
       { label: "Seguro Condomínio em Guarulhos", href: "/seguro-condominio-guarulhos", description: "Áreas comuns + RC do síndico" },
       { label: "Seguros no Shopping/Cidade Maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos", description: "Especializado para a região nobre" },
       { label: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
@@ -55,7 +55,7 @@ const SECTIONS: Section[] = [
     icon: <Heart className="h-6 w-6" />,
     intro: "Acesso aos principais hospitais de Guarulhos e região metropolitana. Trabalhamos com 20+ operadoras de saúde para encontrar o melhor custo-benefício.",
     links: [
-      { label: "Plano de Saúde em Guarulhos", href: "/plano-saude-guarulhos", description: "Hapvida, Bradesco, SulAmérica, Amil e mais" },
+      { label: "Plano de Saúde em Guarulhos", href: "/plano-saude-guarulhos", description: "Compare Hapvida, Bradesco, SulAmérica e Amil em minutos" },
       { label: "Seguro de Vida e Saúde Guarulhos", href: "/seguro-vida-saude-guarulhos" },
       { label: "Seguro de Vida", href: "/seguro-vida" },
       { label: "Plano de Saúde Empresarial", href: "/plano-saude-empresarial" },
@@ -70,7 +70,7 @@ const SECTIONS: Section[] = [
     icon: <Building2 className="h-6 w-6" />,
     intro: "Guarulhos é um polo industrial e logístico — protegemos comércios, indústrias, galpões e prestadores de serviços com soluções sob medida.",
     links: [
-      { label: "Seguro Empresarial em Guarulhos", href: "/seguro-empresarial-guarulhos", description: "Comércios, escritórios e prestadores" },
+      { label: "Seguro Empresarial em Guarulhos", href: "/seguro-empresarial-guarulhos", description: "Proteção para comércios, escritórios e indústrias locais" },
       { label: "Seguros PME em Guarulhos", href: "/seguros-empresariais-pme-guarulhos", description: "Pacotes para pequenas e médias empresas" },
       { label: "Seguro de Galpões Industriais", href: "/seguro-galpoes-industriais" },
       { label: "Seguro Lojas em Shopping", href: "/seguro-lojas-shopping" },
@@ -162,7 +162,7 @@ const HubSegurosGuarulhos = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/10 text-white/70 text-xs mb-6">
                 <MapPin className="h-3.5 w-3.5" /> Cidade Maia, Guarulhos/SP
               </div>
-               <h1 className="text-white text-balance mb-5">Guia Completo de Seguros em Guarulhos — A Sua Referência Local</h1>
+                <h1 className="text-white text-balance mb-5">Seguros em Guarulhos com Atendimento Consultivo | Patro Seguros</h1>
                <p className="text-base md:text-lg text-white/60 mb-10 max-w-2xl mx-auto">
                  Da proteção do seu carro na Dutra à blindagem estratégica de galpões em Cumbica. Entenda por que a Patro é a autoridade máxima em seguros na região.
                </p>

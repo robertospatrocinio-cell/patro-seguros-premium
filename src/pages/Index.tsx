@@ -156,7 +156,7 @@ const Index = () => {
               <div className="max-w-3xl">
                 <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
                 <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                  Corretora de Seguros em Guarulhos para Você e sua Empresa
+                  Corretora de Seguros em Guarulhos | Patro Seguros
                 </h1>
                 <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   Compare seguradoras e encontre proteção para seu carro, família ou empresa com atendimento consultivo da Patro Seguros.
@@ -609,7 +609,7 @@ const Index = () => {
                   { label: "Taboão", href: "/seguros-guarulhos/taboao" },
                   { label: "Vila Galvão", href: "/seguros-guarulhos/vila-galvao" },
                   { label: "Macedo", href: "/seguros-guarulhos" },
-                  { label: "Cidade Maia", href: "/seguro-auto-maia" },
+                  { label: "Cidade Maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos" },
                   { label: "Vila Augusta", href: "/seguro-auto-vila-augusta" },
                   { label: "Gopoúva", href: "/seguros-guarulhos" },
                   { label: "Ponte Grande", href: "/seguros-guarulhos" },

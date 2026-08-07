@@ -74,6 +74,16 @@ const ALREADY_DEFINED = new Set<string>([
   "seguro-empresarial-taboao-guarulhos",
   "seguro-empresarial-macedo-guarulhos",
   "seguro-empresarial-gopouva-guarulhos",
+  "seguro-vida-centro-guarulhos",
+  "seguro-vida-gopouva-guarulhos",
+  "seguro-vida-jardim-maia",
+  "seguro-vida-taboao-guarulhos",
+  "seguro-vida-vila-augusta",
+  "seguro-vida-cidade-maia",
+  "seguro-empresarial-centro-guarulhos",
+  "seguro-empresarial-jardim-maia",
+  "seguro-empresarial-vila-augusta",
+  "seguro-empresarial-cidade-maia",
 ]);
 
 const partnersLine =
