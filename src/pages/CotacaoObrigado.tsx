@@ -169,6 +169,23 @@ const CotacaoObrigado = () => {
         </section>
       </main>
       <Footer />
+      
+      {/* CTAs Persistentes Otimizados */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-500">
+        <a 
+          href={data.waUrl} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="group relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300"
+          title="Falar no WhatsApp agora"
+        >
+          <div className="absolute -left-32 bg-white text-slate-900 text-xs font-bold px-3 py-2 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-100 whitespace-nowrap">
+            Agilizar no WhatsApp
+          </div>
+          <MessageCircle className="w-7 h-7" />
+          <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20 pointer-events-none"></span>
+        </a>
+      </div>
     </Fragment>
   );
 };

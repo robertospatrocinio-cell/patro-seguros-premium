@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Adicionar uma página de confirmação/obrigado após o envio da cotação com próximos passos e CTAs persistentes para contato rápido. */
+/** Execute esta instrucao no projeto: Otimizar os CTAs persistentes (WhatsApp e formulário) para ficarem visíveis em todas as seções da página de obrigado sem atrapalhar a leitura. */
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
