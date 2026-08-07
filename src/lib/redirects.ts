@@ -369,6 +369,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/admin/web-vitals-correlacao",
     reason: "Execute esta instrucao no projeto: Implemente melhorias de Core Web Vitals (reduzir JS, habilitar tree-shaking, minificar e carregar scripts críticos) para aumentar o desempenho e o TBT.",
   },
+  {
+    from: "/auditoria-seo-performance-100",
+    to: "/admin/web-vitals-correlacao",
+    reason: "Execute esta instrucao no projeto: Rodar uma auditoria completa de SEO e performance para verificar se o site consegue atingir 100/100 no Google PageSpeed e no Lighthouse, com um relatório detalhado.",
+  },
 ];
 
 /**
