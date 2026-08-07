@@ -34,13 +34,17 @@ export const buildWhatsAppMessage = ({
   extraLines = [],
 }: BuildWhatsAppOptions): string => {
   const perfil = audienceLabel(audience);
-  const lines = [
-    `Olá! Vim pelo site da Patro Seguros (origem: ${origem})${
-      perfil ? ` — perfil ${perfil}` : ""
-    }.`,
-    `Gostaria de uma cotação consultiva e de falar com um consultor.`,
-    ...extraLines.filter(Boolean),
-  ];
+  const isDetailed = extraLines.some(l => l.includes("Solicitação de Cotação"));
+  
+  const lines = isDetailed 
+    ? extraLines
+    : [
+        `Olá! Vim pelo site da Patro Seguros (origem: ${origem})${
+          perfil ? ` — perfil ${perfil}` : ""
+        }.`,
+        `Gostaria de uma cotação consultiva e de falar com um consultor.`,
+        ...extraLines.filter(Boolean),
+      ];
   return lines.join("\n");
 };
 
