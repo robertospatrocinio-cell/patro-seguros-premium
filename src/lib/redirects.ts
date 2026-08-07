@@ -179,6 +179,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/admin/links-internos",
     reason: "Execute esta instrucao no projeto: Adicionar e revisar links internos com âncoras descritivas a partir da home, /seguros-em-guarulhos e do blog para as páginas comerciais e bairros, garantindo pelo menos 3 links por página estratégica e 5–10 nos alvos prioritários.",
   },
+  {
+    from: "/auditoria-schemas",
+    to: "/admin/faq-underfilled",
+    reason: "Execute esta instrucao no projeto: Adicionar uma página interna de auditoria que liste os schemas detectados, erros e o percentual de marcação por tipo (InsuranceAgency, LocalBusiness, FAQPage, BreadcrumbList, Article e Service).",
+  },
 ];
 
 /**
