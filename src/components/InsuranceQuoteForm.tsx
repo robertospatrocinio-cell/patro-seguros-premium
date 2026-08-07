@@ -634,7 +634,13 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                       type={field.type === "email" ? "text" : field.type === "tel" ? "tel" : field.type === "date" ? "date" : "text"}
                       placeholder={field.placeholder || (field.type === "tel" ? "(11) 99999-9999" : field.type === "email" ? "seu@email.com" : "")}
                       value={formData[field.id] || ""}
-                      onChange={e => update(field.id, field.type === "tel" ? formatPhone(e.target.value) : field.type === "currency" ? e.target.value : e.target.value)}
+                      onChange={e => {
+                        let val = e.target.value;
+                        if (field.type === "tel") val = formatPhone(val);
+                        else if (field.type === "currency") val = formatCurrency(val);
+                        else if (field.id.toLowerCase().includes("cep")) val = formatCEP(val);
+                        update(field.id, val);
+                      }}
                       onBlur={() => handleBlur(field.id)}
                       className={`h-11 ${error ? "border-destructive focus-visible:ring-destructive" : ""}`}
                       aria-invalid={!!error}
