@@ -1,3 +1,4 @@
+/** Execute esta instrucao no projeto: Implemente validação completa, máscaras e tratamento de erros no formulário de cotação para reduzir falhas e aumentar a taxa de envio. */
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
