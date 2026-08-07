@@ -667,11 +667,14 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   }
 
   // 3. Local Pages (Auto, Saúde, Modelos)
-  const localConfig =
-    seoLocalPages[slug] ||
+  const localConfig = 
+    seoLocalPages[slug] || 
     seoLocalSaudePages[slug] ||
     seoLocalProdutoBairroPages[slug] ||
-    seoModeloAutoPages[slug];
+    seoModeloAutoPages[slug] ||
+    (cleanPath === "/seguros-guarulhos" ? seoLocalGuarulhosHub : null) ||
+    seoLocalBairrosGuarulhos[slug];
+
   if (localConfig) {
     const rawTitle = localConfig.title.includes("Patro") ? localConfig.title : `${localConfig.title} | Patro`;
     const title = rawTitle.length > 65 ? rawTitle.slice(0, 62).trim() + "..." : rawTitle;
