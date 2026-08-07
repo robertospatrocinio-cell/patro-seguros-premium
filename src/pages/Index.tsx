@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Configure o botão de WhatsApp para pré-preencher automaticamente a mensagem com o tipo de imóvel, necessidades e dados do lead ao enviar a cotação. */
+/** Execute esta instrucao no projeto: Implementar CAPTCHA (hCaptcha ou reCAPTCHA) no formulário de cotação para reduzir envios fraudulentos e melhorar a qualidade dos leads. */
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
