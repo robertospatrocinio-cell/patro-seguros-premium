@@ -152,6 +152,13 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/blog",
     reason: "Rota de arquivo sem conteúdo próprio; estrutura definitiva é /blog.",
   },
+
+  // --- Consolidação de Domínios Externos (seguroemguarulhos.com.br, etc) ---
+  {
+    from: "/mapear-dominios-conflitantes",
+    to: "/",
+    reason: "Mapear as páginas conflitantes nos domínios seguroemguarulhos.com.br, seguroempresarialguarulhos.com.br e seguroapartamentoguarulhos.com.br e ajustar canonicals, redirects e links contextuais para apontarem ao domínio https://www.patroseguros.com.br sem canibalização.",
+  },
 ];
 
 /**
