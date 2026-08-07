@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import ComparisonTableResidencial from "@/components/ComparisonTableResidencial";
 import FAQSchema from "@/components/FAQSchema";
+import InsuranceQuoteForm from "@/components/InsuranceQuoteForm";
 import heroImg from "@/assets/lp-seguro-residencial.webp";
+
 
 
 const LandingSeguroResidencial = () => (
