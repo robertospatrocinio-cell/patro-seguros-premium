@@ -314,6 +314,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Implementar a marcação schema.org do tipo FAQPage em todas as seções de FAQ do site, garantindo rich snippets e consistência de headings.",
   },
+  {
+    from: "/local-business-organization-nap-registro",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar schema.org LocalBusiness e Organization com NAP (nome, endereço e telefone) e dados de contato da Patro Corretora de Seguros para reforçar SEO local.",
+  },
 ];
 
 /**
