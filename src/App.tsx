@@ -892,15 +892,15 @@ const App = () => {
                   <Route path="/seguro-auto-bonsucesso-guarulhos" element={<Navigate to="/seguro-auto-bonsucesso" replace />} />
                   <Route path="/seguro-auto-centro-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-centro-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-cumbica" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-cumbica" }); return <Comp />; })()} />
-                  <Route path="/seguro-auto-jardim-sao-joao" element={<Navigate to="/seguros-guarulhos/jardim-sao-joao" replace />} />
-                  <Route path="/seguro-auto-maia-guarulhos" element={<Navigate to="/seguro-auto-maia" replace />} />
+                  <Route path="/seguro-auto-jardim-sao-joao" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-jardim-sao-joao" }); return <Comp />; })()} />
+                  <Route path="/seguro-auto-maia-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-maia-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-taboao-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-taboao-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-vila-galvao" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-vila-galvao" }); return <Comp />; })()} />
                   {/* Residencial / Saúde / Empresarial por bairro → hub de bairros */}
-                  <Route path="/plano-saude-cidade-maia" element={<Navigate to="/seguros-guarulhos/cidade-maia" replace />} />
-                  <Route path="/plano-saude-gopouva-guarulhos" element={<Navigate to="/seguros-guarulhos/gopouva" replace />} />
-                  <Route path="/plano-saude-macedo-guarulhos" element={<Navigate to="/seguros-guarulhos/macedo" replace />} />
-                  <Route path="/plano-saude-taboao-guarulhos" element={<Navigate to="/seguros-guarulhos/taboao" replace />} />
+                  <Route path="/plano-saude-cidade-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "plano-saude-cidade-maia" }); return <Comp />; })()} />
+                  <Route path="/plano-saude-gopouva-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "plano-saude-gopouva-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/plano-saude-macedo-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "plano-saude-macedo-guarulhos" }); return <Comp />; })()} />
+                  <Route path="/plano-saude-taboao-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "plano-saude-taboao-guarulhos" }); return <Comp />; })()} />
                   {/* 301 legados de bairros e produto×bairro (variações com/sem sufixo -guarulhos).
                       Fonte única: src/lib/legacyBairroRedirects.ts — espelhado em public/.htaccess. */}
                   {LEGACY_BAIRRO_REDIRECTS.map((r) => (
