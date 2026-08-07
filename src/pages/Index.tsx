@@ -236,10 +236,13 @@ const Index = () => {
                     — proteção contra colisão, roubo e assistência 24h.
                   </li>
                   <li>
-                    <Link to="/seguro-residencial-guarulhos" className="text-primary hover:underline">
-                      Seguro Residencial em Guarulhos
+                    <Link to="/seguro-residencial" className="text-primary hover:underline">
+                      Seguro Residencial
                     </Link>{" "}
-                    — incêndio, danos elétricos, roubo e responsabilidade civil familiar.
+                    — proteção completa para sua{" "}
+                    <Link to="/seguro-residencial" className="text-primary hover:underline">casa</Link>,{" "}
+                    <Link to="/seguro-residencial" className="text-primary hover:underline">apartamento</Link> ou{" "}
+                    <Link to="/seguro-flat-guarulhos" className="text-primary hover:underline">flat</Link>.
                   </li>
                   <li>
                     <Link to="/seguro-vida-guarulhos" className="text-primary hover:underline">
