@@ -164,6 +164,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/admin/web-vitals-correlacao",
     reason: "Execute esta instrucao no projeto: Validar e corrigir todos os dados estruturados (InsuranceAgency, LocalBusiness, FAQPage, BreadcrumbList, Article, Service) garantindo que não haja schemas inválidos e que o percentual de marcação esteja acima de 98%.",
   },
+  {
+    from: "/validar-fallback-js",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Testar as principais URLs com JavaScript desativado e corrigir qualquer fallback para garantir que title, meta description, H1, conteúdo inicial, CTAs e breadcrumbs apareçam corretamente e sejam indexáveis.",
+  },
 ];
 
 /**
