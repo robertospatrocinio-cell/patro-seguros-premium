@@ -449,6 +449,17 @@ const premiumPages: Record<string, PremiumMeta> = {
     h1: "Seguro para Consultório em Guarulhos",
     serviceType: "Seguro Empresarial para Consultórios e Clínicas",
   },
+  "/seguro-flat-guarulhos": {
+    title: "Seguro para Flat em Guarulhos | Residencial e Locação | Patro",
+    description: "Seguro para flats residenciais, mobiliados ou locação (Airbnb/temporada) em Guarulhos. Proteção para móveis, eletrônicos e RC. Cotação consultiva.",
+    h1: "Seguro para Flat em Guarulhos e SP",
+    serviceType: "Seguro Residencial para Flats e Studios",
+    faqs: [
+      { question: "Seguro residencial cobre flat?", answer: "Sim, mas a aceitação depende do uso (moradia, aluguel tradicional ou temporada). A Patro orienta a escolha do produto correto para cada perfil." },
+      { question: "Cobre danos causados por hóspedes?", answer: "Depende do produto e da declaração de uso para temporada. Algumas apólices oferecem coberturas específicas para locadores." },
+      { question: "Inquilino ou proprietário deve contratar?", answer: "Depende do contrato. O proprietário protege o imóvel/mobília e o inquilino protege seus bens e RC familiar." },
+    ],
+  },
   "/seguradoras-parceiras": {
     title: "Seguradoras Parceiras em Guarulhos | Patro Seguros",
     description: "Conheça as seguradoras parceiras da Patro em Guarulhos: Porto, Mapfre, Allianz, Tokio Marine, Azul, Suhai, Bradesco, SulAmérica, HDI e outras.",
