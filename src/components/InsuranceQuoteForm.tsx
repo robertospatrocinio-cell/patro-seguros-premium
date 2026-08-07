@@ -1,10 +1,10 @@
-/** Execute esta instrucao no projeto: Configure o botão de WhatsApp para pré-preencher automaticamente a mensagem com o tipo de imóvel, necessidades e dados do lead ao enviar a cotação. */
-import { useState, useEffect, useCallback } from "react";
+/** Execute esta instrucao no projeto: Implementar CAPTCHA (hCaptcha ou reCAPTCHA) no formulário de cotação para reduzir envios fraudulentos e melhorar a qualidade dos leads. */
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { debounce } from "@/lib/debounce";
-import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle, Mail } from "lucide-react";
+import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle, Mail, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,6 +15,7 @@ import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
 import { toast } from "sonner";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { usePersistentForm } from "@/hooks/usePersistentForm";
 import { logForgottenQuote } from "@/lib/quoteHistory";
 import { submitLead, savePartialQuote } from "@/lib/leadsApi";
@@ -94,6 +95,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   const [checklistItems, setChecklistItems] = useState<Record<string, boolean>>({});
   const [showRestoreNotice, setShowRestoreNotice] = useState(false);
   const [partialId, setPartialId] = useState<string | null>(localStorage.getItem(`${storageKey}-partial-id`));
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const captchaRef = useRef<HCaptcha>(null);
 
   // Handle restoration notice
   useEffect(() => {
@@ -253,7 +256,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     }
 
     if (step.id === "review") {
-      return consent && isChecklistComplete;
+      return consent && isChecklistComplete && !!captchaToken;
     }
 
     return true;
@@ -274,7 +277,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
         const element = document.getElementById(`iq-${firstErrorField.id}`);
         element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else if (steps[currentStep - 1].id === "review") {
-        toast.error("Confirme todos os itens e aceite os termos para continuar.");
+        if (!captchaToken) {
+          toast.error("Por favor, complete o desafio de segurança (CAPTCHA).");
+        } else {
+          toast.error("Confirme todos os itens e aceite os termos para continuar.");
+        }
       }
       return;
     }
@@ -282,6 +289,10 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // Set captcha as touched when reaching review step
+    if (currentStep === totalSteps - 1) {
+      setTouched(prev => ({ ...prev, captcha: true }));
     }
   };
 
@@ -543,6 +554,23 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                     Concordo em receber contato especializado da Patro Seguros via WhatsApp ou E-mail para tratar desta cotação.
                   </span>
                 </label>
+              </div>
+
+              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl border border-primary/10 shadow-sm overflow-hidden">
+                <div className="flex items-center gap-2 mb-3 text-xs text-muted-foreground font-medium">
+                  <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+                  <span>Proteção Anti-Spam</span>
+                </div>
+                <HCaptcha
+                  sitekey="10000000-ffff-ffff-ffff-000000000001" // hCaptcha Test Key
+                  onVerify={(token) => setCaptchaToken(token)}
+                  ref={captchaRef}
+                  theme="light"
+                  size="normal"
+                />
+                {!captchaToken && touched["captcha"] && (
+                  <p className="text-[11px] text-destructive mt-2 font-medium">Validação obrigatória para segurança.</p>
+                )}
               </div>
             </div>
           ) : (
