@@ -257,15 +257,13 @@ const Cotacao = () => {
     // Serializa dados do bem em texto legível
     const assetLines = Object.entries(assetData)
       .filter(([, v]) => v && String(v).trim())
-      .map(([k, v]) => `- ${ASSET_FIELD_LABELS[k] || k}: ${v}`);
+      .map(([k, v]) => `*${ASSET_FIELD_LABELS[k] || k}:* ${v}`);
+    
     const assetBlock = assetLines.length
       ? `\nDados do seguro:\n${assetLines.join("\n")}`
       : "";
     const mergedMessage = `${values.message || "Não informada"}${assetBlock}`;
 
-    const assetLines = Object.entries(assetData)
-      .filter(([, v]) => v && String(v).trim())
-      .map(([k, v]) => `*${ASSET_FIELD_LABELS[k] || k}:* ${v}`);
 
     const ctaOptions = {
       origem: "cotacao_formulario_etapas",
