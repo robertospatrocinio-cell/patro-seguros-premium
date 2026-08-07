@@ -244,6 +244,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar a marcação Schema.org do tipo FAQPage nos FAQs de todas as páginas para habilitar rich results no Google.",
   },
+  {
+    from: "/implementar-schema-breadcrumb",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implementar a marcação Schema.org BreadcrumbList no site para melhorar a compreensão de navegação pelos mecanismos de busca.",
+  },
 ];
 
 /**
