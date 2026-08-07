@@ -334,6 +334,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Implementar schema.org 'WebSite' com 'SearchAction' para melhorar a busca do site nos resultados do Google.",
   },
+  {
+    from: "/social-meta-tags-optimization",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar Open Graph e Twitter Card (título, descrição, imagem e URL canônica) em todas as páginas para melhorar a pré-visualização em compartilhamentos.",
+  },
 ];
 
 /**
