@@ -551,6 +551,23 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                   </span>
                 </label>
               </div>
+
+              <div className="flex flex-col items-center justify-center p-4 bg-white rounded-xl border border-primary/10 shadow-sm overflow-hidden">
+                <div className="flex items-center gap-2 mb-3 text-xs text-muted-foreground font-medium">
+                  <ShieldCheck className="h-3.5 w-3.5 text-primary" />
+                  <span>Proteção Anti-Spam</span>
+                </div>
+                <HCaptcha
+                  sitekey="10000000-ffff-ffff-ffff-000000000001" // hCaptcha Test Key
+                  onVerify={(token) => setCaptchaToken(token)}
+                  ref={captchaRef}
+                  theme="light"
+                  size="normal"
+                />
+                {!captchaToken && touched["captcha"] && (
+                  <p className="text-[11px] text-destructive mt-2 font-medium">Validação obrigatória para segurança.</p>
+                )}
+              </div>
             </div>
           ) : (
             steps[currentStep - 1].fields.map(field => {
