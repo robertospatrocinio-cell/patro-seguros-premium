@@ -344,7 +344,31 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         </div>
       </div>
 
-      {/* Marker para QA/SEO automático: identifica páginas que usam o template */}
+      {/* Seção de Interlinking para Bairros em páginas de Bairro */}
+      {neighborhood && (
+        <div className="bg-background py-8 border-b">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h3 className="text-lg font-bold mb-4">Veja também seguros em bairros próximos:</h3>
+            <div className="flex flex-wrap gap-2">
+              <Link to="/seguros-guarulhos">
+                <Button variant="outline" size="sm" className="rounded-full">
+                  Todos os bairros de Guarulhos
+                </Button>
+              </Link>
+              {nearbyAreas?.map((area) => (
+                <Link key={area.link} to={area.link}>
+                  <Button variant="secondary" size="sm" className="rounded-full">
+                    {area.name}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Marker para QA/SEO automático */}
+
       <meta
         name="patro:local-template"
         content={JSON.stringify({
