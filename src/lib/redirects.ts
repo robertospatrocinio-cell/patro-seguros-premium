@@ -259,6 +259,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/seguros-em-guarulhos",
     reason: "Execute esta instrucao no projeto: Implementar schema.org para FAQ e breadcrumbs em todas as landing pages de bairro, garantindo rich snippets nos resultados de busca.",
   },
+  {
+    from: "/whatsapp-contextual-bairros",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Configurar links de WhatsApp com mensagem pré-preenchida diferente para cada bairro, levando o lead automaticamente para a cotação com mais contexto.",
+  },
 ];
 
 /**
