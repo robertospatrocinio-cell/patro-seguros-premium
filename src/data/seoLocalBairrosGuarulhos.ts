@@ -1,5 +1,8 @@
 import type { SeoLocalPageConfig } from "@/data/seoLocalAutoPages";
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
+import { BAIRRO_NEIGHBORS } from "@/lib/bairroNeighbors";
+import { bairros } from "@/lib/bairrosData";
+
 
 /**
  * Matriz estratégica de bairros de Guarulhos.
