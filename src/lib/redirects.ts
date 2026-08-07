@@ -269,6 +269,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Criar uma página “Serviços e Horários” com lista de serviços, horários de atendimento e botões fixos para WhatsApp e cotação.",
   },
+  {
+    from: "/breadcrumb-list-schema-registro",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar a marcação schema.org do tipo BreadcrumbList para melhorar a navegação e a exibição nos resultados do Google.",
+  },
 ];
 
 /**
