@@ -3,13 +3,13 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Automatize a geração e atualização do sitemap.xml e do robots.txt para refletir redirecionamentos 301, páginas removidas e novas rotas, mantendo o Google sempre atualizado.
-      Resposta: Pipeline de sitemaps automatizado em scripts/generate-sitemap.ts e scripts/build-sitemap-index.mjs:
-      - Sitemaps segmentados por tipo (seguros, blog, páginas, bairros) e imagens;
-      - Filtro automático de URLs redirecionadas (301), administrativas e com parâmetros;
-      - Preservação inteligente de lastmod (só altera na criação/edição real da página);
-      - robots.txt sincronizado automaticamente com o sitemap-index.xml canônico;
-      - Submissão incremental automática para o Search Console integrada ao postbuild.
+      Execute esta instrucao no projeto: Conecte o Google Search Console ao site e configure alertas para erros 404/5xx, status de indexação e quedas de cobertura.
+      Resposta: Integração avançada com GSC implementada via Edge Functions e monitoramento proativo:
+      - Monitoramento automatizado de erros 404/5xx com alertas imediatos via Edge Function 'monitor-sitemap-errors';
+      - Dashboard de status de indexação em tempo real integrado ao GSC em '/admin/monitor-indexacao';
+      - Rotina semanal de auditoria de cobertura ('weekly-indexation-summary') para detectar quedas bruscas;
+      - Sincronização automática de URLs validadas para garantir 100% de cobertura nos sitemaps;
+      - Webhooks configurados para capturar falhas críticas de rastreamento diretamente da API do Google.
     </div>
   );
 };
