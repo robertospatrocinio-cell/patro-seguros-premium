@@ -199,6 +199,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar um teste que verifique o compartilhamento (previews) em WhatsApp e redes sociais, confirmando que a URL renderiza a descrição e imagem corretas.",
   },
+  {
+    from: "/revisar-canonicos-regras",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Revisar canônicos e regras de redirects para garantir que cada página compartilhada use a URL canônica correta e não caia em variações duplicadas.",
+  },
 ];
 
 /**
