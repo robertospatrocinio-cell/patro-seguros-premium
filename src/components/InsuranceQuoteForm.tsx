@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Implemente validação completa, máscaras e tratamento de erros no formulário de cotação para reduzir falhas e aumentar a taxa de envio. */
+/** Execute esta instrucao no projeto: Configure o botão de WhatsApp para pré-preencher automaticamente a mensagem com o tipo de imóvel, necessidades e dados do lead ao enviar a cotação. */
 import { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -314,15 +314,25 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
     setSending(true);
 
+    const leadName = formData.nome || formData.name || "Cliente";
+    const leadPhone = formData.whatsapp || formData.telefone || formData.phone || "";
+    
     const parts = [
-      `Olá! Gostaria de uma cotação de *${config.type}*.`,
+      `*Solicitação de Cotação - Patro Seguros*`,
+      `*Lead:* ${leadName}`,
+      `*Contato:* ${leadPhone}`,
+      `*Produto:* ${config.type}`,
+      `---`,
       ...config.fields.map(f => {
         if (f.type === "checkbox-group") {
           const vals = checkboxGroups[f.id];
-          return vals?.length ? `${f.label}: ${vals.join(", ")}` : null;
+          return vals?.length ? `*${f.label}:* ${vals.join(", ")}` : null;
         }
-        return formData[f.id]?.trim() ? `${f.label}: ${formData[f.id].trim()}` : null;
+        const val = formData[f.id]?.trim();
+        return val ? `*${f.label}:* ${val}` : null;
       }).filter(Boolean),
+      `---`,
+      `Olá! Acabei de enviar minha cotação pelo site e gostaria de agilizar o atendimento.`
     ].join("\n");
 
     trackCotacaoSubmit(config.type);

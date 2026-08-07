@@ -257,22 +257,26 @@ const Cotacao = () => {
     // Serializa dados do bem em texto legível
     const assetLines = Object.entries(assetData)
       .filter(([, v]) => v && String(v).trim())
-      .map(([k, v]) => `- ${ASSET_FIELD_LABELS[k] || k}: ${v}`);
+      .map(([k, v]) => `*${ASSET_FIELD_LABELS[k] || k}:* ${v}`);
+    
     const assetBlock = assetLines.length
       ? `\nDados do seguro:\n${assetLines.join("\n")}`
       : "";
     const mergedMessage = `${values.message || "Não informada"}${assetBlock}`;
 
+
     const ctaOptions = {
       origem: "cotacao_formulario_etapas",
-      subject: `Solicitação de Cotação: ${values.name} (${values.insuranceType})`,
       extraLines: [
-        `Nome: ${values.name}`,
-        `E-mail: ${values.email}`,
-        `WhatsApp: ${values.phone}`,
-        `Tipo de Seguro: ${values.insuranceType}`,
+        `*Solicitação de Cotação - Patro Seguros*`,
+        `*Lead:* ${values.name}`,
+        `*Contato:* ${values.phone}`,
+        `*Produto:* ${values.insuranceType}`,
+        `---`,
         ...assetLines,
-        `Mensagem: ${values.message || "Não informada"}`,
+        `*Mensagem:* ${values.message || "Não informada"}`,
+        `---`,
+        `Olá! Acabei de enviar minha cotação pelo site e gostaria de agilizar o atendimento.`
       ],
     };
     const waUrl = buildWhatsAppUrl(ctaOptions);
