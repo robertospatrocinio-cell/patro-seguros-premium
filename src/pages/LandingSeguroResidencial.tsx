@@ -60,6 +60,41 @@ const LandingSeguroResidencial = () => (
     extraSections={
       <>
         <ComparisonTableResidencial />
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-12 overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16" />
+            <div className="relative z-10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Cotação Online em 2 Minutos</h2>
+              <p className="text-muted-foreground mb-8">
+                Preencha os dados básicos do seu imóvel (casa, apartamento ou flat) e receba as melhores propostas no WhatsApp.
+              </p>
+              <div id="formulario-residencial">
+                <InsuranceQuoteForm 
+                  config={{
+                    type: "Seguro Residencial",
+                    emoji: "🏠",
+                    title: "Cotação de Seguro Residencial",
+                    subtitle: "Proteja seu lar e seus bens em poucos minutos",
+                    fields: [
+                      { id: "nome", label: "Nome completo", required: true, type: "text" },
+                      { id: "whatsapp", label: "WhatsApp", required: true, type: "tel" },
+                      { id: "email", label: "E-mail", required: true, type: "email" },
+                      { id: "tipo", label: "Tipo de imóvel", required: true, type: "select", options: ["Casa", "Apartamento", "Flat", "Casa em Condomínio", "Chácara / Lazer"] },
+                      { id: "uso", label: "Uso do imóvel", required: true, type: "select", options: ["Moradia Própria", "Alugado (Inquilino)", "Alugado (Proprietário)", "Temporada / Airbnb"] },
+                      { id: "cep", label: "CEP do imóvel", required: true, type: "text" },
+                      { id: "valor_bens", label: "Valor aproximado dos bens (móveis + eletrônicos)", type: "select", options: ["Até R$ 50 mil", "R$ 50 mil a R$ 100 mil", "R$ 100 mil a R$ 250 mil", "Acima de R$ 250 mil"] }
+                    ],
+                    benefits: [],
+                    faqs: [],
+                    metaTitle: "",
+                    metaDescription: ""
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
         <FAQSchema faqs={[
           { question: "Qual a diferença de preço entre seguro de casa e apartamento?", answer: "O seguro de apartamento é geralmente 30% a 50% mais barato que o de casa, pois não há risco de roubo pelo telhado ou danos à estrutura externa, que são cobertos pelo condomínio." },
           { question: "Seguro residencial cobre eletrônicos?", answer: "Sim, a cobertura de Danos Elétricos protege contra queima de aparelhos por raios ou oscilações na rede elétrica, enquanto a cobertura de Roubo protege contra a subtração dos bens." },
