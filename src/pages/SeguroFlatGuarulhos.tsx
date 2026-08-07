@@ -110,6 +110,13 @@ const SeguroFlatGuarulhos = () => (
         { title: "Proteção Patrimonial Familiar", link: "/protecao-patrimonial-familiar-guarulhos" },
       ]}
       extraSections={<ComparisonTableResidencial />}
+      quoteFormFields={[
+        { id: "uso", label: "Tipo de uso do flat", placeholder: "Selecione", type: "select", options: ["Moradia Própria", "Locação Tradicional (Anual)", "Temporada (Airbnb/Booking)", "Investimento (Vazio)"] },
+        { id: "mobiliado", label: "O flat é mobiliado?", placeholder: "Selecione", type: "select", options: ["Sim, mobília completa", "Parcialmente mobiliado", "Não (Vazio)"] },
+        { id: "cep", label: "CEP do imóvel", placeholder: "Ex: 07115-000", type: "text" },
+        { id: "valor_bens", label: "Valor estimado do conteúdo", placeholder: "Selecione", type: "select", options: ["Até R$ 30 mil", "R$ 30 mil a R$ 70 mil", "R$ 70 mil a R$ 150 mil", "Acima de R$ 150 mil"] }
+      ]}
+
       canonicalUrl="https://www.patroseguros.com.br/seguro-flat-guarulhos"
       localSeo={{ city: "Guarulhos" }}
     />
