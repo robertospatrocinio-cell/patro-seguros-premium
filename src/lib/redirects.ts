@@ -349,6 +349,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: o que falta para o site atingir as notas 100/100",
   },
+  {
+    from: "/validacao-nucleo-seo-status",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: o núcleo de infraestrutura de SEO do projeto esta fazendo as alteracoes corretas?",
+  },
 ];
 
 /**
