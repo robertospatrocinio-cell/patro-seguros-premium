@@ -254,6 +254,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/seguros-em-guarulhos",
     reason: "Execute esta instrucao no projeto: Adicionar landing pages para bairros e regiões específicas de Guarulhos, cada uma com CTA “Pedir Cotação”, “Falar no WhatsApp”, FAQ local e copy otimizada para SEO.",
   },
+  {
+    from: "/implementar-schemas-lps-bairros",
+    to: "/seguros-em-guarulhos",
+    reason: "Execute esta instrucao no projeto: Implementar schema.org para FAQ e breadcrumbs em todas as landing pages de bairro, garantindo rich snippets nos resultados de busca.",
+  },
 ];
 
 /**
