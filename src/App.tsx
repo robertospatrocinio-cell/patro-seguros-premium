@@ -198,6 +198,8 @@ const SeoSeguroEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeg
 const CorretoraDeSegurosEmGuarulhos = lazyWithRetry(() => import("./pages/CorretoraDeSegurosEmGuarulhos"), "CorretoraDeSegurosEmGuarulhos");
 const ConsorcioGuarulhos = lazyWithRetry(() => import("./pages/ConsorcioGuarulhos"), "ConsorcioGuarulhos");
 const SeoSeguroResidencialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroResidencialGuarulhos"), "SeoSeguroResidencialGuarulhos");
+const SegurosEmGuarulhosHub = lazyWithRetry(() => import("./pages/local-guarulhos/SegurosEmGuarulhos"), "SegurosEmGuarulhosHub");
+
 const SeoSeguroVidaSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaSaudeGuarulhos"), "SeoSeguroVidaSaudeGuarulhos");
 const SeoSeguroFrotaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroFrotaGuarulhos"), "SeoSeguroFrotaGuarulhos");
 const SeoSegurosPmeGuarulhos = lazyWithRetry(() => import("./pages/SeoSegurosPmeGuarulhos"), "SeoSegurosPmeGuarulhos");
@@ -797,8 +799,11 @@ const App = () => {
                   <Route path="/seguro-responsabilidade-civil" element={<Navigate to="/seguro-rc" replace />} />
                   {/* Redirecionamentos de URLs antigas que retornavam 404 (removidas do sitemap) */}
                   <Route path="/seguro-empresa-guarulhos" element={<Navigate to="/seguro-empresarial" replace />} />
+                  <Route path="/seguros-guarulhos" element={<SegurosEmGuarulhosHub />} />
+                  <Route path="/seguros-em-guarulhos" element={<Navigate to="/seguros-guarulhos" replace />} />
                   <Route path="/seguros-em-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
                   <Route path="/seguros-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
+
                   <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   {/* Pilar SEO: corretora de seguros em Guarulhos */}

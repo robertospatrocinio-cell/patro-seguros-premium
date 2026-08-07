@@ -1,6 +1,9 @@
 import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoLocalProdutoBairroPages } from "@/data/seoLocalProdutoBairroPages";
+import { seoLocalGuarulhosHub } from "@/data/seoLocalGuarulhosHub";
+import { seoLocalBairrosGuarulhos } from "@/data/seoLocalBairrosGuarulhos";
+
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { articles as blogArticles } from "@/lib/blogData";
 import { getArticleImage } from "@/lib/blogImages";

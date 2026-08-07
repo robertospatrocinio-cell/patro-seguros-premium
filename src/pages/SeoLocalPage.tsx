@@ -9,6 +9,9 @@ import { seoLocalPages } from "@/data/seoLocalAutoPages";
 import { seoLocalSaudePages } from "@/data/seoLocalSaudePages";
 import { seoModeloAutoPages } from "@/data/seoModelosAutoPages";
 import { seoLocalProdutoBairroPages } from "@/data/seoLocalProdutoBairroPages";
+import { seoLocalGuarulhosHub } from "@/data/seoLocalGuarulhosHub";
+import { seoLocalBairrosGuarulhos } from "@/data/seoLocalBairrosGuarulhos";
+
 
 import { DEFAULT_INSURERS, DEFAULT_TESTIMONIALS } from "@/data/localDefaults";
 import heroImg from "@/assets/hero-seguro-auto.webp";
@@ -40,7 +43,10 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
     seoLocalPages[slug] ||
     seoLocalSaudePages[slug] ||
     seoLocalProdutoBairroPages[slug] ||
-    seoModeloAutoPages[slug];
+    seoModeloAutoPages[slug] ||
+    (slug === "seguros-guarulhos" ? seoLocalGuarulhosHub : null) ||
+    seoLocalBairrosGuarulhos[slug];
+
   if (!config) return <Navigate to="/404" replace />;
 
   // Tipos requerem tuplas mínimas — fazemos cast seguro pois validamos em runtime/dev.
