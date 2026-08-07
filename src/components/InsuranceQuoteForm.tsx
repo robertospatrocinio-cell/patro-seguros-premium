@@ -3,14 +3,14 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { debounce } from "@/lib/debounce";
-import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle } from "lucide-react";
+import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
-import { trackCotacaoSubmit } from "@/lib/tracking";
+import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
 import { toast } from "sonner";
@@ -142,12 +142,21 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   };
 
 
-  // Group fields into steps
 
+  // Group fields into steps
+  // Inclui campos de tipo de imóvel se não presentes
   const contactFieldIds = ["nome", "email", "telefone", "whatsapp", "phone", "name"];
-  const contactFields = config.fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
-  const coverageFields = config.fields.filter(f => f.type === "checkbox-group");
-  const technicalFields = config.fields.filter(f => !contactFields.includes(f) && !coverageFields.includes(f));
+  
+  // Garantir que tipo de imóvel esteja no step correto se for uma modalidade residencial
+  const fields = config.fields.map(f => {
+    if (f.id === "tipo" && !config.fields.find(f2 => f2.id === "tipo")) return f;
+    return f;
+  });
+
+  const contactFields = fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
+  const coverageFields = fields.filter(f => f.type === "checkbox-group");
+  const technicalFields = fields.filter(f => !contactFields.includes(f) && !coverageFields.includes(f));
+
 
   // Define dynamic steps
   const steps = [
@@ -663,7 +672,28 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
           </Button>
         </div>
 
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-4 pt-4 border-t border-primary/10 mt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+            <a 
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Estou preenchendo o formulário de ${config.type} e gostaria de tirar uma dúvida.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs font-semibold text-green-600 hover:text-green-700 transition-colors"
+              onClick={() => trackWhatsAppClick(`form-help:${config.type.toLowerCase()}`)}
+            >
+              <MessageCircle className="h-4 w-4" />
+              Dúvidas? Chamar no WhatsApp
+            </a>
+            <div className="hidden sm:block w-px h-3 bg-slate-300" />
+            <a 
+              href="mailto:atendimento@patroseguros.com.br"
+              className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-primary transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              Enviar por E-mail
+            </a>
+          </div>
+
           <p className="text-[10px] text-muted-foreground text-center flex items-center gap-1.5">
             <Save className="h-3 w-3 text-primary" />
             Progresso salvo automaticamente · 100% gratuito e sem compromisso
@@ -678,6 +708,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     </div>
   );
 };
+
 
 export default InsuranceQuoteForm;
 

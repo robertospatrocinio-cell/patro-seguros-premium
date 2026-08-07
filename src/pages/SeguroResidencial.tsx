@@ -141,10 +141,13 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
 
       extraSections={<ComparisonTableResidencial />}
       quoteFormFields={[
-        { id: "tipo", label: "Tipo de imóvel", placeholder: "Selecione", type: "select", options: ["Apartamento", "Casa", "Flat", "Sobrado", "Cobertura"] },
-        { id: "cep", label: "CEP do imóvel", placeholder: "Ex: 07115-000" },
-        { id: "condicao", label: "Condicao", placeholder: "Selecione", type: "select", options: ["Próprio (moradia)", "Alugado (inquilino)", "Alugado (proprietário)", "Veraneio / temporada"] },
+        { id: "tipo", label: "Tipo de imóvel", placeholder: "Selecione", type: "select", options: ["Casa", "Apartamento", "Flat", "Casa em Condomínio", "Chácara / Lazer"] },
+        { id: "condicao", label: "Condição de uso", placeholder: "Selecione", type: "select", options: ["Moradia Própria", "Alugado (Inquilino)", "Alugado (Proprietário)", "Temporada / Airbnb"] },
+        { id: "cep", label: "CEP do imóvel", placeholder: "Ex: 07115-000", type: "text" },
+        { id: "valor_bens", label: "Valor estimado dos bens", placeholder: "Selecione", type: "select", options: ["Até R$ 50 mil", "R$ 50 mil a R$ 100 mil", "R$ 100 mil a R$ 250 mil", "Acima de R$ 250 mil"] }
       ]}
+
+
 
       canonicalUrl="https://www.patroseguros.com.br/seguro-residencial"
       howto={{
