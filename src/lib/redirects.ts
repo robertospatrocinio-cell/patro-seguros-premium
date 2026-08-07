@@ -294,6 +294,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Implementar um fallback que ofereça alternativas (ligação e e-mail com assunto e texto pré-preenchidos) caso o WhatsApp não abra no dispositivo do visitante.",
   },
+  {
+    from: "/faq-servicos-horarios-seo",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicione uma seção de FAQ completa e otimizada para SEO na página “Serviços e Horários”, incluindo perguntas sobre atendimento, tipos de serviço e como pedir cotação.",
+  },
 ];
 
 /**
