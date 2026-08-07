@@ -431,12 +431,6 @@ const premiumPages: Record<string, PremiumMeta> = {
     h1: "Seguro para Vistoriadora de Veículos",
     serviceType: "Seguro para Vistoriadoras Veiculares",
   },
-  "/seguro-flat-guarulhos": {
-    title: "Seguro para Flat em Guarulhos | Patro Seguros",
-    description: "Seguro para flat em Guarulhos: residencial, mobiliado, locação tradicional e temporada (Airbnb). Coberturas para proprietário, inquilino e conteúdo.",
-    h1: "Seguro para Flat em Guarulhos",
-    serviceType: "Seguro Residencial para Flats",
-  },
   "/seguro-sala-comercial-guarulhos": {
     title: "Seguro Sala Comercial em Guarulhos | Patro",
     description: "Seguro para sala comercial em Guarulhos: consultórios, escritórios, advocacia, contabilidade e coworking. Cobertura patrimonial, RC e equipamentos.",
