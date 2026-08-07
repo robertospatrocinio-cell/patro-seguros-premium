@@ -1,8 +1,10 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
+import ComparisonTableResidencial from "@/components/ComparisonTableResidencial";
 import { trilhaResidencial } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-residencial.webp";
+
 
 const SeguroResidencial = () => {
   return (
@@ -136,11 +138,13 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { title: "Cotação de Seguro Residencial Online (2h)", link: "/cotacao-seguro-residencial-online" },
         { title: "Seguro para Flats e Imóveis Mobiliados", link: "/seguro-flat-guarulhos" },
       ]}
+      extraSections={<ComparisonTableResidencial />}
       quoteFormFields={[
         { id: "tipo", label: "Tipo de imóvel", placeholder: "Selecione", type: "select", options: ["Apartamento", "Casa", "Flat", "Sobrado", "Cobertura"] },
         { id: "cep", label: "CEP do imóvel", placeholder: "Ex: 07115-000" },
         { id: "condicao", label: "Condicao", placeholder: "Selecione", type: "select", options: ["Próprio (moradia)", "Alugado (inquilino)", "Alugado (proprietário)", "Veraneio / temporada"] },
       ]}
+
       canonicalUrl="https://www.patroseguros.com.br/seguro-residencial"
       howto={{
         name: "Como contratar seguro residencial em Guarulhos",
