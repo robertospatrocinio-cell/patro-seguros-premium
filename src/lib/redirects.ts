@@ -289,6 +289,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar uma página de agradecimento pós-envio com próximos passos, CTA de WhatsApp e FAQ rápida para eu aumentar a taxa de conversão.",
   },
+  {
+    from: "/whatsapp-fallback-alternatives",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implementar um fallback que ofereça alternativas (ligação e e-mail com assunto e texto pré-preenchidos) caso o WhatsApp não abra no dispositivo do visitante.",
+  },
 ];
 
 /**
