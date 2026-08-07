@@ -219,6 +219,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/admin/monitor-indexacao",
     reason: "Execute esta instrucao no projeto: Realizar uma auditoria completa de SEO local em Guarulhos e me devolver uma nota de 100/100 com os principais motivos e correções prioritárias.",
   },
+  {
+    from: "/implementar-schema-institucional",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implementar a marcação Schema.org de LocalBusiness e Organization com nome, endereço, telefone, e-mail e dados de contato no site inteiro.",
+  },
 ];
 
 /**
