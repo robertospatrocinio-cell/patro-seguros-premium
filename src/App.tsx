@@ -798,11 +798,13 @@ const App = () => {
                   <Route path="/responsabilidade-civil-dentistas" element={<Navigate to="/seguro-rc-dentistas" replace />} />
                   <Route path="/seguro-responsabilidade-civil" element={<Navigate to="/seguro-rc" replace />} />
                   {/* Redirecionamentos de URLs antigas que retornavam 404 (removidas do sitemap) */}
-                  <Route path="/seguro-empresa-guarulhos" element={<Navigate to="/seguro-empresarial" replace />} />
-                  <Route path="/seguros-guarulhos" element={<SegurosEmGuarulhosHub />} />
-                  <Route path="/seguros-em-guarulhos" element={<Navigate to="/seguros-guarulhos" replace />} />
-                  <Route path="/seguros-em-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
-                  <Route path="/seguros-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
+                   <Route path="/seguro-empresa-guarulhos" element={<Navigate to="/seguro-empresarial" replace />} />
+                   <Route path="/seguros-guarulhos" element={<SegurosEmGuarulhosHub />} />
+                   <Route path="/seguros-em-guarulhos" element={<Navigate to="/seguros-guarulhos" replace />} />
+                   <Route path="/seguros-em-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
+                   <Route path="/seguros-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
+                   <Route path="/seguros-guarulhos/:slug" element={<SeoLocalPage />} />
+
 
                   <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
                   <Route path="/planos-de-saude/sulamerica-saude-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
