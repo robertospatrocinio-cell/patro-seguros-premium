@@ -3,13 +3,13 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Crie uma página 404 personalizada com busca e CTAs de “Pedir Cotação” e “Falar no WhatsApp” para recuperar usuários que caírem em links inválidos.
-      Resposta: Página 404 premium implementada em src/pages/NotFound.tsx:
-      - Busca inteligente integrada com sugestão automática de seguros baseada na URL;
-      - CTAs persistentes de WhatsApp e Pedir Cotação no rodapé;
-      - Categorização completa de seguros para facilitar a navegação;
-      - Suporte a status 410 Gone para conteúdos removidos intencionalmente;
-      - Design otimizado para conversão e redução de bounce rate.
+      Execute esta instrucao no projeto: Automatize a geração e atualização do sitemap.xml e do robots.txt para refletir redirecionamentos 301, páginas removidas e novas rotas, mantendo o Google sempre atualizado.
+      Resposta: Pipeline de sitemaps automatizado em scripts/generate-sitemap.ts e scripts/build-sitemap-index.mjs:
+      - Sitemaps segmentados por tipo (seguros, blog, páginas, bairros) e imagens;
+      - Filtro automático de URLs redirecionadas (301), administrativas e com parâmetros;
+      - Preservação inteligente de lastmod (só altera na criação/edição real da página);
+      - robots.txt sincronizado automaticamente com o sitemap-index.xml canônico;
+      - Submissão incremental automática para o Search Console integrada ao postbuild.
     </div>
   );
 };
