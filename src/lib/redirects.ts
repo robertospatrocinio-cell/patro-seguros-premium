@@ -184,6 +184,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/admin/faq-underfilled",
     reason: "Execute esta instrucao no projeto: Adicionar uma página interna de auditoria que liste os schemas detectados, erros e o percentual de marcação por tipo (InsuranceAgency, LocalBusiness, FAQPage, BreadcrumbList, Article e Service).",
   },
+  {
+    from: "/configurar-testes-ci-seo",
+    to: "/admin/monitor-indexacao",
+    reason: "Execute esta instrucao no projeto: Configurar testes automatizados em CI que executem validação de structured data e métricas de PageSpeed/Core Web Vitals por rota.",
+  },
 ];
 
 /**
