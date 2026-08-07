@@ -208,7 +208,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
     if (value.trim()) {
       if (field.type === "email" && !validateEmail(value)) return "E-mail inválido. Ex: nome@email.com";
-      if (field.type === "tel" && !validatePhone(value)) return "Formato: (11) 99999-9999";
+      if (field.type === "tel" && !validatePhone(value)) return "WhatsApp inválido. Ex: (11) 99999-9999";
+      if (field.id.toLowerCase().includes("cep") && value.replace(/\D/g, "").length !== 8) return "CEP deve ter 8 dígitos.";
     }
 
     return "";
