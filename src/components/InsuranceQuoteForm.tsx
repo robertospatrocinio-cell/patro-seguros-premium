@@ -672,7 +672,28 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
           </Button>
         </div>
 
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-4 pt-4 border-t border-primary/10 mt-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
+            <a 
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Estou preenchendo o formulário de ${config.type} e gostaria de tirar uma dúvida.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs font-semibold text-green-600 hover:text-green-700 transition-colors"
+              onClick={() => trackWhatsAppClick(`form-help:${config.type.toLowerCase()}`)}
+            >
+              <MessageCircle className="h-4 w-4" />
+              Dúvidas? Chamar no WhatsApp
+            </a>
+            <div className="hidden sm:block w-px h-3 bg-slate-300" />
+            <a 
+              href="mailto:atendimento@patroseguros.com.br"
+              className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-primary transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              Enviar por E-mail
+            </a>
+          </div>
+
           <p className="text-[10px] text-muted-foreground text-center flex items-center gap-1.5">
             <Save className="h-3 w-3 text-primary" />
             Progresso salvo automaticamente · 100% gratuito e sem compromisso
@@ -687,6 +708,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
     </div>
   );
 };
+
 
 export default InsuranceQuoteForm;
 
