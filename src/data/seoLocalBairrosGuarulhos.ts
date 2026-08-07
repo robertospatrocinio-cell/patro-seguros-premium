@@ -198,9 +198,11 @@ export const seoLocalBairrosGuarulhos: Record<string, SeoLocalPageConfig> = BAIR
     nearbyAreas,
     relatedInsurances: [
       { title: "Seguros em Guarulhos", link: "/seguros-guarulhos" },
+      { title: "Seguro Residencial", link: "/seguro-residencial" },
       { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
       { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
       { title: "Plano de Saúde Guarulhos", link: "/plano-saude-guarulhos" }
+
     ]
   };
   return acc;

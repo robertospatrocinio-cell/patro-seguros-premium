@@ -131,6 +131,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         ],
       }}
       relatedInsurances={[
+        { title: "Seguros em Guarulhos", link: "/seguros-guarulhos" },
         { title: "Seguro Condomínio", link: "/seguro-condominio" },
         { title: "Seguro Fiança Locatícia", link: "/seguro-fianca-locaticia" },
         { title: "Seguro Auto", link: "/seguro-auto" },
@@ -138,6 +139,7 @@ O seguro residencial protege tanto a estrutura do imóvel quanto os bens móveis
         { title: "Cotação de Seguro Residencial Online (2h)", link: "/cotacao-seguro-residencial-online" },
         { title: "Seguro para Flats e Imóveis Mobiliados", link: "/seguro-flat-guarulhos" },
       ]}
+
       extraSections={<ComparisonTableResidencial />}
       quoteFormFields={[
         { id: "tipo", label: "Tipo de imóvel", placeholder: "Selecione", type: "select", options: ["Apartamento", "Casa", "Flat", "Sobrado", "Cobertura"] },

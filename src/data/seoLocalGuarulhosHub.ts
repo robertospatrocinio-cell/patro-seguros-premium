@@ -66,9 +66,12 @@ export const seoLocalGuarulhosHub: SeoLocalPageConfig = {
     "Fale com um corretor local que entende as estatísticas da sua rua."
   ],
   relatedInsurances: [
+    { title: "Seguro Residencial", link: "/seguro-residencial" },
+    { title: "Seguro para Flats em Guarulhos", link: "/seguro-flat-guarulhos" },
     { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
     { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
     { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
-    { title: "Planos de Saúde Guarulhos", link: "/plano-saude-guarulhos" }
+    { title: "Planos de Saúde Guarulhos", link: "/planos-saude-guarulhos" }
   ]
+
 };

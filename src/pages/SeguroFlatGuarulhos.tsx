@@ -1,6 +1,7 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-seguro-residencial.webp";
 import { Helmet } from "react-helmet-async";
+import ComparisonTableResidencial from "@/components/ComparisonTableResidencial";
 
 const TIPOS = [
   { title: "Flat para moradia própria", link: "/seguro-residencial", summary: "Proteção residencial para quem mora em flat: estrutura, conteúdo, RC e assistência 24h." },
@@ -9,6 +10,7 @@ const TIPOS = [
   { title: "Flat para temporada / Airbnb / Booking", link: "/seguro-flat-guarulhos", summary: "Uso de curta duração — aceitação e coberturas variam conforme seguradora e uso declarado." },
   { title: "Flat para investimento", link: "/patro-private", summary: "Proteção patrimonial para investidores imobiliários — mobília, imóvel e riscos de locação." },
 ];
+
 
 const SeguroFlatGuarulhos = () => (
   <>
@@ -105,12 +107,15 @@ const SeguroFlatGuarulhos = () => (
       ]}
       relatedInsurances={[
         { title: "Seguro Residencial", link: "/seguro-residencial" },
+        { title: "Seguros em Guarulhos", link: "/seguros-guarulhos" },
         { title: "Seguro Fiança Locatícia", link: "/seguro-fianca-locaticia" },
         { title: "Patro Private", link: "/patro-private" },
         { title: "Seguro Residencial Alto Padrão em Guarulhos", link: "/seguro-residencial-alto-padrao-guarulhos" },
         { title: "Seguro Condomínio Residencial", link: "/seguro-condominio-residencial" },
         { title: "Proteção Patrimonial Familiar", link: "/protecao-patrimonial-familiar-guarulhos" },
       ]}
+      extraSections={<ComparisonTableResidencial />}
+
       canonicalUrl="https://www.patroseguros.com.br/seguro-flat-guarulhos"
       localSeo={{ city: "Guarulhos" }}
     />
