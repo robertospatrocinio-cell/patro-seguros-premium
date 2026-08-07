@@ -229,6 +229,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Implementar schema.org LocalBusiness e dados NAP consistentes em todas as páginas para fortalecer o SEO local em Guarulhos.",
   },
+  {
+    from: "/landing-pages-bairros-guarulhos",
+    to: "/seguros-em-guarulhos",
+    reason: "Execute esta instrucao no projeto: Adicionar landing pages para bairros e regiões de Guarulhos com CTAs de “Pedir Cotação” e FAQ local para aumentar relevância geográfica.",
+  },
 ];
 
 /**
