@@ -249,6 +249,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Implementar a marcação Schema.org BreadcrumbList no site para melhorar a compreensão de navegação pelos mecanismos de busca.",
   },
+  {
+    from: "/lp-bairros-detalhadas-guarulhos",
+    to: "/seguros-em-guarulhos",
+    reason: "Execute esta instrucao no projeto: Adicionar landing pages para bairros e regiões específicas de Guarulhos, cada uma com CTA “Pedir Cotação”, “Falar no WhatsApp”, FAQ local e copy otimizada para SEO.",
+  },
 ];
 
 /**
