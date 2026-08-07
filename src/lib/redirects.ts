@@ -194,6 +194,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Revisar e padronizar Open Graph e Twitter Cards em todas as páginas, garantindo títulos, descrições e imagens corretos para compartilhamento.",
   },
+  {
+    from: "/testar-social-previews",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar um teste que verifique o compartilhamento (previews) em WhatsApp e redes sociais, confirmando que a URL renderiza a descrição e imagem corretas.",
+  },
 ];
 
 /**
