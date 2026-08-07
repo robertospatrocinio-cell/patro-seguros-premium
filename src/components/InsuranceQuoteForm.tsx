@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
-import { trackCotacaoSubmit } from "@/lib/tracking";
+import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
 import { safeInvoke, handleSupabaseError } from "@/lib/supabase-helpers";
 import { escapeHtml, validateEmail, validatePhone } from "@/lib/utils";
 import { toast } from "sonner";
