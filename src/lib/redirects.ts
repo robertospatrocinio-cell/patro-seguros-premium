@@ -274,6 +274,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar a marcação schema.org do tipo BreadcrumbList para melhorar a navegação e a exibição nos resultados do Google.",
   },
+  {
+    from: "/organization-schema-registro",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implementar a marcação schema.org de Organization e ContactPoint com NAP consistente para reforçar autoridade e detalhes de contato.",
+  },
 ];
 
 /**
