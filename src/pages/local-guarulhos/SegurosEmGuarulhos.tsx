@@ -63,7 +63,7 @@ const SegurosEmGuarulhos = () => {
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <Link to={`/${b.slug}`}>
+                    <Link to={`/seguros-guarulhos/${b.slug}`}>
                       <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-all">
                         Ver seguros em {b.nome} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
