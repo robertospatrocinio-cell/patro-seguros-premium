@@ -129,7 +129,7 @@ const SeguroAuto = () => {
             <div className="py-24 md:py-32 max-w-3xl mx-auto text-center">
               <div className="text-5xl mb-6 animate-fade-up" role="img" aria-label="Seguro Auto">🚗</div>
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
-                Seguro Auto em Guarulhos com Consultoria Especializada
+                Seguro Auto em Guarulhos | Cotação com 16 Seguradoras
               </h1>
               <p className="text-base md:text-lg text-white/60 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">
                 Uma consultoria que analisa seu perfil em 16 seguradoras, encontra a melhor combinação de preço e cobertura para o seu carro — e responde por você em todas as etapas. Economia média de até 35%, com atendimento humano em Guarulhos.

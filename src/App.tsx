@@ -124,6 +124,7 @@ const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const CookieBanner = lazy(() => import("@/components/CookieBanner"));
 
 
+const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
 const Blog = lazyWithRetry(() => import("./pages/Blog"), "Blog");
 const BlogArticle = lazyWithRetry(() => import("./pages/BlogArticle"), "BlogArticle");
 const BlogCategory = lazyWithRetry(() => import("./pages/BlogCategory"), "BlogCategory");

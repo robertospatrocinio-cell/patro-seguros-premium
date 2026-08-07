@@ -609,7 +609,7 @@ const Index = () => {
                   { label: "Taboão", href: "/seguros-guarulhos/taboao" },
                   { label: "Vila Galvão", href: "/seguros-guarulhos/vila-galvao" },
                   { label: "Macedo", href: "/seguros-guarulhos" },
-                  { label: "Cidade Maia", href: "/seguros- shopping-maia-cidade-maia-guarulhos" },
+                  { label: "Cidade Maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos" },
                   { label: "Vila Augusta", href: "/seguro-auto-vila-augusta" },
                   { label: "Gopoúva", href: "/seguros-guarulhos" },
                   { label: "Ponte Grande", href: "/seguros-guarulhos" },

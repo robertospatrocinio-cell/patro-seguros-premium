@@ -162,7 +162,7 @@ const HubSegurosGuarulhos = () => {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.08] border border-white/10 text-white/70 text-xs mb-6">
                 <MapPin className="h-3.5 w-3.5" /> Cidade Maia, Guarulhos/SP
               </div>
-               <h1 className="text-white text-balance mb-5">Seguros em Guarulhos com Atendimento Consultivo | Patro Seguros</h1>
+                <h1 className="text-white text-balance mb-5">Seguros em Guarulhos com Atendimento Consultivo | Patro Seguros</h1>
                <p className="text-base md:text-lg text-white/60 mb-10 max-w-2xl mx-auto">
                  Da proteção do seu carro na Dutra à blindagem estratégica de galpões em Cumbica. Entenda por que a Patro é a autoridade máxima em seguros na região.
                </p>
