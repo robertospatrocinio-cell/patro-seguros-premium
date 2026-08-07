@@ -239,6 +239,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Integrar a estratégia de SEO local com o Google Business Profile, incluindo botões de WhatsApp e um bloco com horários e serviços para conversão.",
   },
+  {
+    from: "/implementar-schema-faqpage",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar a marcação Schema.org do tipo FAQPage nos FAQs de todas as páginas para habilitar rich results no Google.",
+  },
 ];
 
 /**
