@@ -299,6 +299,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicione uma seção de FAQ completa e otimizada para SEO na página “Serviços e Horários”, incluindo perguntas sobre atendimento, tipos de serviço e como pedir cotação.",
   },
+  {
+    from: "/schema-faq-servicos-horarios",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implemente schema.org para FAQ e para a página “Serviços e Horários”, garantindo rich snippets nos resultados de busca.",
+  },
 ];
 
 /**
