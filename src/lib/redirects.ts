@@ -354,6 +354,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: o núcleo de infraestrutura de SEO do projeto esta fazendo as alteracoes corretas?",
   },
+  {
+    from: "/checklist-lighthouse-100",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Gere um checklist detalhado do que falta para atingir 100/100 no Lighthouse, com ações priorizadas por impacto e estimativa de esforço.",
+  },
 ];
 
 /**
