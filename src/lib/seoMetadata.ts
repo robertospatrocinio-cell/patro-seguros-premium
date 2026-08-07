@@ -315,17 +315,6 @@ const premiumPages: Record<string, PremiumMeta> = {
       { question: "Posso incluir obras de arte e joias?", answer: "Sim, mediante laudo e declaração de itens, com cobertura específica e franquia adequada." },
     ],
   },
-  "/seguro-flat-guarulhos": {
-    title: "Seguro para Flat em Guarulhos | Residencial e Locação | Patro",
-    description: "Seguro para flats residenciais, mobiliados ou locação (Airbnb/temporada) em Guarulhos. Proteção para móveis, eletrônicos e RC. Cotação consultiva.",
-    h1: "Seguro para Flat em Guarulhos e SP",
-    serviceType: "Seguro Residencial para Flats e Studios",
-    faqs: [
-      { question: "Seguro residencial cobre flat?", answer: "Sim, mas a aceitação depende do uso (moradia, aluguel tradicional ou temporada). A Patro orienta a escolha do produto correto para cada perfil." },
-      { question: "Cobre danos causados por hóspedes?", answer: "Depende do produto e da declaração de uso para temporada. Algumas apólices oferecem coberturas específicas para locadores." },
-      { question: "Inquilino ou proprietário deve contratar?", answer: "Depende do contrato. O proprietário protege o imóvel/mobília e o inquilino protege seus bens e RC familiar." },
-    ],
-  },
   "/seguros-para-empresarios-guarulhos": {
     title: "Seguros Para Empresários em Guarulhos | Patro",
     description: "Proteção para empresários, sócios e executivos: vida, saúde, D&O, RC, cyber, frota, patrimônio e sucessão.",
