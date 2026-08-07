@@ -324,6 +324,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Gerar e configurar sitemap.xml e robots.txt otimizados para todas as landing pages de bairro, garantindo indexação mais rápida pelos mecanismos de busca.",
   },
+  {
+    from: "/contact-point-schema-registro",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar a marcação schema.org 'ContactPoint' com os canais de contato (telefone, e-mail e WhatsApp) da Patro Corretora de Seguros.",
+  },
 ];
 
 /**
