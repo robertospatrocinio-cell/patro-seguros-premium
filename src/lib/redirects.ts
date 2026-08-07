@@ -329,6 +329,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar a marcação schema.org 'ContactPoint' com os canais de contato (telefone, e-mail e WhatsApp) da Patro Corretora de Seguros.",
   },
+  {
+    from: "/website-searchaction-schema-registro",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implementar schema.org 'WebSite' com 'SearchAction' para melhorar a busca do site nos resultados do Google.",
+  },
 ];
 
 /**
