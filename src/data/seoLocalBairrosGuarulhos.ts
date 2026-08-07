@@ -3,7 +3,6 @@ import { generateLocalFAQs } from "@/data/localFAQGenerator";
 import { BAIRRO_NEIGHBORS } from "@/lib/bairroNeighbors";
 import { bairros } from "@/lib/bairrosData";
 
-
 /**
  * Matriz estratégica de bairros de Guarulhos.
  * Mapeia o perfil socioeconômico e os seguros prioritários para cada região.
@@ -113,7 +112,20 @@ export const BAIRROS_MATRIZ = [
 
 export const seoLocalBairrosGuarulhos: Record<string, SeoLocalPageConfig> = BAIRROS_MATRIZ.reduce((acc, b) => {
   const productKey = b.prioritarios[0] as any; // Usar o primeiro da lista como destaque
-  
+  const neighborSlugs = BAIRRO_NEIGHBORS[b.id] || [];
+  const nearbyAreas = neighborSlugs.map(nid => {
+    const neighbor = BAIRROS_MATRIZ.find(m => m.id === nid);
+    if (neighbor) {
+      return { name: neighbor.nome, link: `/seguros-guarulhos/${neighbor.slug}` };
+    }
+    // Fallback para os IDs de bairrosData se não estiver na matriz estratégica
+    const fallback = bairros.find(x => x.id === nid);
+    if (fallback) {
+      return { name: fallback.nome, link: `/seguros-guarulhos/${nid}` };
+    }
+    return null;
+  }).filter(Boolean) as { name: string; link: string }[];
+
   acc[b.slug] = {
     slug: b.slug,
     title: `Seguros em ${b.nome} Guarulhos | Atendimento Local Patro`,
@@ -123,7 +135,7 @@ export const seoLocalBairrosGuarulhos: Record<string, SeoLocalPageConfig> = BAIR
     icon: "📍",
     neighborhood: b.nome,
     city: "Guarulhos",
-    detailedDescription: `### Seguros no bairro ${b.nome} em Guarulhos\n\nO bairro ${b.nome} é ${b.perfil} Para moradores e empresários desta região, a Patro Seguros oferece uma consultoria completa para identificar quais coberturas são essenciais conforme a realidade local. ${b.contexto}\n\n### Atendimento Próximo e Consultivo\n\nNossa sede física no Cidade Maia permite que moradores do ${b.nome} tenham um atendimento humanizado, ${b.referencia}. Não somos apenas um site de comparação; somos corretores especialistas que analisam cada apólice para garantir que você não tenha surpresas em caso de sinistro. Seja para o seu veículo, sua residência ou sua empresa, a proximidade com o cliente é nosso maior diferencial.\n\n### Seguros mais indicados para o ${b.nome}\n\nCom base na nossa matriz de risco para Guarulhos, recomendamos para o ${b.nome} os seguintes produtos: ${b.prioritarios.join(", ")}. Por exemplo, para o seguro auto, levamos em conta que o CEP do ${b.nome} possui classificação de risco ${b.risco}, o que influencia diretamente no cálculo da franquia e do prêmio. Nossa equipe ajuda a encontrar a seguradora que oferece a melhor condição para este CEP específico.`,
+    detailedDescription: `### Seguros no bairro ${b.nome} em Guarulhos\n\nO bairro ${b.nome} é ${b.perfil} Para moradores e empresários desta região, a Patro Seguros oferece uma consultoria completa para identificar quais coberturas são essenciais conforme a realidade local. ${b.contexto}\n\n### Atendimento Próximo e Consultivo\n\nNossa sede física no Cidade Maia permite que moradores do ${b.nome} tenham um atendimento humanizado, ${b.referencia}. Não somos apenas um site de comparação; somos corretores especialistas que analisam cada apólice para garantir que você não tenha surpresas em caso de sinistro. Seja para o seu veículo, sua residência ou sua empresa, a proximidade com o cliente é nosso maior diferencial.\n\n### Seguros mais indicados para o ${b.nome}\n\nCom base na nossa matriz de risco para Guarulhos, recomendamos para o ${b.nome} os seguintes produtos: ${b.prioritarios.join(", ")}. Por exemplo, para o seguro auto, levamos em conta que o CEP do ${b.nome} possui classificação de risco ${b.risco}, o que influencia diretamente no cálculo da franquia e do prêmio. Nossa equipe ajuda a encontrar a seguradora que oferece a melhor condição para este CEP específico.\n\n### Corretora de Seguros Referência no ${b.nome}\n\nA Patro Seguros se consolidou como a principal corretora para o ${b.nome} por entender a dinâmica local. Sabemos que a segurança no ${b.nome} exige coberturas específicas contra roubo e furto, além de assistência técnica residencial 24h que realmente chegue rápido à sua casa. Ao cotar conosco, você tem acesso a mais de 16 seguradoras, garantindo o melhor custo-benefício do mercado para quem mora ou trabalha nesta região de Guarulhos.`,
     pricingIntro: `Os valores de seguros no ${b.nome} variam conforme o perfil do contratante e o produto escolhido. Para o seguro auto, por exemplo, o bairro possui risco ${b.risco}, o que permite negociações diferenciadas em certas seguradoras.`,
     pricingFactors: [
       `CEP de pernoite/risco no bairro ${b.nome}`,
@@ -183,6 +195,7 @@ export const seoLocalBairrosGuarulhos: Record<string, SeoLocalPageConfig> = BAIR
       "Aproveite os serviços de assistência 24h que já estão inclusos no seu seguro.",
       "Considere o seguro residencial: o custo é baixo e a proteção é alta no seu bairro."
     ],
+    nearbyAreas,
     relatedInsurances: [
       { title: "Seguros em Guarulhos", link: "/seguros-guarulhos" },
       { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
