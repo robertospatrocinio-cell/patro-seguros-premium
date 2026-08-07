@@ -319,6 +319,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar schema.org LocalBusiness e Organization com NAP (nome, endereço e telefone) e dados de contato da Patro Corretora de Seguros para reforçar SEO local.",
   },
+  {
+    from: "/sitemap-robots-bairros-otimizacao",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Gerar e configurar sitemap.xml e robots.txt otimizados para todas as landing pages de bairro, garantindo indexação mais rápida pelos mecanismos de busca.",
+  },
 ];
 
 /**
