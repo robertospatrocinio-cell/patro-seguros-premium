@@ -376,12 +376,19 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       htmlBody 
     });
 
-     if (error) {
-       handleSupabaseError(error, "Não foi possível registrar seu pedido digitalmente.");
-       toast.info("Você pode ligar para (11) 5199-7500 se o erro persistir.", { duration: 10000 });
-       setSending(false);
-       return;
-     }
+      if (error) {
+        console.error("Erro no envio:", error);
+        handleSupabaseError(error, "Não foi possível registrar seu pedido digitalmente.");
+        toast.error("Ocorreu um erro no servidor. Por favor, tente novamente ou fale conosco via WhatsApp.", { 
+          duration: 10000,
+          action: {
+            label: "WhatsApp",
+            onClick: () => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Tentei enviar o formulário de ${config.type} mas deu erro.`, "_blank")
+          }
+        });
+        setSending(false);
+        return;
+      }
 
     setTimeout(() => {
       setSending(false);
