@@ -1,7 +1,9 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import ComparisonTableResidencial from "@/components/ComparisonTableResidencial";
 import heroImg from "@/assets/lp-seguro-residencial.webp";
 
 const LandingSeguroResidencial = () => (
+
   <LandingPageTemplate
     heroImage={heroImg}
     title="Seguro Residencial"
@@ -51,6 +53,7 @@ const LandingSeguroResidencial = () => (
       { question: "Posso comparar várias seguradoras em uma única cotação?", answer: "Sim — esse é o principal motivo de cotar com uma corretora e não direto no site de uma seguradora. Trabalhamos com 16+ seguradoras (Porto, Bradesco, Allianz, Tokio, Mapfre, Liberty, HDI, Azul, Suhai, Sompo, entre outras) e apresentamos as 3 melhores para o seu perfil." },
       { question: "Preciso morar em Guarulhos para cotar com a Patro Seguros?", answer: "Não. Somos corretora com sede em Guarulhos/SP mas atendemos todo o Brasil online. A cotação e a assinatura da apólice são 100% digitais, sem precisar sair de casa." },
     ]}
+    extraSections={<ComparisonTableResidencial />}
   />
 );
 
