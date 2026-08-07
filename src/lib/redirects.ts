@@ -204,6 +204,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Revisar canônicos e regras de redirects para garantir que cada página compartilhada use a URL canônica correta e não caia em variações duplicadas.",
   },
+  {
+    from: "/avaliar-nota-seo-guarulhos",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: qual nota de 100/100 voce daria para o site agora, com forte presenca seo em guarulhos",
+  },
 ];
 
 /**
