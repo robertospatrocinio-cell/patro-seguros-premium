@@ -314,15 +314,25 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
     setSending(true);
 
+    const leadName = formData.nome || formData.name || "Cliente";
+    const leadPhone = formData.whatsapp || formData.telefone || formData.phone || "";
+    
     const parts = [
-      `Olá! Gostaria de uma cotação de *${config.type}*.`,
+      `*Solicitação de Cotação - Patro Seguros*`,
+      `*Lead:* ${leadName}`,
+      `*Contato:* ${leadPhone}`,
+      `*Produto:* ${config.type}`,
+      `---`,
       ...config.fields.map(f => {
         if (f.type === "checkbox-group") {
           const vals = checkboxGroups[f.id];
-          return vals?.length ? `${f.label}: ${vals.join(", ")}` : null;
+          return vals?.length ? `*${f.label}:* ${vals.join(", ")}` : null;
         }
-        return formData[f.id]?.trim() ? `${f.label}: ${formData[f.id].trim()}` : null;
+        const val = formData[f.id]?.trim();
+        return val ? `*${f.label}:* ${val}` : null;
       }).filter(Boolean),
+      `---`,
+      `Olá! Acabei de enviar minha cotação pelo site e gostaria de agilizar o atendimento.`
     ].join("\n");
 
     trackCotacaoSubmit(config.type);
