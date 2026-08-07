@@ -234,6 +234,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/seguros-em-guarulhos",
     reason: "Execute esta instrucao no projeto: Adicionar landing pages para bairros e regiões de Guarulhos com CTAs de “Pedir Cotação” e FAQ local para aumentar relevância geográfica.",
   },
+  {
+    from: "/integrar-google-business-seo",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Integrar a estratégia de SEO local com o Google Business Profile, incluindo botões de WhatsApp e um bloco com horários e serviços para conversão.",
+  },
 ];
 
 /**
