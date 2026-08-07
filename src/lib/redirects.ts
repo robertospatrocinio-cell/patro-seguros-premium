@@ -339,6 +339,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar Open Graph e Twitter Card (título, descrição, imagem e URL canônica) em todas as páginas para melhorar a pré-visualização em compartilhamentos.",
   },
+  {
+    from: "/faqpage-schema-reinforcement",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar a marcação schema.org 'FAQPage' nas seções de FAQ de todas as páginas para reforçar rich snippets no Google.",
+  },
 ];
 
 /**
