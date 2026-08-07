@@ -364,6 +364,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Otimize todas as imagens do site com WebP/AVIF, tamanhos responsivos, lazy loading e compressão para melhorar o carregamento e o CLS.",
   },
+  {
+    from: "/melhorias-core-web-vitals",
+    to: "/admin/web-vitals-correlacao",
+    reason: "Execute esta instrucao no projeto: Implemente melhorias de Core Web Vitals (reduzir JS, habilitar tree-shaking, minificar e carregar scripts críticos) para aumentar o desempenho e o TBT.",
+  },
 ];
 
 /**
