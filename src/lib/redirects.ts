@@ -279,6 +279,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Implementar a marcação schema.org de Organization e ContactPoint com NAP consistente para reforçar autoridade e detalhes de contato.",
   },
+  {
+    from: "/sitemap-robots-gsc-auto",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Gerar e revisar o sitemap.xml e o robots.txt do site, e automatizar a submissão no Google Search Console para acelerar a indexação.",
+  },
 ];
 
 /**
