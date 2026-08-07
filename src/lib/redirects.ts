@@ -224,6 +224,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Implementar a marcação Schema.org de LocalBusiness e Organization com nome, endereço, telefone, e-mail e dados de contato no site inteiro.",
   },
+  {
+    from: "/padronizar-nap-localbusiness",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implementar schema.org LocalBusiness e dados NAP consistentes em todas as páginas para fortalecer o SEO local em Guarulhos.",
+  },
 ];
 
 /**
