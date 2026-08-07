@@ -15,7 +15,7 @@ const LandingSeguroResidencial = () => (
     priceAnchor="A partir de R$ 15/mês* — menos que um café por dia"
     guaranteeText="Cotação 100% gratuita, sem compromisso. Apresentamos as melhores opções e você decide com calma."
     painPoints={[
-      "Mora em casa ou apartamento sem nenhum tipo de seguro e torce para nada acontecer?",
+      "Mora em casa, apartamento ou flat sem nenhum tipo de seguro e torce para nada acontecer?",
       "Já teve eletrodoméstico queimado por raio ou oscilação elétrica e pagou do bolso?",
       "Se houvesse um incêndio hoje, você teria como reconstruir tudo?",
       "Precisou de um encanador ou eletricista de emergência e pagou uma fortuna no fim de semana?",

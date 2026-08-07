@@ -310,6 +310,7 @@ const premiumPages: Record<string, PremiumMeta> = {
     h1: "Seguro Residencial Alto Padrão em Guarulhos",
     serviceType: "Seguro Residencial para Imóveis de Alto Padrão",
     faqs: [
+      { question: "O seguro do prédio cobre minha unidade?", answer: "Não. O seguro do condomínio cobre apenas áreas comuns e a estrutura global. O conteúdo (móveis, eletrônicos) e benfeitorias internas exigem seguro residencial individual." },
       { question: "Casa em condomínio fechado precisa de seguro próprio?", answer: "Sim. O seguro do condomínio cobre áreas comuns e estrutura coletiva, não o conteúdo nem a estrutura privativa da sua residência." },
       { question: "Posso incluir obras de arte e joias?", answer: "Sim, mediante laudo e declaração de itens, com cobertura específica e franquia adequada." },
     ],
@@ -430,12 +431,6 @@ const premiumPages: Record<string, PremiumMeta> = {
     h1: "Seguro para Vistoriadora de Veículos",
     serviceType: "Seguro para Vistoriadoras Veiculares",
   },
-  "/seguro-flat-guarulhos": {
-    title: "Seguro para Flat em Guarulhos | Patro Seguros",
-    description: "Seguro para flat em Guarulhos: residencial, mobiliado, locação tradicional e temporada (Airbnb). Coberturas para proprietário, inquilino e conteúdo.",
-    h1: "Seguro para Flat em Guarulhos",
-    serviceType: "Seguro Residencial para Flats",
-  },
   "/seguro-sala-comercial-guarulhos": {
     title: "Seguro Sala Comercial em Guarulhos | Patro",
     description: "Seguro para sala comercial em Guarulhos: consultórios, escritórios, advocacia, contabilidade e coworking. Cobertura patrimonial, RC e equipamentos.",
@@ -447,6 +442,17 @@ const premiumPages: Record<string, PremiumMeta> = {
     description: "Seguro para consultório em Guarulhos: médico, odontológico, veterinário, estética e equipamentos. RC Profissional, patrimonial, cyber e LGPD.",
     h1: "Seguro para Consultório em Guarulhos",
     serviceType: "Seguro Empresarial para Consultórios e Clínicas",
+  },
+  "/seguro-flat-guarulhos": {
+    title: "Seguro para Flat em Guarulhos | Residencial e Locação | Patro",
+    description: "Seguro para flats residenciais, mobiliados ou locação (Airbnb/temporada) em Guarulhos. Proteção para móveis, eletrônicos e RC. Cotação consultiva.",
+    h1: "Seguro para Flat em Guarulhos e SP",
+    serviceType: "Seguro Residencial para Flats e Studios",
+    faqs: [
+      { question: "Seguro residencial cobre flat?", answer: "Sim, mas a aceitação depende do uso (moradia, aluguel tradicional ou temporada). A Patro orienta a escolha do produto correto para cada perfil." },
+      { question: "Cobre danos causados por hóspedes?", answer: "Depende do produto e da declaração de uso para temporada. Algumas apólices oferecem coberturas específicas para locadores." },
+      { question: "Inquilino ou proprietário deve contratar?", answer: "Depende do contrato. O proprietário protege o imóvel/mobília e o inquilino protege seus bens e RC familiar." },
+    ],
   },
   "/seguradoras-parceiras": {
     title: "Seguradoras Parceiras em Guarulhos | Patro Seguros",
