@@ -209,6 +209,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: qual nota de 100/100 voce daria para o site agora, com forte presenca seo em guarulhos",
   },
+  {
+    from: "/gerar-sitemap-automatico",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Gerar um sitemap.xml automático com todas as rotas do site e atualizações de lastmod para melhorar indexação no Google.",
+  },
 ];
 
 /**
