@@ -344,6 +344,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Adicionar a marcação schema.org 'FAQPage' nas seções de FAQ de todas as páginas para reforçar rich snippets no Google.",
   },
+  {
+    from: "/auditoria-notas-100-check",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: o que falta para o site atingir as notas 100/100",
+  },
 ];
 
 /**
