@@ -890,7 +890,7 @@ const App = () => {
                   <Route path="/seguro-renegade-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   {/* Auto — bairros (vão ao hub de bairros) */}
                   <Route path="/seguro-auto-bonsucesso-guarulhos" element={<Navigate to="/seguro-auto-bonsucesso" replace />} />
-                  <Route path="/seguro-auto-centro-guarulhos" element={<Navigate to="/seguros-guarulhos/centro" replace />} />
+                  <Route path="/seguro-auto-centro-guarulhos" element={<SeoLocalPage slug="seguro-auto-centro-guarulhos" />} />
                   <Route path="/seguro-auto-cumbica" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-cumbica" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-jardim-sao-joao" element={<Navigate to="/seguros-guarulhos/jardim-sao-joao" replace />} />
                   <Route path="/seguro-auto-maia-guarulhos" element={<Navigate to="/seguro-auto-maia" replace />} />
