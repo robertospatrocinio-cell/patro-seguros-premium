@@ -290,6 +290,10 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       setCurrentStep(currentStep + 1);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    // Set captcha as touched when reaching review step
+    if (currentStep === totalSteps - 1) {
+      setTouched(prev => ({ ...prev, captcha: true }));
+    }
   };
 
 
