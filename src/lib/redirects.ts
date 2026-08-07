@@ -284,6 +284,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Gerar e revisar o sitemap.xml e o robots.txt do site, e automatizar a submissão no Google Search Console para acelerar a indexação.",
   },
+  {
+    from: "/thank-you-page-optimization",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Adicionar uma página de agradecimento pós-envio com próximos passos, CTA de WhatsApp e FAQ rápida para eu aumentar a taxa de conversão.",
+  },
 ];
 
 /**
