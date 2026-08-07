@@ -1,6 +1,8 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import ComparisonTableResidencial from "@/components/ComparisonTableResidencial";
+import FAQSchema from "@/components/FAQSchema";
 import heroImg from "@/assets/lp-seguro-residencial.webp";
+
 
 const LandingSeguroResidencial = () => (
 
@@ -53,8 +55,18 @@ const LandingSeguroResidencial = () => (
       { question: "Posso comparar várias seguradoras em uma única cotação?", answer: "Sim — esse é o principal motivo de cotar com uma corretora e não direto no site de uma seguradora. Trabalhamos com 16+ seguradoras (Porto, Bradesco, Allianz, Tokio, Mapfre, Liberty, HDI, Azul, Suhai, Sompo, entre outras) e apresentamos as 3 melhores para o seu perfil." },
       { question: "Preciso morar em Guarulhos para cotar com a Patro Seguros?", answer: "Não. Somos corretora com sede em Guarulhos/SP mas atendemos todo o Brasil online. A cotação e a assinatura da apólice são 100% digitais, sem precisar sair de casa." },
     ]}
-    extraSections={<ComparisonTableResidencial />}
+    extraSections={
+      <>
+        <ComparisonTableResidencial />
+        <FAQSchema faqs={[
+          { question: "Qual a diferença de preço entre seguro de casa e apartamento?", answer: "O seguro de apartamento é geralmente 30% a 50% mais barato que o de casa, pois não há risco de roubo pelo telhado ou danos à estrutura externa, que são cobertos pelo condomínio." },
+          { question: "Seguro residencial cobre eletrônicos?", answer: "Sim, a cobertura de Danos Elétricos protege contra queima de aparelhos por raios ou oscilações na rede elétrica, enquanto a cobertura de Roubo protege contra a subtração dos bens." },
+          { question: "O seguro residencial tem carência?", answer: "Não, a cobertura começa a valer a partir das 24h da data de vigência da apólice, sem períodos de espera para utilizar as assistências ou coberturas." }
+        ]} />
+      </>
+    }
   />
 );
+
 
 export default LandingSeguroResidencial;
