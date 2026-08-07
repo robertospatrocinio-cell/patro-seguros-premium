@@ -169,6 +169,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Testar as principais URLs com JavaScript desativado e corrigir qualquer fallback para garantir que title, meta description, H1, conteúdo inicial, CTAs e breadcrumbs apareçam corretamente e sejam indexáveis.",
   },
+  {
+    from: "/otimizar-performance-web-vitals",
+    to: "/admin/web-vitals-correlacao",
+    reason: "Execute esta instrucao no projeto: Otimizar performance e Core Web Vitals nas páginas hub e comerciais, com lazy load no Google Maps e redução de JS/CSS, buscando PageSpeed mobile acima de 90.",
+  },
 ];
 
 /**
