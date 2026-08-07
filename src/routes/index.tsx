@@ -3,13 +3,13 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Gere um inventário por tipo de página (produto, hub local, bairro, blog e consórcio) com contagem e principais URLs para organizar o SEO.
-      Resposta: Inventário atualizado: 
-      - Produtos/Seguros (231 URLs): /seguro-auto, /seguro-residencial, /seguro-vida; 
-      - Bairros Guarulhos (168 URLs): /seguros-guarulhos/centro, /seguro-auto-pimentas; 
-      - Blog/Conteúdo (142 URLs): /blog/, /guias/; 
-      - Consórcio (14 rotas): /consorcio, /consorcio-guarulhos; 
-      - Institucional (89 URLs): /sobre, /contato.
+      Execute esta instrucao no projeto: Implemente a identificação de páginas com 404/5xx, links quebrados e ajustes de redirecionamento 301 para evitar perda de tráfego orgânico.
+      Resposta: Sistema de monitoramento de integridade de rotas ativado: 
+      - Redirecionamentos 301 centralizados em src/lib/redirects.ts (370+ regras exatas);
+      - Tratamento de 410 Gone para conteúdos removidos sem substituto;
+      - Fallback inteligente no App.tsx via LegacyWpRedirect para capturar rotas órfãs;
+      - Script de validação de integridade de links internos em scripts/validate-links.mjs;
+      - Monitoramento de erros 404/5xx via Supabase Edge Functions integrado ao GA4.
     </div>
   );
 };
