@@ -309,6 +309,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Verificar e validar os rich snippets de BreadcrumbList no Google Search Console e no Rich Results Test, corrigindo quaisquer erros de schema.org.",
   },
+  {
+    from: "/implementar-faqpage-global",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Implementar a marcação schema.org do tipo FAQPage em todas as seções de FAQ do site, garantindo rich snippets e consistência de headings.",
+  },
 ];
 
 /**
