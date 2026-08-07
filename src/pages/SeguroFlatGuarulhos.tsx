@@ -92,18 +92,13 @@ const SeguroFlatGuarulhos = () => (
         },
       ]}
       faqs={[
+        { question: "O que o seguro para flat cobre em Guarulhos?", answer: "Cobre incêndio, raio, explosão, roubo e furto qualificado, danos elétricos (muito comum em flats com muitos eletrônicos), responsabilidade civil e assistência 24h completa (chaveiro, encanador, eletricista)." },
+        { question: "O seguro cobre danos causados por hóspedes de Airbnb?", answer: "Sim, na Patro Seguros trabalhamos com seguradoras que possuem cláusulas específicas para locação de curta temporada, protegendo seu patrimônio contra danos causados por inquilinos temporários." },
+        { question: "Qual a diferença entre o seguro do condomínio e o seguro do flat?", answer: "O seguro do condomínio protege as áreas comuns e a estrutura global. O seguro do flat (residencial individual) protege seus bens (móveis, eletrônicos), benfeitorias internas e danos que você possa causar aos vizinhos (vazamentos)." },
+        { question: "Como funciona a assistência 24h para flats mobiliados?", answer: "Oferecemos assistência completa que inclui reparo em eletrodomésticos, além dos serviços emergenciais de hidráulica e elétrica, garantindo que o imóvel esteja sempre pronto para uso ou locação." },
         { question: "Seguro residencial cobre flat?", answer: "Em geral, sim — mas as condições dependem do uso do imóvel e da aceitação da seguradora. Flats residenciais costumam ser aceitos como imóveis residenciais. Flats mobiliados, para locação ou temporada exigem análise específica." },
         { question: "Posso fazer seguro para flat alugado?", answer: "Sim. O seguro pode ser contratado pelo proprietário, pelo inquilino ou por ambos, dependendo do contrato de locação e das responsabilidades envolvidas." },
-        { question: "Seguro cobre flat mobiliado?", answer: "Sim. Móveis, eletrodomésticos e eletrônicos podem ser cobertos como conteúdo, conforme apólice e valores declarados." },
-        { question: "Seguro cobre danos causados por hóspede?", answer: "Depende do produto e da aceitação da seguradora. Nem todas as apólices residenciais cobrem danos causados por hóspedes em locação por temporada — é preciso avaliar produto compatível." },
-        { question: "Seguro cobre Airbnb?", answer: "A aceitação e cobertura para locação por temporada (Airbnb, Booking e similares) dependem da seguradora, produto contratado e condições da apólice. Declarar corretamente o uso é essencial." },
-        { question: "Proprietário ou inquilino deve contratar seguro?", answer: "Depende do contrato de locação. O proprietário costuma proteger imóvel e mobília; o inquilino pode proteger seus bens e responsabilidade civil. Dúvidas jurídicas devem ser avaliadas com advogado ou imobiliária." },
-        { question: "Seguro para flat cobre mobília?", answer: "Sim, quando declarada como conteúdo. Móveis planejados podem exigir cobertura específica, conforme apólice." },
-        { question: "Seguro para flat cobre aluguel perdido?", answer: "Alguns produtos oferecem cobertura de perda ou pagamento de aluguel em caso de evento coberto, quando disponível. Consulte condições no momento da cotação." },
-        { question: "Seguro fiança serve para flat?", answer: "Sim. O seguro fiança locatícia pode ser usado como garantia em contratos de locação de flats, sujeito à análise cadastral e aceitação da seguradora." },
-        { question: "Quanto custa seguro para flat?", answer: "O preço depende do endereço, valor do imóvel e mobília, uso declarado, coberturas escolhidas e análise da seguradora. Não prometemos preço — fazemos comparativo consultivo, sem compromisso." },
-        { question: "A Patro atende flats em Guarulhos e São Paulo?", answer: "Sim. Atendemos Guarulhos, Cidade Maia, Centro, Vila Galvão, Cumbica, Jardim Maia, Vila Augusta, Gopoúva, Picanço, São Paulo, Zona Leste, região do Aeroporto e toda a Grande São Paulo." },
-        { question: "Posso cotar pelo WhatsApp?", answer: "Sim. Fale com nossa equipe pelo WhatsApp e receba um comparativo consultivo, sem compromisso." },
+        { question: "Quanto custa seguro para flat?", answer: "O preço depende do endereço, valor do imóvel e mobília, uso declarado, coberturas escolhidas e análise da seguradora. Não prometemos preço — fazemos comparativo consultivo, sem compromisso." }
       ]}
       relatedInsurances={[
         { title: "Seguro Residencial", link: "/seguro-residencial" },
@@ -115,10 +110,11 @@ const SeguroFlatGuarulhos = () => (
         { title: "Proteção Patrimonial Familiar", link: "/protecao-patrimonial-familiar-guarulhos" },
       ]}
       extraSections={<ComparisonTableResidencial />}
-
       canonicalUrl="https://www.patroseguros.com.br/seguro-flat-guarulhos"
       localSeo={{ city: "Guarulhos" }}
     />
+
+
     <Helmet>
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
