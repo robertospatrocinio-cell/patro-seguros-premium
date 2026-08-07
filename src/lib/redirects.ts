@@ -159,6 +159,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Mapear as páginas conflitantes nos domínios seguroemguarulhos.com.br, seguroempresarialguarulhos.com.br e seguroapartamentoguarulhos.com.br e ajustar canonicals, redirects e links contextuais para apontarem ao domínio https://www.patroseguros.com.br sem canibalização.",
   },
+  {
+    from: "/validar-dados-estruturados",
+    to: "/admin/web-vitals-correlacao",
+    reason: "Execute esta instrucao no projeto: Validar e corrigir todos os dados estruturados (InsuranceAgency, LocalBusiness, FAQPage, BreadcrumbList, Article, Service) garantindo que não haja schemas inválidos e que o percentual de marcação esteja acima de 98%.",
+  },
 ];
 
 /**
