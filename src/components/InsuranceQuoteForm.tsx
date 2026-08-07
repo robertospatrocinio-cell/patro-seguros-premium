@@ -1,3 +1,4 @@
+/** Execute esta instrucao no projeto: Implemente validação completa, máscaras e tratamento de erros no formulário de cotação para reduzir falhas e aumentar a taxa de envio. */
 import { useState, useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,11 +47,13 @@ export interface InsuranceFormConfig {
   metaDescription: string;
 }
 
-/* ── Phone mask helper ──────────────────────────────────── */
+/* ── Masking helpers ──────────────────────────────────── */
 const formatPhone = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length === 0) return "";
   if (digits.length <= 2) return `(${digits}`;
-  if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+  if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
 };
 
@@ -58,6 +61,16 @@ const formatCEP = (value: string) => {
   const digits = value.replace(/\D/g, "").slice(0, 8);
   if (digits.length <= 5) return digits;
   return `${digits.slice(0, 5)}-${digits.slice(5)}`;
+};
+
+const formatCurrency = (value: string) => {
+  const digits = value.replace(/\D/g, "");
+  if (!digits) return "";
+  const amount = (parseInt(digits) / 100).toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
+  return amount;
 };
 
 /* ── The Form Component ─────────────────────────────────── */
@@ -196,7 +209,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
     if (value.trim()) {
       if (field.type === "email" && !validateEmail(value)) return "E-mail inválido. Ex: nome@email.com";
-      if (field.type === "tel" && !validatePhone(value)) return "Formato: (11) 99999-9999";
+      if (field.type === "tel" && !validatePhone(value)) return "WhatsApp inválido. Ex: (11) 99999-9999";
+      if (field.id.toLowerCase().includes("cep") && value.replace(/\D/g, "").length !== 8) return "CEP deve ter 8 dígitos.";
     }
 
     return "";
@@ -363,12 +377,19 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
       htmlBody 
     });
 
-     if (error) {
-       handleSupabaseError(error, "Não foi possível registrar seu pedido digitalmente.");
-       toast.info("Você pode ligar para (11) 5199-7500 se o erro persistir.", { duration: 10000 });
-       setSending(false);
-       return;
-     }
+      if (error) {
+        console.error("Erro no envio:", error);
+        handleSupabaseError(error, "Não foi possível registrar seu pedido digitalmente.");
+        toast.error("Ocorreu um erro no servidor. Por favor, tente novamente ou fale conosco via WhatsApp.", { 
+          duration: 10000,
+          action: {
+            label: "WhatsApp",
+            onClick: () => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Tentei enviar o formulário de ${config.type} mas deu erro.`, "_blank")
+          }
+        });
+        setSending(false);
+        return;
+      }
 
     setTimeout(() => {
       setSending(false);
@@ -622,7 +643,13 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                       type={field.type === "email" ? "text" : field.type === "tel" ? "tel" : field.type === "date" ? "date" : "text"}
                       placeholder={field.placeholder || (field.type === "tel" ? "(11) 99999-9999" : field.type === "email" ? "seu@email.com" : "")}
                       value={formData[field.id] || ""}
-                      onChange={e => update(field.id, field.type === "tel" ? formatPhone(e.target.value) : field.type === "currency" ? e.target.value : e.target.value)}
+                      onChange={e => {
+                        let val = e.target.value;
+                        if (field.type === "tel") val = formatPhone(val);
+                        else if (field.type === "currency") val = formatCurrency(val);
+                        else if (field.id.toLowerCase().includes("cep")) val = formatCEP(val);
+                        update(field.id, val);
+                      }}
                       onBlur={() => handleBlur(field.id)}
                       className={`h-11 ${error ? "border-destructive focus-visible:ring-destructive" : ""}`}
                       aria-invalid={!!error}
