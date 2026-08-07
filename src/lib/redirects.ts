@@ -264,6 +264,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Configurar links de WhatsApp com mensagem pré-preenchida diferente para cada bairro, levando o lead automaticamente para a cotação com mais contexto.",
   },
+  {
+    from: "/servicos-e-horarios-registro",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Criar uma página “Serviços e Horários” com lista de serviços, horários de atendimento e botões fixos para WhatsApp e cotação.",
+  },
 ];
 
 /**
