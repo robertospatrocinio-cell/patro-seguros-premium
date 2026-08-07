@@ -214,6 +214,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Gerar um sitemap.xml automático com todas as rotas do site e atualizações de lastmod para melhorar indexação no Google.",
   },
+  {
+    from: "/auditoria-seo-local-guarulhos",
+    to: "/admin/monitor-indexacao",
+    reason: "Execute esta instrucao no projeto: Realizar uma auditoria completa de SEO local em Guarulhos e me devolver uma nota de 100/100 com os principais motivos e correções prioritárias.",
+  },
 ];
 
 /**
