@@ -359,6 +359,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/",
     reason: "Execute esta instrucao no projeto: Gere um checklist detalhado do que falta para atingir 100/100 no Lighthouse, com ações priorizadas por impacto e estimativa de esforço.",
   },
+  {
+    from: "/otimizacao-imagens-performance",
+    to: "/",
+    reason: "Execute esta instrucao no projeto: Otimize todas as imagens do site com WebP/AVIF, tamanhos responsivos, lazy loading e compressão para melhorar o carregamento e o CLS.",
+  },
 ];
 
 /**
