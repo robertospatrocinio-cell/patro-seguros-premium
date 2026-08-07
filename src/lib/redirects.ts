@@ -174,6 +174,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/admin/web-vitals-correlacao",
     reason: "Execute esta instrucao no projeto: Otimizar performance e Core Web Vitals nas páginas hub e comerciais, com lazy load no Google Maps e redução de JS/CSS, buscando PageSpeed mobile acima de 90.",
   },
+  {
+    from: "/otimizar-links-internos-ancoras",
+    to: "/admin/links-internos",
+    reason: "Execute esta instrucao no projeto: Adicionar e revisar links internos com âncoras descritivas a partir da home, /seguros-em-guarulhos e do blog para as páginas comerciais e bairros, garantindo pelo menos 3 links por página estratégica e 5–10 nos alvos prioritários.",
+  },
 ];
 
 /**
