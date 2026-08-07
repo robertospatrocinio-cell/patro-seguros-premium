@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Gerar link do WhatsApp com mensagem pré-preenchida usando os dados do formulário para aumentar a taxa de resposta do cliente. */
+/** Execute esta instrucao no projeto: Adicionar uma página de confirmação/obrigado após o envio da cotação com próximos passos e CTAs persistentes para contato rápido. */
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
