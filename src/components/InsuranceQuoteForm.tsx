@@ -142,12 +142,21 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
   };
 
 
-  // Group fields into steps
 
+  // Group fields into steps
+  // Inclui campos de tipo de imóvel se não presentes
   const contactFieldIds = ["nome", "email", "telefone", "whatsapp", "phone", "name"];
-  const contactFields = config.fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
-  const coverageFields = config.fields.filter(f => f.type === "checkbox-group");
-  const technicalFields = config.fields.filter(f => !contactFields.includes(f) && !coverageFields.includes(f));
+  
+  // Garantir que tipo de imóvel esteja no step correto se for uma modalidade residencial
+  const fields = config.fields.map(f => {
+    if (f.id === "tipo" && !config.fields.find(f2 => f2.id === "tipo")) return f;
+    return f;
+  });
+
+  const contactFields = fields.filter(f => contactFieldIds.includes(f.id.toLowerCase()));
+  const coverageFields = fields.filter(f => f.type === "checkbox-group");
+  const technicalFields = fields.filter(f => !contactFields.includes(f) && !coverageFields.includes(f));
+
 
   // Define dynamic steps
   const steps = [
