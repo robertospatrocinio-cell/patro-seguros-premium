@@ -29,6 +29,8 @@ export interface Metadata {
 }
 
 const DOMAIN = "https://www.patroseguros.com.br";
+const DEFAULT_GEO_REGION = "BR-SP";
+const DEFAULT_GEO_PLACENAME = "Guarulhos, São Paulo";
 
 /**
  * Mapa de rotas /hub-* → slug do SEO_HUBS correspondente, usado para
