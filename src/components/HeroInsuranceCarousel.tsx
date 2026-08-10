@@ -600,7 +600,7 @@ const HeroInsuranceCarousel = ({
                           height={400}
                           loading="lazy"
                           decoding="async"
-                          {...({ fetchpriority: index === 0 ? "auto" : "low" } as any)}
+                          fetchPriority={index === 0 ? "auto" : "low"}
                           className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover opacity-40 transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-90 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                         />
                       )}
