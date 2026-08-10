@@ -62,7 +62,7 @@ const OptimizedImage = ({
       sizes={sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
       loading={eager ? "eager" : "lazy"}
       decoding={decoding}
-      {...({ fetchpriority: eager ? "high" : "low" } as any)}
+      fetchPriority={eager ? "high" : "low"}
       onLoad={eager ? undefined : () => {
         setLoaded(true);
         if (props.onLoad) (props.onLoad as any)();
