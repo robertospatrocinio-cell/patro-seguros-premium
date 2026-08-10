@@ -114,9 +114,9 @@ Não realizar alterações que modifiquem a identidade visual da Patro Seguros. 
 | **Conversão (CRO)** | Alta | 🟢 Otimizado |
 
 **Core Web Vitals:**
-*   **LCP (Largest Contentful Paint):** 0.8s (Alvo: <2.5s)
-*   **FID (First Input Delay):** 12ms (Alvo: <100ms)
-*   **CLS (Cumulative Layout Shift):** 0.002 (Alvo: <0.1)
+*   LCP (Largest Contentful Paint): 0.8s (Alvo: menor que 2.5s)
+*   FID (First Input Delay): 12ms (Alvo: menor que 100ms)
+*   CLS (Cumulative Layout Shift): 0.002 (Alvo: menor que 0.1)
 
 **Google Search Console & Indexação:**
 *   **Sitemaps:** 6 arquivos segmentados (+630 URLs) validados e sincronizados.
