@@ -94,9 +94,9 @@ const NichoClinicasVeterinarias = () => (
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {paginas.map((p) => (
-              <Link key={p.slug} to={`/${p.slug}`} className="group bg-card p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+              <Link key={p.slug} to={`/${p.slug}`} className="group bg-card p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <PawPrint className="h-6 w-6" />
+                  <PawPrint className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-xl mb-3">{p.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{p.desc}</p>
