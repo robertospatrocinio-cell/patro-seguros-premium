@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Validar as páginas de bairro no Rich Results Test para confirmar que FAQPage, BreadcrumbList e LocalBusiness estão sendo detectados corretamente.
+      Execute esta instrucao no projeto: Verificar se cada página de bairro está gerando corretamente os dados estruturados (FAQPage, BreadcrumbList e LocalBusiness) e registrar o resultado em um checklist.
 
 ---
 
