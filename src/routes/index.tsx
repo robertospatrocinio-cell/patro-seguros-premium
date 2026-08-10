@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Adicionar páginas de destino exclusivas para cada bairro de Guarulhos com H1 único, FAQ e links internos apontando para a página de cotação.
+      Execute esta instrucao no projeto: Implemente dados estruturados (FAQPage, BreadcrumbList e LocalBusiness) em cada landing page de bairro para melhorar rich results e rastreamento do Google.
 
 ---
 
