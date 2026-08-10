@@ -315,6 +315,16 @@ const premiumPages: Record<string, PremiumMeta> = {
       { question: "Posso incluir obras de arte e joias?", answer: "Sim, mediante laudo e declaração de itens, com cobertura específica e franquia adequada." },
     ],
   },
+  "/seguro-auto-ezze-corinthians": {
+    title: "Seguro Auto Ezze Seguros em Guarulhos | Patro Seguros",
+    description: "Cote o Seguro Auto Ezze Seguros com a Patro Seguros. A seguradora oficial do Corinthians com atendimento especializado em Guarulhos e Zona Leste.",
+    h1: "Seguro Auto Ezze Seguros em Guarulhos",
+    serviceType: "Seguro Automotivo Ezze Seguros",
+    faqs: [
+      { question: "A Ezze Seguros é a seguradora do Corinthians?", answer: "Sim, a Ezze Seguros é patrocinadora oficial do Corinthians, estampando sua marca nos uniformes do clube." },
+      { question: "Onde fazer cotação Ezze em Guarulhos?", answer: "Na Patro Seguros, corretora parceira autorizada da Ezze com sede em Guarulhos." },
+    ]
+  },
   "/seguros-para-empresarios-guarulhos": {
     title: "Seguros Para Empresários em Guarulhos | Patro",
     description: "Proteção para empresários, sócios e executivos: vida, saúde, D&O, RC, cyber, frota, patrimônio e sucessão.",
