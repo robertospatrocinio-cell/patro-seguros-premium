@@ -37,7 +37,7 @@ interface SeoLocalPageProps {
 
 const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
   const params = useParams();
-  const slug = slugProp ?? params.slug;
+  const slug = slugProp ?? params.slug ?? (params.bairro ? `seguros-${params.bairro}-guarulhos` : undefined);
   if (!slug) return <Navigate to="/404" replace />;
   const config =
     seoLocalPages[slug] ||
