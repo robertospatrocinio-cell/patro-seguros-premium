@@ -64,7 +64,7 @@ const NichoClinicasVeterinarias = () => (
       <section className="gradient-hero py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_100%)]" />
         <div className="container mx-auto px-4 max-w-5xl relative z-10 text-center">
-          <PawPrint className="h-16 w-16 text-white/20 mx-auto mb-6 animate-pulse" />
+          <PawPrint className="h-16 w-16 text-white/20 mx-auto mb-6 animate-pulse" aria-hidden="true" />
           <h1 className="text-white text-4xl md:text-6xl mb-6 font-heading">Proteção Completa para Clínicas e Hospitais Veterinários</h1>
           <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
             Sua missão é cuidar dos animais. Nossa missão é proteger seu patrimônio, sua equipe e seu negócio em Guarulhos e região.
