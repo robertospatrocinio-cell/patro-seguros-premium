@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Implemente dados estruturados (FAQPage, BreadcrumbList e LocalBusiness) em cada landing page de bairro para melhorar rich results e rastreamento do Google.
+      Execute esta instrucao no projeto: Crie uma página hub com lista dos bairros de Guarulhos e links internos para todas as landings, com SEO e FAQ geral, para fortalecer o link building interno.
 
 ---
 
