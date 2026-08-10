@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Verificar se cada página de bairro está gerando corretamente os dados estruturados (FAQPage, BreadcrumbList e LocalBusiness) e registrar o resultado em um checklist.
+      Execute esta instrucao no projeto: Adicionar um recurso de busca e filtros na hub de bairros para o usuário encontrar rapidamente seu bairro e chegar ao CTA com menos cliques.
 
 ---
 
