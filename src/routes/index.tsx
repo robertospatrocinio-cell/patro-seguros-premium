@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Adicione botões fixos e CTAs consistentes de “Pedir Cotação” e “Falar no WhatsApp” na página hub de bairros e em todas as seções de listagem.
+      Execute esta instrucao no projeto: Validar as páginas de bairro no Rich Results Test para confirmar que FAQPage, BreadcrumbList e LocalBusiness estão sendo detectados corretamente.
 
 ---
 
