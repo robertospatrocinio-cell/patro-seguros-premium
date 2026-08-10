@@ -266,6 +266,7 @@ const SeguroJetSki = lazy(() => import("./pages/SeguroJetSki"));
 const SeguroEmbarcacoes = lazy(() => import("./pages/SeguroEmbarcacoes"));
 const SeguroAvioes = lazy(() => import("./pages/SeguroAvioes"));
 const SeguroHelicopteros = lazy(() => import("./pages/SeguroHelicopteros"));
+const SeguroAutoEzzeCorinthians = lazyWithRetry(() => import("./pages/SeguroAutoEzzeCorinthians"), "SeguroAutoEzzeCorinthians");
 const SeguroCartaVerde = lazy(() => import("./pages/SeguroCartaVerde"));
 const IndiqueEGanhe = lazy(() => import("./pages/IndiqueEGanhe"));
 const ObrigadoIndicacao = lazy(() => import("./pages/ObrigadoIndicacao"));
@@ -725,7 +726,8 @@ const App = () => {
                   <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
                   <Route path="/seguro-avioes" element={<SeguroAvioes />} />
                   <Route path="/seguro-helicopteros" element={<SeguroHelicopteros />} />
-                  <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
+            <Route path="/seguro-auto-ezze-corinthians" element={<SeguroAutoEzzeCorinthians />} />
+            <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
                   {/* Vida / Saúde / Pet */}
                   <Route path="/seguro-vida-pme" element={<SeguroVidaPME />} />
                   <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />

@@ -25,6 +25,7 @@ import { p2GuarulhosArticlesContent } from "@/data/blogP2GuarulhosContent";
 import { calendar90dArticlesContent } from "@/data/blogCalendar90dContent";
 import { fase5LocalArticlesContent } from "@/data/blogFase5LocalContent";
 import { estudoOriginalContent } from "@/data/blogEstudoOriginalContent";
+import { ezzeArticlesContent } from "@/data/blogEzzeContent";
 
 export type BlogArticleContent = {
   title: string;
@@ -54,6 +55,7 @@ export const blogContentIndex: Record<string, BlogArticleContent> = {
   ...(calendar90dArticlesContent as Record<string, BlogArticleContent>),
   ...(fase5LocalArticlesContent as Record<string, BlogArticleContent>),
   ...(estudoOriginalContent as Record<string, BlogArticleContent>),
+  ...(ezzeArticlesContent as Record<string, BlogArticleContent>),
 };
 
 export const blogContentSlugs: string[] = Object.keys(blogContentIndex);
