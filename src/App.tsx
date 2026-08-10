@@ -806,6 +806,10 @@ const App = () => {
                    <Route path="/seguros-em-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
                    <Route path="/seguros-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
                    <Route path="/seguros-guarulhos/:slug" element={<SeoLocalPage />} />
+                   <Route path="/corretora-de-seguros-em-:bairro-guarulhos" element={<SeoLocalPage />} />
+                   <Route path="/seguros-em-:bairro-guarulhos" element={<SeoLocalPage />} />
+                   <Route path="/seguro-auto-:bairro-guarulhos" element={<SeoLocalPage />} />
+                   <Route path="/seguro-residencial-:bairro-guarulhos" element={<SeoLocalPage />} />
 
 
                   <Route path="/planos-de-saude/prevent-senior-guarulhos" element={<Navigate to="/planos-de-saude" replace />} />
