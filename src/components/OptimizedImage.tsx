@@ -84,7 +84,8 @@ const OptimizedImage = ({
       className={`${placeholderClass} ${className}`}
       style={{ 
         aspectRatio: props.width && props.height ? `${props.width}/${props.height}` : undefined,
-        contain: "paint"
+        contain: "paint",
+        contentVisibility: eager ? "auto" : "visible"
       }}
     >
       {inView && (
