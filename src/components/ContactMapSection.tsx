@@ -115,7 +115,7 @@ const ContactMapSection = ({ className }: ContactMapSectionProps) => {
                   onClick={handleWazeClick}
                 >
                   <Button variant="outline" className="gap-2 border-primary/20 hover:bg-primary/5 transition-all">
-                    <img src="https://v0.dev/icons/waze.svg" alt="" className="h-4 w-4 grayscale opacity-70 group-hover:grayscale-0 transition-all" /> Abrir no Waze
+                    <img src="https://v0.dev/icons/waze.svg" alt="" aria-hidden="true" className="h-4 w-4 grayscale opacity-70 group-hover:grayscale-0 transition-all" /> Abrir no Waze
                   </Button>
                 </a>
 

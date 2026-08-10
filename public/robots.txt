@@ -20,4 +20,3 @@ User-agent: SemrushBot
 Allow: /
 
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
-Sitemap: https://www.patroseguros.com.br/sitemap.xml

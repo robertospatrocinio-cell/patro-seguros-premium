@@ -64,7 +64,7 @@ const NichoClinicasVeterinarias = () => (
       <section className="gradient-hero py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_100%)]" />
         <div className="container mx-auto px-4 max-w-5xl relative z-10 text-center">
-          <PawPrint className="h-16 w-16 text-white/20 mx-auto mb-6 animate-pulse" />
+          <PawPrint className="h-16 w-16 text-white/20 mx-auto mb-6 animate-pulse" aria-hidden="true" />
           <h1 className="text-white text-4xl md:text-6xl mb-6 font-heading">Proteção Completa para Clínicas e Hospitais Veterinários</h1>
           <p className="text-xl text-white/80 mb-10 max-w-3xl mx-auto leading-relaxed">
             Sua missão é cuidar dos animais. Nossa missão é proteger seu patrimônio, sua equipe e seu negócio em Guarulhos e região.
@@ -94,9 +94,9 @@ const NichoClinicasVeterinarias = () => (
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {paginas.map((p) => (
-              <Link key={p.slug} to={`/${p.slug}`} className="group bg-card p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+              <Link key={p.slug} to={`/${p.slug}`} className="group bg-card p-8 rounded-2xl border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                  <PawPrint className="h-6 w-6" />
+                  <PawPrint className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <h3 className="font-bold text-xl mb-3">{p.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{p.desc}</p>

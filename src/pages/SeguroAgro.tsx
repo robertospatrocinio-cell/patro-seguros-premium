@@ -239,8 +239,9 @@ const SeguroAgro = () => {
         </div>
 
         {/* Hero */}
-        <section className="py-14 md:py-20 bg-gradient-to-b from-primary/5 to-background">
-          <div className="container mx-auto px-4 max-w-5xl text-center">
+        <section className="py-14 md:py-20 bg-gradient-to-b from-primary/5 to-background relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,51,102,0.03)_0%,transparent_100%)]" />
+          <div className="container mx-auto px-4 max-w-5xl text-center relative z-10">
             <span className="section-label">Cluster Agro</span>
             <h1 className="mt-3 text-3xl md:text-5xl font-bold text-foreground leading-tight">
               Seguro Agro — proteção completa do plantio à porteira

@@ -78,8 +78,10 @@ export const initMonitoring = async () => {
     };
   }
 
-  if (!dsn) {
-    console.info("Monitoring: Sentry DSN not found. Basic global error handlers initialized.");
+  if (!dsn || dsn.includes("YOUR_SENTRY_DSN")) {
+    if (import.meta.env.DEV) {
+      console.info("Monitoring: Sentry DSN not configured. Debug mode enabled.");
+    }
     return;
   }
 

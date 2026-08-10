@@ -241,11 +241,11 @@ export const LP_WHATSAPP_TEMPLATES: Record<string, LpWhatsAppTemplate> = {
       "Olá! Acabei de enviar o formulário Patro Locadoras 360 e gostaria de agilizar a análise pelo WhatsApp.",
   },
   "lp-responsabilidade-admin-profissionais": {
-    hero: "Olá! Vim pela landing page Patro Responsabilidade Empresarial e gostaria de solicitar uma análise das responsabilidades da minha empresa.",
+    hero: "Olá! Vim pela landing page Patro Responsabilidade Empresarial e gostaria de uma análise técnica sobre as apólices de D&O (Administradores) e E&O (Erros Profissionais).",
     "cta-final":
-      "Olá! Estou na página Patro Responsabilidade Empresarial e quero conversar sobre D&O, E&O e responsabilidade civil profissional.",
+      "Olá! Estou na página Patro Responsabilidade Empresarial e quero conversar especificamente sobre proteção D&O para meus diretores e E&O para meus consultores.",
     success:
-      "Olá! Acabei de enviar o formulário Patro Responsabilidade Empresarial e gostaria de agilizar a análise pelo WhatsApp.",
+      "Olá! Acabei de enviar o formulário Patro Responsabilidade Empresarial e gostaria de agilizar a cotação de D&O/E&O pelo WhatsApp.",
   },
 };
 
