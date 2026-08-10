@@ -10,12 +10,12 @@ const SeguroAutoEzzeCorinthians = () => {
       extraSections={
         <>
           {/* Seção Quem é a Ezze */}
-          <section id="detalhes-heading" className="py-24 bg-white" aria-labelledby="ezze-info-heading">
+          <section className="py-24 bg-white" aria-labelledby="detalhes-heading">
             <div className="container mx-auto px-4 max-w-4xl">
               <div className="flex flex-col md:flex-row items-center gap-12">
                 <div className="flex-1">
                   <span className="section-label">Sobre a Seguradora</span>
-                  <h2 id="ezze-info-heading" className="mt-4">Quem é a Ezze Seguros?</h2>
+                  <h2 id="detalhes-heading" className="mt-4">Quem é a Ezze Seguros?</h2>
                   <div className="prose prose-slate mt-6 text-muted-foreground">
                     <p>
                       A <strong>Ezze Seguros</strong> é uma seguradora brasileira multiprodutos que atua em todo o território nacional. 
