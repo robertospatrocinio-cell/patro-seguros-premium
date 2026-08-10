@@ -47,6 +47,9 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"O que o shopping exige dos lojistas em relação a seguros?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
     { q: "A Patro Seguros atende lojistas e franquias em toda Guarulhos e região metropolitana?", a: "Sim. A Patro Seguros é uma corretora sediada em Guarulhos/SP (Cidade Maia) e atua em toda a região metropolitana e demais cidades do estado, com atendimento nacional para carteiras específicas. O time acompanha desde a cotação até a regulação de sinistros — envie o artigo \"O que o shopping exige dos lojistas em relação a seguros?\" pelo WhatsApp para receber a orientação adequada." },
   ],
+  "ezze-seguros-patrocinadora-corinthians": [
+    { q: "Como solicitar uma cotação de seguro em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Ezze Seguros e Corinthians: O que isso representa para os clientes?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
   "gestao-riscos-hospitais-veterinarios": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Gestão de riscos em hospitais veterinários\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
@@ -93,6 +96,9 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "quanto-custa-um-seguro-para-empresa-de-vistoria": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Quanto custa um seguro para empresa de vistoria?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
+  "quem-e-ezze-seguros-vale-a-pena": [
+    { q: "Como solicitar uma cotação de seguro em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Quem é a Ezze Seguros? Vale a pena contratar?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "responsabilidade-civil-vistoria-veicular": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Responsabilidade civil para vistoria veicular: quando faz sentido?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
