@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Implementar a geração automática de JSON-LD por bairro para garantir que os dados estruturados reflitam fielmente o endereço, cidade e FAQ de cada página.
+      Execute esta instrucao no projeto: Implemente dados estruturados ItemList para a página hub de bairros, incluindo links e nomes dos bairros para melhorar rich results e rastreamento do Google.
 
 ---
 
