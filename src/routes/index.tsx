@@ -3,430 +3,492 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Você é uma equipe formada pelos seguintes especialistas:
+      Execute esta instrucao no projeto: # POLÍTICA PERMANENTE DE QUALIDADE EDITORIAL
+# PATRO SEGUROS
 
-• Google Search Quality Team
-• Google Search Quality Rater
-• Especialista em SEO Técnico
-• Especialista em Helpful Content
-• Especialista em EEAT
-• Especialista em GEO (Generative Engine Optimization)
-• Especialista em Arquitetura da Informação
-• Especialista em UX
-• Especialista em Conteúdo
-• Desenvolvedor Full Stack
+Esta regra passa a ser obrigatória para TODO o projeto.
 
-Site:
+Ela deve ser executada automaticamente SEMPRE que:
 
-https://patroseguros.com.br
+• uma nova página for criada;
+• um artigo do blog for criado;
+• uma landing page for criada;
+• uma página existente for alterada;
+• uma página for duplicada;
+• houver alteração de SEO;
+• houver alteração de conteúdo.
 
-=====================================================
+Nenhuma página poderá ser publicada sem passar por esta validação.
 
-MISSÃO
+========================================================
 
-=====================================================
+OBJETIVO
 
-Faça uma auditoria COMPLETA em TODAS as páginas do site.
+========================================================
 
-O objetivo é identificar qualquer conteúdo que possa reduzir o desempenho orgânico do domínio ou gerar risco de penalização pelos algoritmos atuais do Google.
+Garantir que o domínio da Patro Seguros permaneça em conformidade com:
 
-Considere todas as diretrizes oficiais do Google Search, Helpful Content System, Spam Policies, EEAT e GEO.
+• Google Search Essentials
+• Google Spam Policies
+• Helpful Content System
+• EEAT
+• SEO Moderno
+• GEO (Generative Engine Optimization)
 
-Quero que o site seja preparado para permanecer forte tanto no Google Search quanto nas buscas realizadas por Inteligências Artificiais como ChatGPT, Gemini, Claude, Perplexity e Google AI Overviews.
-
-=====================================================
-
-ANALISAR TODAS AS URLS
-
-=====================================================
-
-Percorra todas as páginas públicas do site.
-
-Incluindo:
-
-Home
-
-Sobre
-
-Contato
-
-Serviços
-
-Landing Pages
-
-Blog
-
-Páginas por bairro
-
-Páginas por cidade
-
-Categorias
-
-Tags
-
-Arquivos
-
-Todas as URLs indexáveis
-
-Nenhuma página deve ficar sem análise.
-
-=====================================================
-
-IDENTIFICAR
-
-=====================================================
-
-Verifique se existem:
+Evitar qualquer risco de:
 
 • Conteúdo produzido em escala
-
-• Conteúdo criado apenas para ranquear
-
-• Conteúdo com aparência de IA
-
 • Conteúdo repetitivo
-
-• Conteúdo superficial
-
-• Conteúdo genérico
-
-• Conteúdo sem experiência prática
-
-• Conteúdo sem autoridade
-
-• Conteúdo sem valor real
-
-• Conteúdo muito semelhante entre páginas
-
-• Páginas praticamente iguais mudando apenas palavras-chave
-
-• Keyword Stuffing
-
-• Excesso de cidades
-
-• Excesso de bairros
-
-• Excesso de palavras-chave
-
+• Conteúdo de IA sem valor agregado
 • Doorway Pages
-
+• Keyword Stuffing
 • Thin Content
-
 • Conteúdo duplicado
+• Conteúdo superficial
+• Baixa autoridade
+• Baixa experiência prática
 
-• Conteúdo quase duplicado
+========================================================
 
-• Estrutura repetitiva
+CHECKLIST OBRIGATÓRIO
 
-• CTA repetido em excesso
+========================================================
 
-• Introduções repetidas
+Antes da publicação execute automaticamente:
 
-• FAQs repetidos
+✓ Auditoria SEO
 
-• Textos institucionais repetidos
+✓ Auditoria GEO
 
-• Depoimentos suspeitos
+✓ Auditoria EEAT
 
-• Informações inconsistentes
+✓ Auditoria Helpful Content
 
-• Datas conflitantes
+✓ Auditoria Técnica
 
-• Quantidade de seguradoras conflitante
+✓ Auditoria de Similaridade
 
-• Quantidade de clientes conflitante
+✓ Auditoria de Conversão
 
-• Informações comerciais diferentes entre páginas
+✓ Auditoria Mobile
 
-=====================================================
+✓ Auditoria de Performance
 
-SIMILARIDADE ENTRE PÁGINAS
+✓ Auditoria de Acessibilidade
 
-=====================================================
+========================================================
 
-Compare automaticamente todas as páginas entre si.
+SIMILARIDADE
 
-Calcule um índice de similaridade.
+========================================================
 
-Para cada URL informe:
+Compare automaticamente a nova página com TODAS as páginas existentes.
 
-• Similaridade 0-100%
+Calcule o índice de similaridade.
 
-• Páginas semelhantes
+Classificação:
 
-• Grau de risco
-
-Classifique:
-
-0-25%
-
+0-20%
 Excelente
 
-25-50%
+20-30%
+Muito bom
 
+30-40%
 Aceitável
 
-50-70%
-
+40-50%
 Necessita revisão
 
+Acima de 50%
+Não publicar
+
 Acima de 70%
+Bloquear automaticamente.
 
-Alto risco
+O conteúdo deve ser significativamente diferente das demais páginas.
 
-Acima de 85%
-
-Muito alto risco de conteúdo escalado
-
-=====================================================
-
-PÁGINAS LOCAIS
-
-=====================================================
-
-Analise profundamente todas as páginas de bairros.
-
-Verifique se realmente existe conteúdo exclusivo.
-
-Pergunte para cada página:
-
-Esta página existiria se o Google não existisse?
-
-Ela ajuda um morador daquele bairro?
-
-Possui informações únicas?
-
-Possui exemplos locais?
-
-Possui dados próprios?
-
-Possui diferenciais reais?
-
-Ou apenas troca o nome do bairro?
-
-Caso seja apenas uma troca de palavras-chave, classifique como possível Doorway Page.
-
-=====================================================
-
-BLOG
-
-=====================================================
-
-Analise artigo por artigo.
-
-Responder para cada um:
-
-O conteúdo é original?
-
-Existe experiência própria?
-
-Existe dado exclusivo?
-
-Existe opinião técnica?
-
-Existe valor para o usuário?
-
-Ou é apenas uma compilação de informações disponíveis na internet?
-
-=====================================================
+========================================================
 
 EEAT
 
-=====================================================
+========================================================
 
-Avaliar cada página quanto a:
+Toda página deve atingir no mínimo:
 
 Experience
+9/10
 
 Expertise
+9/10
 
 Authoritativeness
+8,5/10
 
 Trustworthiness
+9,5/10
 
-Dar nota de 0 a 10 para cada critério.
+Caso qualquer nota fique abaixo disso:
 
-Indicar exatamente o que falta.
+NÃO PUBLICAR.
 
-=====================================================
+========================================================
 
 GEO
 
-=====================================================
+========================================================
 
-Analisar se o conteúdo está preparado para IA.
+Toda página deve ser otimizada para mecanismos de IA.
 
 Verificar:
 
-clareza
+✓ clareza
 
-objetividade
+✓ objetividade
 
-estrutura
+✓ contexto
 
-contexto
+✓ estrutura
 
-perguntas
+✓ perguntas
 
-respostas
+✓ respostas
 
-dados
+✓ comparações
 
-fontes
+✓ listas
 
-autoridade
+✓ definições
 
-explicações
+✓ informações únicas
 
-comparações
+✓ dados próprios
 
-informações únicas
+✓ autoridade
 
-=====================================================
+Nota mínima:
+
+9/10
+
+========================================================
+
+HELPFUL CONTENT
+
+========================================================
+
+Perguntar automaticamente:
+
+Esta página foi criada principalmente para ajudar pessoas?
+
+Ela seria útil mesmo se não existisse Google?
+
+Ela resolve uma dúvida real?
+
+Ela possui conhecimento próprio?
+
+Ela possui experiência prática?
+
+Ela acrescenta algo que os concorrentes normalmente não possuem?
+
+Caso alguma resposta seja negativa:
+
+NÃO PUBLICAR.
+
+========================================================
+
+EXPERIÊNCIA PRÓPRIA
+
+========================================================
+
+Toda página deve possuir pelo menos UM destes elementos:
+
+• experiência da Patro
+
+• caso real
+
+• aprendizado
+
+• estatística própria
+
+• comparação própria
+
+• processo interno
+
+• orientação técnica
+
+• recomendação consultiva
+
+• visão prática
+
+Caso não possua:
+
+Sugerir automaticamente novos blocos antes da publicação.
+
+========================================================
 
 DADOS PRÓPRIOS
 
-=====================================================
+========================================================
 
-Identificar páginas que poderiam ser enriquecidas com:
+Sempre que possível incluir:
 
-dados da Patro
+Quantidade de cotações realizadas
 
-estatísticas próprias
+Casos reais
 
-casos reais
+Principais dúvidas dos clientes
 
-experiência prática
+Sinistros acompanhados
 
-aprendizados
+Perfil dos clientes
 
-comparativos
+Experiência da equipe
 
-pesquisas
+Boas práticas
 
-sinistros
+Mercado de Guarulhos
 
-cotações
+Comparações próprias
 
-mercado local
+Jamais inventar números.
 
-Sempre priorizar conteúdo que nenhuma IA consiga gerar sem conhecer a Patro.
+Caso não existam dados reais, não criar estatísticas fictícias.
 
-=====================================================
+========================================================
 
-CORREÇÕES
+PÁGINAS LOCAIS
 
-=====================================================
+========================================================
 
-Sempre que possível:
+Toda página de bairro deverá responder:
 
-reescrever automaticamente
+Por que esta página existe?
 
-reduzir repetições
+O que ela possui que nenhuma outra possui?
 
-eliminar duplicidades
+Qual a realidade daquele bairro?
 
-melhorar EEAT
+Quais seguros fazem mais sentido?
 
-melhorar Helpful Content
+Quais características locais influenciam o seguro?
 
-melhorar GEO
+Existe informação exclusiva?
 
-melhorar SEO
+Caso apenas troque o nome do bairro:
 
-melhorar experiência do usuário
+NÃO PUBLICAR.
 
-sem alterar a identidade da marca.
+========================================================
 
-=====================================================
+BLOG
 
-NÃO FAZER
+========================================================
 
-=====================================================
+Todo artigo deverá possuir:
 
-Não remover páginas automaticamente.
+Título único
 
-Não alterar URLs.
+Introdução única
 
-Não alterar identidade visual.
+Conclusão única
 
-Não alterar branding.
+FAQ exclusivo
 
-Não criar conteúdo genérico.
+Links internos
 
-Não aumentar artificialmente a quantidade de texto.
+Experiência prática
 
-Toda alteração deve aumentar a qualidade real da página.
+CTA contextual
 
-=====================================================
+Nenhum artigo poderá ser apenas uma reescrita de conteúdos existentes.
 
-RELATÓRIO FINAL
+========================================================
 
-=====================================================
+PROIBIDO
 
-Gerar uma planilha contendo:
+========================================================
 
-URL
+Nunca publicar:
 
-Título
+Conteúdo apenas para ranquear.
 
-Tipo da página
+Conteúdo produzido em massa.
 
-Nota SEO
+Conteúdo repetitivo.
 
-Nota GEO
+Conteúdo criado apenas trocando cidade.
 
-Nota EEAT
+Conteúdo criado apenas trocando bairro.
 
-Nota Helpful Content
+Conteúdo criado apenas trocando modelo de veículo.
 
-Nota Originalidade
+Conteúdo sem valor adicional.
 
-Nota Experiência
+Conteúdo copiado.
 
-Nota Conversão
+Conteúdo reformulado de concorrentes.
 
-Nota Técnica
+Conteúdo gerado apenas por IA sem revisão.
 
-Índice de Similaridade
+Conteúdo com excesso de palavras-chave.
 
-Risco de Penalização
+Doorway Pages.
 
-Prioridade
+Thin Content.
 
-Ação recomendada
+========================================================
 
-Manter
+SEO
 
-Reescrever
+========================================================
 
-Fundir
+Antes da publicação verificar:
 
-Noindex
+H1 único
+
+Meta Description
+
+Meta Title
+
+Slug
+
+Schema
+
+Open Graph
 
 Canonical
 
-Remover
+Links internos
 
-=====================================================
+Links externos
 
-PLANO FINAL
+Breadcrumb
 
-=====================================================
+Alt das imagens
 
-Ao final criar um plano estratégico dividido em quatro grupos:
+Heading hierarchy
 
-1. Correções críticas (executar imediatamente)
+FAQ Schema
 
-2. Melhorias importantes (próximos 30 dias)
+LocalBusiness
 
-3. Melhorias estratégicas (próximos 90 dias)
+Article Schema
 
-4. Oportunidades de crescimento para tornar a Patro Seguros uma referência nacional em conteúdo sobre seguros.
+========================================================
 
-Objetivo final:
+CONVERSÃO
 
-Transformar o domínio da Patro Seguros em um site extremamente útil, confiável, original e baseado em experiência real, minimizando qualquer risco relacionado a conteúdo escalado, duplicado, doorway pages ou práticas que possam reduzir o desempenho orgânico nas buscas do Google e nas respostas de Inteligência Artificial.
+========================================================
+
+Toda página deve possuir:
+
+CTA claro
+
+WhatsApp
+
+Formulário
+
+Prova social (quando aplicável)
+
+FAQ
+
+Benefícios
+
+Objeções
+
+Chamada para ação natural
+
+========================================================
+
+VALIDAÇÃO FINAL
+
+========================================================
+
+Antes da publicação gerar automaticamente:
+
+SEO Score
+
+GEO Score
+
+EEAT
+
+Helpful Content
+
+Originalidade
+
+Similaridade
+
+Conversão
+
+UX
+
+Performance
+
+Core Web Vitals
+
+========================================================
+
+NOTA MÍNIMA
+
+========================================================
+
+SEO ≥ 95
+
+GEO ≥ 95
+
+EEAT ≥ 9
+
+Helpful Content ≥ 9
+
+Originalidade ≥ 90%
+
+Similaridade ≤ 30%
+
+Performance ≥ 95
+
+Mobile ≥ 95
+
+Accessibility ≥ 95
+
+Best Practices ≥ 95
+
+========================================================
+
+SE QUALQUER ITEM ESTIVER ABAIXO DA META
+
+========================================================
+
+A página NÃO poderá ser publicada.
+
+Primeiro:
+
+identifique os problemas;
+
+corrija automaticamente tudo o que for possível;
+
+execute uma nova validação;
+
+repita esse ciclo até que todos os requisitos sejam atendidos.
+
+Somente depois a página poderá ser considerada pronta para publicação.
+
+========================================================
+
+FILOSOFIA EDITORIAL DA PATRO SEGUROS
+
+========================================================
+
+A Patro Seguros não quer ser o site com o maior número de páginas.
+
+Quer ser o site mais confiável, útil e completo sobre seguros em Guarulhos e na Grande São Paulo.
+
+Cada nova página deve aumentar a autoridade do domínio.
+
+Nunca aumentar apenas a quantidade de conteúdo.
+
+Sempre aumentar a qualidade.
+
+Se existir dúvida entre publicar ou não publicar uma página, escolha NÃO publicar até que ela seja realmente diferenciada, útil e baseada em conhecimento real da Patro Seguros.
 
 ---
 
