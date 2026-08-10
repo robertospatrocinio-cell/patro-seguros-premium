@@ -725,7 +725,8 @@ const App = () => {
                   <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
                   <Route path="/seguro-avioes" element={<SeguroAvioes />} />
                   <Route path="/seguro-helicopteros" element={<SeguroHelicopteros />} />
-                  <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
+            <Route path="/seguro-auto-ezze-corinthians" element={<SeguroAutoEzzeCorinthians />} />
+            <Route path="/seguro-carta-verde" element={<SeguroCartaVerde />} />
                   {/* Vida / Saúde / Pet */}
                   <Route path="/seguro-vida-pme" element={<SeguroVidaPME />} />
                   <Route path="/seguro-acidentes-pessoais" element={<SeguroAcidentesPessoais />} />
