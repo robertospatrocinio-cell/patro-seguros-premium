@@ -525,6 +525,32 @@ const SeguroAuto = () => {
           subtitle="Motoristas que contratam Seguro Auto em Guarulhos frequentemente avançam para estas coberturas."
           items={trilhaAuto}
         />
+
+        {/* Hub de Bairros em Guarulhos */}
+        <section className="py-20 bg-white border-t border-slate-100">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
+              Seguro Auto em todos os Bairros de Guarulhos
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+              {[
+                "Cidade Maia", "Cumbica", "Pimentas", "Bonsucesso", 
+                "Vila Augusta", "Centro", "Taboão", "Vila Galvão", 
+                "Macedo", "Gopoúva", "Jardim Maia", "Picanço",
+                "Continental", "Paraventi", "Cocaia", "Ponte Grande",
+                "Torres Tibagy", "Jardim Vila Galvão", "Monte Carmelo", "Presidente Dutra"
+              ].sort().map((bairro, i) => (
+                <Link 
+                  key={i}
+                  to={`/seguro-auto-${bairro.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-")}`}
+                  className="px-4 py-2 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-600 hover:bg-primary/5 hover:border-primary/20 hover:text-primary transition-all text-center"
+                >
+                  {bairro}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
       <Suspense fallback={null}>
