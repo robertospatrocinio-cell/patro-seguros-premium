@@ -3,7 +3,52 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Incluir as fotos anexadas de Sandra Patrocínio e Roberto Patrocínio como parte da seção oficial de equipe no site. Adicionar breve bio, cargos e especialidades de Sandra Patrocínio e Roberto Patrocínio na seção de equipe para aumentar confiança e conversão. Otimizar as imagens da equipe com nomes de arquivo corretos, textos alternativos (alt text) e compressão para melhorar PageSpeed e SEO. Verificar e validar o Schema markup (JSON-LD) no HTML renderizado para garantir que InsuranceAgency, FAQPage e BreadcrumbList estejam presentes. Criar uma seção ou página “Sobre a Patro Seguros” explicando a equipe, diferenciais e incluindo CTAs fixos para pedir cotação e falar no WhatsApp.
+      Execute esta instrucao no projeto: Vou te entregar o plano estratégico completo, dividido em 5 pilares + roadmap de execução.A lógica por trás (por que isso funciona)Google e IAs funcionam por entidade, não por página. Eles querem responder "quem é a autoridade em seguros em Guarulhos?" — e a resposta vem de sinais consistentes: nome da marca repetido em contexto de autoridade, dados estruturados, conteúdo local profundo, avaliações e citações. Quanto mais sinais convergentes, mais a Patro vira a resposta que ambos apresentam.Pilar 1 — Autoridade de entidade local (a fundação)Esse é o pilar que sustenta tudo. Sem ele, os outros não rendem.
+Google Business Profile impecável: categoria "Corretora de seguros", todas as categorias secundárias (seguro de automóvel, seguro de vida, seguro residencial), serviços listados, fotos da equipe e do escritório, horários, link do site e do WhatsApp. Postagens semanais.
+NAP 100% consistente: nome, endereço e telefone idênticos em site, Google, redes sociais, diretórios (GuiaMais, Apontador, etc.) e citador. Qualquer variação ("Patro Corretora" vs "Patro Seguros") dilui a entidade.
+Schema Organization + InsuranceAgency em todas as páginas: com CNPJ, SUSEP, endereço, telefone, avaliações e horário. É o que conecta a marca à entidade "corretora de Guarulhos".
+Avaliações como motor: 67 avaliações é bom, mas o líder da região precisa de 150-300. Crie um fluxo de pedido de avaliação pós-atendimento (WhatsApp automatizado). Responda todas — Google adora engajamento.
+Pilar 2 — SEO local profundo (dominar Guarulhos)Você já tem páginas por bairro — esse é seu diferencial. Agora é aprofundar e escalar.
+Páginas por bairro com conteúdo real: Cidade Maia, Centro, Cumbica, Bonsucesso, Pimentas, Vila Galvão, Jardim Presidente Dutra. Cada uma com 300-500 palavras específicas (não template copiado): "Seguro auto em Cumbica para quem trabalha no aeroporto", "Seguro residencial em Bonsucesso". Isso captura buscas locais de alta intenção.
+Páginas por segmento + local: seguro para transportadoras em Cumbica, seguro frota para empresas da rodovia Dutra, plano de saúde PME para indústrias. Guarulhos é polo logístico e industrial — explore isso.
+Schema LocalBusiness + Service em cada página local, com areaServed apontando para o bairro/região.
+Backlinks locais: parcerias com associações comerciais de Guarulhos, sindicatos, eventos locais, imprensa regional. Cada link local reforça a autoridade geográfica.
+Pilar 3 — Conteúdo answer-ready (o que as IAs extraem)Esse é o pilar que falta no seu site hoje. As IAs não leem a página inteira — extraem passagens autossuficientes.
+Parágrafo introdutório em cada página de produto respondendo diretamente "O que é seguro auto em Guarulhos?" nos primeiros 100-200 caracteres. Formato de resposta, não de apresentação.
+FAQ em todas as páginas: 3-5 perguntas com respostas diretas de 1-2 frases. É o formato que ChatGPT, AI Overviews e Perplexity mais citam. Ex: "Quanto custa seguro auto em Guarulhos?" → resposta com faixa de preço e fator determinante.
+Conteúdo citável: frases declarativas com dados que a IA pode citar como fonte. Ex: "A Patro Seguros, corretora com mais de 20 anos de atuação e registro SUSEP 212113511, é referência em seguros em Guarulhos, com avaliação 4.9 no Google."
+Query fan-out: para cada pergunta principal, cubra 3-5 sub-perguntas previsíveis. "Melhor corretora de seguros em Guarulhos" → cubra também: como escolher, quanto custa, quais seguradoras, como acionar sinistro, diferença entre corretora e seguradora.
+Pilar 4 — Topic clusters e pillar page (autoridade temática)
+Página pilar "Seguros em Guarulhos": guia completo que consolida autoridade sobre o tema central e linka para todos os clusters (bairros, produtos, segmentos). É o hub que o Google usa para entender que você domina o assunto.
+Blog com malha semântica: cada artigo de suporte responde uma pergunta específica e linka para a pilar e para os produtos. Ex: "Seguro de vida como sucessão patrimonial" (que já existe) → linka para seguro-vida-guarulhos e para a pilar.
+Conteúdo cornerstone atualizado: reescreva e atualize os artigos principais periodicamente com timestamp "atualizado em". Google e IAs favorecem conteúdo fresco.
+Pilar 5 — Prova social e E-E-A-T (confiança)
+Depoimentos e casos reais em páginas-chave (com permissão dos clientes).
+Conteúdo de experiência: "como é ser segurado da Patro", "o que fazer em caso de sinistro em Guarulhos" — demonstra vivência real, que é o "E" do E-E-A-T.
+Transparência: SUSEP verificável, CNPJ, endereço físico, equipe com foto e nome. Humaniza e gera confiança.
+Roadmap de execuçãoFase 1 — Fundação (semanas 1-4)
+Google Business Profile completo + fluxo de avaliações
+NAP consistente em todos os canais
+Schema Organization/InsuranceAgency em todo o site
+Parágrafo answer-ready + FAQ nas 5 páginas principais
+Fase 2 — Expansão local (semanas 5-12)
+Páginas por bairro com conteúdo real (comece pelos 5 maiores)
+Páginas por segmento local (transportadoras Cumbica, frota Dutra, PME industrial)
+Página pilar "Seguros em Guarulhos"
+Primeiros backlinks locais
+Fase 3 — Autoridade (meses 3-6)
+Blog with topic clusters completos
+Conteúdo cornerstone atualizado
+Parcerias e imprensa local
+Monitoramento mensal de posições e citações por IA
+Como medir o sucesso
+Google: posições para "corretora de seguros Guarulhos", "seguro auto Guarulhos", "melhor corretora de seguros Guarulhos" + tráfego orgânico local
+IAs: teste manual — pergunte ao ChatGPT/Perplexity "melhor corretora de seguros em Guarulhos" e veja se a Patro aparece ou é citada
+Negócio: leads vindos de busca orgânica e cotações com origem "Google/IA"
+Resumindo
+O caminho é entidade local + conteúdo answer-ready + profundidade geográfica
+Você já tem a base (20+ anos, SUSEP, avaliações, arquitetura) — falta aprofundar e estruturar para IA
+Os 3 maiores multiplicadores: avaliações (150+), páginas por bairro com conteúdo real, e FAQ/parágrafo answer-ready em tudo
 
 OBJETIVO: Garantir que a otimização de metadados solicitada foi aplicada corretamente em todas as rotas, assegurando a consistência da comunicação e o fortalecimento do SEO local para Guarulhos/SP.
 
