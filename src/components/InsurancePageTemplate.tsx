@@ -456,10 +456,31 @@ const InsurancePageTemplate = ({
       {(inferQuoteType(title) === "saude" || title.toLowerCase().includes("plano")) && <MedicalOrganizationSchema />}
       <Header />
       <main id="main-content" className="outline-none">
-        <Breadcrumb items={breadcrumbItems} />
+        <div className="bg-background border-b py-2 hidden md:block">
+          <div className="container mx-auto px-4">
+            <Breadcrumb items={breadcrumbItems} />
+          </div>
+        </div>
+
         {jumpLinks && jumpLinks.length > 0 && (
           <JumpLinksNav links={jumpLinks} />
         )}
+
+        {/* Internal Linking Block - Top Services Hub */}
+        <div className="bg-muted/30 py-3 border-b">
+          <div className="container mx-auto px-4 overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="font-bold text-primary mr-2">Seguros em Destaque:</span>
+              <Link to="/seguro-auto" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Auto</Link>
+              <Link to="/seguro-vida" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Vida</Link>
+              <Link to="/seguro-residencial" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Residencial</Link>
+              <Link to="/planos-de-saude" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Saúde</Link>
+              <Link to="/seguro-empresarial" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Empresarial</Link>
+              <Link to="/seguros-guarulhos" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors font-medium text-accent">Guarulhos</Link>
+            </div>
+          </div>
+        </div>
+
         {/* Hero */}
         <section className="relative gradient-hero overflow-hidden min-h-[480px] md:min-h-[520px] flex items-center" aria-label={`${title} — cotação gratuita`}>
           {heroImage && (
