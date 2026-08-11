@@ -304,9 +304,9 @@ const PlanosDeSaude = () => {
         </section>
 
 
-        <section className="py-16 bg-muted">
+        <section className="py-16 bg-muted" aria-labelledby="faq-saude-heading">
           <div className="container mx-auto px-4 max-w-3xl">
-            <h2 className="text-center mb-12">Perguntas Frequentes sobre Planos de Saúde</h2>
+            <h2 id="faq-saude-heading" className="text-center mb-12">Perguntas Frequentes sobre Planos de Saúde</h2>
             <div className="space-y-6">
               {[
                 { q: "Quanto custa um plano de saúde?", a: "O valor varia conforme a operadora, faixa etária, tipo de acomodação e cobertura. Fazemos uma análise personalizada para encontrar o melhor custo-benefício." },

@@ -320,6 +320,7 @@ const Index = () => {
 
             {/* BLOCO DE LINKS INTERNOS ESTRATÉGICOS (SERVIÇOS E BAIRROS) */}
             <div className="mt-16 pt-12 border-t border-slate-100">
+              <h4 className="font-bold text-slate-900 mb-6 text-center lg:text-left">Links Rápidos e SEO Local</h4>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
                 <div>
                   <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">

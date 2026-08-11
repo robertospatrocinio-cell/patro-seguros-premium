@@ -32,8 +32,8 @@ interface PageMetaProps {
 const BASE_URL = CANONICAL_BASE_URL;
 const DEFAULT_OG_IMAGE = `${CANONICAL_BASE_URL}/images/og-cover.webp`;
 const TITLE_SUFFIX = " | Patro Seguros";
-const MAX_TITLE_LENGTH = 60;
-const MAX_DESC_LENGTH = 160;
+const MAX_TITLE_LENGTH = 70;
+const MAX_DESC_LENGTH = 165;
 
 const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false }: PageMetaProps) => {
   const location = useLocation();
