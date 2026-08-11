@@ -68,7 +68,7 @@ const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO",
 const faqs = [
   { 
     question: "Qual a melhor corretora de seguros em Guarulhos?", 
-    answer: "A Patro Seguros é referência em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo." 
+    answer: "A Patro Seguros é referência em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo." 
   },
   { 
     question: "Quanto custa um seguro de carro em Guarulhos?", 
