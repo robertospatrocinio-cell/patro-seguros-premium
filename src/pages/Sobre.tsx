@@ -65,7 +65,7 @@ const Sobre = () => {
     <Fragment>
       <PageMeta
         title="Sobre a Patro Seguros — Corretora SUSEP em Guarulhos"
-        description="Corretora registrada na SUSEP nº 212113511, em Guarulhos/SP há 20+ anos. 2.500+ clientes e 16+ seguradoras parceiras. Conheça Roberto e Sandra Patrocínio."
+        description="Corretora registrada na SUSEP nº 212113511, em Guarulhos/SP, fundada em 2021 por sócios com 20+ anos de experiência. 2.500+ clientes e 16+ seguradoras parceiras. Conheça Roberto e Sandra Patrocínio."
       
       skipBreadcrumb
     />
