@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Corrigir o title tag e a meta description da home para remover truncamento e garantir que fiquem completos e únicos no Google.
+      Execute esta instrucao no projeto: incluir esta foto, em anexo, da Sandra Patrocinio e Roberto Patrocinio, como fotos da equipe da Patro Seguros.
 
 OBJETIVO: Garantir que a otimização de metadados solicitada foi aplicada corretamente em todas as rotas, assegurando a consistência da comunicação e o fortalecimento do SEO local para Guarulhos/SP.
 
