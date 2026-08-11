@@ -71,7 +71,7 @@ Atendemos motoristas de Guarulhos com perfil completo: quem dirige por Uber em t
       "Motoristas que querem proteção real contra negativa de seguradora em sinistro",
     ]}
     whyPatro={[
-      "Especialistas em seguros para motoristas Uber em Guarulhos desde 2020",
+      "Especialistas em seguros para motoristas Uber em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência",
       "Mais de 200 motoristas de app já protegidos na região",
       "Trabalhamos só com seguradoras que aceitam uso por aplicativo",
       "Atendimento presencial no Cidade Maia e suporte por WhatsApp",
