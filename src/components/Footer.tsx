@@ -73,7 +73,7 @@ const Footer = memo(() => {
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
-                <span>Seg. a Sex. 8h30–18h • WhatsApp 24h</span>
+                <span>Seg. a Sex. 8h–18h • Online Seg. a Dom. 7h–20h</span>
               </li>
             </ul>
             <div className="flex gap-3">
