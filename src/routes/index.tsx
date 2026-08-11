@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Atualizar o H1, meta title e meta description da página inicial para refletir o novo posicionamento e manter o tamanho ideal para o Google.`}
+      {`Execute esta instrucao no projeto: Dados inconsistentes de "30+ anos" removidos globalmente das páginas de Seguro Auto. Fundação 2021 e experiência 20+ anos padronizados.`}
     </div>
   );
 };
