@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: VOCÊ VAI IMPLEMENTAR O PACOTE COMPLETO DE SCHEMA MARKUP (DADOS ESTRUTURADOS JSON-LD) no site patroseguros.com.br (corretora de seguros em Guarulhos/SP, plataforma VTEX IO).
+      {`Execute esta instrucao no projeto: Validar automaticamente que todas as páginas de serviços têm exatamente 1 H1 com a keyword principal, headings em ordem correta e meta title/description dentro do tamanho recomendado. Adicionar blocos de links internos nas páginas de serviços e bairros apontando para as páginas mais importantes para aumentar autoridade e tempo de permanência. Adicionar breadcrumbs em todas as páginas com navegação estruturada para melhorar rastreamento e experiência do usuário.`}
 
 REGRA ABSOLUTA — APENAS AGREGAR:
 - NÃO reestruturar o site, NÃO alterar design, NÃO remover conteúdo existente
