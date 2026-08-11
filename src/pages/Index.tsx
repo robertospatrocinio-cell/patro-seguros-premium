@@ -190,11 +190,11 @@ const Index = () => {
         {/* BLOCO RESPOSTA RÁPIDA (ANSWER-READY) */}
         <div className="bg-slate-50 border-y border-slate-200 py-6">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+            <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg border border-slate-200 shadow-sm text-center lg:text-left">
               <p className="text-slate-800 leading-relaxed">
                 <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos e região, com mais de 20 anos de mercado e registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras — auto, vida, saúde, residencial e empresarial — com atendimento consultivo e resposta em até 2h úteis via WhatsApp (11) 5199-7500.
               </p>
-              <p className="text-slate-500 text-xs mt-3 flex items-center">
+              <p className="text-slate-500 text-xs mt-3 flex items-center justify-center lg:justify-start">
                 <Clock className="w-3 h-3 mr-1" />
                 Atualizado em {new Date().toLocaleDateString('pt-BR')} · Fonte: Patro Corretora de Seguros — SUSEP 212113511
               </p>
