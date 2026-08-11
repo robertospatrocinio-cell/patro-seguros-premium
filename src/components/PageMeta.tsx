@@ -33,6 +33,7 @@ const BASE_URL = CANONICAL_BASE_URL;
 const DEFAULT_OG_IMAGE = `${CANONICAL_BASE_URL}/images/og-cover.webp`;
 const TITLE_SUFFIX = " | Patro Seguros";
 const MAX_TITLE_LENGTH = 60;
+const MAX_DESC_LENGTH = 160;
 
 const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false }: PageMetaProps) => {
   const location = useLocation();
@@ -49,11 +50,25 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     if (title.length < 30 && !absoluteTitle && !title.includes("|")) {
       // Small titles benefit from context
       if (location.pathname.includes("guarulhos")) {
-        resolvedTitle = `${title} em Guarulhos`;
+      resolvedTitle = `${title} em Guarulhos`;
       }
     }
 
     const fullTitle = shouldAppendBrand ? `${resolvedTitle}${TITLE_SUFFIX}` : resolvedTitle;
+    
+    // Auto-validation for Title and Description length in development
+    if (import.meta.env.DEV) {
+      if (fullTitle.length > MAX_TITLE_LENGTH) {
+        console.warn(`[SEO Warning] Title too long: "${fullTitle}" (${fullTitle.length}/${MAX_TITLE_LENGTH})`);
+      }
+      if (description.length > MAX_DESC_LENGTH) {
+        console.warn(`[SEO Warning] Description too long in "${location.pathname}": (${description.length}/${MAX_DESC_LENGTH})`);
+      }
+      if (description.length < 50) {
+        console.warn(`[SEO Warning] Description too short in "${location.pathname}": (${description.length} chars)`);
+      }
+    }
+
     document.title = fullTitle;
 
     const setMetaContent = (selector: string, value: string) => {
