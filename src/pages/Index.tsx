@@ -1,7 +1,7 @@
 /** Execute esta instrucao no projeto: Otimizar os CTAs persistentes (WhatsApp e formulário) para ficarem visíveis em todas as seções da página de obrigado sem atrapalhar a leitura. */
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2 } from "lucide-react";
+import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2, MapPin } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
