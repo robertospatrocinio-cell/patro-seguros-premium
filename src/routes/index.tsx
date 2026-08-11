@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Implementar a verificação e correção das tags canonical em todas as páginas de seguro para evitar indexação duplicada.
+      Execute esta instrucao no projeto: Criar uma checagem automática no build para detectar duplicações e cortes em Title tags e Meta descriptions antes de publicar.
 
 OBJETIVO: Garantir que a otimização de metadados solicitada foi aplicada corretamente em todas as rotas, assegurando a consistência da comunicação e o fortalecimento do SEO local para Guarulhos/SP.
 
