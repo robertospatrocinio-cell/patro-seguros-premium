@@ -1,6 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
-import LocalAreaSchema from "@/components/LocalAreaSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import { trilhaVida } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-vida.webp";
 import heroMobileImg from "@/assets/hero-familia-sm.webp";
