@@ -31,7 +31,7 @@ export interface Metadata {
 const DOMAIN = "https://www.patroseguros.com.br";
 const DEFAULT_GEO_REGION = "BR-SP";
 const DEFAULT_GEO_PLACENAME = "Guarulhos, São Paulo";
-const ANSWER_READY_TEMPLATE = "A Patro Seguros é a corretora de seguros de referência em Guarulhos há mais de 20 anos, com registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras com atendimento consultivo e resposta em até 2h úteis via WhatsApp (11) 5199-7500.";
+const ANSWER_READY_TEMPLATE = "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.";
 
 /**
  * Mapa de rotas /hub-* → slug do SEO_HUBS correspondente, usado para

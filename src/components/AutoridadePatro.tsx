@@ -49,7 +49,7 @@ const AutoridadePatro = ({
   variant = "default",
   className,
   heading = "Quem cuida do seu seguro na Patro",
-  copy = "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.",
+  copy = "A Patro oferece uma consultoria humana que analisa as entrelinhas das apólices. Operamos em Guarulhos há mais de 20 anos (registro SUSEP 212113511), garantindo que você tenha a melhor proteção pelo menor custo real.",
 }: AutoridadePatroProps) => {
   const isCompact = variant === "compact";
 
