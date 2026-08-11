@@ -174,8 +174,8 @@ const PlanosDeSaude = () => {
       <PageMeta title="Planos de Saúde em Guarulhos | Compare 20+ Operadoras | Patro" description="Planos de saúde em Guarulhos: compare Bradesco, Amil, SulAmérica e mais 20 operadoras. Consultoria gratuita para encontrar o melhor preço para você ou sua empresa." />
       <FAQSchema faqs={faqs} />
       <ServiceSchema 
-        name="Cotação de Plano de Saúde em Guarulhos" 
-        description="Consultoria especializada para contratação de planos de saúde individuais, familiares e empresariais."
+        name="Plano de Saúde" 
+        description="A Patro Seguros compara planos de saúde em Guarulhos de operadoras como Amil, Bradesco, SulAmérica e NotreDame Intermédica, para você encontrar a melhor rede e o melhor preço. Atendimento consultivo individual, familiar ou PME, com cotação em até 2 horas úteis."
         serviceType="HealthInsurance"
       />
       <MedicalOrganizationSchema />

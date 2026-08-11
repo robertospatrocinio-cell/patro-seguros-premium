@@ -1,10 +1,17 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import { trilhaEmpresarial } from "@/lib/trilhaSeoRecomendacoes";
+import ServiceSchema from "@/components/ServiceSchema";
 import heroImg from "@/assets/hero-seguro-empresarial.webp";
 import heroMobileImg from "@/assets/hero-empresa-sm.webp";
 
 const SeguroEmpresarial = () => {
   return (
+    <>
+      <ServiceSchema
+        name="Seguro Empresarial"
+        description="O seguro empresarial em Guarulhos protege o patrimônio do seu negócio com coberturas contra incêndio, roubo, responsabilidade civil e lucros cessantes. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, oferece gestão de riscos completa para empresas de todos os portes."
+        serviceType="BusinessInsurance"
+      />
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
@@ -129,6 +136,7 @@ Cada tipo de empresa tem riscos específicos: um restaurante tem risco de incên
         items: trilhaEmpresarial,
       }}
     />
+    </>
   );
 };
 

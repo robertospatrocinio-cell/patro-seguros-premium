@@ -3,196 +3,118 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: 1) Validar automaticamente que a home mantém exatamente 1 H1 com a keyword principal, headings em ordem correta e meta title/description dentro do tamanho recomendado. 2) Adicionar blocos de links internos na home apontando para páginas de serviços e bairros mais importantes para aumentar autoridade e tempo de permanência.
+      {`Execute esta instrucao no projeto: VOCÊ VAI IMPLEMENTAR O PACOTE COMPLETO DE SCHEMA MARKUP (DADOS ESTRUTURADOS JSON-LD) no site patroseguros.com.br (corretora de seguros em Guarulhos/SP, plataforma VTEX IO).
 
-CONTEXTO DA MARCA (dados oficiais — use ESTES valores):
-- Corretora de seguros em Guarulhos/SP há 20+ anos (NÃO use "30+ anos")
-- Registro SUSEP 212113511, CNPJ 41.641.558/0001-33
-- Avaliação 4.9 no Google com 67 avaliações reais
-- Compare 16+ seguradoras (auto, vida, saúde, residencial, empresarial, frota, transporte, agronegócio)
-- Endereço: Avenida Salgado Filho, 2120 – Sala 219, Maia, Guarulhos/SP
-- Telefone/WhatsApp: (11) 5199-7500
-- Diferenciais: atendimento consultivo, cotação em até 2h úteis, central de sinistro, WhatsApp 24h, 2.500+ clientes
+REGRA ABSOLUTA — APENAS AGREGAR:
+- NÃO reestruturar o site, NÃO alterar design, NÃO remover conteúdo existente
+- NÃO mudar navegação, cores, fontes, layout, componentes ou URLs
+- Cada schema deve ser inserido como bloco <script type="application/ld+json"> no <head> da respectiva página
+- Se já existir algum schema na página, MANTENHA o existente e ADICIONE os novos — não remova nada
+- Conteúdo em português do Brasil
+- Entregar tudo pronto para publicação
+
+====================================================
+PARTE 0 — DADOS OFICIAIS DA MARCA (USE SEMPRE ESTES VALORES)
+====================================================
+- Nome: Patro Seguros | Razão social: Patro Corretora de Seguros LTDA
+- Anos de mercado: 20+ anos (NUNCA use "30+ anos")
+- Clientes: 2.500+ | Seguradoras comparadas: 16+
+- Avaliação Google: 4.9 com 67 avaliações reais
+- Registro SUSEP: 212113511 | CNPJ: 41.641.558/0001-33
+- Endereço: Avenida Salgado Filho, 2120 - Sala 219, Maia, Guarulhos/SP - CEP 07115-000
+- Telefone/WhatsApp: +551151997500 | E-mail: contato@patroseguros.com.br
+- Horário: Seg. a Sex. 8h30-18h
+- Redes: instagram.com/patroseguros | facebook.com/patroseguros | linkedin.com/company/patro-seguros
 - Posicionamento: "Corretora de seguros em Guarulhos há mais de 20 anos, com atendimento consultivo e comparação em 16+ seguradoras"
 
-OBJETIVO: Elevar a home ao padrão das páginas internas, que já têm title/meta otimizados, bloco "Resposta rápida" answer-ready, timestamp, FAQ e conteúdo citável. A home deve funcionar como a página de autoridade máxima da entidade "Patro Seguros" para Google e motores de IA.
+====================================================
+PARTE 1 — HOME PAGE (PÁGINA INICIAL): SCHEMA InsuranceAgency
+====================================================
+Cole na página inicial (https://patroseguros.com.br), no head:
 
-IMPLEMENTE AS SEGUINTES MELHORIAS (todas aditivas):
+JSON HOME:
+{"@context": "https://schema.org", "@type": "InsuranceAgency", "@id": "https://patroseguros.com.br/#patro", "name": "Patro Seguros", "alternateName": "Patro Corretora de Seguros LTDA", "url": "https://patroseguros.com.br", "logo": "https://patroseguros.com.br/images/logo-full.webp", "image": "https://patroseguros.com.br/images/hero-home-960.webp", "telephone": "+551151997500", "email": "contato@patroseguros.com.br", "description": "Corretora de seguros em Guarulhos há mais de 20 anos, com atendimento consultivo e comparação em 16+ seguradoras. Auto, vida, saúde, residencial e empresarial com cotação em até 2h úteis.", "slogan": "Corretora de seguros em Guarulhos com atendimento consultivo", "foundingDate": "2006", "taxID": "41.641.558/0001-33", "address": {"@type": "PostalAddress", "streetAddress": "Avenida Salgado Filho, 2120 - Sala 219", "addressLocality": "Guarulhos", "addressRegion": "SP", "postalCode": "07115-000", "addressCountry": "BR"}, "geo": { "@type": "GeoCoordinates", "latitude": "-23.4538", "longitude": "-46.5333" }, "openingHoursSpecification": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:30", "closes": "18:00"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "67"}, "areaServed": { "@type": "City", "name": "Guarulhos" }, "sameAs": ["https://www.instagram.com/patroseguros", "https://www.facebook.com/patroseguros", "https://www.linkedin.com/company/patro-seguros"], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro Auto"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro de Vida"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro Residencial"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plano de Saúde"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro Empresarial"}}]}
 
-1. OTIMIZE TITLE TAG E META DESCRIPTION (substitua os atuais):
-- Title atual: "Corretora de Seguros em Guarulhos | Patro Seguros"
-- Title NOVO: "Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
-- Meta description atual: está truncada/cortada
-- Meta description NOVA: "Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis. Fale com um especialista."
-- Garanta que a meta description fique entre 140-155 caracteres e não seja cortada
+====================================================
+PARTE 2 — PÁGINAS DE PRODUTO: SCHEMA Service
+====================================================
+Use o modelo abaixo em CADA página de produto, trocando os campos entre colchetes []. Aplique em: /seguro-auto, /seguro-vida, /seguro-residencial, /planos-de-saude, /seguro-empresarial, /seguro-frota, /seguro-transporte, /seguro-rural, /seguro-cyber, /seguro-rc, /seguro-celular, /seguro-moto, /seguro-motorista-app.
 
-2. ADICIONE BLOCO "RESPOSTA RÁPIDA" ANSWER-READY (abaixo do H1, no mesmo padrão das páginas de bairro):
-- Formato: "**Resposta rápida:** A Patro Seguros é a corretora de seguros de referência em Guarulhos e região, com mais de 20 anos de mercado e registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras — auto, vida, saúde, residencial e empresarial — com atendimento consultivo e resposta em até 2h úteis via WhatsApp (11) 5199-7500."
-- Adicione timestamp no mesmo padrão das páginas internas: "Atualizado em [DATA ATUAL] · Fonte: Patro Corretora de Seguros — SUSEP 212113511"
-- Esse bloco deve aparecer logo abaixo do H1, antes das seções de serviços
+MODELO PADRÃO (troque os campos [ ... ]):
+JSON PRODUTO:
+{"@context": "https://schema.org", "@type": "Service", "@id": "https://patroseguros.com.br/[slug-da-pagina]#service", "serviceType": "[NOME DO SEGURO]", "name": "[NOME DO SEGURO] em Guarulhos", "url": "https://patroseguros.com.br/[slug-da-pagina]", "description": "[PARÁGRAFO ANSWER-READY DA PÁGINA]", "provider": {"@type": "InsuranceAgency", "name": "Patro Seguros", "url": "https://patroseguros.com.br", "telephone": "+551151997500", "address": {"@type": "PostalAddress", "streetAddress": "Avenida Salgado Filho, 2120 - Sala 219", "addressLocality": "Guarulhos", "addressRegion": "SP", "postalCode": "07115-000"}, "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "67" }}, "areaServed": { "@type": "City", "name": "Guarulhos" }, "offers": {"@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "BRL", "description": "Cotação grátis comparando 16 seguradoras, com resposta em até 2h úteis"}}
 
-3. ADICIONE SEÇÃO DE FAQ NA HOME (no final, antes do rodapé, no mesmo padrão das páginas internas):
-Formato pergunta/resposta direto que IA e featured snippets extraem. Sugestões:
-- "Qual a melhor corretora de seguros em Guarulhos?" → "A Patro Seguros é referência em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo."
-- "Quanto custa um seguro de carro em Guarulhos?" → "O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros compara propostas de 16+ seguradoras para você encontrar a melhor cobertura pelo melhor preço, com cotação em até 2h úteis."
-- "Quais seguros a Patro Seguros oferece?" → "Auto, moto, residencial, vida, plano de saúde, empresarial, frota, transporte de carga, responsabilidade civil, cyber e agronegócio — para pessoas e empresas em Guarulhos e região."
-- "Como acionar o seguro em caso de sinistro em Guarulhos?" → "A Patro Seguros tem Central de Sinistro dedicada e WhatsApp de emergência 24h. Nossa equipe acompanha todo o processo, da vistoria à indenização."
-- "A Patro Seguros atende empresas em Guarulhos?" → "Sim. Oferecemos seguro empresarial, frota, transporte de carga, plano de saúde PME e responsabilidade civil, com gestão de riscos completa para negócios de todos os portes."
+TEXTOS ANSWER-READY JÁ PRONTOS PARA O CAMPO "description" (use exatamente estes):
+- SEGURO AUTO (/seguro-auto): "O seguro auto em Guarulhos protege seu veículo contra colisão, roubo, furto e danos a terceiros. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura pelo melhor preço, com atendimento consultivo e cotação em até 2 horas úteis."
+- SEGURO DE VIDA (/seguro-vida): "O seguro de vida em Guarulhos garante proteção financeira completa para sua família contra morte, invalidez e doenças graves. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
+- SEGURO RESIDENCIAL (/seguro-residencial): "O seguro residencial em Guarulhos protege sua casa, apartamento ou flat contra incêndio, roubo, danos elétricos e mais, com assistência 24h. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
+- PLANO DE SAÚDE (/planos-de-saude): "A Patro Seguros compara planos de saúde em Guarulhos de operadoras como Amil, Bradesco, SulAmérica e NotreDame Intermédica, para você encontrar a melhor rede e o melhor preço. Atendimento consultivo individual, familiar ou PME, com cotação em até 2 horas úteis."
+- SEGURO EMPRESARIAL (/seguro-empresarial): "O seguro empresarial em Guarulhos protege o patrimônio do seu negócio com coberturas contra incêndio, roubo, responsabilidade civil e lucros cessantes. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, oferece gestão de riscos completa para empresas de todos os portes."
 
-4. ADICIONE CONTEÚDO CITÁVEL DE AUTORIDADE (frase declarativa que IAs possam citar):
-- Adicione em uma seção apropriada da home (ex: seção "Sobre" ou "Por que a Patro"): "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras."
-- Use o nome da marca em contexto de autoridade de forma consistente
+====================================================
+PARTE 3 — PÁGINAS DE BAIRRO: SCHEMA Service + Neighborhood
+====================================================
+MODELO PADRÃO (troque os campos [ ... ]):
+JSON BAIRRO:
+{"@context": "https://schema.org", "@type": "Service", "@id": "https://patroseguros.com.br/[slug-da-pagina]#service", "serviceType": "Corretora de Seguros", "name": "Seguros no [NOME DO BAIRRO] (Guarulhos)", "url": "https://patroseguros.com.br/[slug-da-pagina]", "description": "[BLOCO 'RESPOSTA RÁPIDA' DA PÁGINA]", "provider": {"@type": "InsuranceAgency", "name": "Patro Seguros", "url": "https://patroseguros.com.br", "telephone": "+551151997500", "address": {"@type": "PostalAddress", "streetAddress": "Avenida Salgado Filho, 2120 - Sala 219", "addressLocality": "Guarulhos", "addressRegion": "SP", "postalCode": "07115-000"}, "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "67" }}, "areaServed": { "@type": "Neighborhood", "name": "[NOME DO BAIRRO]" }, "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Seguros no [NOME DO BAIRRO]", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro Auto"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro Residencial"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Seguro Empresarial"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plano de Saúde"}}]}}
 
-5. GARANTA CONSISTÊNCIA DOS DADOS DA MARCA NA HOME:
-- Verifique que a home use "20+ anos" (NÃO "30+ anos")
-- Confirme "4.9" e "67 avaliações reais"
-- Confirme "16+ seguradoras" e "2.500+ clientes" quando citados
-- Se algum dado divergente aparecer, corrija para os valores oficiais acima
+AJUSTES POR BAIRRO:
+- CUMBICA (/seguro-auto-cumbica): serviceType "Seguro Auto", areaServed name "Cumbica", e use este description: "Seguro auto em Cumbica, Guarulhos: o CEP de pernoite é uma das variáveis mais importantes no cálculo do prêmio. A Patro Seguros, corretora local no Cidade Maia, atende moradores do Cumbica no entorno do GRU Airport e Rodovia Hélio Smidt, comparando 9 a 16 seguradoras com orientação específica para o perfil de risco do bairro (classificação médio-alto de sinistralidade) e recomendações de rastreador, garagem coberta e franquia ideal."
+- CENTRO (/seguros-guarulhos/centro): areaServed "Centro", hasOfferCatalog com "RC Profissional" primeiro, description use o bloco "Resposta rápida" real da página.
+- CIDADE MAIA (/seguros-guarulhos/jardim-maia): areaServed "Cidade Maia", hasOfferCatalog com "Seguro Residencial Premium" primeiro, description use o bloco real.
+- VILA AUGUSTA: areaServed "Vila Augusta", hasOfferCatalog com "Seguro Auto" e "Seguro Residencial" primeiro, description use o bloco real.
+- MACEDO: areaServed "Macedo", hasOfferCatalog com "Plano de Saúde PME" primeiro, description use o bloco real.
+- GOPOUVA: areaServed "Gopouva", hasOfferCatalog com "Seguro de Vida" primeiro, description use o bloco real.
+- BONSUCESSO: areaServed "Bonsucesso", hasOfferCatalog com "Seguro Empresarial" e "Seguro Auto" primeiro, description use o bloco real.
+- IMPORTANTE: o campo "description" de cada bairro deve usar EXATAMENTE o texto do bloco "Resposta rápida" que já existe visível na página.
 
-6. VERIFIQUE A ESTRUTURA DE HEADINGS DA HOME:
-- Garanta que existe exatamente UM H1 com a keyword principal (ex: "Corretora de Seguros em Guarulhos" ou similar)
-- Os H2 devem cobrir as seções principais (serviços, por que a Patro, avaliações, FAQ)
-- Se houver múltiplos H1 ou H1 sem keyword, ajuste a hierarquia SEM alterar o conteúdo
+====================================================
+PARTE 4 — FAQ: SCHEMA FAQPage
+====================================================
+MODELO:
+JSON FAQ:
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "[PERGUNTA 1]", "acceptedAnswer": {"@type": "Answer", "text": "[RESPOSTA 1]"}}, {"@type": "Question", "name": "[PERGUNTA 2]", "acceptedAnswer": {"@type": "Answer", "text": "[RESPOSTA 2]"}}]}
 
-7. OTIMIZE O ALT TEXT DO HERO DA HOME:
-- Alt atual: "Corretora de Seguros em Guarulhos" (genérico)
-- Alt NOVO: "Corretora de seguros em Guarulhos — Patro Seguros, com 20+ anos de mercado e atendimento consultivo"
-- Aplique alt text descritivo com keyword local nas demais imagens da home quando natural
+SE A HOME AINDA NÃO TIVER FAQ VISÍVEL, use estas:
+1. "Qual a melhor corretora de seguros em Guarulhos?" -> "A Patro Seguros é referência em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo."
+2. "Quanto custa um seguro de carro em Guarulhos?" -> "O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros compara propostas de 16+ seguradoras para você encontrar a melhor cobertura pelo melhor preço, com cotação em até 2h úteis."
+3. "Quais seguros a Patro Seguros oferece?" -> "Auto, moto, residencial, vida, plano de saúde, empresarial, frota, transporte de carga, responsabilidade civil, cyber e agronegócio — para pessoas e empresas em Guarulhos e região."
+4. "Como acionar o seguro em caso de sinistro em Guarulhos?" -> "A Patro Seguros tem Central de Sinistro dedicada e WhatsApp de emergência 24h. Nossa equipe acompanha todo o processo, da vistoria à indenização."
+5. "A Patro Seguros atende empresas em Guarulhos?" -> "Sim. Oferecemos seguro empresarial, frota, transporte de carga, plano de saúde PME e responsabilidade civil, com gestão de riscos completa para negócios de todos os portes."
 
-REGRAS DE EXECUÇÃO:
+====================================================
+PARTE 5 — TODAS AS PÁGINAS: SCHEMA BreadcrumbList
+====================================================
+JSON BREADCRUMB PRODUTO:
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://patroseguros.com.br"}, {"@type": "ListItem", "position": 2, "name": "[NOME DO PRODUTO]", "item": "https://patroseguros.com.br/[slug]"}]}
+
+JSON BREADCRUMB BAIRRO:
+{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://patroseguros.com.br"}, {"@type": "ListItem", "position": 2, "name": "Guarulhos", "item": "https://patroseguros.com.br/seguros-guarulhos"}, {"@type": "ListItem", "position": 3, "name": "Seguros em [BAIRRO]", "item": "https://patroseguros.com.br/seguros-guarulhos/[bairro]"}]}
+
+====================================================
+PARTE 6 — BLOG: SCHEMA Article + Organization
+====================================================
+JSON BLOG:
+{"@context": "https://schema.org", "@type": "Article", "headline": "[TÍTULO DO POST]", "datePublished": "[DATA DE PUBLICAÇÃO]", "dateModified": "[DATA DE ATUALIZAÇÃO]", "author": {"@type": "Organization", "name": "Patro Seguros", "url": "https://patroseguros.com.br"}, "publisher": {"@type": "Organization", "name": "Patro Seguros", "url": "https://patroseguros.com.br", "logo": {"@type": "ImageObject", "url": "https://patroseguros.com.br/images/logo-full.webp"}}, "mainEntityOfPage": "https://patroseguros.com.br/blog/[slug-do-post]"}
+
+====================================================
+PARTE 7 — VERIFICAÇÕES FINAIS OBRIGATÓRIAS
+====================================================
+Após aplicar tudo, confirme:
+1. Cada página tem os schemas corretos: produtos = Service + FAQPage + BreadcrumbList | bairros = Service(Neighborhood) + FAQPage + BreadcrumbList | home = InsuranceAgency + FAQPage + BreadcrumbList | blog = Article
+2. Todos os dados da marca estão consistentes: 20+ anos, SUSEP 212113511, 4.9/67 avaliações, 16+ seguradoras, endereço e telefone idênticos em todos os schemas
+3. Nenhuma página contém "30+ anos" — todas usam "20+ anos"
+4. O texto dos schemas espelha o texto visível das páginas (especialmente FAQ e description)
+5. Nenhum schema existente foi removido ou sobrescrito
+6. Os schemas não contêm erro de sintaxe JSON (valide antes de publicar)
+
+REGRAS DE ENTREGA:
 - Não remova, renomeie ou reestruture nenhuma página, seção, componente ou URL existente
 - Não mude design, cores, fontes, layout ou navegação
-- Todas as adições devem ser visualmente consistentes com o design atual
-- Conteúdo em português do Brasil
-- Não use keyword stuffing — densidade natural entre 0,5% e 2,5%
-- Entregue as mudanças prontas para publicação, sem jargão técnico visível ao usuário final
+- Não remova schemas já existentes — apenas adicione os novos
 - Preserve a identidade visual e o tom consultivo da marca
-- IMPORTANTE: a home é a página de maior autoridade da entidade — os dados da marca devem estar 100% consistentes com as páginas internas
-Google Business Profile impecável: categoria "Corretora de seguros", todas as categorias secundárias (seguro de automóvel, seguro de vida, seguro residencial), serviços listados, fotos da equipe e do escritório, horários, link do site e do WhatsApp. Postagens semanais.
-NAP 100% consistente: nome, endereço e telefone idênticos em site, Google, redes sociais, diretórios (GuiaMais, Apontador, etc.) e citador. Qualquer variação ("Patro Corretora" vs "Patro Seguros") dilui a entidade.
-Schema Organization + InsuranceAgency em todas as páginas: com CNPJ, SUSEP, endereço, telefone, avaliações e horário. É o que conecta a marca à entidade "corretora de Guarulhos".
-Avaliações como motor: 67 avaliações é bom, mas o líder da região precisa de 150-300. Crie um fluxo de pedido de avaliação pós-atendimento (WhatsApp automatizado). Responda todas — Google adora engajamento.
-Pilar 2 — SEO local profundo (dominar Guarulhos)Você já tem páginas por bairro — esse é seu diferencial. Agora é aprofundar e escalar.
-Páginas por bairro com conteúdo real: Cidade Maia, Centro, Cumbica, Bonsucesso, Pimentas, Vila Galvão, Jardim Presidente Dutra. Cada uma com 300-500 palavras específicas (não template copiado): "Seguro auto em Cumbica para quem trabalha no aeroporto", "Seguro residencial em Bonsucesso". Isso captura buscas locais de alta intenção.
-Páginas por segmento + local: seguro para transportadoras em Cumbica, seguro frota para empresas da rodovia Dutra, plano de saúde PME para indústrias. Guarulhos é polo logístico e industrial — explore isso.
-Schema LocalBusiness + Service em cada página local, com areaServed apontando para o bairro/região.
-Backlinks locais: parcerias com associações comerciais de Guarulhos, sindicatos, eventos locais, imprensa regional. Cada link local reforça a autoridade geográfica.
-Pilar 3 — Conteúdo answer-ready (o que as IAs extraem)Esse é o pilar que falta no seu site hoje. As IAs não leem a página inteira — extraem passagens autossuficientes.
-Parágrafo introdutório em cada página de produto respondendo diretamente "O que é seguro auto em Guarulhos?" nos primeiros 100-200 caracteres. Formato de resposta, não de apresentação.
-FAQ em todas as páginas: 3-5 perguntas com respostas diretas de 1-2 frases. É o formato que ChatGPT, AI Overviews e Perplexity mais citam. Ex: "Quanto custa seguro auto em Guarulhos?" → resposta com faixa de preço e fator determinante.
-Conteúdo citável: frases declarativas com dados que a IA pode citar como fonte. Ex: "A Patro Seguros, corretora com mais de 20 anos de atuação e registro SUSEP 212113511, é referência em seguros em Guarulhos, com avaliação 4.9 no Google."
-Query fan-out: para cada pergunta principal, cubra 3-5 sub-perguntas previsíveis. "Melhor corretora de seguros em Guarulhos" → cubra também: como escolher, quanto custa, quais seguradoras, como acionar sinistro, diferença entre corretora e seguradora.
-Pilar 4 — Topic clusters e pillar page (autoridade temática)
-Página pilar "Seguros em Guarulhos": guia completo que consolida autoridade sobre o tema central e linka para todos os clusters (bairros, produtos, segmentos). É o hub que o Google usa para entender que você domina o assunto.
-Blog com malha semântica: cada artigo de suporte responde uma pergunta específica e linka para a pilar e para os produtos. Ex: "Seguro de vida como sucessão patrimonial" (que já existe) → linka para seguro-vida-guarulhos e para a pilar.
-Conteúdo cornerstone atualizado: reescreva e atualize os artigos principais periodicamente com timestamp "atualizado em". Google e IAs favorecem conteúdo fresco.
-Pilar 5 — Prova social e E-E-A-T (confiança)
-Depoimentos e casos reais em páginas-chave (com permissão dos clientes).
-Conteúdo de experiência: "como é ser segurado da Patro", "o que fazer em caso de sinistro em Guarulhos" — demonstra vivência real, que é o "E" do E-E-A-T.
-Transparência: SUSEP verificável, CNPJ, endereço físico, equipe com foto e nome. Humaniza e gera confiança.
-Roadmap de execuçãoFase 1 — Fundação (semanas 1-4)
-Google Business Profile completo + fluxo de avaliações
-NAP consistente em todos os canais
-Schema Organization/InsuranceAgency em todo o site
-Parágrafo answer-ready + FAQ nas 5 páginas principais
-Fase 2 — Expansão local (semanas 5-12)
-Páginas por bairro com conteúdo real (comece pelos 5 maiores)
-Páginas por segmento local (transportadoras Cumbica, frota Dutra, PME industrial)
-Página pilar "Seguros em Guarulhos"
-Primeiros backlinks locais
-Fase 3 — Autoridade (meses 3-6)
-Blog with topic clusters completos
-Conteúdo cornerstone atualizado
-Parcerias e imprensa local
-Monitoramento mensal de posições e citações por IA
-Como medir o sucesso
-Google: posições para "corretora de seguros Guarulhos", "seguro auto Guarulhos", "melhor corretora de seguros Guarulhos" + tráfego orgânico local
-IAs: teste manual — pergunte ao ChatGPT/Perplexity "melhor corretora de seguros em Guarulhos" e veja se a Patro aparece ou é citada
-Negócio: leads vindos de busca orgânica e cotações com origem "Google/IA"
-Resumindo
-O caminho é entidade local + conteúdo answer-ready + profundidade geográfica
-Você já tem a base (20+ anos, SUSEP, avaliações, arquitetura) — falta aprofundar e estruturar para IA
-Os 3 maiores multiplicadores: avaliações (150+), páginas por bairro com conteúdo real, e FAQ/parágrafo answer-ready em tudo
-
-OBJETIVO: Garantir que a otimização de metadados solicitada foi aplicada corretamente em todas as rotas, assegurando a consistência da comunicação e o fortalecimento do SEO local para Guarulhos/SP.
-
-ITENS PARA REVISÃO:
-
-1. HOME:
-- Title: "Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
-- Meta: "Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis."
-
-2. SEGURO AUTO:
-- Title: "Seguro Auto em Guarulhos | Cotação Grátis com 16 Seguradoras"
-- Meta: "Faça cotação de seguro auto em Guarulhos com a Patro Seguros. Compare 16 seguradoras, cobertura completa e assistência 24h. Atendimento consultivo."
-
-3. SEGURO VIDA:
-- Title: "Seguro de Vida em Guarulhos | Proteção para sua Família"
-- Meta: "Seguro de vida com cobertura para morte, invalidez e doenças graves. Compare propostas com a Patro Seguros e proteja sua família."
-
-4. SEGURO RESIDENCIAL:
-- Title: "Seguro Residencial em Guarulhos | Proteção para Casa e Apto"
-- Meta: "Seguro residencial para casa, apartamento ou flat em Guarulhos. Cobertura completa e assistência 24h. Compare 16 seguradoras."
-
-5. PLANO DE SAÚDE:
-- Title: "Plano de Saúde em Guarulhos | Compare 20+ Operadoras"
-- Meta: "Plano de saúde individual, familiar ou PME em Guarulhos. Comparamos 20+ operadoras para você encontrar a melhor rede e preço."
-
-6. SEGURO EMPRESARIAL:
-- Title: "Seguro Empresarial em Guarulhos | Proteção para seu Negócio"
-- Meta: "Seguro empresarial com cobertura para patrimônio, lucros cessantes e responsabilidade civil. Gestão de riscos completa para empresas."
-
-7. SEGURO CARTA VERDE:
-- Title: "Seguro Carta Verde em Guarulhos | Viagem para o Mercosul"
-- Meta: "Seguro Carta Verde obrigatório para viagens ao Mercosul (Argentina, Paraguai e Uruguai). Contratação rápida e consultiva com a Patro Seguros."
-
-8. OUTROS PRODUTOS (Condomínio, Frota, Transporte, Agro, Equipamentos, Pet, Eventos, Previdência, RC Profissional, Viagem):
-- Validar se os títulos seguem o padrão "[Produto] em Guarulhos | Patro Seguros" e se as descrições contêm a keyword regional e o diferencial da corretora.
-
-REGRAS DE VALIDAÇÃO:
-- O Title Tag não deve ultrapassar 60 caracteres.
-- A Meta Description deve ter entre 140 e 160 caracteres.
-- Presença obrigatória da keyword principal + Localização (Guarulhos) + Nome da Marca (Patro Seguros).
-
-### DASHBOARD EXECUTIVO DE QUALIDADE TÉCNICA (FINAL)
-
-**Nota Geral do Site: 99.5/100** 🚀
-
-| Indicador | Pontuação | Status |
-| :--- | :--- | :--- |
-| **Performance (Lighthouse)** | 99 | 🟢 Excelente |
-| **SEO Técnico & GEO** | 100 | 🟢 Referência |
-| **Acessibilidade (WCAG 2.1)** | 100 | 🟢 Total |
-| **Best Practices** | 100 | 🟢 Total |
-| **Segurança (SSL/Headers)** | A+ | 🟢 Protegido |
-| **Conversão (CRO)** | Alta | 🟢 Otimizado |
-
-**Core Web Vitals:**
-*   LCP (Largest Contentful Paint): 0.8s (Alvo: menor que 2.5s)
-*   FID (First Input Delay): 12ms (Alvo: menor que 100ms)
-*   CLS (Cumulative Layout Shift): 0.002 (Alvo: menor que 0.1)
-
-**Google Search Console & Indexação:**
-*   **Sitemaps:** 6 arquivos segmentados (+630 URLs) validados e sincronizados.
-*   **Indexação:** Monitoramento via Edge Functions ativo em `/admin/monitor-indexacao`.
-
-**GEO & AI Readiness (Deep Analysis):**
-*   **ChatGPT/Claude:** Conteúdo estruturado com semântica H3 e listas para facilitar extração de conhecimento.
-*   **Perplexity/Gemini:** Referências locais e EEAT consolidados via Organization Schema.
-
-**Páginas Mais Fortes (Top Authority):**
-1.  `Home (/)`: Hub central de autoridade.
-2.  `Seguros Guarulhos Hub`: Dominância regional.
-3.  `Seguro Auto Ezze Corinthians`: Alta relevância e tráfego viral.
-4.  `Blog (Topical Map)`: +140 artigos interligados.
-
-**Plano de Melhorias Futuras:**
-*   **Curto Prazo:** Expansão de micro-bairros na Zona Leste de SP.
-*   **Médio Prazo:** Implementação de cálculo de prêmio em tempo real via API (Sandbox).
-*   **Longo Prazo:** Dashboard de BI para leads correlacionados com tráfego orgânico/pago.
-
-**Conclusão da Auditoria:**
-O site encontra-se no estado da arte da engenharia web moderna, pronto para escalar autoridade e conversões com máxima eficiência técnica.
+- Entregue tudo pronto para publicação
+- IMPORTANTE: dados estruturados são o que permite ao Google e aos motores de IA reconhecerem a Patro Seguros como a entidade de referência em seguros de Guarulhos — a consistência dos dados é a prioridade máxima`}
     </div>
   );
 };

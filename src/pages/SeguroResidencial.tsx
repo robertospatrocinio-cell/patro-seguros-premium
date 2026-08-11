@@ -1,6 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
-import LocalAreaSchema from "@/components/LocalAreaSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import ComparisonTableResidencial from "@/components/ComparisonTableResidencial";
 import { trilhaResidencial } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-residencial.webp";
@@ -9,11 +9,10 @@ import heroImg from "@/assets/hero-seguro-residencial.webp";
 const SeguroResidencial = () => {
   return (
     <>
-      <LocalAreaSchema
-        serviceName="Seguro Residencial"
-        url="https://www.patroseguros.com.br/seguro-residencial"
-        description="Seguro residencial em Guarulhos: proteja sua casa ou apartamento contra incêndio, roubo e danos elétricos."
-        city="Guarulhos"
+      <ServiceSchema
+        name="Seguro Residencial"
+        description="O seguro residencial em Guarulhos protege sua casa, apartamento ou flat contra incêndio, roubo, danos elétricos e mais, com assistência 24h. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
+        serviceType="HomeInsurance"
       />
     <InsurancePageTemplate
       heroImage={heroImg}

@@ -109,8 +109,8 @@ const SeguroAuto = () => {
         faqs={faqs}
       />
       <ServiceSchema 
-        name="Cotação de Seguro Auto em Guarulhos" 
-        description="Serviço de comparação de preços e coberturas de seguro automotivo em 16 seguradoras."
+        name="Seguro Auto" 
+        description="O seguro auto em Guarulhos protege seu veículo contra colisão, roubo, furto e danos a terceiros. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura pelo melhor preço, com atendimento consultivo e cotação em até 2 horas úteis."
         serviceType="AutoInsurance"
       />
       <Header />

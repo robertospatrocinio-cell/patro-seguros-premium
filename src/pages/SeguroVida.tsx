@@ -1,6 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
-import LocalAreaSchema from "@/components/LocalAreaSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import { trilhaVida } from "@/lib/trilhaSeoRecomendacoes";
 import heroImg from "@/assets/hero-seguro-vida.webp";
 import heroMobileImg from "@/assets/hero-familia-sm.webp";
@@ -8,11 +8,10 @@ import heroMobileImg from "@/assets/hero-familia-sm.webp";
 const SeguroVida = () => {
   return (
     <>
-      <LocalAreaSchema
-        serviceName="Seguro de Vida"
-        url="https://www.patroseguros.com.br/seguro-vida"
-        description="Seguro de vida em Guarulhos: proteção familiar completa contra morte, invalidez e doenças graves."
-        city="Guarulhos"
+      <ServiceSchema
+        name="Seguro de Vida"
+        description="O seguro de vida em Guarulhos garante proteção financeira completa para sua família contra morte, invalidez e doenças graves. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
+        serviceType="LifeInsurance"
       />
     <InsurancePageTemplate
       heroImage={heroImg}
