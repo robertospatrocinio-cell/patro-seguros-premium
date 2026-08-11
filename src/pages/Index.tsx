@@ -318,6 +318,87 @@ const Index = () => {
               </div>
             </div>
 
+            {/* BLOCO DE LINKS INTERNOS ESTRATÉGICOS (SERVIÇOS E BAIRROS) */}
+            <div className="mt-16 pt-12 border-t border-slate-100">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <div>
+                  <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <ShieldCheck className="h-4 w-4 text-primary" />
+                    Principais Seguros
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { name: "Seguro Auto", path: "/seguro-auto-guarulhos" },
+                      { name: "Plano de Saúde", path: "/plano-saude-guarulhos" },
+                      { name: "Seguro Residencial", path: "/seguro-residencial" },
+                      { name: "Seguro de Vida", path: "/seguro-vida-guarulhos" },
+                      { name: "Empresarial", path: "/seguro-empresarial-guarulhos" },
+                      { name: "Frota", path: "/seguro-frota-empresas-guarulhos" },
+                      { name: "Transporte", path: "/seguro-transporte-carga-guarulhos" },
+                      { name: "Consórcio", path: "/consorcio-guarulhos" },
+                      { name: "Carta Verde", path: "/seguro-carta-verde" }
+                    ].map((link) => (
+                      <Link 
+                        key={link.path} 
+                        to={link.path}
+                        className="text-xs px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-600 hover:bg-primary/5 hover:border-primary/20 hover:text-primary transition-all"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    Atendimento em Guarulhos
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { name: "Cidade Maia", path: "/seguros-cidade-maia-guarulhos" },
+                      { name: "Cumbica", path: "/seguros-cumbica-guarulhos" },
+                      { name: "Pimentas", path: "/seguros-pimentas-guarulhos" },
+                      { name: "Bonsucesso", path: "/seguros-bonsucesso-guarulhos" },
+                      { name: "Vila Augusta", path: "/seguros-vila-augusta-guarulhos" },
+                      { name: "Centro", path: "/seguros-centro-guarulhos" },
+                      { name: "Taboão", path: "/seguros-taboao-guarulhos" },
+                      { name: "Vila Galvão", path: "/seguros-vila-galvao-guarulhos" }
+                    ].map((link) => (
+                      <Link 
+                        key={link.path} 
+                        to={link.path}
+                        className="text-xs px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-600 hover:bg-primary/5 hover:border-primary/20 hover:text-primary transition-all"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <Building2 className="h-4 w-4 text-primary" />
+                    Seguradoras Parceiras
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {["Porto", "Allianz", "Tokio Marine", "Bradesco", "Azul", "HDI", "Liberty", "Suhai"].map((seg) => (
+                      <Link 
+                        key={seg} 
+                        to="/seguradoras-parceiras"
+                        className="text-xs px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 text-slate-600 hover:bg-primary/5 hover:border-primary/20 hover:text-primary transition-all"
+                      >
+                        {seg}
+                      </Link>
+                    ))}
+                    <Link to="/seguradoras-parceiras" className="text-xs px-3 py-1.5 text-primary font-semibold hover:underline">
+                      Ver todas 16+ seguradoras →
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
               <Link to="/cotacao" onClick={handleSeoBlockCotacaoClick}>
                 <Button size="lg" className="rounded-xl font-bold">
