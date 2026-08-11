@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, MapPin, Star, Building2, ShieldCheck, ArrowRight } from "lucide-react";
+import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { trackCotacaoClick } from "@/lib/tracking";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
@@ -245,6 +246,12 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         priceRange={pricing.range}
         faqs={faqs}
       />
+
+      <div className="bg-background border-b py-2 hidden md:block">
+        <div className="container mx-auto px-4">
+          <Breadcrumb items={[{ label: "Início", href: "/" }, { label: "Guarulhos", href: "/seguros-guarulhos" }, { label: title }]} />
+        </div>
+      </div>
 
       <InsurancePageTemplate
         heroImage={heroImage}
