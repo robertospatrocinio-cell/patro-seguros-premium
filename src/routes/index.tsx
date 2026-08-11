@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Revisar e confirmar que os Title tags e Meta descriptions foram atualizados exatamente como definido para Home e cada página de seguro.
+      Execute esta instrucao no projeto: Verificar se o JSON-LD (Organization, InsuranceAgency, Service, FAQPage e BreadcrumbList) foi incluído corretamente em cada página e se não há erros no Rich Results do Google.
 
 OBJETIVO: Garantir que a otimização de metadados solicitada foi aplicada corretamente em todas as rotas, assegurando a consistência da comunicação e o fortalecimento do SEO local para Guarulhos/SP.
 
