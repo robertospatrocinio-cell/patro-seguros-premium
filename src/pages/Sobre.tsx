@@ -17,6 +17,7 @@ import AutoridadePatro from "@/components/AutoridadePatro";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import socioRoberto from "@/assets/socio-roberto.webp";
 import sociaSandra from "@/assets/socia-sandra.webp";
+import { EMPRESA } from "@/config/empresa";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
 
