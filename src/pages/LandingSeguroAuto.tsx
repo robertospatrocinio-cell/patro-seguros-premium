@@ -8,7 +8,7 @@ const LandingSeguroAuto = () => (
     heroEmoji="🚗"
     headline="Seu carro está protegido? Ou você está contando com a sorte?"
     subheadline="Compare cotações de 16+ seguradoras em minutos. Encontre o melhor preço sem sair de casa — com atendimento humano e personalizado."
-    metaDescription="Cotação de Seguro Auto gratuita. Compare Porto, Tokio Marine, Allianz, HDI e mais. Resultado em 2 horas. Patro Seguros Guarulhos."
+    metaDescription="A Patro Seguros, corretora em Guarulhos há 20+ anos, oferece cotação de Seguro Auto gratuita. Compare Porto, Tokio, Allianz e HDI. Resultado em até 2h úteis."
     ctaText="Cotar Meu Seguro Auto Grátis"
     ctaUrl="https://patro.seucorretor.digital/#/formularios/auto"
     urgencyText="Cotações com preço especial esta semana"
@@ -22,9 +22,9 @@ const LandingSeguroAuto = () => (
     ]}
     stats={[
       { value: "16+", label: "Seguradoras" },
-      { value: "2h", label: "Tempo Resposta" },
-      { value: "100%", label: "Gratuito" },
-      { value: "10x", label: "Sem Juros" },
+      { value: "2.500+", label: "Clientes" },
+      { value: "20+", label: "Anos de Mercado" },
+      { value: "2h", label: "Resposta" },
     ]}
     benefits={[
       { icon: "⚡", title: "Cotação em 2 horas", description: "Receba propostas comparativas de Porto, Tokio, Allianz, HDI e mais — sem precisar ligar para ninguém." },

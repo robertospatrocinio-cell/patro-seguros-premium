@@ -66,14 +66,26 @@ import { INSURER_WEBSITES } from "@/data/insurerWebsites";
 const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO", "DARWIN", "EZZE", "HAPVIDA/NOTREDAME", "HDI", "ITAÚ", "ITURAN", "JUSTOS", "LIBERTY", "MAG", "MAPFRE", "MEDSENIOR", "MITSUI", "OMINT", "PIER", "PORTO", "PREVENT SENIOR", "SOMPO", "SUHAI", "SULAMERICA", "SURA", "TOKIO MARINE", "UNIMED", "YOUSE", "ZURICH"];
 
 const faqs = [
-  { question: "Por que escolher uma corretora de seguros em Guarulhos?", answer: "Uma corretora local em Guarulhos conhece os riscos da região — alagamentos, índices de roubo por bairro, trânsito — e recomenda coberturas adequadas. A Patro Seguros compara cotações de mais de 16 seguradoras para encontrar o melhor custo-benefício." },
-  { question: "Quanto tempo leva para receber uma cotação?", answer: "Em até 2 horas úteis você recebe sua cotação personalizada com propostas comparativas de múltiplas seguradoras." },
-  { question: "A cotação é realmente gratuita?", answer: "Sim. Todas as nossas cotações de seguro são 100% gratuitas e sem compromisso. Compare à vontade." },
-  { question: "Quais tipos de seguro a Patro Seguros oferece em Guarulhos?", answer: "Seguro auto, seguro residencial, seguro de vida, seguro empresarial, seguro de frota, planos de saúde, consórcio e muito mais. Atendemos pessoas físicas, famílias e empresas de todos os portes." },
-  { question: "Como funciona o suporte em caso de sinistro?", answer: "A Patro cuida de todo o processo junto à seguradora: abertura, documentação, acompanhamento e resolução. Você não precisa ligar para a seguradora — nós fazemos isso por você." },
-  { question: "Vocês atendem em todos os bairros de Guarulhos?", answer: "Sim. A Patro Seguros atende toda Guarulhos — Centro, Cumbica, Pimentas, Bonsucesso, Taboão, Vila Galvão, Macedo, Cidade Maia, Gopoúva, Ponte Grande, Vila Augusta, Jardim Maia, Picanço — e também cidades vizinhas como Arujá, Itaquaquecetuba, Mairiporã e a zona leste de São Paulo há mais de 20 anos." },
-  { question: "Qual a diferença entre contratar com a Patro Seguros e direto com a seguradora?", answer: "Você paga o mesmo preço de tabela, mas ganha um corretor que compara várias seguradoras, recomenda a melhor cobertura para o seu perfil e cuida da sua apólice na hora do sinistro. Nossa remuneração vem da seguradora, não do cliente." },
-  { question: "Posso comparar planos de saúde por bairro de Guarulhos?", answer: "Sim. Validamos a rede credenciada por bairro antes de fechar — hospitais, laboratórios e clínicas próximos da sua casa ou empresa em Guarulhos. Isso evita contratar um plano que tenha rede só do outro lado da cidade." },
+  { 
+    question: "Qual a melhor corretora de seguros em Guarulhos?", 
+    answer: "A Patro Seguros é referência em Guarulhos há 20+ anos, com nota 4.9 no Google e registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras para garantir o melhor custo-benefício." 
+  },
+  { 
+    question: "Como solicitar uma cotação de seguro em Guarulhos?", 
+    answer: "Você pode solicitar pelo nosso site ou WhatsApp (11) 5199-7500. Entregamos um comparativo completo entre 16 seguradoras em até 2 horas úteis, sem custo e sem compromisso." 
+  },
+  { 
+    question: "Quais seguros a Patro Seguros oferece em Guarulhos?", 
+    answer: "Oferecemos Seguro Auto, Residencial, Vida, Empresarial, Frotas, Planos de Saúde e Consórcio. Atendemos todos os bairros de Guarulhos e região com suporte especializado em sinistros." 
+  },
+  { 
+    question: "Por que contratar com corretora e não direto no banco?", 
+    answer: "O corretor da Patro compara 16 seguradoras, enquanto o banco oferece apenas o produto dele. Além disso, você tem suporte humano especializado em caso de batida ou roubo, sem custo adicional." 
+  },
+  { 
+    question: "A Patro Seguros é confiável e registrada na SUSEP?", 
+    answer: "Sim, somos registrados sob o número SUSEP 212113511. Temos mais de 2.500 clientes atendidos e uma das melhores avaliações de Guarulhos no Google (nota 4.9)." 
+  }
 ];
 
 const sinistroFaqs = [
@@ -101,8 +113,8 @@ const Index = () => {
   return (
     <>
       <PageMeta 
-        title="Corretora de Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
-        description="A Patro Seguros é sua corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis."
+        title="Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
+        description="A Patro Seguros é sua corretora em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde e empresarial. Cotação grátis em até 2h úteis via WhatsApp."
         absoluteTitle={true}
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
@@ -141,7 +153,7 @@ const Index = () => {
               />
               <img
                 src="/images/hero-home-960.webp"
-                alt="Corretora de seguros em Guarulhos — Patro Seguros, com 20+ anos de mercado e atendimento consultivo"
+                alt="Seguros em Guarulhos | Patro Seguros — Corretora com 20+ anos de mercado, registro SUSEP 212113511 e 16 seguradoras parceiras"
                 width={1280}
                 height={720}
                 sizes="100vw"
@@ -157,7 +169,7 @@ const Index = () => {
               <div className="max-w-3xl">
                 <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
                 <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                  Corretora de Seguros em Guarulhos | Patro Seguros
+                  Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras
                 </h1>
                 <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.
