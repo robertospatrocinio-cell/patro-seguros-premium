@@ -124,7 +124,7 @@ const SeoSegurosPmeGuarulhos = () => (
               Segundo dados do Corpo de Bombeiros, Guarulhos registra centenas de ocorrências de incêndio comercial e industrial por ano. Além disso, a região está entre as mais afetadas por roubos e furtos a estabelecimentos comerciais no estado. Empresas sem seguro adequado ficam vulneráveis a prejuízos que podem inviabilizar a continuidade do negócio.
             </p>
             <p>
-              A Patro Seguros atua como consultora de risco para empresas de todos os portes em Guarulhos. Nossa abordagem vai além da venda de apólices: analisamos o perfil de risco da empresa, identificamos vulnerabilidades e montamos um pacote de proteção que equilibra cobertura adequada com custo acessível. Desde 2020, já atendemos mais de 200 empresas na região e resolvemos mais de R$ 2 milhões em sinistros empresariais.
+              A Patro Seguros atua como consultora de risco para empresas de todos os portes em Guarulhos. Nossa abordagem vai além da venda de apólices: analisamos o perfil de risco da empresa, identificamos vulnerabilidades e montamos um pacote de proteção que equilibra cobertura adequada com custo acessível. Fundada em 2021 por sócios com mais de 20 anos de experiência, já atendemos mais de 200 empresas na região e resolvemos mais de R$ 2 milhões em sinistros empresariais.
             </p>
           </div>
         </div>

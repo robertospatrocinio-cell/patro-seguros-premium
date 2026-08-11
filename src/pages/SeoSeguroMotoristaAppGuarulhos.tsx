@@ -71,7 +71,7 @@ Atendemos motoristas full-time (8-12h/dia), motoristas que complementam renda em
       "Quem trabalha em apps em horários noturnos e de madrugada",
     ]}
     whyPatro={[
-      "Especialistas em seguros para motoristas de app em Guarulhos desde 2020",
+      "Especialistas em seguros para motoristas de app em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência",
       "Mais de 200 motoristas de aplicativo já protegidos na região",
       "Apólices só com seguradoras que aceitam uso para app — sem brechas",
       "Atendimento presencial no Cidade Maia e WhatsApp 24h",

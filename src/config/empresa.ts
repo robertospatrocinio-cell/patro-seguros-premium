@@ -11,7 +11,7 @@ export const EMPRESA = {
   razaoSocial: "Patro Corretora de Seguros LTDA",
   cnpj: "41.641.558/0001-33",
   susep: "212113511",
-  fundacao: "2006",
+  fundacao: "2021",
   telefone: "(11) 5199-7500",
   telefoneE164: "+551151997500",
   whatsapp: "+551151997500",
@@ -35,7 +35,7 @@ export const EMPRESA = {
   dominioCanonico: "https://www.patroseguros.com.br",
   horario: "Segunda a sexta, das 8h às 18h e online segunda a domingo, das 7h as 20h",
   posicionamento:
-    "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.",
+    "A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência no mercado segurador, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.",
   redesSociais: {
     google: "https://www.google.com/maps?cid=273879799324962533",
     instagram: "https://www.instagram.com/patroseguros",

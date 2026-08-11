@@ -30,7 +30,7 @@ const CREDENCIAIS = {
 const STATS: Array<{ icon: typeof ShieldCheck; value: string; label: string }> = [
   { icon: Users,      value: EMPRESA.metricas.clientesAtendidos, label: "Clientes atendidos" },
   { icon: Building2,  value: EMPRESA.metricas.seguradorasParceiras,    label: "Seguradoras parceiras" },
-  { icon: Award,      value: EMPRESA.metricas.experienciaAnos,    label: "Anos de mercado" },
+  { icon: Award,      value: EMPRESA.metricas.experienciaAnos,    label: "Anos de experiência" },
   { icon: ShieldCheck, value: "100%",  label: "Registrada na SUSEP" },
 ];
 
@@ -49,7 +49,7 @@ const AutoridadePatro = ({
   variant = "default",
   className,
   heading = "Quem cuida do seu seguro na Patro",
-  copy = "A Patro oferece uma consultoria humana que analisa as entrelinhas das apólices. Operamos em Guarulhos há mais de 20 anos (registro SUSEP 212113511), garantindo que você tenha a melhor proteção pelo menor custo real.",
+  copy = "A Patro oferece uma consultoria humana que analisa as entrelinhas das apólices. Operamos em Guarulhos com sócios que somam mais de 20 anos de experiência (registro SUSEP 212113511), garantindo que você tenha a melhor proteção pelo menor custo real.",
 }: AutoridadePatroProps) => {
   const isCompact = variant === "compact";
 

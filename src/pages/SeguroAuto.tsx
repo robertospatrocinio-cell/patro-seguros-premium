@@ -132,13 +132,13 @@ const SeguroAuto = () => {
                 Seguro Auto em Guarulhos | Patro Seguros — Compare 16 Seguradoras
               </h1>
               <p className="text-base md:text-lg text-white/60 mb-6 animate-fade-up-delay-2 max-w-2xl mx-auto">
-                Compare seguradoras e encontre proteção para seu carro com atendimento consultivo da Patro Seguros, sua corretora em Guarulhos há mais de 20 anos.
+                Compare seguradoras e encontre proteção para seu carro com atendimento consultivo da Patro Seguros, fundada em 2021 por sócios com mais de 20 anos de experiência.
               </p>
               
               {/* BLOCO RESPOSTA RÁPIDA (ANSWER-READY) */}
               <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-sm p-5 rounded-xl border border-white/10 mb-8 animate-fade-up-delay-2">
                 <p className="text-white/90 text-sm leading-relaxed text-left">
-                  <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos há mais de 20 anos (registro SUSEP 212113511). Comparamos seu Seguro Auto em 16 seguradoras (Porto, Allianz, Tokio, etc) com resposta em até 2h úteis via WhatsApp (11) 5199-7500.
+                  <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência (registro SUSEP 212113511). Comparamos seu Seguro Auto em 16 seguradoras (Porto, Allianz, Tokio, etc) com resposta em até 2h úteis via WhatsApp (11) 5199-7500.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
@@ -160,7 +160,7 @@ const SeguroAuto = () => {
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <span>Nota {PATRO_SOCIAL_PROOF.googleRating}/5 no Google | Mais de 2.500 clientes protegidos em Guarulhos</span>
+                <span>Nota {PATRO_SOCIAL_PROOF.googleRating}/5 no Google | Mais de 2.500 clientes atendidos e 20+ anos de experiência dos sócios</span>
               </div>
             </div>
           </div>
