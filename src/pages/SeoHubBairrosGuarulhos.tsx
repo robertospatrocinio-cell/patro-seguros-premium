@@ -177,7 +177,7 @@ const SeoHubBairrosGuarulhos = () => {
           <div className="absolute inset-0 bg-black/5" />
           <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Sua operação logística ou seu lar está realmente protegido?</h2>
-            <p className="text-white/80 mb-10 max-w-2xl mx-auto text-lg">Não deixe sua segurança nas mãos de algoritmos genéricos. Fale com quem é autoridade em Guarulhos há mais de 20 anos.</p>
+            <p className="text-white/80 mb-10 max-w-2xl mx-auto text-lg">Não deixe sua segurança nas mãos de algoritmos genéricos. Fale com quem é autoridade em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" variant="secondary" className="rounded-full px-10 h-14 text-base font-bold" asChild>
                 <Link to="/cotacao">Pedir Cotação Agora</Link>

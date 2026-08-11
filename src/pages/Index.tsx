@@ -114,7 +114,7 @@ const Index = () => {
     <>
       <PageMeta 
         title="Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
-        description="Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis. Fale com um especialista."
+        description="Corretora de seguros em Guarulhos fundada em 2021 por sócios com 20+ anos de experiência. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis."
         absoluteTitle={true}
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
@@ -123,7 +123,7 @@ const Index = () => {
       <OrganizationSchema />
       <ServiceSchema 
         name="Seguros em Guarulhos" 
-        description="A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras."
+        description="A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região."
       />
       <MedicalOrganizationSchema />
       <AggregateRatingSchema
@@ -172,7 +172,7 @@ const Index = () => {
                   Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras
                 </h1>
                 <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.
+                  A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link to="/cotacao" onClick={handleHeroCotacaoClick}>
@@ -204,7 +204,7 @@ const Index = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg border border-slate-200 shadow-sm text-center lg:text-left">
               <p className="text-slate-800 leading-relaxed">
-                <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos e região, com mais de 20 anos de mercado e registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras — auto, vida, saúde, residencial e empresarial — com atendimento consultivo e resposta em até 2h úteis via WhatsApp (11) 5199-7500.
+                <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos e região, fundada em 2021 por sócios com mais de 20 anos de experiência e registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras — auto, vida, saúde, residencial e empresarial — com atendimento consultivo e resposta em até 2h úteis via WhatsApp (11) 5199-7500.
               </p>
               <p className="text-slate-500 text-xs mt-3 flex items-center justify-center lg:justify-start">
                 <Clock className="w-3 h-3 mr-1" />
@@ -232,7 +232,7 @@ const Index = () => {
             </h2>
             <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
               <p>
-                A Patro Seguros é sua corretora de seguros em Guarulhos há mais de 20 anos,
+                A Patro Seguros é sua corretora de seguros em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência no mercado,
                 especializada em comparar seguradoras e orientar clientes na escolha de seguros
                 para auto, saúde, vida, residência, empresas, frotas e consórcios.
               </p>
@@ -438,7 +438,7 @@ const Index = () => {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="p-8 bg-slate-50 rounded-2xl border border-slate-200 text-center">
               <p className="text-lg text-slate-800 font-medium italic">
-                "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras."
+                "A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região."
               </p>
             </div>
           </div>
@@ -454,7 +454,7 @@ const Index = () => {
               {[
                 { 
                   q: "Qual a melhor corretora de seguros em Guarulhos?", 
-                  a: "A Patro Seguros é referência em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo." 
+                  a: "A Patro Seguros é referência em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo." 
                 },
                 { 
                   q: "Quanto custa um seguro de carro em Guarulhos?", 
