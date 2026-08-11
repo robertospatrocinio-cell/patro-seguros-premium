@@ -68,23 +68,23 @@ const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO",
 const faqs = [
   { 
     question: "Qual a melhor corretora de seguros em Guarulhos?", 
-    answer: "A Patro Seguros é referência em Guarulhos há 20+ anos, com nota 4.9 no Google e registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras para garantir o melhor custo-benefício." 
+    answer: "A Patro Seguros é referência em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo." 
   },
   { 
-    question: "Como solicitar uma cotação de seguro em Guarulhos?", 
-    answer: "Você pode solicitar pelo nosso site ou WhatsApp (11) 5199-7500. Entregamos um comparativo completo entre 16 seguradoras em até 2 horas úteis, sem custo e sem compromisso." 
+    question: "Quanto custa um seguro de carro em Guarulhos?", 
+    answer: "O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros compara propostas de 16+ seguradoras para você encontrar a melhor cobertura pelo melhor preço, com cotação em até 2h úteis." 
   },
   { 
-    question: "Quais seguros a Patro Seguros oferece em Guarulhos?", 
-    answer: "Oferecemos Seguro Auto, Residencial, Vida, Empresarial, Frotas, Planos de Saúde e Consórcio. Atendemos todos os bairros de Guarulhos e região com suporte especializado em sinistros." 
+    question: "Quais seguros a Patro Seguros oferece?", 
+    answer: "Auto, moto, residencial, vida, plano de saúde, empresarial, frota, transporte de carga, responsabilidade civil, cyber e agronegócio — para pessoas e empresas em Guarulhos e região." 
   },
   { 
-    question: "Por que contratar com corretora e não direto no banco?", 
-    answer: "O corretor da Patro compara 16 seguradoras, enquanto o banco oferece apenas o produto dele. Além disso, você tem suporte humano especializado em caso de batida ou roubo, sem custo adicional." 
+    question: "Como acionar o seguro em caso de sinistro em Guarulhos?", 
+    answer: "A Patro Seguros tem Central de Sinistro dedicada e WhatsApp de emergência 24h. Nossa equipe acompanha todo o processo, da vistoria à indenização." 
   },
   { 
-    question: "A Patro Seguros é confiável e registrada na SUSEP?", 
-    answer: "Sim, somos registrados sob o número SUSEP 212113511. Temos mais de 2.500 clientes atendidos e uma das melhores avaliações de Guarulhos no Google (nota 4.9)." 
+    question: "A Patro Seguros atende empresas em Guarulhos?", 
+    answer: "Sim. Oferecemos seguro empresarial, frota, transporte de carga, plano de saúde PME e responsabilidade civil, com gestão de riscos completa para negócios de todos os portes." 
   }
 ];
 
