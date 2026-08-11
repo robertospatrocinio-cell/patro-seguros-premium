@@ -106,8 +106,9 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     // Detecção de preview via sufixo codificado — não expõe nome de plataforma
     // como string literal no bundle público.
     const PREVIEW_SUFFIX = String.fromCharCode(46, 108, 111, 118, 97, 98, 108, 101, 46, 97, 112, 112);
+    const DEV_SUFFIX = String.fromCharCode(46, 108, 111, 118, 97, 98, 108, 101, 46, 100, 101, 118);
     const isPreviewHost =
-      typeof window !== "undefined" && window.location.hostname.endsWith(PREVIEW_SUFFIX);
+      typeof window !== "undefined" && (window.location.hostname.endsWith(PREVIEW_SUFFIX) || window.location.hostname.endsWith(DEV_SUFFIX));
     if (robots) {
       robots.setAttribute(
         "content",

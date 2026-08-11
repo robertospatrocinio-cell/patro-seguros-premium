@@ -15,7 +15,7 @@ const ServiceSchema = ({ name, description, serviceType = "Insurance" }: Service
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${CANONICAL_BASE_URL}${cleanPath}#service`,
-    "name": name,
+    "name": `${name} em Guarulhos`,
     "description": description,
     "provider": {
       "@id": "https://www.patroseguros.com.br/#insurance-agency"
