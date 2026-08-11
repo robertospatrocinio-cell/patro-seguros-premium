@@ -28,9 +28,9 @@ const CREDENCIAIS = {
 } as const;
 
 const STATS: Array<{ icon: typeof ShieldCheck; value: string; label: string }> = [
-  { icon: Users,      value: "2.500+", label: "Clientes atendidos" },
-  { icon: Building2,  value: "16+",    label: "Seguradoras parceiras" },
-  { icon: Award,      value: "30+",    label: "Anos de mercado" },
+  { icon: Users,      value: EMPRESA.metricas.clientesAtendidos, label: "Clientes atendidos" },
+  { icon: Building2,  value: EMPRESA.metricas.seguradorasParceiras,    label: "Seguradoras parceiras" },
+  { icon: Award,      value: EMPRESA.metricas.experienciaAnos,    label: "Anos de mercado" },
   { icon: ShieldCheck, value: "100%",  label: "Registrada na SUSEP" },
 ];
 
@@ -49,7 +49,7 @@ const AutoridadePatro = ({
   variant = "default",
   className,
   heading = "Quem cuida do seu seguro na Patro",
-  copy = "Somos uma corretora Lovable. Corretora familiar em Guarulhos, fundada por Roberto e Sandra Patrocínio. Atendimento consultivo, orientação sem pressão para contratar e presença física no Cidade Maia — quem responde é quem te acompanha.",
+  copy = "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.",
 }: AutoridadePatroProps) => {
   const isCompact = variant === "compact";
 
