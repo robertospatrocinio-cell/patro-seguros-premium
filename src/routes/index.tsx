@@ -17,7 +17,7 @@ REGRA ABSOLUTA — APENAS CORRIGIR O QUE FOI LISTADO:
 ====================================================
 DADOS OFICIAIS DA MARCA (VERDADE ÚNICA — USE SEMPRE)
 ====================================================
-- Anos de mercado: 20+ anos (NUNCA "30+ anos")
+- Anos de mercado: 20+ anos (NUNCA "20+ anos")
 - Clientes: 2.500+ | Seguradoras: 16+ | Avaliação: 4.9 com 67 avaliações
 - SUSEP: 212113511 | CNPJ: 41.641.558/0001-33
 - Endereço: Avenida Salgado Filho, 2120 - Sala 219, Maia, Guarulhos/SP
@@ -27,12 +27,12 @@ DADOS OFICIAIS DA MARCA (VERDADE ÚNICA — USE SEMPRE)
 ====================================================
 CORREÇÃO 1 — DADOS INCONSISTENTES (CRÍTICA, TODAS AS PÁGINAS)
 ====================================================
-PROBLEMA: A página /seguro-auto (e possivelmente /seguro-auto-cumbica) exibe "30+ anos de mercado" e "2.500+ clientes". As demais páginas usam "20+ anos". Isso dilui a autoridade da entidade para Google e IAs.
+PROBLEMA: A página /seguro-auto (e possivelmente /seguro-auto-cumbica) exibe "20+ anos de mercado" e "2.500+ clientes". As demais páginas usam "20+ anos". Isso dilui a autoridade da entidade para Google e IAs.
 
 AÇÕES:
-1.1. Em TODAS as páginas do site, localize e substitua qualquer menção a "30+ anos", "30 anos de mercado", "mais de 30 anos", "30 anos de atuação" por "20+ anos de mercado" ou "há mais de 20 anos". Mantenha a estrutura da frase, apenas troque o número.
-1.2. Na página /seguro-auto, a frase "Mais de 2.500+ clientes atendidos e 30+ anos de mercado" deve virar "Mais de 2.500+ clientes atendidos e 20+ anos de mercado".
-1.3. Verifique /seguro-auto-cumbica: se ainda houver "30+ anos", corrija para "20+ anos".
+1.1. Em TODAS as páginas do site, localize e substitua qualquer menção a "20+ anos", "30 anos de mercado", "mais de 30 anos", "30 anos de atuação" por "20+ anos de mercado" ou "há mais de 20 anos". Mantenha a estrutura da frase, apenas troque o número.
+1.2. Na página /seguro-auto, a frase "Mais de 2.500+ clientes atendidos e 20+ anos de mercado" deve virar "Mais de 2.500+ clientes atendidos e 20+ anos de mercado".
+1.3. Verifique /seguro-auto-cumbica: se ainda houver "20+ anos", corrija para "20+ anos".
 1.4. Garanta que toda página que exibe avaliação mostre "4.9" e "67 avaliações reais" (sem variações).
 1.5. Padronize a frase de autoridade onde a marca é citada em contexto de autoridade: "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras."
 
@@ -105,7 +105,7 @@ AÇÃO:
 VERIFICAÇÕES FINAIS OBRIGATÓRIAS
 ====================================================
 Após aplicar, confirme:
-1. Nenhuma página contém "30+ anos" — todas usam "20+ anos"
+1. Nenhuma página contém "20+ anos" — todas usam "20+ anos"
 2. Home tem: title novo, meta description completa, bloco "Resposta rápida" com timestamp, FAQ com 5 perguntas, alt text do hero otimizado
 3. Meta descriptions não estão truncadas em nenhuma página
 4. Schemas JSON-LD implementados (ou corrigidos) com dados oficiais
