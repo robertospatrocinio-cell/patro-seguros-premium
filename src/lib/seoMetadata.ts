@@ -31,7 +31,7 @@ export interface Metadata {
 const DOMAIN = "https://www.patroseguros.com.br";
 const DEFAULT_GEO_REGION = "BR-SP";
 const DEFAULT_GEO_PLACENAME = "Guarulhos, São Paulo";
-const ANSWER_READY_TEMPLATE = "A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras. Cotação em até 2h úteis.";
+const ANSWER_READY_TEMPLATE = EMPRESA.posicionamento;
 
 /**
  * Mapa de rotas /hub-* → slug do SEO_HUBS correspondente, usado para

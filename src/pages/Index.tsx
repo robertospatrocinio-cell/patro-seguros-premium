@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: na pagina home ainda tem esta frase errada: A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras. */
+/** Execute esta instrucao no projeto: Reorganizar os elementos da Home para manter um CTA dominante no hero e reduzir a redundância de chamadas secundárias. Padronizar a frase institucional da Patro para que apareça uma única vez na Home e fique consistente em todas as páginas do site. */
 import { lazy, Suspense } from "react";
 import { EMPRESA } from "@/config/empresa";
 import { Link } from "react-router-dom";
@@ -69,7 +69,7 @@ const parceiros = ["AKAD", "ALLIANZ", "AMIL", "AXA", "AZOS", "AZUL", "BRADESCO",
 const faqs = [
   { 
     question: "Qual a melhor corretora de seguros em Guarulhos?", 
-    answer: "A Patro Seguros é referência em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo." 
+    answer: EMPRESA.posicionamento 
   },
   { 
     question: "Quanto custa um seguro de carro em Guarulhos?", 
@@ -183,7 +183,7 @@ const Index = () => {
                     </Button>
                   </Link>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleHeroWhatsAppClick}>
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-green-500/10 hover:bg-green-500/20 text-green-700 border-green-600/30 hover:border-green-600/50 font-bold transition-all">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border-white/20 hover:border-white/40 font-medium transition-all">
                       <MessageCircle className="mr-2 h-5 w-5" />
                       Falar no WhatsApp
                     </Button>
@@ -200,20 +200,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* BLOCO RESPOSTA RÁPIDA (ANSWER-READY) */}
-        <div className="bg-slate-50 border-y border-slate-200 py-6">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg border border-slate-200 shadow-sm text-center lg:text-left">
-              <p className="text-slate-800 leading-relaxed">
-                <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos e região, fundada em 2021 por sócios com mais de 20 anos de experiência e registro SUSEP 212113511. Comparamos cotações em 16+ seguradoras — auto, vida, saúde, residencial e empresarial — com atendimento consultivo e resposta em até 2h úteis via WhatsApp (11) 5199-7500.
-              </p>
-              <p className="text-slate-500 text-xs mt-3 flex items-center justify-center lg:justify-start">
-                <Clock className="w-3 h-3 mr-1" />
-                Atualizado em {new Date().toLocaleDateString('pt-BR')} · Fonte: Patro Corretora de Seguros — SUSEP 212113511
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* QUICK LEAD FORM */}
         <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
