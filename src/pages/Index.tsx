@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Otimizar os CTAs persistentes (WhatsApp e formulário) para ficarem visíveis em todas as seções da página de obrigado sem atrapalhar a leitura. */
+/** Execute esta instrucao no projeto: na pagina home ainda tem esta frase errada: A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras. */
 import { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2, MapPin } from "lucide-react";
@@ -176,13 +176,13 @@ const Index = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link to="/cotacao" onClick={handleHeroCotacaoClick}>
-                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all">
+                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all shadow-xl">
                       Cotar agora com especialistas
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleHeroWhatsAppClick}>
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-green-500 hover:bg-green-600 text-white border-green-600 hover:border-green-700 font-bold shadow-lg shadow-green-500/20 transition-all">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-green-500/10 hover:bg-green-500/20 text-green-700 border-green-600/30 hover:border-green-600/50 font-bold transition-all">
                       <MessageCircle className="mr-2 h-5 w-5" />
                       Falar no WhatsApp
                     </Button>
@@ -228,7 +228,7 @@ const Index = () => {
               id="home-seo-intro"
               className="text-2xl md:text-3xl font-bold text-slate-900 mb-6"
             >
-              Seguros em Guarulhos e Região — Há 20+ anos protegendo você
+              Seguros em Guarulhos e Região — Sócios com 20+ anos de experiência
             </h2>
             <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
               <p>
@@ -414,7 +414,7 @@ const Index = () => {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
               <Link to="/cotacao" onClick={handleSeoBlockCotacaoClick}>
-                <Button size="lg" className="rounded-xl font-bold">
+                <Button size="lg" variant="outline" className="rounded-xl font-bold border-primary/20 hover:bg-primary/5">
                   Solicitar cotação de seguro
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Button>
@@ -552,14 +552,6 @@ const Index = () => {
           </div>
         </section>
 
-        {/* GOOGLE BUSINESS WIDGET (Mobile Only Version for immediate social proof) */}
-        <div className="lg:hidden container mx-auto px-4 pt-12">
-          <div className="bg-slate-50 p-1 rounded-2xl border border-slate-100">
-            <Suspense fallback={<div style={{ minHeight: 300 }} aria-hidden="true" />}>
-              <GoogleBusinessWidget />
-            </Suspense>
-          </div>
-        </div>
 
         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
         <div className="bg-orange-600 py-3 text-white mt-12 md:mt-20">

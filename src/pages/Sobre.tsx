@@ -286,7 +286,7 @@ const Sobre = () => {
                       <Clock className="h-4 w-4 text-primary mt-1 shrink-0" />
                       <div>
                         <p className="text-xs font-bold uppercase tracking-wider text-primary">Horário</p>
-                        <p className="text-[13px] text-muted-foreground">Seg a Sex: 9h às 18h</p>
+                        <p className="text-[13px] text-muted-foreground">{EMPRESA.horario}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
