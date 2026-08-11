@@ -11,7 +11,7 @@ export const EMPRESA = {
   razaoSocial: "Patro Corretora de Seguros LTDA",
   cnpj: "41.641.558/0001-33",
   susep: "212113511",
-  fundacao: "2021",
+  fundacao: "2006",
   telefone: "(11) 5199-7500",
   telefoneE164: "+551151997500",
   whatsapp: "+551151997500",
