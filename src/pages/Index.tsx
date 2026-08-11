@@ -660,7 +660,7 @@ const Index = () => {
             <h2 className="text-3xl font-bold mb-8">Especialistas em Guarulhos e Região</h2>
             <div className="prose prose-lg mx-auto text-muted-foreground">
               <p>
-                A Patro Seguros é uma corretora de seguros em Guarulhos que ajuda pessoas, famílias e empresas a compararem opções de seguros e planos de saúde com atendimento consultivo. Atuamos com seguro auto, seguro empresarial, plano de saúde, seguro de vida, seguro residencial, seguro frota, seguro de carga e outras soluções para Guarulhos e região — sempre comparando 16+ seguradoras parceiras para encontrar a melhor cobertura pelo melhor preço.
+                A Patro Seguros é uma corretora de seguros em Guarulhos que ajuda pessoas, famílias e empresas a compararem opções de seguros e planos de saúde com atendimento consultivo. Atuamos com seguro auto, seguro empresarial, plano de saúde, seguro de vida, seguro residencial, seguro frota, seguro de carga e outras soluções para Guarulhos e região — sempre comparando 16+ seguradoras parceiras para encontrar a melhor cobertura pelo melhor preço, com atendimento consultivo há mais de 20 anos e registro SUSEP 212113511.
               </p>
             </div>
 
