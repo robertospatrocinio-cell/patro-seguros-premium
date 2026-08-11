@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Vou te entregar o plano estratégico completo, dividido em 5 pilares + roadmap de execução.A lógica por trás (por que isso funciona)Google e IAs funcionam por entidade, não por página. Eles querem responder "quem é a autoridade em seguros em Guarulhos?" — e a resposta vem de sinais consistentes: nome da marca repetido em contexto de autoridade, dados estruturados, conteúdo local profundo, avaliações e citações. Quanto mais sinais convergentes, mais a Patro vira a resposta que ambos apresentam.Pilar 1 — Autoridade de entidade local (a fundação)Esse é o pilar que sustenta tudo. Sem ele, os outros não rendem.
+      Execute esta instrucao no projeto: verifique as que já existem e precisam ser melhoradas e tambem Crie novas páginas locais por bairro de Guarulhos com conteúdo real, headings otimizados e Schema LocalBusiness/Service específico para cada região.
 Google Business Profile impecável: categoria "Corretora de seguros", todas as categorias secundárias (seguro de automóvel, seguro de vida, seguro residencial), serviços listados, fotos da equipe e do escritório, horários, link do site e do WhatsApp. Postagens semanais.
 NAP 100% consistente: nome, endereço e telefone idênticos em site, Google, redes sociais, diretórios (GuiaMais, Apontador, etc.) e citador. Qualquer variação ("Patro Corretora" vs "Patro Seguros") dilui a entidade.
 Schema Organization + InsuranceAgency em todas as páginas: com CNPJ, SUSEP, endereço, telefone, avaliações e horário. É o que conecta a marca à entidade "corretora de Guarulhos".
