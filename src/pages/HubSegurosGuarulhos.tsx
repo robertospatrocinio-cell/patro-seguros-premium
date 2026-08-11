@@ -125,7 +125,7 @@ const SECTIONS: Section[] = [
 ];
 
 const FAQS = [
-  { question: "Por que contratar seguro com uma corretora local em Guarulhos?", answer: "Uma corretora local entende os riscos específicos da região (índices de roubo por bairro, perfil de trânsito, hospitais credenciados, etc.) e oferece atendimento presencial em caso de sinistro. A Patro Seguros atende Guarulhos há mais de 30 anos." },
+  { question: "Por que contratar seguro com uma corretora local em Guarulhos?", answer: `Uma corretora local entende os riscos específicos da região (índices de roubo por bairro, perfil de trânsito, hospitais credenciados, etc.) e oferece atendimento presencial em caso de sinistro. A Patro Seguros atende Guarulhos há mais de 20 anos.` },
   { question: "Quais seguradoras a Patro representa em Guarulhos?", answer: "Trabalhamos com 16+ seguradoras (Porto Seguro, Bradesco, Tokio Marine, HDI, Liberty, Sompo, Mapfre, Allianz, SulAmérica, Itaú, entre outras) e 20+ operadoras de saúde. Comparamos opções para você." },
   { question: "Atendem em todos os bairros de Guarulhos?", answer: "Sim. Atendemos do Centro, Maia, Vila Galvão, Cumbica, Bonsucesso, Picanço, Macedo, Gopouva, Continental, Paraventi e demais bairros. Nosso escritório fica na Cidade Maia." },
   { question: "Em quanto tempo recebo a cotação?", answer: "Em até 2 horas úteis enviamos o comparativo das melhores opções por WhatsApp ou e-mail. Para casos mais complexos (frota, RC profissional, agro), o prazo pode chegar a 24h." },
@@ -254,7 +254,7 @@ const HubSegurosGuarulhos = () => {
             </div>
             <ul className="grid md:grid-cols-2 gap-4 list-none">
               {[
-                "30+ anos de experiência exclusiva em Guarulhos e região",
+                "20+ anos de experiência exclusiva em Guarulhos e região",
                 "16+ seguradoras parceiras + 20 operadoras de saúde",
                 "Atendimento presencial na Cidade Maia",
                 "Cotação em até 2 horas úteis",
