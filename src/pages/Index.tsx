@@ -153,7 +153,7 @@ const Index = () => {
               />
               <img
                 src="/images/hero-home-960.webp"
-                alt="Corretora de seguros em Guarulhos — Patro Seguros, com 20+ anos de mercado e atendimento consultivo"
+                alt="Seguros em Guarulhos | Patro Seguros — Corretora com 20+ anos de mercado, registro SUSEP 212113511 e 16 seguradoras parceiras"
                 width={1280}
                 height={720}
                 sizes="100vw"
