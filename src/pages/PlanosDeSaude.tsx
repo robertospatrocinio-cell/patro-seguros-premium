@@ -307,14 +307,14 @@ const PlanosDeSaude = () => {
         <section className="py-16 bg-muted" aria-labelledby="faq-saude-heading">
           <div className="container mx-auto px-4 max-w-3xl">
             <h2 id="faq-saude-heading" className="text-center mb-12">Perguntas Frequentes sobre Planos de Saúde</h2>
-            <div className="space-y-6">
+            <div className="space-y-6" role="list">
               {[
                 { q: "Quanto custa um plano de saúde?", a: "O valor varia conforme a operadora, faixa etária, tipo de acomodação e cobertura. Fazemos uma análise personalizada para encontrar o melhor custo-benefício." },
                 { q: "Posso contratar plano de saúde individual?", a: "Sim! Oferecemos opções de planos individuais, familiares e empresariais com diversas operadoras." },
                 { q: "Qual o melhor plano de saúde em Guarulhos?", a: "Depende do perfil de cada cliente. Comparamos todas as operadoras para indicar a melhor opção para sua necessidade." },
                 { q: "Existe carência no plano de saúde?", a: "A maioria dos planos tem períodos de carência regulados pela ANS. Podemos orientar sobre planos com carência reduzida." },
               ].map((faq, i) => (
-                <div key={i}>
+                <div key={i} role="listitem">
                   <h3 className="text-lg font-semibold mb-2">{faq.q}</h3>
                   <p className="text-muted-foreground">{faq.a}</p>
                 </div>

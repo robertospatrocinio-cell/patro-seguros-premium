@@ -220,8 +220,8 @@ const Index = () => {
             </h2>
             <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
               <p>
-                A Patro Seguros é uma corretora de seguros em Guarulhos há mais de 20 anos especializada
-                em comparar seguradoras e orientar clientes na escolha de seguros
+                A Patro Seguros é sua corretora de seguros em Guarulhos há mais de 20 anos,
+                especializada em comparar seguradoras e orientar clientes na escolha de seguros
                 para auto, saúde, vida, residência, empresas, frotas e consórcios.
               </p>
               <p>
@@ -322,10 +322,10 @@ const Index = () => {
             <div className="mt-16 pt-12 border-t border-slate-100">
               <h4 className="font-bold text-slate-900 mb-6 text-center lg:text-left">Links Rápidos e SEO Local</h4>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                <div>
+                <div className="md:col-span-2 lg:col-span-1">
                   <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                     <ShieldCheck className="h-4 w-4 text-primary" />
-                    Principais Seguros
+                    Principais Seguros em Destaque
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
