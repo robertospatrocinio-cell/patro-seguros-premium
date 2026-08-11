@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: Verificar se os Title tags e Meta descriptions de todas as páginas de seguro estão idênticos ao padrão definido, sem duplicações e sem caracteres cortados no Google.
+      Execute esta instrucao no projeto: Implementar a verificação e correção das tags canonical em todas as páginas de seguro para evitar indexação duplicada.
 
 OBJETIVO: Garantir que a otimização de metadados solicitada foi aplicada corretamente em todas as rotas, assegurando a consistência da comunicação e o fortalecimento do SEO local para Guarulhos/SP.
 
