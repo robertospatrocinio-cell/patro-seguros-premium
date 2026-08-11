@@ -32,9 +32,6 @@ const Footer = memo(() => {
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
               A experiência digital de uma grande corretora, com o atendimento próximo de uma especialista em Guarulhos e região.
             </p>
-            <div className="mb-6">
-              <FooterReviewsBadge />
-            </div>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
               <div className="text-[12px] leading-relaxed">
@@ -73,7 +70,7 @@ const Footer = memo(() => {
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
-                <span>Seg. a Sex. 8h–18h • Online Seg. a Dom. 7h–20h</span>
+                <span>{EMPRESA.horario}</span>
               </li>
             </ul>
             <div className="flex gap-3">

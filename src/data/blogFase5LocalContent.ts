@@ -13,7 +13,7 @@ export const fase5LocalArticlesContent = {
       { q: "Qual a diferença entre corretora e seguradora?", a: "A seguradora emite a apólice e paga o sinistro. A corretora é a representante do segurado: cota com várias seguradoras, monta a apólice ideal e te defende no sinistro." },
       { q: "Posso trocar de corretora mantendo a mesma apólice?", a: "Sim, a qualquer momento, mediante pedido formal (carta de transferência) à seguradora. A apólice continua válida; muda apenas o representante." },
       { q: "Corretora cobra do cliente?", a: "Não. A remuneração vem da seguradora via comissão embutida no prêmio. Cobrança direta do cliente é irregular." },
-      { q: "A Patro Seguros atende presencialmente em Guarulhos?", a: "Sim, no escritório da Cidade Maia (Av. Salgado Filho, 2120 – Sala 219), de segunda a sexta das 9h às 18h e sábado das 9h às 13h." }
+      { q: "A Patro Seguros atende presencialmente em Guarulhos?", a: "Sim, no escritório da Cidade Maia (Av. Salgado Filho, 2120 – Sala 219), de segunda a sexta das 8h30 às 18h." }
     ]
   },
   "quanto-custa-seguro-empresarial-em-guarulhos-2026": {

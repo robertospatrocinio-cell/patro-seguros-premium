@@ -73,7 +73,7 @@ const GoogleBusinessWidget = () => {
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Clock className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-          <span>Seg–Sex: 9h–18h · Sáb: 9h–13h</span>
+          <span>{EMPRESA.horario}</span>
         </div>
       </div>
 

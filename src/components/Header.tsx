@@ -273,7 +273,7 @@ const Header = memo(() => {
               </span>
               <a href="tel:1151997500" aria-label="Ligar (11) 5199-7500" className="flex items-center gap-1.5 text-white hover:text-white/80 transition-base font-medium">
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" role="presentation" />
-                <span>(11) 5199-7500</span>
+                <span>(11) 5199-7500 • Seg. a Sex. 8h30–18h</span>
               </a>
               <a href="mailto:contato@patroseguros.com.br" aria-label="Enviar e-mail para contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
                 <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" role="presentation" />

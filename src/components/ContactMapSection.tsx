@@ -72,8 +72,7 @@ const ContactMapSection = ({ className }: ContactMapSectionProps) => {
                     <div>
                       <h3 className="font-bold text-sm uppercase tracking-wide text-primary mb-1">Horário</h3>
                       <p className="text-sm text-muted-foreground">
-                        Segunda a sexta: 9h às 18h<br />
-                        Sábado: 9h às 13h
+                        {horario}
                       </p>
                     </div>
                   </div>

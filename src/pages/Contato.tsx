@@ -35,7 +35,7 @@ const contatoSchema = z.object({
 
 const contatoFaqs = [
   { question: "Preciso agendar para ser atendido?", answer: "Não é obrigatório, mas recomendamos agendar para garantir atendimento personalizado e sem espera. Entre em contato pelo WhatsApp para agendar." },
-  { question: "Atendem fora do horário comercial?", answer: "Para emergências e sinistros, temos plantão 24h. Para cotações e dúvidas gerais, atendemos de segunda a sexta das 9h às 18h e sábados das 9h às 13h." },
+  { question: "Atendem fora do horário comercial?", answer: "Para emergências e sinistros, temos plantão 24h. Para cotações e dúvidas gerais, atendemos de segunda a sexta das 8h30 às 18h." },
   { question: "Posso ser atendido online?", answer: "Sim! Grande parte do nosso atendimento é feito por WhatsApp, e-mail e videochamada. Você não precisa vir até o escritório se não quiser." },
   { question: "Quanto tempo demora para receber resposta?", answer: "Respondemos em até 2 horas úteis para todas as solicitações. Cotações completas são entregues no mesmo dia ou em até 24h para casos mais complexos." },
 ];
@@ -218,7 +218,7 @@ const Contato = () => {
                 <CardContent className="pt-6">
                   <Clock className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">Horário</h3>
-                  <p className="text-sm text-muted-foreground">Seg a Sex: 9h às 18h<br />Sáb: 9h às 13h</p>
+                  <p className="text-sm text-muted-foreground">{EMPRESA.horario}</p>
                 </CardContent>
               </Card>
             </div>
