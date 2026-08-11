@@ -11,7 +11,7 @@ const SeguroResidencial = () => {
     <>
       <ServiceSchema
         name="Seguro Residencial"
-        description="O seguro residencial em Guarulhos protege sua casa, apartamento ou flat contra incêndio, roubo, danos elétricos e mais, com assistência 24h. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
+        description="O seguro residencial em Guarulhos protege sua casa, apartamento ou flat contra incêndio, roubo, danos elétricos e mais, com assistência 24h. A Patro Seguros, corretora com mais de 20 anos de experiência (registro SUSEP 212113511), compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
         serviceType="HomeInsurance"
       />
     <InsurancePageTemplate

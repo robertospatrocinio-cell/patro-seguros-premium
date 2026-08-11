@@ -101,8 +101,8 @@ const Index = () => {
   return (
     <>
       <PageMeta 
-        title="Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
-        description="Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis. Fale com um especialista."
+        title="Corretora de Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
+        description="A Patro Seguros é sua corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis."
         absoluteTitle={true}
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
@@ -157,7 +157,7 @@ const Index = () => {
               <div className="max-w-3xl">
                 <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
                 <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                  Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras
+                  Corretora de Seguros em Guarulhos | Patro Seguros
                 </h1>
                 <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.
@@ -220,8 +220,8 @@ const Index = () => {
             </h2>
             <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
               <p>
-                A Patro Seguros é uma corretora de seguros em Guarulhos há mais de 20 anos especializada
-                em comparar seguradoras e orientar clientes na escolha de seguros
+                A Patro Seguros é sua corretora de seguros em Guarulhos há mais de 20 anos,
+                especializada em comparar seguradoras e orientar clientes na escolha de seguros
                 para auto, saúde, vida, residência, empresas, frotas e consórcios.
               </p>
               <p>
@@ -320,11 +320,12 @@ const Index = () => {
 
             {/* BLOCO DE LINKS INTERNOS ESTRATÉGICOS (SERVIÇOS E BAIRROS) */}
             <div className="mt-16 pt-12 border-t border-slate-100">
+              <h4 className="font-bold text-slate-900 mb-6 text-center lg:text-left">Links Rápidos e SEO Local</h4>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                <div>
+                <div className="md:col-span-2 lg:col-span-1">
                   <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                     <ShieldCheck className="h-4 w-4 text-primary" />
-                    Principais Seguros
+                    Principais Seguros em Destaque
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
