@@ -129,11 +129,18 @@ const SeguroAuto = () => {
             <div className="py-24 md:py-32 max-w-3xl mx-auto text-center">
               <div className="text-5xl mb-6 animate-fade-up" role="img" aria-label="Seguro Auto">🚗</div>
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
-                Seguro Auto em Guarulhos | Cotação com 16 Seguradoras
+                Seguro Auto em Guarulhos | Patro Seguros — Compare 16 Seguradoras
               </h1>
-              <p className="text-base md:text-lg text-white/60 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">
-                Uma consultoria que analisa seu perfil em 16 seguradoras, encontra a melhor combinação de preço e cobertura para o seu carro — e responde por você em todas as etapas. Economia média de até 35%, com atendimento humano em Guarulhos.
+              <p className="text-base md:text-lg text-white/60 mb-6 animate-fade-up-delay-2 max-w-2xl mx-auto">
+                Compare seguradoras e encontre proteção para seu carro com atendimento consultivo da Patro Seguros, sua corretora em Guarulhos há mais de 20 anos.
               </p>
+              
+              {/* BLOCO RESPOSTA RÁPIDA (ANSWER-READY) */}
+              <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-sm p-5 rounded-xl border border-white/10 mb-8 animate-fade-up-delay-2">
+                <p className="text-white/90 text-sm leading-relaxed text-left">
+                  <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos há mais de 20 anos (SUSEP 212113511). Comparamos seu Seguro Auto em 16 seguradoras (Porto, Allianz, Tokio, etc) com resposta em até 2h úteis via WhatsApp (11) 5199-7500.
+                </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick("seguro-auto-hero")}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
