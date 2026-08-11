@@ -3,12 +3,12 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: VOCÊ VAI IMPLEMENTAR O PACOTE COMPLETO DE SCHEMA MARKUP (DADOS ESTRUTURADOS JSON-LD) no site patroseguros.com.br (corretora de seguros em Guarulhos/SP, plataforma VTEX IO).
+      {`Execute esta instrucao no projeto: VOCÊ VAI IMPLEMENTAR O PACOTE COMPLETO DE SCHEMA MARKUP (DADOS ESTRUTURADOS JSON-LD) no site patroseguros.com.br (corretora de seguros em Guarulhos/SP, plataforma VTEX IO).
 
 REGRA ABSOLUTA — APENAS AGREGAR:
 - NÃO reestruturar o site, NÃO alterar design, NÃO remover conteúdo existente
 - NÃO mudar navegação, cores, fontes, layout, componentes ou URLs
-- Cada schema deve ser inserido como bloco script type="application/ld+json" no head da respectiva página
+- Cada schema deve ser inserido como bloco <script type="application/ld+json"> no <head> da respectiva página
 - Se já existir algum schema na página, MANTENHA o existente e ADICIONE os novos — não remova nada
 - Conteúdo em português do Brasil
 - Entregar tudo pronto para publicação
@@ -114,7 +114,7 @@ REGRAS DE ENTREGA:
 - Não remova schemas já existentes — apenas adicione os novos
 - Preserve a identidade visual e o tom consultivo da marca
 - Entregue tudo pronto para publicação
-- IMPORTANTE: dados estruturados são o que permite ao Google e aos motores de IA reconhecerem a Patro Seguros como a entidade de referência em seguros de Guarulhos — a consistência dos dados é a prioridade máxima
+- IMPORTANTE: dados estruturados são o que permite ao Google e aos motores de IA reconhecerem a Patro Seguros como a entidade de referência em seguros de Guarulhos — a consistência dos dados é a prioridade máxima`}
     </div>
   );
 };
