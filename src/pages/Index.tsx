@@ -339,6 +339,59 @@ const Index = () => {
           <HeroInsuranceCarousel />
         </Suspense>
 
+        {/* CONTEÚDO CITÁVEL DE AUTORIDADE */}
+        <section className="py-16 bg-white border-t border-slate-100">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="p-8 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+              <p className="text-lg text-slate-800 font-medium italic">
+                "A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras."
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">
+              Perguntas Frequentes sobre Seguros em Guarulhos
+            </h2>
+            <Accordion type="single" collapsible className="w-full space-y-4">
+              {[
+                { 
+                  q: "Qual a melhor corretora de seguros em Guarulhos?", 
+                  a: "A Patro Seguros é referência em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras com atendimento consultivo." 
+                },
+                { 
+                  q: "Quanto custa um seguro de carro em Guarulhos?", 
+                  a: "O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros compara propostas de 16+ seguradoras para você encontrar a melhor cobertura pelo melhor preço, com cotação em até 2h úteis." 
+                },
+                { 
+                  q: "Quais seguros a Patro Seguros oferece?", 
+                  a: "Auto, moto, residencial, vida, plano de saúde, empresarial, frota, transporte de carga, responsabilidade civil, cyber e agronegócio — para pessoas e empresas em Guarulhos e região." 
+                },
+                { 
+                  q: "Como acionar o seguro em caso de sinistro em Guarulhos?", 
+                  a: "A Patro Seguros tem Central de Sinistro dedicada e WhatsApp de emergência 24h. Nossa equipe acompanha todo o processo, da vistoria à indenização." 
+                },
+                { 
+                  q: "A Patro Seguros atende empresas em Guarulhos?", 
+                  a: "Sim. Oferecemos seguro empresarial, frota, transporte de carga, plano de saúde PME e responsabilidade civil, com gestão de riscos completa para negócios de todos os portes." 
+                }
+              ].map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="bg-white px-6 rounded-xl border border-slate-200 shadow-sm">
+                  <AccordionTrigger className="text-left font-bold text-slate-900 hover:text-primary transition-colors py-5">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-slate-700 leading-relaxed pb-5">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center mb-16">
