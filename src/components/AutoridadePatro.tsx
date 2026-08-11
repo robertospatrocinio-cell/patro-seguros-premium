@@ -48,8 +48,7 @@ interface AutoridadePatroProps {
 const AutoridadePatro = ({
   variant = "default",
   className,
-  heading = "Quem cuida do seu seguro na Patro",
-  copy = "A Patro oferece uma consultoria humana que analisa as entrelinhas das apólices. Operamos em Guarulhos com sócios que somam mais de 20 anos de experiência (registro SUSEP 212113511), garantindo que você tenha a melhor proteção pelo menor custo real.",
+  copy = "Consultoria humana que analisa as entrelinhas das apólices para garantir que você tenha a melhor proteção pelo menor custo real em Guarulhos e região.",
 }: AutoridadePatroProps) => {
   const isCompact = variant === "compact";
 
