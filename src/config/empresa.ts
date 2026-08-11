@@ -35,7 +35,7 @@ export const EMPRESA = {
   dominioCanonico: "https://www.patroseguros.com.br",
   horario: "Seg. a Sex. 8h30–18h",
   posicionamento:
-    "A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência no mercado segurador, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras.",
+    "Especialistas em proteger famílias e empresas em Guarulhos através de uma consultoria técnica, comparando 16+ seguradoras para garantir a melhor cobertura pelo menor custo real.",
   redesSociais: {
     google: "https://www.google.com/maps?cid=273879799324962533",
     instagram: "https://www.instagram.com/patroseguros",

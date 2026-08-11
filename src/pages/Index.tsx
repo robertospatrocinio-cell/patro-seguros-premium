@@ -1,5 +1,6 @@
 /** Execute esta instrucao no projeto: na pagina home ainda tem esta frase errada: A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras. */
 import { lazy, Suspense } from "react";
+import { EMPRESA } from "@/config/empresa";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2, MapPin } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -123,7 +124,7 @@ const Index = () => {
       <OrganizationSchema />
       <ServiceSchema 
         name="Seguros em Guarulhos" 
-        description="A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região."
+        description={EMPRESA.posicionamento}
       />
       <MedicalOrganizationSchema />
       <AggregateRatingSchema
@@ -172,7 +173,7 @@ const Index = () => {
                   Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras
                 </h1>
                 <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região.
+                  {EMPRESA.posicionamento}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link to="/cotacao" onClick={handleHeroCotacaoClick}>
@@ -438,7 +439,7 @@ const Index = () => {
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="p-8 bg-slate-50 rounded-2xl border border-slate-200 text-center">
               <p className="text-lg text-slate-800 font-medium italic">
-                "A Patro Seguros, corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região."
+                "{EMPRESA.posicionamento}"
               </p>
             </div>
           </div>
