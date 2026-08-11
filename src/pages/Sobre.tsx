@@ -44,10 +44,10 @@ const SOBRE_FAQS = [
 ];
 
 const stats = [
-  { value: "+30", label: "Anos de Experiência", desc: "Combinados entre os sócios" },
-  { value: "2.500+", label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
-  { value: "1.800+", label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
-  { value: PATRO_SOCIAL_PROOF.googleRating, label: "Nota no Google", desc: `${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais` },
+  { value: EMPRESA.metricas.experienciaAnos, label: "Anos de Experiência", desc: "Corretora há mais de 20 anos" },
+  { value: EMPRESA.metricas.clientesAtendidos, label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
+  { value: EMPRESA.metricas.sinistrosPagos, label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
+  { value: String(PATRO_SOCIAL_PROOF.googleRating), label: "Nota no Google", desc: `${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais` },
 ];
 
 const equipe = [
@@ -64,7 +64,7 @@ const Sobre = () => {
     <Fragment>
       <PageMeta
         title="Sobre a Patro Seguros — Corretora SUSEP em Guarulhos"
-        description="Corretora registrada na SUSEP nº 212113511, fundada em 2021 em Cidade Maia (Guarulhos/SP). 2.500+ clientes, 16+ seguradoras parceiras e sócios com 30+ anos de mercado. Conheça Roberto e Sandra Patrocínio, credenciais verificáveis e nossa forma de atender."
+        description="Corretora registrada na SUSEP nº 212113511, em Guarulhos/SP há 20+ anos. 2.500+ clientes e 16+ seguradoras parceiras. Conheça Roberto e Sandra Patrocínio."
       
       skipBreadcrumb
     />
@@ -162,7 +162,7 @@ const Sobre = () => {
               <p>
                 A <strong className="text-foreground">Patro Corretora de Seguros</strong> nasceu com um propósito claro:
                 transformar a forma como as pessoas e empresas de Guarulhos se protegem. Fundada por <strong className="text-foreground">Roberto e Sandra Patrocínio</strong>,
-                profissionais com mais de 30 anos de experiência combinada no mercado de seguros, nossa corretora se destaca
+                profissionais com mais de 20 anos de experiência no mercado de seguros, nossa corretora se destaca
                 pelo atendimento humanizado e pela busca incansável pelas melhores soluções para cada cliente.
               </p>
               <p>
