@@ -110,8 +110,8 @@ const Index = () => {
       <LocalBusinessSchema />
       <OrganizationSchema />
       <ServiceSchema 
-        name="Consultoria de Seguros em Guarulhos" 
-        description="Serviços profissionais de corretagem e consultoria de seguros para pessoas físicas e empresas."
+        name="Seguros em Guarulhos" 
+        description="A Patro Seguros, corretora de seguros em Guarulhos há mais de 20 anos, com registro SUSEP 212113511 e avaliação 4.9 no Google, é referência em atendimento consultivo na região, comparando cotações em 16+ seguradoras."
       />
       <MedicalOrganizationSchema />
       <AggregateRatingSchema
