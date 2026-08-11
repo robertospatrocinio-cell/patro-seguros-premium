@@ -216,11 +216,11 @@ const Index = () => {
               id="home-seo-intro"
               className="text-2xl md:text-3xl font-bold text-slate-900 mb-6"
             >
-              Corretora de Seguros em Guarulhos e Região
+              Seguros em Guarulhos e Região — Há 20+ anos protegendo você
             </h2>
             <div className="space-y-4 text-slate-700 leading-relaxed max-w-3xl">
               <p>
-                A Patro Seguros é uma corretora de seguros em Guarulhos especializada
+                A Patro Seguros é uma corretora de seguros em Guarulhos há mais de 20 anos especializada
                 em comparar seguradoras e orientar clientes na escolha de seguros
                 para auto, saúde, vida, residência, empresas, frotas e consórcios.
               </p>
