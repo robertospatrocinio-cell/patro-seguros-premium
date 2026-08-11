@@ -41,7 +41,7 @@ Atendemos motoristas de Guarulhos com perfil completo: quem dirige por Uber em t
         "Histórico de sinistros e classe de bônus do motorista",
         "Dispositivos de segurança: rastreador antifurto e câmera dashboard reduzem o prêmio",
       ],
-      note: "Dica Patro: Motoristas Uber com mais de 30 anos, sem sinistros nos últimos 2 anos e com rastreador instalado podem economizar até 25% no seguro em Guarulhos.",
+      note: "Dica Patro: Motoristas Uber com mais de 20 anos, sem sinistros nos últimos 2 anos e com rastreador instalado podem economizar até 25% no seguro em Guarulhos.",
     }}
     realScenarios={[
       { title: "Case: Motorista Uber em Cumbica protegido contra roubo", description: "Cliente de 38 anos teve seu HB20 roubado em Cumbica enquanto aguardava corrida. Como o seguro contratado pela Patro tinha cláusula expressa de uso por aplicativo, a Allianz pagou indenização integral (100% FIPE) em 18 dias, e o motorista voltou a trabalhar com carro novo em menos de 30 dias." },

@@ -114,7 +114,7 @@ const Index = () => {
     <>
       <PageMeta 
         title="Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
-        description="A Patro Seguros é sua corretora em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde e empresarial. Cotação grátis em até 2h úteis via WhatsApp."
+        description="Corretora de seguros em Guarulhos há 20+ anos. Compare 16 seguradoras de auto, vida, saúde, residencial e empresarial. Cotação grátis em até 2h úteis. Fale com um especialista."
         absoluteTitle={true}
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
@@ -153,7 +153,7 @@ const Index = () => {
               />
               <img
                 src="/images/hero-home-960.webp"
-                alt="Seguros em Guarulhos | Patro Seguros — Corretora com 20+ anos de mercado, registro SUSEP 212113511 e 16 seguradoras parceiras"
+                alt="Corretora de seguros em Guarulhos — Patro Seguros, com 20+ anos de mercado e atendimento consultivo"
                 width={1280}
                 height={720}
                 sizes="100vw"

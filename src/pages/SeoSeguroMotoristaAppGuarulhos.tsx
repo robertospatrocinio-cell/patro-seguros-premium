@@ -41,7 +41,7 @@ Atendemos motoristas full-time (8-12h/dia), motoristas que complementam renda em
         "Idade, tempo de CNH e histórico de sinistros",
         "Equipamentos de proteção: rastreador, dashcam, alarme",
       ],
-      note: "Dica Patro: Motoristas de app com mais de 30 anos, sem sinistros recentes e com rastreador podem economizar até 25% no seguro em Guarulhos.",
+      note: "Dica Patro: Motoristas de app com mais de 20 anos, sem sinistros recentes e com rastreador podem economizar até 25% no seguro em Guarulhos.",
     }}
     realScenarios={[
       { title: "Case: Entregador iFood protegido após acidente em moto", description: "Motoboy de 27 anos sofreu queda em entrega no Cidade Maia. A apólice contratada via Patro cobriu R$ 14.000 em reparos da moto, R$ 8.000 em despesas médicas e ainda pagou diárias por afastamento. Em 18 dias estava de volta às entregas." },
