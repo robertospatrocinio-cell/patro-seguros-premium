@@ -17,13 +17,14 @@ import AutoridadePatro from "@/components/AutoridadePatro";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import socioRoberto from "@/assets/socio-roberto.webp";
 import sociaSandra from "@/assets/socia-sandra.webp";
+import { EMPRESA } from "@/config/empresa";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
 
 const SOBRE_FAQS = [
   {
     question: "Quem é a Patro Seguros?",
-    answer: "A Patro Seguros é uma corretora de seguros com sede em Guarulhos/SP, registrada na SUSEP sob o número 212113511 e CNPJ 41.641.558/0001-33. Atende pessoas físicas e empresas em todo o Brasil desde 2021 (sócios com mais de 20 anos de mercado), com equipe própria e parceria ativa com mais de 16 seguradoras.",
+    answer: "A Patro Seguros é uma corretora de seguros com sede em Guarulhos/SP, registrada na SUSEP sob o número 212113511 e CNPJ 41.641.558/0001-33. Atende pessoas físicas e empresas em todo o Brasil há mais de 20 anos, com equipe própria e parceria ativa com mais de 16 seguradoras.",
   },
   {
     question: "Onde fica a sede da Patro Seguros?",
@@ -44,10 +45,10 @@ const SOBRE_FAQS = [
 ];
 
 const stats = [
-  { value: "+30", label: "Anos de Experiência", desc: "Combinados entre os sócios" },
-  { value: "2.500+", label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
-  { value: "1.800+", label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
-  { value: PATRO_SOCIAL_PROOF.googleRating, label: "Nota no Google", desc: `${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais` },
+  { value: EMPRESA.metricas.experienciaAnos, label: "Anos de Experiência", desc: "Corretora há mais de 20 anos" },
+  { value: EMPRESA.metricas.clientesAtendidos, label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
+  { value: EMPRESA.metricas.sinistrosPagos, label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
+  { value: String(PATRO_SOCIAL_PROOF.googleRating), label: "Nota no Google", desc: `${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais` },
 ];
 
 const equipe = [
@@ -64,7 +65,7 @@ const Sobre = () => {
     <Fragment>
       <PageMeta
         title="Sobre a Patro Seguros — Corretora SUSEP em Guarulhos"
-        description="Corretora registrada na SUSEP nº 212113511, fundada em 2021 em Cidade Maia (Guarulhos/SP). 2.500+ clientes, 16+ seguradoras parceiras e sócios com 30+ anos de mercado. Conheça Roberto e Sandra Patrocínio, credenciais verificáveis e nossa forma de atender."
+        description="Corretora registrada na SUSEP nº 212113511, em Guarulhos/SP há 20+ anos. 2.500+ clientes e 16+ seguradoras parceiras. Conheça Roberto e Sandra Patrocínio."
       
       skipBreadcrumb
     />
@@ -162,7 +163,7 @@ const Sobre = () => {
               <p>
                 A <strong className="text-foreground">Patro Corretora de Seguros</strong> nasceu com um propósito claro:
                 transformar a forma como as pessoas e empresas de Guarulhos se protegem. Fundada por <strong className="text-foreground">Roberto e Sandra Patrocínio</strong>,
-                profissionais com mais de 30 anos de experiência combinada no mercado de seguros, nossa corretora se destaca
+                profissionais com mais de 20 anos de experiência no mercado de seguros, nossa corretora se destaca
                 pelo atendimento humanizado e pela busca incansável pelas melhores soluções para cada cliente.
               </p>
               <p>
