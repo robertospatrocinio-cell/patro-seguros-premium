@@ -48,6 +48,7 @@ interface AutoridadePatroProps {
 const AutoridadePatro = ({
   variant = "default",
   className,
+  heading = "Quem cuida do seu seguro na Patro",
   copy = "Consultoria humana que analisa as entrelinhas das apólices para garantir que você tenha a melhor proteção pelo menor custo real em Guarulhos e região.",
 }: AutoridadePatroProps) => {
   const isCompact = variant === "compact";
