@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: informacao correta: 30+ anos de mercado
+      Execute esta instrucao no projeto: Criar validações automáticas no build que conferem anos de mercado, número de clientes e SUSEP em todas as páginas (incluindo bairros) para eu evitar divergências futuras.
 Google Business Profile impecável: categoria "Corretora de seguros", todas as categorias secundárias (seguro de automóvel, seguro de vida, seguro residencial), serviços listados, fotos da equipe e do escritório, horários, link do site e do WhatsApp. Postagens semanais.
 NAP 100% consistente: nome, endereço e telefone idênticos em site, Google, redes sociais, diretórios (GuiaMais, Apontador, etc.) e citador. Qualquer variação ("Patro Corretora" vs "Patro Seguros") dilui a entidade.
 Schema Organization + InsuranceAgency em todas as páginas: com CNPJ, SUSEP, endereço, telefone, avaliações e horário. É o que conecta a marca à entidade "corretora de Guarulhos".
