@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      Execute esta instrucao no projeto: incluir esta foto, em anexo, da Sandra Patrocinio e Roberto Patrocinio, como fotos da equipe da Patro Seguros.
+      Execute esta instrucao no projeto: Incluir as fotos anexadas de Sandra Patrocínio e Roberto Patrocínio como parte da seção oficial de equipe no site. Adicionar breve bio, cargos e especialidades de Sandra Patrocínio e Roberto Patrocínio na seção de equipe para aumentar confiança e conversão. Otimizar as imagens da equipe com nomes de arquivo corretos, textos alternativos (alt text) e compressão para melhorar PageSpeed e SEO. Verificar e validar o Schema markup (JSON-LD) no HTML renderizado para garantir que InsuranceAgency, FAQPage e BreadcrumbList estejam presentes. Criar uma seção ou página “Sobre a Patro Seguros” explicando a equipe, diferenciais e incluindo CTAs fixos para pedir cotação e falar no WhatsApp.
 
 OBJETIVO: Garantir que a otimização de metadados solicitada foi aplicada corretamente em todas as rotas, assegurando a consistência da comunicação e o fortalecimento do SEO local para Guarulhos/SP.
 
