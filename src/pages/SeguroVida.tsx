@@ -10,7 +10,7 @@ const SeguroVida = () => {
     <>
       <ServiceSchema
         name="Seguro de Vida"
-        description="O seguro de vida em Guarulhos garante proteção financeira completa para sua família contra morte, invalidez e doenças graves. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
+        description="O seguro de vida em Guarulhos garante proteção financeira completa para sua família contra morte, invalidez e doenças graves. A Patro Seguros, corretora com mais de 20 anos de experiência (registro SUSEP 212113511), compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
         serviceType="LifeInsurance"
       />
     <InsurancePageTemplate
