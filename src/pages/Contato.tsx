@@ -24,6 +24,7 @@ import { showFriendlyError } from "@/lib/friendlyToast";
 import { buildWhatsAppUrl, buildMailtoUrl, openWhatsAppOrFallback } from "@/lib/whatsapp";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { toast as sonnerToast } from "sonner";
+import { EMPRESA } from "@/config/empresa";
 
 const contatoSchema = z.object({
   nome: nameSchema,

@@ -1,5 +1,6 @@
 import { Star, MapPin, Clock, Phone, ExternalLink, MessageSquare } from "lucide-react";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
+import { EMPRESA } from "@/config/empresa";
 
 const GoogleBusinessWidget = () => {
   return (
