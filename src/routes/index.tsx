@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Otimizar os títulos e meta descrições por seção da landing /seguro-moto-entregadores-guarulhos para aumentar CTR no Google.`}
+      {`Execute esta instrucao no projeto: Adicionar uma seção de FAQ final com perguntas e respostas adicionais sobre cobertura, franquia e sinistro na landing /seguro-moto-entregadores-guarulhos.`}
     </div>
   );
 };

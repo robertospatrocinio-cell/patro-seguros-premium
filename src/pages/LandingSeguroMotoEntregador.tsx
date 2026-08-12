@@ -20,20 +20,24 @@ const LandingSeguroMotoEntregador = () => {
       answer: "Com certeza. A Patro Seguros tem parcerias com seguradoras que já incluíram a Keeta e novos apps de delivery em suas tabelas de aceitação para motociclistas."
     },
     {
-      question: "Motoboy paga mais caro no seguro?",
-      answer: "O valor é um pouco superior ao seguro de lazer devido à maior exposição ao risco, mas o custo-benefício é imbatível. Temos opções para CG 160 a partir de R$ 49/mês."
+      question: "Como funciona a franquia para entregadores?",
+      answer: "A franquia é o valor que você paga apenas em caso de danos parciais à sua moto. Para roubo, furto total ou perda total, você NÃO paga franquia e recebe o valor integral da Tabela FIPE."
     },
     {
       question: "O seguro cobre roubo e furto na rua?",
       answer: "Sim. Nossas apólices para entregadores focam no que mais importa: proteção total contra roubo e furto qualificado, inclusive enquanto você está aguardando pedidos na calçada."
     },
     {
-      question: "A seguradora aceita moto de aplicativo?",
-      answer: "Sim, desde que seja contratado o plano correto para 'Uso Profissional/Entrega'. Se você fizer um seguro comum e sofrer um acidente trabalhando, a seguradora pode negar o pagamento."
+      question: "O que fazer em caso de sinistro (roubo ou acidente)?",
+      answer: "Mantenha a calma, faça o Boletim de Ocorrência e entre em contato conosco imediatamente pelo WhatsApp. A Patro Seguros cuida de toda a burocracia com a seguradora para você focar em voltar a rodar."
     },
     {
-      question: "Quais documentos preciso para contratar?",
-      answer: "Apenas o documento da moto (CRLV), sua CNH e um comprovante de residência. O processo é 100% digital e rápido via WhatsApp."
+      question: "Motoboy paga mais caro no seguro?",
+      answer: "O valor é um pouco superior ao seguro de lazer devido à maior exposição ao risco, mas o custo-benefício é imbatível. Temos opções para CG 160 a partir de R$ 49/mês."
+    },
+    {
+      question: "Quais são as coberturas básicas incluídas?",
+      answer: "Nossos planos padrão incluem cobertura contra Roubo, Furto, Incêndio e Assistência 24h completa (guincho, socorro mecânico e pane seca). Você também pode adicionar cobertura para terceiros e acessórios."
     }
   ];
 
