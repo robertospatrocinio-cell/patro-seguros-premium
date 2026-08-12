@@ -39,10 +39,10 @@ const LandingSeguroMotoEntregador = () => {
 
   return (
     <LandingPageTemplate
-      title="Seguro de Moto para Entregadores"
-      headline="Sua moto é sua ferramenta de trabalho. Proteja quem garante sua renda todos os dias."
-      subheadline="A Patro Seguros ajuda entregadores de aplicativos (iFood, Keeta, 99) a encontrar o melhor Seguro de Moto em 16+ seguradoras com foco em Guarulhos e Zona Leste."
-      metaDescription="Faça sua cotação de Seguro de Moto para entregadores de aplicativos. Atendemos profissionais do iFood, Keeta, Rappi, 99 e motoboy em Guarulhos e Grande SP."
+      title="Seguro de Moto para Entregadores em Guarulhos | iFood, 99, Keeta"
+      headline="Seguro de Moto para Entregadores em Guarulhos: Proteja seu Corre"
+      subheadline="Cotação rápida para iFood, Keeta, 99 e Motoboy. Planos de Seguro de Moto com cobertura total contra roubo e furto em Guarulhos e Zona Leste."
+      metaDescription="Garanta o melhor Seguro de Moto para entregadores em Guarulhos. Proteção para iFood, Keeta e 99 contra roubo e furto. Cote em 16+ seguradoras a partir de R$ 49/mês."
       heroEmoji="🏍️"
       indexable={true}
       ctaText="Solicitar Cotação"
@@ -129,7 +129,7 @@ const LandingSeguroMotoEntregador = () => {
           {/* Geo Focus Section */}
           <section className="py-16 container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold">Especialistas em Guarulhos e Zona Leste</h2>
+              <h2 className="text-2xl md:text-3xl font-bold">Seguro de Moto para Entregadores em Guarulhos e Zona Leste</h2>
               <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
                 Conhecemos os pontos de maior risco e as necessidades de quem roda no Centro, Vila Augusta, Pimentas, Bonsucesso e em toda a Grande SP.
               </p>
