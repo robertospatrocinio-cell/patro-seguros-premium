@@ -15,6 +15,7 @@ export type AnchorClusterId =
   | "b2b"
   | "vida"
   | "consorcio"
+  | "moto-entregador"
   | "outros";
 
 export interface AnchorClusterMeta {
@@ -30,6 +31,7 @@ export const ANCHOR_CLUSTERS: AnchorClusterMeta[] = [
   { id: "b2b", label: "B2B (Garantia / Crédito)" },
   { id: "vida", label: "Vida / Acidentes" },
   { id: "consorcio", label: "Consórcio" },
+  { id: "moto-entregador", label: "Moto Entregador" },
   { id: "outros", label: "Outros" },
 ];
 
@@ -54,6 +56,7 @@ export const getAnchorCluster = (pathname: string | null | undefined): AnchorClu
   const p = pathname.toLowerCase();
 
   // Ordem importa: matches mais específicos primeiro.
+  if (p.includes("moto-entregador")) return "moto-entregador";
   if (p.includes("seguro-garantia") || p.includes("seguro-credito") || p.includes("b2b")) return "b2b";
   if (p.includes("consorcio")) return "consorcio";
   if (p.includes("plano-de-saude") || p.includes("planos-de-saude") || p.includes("saude")) return "saude";

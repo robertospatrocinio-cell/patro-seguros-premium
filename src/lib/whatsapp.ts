@@ -247,6 +247,12 @@ export const LP_WHATSAPP_TEMPLATES: Record<string, LpWhatsAppTemplate> = {
     success:
       "Olá! Acabei de enviar o formulário Patro Responsabilidade Empresarial e gostaria de agilizar a cotação de D&O/E&O pelo WhatsApp.",
   },
+  "lp-seguro-moto-entregadores": {
+    hero: "Olá! Vim pela página de Seguro de Moto para Entregadores e gostaria de proteger minha ferramenta de trabalho. Como funciona?",
+    "cta-final": "Olá! Estou na página de Seguro de Moto para Entregadores e quero solicitar uma cotação para minha moto de aplicativo.",
+    success: "Olá! Acabei de enviar o formulário para Seguro de Moto Entregador e gostaria de agilizar o atendimento pelo WhatsApp.",
+    default: "Olá! Vim pela página de Seguro de Moto para Entregadores e gostaria de mais informações.",
+  },
 };
 
 /**

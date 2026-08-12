@@ -215,6 +215,32 @@ export const formConfigs: Record<string, InsuranceFormConfig> = {
       { question: "Posso usar o crédito para veículo usado?", answer: "Sim, desde que o veículo esteja dentro dos critérios da administradora." },
     ],
   },
+  "moto-entregador": {
+    type: "Seguro Moto Entregador",
+    emoji: "🏍️",
+    title: "Cotação de Seguro de Moto para Entregador",
+    subtitle: "Proteja sua ferramenta de trabalho e sua renda diária",
+    metaTitle: "Cotação Seguro Moto Entregador em Guarulhos | Patro Seguros",
+    metaDescription: "Cotação gratuita de Seguro de Moto para entregadores (iFood, Keeta, 99). Proteção contra roubo, furto e assistência 24h. Patro Seguros Guarulhos.",
+    fields: [
+      { id: "nome", label: "Nome Completo", placeholder: "Seu nome", required: true, type: "text" },
+      { id: "telefone", label: "WhatsApp", placeholder: "(11) 99999-9999", required: true, type: "tel" },
+      { id: "moto", label: "Qual sua Moto?", placeholder: "Ex: Honda CG 160 Titan", required: true, type: "text" },
+      { id: "ano", label: "Ano da Moto", required: true, type: "select", options: Array.from({ length: 17 }, (_, i) => String(2026 - i)) },
+      { id: "cidade", label: "Cidade", placeholder: "Ex: Guarulhos", required: true, type: "text" },
+      { id: "app", label: "Em qual aplicativo trabalha? (Opcional)", placeholder: "Ex: iFood, Rappi, Keeta...", required: false, type: "text" },
+    ],
+    benefits: [
+      { icon: "🛡️", title: "Foco em Roubo e Furto", desc: "Sua moto é o alvo nº 1, proteja-se com indenização FIPE." },
+      { icon: "⛽", title: "Assistência 24h", desc: "Guincho, pane seca e socorro onde você estiver." },
+      { icon: "⚡", title: "Cotação em 2h", desc: "Sabemos que você não pode perder tempo parado." },
+    ],
+    faqs: [
+      { question: "O seguro aceita moto de entrega?", answer: "Sim! Trabalhamos com seguradoras específicas que aceitam o uso profissional da moto para aplicativos e motofrete." },
+      { question: "Cobre roubo na rua?", answer: "Sim, a cobertura de roubo e furto qualificado garante que você receba o valor da moto caso ela seja levada." },
+      { question: "Qual o valor médio?", answer: "Para motos populares como a CG 160, temos opções a partir de R$ 49/mês. Cote e compare." },
+    ],
+  },
   "consorcio-geral": {
     type: "Consórcio",
     emoji: "🤝",
@@ -254,4 +280,5 @@ export const cardTitleToFormKey: Record<string, string> = {
   "Consórcio Carro": "consorcio-carro",
   "Consórcio Veículos Pesados": "consorcio-veiculos-pesados",
   "Consórcio Geral": "consorcio-geral",
+  "Seguro Moto Entregador": "moto-entregador",
 };

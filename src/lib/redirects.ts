@@ -130,6 +130,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     to: "/seguro-auto",
     reason: "URL de cotação antiga que redireciona para o produto principal para evitar Soft 404.",
   },
+  {
+    from: "/seguro-moto-entregador",
+    to: "/seguro-moto-entregadores-guarulhos",
+    reason: "Normalização para slug canônico da nova LP de entregadores.",
+  },
 
   // --- Legados WordPress com substituto ------------------------------------
   {
