@@ -240,6 +240,7 @@ export const formConfigs: Record<string, InsuranceFormConfig> = {
       { question: "Cobre roubo na rua?", answer: "Sim, a cobertura de roubo e furto qualificado garante que você receba o valor da moto caso ela seja levada." },
       { question: "Qual o valor médio?", answer: "Para motos populares como a CG 160, temos opções a partir de R$ 49/mês. Cote e compare." },
     ],
+  },
   "consorcio-geral": {
     type: "Consórcio",
     emoji: "🤝",
