@@ -308,11 +308,9 @@ const LandingSeguroMotoEntregador = () => {
              </div>
 
              {/* WhatsApp Floating Button */}
-             <a 
-               href={buildLpWhatsAppUrl(source, "cta-sticky-bottom")}
-               onClick={() => trackWhatsAppClick(source)}
-               target="_blank"
-               rel="noopener noreferrer"
+              <a 
+                href="https://patroseguros.com.br/cotacao-auto"
+                onClick={() => trackWhatsAppClick(source)}
                className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group animate-pulse hover:animate-none"
              >
                <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 whitespace-nowrap text-sm font-bold pl-0 group-hover:pl-2">
