@@ -57,6 +57,7 @@ export const TRILHA_MOTO_ENTREGADOR: TrilhaSeoItem = {
 /** Trilha padrão para páginas de seguro auto/moto/veicular. */
 export const trilhaAuto: TrilhaSeoItem[] = [
   TRILHA_CARTA_VERDE,
+  TRILHA_MOTO_ENTREGADOR,
   TRILHA_SEGURADORAS,
   TRILHA_COMPARADOR,
 ];

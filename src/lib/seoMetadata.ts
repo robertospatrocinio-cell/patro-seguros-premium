@@ -240,6 +240,20 @@ const premiumPages: Record<string, PremiumMeta> = {
     description: "Seguro com cobertura específica para motoristas de aplicativo (Uber, 99, InDriver) e entregadores: terceiros, passageiros, APP e furto qualificado.",
     h1: "Seguro para Motorista de Aplicativo",
     serviceType: "Seguro Auto para Motorista de App",
+    faqs: [
+      { question: "O seguro auto para app cobre passageiros?", answer: "Sim, a cobertura de APP (Acidentes Pessoais por Passageiro) é obrigatória e está inclusa em nossas propostas para Uber e 99." },
+      { question: "Posso usar seguro normal para trabalhar em app?", answer: "Não é recomendado. As seguradoras podem recusar a indenização se descobrirem o uso remunerado não declarado. Nós ajudamos a regularizar sua apólice." },
+    ],
+  },
+  "/seguro-moto-entregadores-guarulhos": {
+    title: "Seguro de Moto para Entregadores em Guarulhos | iFood e 99",
+    description: "Cotação de seguro de moto para entregadores de aplicativos em Guarulhos. Proteção contra roubo, furto e assistência 24h para iFood, Keeta e Rappi.",
+    h1: "Seguro de Moto para Entregadores de Aplicativos em Guarulhos",
+    serviceType: "Seguro de Moto Profissional",
+    faqs: [
+      { question: "Quem trabalha no iFood pode fazer Seguro de Moto?", answer: "Sim! Trabalhamos com seguradoras que aceitam entregadores de aplicativos, garantindo indenização em caso de roubo ou furto." },
+      { question: "O seguro cobre roubo na rua?", answer: "Sim, a cobertura de roubo e furto qualificado é o foco principal para motociclistas profissionais em Guarulhos e São Paulo." },
+    ],
   },
 
   // ===== Hubs (CollectionPage) =====
