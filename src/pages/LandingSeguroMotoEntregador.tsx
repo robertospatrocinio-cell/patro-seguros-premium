@@ -1,7 +1,7 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
-import { Shield, Smartphone, Zap, Tool, AlertTriangle, Fuel, Star, CheckCircle2, Info } from "lucide-react";
+import { Shield, Smartphone, Zap, Hammer, AlertTriangle, Fuel, Star, CheckCircle2, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
