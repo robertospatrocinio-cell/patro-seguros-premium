@@ -84,6 +84,30 @@ const LandingSeguroMotoEntregador = () => {
             serviceType="InsuranceBusiness"
           />
           <FAQSchema faqs={faqs} />
+          
+          {/* Article Schema for Rich Results */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "Seguro de Moto para Entregadores em Guarulhos: iFood, 99 e Motoboy",
+              "description": "Guia completo sobre seguro de moto para motociclistas profissionais de aplicativos em Guarulhos e São Paulo. Saiba como proteger sua ferramenta de trabalho.",
+              "image": "https://www.patroseguros.com.br/images/hero-home.webp",
+              "author": {
+                "@type": "Organization",
+                "name": "Patro Seguros",
+                "url": "https://www.patroseguros.com.br"
+              },
+              "publisher": {
+                "@id": "https://www.patroseguros.com.br/#insurance-agency"
+              },
+              "datePublished": "2026-08-12",
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://www.patroseguros.com.br/seguro-moto-entregadores-guarulhos"
+              }
+            })}
+          </script>
 
           {/* Dica do Corretor Section */}
           <section className="py-12 bg-primary/5 rounded-3xl container mx-auto px-4">
