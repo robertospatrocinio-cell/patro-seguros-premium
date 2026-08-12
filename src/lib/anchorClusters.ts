@@ -15,6 +15,7 @@ export type AnchorClusterId =
   | "b2b"
   | "vida"
   | "consorcio"
+  | "moto-entregador"
   | "outros";
 
 export interface AnchorClusterMeta {
