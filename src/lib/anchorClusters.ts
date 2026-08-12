@@ -31,6 +31,7 @@ export const ANCHOR_CLUSTERS: AnchorClusterMeta[] = [
   { id: "b2b", label: "B2B (Garantia / Crédito)" },
   { id: "vida", label: "Vida / Acidentes" },
   { id: "consorcio", label: "Consórcio" },
+  { id: "moto-entregador", label: "Moto Entregador" },
   { id: "outros", label: "Outros" },
 ];
 
