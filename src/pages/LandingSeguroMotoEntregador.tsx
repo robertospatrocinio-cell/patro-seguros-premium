@@ -1,7 +1,8 @@
+import React, { useState, useEffect } from "react";
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
-import { Shield, Smartphone, Zap, Hammer, AlertTriangle, Fuel, Star, CheckCircle2, Info } from "lucide-react";
+import { Shield, Smartphone, Zap, Hammer, AlertTriangle, Fuel, Star, CheckCircle2, Info, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -9,6 +10,15 @@ import { buildLpWhatsAppUrl } from "@/lib/whatsapp";
 
 const LandingSeguroMotoEntregador = () => {
   const source = "lp-seguro-moto-entregadores";
+  const [showStickyCta, setShowStickyCta] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyCta(window.scrollY > 800);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   
   const faqs = [
     {
@@ -283,8 +293,21 @@ const LandingSeguroMotoEntregador = () => {
             </div>
           </section>
 
-          {/* Persistent WhatsApp (Já implementado mas reforçado com animação de pulso) */}
-          <div className="fixed bottom-6 right-6 z-[60] flex flex-col gap-3">
+          {/* Persistent WhatsApp & Sticky Scroll CTA */}
+          <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3">
+             {/* Sticky Scroll CTA */}
+             <div className={`transition-all duration-500 transform ${showStickyCta ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
+               <Button className="bg-primary text-white font-bold shadow-2xl rounded-full pr-6 pl-2 py-6 flex items-center gap-3 border-2 border-white/20 hover:scale-105 transition-transform" asChild>
+                 <Link to="/cotacao?tipo=moto-entregador">
+                   <div className="bg-white text-primary rounded-full p-2">
+                     <ArrowRight className="h-4 w-4" />
+                   </div>
+                   Cote em 16+ Seguradoras
+                 </Link>
+               </Button>
+             </div>
+
+             {/* WhatsApp Floating Button */}
              <a 
                href={buildLpWhatsAppUrl(source, "cta-sticky-bottom")}
                onClick={() => trackWhatsAppClick(source)}
