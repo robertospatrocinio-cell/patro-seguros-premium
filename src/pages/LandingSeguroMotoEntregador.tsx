@@ -130,6 +130,69 @@ const LandingSeguroMotoEntregador = () => {
             </div>
           </section>
 
+          {/* Objeções Comuns / Tabela Comparativa */}
+          <section className="py-16 bg-white container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold">Por que não fazer um seguro comum?</h2>
+              <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+                Muitos entregadores tentam economizar contratando seguros de passeio, mas o barato sai caro no momento do sinistro.
+              </p>
+            </div>
+            
+            <div className="max-w-4xl mx-auto overflow-hidden rounded-2xl border shadow-lg mb-12">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-muted/50">
+                    <th className="p-4 font-bold border-b">Característica</th>
+                    <th className="p-4 font-bold border-b text-red-600">Seguro "Passeio"</th>
+                    <th className="p-4 font-bold border-b text-primary">Seguro Patro Entregador</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td className="p-4 border-b font-medium">Uso no iFood/Apps</td>
+                    <td className="p-4 border-b text-red-500 font-bold">Risco de Recusa</td>
+                    <td className="p-4 border-b text-green-600 font-bold">100% Garantido</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 border-b font-medium">Assistência 24h</td>
+                    <td className="p-4 border-b">Limitada</td>
+                    <td className="p-4 border-b">Foco Profissional</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 border-b font-medium">Cobertura de Baú</td>
+                    <td className="p-4 border-b text-red-500 font-bold">Não Aceita</td>
+                    <td className="p-4 border-b text-green-600 font-bold">Opcional Aceito</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 border-b font-medium">Indenização (FIPE)</td>
+                    <td className="p-4 border-b">Pode ser bloqueada</td>
+                    <td className="p-4 border-b font-bold">Garantia Contratual</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              <div className="p-6 bg-primary/5 rounded-xl border border-primary/10">
+                <h4 className="font-bold mb-2 flex items-center gap-2">
+                  <AlertTriangle className="h-4 w-4 text-primary" /> "O seguro é muito caro"
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Nossos planos começam em R$ 49/mês. Isso é menos que uma entrega por dia. É o preço da sua paz de espírito.
+                </p>
+              </div>
+              <div className="p-6 bg-primary/5 rounded-xl border border-primary/10">
+                <h4 className="font-bold mb-2 flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-primary" /> "Dá muita burocracia"
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Fazemos tudo pelo WhatsApp. Você envia as fotos, nós cotamos e a apólice sai digital no mesmo dia.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Geo Focus Section */}
           <section className="py-16 container mx-auto px-4">
             <div className="text-center mb-12">
