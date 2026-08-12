@@ -1,7 +1,8 @@
+import React, { useState, useEffect } from "react";
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
-import { Shield, Smartphone, Zap, Hammer, AlertTriangle, Fuel, Star, CheckCircle2, Info } from "lucide-react";
+import { Shield, Smartphone, Zap, Hammer, AlertTriangle, Fuel, Star, CheckCircle2, Info, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
@@ -9,6 +10,15 @@ import { buildLpWhatsAppUrl } from "@/lib/whatsapp";
 
 const LandingSeguroMotoEntregador = () => {
   const source = "lp-seguro-moto-entregadores";
+  const [showStickyCta, setShowStickyCta] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowStickyCta(window.scrollY > 800);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   
   const faqs = [
     {
@@ -255,17 +265,58 @@ const LandingSeguroMotoEntregador = () => {
             </div>
           </section>
 
-          {/* Persistent WhatsApp for Conversion */}
-          <div className="fixed bottom-6 right-6 z-[60] flex flex-col gap-3">
+          {/* CTAs Estratégicos e Conversão */}
+          <section className="py-16 container mx-auto px-4 text-center">
+            <div className="bg-primary text-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden relative group">
+              <div className="absolute top-0 right-0 -mt-8 -mr-8 bg-white/10 w-32 h-32 rounded-full blur-3xl group-hover:bg-white/20 transition-all"></div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Não rode mais um dia sem proteção!</h2>
+              <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+                Cotação rápida, sem burocracia e com a segurança que só quem conhece o asfalto de Guarulhos oferece.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" variant="secondary" className="text-primary font-bold px-8 py-7 text-lg rounded-full" asChild>
+                  <Link to="/cotacao?tipo=moto-entregador">
+                    Cote Agora no Site
+                  </Link>
+                </Button>
+                <Button size="lg" className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-8 py-7 text-lg rounded-full flex items-center gap-2 border-none" asChild>
+                  <a 
+                    href={buildLpWhatsAppUrl(source, "cta-meio-pagina")}
+                    onClick={() => trackWhatsAppClick(source)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Falar via WhatsApp <Smartphone className="h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Persistent WhatsApp & Sticky Scroll CTA */}
+          <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3">
+             {/* Sticky Scroll CTA */}
+             <div className={`transition-all duration-500 transform ${showStickyCta ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
+               <Button className="bg-primary text-white font-bold shadow-2xl rounded-full pr-6 pl-2 py-6 flex items-center gap-3 border-2 border-white/20 hover:scale-105 transition-transform" asChild>
+                 <Link to="/cotacao?tipo=moto-entregador">
+                   <div className="bg-white text-primary rounded-full p-2">
+                     <ArrowRight className="h-4 w-4" />
+                   </div>
+                   Cote em 16+ Seguradoras
+                 </Link>
+               </Button>
+             </div>
+
+             {/* WhatsApp Floating Button */}
              <a 
-               href={buildLpWhatsAppUrl(source, "cta-final")}
+               href={buildLpWhatsAppUrl(source, "cta-sticky-bottom")}
                onClick={() => trackWhatsAppClick(source)}
                target="_blank"
                rel="noopener noreferrer"
-               className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2 group"
+               className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group animate-pulse hover:animate-none"
              >
-               <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 whitespace-nowrap text-sm font-bold">
-                 Falar com Especialista
+               <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 whitespace-nowrap text-sm font-bold pl-0 group-hover:pl-2">
+                 Cotação Rápida
                </span>
                <Smartphone className="h-6 w-6" />
              </a>
