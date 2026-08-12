@@ -46,6 +46,14 @@ export const TRILHA_CARTA_VERDE: TrilhaSeoItem = {
   badge: "Mercosul",
 };
 
+export const TRILHA_MOTO_ENTREGADOR: TrilhaSeoItem = {
+  title: "Seguro Moto para Entregadores",
+  description:
+    "Proteja sua ferramenta de trabalho: iFood, Keeta, 99. Cobertura completa contra roubo, furto e assistência 24h em Guarulhos.",
+  href: "/seguro-moto-entregadores-guarulhos",
+  badge: "Entregadores",
+};
+
 /** Trilha padrão para páginas de seguro auto/moto/veicular. */
 export const trilhaAuto: TrilhaSeoItem[] = [
   TRILHA_CARTA_VERDE,
