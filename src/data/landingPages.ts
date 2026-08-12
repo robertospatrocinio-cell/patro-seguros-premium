@@ -333,6 +333,18 @@ export const landingPagesData: Record<string, LandingPageContent> = {
     detailedDescription: "Sua Mercedes-Benz GLA merece o melhor seguro de Guarulhos. Na Patro, estruturamos planos que incluem carro reserva premium, cobertura de vidros completa e atendimento prioritário em caso de sinistro.",
     whoNeeds: ["Proprietários de Mercedes GLA", "Empresários de sucesso", "Amantes de carros alemães"],
     whyPatro: ["Padrão de excelência", "Relacionamento com grandes seguradoras", "Atendimento no Cidade Maia"]
+  },
+  "seguro-moto-entregadores-guarulhos": {
+    title: "Seguro de Moto para Entregadores em Guarulhos",
+    description: "Cotação de seguro de moto para entregadores de aplicativos (iFood, 99, Keeta) em Guarulhos e região. Proteção contra roubo e furto.",
+    metaDescription: "Cotação de seguro de moto para entregadores em Guarulhos. Atendemos iFood, 99, Keeta e Rappi. Proteção contra roubo, furto e assistência 24h.",
+    heroImage: "/images/hero-home.webp",
+    insuranceType: "auto",
+    icon: "🏍️",
+    location: "Guarulhos",
+    detailedDescription: "Sua moto é sua ferramenta de trabalho. A Patro Seguros oferece consultoria especializada para entregadores de aplicativos em Guarulhos, garantindo que você tenha a cobertura correta de 'Uso Profissional' para evitar surpresas no sinistro.\n\nComparamos Porto, Allianz, Suhai e outras seguradoras que aceitam motociclistas profissionais do iFood, Keeta, 99 Entrega e Lalamove em Guarulhos e Zona Leste de SP.",
+    whoNeeds: ["Entregadores iFood", "Motoboys profissionais", "Entregadores de aplicativos"],
+    whyPatro: ["Especialistas em Guarulhos", "Cláusula de uso profissional correta", "Cotação em 2h"],
   }
 };
 
