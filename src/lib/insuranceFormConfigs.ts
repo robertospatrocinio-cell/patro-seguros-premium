@@ -280,4 +280,5 @@ export const cardTitleToFormKey: Record<string, string> = {
   "Consórcio Carro": "consorcio-carro",
   "Consórcio Veículos Pesados": "consorcio-veiculos-pesados",
   "Consórcio Geral": "consorcio-geral",
+  "Seguro Moto Entregador": "moto-entregador",
 };
