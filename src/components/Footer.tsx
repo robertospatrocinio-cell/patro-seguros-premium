@@ -22,11 +22,11 @@ const Footer = memo(() => {
               <img
                 src={logoFull}
                 alt="Patro Seguros Guarulhos - Corretora de Seguros"
-                width={160}
-                height={80}
+                width={140}
+                height={70}
                 loading="lazy"
                 decoding="async"
-                className="h-20 w-auto object-contain brightness-200"
+                className="h-16 w-auto object-contain brightness-200"
               />
             </SmartLink>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
