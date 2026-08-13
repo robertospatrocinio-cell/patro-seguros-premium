@@ -10,7 +10,7 @@ const LandingSeguroAuto = () => (
     subheadline="Compare cotações de 16+ seguradoras em minutos. Encontre o melhor preço sem sair de casa — com atendimento humano e personalizado."
     metaDescription="A Patro Seguros, corretora em Guarulhos fundada em 2021 por sócios com 20+ anos de experiência, oferece cotação de Seguro Auto gratuita. Compare Porto, Tokio, Allianz e HDI. Resultado em até 2h úteis."
     ctaText="Cotar Meu Seguro Auto Grátis"
-    ctaUrl="https://patro.seucorretor.digital/#/formularios/auto"
+    ctaUrl="https://patroseguros.com.br/cotacao-auto"
     urgencyText="Cotações com preço especial esta semana"
     priceAnchor="A partir de R$ 89/mês* — parcele em até 10x sem juros"
     guaranteeText="Se não encontrarmos uma opção melhor que sua atual, devolvemos seu tempo. Nosso compromisso é apresentar a melhor relação custo-benefício do mercado, sem enrolação."

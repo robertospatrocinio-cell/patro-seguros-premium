@@ -5,7 +5,7 @@ const SeguroViagem = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patro.seucorretor.digital/#/formularios/viagem"
+      quoteUrl="https://patroseguros.com.br/cotacao-auto"
       title="Seguro Viagem Nacional e Internacional | Patro Seguros"
       headline="Seguro viagem nacional e internacional com assistência 24h"
       subtitle="Cobertura médica, extravio de bagagem e assistência 24h em português. Proteção completa para viagens dentro do Brasil e para o exterior — obrigatório na Europa e essencial em qualquer destino."

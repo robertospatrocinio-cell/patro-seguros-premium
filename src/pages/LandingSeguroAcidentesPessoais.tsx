@@ -6,7 +6,7 @@ import ServiceSchema from "@/components/ServiceSchema";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import heroImg from "@/assets/lp-seguro-acidentes-pessoais.webp";
 
-const QUOTE_URL = "https://patro.seucorretor.digital/#/formularios/acidentes-pessoais";
+const QUOTE_URL = "https://patroseguros.com.br/cotacao-auto";
 const WHATSAPP_URL =
   "https://wa.me/551151997500?text=" +
   encodeURIComponent(

@@ -17,7 +17,7 @@ const ComparisonTableResidencial = ({
       name: "Seguro Casa",
       description: "Proteção completa para residências térreas ou sobrados.",
       price: "A partir de R$ 25/mês",
-      ctaUrl: "https://patro.seucorretor.digital/#/formularios/residencial",
+      ctaUrl: "https://patroseguros.com.br/cotacao-auto",
       features: [
         { label: "Incêndio e Explosão", value: true },
         { label: "Danos Elétricos (Raios/Rede)", value: true },
@@ -34,7 +34,7 @@ const ComparisonTableResidencial = ({
       name: "Seguro Apartamento",
       description: "Foco no conteúdo e responsabilidade civil (vizinhos).",
       price: "A partir de R$ 15/mês",
-      ctaUrl: "https://patro.seucorretor.digital/#/formularios/residencial",
+      ctaUrl: "https://patroseguros.com.br/cotacao-auto",
       features: [
         { label: "Incêndio e Explosão", value: true },
         { label: "Danos Elétricos (Raios/Rede)", value: true },
@@ -51,7 +51,7 @@ const ComparisonTableResidencial = ({
       name: "Seguro Flat / Airbnb",
       description: "Ideal para investidores e locações de curta duração.",
       price: "Sob consulta",
-      ctaUrl: "https://patro.seucorretor.digital/#/formularios/residencial",
+      ctaUrl: "https://patroseguros.com.br/cotacao-auto",
       features: [
         { label: "Incêndio e Explosão", value: true },
         { label: "Danos Elétricos (Raios/Rede)", value: true },

@@ -283,10 +283,8 @@ const LandingSeguroMotoEntregador = () => {
                   <a 
                     href="https://patroseguros.com.br/cotacao-auto"
                     onClick={() => trackWhatsAppClick(source)}
-                    target="_blank"
-                    rel="noopener noreferrer"
                   >
-                    Falar via WhatsApp <Smartphone className="h-5 w-5" />
+                    Cote Agora no WhatsApp <Smartphone className="h-5 w-5" />
                   </a>
                 </Button>
               </div>

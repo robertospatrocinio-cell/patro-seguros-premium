@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-seguro-empresarial.webp";
 const SeoSeguroEmpresaGuarulhos = () => (
   <InsurancePageTemplate
     heroImage={heroImg}
-    quoteUrl="https://patro.seucorretor.digital/#/formularios/empresarial"
+    quoteUrl="https://patroseguros.com.br/cotacao-auto"
     title="Seguro para Empresa em Guarulhos — Proteção Patrimonial e RC"
     subtitle="Seguro empresarial completo para empresas de Guarulhos: patrimônio, responsabilidade civil, lucros cessantes e mais."
     description="Seguro para empresa em Guarulhos com cobertura patrimonial completa, responsabilidade civil, lucros cessantes e equipamentos. A Patro Seguros já protege mais de 500 empresas em Guarulhos e região, com atendimento presencial no Cidade Maia e parceria com 16+ seguradoras líderes — Porto Seguro, Tokio Marine, AIG, Allianz, Bradesco e Sompo."
