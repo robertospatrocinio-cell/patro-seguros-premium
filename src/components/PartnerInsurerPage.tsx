@@ -37,6 +37,8 @@ const PartnerInsurerPage = () => {
       "@type": "InsuranceAgency",
       name: "Patro Seguros",
       url: CANONICAL_BASE_URL,
+      priceRange: "$$",
+      geo: { "@type": "GeoCoordinates", latitude: -23.446, longitude: -46.522 },
       areaServed: ["Guarulhos", "São Paulo", "Grande São Paulo"],
     },
     areaServed: ["Guarulhos", "São Paulo", "Grande São Paulo"],

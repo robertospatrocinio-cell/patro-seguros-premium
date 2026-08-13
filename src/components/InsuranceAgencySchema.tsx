@@ -18,6 +18,7 @@ const InsuranceAgencySchema = () => {
     "image": `${EMPRESA.dominioCanonico}/images/logo-full.webp`,
     "telephone": EMPRESA.telefoneE164,
     "email": EMPRESA.email,
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero}`,
