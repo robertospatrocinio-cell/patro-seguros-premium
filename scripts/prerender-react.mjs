@@ -292,7 +292,14 @@ async function renderRoute(browser, route) {
 
   // Sanitização: remove tags inline (gtag/fbq/sentry) E externas (gtm/pixel)
   // que vão ser reinjetadas na hidratação do SPA — evita disparo duplo.
-  html = html.replace(/<script[^>]*>[\s\S]*?(gtag\(|fbq\(|GA_MEASUREMENT_ID|sentry)[\s\S]*?<\/script>/gi, "");
+  // IMPORTANTE: casar apenas o conteúdo do PRÓPRIO script (sem atravessar
+  // </script>), senão o bloco JSON-LD da home é engolido até o primeiro
+  // gtag()/fbq() encontrado adiante no documento.
+  html = html.replace(
+    /<script\b[^>]*>((?:(?!<\/script>)[\s\S])*?)<\/script>/gi,
+    (full, body) =>
+      /gtag\(|fbq\(|GA_MEASUREMENT_ID|sentry/i.test(body) ? "" : full
+  );
   html = html.replace(
     /<script[^>]+src="[^"]*(googletagmanager\.com|google-analytics\.com|connect\.facebook\.net|sentry-cdn|browser\.sentry-cdn)[^"]*"[^>]*><\/script>/gi,
     ""
