@@ -177,6 +177,12 @@ async function run() {
       "url": "https://www.patroseguros.com.br",
       "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
       "telephone": "+55-11-5199-7500",
+      "priceRange": "$$",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.4460,
+        "longitude": -46.5220
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda",
