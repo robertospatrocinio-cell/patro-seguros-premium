@@ -39,3 +39,13 @@ export const highlightBrands = (text: string | React.ReactNode): React.ReactNode
     return part;
   });
 };
+
+export const stripHtml = (node: React.ReactNode): string => {
+  if (typeof node === 'string') return node;
+  if (typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(stripHtml).join('');
+  if (React.isValidElement(node)) {
+    return stripHtml(node.props.children);
+  }
+  return '';
+};
