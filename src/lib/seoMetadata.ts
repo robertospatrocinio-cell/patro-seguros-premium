@@ -500,7 +500,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
         "isPartOf": { "@type": "WebSite", "name": "Patro Seguros", "url": DOMAIN },
         "hasPart": buildHubHasPart(cleanPath),
         "mainEntity": buildHubMainEntity(cleanPath),
-        "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN, "image": `${DOMAIN}/images/logo-full.webp`, "priceRange": "$$" },
+        "provider": { "@type": "InsuranceAgency", "name": "Patro Seguros", "url": DOMAIN, "image": `${DOMAIN}/images/logo-full.webp`, "priceRange": "$$", "geo": { "@type": "GeoCoordinates", "latitude": -23.446, "longitude": -46.522 } },
       }
     : {
         "@context": "https://schema.org",
@@ -517,6 +517,7 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
           "telephone": "+55-11-5199-7500",
           "image": `${DOMAIN}/images/logo-full.webp`,
           "priceRange": "$$",
+          "geo": { "@type": "GeoCoordinates", "latitude": -23.446, "longitude": -46.522 },
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Av. Salgado Filho, 2120, Ed. Via Alameda – Sala 219",
@@ -740,7 +741,8 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
           "name": "Patro Seguros",
           "url": DOMAIN,
           "image": `${DOMAIN}/images/logo-full.webp`,
-          "priceRange": "$$"
+          "priceRange": "$$",
+          "geo": { "@type": "GeoCoordinates", "latitude": -23.446, "longitude": -46.522 }
         },
         "areaServed": {
           "@type": "City",
