@@ -181,7 +181,15 @@ function validate() {
     const componentName = page.name.replace(/\.tsx$/, "");
     const route = componentToRoute.get(componentName) || null;
     const distPath = SKIP_DIST ? null : distHtmlForRoute(route);
-    const distHtml = distPath ? readFile(distPath) : null;
+    let distHtml = distPath ? readFile(distPath) : null;
+    // SPA shells (root vazio) não contêm headings — o React hidrata no
+    // cliente. Validar ids nelas gera falsos positivos e bloqueia o build.
+    if (distHtml && /<div id="root">\s*<\/div>/.test(distHtml)) {
+      warnings.push(
+        `[${page.name}] rota ${route} gerou apenas shell SPA em dist/ — validação de ids no HTML pulada.`
+      );
+      distHtml = null;
+    }
 
     for (const id of page.hrefs) {
       totalHrefs++;
