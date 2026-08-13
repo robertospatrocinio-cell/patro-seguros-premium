@@ -9,6 +9,55 @@ const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 const INDEX_HTML = path.join(DIST, "index.html");
 
+// Nó institucional canônico — precisa existir em TODO HTML do dist/,
+// inclusive shells SPA e rotas sem metadata (validate-insurance-agency-global).
+const AGENCY_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "@id": "https://www.patroseguros.com.br/#insurance-agency",
+  "name": "Patro Seguros",
+  "url": "https://www.patroseguros.com.br",
+  "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
+  "telephone": "+55-11-5199-7500",
+  "priceRange": "$$",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -23.446,
+    "longitude": -46.522
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda",
+    "addressLocality": "Guarulhos",
+    "addressRegion": "SP",
+    "postalCode": "07115-000",
+    "addressCountry": "BR"
+  }
+};
+
+const AGENCY_SCRIPT = `\n    <script type="application/ld+json" data-institutional="1">\n      ${JSON.stringify(AGENCY_SCHEMA, null, 2)}\n    </script>`;
+
+function hasInsuranceAgency(html) {
+  return html.includes('"@type": "InsuranceAgency"') || html.includes('"@type":"InsuranceAgency"');
+}
+
+function ensureAgencyInAllHtml(dir) {
+  let patched = 0;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      patched += ensureAgencyInAllHtml(full);
+      continue;
+    }
+    if (!entry.isFile() || !entry.name.endsWith(".html")) continue;
+    const html = fs.readFileSync(full, "utf-8");
+    if (hasInsuranceAgency(html) || !html.includes("</head>")) continue;
+    fs.writeFileSync(full, html.replace("</head>", `${AGENCY_SCRIPT}\n</head>`), "utf-8");
+    patched += 1;
+  }
+  return patched;
+}
+
 const SEO_CONTENT = {
   "/": {
     h1: "Corretora de Seguros em Guarulhos — Patro Seguros",
@@ -169,31 +218,9 @@ async function run() {
     }
 
     // Injeção institucional em TODAS as rotas
-    const agencySchema = {
-      "@context": "https://schema.org",
-      "@type": "InsuranceAgency",
-      "@id": "https://www.patroseguros.com.br/#insurance-agency",
-      "name": "Patro Seguros",
-      "url": "https://www.patroseguros.com.br",
-      "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
-      "telephone": "+55-11-5199-7500",
-      "priceRange": "$$",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -23.4460,
-        "longitude": -46.5220
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda",
-        "addressLocality": "Guarulhos",
-        "addressRegion": "SP",
-        "postalCode": "07115-000",
-        "addressCountry": "BR"
-      }
-    };
-    const agencyScript = `\n    <script type="application/ld+json" data-institutional="1">\n      ${JSON.stringify(agencySchema, null, 2)}\n    </script>`;
-    html = html.replace("</head>", `${agencyScript}\n</head>`);
+    if (!hasInsuranceAgency(html)) {
+      html = html.replace("</head>", `${AGENCY_SCRIPT}\n</head>`);
+    }
 
     // FAQ logic
     const isBlogOrArtigo = route.startsWith("/artigos/") || route.startsWith("/blog/");
@@ -262,6 +289,11 @@ async function run() {
     <div id="root"></div>`);
   
   fs.writeFileSync(path.join(DIST, "404.html"), errorHtml, "utf-8");
+
+  // Sweep final: garante o nó institucional em rotas sem metadata,
+  // shells SPA e stubs gerados fora deste loop.
+  const patched = ensureAgencyInAllHtml(DIST);
+  if (patched > 0) console.log(`🏛️  InsuranceAgency injetado em ${patched} HTML(s) restantes.`);
 
   console.log("✅ Prerender complete!");
 }
