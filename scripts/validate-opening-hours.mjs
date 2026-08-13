@@ -14,17 +14,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 
-// Horários esperados baseados na EMPRESA.horario atualizada
-// "Segunda a sexta, das 8h às 18h e online segunda a domingo, das 7h as 20h"
-const EXPECTED_SLOTS = [
-  { day: "Monday", opens: "08:00", closes: "18:00" },
-  { day: "Tuesday", opens: "08:00", closes: "18:00" },
-  { day: "Wednesday", opens: "08:00", closes: "18:00" },
-  { day: "Thursday", opens: "08:00", closes: "18:00" },
-  { day: "Friday", opens: "08:00", closes: "18:00" },
-  { day: "Saturday", opens: "07:00", closes: "20:00" }, // Online/Weekend
-  { day: "Sunday", opens: "07:00", closes: "20:00" },
-];
+// Fonte única da verdade: EMPRESA.horario = "Seg. a Sex. 8h30–18h"
+const EXPECTED_OPENS = "08:30";
+const EXPECTED_CLOSES = "18:00";
 
 function walk(dir, acc = []) {
   if (!fs.existsSync(dir)) return acc;
