@@ -1,8 +1,10 @@
 import { Helmet } from "react-helmet-async";
+import React, { ReactNode } from "react";
+import { stripHtml } from "@/components/BrandText";
 
 interface FAQItem {
-  question: string;
-  answer: string;
+  question: ReactNode;
+  answer: ReactNode;
 }
 
 interface FAQSchemaProps {
@@ -10,9 +12,12 @@ interface FAQSchemaProps {
 }
 
 const FAQSchema = ({ faqs }: FAQSchemaProps) => {
-  const validFaqs = faqs.filter(faq => faq.question?.trim() && faq.answer?.trim());
-  // Google exige múltiplas Q&A para FAQPage rich result — não emite o schema
-  // quando há menos de 2 perguntas válidas (evita eligible-warn no relatório).
+  const validFaqs = faqs.filter(faq => {
+    const q = stripHtml(faq.question);
+    const a = stripHtml(faq.answer);
+    return q?.trim() && a?.trim();
+  });
+  
   if (validFaqs.length < 2) return null;
 
   const schema = {
@@ -20,10 +25,10 @@ const FAQSchema = ({ faqs }: FAQSchemaProps) => {
     "@type": "FAQPage",
     "mainEntity": validFaqs.map((faq) => ({
       "@type": "Question",
-      "name": faq.question.trim(),
+      "name": stripHtml(faq.question).trim(),
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer.trim()
+        "text": stripHtml(faq.answer).trim()
       }
     }))
   };

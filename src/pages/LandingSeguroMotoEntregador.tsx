@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { buildLpWhatsAppUrl } from "@/lib/whatsapp";
 import { EMPRESA, ENDERECO_LINHA } from "@/config/empresa";
+import { highlightBrands, BrandText } from "@/components/BrandText";
 
 const LandingSeguroMotoEntregador = () => {
   const source = "lp-seguro-moto-entregadores";
@@ -23,12 +24,12 @@ const LandingSeguroMotoEntregador = () => {
   
   const faqs = [
     {
-      question: "Quem trabalha no iFood pode fazer Seguro de Moto?",
-      answer: "Sim! Trabalhamos com seguradoras que aceitam especificamente entregadores do iFood e outros aplicativos. É fundamental declarar o uso profissional para garantir a indenização em caso de sinistro."
+      question: highlightBrands("Quem trabalha no iFood pode fazer Seguro de Moto?"),
+      answer: highlightBrands("Sim! Trabalhamos com seguradoras que aceitam especificamente entregadores do iFood e outros aplicativos. É fundamental declarar o uso profissional para garantir a indenização em caso de sinistro.")
     },
     {
-      question: "Quem trabalha na Keeta consegue contratar seguro?",
-      answer: "Com certeza. A Patro Seguros tem parcerias com seguradoras que já incluíram a Keeta e novos apps de delivery em suas tabelas de aceitação para motociclistas."
+      question: highlightBrands("Quem trabalha na Keeta consegue contratar seguro?"),
+      answer: highlightBrands("Com certeza. A Patro Seguros tem parcerias com seguradoras que já incluíram a Keeta e novos apps de delivery em suas tabelas de aceitação para motociclistas.")
     },
     {
       question: "Como funciona a franquia para entregadores?",
@@ -55,8 +56,8 @@ const LandingSeguroMotoEntregador = () => {
   return (
     <LandingPageTemplate
       title="Seguro de Moto para Entregadores em Guarulhos | Melhor Preço iFood e 99"
-      headline="Seguro de Moto para Entregadores em Guarulhos: Proteja seu Ganha-Pão"
-      subheadline="Cotação rápida para iFood, Keeta, 99 e Motoboy Profissional. Planos de Seguro de Moto com cobertura total contra roubo e furto em Guarulhos e São Paulo."
+      headline={highlightBrands("Seguro de Moto para Entregadores em Guarulhos: Proteja seu Ganha-Pão")}
+      subheadline={highlightBrands("Cotação rápida para iFood, Keeta, 99 e Motoboy Profissional. Planos de Seguro de Moto com cobertura total contra roubo e furto em Guarulhos e São Paulo.")}
       metaDescription="Garanta o melhor Seguro de Moto para entregadores em Guarulhos. Proteção aceita por iFood e 99 contra roubo e furto. Cote em 16+ seguradoras com planos a partir de R$ 49/mês."
       heroEmoji="🏍️"
       indexable={true}
@@ -81,13 +82,13 @@ const LandingSeguroMotoEntregador = () => {
         { icon: "🛡️", title: "Roubo e Furto Total", description: "Receba 100% da Tabela FIPE se sua moto for levada. Proteção real para o seu maior patrimônio." },
         { icon: "⛽", title: "Assistência 24h", description: "Pane seca, guincho, troca de pneus e chaveiro. Onde você estiver em Guarulhos ou SP, nós chegamos." },
         { icon: "👤", title: "Danos a Terceiros", description: "Bateu no carro de alguém? O seguro cobre o prejuízo do outro, evitando que você perca suas economias." },
-        { icon: "📱", title: "Foco em Aplicativos", description: "Cobertura aceita por iFood, Keeta, Rappi e 99. Sem letras miúdas sobre o uso profissional." },
+        { icon: "📱", title: "Foco em Aplicativos", description: highlightBrands("Cobertura aceita por iFood, Keeta, Rappi e 99. Sem letras miúdas sobre o uso profissional.") },
         { icon: "🏥", title: "Acidentes Pessoais", description: "Proteção financeira para você em caso de hospitalização ou invalidez por acidente de trânsito." },
         { icon: "💰", title: "Custo de Manutenção", description: "Opções com cobertura de faróis e retrovisores para manter sua ferramenta sempre em dia." },
       ]}
       testimonials={[
-        { name: "Carlos J.", role: "Entregador iFood - Guarulhos", stars: 5, content: "Tive minha CG 160 levada no Pimentas. Se não fosse o seguro da Patro, eu estava parado até hoje. Recebi o dinheiro e já tô com moto nova." },
-        { name: "Roberto M.", role: "Motoboy Keeta - Vila Augusta", stars: 5, content: "O guincho da assistência 24h já me salvou duas vezes de madrugada. Por R$ 55 por mês, durmo tranquilo sabendo que a moto tá protegida." },
+        { name: "Carlos J.", role: highlightBrands("Entregador iFood - Guarulhos"), stars: 5, content: "Tive minha CG 160 levada no Pimentas. Se não fosse o seguro da Patro, eu estava parado até hoje. Recebi o dinheiro e já tô com moto nova." },
+        { name: "Roberto M.", role: highlightBrands("Motoboy Keeta - Vila Augusta"), stars: 5, content: "O guincho da assistência 24h já me salvou duas vezes de madrugada. Por R$ 55 por mês, durmo tranquilo sabendo que a moto tá protegida." },
         { name: "Tiago S.", role: "Entregador Rappi - ZL", stars: 5, content: "A maioria das corretoras não queria fazer seguro pra entrega. Na Patro foi rápido e direto no WhatsApp. Recomendo pra galera do corre." },
       ]}
       objections={faqs}
@@ -215,7 +216,7 @@ const LandingSeguroMotoEntregador = () => {
                   <Zap className="h-5 w-5 text-amber-500 fill-amber-500" /> Dica do Corretor Patro
                 </h3>
                 <p className="text-muted-foreground leading-relaxed italic">
-                  "Um erro comum é contratar seguro 'normal' e não avisar que usa para entregas. Se houver um roubo enquanto você está logado no app, a seguradora pode recusar o pagamento. Na Patro, garantimos que sua apólice tenha a cláusula de uso profissional correta para sua segurança jurídica."
+                  {highlightBrands("\"Um erro comum é contratar seguro 'normal' e não avisar que usa para entregas. Se houver um roubo enquanto você está logado no app, a seguradora pode recusar o pagamento. Na Patro, garantimos que sua apólice tenha a cláusula de uso profissional correta para sua segurança jurídica.\"")}
                 </p>
               </div>
             </div>
@@ -241,7 +242,7 @@ const LandingSeguroMotoEntregador = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="p-4 border-b font-medium">Uso no iFood/Apps</td>
+                    <td className="p-4 border-b font-medium">Uso no {highlightBrands("iFood")}/Apps</td>
                     <td className="p-4 border-b text-red-500 font-bold">Risco de Recusa</td>
                     <td className="p-4 border-b text-green-600 font-bold">100% Garantido</td>
                   </tr>
