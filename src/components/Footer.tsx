@@ -35,6 +35,12 @@ const Footer = memo(() => {
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
               <div className="text-[12px] leading-relaxed">
+                <div className="flex text-yellow-400 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                  ))}
+                  <span className="ml-1.5 text-white/90 font-bold tracking-tight text-[10px] uppercase">Nota {EMPRESA.metricas.googleRating}</span>
+                </div>
                 <a
                   href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
                   target="_blank"
