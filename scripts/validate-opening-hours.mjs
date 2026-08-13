@@ -55,22 +55,14 @@ function validateOpeningHours(nodes, route) {
       foundAgency = true;
       const specs = Array.isArray(node.openingHoursSpecification) ? node.openingHoursSpecification : [node.openingHoursSpecification];
       
-      // Valida se os horários críticos de Seg-Sex 08:00-18:00 estão presentes
-      const hasWeekday8to18 = specs.some(s => 
+      // Valida Seg-Sex 08:30-18:00 (fonte única: EMPRESA.horario)
+      const hasWeekdayHours = specs.some(s =>
         (Array.isArray(s.dayOfWeek) ? s.dayOfWeek.includes("Monday") : s.dayOfWeek === "Monday") &&
-        s.opens === "08:00" && s.closes === "18:00"
+        s.opens === EXPECTED_OPENS && s.closes === EXPECTED_CLOSES
       );
 
-      // Valida se o atendimento estendido (7h-20h) está presente
-      const hasExtendedSupport = specs.some(s => 
-        s.opens === "07:00" && s.closes === "20:00"
-      );
-
-      if (!hasWeekday8to18) {
-        errors.push(`Horário padrão (08:00-18:00) ausente ou incorreto.`);
-      }
-      if (!hasExtendedSupport) {
-        errors.push(`Atendimento estendido/online (07:00-20:00) ausente ou incorreto.`);
+      if (!hasWeekdayHours) {
+        errors.push(`Horário padrão (${EXPECTED_OPENS}-${EXPECTED_CLOSES}) ausente ou incorreto.`);
       }
     }
 
