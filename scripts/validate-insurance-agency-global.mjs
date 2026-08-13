@@ -33,28 +33,64 @@ function routeFromFile(file) {
   return "/" + rel;
 }
 
-function hasInsuranceAgency(file) {
+function validateInsuranceAgency(file) {
   const html = fs.readFileSync(file, "utf-8");
-  return html.includes('"@type": "InsuranceAgency"') || html.includes('"@type":"InsuranceAgency"');
+  const hasType = html.includes('"@type": "InsuranceAgency"') || html.includes('"@type":"InsuranceAgency"');
+  
+  if (!hasType) return { valid: false, reason: "Schema InsuranceAgency ausente ou @type incorreto" };
+
+  // Validação básica de sintaxe JSON-LD para evitar quebras silenciosas
+  const scriptRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let match;
+  let found = false;
+  while ((match = scriptRegex.exec(html)) !== null) {
+    try {
+      const json = JSON.parse(match[1]);
+      const search = (obj) => {
+        if (!obj || typeof obj !== "object") return false;
+        if (Array.isArray(obj)) return obj.some(search);
+        if (obj["@type"] === "InsuranceAgency") return true;
+        if (obj["@graph"]) return search(obj["@graph"]);
+        return false;
+      };
+      if (search(json)) {
+        found = true;
+        break;
+      }
+    } catch (e) {
+      return { valid: false, reason: `Erro de sintaxe JSON no script LD+JSON: ${e.message}` };
+    }
+  }
+
+  return found ? { valid: true } : { valid: false, reason: "InsuranceAgency não encontrado no grafo JSON-LD" };
 }
 
 const files = walk(DIST);
 const errors = [];
 
-console.log(`🔍 Validando InsuranceAgency em ${files.length} rotas...`);
+console.log(`🔍 Validando integridade do InsuranceAgency em ${files.length} rotas...`);
 
 for (const file of files) {
   const route = routeFromFile(file);
-  // Algumas rotas técnicas podem não ter o schema por design, mas 99% devem ter via Layout/Template
-  if (!hasInsuranceAgency(file)) {
-    errors.push(`${route} (${path.relative(ROOT, file)})`);
+  const result = validateInsuranceAgency(file);
+  if (!result.valid) {
+    errors.push({
+      route,
+      path: path.relative(ROOT, file),
+      reason: result.reason
+    });
   }
 }
 
 if (errors.length > 0) {
-  console.error(`\n❌ Erro: ${errors.length} rotas estão sem o schema InsuranceAgency:`);
-  errors.slice(0, 50).forEach(e => console.error(`   • ${e}`));
-  if (errors.length > 50) console.error(`   ... e mais ${errors.length - 50} rotas.`);
+  console.error(`\n❌ ERRO CRÍTICO: ${errors.length} rotas falharam na validação institucional:`);
+  errors.slice(0, 50).forEach(e => {
+    console.error(`   • Rota: ${e.route}`);
+    console.error(`     Arquivo: ${e.path}`);
+    console.error(`     Motivo: ${e.reason}`);
+    console.error(`     ---`);
+  });
+  if (errors.length > 50) console.error(`   ... e mais ${errors.length - 50} falhas omitidas.`);
   process.exit(1);
 }
 
