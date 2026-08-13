@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { buildLpWhatsAppUrl } from "@/lib/whatsapp";
+import { EMPRESA, ENDERECO_LINHA } from "@/config/empresa";
 
 const LandingSeguroMotoEntregador = () => {
   const source = "lp-seguro-moto-entregadores";
@@ -115,6 +116,58 @@ const LandingSeguroMotoEntregador = () => {
             })}
           </script>
           
+          {/* LocalBusiness Schema for Rich Results */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "InsuranceAgency",
+              "@id": `${EMPRESA.dominioCanonico}/seguro-moto-entregadores-guarulhos#local-business`,
+              "name": `${EMPRESA.nomeFantasia} - Seguro de Moto Entregador`,
+              "description": "Corretora de seguros especializada em seguro de moto para entregadores de aplicativos (iFood, 99, Keeta) em Guarulhos.",
+              "url": `${EMPRESA.dominioCanonico}/seguro-moto-entregadores-guarulhos`,
+              "telephone": EMPRESA.telefone,
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero} ${EMPRESA.endereco.complemento}`,
+                "addressLocality": EMPRESA.endereco.cidade,
+                "addressRegion": EMPRESA.endereco.estadoSigla,
+                "postalCode": EMPRESA.endereco.cep,
+                "addressCountry": "BR"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": EMPRESA.geo.latitude,
+                "longitude": EMPRESA.geo.longitude
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "08:30",
+                "closes": "18:00"
+              },
+              "areaServed": [
+                { "@type": "City", "name": "Guarulhos" },
+                { "@type": "City", "name": "São Paulo" },
+                { "@type": "Neighborhood", "name": "Pimentas" },
+                { "@type": "Neighborhood", "name": "Bonsucesso" },
+                { "@type": "Neighborhood", "name": "Cidade Maia" },
+                { "@type": "Neighborhood", "name": "Vila Augusta" }
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": EMPRESA.telefone,
+                "contactType": "customer service",
+                "areaServed": "BR",
+                "availableLanguage": "Portuguese"
+              },
+              "sameAs": [
+                EMPRESA.redesSociais.instagram,
+                EMPRESA.redesSociais.facebook,
+                EMPRESA.redesSociais.linkedin
+              ]
+            })}
+          </script>
+
           {/* Article Schema for Rich Results */}
           <script type="application/ld+json">
             {JSON.stringify({
