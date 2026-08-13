@@ -227,7 +227,11 @@ async function run() {
 
     const seoBlock = buildSeoBlock(route, metadata);
     if (seoBlock) {
-      html = html.replace('<div id="root"></div>', `<div id="root">${seoBlock}</div>`);
+      if (html.includes('<div id="root"></div>')) {
+        html = html.replace('<div id="root"></div>', `<div id="root" data-prerender-seo="1">${seoBlock}</div>`);
+      } else {
+        html = html.replace(/<div id="root">/, `<div id="root" data-prerender-seo="1">${seoBlock}`);
+      }
     }
 
     if (route === "/") {
