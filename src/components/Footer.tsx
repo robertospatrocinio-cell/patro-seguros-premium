@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { SmartLink } from "./SmartLink";
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock, ShieldCheck, Star } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
