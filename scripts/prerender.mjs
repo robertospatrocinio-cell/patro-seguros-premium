@@ -243,6 +243,20 @@ async function run() {
     }
   }
 
+  // Generate a proper 404.html
+  let errorHtml = indexContent;
+  errorHtml = errorHtml.replace(/<title>[^<]*<\/title>/, `<title>Página Não Encontrada (404) | Patro Seguros</title>`);
+  errorHtml = errorHtml.replace(/<meta name="description" content="[^"]*"/, `<meta name="description" content="A página solicitada não foi encontrada. Explore nossos seguros auto, residenciais e de vida em Guarulhos."`);
+  errorHtml = errorHtml.replace("</head>", `  <meta name="robots" content="noindex, follow">\n</head>`);
+  errorHtml = errorHtml.replace('<div id="root"></div>', `
+    <div id="crawler-content" style="display:none">
+      <h1>Página Não Encontrada (404)</h1>
+      <p>A página que você está procurando não existe ou foi movida.</p>
+    </div>
+    <div id="root"></div>`);
+  
+  fs.writeFileSync(path.join(DIST, "404.html"), errorHtml, "utf-8");
+
   console.log("✅ Prerender complete!");
 }
 
