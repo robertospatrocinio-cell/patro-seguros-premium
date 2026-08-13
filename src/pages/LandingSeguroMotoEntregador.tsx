@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { buildLpWhatsAppUrl } from "@/lib/whatsapp";
 import { EMPRESA, ENDERECO_LINHA } from "@/config/empresa";
+import { highlightBrands, BrandText } from "@/components/BrandText";
 
 const LandingSeguroMotoEntregador = () => {
   const source = "lp-seguro-moto-entregadores";
