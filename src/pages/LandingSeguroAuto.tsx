@@ -1,5 +1,6 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import FAQSchema from "@/components/FAQSchema";
+import { highlightBrands } from "@/components/BrandText";
 import heroImg from "@/assets/lp-seguro-auto.webp";
 
 const LandingSeguroAuto = () => (
@@ -8,7 +9,7 @@ const LandingSeguroAuto = () => (
     title="Seguro Auto"
     heroEmoji="🚗"
     headline="Seu carro está protegido? Ou você está contando com a sorte?"
-    subheadline="Compare cotações de 16+ seguradoras em minutos. Encontre o melhor preço sem sair de casa — com atendimento humano e personalizado."
+    subheadline={highlightBrands("Compare cotações de 16+ seguradoras em minutos. Encontre o melhor preço sem sair de casa — com atendimento humano e personalizado.")}
     metaDescription="A Patro Seguros, corretora em Guarulhos fundada em 2021 por sócios com 20+ anos de experiência, oferece cotação de Seguro Auto gratuita. Compare Porto, Tokio, Allianz e HDI. Resultado em até 2h úteis."
     ctaText="Cotar Meu Seguro Auto Grátis"
     ctaUrl="https://patroseguros.com.br/cotacao-auto"
