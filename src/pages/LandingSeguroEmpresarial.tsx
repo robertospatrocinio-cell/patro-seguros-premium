@@ -1,5 +1,6 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import FAQSchema from "@/components/FAQSchema";
+import { highlightBrands } from "@/components/BrandText";
 import heroImg from "@/assets/lp-seguro-empresarial.webp";
 
 const LandingSeguroEmpresarial = () => (
@@ -9,7 +10,7 @@ const LandingSeguroEmpresarial = () => (
     title="Seguro Empresarial"
     heroEmoji="🏢"
     headline="Sua empresa pode fechar amanhã por um incêndio. Você está preparado?"
-    subheadline="Proteja seu patrimônio, estoque e faturamento contra incêndio, roubo, danos elétricos e mais. Cotação gratuita com as melhores seguradoras do país."
+    subheadline={highlightBrands("Proteja seu patrimônio, estoque e faturamento contra incêndio, roubo, danos elétricos e mais. Cotação gratuita com as melhores seguradoras do país.")}
     metaDescription="Seguro Empresarial para PME, comércio e indústria. Proteja seu negócio contra incêndio, roubo e responsabilidade civil. Cotação grátis. Patro Seguros."
     ctaText="Proteger Minha Empresa Agora"
     urgencyText="Não espere o prejuízo para agir"

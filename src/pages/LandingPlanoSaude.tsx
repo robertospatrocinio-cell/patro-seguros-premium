@@ -1,5 +1,6 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import FAQSchema from "@/components/FAQSchema";
+import { highlightBrands } from "@/components/BrandText";
 import heroImg from "@/assets/lp-plano-saude.webp";
 
 const LandingPlanoSaude = () => (
@@ -8,7 +9,7 @@ const LandingPlanoSaude = () => (
     title="Plano de Saúde"
     heroEmoji="🏥"
     headline="Plano de Saúde bom e barato existe. Nós encontramos para você."
-    subheadline="Comparamos 20 operadoras — Amil, Bradesco Saúde, SulAmérica, Unimed e mais — para encontrar o plano ideal para seu bolso e sua família."
+    subheadline={highlightBrands("Comparamos 20 operadoras — Amil, Bradesco Saúde, SulAmérica, Unimed e mais — para encontrar o plano ideal para seu bolso e sua família.")}
     metaDescription="Compare Planos de Saúde de 20 operadoras. Amil, Bradesco Saúde, SulAmérica, Unimed. Cotação gratuita em Guarulhos. Patro Seguros."
     ctaText="Comparar Planos de Saúde Grátis"
     ctaUrl="/cotacao?tipo=saude"
