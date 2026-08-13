@@ -620,7 +620,52 @@ async function run() {
       };
       const breadcrumbScript = `\n    <script type="application/ld+json" data-breadcrumb="1">\n      ${JSON.stringify(breadcrumbSchema, null, 2)}\n    </script>`;
       html = html.replace("</head>", `${breadcrumbScript}\n</head>`);
+    }
 
+    // InsuranceAgencySchema institucional como root node em TODAS as rotas
+    // O ID #insurance-agency é a âncora para todos os outros schemas (Breadcrumb, LocalBusiness)
+    const agencySchema = {
+      "@context": "https://schema.org",
+      "@type": "InsuranceAgency",
+      "@id": "https://www.patroseguros.com.br/#insurance-agency",
+      "name": "Patro Seguros",
+      "url": "https://www.patroseguros.com.br",
+      "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
+      "image": "https://www.patroseguros.com.br/images/patro-fachada.webp",
+      "description": "Corretora de seguros em Guarulhos com 20+ anos de experiência. Especialistas em seguro auto, residencial, vida, saúde e empresarial.",
+      "telephone": "+55-11-5199-7500",
+      "email": "contato@patroseguros.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda",
+        "addressLocality": "Guarulhos",
+        "addressRegion": "SP",
+        "postalCode": "07115-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.4561,
+        "longitude": -46.5262
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:30",
+          "closes": "18:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/patroseguros",
+        "https://www.facebook.com/patroseguros",
+        "https://www.linkedin.com/company/patroseguros"
+      ]
+    };
+    const agencyScript = `\n    <script type="application/ld+json" data-institutional="1">\n      ${JSON.stringify(agencySchema, null, 2)}\n    </script>`;
+    html = html.replace("</head>", `${agencyScript}\n</head>`);
+
+    if (slug) {
       // FAQPage JSON-LD — usa a mesma fonte que o BlogArticle.tsx (article.faqs
       // + extraFaqsBySlug com timeline/comparison rows). Emitir no HTML cru
       // permite que o Google gere rich snippet de FAQ sem depender do React.
@@ -649,27 +694,28 @@ async function run() {
         seen.add(k);
         return true;
       });
-
-      // Google só ranqueia rich result de FAQ com múltiplas Q&A — abaixo
-      // de 2 perguntas o FAQPage é considerado eligible-warn e não gera
-      // snippet. Nesses casos preferimos NÃO emitir o schema.
-      if (uniqueFaqs.length >= 2) {
-        const faqSchema = {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": uniqueFaqs.map((f) => ({
-            "@type": "Question",
-            "name": String(f.q).trim(),
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": String(f.a).trim(),
-            },
-          })),
-        };
-        const faqScript = `\n    <script type="application/ld+json" data-faqpage="1">\n      ${JSON.stringify(faqSchema, null, 2)}\n    </script>`;
-        html = html.replace("</head>", `${faqScript}\n</head>`);
+        // Google só ranqueia rich result de FAQ com múltiplas Q&A — abaixo
+        // de 2 perguntas o FAQPage é considerado eligible-warn e não gera
+        // snippet. Nesses casos preferimos NÃO emitir o schema.
+        if (uniqueFaqs.length >= 2) {
+          const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": uniqueFaqs.map((f) => ({
+              "@type": "Question",
+              "name": String(f.q).trim(),
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": String(f.a).trim(),
+              },
+            })),
+          };
+          const faqScript = `\n    <script type="application/ld+json" data-faqpage="1">\n      ${JSON.stringify(faqSchema, null, 2)}\n    </script>`;
+          html = html.replace("</head>", `${faqScript}\n</head>`);
+        }
       }
-    }
+
+
 
     // Injeta conteúdo SEO real (H1 + H2 + parágrafos + links internos) DENTRO
     // de #root para rotas-chave. O React substitui #root inteiro no hydrate,

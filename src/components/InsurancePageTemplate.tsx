@@ -17,6 +17,7 @@ import LocalAreaSchema from "@/components/LocalAreaSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
+import InsuranceAgencySchema from "@/components/InsuranceAgencySchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
@@ -385,6 +386,7 @@ const InsurancePageTemplate = ({
          absoluteTitle={!!headline && headline !== title}
        />
        
+      <InsuranceAgencySchema />
       <LocalBusinessSchema />
       <OrganizationSchema />
       {!skipFAQSchemaManual && faqs.length > 0 && <FAQSchema faqs={faqs} />}

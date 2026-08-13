@@ -12,6 +12,7 @@ import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import MedicalOrganizationSchema from "@/components/MedicalOrganizationSchema";
+import InsuranceAgencySchema from "@/components/InsuranceAgencySchema";
 
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
@@ -120,6 +121,7 @@ const Index = () => {
       />
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
       <SpeakableSchema url={CANONICAL_BASE_URL} />
+      <InsuranceAgencySchema />
       <LocalBusinessSchema />
       <OrganizationSchema />
       <ServiceSchema 
