@@ -168,14 +168,14 @@ const Footer = memo(() => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/5 text-[12px] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Patro Seguros. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} {EMPRESA.razaoSocial}. Todos os direitos reservados.</p>
           <a 
-            href="https://maps.google.com/?q=Avenida+Salgado+Filho+2120+Guarulhos+SP" 
+            href={EMPRESA.redesSociais.google} 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-1 hover:text-white transition-colors"
           >
-            <MapPin className="h-3 w-3" /> {EMPRESA.endereco.complemento} – {EMPRESA.endereco.logradouro}, {EMPRESA.endereco.numero} – Sala 219 – {EMPRESA.endereco.cidade}/{EMPRESA.endereco.estadoSigla}
+            <MapPin className="h-3 w-3" /> {ENDERECO_LINHA}
           </a>
         </div>
 
