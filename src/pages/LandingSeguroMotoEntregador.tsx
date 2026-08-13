@@ -116,6 +116,34 @@ const LandingSeguroMotoEntregador = () => {
             })}
           </script>
           
+          {/* BreadcrumbList Schema for Rich Results */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": EMPRESA.dominioCanonico
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Seguros em Guarulhos",
+                  "item": `${EMPRESA.dominioCanonico}/seguros-guarulhos`
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Seguro Moto Entregador",
+                  "item": `${EMPRESA.dominioCanonico}/seguro-moto-entregadores-guarulhos`
+                }
+              ]
+            })}
+          </script>
+
           {/* LocalBusiness Schema for Rich Results */}
           <script type="application/ld+json">
             {JSON.stringify({
