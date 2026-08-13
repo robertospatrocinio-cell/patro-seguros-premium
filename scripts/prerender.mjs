@@ -665,7 +665,9 @@ async function run() {
     const agencyScript = `\n    <script type="application/ld+json" data-institutional="1">\n      ${JSON.stringify(agencySchema, null, 2)}\n    </script>`;
     html = html.replace("</head>", `${agencyScript}\n</head>`);
 
-    if (slug) {
+    const isBlogOrArtigo = route.startsWith("/artigos/") || route.startsWith("/blog/");
+    if (isBlogOrArtigo) {
+      const slug = route.replace(/^\/(artigos|blog)\//, "");
       // FAQPage JSON-LD — usa a mesma fonte que o BlogArticle.tsx (article.faqs
       // + extraFaqsBySlug com timeline/comparison rows). Emitir no HTML cru
       // permite que o Google gere rich snippet de FAQ sem depender do React.
