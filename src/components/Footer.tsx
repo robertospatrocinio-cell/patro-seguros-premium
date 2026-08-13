@@ -30,7 +30,7 @@ const Footer = memo(() => {
               />
             </SmartLink>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
-              A experiência digital de uma grande corretora, com o atendimento próximo de uma especialista em Guarulhos e região.
+              {EMPRESA.posicionamento}
             </p>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
