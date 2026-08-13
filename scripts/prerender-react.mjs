@@ -305,6 +305,43 @@ async function renderRoute(browser, route) {
     ""
   );
 
+  // O passe React sobrescreve os arquivos criados por prerender.mjs. Garanta
+  // que qualquer InsuranceAgency de nível raiz/@graph continue completo após
+  // essa sobrescrita, inclusive quando uma rota emite uma versão reduzida via
+  // Helmet. Isso mantém o validador --strict-warn determinístico em todas as
+  // rotas, sem apenas silenciar recomendações do Google.
+  html = html.replace(
+    /(<script\b[^>]*type=["']application\/ld\+json["'][^>]*>)([\s\S]*?)(<\/script>)/gi,
+    (full, open, body, close) => {
+      let parsed;
+      try {
+        parsed = JSON.parse(body);
+      } catch {
+        return full;
+      }
+
+      const enrich = (node) => {
+        if (!node || typeof node !== "object") return;
+        if (Array.isArray(node)) {
+          node.forEach(enrich);
+          return;
+        }
+        if (Array.isArray(node["@graph"])) node["@graph"].forEach(enrich);
+        const types = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
+        if (!types.includes("InsuranceAgency")) return;
+        node.priceRange ||= "$$";
+        node.geo ||= {
+          "@type": "GeoCoordinates",
+          latitude: -23.446,
+          longitude: -46.522,
+        };
+      };
+
+      enrich(parsed);
+      return `${open}${JSON.stringify(parsed)}${close}`;
+    }
+  );
+
   // Garante doctype no topo (puppeteer às vezes preserva, mas validamos).
   if (!/^\s*<!doctype/i.test(html)) html = `<!doctype html>\n${html}`;
 
