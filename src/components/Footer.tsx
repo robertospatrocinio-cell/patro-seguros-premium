@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { SmartLink } from "./SmartLink";
-import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock, ShieldCheck } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock, ShieldCheck, Star } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import NapBlock from "@/components/NapBlock";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { memo } from "react";
-import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS } from "@/config/empresa";
+import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS, ENDERECO_LINHA } from "@/config/empresa";
 
 const logoFull = "/images/logo-full.webp";
 
@@ -30,11 +30,17 @@ const Footer = memo(() => {
               />
             </SmartLink>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
-              A experiência digital de uma grande corretora, com o atendimento próximo de uma especialista em Guarulhos e região.
+              {EMPRESA.posicionamento}
             </p>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
               <div className="text-[12px] leading-relaxed">
+                <div className="flex text-yellow-400 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-2.5 w-2.5 fill-current" aria-hidden="true" />
+                  ))}
+                  <span className="ml-1.5 text-white/90 font-bold tracking-tight text-[10px] uppercase">Nota {EMPRESA.metricas.googleRating}</span>
+                </div>
                 <a
                   href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
                   target="_blank"
@@ -162,14 +168,14 @@ const Footer = memo(() => {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/5 text-[12px] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>© {new Date().getFullYear()} Patro Seguros. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} {EMPRESA.razaoSocial}. Todos os direitos reservados.</p>
           <a 
-            href="https://maps.google.com/?q=Avenida+Salgado+Filho+2120+Guarulhos+SP" 
+            href={EMPRESA.redesSociais.google} 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-1 hover:text-white transition-colors"
           >
-            <MapPin className="h-3 w-3" /> {EMPRESA.endereco.complemento} – {EMPRESA.endereco.logradouro}, {EMPRESA.endereco.numero} – Sala 219 – {EMPRESA.endereco.cidade}/{EMPRESA.endereco.estadoSigla}
+            <MapPin className="h-3 w-3" /> {ENDERECO_LINHA}
           </a>
         </div>
 
