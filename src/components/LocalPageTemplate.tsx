@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { trackCotacaoClick } from "@/lib/tracking";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
+import InsuranceAgencySchema from "@/components/InsuranceAgencySchema";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { setWhatsAppOverride, clearWhatsAppOverride } from "@/lib/whatsappOverride";
 
@@ -236,6 +237,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
   return (
     <>
       {/* Schema local extra (Service + Place + AggregateOffer) */}
+      <InsuranceAgencySchema />
       <LocalAreaSchema
         serviceName={title}
         url={canonicalUrl}
