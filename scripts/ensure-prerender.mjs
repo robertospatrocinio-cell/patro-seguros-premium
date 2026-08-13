@@ -151,7 +151,23 @@ function patchIndexHtmlWithInsuranceAgency() {
       "@id": "https://www.patroseguros.com.br/#insurance-agency",
       "name": "Patro Seguros",
       "url": "https://www.patroseguros.com.br",
-      "logo": "https://www.patroseguros.com.br/images/logo-full.webp"
+      "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
+      "image": "https://www.patroseguros.com.br/images/logo-full.webp",
+      "telephone": "+551151997500",
+      "priceRange": "$$",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.446,
+        "longitude": -46.522
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Avenida Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda",
+        "addressLocality": "Guarulhos",
+        "addressRegion": "SP",
+        "postalCode": "07115-000",
+        "addressCountry": "BR"
+      }
     };
     const script = `\n<script type="application/ld+json">${JSON.stringify(schema)}</script>\n`;
     fs.writeFileSync(INDEX_HTML, html.replace("</head>", `${script}</head>`), "utf-8");
