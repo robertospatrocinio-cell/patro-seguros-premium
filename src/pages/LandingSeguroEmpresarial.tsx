@@ -1,4 +1,5 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
+import FAQSchema from "@/components/FAQSchema";
 import heroImg from "@/assets/lp-seguro-empresarial.webp";
 
 const LandingSeguroEmpresarial = () => (
@@ -45,7 +46,13 @@ const LandingSeguroEmpresarial = () => (
       { question: "Preciso de vistoria?", answer: "Na maioria dos casos, não. O processo é digital e rápido. Apenas para valores muito altos pode ser solicitada uma vistoria simples." },
       { question: "Posso incluir equipamentos específicos?", answer: "Sim! Equipamentos eletrônicos, máquinas, veículos estacionados, placas solares — tudo pode ser incluído na apólice." },
       { question: "E se eu alugar o imóvel?", answer: "Locatários também podem (e devem!) contratar seguro empresarial. Protege seu estoque, equipamentos e responsabilidade civil." },
-    ]}
+    extraSections={
+      <FAQSchema faqs={[
+        { question: "Minha empresa é pequena, preciso de seguro?", answer: "Principalmente! Empresas pequenas são as mais vulneráveis. Um sinistro sem seguro pode significar o fechamento definitivo. E o custo é muito acessível." },
+        { question: "O que exatamente é coberto?", answer: "Incêndio, roubo, danos elétricos, vendaval, RC, lucros cessantes e muito mais. Montamos a cobertura sob medida para seu tipo de negócio." },
+        { question: "E se eu alugar o imóvel?", answer: "Locatários também podem (e devem!) contratar seguro empresarial. Protege seu estoque, equipamentos e responsabilidade civil." }
+      ]} />
+    }
   />
 );
 
