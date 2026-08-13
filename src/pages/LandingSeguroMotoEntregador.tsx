@@ -216,7 +216,7 @@ const LandingSeguroMotoEntregador = () => {
                   <Zap className="h-5 w-5 text-amber-500 fill-amber-500" /> Dica do Corretor Patro
                 </h3>
                 <p className="text-muted-foreground leading-relaxed italic">
-                  "Um erro comum é contratar seguro 'normal' e não avisar que usa para entregas. Se houver um roubo enquanto você está logado no app, a seguradora pode recusar o pagamento. Na Patro, garantimos que sua apólice tenha a cláusula de uso profissional correta para sua segurança jurídica."
+                  {highlightBrands("\"Um erro comum é contratar seguro 'normal' e não avisar que usa para entregas. Se houver um roubo enquanto você está logado no app, a seguradora pode recusar o pagamento. Na Patro, garantimos que sua apólice tenha a cláusula de uso profissional correta para sua segurança jurídica.\"")}
                 </p>
               </div>
             </div>
