@@ -15,7 +15,7 @@ const SeguroSalaComercialGuarulhos = () => (
   <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patro.seucorretor.digital/#/formularios/empresarial"
+      quoteUrl="https://patroseguros.com.br/cotacao-auto"
       title="Seguro para Sala Comercial em Guarulhos | Patro Seguros"
       headline="Seguro para sala comercial em Guarulhos"
       subtitle="A Patro Seguros ajuda profissionais, clínicas, escritórios e pequenos negócios a protegerem salas comerciais, equipamentos e responsabilidade civil com atendimento consultivo em Guarulhos e São Paulo."

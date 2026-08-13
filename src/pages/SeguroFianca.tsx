@@ -5,7 +5,7 @@ const SeguroFianca = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patro.seucorretor.digital/#/formularios/aluguel"
+      quoteUrl="https://patroseguros.com.br/cotacao-auto"
       title="Seguro Fiança Locatícia em Guarulhos | Patro Seguros"
       headline="Seguro fiança para alugar sem fiador em Guarulhos"
       subtitle="Alugue seu imóvel sem fiador e sem burocracia"
