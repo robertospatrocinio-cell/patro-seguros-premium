@@ -302,12 +302,12 @@ const Header = memo(() => {
               <img
                 src={logoFull}
                 alt="Patro Seguros Guarulhos - Corretora de Seguros"
-                width={160}
-                height={80}
+                width={140}
+                height={70}
                 decoding="sync"
                 loading="eager"
                 {...({ fetchpriority: "high" } as any)}
-                className="h-20 w-auto object-contain -my-2 relative z-50"
+                className="h-16 w-auto object-contain relative z-50"
               />
             </SmartLink>
 
