@@ -28,8 +28,15 @@ const InsuranceAgencySchema = () => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": -23.4554, // Coordenadas aproximadas de Guarulhos/Cidade Maia
-      "longitude": -46.5224
+      "latitude": EMPRESA.geo.latitude,
+      "longitude": EMPRESA.geo.longitude
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": EMPRESA.metricas.googleRating,
+      "reviewCount": EMPRESA.metricas.googleReviews,
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "openingHoursSpecification": [
       {
@@ -40,9 +47,9 @@ const InsuranceAgencySchema = () => {
       }
     ],
     "sameAs": [
-      "https://www.instagram.com/patroseguros",
-      "https://www.facebook.com/patroseguros",
-      "https://www.linkedin.com/company/patro-seguros"
+      EMPRESA.redesSociais.instagram,
+      EMPRESA.redesSociais.facebook,
+      EMPRESA.redesSociais.linkedin
     ]
   };
 
