@@ -100,22 +100,6 @@ const LandingSeguroMotoEntregador = () => {
           />
           <FAQSchema faqs={faqs} />
           
-          {/* FAQ Schema for Rich Results */}
-          <script type="application/ld+json">
-            {JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": faqs.map(faq => ({
-                "@type": "Question",
-                "name": faq.question,
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": faq.answer
-                }
-              }))
-            })}
-          </script>
-          
           {/* BreadcrumbList Schema for Rich Results */}
           <script type="application/ld+json">
             {JSON.stringify({
