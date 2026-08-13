@@ -150,15 +150,15 @@
     {
       "@context": "https://schema.org",
       "@type": "InsuranceAgency",
-      "@id": "https://www.patroseguros.com.br/#patro",
+      "@id": "https://www.patroseguros.com.br/#insurance-agency",
       "name": "Patro Seguros",
       "alternateName": "Patro Corretora de Seguros LTDA",
       "url": "https://www.patroseguros.com.br",
       "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
       "image": "https://www.patroseguros.com.br/images/hero-home-960.webp",
-      "description": "Corretora de seguros em Guarulhos há mais de 20 anos, com atendimento consultivo e comparação em 16+ seguradoras. Auto, vida, saúde, residencial e empresarial com cotação em até 2h úteis.",
+      "description": "Corretora de seguros em Guarulhos com atendimento consultivo e comparação em 16+ seguradoras. Especialista em seguro auto, vida, saúde, residencial e empresarial em Guarulhos e região.",
       "slogan": "Corretora de seguros em Guarulhos com atendimento consultivo",
-      "foundingDate": "2006",
+      "foundingDate": "2021",
       "taxID": "41.641.558/0001-33",
       "telephone": "+551151997500",
       "contactPoint": [
@@ -186,6 +186,7 @@
         }
       ],
       "email": "contato@patroseguros.com.br",
+      "legalName": "Patro Corretora de Seguros LTDA",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -291,7 +292,12 @@
             }
           }
         ]
-      }
+      "sameAs": [
+        "https://www.instagram.com/patroseguros",
+        "https://www.facebook.com/patroseguros",
+        "https://www.linkedin.com/company/patro-seguros",
+        "https://www.youtube.com/@patroseguros"
+      ]
     }
     </script>
     <!-- WebSite (com SearchAction) + SiteNavigationElement — schemas sitewide,
@@ -316,6 +322,29 @@
           "urlTemplate": "https://www.patroseguros.com.br/?q={search_term_string}"
         },
         "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.patroseguros.com.br/#organization",
+      "name": "Patro Seguros",
+      "url": "https://www.patroseguros.com.br",
+      "logo": "https://www.patroseguros.com.br/images/logo-full.webp",
+      "sameAs": [
+        "https://www.instagram.com/patroseguros",
+        "https://www.facebook.com/patroseguros",
+        "https://www.linkedin.com/company/patro-seguros",
+        "https://www.youtube.com/@patroseguros"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+551151997500",
+        "contactType": "customer service",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
       }
     }
     </script>
