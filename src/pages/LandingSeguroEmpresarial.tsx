@@ -46,6 +46,7 @@ const LandingSeguroEmpresarial = () => (
       { question: "Preciso de vistoria?", answer: "Na maioria dos casos, não. O processo é digital e rápido. Apenas para valores muito altos pode ser solicitada uma vistoria simples." },
       { question: "Posso incluir equipamentos específicos?", answer: "Sim! Equipamentos eletrônicos, máquinas, veículos estacionados, placas solares — tudo pode ser incluído na apólice." },
       { question: "E se eu alugar o imóvel?", answer: "Locatários também podem (e devem!) contratar seguro empresarial. Protege seu estoque, equipamentos e responsabilidade civil." },
+    ]}
     extraSections={
       <FAQSchema faqs={[
         { question: "Minha empresa é pequena, preciso de seguro?", answer: "Principalmente! Empresas pequenas são as mais vulneráveis. Um sinistro sem seguro pode significar o fechamento definitivo. E o custo é muito acessível." },

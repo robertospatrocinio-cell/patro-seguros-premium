@@ -46,6 +46,7 @@ const LandingPlanoSaude = () => (
       { question: "Vocês cobram alguma taxa?", answer: "Não! Nossa remuneração vem das operadoras. Para você, o serviço é 100% gratuito e o preço é o mesmo que comprando direto." },
       { question: "E se eu não gostar do plano?", answer: "Apresentamos sempre 3+ opções com comparativo detalhado. Você escolhe com calma, sem pressão, e pode trocar na renovação." },
       { question: "Atendem planos para idosos?", answer: "Sim! Temos opções específicas para 59+ com redes amplas e preços competitivos, incluindo Medsenior, Prevent Senior e Omint." },
+    ]}
     extraSections={
       <FAQSchema faqs={[
         { question: "Consigo plano sem carência?", answer: "Em muitos casos, sim! Através da portabilidade ou planos empresariais (a partir de 2 vidas), é possível eliminar ou reduzir carências." },

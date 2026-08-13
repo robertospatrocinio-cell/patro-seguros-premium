@@ -42,10 +42,11 @@ const LandingSeguroAuto = () => (
     ]}
     objections={[
       { question: "A cotação é realmente gratuita?", answer: "100% gratuita e sem compromisso. Você recebe as propostas, compara e decide com calma. Zero pressão." },
-      { question: "Quanto tempo leva para receber a cotação?", answer: "Em até 2 horas úteis. Comparamos até 16 seguradoras e enviamos um resumo claro, sem letras miúdas." },
+      { question: "Quanto tempo leva para receber a cotação?", answer: "En até 2 horas úteis. Comparamos até 16 seguradoras e enviamos um resumo claro, sem letras miúdas." },
       { question: "Posso parcelar o seguro?", answer: "Sim! A maioria das seguradoras oferece parcelamento em até 10x sem juros no cartão ou débito em conta." },
       { question: "E se eu já tiver seguro, posso trocar?", answer: "Pode sim. Fazemos a cotação considerando seu bônus atual. Na maioria dos casos, a transição é imediata e sem perda de cobertura." },
       { question: "Vocês atendem fora de Guarulhos?", answer: "Sim! Atendemos todo o Brasil. O processo é 100% digital — você não precisa ir a nenhum lugar." },
+    ]}
     extraSections={
       <FAQSchema faqs={[
         { question: "A cotação é realmente gratuita?", answer: "100% gratuita e sem compromisso. Você recebe as propostas, compara e decide com calma. Zero pressão." },
