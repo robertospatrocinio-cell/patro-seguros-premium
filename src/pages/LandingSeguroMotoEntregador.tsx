@@ -98,7 +98,8 @@ const LandingSeguroMotoEntregador = () => {
             description="Consultoria especializada em seguros para motociclistas profissionais e entregadores de aplicativos em Guarulhos e região."
             serviceType="InsuranceBusiness"
           />
-          <FAQSchema faqs={faqs} />
+          {/* FAQSchema removed in favor of direct JSON-LD to avoid duplicate/conflicting IDs if it uses them internaly, but here we keep the visual Accordion if FAQSchema provides it. Actually FAQSchema usually just renders the schema. */}
+          {/* <FAQSchema faqs={faqs} /> */}
           
           {/* FAQ Schema for Rich Results */}
           <script type="application/ld+json">
