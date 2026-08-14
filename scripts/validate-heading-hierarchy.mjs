@@ -320,6 +320,7 @@ function renderReportHtml(report) {
     .join("");
   return `<!doctype html>
 <html lang="pt-br"><head><meta charset="utf-8"/>
+<meta name="robots" content="noindex, nofollow"/>
 <title>Relatório — Hierarquia de Headings</title>
 <style>
   body{font-family:system-ui,sans-serif;max-width:1100px;margin:2rem auto;padding:0 1rem;color:#1a1a1a}
