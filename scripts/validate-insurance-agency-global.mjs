@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Validação de integridade do JSON-LD InsuranceAgency em TODAS as rotas.
- * Garante que a entidade institucional não desapareça em nenhuma página.
+ * Validação de integridade do JSON-LD InsuranceAgency em todas as rotas
+ * indexáveis. Redirects, tombstones, páginas 404 e demais documentos noindex
+ * não representam páginas de conteúdo e não devem publicar dados estruturados.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -33,8 +34,21 @@ function routeFromFile(file) {
   return "/" + rel;
 }
 
+function isNoindexDocument(html) {
+  const robotsMetaRegex = /<meta\b[^>]*>/gi;
+  const tags = html.match(robotsMetaRegex) ?? [];
+
+  return tags.some((tag) => {
+    const name = tag.match(/\bname\s*=\s*["']([^"']*)["']/i)?.[1]?.trim().toLowerCase();
+    const content = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1]?.toLowerCase() ?? "";
+    return name === "robots" && content.split(/[\s,]+/).includes("noindex");
+  });
+}
+
 function validateInsuranceAgency(file) {
   const html = fs.readFileSync(file, "utf-8");
+  if (isNoindexDocument(html)) return { valid: true, skipped: true };
+
   const hasType = html.includes('"@type": "InsuranceAgency"') || html.includes('"@type":"InsuranceAgency"');
   
   if (!hasType) return { valid: false, reason: "Schema InsuranceAgency ausente ou @type incorreto" };
@@ -67,12 +81,19 @@ function validateInsuranceAgency(file) {
 
 const files = walk(DIST);
 const errors = [];
+let skipped = 0;
+let validated = 0;
 
-console.log(`🔍 Validando integridade do InsuranceAgency em ${files.length} rotas...`);
+console.log(`🔍 Validando integridade do InsuranceAgency em ${files.length} documentos HTML...`);
 
 for (const file of files) {
   const route = routeFromFile(file);
   const result = validateInsuranceAgency(file);
+  if (result.skipped) {
+    skipped += 1;
+    continue;
+  }
+  validated += 1;
   if (!result.valid) {
     errors.push({
       route,
@@ -94,4 +115,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log("\n✅ Todas as rotas possuem o schema InsuranceAgency.");
+console.log(`\n✅ InsuranceAgency válido em ${validated} rota(s) indexável(is); ${skipped} documento(s) noindex ignorado(s).`);
