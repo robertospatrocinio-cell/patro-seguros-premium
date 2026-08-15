@@ -1042,6 +1042,10 @@ const App = () => {
                   <Route path="/pottencial-seguradora-guarulhos" element={<SeguradoraParceiraSeoPage slug="pottencial-seguradora-guarulhos" />} />
                   <Route path="/akad-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="akad-seguros-guarulhos" />} />
                   <Route path="/ezze-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="ezze-seguros-guarulhos" />} />
+                  <Route path="/seguro-pessoa-fisica" element={<Suspense fallback={<PageSkeleton />}><SeguroPessoaFisica /></Suspense>} />
+                  <Route path="/seguro-empresa" element={<Suspense fallback={<PageSkeleton />}><SeguroEmpresa /></Suspense>} />
+                  <Route path="/seguro-autonomo" element={<Suspense fallback={<PageSkeleton />}><SeguroAutonomo /></Suspense>} />
+                  <Route path="/seguro-familia" element={<Suspense fallback={<PageSkeleton />}><SeguroFamilia /></Suspense>} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
