@@ -13,6 +13,8 @@ import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 const QuickLeadForm = lazy(() => import("@/components/QuickLeadForm").then(m => ({ default: m.QuickLeadForm })));
 const LeadWhatsAppFlow = lazy(() => import("@/components/LeadWhatsAppFlow").then(m => ({ default: m.LeadWhatsAppFlow })));
 const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
+const RamosCarousel = lazy(() => import("@/components/carousels/RamosCarousel"));
+const BlogCarousel = lazy(() => import("@/components/carousels/BlogCarousel"));
 
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.")}`;
 
@@ -150,6 +152,11 @@ const Index = () => {
         </section>
 
         {/* Como funciona */}
+        {/* Carrossel 1 — Ramos de seguros (obrigatório) */}
+        <Suspense fallback={<div className="container mx-auto px-4 py-16"><div className="h-[380px] rounded-2xl bg-muted animate-pulse" /></div>}>
+          <RamosCarousel />
+        </Suspense>
+
         <section className="py-16 md:py-24 bg-background container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Como funciona a cotação</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -215,6 +222,11 @@ const Index = () => {
         </section>
         
         {/* Mapa + NAP */}
+        {/* Carrossel 2 — Artigos do blog (obrigatório) */}
+        <Suspense fallback={<div className="container mx-auto px-4 py-16"><div className="h-[420px] rounded-2xl bg-muted animate-pulse" /></div>}>
+          <BlogCarousel />
+        </Suspense>
+
         <section className="py-16 container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Nossa sede em Guarulhos</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
