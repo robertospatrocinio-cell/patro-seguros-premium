@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Inclua no PDF do relatório de auditoria SEO uma seção de correções prioritárias com status (alta/média/baixa) e impacto estimado. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Adicione uma tabela com busca e paginação para facilitar a navegação pelas notas e recomendações na página /seo. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
