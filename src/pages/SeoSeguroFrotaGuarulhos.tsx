@@ -7,9 +7,9 @@ const SeoSeguroFrotaGuarulhos = () => (
     <PrerenderText slug="seguro-frota-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro de Frota em Guarulhos | Gestão Completa | Patro Seguros"
-    subtitle="Seguro de Frota em Guarulhos — Solução para Sua Empresa"
-    description="Seguro de frota para empresas em Guarulhos. Cobertura completa para veículos comerciais. Gestão simplificada e cotação rápida."
+    title="Seguro de Frota em Guarulhos"
+    subtitle="Seguro de frota para empresas em Guarulhos"
+    description="Guarulhos é o maior polo logístico do estado, com o Aeroporto Internacional de Cumbica e o cruzamento das rodovias Dutra, Fernão Dias e Ayrton Senna. Frotas que operam aqui enfrentam risco elevado de acidente e roubo — e cada dia de veículo parado pode custar caro. Nossa equipe analisa o perfil da frota, negocia com as melhores seguradoras e acompanha os sinistros para reduzir o tempo de parada. Frotas acima de 20 veículos têm condições especiais."
     detailedDescription={`Guarulhos é o maior polo logístico do estado de São Paulo. Com o Aeroporto Internacional de Cumbica, a proximidade do Porto de Santos via Anchieta-Imigrantes e a interseção das rodovias Dutra, Fernão Dias e Ayrton Senna, a cidade concentra milhares de empresas de transporte, distribuição e logística que dependem de frotas para operar.
 
 O risco de sinistros para frotas em Guarulhos é significativamente alto. A rodovia Presidente Dutra, no trecho de Guarulhos, registra uma das maiores taxas de acidentes do estado. Roubos de carga e de veículos também são frequentes em regiões como Cumbica, Bonsucesso e nas marginais das rodovias. Esses fatores tornam o seguro de frota não apenas recomendável, mas essencial para a sobrevivência do negócio.
