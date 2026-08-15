@@ -11,6 +11,11 @@ const SiteMap = () => {
       metaDescription="Mapa completo do site Patro Seguros. Encontre todos os produtos de seguros para você e sua empresa, além de todas as páginas de bairros atendidos em Guarulhos."
       description="Para facilitar sua navegação, consolidamos aqui todos os nossos produtos, serviços e páginas de autoridade local. Encontre o que precisa em poucos cliques."
       icon="🗺️"
+      coverages={[]}
+      whoNeeds={[]}
+      whyPatro={[]}
+      faqs={[]}
+
       extraSections={
         <div className="mt-12 space-y-16">
           <section>
