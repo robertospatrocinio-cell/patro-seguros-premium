@@ -38,6 +38,11 @@ const Index = () => {
       <PageMeta
         title="Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
         description="Corretora de seguros em Guarulhos com nota 4.9 no Google. Compare 16+ seguradoras em auto, residencial, vida, saúde e empresarial. Cotação em até 2h."
+        service={{
+          name: "Consultoria de Seguros Multiramos",
+          description: "Corretora de seguros em Guarulhos comparando 16+ seguradoras para oferecer o melhor custo-benefício em auto, saúde, vida e empresarial.",
+          type: "InsuranceBrokerage"
+        }}
       />
       <Header />
       <main id="main-content">

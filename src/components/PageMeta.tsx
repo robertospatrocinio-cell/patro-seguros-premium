@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { CANONICAL_BASE_URL, getCanonicalUrl } from "@/lib/canonical";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import { getGeneratedOgImage } from "@/data/generatedOgImages";
 
 interface PageMetaProps {
@@ -27,6 +28,12 @@ interface PageMetaProps {
    * (breadcrumb custom com labels específicos ou templates que já injetam).
    */
   skipBreadcrumb?: boolean;
+  /** Schema.org Service data. If provided, emits a Service JSON-LD block. */
+  service?: {
+    name: string;
+    description: string;
+    type?: string;
+  };
 }
 
 const BASE_URL = CANONICAL_BASE_URL;
@@ -35,7 +42,7 @@ const TITLE_SUFFIX = " | Patro Seguros";
 const MAX_TITLE_LENGTH = 70;
 const MAX_DESC_LENGTH = 165;
 
-const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false }: PageMetaProps) => {
+const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, ogType = "website", ogImage, ogImageAlt, preloadImage, preloadMobileImage, canonicalPath, skipBreadcrumb = false, service }: PageMetaProps) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -181,7 +188,18 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
   const path = location.pathname.replace(/\/+$/, "") || "/";
   const shouldEmitBreadcrumb = !skipBreadcrumb && !noindex && path !== "/";
 
-  return shouldEmitBreadcrumb ? <BreadcrumbSchema /> : null;
+  return (
+    <>
+      {shouldEmitBreadcrumb && <BreadcrumbSchema />}
+      {service && (
+        <ServiceSchema 
+          name={service.name} 
+          description={service.description} 
+          serviceType={service.type} 
+        />
+      )}
+    </>
+  );
 };
 
 export default PageMeta;
