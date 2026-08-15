@@ -114,7 +114,7 @@ const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
 // Mensagem personalizada por tipo de seguro para o link do WhatsApp
-const buildProductWhatsAppUrl = (): string => {
+const buildProductWhatsAppUrl = (title: string): string => {
   const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.`;
   return `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`;
 };

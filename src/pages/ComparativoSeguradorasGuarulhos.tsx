@@ -1,87 +1,39 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import ComparisonTableResidencial from "@/components/ComparisonTableResidencial";
 
 const ComparativoSeguradorasGuarulhos = () => {
   return (
     <InsurancePageTemplate
-      title="Comparativo de Seguradoras em Guarulhos | Patro Seguros"
-      headline="Qual a melhor seguradora em Guarulhos? Compare agora."
-      subtitle="Análise detalhada de preço, assistência e rede de oficinas das 16+ seguradoras parceiras."
-      metaDescription="Compare Porto Seguro, Tokio Marine, Allianz, HDI e outras seguradoras em Guarulhos. Veja preços médios, benefícios e escolha a melhor opção."
-      description="Escolher a seguradora ideal em Guarulhos depende do seu perfil, modelo do carro e bairro de circulação. Nossa equipe técnica analisou os principais critérios para ajudar na sua decisão."
-      detailedDescription={`Guarulhos possui características únicas que impactam no valor e na qualidade do seguro: o trânsito intenso da Dutra e Fernão Dias, o polo logístico de Cumbica e índices de roubo variados por bairro. 
-
-A Porto Seguro lidera em assistência 24h e rede de oficinas referenciadas na cidade. A Tokio Marine e a Allianz costumam apresentar preços agressivos para modelos zero km e SUVs. Já a HDI é reconhecida pela agilidade no pagamento de sinistros e facilidade de contratação. 
-
-Neste comparativo, consideramos dados reais de cotações realizadas para moradores do Cidade Maia, Vila Augusta e Pimentas, além de feedbacks de mais de 2.500 clientes atendidos pela Patro Seguros.`}
+      title="Comparativo de Seguradoras em Guarulhos"
+      headline="Qual a Melhor Seguradora em Guarulhos?"
+      subtitle="Comparamos Porto Seguro, Allianz, Tokio Marine, HDI e Bradesco para o seu perfil."
+      metaDescription="Compare as principais seguradoras de Guarulhos. Preços, benefícios e rede de oficinas para Porto Seguro, Allianz, Tokio Marine, Bradesco e HDI."
+      description="Na Patro Seguros, acreditamos que a melhor seguradora não é apenas a mais barata, mas aquela que oferece o melhor suporte técnico e agilidade no momento do sinistro. Comparamos as maiores operadoras do mercado brasileiro com foco na realidade de Guarulhos."
+      detailedDescription={`Escolher uma seguradora em Guarulhos exige atenção à rede de oficinas credenciadas, tempo de resposta da assistência 24h e competitividade de preço por CEP. Porto Seguro e Tokio Marine costumam ter excelente aceitação na região central e Cidade Maia, enquanto a Allianz e HDI oferecem condições diferenciadas para frotas e empresas logísticas em Cumbica.`}
       icon="📊"
       coverages={[
-        { title: "Atendimento Local", description: "Suporte especializado em Guarulhos para sinistros e vistorias." },
-        { title: "Multisseguradoras", description: "Comparamos Porto, Tokio, Allianz, HDI e outras 12 marcas." },
+        { title: "Porto Seguro", description: "Referência em assistência 24h e rede de oficinas em Guarulhos." },
+        { title: "Tokio Marine", description: "Excelente custo-benefício para seguro auto e residencial na Grande SP." },
+        { title: "Allianz", description: "Foco em tecnologia e coberturas completas para veículos premium e empresas." },
+        { title: "HDI Seguros", description: "Agilidade na liquidação de sinistros e preços competitivos para modelos populares." },
       ]}
       whoNeeds={[
-        "Moradores de Guarulhos buscando o melhor custo-benefício",
-        "Empresas locais que precisam de consultoria em seguros",
+        "Proprietários de veículos em Guarulhos",
+        "Empresas que buscam renovação de frota",
+        "Moradores de condomínios que precisam de seguro residencial",
+        "Quem busca o melhor preço sem abrir mão da qualidade",
       ]}
       whyPatro={[
-        "20+ anos de experiência no mercado de seguros",
-        "Avaliação 4.9 no Google com 67 reviews reais",
+        "Corretora multimarcas com acesso a 16+ seguradoras",
+        "Análise técnica imparcial baseada em dados reais de sinistros",
+        "Suporte direto na regulação de sinistros junto às cias",
+        "Condições comerciais exclusivas para o CEP de Guarulhos",
       ]}
       faqs={[
-        { question: "Qual seguradora é mais barata em Guarulhos?", answer: "HDI e Tokio Marine costumam ser muito competitivas, mas depende do CEP exato e modelo do veículo." },
-        { question: "A Porto Seguro tem rede de oficinas em Guarulhos?", answer: "Sim, possui a maior rede de oficinas referenciadas e Centros Automotivos na cidade." },
+        { question: "Qual seguradora é mais barata em Guarulhos?", answer: "Não há uma única resposta, pois o preço varia por CEP e modelo de carro. HDI e Tokio Marine costumam ser muito competitivas em bairros como Vila Galvão e Pimentas." },
+        { question: "Porto Seguro vale a pena em Guarulhos?", answer: "Sim, especialmente pela densidade da rede de assistência e oficinas referenciadas na região de Cidade Maia e Centro." },
+        { question: "Como funciona a assistência 24h?", answer: "Todas as parceiras oferecem guincho, chaveiro e auxílio mecânico, mas os limites de quilometragem variam entre as apólices." },
+        { question: "Posso trocar de seguradora na renovação?", answer: "Sim, e recomendamos sempre fazer uma nova cotação para garantir que você está pagando o preço de mercado atual." },
       ]}
-      extraSections={
-        <div className="mt-12 space-y-12">
-          <section>
-            <h2 className="text-2xl font-bold mb-6">Tabela Comparativa: As Gigantes em Guarulhos</h2>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-primary/5">
-                    <th className="border p-4 text-left">Seguradora</th>
-                    <th className="border p-4 text-left">Preço Médio</th>
-                    <th className="border p-4 text-left">Assistência 24h</th>
-                    <th className="border p-4 text-left">Rede em Guarulhos</th>
-                    <th className="border p-4 text-left">Nota no Reclame Aqui</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border p-4 font-semibold">Porto Seguro</td>
-                    <td className="border p-4 text-accent font-bold">Premium</td>
-                    <td className="border p-4 text-green-600">Excelente</td>
-                    <td className="border p-4">Muito Alta</td>
-                    <td className="border p-4">8.5/10</td>
-                  </tr>
-                  <tr>
-                    <td className="border p-4 font-semibold">Tokio Marine</td>
-                    <td className="border p-4 text-accent font-bold">Competitivo</td>
-                    <td className="border p-4">Ótima</td>
-                    <td className="border p-4">Alta</td>
-                    <td className="border p-4">8.2/10</td>
-                  </tr>
-                  <tr>
-                    <td className="border p-4 font-semibold">Allianz</td>
-                    <td className="border p-4 text-accent font-bold">Equilibrado</td>
-                    <td className="border p-4">Ótima</td>
-                    <td className="border p-4">Alta</td>
-                    <td className="border p-4">8.0/10</td>
-                  </tr>
-                  <tr>
-                    <td className="border p-4 font-semibold">HDI Seguros</td>
-                    <td className="border p-4 text-accent font-bold">Econômico</td>
-                    <td className="border p-4">Boa</td>
-                    <td className="border p-4">Média-Alta</td>
-                    <td className="border p-4">7.8/10</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
-          <ComparisonTableResidencial />
-        </div>
-      }
     />
   );
 };
