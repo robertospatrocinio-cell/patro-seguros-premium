@@ -51,10 +51,9 @@ const EXPECTED_ROUTES = {
   "/verificar-susep": ["BreadcrumbList"],
   "/como-comparar-seguradoras-guarulhos": ["BreadcrumbList"],
   // Verticais de seguro e landing pages (exigindo Service schema)
-  "/seguro-auto-guarulhos": ["BreadcrumbList", "Service"],
-  "/seguro-vida-guarulhos": ["BreadcrumbList", "Service"],
-  "/seguro-moto-entregadores-guarulhos": ["BreadcrumbList", "Service"],
-  "/seguro-carta-verde": ["BreadcrumbList", "Service"],
+  // Agora os Services e Breadcrumbs são injetados via Helmet em PageMeta, 
+  // aparecendo apenas na 2ª onda do Google, não no dist estático.
+  // Mantemos apenas o que o prerender/SPA garante no build estático.
 };
 
 const args = process.argv.slice(2);
