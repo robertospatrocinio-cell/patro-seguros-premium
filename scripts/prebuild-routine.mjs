@@ -45,5 +45,10 @@ runCommand('node scripts/generate-og-images.mjs', 'Gerando imagens OG');
 // 4. Validação de contagem de palavras na origem
 runCommand('node scripts/validate-source-word-count.mjs', 'Validando contagem de palavras (source)');
 
+// 5. Validação de Rich Snippets (Simulação de Post-build no Pre-build se houver dist/)
+if (fs.existsSync(path.join(ROOT, 'dist'))) {
+  runCommand('node scripts/validate-rich-snippets.mjs', 'Validando Rich Snippets (JSON-LD)');
+}
+
 console.log('\n✅ Pré-build concluído com sucesso.');
 process.exit(0);
