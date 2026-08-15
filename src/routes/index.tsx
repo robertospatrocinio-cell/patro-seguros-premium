@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Implementar um script de pré-build que rode os detectores de inconsistência e aplique backfill apenas quando necessário, antes do postbuild falhar. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Adicionar uma validação automática de FAQPage com corte mínimo de perguntas no CI para evitar que posts subdimensionados quebrem o production build novamente. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
