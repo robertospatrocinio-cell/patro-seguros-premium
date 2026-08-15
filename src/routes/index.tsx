@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Implementar dados estruturados (Organization/LocalBusiness, BreadcrumbList e Service) em todas as páginas do site para melhorar o ranqueamento e os rich results. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Criar um fluxo de “Pedir Cotação” com etapas e opções por tipo de seguro que encaminhe automaticamente para WhatsApp com mensagem pré-preenchida. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │

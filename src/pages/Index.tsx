@@ -11,6 +11,7 @@ import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 
 // Lazy components
 const QuickLeadForm = lazy(() => import("@/components/QuickLeadForm").then(m => ({ default: m.QuickLeadForm })));
+const LeadWhatsAppFlow = lazy(() => import("@/components/LeadWhatsAppFlow").then(m => ({ default: m.LeadWhatsAppFlow })));
 const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
 
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.")}`;
@@ -102,7 +103,7 @@ const Index = () => {
               </div>
               <div className="lg:ml-auto">
                 <Suspense fallback={<div className="h-[400px] w-min-[320px] bg-slate-800/50 rounded-2xl animate-pulse" />}>
-                    <QuickLeadForm />
+                    <LeadWhatsAppFlow />
                 </Suspense>
               </div>
             </div>
