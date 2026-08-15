@@ -611,8 +611,8 @@ const Sobre = () => {
                 <div>
                   <dt className="font-semibold text-foreground">E-mail</dt>
                   <dd className="text-muted-foreground">
-                    <a href="mailto:contato@patroseguros.com.br" className="underline hover:text-primary">
-                      contato@patroseguros.com.br
+                    <a href="mailto:comercial@patroseguros.com.br" className="underline hover:text-primary">
+                      comercial@patroseguros.com.br
                     </a>
                   </dd>
                 </div>
