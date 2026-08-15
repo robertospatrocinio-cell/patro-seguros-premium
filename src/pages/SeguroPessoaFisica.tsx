@@ -1,6 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ServiceSchema from "@/components/ServiceSchema";
-import { Shield, User, Heart, Car, Home, Plane, Umbrella } from "lucide-react";
 import heroImg from "@/assets/hero-seguro-vida.webp"; // Using as placeholder
 
 const SeguroPessoaFisica = () => {
@@ -38,6 +37,13 @@ Em Guarulhos, onde os riscos urbanos são reais, ter uma corretora local faz a d
           "Quem busca atendimento de saúde de qualidade em Guarulhos",
           "Planejadores financeiros de longo prazo",
         ]}
+        whyPatro={[
+          "Cotação em 16 seguradoras simultaneamente",
+          "Especialistas em riscos locais de Guarulhos/SP",
+          "Consultoria técnica para evitar coberturas desnecessárias",
+          "Suporte total em caso de sinistro (você não fala com robôs)",
+          "Mais de 2.500 clientes atendidos com nota 4.9 no Google",
+        ]}
         pricingInfo={{
           intro: "Os valores variam conforme o perfil, mas aqui estão estimativas médias para o mercado de Guarulhos:",
           factors: [
@@ -61,6 +67,7 @@ Em Guarulhos, onde os riscos urbanos são reais, ter uma corretora local faz a d
           { title: "Planos de Saúde", link: "/planos-de-saude" },
         ]}
         quoteUrl="/cotacao"
+        icon="👤"
         canonicalUrl="https://www.patroseguros.com.br/seguro-pessoa-fisica"
       />
     </>
