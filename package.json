@@ -7,7 +7,7 @@
     "dev": "vite",
     "seo:report": "node scripts/generate-seo-report.mjs",
     "build": "vite build",
-    "prebuild": "node scripts/sync-htaccess-redirects.mjs && node scripts/generate-og-images.mjs && node scripts/validate-source-word-count.mjs",
+    "prebuild": "node scripts/prebuild-routine.mjs",
     "predev": "node scripts/generate-og-images.mjs",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
