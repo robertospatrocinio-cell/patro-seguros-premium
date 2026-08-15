@@ -9,7 +9,6 @@ import { trackWhatsAppClick } from "@/lib/tracking";
 import FAQSchema from "@/components/FAQSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { unsplashSrcSet, FULL_WIDTH_SIZES } from "@/lib/imageSrcSet";
@@ -108,13 +107,6 @@ const SeguroBMW = () => {
     />
       <OrganizationSchema />
       <LocalBusinessSchema />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Seguro Auto", url: "/seguro-auto" },
-          { name: "BMW", url: "/seguro-bmw" },
-        ]}
-      />
       <LocalAreaSchema
         serviceName="Seguro BMW"
         url="https://www.patroseguros.com.br/seguro-bmw"

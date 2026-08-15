@@ -19,7 +19,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -205,12 +204,6 @@ const CorretoraDeSegurosEmGuarulhos = () => {
       skipBreadcrumb
     />
       <SpeakableSchema />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Corretora de Seguros em Guarulhos", url: PATH },
-        ]}
-      />
       <LocalAreaSchema
         serviceName="Corretora de Seguros em Guarulhos"
         url={PAGE_URL}

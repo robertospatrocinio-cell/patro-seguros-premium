@@ -3,7 +3,6 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, User, ArrowLeft } from "lucide-react";
@@ -47,13 +46,6 @@ const BlogCategory = () => {
       <PageMeta title={title} description={description} 
       skipBreadcrumb
     />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Blog", url: "/blog" },
-          { name: categoryName, url: canonical },
-        ]}
-      />
       <Header />
       <main id="main-content" className="outline-none">
         <section className="gradient-hero py-16">

@@ -7,7 +7,6 @@ import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
 import PersonAuthorsSchema from "@/components/PersonAuthorsSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -71,8 +70,6 @@ const Sobre = () => {
     />
       <PersonAuthorsSchema />
       <SpeakableSchema url="https://www.patroseguros.com.br/sobre" />
-      <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Sobre Nós", url: "/sobre" }]} />
-      <FAQSchema faqs={SOBRE_FAQS} />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <Breadcrumb items={[{ label: "Sobre Nós" }]} />

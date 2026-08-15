@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import {
@@ -86,8 +85,6 @@ const Servicos = () => {
       
       skipBreadcrumb
     />
-      <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Serviços", url: "/servicos" }]} />
-      <FAQSchema faqs={SERVICOS_FAQS} />
       <Header />
       <main id="main-content" className="outline-none bg-slate-50/50 pb-32">
         {/* Hero */}

@@ -13,7 +13,6 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -104,12 +103,6 @@ const ConsorcioGuarulhos = () => {
       
       skipBreadcrumb
     />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Consórcio em Guarulhos", url: PATH },
-        ]}
-      />
       <LocalAreaSchema
         serviceName="Consórcio em Guarulhos"
         url={URL_ABS}

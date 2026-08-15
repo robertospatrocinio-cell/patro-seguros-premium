@@ -6,7 +6,6 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -90,13 +89,6 @@ const SeguradoraParceiraSeoPage = ({ slug: propSlug }: Props) => {
       
       skipBreadcrumb
     />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: `${CANONICAL_BASE_URL}/` },
-          { name: "Seguradoras Parceiras", url: `${CANONICAL_BASE_URL}/seguradoras-parceiras` },
-          { name: insurer.name, url: canonical },
-        ]}
-      />
       <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>

@@ -12,7 +12,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
@@ -120,12 +119,6 @@ const PlanoDeSaudeGuarulhosHub = () => {
     <>
       <PageMeta title={HUB_TITLE} description={HUB_DESCRIPTION} />
       <FAQSchema faqs={HUB_FAQS} />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: CANONICAL_BASE_URL },
-          { name: "Planos de Saúde em Guarulhos", url: canonicalUrl },
-        ]}
-      />
       <ServiceSchema
         name="Plano de Saúde em Guarulhos"
         serviceType="MedicalWebPage"

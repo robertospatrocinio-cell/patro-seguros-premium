@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQBlock from "@/components/FAQBlock";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import LazySection from "@/components/LazySection";
@@ -95,12 +94,6 @@ const SeguroAuto = () => {
     />
       <OrganizationSchema />
       <LocalBusinessSchema />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Seguro Auto", url: "/seguro-auto" },
-        ]}
-      />
       <LocalAreaSchema
         serviceName="Seguro Auto"
         url="https://www.patroseguros.com.br/seguro-auto"

@@ -6,7 +6,6 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { Button } from "@/components/ui/button";
@@ -140,13 +139,6 @@ const ComoCompararSeguradorasGuarulhos = () => (
       ogImageAlt="Como comparar seguradoras em Guarulhos — guia da Patro Seguros, corretora local em Guarulhos/SP."
     
       skipBreadcrumb
-    />
-    <BreadcrumbSchema
-      items={[
-        { name: "Início", url: `${CANONICAL_BASE_URL}/` },
-        { name: "Seguradoras Parceiras", url: `${CANONICAL_BASE_URL}/seguradoras-parceiras` },
-        { name: "Como comparar seguradoras em Guarulhos", url: CANONICAL },
-      ]}
     />
     <FAQSchema faqs={FAQS} />
     <HowToSchema
