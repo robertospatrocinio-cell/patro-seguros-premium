@@ -46,6 +46,31 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     reason: "Consolidação de hub geográfico principal para a versão 'em-guarulhos'.",
   },
   {
+    from: "/seguro-auto-corolla-guarulhos",
+    to: "/seguro-auto-toyota-corolla-guarulhos",
+    reason: "Redirecionamento para a URL canônica com a marca incluída.",
+  },
+  {
+    from: "/seguro-auto-hb20-guarulhos",
+    to: "/seguro-auto-hyundai-hb20-guarulhos",
+    reason: "Redirecionamento para a URL canônica com a marca incluída.",
+  },
+  {
+    from: "/seguro-auto-onix-guarulhos",
+    to: "/seguro-auto-chevrolet-onix-guarulhos",
+    reason: "Redirecionamento para a URL canônica com a marca incluída.",
+  },
+  {
+    from: "/seguro-auto-compass-guarulhos",
+    to: "/seguro-auto-jeep-compass-guarulhos",
+    reason: "Redirecionamento para a URL canônica com a marca incluída.",
+  },
+  {
+    from: "/seguro-auto-hilux-guarulhos",
+    to: "/seguro-auto-toyota-hilux-guarulhos",
+    reason: "Redirecionamento para a URL canônica com a marca incluída.",
+  },
+  {
     from: "/planos-de-saude",
     to: "/plano-de-saude-guarulhos",
     reason: "Consolidação de hub para evitar canibalização. URL canônica local.",

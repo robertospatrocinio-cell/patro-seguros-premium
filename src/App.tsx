@@ -98,6 +98,11 @@ const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/Segur
 const PatroPrivate = lazyWithRetry(() => import("./pages/PatroPrivate"), "PatroPrivate");
 const Patro = lazyWithRetry(() => import("./pages/Patro"), "Patro");
 const SeguroAutoPremiumGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroAutoPremiumGuarulhos"), "SeguroAutoPremiumGuarulhos");
+const SeguroAutoToyotaCorollaGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoToyotaCorollaGuarulhos"), "SeguroAutoToyotaCorollaGuarulhos");
+const SeguroAutoHyundaiHB20Guarulhos = lazyWithRetry(() => import("./pages/SeguroAutoHyundaiHB20Guarulhos"), "SeguroAutoHyundaiHB20Guarulhos");
+const SeguroAutoChevroletOnixGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoChevroletOnixGuarulhos"), "SeguroAutoChevroletOnixGuarulhos");
+const SeguroAutoJeepCompassGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoJeepCompassGuarulhos"), "SeguroAutoJeepCompassGuarulhos");
+const SeguroAutoToyotaHiluxGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoToyotaHiluxGuarulhos"), "SeguroAutoToyotaHiluxGuarulhos");
 const SeguroCarrosLuxoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroCarrosLuxoGuarulhos"), "SeguroCarrosLuxoGuarulhos");
 const SeguroResidencialAltoPadraoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroResidencialAltoPadraoGuarulhos"), "SeguroResidencialAltoPadraoGuarulhos");
 const SegurosParaEmpresariosGuarulhos = lazyWithRetry(() => import("./pages/premium/SegurosParaEmpresariosGuarulhos"), "SegurosParaEmpresariosGuarulhos");
@@ -898,6 +903,11 @@ const App = () => {
                   <Route path="/seguro-auto-premium" element={<Navigate to="/seguro-auto-premium-guarulhos" replace />} />
                   <Route path="/seguro-auto-pos-vistoria" element={<Navigate to="/seguro-auto" replace />} />
                   <Route path="/seguro-auto-por-modelo-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  <Route path="/seguro-auto-toyota-corolla-guarulhos" element={<SeguroAutoToyotaCorollaGuarulhos />} />
+                  <Route path="/seguro-auto-hyundai-hb20-guarulhos" element={<SeguroAutoHyundaiHB20Guarulhos />} />
+                  <Route path="/seguro-auto-chevrolet-onix-guarulhos" element={<SeguroAutoChevroletOnixGuarulhos />} />
+                  <Route path="/seguro-auto-jeep-compass-guarulhos" element={<SeguroAutoJeepCompassGuarulhos />} />
+                  <Route path="/seguro-auto-toyota-hilux-guarulhos" element={<SeguroAutoToyotaHiluxGuarulhos />} />
                   {/* Hubs Auto (modelos / marcas / comparativo) */}
                   <Route path="/seguro-auto/modelos" element={<SeoSeguroAutoPorModeloGuarulhos />} />
                   <Route path="/seguro-auto/marcas" element={<SeguroAutoMarcas />} />

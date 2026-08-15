@@ -5,27 +5,27 @@ const SeoSeguroAutoPorModeloGuarulhos = () => {
   const { modelo } = useParams();
   
   const models: Record<string, { title: string; headline: string; description: string }> = {
-    "corolla": {
+    "toyota-corolla": {
       title: "Seguro Auto Toyota Corolla em Guarulhos",
       headline: "Seguro Corolla em Guarulhos",
       description: "Proteção completa para o seu Toyota Corolla com as melhores taxas de Guarulhos."
     },
-    "hb20": {
+    "hyundai-hb20": {
       title: "Seguro Auto Hyundai HB20 em Guarulhos",
       headline: "Seguro HB20 em Guarulhos",
       description: "Seguro sob medida para o Hyundai HB20, um dos modelos mais populares em Guarulhos."
     },
-    "onix": {
+    "chevrolet-onix": {
       title: "Seguro Auto Chevrolet Onix em Guarulhos",
       headline: "Seguro Onix em Guarulhos",
       description: "Cotação de seguro para Chevrolet Onix com cobertura total contra roubo e furto."
     },
-    "compass": {
+    "jeep-compass": {
       title: "Seguro Auto Jeep Compass em Guarulhos",
       headline: "Seguro Compass em Guarulhos",
       description: "Seguro Premium para o seu Jeep Compass com assistência 24h VIP em Guarulhos."
     },
-    "hilux": {
+    "toyota-hilux": {
       title: "Seguro Auto Toyota Hilux em Guarulhos",
       headline: "Seguro Hilux em Guarulhos",
       description: "Seguro robusto para Toyota Hilux, ideal para quem trafega pelas rodovias de Guarulhos."
