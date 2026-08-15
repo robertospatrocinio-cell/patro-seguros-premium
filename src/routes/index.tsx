@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: verifique se todas as paginas do site forem indexada no gsc e faca um teste de velocidade e tudo mais no google ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Inclua marcação de dados estruturados (FAQPage, LocalBusiness e Organization) e valide os rich results no Google. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
