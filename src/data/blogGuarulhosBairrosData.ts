@@ -6,6 +6,61 @@ import { BlogArticleMeta } from "@/lib/blogData";
  */
 export const guarulhosBairrosBlogArticles: BlogArticleMeta[] = [
   {
+    slug: "quanto-custa-seguro-auto-cidade-maia-guarulhos",
+    title: "Quanto custa seguro auto em Cidade Maia? Preços e dicas 2026",
+    excerpt: "Seguro auto em Cidade Maia, Guarulhos: faixa média de R$ 2.100 a R$ 4.000/ano. Veja fatores de preço, seguradoras e como economizar. Cotação grátis.",
+    category: "Guarulhos por Bairro",
+    tags: ["cidade maia", "guarulhos", "seguro auto", "preço seguro"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 8
+  },
+  {
+    slug: "quanto-custa-seguro-auto-cumbica-guarulhos",
+    title: "Quanto custa seguro auto em Cumbica? Preços e dicas 2026",
+    excerpt: "Seguro auto em Cumbica, Guarulhos: faixa média de R$ 3.100 a R$ 6.200/ano. Veja fatores de preço, seguradoras e como economizar. Cotação grátis.",
+    category: "Guarulhos por Bairro",
+    tags: ["cumbica", "guarulhos", "seguro auto", "preço seguro"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 10
+  },
+  {
+    slug: "quanto-custa-seguro-auto-pimentas-guarulhos",
+    title: "Quanto custa seguro auto em Pimentas? Preços e dicas 2026",
+    excerpt: "Seguro auto em Pimentas, Guarulhos: faixa média de R$ 3.400 a R$ 6.800/ano. Veja fatores de preço, seguradoras e como economizar. Cotação grátis.",
+    category: "Guarulhos por Bairro",
+    tags: ["pimentas", "guarulhos", "seguro auto", "preço seguro"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 8
+  },
+  {
+    slug: "quanto-custa-seguro-auto-bonsucesso-guarulhos",
+    title: "Quanto custa seguro auto em Bonsucesso? Preços e dicas 2026",
+    excerpt: "Seguro auto em Bonsucesso, Guarulhos: faixa média de R$ 2.700 a R$ 5.100/ano. Veja fatores de preço, seguradoras e como economizar. Cotação grátis.",
+    category: "Guarulhos por Bairro",
+    tags: ["bonsucesso", "guarulhos", "seguro auto", "preço seguro"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 9
+  },
+  {
+    slug: "quanto-custa-seguro-auto-vila-galvao-guarulhos",
+    title: "Quanto custa seguro auto em Vila Galvão? Preços e dicas 2026",
+    excerpt: "Seguro auto em Vila Galvão, Guarulhos: faixa média de R$ 2.300 a R$ 4.200/ano. Veja fatores de preço, seguradoras e como economizar. Cotação grátis.",
+    category: "Guarulhos por Bairro",
+    tags: ["vila galvao", "guarulhos", "seguro auto", "preço seguro"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 7
+  },
+  {
     slug: "seguro-auto-pimentas-guarulhos-riscos-precos",
     title: "Seguro Auto no Pimentas, Guarulhos: Riscos e Preços em 2026",
     excerpt: "O Pimentas é a região mais populosa de Guarulhos e possui um perfil de risco específico. Entenda como economizar no seguro morando no Pimentas.",
