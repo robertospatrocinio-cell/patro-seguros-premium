@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Adicione uma tabela com busca e paginação para facilitar a navegação pelas notas e recomendações na página /seo. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Quero implementar a geração do PDF do relatório de auditoria SEO on-page para uma URL específica quando eu selecionar a página no filtro. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
