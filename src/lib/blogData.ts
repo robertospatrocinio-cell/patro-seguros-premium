@@ -13,6 +13,7 @@ import { autoArticles } from "@/data/blogAutoData";
 import { calendar90dArticles } from "@/data/blogCalendar90dData";
 import { fase5LocalArticles } from "@/data/blogFase5LocalData";
 import { guarulhosBairrosBlogArticles } from "@/data/blogGuarulhosBairrosData";
+import { guarulhosBairrosBlogArticles } from "@/data/blogGuarulhosBairrosData";
 
 export interface BlogArticleMeta {
   slug: string;
@@ -51,6 +52,7 @@ export const articles: BlogArticleMeta[] = [
     readTime: 9,
   },
   ...fase5LocalArticles,
+  ...guarulhosBairrosBlogArticles,
   ...guarulhosBairrosBlogArticles,
   ...guarulhosArticles,
   ...guarulhosLojistasArticles,
