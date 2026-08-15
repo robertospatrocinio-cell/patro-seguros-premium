@@ -58,7 +58,7 @@ const OptimizedImage = ({
     <img
       src={src}
       alt={alt}
-      srcSet={srcSet}
+      srcSet={srcSet || (src.includes('.webp') ? src.replace('.webp', '@2x.webp') + ' 2x' : undefined)}
       sizes={sizes || "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
       loading={eager ? "eager" : "lazy"}
       decoding={decoding}
