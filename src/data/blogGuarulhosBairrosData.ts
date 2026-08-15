@@ -114,5 +114,27 @@ export const guarulhosBairrosBlogArticles: BlogArticleMeta[] = [
     date: "2026-08-15",
     updatedAt: "2026-08-15",
     readTime: 9
+  },
+  {
+    slug: "seguro-auto-cidade-maia-guarulhos-completo",
+    title: "Seguro Auto em Cidade Maia, Guarulhos: Guia de Coberturas",
+    excerpt: "Guia completo sobre seguro auto no bairro Cidade Maia. Entenda as coberturas essenciais, franquias e assistências para o seu perfil em Guarulhos.",
+    category: "Cidade Maia",
+    tags: ["cidade maia", "guarulhos", "seguro auto", "coberturas"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 9
+  },
+  {
+    slug: "seguro-empresarial-cumbica-guarulhos-industrias",
+    title: "Seguro Empresarial em Cumbica: Proteção para Indústrias",
+    excerpt: "Como proteger sua indústria ou galpão em Cumbica. Conheça os riscos locais e as melhores opções de seguro empresarial em Guarulhos.",
+    category: "Cumbica",
+    tags: ["cumbica", "guarulhos", "seguro empresarial", "indústria"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 11
   }
 ];
