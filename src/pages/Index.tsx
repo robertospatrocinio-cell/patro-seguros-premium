@@ -48,7 +48,7 @@ const Index = () => {
       <Header />
       <main id="main-content">
         {/* HERO SECTION */}
-        <section className="relative py-20 bg-slate-900 overflow-hidden">
+        <section className="relative py-20 md:py-28 overflow-hidden gradient-hero">
           {/* Background image optimized for LCP */}
           <picture className="absolute inset-0 z-0">
             <source
@@ -75,7 +75,7 @@ const Index = () => {
             <img
               src="/images/hero-home-1280.webp"
               alt="Corretora de Seguros em Guarulhos"
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover opacity-[0.18]"
               width="1280"
               height="720"
               fetchPriority="high"
@@ -87,13 +87,13 @@ const Index = () => {
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Seguros em Guarulhos — Compare 16 seguradoras e economize</h1>
-                <p className="text-xl text-white/90 mb-8">Atendimento consultivo, registro SUSEP e nota 4.9 no Google. Cotação comparativa em até 2 horas úteis.</p>
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight text-balance">Seguros em Guarulhos — Compare 16 seguradoras e economize</h1>
+                <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl leading-relaxed">Atendimento consultivo, registro SUSEP e nota 4.9 no Google. Cotação comparativa em até 2 horas úteis.</p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                  <Button size="lg" asChild className="bg-[#F2994A] hover:bg-[#d98842] text-white">
+                  <Button size="lg" asChild className="bg-accent hover:bg-accent-hover text-accent-foreground shadow-lg shadow-accent/25 rounded-xl">
                     <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>Cotar agora com especialistas</Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="text-white border-white/20 hover:bg-white/10">
+                  <Button size="lg" variant="outline" asChild className="text-white border-white/30 hover:bg-white/10 rounded-xl backdrop-blur-sm">
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>Falar no WhatsApp</a>
                   </Button>
                 </div>
@@ -111,8 +111,8 @@ const Index = () => {
         </section>
 
         {/* Confiança */}
-        <section className="py-8 bg-slate-50 border-b">
-          <div className="container mx-auto px-4 flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-700">
+        <section className="py-8 bg-secondary border-b border-border">
+          <div className="container mx-auto px-4 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm font-semibold text-muted-foreground">
              <span>SUSEP 212113511</span>
              <span>2.500+ clientes</span>
              <span>16+ seguradoras</span>
@@ -121,43 +121,43 @@ const Index = () => {
         </section>
 
         {/* Produtos */}
-        <section className="py-16 container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">O que você quer proteger?</h2>
+        <section className="py-16 md:py-24 container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 tracking-tight">O que você quer proteger?</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {PRODUCT_CARDS.map(p => (
-              <Link key={p.title} to={p.path} className="flex flex-col items-center text-center p-6 bg-white border rounded-xl hover:shadow-lg transition group">
-                <p.icon className="w-10 h-10 text-[#003366] mb-4 group-hover:scale-110 transition-transform" />
+              <Link key={p.title} to={p.path} className="flex flex-col items-center text-center p-6 bg-card border border-border rounded-2xl transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[var(--shadow-lg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 group">
+                <p.icon className="w-10 h-10 text-primary mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="font-bold text-lg mb-1">{p.title}</h3>
-                <p className="text-sm text-slate-500">{p.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
               </Link>
             ))}
           </div>
         </section>
 
         {/* Como funciona */}
-        <section className="py-16 bg-white container mx-auto px-4">
+        <section className="py-16 md:py-24 bg-background container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Como funciona a cotação</h2>
             <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center p-6">
-                    <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
+                    <div className="w-12 h-12 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
                     <h3 className="font-bold mb-2">Você envia os dados</h3>
-                    <p className="text-slate-600">Preencha nosso formulário rápido ou nos chame no WhatsApp.</p>
+                    <p className="text-muted-foreground">Preencha nosso formulário rápido ou nos chame no WhatsApp.</p>
                 </div>
                 <div className="text-center p-6">
-                    <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">2</div>
+                    <div className="w-12 h-12 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mx-auto mb-4 font-bold text-xl">2</div>
                     <h3 className="font-bold mb-2">Comparamos em 16+ seguradoras</h3>
-                    <p className="text-slate-600">Analisamos as melhores taxas e coberturas para o seu perfil.</p>
+                    <p className="text-muted-foreground">Analisamos as melhores taxas e coberturas para o seu perfil.</p>
                 </div>
                 <div className="text-center p-6">
-                    <div className="w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
+                    <div className="w-12 h-12 bg-accent/10 text-accent rounded-2xl flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
                     <h3 className="font-bold mb-2">Você recebe a proposta em até 2h</h3>
-                    <p className="text-slate-600">Propostas claras e detalhadas enviadas direto no seu celular.</p>
+                    <p className="text-muted-foreground">Propostas claras e detalhadas enviadas direto no seu celular.</p>
                 </div>
             </div>
         </section>
 
         {/* Avaliações */}
-        <section className="py-16 bg-slate-50 container mx-auto px-4">
+        <section className="py-16 md:py-24 bg-secondary rounded-3xl container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">O que nossos clientes dizem</h2>
             <Suspense fallback={<div>Carregando avaliações...</div>}>
                 <LocalTestimonials />
@@ -165,7 +165,7 @@ const Index = () => {
         </section>
 
         {/* Empresas */}
-        <section className="py-16 bg-white container mx-auto px-4">
+        <section className="py-16 md:py-24 bg-background container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Proteção especializada para empresas em Guarulhos</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
@@ -174,9 +174,9 @@ const Index = () => {
                     { title: "Saúde PME", path: "/plano-saude-empresarial" },
                     { title: "Responsabilidade Civil", path: "/seguro-rc" }
                 ].map(e => (
-                    <Link key={e.title} to={e.path} className="p-6 border rounded-xl hover:bg-slate-50 transition flex items-center justify-between group">
+                    <Link key={e.title} to={e.path} className="p-6 border border-border rounded-2xl bg-card transition-all duration-200 hover:border-accent/40 hover:shadow-[var(--shadow-md)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 flex items-center justify-between group">
                         <span className="font-bold">{e.title}</span>
-                        <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ArrowRight className="w-4 h-4 text-accent opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     </Link>
                 ))}
             </div>
@@ -188,7 +188,7 @@ const Index = () => {
         </section>
 
         {/* Seção Local */}
-        <section className="py-16 bg-slate-50 container mx-auto px-4 text-center">
+        <section className="py-16 md:py-24 bg-secondary rounded-3xl container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold mb-6">Corretora de seguros em Guarulhos e região</h2>
             <div className="flex flex-wrap gap-3 justify-center">
                 {BairrosChips.map(b => (
@@ -203,7 +203,7 @@ const Index = () => {
         <section className="py-16 container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Nossa sede em Guarulhos</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="rounded-2xl overflow-hidden shadow-lg h-[400px]">
+                <div className="rounded-2xl overflow-hidden border border-border shadow-[var(--shadow-lg)] h-[400px]">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.626387083049!2d-46.52423982464134!3d-23.44577887884841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8b9a2c1f9d55%3A0x17b8f95c52c29015!2sAv.%20Salgado%20Filho%2C%202120%20-%20Vila%20Rio%20de%20Janeiro%2C%20Guarulhos%20-%20SP!5e0!3m2!1sen!2sbr!4v1700000000000!5m2!1sen!2sbr" 
                         width="100%" 
@@ -215,8 +215,8 @@ const Index = () => {
                     ></iframe>
                 </div>
                 <div className="space-y-4">
-                    <h3 className="font-bold text-2xl text-[#003366]">Patro Corretora de Seguros LTDA</h3>
-                    <div className="space-y-2 text-slate-600">
+                    <h3 className="font-bold text-2xl text-primary">Patro Corretora de Seguros LTDA</h3>
+                    <div className="space-y-2 text-muted-foreground">
                         <p className="flex items-start gap-2">
                             <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                             <span>Av. Salgado Filho, 2120 — Sala 219 — Ed. Via Alameda<br/>Cidade Maia, Guarulhos/SP — CEP 07115-000</span>
