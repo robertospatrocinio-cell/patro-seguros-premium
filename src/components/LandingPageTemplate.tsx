@@ -38,13 +38,19 @@ interface LandingPageProps {
   ogImage?: string;
   /** Alt da og:image. */
   ogImageAlt?: string;
+  /** Schema.org Service data. */
+  service?: {
+    name: string;
+    description: string;
+    type?: string;
+  };
 }
 
 const LandingPageTemplate = ({
   title, headline, subheadline, painPoints, benefits, stats,
   testimonials, objections, ctaText, ctaUrl, urgencyText,
   metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText, ebookUrl,
-  extraSections, indexable = false, ogImage, ogImageAlt,
+  extraSections, indexable = false, ogImage, ogImageAlt, service,
 }: LandingPageProps) => {
 
   const mainCtaLink = ctaUrl || "/cotacao";
@@ -79,6 +85,7 @@ const LandingPageTemplate = ({
         noindex={!indexable}
         ogImage={ogImage}
         ogImageAlt={ogImageAlt}
+        service={service}
       />
 
       {/* Minimal header */}
