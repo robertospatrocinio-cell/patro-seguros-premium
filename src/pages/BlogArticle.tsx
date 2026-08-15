@@ -234,7 +234,7 @@ const BlogArticle = () => {
             </div>
 
 
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none article-body">
               {(() => {
                 const paragraphs = article.content.split("\n\n");
                 // Midpoint injection: escolhe um ponto ~50% dos parágrafos,

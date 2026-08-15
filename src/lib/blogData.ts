@@ -1,4 +1,5 @@
 import { guarulhosArticles } from "@/data/blogGuarulhosData";
+import { BAIRROS_MATRIZ } from "@/data/seoLocalBairrosGuarulhos";
 import { guarulhosLojistasArticles } from "@/data/blogGuarulhosLojistasData";
 import { vistoriaArticles } from "@/data/blogVistoriaData";
 import { odontologiaArticles } from "@/data/blogOdontologiaData";
@@ -61,9 +62,20 @@ export const articles: BlogArticleMeta[] = [
   ...agroArticles,
   ...autoArticles,
   ...calendar90dArticles,
+  ...BAIRROS_MATRIZ.map(b => ({
+    slug: `guia-seguros-${b.id}-guarulhos`,
+    title: `Guia de Seguros no bairro ${b.nome}, Guarulhos`,
+    excerpt: `Morar ou trabalhar no ${b.nome} em Guarulhos exige uma estratégia de proteção inteligente. Veja o perfil de risco ${b.risco} e as coberturas ideais.`,
+    category: "Guarulhos por Bairro",
+    tags: ["guarulhos", b.nome.toLowerCase(), "seguro auto", "seguro residencial", "estratégia"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 7,
+  })),
   { 
     slug: "por-que-seguro-auto-guarulhos-diferente-roubo-furto", 
-    title: "Por que o seguro auto em Guarulhos é diferente? (Roubo e Furto na região)", 
+    title: "Por que o seguro auto em Guarulhos é diferente? (Roubo e Furto na região)",
     excerpt: "Entenda por que o CEP de Guarulhos influencia tanto no preço do seu seguro e como as estatísticas de roubo e furto moldam o mercado local.", 
     category: "Seguro Auto", 
     tags: ["guarulhos", "seguro auto", "roubo e furto", "prevenção", "dicas"], 

@@ -1,3 +1,5 @@
+import { BAIRROS_MATRIZ } from "./seoLocalBairrosGuarulhos";
+
 export const guarulhosArticlesContent = {
   "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil": {
     title: "Roubo e furto de veículos em Guarulhos: o que você precisa saber em 2026",
@@ -285,5 +287,17 @@ Proteger o carro em Guarulhos começa por conhecer o risco do seu bairro e escol
     faqs: [
       { q: "O seguro cobre projetos antigos?", a: "Sim, é possível contratar retroatividade para projetos realizados antes da vigência da apólice, desde que não haja sinistro conhecido." }
     ]
-  }
+  },
+  // --- Cluster: Blog por Bairro (Dominância Local) ---
+  ...Object.fromEntries(BAIRROS_MATRIZ.map(b => [
+    `guia-seguros-${b.id}-guarulhos`,
+    {
+      title: `Guia de Seguros no bairro ${b.nome}, Guarulhos`,
+      content: `Morar ou trabalhar no ${b.nome} em Guarulhos exige uma estratégia de proteção inteligente. Este bairro, que é ${b.perfil.toLowerCase()}, possui particularidades que influenciam diretamente no custo e na aceitação de seguros.\n\n## Perfil de Risco e Segurança no ${b.nome}\n\nNa Patro Seguros, analisamos que o ${b.nome} apresenta um perfil de risco **${b.risco}**. Isso significa que as seguradoras olham para o seu CEP com atenção especial. ${b.contexto}\n\n## Melhores Opções para o ${b.nome}\n\nPara esta região, destacamos ${b.prioritarios.length} categorias prioritárias:\n\n1. **Seguro Auto e Moto:** Dada a proximidade com ${b.referencia}, a mobilidade é chave. Recomendamos rastreador para reduzir o prêmio.\n2. **Seguro Residencial:** Proteção para casas e apartamentos com assistência 24h rápida.\n3. **Seguro Empresarial:** Foco em ${b.perfil.includes("industrial") ? "logística e frotas" : "comércio e serviços locais"}.\n\n## Por que a Patro no ${b.nome}?\n\nNossa sede no Cidade Maia nos permite conhecer cada rua do ${b.nome}. Não somos apenas um algoritmo; somos corretores que entendem se o seu CEP específico no ${b.nome} tem boa aceitação na Porto Seguro, Tokio Marine ou Allianz.\n\n[Cote agora para o bairro ${b.nome}](/seguros-guarulhos/${b.slug})`,
+      faqs: [
+        { q: `O seguro no ${b.nome} é mais caro que no Centro?`, a: `Depende do produto. No seguro auto, o risco ${b.risco} do ${b.nome} pode gerar variações de 10% a 15% em relação ao Centro de Guarulhos.` },
+        { q: `A Patro Seguros atende presencialmente moradores do ${b.nome}?`, a: `Sim! Estamos localizados no Cidade Maia, a poucos minutos do ${b.nome}. Agende uma visita ou fale conosco pelo WhatsApp.` }
+      ]
+    }
+  ]))
 };
