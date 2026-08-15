@@ -161,9 +161,11 @@ const Footer = memo(() => {
               <li><SmartLink to="/blog" className="hover:text-white transition-colors">Blog</SmartLink></li>
               <li><SmartLink to="/faq" className="hover:text-white transition-colors">FAQ</SmartLink></li>
               <li><SmartLink to="/seguradoras-parceiras" className="hover:text-white transition-colors">Seguradoras Parceiras</SmartLink></li>
+              <li><SmartLink to="/mapa-do-site" className="text-primary font-bold hover:text-white">Mapa do Site</SmartLink></li>
               <li><SmartLink to="/politica-privacidade" className="hover:text-white transition-colors">Privacidade</SmartLink></li>
               <li><SmartLink to="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</SmartLink></li>
             </ul>
+
           </nav>
         </div>
 

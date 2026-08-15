@@ -210,6 +210,8 @@ const SeoSegurosShoppingMaiaCidadeMaia = lazyWithRetry(() => import("./pages/Seo
 const HubSegurosGuarulhosDefinitivo = lazyWithRetry(() => import("./pages/HubSegurosGuarulhos"), "HubSegurosGuarulhos");
 const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/SeguroTransporteCargaGuarulhos"), "SeguroTransporteCargaGuarulhos");
 const ComparativoSeguradorasGuarulhos = lazyWithRetry(() => import("./pages/ComparativoSeguradorasGuarulhos"), "ComparativoSeguradorasGuarulhos");
+const SiteMap = lazyWithRetry(() => import("./pages/SiteMap"), "SiteMap");
+
 
 
 const SeoSeguroUberGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroUberGuarulhos"), "SeoSeguroUberGuarulhos");
@@ -885,6 +887,9 @@ const App = () => {
                   <Route path="/seguro-logistica-guarulhos" element={<Navigate to="/seguro-galpao" replace />} />
                   <Route path="/seguro-transportadora-guarulhos" element={<Navigate to="/seguro-transporte" replace />} />
                   <Route path="/seguro-transporte-carga-guarulhos" element={<SeguroTransporteCargaGuarulhos />} />
+                  <Route path="/comparativo-seguradoras-guarulhos" element={<ComparativoSeguradorasGuarulhos />} />
+                  <Route path="/mapa-do-site" element={<SiteMap />} />
+
                   <Route path="/seguro-carga-guarulhos" element={<Navigate to="/seguro-transporte-carga-guarulhos" replace />} />
                   <Route path="/seguro-loja-guarulhos" element={<Navigate to="/seguro-lojas-shopping" replace />} />
                   <Route path="/seguro-restaurante-guarulhos" element={<Navigate to="/seguro-restaurante" replace />} />
