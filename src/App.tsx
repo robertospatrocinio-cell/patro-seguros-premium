@@ -47,6 +47,8 @@ const lazyWithRetry = (componentImport: () => Promise<{ default: any }>, routeNa
 };
 
 const NichoLojistasGuarulhos = lazyWithRetry(() => import("./pages/NichoLojistasGuarulhos"), "NichoLojistasGuarulhos");
+const GuiaCompletoSegurosGuarulhos = lazyWithRetry(() => import("./pages/GuiaCompletoSegurosGuarulhos"), "GuiaCompletoSegurosGuarulhos");
+
 const SeoVistoriaVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaVeicularGuarulhos"), "SeoVistoriaVeicularGuarulhos");
 const SeguroVistoriadoraVeicular = lazyWithRetry(() => import("./pages/SeguroVistoriadoraVeicular"), "SeguroVistoriadoraVeicular");
 const CentralDeGuias = lazyWithRetry(() => import("./pages/CentralDeGuias"), "CentralDeGuias");
@@ -820,8 +822,8 @@ const App = () => {
                   <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
                   {/* Redirecionamentos canônicos */}
                    <Route path="/formulario-seguro-vida" element={<Navigate to="/seguro-vida/formulario" replace />} />
-                   <Route path="/guia-completo-seguros-guarulhos" element={<GuiaCompletoSegurosGuarulhos />} />
                    <Route path="/indique-amigo" element={<Navigate to="/indique-um-amigo" replace />} />
+
 
                   <Route path="/planejamento-patrimonial" element={<Navigate to="/investimentos" replace />} />
                   <Route path="/responsabilidade-civil-dentistas" element={<Navigate to="/seguro-rc-dentistas" replace />} />
