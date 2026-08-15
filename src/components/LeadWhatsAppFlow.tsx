@@ -37,7 +37,7 @@ const INSURANCE_OPTIONS = [
 export const LeadWhatsAppFlow = () => {
   const [step, setStep] = useState(1);
   const [selectedType, setSelectedType] = useState<typeof INSURANCE_OPTIONS[0] | null>(null);
-  const [formData, setFormData] = useState({ name: "", phone: "", city: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", city: "", customMessage: "" });
   const [loading, setLoading] = useState(false);
 
   const totalSteps = 4;
@@ -63,6 +63,8 @@ export const LeadWhatsAppFlow = () => {
       setStep(3);
     }
     if (step === 3) {
+      const defaultMsg = `Olá! Sou ${formData.name}. Gostaria de cotar ${selectedType?.title}${formData.city ? ` para ${formData.city}` : ""}. Pode me ajudar?`;
+      setFormData(prev => ({ ...prev, customMessage: defaultMsg }));
       setStep(4);
     }
   };
@@ -77,7 +79,7 @@ export const LeadWhatsAppFlow = () => {
         `*WhatsApp:* ${formData.phone}`,
         `*Cidade:* ${formData.city || "Não informada"}`,
         `---`,
-        `Olá! Iniciei minha cotação pelo fluxo de etapas do site e gostaria de agilizar o atendimento por aqui.`
+        formData.customMessage || `Olá! Iniciei minha cotação pelo fluxo de etapas do site e gostaria de agilizar o atendimento por aqui.`
       ];
 
       const waUrl = buildWhatsAppUrl({
@@ -248,10 +250,13 @@ export const LeadWhatsAppFlow = () => {
                 </div>
               </div>
 
-              <div className="bg-blue-50/50 p-4 rounded-2xl border border-dashed border-blue-100">
-                <p className="text-[11px] text-blue-600 leading-relaxed italic text-center">
-                  "Ao confirmar, abriremos seu WhatsApp com a mensagem pronta para nossa equipe."
-                </p>
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-wider text-slate-400 font-bold ml-1">Mensagem para o consultor</label>
+                <textarea
+                  className="w-full min-h-[80px] p-3 text-sm rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none resize-none"
+                  value={formData.customMessage}
+                  onChange={(e) => setFormData({ ...formData, customMessage: e.target.value })}
+                />
               </div>
 
               <div className="space-y-3">
