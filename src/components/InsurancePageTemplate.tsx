@@ -885,6 +885,11 @@ export const InsurancePageTemplate = ({
                  />
                </div>
              )}
+             {customContentBeforeForm && (
+               <div className="mb-16">
+                 {customContentBeforeForm}
+               </div>
+             )}
              <div className="grid lg:grid-cols-2 gap-12 items-center">
                <div>
                  <span className="section-label mb-4 inline-block">Cotação Gratuita</span>
