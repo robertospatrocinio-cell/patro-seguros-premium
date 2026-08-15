@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Quero implementar a geração do PDF do relatório de auditoria SEO on-page para uma URL específica quando eu selecionar a página no filtro. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: verifique se todas as paginas do site forem indexada no gsc e faca um teste de velocidade e tudo mais no google ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
