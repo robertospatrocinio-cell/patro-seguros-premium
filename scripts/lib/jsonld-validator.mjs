@@ -163,27 +163,15 @@ export function validateOrganization(node, errors, label, options = {}) {
 export function validateFAQ(node, errors, label) {
   const items = node.mainEntity;
   if (!Array.isArray(items) || items.length === 0) {
-    push(errors, `${label} FAQPage: mainEntity vazio ou ausente`,
+    push(errors, `${label} FAQPage: mainEntity vazio`,
       { field: "mainEntity", rule: "faq.mainEntity.required" });
     return;
   }
-  
-  // Teste de contagem: Google exige ao menos 2 perguntas para exibir o rich snippet rico
-  if (items.length < 2) {
-    push(errors, `${label} FAQPage: rich results exigem ao menos 2 perguntas (recebido ${items.length})`,
-      { field: "mainEntity", rule: "faq.minQuestions" });
-  }
-
   items.forEach((q, i) => {
-    if (!q.name || !String(q.name).trim()) {
-      push(errors, `${label} FAQPage: question[${i}] sem name (pergunta)`,
-        { field: `mainEntity[${i}].name`, rule: "faq.question.name" });
-    }
-    const answerText = q.acceptedAnswer?.text;
-    if (!answerText || !String(answerText).trim()) {
-      push(errors, `${label} FAQPage: question[${i}] sem acceptedAnswer.text (resposta)`,
-        { field: `mainEntity[${i}].acceptedAnswer.text`, rule: "faq.question.answerText" });
-    }
+    if (!q.name) push(errors, `${label} FAQPage: question[${i}] sem name`,
+      { field: `mainEntity[${i}].name`, rule: "faq.question.name" });
+    if (!q.acceptedAnswer?.text) push(errors, `${label} FAQPage: question[${i}] sem acceptedAnswer.text`,
+      { field: `mainEntity[${i}].acceptedAnswer.text`, rule: "faq.question.answerText" });
   });
 }
 

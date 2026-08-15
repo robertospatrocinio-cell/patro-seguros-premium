@@ -57,7 +57,7 @@ const TermosDeUso = () => {
             <h2>9. Contato</h2>
             <p>Para dúvidas sobre estes Termos de Uso:</p>
             <ul>
-              <li><strong>E-mail:</strong> comercial@patroseguros.com.br</li>
+              <li><strong>E-mail:</strong> contato@patroseguros.com.br</li>
               <li><strong>Telefone/WhatsApp:</strong> (11) 5199-7500</li>
               <li><strong>Endereço:</strong> Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia, Guarulhos/SP</li>
             </ul>

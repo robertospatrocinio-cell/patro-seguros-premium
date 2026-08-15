@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,11 @@ const ParceriasClinicasOdontologicas = () => (
     
       skipBreadcrumb
     />
+    <BreadcrumbSchema items={[
+      { name: "Início", url: "/" },
+      { name: "Clínicas Odontológicas", url: "/seguros-para-clinicas-odontologicas" },
+      { name: "Parcerias", url: "/parcerias-clinicas-odontologicas" }
+    ]} />
     <Header />
     <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[

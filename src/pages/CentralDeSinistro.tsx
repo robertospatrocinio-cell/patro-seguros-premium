@@ -7,10 +7,10 @@ const CentralDeSinistro = () => (
     <PrerenderText slug="central-de-sinistro" />
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Central de Sinistros"
+      title="Central de Sinistros | Ajuda e Assistência 24h | Patro"
       headline="O que fazer em caso de sinistro: guia de assistência"
       subtitle="Suporte completo para colisão, roubo, furto e assistência 24h."
-      description="Nossa Central de Sinistros está pronta para te atender nos momentos mais difíceis. Saiba como proceder e quais documentos são necessários para garantir sua indenização com agilidade. Você fala com a Patro pelo WhatsApp ou telefone (11) 5199-7500, e nossa equipe abre o aviso na seguradora, orienta sobre a documentação e acompanha cada etapa — da vistoria à liberação do veículo ou pagamento da indenização."
+      description="Nossa central de sinistros está pronta para te auxiliar nos momentos mais difíceis. Saiba como proceder e quais documentos são necessários para garantir sua indenização com agilidade."
       icon="🆘"
       metaDescription="Central de Sinistro Patro Seguros: saiba como proceder em caso de colisão, roubo ou furto. Assistência 24h e suporte completo em Guarulhos."
       coverages={[
@@ -33,19 +33,6 @@ const CentralDeSinistro = () => (
         { question: "O que fazer logo após uma batida?", answer: "Sinalize o local, verifique se há feridos e, se possível, tire fotos dos danos e da posição dos veículos antes de removê-los da via." },
         { question: "Como aciono o guincho?", answer: "Você pode ligar diretamente para o 0800 da sua seguradora ou entrar em contato com nosso suporte para que façamos o acionamento para você." },
       ]}
-      pricingInfo={{
-        intro: "O atendimento da Central de Sinistros é um benefício exclusivo para clientes da Patro Seguros.",
-        factors: ["Consultoria técnica", "Abertura de aviso", "Acompanhamento de vistoria"]
-      }}
-      importantDetails={[
-        { title: "Como funciona a Central de Sinistros", content: "Nosso suporte é humanizado e técnico." },
-        { title: "O que a Central de Sinistros cobre", content: "Orientação em todas as coberturas da sua apólice." },
-        { title: "Quem deve usar a Central de Sinistros", content: "Todo cliente Patro com sinistro ativo." },
-        { title: "Por que acionar a Central pela Patro", content: "Agilidade e defesa dos seus direitos." }
-      ]}
-      sectionCtas={{
-        "faq-heading": { label: "Dúvidas sobre sinistro?", description: "Fale com um especialista agora", href: "https://wa.me/551151997500?text=Olá! Vim pelo site da Patro Seguros e gostaria de ajuda com um sinistro." }
-      }}
     />
   </>
 );

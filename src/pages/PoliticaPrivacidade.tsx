@@ -285,10 +285,10 @@ const PoliticaPrivacidade = () => {
                   <p className="text-sm text-slate-600 leading-relaxed mt-5">
                     Para exercer seus direitos, envie um e-mail para{" "}
                     <a
-                      href="mailto:comercial@patroseguros.com.br"
+                      href="mailto:contato@patroseguros.com.br"
                       className="text-primary font-semibold underline underline-offset-2"
                     >
-                      comercial@patroseguros.com.br
+                      contato@patroseguros.com.br
                     </a>{" "}
                     ou WhatsApp{" "}
                     <a
@@ -352,7 +352,7 @@ const PoliticaPrivacidade = () => {
                   </p>
                   <div className="grid sm:grid-cols-3 gap-3">
                     <a
-                      href="mailto:comercial@patroseguros.com.br"
+                      href="mailto:contato@patroseguros.com.br"
                       className="p-4 rounded-2xl bg-white/10 hover:bg-white/15 transition-colors backdrop-blur-sm"
                     >
                       <Mail className="w-5 h-5 mb-2 text-white/70" />
@@ -360,7 +360,7 @@ const PoliticaPrivacidade = () => {
                         E-mail
                       </p>
                       <p className="text-sm font-semibold break-all">
-                        comercial@patroseguros.com.br
+                        contato@patroseguros.com.br
                       </p>
                     </a>
                     <a

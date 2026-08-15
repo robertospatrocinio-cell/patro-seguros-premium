@@ -29,8 +29,6 @@ import { Input } from "@/components/ui/input";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@/lib/blogData";
-import { BAIRROS_MATRIZ } from "@/data/seoLocalBairrosGuarulhos";
-import { guarulhosBairrosBlogArticles } from "@/data/blogGuarulhosBairrosData";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { buildBlogCollectionSchema } from "@/lib/collectionPageSchemas";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -712,27 +710,15 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Autoridade local - Blog por Bairro */}
+        {/* Autoridade local */}
         <section className="py-14 bg-muted/30 border-y" aria-labelledby="local-heading">
-          <div className="container mx-auto px-4 max-w-5xl">
+          <div className="container mx-auto px-4 max-w-4xl">
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary mb-3">
               <MapPin className="h-4 w-4" aria-hidden="true" /> SEO local
             </div>
-            <h2 id="local-heading" className="text-2xl md:text-3xl font-semibold mb-6">
-              Seguros por Bairro em Guarulhos
+            <h2 id="local-heading" className="text-2xl md:text-3xl font-semibold mb-4">
+              Seguros em Guarulhos e Região
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
-              {BAIRROS_MATRIZ.map((b) => (
-                <Link 
-                  key={b.id} 
-                  to={`/blog/guia-seguros-${b.id}-guarulhos`}
-                  className="p-4 rounded-xl border bg-background hover:border-primary/50 hover:shadow-md transition-all group"
-                >
-                  <span className="text-sm font-semibold block mb-1 group-hover:text-primary transition-colors">{b.nome}</span>
-                  <span className="text-[10px] text-muted-foreground uppercase tracking-wider block">Ver guia completo</span>
-                </Link>
-              ))}
-            </div>
             <p className="text-sm md:text-base text-muted-foreground leading-relaxed [&_a]:underline [&_a]:underline-offset-2 [&_a]:font-medium">
               A Patro Seguros acompanha as necessidades de proteção de famílias, profissionais e empresas em{" "}
               <Link to="/seguros-guarulhos" className="text-foreground hover:text-primary">Guarulhos</Link>,
@@ -763,88 +749,6 @@ const Blog = () => {
               >
                 <Button variant="outline" size="sm">Falar com consultor</Button>
               </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Seção Bairros de Guarulhos */}
-        <section className="py-16 bg-white" aria-labelledby="bairros-heading">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
-              <div className="max-w-2xl text-left">
-                <h2 id="bairros-heading" className="text-2xl md:text-3xl font-bold mb-4 text-primary">
-                  Seguros por Bairro em Guarulhos
-                </h2>
-                <p className="text-muted-foreground">
-                  Análise de risco, custos e guias específicos para as principais regiões de Guarulhos. 
-                  Descubra as particularidades de cada bairro e economize com inteligência.
-                </p>
-              </div>
-              <Link to="/seguros-guarulhos">
-                <Button variant="outline" className="group">
-                  Ver todos os bairros
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {BAIRROS_MATRIZ.slice(0, 6).map((b) => (
-                <Link
-                  key={b.id}
-                  to={`/seguros-guarulhos/${b.slug}`}
-                  className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl"
-                >
-                  <Card className="h-full hover:shadow-lg transition-base border-primary/5 hover:border-primary/20 bg-muted/5">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-4 text-left">
-                        <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
-                          <MapPin className="h-5 w-5" />
-                        </div>
-                        <h3 className="text-xl font-bold">{b.nome}</h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2 text-left">
-                        {b.perfil}
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-xs font-medium text-foreground/70">
-                          <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                          <span>Foco: {b.prioritarios.slice(0, 2).join(", ")}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs font-medium text-foreground/70">
-                          <Clock className="h-3.5 w-3.5 text-primary" />
-                          <span>Risco Local: {b.risco}</span>
-                        </div>
-                      </div>
-                      <div className="mt-6 flex items-center text-sm font-semibold text-primary">
-                        Ver guia do bairro
-                        <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-
-            {/* Links para artigos específicos de bairros */}
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {guarulhosBairrosBlogArticles.slice(0, 4).map((art) => (
-                <Link 
-                  key={art.slug} 
-                  to={`/blog/${art.slug}`}
-                  className="group flex items-start gap-3 p-4 rounded-lg hover:bg-muted/50 transition-colors"
-                >
-                  <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0 group-hover:scale-125 transition-transform" />
-                  <div className="text-left">
-                    <h4 className="text-sm font-bold group-hover:text-primary transition-colors leading-tight mb-1">
-                      {art.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground line-clamp-2">
-                      {art.excerpt}
-                    </p>
-                  </div>
-                </Link>
-              ))}
             </div>
           </div>
         </section>

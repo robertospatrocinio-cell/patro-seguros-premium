@@ -47,8 +47,6 @@ const lazyWithRetry = (componentImport: () => Promise<{ default: any }>, routeNa
 };
 
 const NichoLojistasGuarulhos = lazyWithRetry(() => import("./pages/NichoLojistasGuarulhos"), "NichoLojistasGuarulhos");
-const GuiaCompletoSegurosGuarulhos = lazyWithRetry(() => import("./pages/GuiaCompletoSegurosGuarulhos"), "GuiaCompletoSegurosGuarulhos");
-
 const SeoVistoriaVeicularGuarulhos = lazyWithRetry(() => import("./pages/SeoVistoriaVeicularGuarulhos"), "SeoVistoriaVeicularGuarulhos");
 const SeguroVistoriadoraVeicular = lazyWithRetry(() => import("./pages/SeguroVistoriadoraVeicular"), "SeguroVistoriadoraVeicular");
 const CentralDeGuias = lazyWithRetry(() => import("./pages/CentralDeGuias"), "CentralDeGuias");
@@ -100,11 +98,6 @@ const SeguroVidaClinicasVeterinarias = lazyWithRetry(() => import("./pages/Segur
 const PatroPrivate = lazyWithRetry(() => import("./pages/PatroPrivate"), "PatroPrivate");
 const Patro = lazyWithRetry(() => import("./pages/Patro"), "Patro");
 const SeguroAutoPremiumGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroAutoPremiumGuarulhos"), "SeguroAutoPremiumGuarulhos");
-const SeguroAutoToyotaCorollaGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoToyotaCorollaGuarulhos"), "SeguroAutoToyotaCorollaGuarulhos");
-const SeguroAutoHyundaiHB20Guarulhos = lazyWithRetry(() => import("./pages/SeguroAutoHyundaiHB20Guarulhos"), "SeguroAutoHyundaiHB20Guarulhos");
-const SeguroAutoChevroletOnixGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoChevroletOnixGuarulhos"), "SeguroAutoChevroletOnixGuarulhos");
-const SeguroAutoJeepCompassGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoJeepCompassGuarulhos"), "SeguroAutoJeepCompassGuarulhos");
-const SeguroAutoToyotaHiluxGuarulhos = lazyWithRetry(() => import("./pages/SeguroAutoToyotaHiluxGuarulhos"), "SeguroAutoToyotaHiluxGuarulhos");
 const SeguroCarrosLuxoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroCarrosLuxoGuarulhos"), "SeguroCarrosLuxoGuarulhos");
 const SeguroResidencialAltoPadraoGuarulhos = lazyWithRetry(() => import("./pages/premium/SeguroResidencialAltoPadraoGuarulhos"), "SeguroResidencialAltoPadraoGuarulhos");
 const SegurosParaEmpresariosGuarulhos = lazyWithRetry(() => import("./pages/premium/SegurosParaEmpresariosGuarulhos"), "SegurosParaEmpresariosGuarulhos");
@@ -139,7 +132,6 @@ const BlogCalendario90Dias = lazyWithRetry(() => import("./pages/BlogCalendario9
 const BlogCluster = lazyWithRetry(() => import("./pages/BlogCluster"), "BlogCluster");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
-const ContatoObrigado = lazyWithRetry(() => import("./pages/ContatoObrigado"), "ContatoObrigado");
 
 const ComparativoPlanosSaude = lazyWithRetry(() => import("./pages/ComparativoPlanosSaude"), "ComparativoPlanosSaude");
 const CRM = lazyWithRetry(() => import("./pages/CRM"), "CRM");
@@ -183,7 +175,6 @@ const SeguroTratorIndustrial = lazyWithRetry(() => import("./pages/SeguroTratorI
 const SeguroMaquinasLinhaAmarela = lazyWithRetry(() => import("./pages/SeguroMaquinasLinhaAmarela"), "SeguroMaquinasLinhaAmarela");
 const FormularioSeguroVida = lazyWithRetry(() => import("./pages/FormularioSeguroVida"), "FormularioSeguroVida");
 const SeoSeguroAutoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoGuarulhos"), "SeoSeguroAutoGuarulhos");
-const SeoMotoristaAppGuarulhos = lazyWithRetry(() => import("./pages/SeoMotoristaAppGuarulhos"), "SeoMotoristaAppGuarulhos");
 const SeoSeguroAutoPorModeloGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoPorModeloGuarulhos"), "SeoSeguroAutoPorModeloGuarulhos");
 const SeguroAutoMarcas = lazyWithRetry(() => import("./pages/SeguroAutoMarcas"), "SeguroAutoMarcas");
 const SeguroAutoComparativoCoberturas = lazyWithRetry(() => import("./pages/SeguroAutoComparativoCoberturas"), "SeguroAutoComparativoCoberturas");
@@ -211,10 +202,6 @@ const SegurosEmGuarulhosHub = lazyWithRetry(() => import("./pages/local-guarulho
 
 const SeoSeguroVidaSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaSaudeGuarulhos"), "SeoSeguroVidaSaudeGuarulhos");
 const SeoSeguroFrotaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroFrotaGuarulhos"), "SeoSeguroFrotaGuarulhos");
-const SeguroPessoaFisica = lazyWithRetry(() => import("./pages/SeguroPessoaFisica"), "SeguroPessoaFisica");
-const SeguroEmpresa = lazyWithRetry(() => import("./pages/SeguroEmpresa"), "SeguroEmpresa");
-const SeguroAutonomo = lazyWithRetry(() => import("./pages/SeguroAutonomo"), "SeguroAutonomo");
-const SeguroFamilia = lazyWithRetry(() => import("./pages/SeguroFamilia"), "SeguroFamilia");
 const SeoSegurosPmeGuarulhos = lazyWithRetry(() => import("./pages/SeoSegurosPmeGuarulhos"), "SeoSegurosPmeGuarulhos");
 const SeoSeguroMotoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoGuarulhos"), "SeoSeguroMotoGuarulhos");
 const LandingSeguroMotoEntregador = lazyWithRetry(() => import("./pages/LandingSeguroMotoEntregador"), "LandingSeguroMotoEntregador");
@@ -276,9 +263,6 @@ const ConsorcioCarro = lazy(() => import("./pages/ConsorcioCarro"));
 const ConsorcioImoveis = lazy(() => import("./pages/ConsorcioImoveis"));
 const ConsorcioVeiculosPesados = lazy(() => import("./pages/ConsorcioVeiculosPesados"));
 const EbookConsorcio = lazy(() => import("./pages/EbookConsorcio"));
-
-
-
 const SeguroLojasShopping = lazy(() => import("./pages/SeguroLojasShopping"));
 const SegurosPorSegmento = lazy(() => import("./pages/SegurosPorSegmento"));
 const SeguroEmpresarialSegmento = lazy(() => import("./pages/SeguroEmpresarialSegmento"));
@@ -587,8 +571,7 @@ const App = () => {
                   <Route path="/verificar-susep" element={<VerificarSusep />} />
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
-            <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
-            <Route path="/contato/obrigado" element={<ContatoObrigado />} />
+                  <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
                   <Route path="/indique-e-ganhe" element={<IndiqueEGanhe />} />
                   <Route path="/obrigado-indicacao" element={<ObrigadoIndicacao />} />
                   <Route path="/cotacao/auto" element={<Navigate to="/cotacao-seguro-auto" replace />} />
@@ -603,10 +586,8 @@ const App = () => {
                   <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
                   <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
                   <Route path="/parceiros-locais" element={<ParceirosLocais />} />
-                   <Route path="/imprensa" element={<Imprensa />} />
-                  <Route path="/guia-completo-seguros-guarulhos" element={<GuiaCompletoSegurosGuarulhos />} />
+                  <Route path="/imprensa" element={<Imprensa />} />
                   <Route path="/seguro-auto" element={<SeguroAuto />} />
-
                   <Route path="/seguro-vida" element={<SeguroVida />} />
                   <Route path="/seguro-vida/formulario" element={<FormularioSeguroVida />} />
                   <Route path="/seguro-residencial" element={<SeguroResidencial />} />
@@ -810,7 +791,6 @@ const App = () => {
                   <Route path="/seguro-residencial-guarulhos" element={<SeoSeguroResidencialGuarulhos />} />
                   <Route path="/seguro-vida-saude-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
                   <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
-                  <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoMotoristaAppGuarulhos />} />
                   <Route path="/seguro-uber-guarulhos" element={<SeoSeguroUberGuarulhos />} />
                   <Route path="/seguro-frota-empresas-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
                   <Route path="/seguro-frota-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
@@ -823,10 +803,8 @@ const App = () => {
                   <Route path="/seguros/profissionais-liberais" element={<NichoProfissionaisLiberais />} />
                   <Route path="/seguros/medicos-e-clinicas" element={<NichoMedicos />} />
                   {/* Redirecionamentos canônicos */}
-                   <Route path="/formulario-seguro-vida" element={<Navigate to="/seguro-vida/formulario" replace />} />
-                   <Route path="/indique-amigo" element={<Navigate to="/indique-um-amigo" replace />} />
-
-
+                  <Route path="/formulario-seguro-vida" element={<Navigate to="/seguro-vida/formulario" replace />} />
+                  <Route path="/indique-amigo" element={<Navigate to="/indique-um-amigo" replace />} />
                   <Route path="/planejamento-patrimonial" element={<Navigate to="/investimentos" replace />} />
                   <Route path="/responsabilidade-civil-dentistas" element={<Navigate to="/seguro-rc-dentistas" replace />} />
                   <Route path="/seguro-responsabilidade-civil" element={<Navigate to="/seguro-rc" replace />} />
@@ -920,11 +898,6 @@ const App = () => {
                   <Route path="/seguro-auto-premium" element={<Navigate to="/seguro-auto-premium-guarulhos" replace />} />
                   <Route path="/seguro-auto-pos-vistoria" element={<Navigate to="/seguro-auto" replace />} />
                   <Route path="/seguro-auto-por-modelo-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
-                  <Route path="/seguro-auto-toyota-corolla-guarulhos" element={<SeguroAutoToyotaCorollaGuarulhos />} />
-                  <Route path="/seguro-auto-hyundai-hb20-guarulhos" element={<SeguroAutoHyundaiHB20Guarulhos />} />
-                  <Route path="/seguro-auto-chevrolet-onix-guarulhos" element={<SeguroAutoChevroletOnixGuarulhos />} />
-                  <Route path="/seguro-auto-jeep-compass-guarulhos" element={<SeguroAutoJeepCompassGuarulhos />} />
-                  <Route path="/seguro-auto-toyota-hilux-guarulhos" element={<SeguroAutoToyotaHiluxGuarulhos />} />
                   {/* Hubs Auto (modelos / marcas / comparativo) */}
                   <Route path="/seguro-auto/modelos" element={<SeoSeguroAutoPorModeloGuarulhos />} />
                   <Route path="/seguro-auto/marcas" element={<SeguroAutoMarcas />} />
@@ -1053,10 +1026,6 @@ const App = () => {
                   <Route path="/pottencial-seguradora-guarulhos" element={<SeguradoraParceiraSeoPage slug="pottencial-seguradora-guarulhos" />} />
                   <Route path="/akad-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="akad-seguros-guarulhos" />} />
                   <Route path="/ezze-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="ezze-seguros-guarulhos" />} />
-                  <Route path="/seguro-pessoa-fisica" element={<Suspense fallback={<PageSkeleton />}><SeguroPessoaFisica /></Suspense>} />
-                  <Route path="/seguro-empresa" element={<Suspense fallback={<PageSkeleton />}><SeguroEmpresa /></Suspense>} />
-                  <Route path="/seguro-autonomo" element={<Suspense fallback={<PageSkeleton />}><SeguroAutonomo /></Suspense>} />
-                  <Route path="/seguro-familia" element={<Suspense fallback={<PageSkeleton />}><SeguroFamilia /></Suspense>} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>

@@ -114,8 +114,8 @@ const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
 // Mensagem personalizada por tipo de seguro para o link do WhatsApp
-const buildProductWhatsAppUrl = (productTitle: string): string => {
-  const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${productTitle}.`;
+const buildProductWhatsAppUrl = (title: string): string => {
+  const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${title}. Pode me ajudar?`;
   return `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`;
 };
 
@@ -275,17 +275,9 @@ export interface InsurancePageProps {
       Omit<NextSectionCtaProps, "sourceSection" | "sourceSlug">
     >
   >;
-  /** Conteúdo extra renderizado logo antes do formulário de cotação */
-  customContentBeforeForm?: ReactNode;
-  /** Schema.org Service data. */
-  service?: {
-    name: string;
-    description: string;
-    type?: string;
-  };
 }
 
-export const InsurancePageTemplate = ({
+const InsurancePageTemplate = ({
    title, subtitle, description, icon,
    headline,
    coverages, whoNeeds, whyPatro,
@@ -320,8 +312,6 @@ export const InsurancePageTemplate = ({
   localSeo,
   jumpLinks,
   sectionCtas,
-  customContentBeforeForm,
-  service,
 }: InsurancePageProps) => {
   const location = useLocation();
   // Slug canônico da rota atual — usado para etiquetar o `source` dos CTAs
@@ -393,9 +383,8 @@ export const InsurancePageTemplate = ({
          description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
          preloadImage={heroImage}
          preloadMobileImage={mobileHeroImage}
-          absoluteTitle={!!headline && headline !== title}
-          service={service}
-        />
+         absoluteTitle={!!headline && headline !== title}
+       />
        
       <InsuranceAgencySchema />
       <LocalBusinessSchema />
@@ -891,11 +880,6 @@ export const InsurancePageTemplate = ({
                       HowTo específico via prop `howto`. */
                    skipSchema={!!howto}
                  />
-               </div>
-             )}
-             {customContentBeforeForm && (
-               <div className="mb-16">
-                 {customContentBeforeForm}
                </div>
              )}
              <div className="grid lg:grid-cols-2 gap-12 items-center">

@@ -34,29 +34,22 @@ const QuickLeadFormImpl = () => {
       const extras = [email ? `E-mail: ${email}` : null].filter(Boolean).join(" • ");
       const msg = `Olá, meu nome é ${name} (${phone}). Sou de ${cidade} e gostaria de uma cotação de ${insuranceType}.${extras ? `\n${extras}` : ""}`;
 
-      const waUrl = `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`;
-      
+      const popup = window.open(
+        `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`,
+        "_blank",
+        "noopener,noreferrer",
+      );
+      if (!popup) {
+        showFriendlyError(
+          "Não conseguimos abrir o WhatsApp automaticamente. Toque no botão abaixo para falar com a gente.",
+          { whatsappMessage: msg },
+        );
+        return;
+      }
+
       trackCotacaoSubmit(insuranceType, { origin: "quick_lead_form_home" });
-      
-      // Store payload in sessionStorage for the success page
-      const payload = {
-        name,
-        email,
-        phone,
-        insuranceType,
-        message: "",
-        assetLines: [`Cidade: ${cidade}`],
-        waUrl,
-        submittedAt: Date.now()
-      };
-      
-      sessionStorage.setItem("patro_cotacao_success", JSON.stringify(payload));
-      
-      toast.success("Recebemos seu contato! Redirecionando...");
-      
-      setTimeout(() => {
-        window.location.href = "/cotacao/obrigado";
-      }, 1000);
+      toast.success("Recebemos seu contato! Um consultor responderá em até 2 horas.");
+      setFormData({ name: "", phone: "", email: "", city: "", insuranceType: "" });
     } catch (err) {
       console.error("QuickLeadForm submit failed", err);
       showFriendlyError();

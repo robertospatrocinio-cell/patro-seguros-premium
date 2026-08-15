@@ -18,6 +18,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import FAQBlock from "@/components/FAQBlock";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
@@ -225,6 +226,12 @@ const SeguroAgro = () => {
         <script type="application/ld+json">{JSON.stringify(agriculturalServiceSchema)}</script>
       </Helmet>
       <FAQSchema faqs={FAQS} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Seguro Agro", url: "/seguro-agro" },
+        ]}
+      />
       <Header />
       <main className="bg-background">
         <div className="container mx-auto px-4 pt-6">

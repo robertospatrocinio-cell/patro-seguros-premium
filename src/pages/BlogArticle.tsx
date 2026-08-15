@@ -65,7 +65,7 @@ const BlogArticle = () => {
   const insuranceType = meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}&utm_source=blog&utm_medium=article-link&utm_campaign=${slug}`;
+  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
 
   return (
     <>
@@ -234,17 +234,23 @@ const BlogArticle = () => {
             </div>
 
 
-            <div className="prose prose-lg max-w-none article-body">
+            <div className="prose prose-lg max-w-none">
               {(() => {
                 const paragraphs = article.content.split("\n\n");
-                
-                // Deterministic injection point: always after the 3rd paragraph if total >= 6
-                // This ensures "links para pedir cotação em cada post" is fulfilled
+                // Midpoint injection: escolhe um ponto ~50% dos parágrafos,
+                // avançando até o próximo início de parágrafo "normal" (não
+                // marcador especial). Se o artigo for muito curto (<6), pula.
                 let midIdx = -1;
                 if (paragraphs.length >= 6) {
-                  midIdx = 3;
+                  const target = Math.floor(paragraphs.length / 2);
+                  for (let k = target; k < paragraphs.length; k++) {
+                    const t = paragraphs[k].trim();
+                    if (!t.startsWith("[[CTA_") && !t.startsWith("#") && t.length > 40) {
+                      midIdx = k;
+                      break;
+                    }
+                  }
                 }
-                
                 return paragraphs.map((p, i) => {
                   const node = (() => {
                 // Inline CTA block para o post Agrishow 2026
@@ -326,40 +332,6 @@ const BlogArticle = () => {
                     </div>
                   );
                 }
-                // Detect tables in markdown format: | col1 | col2 |
-                if (p.trim().startsWith("|") && p.includes("|") && p.includes("\n|")) {
-                  const rows = p.trim().split("\n");
-                  const tableRows = rows.filter(r => r.trim().startsWith("|") && r.includes("|"));
-                  if (tableRows.length > 1) {
-                    const headerRow = tableRows[0].split("|").filter(c => c.trim() !== "").map(c => c.trim());
-                    // Skip the separator row (--- | ---)
-                    const dataRows = tableRows.slice(2).map(r => r.split("|").filter(c => c.trim() !== "").map(c => c.trim()));
-
-                    return (
-                      <div key={i} className="my-8 overflow-x-auto rounded-lg border border-border">
-                        <table className="w-full text-sm text-left">
-                          <thead className="text-xs uppercase bg-muted/50 text-muted-foreground border-b border-border">
-                            <tr>
-                              {headerRow.map((h, hi) => (
-                                <th key={hi} className="px-6 py-3 font-semibold">{h}</th>
-                              ))}
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-border">
-                            {dataRows.map((row, ri) => (
-                              <tr key={ri} className="bg-background hover:bg-muted/30 transition-colors">
-                                {row.map((cell, ci) => (
-                                  <td key={ci} className="px-6 py-4 whitespace-nowrap font-medium text-foreground">{cell}</td>
-                                ))}
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    );
-                  }
-                }
-
                 // Parse markdown-style [text](url) links
                 const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
                 return (
@@ -391,21 +363,7 @@ const BlogArticle = () => {
                       </Fragment>
                     );
                   }
-                  return (
-                    <Fragment key={i}>
-                      {node}
-                      {i === midIdx && (
-                        <ArticleInlineCTA 
-                          quoteHref={quoteHref}
-                          whatsappUrl={whatsappUrl}
-                          source={`blog-inline-${slug}`}
-                          headline="Precisa de uma cotação para o seu bairro?"
-                          subline="A Patro Seguros atende toda a região de Guarulhos com taxas exclusivas por CEP."
-                          variant="soft"
-                        />
-                      )}
-                    </Fragment>
-                  );
+                  return node;
                 });
               })()}
 

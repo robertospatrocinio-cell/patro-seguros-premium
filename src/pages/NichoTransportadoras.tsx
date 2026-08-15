@@ -40,8 +40,8 @@ const dores = [
 const NichoTransportadoras = () => (
   <>
     <PageMeta
-      title="Seguro para Transportadoras em Guarulhos | Patro"
-      description="Seguro para transportadoras em Guarulhos: frota, carga RCTR-C/RCF-DC e RC. Gestão completa, 16+ seguradoras e cotação em até 2h. Peça sua proposta."
+      title="Seguros para Transportadoras e Frotistas | Patro Seguros"
+      description="Seguros especializados para transportadoras, frotistas e logística. Seguro de Frota, RCTR-C, Transporte de Cargas. Cotação grátis em Guarulhos e SP."
     />
     <FAQSchema faqs={faqs} />
     <Header />

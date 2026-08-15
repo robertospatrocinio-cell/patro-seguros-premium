@@ -27,11 +27,11 @@ const SeguroGalpoesIndustriais = () => {
     <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro para Galpões em Guarulhos | Cotação em 2h | Patro"
+      title="Seguro de Galpões Industriais"
       subtitle="Proteção completa para galpões, armazéns e instalações industriais contra incêndio, roubo e riscos operacionais."
       description="Seguro de Galpões Industriais: proteção para instalações, mercadorias e maquinário. Cubra seu patrimônio contra incêndio, explosão e roubo em todo o Brasil."
       icon="🏭"
-      metaDescription="Seguro para galpões industriais em Guarulhos e Cumbica. Incêndio, roubo, danos elétricos e lucros cessantes. Cotação em 2h. Peça sua proposta."
+      metaDescription="Seguro para Galpões Industriais: proteção contra incêndio, roubo, vendaval e danos ao estoque. Cobertura para armazéns e instalações. Cotação na Patro Seguros."
       coverages={[
         { title: "Incêndio, Raio e Explosão", description: "Cobertura básica para o prédio e seu conteúdo." },
         { title: "Vendaval e Granizo", description: "Proteção contra danos estruturais por fenômenos climáticos." },

@@ -275,9 +275,9 @@ const Header = memo(() => {
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" role="presentation" />
                 <span>(11) 5199-7500 • Seg. a Sex. 8h30–18h</span>
               </a>
-              <a href="mailto:comercial@patroseguros.com.br" aria-label="Enviar e-mail para comercial@patroseguros.com.br" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
+              <a href="mailto:contato@patroseguros.com.br" aria-label="Enviar e-mail para contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
                 <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" role="presentation" />
-                <span className="hidden md:inline truncate">comercial@patroseguros.com.br</span>
+                <span className="hidden md:inline truncate">contato@patroseguros.com.br</span>
               </a>
             </div>
             <a
@@ -299,27 +299,22 @@ const Header = memo(() => {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
             <SmartLink to="/" className="flex items-center relative z-[60]" onClick={() => window.scrollTo(0,0)}>
-              <picture>
-                <source srcSet="/images/logo-full.webp" type="image/webp" />
-                <img
-                  src={logoFull}
-                  alt="Patro Seguros Guarulhos - Corretora de Seguros"
-                  width={140}
-                  height={70}
-                  decoding="sync"
-                  loading="eager"
-                  {...({ fetchpriority: "high" } as any)}
-                  className="h-16 w-auto object-contain relative z-50"
-                />
-              </picture>
+              <img
+                src={logoFull}
+                alt="Patro Seguros Guarulhos - Corretora de Seguros"
+                width={140}
+                height={70}
+                decoding="sync"
+                loading="eager"
+                {...({ fetchpriority: "high" } as any)}
+                className="h-16 w-auto object-contain relative z-50"
+              />
             </SmartLink>
 
             <div className="hidden lg:flex items-center gap-1">
-              <SmartLink to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Para Você</SmartLink>
-              <SmartLink to="/seguro-empresa" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Para sua Empresa</SmartLink>
-              <SmartLink to="/central-de-sinistro" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Atendimento</SmartLink>
-              <SmartLink to="/blog" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Conteúdo</SmartLink>
-
+              <SmartLink to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Início</SmartLink>
+              <SmartLink to="/seguros-guarulhos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Guarulhos</SmartLink>
+              <SmartLink to="/servicos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Serviços</SmartLink>
 
 
               {/* Para você */}

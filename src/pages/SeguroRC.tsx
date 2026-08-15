@@ -5,10 +5,10 @@ const SeguroRC = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro RC em Guarulhos | Responsabilidade Civil | Patro"
+      title="Seguro Responsabilidade Civil Geral"
       subtitle="Proteção completa contra danos causados a terceiros nas suas operações"
       icon="⚖️"
-      metaDescription="Seguro de responsabilidade civil em Guarulhos para empresas e profissionais. RC operações, profissional e D&O. Cotação em 2h. Peça sua proposta."
+      metaDescription="Seguro Responsabilidade Civil Geral para empresas: proteção contra danos a terceiros, processos judiciais e indenizações. Especialistas em RC."
       description="O Seguro Responsabilidade Civil protege sua empresa contra danos causados a terceiros. Garanta a defesa judicial e o pagamento de indenizações com a Patro Seguros."
       detailedDescription={`A Responsabilidade Civil é um dos pilares jurídicos do direito brasileiro: quem causa dano a outrem tem o dever de reparar. Para empresas, isso significa que qualquer acidente envolvendo clientes, fornecedores, visitantes ou até transeuntes pode resultar em processos judiciais com indenizações que comprometem seriamente o patrimônio empresarial.
 

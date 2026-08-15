@@ -30,12 +30,11 @@ import {
   ExternalLink,
   ShieldCheck,
 } from "lucide-react";
-import { VideoTestimonials } from "@/components/VideoTestimonials";
 import Header from "@/components/Header";
-
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { PATRO_TESTIMONIALS } from "@/data/patroTestimonials";
@@ -62,6 +61,12 @@ const AvaliacoesClientes = () => {
       
       skipBreadcrumb
     />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: CANONICAL_BASE_URL },
+          { name: "Avaliações dos Clientes", url: `${CANONICAL_BASE_URL}/avaliacoes-clientes` },
+        ]}
+      />
 
       <Header />
       <main id="main-content" className="outline-none">
@@ -259,22 +264,7 @@ const AvaliacoesClientes = () => {
           </div>
         </section>
 
-        <div className="py-20 bg-slate-50">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <div className="text-center mb-10">
-              <span className="section-label">Vídeos</span>
-              <h2 className="mt-3">Nossos clientes em vídeo</h2>
-              <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
-                Confira depoimentos reais de quem escolheu a Patro Seguros para cuidar do seu patrimônio e família.
-              </p>
-            </div>
-            <VideoTestimonials />
-          </div>
-        </div>
-
-
         {/* Bloco 6 — CTA final */}
-
         <section className="py-16 md:py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4 max-w-2xl">
             <h2 className="text-primary-foreground mb-4">

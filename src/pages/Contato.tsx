@@ -7,6 +7,7 @@ import LazyMapEmbed from "@/components/LazyMapEmbed";
 import ContactMapSection from "@/components/ContactMapSection";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -102,26 +103,41 @@ const Contato = () => {
         data.servico ? `Interesse: ${data.servico}` : "",
         data.mensagem ? `Mensagem: ${data.mensagem}` : "",
       ].filter(Boolean) as string[];
-      
       const ctaOptions = {
         origem: "contato_formulario",
         extraLines,
         subject: `Contato pelo site — ${data.nome}`,
       };
-      
       const waUrl = buildWhatsAppUrl(ctaOptions);
 
-      // Track conversion click
+      try {
+        window.fbq?.("track", "Lead", {
+          content_name: "formulario-contato",
+          content_category: data.servico || "geral",
+        });
+      } catch (err) {
+        console.error("Contato tracking failed", err);
+      }
+
+      try {
+        window.gtag?.("event", "clique_whatsapp_contato", {
+          event_category: "contato",
+          origem: "contato_formulario",
+          url_destino: waUrl,
+        });
+      } catch {
+        /* noop */
+      }
       trackWhatsAppClick("contato-formulario", { origin: "contato_formulario" });
 
-      // Simulate a small delay for better UX before redirecting
       setTimeout(() => {
         setSending(false);
         setSent(true);
-        // Redirect to success page with encoded WhatsApp URL
-        const successUrl = `/contato/obrigado?wa=${encodeURIComponent(waUrl)}`;
-        window.location.href = successUrl;
-      }, 600);
+        openWhatsAppOrFallback(
+          ctaOptions,
+          (msg, opts) => sonnerToast.error(msg, opts),
+        );
+      }, 400);
     } catch (err) {
       console.error("Contato submit failed", err);
       setSending(false);
@@ -140,6 +156,20 @@ const Contato = () => {
       skipBreadcrumb
     />
       <FAQSchema faqs={contatoFaqs} />
+      <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Contato", url: "/contato" }]} />
+      <HowToSchema
+        name="Como falar com a Patro Seguros em Guarulhos"
+        description="Passos para entrar em contato com um consultor da Patro Seguros e receber cotação em até 2 horas úteis."
+        totalTime="PT5M"
+        estimatedCost="0"
+        url="https://www.patroseguros.com.br/contato"
+        steps={[
+          { name: "Escolha o canal preferido", text: "WhatsApp (11) 5199-7500 para atendimento imediato, telefone fixo (11) 5199-7500 em horário comercial ou e-mail contato@patroseguros.com.br." },
+          { name: "Informe o tipo de seguro", text: "Diga qual produto interessa (auto, vida, saúde, residencial, empresarial, agro, consórcio) ou descreva o que quer proteger." },
+          { name: "Envie seus dados básicos", text: "Nome, telefone, e-mail e cidade. Para cotações, adicione dados do bem/pessoa a ser segurado (placa, endereço, faturamento, idade)." },
+          { name: "Receba a proposta consultiva", text: "Em até 2 horas úteis um corretor da Patro retorna com propostas comparadas de 16 seguradoras parceiras e orienta a melhor escolha." },
+        ]}
+      />
       <Header />
       <main id="main-content" tabIndex={-1} className="outline-none">
         {/* Hero */}
@@ -182,7 +212,7 @@ const Contato = () => {
                 <CardContent className="pt-6">
                   <Mail className="h-12 w-12 mx-auto mb-4 text-primary" aria-hidden="true" />
                   <h3 className="font-semibold mb-2">E-mail</h3>
-                  <a href="mailto:comercial@patroseguros.com.br" className="text-primary hover:underline text-sm">comercial@patroseguros.com.br</a>
+                  <a href="mailto:contato@patroseguros.com.br" className="text-primary hover:underline text-sm">contato@patroseguros.com.br</a>
                 </CardContent>
               </Card>
               <Card className="text-center hover:shadow-lg transition-base">

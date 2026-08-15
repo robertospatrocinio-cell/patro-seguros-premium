@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
  import LocalBusinessSchema from "@/components/LocalBusinessSchema";
  import OrganizationSchema from "@/components/OrganizationSchema";
  import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+ import BreadcrumbSchema from "@/components/BreadcrumbSchema";
  import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -54,6 +55,10 @@ const NichoEmpresarios = () => (
        url="https://www.patroseguros.com.br/seguros/empresarios"
        description="Pacote completo de seguros para empresas: Empresarial, Cyber, RC, D&O, Plano de Saúde e Vida em Grupo."
      />
+     <BreadcrumbSchema items={[
+       { name: "Início", url: "/" },
+       { name: "Empresários", url: "/seguros/empresarios" }
+     ]} />
      <Header />
     <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Seguros por Nicho" }, { label: "Empresários" }]} />

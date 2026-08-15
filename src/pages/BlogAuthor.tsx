@@ -3,6 +3,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Calendar, Clock, ArrowLeft, Award } from "lucide-react";
 import OptimizedImage from "@/components/OptimizedImage";
@@ -139,6 +140,13 @@ const BlogAuthor = () => {
       
       skipBreadcrumb
     />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: author.name, url: canonical },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}

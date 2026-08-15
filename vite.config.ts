@@ -146,7 +146,6 @@ import react from "@vitejs/plugin-react-swc";
 
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
-import viteImagemin from "vite-plugin-imagemin";
  import { generateSitemapBundle } from "./scripts/generate-sitemap";
  import { execSync } from "child_process";
 import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
@@ -575,19 +574,6 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && sitemapPlugin(),
      mode === "production" && spaFallbackPlugin(),
      mode === "production" && googleIndexingPlugin(),
-    mode === "production" && viteImagemin({
-      gifsicle: { optimizationLevel: 7, interlaced: false },
-      optipng: { optimizationLevel: 7 },
-      mozjpeg: { quality: 80 },
-      pngquant: { quality: [0.8, 0.9], speed: 4 },
-      svgo: {
-        plugins: [
-          { name: "removeViewBox" },
-          { name: "removeEmptyAttrs", active: false },
-        ],
-      },
-      webp: { quality: 75 },
-    }),
      // validateLocalPagesPlugin(),
      // validatePageMetaPlugin(),
   ].filter(Boolean),

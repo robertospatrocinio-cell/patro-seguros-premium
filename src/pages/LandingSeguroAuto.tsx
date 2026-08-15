@@ -1,22 +1,16 @@
 import LandingPageTemplate from "@/components/LandingPageTemplate";
 import FAQSchema from "@/components/FAQSchema";
-import ServiceSchema from "@/components/ServiceSchema";
 import { highlightBrands } from "@/components/BrandText";
 import heroImg from "@/assets/lp-seguro-auto.webp";
 
 const LandingSeguroAuto = () => (
   <LandingPageTemplate
-    service={{
-      name: "Seguro Auto",
-      description: "Consultoria especializada em seguro de automóvel em Guarulhos, comparando 16+ seguradoras para garantir o melhor preço e cobertura.",
-      type: "AutoInsurance"
-    }}
     heroImage={heroImg}
-    title="Seguro Auto em Guarulhos"
+    title="Seguro Auto"
     heroEmoji="🚗"
-    headline="Seguro Auto em Guarulhos"
-    subheadline={highlightBrands("Guarulhos é a segunda maior cidade de São Paulo, cortada pelas rodovias Dutra, Fernão Dias e Ayrton Senna. Isso eleva o risco de acidentes e de roubo. Nossa equipe analisa seu perfil e compara propostas em 16+ seguradoras para encontrar a melhor cobertura pelo menor custo, com economia média de 15% a 35%.")}
-    metaDescription="Seguro Auto em Guarulhos comparado nas melhores seguradoras. Compare Porto, Tokio, Allianz e HDI. Economia de até 35%. Cotação em 2h."
+    headline="Seu carro está protegido? Ou você está contando com a sorte?"
+    subheadline={highlightBrands("Compare cotações de 16+ seguradoras em minutos. Encontre o melhor preço sem sair de casa — com atendimento humano e personalizado.")}
+    metaDescription="A Patro Seguros, corretora em Guarulhos fundada em 2021 por sócios com 20+ anos de experiência, oferece cotação de Seguro Auto gratuita. Compare Porto, Tokio, Allianz e HDI. Resultado em até 2h úteis."
     ctaText="Cotar Meu Seguro Auto Grátis"
     ctaUrl="https://patroseguros.com.br/cotacao-auto"
     urgencyText="Cotações com preço especial esta semana"
@@ -55,14 +49,12 @@ const LandingSeguroAuto = () => (
       { question: "Vocês atendem fora de Guarulhos?", answer: "Sim! Atendemos todo o Brasil. O processo é 100% digital — você não precisa ir a nenhum lugar." },
     ]}
     extraSections={
-      <div className="space-y-20">
-        <FAQSchema faqs={[
+      <FAQSchema faqs={[
         { question: "A cotação é realmente gratuita?", answer: "100% gratuita e sem compromisso. Você recebe as propostas, compara e decide com calma. Zero pressão." },
         { question: "Quanto tempo leva para receber a cotação?", answer: "Em até 2 horas úteis. Comparamos até 16 seguradoras e enviamos um resumo claro, sem letras miúdas." },
         { question: "Posso parcelar o seguro?", answer: "Sim! A maioria das seguradoras oferece parcelamento em até 10x sem juros no cartão ou débito em conta." },
         { question: "E se eu já tiver seguro, posso trocar?", answer: "Pode sim. Fazemos a cotação considerando seu bônus atual. Na maioria dos casos, a transição é imediata e sem perda de cobertura." }
-        ]} />
-      </div>
+      ]} />
     }
   />
 );

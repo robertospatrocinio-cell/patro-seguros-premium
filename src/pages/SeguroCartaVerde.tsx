@@ -4,15 +4,10 @@ import heroImg from "@/assets/hero-seguro-auto.webp";
 const SeguroCartaVerde = () => {
   return (
     <InsurancePageTemplate
-      service={{
-        name: "Seguro Carta Verde",
-        description: "Contrate Seguro Carta Verde para viajar com veículo brasileiro pela América do Sul. Atendimento em Guarulhos e SP para Argentina, Uruguai, Paraguai, Chile e mais.",
-        type: "AutoInsurance"
-      }}
       heroImage={heroImg}
-      title="Seguro Carta Verde"
+      title="Seguro Carta Verde em Guarulhos e São Paulo"
       headline="Seguro Carta Verde para viajar de carro pela América do Sul"
-      subtitle="Carta Verde: obrigatório para viajar ao exterior. Contrate com a Patro Seguros o seguro para Argentina, Uruguai, Paraguai e mais."
+      subtitle="Conte com a Patro Seguros para contratar o seguro obrigatório para circular com veículo brasileiro em países como Argentina, Uruguai, Paraguai, Chile, Bolívia e Peru."
       icon="🌎"
       metaDescription="Contrate Seguro Carta Verde para viajar com veículo brasileiro pela América do Sul. Atendimento em Guarulhos e SP para Argentina, Uruguai, Paraguai, Chile e mais."
       description="Vai viajar com seu carro para outro país da América do Sul? A Patro Seguros ajuda você a contratar o Seguro Carta Verde com orientação rápida, atendimento em Guarulhos/São Paulo e suporte para viajar com mais tranquilidade."

@@ -16,9 +16,9 @@ const SeguroFlatGuarulhos = () => (
   <>
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Seguro para Flat"
+      title="Seguro para Flat em Guarulhos e SP | Residencial e Locação"
       headline="Seguro para flats residenciais e de locação"
-      subtitle="Proteção para flat: moradia, locação ou temporada. A Patro Seguros ajuda proprietários e moradores em Guarulhos e São Paulo."
+      subtitle="A Patro Seguros ajuda proprietários, investidores e moradores a proteger flats residenciais, mobiliados, alugados ou destinados à temporada em Guarulhos, São Paulo e região."
       icon="🏙️"
       metaDescription="Proteja seu flat em Guarulhos e SP contra incêndio, roubo, danos elétricos, responsabilidade civil, aluguel e riscos de locação. Cotação com a Patro."
       description="Seguro consultivo para flats residenciais, mobiliados, para locação tradicional ou temporada — coberturas patrimoniais, RC, mobília e assistência, conforme apólice."

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import HowToSchema from "@/components/HowToSchema";
 import FAQSchema from "@/components/FAQSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import { Button } from "@/components/ui/button";
@@ -262,6 +263,10 @@ const Consorcio = () => {
       skipBreadcrumb
     />
       <FAQSchema faqs={faqs.map((f) => ({ question: f.q, answer: f.a }))} />
+      <BreadcrumbSchema items={[
+        { name: "Início", url: "https://www.patroseguros.com.br/" },
+        { name: "Consórcio em Guarulhos", url: "https://www.patroseguros.com.br/consorcio" },
+      ]} />
       <ServiceSchema
         name="Consórcio em Guarulhos"
         description="Consultoria de consórcio para imóveis, veículos, empresas e serviços, com orientação sobre crédito, parcelas, lances e contemplação."

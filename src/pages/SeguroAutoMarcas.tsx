@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import { PREMIUM_BRANDS } from "@/data/premiumBrandsConfig";
@@ -69,6 +70,13 @@ const SeguroAutoMarcas = () => (
       skipBreadcrumb
     />
     <FAQSchema faqs={FAQS} />
+    <BreadcrumbSchema
+      items={[
+        { name: "Início", url: "/" },
+        { name: "Seguro Auto", url: "/seguro-auto" },
+        { name: "Marcas", url: "/seguro-auto/marcas" },
+      ]}
+    />
     <Header />
     <main className="bg-background">
       <div className="container mx-auto px-4 pt-6">

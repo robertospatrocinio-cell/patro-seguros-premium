@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, ShieldCheck, HelpCircle, Building2 } from "l
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -78,6 +79,12 @@ const SeguradorasParceirasHub = () => {
       
       skipBreadcrumb
     />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: `${CANONICAL_BASE_URL}/` },
+          { name: "Seguradoras Parceiras", url: CANONICAL },
+        ]}
+      />
       <FAQSchema faqs={HUB_FAQS} />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(collectionSchema)}</script>

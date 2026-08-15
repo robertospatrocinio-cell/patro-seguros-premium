@@ -47,8 +47,6 @@ const args = process.argv.slice(2);
 const APPLY = args.includes("--apply");
 const JSON_OUT = args.includes("--json");
 const CI = args.includes("--ci");
-const minFaqsArg = args.find((a) => a.startsWith("--min="))?.split("=")[1];
-const MIN_FAQS = minFaqsArg ? parseInt(minFaqsArg, 10) : 2;
 
 // ---------- main ------------------------------------------------------------
 
@@ -63,7 +61,7 @@ const slugs = Object.keys(blogContentIndex);
 const affected = [];
 for (const slug of slugs) {
   const total = countFaqs(slug, blogContentIndex, extraFaqsBySlug, blogFaqBackfill);
-  if (total >= MIN_FAQS) continue;
+  if (total >= 2) continue;
   const meta = metaBySlug.get(slug);
   const suggested = suggestFaqs({
     slug,
@@ -91,7 +89,7 @@ fs.writeFileSync(path.join(PUBLIC_ADMIN, "faq-underfilled.json"), JSON.stringify
 if (JSON_OUT) {
   console.log(JSON.stringify(affected, null, 2));
 } else {
-  console.log(`\n📋 FAQ underfilled — ${affected.length} post(s) com < ${MIN_FAQS} Q&A`);
+  console.log(`\n📋 FAQ underfilled — ${affected.length} post(s) com < 2 Q&A`);
   for (const it of affected.slice(0, 40)) {
     console.log(`\n • ${it.slug}  (${it.currentCount} atual, categoria: ${it.category || "—"})`);
     for (const s of it.suggested) {
@@ -113,7 +111,7 @@ if (APPLY && affected.length > 0) {
       existing,
       suggestions: it.suggested,
       currentCount: it.currentCount,
-      target: MIN_FAQS,
+      target: 2,
     });
     if (n > 0) {
       merged[it.slug] = next;
@@ -125,22 +123,22 @@ if (APPLY && affected.length > 0) {
   console.log(`\n✅ Gravado ${added} novo(s) Q&A de backfill em src/data/blogFaqBackfill.ts`);
   if (shortfalls.length > 0) {
     console.error(
-      `\n⚠️  ${shortfalls.length} slug(s) não atingiram ${MIN_FAQS} Q&A após o top-up ` +
+      `\n⚠️  ${shortfalls.length} slug(s) não atingiram 2 Q&A após o top-up ` +
         `(sugestões colidiram com Q&A existentes). Adicione perguntas manuais para: ` +
         shortfalls.map((s) => s.slug).join(", "),
     );
     if (CI) process.exit(1);
   }
 } else if (APPLY) {
-  console.log(`\n✅ Nada a gravar — todos os posts têm ≥ ${MIN_FAQS} Q&A ou já estão no backfill.`);
+  console.log(`\n✅ Nada a gravar — todos os posts têm ≥ 2 Q&A ou já estão no backfill.`);
 } else if (affected.length > 0) {
   console.log(`\n💡 Rode com --apply para gravar as sugestões em src/data/blogFaqBackfill.ts`);
 }
 
 if (CI && affected.length > 0) {
   console.error(
-    `\n❌ CI: ${affected.length} post(s) do blog com FAQPage < ${MIN_FAQS} Question após merge do backfill.` +
-      `\n   Rode \`node scripts/detect-faq-underfilled.mjs --apply --min=${MIN_FAQS}\` e commite src/data/blogFaqBackfill.ts.`,
+    `\n❌ CI: ${affected.length} post(s) do blog com FAQPage < 2 Question após merge do backfill.` +
+      `\n   Rode \`node scripts/detect-faq-underfilled.mjs --apply\` e commite src/data/blogFaqBackfill.ts.`,
   );
   process.exit(1);
 }

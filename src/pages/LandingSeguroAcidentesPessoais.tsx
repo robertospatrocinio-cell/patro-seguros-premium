@@ -75,8 +75,8 @@ const LandingSeguroAcidentesPessoais = () => (
       indexable
       ogImage="https://www.patroseguros.com.br/images/og-cover.webp"
       ogImageAlt="Seguro de Acidentes Pessoais — Patro Seguros"
-      headline="Seguro de Acidentes Pessoais"
-      subheadline="Um dos seguros com melhor custo-benefício do mercado — cotação gratuita em minutos."
+      headline="Um acidente pode mudar tudo. Você e sua família estão protegidos?"
+      subheadline="Indenização por morte acidental, invalidez permanente e despesas médicas. Um dos seguros com melhor custo-benefício do mercado — cotação gratuita em minutos."
       metaDescription="Seguro de Acidentes Pessoais: indenização por morte acidental, invalidez e despesas médicas. A partir de R$ 15/mês. Cotação grátis com a Patro Seguros."
       ctaText="Pedir Cotação Agora"
       urgencyText="Um acidente não avisa. Contrate hoje."

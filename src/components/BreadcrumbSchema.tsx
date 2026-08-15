@@ -14,6 +14,7 @@ interface BreadcrumbSchemaProps {
 
 const routeNameMap: Record<string, string> = {
   "": "Início",
+
   "sobre": "Sobre Nós",
   "parceiros": "Parceiros",
   "cotacao": "Cotação Online",
@@ -21,20 +22,16 @@ const routeNameMap: Record<string, string> = {
   "depoimentos": "Depoimentos",
   "avaliacoes-clientes": "Avaliações dos Clientes",
   "seguro-auto": "Seguro Auto",
-  "seguro-auto-guarulhos": "Seguro Auto",
   "seguro-vida": "Seguro de Vida",
-  "seguro-vida-guarulhos": "Seguro de Vida",
   "seguro-residencial": "Seguro Residencial",
   "seguro-viagem": "Seguro Viagem",
   "seguro-fianca": "Seguro Fiança",
   "previdencia-privada": "Previdência Privada",
   "seguro-moto": "Seguro de Moto",
-  "seguro-moto-entregadores-guarulhos": "Seguro de Moto",
   "seguro-saude": "Seguro Saúde",
   "seguro-odonto": "Seguro Odonto",
   "seguro-empresarial": "Seguro Empresarial",
   "planos-de-saude": "Planos de Saúde",
-  "plano-de-saude-guarulhos": "Planos de Saúde",
   "blog": "Blog",
   "central-de-sinistro": "Central de Sinistro",
   "faq": "FAQ",
@@ -44,7 +41,6 @@ const routeNameMap: Record<string, string> = {
   "consorcio": "Consórcio",
   "saude": "Planos de Saúde",
   "seguradoras": "Seguradoras",
-  "seguradoras-parceiras": "Seguradoras Parceiras",
 };
 
 const BreadcrumbSchema = ({ items }: BreadcrumbSchemaProps) => {

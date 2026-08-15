@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import { trackInternalLinkClick, trackWhatsAppClick } from "@/lib/tracking";
@@ -191,6 +192,12 @@ const GlossarioSeguros = () => {
         <link rel="canonical" href="https://www.patroseguros.com.br/glossario-seguros" />
         <script type="application/ld+json">{JSON.stringify(definedTermSet)}</script>
       </Helmet>
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Glossário de seguros", url: "/glossario-seguros" },
+        ]}
+      />
       <Header />
       <main className="bg-background">
         <div className="container mx-auto px-4 pt-6">

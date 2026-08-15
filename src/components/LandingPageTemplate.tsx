@@ -38,19 +38,13 @@ interface LandingPageProps {
   ogImage?: string;
   /** Alt da og:image. */
   ogImageAlt?: string;
-  /** Schema.org Service data. */
-  service?: {
-    name: string;
-    description: string;
-    type?: string;
-  };
 }
 
 const LandingPageTemplate = ({
   title, headline, subheadline, painPoints, benefits, stats,
   testimonials, objections, ctaText, ctaUrl, urgencyText,
   metaDescription, heroEmoji, heroImage, priceAnchor, guaranteeText, ebookUrl,
-  extraSections, indexable = false, ogImage, ogImageAlt, service,
+  extraSections, indexable = false, ogImage, ogImageAlt,
 }: LandingPageProps) => {
 
   const mainCtaLink = ctaUrl || "/cotacao";
@@ -59,7 +53,7 @@ const LandingPageTemplate = ({
   const CtaButton = ({ variant = "primary", size = "lg" }: { variant?: "primary" | "whatsapp"; size?: "lg" | "md" }) => {
     if (variant === "whatsapp") {
       return (
-        <a href={`https://wa.me/551151997500?text=${encodeURIComponent("Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.")}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick(`lp-${title}`)}>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick(`lp-${title}`)}>
           <Button size={size === "lg" ? "lg" : "default"} className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-white font-semibold shadow-lg">
             <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Chamar no WhatsApp
           </Button>
@@ -85,7 +79,6 @@ const LandingPageTemplate = ({
         noindex={!indexable}
         ogImage={ogImage}
         ogImageAlt={ogImageAlt}
-        service={service}
       />
 
       {/* Minimal header */}

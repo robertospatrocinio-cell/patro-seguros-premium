@@ -13,6 +13,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -98,11 +99,17 @@ const ConsorcioGuarulhos = () => {
   return (
     <>
       <PageMeta
-        title="Consórcio em Guarulhos | Imóveis e Veículos | Patro"
-        description="Consórcio em Guarulhos para imóvel, veículo ou empresa. Orientação consultiva, sem juros e acompanhamento até a contemplação. Simule grátis."
+        title="Consórcio em Guarulhos | Patro Seguros"
+        description="Consórcio em Guarulhos: simulação de carro, imóvel e caminhão com administradoras autorizadas pelo Banco Central. Compare prazos, taxas e cenários de lance."
       
       skipBreadcrumb
     />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Consórcio em Guarulhos", url: PATH },
+        ]}
+      />
       <LocalAreaSchema
         serviceName="Consórcio em Guarulhos"
         url={URL_ABS}

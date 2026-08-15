@@ -6,6 +6,7 @@ import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";

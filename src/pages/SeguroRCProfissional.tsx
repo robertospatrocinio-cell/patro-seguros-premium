@@ -5,10 +5,10 @@ const SeguroRCProfissional = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="RC Profissional em Guarulhos | Cotação em 2h | Patro"
+      title="Seguro RC Profissional (E&O)"
       subtitle="Proteção para profissionais liberais contra erros e omissões"
       icon="👔"
-      metaDescription="Responsabilidade civil profissional em Guarulhos para médicos, advogados, engenheiros e consultores. Cotação em até 2h. Peça sua proposta grátis."
+      metaDescription="Seguro RC Profissional (E&O) para médicos, advogados, engenheiros, contadores e arquitetos. Proteção contra erros e omissões. Cotação grátis Patro Seguros."
       description="O Seguro de Responsabilidade Civil Profissional (E&O) protege profissionais liberais contra reclamações de clientes por erros, omissões ou negligência na prestação de serviços."
       detailedDescription={`Profissionais liberais investem anos de estudo e dedicação para construir suas carreiras. Porém, um único processo por erro profissional pode destruir patrimônio pessoal acumulado ao longo de décadas. Médicos, advogados, engenheiros, arquitetos, contadores — todos estão expostos a reclamações que podem resultar em indenizações milionárias.
 

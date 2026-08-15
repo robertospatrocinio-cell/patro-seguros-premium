@@ -43,13 +43,15 @@ const DIST = path.join(ROOT, "dist");
 // dist/ estático — não devem ser exigidos aqui. O que exigimos abaixo é o
 // que `scripts/prerender.mjs` injeta diretamente no HTML.
 const EXPECTED_ROUTES = {
+  // InsuranceAgency é subtipo de Organization/LocalBusiness — a entidade
+  // institucional é publicada com o tipo mais específico no index.html.
   "/": ["InsuranceAgency", "WebSite", "SiteNavigationElement"],
-  "/sobre": ["InsuranceAgency"],
-  "/servicos": [],
-  "/contato": [],
-  "/faq": [],
-  "/verificar-susep": [],
-  "/como-comparar-seguradoras-guarulhos": [],
+  "/sobre": ["BreadcrumbList", "InsuranceAgency"],
+  "/servicos": ["BreadcrumbList"],
+  "/contato": ["BreadcrumbList"],
+  "/faq": ["BreadcrumbList"],
+  "/verificar-susep": ["BreadcrumbList"],
+  "/como-comparar-seguradoras-guarulhos": ["BreadcrumbList"],
 };
 
 const args = process.argv.slice(2);

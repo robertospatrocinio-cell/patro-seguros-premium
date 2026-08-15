@@ -5,6 +5,7 @@ import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -65,6 +66,10 @@ const NichoLojistasGuarulhos = () => (
       url="https://www.patroseguros.com.br/seguros-para-lojistas-guarulhos"
       description="Hub estratégico de seguros para lojistas de shopping em Guarulhos."
     />
+    <BreadcrumbSchema items={[
+      { name: "Início", url: "/" },
+      { name: "Lojistas Guarulhos", url: "/seguros-para-lojistas-guarulhos" }
+    ]} />
     <Header />
     <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Segmentos" }, { label: "Lojistas Guarulhos" }]} />

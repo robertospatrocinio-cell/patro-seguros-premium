@@ -27,15 +27,7 @@ const ConsorcioGuarulhosVertical = () => {
         "Atendimento local em Guarulhos/SP",
         "Acompanhamento desde a adesão até a contemplação"
       ]}
-      faqs={page.faqs.map(f => ({ ...f, question: f.question, answer: f.answer }))}
-      pricingInfo={{
-        intro: "O valor das parcelas do consórcio depende do valor do crédito e do prazo escolhido.",
-        factors: ["Taxa de administração", "Fundo de reserva", "Seguro prestamista"]
-      }}
-      importantDetails={[
-        { title: "Como a Patro ajuda você", content: "Ajudamos na escolha da melhor cota e estratégia de lances." },
-        { title: "Perguntas frequentes sobre consórcio", content: "Esclarecemos todas as dúvidas sobre contemplação e lances." }
-      ]}
+      faqs={page.faqs}
       detailedDescription={page.sections.map(s => `### ${s.heading}\n\n${s.body}`).join("\n\n")}
       localSeo={{ city: "Guarulhos", neighborhood: "Cidade Maia" }}
     />

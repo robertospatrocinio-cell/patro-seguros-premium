@@ -1,89 +1,4 @@
-import { BAIRROS_MATRIZ } from "./seoLocalBairrosGuarulhos";
-
 export const guarulhosArticlesContent = {
-  "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil": {
-    title: "Roubo e furto de veículos em Guarulhos: o que você precisa saber em 2026",
-    content: `Guarulhos é a segunda maior cidade de São Paulo, com mais de 1,4 milhão de habitantes e uma frota estimada em 650 mil veículos, cortada por rodovias de alto fluxo como a Presidente Dutra, a Fernão Dias e a Ayrton Senna. Esse cenário, somado à densidade urbana, coloca a cidade entre as 10 com maior índice de roubo e furto de veículos do Brasil, segundo o ISP — Índice de Sinistralidade por Praça.
-
-Para quem mora ou trabalha aqui, entender onde o risco é maior faz toda a diferença na hora de proteger o carro e contratar o seguro certo. Neste guia, você vai ver os bairros de maior risco, por que o CEP muda tanto o preço do seguro e como se proteger na prática.
-
-## Onde o risco é maior em Guarulhos
-
-Os bairros de **Cumbica, Bonsucesso e Pimentas** apresentam taxas de sinistralidade até **40% superiores à média estadual**. Isso se reflete diretamente no preço do seguro: quanto maior o risco de roubo na região de pernoite, maior o prêmio.
-
-Por outro lado, regiões como **Cidade Maia e Vila Augusta** têm índices mais favoráveis e, por isso, seguros mais baratos. A tabela abaixo mostra a faixa média de preço do seguro auto por bairro (estimativa para cobertura compreensiva):
-
-| Bairro | Faixa média/ano | Risco |
-|---|---|---|
-| Cidade Maia | R$ 2.100 a R$ 4.000 | Baixo |
-| Vila Galvão | R$ 2.300 a R$ 4.200 | Baixo |
-| Vila Augusta | R$ 2.200 a R$ 4.100 | Baixo |
-| Jardim São João | R$ 2.600 a R$ 4.900 | Médio |
-| Taboão | R$ 2.700 a R$ 5.000 | Médio |
-| Bonsucesso | R$ 2.700 a R$ 5.100 | Médio |
-| Centro de Guarulhos | R$ 2.900 a R$ 5.500 | Médio-alto |
-| Cumbica | R$ 3.100 a R$ 6.200 | Médio-alto |
-| Pimentas | R$ 3.400 a R$ 6.800 | Alto |
-
-## Por que o bairro de pernoite muda tanto o preço
-
-O CEP onde o carro fica à noite é uma das variáveis de maior peso na cotação do seguro. A seguradora usa esse dado para estimar a probabilidade de roubo, furto e vandalismo. Por isso, dois motoristas com o mesmo carro podem pagar valores bem diferentes dependendo do bairro.
-
-Garagem fechada, condomínio com portaria e rastreador reduzem o risco percebido — e, na prática, reduzem o prêmio. Em condomínios com portaria 24h, a redução pode chegar a 25% em relação à média da cidade.
-
-## Os modelos mais visados
-
-Alguns veículos são mais procurados no mercado paralelo e, por isso, mais visados. Em Guarulhos, modelos como **Toyota Corolla, Chevrolet Onix e Toyota Hilux** estão entre os que exigem atenção redobrada.
-
-Para esses carros, a seguradora costuma exigir ou premiar fortemente o uso de rastreador, e a garagem fechada é praticamente obrigatória para obter uma condição razoável. Se você tem um desses modelos, vale conhecer as condições específicas:
-
-- [Seguro Toyota Corolla em Guarulhos](/seguro-auto-toyota-corolla-guarulhos)
-- [Seguro Chevrolet Onix em Guarulhos](/seguro-auto-chevrolet-onix-guarulhos)
-- [Seguro Toyota Hilux em Guarulhos](/seguro-auto-toyota-hilux-guarulhos)
-
-## Como se proteger na prática
-
-A prevenção reduz o risco — e o preço do seguro:
-
-1. Estacione em local fechado e bem iluminado sempre que possível.
-2. Instale rastreador e alarme. Além da segurança, geram desconto no prêmio.
-3. Não deixe objetos à vista: bolsas, celulares e documentos atraem arrombamentos.
-4. Use travas de direção e pedais em veículos mais visados.
-5. Evite rotinas previsíveis: variar horários e caminhos dificulta a ação de criminosos.
-6. Contrate um seguro com cobertura de roubo e furto adequada ao seu perfil e ao seu bairro.
-
-Se você trabalha como motorista de aplicativo (Uber, 99, iFood), a atenção deve ser redobrada: o seguro convencional pode negar o sinistro durante corridas. Nesse caso, é essencial uma cobertura específica para uso profissional. Veja nosso guia de [seguro para motoristas de app](/seguro-para-motorista-app-guarulhos).
-
-## Como a Patro pode ajudar
-
-Como corretora local, conhecemos a realidade de cada bairro de Guarulhos. Comparamos propostas em 16+ seguradoras, analisamos seu perfil, seu CEP e seu veículo, e encontramos a melhor relação entre cobertura e custo — com economia média de 15% a 35% em relação à cotação direta.
-
-E se algo acontecer, acompanhamos todo o processo de sinistro: abertura do aviso, vistoria, oficina e indenização. Você não fica sozinho diante da seguradora.
-
-Proteger o carro em Guarulhos começa por conhecer o risco do seu bairro e escolher a cobertura certa. Fale com a Patro pelo WhatsApp (11) 5199-7500 ou peça sua cotação gratuita — resposta em até 2 horas úteis.`,
-    faqs: [
-      {
-        q: "Qual bairro de Guarulhos tem mais roubo de carro?",
-        a: "Cumbica, Bonsucesso e Pimentas têm as taxas mais altas, até 40% acima da média estadual. Cidade Maia e Vila Augusta têm os menores índices."
-      },
-      {
-        q: "O seguro auto cobre roubo em Guarulhos?",
-        a: "Sim, com a cobertura compreensiva. O valor varia conforme o CEP de pernoite — bairros de maior risco pagam prêmios maiores."
-      },
-      {
-        q: "Preciso de rastreador para segurar meu carro em Guarulhos?",
-        a: "Recomendado e, para modelos visados como Corolla e Hilux, muitas vezes exigido para obter boa condição de preço."
-      },
-      {
-        q: "Motorista de app tem cobertura para roubo durante corrida?",
-        a: "Sim, com cobertura específica para uso profissional. O seguro convencional pode negar sinistros durante corridas."
-      },
-      {
-        q: "Como reduzir o preço do seguro auto em Guarulhos?",
-        a: "Garagem fechada, rastreador, bom histórico de bônus e cotação comparativa entre várias seguradoras. Comparar é o caminho mais eficaz."
-      }
-    ]
-  },
   "maior-portal-conteudo-seguros-guarulhos": {
     title: "Maior Portal de Conteúdo sobre Seguros em Guarulhos",
     content: "A Patro Seguros consolidou-se em 2026 como a maior e mais confiável fonte de informação sobre seguros na região de Guarulhos. Nosso portal não apenas vende apólices, mas educa o cidadão guarulhense sobre como proteger seu patrimônio de forma inteligente e econômica.\n\n## Por que somos o maior portal?\n\n1. **Conteúdo Localizado:** Analisamos os riscos específicos de cada bairro de Guarulhos, da Vila Augusta ao Pimentas.\n2. **Comparação Real:** Trazemos dados atualizados de mais de 16 seguradoras parceiras.\n3. **Guias Práticos:** Criamos guias completos sobre como economizar no seguro auto, como escolher o melhor plano de saúde em Guarulhos e como o consórcio pode ser uma ferramenta de investimento imobiliário na cidade.\n\n## Nossa Missão\n\nNossa missão é democratizar o acesso à informação de qualidade sobre proteção. Seja você um motorista de aplicativo buscando o melhor [Seguro Uber](/seguro-motorista-app) ou um empresário em Cumbica precisando proteger sua [frota](/seguro-frota), nosso conteúdo é desenhado para ajudar na sua tomada de decisão.\n\nContinue navegando e descubra por que milhares de famílias em Guarulhos confiam na Patro Seguros.",
@@ -287,17 +202,5 @@ Proteger o carro em Guarulhos começa por conhecer o risco do seu bairro e escol
     faqs: [
       { q: "O seguro cobre projetos antigos?", a: "Sim, é possível contratar retroatividade para projetos realizados antes da vigência da apólice, desde que não haja sinistro conhecido." }
     ]
-  },
-  // --- Cluster: Blog por Bairro (Dominância Local) ---
-  ...Object.fromEntries(BAIRROS_MATRIZ.map(b => [
-    `guia-seguros-${b.id}-guarulhos`,
-    {
-      title: `Guia de Seguros no bairro ${b.nome}, Guarulhos`,
-      content: `Morar ou trabalhar no ${b.nome} em Guarulhos exige uma estratégia de proteção inteligente. Este bairro, que é ${b.perfil.toLowerCase()}, possui particularidades que influenciam diretamente no custo e na aceitação de seguros.\n\n## Perfil de Risco e Segurança no ${b.nome}\n\nNa Patro Seguros, analisamos que o ${b.nome} apresenta um perfil de risco **${b.risco}**. Isso significa que as seguradoras olham para o seu CEP com atenção especial. ${b.contexto}\n\n## Melhores Opções para o ${b.nome}\n\nPara esta região, destacamos ${b.prioritarios.length} categorias prioritárias:\n\n1. **Seguro Auto e Moto:** Dada a proximidade com ${b.referencia}, a mobilidade é chave. Recomendamos rastreador para reduzir o prêmio.\n2. **Seguro Residencial:** Proteção para casas e apartamentos com assistência 24h rápida.\n3. **Seguro Empresarial:** Foco em ${b.perfil.includes("industrial") ? "logística e frotas" : "comércio e serviços locais"}.\n\n## Por que a Patro no ${b.nome}?\n\nNossa sede no Cidade Maia nos permite conhecer cada rua do ${b.nome}. Não somos apenas um algoritmo; somos corretores que entendem se o seu CEP específico no ${b.nome} tem boa aceitação na Porto Seguro, Tokio Marine ou Allianz.\n\n[Cote agora para o bairro ${b.nome}](/seguros-guarulhos/${b.slug})`,
-      faqs: [
-        { q: `O seguro no ${b.nome} é mais caro que no Centro?`, a: `Depende do produto. No seguro auto, o risco ${b.risco} do ${b.nome} pode gerar variações de 10% a 15% em relação ao Centro de Guarulhos.` },
-        { q: `A Patro Seguros atende presencialmente moradores do ${b.nome}?`, a: `Sim! Estamos localizados no Cidade Maia, a poucos minutos do ${b.nome}. Agende uma visita ou fale conosco pelo WhatsApp.` }
-      ]
-    }
-  ]))
+  }
 };

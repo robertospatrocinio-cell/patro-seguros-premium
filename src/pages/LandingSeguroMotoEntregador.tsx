@@ -55,15 +55,10 @@ const LandingSeguroMotoEntregador = () => {
 
   return (
     <LandingPageTemplate
-      service={{
-        name: "Seguro de Moto para Entregadores",
-        description: "Consultoria especializada em seguros para motociclistas profissionais e entregadores de aplicativos em Guarulhos e região.",
-        type: "MotorcycleInsurance"
-      }}
-      title="Seguro de Moto para Entregadores em Guarulhos — Cotação com 16+ seguradoras"
-      headline="Seguro de Moto para Entregadores em Guarulhos — Cotação com 16+ seguradoras"
-      subheadline={highlightBrands("Vai rodar hoje? Garanta que seu sustento esteja protegido. A Patro Seguros compara opções aceitas por iFood, Keeta e 99 em 16+ seguradoras, com planos de roubo e furto para motoboys em Guarulhos.")}
-      metaDescription="Seguro de Moto para entregadores em Guarulhos comparado em 16+ seguradoras. Proteção aceita por iFood, Keeta e 99 contra roubo e furto. Planos a partir de R$ 49/mês."
+      title="Seguro de Moto para Entregadores em Guarulhos | Melhor Preço iFood e 99"
+      headline={highlightBrands("Seguro de Moto para Entregadores em Guarulhos: Proteja seu Ganha-Pão")}
+      subheadline={highlightBrands("Cotação rápida para iFood, Keeta, 99 e Motoboy Profissional. Planos de Seguro de Moto com cobertura total contra roubo e furto em Guarulhos e São Paulo.")}
+      metaDescription="Garanta o melhor Seguro de Moto para entregadores em Guarulhos. Proteção aceita por iFood e 99 contra roubo e furto. Cote em 16+ seguradoras com planos a partir de R$ 49/mês."
       heroEmoji="🏍️"
       indexable={true}
       ctaText="Solicitar Cotação"
@@ -99,6 +94,11 @@ const LandingSeguroMotoEntregador = () => {
       objections={faqs}
       extraSections={
         <div className="space-y-20">
+          <ServiceSchema 
+            name="Seguro de Moto para Entregadores" 
+            description="Consultoria especializada em seguros para motociclistas profissionais e entregadores de aplicativos em Guarulhos e região."
+            serviceType="InsuranceBusiness"
+          />
           <FAQSchema faqs={faqs} />
           
           {/* BreadcrumbList Schema for Rich Results */}

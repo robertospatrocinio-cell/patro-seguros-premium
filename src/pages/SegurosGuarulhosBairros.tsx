@@ -79,7 +79,7 @@ const SegurosGuarulhosBairros = () => {
     }
     setSending(true);
     const { error } = await safeInvoke("send-form-email", {
-      to: ["comercial@patroseguros.com.br", "sandra@patroseguros.com.br"],
+      to: ["contato@patroseguros.com.br", "sandra@patroseguros.com.br"],
       subject: `Lead SEO Bairro — ${selectedBairro.nome}`,
       htmlBody: `<h2>Novo Lead — Seguros em ${escapeHtml(selectedBairro.nome)}</h2>
         <table style="border-collapse:collapse;width:100%">
@@ -158,7 +158,7 @@ const SegurosGuarulhosBairros = () => {
     "parentOrganization": { "@id": "https://www.patroseguros.com.br/#insurance-agency" },
     "description": `Corretora de seguros em ${selectedBairro.nome}, Guarulhos. Especialista em ${selectedBairro.foco.toLowerCase()}: seguro auto, residencial, empresarial, saúde e mais.`,
     "telephone": "+55-11-5199-7500",
-    "email": "comercial@patroseguros.com.br",
+    "email": "contato@patroseguros.com.br",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia",
@@ -780,7 +780,7 @@ const SegurosGuarulhosBairros = () => {
                 </p>
                 <p className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-[#F2994A]" />
-                  comercial@patroseguros.com.br
+                  contato@patroseguros.com.br
                 </p>
               </div>
               <div>

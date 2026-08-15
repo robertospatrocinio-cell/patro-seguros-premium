@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { segmentos } from "@/data/segmentosEmpresariais";
 
 const SegurosPorSegmento = () => {
@@ -14,6 +15,13 @@ const SegurosPorSegmento = () => {
       
       skipBreadcrumb
     />
+      <BreadcrumbSchema
+        items={[
+          { name: "Início", url: "/" },
+          { name: "Seguros Empresariais", url: "/seguro-empresarial" },
+          { name: "Por Segmento", url: "/seguro-empresarial/segmentos" },
+        ]}
+      />
       <Header />
       <main className="min-h-screen bg-background">
         <section className="bg-primary text-primary-foreground py-16">
