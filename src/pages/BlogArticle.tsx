@@ -332,6 +332,40 @@ const BlogArticle = () => {
                     </div>
                   );
                 }
+                // Detect tables in markdown format: | col1 | col2 |
+                if (p.trim().startsWith("|") && p.includes("|") && p.includes("\n|")) {
+                  const rows = p.trim().split("\n");
+                  const tableRows = rows.filter(r => r.trim().startsWith("|") && r.includes("|"));
+                  if (tableRows.length > 1) {
+                    const headerRow = tableRows[0].split("|").filter(c => c.trim() !== "").map(c => c.trim());
+                    // Skip the separator row (--- | ---)
+                    const dataRows = tableRows.slice(2).map(r => r.split("|").filter(c => c.trim() !== "").map(c => c.trim()));
+
+                    return (
+                      <div key={i} className="my-8 overflow-x-auto rounded-lg border border-border">
+                        <table className="w-full text-sm text-left">
+                          <thead className="text-xs uppercase bg-muted/50 text-muted-foreground border-b border-border">
+                            <tr>
+                              {headerRow.map((h, hi) => (
+                                <th key={hi} className="px-6 py-3 font-semibold">{h}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-border">
+                            {dataRows.map((row, ri) => (
+                              <tr key={ri} className="bg-background hover:bg-muted/30 transition-colors">
+                                {row.map((cell, ci) => (
+                                  <td key={ci} className="px-6 py-4 whitespace-nowrap font-medium text-foreground">{cell}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  }
+                }
+
                 // Parse markdown-style [text](url) links
                 const parts = p.split(/(\[[^\]]+\]\([^)]+\))/g);
                 return (

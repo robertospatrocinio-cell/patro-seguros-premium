@@ -156,6 +156,7 @@ export const blogImageMap: Record<string, string> = {
   "plano-saude-mei-guarulhos-tabelas-regras": blogPlanoSaudePme,
   "seguro-transportadoras-cumbica-frota-carga-rc": blogSeguroFrotaLogisticaGuarulhos,
   "carros-mais-roubados-guarulhos-2026-seguro-precos": blogRoubosGuarulhos,
+  "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil": blogRoubosGuarulhos,
 
   // Seguro Residencial
   "o-que-seguro-residencial-cobre": blogSeguroResidencial,
@@ -407,6 +408,8 @@ export const blogImageAltMap: Record<string, string> = {
     "Silos metálicos de armazenagem de grãos em fazenda brasileira ao entardecer",
   "drone-agricola-anac-seguro-rcf-pulverizacao":
     "Drone agrícola pulverizando lavoura de soja com céu azul ao fundo, operação regulada pela ANAC",
+  "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil":
+    "Estatísticas de roubo e furto de veículos em Guarulhos, São Paulo, com destaque para bairros de risco",
 };
 
 export const getArticleImageAlt = (slug: string, fallback?: string): string => {
