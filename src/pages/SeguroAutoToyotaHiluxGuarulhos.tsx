@@ -3,51 +3,59 @@ import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 const SeguroAutoToyotaHiluxGuarulhos = () => {
   return (
     <InsurancePageTemplate
-      title="Seguro Toyota Hilux em Guarulhos | Cotação em 2h | Patro"
+      title="Seguro Toyota Hilux em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Toyota Hilux em Guarulhos — Cotação com 16+ seguradoras"
-      subtitle="Proteção robusta para a picape líder com suporte especializado em Guarulhos."
-      metaDescription="Seguro Toyota Hilux em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 3.500 a R$ 6.500/ano. Cotação em até 2h com atendimento consultivo. Peça sua proposta grátis."
-      description="A Hilux é a picape mais desejada do Brasil e um dos veículos mais visados para roubo em Guarulhos, sobretudo em áreas industriais e logísticas como Cumbica e Bonsucesso. O alto valor de revenda e a demanda por peças tornam o seguro um investimento essencial e estratégico."
-      detailedDescription={`Devido à alta sinistralidade do modelo, o uso de rastreador é praticamente obrigatório na maioria das seguradoras para obter uma condição comercial viável. Ter garagem fechada e pernoitar em bairros com menor índice de roubo reduz significativamente o prêmio. 
+      subtitle="A Toyota Hilux é a picape mais desejada do Brasil e um dos veículos mais visados para roubo em Guarulhos, sobretudo nas áreas de Cumbica e Bonsucesso."
+      metaDescription="Seguro Toyota Hilux em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 3.500 a R$ 6.500/ano. Cotação em até 2h com atendimento consultivo."
+      description="A Toyota Hilux é a picape mais desejada do Brasil e um dos veículos mais visados para roubo em Guarulhos, sobretudo nas áreas de Cumbica e Bonsucesso. O alto valor FIPE e a forte demanda no mercado paralelo tornam o seguro um dos mais caros da categoria — e também um dos que mais exigem cuidado na hora de contratar."
+      detailedDescription={`O rastreador é praticamente obrigatório para obter uma condição razoável de preço, e a garagem fechada reduz ainda mais o prêmio. A Hilux é muito usada por empresas, produtores rurais, transportadoras e profissionais que precisam de robustez para o trabalho — e cada perfil de uso exige uma cobertura diferente.
 
-A Hilux é muito utilizada por empresas de logística, produtores rurais que frequentam a região e condutores que buscam robustez para o trabalho pesado. Seguradoras como Tokio Marine e Allianz possuem os produtos mais técnicos e completos para o segmento de picapes de grande porte em Guarulhos.`}
+Na Patro, estruturamos a apólice da sua Hilux conforme o uso real (particular, empresa ou agro), comparamos 16+ seguradoras e explicamos coberturas, franquias e exclusões antes da contratação.
+
+## Dicas da Patro para economizar
+1. Rastreador homologado: além do desconto, é o principal fator para obter condição aceitável.
+2. Garagem fechada: reduz o prêmio em até 20%, ainda mais em bairros de risco.
+3. Declare o uso correto: uso empresarial e rural têm apólices específicas — declarar errado pode negar o sinistro.
+4. Mantenha o bônus e negocie na renovação: o mercado de picapes é dinâmico.
+5. Avalie franquias e coberturas opcionais: ajuste ao seu uso real, sem pagar a mais.`}
       icon="🛻"
       pricingInfo={{
-        intro: "O seguro da Toyota Hilux é um dos mais técnicos do mercado automotivo devido ao valor do ativo.",
+        intro: "A faixa média fica entre R$ 3.500 e R$ 6.500 por ano para cobertura compreensiva (estimativa com base no perfil médio dos nossos clientes).",
         factors: [
-          "Obrigatoriedade de rastreador (monitoramento 24h)",
-          "CEP de pernoite e trânsito (Cumbica e Dutra pesam no prêmio)",
-          "Uso do veículo (comercial, lazer ou rural)",
-          "Histórico de sinistros e experiência do condutor",
+          "Versão (SR, SRX, GR-S) e ano da picape.",
+          "CEP de pernoite: Cumbica e Bonsucesso elevam muito o prêmio.",
+          "Uso: particular, empresa ou rural.",
+          "Rastreador instalado (reduz o prêmio e é praticamente exigido).",
+          "Perfil do condutor e classe de bônus.",
         ],
-        note: "Faixa média estimada: R$ 3.500 a R$ 6.500 por ano."
+        note: "Seguradoras mais competitivas: Tokio Marine e Allianz costumam ter as melhores condições para picapes como a Hilux. Para uso empresarial e agro, trabalhamos com seguradoras especializadas nesse perfil de risco."
       }}
       coverages={[
-        { title: "Indenização Integral (Roubo/Furto)", description: "Proteção contra o desaparecimento do veículo, comum neste modelo." },
-        { title: "Assistência Pesada 24h", description: "Guincho preparado para veículos de grande porte e carga." },
-        { title: "Cobertura de Acessórios", description: "Proteção para santo-antônio, estribos e capota marítima." },
-        { title: "Danos Ambientais", description: "Garantia para vazamentos ou acidentes em caso de uso comercial." },
-        { title: "Carro Reserva de Carga", description: "Opção de veículo utilitário para não parar sua operação." },
+        { title: "Compreensiva", description: "Roubo, furto, colisão, incêndio e fenômenos naturais." },
+        { title: "Roubo com rastreamento", description: "Cobertura que depende do rastreador homologado." },
+        { title: "Assistência 24h", description: "Guincho e socorro em qualquer lugar do Brasil." },
+        { title: "Carro reserva", description: "Para quem usa a picape no trabalho." },
+        { title: "Acessórios", description: "Capota marítima, engate, som e itens instalados." },
       ]}
       whoNeeds={[
-        "Proprietários de Toyota Hilux (Cabine Dupla ou Simples)",
-        "Empresas de logística e transporte situadas em Guarulhos",
-        "Produtores que utilizam a picape para deslocamentos rurais e urbanos",
-        "Pessoas que buscam segurança máxima para um veículo de alto valor",
-        "Quem trafega com frequência por rodovias e polos industriais",
+        "Empresas e transportadoras que usam a picape no trabalho.",
+        "Produtores rurais e profissionais do agronegócio.",
+        "Proprietários de Hilux em bairros de risco elevado como Cumbica e Bonsucesso.",
+        "Quem usa a picape para reboque, carga e estradas.",
+        "Famílias que buscam robustez e segurança no dia a dia.",
       ]}
       whyPatro={[
-        "Especialistas no mercado de seguros para picapes e utilitários",
-        "Negociação direta com gerenciadoras de risco e rastreadores",
-        "Comparativo entre as seguradoras mais agressivas no segmento",
-        "Atendimento ágil focado em manter seu veículo rodando",
+        "Resposta em até 2 horas úteis",
+        "Comparativo de 16+ seguradoras",
+        "Atendimento consultivo especializado",
+        "Expertise local em Guarulhos e região",
       ]}
       faqs={[
-        { question: "Quanto custa o seguro da Toyota Hilux em Guarulhos?", answer: "Em Guarulhos, a média varia de R$ 3.500 a R$ 6.500 por ano, dependendo muito da região de pernoite." },
-        { question: "A Hilux é muito visada para roubo em Guarulhos?", answer: "Sim, é um dos modelos com maior índice de roubo na região, especialmente em Cumbica e Bonsucesso." },
-        { question: "Preciso de rastreador para segurar a Hilux?", answer: "Sim, na maioria das seguradoras o rastreador é condição obrigatória para aceitação do risco." },
-        { question: "Qual seguradora é melhor para a Hilux?", answer: "Tokio Marine e Allianz costumam ter as melhores aceitações e preços para picapes de grande porte." },
-        { question: "O seguro cobre uso em estradas de terra?", answer: "Sim, a cobertura compreensiva padrão atende todo o território nacional, incluindo vias não pavimentadas." },
+        { question: "Quanto custa seguro Hilux em Guarulhos?", answer: "Entre R$ 3.500 e R$ 6.500 por ano para cobertura compreensiva, dependendo da versão, do CEP, do uso e do rastreador." },
+        { question: "A Hilux é muito visada para roubo?", answer: "Sim, é uma das picapes mais visadas do Brasil, com risco elevado em Cumbica e Bonsucesso. Rastreador é praticamente indispensável." },
+        { question: "Preciso de rastreador para segurar a Hilux?", answer: "Para obter uma condição razoável, sim — a maioria das seguradoras exige ou premia fortemente o rastreador homologado." },
+        { question: "O seguro cobre uso profissional ou agro?", answer: "Sim, mas exige apólice específica. Uso empresarial, rural e transporte de carga têm coberturas diferentes. A Patro orienta qual contratação faz sentido para o seu caso." },
+        { question: "Qual seguradora é melhor para a Hilux?", answer: "Tokio Marine e Allianz costumam ter as melhores condições para picapes. Para uso rural e empresarial, trabalhamos com seguradoras especializadas." },
       ]}
     />
   );
