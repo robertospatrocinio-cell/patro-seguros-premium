@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Adicionar uma validação automática de FAQPage com corte mínimo de perguntas no CI para evitar que posts subdimensionados quebrem o production build novamente. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Automatizar o backfill de FAQ para novos posts do blog, preenchendo Q&A com base no tema e garantindo que o arquivo src/data/blogFaqBackfill.ts seja atualizado automaticamente. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
