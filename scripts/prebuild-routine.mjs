@@ -9,6 +9,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const args = process.argv.slice(2);
+const DRY_RUN = args.includes('--dry-run');
 const ROOT = path.resolve(__dirname, '..');
 
 function runCommand(command, description, failOnError = false) {
@@ -31,8 +33,11 @@ console.log('🚀 Iniciando rotina de pré-build e auto-correção...');
 runCommand('node scripts/sync-htaccess-redirects.mjs', 'Sincronizando .htaccess', true);
 
 // 2. FAQ Backfill - Detecta posts com < 2 Q&A e aplica sugestões automaticamente
-// Rodamos com --ci para que, se mesmo após o apply não atingir o mínimo, o build pare aqui.
-runCommand('node scripts/detect-faq-underfilled.mjs --apply --ci --min=2', 'Verificando e aplicando backfill de FAQ (Configurável)', true);
+// No modo dry-run, removemos o --apply para apenas visualizar o relatório.
+const faqCmd = DRY_RUN 
+  ? 'node scripts/detect-faq-underfilled.mjs --min=2'
+  : 'node scripts/detect-faq-underfilled.mjs --apply --ci --min=2';
+runCommand(faqCmd, `Verificando FAQ (Modo: ${DRY_RUN ? 'Dry-run' : 'Apply/CI'})`, true);
 
 // 3. Imagens e OG (existente)
 runCommand('node scripts/generate-og-images.mjs', 'Gerando imagens OG');

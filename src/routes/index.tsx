@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Ajustar para que o CI use um limite configurável de perguntas mínimas por post. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Implemente um modo dry-run no prebuild para eu visualizar quais Q&A seriam preenchidos e quais posts falhariam, sem modificar o src/data/blogFaqBackfill.ts. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
