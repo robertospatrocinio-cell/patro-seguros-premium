@@ -12,6 +12,29 @@ import FAQSchema from "@/components/FAQSchema";
 
 
 const ComparativoSeguradorasGuarulhos = () => {
+  const faqs = [
+    { 
+      question: "Qual a melhor seguradora de carro em Guarulhos?", 
+      answer: "Não existe uma resposta única. A Porto Seguro lidera em assistência e rede de oficinas locais, enquanto Tokio e HDI costumam vencer no preço para veículos populares. Allianz é excelente para modelos premium. O ideal é comparar as opções para o seu perfil específico." 
+    },
+    { 
+      question: "A Porto Seguro é a melhor em Guarulhos?", 
+      answer: "Em termos de infraestrutura de guinchos e Centros Automotivos (CAP) dentro da cidade, sim. Porém, para alguns perfis de condutor, outras seguradoras podem oferecer a mesma proteção com um custo até 25% menor." 
+    },
+    { 
+      question: "Qual seguradora paga sinistro mais rápido?", 
+      answer: "Todas as 16 seguradoras com as quais trabalhamos são reguladas pela SUSEP. Em nossa experiência em Guarulhos, Porto Seguro e Allianz possuem processos de liquidação muito eficientes e digitais." 
+    },
+    { 
+      question: "Vale a pena contratar direto com a seguradora?", 
+      answer: "Contratar com uma corretora como a Patro não custa nada a mais (a comissão é paga pela seguradora) e garante que você tenha um especialista para te defender e orientar em caso de batida ou roubo. Direto no site, você fica sozinho com o 0800." 
+    },
+    { 
+      question: "A Patro trabalha com quais seguradoras?", 
+      answer: "Trabalhamos com as 16 maiores do Brasil, incluindo Porto Seguro, Tokio Marine, Allianz, HDI, Bradesco, Mapfre, SulAmérica, Suhai, Liberty, Azul, Zurich, Sompo, AIG e outras." 
+    }
+  ];
+
   return (
     <>
       <BreadcrumbSchema
@@ -21,6 +44,8 @@ const ComparativoSeguradorasGuarulhos = () => {
           { name: "Comparativo de Seguradoras", url: `${CANONICAL_BASE_URL}/comparativo-seguradoras-guarulhos` },
         ]}
       />
+      <FAQSchema faqs={faqs} />
+
       <InsurancePageTemplate
         heroImage={heroImg}
         title="Comparativo de Seguradoras em Guarulhos: qual é a melhor para você?"
