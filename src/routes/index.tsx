@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Criar uma seção de blog por bairro em Guarulhos com páginas otimizadas de SEO e links para pedir cotação em cada post. pesquise sobre cada bairro e inclua informacoes personalizadas de cada um, sem fazer o mesmo copy entre os blogs de cada bairro`}
+      {`Execute esta instrucao no projeto: Padronizar o conteúdo de FAQ e validar se cada página tem FAQ único, com schema de FAQPage consistente e sem duplicidade.`}
     </div>
   );
 };
