@@ -1,3 +1,5 @@
+import { BAIRROS_MATRIZ } from "./seoLocalBairrosGuarulhos";
+
 export const guarulhosArticlesContent = {
   "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil": {
     title: "Roubo e furto de veículos em Guarulhos: o que você precisa saber em 2026",
