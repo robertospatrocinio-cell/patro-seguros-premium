@@ -273,6 +273,9 @@ const ConsorcioCarro = lazy(() => import("./pages/ConsorcioCarro"));
 const ConsorcioImoveis = lazy(() => import("./pages/ConsorcioImoveis"));
 const ConsorcioVeiculosPesados = lazy(() => import("./pages/ConsorcioVeiculosPesados"));
 const EbookConsorcio = lazy(() => import("./pages/EbookConsorcio"));
+const GuiaCompletoSegurosGuarulhos = lazy(() => import("./pages/GuiaCompletoSegurosGuarulhos"));
+
+
 const SeguroLojasShopping = lazy(() => import("./pages/SeguroLojasShopping"));
 const SegurosPorSegmento = lazy(() => import("./pages/SegurosPorSegmento"));
 const SeguroEmpresarialSegmento = lazy(() => import("./pages/SeguroEmpresarialSegmento"));
@@ -596,8 +599,10 @@ const App = () => {
                   <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
                   <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
                   <Route path="/parceiros-locais" element={<ParceirosLocais />} />
-                  <Route path="/imprensa" element={<Imprensa />} />
+                   <Route path="/imprensa" element={<Imprensa />} />
+                  <Route path="/guia-completo-seguros-guarulhos" element={<GuiaCompletoSegurosGuarulhos />} />
                   <Route path="/seguro-auto" element={<SeguroAuto />} />
+
                   <Route path="/seguro-vida" element={<SeguroVida />} />
                   <Route path="/seguro-vida/formulario" element={<FormularioSeguroVida />} />
                   <Route path="/seguro-residencial" element={<SeguroResidencial />} />

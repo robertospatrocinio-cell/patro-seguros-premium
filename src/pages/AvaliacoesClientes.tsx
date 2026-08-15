@@ -30,7 +30,9 @@ import {
   ExternalLink,
   ShieldCheck,
 } from "lucide-react";
+import { VideoTestimonials } from "@/components/VideoTestimonials";
 import Header from "@/components/Header";
+
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -264,7 +266,10 @@ const AvaliacoesClientes = () => {
           </div>
         </section>
 
+        <VideoTestimonials />
+
         {/* Bloco 6 — CTA final */}
+
         <section className="py-16 md:py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4 max-w-2xl">
             <h2 className="text-primary-foreground mb-4">

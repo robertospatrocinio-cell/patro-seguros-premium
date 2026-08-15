@@ -1,170 +1,254 @@
 /**
  * Conteúdo dos artigos de blog por bairro em Guarulhos.
+ * FASE B - RODADA 4
  */
 export const guarulhosBairrosBlogContent = {
-  "seguro-auto-pimentas-guarulhos-riscos-precos": {
-    title: "Seguro Auto no Pimentas, Guarulhos: Riscos e Preços em 2026",
-    content: `O bairro do Pimentas é a região mais populosa de Guarulhos e um dos principais eixos comerciais da zona leste da cidade. Para quem mora ou trabalha nesta região, a contratação de um **seguro auto** exige uma análise cuidadosa do perfil de risco e das coberturas necessárias.
+  "quanto-custa-seguro-auto-cidade-maia-guarulhos": {
+    title: "Quanto custa seguro auto em Cidade Maia? Preços e dicas 2026",
+    content: `O Cidade Maia é um dos bairros mais nobres e desejados de Guarulhos, conhecido por sua infraestrutura completa, proximidade com o Bosque Maia e alta concentração de condomínios verticais de luxo. Para quem reside nesta região, o perfil do seguro auto costuma ser marcado por veículos de maior valor agregado e um risco de pernoite controlado devido à segurança dos edifícios.
 
-## O Perfil de Risco no Pimentas
+## Faixa de Preço Média no Cidade Maia
 
-Devido à alta densidade demográfica e ao intenso fluxo de veículos, o CEP da região do Pimentas é frequentemente classificado pelas seguradoras como uma área de risco médio-alto para furto e roubo. Isso não significa que o seguro será proibitivo, mas sim que estratégias de prevenção são essenciais.
+De acordo com nossos levantamentos técnicos para 2026, a estimativa de custo para um seguro compreensivo no bairro é:
 
-### Como economizar no seguro morando no Pimentas:
+| Perfil | Faixa de Preço (Estimada) | Risco Percebido |
+| :--- | :--- | :--- |
+| **Cidade Maia** | **R$ 2.100 a R$ 4.000 /ano** | **Baixo** |
+| Média Guarulhos | R$ 2.700 a R$ 5.200 /ano | Médio |
 
-1.  **Instalação de Rastreador:** Muitas seguradoras oferecem descontos significativos (ou até exigem) o uso de rastreadores para veículos que pernoitam no Pimentas.
-2.  **Garagem Coberta:** Ter um local seguro para estacionar, tanto em casa quanto no trabalho, reduz drasticamente o valor do prêmio.
-3.  **Classe de Bônus:** Manter um bom histórico de condução sem sinistros é a melhor forma de garantir renovações mais baratas.
+Esta variação ocorre principalmente devido à segurança das garagens coletivas com portaria 24h, que reduzem drasticamente a exposição ao risco de furto durante a noite.
 
-## Coberturas Essenciais para a Região
+## O que encarece ou barateia o seguro no bairro?
 
-Para quem circula diariamente pelo Pimentas e utiliza a Rodovia Ayrton Senna ou a Estrada do Juscelino Kubitschek, recomendamos:
+1.  **Garagem e Segurança:** O uso de garagens cobertas em prédios com vigilância é o maior aliado do bolso no Cidade Maia.
+2.  **Uso do Veículo:** Se você utiliza o carro apenas para lazer ou pequenos trajetos urbanos, o valor tende a ser menor.
+3.  **Modelo do Veículo:** SUVs e veículos premium, comuns no bairro, exigem coberturas específicas que podem elevar o prêmio total, mas oferecem melhor proteção.
 
-*   **Assistência 24h com Guincho Ilimitado:** Vital para imprevistos em rodovias.
-*   **Cobertura de Terceiros (RCF-V):** Proteção contra danos causados a outros veículos em caso de colisão.
-*   **Proteção de Vidros e Retrovisores:** Muito útil em regiões de trânsito intenso.
+## Seguradoras mais competitivas no Cidade Maia
 
-## Atendimento Local Patro Seguros
+Para este perfil de bairro, recomendamos priorizar seguradoras com excelentes serviços de assistência e rede de oficinas premium:
 
-A Patro Seguros, com sede no Cidade Maia, conhece profundamente a realidade do Pimentas. Comparamos sua cotação em mais de 16 seguradoras para encontrar a melhor condição para o seu CEP específico.
+*   **Porto Seguro:** Ideal pela densidade de atendimento na região central e Cidade Maia.
+*   **Allianz:** Altamente competitiva para SUVs e veículos importados comuns nos condomínios da Avenida Salgado Filho.
+*   **Tokio Marine:** Excelente equilíbrio entre custo e benefícios de assistência 24h.
 
-[Clique aqui para pedir sua cotação personalizada para o Pimentas](/cotacao?tipo=auto)`,
+## Dicas para economizar
+
+*   **Instalação de Rastreador:** Mesmo em áreas de risco baixo, algumas seguradoras concedem descontos extras se o veículo possuir rastreamento ativo.
+*   **Classe de Bônus:** Mantenha seu histórico limpo. O bônus é o maior desconto progressivo que você pode ter.
+*   **Franquia Majorada:** Se você é um motorista prudente, aumentar a franquia pode reduzir significativamente a parcela anual.
+
+[Pedir cotação de Seguro Auto para o Cidade Maia](/cotacao?tipo=auto)`,
     faqs: [
       {
-        q: "O seguro auto é mais caro no Pimentas?",
-        a: "O valor pode ser superior a bairros como a Vila Augusta devido ao índice de sinistralidade, mas com o uso de rastreadores e garagem, é possível obter preços muito competitivos."
+        q: "O seguro no Cidade Maia é o mais barato de Guarulhos?",
+        a: "Está entre os mais competitivos da cidade devido ao perfil residencial e segurança das garagens dos condomínios."
       },
       {
-        q: "A Patro atende moradores do Pimentas presencialmente?",
-        a: "Sim, atendemos em nossa sede no Cidade Maia ou via WhatsApp com toda a comodidade, oferecendo suporte total em caso de sinistro."
+        q: "Qual seguradora tem melhor guincho para o Cidade Maia?",
+        a: "A Porto Seguro possui grande frota na região central, garantindo rapidez no atendimento."
+      },
+      {
+        q: "A Patro atende presencialmente no Cidade Maia?",
+        a: "Sim! Nossa sede fica exatamente no Edifício Via Alameda, no coração do Cidade Maia."
       }
     ]
   },
-  "seguro-empresarial-cumbica-guarulhos-logistica": {
-    title: "Seguro Empresarial em Cumbica: Proteção para o Polo Logístico",
-    content: `Cumbica é o coração industrial de Guarulhos e sede do Aeroporto Internacional (GRU Airport). Esta região concentra o maior polo logístico da América Latina, exigindo soluções de seguros robustas e especializadas.
+  "quanto-custa-seguro-auto-cumbica-guarulhos": {
+    title: "Quanto custa seguro auto em Cumbica? Preços e dicas 2026",
+    content: `Cumbica é o pulmão industrial de Guarulhos e abriga o maior aeroporto da América Latina. Com um fluxo intenso de veículos leves e pesados nas rodovias Dutra e Helio Smidt, o perfil do seguro nesta região exige atenção especial às coberturas de assistência e colisão.
 
-## Desafios do Seguro Empresarial em Cumbica
+## Faixa de Preço Média em Cumbica
 
-Empresas estabelecidas em Cumbica, sejam elas transportadoras, galpões logísticos ou indústrias, enfrentam riscos específicos relacionados ao alto valor das mercadorias e ao intenso fluxo de carga.
+Devido ao fluxo constante e à natureza industrial/comercial, o custo médio em Cumbica reflete um risco moderado:
 
-### Focos de Proteção Necessários:
+| Perfil | Faixa de Preço (Estimada) | Risco Percebido |
+| :--- | :--- | :--- |
+| **Cumbica** | **R$ 3.100 a R$ 6.200 /ano** | **Médio-Alto** |
+| Média Guarulhos | R$ 2.700 a R$ 5.200 /ano | Médio |
 
-1.  **Seguro de Carga (RCTR-C):** Proteção essencial para o transporte rodoviário de mercadorias.
-2.  **Responsabilidade Civil Operacional:** Proteção contra danos a terceiros durante a operação da empresa.
-3.  **Seguro de Galpões e Armazéns:** Cobertura contra incêndio, explosão e roubo de ativos fixos.
+O valor mais elevado justifica-se pela maior exposição em vias de alta velocidade e áreas de carga/descarga.
 
-## Expertise Logística da Patro Seguros
+## O que encarece ou barateia o seguro no bairro?
 
-Entendemos que em Cumbica, o tempo é dinheiro. Por isso, oferecemos um atendimento ágil e especializado em riscos corporativos. Analisamos sua apólice atual para identificar possíveis brechas que podem causar prejuízos em caso de sinistro.
+1.  **Exposição em Rodovias:** Circular diariamente pela Dutra aumenta estatisticamente o risco de pequenas colisões ou problemas mecânicos.
+2.  **Estacionamento na Via:** Deixar o veículo na rua em áreas industriais encarece o seguro; prefira estacionamentos fechados.
+3.  **CEP de Pernoite:** Se o veículo dorme em área residencial protegida de Cumbica, o valor cai em relação ao uso estritamente comercial.
 
-### Por que escolher a Patro para sua empresa em Cumbica:
+## Seguradoras mais competitivas no perfil de Cumbica
 
-*   **Consultoria Técnica:** Avaliação real do risco industrial e logístico.
-*   **Gestão de Sinistros:** Acompanhamento dedicado em todas as etapas de uma ocorrência.
-*   **Parceria com Seguradoras Especialistas:** Cotamos com companhias focadas em riscos complexos.
+Para quem circula em Cumbica, o foco deve ser assistência 24h robusta e cobertura de terceiros:
 
-[Fale com um especialista em Seguro Empresarial para Cumbica](/cotacao?tipo=empresarial)`,
+*   **Mapfre:** Muito forte em coberturas para quem utiliza rodovias e veículos de trabalho.
+*   **HDI Seguros:** Oferece agilidade e processos simplificados, ideais para o dia a dia corrido da região.
+*   **Tokio Marine:** Ótima aceitação para veículos utilitários e de frotas comerciais.
+
+## Dicas para economizar
+
+*   **Guincho Ilimitado:** Não economize na quilometragem do guincho; em Cumbica, você pode precisar de remoções longas via rodovia.
+*   **Cobertura de Vidros:** O tráfego de caminhões solta pedriscos nas vias; a cobertura de vidros se paga no primeiro para-brisa trincado.
+*   **Rastreador:** Essencial para reduzir o custo em áreas industriais com maior índice de roubo/furto.
+
+[Pedir cotação de Seguro Auto para Cumbica](/cotacao?tipo=auto)`,
     faqs: [
       {
-        q: "Qual a cobertura mais importante para galpões em Cumbica?",
-        a: "Além de incêndio e roubo, a cobertura de Lucros Cessantes é vital para garantir a continuidade do negócio após um sinistro."
+        q: "Por que o seguro é mais caro em Cumbica?",
+        a: "Pela alta circulação de veículos e proximidade com eixos logísticos, o que aumenta a sinistralidade estatística."
       },
       {
-        q: "A Patro faz seguro de frota para transportadoras em Cumbica?",
-        a: "Sim, somos especialistas em gestão de frotas comerciais, oferecendo redução de custos e otimização de coberturas."
+        q: "Seguro de carga é obrigatório para empresas em Cumbica?",
+        a: "Sim, para transportadoras o RCTR-C é obrigatório por lei, mas a Patro também recomenda o RCF-DC (Roubo)."
+      },
+      {
+        q: "Como reduzir o valor do seguro morando perto do aeroporto?",
+        a: "Utilizar dispositivos de segurança ativos e comprovar pernoite em local fechado são as melhores formas."
       }
     ]
   },
-  "seguro-residencial-vila-augusta-guarulhos-apartamentos": {
-    title: "Seguro Residencial na Vila Augusta: Proteção para Apartamentos",
-    content: `A Vila Augusta é um dos bairros mais tradicionais e valorizados de Guarulhos. Nos últimos anos, a região passou por um forte processo de verticalização, tornando o **seguro residencial para apartamentos** uma necessidade crescente.
+  "quanto-custa-seguro-auto-pimentas-guarulhos": {
+    title: "Quanto custa seguro auto em Pimentas? Preços e dicas 2026",
+    content: `O Pimentas é a região mais populosa de Guarulhos, um gigante comercial e residencial na zona leste da cidade. Com vias movimentadas como a Juscelino Kubitschek, o seguro auto no Pimentas requer uma estratégia focada em proteção completa contra roubo e furto.
 
-## Por que contratar Seguro Residencial na Vila Augusta?
+## Faixa de Preço Média no Pimentas
 
-Diferente do que muitos pensam, o seguro do condomínio cobre apenas as áreas comuns. Para proteger o conteúdo do seu apartamento (móveis, eletrônicos, reformas) e ter assistência para imprevistos do dia a dia, você precisa de um seguro residencial individual.
+Estatisticamente, o Pimentas apresenta os valores mais altos de Guarulhos devido ao volume de ocorrências e densidade populacional:
 
-### Benefícios Exclusivos:
+| Perfil | Faixa de Preço (Estimada) | Risco Percebido |
+| :--- | :--- | :--- |
+| **Pimentas** | **R$ 3.400 a R$ 6.800 /ano** | **Alto** |
+| Média Guarulhos | R$ 2.700 a R$ 5.200 /ano | Médio |
 
-*   **Danos Elétricos:** Proteção para seus aparelhos contra surtos de tensão, algo comum em áreas urbanas densas.
-*   **Responsabilidade Civil Familiar:** Cobertura para danos causados a vizinhos (como vazamentos que atingem o andar de baixo).
-*   **Serviços de Assistência 24h:** Encanador, eletricista, chaveiro e até reparo de eletrodomésticos inclusos na apólice.
+Apesar da faixa superior, a Patro Seguros consegue reduzir esses valores através da escolha da seguradora certa para o seu perfil.
 
-## O Custo-Benefício na Vila Augusta
+## O que encarece ou barateia o seguro no bairro?
 
-O seguro residencial é um dos produtos mais baratos do mercado. Para um apartamento na Vila Augusta, o custo anual costuma ser inferior a uma única parcela do seguro auto, oferecendo uma proteção imensa para o seu lar.
+1.  **Índice de Roubo/Furto:** A exposição em vias públicas sem monitoramento é o principal fator de encarecimento.
+2.  **Rastreador Obrigatório:** Muitas vezes o rastreador não é apenas um desconto, mas uma condição para aceitação do risco.
+3.  **Perfil do Condutor:** Motoristas com mais de 30 anos e histórico de bônus conseguem mitigar o custo do CEP.
 
-A Patro Seguros ajuda você a escolher o plano ideal, equilibrando as coberturas de incêndio, roubo e as assistências que você realmente vai usar.
+## Seguradoras mais competitivas no Pimentas
 
-[Simular Seguro Residencial para a Vila Augusta](/cotacao?tipo=residencial)`,
+Buscamos seguradoras que possuem boa aceitação e preços justos para áreas de maior risco:
+
+*   **Suhai Seguradora:** Especialista em seguro de Roubo e Furto, com preços imbatíveis para quem quer apenas a proteção essencial.
+*   **Tokio Marine:** Mantém uma boa média de preços com coberturas completas para a zona leste.
+*   **Azul Seguros:** Uma excelente opção de entrada com a qualidade do grupo Porto Seguro.
+
+## Dicas para economizar
+
+*   **Seguro 'Só Roubo e Furto':** Se o seguro completo ficar pesado, opte pelo plano de Roubo e Furto + Assistência 24h da Suhai.
+*   **Uso de Garagem:** Comprovar que o carro não fica na rua reduz o prêmio em até 20%.
+*   **Franquia:** Avalie a franquia reduzida se você circula muito, ou normal se quiser baixar a parcela mensal.
+
+[Pedir cotação de Seguro Auto para o Pimentas](/cotacao?tipo=auto)`,
     faqs: [
       {
-        q: "O seguro do condomínio já não protege meu apartamento?",
-        a: "Não. O seguro do condomínio cobre apenas a estrutura do prédio e áreas comuns. Seus bens internos e danos elétricos dentro da unidade exigem um seguro residencial próprio."
+        q: "É difícil conseguir seguro morando no Pimentas?",
+        a: "Não, mas algumas seguradoras tradicionais podem ter preços altos. Por isso a importância de cotar com especialistas em áreas de risco."
       },
       {
-        q: "Como funciona a assistência 24h para apartamentos na Vila Augusta?",
-        a: "Você tem acesso a profissionais qualificados para reparos emergenciais em poucas horas, garantindo tranquilidade para sua família."
+        q: "A Suhai é boa para quem mora no Pimentas?",
+        a: "É uma das melhores opções em termos de custo-benefício para proteção contra roubo e furto na região."
+      },
+      {
+        q: "O rastreador realmente baixa o preço?",
+        a: "Sim, no Pimentas o rastreador pode baixar o valor do seguro em até R$ 800,00 dependendo do veículo."
       }
     ]
   },
-  "seguro-auto-bonsucesso-guarulhos-estrada-velha": {
-    title: "Seguro Auto em Bonsucesso: Dicas para quem circula na Dutra",
-    content: `Morar em Bonsucesso, Guarulhos, muitas vezes significa ter a Rodovia Presidente Dutra como parte do trajeto diário. Esse perfil de uso exige um **seguro auto** com foco em mobilidade e assistência robusta.
+  "quanto-custa-seguro-auto-bonsucesso-guarulhos": {
+    title: "Quanto custa seguro auto em Bonsucesso? Preços e dicas 2026",
+    content: `Bonsucesso é um bairro estratégico, servindo como porta de entrada para quem vem do Vale do Paraíba e interligando grandes áreas industriais. O motorista de Bonsucesso utiliza muito a Rodovia Dutra, o que molda as necessidades de sua apólice.
 
-## O Perfil do Motorista em Bonsucesso
+## Faixa de Preço Média em Bonsucesso
 
-O fluxo constante entre a zona leste de Guarulhos e a capital ou outras cidades do Vale do Paraíba aumenta a exposição a riscos de colisão e problemas mecânicos.
+O custo do seguro em Bonsucesso situa-se na média da cidade, apresentando um equilíbrio interessante:
 
-### Coberturas Recomendadas para Bonsucesso:
+| Perfil | Faixa de Preço (Estimada) | Risco Percebido |
+| :--- | :--- | :--- |
+| **Bonsucesso** | **R$ 2.700 a R$ 5.100 /ano** | **Médio** |
+| Média Guarulhos | R$ 2.700 a R$ 5.200 /ano | Médio |
 
-1.  **Guincho com KM Elevada:** Essencial para quem viaja ou circula por rodovias.
-2.  **Carro Reserva:** Para quem não pode ficar sem o veículo para trabalhar ou se locomover na região.
-3.  **Proteção contra Colisão e Terceiros:** Dada a intensidade do tráfego na região do Shopping Bonsucesso.
+## O que encarece ou barateia o seguro no bairro?
 
-## Economizando no Seguro em Bonsucesso
+1.  **Kilometragem Mensal:** O deslocamento pendular (casa-trabalho) via Dutra impacta no cálculo.
+2.  **Segurança Residencial:** Bairros planejados e condomínios em Bonsucesso ajudam a reduzir o valor do pernoite.
+3.  **Assistência 24h:** A frequência de uso de guinchos em rodovias é um fator considerado pelas seguradoras.
 
-Mesmo sendo uma região com alto fluxo, é possível obter bons preços. A Patro Seguros analisa seu perfil de condutor e busca seguradoras que valorizam o uso de dispositivos de segurança, ajudando a baixar o valor da sua renovação.
+## Seguradoras mais competitivas no perfil de Bonsucesso
 
-[Solicitar Cotação de Seguro Auto para Bonsucesso](/cotacao?tipo=auto)`,
+*   **Allianz:** Excelente para quem utiliza rodovias, com ótimos serviços de suporte.
+*   **Porto Seguro:** Rede de oficinas referenciadas de fácil acesso para moradores da região.
+*   **HDI Seguros:** Preços muito agressivos para veículos populares e condutores com bônus alto.
+
+## Dicas para economizar
+
+*   **Assistência em Rodovias:** Verifique se sua apólice cobre remoção para a oficina de sua preferência em Guarulhos, não apenas a mais próxima.
+*   **Danos a Terceiros:** Em rodovias, o risco de engavetamentos é maior. Recomendamos pelo menos R$ 100 mil de cobertura para terceiros.
+*   **Pagamento em Débito:** Muitas seguradoras dão 5% de desconto extra para pagamento em débito em conta ou cartão de crédito.
+
+[Pedir cotação de Seguro Auto para Bonsucesso](/cotacao?tipo=auto)`,
     faqs: [
       {
-        q: "Qual seguradora tem melhor atendimento em Bonsucesso?",
-        a: "Trabalhamos com seguradoras que possuem ampla rede de oficinas referenciadas em Guarulhos, facilitando o conserto em caso de sinistro."
+        q: "O seguro em Bonsucesso é mais barato que no Pimentas?",
+        a: "Geralmente sim, pois os índices de sinistralidade são ligeiramente menores nesta região."
       },
       {
-        q: "Vale a pena contratar cobertura de vidros morando em Bonsucesso?",
-        a: "Sim, especialmente para quem circula em rodovias, onde o risco de pedras atingirem o para-brisa é maior."
+        q: "Vale a pena ter cobertura de carro reserva em Bonsucesso?",
+        a: "Sim, especialmente para quem depende do carro para chegar ao trabalho via rodovia."
+      },
+      {
+        q: "A Patro Seguros atende o Shopping Bonsucesso?",
+        a: "Atendemos todos os lojistas e clientes da região de forma digital ou presencial em nossa sede."
       }
     ]
   },
-  "seguro-saude-mei-centro-guarulhos-consultorios": {
-    title: "Plano de Saúde MEI no Centro de Guarulhos: Melhores Operadoras",
-    content: `Empreender no Centro de Guarulhos exige saúde e disposição. Para o microempreendedor individual (MEI), ter um **plano de saúde empresarial** é uma forma inteligente de garantir atendimento de qualidade com custos até 40% menores que os planos individuais.
+  "quanto-custa-seguro-auto-vila-galvao-guarulhos": {
+    title: "Quanto custa seguro auto em Vila Galvão? Preços e dicas 2026",
+    content: `A Vila Galvão é um dos bairros mais tradicionais e charmosos de Guarulhos, fazendo divisa com a zona norte de São Paulo. Com perfil predominantemente residencial e arborizado, o bairro é um dos favoritos das seguradoras pelo baixo índice de sinistros graves.
 
-## Vantagens do Plano de Saúde MEI
+## Faixa de Preço Média na Vila Galvão
 
-Ao utilizar o seu CNPJ MEI (com pelo menos 6 meses de abertura), você tem acesso a tabelas de preços diferenciadas e uma rede credenciada mais ampla.
+Residir na Vila Galvão é uma excelente estratégia para quem busca pagar menos no seguro auto:
 
-### Rede Credenciada no Centro de Guarulhos:
+| Perfil | Faixa de Preço (Estimada) | Risco Percebido |
+| :--- | :--- | :--- |
+| **Vila Galvão** | **R$ 2.300 a R$ 4.200 /ano** | **Baixo** |
+| Média Guarulhos | R$ 2.700 a R$ 5.200 /ano | Médio |
 
-*   **Hospital Stella Maris:** Referência em atendimento de qualidade na região.
-*   **Laboratórios Renomados:** Facilidade para realização de exames sem grandes deslocamentos.
-*   **Consultórios Especializados:** Ampla oferta de médicos no coração da cidade.
+A proximidade com a capital não prejudica o valor, desde que o pernoite seja em garagem fechada.
 
-## Consultoria Especializada Patro Seguros
+## O que encarece ou barateia o seguro no bairro?
 
-Escolher um plano de saúde envolve analisar carências, coparticipação e abrangência. Na Patro Seguros, realizamos um estudo comparativo entre as principais operadoras (Porto Saúde, SulAmérica, Amil, Bradesco, Notredame Intermédica) para encontrar a melhor opção para você e sua família.
+1.  **Tradicionalismo:** O perfil de moradores mais maduros e prudentes da Vila Galvão gera estatísticas positivas.
+2.  **Garagens Privativas:** A maioria das residências e novos prédios possui vagas cobertas e seguras.
+3.  **Proximidade com SP:** Circular muito na capital pode elevar levemente o custo, mas o CEP de pernoite na Vila Galvão compensa.
 
-[Comparar Planos de Saúde MEI para o Centro](/cotacao?tipo=saude)`,
+## Seguradoras mais competitivas na Vila Galvão
+
+*   **Tokio Marine:** Historicamente muito competitiva para o perfil familiar da Vila Galvão.
+*   **Porto Seguro:** Oferece benefícios extras e centros automotivos próximos, valorizando a conveniência.
+*   **Liberty Seguros:** Ótima para quem busca personalização e coberturas sob medida para o uso urbano.
+
+## Dicas para economizar
+
+*   **Uso Particular:** Se você não usa o carro para trabalhar (apenas lazer e compras), informe isso; o desconto é substancial.
+*   **Residência + Auto:** Ao contratar o seguro residencial com a Patro, muitas vezes conseguimos descontos cruzados na apólice do carro.
+*   **App da Seguradora:** Algumas seguradoras dão descontos para quem utiliza apps de telemetria que comprovam direção segura.
+
+[Pedir cotação de Seguro Auto para Vila Galvão](/cotacao?tipo=auto)`,
     faqs: [
       {
-        q: "Posso incluir dependentes no meu plano de saúde MEI?",
-        a: "Sim, é possível incluir familiares diretos (cônjuge e filhos) mantendo as condições vantajosas do plano empresarial."
+        q: "Morar na divisa com SP encarece o seguro da Vila Galvão?",
+        a: "Não necessariamente. O fator determinante é o CEP de pernoite, que na Vila Galvão é considerado de baixo risco."
       },
       {
-        q: "Quais os hospitais atendidos no Centro de Guarulhos?",
-        a: "A rede varia conforme a operadora escolhida, mas garantimos opções que atendam os melhores hospitais da região central."
+        q: "Qual a melhor seguradora para a Vila Galvão?",
+        a: "Porto Seguro e Tokio Marine costumam apresentar os melhores resultados em nossos comparativos para este bairro."
+      },
+      {
+        q: "A Patro Seguros faz seguro de carros antigos na Vila Galvão?",
+        a: "Sim, temos opções específicas para veículos com mais de 10 anos através de seguradoras parceiras especializadas."
       }
     ]
   }
