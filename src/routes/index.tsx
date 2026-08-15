@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Criar testes automatizados de SEO on-page por rota (H1 único, meta titles/descrições, canonical e links canônicos) para eu garantir consistência em todas as páginas. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: fazer teste de seo e melhorias em 100% das paginas do site ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
