@@ -534,7 +534,7 @@ const InsurancePageTemplate = ({
                     </Button>
                   </Link>
                 )}
-                <a href={buildProductWhatsAppUrl(title)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                <a href={buildProductWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                   </Button>
@@ -959,7 +959,7 @@ const InsurancePageTemplate = ({
                 </Link>
               )}
               <a
-                href={buildProductWhatsAppUrl(title)}
+                href={buildProductWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Falar no WhatsApp sobre ${title}`}
