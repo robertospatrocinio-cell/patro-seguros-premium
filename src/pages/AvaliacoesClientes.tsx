@@ -266,7 +266,19 @@ const AvaliacoesClientes = () => {
           </div>
         </section>
 
-        <VideoTestimonials />
+        <div className="py-20 bg-slate-50">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-10">
+              <span className="section-label">Vídeos</span>
+              <h2 className="mt-3">Nossos clientes em vídeo</h2>
+              <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
+                Confira depoimentos reais de quem escolheu a Patro Seguros para cuidar do seu patrimônio e família.
+              </p>
+            </div>
+            <VideoTestimonials />
+          </div>
+        </div>
+
 
         {/* Bloco 6 — CTA final */}
 
