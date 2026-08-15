@@ -586,7 +586,8 @@ const App = () => {
                   <Route path="/verificar-susep" element={<VerificarSusep />} />
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
-                  <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
+            <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
+            <Route path="/contato/obrigado" element={<ContatoObrigado />} />
                   <Route path="/indique-e-ganhe" element={<IndiqueEGanhe />} />
                   <Route path="/obrigado-indicacao" element={<ObrigadoIndicacao />} />
                   <Route path="/cotacao/auto" element={<Navigate to="/cotacao-seguro-auto" replace />} />
