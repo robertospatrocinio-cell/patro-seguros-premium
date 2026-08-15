@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Verificar diariamente no Google Search Console quais URLs estão indexadas e me alertar quando houver páginas excluídas ou com erros. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Configure alertas de indexação e erros do Google Search Console com notificação no WhatsApp para que eu seja avisado rapidamente. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
