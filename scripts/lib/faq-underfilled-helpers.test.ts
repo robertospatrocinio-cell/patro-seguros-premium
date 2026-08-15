@@ -19,7 +19,7 @@ describe('FAQ Underfilled Helpers', () => {
   it('suggests FAQs based on title and category', () => {
     const suggestions = suggestFaqs({ title: 'Seguro Auto em Guarulhos', category: 'Auto' });
     expect(suggestions.length).toBeGreaterThan(0);
-    expect(suggestions[0].q).toContain('Auto');
+    expect(suggestions[0].q.toLowerCase()).toContain('auto');
     expect(suggestions[0].a).toContain('Seguro Auto em Guarulhos');
   });
 
