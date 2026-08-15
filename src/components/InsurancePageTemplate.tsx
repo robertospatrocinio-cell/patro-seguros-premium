@@ -275,9 +275,11 @@ export interface InsurancePageProps {
       Omit<NextSectionCtaProps, "sourceSection" | "sourceSlug">
     >
   >;
+  /** Conteúdo extra renderizado logo antes do formulário de cotação */
+  customContentBeforeForm?: ReactNode;
 }
 
-const InsurancePageTemplate = ({
+export const InsurancePageTemplate = ({
    title, subtitle, description, icon,
    headline,
    coverages, whoNeeds, whyPatro,
@@ -312,6 +314,7 @@ const InsurancePageTemplate = ({
   localSeo,
   jumpLinks,
   sectionCtas,
+  customContentBeforeForm,
 }: InsurancePageProps) => {
   const location = useLocation();
   // Slug canônico da rota atual — usado para etiquetar o `source` dos CTAs
@@ -880,6 +883,11 @@ const InsurancePageTemplate = ({
                       HowTo específico via prop `howto`. */
                    skipSchema={!!howto}
                  />
+               </div>
+             )}
+             {customContentBeforeForm && (
+               <div className="mb-16">
+                 {customContentBeforeForm}
                </div>
              )}
              <div className="grid lg:grid-cols-2 gap-12 items-center">
