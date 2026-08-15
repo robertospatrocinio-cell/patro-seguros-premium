@@ -274,7 +274,7 @@ const ConsorcioImoveis = lazy(() => import("./pages/ConsorcioImoveis"));
 const ConsorcioVeiculosPesados = lazy(() => import("./pages/ConsorcioVeiculosPesados"));
 const EbookConsorcio = lazy(() => import("./pages/EbookConsorcio"));
 const GuiaCompletoSegurosGuarulhos = lazy(() => import("./pages/GuiaCompletoSegurosGuarulhos"));
-const ComparativoSeguradorasGuarulhos = lazy(() => import("./pages/ComparativoSeguradorasGuarulhos"));
+
 
 const SeguroLojasShopping = lazy(() => import("./pages/SeguroLojasShopping"));
 const SegurosPorSegmento = lazy(() => import("./pages/SegurosPorSegmento"));
