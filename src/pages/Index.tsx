@@ -2,7 +2,9 @@
 import { lazy, Suspense } from "react";
 import { EMPRESA } from "@/config/empresa";
 import { Link } from "react-router-dom";
+import { VideoTestimonials } from "@/components/VideoTestimonials";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2, MapPin } from "lucide-react";
+
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
