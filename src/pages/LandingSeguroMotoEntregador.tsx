@@ -97,7 +97,7 @@ const LandingSeguroMotoEntregador = () => {
           <ServiceSchema 
             name="Seguro de Moto para Entregadores" 
             description="Consultoria especializada em seguros para motociclistas profissionais e entregadores de aplicativos em Guarulhos e região."
-            serviceType="InsuranceBusiness"
+            serviceType="MotorcycleInsurance"
           />
           <FAQSchema faqs={faqs} />
           

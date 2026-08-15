@@ -128,7 +128,7 @@ const PlanoDeSaudeGuarulhosHub = () => {
       />
       <ServiceSchema
         name="Plano de Saúde em Guarulhos"
-        serviceType="Plano de Saúde"
+        serviceType="MedicalWebPage"
         description={HUB_DESCRIPTION}
       />
       <LocalBusinessSchema />
