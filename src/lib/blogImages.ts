@@ -156,6 +156,7 @@ export const blogImageMap: Record<string, string> = {
   "plano-saude-mei-guarulhos-tabelas-regras": blogPlanoSaudePme,
   "seguro-transportadoras-cumbica-frota-carga-rc": blogSeguroFrotaLogisticaGuarulhos,
   "carros-mais-roubados-guarulhos-2026-seguro-precos": blogRoubosGuarulhos,
+  "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil": blogRoubosGuarulhos,
 
   // Seguro Residencial
   "o-que-seguro-residencial-cobre": blogSeguroResidencial,
