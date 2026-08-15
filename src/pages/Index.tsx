@@ -235,7 +235,7 @@ const Index = () => {
                 diferenças entre as seguradoras e acompanhar o cliente antes,
                 durante e depois da contratação. Conheça nossa{" "}
                 <Link to="/corretora-de-seguros-em-guarulhos" className="text-primary font-semibold hover:underline">
-                  conhecer nossa atuação em Guarulhos
+                  Conheça nossa atuação em Guarulhos
                 </Link>{" "}
                 ou explore as principais soluções abaixo.
               </p>
