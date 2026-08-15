@@ -104,18 +104,18 @@ const productSpecific: Record<LocalProduct, (c: Ctx) => LocalFAQ[]> = {
   auto: (c) => [
     {
       question: `O CEP do ${c.neighborhood} encarece o ${c.productLabel}?`,
-      answer: `O ${c.neighborhood} tem perfil de risco ${c.riskLevel} segundo as seguradoras. Isso impacta o prêmio em comparação a bairros como Cidade Maia (mais barato) ou Pimentas (mais caro). A Patro identifica qual seguradora trata o CEP do seu bairro de forma mais favorável.`,
+      answer: `As seguradoras classificam o ${c.neighborhood} com um perfil de risco ${c.riskLevel}. Isso significa que o preço pode ser diferente de regiões como Cidade Maia ou Pimentas. Na Patro Seguros, analisamos qual das 16 seguradoras possui a melhor aceitação para o CEP específico do ${c.neighborhood} no momento.`,
     },
     {
       question: `Preciso ter rastreador morando no ${c.neighborhood}?`,
       answer:
         c.riskLevel === "alto" || c.riskLevel === "médio-alto"
-          ? `Sim. Para CEPs do ${c.neighborhood} a maioria das seguradoras exige rastreador, especialmente em veículos acima de R$ 60 mil. Em compensação, o desconto chega a 18% no prêmio.`
-          : `No ${c.neighborhood} o rastreador raramente é obrigatório, mas instalar reduz o prêmio entre 8% e 15% e libera coberturas adicionais como assistência premium.`,
+          ? `Para veículos que pernoitam no ${c.neighborhood}, muitas companhias exigem o rastreador como condição de aceitação. Além de aumentar a segurança na região, o uso do dispositivo homologado pode reduzir o custo da apólice em até 18%.`
+          : `Embora não seja obrigatório para o ${c.neighborhood} na maioria dos casos, o rastreador é uma recomendação técnica que ajuda a baixar o prêmio entre 8% e 15%, além de facilitar a recuperação do veículo.`,
     },
     {
       question: `O ${c.productLabel} cobre sinistro fora do ${c.neighborhood}?`,
-      answer: `Sim. A apólice vale em todo o território nacional, sem restrição geográfica. Você está coberto no ${c.neighborhood}, em qualquer outro bairro de ${c.city}, em São Paulo capital e nas rodovias Dutra, Fernão Dias, Bandeirantes e Anhanguera.`,
+      answer: `Sim, a proteção é válida em todo o Brasil. Mesmo contratando o seguro para o seu endereço no ${c.neighborhood}, você terá cobertura total circulando por ${c.city}, São Paulo capital ou em rodovias como a Dutra e Fernão Dias.`,
     },
   ],
   moto: (c) => [
@@ -149,15 +149,15 @@ const productSpecific: Record<LocalProduct, (c: Ctx) => LocalFAQ[]> = {
   residencial: (c) => [
     {
       question: `O ${c.productLabel} no ${c.neighborhood} cobre incêndio, raio e explosão?`,
-      answer: `Sim, essas três coberturas são básicas em qualquer apólice residencial. No ${c.neighborhood} (perfil ${c.riskLevel}), recomendamos adicionar danos elétricos, vendaval e RC familiar — o custo extra anual é baixo e protege equipamentos e terceiros.`,
+      answer: `Com certeza. Essas são as coberturas básicas para residências no ${c.neighborhood}. Dada a classificação de risco ${c.riskLevel} da região, também sugerimos incluir proteção contra danos elétricos e responsabilidade civil familiar para uma blindagem completa do patrimônio.`,
     },
     {
       question: `Vale a pena contratar ${c.productLabel} para apartamento no ${c.neighborhood}?`,
-      answer: `Sim. Mesmo com seguro do condomínio, ele cobre apenas a estrutura — móveis, eletrônicos e responsabilidade civil são por sua conta. Apólices residenciais a partir de R$ 25/mês no ${c.neighborhood} já incluem essas proteções.`,
+      answer: `Sim, pois o seguro do condomínio protege apenas a estrutura global do prédio. Para garantir a reposição de seus móveis, eletrônicos e cobrir danos como vazamentos que atinjam vizinhos no ${c.neighborhood}, a apólice individual é indispensável e possui custo muito acessível.`,
     },
     {
       question: `O ${c.productLabel} cobre roubo de bens no ${c.neighborhood}?`,
-      answer: `Cobre via cláusula adicional de "subtração de bens". Considerando o perfil ${c.riskLevel} do ${c.neighborhood}, é uma cobertura altamente recomendada — protege eletrônicos, joias e dinheiro mediante arrombamento comprovado.`,
+      answer: `Sim, desde que incluída a cláusula de subtração de bens. Para moradores do ${c.neighborhood}, essa proteção é muito recomendada para resguardar o conteúdo interno da residência contra furtos qualificados e roubos.`,
     },
   ],
   empresarial: (c) => [
@@ -244,7 +244,7 @@ const productSpecific: Record<LocalProduct, (c: Ctx) => LocalFAQ[]> = {
 const closingFAQs = (c: Ctx): LocalFAQ[] => [
   {
     question: `Como solicitar cotação de ${c.productLabel} no ${c.neighborhood}?`,
-    answer: `Pelo WhatsApp (11) 5199-7500, presencialmente no Cidade Maia (próximo ao ${c.neighborhood}) ou pelos formulários do site. Em até 2 horas úteis você recebe o comparativo entre ${c.insurersCount} seguradoras parceiras, sem compromisso e sem cadastro forçado.`,
+    answer: `Você pode falar com a Patro Seguros pelo WhatsApp (11) 5199-7500 ou visitar nossa sede no Cidade Maia, que fica bem próxima ao bairro ${c.neighborhood}. O retorno com o comparativo de preços costuma ocorrer em até 2 horas úteis.`,
   },
 ];
 
