@@ -3,51 +3,59 @@ import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 const SeguroAutoChevroletOnixGuarulhos = () => {
   return (
     <InsurancePageTemplate
-      title="Seguro Chevrolet Onix em Guarulhos | Cotação em 2h | Patro"
+      title="Seguro Chevrolet Onix em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Chevrolet Onix em Guarulhos — Cotação com 16+ seguradoras"
-      subtitle="Proteja o hatch mais vendido do país com suporte especializado em Guarulhos."
-      metaDescription="Seguro Chevrolet Onix em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 1.900 a R$ 3.700/ano. Cotação em até 2h com atendimento consultivo. Peça sua proposta grátis."
-      description="O Onix é o hatch mais vendido do país e um dos mais roubados em Guarulhos, o que exige atenção redobrada na escolha da seguradora. O alto valor de mercado e a grande demanda por peças no mercado paralelo fazem com que o prêmio seja influenciado diretamente pelo local de pernoite."
-      detailedDescription={`Para reduzir o custo do seguro do Onix em Guarulhos, recomendamos fortemente o uso de garagem fechada e, se possível, a instalação de um rastreador. Esses itens podem gerar descontos de 10% a 20% no valor final da apólice. É um carro muito utilizado por famílias e por profissionais que rodam diariamente no trânsito urbano de nossa cidade.
+      subtitle="O Chevrolet Onix é o hatch mais vendido do país e também um dos mais roubados em Guarulhos."
+      metaDescription="Seguro Chevrolet Onix em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 1.900 a R$ 3.700/ano. Cotação em até 2h com atendimento consultivo."
+      description="O Chevrolet Onix é o hatch mais vendido do país e também um dos mais roubados em Guarulhos. O alto volume de vendas e a forte demanda no mercado paralelo fazem o prêmio ficar acima de outros populares da mesma categoria — mesmo sendo um carro de entrada, o Onix exige uma cotação cuidadosa."
+      detailedDescription={`A seguradora avalia com atenção o CEP de pernoite, o histórico do motorista e os dispositivos de segurança. Para reduzir o custo, recomendamos garagem fechada e rastreador — juntos, podem gerar descontos de 10% a 20% no prêmio. O Onix também é muito usado por famílias e por quem roda diariamente na cidade, com um custo de manutenção baixo.
 
-As seguradoras Porto Seguro e HDI são opções muito competitivas para este modelo, oferecendo redes de oficinas referenciadas em bairros estratégicos como o Centro e a Vila Augusta. Nossa equipe analisa seu perfil para encontrar a seguradora com a melhor taxa de aceitação para o Onix.`}
+Na Patro, comparamos seu Onix em 16+ seguradoras e mostramos lado a lado coberturas, franquias e preços — sem pressão de venda e com explicação clara do que cada item significa.
+
+## Dicas da Patro para economizar
+1. Rastreador + garagem fechada: desconto combinado de 10% a 20%.
+2. Declare o uso real: se usa o carro para app, a cobertura profissional evita negativa de sinistro.
+3. Mantenha o bônus: cada ano sem sinistro reduz o prêmio progressivamente.
+4. Compare na renovação: o Onix tem concorrência forte entre seguradoras — aproveite.
+5. Evite subseguro: declare o valor FIPE correto para não ter indenização reduzida.`}
       icon="🚗"
       pricingInfo={{
-        intro: "O seguro do Chevrolet Onix possui uma das maiores variações de preço dependendo do bairro de Guarulhos.",
+        intro: "A faixa média fica entre R$ 1.900 e R$ 3.700 por ano para cobertura compreensiva (estimativa com base no perfil médio dos nossos clientes).",
         factors: [
-          "Histórico de roubos e furtos do modelo na região",
-          "CEP de pernoite (fator determinante para o Onix)",
-          "Uso de rastreador ou sistema de telemetria",
-          "Experiência e bônus do condutor",
+          "CEP de pernoite: Cumbica, Pimentas e Bonsucesso elevam o prêmio; Cidade Maia e Vila Augusta reduzem.",
+          "Ano e versão (1.0, 1.0T, RS, Premier).",
+          "Idade e perfil do condutor.",
+          "Garagem, rastreador e alarme.",
+          "Classe de bônus e histórico de sinistros.",
         ],
-        note: "Faixa média estimada: R$ 1.900 a R$ 3.700 por ano."
+        note: "Seguradoras mais competitivas: Porto Seguro e HDI costumam oferecer as melhores condições para o Onix. Para motoristas de aplicativo, trabalhamos com seguradoras que possuem cobertura profissional — essencial para quem roda de Uber, 99 ou iFood."
       }}
       coverages={[
-        { title: "Cobertura Compreensiva", description: "Proteção total contra acidentes, roubo, furto e fenômenos da natureza." },
-        { title: "Danos Morais e Estéticos", description: "Garantia adicional para processos de terceiros em caso de acidentes graves." },
-        { title: "Assistência 24h Completa", description: "Serviço de guincho, troca de bateria e auxílio combustível." },
-        { title: "Reparo de Vidros", description: "Troca e reparo de vidros, retrovisores, lanternas e faróis." },
-        { title: "Assistência Residencial", description: "Muitas apólices do Onix incluem serviços básicos para sua casa." },
+        { title: "Compreensiva", description: "Roubo, furto, colisão, incêndio e fenômenos naturais — essencial dado o risco de roubo do modelo." },
+        { title: "Assistência 24h", description: "Guincho, chaveiro e socorro mecânico." },
+        { title: "Carro reserva", description: "Para quem depende do carro no dia a dia." },
+        { title: "Cobertura para motorista de app", description: "Proteção durante corridas para quem usa o Onix para trabalhar." },
+        { title: "Vidros e faróis", description: "Para-brisa com cobertura sem impacto na bonificação." },
       ]}
       whoNeeds={[
-        "Proprietários de Chevrolet Onix ou Onix Plus",
-        "Pessoas que utilizam o carro para ir ao trabalho diariamente",
-        "Famílias que buscam um seguro confiável e ágil",
-        "Moradores de áreas com alto fluxo de veículos em Guarulhos",
-        "Quem busca renovar o seguro com foco em redução de custos",
+        "Proprietários de Onix novo, seminovo ou financiado.",
+        "Famílias que usam o carro como veículo principal.",
+        "Motoristas de aplicativo que precisam de cobertura profissional.",
+        "Quem mora em bairros de risco elevado e quer proteção contra roubo.",
+        "Jovens condutores que buscam bom custo-benefício.",
       ]}
       whyPatro={[
-        "Análise profunda dos índices de roubo por bairro em Guarulhos",
-        "Especialistas em encontrar descontos via rastreadores",
-        "Comparativo entre as 16 maiores seguradoras do mercado",
-        "Atendimento personalizado e sem robôs no suporte",
+        "Resposta em até 2 horas úteis",
+        "Comparativo de 16+ seguradoras",
+        "Atendimento consultivo especializado",
+        "Expertise local em Guarulhos e região",
       ]}
       faqs={[
-        { question: "Quanto custa o seguro do Chevrolet Onix em Guarulhos?", answer: "Em Guarulhos, a média fica entre R$ 1.900 a R$ 3.700 por ano, variando conforme o CEP." },
-        { question: "O Onix é muito visado para roubo em Guarulhos?", answer: "Sim, é um dos modelos mais visados. Por isso, as seguradoras valorizam muito itens como garagem e rastreador." },
-        { question: "Preciso de rastreador para segurar o Onix?", answer: "Não é obrigatório para todas as cias, mas é altamente recomendado para obter descontos importantes no prêmio." },
-        { question: "Qual a melhor seguradora para o Onix?", answer: "Porto Seguro e HDI costumam ter Tabelas de Preços muito agressivas para o Onix em nossa região." },
-        { question: "O seguro cobre motorista de aplicativo no Onix?", answer: "Sim, desde que o uso seja declarado no momento da contratação e a cobertura correta seja aplicada." },
+        { question: "Quanto custa seguro Onix em Guarulhos?", answer: "Entre R$ 1.900 e R$ 3.700 por ano para cobertura compreensiva, variando por CEP, versão e perfil do condutor." },
+        { question: "O Onix é muito visado para roubo em Guarulhos?", answer: "Sim. É um dos hatches mais roubados da cidade por causa da alta demanda no mercado paralelo. Rastreador e garagem fechada fazem diferença real no preço." },
+        { question: "Preciso de rastreador para segurar o Onix?", answer: "Recomendado e, em alguns bairros, pode ser exigido para obter boa condição. O desconto compensa o investimento." },
+        { question: "O seguro cobre uso como motorista de app?", answer: "Sim, com cobertura específica. Motoristas de Uber, 99 e iFood precisam dessa proteção — o seguro convencional não cobre corridas." },
+        { question: "Qual seguradora é melhor para o Onix?", answer: "Porto Seguro e HDI costumam ter os melhores preços. Para uso profissional, orientamos as seguradoras com cobertura de app." },
       ]}
     />
   );
