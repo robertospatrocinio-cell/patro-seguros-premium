@@ -357,7 +357,7 @@ const Index = () => {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { name: "Cidade Maia", path: "/seguros-cidade-maia-guarulhos" },
+                      { name: "Cidade Maia", path: "/seguros-shopping-maia-cidade-maia-guarulhos" },
                       { name: "Cumbica", path: "/seguros-cumbica-guarulhos" },
                       { name: "Pimentas", path: "/seguros-pimentas-guarulhos" },
                       { name: "Bonsucesso", path: "/seguros-bonsucesso-guarulhos" },
