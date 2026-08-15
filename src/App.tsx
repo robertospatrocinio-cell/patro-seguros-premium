@@ -139,6 +139,7 @@ const BlogCalendario90Dias = lazyWithRetry(() => import("./pages/BlogCalendario9
 const BlogCluster = lazyWithRetry(() => import("./pages/BlogCluster"), "BlogCluster");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
+const ContatoObrigado = lazyWithRetry(() => import("./pages/ContatoObrigado"), "ContatoObrigado");
 
 const ComparativoPlanosSaude = lazyWithRetry(() => import("./pages/ComparativoPlanosSaude"), "ComparativoPlanosSaude");
 const CRM = lazyWithRetry(() => import("./pages/CRM"), "CRM");
@@ -586,7 +587,8 @@ const App = () => {
                   <Route path="/verificar-susep" element={<VerificarSusep />} />
                   <Route path="/parceiros" element={<Parceiros />} />
                   <Route path="/cotacao" element={<Cotacao />} />
-                  <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
+            <Route path="/cotacao/obrigado" element={<CotacaoObrigado />} />
+            <Route path="/contato/obrigado" element={<ContatoObrigado />} />
                   <Route path="/indique-e-ganhe" element={<IndiqueEGanhe />} />
                   <Route path="/obrigado-indicacao" element={<ObrigadoIndicacao />} />
                   <Route path="/cotacao/auto" element={<Navigate to="/cotacao-seguro-auto" replace />} />

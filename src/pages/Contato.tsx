@@ -103,41 +103,26 @@ const Contato = () => {
         data.servico ? `Interesse: ${data.servico}` : "",
         data.mensagem ? `Mensagem: ${data.mensagem}` : "",
       ].filter(Boolean) as string[];
+      
       const ctaOptions = {
         origem: "contato_formulario",
         extraLines,
         subject: `Contato pelo site — ${data.nome}`,
       };
+      
       const waUrl = buildWhatsAppUrl(ctaOptions);
 
-      try {
-        window.fbq?.("track", "Lead", {
-          content_name: "formulario-contato",
-          content_category: data.servico || "geral",
-        });
-      } catch (err) {
-        console.error("Contato tracking failed", err);
-      }
-
-      try {
-        window.gtag?.("event", "clique_whatsapp_contato", {
-          event_category: "contato",
-          origem: "contato_formulario",
-          url_destino: waUrl,
-        });
-      } catch {
-        /* noop */
-      }
+      // Track conversion click
       trackWhatsAppClick("contato-formulario", { origin: "contato_formulario" });
 
+      // Simulate a small delay for better UX before redirecting
       setTimeout(() => {
         setSending(false);
         setSent(true);
-        openWhatsAppOrFallback(
-          ctaOptions,
-          (msg, opts) => sonnerToast.error(msg, opts),
-        );
-      }, 400);
+        // Redirect to success page with encoded WhatsApp URL
+        const successUrl = `/contato/obrigado?wa=${encodeURIComponent(waUrl)}`;
+        window.location.href = successUrl;
+      }, 600);
     } catch (err) {
       console.error("Contato submit failed", err);
       setSending(false);
