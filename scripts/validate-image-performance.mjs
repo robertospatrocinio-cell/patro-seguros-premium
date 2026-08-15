@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
 
 const distDir = path.resolve('dist');
 
@@ -32,14 +31,14 @@ async function validateImages() {
   let missingAlt = 0;
   let missingDimension = 0;
   let webpAvifCount = 0;
+  let suspiciousExtensions = 0;
 
   for (const file of htmlFiles) {
     const content = fs.readFileSync(file, 'utf-8');
     
-    // Check for img tags
-    const imgMatches = content.matchAll(/<img[^>]+>/g);
-    for (const match of imgMatches) {
-      const tag = match[0];
+    // Check for img tags with a more robust regex to handle newlines
+    const imgMatches = content.match(/<img[^>]+>/gs) || [];
+    for (const tag of imgMatches) {
       totalImages++;
       
       if (tag.includes('loading="lazy"')) lazyImages++;
@@ -47,27 +46,27 @@ async function validateImages() {
       if (!tag.includes('alt=')) missingAlt++;
       if (!tag.includes('width=') || !tag.includes('height=')) missingDimension++;
       if (tag.includes('.webp') || tag.includes('.avif')) webpAvifCount++;
+      if (tag.match(/\.(jpg|jpeg|png)(?!\.webp|\.avif)/i)) suspiciousExtensions++;
     }
 
-    // Check for picture/source tags
-    if (content.includes('<picture') || content.includes('<source')) {
-       const sourceMatches = content.matchAll(/<source[^>]+type="image\/(webp|avif)"/g);
-       for (const _ of sourceMatches) {
-         webpAvifCount++;
-       }
-    }
+    // Check for source tags
+    const sourceMatches = content.match(/<source[^>]+type="image\/(webp|avif)"/g) || [];
+    webpAvifCount += sourceMatches.length;
   }
 
   console.log(`\n📊 Relatório de Imagens (${htmlFiles.length} páginas analisadas):`);
   console.log(`- Total de <img> encontradas: ${totalImages}`);
-  console.log(`- Imagens com Lazy Loading: ${lazyImages} (${((lazyImages/totalImages)*100).toFixed(1)}%)`);
+  console.log(`- Imagens com Lazy Loading: ${lazyImages} (${totalImages ? ((lazyImages/totalImages)*100).toFixed(1) : 0}%)`);
   console.log(`- Imagens com Eager Loading (LCP candidates): ${eagerImages}`);
-  console.log(`- Imagens em formatos modernos (WebP/AVIF): ${webpAvifCount}`);
+  console.log(`- Recursos em formatos modernos (WebP/AVIF): ${webpAvifCount}`);
+  console.log(`- Imagens legadas (PNG/JPG detectados): ${suspiciousExtensions}`);
   console.log(`- Imagens sem ALT (SEO Issue): ${missingAlt}`);
   console.log(`- Imagens sem Width/Height (CLS Issue): ${missingDimension}`);
 
-  if (missingAlt > 0 || missingDimension > totalImages * 0.2) {
-    console.warn('\n⚠️  Atenção: Algumas imagens ainda carecem de atributos de acessibilidade ou dimensões fixas.');
+  if (totalImages === 0) {
+    console.warn('\n⚠️ Nenhuma tag <img> encontrada. Verifique se o prerender funcionou corretamente.');
+  } else if (missingAlt > 0 || missingDimension > totalImages * 0.2) {
+    console.warn('\n⚠️  Atenção: Algumas imagens carecem de atributos de acessibilidade ou dimensões.');
   } else {
     console.log('\n✅ Performance de imagens validada com sucesso.');
   }
