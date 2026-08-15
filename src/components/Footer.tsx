@@ -19,15 +19,18 @@ const Footer = memo(() => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <SmartLink to="/" className="inline-block mb-6">
-              <img
-                src={logoFull}
-                alt="Patro Seguros Guarulhos - Corretora de Seguros"
-                width={140}
-                height={70}
-                loading="lazy"
-                decoding="async"
-                className="h-16 w-auto object-contain brightness-200"
-              />
+              <picture>
+                <source srcSet="/images/logo-full.webp" type="image/webp" />
+                <img
+                  src={logoFull}
+                  alt="Patro Seguros Guarulhos - Corretora de Seguros"
+                  width={140}
+                  height={70}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-16 w-auto object-contain brightness-200"
+                />
+              </picture>
             </SmartLink>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
               {EMPRESA.posicionamento}

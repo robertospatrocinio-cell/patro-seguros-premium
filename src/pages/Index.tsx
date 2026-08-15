@@ -140,15 +140,6 @@ const Index = () => {
         <section className="relative min-h-[600px] flex items-center bg-slate-900 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <picture>
-              {/* AVIF primeiro (menor payload em ~20-40% vs WebP). Browsers sem
-                  suporte descartam a <source> e caem para WebP; se nem WebP, o
-                  <img> serve como último fallback. srcSet responsivo evita
-                  baixar 1280px num celular. */}
-              <source
-                type="image/avif"
-                srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
-                sizes="100vw"
-              />
               <source
                 type="image/webp"
                 srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
@@ -156,7 +147,6 @@ const Index = () => {
               />
               <img
                 src="/images/hero-home-960.webp"
-                srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
                 alt="Corretora de seguros em Guarulhos — Patro Seguros, com 20+ anos de mercado e atendimento consultivo"
                 width={1280}
                 height={720}
