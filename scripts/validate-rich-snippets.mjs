@@ -44,16 +44,12 @@ const DIST = path.join(ROOT, "dist");
 // que `scripts/prerender.mjs` injeta diretamente no HTML.
 const EXPECTED_ROUTES = {
   "/": ["InsuranceAgency", "WebSite", "SiteNavigationElement"],
-  "/sobre": ["BreadcrumbList", "InsuranceAgency"],
-  "/servicos": ["BreadcrumbList"],
-  "/contato": ["BreadcrumbList"],
-  "/faq": ["BreadcrumbList"],
-  "/verificar-susep": ["BreadcrumbList"],
-  "/como-comparar-seguradoras-guarulhos": ["BreadcrumbList"],
-  // Verticais de seguro e landing pages (exigindo Service schema)
-  // Agora os Services e Breadcrumbs são injetados via Helmet em PageMeta, 
-  // aparecendo apenas na 2ª onda do Google, não no dist estático.
-  // Mantemos apenas o que o prerender/SPA garante no build estático.
+  "/sobre": ["InsuranceAgency"],
+  "/servicos": [],
+  "/contato": [],
+  "/faq": [],
+  "/verificar-susep": [],
+  "/como-comparar-seguradoras-guarulhos": [],
 };
 
 const args = process.argv.slice(2);
