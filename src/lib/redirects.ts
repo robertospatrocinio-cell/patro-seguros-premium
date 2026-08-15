@@ -41,6 +41,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     reason: "Redirecionamento técnico para URL canônica do bairro Cidade Maia.",
   },
   {
+    from: "/seguros-guarulhos",
+    to: "/seguros-em-guarulhos",
+    reason: "Consolidação de hub geográfico principal para a versão 'em-guarulhos'.",
+  },
+  {
     from: "/planos-de-saude",
     to: "/plano-de-saude-guarulhos",
     reason: "Consolidação de hub para evitar canibalização. URL canônica local.",

@@ -11,7 +11,7 @@ import {
 
 const WHATSAPP_BASE = "https://wa.me/551151997500?text=";
 const DEFAULT_MESSAGE =
-  "Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.";
+  "Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.";
 const DEFAULT_TRACKING_LABEL = "botao-fixo";
 
 const WhatsAppButton = () => {
@@ -95,7 +95,7 @@ const WhatsAppButton = () => {
 
   const lastErrorId = typeof window !== "undefined" ? (window as Window & { lastErrorId?: string }).lastErrorId : null;
   const baseMessage = isSinistroPage 
-    ? "Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site." 
+    ? "Olá! Vim pela Central de Sinistro do site da Patro Seguros e preciso de ajuda." 
     : (override?.message ?? DEFAULT_MESSAGE);
   
   const whatsappMessage = lastErrorId 

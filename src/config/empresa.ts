@@ -19,7 +19,7 @@ export const EMPRESA = {
   endereco: {
     logradouro: "Av. Salgado Filho",
     numero: "2120",
-    complemento: "Sala 219 — Edifício Via Alameda — Cidade Maia (Parque Renato Maia)",
+    complemento: "Sala 219 — Edifício Via Alameda — Cidade Maia",
     bairro: "Cidade Maia",
     cidade: "Guarulhos",
     estado: "São Paulo",

@@ -42,7 +42,7 @@ import heroImg from "@/assets/hero-seguro-maquinas.webp";
 // ---------- Config editável ----------
 // Número e templates de WhatsApp por CTA vivem em `src/lib/whatsapp.ts`.
 // Para ajustar os textos desta LP, edite `LP_WHATSAPP_TEMPLATES["lp-maquinas-equipamentos"]` lá.
-const CONTACT_EMAIL = "contato@patroseguros.com.br";
+const CONTACT_EMAIL = "comercial@patroseguros.com.br";
 const CONTACT_PHONE = "(11) 5199-7500";
 const CITY = "Guarulhos / SP";
 

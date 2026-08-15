@@ -114,8 +114,8 @@ const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
 
 // Mensagem personalizada por tipo de seguro para o link do WhatsApp
-const buildProductWhatsAppUrl = (): string => {
-  const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.`;
+const buildProductWhatsAppUrl = (productTitle: string): string => {
+  const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${productTitle}.`;
   return `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`;
 };
 
@@ -534,7 +534,7 @@ const InsurancePageTemplate = ({
                     </Button>
                   </Link>
                 )}
-                <a href={buildProductWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                <a href={buildProductWhatsAppUrl(title)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                   </Button>
@@ -959,7 +959,7 @@ const InsurancePageTemplate = ({
                 </Link>
               )}
               <a
-                href={buildProductWhatsAppUrl()}
+                href={buildProductWhatsAppUrl(title)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Falar no WhatsApp sobre ${title}`}

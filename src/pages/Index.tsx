@@ -234,7 +234,7 @@ const Index = () => {
                 Nosso trabalho é simplificar a contratação do seguro, explicar as
                 diferenças entre as seguradoras e acompanhar o cliente antes,
                 durante e depois da contratação.{" "}
-                <Link to="/seguros-guarulhos" className="text-primary font-semibold hover:underline">
+                <Link to="/seguros-em-guarulhos" className="text-primary font-semibold hover:underline">
                   Conheça nossa atuação em Guarulhos
                 </Link>{" "}
 
@@ -310,7 +310,7 @@ const Index = () => {
                     — planos PME e corporativos para reter talentos.
                   </li>
                   <li>
-                    <Link to="/seguros-guarulhos" className="text-primary hover:underline">
+                    <Link to="/seguros-em-guarulhos" className="text-primary hover:underline">
                       Cotação de Seguro em Guarulhos por bairro
                     </Link>{" "}
                     — Cidade Maia, Centro, Cumbica, Bonsucesso, Pimentas e mais.
@@ -755,13 +755,13 @@ const Index = () => {
                   { label: "Bonsucesso", href: "/seguro-auto-bonsucesso" },
                   { label: "Taboão", href: "/seguros-guarulhos/taboao" },
                   { label: "Vila Galvão", href: "/seguros-guarulhos/vila-galvao" },
-                  { label: "Macedo", href: "/seguros-guarulhos" },
+                  { label: "Macedo", href: "/seguros-em-guarulhos" },
                   { label: "Cidade Maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos" },
                   { label: "Vila Augusta", href: "/seguro-auto-vila-augusta" },
-                  { label: "Gopoúva", href: "/seguros-guarulhos" },
-                  { label: "Ponte Grande", href: "/seguros-guarulhos" },
-                  { label: "Jardim Maia", href: "/seguros-guarulhos" },
-                  { label: "Picanço", href: "/seguros-guarulhos" },
+                  { label: "Gopoúva", href: "/seguros-em-guarulhos" },
+                  { label: "Ponte Grande", href: "/seguros-em-guarulhos" },
+                  { label: "Jardim Maia", href: "/seguros-em-guarulhos" },
+                  { label: "Picanço", href: "/seguros-em-guarulhos" },
                 ].map((b) => (
                   <Link
                     key={b.label}
