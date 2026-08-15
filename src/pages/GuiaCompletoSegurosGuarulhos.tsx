@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { ebookLeadSchema as leadSchema } from "@/lib/leadValidation";
 import { CheckCircle, Download, Shield, MapPin, Target, Users, AlertCircle, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
