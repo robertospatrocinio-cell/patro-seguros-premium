@@ -222,6 +222,11 @@ const Index = () => {
         </section>
         
         {/* Mapa + NAP */}
+        {/* Carrossel 2 — Artigos do blog (obrigatório) */}
+        <Suspense fallback={<div className="container mx-auto px-4 py-16"><div className="h-[420px] rounded-2xl bg-muted animate-pulse" /></div>}>
+          <BlogCarousel />
+        </Suspense>
+
         <section className="py-16 container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Nossa sede em Guarulhos</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
