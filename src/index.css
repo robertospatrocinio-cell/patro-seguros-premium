@@ -64,12 +64,12 @@
   * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", Inter, system-ui, Helvetica, Arial, sans-serif;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-feature-settings: 'ss01', 'kern';
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", Inter, system-ui, Helvetica, Arial, sans-serif;
+    font-family: Manrope, Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, Helvetica, Arial, sans-serif;
     @apply text-foreground;
     font-weight: 600;
     letter-spacing: -0.015em;
@@ -78,8 +78,8 @@
   h2 { @apply text-3xl md:text-[2.5rem] lg:text-[3rem] leading-[1.08]; letter-spacing: -0.02em; }
   h3 { @apply text-xl md:text-2xl leading-snug; }
   p { line-height: 1.65; }
-  .font-display { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", Inter, system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
-  .eyebrow { @apply text-[11px] uppercase tracking-[0.18em] font-medium; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro", Inter, system-ui, sans-serif; }
+  .font-display { font-family: Manrope, Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
+  .eyebrow { @apply text-[11px] uppercase tracking-[0.18em] font-semibold; font-family: Manrope, Inter, -apple-system, system-ui, sans-serif; }
 }
 
 @layer utilities {

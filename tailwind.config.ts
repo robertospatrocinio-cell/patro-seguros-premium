@@ -74,10 +74,10 @@ export default {
     extend: {
       fontFamily: {
         // SF Pro stack — native on Apple devices, Inter/system fallback elsewhere.
-        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
-        heading: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
-        display: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
-        serif: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro"', 'Inter', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        heading: ['Manrope', 'Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        display: ['Manrope', 'Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
+        serif: ['Manrope', 'Inter', '-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', 'system-ui', 'Helvetica', 'Arial', 'sans-serif'],
         rounded: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Rounded"', '"SF Pro"', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['ui-monospace', '"SF Mono"', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
