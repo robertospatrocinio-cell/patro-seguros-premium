@@ -3,6 +3,11 @@ import heroImg from "@/assets/lp-seguro-vida.webp";
 
 const LandingSeguroVida = () => (
   <LandingPageTemplate
+    service={{
+      name: "Seguro de Vida",
+      description: "Seguro de Vida e Saúde em Guarulhos. Proteção para você e sua família. Compare 20 operadoras.",
+      type: "LifeInsurance"
+    }}
     heroImage={heroImg}
     title="Seguro de Vida e Saúde em Guarulhos"
     heroEmoji="❤️"

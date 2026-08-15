@@ -55,6 +55,11 @@ const LandingSeguroMotoEntregador = () => {
 
   return (
     <LandingPageTemplate
+      service={{
+        name: "Seguro de Moto para Entregadores",
+        description: "Consultoria especializada em seguros para motociclistas profissionais e entregadores de aplicativos em Guarulhos e região.",
+        type: "MotorcycleInsurance"
+      }}
       title="Seguro de Moto para Entregadores em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro de Moto para Entregadores em Guarulhos — Cotação com 16+ seguradoras"
       subheadline={highlightBrands("Vai rodar hoje? Garanta que seu sustento esteja protegido. A Patro Seguros compara opções aceitas por iFood, Keeta e 99 em 16+ seguradoras, com planos de roubo e furto para motoboys em Guarulhos.")}
@@ -94,11 +99,6 @@ const LandingSeguroMotoEntregador = () => {
       objections={faqs}
       extraSections={
         <div className="space-y-20">
-          <ServiceSchema 
-            name="Seguro de Moto para Entregadores" 
-            description="Consultoria especializada em seguros para motociclistas profissionais e entregadores de aplicativos em Guarulhos e região."
-            serviceType="MotorcycleInsurance"
-          />
           <FAQSchema faqs={faqs} />
           
           {/* BreadcrumbList Schema for Rich Results */}
