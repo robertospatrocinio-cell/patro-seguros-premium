@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Criar páginas de agradecimento após o envio da cotação e do contato, com CTA para WhatsApp e atualização de SEO local e rastreamento. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Implementar um script de pré-build que rode os detectores de inconsistência e aplique backfill apenas quando necessário, antes do postbuild falhar. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
