@@ -575,6 +575,20 @@ export default defineConfig(({ mode }) => ({
     mode === "production" && sitemapPlugin(),
      mode === "production" && spaFallbackPlugin(),
      mode === "production" && googleIndexingPlugin(),
+    mode === "production" && viteImagemin({
+      gifsicle: { optimizationLevel: 7, interlaced: false },
+      optipng: { optimizationLevel: 7 },
+      mozjpeg: { quality: 80 },
+      pngquant: { quality: [0.8, 0.9], speed: 4 },
+      svgo: {
+        plugins: [
+          { name: "removeViewBox" },
+          { name: "removeEmptyAttrs", active: false },
+        ],
+      },
+      webp: { quality: 75 },
+      avif: { quality: 50 },
+    }),
      // validateLocalPagesPlugin(),
      // validatePageMetaPlugin(),
   ].filter(Boolean),
