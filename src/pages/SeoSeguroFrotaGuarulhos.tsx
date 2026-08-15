@@ -7,16 +7,12 @@ const SeoSeguroFrotaGuarulhos = () => (
     <PrerenderText slug="seguro-frota-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
-    title="Seguro de Frota em Guarulhos | Gestão Completa | Patro Seguros"
-    subtitle="Seguro de Frota em Guarulhos — Solução para Sua Empresa"
-    description="Seguro de frota para empresas em Guarulhos. Cobertura completa para veículos comerciais. Gestão simplificada e cotação rápida."
-    detailedDescription={`Guarulhos é o maior polo logístico do estado de São Paulo. Com o Aeroporto Internacional de Cumbica, a proximidade do Porto de Santos via Anchieta-Imigrantes e a interseção das rodovias Dutra, Fernão Dias e Ayrton Senna, a cidade concentra milhares de empresas de transporte, distribuição e logística que dependem de frotas para operar.
+    title="Seguro de Frota em Guarulhos"
+    subtitle="Seguro de frota para empresas em Guarulhos"
+    description="Guarulhos é o maior polo logístico do estado, com o Aeroporto Internacional de Cumbica e o cruzamento das rodovias Dutra, Fernão Dias e Ayrton Senna. Frotas que operam aqui enfrentam risco elevado de acidente e roubo — e cada dia de veículo parado pode custar caro. Nossa equipe analisa o perfil da frota, negocia com as melhores seguradoras e acompanha os sinistros para reduzir o tempo de parada. Frotas acima de 20 veículos têm condições especiais."
+    detailedDescription={`Guarulhos concentra milhares de empresas de transporte, distribuição e logística que dependem de frotas para operar. A rodovia Presidente Dutra, no trecho de Guarulhos, registra uma das maiores taxas de acidentes do estado, e roubos de carga são frequentes em regiões como Cumbica e Bonsucesso. Esses fatores tornam o seguro de frota essencial para a sobrevivência do negócio.
 
-O risco de sinistros para frotas em Guarulhos é significativamente alto. A rodovia Presidente Dutra, no trecho de Guarulhos, registra uma das maiores taxas de acidentes do estado. Roubos de carga e de veículos também são frequentes em regiões como Cumbica, Bonsucesso e nas marginais das rodovias. Esses fatores tornam o seguro de frota não apenas recomendável, mas essencial para a sobrevivência do negócio.
-
-A Patro Seguros oferece gestão de risco completa para frotas: desde a análise do perfil de cada veículo e motorista, passando pela negociação com seguradoras (Porto Seguro, Tokio Marine, HDI, Mapfre e Zurich), até o acompanhamento integral de sinistros. Nossa equipe conhece os procedimentos de cada seguradora e trabalha para reduzir o tempo de veículo parado — que para empresas de transporte pode representar prejuízos de R$ 500 a R$ 2.000 por dia.
-
-Para frotas acima de 20 veículos, negociamos condições especiais que incluem franquias reduzidas, descontos progressivos e programas de gestão preventiva de risco. Empresas que implementam nosso programa de prevenção (treinamento de motoristas, telemetria e manutenção preventiva) obtêm reduções médias de 20% no prêmio anual.`}
+A Patro Seguros oferece gestão de risco completa: análise do perfil de cada veículo e motorista, negociação com seguradoras líderes e acompanhamento integral de sinistros para reduzir o tempo de veículo parado. Para frotas acima de 20 veículos, negociamos condições especiais que incluem franquias reduzidas e descontos progressivos.`}
     icon="🚛"
     metaDescription="Seguro de Frota em Guarulhos para transportadoras, distribuidoras e empresas. Gestão de risco e cotação personalizada. Patro Seguros – corretora local."
     coverages={[

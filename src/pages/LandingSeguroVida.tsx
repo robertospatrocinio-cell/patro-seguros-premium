@@ -4,11 +4,11 @@ import heroImg from "@/assets/lp-seguro-vida.webp";
 const LandingSeguroVida = () => (
   <LandingPageTemplate
     heroImage={heroImg}
-    title="Seguro de Vida"
+    title="Seguro de Vida e Saúde em Guarulhos"
     heroEmoji="❤️"
-    headline="Se algo acontecer com você, sua família vai ficar bem?"
-    subheadline="Seguro de Vida não é sobre morrer — é sobre garantir que quem você ama continue protegido. Cotação gratuita e personalizada."
-    metaDescription="Seguro de Vida individual e familiar. Proteção financeira para sua família. A partir de R$ 39/mês. Cotação gratuita. Patro Seguros Guarulhos."
+    headline="Seguro de Vida e Saúde em Guarulhos"
+    subheadline="Com mais de 400 vidas protegidas em Guarulhos, comparamos mais de 20 operadoras para encontrar o plano ideal. Conhecemos a rede local de hospitais e orientamos sobre carências e portabilidade. Planos PME com preços até 40% menores."
+    metaDescription="Seguro de Vida e Saúde em Guarulhos. Proteção para você e sua família. Compare 20 operadoras. Cotação gratuita e personalizada."
     ctaText="Proteger Minha Família Agora"
     urgencyText="Quanto mais jovem, mais barato. Não espere."
     priceAnchor="A partir de R$ 39/mês* — menos que sua conta de celular"

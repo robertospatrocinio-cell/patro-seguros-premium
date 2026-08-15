@@ -10,11 +10,11 @@ const LandingSeguroResidencial = () => (
 
   <LandingPageTemplate
     heroImage={heroImg}
-    title="Seguro Residencial"
+    title="Seguro residencial em Guarulhos para casa e apartamento"
     heroEmoji="🏠"
-    headline="Sua casa é seu maior patrimônio. Ela está protegida?"
-    subheadline="De incêndio a danos elétricos, de roubo a assistência 24h. Proteja sua família e seu lar por menos do que você imagina."
-    metaDescription="Seguro Residencial a partir de R$ 15/mês. Cobertura contra incêndio, roubo, danos elétricos e assistência 24h. Cotação grátis. Patro Seguros."
+    headline="Seguro residencial em Guarulhos para casa e apartamento"
+    subheadline="Poucos contratos entregam tanto valor por tão pouco quanto o seguro residencial. A partir de R$ 150/ano para apartamentos, ele protege o patrimônio da sua família e inclui assistência 24h completa. Nós cotamos com as melhores seguradoras e orientamos as coberturas certas para o seu imóvel em Guarulhos."
+    metaDescription="Seguro residencial em Guarulhos para casa e apartamento. Proteção contra incêndio, roubo e assistência 24h. Cotação em 2h."
     ctaText="Proteger Minha Casa Agora"
     ctaUrl="https://patroseguros.com.br/cotacao-auto"
     urgencyText="Sua casa não pode esperar"

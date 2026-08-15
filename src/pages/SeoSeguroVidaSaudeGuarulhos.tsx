@@ -5,8 +5,8 @@ const SeoSeguroVidaSaudeGuarulhos = () => (
   <InsurancePageTemplate
     heroImage={heroImg}
     title="Seguro de Vida e Saúde em Guarulhos"
-    subtitle="Proteção para você e sua família em Guarulhos. Seguro de vida, planos de saúde e odontológico com cotação gratuita."
-    description="A Patro Seguros oferece as melhores opções de seguro de vida e planos de saúde em Guarulhos para pessoas físicas, famílias e empresas. Com mais de 400 vidas protegidas na região, comparamos mais de 20 operadoras — Amil, SulAmérica, Bradesco Saúde, Unimed, Hapvida e Prevent Senior — para encontrar o plano ideal para seu perfil e orçamento."
+    subtitle="Proteção para você e sua família"
+    description="Com mais de 400 vidas protegidas em Guarulhos, comparamos mais de 20 operadoras — Amil, SulAmérica, Bradesco Saúde, Unimed, Hapvida e Prevent Senior — para encontrar o plano ideal para seu perfil e orçamento. Conhecemos a rede local de hospitais e laboratórios (Bom Clima, Stella Maris, Fleury) e orientamos sobre carências, portabilidade e reajustes. Para empresas, oferecemos planos PME a partir de 2 vidas com preços até 40% menores que os individuais."
     detailedDescription={`Guarulhos, com mais de 1,4 milhão de habitantes, enfrenta desafios significativos na área de saúde. A rede pública, embora ampla, apresenta filas longas para especialidades e exames de alta complexidade. Moradores que dependem exclusivamente do SUS podem esperar meses para consultas com cardiologistas, ortopedistas e oncologistas — especialidades críticas para a saúde da família.
 
 O seguro de vida, por sua vez, é uma proteção financeira essencial que vai muito além do falecimento. Apólices modernas cobrem invalidez por acidente, doenças graves (câncer, AVC, infarto), diárias de internação hospitalar e até assistência funeral familiar. Para profissionais liberais de Guarulhos — médicos, advogados, engenheiros e consultores — o seguro de vida funciona como uma rede de segurança financeira caso fiquem impossibilitados de trabalhar.
