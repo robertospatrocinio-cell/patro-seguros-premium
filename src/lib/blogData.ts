@@ -1,4 +1,5 @@
 import { guarulhosArticles } from "@/data/blogGuarulhosData";
+import { BAIRROS_MATRIZ } from "@/data/seoLocalBairrosGuarulhos";
 import { guarulhosLojistasArticles } from "@/data/blogGuarulhosLojistasData";
 import { vistoriaArticles } from "@/data/blogVistoriaData";
 import { odontologiaArticles } from "@/data/blogOdontologiaData";
