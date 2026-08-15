@@ -1,5 +1,8 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { ArrowRight, Clock, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import LocalPageTemplate, {
   type LocalFAQ,
   type LocalInsurer,
