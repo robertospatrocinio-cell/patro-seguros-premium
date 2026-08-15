@@ -3,51 +3,59 @@ import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 const SeguroAutoToyotaCorollaGuarulhos = () => {
   return (
     <InsurancePageTemplate
-      title="Seguro Toyota Corolla em Guarulhos | Cotação em 2h | Patro"
+      title="Seguro Toyota Corolla em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Toyota Corolla em Guarulhos — Cotação com 16+ seguradoras"
-      subtitle="Proteção completa para o sedã mais vendido do Brasil com assistência 24h em Guarulhos."
-      metaDescription="Seguro Toyota Corolla em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 2.800 a R$ 4.800/ano. Cotação em até 2h com atendimento consultivo. Peça sua proposta grátis."
-      description="O Corolla é o sedã médio mais vendido do Brasil e um dos mais visados para roubo em Guarulhos, especialmente nas regiões de Cumbica e Pimentas. Por ser um carro de alto valor FIPE e muito procurado no mercado paralelo, a seguradora avalia com rigor o CEP de pernoite e os dispositivos de segurança."
-      detailedDescription={`Motoristas acima de 30 anos, com garagem fechada e rastreador, conseguem as melhores condições para o seguro do Corolla em Guarulhos. Para quem roda muito na Rodovia Presidente Dutra e na Fernão Dias, recomendamos reforçar a cobertura de colisão e assistência 24h sem limite de quilometragem. 
+      subtitle="O Toyota Corolla é o sedã médio mais vendido do Brasil e um dos modelos mais visados para roubo em Guarulhos, especialmente nas regiões de Cumbica e Pimentas."
+      metaDescription="Guarulhos está entre as cidades com mais roubo de veículos. Veja o preço médio do seguro Corolla, coberturas recomendadas e como economizar com a Patro Seguros."
+      description="O Toyota Corolla é o sedã médio mais vendido do Brasil e um dos modelos mais visados para roubo em Guarulhos, especialmente nas regiões de Cumbica e Pimentas. Por ter um dos valores de FIPE mais altos da categoria e ser muito procurado no mercado paralelo, ele exige atenção redobrada — tanto na hora de estacionar quanto na hora de contratar a cobertura."
+      detailedDescription={`A seguradora analisa com rigor o CEP de pernoite, os dispositivos de segurança e o perfil do condutor. Motoristas acima de 30 anos, com garagem fechada e rastreador instalado, costumam conseguir as melhores condições. Para quem roda diariamente pela Dutra ou pela Fernão Dias, vale reforçar a cobertura de colisão e a assistência 24h — acidentes em rodovia são a causa mais comum de sinistro nesse perfil de uso.
 
-O valor do seguro varia conforme o perfil, mas a robustez do Corolla ajuda na aceitação pelas principais cias. Seguradoras como Tokio Marine e Allianz costumam ter condições técnicas muito competitivas para este modelo, oferecendo inclusive benefícios exclusivos para a linha Toyota.`}
+Na Patro, comparamos propostas em 16+ seguradoras para encontrar a melhor relação entre cobertura e custo para o seu Corolla, sem você precisar repetir os dados em cada corretora.
+
+## Dicas da Patro para economizar
+1. Instale rastreador: pode reduzir o prêmio em 10% a 15%.
+2. Garagem fechada: estacionar em local coberto reduz o valor em até 20%.
+3. Mantenha a classe de bônus: cada ano sem sinistro gera desconto progressivo.
+4. Avalie franquia maior: se você é motorista experiente, reduz o prêmio.
+5. Nunca renove automaticamente: comparamos seu Corolla em todas as seguradoras a cada renovação.`}
       icon="🚗"
       pricingInfo={{
-        intro: "O investimento no seguro do Toyota Corolla em Guarulhos segue uma estimativa baseada no mercado atual.",
+        intro: "A faixa média do seguro Corolla em Guarulhos fica entre R$ 2.800 e R$ 4.800 por ano para cobertura compreensiva (estimativa com base no perfil médio dos nossos clientes).",
         factors: [
-          "CEP de pernoite (Cumbica e Pimentas costumam ter prêmios maiores)",
-          "Perfil do condutor (idade e histórico de direção)",
-          "Uso de dispositivos de segurança como rastreadores",
-          "Tipo de garagem e local de trabalho",
+          "CEP de pernoite: bairros como Cidade Maia e Vila Augusta tendem a ser mais baratos; Cumbica e Pimentas, mais caros.",
+          "Idade e tempo de habilitação do condutor principal.",
+          "Valor FIPE, ano e versão do veículo.",
+          "Garagem fechada, rastreador e alarme.",
+          "Histórico de sinistros e classe de bônus.",
         ],
-        note: "Faixa média estimada: R$ 2.800 a R$ 4.800 por ano."
+        note: "Seguradoras mais competitivas: Tokio Marine e Allianz costumam oferecer condições atrativas para o Corolla, combinando preço competitivo e rede de oficinas. A Porto Seguro se destaca pela assistência 24h e pela agilidade no sinistro."
       }}
       coverages={[
-        { title: "Compreensiva (Total)", description: "Cobertura para colisão, incêndio, roubo e furto qualificado." },
-        { title: "Danos a Terceiros", description: "Proteção contra danos materiais e corporais causados a outras pessoas." },
-        { title: "Assistência 24h VIP", description: "Guincho ilimitado, socorro mecânico e chaveiro em toda Guarulhos." },
-        { title: "Carro Reserva", description: "Garantia de mobilidade por até 30 dias em caso de sinistro." },
-        { title: "Vidros e Faróis", description: "Reposição de parabrisas, retrovisores e lanternas originais." },
+        { title: "Compreensiva", description: "Roubo, furto, colisão, incêndio e fenômenos naturais." },
+        { title: "Assistência 24h", description: "Guincho, chaveiro, troca de pneu e socorro mecânico — essencial para quem usa rodovias." },
+        { title: "Carro reserva", description: "Até 30 dias enquanto o veículo está na oficina." },
+        { title: "Vidros e faróis", description: "Para-brisa e retrovisores sem impacto na bonificação." },
+        { title: "Acessórios", description: "Central multimídia e itens de série instalados." },
       ]}
       whoNeeds={[
-        "Proprietários de Toyota Corolla seminovo ou 0km",
-        "Famílias que buscam segurança e conforto em trajetos urbanos",
-        "Executivos que utilizam o veículo para trabalho e viagens",
-        "Moradores de bairros como Cidade Maia e Vila Augusta",
-        "Motoristas que trafegam diariamente pelas rodovias de Guarulhos",
+        "Proprietários de Corolla seminovo ou financiado (bancos exigem seguro).",
+        "Famílias que usam o carro como veículo principal.",
+        "Executivos e profissionais que rodam pela Dutra e Fernão Dias.",
+        "Quem mora em bairros de risco elevado como Cumbica e Pimentas.",
+        "Motoristas que querem proteção total sem depender de seguradora única.",
       ]}
       whyPatro={[
-        "Consultoria especializada no perfil técnico da linha Toyota",
-        "Cotação em 16+ seguradoras simultaneamente",
-        "Suporte real no momento do sinistro ou assistência",
-        "Análise detalhada do CEP de pernoite para reduzir custos",
+        "Resposta em até 2 horas úteis",
+        "Comparativo de 16+ seguradoras",
+        "Atendimento consultivo especializado",
+        "Expertise local em Guarulhos e região",
       ]}
       faqs={[
-        { question: "Quanto custa o seguro do Toyota Corolla em Guarulhos?", answer: "A faixa média em Guarulhos varia entre R$ 2.800 a R$ 4.800 por ano, dependendo do perfil e CEP." },
-        { question: "O Corolla é muito visado para roubo em Guarulhos?", answer: "Sim, por ser um carro de alto valor e liquidez, é bastante visado. Recomendamos fortemente o uso de rastreador para baratear o seguro." },
-        { question: "Preciso de rastreador para segurar o Corolla?", answer: "Muitas seguradoras exigem ou oferecem descontos significativos para veículos equipados com rastreador homologado." },
-        { question: "Qual a melhor seguradora para o Corolla?", answer: "Tokio Marine, Allianz e Porto Seguro costumam ter as melhores aceitações e benefícios para a linha Corolla." },
-        { question: "O CEP do meu bairro encarece o seguro do Corolla?", answer: "Sim. Bairros como Cumbica e Pimentas podem ter valores mais altos que Cidade Maia ou Vila Augusta devido ao índice de sinistralidade local." },
+        { question: "Quanto custa seguro Corolla em Guarulhos?", answer: "Em média, entre R$ 2.800 e R$ 4.800 por ano para cobertura compreensiva, variando conforme CEP, perfil do condutor e dispositivos de segurança." },
+        { question: "O Corolla é muito visado para roubo em Guarulhos?", answer: "Sim. É um dos sedãs mais procurados no mercado paralelo, com risco maior em Cumbica, Pimentas e Bonsucesso. Rastreador e garagem fechada fazem diferença no preço e na segurança." },
+        { question: "Preciso de rastreador para segurar o Corolla?", answer: "Não é obrigatório, mas é altamente recomendado. Além de reduzir o prêmio in 10% a 15%, aumenta a chance de recuperação em caso de roubo." },
+        { question: "Dá para usar o Corolla como motorista de aplicativo?", answer: "Sim, mas o seguro convencional não cobre sinistros durante corridas. Para uso profissional (Uber, 99, iFood), é necessária cobertura específica." },
+        { question: "Qual seguradora é melhor para o Corolla?", answer: "Tokio Marine e Allianz costumam ter boas condições de preço; Porto Seguro se destaca em assistência. A escolha ideal depende do seu perfil — comparamos todas na sua cotação." },
       ]}
     />
   );
