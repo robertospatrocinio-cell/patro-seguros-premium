@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Adicionar testes automatizados para validar que todas as páginas com FAQ estão gerando JSON-LD de FAQPage sem campos ausentes e com contagem correta de perguntas e respostas. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Gerar e automatizar o sitemap.xml e o robots.txt no build, com testes para garantir que as rotas do site estão indexáveis e sem páginas faltando. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
