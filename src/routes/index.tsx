@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Rodar um teste PageSpeed Insights (mobile e desktop) da home e aplicar as correções necessárias para melhorar LCP e CLS. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │

@@ -42,8 +42,43 @@ const Index = () => {
       <Header />
       <main id="main-content">
         {/* HERO SECTION */}
-        <section className="relative py-20 bg-slate-900">
-          <div className="container mx-auto px-4">
+        <section className="relative py-20 bg-slate-900 overflow-hidden">
+          {/* Background image optimized for LCP */}
+          <picture className="absolute inset-0 z-0">
+            <source
+              media="(max-width: 640px)"
+              srcSet="/images/hero-home-480.avif"
+              type="image/avif"
+            />
+            <source
+              media="(max-width: 640px)"
+              srcSet="/images/hero-home-480.webp"
+              type="image/webp"
+            />
+            <source
+              media="(max-width: 1024px)"
+              srcSet="/images/hero-home-960.avif"
+              type="image/avif"
+            />
+            <source
+              media="(max-width: 1024px)"
+              srcSet="/images/hero-home-960.webp"
+              type="image/webp"
+            />
+            <source srcSet="/images/hero-home-1280.avif" type="image/avif" />
+            <img
+              src="/images/hero-home-1280.webp"
+              alt="Corretora de Seguros em Guarulhos"
+              className="w-full h-full object-cover opacity-20"
+              width="1280"
+              height="720"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
+
+          <div className="container mx-auto px-4 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Seguros em Guarulhos — Compare 16 seguradoras e economize</h1>
@@ -52,7 +87,7 @@ const Index = () => {
                   <Button size="lg" asChild className="bg-[#F2994A] hover:bg-[#d98842] text-white">
                     <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>Cotar agora com especialistas</Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="text-white border-white/20">
+                  <Button size="lg" variant="outline" asChild className="text-white border-white/20 hover:bg-white/10">
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>Falar no WhatsApp</a>
                   </Button>
                 </div>
@@ -61,7 +96,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="lg:ml-auto">
-                <Suspense fallback={<div className="h-[400px] w-full bg-slate-800 rounded-2xl animate-pulse" />}>
+                <Suspense fallback={<div className="h-[400px] w-min-[320px] bg-slate-800/50 rounded-2xl animate-pulse" />}>
                     <QuickLeadForm />
                 </Suspense>
               </div>
