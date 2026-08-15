@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Automatizar o backfill de FAQ para novos posts do blog, preenchendo Q&A com base no tema e garantindo que o arquivo src/data/blogFaqBackfill.ts seja atualizado automaticamente. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Adicionar uma verificação em todas as páginas de blog para confirmar que o FAQPage está corretamente renderizado e com número mínimo de perguntas estruturadas. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
