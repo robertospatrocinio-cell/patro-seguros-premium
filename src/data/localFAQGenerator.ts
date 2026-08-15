@@ -88,15 +88,15 @@ type Ctx = Required<Pick<GenerateLocalFAQInput, "neighborhood" | "city" | "produ
 const baseFAQs = (c: Ctx): LocalFAQ[] => [
   {
     question: `Quanto custa ${c.productLabel} no ${c.neighborhood}, ${c.city}?`,
-    answer: `O ${c.productLabel} no ${c.neighborhood} fica, em média, ${c.priceRange}. O valor exato depende do perfil contratante, dos itens cobertos e da seguradora escolhida — solicite cotação grátis com a Patro Seguros para receber o comparativo entre ${c.insurersCount} seguradoras parceiras (${c.insurersLabel}).`,
+    answer: `O valor do ${c.productLabel} no ${c.neighborhood} varia de acordo com o perfil, ficando em média ${c.priceRange}. Como os preços mudam entre as ${c.insurersCount} seguradoras parceiras (${c.insurersLabel.split(',')[0]} e outras), o ideal é solicitar um comparativo gratuito com a Patro Seguros para encontrar a melhor taxa para o seu CEP.`,
   },
   {
     question: `Quais seguradoras atendem o ${c.neighborhood} em ${c.city}?`,
-    answer: `Todas as ${c.insurersCount} seguradoras parceiras da Patro atendem o ${c.neighborhood}: ${c.insurersLabel}. Cada uma precifica o CEP do bairro de forma diferente — por isso o comparativo é essencial para evitar pagar a mais.`,
+    answer: `Os moradores e empresas do ${c.neighborhood} contam com atendimento das principais companhias do país, incluindo ${c.insurersLabel}. Cada seguradora possui uma leitura técnica diferente para o risco no ${c.neighborhood}, por isso os valores podem variar significativamente entre elas.`,
   },
   {
     question: `Vale mais a pena contratar ${c.productLabel} com corretora local ou direto pelo site da seguradora?`,
-    answer: `Com corretora local você tem comparativo entre ${c.insurersCount} seguradoras em uma única cotação, suporte presencial em sinistro e renovação otimizada todo ano. A Patro Seguros fica no Cidade Maia, atende moradores do ${c.neighborhood} ${c.reference} e não cobra nada pelo serviço — a remuneração da corretora é paga pela seguradora.`,
+    answer: `A contratação via corretora local como a Patro Seguros oferece a vantagem do comparativo real entre ${c.insurersCount} opções em um único lugar, além de suporte técnico em caso de sinistro. Para quem está no ${c.neighborhood} ${c.reference}, ter um especialista que conhece a região de ${c.city} garante uma apólice melhor dimensionada sem custo adicional.`,
   },
 ];
 
