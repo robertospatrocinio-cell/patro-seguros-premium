@@ -1,22 +1,105 @@
+# Gerado automaticamente por scripts/refresh-sitemaps.mjs — não editar manualmente.
+# Última atualização: 2026-08-15T17:05:20.916Z
 User-agent: *
 Allow: /
-Allow: /assets/
-Allow: /images/
-Allow: /fonts/
-Disallow: /admin
-Disallow: /crm
-Disallow: /~*
+Disallow: /admin/
+Disallow: /api/
+Disallow: /~api/
+Disallow: /~flock.js
+Disallow: /ebook-consorcio/
+Disallow: /avaliar-no-google/
+Disallow: /performance-diagnostico
+Disallow: /conversion-dashboard
+Disallow: /seo-technical-report
+Disallow: /pagespeed-history
 
-# AI & Search Crawlers
-User-agent: ChatGPT-User
+# Allow public high-value paths
+Allow: /lp/
+Allow: /blog/
+Allow: /seguros-guarulhos/
+Allow: /planos-de-saude/
+
+# Sitemaps (auto-descobertos)
+Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-bairros.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-blog.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-images.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-pages.xml
+Sitemap: https://www.patroseguros.com.br/sitemap-seguros.xml
+Sitemap: https://www.patroseguros.com.br/sitemap.xml
+
+# Optimization for Search Bots
+User-agent: Googlebot
 Allow: /
+Crawl-delay: 0.1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.5
+
+# AI Search Crawlers (AEO/GEO) — autorização explícita
+# ChatGPT / OpenAI Search
 User-agent: GPTBot
 Allow: /
-User-agent: Google-Extended
-Allow: /
+
 User-agent: OAI-SearchBot
 Allow: /
-User-agent: SemrushBot
+
+User-agent: ChatGPT-User
 Allow: /
 
-Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini / AI Overviews (exige token específico — não usa Googlebot)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazon / Alexa / Rufus
+User-agent: Amazonbot
+Allow: /
+
+# ByteDance / Doubao
+User-agent: Bytespider
+Allow: /
+
+# Mistral AI
+User-agent: MistralAI-User
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Diffbot (usado por vários LLMs)
+User-agent: Diffbot
+Allow: /
