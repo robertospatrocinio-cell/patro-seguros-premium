@@ -6,123 +6,41 @@ import { Link } from "react-router-dom";
 
 const ebookMockup = "/images/ebook-mockup-seguro-auto.webp";
 
-
-const formatWhatsApp = (value: string): string => {
-  const digits = value.replace(/\D/g, "").slice(0, 11);
-  if (digits.length <= 2) return digits;
-  if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
-  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
-};
-
-const isValidWhatsApp = (value: string): boolean => {
-  const digits = value.replace(/\D/g, "");
-  // Brazilian mobile: DDD + 9 + 8 digits = 11 digits
-  return digits.length === 11 && digits[2] === "9";
-};
-
 const LeadMagnetSection = memo(() => {
-  const [name, setName] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
-  const [sent, setSent] = useState(false);
-
-  const handleNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  }, []);
-
-  const handleWhatsappChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setWhatsapp(formatWhatsApp(e.target.value));
-  }, []);
-
-  const canSubmit = name.trim().length >= 2 && isValidWhatsApp(whatsapp);
-
-  const handleSubmit = useCallback((e: React.FormEvent) => {
-    e.preventDefault();
-
-    const parsed = leadMagnetSchema.safeParse({ name, whatsapp });
-    if (!parsed.success) {
-      showValidationError(firstZodMessage(parsed.error));
-      return;
-    }
-
-    try {
-      if (typeof window !== "undefined") {
-        window.fbq?.("track", "Lead", { content_name: "ebook-seguro-auto" });
-        window.gtag?.("event", "generate_lead", { event_category: "lead_magnet", event_label: "ebook-seguro-auto" });
-      }
-    } catch (err) {
-      console.error("LeadMagnet tracking failed", err);
-    }
-
-    try {
-      setSent(true);
-    } catch (err) {
-      console.error("LeadMagnet submit failed", err);
-      showFriendlyError();
-    }
-  }, [name, whatsapp]);
-
   return (
     <section className="py-16 md:py-24 relative z-[2] bg-white" aria-labelledby="lead-magnet-heading">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto rounded-2xl overflow-hidden bg-gradient-to-br from-[hsl(210,100%,14%)] to-[hsl(210,100%,22%)] shadow-2xl">
           <div className="grid md:grid-cols-2 items-center">
-            {/* Left — Text + Form */}
-            <div className="p-8 md:p-12 lg:p-16">
+            {/* Left — Text + CTA */}
+            <div className="p-8 md:p-12 lg:p-16 text-left">
               <span className="inline-block text-sm font-semibold text-amber-500 mb-3" role="img" aria-label="Presente">🎁 Material Gratuito</span>
               <h2 id="lead-magnet-heading" className="text-2xl md:text-3xl font-extrabold text-white mb-3 leading-tight">
                 Quer baixar o preço do seu Seguro Auto em até 30%?
               </h2>
               <p className="text-white/80 text-sm mb-8 leading-relaxed">
-                Baixe nosso guia definitivo para motoristas de Guarulhos e descubra <strong className="text-white">5 segredos que as seguradoras não te contam</strong>.
+                Baixe nosso guia definitivo para motoristas de Guarulhos e descubra <strong className="text-white">5 segredos que as seguradoras não te contam</strong> para economizar de verdade.
               </p>
 
-              {!sent ? (
-                 <form onSubmit={handleSubmit} className="space-y-3">
-                  <Input
-                    placeholder="Seu nome"
-                    aria-label="Seu nome"
-                    value={name}
-                    onChange={handleNameChange}
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-amber-500"
-                    required
-                    maxLength={80}
-                  />
-                  <Input
-                    placeholder="WhatsApp (DDD + número)"
-                    aria-label="WhatsApp (DDD + número)"
-                    value={whatsapp}
-                    onChange={handleWhatsappChange}
-                    className="h-12 bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-amber-500"
-                    required
-                    inputMode="tel"
-                    maxLength={16}
-                  />
-                  <Button
-                    type="submit"
-                    disabled={!canSubmit}
-                    className="w-full h-12 rounded-xl bg-amber-500 hover:bg-amber-400 text-primary font-bold text-sm shadow-lg shadow-amber-500/20 disabled:opacity-40"
-                  >
-                    <Download className="mr-2 h-4 w-4" aria-hidden="true" /> Baixar Guia Gratuito Agora
-                  </Button>
-                </form>
-              ) : (
-                <div className="text-center py-4 space-y-4">
-                  <CheckCircle className="h-12 w-12 text-green-400 mx-auto" aria-hidden="true" />
-                  <p className="text-white font-semibold">Sucesso! Seu guia está pronto.</p>
-                  <a href={EBOOK_URL} download>
-                    <Button className="bg-amber-500 hover:bg-amber-400 text-primary font-bold rounded-xl h-12 px-8">
-                      <Download className="mr-2 h-4 w-4" aria-hidden="true" /> Baixar E-book Agora
-                    </Button>
-                  </a>
-                </div>
-              )}
+              <Link to="/guia-completo-seguros-guarulhos">
+                <Button
+                  className="w-full md:w-auto h-14 px-8 rounded-xl bg-amber-500 hover:bg-amber-400 text-primary font-bold text-lg shadow-lg shadow-amber-500/20 transition-all hover:-translate-y-1"
+                >
+                  <Download className="mr-2 h-5 w-5" aria-hidden="true" /> Baixar Guia Completo Grátis
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              
+              <p className="mt-4 text-[10px] text-white/40">
+                Acesso imediato via PDF • Sem custo • 20+ anos de experiência
+              </p>
             </div>
 
-            {/* Right — Mockup — Optimized with lazy load and proper sizing */}
+            {/* Right — Mockup */}
             <div className="hidden md:flex items-center justify-center p-8 lg:p-12 min-h-[400px]">
               <OptimizedImage
                 src={ebookMockup}
-                alt="E-book Guia Definitivo - Como Baixar o Preço do Seguro Auto"
+                alt="E-book Guia Definitivo - Como Baixar o Preço do Seguro Auto em Guarulhos"
                 width={400}
                 height={400}
                 className="w-full max-w-[340px] drop-shadow-2xl transition-transform duration-500 hover:scale-105"
