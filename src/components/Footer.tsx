@@ -15,7 +15,7 @@ const Footer = memo(() => {
   return (
     <footer className="bg-foreground text-white/80" role="contentinfo">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
             <SmartLink to="/" className="inline-block mb-6">
@@ -109,6 +109,18 @@ const Footer = memo(() => {
             </div>
           </div>
 
+          {/* Segmentos */}
+          <nav aria-label="Segmentos de Seguro">
+            <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Segmentos</h3>
+            <ul className="space-y-2.5 text-[13px]">
+              <li><SmartLink to="/seguro-pessoa-fisica" className="hover:text-white transition-colors">Pessoa Física</SmartLink></li>
+              <li><SmartLink to="/seguro-empresa" className="hover:text-white transition-colors">Empresas</SmartLink></li>
+              <li><SmartLink to="/seguro-autonomo" className="hover:text-white transition-colors">Autônomos</SmartLink></li>
+              <li><SmartLink to="/seguro-familia" className="hover:text-white transition-colors">Famílias</SmartLink></li>
+              <li><SmartLink to="/patro-private" className="hover:text-white transition-colors">Patro Private</SmartLink></li>
+            </ul>
+          </nav>
+
           {/* Para Você */}
           <nav aria-label="Seguros para você">
             <h3 className="font-bold text-white text-[12px] uppercase tracking-wider mb-5">Para Você</h3>
@@ -118,7 +130,6 @@ const Footer = memo(() => {
               <li><SmartLink to="/seguro-residencial" className="hover:text-white transition-colors">Seguro Residencial</SmartLink></li>
               <li><SmartLink to="/seguro-vida" className="hover:text-white transition-colors">Seguro de Vida</SmartLink></li>
               <li><SmartLink to="/planos-de-saude" className="hover:text-white transition-colors">Plano de Saúde</SmartLink></li>
-              <li><SmartLink to="/consorcio" className="hover:text-white transition-colors">Consórcio</SmartLink></li>
             </ul>
           </nav>
 

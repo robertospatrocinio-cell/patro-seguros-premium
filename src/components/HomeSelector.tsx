@@ -1,19 +1,19 @@
 import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Car, Bike, Home, Users, Heart, Building2, Truck, Package, ShieldCheck, Settings } from 'lucide-react';
+import { Car, Bike, Home, Users, Heart, Building2, Truck, Package, ShieldCheck, Settings, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const options = [
-  { label: 'Meu carro', icon: Car, path: '/seguro-auto' },
-  { label: 'Minha moto', icon: Bike, path: '/seguro-moto' },
-  { label: 'Minha casa', icon: Home, path: '/seguro-residencial' },
-  { label: 'Minha família', icon: Users, path: '/seguro-vida' },
-  { label: 'Minha saúde', icon: Heart, path: '/planos-de-saude' },
-  { label: 'Minha empresa', icon: Building2, path: '/seguro-empresarial' },
-  { label: 'Minha frota', icon: Truck, path: '/seguro-frota' },
-  { label: 'Minha carga', icon: Package, path: '/seguro-transporte' },
-  { label: 'Meu patrimônio', icon: ShieldCheck, path: '/seguros-de-patrimonio' },
-  { label: 'Minhas máquinas', icon: Settings, path: '/seguro-maquinas' },
+  { label: 'Pessoa Física', icon: User, path: '/seguro-pessoa-fisica' },
+  { label: 'Minha Empresa', icon: Building2, path: '/seguro-empresa' },
+  { label: 'Sou Autônomo', icon: Settings, path: '/seguro-autonomo' },
+  { label: 'Minha Família', icon: Users, path: '/seguro-familia' },
+  { label: 'Meu Carro', icon: Car, path: '/seguro-auto' },
+  { label: 'Minha Moto', icon: Bike, path: '/seguro-moto' },
+  { label: 'Minha Casa', icon: Home, path: '/seguro-residencial' },
+  { label: 'Minha Saúde', icon: Heart, path: '/planos-de-saude' },
+  { label: 'Minha Frota', icon: Truck, path: '/seguro-frota' },
+  { label: 'Meu Patrimônio', icon: ShieldCheck, path: '/seguros-de-patrimonio' },
 ];
 
 const HomeSelectorImpl = () => {
