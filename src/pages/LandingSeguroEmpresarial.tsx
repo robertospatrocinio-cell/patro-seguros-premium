@@ -7,9 +7,9 @@ const LandingSeguroEmpresarial = () => (
   <LandingPageTemplate
     heroImage={heroImg}
     ctaUrl="https://patroseguros.com.br/cotacao-auto"
-    title="Seguro Empresarial"
+    title="Seguro para Empresa em Guarulhos — Proteção Patrimonial e RC"
     heroEmoji="🏢"
-    headline="Sua empresa pode fechar amanhã por um incêndio. Você está preparado?"
+    headline="Seguro para Empresa em Guarulhos — Proteção Patrimonial e RC"
     subheadline={highlightBrands("Guarulhos é o segundo maior PIB de SP, com indústrias em Cumbica e comércios no Maia e Centro. A Patro protege mais de 500 empresas na região com apólices sob medida, diagnóstico de risco e cotação em 16+ seguradoras.")}
     metaDescription="Seguro empresarial sob medida para Guarulhos. Proteção para indústria e comércio. Compare 16 seguradoras. Cotação em 2h."
     ctaText="Proteger Minha Empresa Agora"

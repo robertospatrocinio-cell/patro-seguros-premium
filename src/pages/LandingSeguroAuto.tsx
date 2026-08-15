@@ -6,9 +6,9 @@ import heroImg from "@/assets/lp-seguro-auto.webp";
 const LandingSeguroAuto = () => (
   <LandingPageTemplate
     heroImage={heroImg}
-    title="Seguro Auto"
+    title="Seguro Auto em Guarulhos"
     heroEmoji="🚗"
-    headline="Seu carro está protegido? Ou você está contando com a sorte?"
+    headline="Seguro Auto em Guarulhos"
     subheadline={highlightBrands("Guarulhos é a segunda maior cidade de São Paulo, cortada pelas rodovias Dutra, Fernão Dias e Ayrton Senna. Isso eleva o risco de acidentes e de roubo. Nossa equipe analisa seu perfil e compara propostas em 16+ seguradoras para encontrar a melhor cobertura pelo menor custo, com economia média de 15% a 35%.")}
     metaDescription="Seguro Auto em Guarulhos comparado nas melhores seguradoras. Compare Porto, Tokio, Allianz e HDI. Economia de até 35%. Cotação em 2h."
     ctaText="Cotar Meu Seguro Auto Grátis"

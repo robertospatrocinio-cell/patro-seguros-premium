@@ -56,7 +56,7 @@ const LandingSeguroMotoEntregador = () => {
   return (
     <LandingPageTemplate
       title="Seguro de Moto para Entregadores em Guarulhos"
-      headline={highlightBrands("Seguro de Moto para Entregadores em Guarulhos: Proteja seu Ganha-Pão")}
+      headline="Seguro de Moto para Entregadores em Guarulhos"
       subheadline={highlightBrands("Vai rodar hoje? Garanta que seu sustento esteja protegido. A Patro Seguros compara opções aceitas por iFood, Keeta e 99 em 16+ seguradoras, com planos de roubo e furto para motoboys em Guarulhos e São Paulo.")}
       metaDescription="Garanta o melhor Seguro de Moto para entregadores em Guarulhos. Proteção aceita por iFood e 99 contra roubo e furto. Cote em 16+ seguradoras com planos a partir de R$ 49/mês."
       heroEmoji="🏍️"

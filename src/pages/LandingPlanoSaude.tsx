@@ -6,9 +6,9 @@ import heroImg from "@/assets/lp-plano-saude.webp";
 const LandingPlanoSaude = () => (
   <LandingPageTemplate
     heroImage={heroImg}
-    title="Plano de Saúde"
+    title="Plano de Saúde em Guarulhos"
     heroEmoji="🏥"
-    headline="Plano de Saúde bom e barato existe. Nós encontramos para você."
+    headline="Plano de Saúde em Guarulhos"
     subheadline={highlightBrands("Escolher um plano de saúde em Guarulhos vai muito além do preço mensal. Nós comparamos Amil, Bradesco Saúde, SulAmérica, NotreDame Intermédica, Hapvida e outras operadoras, analisamos a rede credenciada de hospitais e laboratórios da cidade e explicamos carências, reajustes e coparticipação antes de você decidir. Atendemos famílias, MEIs, profissionais liberais e empresas — sempre com consultoria gratuita e resposta em até 2 horas úteis.")}
     metaDescription="Planos de saúde em Guarulhos com consultoria especializada. Compare Amil, Bradesco, SulAmérica e mais. Cotação gratuita em 2h."
     ctaText="Comparar Planos de Saúde Grátis"
