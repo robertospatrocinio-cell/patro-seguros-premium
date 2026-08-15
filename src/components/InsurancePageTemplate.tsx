@@ -314,6 +314,7 @@ export const InsurancePageTemplate = ({
   localSeo,
   jumpLinks,
   sectionCtas,
+  customContentBeforeForm,
 }: InsurancePageProps) => {
   const location = useLocation();
   // Slug canônico da rota atual — usado para etiquetar o `source` dos CTAs
