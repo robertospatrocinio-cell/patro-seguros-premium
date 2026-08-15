@@ -6,7 +6,7 @@ const SeguroAutoJeepCompassGuarulhos = () => {
       title="Seguro Jeep Compass em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Jeep Compass em Guarulhos — Cotação com 16+ seguradoras"
       subtitle="O Jeep Compass é o SUV médio mais vendido do Brasil e muito presente em Guarulhos, principalmente no Cidade Maia e na Vila Augusta."
-      metaDescription="Seguro Jeep Compass em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 3.000 a R$ 5.400/ano. Cotação em até 2h com atendimento consultivo."
+      metaDescription="Seguro Jeep Compass em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 3.000 a R$ 5.400/ano. Cotação em até 2h com assistência VIP especializada."
       description="O Jeep Compass é o SUV médio mais vendido do Brasil e muito presente em Guarulhos, principalmente no Cidade Maia e na Vila Augusta, onde é o carro preferido de muitas famílias e profissionais liberais. Por ser um veículo de alto valor FIPE e com peças de reposição mais caras, o seguro fica na faixa média-alta — mas há formas legítimas de reduzir o custo."
       detailedDescription={`O perfil do motorista pesa muito nesse modelo: condutores acima de 30 anos, com garagem fechada e sem sinistros recentes, conseguem condições significativamente melhores. Para quem usa o carro em viagens pela Dutra e pela Fernão Dias, recomendamos reforçar a cobertura de colisão e a assistência 24h.
 

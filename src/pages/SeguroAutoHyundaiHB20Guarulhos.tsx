@@ -6,7 +6,7 @@ const SeguroAutoHyundaiHB20Guarulhos = () => {
       title="Seguro Hyundai HB20 em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Hyundai HB20 em Guarulhos — Cotação com 16+ seguradoras"
       subtitle="O Hyundai HB20 é um dos hatches mais populares de Guarulhos, com excelente relação custo-benefício e peças de reposição acessíveis."
-      metaDescription="Seguro Hyundai HB20 em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 1.900 a R$ 3.600/ano. Cotação em até 2h com atendimento consultivo."
+      metaDescription="Seguro Hyundai HB20 em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 1.900 a R$ 3.600/ano. Cotação em até 2h com foco em motoristas de aplicativo."
       description="O Hyundai HB20 é um dos hatches mais populares de Guarulhos, com excelente relação custo-benefício e peças de reposição acessíveis. Para quem busca proteção completa sem pesar no orçamento, é uma das melhores escolhas da categoria — o seguro costuma ser um dos mais baratos entre os carros de entrada."
       detailedDescription={`O preço varia bastante pelo CEP de pernoite: em bairros como Cidade Maia e Vila Augusta o valor é menor, enquanto em Cumbica e Pimentas sobe de forma relevante. O HB20 também é muito usado por motoristas de aplicativo (Uber, 99 e iFood), e nesse caso é essencial contratar cobertura específica para uso profissional — o seguro convencional pode negar o sinistro durante uma corrida.
 
