@@ -65,7 +65,7 @@ const BlogArticle = () => {
   const insuranceType = meta?.category || "Seguro";
   const whatsappMessage = `Olá, vim pelo artigo "${article.title}" no blog da Patro Seguros e gostaria de mais informações sobre ${insuranceType.toLowerCase()}.`;
   const whatsappUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(whatsappMessage)}`;
-  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}`;
+  const quoteHref = `/cotacao?tipo=${meta?.category.toLowerCase().replace(/\s+/g, "-") || "geral"}&utm_source=blog&utm_medium=article-link&utm_campaign=${slug}`;
 
   return (
     <>
