@@ -139,6 +139,7 @@ const BlogCalendario90Dias = lazyWithRetry(() => import("./pages/BlogCalendario9
 const BlogCluster = lazyWithRetry(() => import("./pages/BlogCluster"), "BlogCluster");
 const Cotacao = lazyWithRetry(() => import("./pages/Cotacao"), "Cotacao");
 const CotacaoObrigado = lazyWithRetry(() => import("./pages/CotacaoObrigado"), "CotacaoObrigado");
+const ContatoObrigado = lazyWithRetry(() => import("./pages/ContatoObrigado"), "ContatoObrigado");
 
 const ComparativoPlanosSaude = lazyWithRetry(() => import("./pages/ComparativoPlanosSaude"), "ComparativoPlanosSaude");
 const CRM = lazyWithRetry(() => import("./pages/CRM"), "CRM");
