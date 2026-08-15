@@ -1,6 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import ServiceSchema from "@/components/ServiceSchema";
-import heroImg from "@/assets/hero-seguro-vida.webp"; // Using as placeholder
+import heroImg from "@/assets/hero-seguro-vida.webp"; 
 
 const SeguroPessoaFisica = () => {
   return (
@@ -67,7 +67,6 @@ Em Guarulhos, onde os riscos urbanos são reais, ter uma corretora local faz a d
           { title: "Planos de Saúde", link: "/planos-de-saude" },
         ]}
         quoteUrl="/cotacao"
-        icon="👤"
         canonicalUrl="https://www.patroseguros.com.br/seguro-pessoa-fisica"
       />
     </>
