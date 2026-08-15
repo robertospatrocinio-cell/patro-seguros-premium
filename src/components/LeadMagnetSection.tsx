@@ -1,16 +1,11 @@
-import { useState, useCallback, memo } from "react";
+import { memo } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Download, CheckCircle } from "lucide-react";
+import { Download, ArrowRight } from "lucide-react";
 import OptimizedImage from "@/components/OptimizedImage";
-import { showFriendlyError, showValidationError } from "@/lib/friendlyToast";
-import { nameSchema, whatsappSchema, firstZodMessage } from "@/lib/leadValidation";
-import { z } from "zod";
-
-const leadMagnetSchema = z.object({ name: nameSchema, whatsapp: whatsappSchema });
+import { Link } from "react-router-dom";
 
 const ebookMockup = "/images/ebook-mockup-seguro-auto.webp";
-const EBOOK_URL = "/downloads/guia-seguro-auto-guarulhos.pdf";
+
 
 const formatWhatsApp = (value: string): string => {
   const digits = value.replace(/\D/g, "").slice(0, 11);
