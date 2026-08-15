@@ -2,8 +2,8 @@
 import { lazy, Suspense } from "react";
 import { EMPRESA } from "@/config/empresa";
 import { Link } from "react-router-dom";
-import { VideoTestimonials } from "@/components/VideoTestimonials";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2, MapPin } from "lucide-react";
+
 
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import Header from "@/components/Header";
@@ -43,6 +43,8 @@ const loadGoogleBusinessWidget = () => import("@/components/GoogleBusinessWidget
 const loadProvaSocialPatro = () => import("@/components/ProvaSocialPatro");
 const loadAutoridadePatro = () => import("@/components/AutoridadePatro");
 const loadComoPatroAjuda = () => import("@/components/ComoPatroAjuda");
+const loadVideoTestimonials = () => import("@/components/VideoTestimonials").then(m => ({ default: m.VideoTestimonials }));
+
 
 const HeroInsuranceCarousel = lazy(loadHeroInsuranceCarousel);
 const QuickLeadForm = lazy(() => loadQuickLeadForm().then((m) => ({ default: m.QuickLeadForm })));
@@ -55,6 +57,8 @@ const GoogleBusinessWidget = lazy(loadGoogleBusinessWidget);
 const ProvaSocialPatro = lazy(loadProvaSocialPatro);
 const AutoridadePatro = lazy(loadAutoridadePatro);
 const ComoPatroAjuda = lazy(loadComoPatroAjuda);
+const VideoTestimonials = lazy(loadVideoTestimonials);
+
 
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.")}`;
 
@@ -534,9 +538,10 @@ const Index = () => {
           </div>
         </section>
 
-        <LazySection id="video-testimonials" prefetch={loadVideoTestimonials}>
+        <LazySection prefetch={[loadVideoTestimonials]}>
           <VideoTestimonials />
         </LazySection>
+
 
 
 
