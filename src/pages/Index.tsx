@@ -799,9 +799,11 @@ const Index = () => {
           <Suspense fallback={null}>
             <LocalSavingsCalculator />
             <HomeBlogSection />
+            <VideoTestimonials />
             <PortoPartnershipSection />
           </Suspense>
         </LazySection>
+
 
         {/* 10. FAQ */}
         <section className="py-20 bg-muted/20">

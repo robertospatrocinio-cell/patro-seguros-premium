@@ -30,7 +30,9 @@ import {
   ExternalLink,
   ShieldCheck,
 } from "lucide-react";
+import { VideoTestimonials } from "@/components/VideoTestimonials";
 import Header from "@/components/Header";
+
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
