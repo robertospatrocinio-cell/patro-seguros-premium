@@ -17,15 +17,15 @@ export const EMPRESA = {
   whatsapp: "+551151997500",
   email: "contato@patroseguros.com.br",
   endereco: {
-    logradouro: "Avenida Salgado Filho",
+    logradouro: "Av. Salgado Filho",
     numero: "2120",
-    complemento: "Sala 219 — Edifício Via Alameda",
-    bairro: "Maia",
+    complemento: "Sala 219 — Edifício Via Alameda — Cidade Maia (Parque Renato Maia)",
+    bairro: "Cidade Maia",
     cidade: "Guarulhos",
-    estado: "SP",
+    estado: "São Paulo",
     estadoSigla: "SP",
     cep: "07115-000",
-    pais: "BR",
+    pais: "Brasil",
   },
   geo: {
     // Coordenadas do Edifício Via Alameda, Cidade Maia, Guarulhos/SP.
@@ -33,7 +33,7 @@ export const EMPRESA = {
     longitude: -46.5220,
   },
   dominioCanonico: "https://www.patroseguros.com.br",
-  horario: "Seg. a Sex. 8h30–18h",
+  horario: "Segunda a Sexta, 8h30 às 18h",
   posicionamento:
     "A Patro Seguros é a corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras para garantir a melhor cobertura pelo menor custo real.",
   redesSociais: {
