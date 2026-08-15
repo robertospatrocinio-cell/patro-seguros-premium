@@ -237,20 +237,14 @@ const BlogArticle = () => {
             <div className="prose prose-lg max-w-none article-body">
               {(() => {
                 const paragraphs = article.content.split("\n\n");
-                // Midpoint injection: escolhe um ponto ~50% dos parágrafos,
-                // avançando até o próximo início de parágrafo "normal" (não
-                // marcador especial). Se o artigo for muito curto (<6), pula.
+                
+                // Deterministic injection point: always after the 3rd paragraph if total >= 6
+                // This ensures "links para pedir cotação em cada post" is fulfilled
                 let midIdx = -1;
                 if (paragraphs.length >= 6) {
-                  const target = Math.floor(paragraphs.length / 2);
-                  for (let k = target; k < paragraphs.length; k++) {
-                    const t = paragraphs[k].trim();
-                    if (!t.startsWith("[[CTA_") && !t.startsWith("#") && t.length > 40) {
-                      midIdx = k;
-                      break;
-                    }
-                  }
+                  midIdx = 3;
                 }
+                
                 return paragraphs.map((p, i) => {
                   const node = (() => {
                 // Inline CTA block para o post Agrishow 2026
@@ -397,7 +391,21 @@ const BlogArticle = () => {
                       </Fragment>
                     );
                   }
-                  return node;
+                  return (
+                    <Fragment key={i}>
+                      {node}
+                      {i === midIdx && (
+                        <ArticleInlineCTA 
+                          quoteHref={quoteHref}
+                          whatsappUrl={whatsappUrl}
+                          source={`blog-inline-${slug}`}
+                          headline="Precisa de uma cotação para o seu bairro?"
+                          subline="A Patro Seguros atende toda a região de Guarulhos com taxas exclusivas por CEP."
+                          variant="soft"
+                        />
+                      )}
+                    </Fragment>
+                  );
                 });
               })()}
 
