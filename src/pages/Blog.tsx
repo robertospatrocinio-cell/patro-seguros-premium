@@ -768,72 +768,11 @@ const Blog = () => {
         </section>
 
         {/* Seção Bairros de Guarulhos */}
-        <section id="local-heading" className="py-16 bg-white" aria-labelledby="local-title">
+        <section className="py-16 bg-white" aria-labelledby="bairros-heading">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
               <div className="max-w-2xl text-left">
-                <h2 id="local-title" className="text-2xl md:text-3xl font-bold mb-4 text-primary">
-                  Seguros por Bairro em Guarulhos
-                </h2>
-                <p className="text-muted-foreground">
-                  Análise de risco, custos e guias específicos para as principais regiões de Guarulhos. 
-                  Descubra as particularidades de cada bairro e economize com inteligência.
-                </p>
-              </div>
-              <Link to="/seguros-guarulhos">
-                <Button variant="outline" className="group">
-                  Ver todos os bairros
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {BAIRROS_MATRIZ.slice(0, 6).map((b) => (
-                <Link
-                  key={b.id}
-                  to={`/seguros-guarulhos/${b.slug}`}
-                  className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl"
-                >
-                  <Card className="h-full hover:shadow-lg transition-base border-primary/5 hover:border-primary/20 bg-muted/5">
-                    <CardContent className="p-6">
-                      <div className="flex items-center gap-3 mb-4 text-left">
-                        <div className="p-2.5 bg-primary/10 rounded-lg text-primary">
-                          <MapPin className="h-5 w-5" />
-                        </div>
-                        <h3 className="text-xl font-bold">{b.nome}</h3>
-                      </div>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2 text-left">
-                        {b.perfil}
-                      </p>
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-xs font-medium text-foreground/70">
-                          <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                          <span>Foco: {b.prioritarios.slice(0, 2).join(", ")}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-xs font-medium text-foreground/70">
-                          <Clock className="h-3.5 w-3.5 text-primary" />
-                          <span>Risco Local: {b.risco}</span>
-                        </div>
-                      </div>
-                      <div className="mt-6 flex items-center text-sm font-semibold text-primary">
-                        Ver guia do bairro
-                        <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Seção Bairros de Guarulhos */}
-        <section id="local-heading" className="py-16 bg-white" aria-labelledby="local-title">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
-              <div className="max-w-2xl text-left">
-                <h2 id="local-title" className="text-2xl md:text-3xl font-bold mb-4 text-primary">
+                <h2 id="bairros-heading" className="text-2xl md:text-3xl font-bold mb-4 text-primary">
                   Seguros por Bairro em Guarulhos
                 </h2>
                 <p className="text-muted-foreground">
