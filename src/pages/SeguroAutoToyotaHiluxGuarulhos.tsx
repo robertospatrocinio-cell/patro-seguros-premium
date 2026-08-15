@@ -53,4 +53,4 @@ A Hilux é muito utilizada por empresas de logística, produtores rurais que fre
   );
 };
 
-export default SeguroAutoToyotaCorollaGuarulhos;
+export default SeguroAutoToyotaHiluxGuarulhos;
