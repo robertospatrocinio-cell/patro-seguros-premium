@@ -109,12 +109,12 @@ export const LeadWhatsAppFlow = () => {
       <div className="bg-slate-900 p-6 text-white relative">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
-              <ShieldCheck className="w-5 h-5 text-primary" />
+            <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center border border-white/25">
+              <ShieldCheck className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h2 className="text-lg font-bold leading-none">Pedir Cotação</h2>
-              <p className="text-[10px] text-white/50 uppercase tracking-widest mt-1">Resposta em até 2h</p>
+              <h2 className="text-lg font-bold leading-none text-white">Pedir Cotação</h2>
+              <p className="text-[10px] text-white/70 uppercase tracking-widest mt-1">Resposta em até 2h</p>
             </div>
           </div>
           <div className="text-right">
