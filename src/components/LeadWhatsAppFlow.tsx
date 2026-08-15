@@ -40,7 +40,7 @@ export const LeadWhatsAppFlow = () => {
   const [formData, setFormData] = useState({ name: "", phone: "", city: "" });
   const [loading, setLoading] = useState(false);
 
-  const totalSteps = 3;
+  const totalSteps = 4;
   const progress = (step / totalSteps) * 100;
 
   const handleSelectType = (option: typeof INSURANCE_OPTIONS[0]) => {
@@ -61,6 +61,9 @@ export const LeadWhatsAppFlow = () => {
         return;
       }
       setStep(3);
+    }
+    if (step === 3) {
+      setStep(4);
     }
   };
 
@@ -185,11 +188,11 @@ export const LeadWhatsAppFlow = () => {
         {step === 3 && (
           <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-100">
-                <CheckCircle2 className="w-8 h-8" />
+              <div className="w-16 h-16 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center mx-auto mb-4 border border-slate-100">
+                <MapPin className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900">Quase lá, {formData.name.split(' ')[0]}!</h3>
-              <p className="text-sm text-slate-500 mt-2">Onde está o bem a ser segurado? (Opcional)</p>
+              <h3 className="text-xl font-bold text-slate-900">Onde está o bem?</h3>
+              <p className="text-sm text-slate-500 mt-2">Informe a cidade para agilizar sua cotação (Opcional)</p>
             </div>
 
             <div className="max-w-sm mx-auto space-y-6">
@@ -203,9 +206,51 @@ export const LeadWhatsAppFlow = () => {
                 />
               </div>
 
-              <div className="bg-slate-50 p-4 rounded-2xl border border-dashed border-slate-200">
-                <p className="text-[11px] text-slate-600 leading-relaxed italic text-center">
-                  "Ao clicar abaixo, você falará com um especialista da Patro Seguros no WhatsApp já com seu interesse em {selectedType?.title} registrado."
+              <div className="flex gap-3 pt-2">
+                <Button variant="ghost" className="rounded-xl" onClick={() => setStep(2)}>
+                  <ChevronLeft className="w-4 h-4 mr-1" /> Voltar
+                </Button>
+                <Button className="flex-1 rounded-xl bg-primary hover:bg-primary/90 h-12 font-bold" onClick={handleNext}>
+                  Revisar Dados <ChevronRight className="w-4 h-4 ml-1" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {step === 4 && (
+          <div className="animate-in fade-in slide-in-from-right-4 duration-500 space-y-6">
+            <div className="text-center">
+              <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-100">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">Confirme seus dados</h3>
+              <p className="text-sm text-slate-500 mt-1">Revise as informações antes de iniciar o atendimento</p>
+            </div>
+
+            <div className="max-w-sm mx-auto space-y-4">
+              <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 space-y-3">
+                <div className="flex justify-between items-center pb-2 border-b border-slate-200/50">
+                  <span className="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Seguro</span>
+                  <span className="text-sm font-bold text-slate-700">{selectedType?.title}</span>
+                </div>
+                <div className="flex justify-between items-center pb-2 border-b border-slate-200/50">
+                  <span className="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Nome</span>
+                  <span className="text-sm font-bold text-slate-700">{formData.name}</span>
+                </div>
+                <div className="flex justify-between items-center pb-2 border-b border-slate-200/50">
+                  <span className="text-[11px] uppercase tracking-wider text-slate-400 font-bold">WhatsApp</span>
+                  <span className="text-sm font-bold text-slate-700">{formData.phone}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-[11px] uppercase tracking-wider text-slate-400 font-bold">Cidade</span>
+                  <span className="text-sm font-bold text-slate-700">{formData.city || "Não informada"}</span>
+                </div>
+              </div>
+
+              <div className="bg-blue-50/50 p-4 rounded-2xl border border-dashed border-blue-100">
+                <p className="text-[11px] text-blue-600 leading-relaxed italic text-center">
+                  "Ao confirmar, abriremos seu WhatsApp com a mensagem pronta para nossa equipe."
                 </p>
               </div>
 
@@ -217,9 +262,12 @@ export const LeadWhatsAppFlow = () => {
                 >
                   {loading ? "Processando..." : (
                     <span className="flex items-center gap-2">
-                      <MessageCircle className="w-5 h-5" /> Finalizar no WhatsApp
+                      <MessageCircle className="w-5 h-5" /> Confirmar e Enviar
                     </span>
                   )}
+                </Button>
+                <Button variant="ghost" className="w-full text-xs text-slate-400 hover:text-slate-600" onClick={() => setStep(3)}>
+                  <ChevronLeft className="w-3 h-3 mr-1" /> Corrigir informações
                 </Button>
                 <div className="flex items-center justify-center gap-2 text-[10px] text-slate-400 uppercase tracking-widest font-bold">
                   <Lock className="w-3 h-3" /> Dados Protegidos pela LGPD

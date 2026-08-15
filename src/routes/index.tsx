@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Incluir dados estruturados WebSite e Sitelinks Search com SearchAction para reforçar pesquisa interna e melhorar oportunidades de rich results no Google. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Criar uma etapa de revisão com resumo dos dados e um botão para eu confirmar antes de gerar a mensagem final do WhatsApp. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
