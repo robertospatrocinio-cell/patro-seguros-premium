@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Implemente a geração automática de sitemap.xml e robots.txt e valide seu envio no Google Search Console. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Enviar automaticamente meu sitemap.xml ao Google Search Console e registrar o status do envio. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
