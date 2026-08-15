@@ -93,7 +93,7 @@ const Index = () => {
                   <Button size="lg" asChild className="bg-accent hover:bg-accent-hover text-accent-foreground shadow-lg shadow-accent/25 rounded-xl">
                     <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>Cotar agora com especialistas</Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="text-white border-white/30 hover:bg-white/10 rounded-xl backdrop-blur-sm">
+                  <Button size="lg" variant="outline" asChild className="bg-white/5 text-white border-white/30 hover:bg-white/15 hover:text-white rounded-xl">
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>Falar no WhatsApp</a>
                   </Button>
                 </div>
