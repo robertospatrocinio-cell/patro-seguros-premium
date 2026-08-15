@@ -266,7 +266,10 @@ const AvaliacoesClientes = () => {
           </div>
         </section>
 
+        <VideoTestimonials />
+
         {/* Bloco 6 — CTA final */}
+
         <section className="py-16 md:py-20 bg-primary text-primary-foreground text-center">
           <div className="container mx-auto px-4 max-w-2xl">
             <h2 className="text-primary-foreground mb-4">
