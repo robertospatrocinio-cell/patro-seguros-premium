@@ -6,12 +6,12 @@ const ConsorcioImoveis = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      title="Consórcio de Imóveis em Guarulhos | Simulação Grátis"
+      title="Consórcio de Imóveis em Guarulhos | Simule Grátis | Patro"
       headline="Consórcio imobiliário para compra, construção e reforma"
       subtitle="Conquiste sua casa, terreno ou imóvel comercial sem juros bancários. Use o FGTS para o lance."
       icon="🏠"
       showEbookConsorcio
-      metaDescription="Consórcio de imóveis sem juros: use o FGTS para lance, créditos de R$ 100 mil a R$ 1 milhão e prazos de até 200 meses. Simule grátis com a Patro Seguros."
+      metaDescription="Consórcio de imóveis em Guarulhos para comprar casa ou apartamento sem juros. Simulação gratuita com orientação consultiva da Patro. Simule agora."
       description="O Consórcio de Imóveis é o caminho econômico para seu patrimônio. Adquira casa ou terreno sem juros e use o FGTS para acelerar a contemplação do seu imóvel."
       coverages={[
         { title: "Sem Juros Bancários", description: "Economia expressiva comparada ao financiamento imobiliário — pague apenas taxa de administração" },

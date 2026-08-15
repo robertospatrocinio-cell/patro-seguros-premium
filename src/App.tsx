@@ -180,6 +180,7 @@ const SeguroTratorIndustrial = lazyWithRetry(() => import("./pages/SeguroTratorI
 const SeguroMaquinasLinhaAmarela = lazyWithRetry(() => import("./pages/SeguroMaquinasLinhaAmarela"), "SeguroMaquinasLinhaAmarela");
 const FormularioSeguroVida = lazyWithRetry(() => import("./pages/FormularioSeguroVida"), "FormularioSeguroVida");
 const SeoSeguroAutoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoGuarulhos"), "SeoSeguroAutoGuarulhos");
+const SeoMotoristaAppGuarulhos = lazyWithRetry(() => import("./pages/SeoMotoristaAppGuarulhos"), "SeoMotoristaAppGuarulhos");
 const SeoSeguroAutoPorModeloGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroAutoPorModeloGuarulhos"), "SeoSeguroAutoPorModeloGuarulhos");
 const SeguroAutoMarcas = lazyWithRetry(() => import("./pages/SeguroAutoMarcas"), "SeguroAutoMarcas");
 const SeguroAutoComparativoCoberturas = lazyWithRetry(() => import("./pages/SeguroAutoComparativoCoberturas"), "SeguroAutoComparativoCoberturas");
@@ -796,6 +797,7 @@ const App = () => {
                   <Route path="/seguro-residencial-guarulhos" element={<SeoSeguroResidencialGuarulhos />} />
                   <Route path="/seguro-vida-saude-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
                   <Route path="/seguro-vida-guarulhos" element={<SeoSeguroVidaSaudeGuarulhos />} />
+                  <Route path="/seguro-para-motorista-app-guarulhos" element={<SeoMotoristaAppGuarulhos />} />
                   <Route path="/seguro-uber-guarulhos" element={<SeoSeguroUberGuarulhos />} />
                   <Route path="/seguro-frota-empresas-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
                   <Route path="/seguro-frota-guarulhos" element={<SeoSeguroFrotaGuarulhos />} />
