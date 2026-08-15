@@ -599,8 +599,10 @@ const App = () => {
                   <Route path="/seguro/:brand" element={<SeguroMarcaPremium />} />
                   <Route path="/avaliar-no-google" element={<AvaliarNoGoogle />} />
                   <Route path="/parceiros-locais" element={<ParceirosLocais />} />
-                  <Route path="/imprensa" element={<Imprensa />} />
+                   <Route path="/imprensa" element={<Imprensa />} />
+                  <Route path="/guia-completo-seguros-guarulhos" element={<GuiaCompletoSegurosGuarulhos />} />
                   <Route path="/seguro-auto" element={<SeguroAuto />} />
+
                   <Route path="/seguro-vida" element={<SeguroVida />} />
                   <Route path="/seguro-vida/formulario" element={<FormularioSeguroVida />} />
                   <Route path="/seguro-residencial" element={<SeguroResidencial />} />
