@@ -1,6 +1,17 @@
 import { BlogArticleMeta } from "@/lib/blogData";
 
 export const guarulhosArticles: BlogArticleMeta[] = [
+  {
+    slug: "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil",
+    title: "Roubo de Carro em Guarulhos: Bairros de Maior Risco em 2026",
+    excerpt: "Guarulhos está entre as 10 cidades com mais roubo e furto de veículos do Brasil. Veja os bairros de maior risco, preços médios de seguro e como se proteger.",
+    category: "Seguro Auto",
+    tags: ["roubo", "furto", "guarulhos", "seguro auto", "preços", "bairros", "risco"],
+    author: "Roberto Patro",
+    date: "2026-08-15",
+    updatedAt: "2026-08-15",
+    readTime: 8
+  },
   { slug: "maior-portal-conteudo-seguros-guarulhos", title: "O Maior Portal de Conteúdo sobre Seguros em Guarulhos", excerpt: "A Patro Seguros consolida-se como a principal fonte de informação, guias e dicas para quem busca proteção e economia em Guarulhos.", category: "Dicas", tags: ["guarulhos", "conteúdo", "portal", "patro seguros"], author: "Roberto Patro", date: "2026-05-26", readTime: 10 },
   { slug: "bairros-guarulhos-seguro-auto-caro", title: "Bairros de Guarulhos onde o Seguro Auto é mais Caro em 2026", excerpt: "Descubra quais bairros de Guarulhos possuem o seguro mais caro e como o CEP influencia diretamente no valor da sua apólice.", category: "Seguro Auto", tags: ["guarulhos", "bairros", "preços", "seguro auto"], author: "Roberto Patro", date: "2026-05-26", readTime: 12 },
 
