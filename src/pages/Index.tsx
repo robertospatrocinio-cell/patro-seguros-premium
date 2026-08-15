@@ -16,12 +16,12 @@ const LocalTestimonials = lazy(() => import("@/components/LocalTestimonials"));
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.")}`;
 
 const PRODUCT_CARDS = [
-  { icon: Car, title: "Seguro Auto", desc: "Proteção completa para seu veículo.", path: "/seguro-auto-guarulhos" },
-  { icon: Home, title: "Residencial", desc: "Segurança para casa ou apartamento.", path: "/seguro-residencial" },
-  { icon: HeartPulse, title: "Vida", desc: "Planejamento e proteção familiar.", path: "/seguro-vida-guarulhos" },
-  { icon: HeartPulse, title: "Saúde", desc: "Planos PME e familiares.", path: "/planos-de-saude" },
-  { icon: Building2, title: "Empresarial", desc: "Cobertura robusta para o seu negócio.", path: "/seguro-empresarial-guarulhos" },
-  { icon: Truck, title: "Frota", desc: "Gestão completa para empresas.", path: "/seguro-frota-empresas-guarulhos" },
+  { icon: Car, title: "Seguro Auto", desc: "Seguro compreensivo em Guarulhos.", path: "/seguro-auto-guarulhos" },
+  { icon: Home, title: "Residencial", desc: "Sua casa ou apto protegidos.", path: "/seguro-residencial" },
+  { icon: HeartPulse, title: "Vida", desc: "Segurança para quem você ama.", path: "/seguro-vida-guarulhos" },
+  { icon: HeartPulse, title: "Saúde", desc: "Melhores operadoras da região.", path: "/planos-de-saude" },
+  { icon: Building2, title: "Empresarial", desc: "Proteção para seu patrimônio.", path: "/seguro-empresarial-guarulhos" },
+  { icon: Truck, title: "Frota", desc: "Gestão e economia para frotas.", path: "/seguro-frota-empresas-guarulhos" },
 ];
 
 const BairrosChips = [

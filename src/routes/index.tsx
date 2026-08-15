@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Adicionar páginas de categoria por tipo de seguro dentro do blog por bairro, com CTAs e FAQs específicas para melhorar SEO e conversão.
+      {`Execute esta instrucao no projeto: PROMPT LOVABLE — REDESENHO DA HOME (DESIGN + SEO LOCAL) COMPLETO.
 /comparativo-seguradoras-guarulhos	Página de autoridade	✅ Conteúdo pronto	Adicionar schema FAQPage + BreadcrumbList no Lovable
 /blog/quanto-custa-seguro-auto-cidade-maia-guarulhos	Artigo	✅ Conteúdo pronto	Adicionar schema Article + FAQPage
 /blog/quanto-custa-seguro-auto-cumbica-guarulhos	Artigo	✅ Conteúdo pronto	Adicionar schema Article + FAQPage
