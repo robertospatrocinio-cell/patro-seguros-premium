@@ -208,6 +208,10 @@ const SegurosEmGuarulhosHub = lazyWithRetry(() => import("./pages/local-guarulho
 
 const SeoSeguroVidaSaudeGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroVidaSaudeGuarulhos"), "SeoSeguroVidaSaudeGuarulhos");
 const SeoSeguroFrotaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroFrotaGuarulhos"), "SeoSeguroFrotaGuarulhos");
+const SeguroPessoaFisica = lazyWithRetry(() => import("./pages/SeguroPessoaFisica"), "SeguroPessoaFisica");
+const SeguroEmpresa = lazyWithRetry(() => import("./pages/SeguroEmpresa"), "SeguroEmpresa");
+const SeguroAutonomo = lazyWithRetry(() => import("./pages/SeguroAutonomo"), "SeguroAutonomo");
+const SeguroFamilia = lazyWithRetry(() => import("./pages/SeguroFamilia"), "SeguroFamilia");
 const SeoSegurosPmeGuarulhos = lazyWithRetry(() => import("./pages/SeoSegurosPmeGuarulhos"), "SeoSegurosPmeGuarulhos");
 const SeoSeguroMotoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMotoGuarulhos"), "SeoSeguroMotoGuarulhos");
 const LandingSeguroMotoEntregador = lazyWithRetry(() => import("./pages/LandingSeguroMotoEntregador"), "LandingSeguroMotoEntregador");
@@ -1038,6 +1042,10 @@ const App = () => {
                   <Route path="/pottencial-seguradora-guarulhos" element={<SeguradoraParceiraSeoPage slug="pottencial-seguradora-guarulhos" />} />
                   <Route path="/akad-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="akad-seguros-guarulhos" />} />
                   <Route path="/ezze-seguros-guarulhos" element={<SeguradoraParceiraSeoPage slug="ezze-seguros-guarulhos" />} />
+                  <Route path="/seguro-pessoa-fisica" element={<Suspense fallback={<PageSkeleton />}><SeguroPessoaFisica /></Suspense>} />
+                  <Route path="/seguro-empresa" element={<Suspense fallback={<PageSkeleton />}><SeguroEmpresa /></Suspense>} />
+                  <Route path="/seguro-autonomo" element={<Suspense fallback={<PageSkeleton />}><SeguroAutonomo /></Suspense>} />
+                  <Route path="/seguro-familia" element={<Suspense fallback={<PageSkeleton />}><SeguroFamilia /></Suspense>} />
                   <Route path="*" element={<LegacyWpRedirect />} />
                 </Routes>
               </Suspense>
