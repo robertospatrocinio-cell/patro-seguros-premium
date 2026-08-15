@@ -146,6 +146,7 @@ import react from "@vitejs/plugin-react-swc";
 
 import { componentTagger } from "lovable-tagger";
 import { compression } from "vite-plugin-compression2";
+import viteImagemin from "vite-plugin-imagemin";
  import { generateSitemapBundle } from "./scripts/generate-sitemap";
  import { execSync } from "child_process";
 import { validateLocalPages } from "./scripts/validate-local-pages.mjs";
