@@ -14,6 +14,23 @@ const ComparativoSeguradorasGuarulhos = () => {
 A Porto Seguro lidera em assistência 24h e rede de oficinas referenciadas na cidade. A Tokio Marine e a Allianz costumam apresentar preços agressivos para modelos zero km e SUVs. Já a HDI é reconhecida pela agilidade no pagamento de sinistros e facilidade de contratação. 
 
 Neste comparativo, consideramos dados reais de cotações realizadas para moradores do Cidade Maia, Vila Augusta e Pimentas, além de feedbacks de mais de 2.500 clientes atendidos pela Patro Seguros.`}
+      icon="📊"
+      coverages={[
+        { title: "Atendimento Local", description: "Suporte especializado em Guarulhos para sinistros e vistorias." },
+        { title: "Multisseguradoras", description: "Comparamos Porto, Tokio, Allianz, HDI e outras 12 marcas." },
+      ]}
+      whoNeeds={[
+        "Moradores de Guarulhos buscando o melhor custo-benefício",
+        "Empresas locais que precisam de consultoria em seguros",
+      ]}
+      whyPatro={[
+        "20+ anos de experiência no mercado de seguros",
+        "Avaliação 4.9 no Google com 67 reviews reais",
+      ]}
+      faqs={[
+        { question: "Qual seguradora é mais barata em Guarulhos?", answer: "HDI e Tokio Marine costumam ser muito competitivas, mas depende do CEP exato e modelo do veículo." },
+        { question: "A Porto Seguro tem rede de oficinas em Guarulhos?", answer: "Sim, possui a maior rede de oficinas referenciadas e Centros Automotivos na cidade." },
+      ]}
       extraSections={
         <div className="mt-12 space-y-12">
           <section>
