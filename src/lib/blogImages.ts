@@ -408,6 +408,8 @@ export const blogImageAltMap: Record<string, string> = {
     "Silos metálicos de armazenagem de grãos em fazenda brasileira ao entardecer",
   "drone-agricola-anac-seguro-rcf-pulverizacao":
     "Drone agrícola pulverizando lavoura de soja com céu azul ao fundo, operação regulada pela ANAC",
+  "guarulhos-entre-cidades-com-maior-roubo-furto-veiculos-brasil":
+    "Estatísticas de roubo e furto de veículos em Guarulhos, São Paulo, com destaque para bairros de risco",
 };
 
 export const getArticleImageAlt = (slug: string, fallback?: string): string => {
