@@ -32,7 +32,7 @@ runCommand('node scripts/sync-htaccess-redirects.mjs', 'Sincronizando .htaccess'
 
 // 2. FAQ Backfill - Detecta posts com < 2 Q&A e aplica sugestões automaticamente
 // Rodamos com --ci para que, se mesmo após o apply não atingir o mínimo, o build pare aqui.
-runCommand('node scripts/detect-faq-underfilled.mjs --apply --ci', 'Verificando e aplicando backfill de FAQ (Min: 2)', true);
+runCommand('node scripts/detect-faq-underfilled.mjs --apply --ci --min=2', 'Verificando e aplicando backfill de FAQ (Configurável)', true);
 
 // 3. Imagens e OG (existente)
 runCommand('node scripts/generate-og-images.mjs', 'Gerando imagens OG');
