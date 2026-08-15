@@ -275,9 +275,11 @@ export interface InsurancePageProps {
       Omit<NextSectionCtaProps, "sourceSection" | "sourceSlug">
     >
   >;
+  /** Conteúdo extra renderizado logo antes do formulário de cotação */
+  customContentBeforeForm?: ReactNode;
 }
 
-const InsurancePageTemplate = ({
+export const InsurancePageTemplate = ({
    title, subtitle, description, icon,
    headline,
    coverages, whoNeeds, whyPatro,
