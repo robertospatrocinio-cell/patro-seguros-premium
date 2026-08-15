@@ -6,7 +6,7 @@ const SeguroAutoToyotaCorollaGuarulhos = () => {
       title="Seguro Toyota Corolla em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Toyota Corolla em Guarulhos — Cotação com 16+ seguradoras"
       subtitle="O Toyota Corolla é o sedã médio mais vendido do Brasil e um dos modelos mais visados para roubo em Guarulhos, especialmente nas regiões de Cumbica e Pimentas."
-      metaDescription="Guarulhos está entre as cidades com mais roubo de veículos. Veja o preço médio do seguro Corolla, coberturas recomendadas e como economizar com a Patro Seguros."
+      metaDescription="Seguro Toyota Corolla em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 2.800 a R$ 4.800/ano. Cotação em até 2h com atendimento consultivo especializado."
       description="O Toyota Corolla é o sedã médio mais vendido do Brasil e um dos modelos mais visados para roubo em Guarulhos, especialmente nas regiões de Cumbica e Pimentas. Por ter um dos valores de FIPE mais altos da categoria e ser muito procurado no mercado paralelo, ele exige atenção redobrada — tanto na hora de estacionar quanto na hora de contratar a cobertura."
       detailedDescription={`A seguradora analisa com rigor o CEP de pernoite, os dispositivos de segurança e o perfil do condutor. Motoristas acima de 30 anos, com garagem fechada e rastreador instalado, costumam conseguir as melhores condições. Para quem roda diariamente pela Dutra ou pela Fernão Dias, vale reforçar a cobertura de colisão e a assistência 24h — acidentes em rodovia são a causa mais comum de sinistro nesse perfil de uso.
 

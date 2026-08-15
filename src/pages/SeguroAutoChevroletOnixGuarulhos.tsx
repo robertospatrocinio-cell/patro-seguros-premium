@@ -6,7 +6,7 @@ const SeguroAutoChevroletOnixGuarulhos = () => {
       title="Seguro Chevrolet Onix em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Chevrolet Onix em Guarulhos — Cotação com 16+ seguradoras"
       subtitle="O Chevrolet Onix é o hatch mais vendido do país e também um dos mais roubados em Guarulhos."
-      metaDescription="Seguro Chevrolet Onix em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 1.900 a R$ 3.700/ano. Cotação em até 2h com atendimento consultivo."
+      metaDescription="Seguro Chevrolet Onix em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 1.900 a R$ 3.700/ano. Cotação em até 2h com proteção contra roubo e furto."
       description="O Chevrolet Onix é o hatch mais vendido do país e também um dos mais roubados em Guarulhos. O alto volume de vendas e a forte demanda no mercado paralelo fazem o prêmio ficar acima de outros populares da mesma categoria — mesmo sendo um carro de entrada, o Onix exige uma cotação cuidadosa."
       detailedDescription={`A seguradora avalia com atenção o CEP de pernoite, o histórico do motorista e os dispositivos de segurança. Para reduzir o custo, recomendamos garagem fechada e rastreador — juntos, podem gerar descontos de 10% a 20% no prêmio. O Onix também é muito usado por famílias e por quem roda diariamente na cidade, com um custo de manutenção baixo.
 

@@ -6,7 +6,7 @@ const SeguroAutoToyotaHiluxGuarulhos = () => {
       title="Seguro Toyota Hilux em Guarulhos — Cotação com 16+ seguradoras"
       headline="Seguro Toyota Hilux em Guarulhos — Cotação com 16+ seguradoras"
       subtitle="A Toyota Hilux é a picape mais desejada do Brasil e um dos veículos mais visados para roubo em Guarulhos, sobretudo nas áreas de Cumbica e Bonsucesso."
-      metaDescription="Seguro Toyota Hilux em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 3.500 a R$ 6.500/ano. Cotação em até 2h com atendimento consultivo."
+      metaDescription="Seguro Toyota Hilux em Guarulhos comparado em 16+ seguradoras. Faixa média de R$ 3.500 a R$ 6.500/ano. Cotação em até 2h com proteção robusta e rastreamento."
       description="A Toyota Hilux é a picape mais desejada do Brasil e um dos veículos mais visados para roubo em Guarulhos, sobretudo nas áreas de Cumbica e Bonsucesso. O alto valor FIPE e a forte demanda no mercado paralelo tornam o seguro um dos mais caros da categoria — e também um dos que mais exigem cuidado na hora de contratar."
       detailedDescription={`O rastreador é praticamente obrigatório para obter uma condição razoável de preço, e a garagem fechada reduz ainda mais o prêmio. A Hilux é muito usada por empresas, produtores rurais, transportadoras e profissionais que precisam de robustez para o trabalho — e cada perfil de uso exige uma cobertura diferente.
 
