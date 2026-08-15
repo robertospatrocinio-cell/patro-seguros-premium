@@ -44,7 +44,7 @@ const CentralDeSinistro = () => (
         { title: "Por que acionar a Central pela Patro", content: "Agilidade e defesa dos seus direitos." }
       ]}
       sectionCtas={{
-        "faq-heading": { title: "Dúvidas sobre sinistro?", ctaText: "Falar com suporte", href: "https://wa.me/551151997500?text=Olá! Vim pelo site da Patro Seguros e gostaria de ajuda com um sinistro." }
+        "faq-heading": { label: "Dúvidas sobre sinistro?", description: "Fale com um especialista agora", href: "https://wa.me/551151997500?text=Olá! Vim pelo site da Patro Seguros e gostaria de ajuda com um sinistro." }
       }}
     />
   </>
