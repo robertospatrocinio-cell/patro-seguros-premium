@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Criar testes automatizados para os scripts de validação de FAQ e sitemaps para eu detectar underfill e inconsistências antes do build. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Ajustar para que o CI use um limite configurável de perguntas mínimas por post. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
