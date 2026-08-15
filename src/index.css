@@ -12,49 +12,51 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 25% 10%;
+    --foreground: 217 44% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 10%;
+    --card-foreground: 217 44% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 10%;
-    --primary: 212 100% 20%;
+    --popover-foreground: 217 44% 14%;
+    --primary: 212 85% 25%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 212 100% 16%;
-    --primary-light: 212 50% 97%;
-    --primary-glow: 212 80% 32%;
-    --secondary: 220 18% 97%;
-    --secondary-foreground: 212 100% 20%;
-    --accent: 42 55% 52%;
-    --accent-foreground: 212 100% 14%;
-    --accent-hover: 42 60% 46%;
-    --muted: 220 16% 96%;
-    --muted-foreground: 220 10% 40%;
+    --primary-hover: 216 82% 18%;
+    --primary-light: 216 33% 97%;
+    --primary-glow: 209 85% 48%;
+    --secondary: 216 33% 97%;
+    --secondary-foreground: 212 85% 25%;
+    --accent: 209 85% 48%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 209 85% 42%;
+    --muted: 216 33% 97%;
+    --muted-foreground: 214 13% 42%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 14% 90%;
-    --input: 220 14% 90%;
-    --ring: 212 100% 20%;
-    --radius: 0.5rem;
-    --cta: 42 55% 52%;
+    --border: 214 21% 88%;
+    --input: 214 21% 88%;
+    --ring: 209 85% 48%;
+    --radius: 0.875rem;
+    --cta: 209 85% 48%;
     --cta-foreground: 0 0% 100%;
-    --gold: 42 55% 52%;
-    --gold-soft: 42 50% 72%;
-    --gold-deep: 38 50% 38%;
-    --shadow-xs: 0 1px 2px 0 hsl(212 40% 14% / 0.04);
-    --shadow-sm: 0 1px 3px 0 hsl(212 40% 14% / 0.05), 0 1px 2px -1px hsl(212 40% 14% / 0.04);
-    --shadow-md: 0 6px 16px -4px hsl(212 40% 14% / 0.08);
-    --shadow-lg: 0 18px 40px -12px hsl(212 40% 14% / 0.12);
-    --shadow-xl: 0 28px 60px -16px hsl(212 40% 14% / 0.16);
+    /* "gold" mantém o nome do token por compatibilidade, mas passa a
+       carregar o azul luminoso da nova identidade (sem dourado). */
+    --gold: 206 100% 61%;
+    --gold-soft: 214 21% 77%;
+    --gold-deep: 209 85% 48%;
+    --shadow-xs: 0 1px 2px 0 hsl(216 40% 14% / 0.04);
+    --shadow-sm: 0 1px 3px 0 hsl(216 40% 14% / 0.05), 0 1px 2px -1px hsl(216 40% 14% / 0.04);
+    --shadow-md: 0 8px 20px -8px hsl(216 40% 14% / 0.10);
+    --shadow-lg: 0 18px 40px -14px hsl(216 40% 14% / 0.12);
+    --shadow-xl: 0 28px 60px -18px hsl(216 40% 14% / 0.14);
 
     /* === Patro Private (camada premium / editorial) === */
-    --premium-navy: 212 100% 14%;
-    --premium-navy-soft: 212 50% 22%;
-    --premium-champagne: 42 55% 58%;
-    --premium-champagne-soft: 42 50% 78%;
-    --premium-pearl: 36 24% 97%;
-    --premium-ink: 212 40% 16%;
-    --premium-rule: 215 14% 88%;
-    --premium-shadow-soft: 0 24px 60px -28px hsl(212 60% 14% / 0.22);
+    --premium-navy: 216 82% 13%;
+    --premium-navy-soft: 212 85% 25%;
+    --premium-champagne: 206 100% 61%;
+    --premium-champagne-soft: 214 21% 77%;
+    --premium-pearl: 216 33% 97%;
+    --premium-ink: 217 44% 14%;
+    --premium-rule: 214 21% 88%;
+    --premium-shadow-soft: 0 24px 60px -28px hsl(216 60% 14% / 0.18);
   }
 }
 
