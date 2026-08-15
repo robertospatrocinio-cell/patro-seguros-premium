@@ -251,5 +251,54 @@ A proximidade com a capital não prejudica o valor, desde que o pernoite seja em
         a: "Sim, temos opções específicas para veículos com mais de 10 anos através de seguradoras parceiras especializadas."
       }
     ]
+  },
+  "seguro-auto-cidade-maia-guarulhos-completo": {
+    title: "Seguro Auto em Cidade Maia, Guarulhos: Guia de Coberturas",
+    content: `O Cidade Maia exige coberturas que protejam veículos de médio e alto padrão. Neste guia, detalhamos o que não pode faltar na sua apólice.
+
+## Coberturas Essenciais para o Cidade Maia
+
+*   **Colisão, Incêndio e Roubo:** A base de qualquer seguro compreensivo.
+*   **Danos a Terceiros (RCF-V):** Fundamental em áreas com tráfego intenso como a Av. Paulo Faccini.
+*   **Vidros e Retrovisores:** Uma das assistências mais acionadas no bairro.
+
+## FAQ Específica - Cidade Maia
+
+**Como funciona o guincho no Cidade Maia?**
+A rede de assistência é rápida na região central, com tempo médio de chegada de 30 minutos.
+
+**Posso contratar seguro apenas para roubo no Maia?**
+Sim, mas pelo perfil do bairro, a cobertura completa costuma ter um excelente custo-benefício.
+
+[Solicitar Cotação Personalizada para o Cidade Maia](/cotacao?tipo=auto)`,
+    faqs: [
+      {
+        q: "O seguro cobre danos causados por alagamentos na região?",
+        a: "Sim, seguros compreensivos tradicionais cobrem submersão parcial ou total em água doce (enchentes)."
+      }
+    ]
+  },
+  "seguro-empresarial-cumbica-guarulhos-industrias": {
+    title: "Seguro Empresarial em Cumbica: Proteção para Indústrias",
+    content: `Cumbica abriga grandes operações logísticas e industriais que necessitam de seguros robustos e específicos.
+
+## Riscos Comuns em Cumbica
+
+*   **Incendio e Explosao:** Risco crítico em áreas industriais.
+*   **Responsabilidade Civil Operacoes:** Proteção contra danos causados a terceiros durante a atividade.
+*   **Roubo de Bens e Mercadorias:** Essencial para galpões logísticos.
+
+## FAQ Especifica - Cumbica Industrial
+
+**A seguradora exige vistoria técnica em Cumbica?**
+Para riscos industriais e galpões de grande porte, a vistoria é padrão e ajuda a dimensionar as coberturas.
+
+[Proteger minha Empresa em Cumbica](/cotacao?tipo=empresarial)`,
+    faqs: [
+      {
+        q: "Existe cobertura para interrupção de atividades (lucros cessantes)?",
+        a: "Sim, é uma cobertura adicional fundamental para indústrias que não podem parar a produção."
+      }
+    ]
   }
 };
