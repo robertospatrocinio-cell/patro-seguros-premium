@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Adicionar uma verificação em todas as páginas de blog para confirmar que o FAQPage está corretamente renderizado e com número mínimo de perguntas estruturadas. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Criar testes automatizados para os scripts de validação de FAQ e sitemaps para eu detectar underfill e inconsistências antes do build. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
