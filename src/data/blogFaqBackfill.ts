@@ -103,6 +103,9 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   "responsabilidade-civil-vistoria-veicular": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Responsabilidade civil para vistoria veicular: quando faz sentido?\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
+  "seguro-auto-cidade-maia-guarulhos-completo": [
+    { q: "Como solicitar uma cotação de cidade maia em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro Auto em Cidade Maia, Guarulhos: Guia de Coberturas\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
   "seguro-cibernetico-para-empresas-de-vistoria": [
     { q: "Como solicitar uma cotação de vistoria veicular em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro cibernético para empresas de vistoria.\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
@@ -114,6 +117,9 @@ export const blogFaqBackfill: Record<string, { q: string; a: string }[]> = {
   ],
   "seguro-empresarial-clinicas-veterinarias": [
     { q: "Como solicitar uma cotação de veterinária em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro empresarial para clínicas veterinárias\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
+  ],
+  "seguro-empresarial-cumbica-guarulhos-industrias": [
+    { q: "Como solicitar uma cotação de cumbica em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro Empresarial em Cumbica: Proteção para Indústrias\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
   ],
   "seguro-empresarial-guarulhos-guia": [
     { q: "Como solicitar uma cotação de lojistas e franquias em Guarulhos citada neste artigo?", a: "Fale com a equipe da Patro Seguros pela página /contato ou pelo botão flutuante de WhatsApp. Envie o link deste artigo (\"Seguro empresarial em Guarulhos: guia completo\") junto com o CEP e o perfil desejado — a cotação personalizada com as principais seguradoras é enviada em até 2 horas úteis." },
