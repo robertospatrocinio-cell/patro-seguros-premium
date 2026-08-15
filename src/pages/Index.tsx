@@ -48,7 +48,9 @@ const Index = () => {
       <Header />
       <main id="main-content">
         {/* HERO SECTION */}
-        <section className="relative py-20 md:py-28 overflow-hidden gradient-hero">
+        <section className="relative pt-16 pb-28 md:pt-24 md:pb-36 overflow-hidden gradient-hero">
+          {/* Halo institucional discreto */}
+          <div className="pointer-events-none absolute -top-24 -right-24 w-[26rem] h-[26rem] rounded-full bg-primary-glow/10 blur-3xl z-0" aria-hidden="true" />
           {/* Background image optimized for LCP */}
           <picture className="absolute inset-0 z-0">
             <source
@@ -85,24 +87,30 @@ const Index = () => {
           </picture>
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight text-balance">Seguros em Guarulhos — Compare 16 seguradoras e economize</h1>
-                <p className="text-lg md:text-xl text-white/80 mb-8 max-w-xl leading-relaxed">Atendimento consultivo, registro SUSEP e nota 4.9 no Google. Cotação comparativa em até 2 horas úteis.</p>
-                <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                  <Button size="lg" asChild className="bg-accent hover:bg-accent-hover text-accent-foreground shadow-lg shadow-accent/25 rounded-xl">
+            <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
+              <div className="max-w-2xl">
+                <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 mb-6 text-[11px] font-medium text-white/90">
+                  <span className="w-2 h-2 rounded-full bg-[#25D366] motion-safe:animate-pulse" aria-hidden="true" />
+                  Atendimento consultivo em Guarulhos
+                </p>
+                <h1 className="font-heading text-white mb-5 font-extrabold tracking-tight text-balance text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.06]">
+                  Seguros em Guarulhos — Compare <span className="text-primary-glow">16 seguradoras</span> e economize
+                </h1>
+                <p className="text-[17px] md:text-[19px] text-white/75 mb-9 max-w-xl leading-relaxed">Atendimento consultivo, registro SUSEP e nota 4.9 no Google. Cotação comparativa em até 2 horas úteis.</p>
+                <div className="flex flex-col sm:flex-row gap-3 mb-7">
+                  <Button size="lg" asChild className="h-14 px-8 text-base bg-accent hover:bg-accent-hover text-accent-foreground shadow-lg shadow-black/25 rounded-xl transition-colors duration-200">
                     <Link to="/cotacao" onClick={() => trackCotacaoClick("hero")}>Cotar agora com especialistas</Link>
                   </Button>
-                  <Button size="lg" variant="outline" asChild className="bg-white/5 text-white border-white/30 hover:bg-white/15 hover:text-white rounded-xl">
+                  <Button size="lg" variant="outline" asChild className="h-14 px-8 text-base bg-transparent text-white border-white/35 hover:bg-white/10 hover:text-white rounded-xl transition-colors duration-200">
                     <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("hero")}>Falar no WhatsApp</a>
                   </Button>
                 </div>
                 <div className="flex items-center gap-2 text-white/70 text-sm">
-                   <Star className="text-yellow-400 fill-current w-4 h-4" /> 4.9 · 67 avaliações no Google
+                   <Star className="text-yellow-400 fill-current w-4 h-4" /> <span><strong className="font-semibold text-white">4.9</strong> · 67 avaliações no Google</span>
                 </div>
               </div>
-              <div className="lg:ml-auto">
-                <Suspense fallback={<div className="h-[400px] w-min-[320px] bg-slate-800/50 rounded-2xl animate-pulse" />}>
+              <div className="lg:ml-auto w-full lg:-mb-24">
+                <Suspense fallback={<div className="h-[400px] min-w-[280px] bg-white/10 rounded-2xl animate-pulse" />}>
                     <LeadWhatsAppFlow />
                 </Suspense>
               </div>
@@ -111,12 +119,19 @@ const Index = () => {
         </section>
 
         {/* Confiança */}
-        <section className="py-8 bg-secondary border-b border-border">
-          <div className="container mx-auto px-4 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm font-semibold text-muted-foreground">
-             <span>SUSEP 212113511</span>
-             <span>2.500+ clientes</span>
-             <span>16+ seguradoras</span>
-             <span>Nota 4.9 no Google</span>
+        <section className="py-10 bg-secondary border-b border-border">
+          <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8">
+            {[
+              { label: "Registro", value: "SUSEP 212113511" },
+              { label: "Carteira", value: "2.500+ clientes" },
+              { label: "Parcerias", value: "16+ seguradoras" },
+              { label: "Reputação", value: "Nota 4.9 no Google" },
+            ].map((item) => (
+              <div key={item.value} className="flex flex-col gap-1 md:items-center md:text-center">
+                <span className="text-[11px] uppercase tracking-[0.16em] font-semibold text-muted-foreground">{item.label}</span>
+                <span className="text-sm md:text-base font-bold text-foreground">{item.value}</span>
+              </div>
+            ))}
           </div>
         </section>
 
