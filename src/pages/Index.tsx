@@ -54,7 +54,7 @@ const ProvaSocialPatro = lazy(loadProvaSocialPatro);
 const AutoridadePatro = lazy(loadAutoridadePatro);
 const ComoPatroAjuda = lazy(loadComoPatroAjuda);
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
+const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.")}`;
 
 // Handlers dos CTAs extraídos para o escopo do módulo: closures estáveis
 // entre renders, sem realocação por render do <Index>, e prontas para

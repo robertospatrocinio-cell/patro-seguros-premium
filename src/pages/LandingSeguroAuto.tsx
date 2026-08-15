@@ -9,8 +9,8 @@ const LandingSeguroAuto = () => (
     title="Seguro Auto"
     heroEmoji="🚗"
     headline="Seu carro está protegido? Ou você está contando com a sorte?"
-    subheadline={highlightBrands("Compare cotações de 16+ seguradoras em minutos. Encontre o melhor preço sem sair de casa — com atendimento humano e personalizado.")}
-    metaDescription="A Patro Seguros, corretora em Guarulhos fundada em 2021 por sócios com 20+ anos de experiência, oferece cotação de Seguro Auto gratuita. Compare Porto, Tokio, Allianz e HDI. Resultado em até 2h úteis."
+    subheadline={highlightBrands("Guarulhos é a segunda maior cidade de São Paulo, cortada pelas rodovias Dutra, Fernão Dias e Ayrton Senna. Isso eleva o risco de acidentes e de roubo. Nossa equipe analisa seu perfil e compara propostas em 16+ seguradoras para encontrar a melhor cobertura pelo menor custo, com economia média de 15% a 35%.")}
+    metaDescription="Seguro Auto em Guarulhos comparado nas melhores seguradoras. Compare Porto, Tokio, Allianz e HDI. Economia de até 35%. Cotação em 2h."
     ctaText="Cotar Meu Seguro Auto Grátis"
     ctaUrl="https://patroseguros.com.br/cotacao-auto"
     urgencyText="Cotações com preço especial esta semana"

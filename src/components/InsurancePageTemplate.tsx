@@ -115,7 +115,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 
 // Mensagem personalizada por tipo de seguro para o link do WhatsApp
 const buildProductWhatsAppUrl = (title: string): string => {
-  const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${title}. Pode me ajudar?`;
+  const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de seguro.`;
   return `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`;
 };
 
