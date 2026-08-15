@@ -315,10 +315,10 @@ const Header = memo(() => {
             </SmartLink>
 
             <div className="hidden lg:flex items-center gap-1">
-              <SmartLink to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Início</SmartLink>
-              <SmartLink to="/seguros-guarulhos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Guarulhos</SmartLink>
-              <SmartLink to="/comparativo-seguradoras-guarulhos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Comparativo</SmartLink>
-              <SmartLink to="/servicos" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Serviços</SmartLink>
+              <SmartLink to="/" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Para Você</SmartLink>
+              <SmartLink to="/seguro-empresa" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Para sua Empresa</SmartLink>
+              <SmartLink to="/central-de-sinistro" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Atendimento</SmartLink>
+              <SmartLink to="/blog" className="text-[13px] font-medium text-foreground/70 hover:text-foreground transition-base px-3 py-2">Conteúdo</SmartLink>
 
 
 

@@ -33,7 +33,7 @@ const Footer = memo(() => {
               </picture>
             </SmartLink>
             <p className="text-[13px] mb-6 leading-relaxed max-w-xs text-white/70">
-              {EMPRESA.posicionamento}
+              A Patro Seguros é uma corretora especialista em soluções de proteção com mais de 20 anos de experiência e sede em Cidade Maia, Guarulhos.
             </p>
             <div className="flex items-center gap-4 mb-6">
               <SeloMelhorCorretora size="sm" />
