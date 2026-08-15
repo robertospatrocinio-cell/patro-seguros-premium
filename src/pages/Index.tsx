@@ -156,6 +156,7 @@ const Index = () => {
               />
               <img
                 src="/images/hero-home-960.webp"
+                srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
                 alt="Corretora de seguros em Guarulhos — Patro Seguros, com 20+ anos de mercado e atendimento consultivo"
                 width={1280}
                 height={720}
