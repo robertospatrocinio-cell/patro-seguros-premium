@@ -534,6 +534,11 @@ const Index = () => {
           </div>
         </section>
 
+        <LazySection id="video-testimonials" prefetch={loadVideoTestimonials}>
+          <VideoTestimonials />
+        </LazySection>
+
+
 
         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
         <div className="bg-orange-600 py-3 text-white mt-12 md:mt-20">

@@ -56,6 +56,10 @@ const ComparativoSeguradorasGuarulhos = () => {
         icon="📊"
         customContentBeforeForm={
           <div className="space-y-12">
+            <div className="prose prose-slate max-w-none mb-12">
+              <p>Não existe uma "melhor seguradora" universal — a escolha ideal depende do seu perfil, do seu veículo e do bairro onde você mora. O que funciona para um motorista jovem de Cumbica pode não ser a melhor opção para uma família do Cidade Maia. Por isso, a forma mais inteligente de decidir é comparar: coberturas, franquias, assistências e preços lado a lado.</p>
+              <p>Na Patro Seguros, corretora em Guarulhos com nota 4.9 no Google, comparamos propostas em 16+ seguradoras sem custo para você. Abaixo, um guia prático com o perfil de cada uma para ajudar na sua escolha.</p>
+            </div>
             <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
               <div className="p-6 bg-slate-50 border-b border-gray-100">
                 <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
@@ -63,6 +67,7 @@ const ComparativoSeguradorasGuarulhos = () => {
                   Tabela Comparativa de Seguradoras (Foco Guarulhos/SP)
                 </h3>
               </div>
+
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
