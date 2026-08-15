@@ -233,10 +233,11 @@ const Index = () => {
               <p>
                 Nosso trabalho é simplificar a contratação do seguro, explicar as
                 diferenças entre as seguradoras e acompanhar o cliente antes,
-                durante e depois da contratação. Conheça nossa{" "}
-                <Link to="/corretora-de-seguros-em-guarulhos" className="text-primary font-semibold hover:underline">
+                durante e depois da contratação.{" "}
+                <Link to="/seguros-guarulhos" className="text-primary font-semibold hover:underline">
                   Conheça nossa atuação em Guarulhos
                 </Link>{" "}
+
                 ou explore as principais soluções abaixo.
               </p>
             </div>
@@ -357,7 +358,7 @@ const Index = () => {
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {[
-                      { name: "Cidade Maia", path: "/seguros-cidade-maia-guarulhos" },
+                      { name: "Cidade Maia", path: "/seguros-shopping-maia-cidade-maia-guarulhos" },
                       { name: "Cumbica", path: "/seguros-cumbica-guarulhos" },
                       { name: "Pimentas", path: "/seguros-pimentas-guarulhos" },
                       { name: "Bonsucesso", path: "/seguros-bonsucesso-guarulhos" },

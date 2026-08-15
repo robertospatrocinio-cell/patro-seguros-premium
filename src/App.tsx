@@ -207,9 +207,10 @@ const SeoSeguroMotoGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroMoto
 const LandingSeguroMotoEntregador = lazyWithRetry(() => import("./pages/LandingSeguroMotoEntregador"), "LandingSeguroMotoEntregador");
 const SeoSeguroCondominioGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroCondominioGuarulhos"), "SeoSeguroCondominioGuarulhos");
 const SeoSegurosShoppingMaiaCidadeMaia = lazyWithRetry(() => import("./pages/SeoSegurosShoppingMaiaCidadeMaia"), "SeoSegurosShoppingMaiaCidadeMaia");
-const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/SeguroTransporteCargaGuarulhos"), "SeguroTransporteCargaGuarulhos");
 const HubSegurosGuarulhosDefinitivo = lazyWithRetry(() => import("./pages/HubSegurosGuarulhos"), "HubSegurosGuarulhos");
+const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/SeguroTransporteCargaGuarulhos"), "SeguroTransporteCargaGuarulhos");
 const ComparativoSeguradorasGuarulhos = lazyWithRetry(() => import("./pages/ComparativoSeguradorasGuarulhos"), "ComparativoSeguradorasGuarulhos");
+
 
 const SeoSeguroUberGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroUberGuarulhos"), "SeoSeguroUberGuarulhos");
 const SeoSeguroEmpresaGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresaGuarulhos"), "SeoSeguroEmpresaGuarulhos");
@@ -224,7 +225,7 @@ const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLoc
 const PlanoSaudeEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhos"), "PlanoSaudeEmpresarialGuarulhos");
 const PlanosSaudeSeniorGuarulhos = lazyWithRetry(() => import("./pages/PlanosSaudeSeniorGuarulhos"), "PlanosSaudeSeniorGuarulhos");
 const PlanoOdontologicoGuarulhos = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhos"), "PlanoOdontologicoGuarulhos");
-const SeguroTransporteCargaGuarulhos = lazyWithRetry(() => import("./pages/SeguroTransporteCargaGuarulhos"), "SeguroTransporteCargaGuarulhos");
+
 const Index = lazyWithRetry(() => import("./pages/Index"), "Index");
 const LpMaquinasEquipamentos = lazyWithRetry(() => import("./pages/LpMaquinasEquipamentos"), "LpMaquinasEquipamentos");
 const LpTransportes360 = lazyWithRetry(() => import("./pages/LpTransportes360"), "LpTransportes360");
