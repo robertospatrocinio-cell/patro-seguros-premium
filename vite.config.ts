@@ -587,7 +587,6 @@ export default defineConfig(({ mode }) => ({
         ],
       },
       webp: { quality: 75 },
-      avif: { quality: 50 },
     }),
      // validateLocalPagesPlugin(),
      // validatePageMetaPlugin(),
