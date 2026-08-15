@@ -6,6 +6,11 @@ import heroImg from "@/assets/lp-seguro-auto.webp";
 
 const LandingSeguroAuto = () => (
   <LandingPageTemplate
+    service={{
+      name: "Seguro Auto",
+      description: "Consultoria especializada em seguro de automóvel em Guarulhos, comparando 16+ seguradoras para garantir o melhor preço e cobertura.",
+      type: "AutoInsurance"
+    }}
     heroImage={heroImg}
     title="Seguro Auto em Guarulhos"
     heroEmoji="🚗"
@@ -51,11 +56,6 @@ const LandingSeguroAuto = () => (
     ]}
     extraSections={
       <div className="space-y-20">
-        <ServiceSchema 
-          name="Seguro Auto" 
-          description="Consultoria especializada em seguro de automóvel em Guarulhos, comparando 16+ seguradoras para garantir o melhor preço e cobertura."
-          serviceType="AutoInsurance"
-        />
         <FAQSchema faqs={[
         { question: "A cotação é realmente gratuita?", answer: "100% gratuita e sem compromisso. Você recebe as propostas, compara e decide com calma. Zero pressão." },
         { question: "Quanto tempo leva para receber a cotação?", answer: "Em até 2 horas úteis. Comparamos até 16 seguradoras e enviamos um resumo claro, sem letras miúdas." },

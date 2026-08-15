@@ -277,6 +277,12 @@ export interface InsurancePageProps {
   >;
   /** Conteúdo extra renderizado logo antes do formulário de cotação */
   customContentBeforeForm?: ReactNode;
+  /** Schema.org Service data. */
+  service?: {
+    name: string;
+    description: string;
+    type?: string;
+  };
 }
 
 export const InsurancePageTemplate = ({
@@ -315,6 +321,7 @@ export const InsurancePageTemplate = ({
   jumpLinks,
   sectionCtas,
   customContentBeforeForm,
+  service,
 }: InsurancePageProps) => {
   const location = useLocation();
   // Slug canônico da rota atual — usado para etiquetar o `source` dos CTAs
@@ -386,8 +393,9 @@ export const InsurancePageTemplate = ({
          description={metaDescription || `${title} - ${subtitle}. Cotação grátis com a Patro Seguros em Guarulhos. Compare seguradoras e encontre a melhor proteção.`}
          preloadImage={heroImage}
          preloadMobileImage={mobileHeroImage}
-         absoluteTitle={!!headline && headline !== title}
-       />
+          absoluteTitle={!!headline && headline !== title}
+          service={service}
+        />
        
       <InsuranceAgencySchema />
       <LocalBusinessSchema />

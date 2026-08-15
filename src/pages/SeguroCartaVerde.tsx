@@ -4,6 +4,11 @@ import heroImg from "@/assets/hero-seguro-auto.webp";
 const SeguroCartaVerde = () => {
   return (
     <InsurancePageTemplate
+      service={{
+        name: "Seguro Carta Verde",
+        description: "Contrate Seguro Carta Verde para viajar com veículo brasileiro pela América do Sul. Atendimento em Guarulhos e SP para Argentina, Uruguai, Paraguai, Chile e mais.",
+        type: "AutoInsurance"
+      }}
       heroImage={heroImg}
       title="Seguro Carta Verde"
       headline="Seguro Carta Verde para viajar de carro pela América do Sul"
