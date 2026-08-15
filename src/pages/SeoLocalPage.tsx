@@ -168,8 +168,11 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
               .filter(a => a.tags.some(t => t.toLowerCase().includes((config.neighborhood || "").toLowerCase())))
               .concat(guarulhosBairrosBlogArticles)
               .slice(0, 3)
-              .map((art) => (
-                <Link key={art.slug} to={`/blog/${art.slug}`} className="group">
+              .map((art) => {
+                const quoteUrl = `/cotacao?tipo=geral&utm_source=local-page&utm_medium=blog-suggestion&utm_campaign=${slug}&utm_content=${art.slug}`;
+                return (
+                <div key={art.slug} className="flex flex-col h-full">
+                <Link to={`/blog/${art.slug}`} className="group flex-1">
                   <Card className="h-full hover:shadow-lg transition-base border-primary/5">
                     <CardContent className="p-6 text-left">
                       <div className="flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-3">
@@ -189,7 +192,16 @@ const SeoLocalPage = ({ slug: slugProp }: SeoLocalPageProps) => {
                     </CardContent>
                   </Card>
                 </Link>
-              ))}
+                <div className="mt-2">
+                  <Link to={quoteUrl}>
+                    <Button variant="ghost" size="sm" className="w-full text-xs text-primary font-bold hover:bg-primary/5">
+                      Pedir cotação para este bairro
+                    </Button>
+                  </Link>
+                </div>
+                </div>
+              );})
+            }
           </div>
         </div>
       </section>
