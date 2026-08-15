@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Preparar o checklist final pós-Lovable para você validar no Search Console (posições, impressões, CTR) 30 dias depois das alterações.`}
+      {`Execute esta instrucao no projeto: Adiantar o prompt da Rodada 4 com as oportunidades restantes da auditoria (comparativo de seguradoras, blog por bairro, guia/ebook)`}
     </div>
   );
 };
