@@ -29,6 +29,7 @@ import { Input } from "@/components/ui/input";
 import { getArticleImage, getArticleImageAlt } from "@/lib/blogImages";
 import OptimizedImage from "@/components/OptimizedImage";
 import { articles, allCategories, allTags, formatDate, slugifyCategory } from "@/lib/blogData";
+import { BAIRROS_MATRIZ } from "@/data/seoLocalBairrosGuarulhos";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 import { buildBlogCollectionSchema } from "@/lib/collectionPageSchemas";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
