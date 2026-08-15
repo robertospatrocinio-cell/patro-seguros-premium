@@ -93,7 +93,7 @@ const Index = () => {
                   <span className="w-2 h-2 rounded-full bg-[#25D366] motion-safe:animate-pulse" aria-hidden="true" />
                   Atendimento consultivo em Guarulhos
                 </p>
-                <h1 className="font-heading text-white mb-5 font-extrabold tracking-tight text-balance text-[clamp(2.25rem,6vw,4.25rem)] leading-[1.05]">
+                <h1 className="font-heading text-white mb-5 font-extrabold tracking-tight text-balance text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.06]">
                   Seguros em Guarulhos — Compare <span className="text-primary-glow">16 seguradoras</span> e economize
                 </h1>
                 <p className="text-[17px] md:text-[19px] text-white/75 mb-9 max-w-xl leading-relaxed">Atendimento consultivo, registro SUSEP e nota 4.9 no Google. Cotação comparativa em até 2 horas úteis.</p>
