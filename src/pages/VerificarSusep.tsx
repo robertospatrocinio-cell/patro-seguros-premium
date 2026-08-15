@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import HowToSchema from "@/components/HowToSchema";
 import FAQSchema from "@/components/FAQSchema";
 import SpeakableSchema from "@/components/SpeakableSchema";
@@ -81,13 +80,6 @@ const VerificarSusep = () => {
       
       skipBreadcrumb
     />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Sobre", url: "/sobre" },
-          { name: "Verificar habilitação SUSEP", url: "/verificar-susep" },
-        ]}
-      />
       <FAQSchema faqs={faqs} />
       <HowToSchema
         name="Como verificar o registro SUSEP da Patro Corretora de Seguros"

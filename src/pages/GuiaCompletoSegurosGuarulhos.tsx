@@ -14,7 +14,6 @@ import { toast } from "sonner";
 import { safeInvoke } from "@/lib/supabase-helpers";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import FAQSchema from "@/components/FAQSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
 const GUIA_URL = "/downloads/guia-completo-seguros-guarulhos.pdf";
@@ -84,12 +83,6 @@ const GuiaCompletoSegurosGuarulhos = () => {
         title="Guia Completo de Seguros em Guarulhos | Patro Seguros"
         description="Baixe nosso guia completo: aprenda como proteger sua família, empresa e bens em Guarulhos. Passo a passo para economizar e escolher o seguro ideal."
         canonicalPath="/guia-completo-seguros-guarulhos"
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: CANONICAL_BASE_URL },
-          { name: "Guia Completo de Seguros em Guarulhos", url: `${CANONICAL_BASE_URL}/guia-completo-seguros-guarulhos` }
-        ]}
       />
       <FAQSchema faqs={faqs} />
       <Header />

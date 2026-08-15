@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -69,10 +68,6 @@ const SeoSegurosPmeGuarulhos = () => (
     />
     <FAQSchema faqs={faqs} />
     <LocalBusinessSchema />
-    <BreadcrumbSchema items={[
-      { name: "Início", url: "https://www.patroseguros.com.br" },
-      { name: "Seguros para Empresas", url: "https://www.patroseguros.com.br/seguros-empresariais-pme-guarulhos" },
-    ]} />
     <Header />
     <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Início", href: "/" }, { label: "Seguros PME Guarulhos" }]} />

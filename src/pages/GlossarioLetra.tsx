@@ -6,7 +6,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
 import { trackInternalLinkClick, trackWhatsAppClick } from "@/lib/tracking";
 import {
@@ -73,13 +72,6 @@ const GlossarioLetra = () => {
         />
         <script type="application/ld+json">{JSON.stringify(definedTermSet)}</script>
       </Helmet>
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Glossário de seguros", url: "/glossario-seguros" },
-          { name: `Letra ${letter}`, url: `/glossario-seguros/letra/${letter.toLowerCase()}` },
-        ]}
-      />
       <Header />
       <main className="bg-background">
         <div className="container mx-auto px-4 pt-6">

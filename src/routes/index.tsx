@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Implementar testes automatizados para validar se cada página do site está gerando JSON-LD com Organization/LocalBusiness, BreadcrumbList e Service corretos e sem campos ausentes. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Automatizar a geração do BreadcrumbList com base na rota atual para evitar inconsistências entre páginas e melhorar a exibição nos rich results. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │

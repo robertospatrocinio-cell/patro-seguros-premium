@@ -36,7 +36,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { PATRO_TESTIMONIALS } from "@/data/patroTestimonials";
@@ -63,12 +62,6 @@ const AvaliacoesClientes = () => {
       
       skipBreadcrumb
     />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: CANONICAL_BASE_URL },
-          { name: "Avaliações dos Clientes", url: `${CANONICAL_BASE_URL}/avaliacoes-clientes` },
-        ]}
-      />
 
       <Header />
       <main id="main-content" className="outline-none">

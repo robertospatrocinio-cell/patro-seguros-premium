@@ -5,7 +5,6 @@ import FAQSchema from "@/components/FAQSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -57,10 +56,6 @@ const NichoClinicasOdontologicas = () => (
       url="https://www.patroseguros.com.br/seguros-para-clinicas-odontologicas"
       description="Hub estratégico de seguros para consultórios, clínicas e redes odontológicas em Guarulhos."
     />
-    <BreadcrumbSchema items={[
-      { name: "Início", url: "/" },
-      { name: "Clínicas Odontológicas", url: "/seguros-para-clinicas-odontologicas" }
-    ]} />
     <Header />
     <main id="main-content" tabIndex={-1} className="outline-none">
       <Breadcrumb items={[{ label: "Segmentos" }, { label: "Clínicas Odontológicas" }]} />

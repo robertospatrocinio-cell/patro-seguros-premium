@@ -9,7 +9,6 @@ import { trackWhatsAppClick } from "@/lib/tracking";
 import FAQSchema from "@/components/FAQSchema";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import { PREMIUM_BRANDS } from "@/data/premiumBrandsConfig";
@@ -40,14 +39,6 @@ const SeguroMarcaPremium = ({ brand: brandProp }: { brand?: string }) => {
     />
       <OrganizationSchema />
       <LocalBusinessSchema />
-      <BreadcrumbSchema
-        items={[
-          { name: "Início", url: "/" },
-          { name: "Seguro Auto", url: "/seguro-auto" },
-          // Reflete a rota real (`/seguro/:brand`) — nunca invente URL alternativa.
-          { name: config.name, url: `/seguro/${brandSlug}` },
-        ]}
-      />
       <LocalAreaSchema
         serviceName={`Seguro ${config.name}`}
         url={`https://www.patroseguros.com.br/seguro-${config.slug}`}
