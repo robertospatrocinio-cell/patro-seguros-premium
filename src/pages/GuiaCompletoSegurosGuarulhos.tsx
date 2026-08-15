@@ -191,22 +191,141 @@ const GuiaCompletoSegurosGuarulhos = () => {
                     <p className="opacity-80 mt-2">Corretora Patro Seguros — SUSEP 212113511</p>
                   </div>
                   
-                  <div className="p-8 md:p-12 space-y-12">
-                    <div className="grid md:grid-cols-2 gap-8">
-                      {capitulos.map((cap, i) => (
-                        <div key={i} className="flex gap-4 p-5 rounded-2xl bg-slate-50 hover:bg-slate-100 transition-colors border border-slate-100">
-                          <div className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold flex-shrink-0">
-                            {i+1}
+                  <div className="p-8 md:p-12 space-y-12 prose prose-slate max-w-none text-left">
+                    <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 mb-8 not-prose">
+                      <div className="grid md:grid-cols-2 gap-8">
+                        {capitulos.map((cap, i) => (
+                          <div key={i} className="flex gap-4 p-5 rounded-2xl bg-white hover:bg-slate-100 transition-colors border border-slate-100">
+                            <div className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center font-bold flex-shrink-0">
+                              {i+1}
+                            </div>
+                            <div>
+                              <h3 className="font-bold text-slate-900 mb-1">{cap.title}</h3>
+                              <p className="text-sm text-slate-600 leading-relaxed text-left">{cap.desc}</p>
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="font-bold text-slate-900 mb-1">{cap.title}</h3>
-                            <p className="text-sm text-slate-600 leading-relaxed text-left">{cap.desc}</p>
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
 
-                    <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 flex items-start gap-4 text-left">
+                    <h2>Capítulo 1 — Por que fazer seguro em Guarulhos</h2>
+                    <p>Guarulhos é a segunda maior cidade de São Paulo, com mais de 1,4 milhão de habitantes e uma frota estimada em 650 mil veículos, cortada pelas rodovias Dutra, Fernão Dias e Ayrton Senna. Segundo o ISP (Índice de Sinistralidade por Praça), a cidade está entre as 10 com maior índice de roubo e furto de veículos do Brasil — bairros como Cumbica, Bonsucesso e Pimentas têm taxas até 40% acima da média estadual, enquanto Cidade Maia e Vila Augusta têm índices mais favoráveis. Conhecer o risco do seu bairro é o primeiro passo para contratar o seguro certo.</p>
+
+                    <h2>Capítulo 2 — Tipos de seguro</h2>
+                    <ul>
+                      <li><strong>Seguro Auto</strong>: cobertura para colisão, roubo, furto, incêndio e assistência 24h.</li>
+                      <li><strong>Seguro Residencial</strong>: incêndio, roubo, danos elétricos e assistência 24h — a partir de R$ 150/ano.</li>
+                      <li><strong>Seguro de Vida</strong>: morte, invalidez e doenças graves.</li>
+                      <li><strong>Plano de Saúde</strong>: individual, familiar, MEI ou PME — comparamos 20+ operadoras.</li>
+                      <li><strong>Seguro Empresarial</strong>: patrimonial, RC, lucros cessantes e cyber.</li>
+                      <li><strong>Seguro de Frota</strong>: gestão de risco para frotas de qualquer porte.</li>
+                      <li><strong>Transporte de Cargas</strong>: RCTR-C e RCF-DC para transportadoras.</li>
+                      <li><strong>Consórcio</strong>: imóvel, veículo ou empresa sem juros de financiamento.</li>
+                    </ul>
+
+                    <h2>Capítulo 3 — Quanto custa o seguro auto por bairro</h2>
+                    <div className="not-prose overflow-x-auto">
+                      <table className="w-full text-sm text-left text-slate-500 border-collapse border border-slate-200">
+                        <thead className="text-xs text-slate-700 uppercase bg-slate-50">
+                          <tr>
+                            <th className="px-6 py-3 border border-slate-200">Bairro</th>
+                            <th className="px-6 py-3 border border-slate-200">Faixa média/ano</th>
+                            <th className="px-6 py-3 border border-slate-200">Risco</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="bg-white border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Cidade Maia</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 2.100 a R$ 4.000</td>
+                            <td className="px-6 py-4 border border-slate-200">Baixo</td>
+                          </tr>
+                          <tr className="bg-slate-50 border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Vila Galvão</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 2.300 a R$ 4.200</td>
+                            <td className="px-6 py-4 border border-slate-200">Baixo</td>
+                          </tr>
+                          <tr className="bg-white border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Vila Augusta</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 2.200 a R$ 4.100</td>
+                            <td className="px-6 py-4 border border-slate-200">Baixo</td>
+                          </tr>
+                          <tr className="bg-slate-50 border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Jardim São João</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 2.600 a R$ 4.900</td>
+                            <td className="px-6 py-4 border border-slate-200">Médio</td>
+                          </tr>
+                          <tr className="bg-white border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Taboão</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 2.700 a R$ 5.000</td>
+                            <td className="px-6 py-4 border border-slate-200">Médio</td>
+                          </tr>
+                          <tr className="bg-slate-50 border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Bonsucesso</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 2.700 a R$ 5.100</td>
+                            <td className="px-6 py-4 border border-slate-200">Médio</td>
+                          </tr>
+                          <tr className="bg-white border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Centro</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 2.900 a R$ 5.500</td>
+                            <td className="px-6 py-4 border border-slate-200">Médio-alto</td>
+                          </tr>
+                          <tr className="bg-slate-50 border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Cumbica</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 3.100 a R$ 6.200</td>
+                            <td className="px-6 py-4 border border-slate-200">Médio-alto</td>
+                          </tr>
+                          <tr className="bg-white border-b border-slate-200">
+                            <td className="px-6 py-4 border border-slate-200">Pimentas</td>
+                            <td className="px-6 py-4 border border-slate-200">R$ 3.400 a R$ 6.800</td>
+                            <td className="px-6 py-4 border border-slate-200">Alto</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="text-xs italic text-slate-400 mt-2">Os valores são estimativas para cobertura compreensiva, com base no perfil médio dos clientes da Patro. O preço exato depende do veículo, do condutor e do CEP.</p>
+
+                    <h2>Capítulo 4 — Como escolher a cobertura certa</h2>
+                    <ol>
+                      <li><strong>Compreensiva x Terceiros</strong>: a compreensiva protege o seu veículo (roubo, colisão, incêndio); a de terceiros cobre apenas danos a outros.</li>
+                      <li><strong>Franquia</strong>: o valor que você paga no sinistro. Franquia maior reduz o prêmio.</li>
+                      <li><strong>Assistência 24h</strong>: guincho, chaveiro e socorro mecânico — o recurso mais usado.</li>
+                      <li><strong>Carro reserva</strong>: essencial para quem depende do carro no dia a dia.</li>
+                      <li><strong>Coberturas adicionais</strong>: vidros, faróis, acessórios e proteção para motorista de app.</li>
+                    </ol>
+
+                    <h2>Capítulo 5 — 8 dicas para economizar</h2>
+                    <ol>
+                      <li>Compare sempre: nunca renove automaticamente.</li>
+                      <li>Garagem fechada reduz o prêmio em até 20%.</li>
+                      <li>Rastreador gera desconto de 10% a 15%.</li>
+                      <li>Mantenha a classe de bônus: cada ano sem sinistro dá desconto.</li>
+                      <li>Franquia maior para quem dirige pouco.</li>
+                      <li>Pacote combinado: auto + residencial gera desconto de 5% a 15%.</li>
+                      <li>Declare o uso correto (motorista de app precisa de cobertura específica).</li>
+                      <li>Revise o valor segurado anualmente para evitar subseguro.</li>
+                    </ol>
+
+                    <h2>Capítulo 6 — O que fazer em caso de sinistro</h2>
+                    <ol>
+                      <li>Sinalize o local e verifique se há feridos.</li>
+                      <li>Tire fotos dos danos e da posição dos veículos.</li>
+                      <li>Acione a Central de Sinistros da Patro pelo WhatsApp (11) 5199-7500.</li>
+                      <li>Nossa equipe abre o aviso na seguradora e orienta a documentação.</li>
+                      <li>Acompanhamos vistoria, oficina e indenização até o fim.</li>
+                    </ol>
+
+                    <h2>Capítulo 7 — Glossário rápido</h2>
+                    <ul>
+                      <li><strong>Franquia</strong>: valor pago pelo segurado em cada sinistro.</li>
+                      <li><strong>FIPE</strong>: tabela de referência do valor do veículo.</li>
+                      <li><strong>Bônus</strong>: desconto por anos sem sinistros.</li>
+                      <li><strong>RCTR-C</strong>: responsabilidade civil do transportador rodoviário de cargas.</li>
+                      <li><strong>RCF-DC</strong>: responsabilidade civil por desaparecimento de carga.</li>
+                      <li><strong>RC</strong>: responsabilidade civil (danos a terceiros).</li>
+                      <li><strong>Lucros cessantes</strong>: reposição do faturamento perdido em paralisação.</li>
+                    </ul>
+
+                    <div className="bg-orange-50 p-6 rounded-2xl border border-orange-100 flex items-start gap-4 text-left not-prose">
                       <AlertCircle className="text-[#F2994A] flex-shrink-0 mt-1" />
                       <div>
                         <h4 className="font-bold text-orange-900 mb-2">Dica Extra de Economia</h4>
@@ -216,7 +335,7 @@ const GuiaCompletoSegurosGuarulhos = () => {
                       </div>
                     </div>
 
-                    <div className="text-center pt-8 border-t border-slate-100">
+                    <div className="text-center pt-8 border-t border-slate-100 not-prose">
                       <Link to="/cotacao?tipo=auto" onClick={() => trackCotacaoClick("guia-bottom")}>
                         <Button size="lg" className="bg-primary text-white font-bold px-10 h-14 rounded-2xl">
                           Solicitar cotação grátis agora
@@ -227,6 +346,7 @@ const GuiaCompletoSegurosGuarulhos = () => {
                 </div>
             </section>
         )}
+
 
         <section className="py-20">
           <h2 className="text-3xl font-bold text-center mb-12">Perguntas Frequentes</h2>

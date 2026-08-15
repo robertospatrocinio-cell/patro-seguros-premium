@@ -16,11 +16,12 @@ const LeadMagnetSection = memo(() => {
             <div className="p-8 md:p-12 lg:p-16 text-left">
               <span className="inline-block text-sm font-semibold text-amber-500 mb-3" role="img" aria-label="Presente">🎁 Material Gratuito</span>
               <h2 id="lead-magnet-heading" className="text-2xl md:text-3xl font-extrabold text-white mb-3 leading-tight">
-                Quer baixar o preço do seu Seguro Auto em até 30%?
+                Quer economizar até 30% no Seguro Auto em Guarulhos?
               </h2>
               <p className="text-white/80 text-sm mb-8 leading-relaxed">
-                Baixe nosso guia definitivo para motoristas de Guarulhos e descubra <strong className="text-white">5 segredos que as seguradoras não te contam</strong> para economizar de verdade.
+                Baixe o <strong className="text-white">Guia Definitivo de Seguros em Guarulhos (Edição 2026)</strong> e descubra os segredos para pagar menos sem perder cobertura nos bairros da cidade.
               </p>
+
 
               <Link to="/guia-completo-seguros-guarulhos">
                 <Button
