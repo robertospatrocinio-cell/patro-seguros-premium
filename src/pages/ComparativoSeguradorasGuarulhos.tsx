@@ -8,6 +8,8 @@ import { COMPARATIVO_SEGURADORAS } from "@/data/comparativoSeguradorasData";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
+import FAQSchema from "@/components/FAQSchema";
+
 
 const ComparativoSeguradorasGuarulhos = () => {
   return (
