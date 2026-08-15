@@ -3,7 +3,7 @@ import React from 'react';
 const SiteInfo = () => {
   return (
     <div style={{ display: 'none' }}>
-      {`Execute esta instrucao no projeto: Criar uma etapa de revisão com resumo dos dados e um botão para eu confirmar antes de gerar a mensagem final do WhatsApp. ┌──────────────────────────────────────────────────────┐
+      {`Execute esta instrucao no projeto: Habilitar que eu edite livremente a mensagem pré-preenchida antes do redirecionamento para o WhatsApp, mantendo o contexto do seguro escolhido. ┌──────────────────────────────────────────────────────┐
 │ HEADER (fixo)                                        │
 │ Logo · Para Você · Empresa · Atendimento · Conteúdo  │
 │                        [Cotação grátis]  [WhatsApp]  │
