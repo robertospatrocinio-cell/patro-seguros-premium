@@ -299,16 +299,19 @@ const Header = memo(() => {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16" aria-label="Navegação principal">
             <SmartLink to="/" className="flex items-center relative z-[60]" onClick={() => window.scrollTo(0,0)}>
-              <img
-                src={logoFull}
-                alt="Patro Seguros Guarulhos - Corretora de Seguros"
-                width={140}
-                height={70}
-                decoding="sync"
-                loading="eager"
-                {...({ fetchpriority: "high" } as any)}
-                className="h-16 w-auto object-contain relative z-50"
-              />
+              <picture>
+                <source srcSet="/images/logo-full.webp" type="image/webp" />
+                <img
+                  src={logoFull}
+                  alt="Patro Seguros Guarulhos - Corretora de Seguros"
+                  width={140}
+                  height={70}
+                  decoding="sync"
+                  loading="eager"
+                  {...({ fetchpriority: "high" } as any)}
+                  className="h-16 w-auto object-contain relative z-50"
+                />
+              </picture>
             </SmartLink>
 
             <div className="hidden lg:flex items-center gap-1">
