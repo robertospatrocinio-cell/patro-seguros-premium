@@ -1,6 +1,8 @@
 import { useState, FormEvent } from "react";
 import { submitLead } from "@/lib/leadsApi";
 import { trackCotacaoClick } from "@/lib/tracking";
+import { EMPRESA } from "@/config/empresa";
+
 
 const PROFILES = [
   "Veículo premium",
