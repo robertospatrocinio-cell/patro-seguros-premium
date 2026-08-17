@@ -111,12 +111,12 @@ const inferQuoteType = (title: string): string => {
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
+const WHATSAPP_URL = `${EMPRESA.whatsapp}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.`;
 
 // Mensagem personalizada por tipo de seguro para o link do WhatsApp
 const buildProductWhatsAppUrl = (title: string): string => {
   const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${title}. Pode me ajudar?`;
-  return `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`;
+  return `${EMPRESA.whatsapp}?text=${encodeURIComponent(msg)}`;
 };
 
 interface Coverage { title: string; description: string; }
@@ -902,7 +902,7 @@ const InsurancePageTemplate = ({
                  <div className="space-y-4">
                    {[
                      "Consultoria técnica especializada",
-                     "Comparativo entre 16+ seguradoras",
+                     `Comparativo entre ${EMPRESA.metricas.seguradorasParceiras} seguradoras`,
                      "Atendimento humano e ágil",
                      "Suporte completo do início ao sinistro"
                    ].map((item, i) => (
@@ -970,9 +970,9 @@ const InsurancePageTemplate = ({
                   <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp sobre {title}
                 </Button>
               </a>
-              <a href="tel:1151997500" aria-label="Ligar para (11) 5199-7500" className="w-full sm:w-auto">
+              <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} aria-label={`Ligar para ${EMPRESA.telefone}`} className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
-                  <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> (11) 5199-7500
+                  <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> {EMPRESA.telefone}
                 </Button>
               </a>
             </div>

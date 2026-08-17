@@ -1,8 +1,9 @@
-  import React, { Component, ErrorInfo, ReactNode } from "react";
-  import { captureException } from "@/lib/monitoring";
-  import { toast } from "sonner";
- import { Button } from "@/components/ui/button";
-  import { AlertTriangle, RefreshCcw, Home, ArrowLeft, Copy, Check, MessageSquare, PhoneCall, Info } from "lucide-react";
+import React, { Component, ErrorInfo, ReactNode } from "react";
+import { captureException } from "@/lib/monitoring";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { AlertTriangle, RefreshCcw, Home, ArrowLeft, Copy, Check, MessageSquare, PhoneCall, Info } from "lucide-react";
+import { EMPRESA } from "@/config/empresa";
   import {
     Dialog,
     DialogContent,
@@ -33,7 +34,7 @@ interface Props {
 
      private handleWhatsAppReport = () => {
        const message = encodeURIComponent(`Olá, encontrei um erro no site da Patro Seguros. ID do Erro: ${this.state.errorId}`);
-       window.open(`https://wa.me/551151997500?text=${message}`, "_blank");
+       window.open(`https://wa.me/${EMPRESA.whatsapp.split('wa.me/')[1]}?text=${message}`, "_blank");
      };
 
       public state: State = {
@@ -225,11 +226,11 @@ interface Props {
                     </Dialog>
 
                     <a 
-                      href="tel:1151997500"
+                      href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`}
                       className="flex items-center gap-3 p-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-700 dark:text-blue-400 rounded-lg transition-colors text-sm font-medium w-full group"
                     >
                       <PhoneCall className="w-4 h-4" />
-                      <span>Ligar para (11) 5199-7500</span>
+                      <span>Ligar para {EMPRESA.telefone}</span>
                       <ArrowLeft className="w-3 h-3 ml-auto rotate-180 opacity-0 group-hover:opacity-100 transition-opacity" />
                     </a>
                   </div>

@@ -1,6 +1,7 @@
- import { Suspense, lazy } from "react";
- import { MessageCircle } from "lucide-react";
- const QuickQuoteForm = lazy(() => import("./QuickQuoteForm"));
+import { Suspense, lazy } from "react";
+import { MessageCircle } from "lucide-react";
+import { EMPRESA } from "@/config/empresa";
+const QuickQuoteForm = lazy(() => import("./QuickQuoteForm"));
  
  interface FormCTASectionProps {
    title?: string;
@@ -33,7 +34,7 @@
                <div className="space-y-4">
                  {[
                    "Consultoria técnica especializada",
-                   "Comparativo entre 16+ seguradoras",
+                   `Comparativo entre ${EMPRESA.metricas.seguradorasParceiras} seguradoras`,
                    "Atendimento humano e ágil",
                    "Suporte completo do início ao sinistro"
                  ].map((item, i) => (
@@ -53,7 +54,7 @@
                  <div>
                    <p className="text-sm font-bold text-primary mb-0.5">Prefere falar agora?</p>
                    <p className="text-xs text-foreground/70 leading-relaxed">
-                     Chame no WhatsApp <a href="tel:1151997500" className="font-semibold hover:underline">(11) 5199-7500</a> para atendimento imediato.
+                     Chame no WhatsApp <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="font-semibold hover:underline">{EMPRESA.telefone}</a> para atendimento imediato.
                    </p>
                  </div>
                </div>

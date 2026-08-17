@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
+import { EMPRESA } from "@/config/empresa";
 
 interface Props {
   quoteHref: string;
@@ -23,7 +24,7 @@ export default function ArticleInlineCTA({
   whatsappUrl,
   source,
   headline = "Quer uma cotação personalizada agora?",
-  subline = "Comparamos 16+ seguradoras e devolvemos a melhor proposta em até 2h úteis. Atendimento humano, sem call center.",
+  subline = `Comparamos ${EMPRESA.metricas.seguradorasParceiras} seguradoras e devolvemos a melhor proposta em até 2h úteis. Atendimento humano, sem call center.`,
   variant = "solid",
 }: Props) {
   const isSolid = variant === "solid";

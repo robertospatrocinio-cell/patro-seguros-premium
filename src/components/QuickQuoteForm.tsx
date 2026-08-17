@@ -242,7 +242,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
       localStorage.removeItem(`${storageKey}-step`);
       window.open(
-        `https://wa.me/551151997500?text=${encodeURIComponent(finalParts)}`,
+        `${EMPRESA.whatsapp}?text=${encodeURIComponent(finalParts)}`,
         "_blank"
       );
     }, 500);

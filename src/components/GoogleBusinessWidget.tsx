@@ -70,7 +70,7 @@ const GoogleBusinessWidget = () => {
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Phone className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-          <a href="tel:1151997500" className="hover:text-primary transition-colors">(11) 5199-7500</a>
+          <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="hover:text-primary transition-colors">{EMPRESA.telefone}</a>
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Clock className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
