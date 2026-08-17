@@ -17,8 +17,8 @@ const HeroPatro = memo(() => {
     <section className="relative overflow-hidden bg-slate-900 pt-0">
       {/* Background Image Container - Desktop/Tablet Right Side, Mobile Background */}
       <div className="absolute top-0 right-0 w-full lg:w-[48%] h-full z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent z-10 hidden lg:block" />
-        <div className="absolute inset-0 bg-slate-900/60 z-10 lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent z-10 hidden lg:block" />
+        <div className="absolute inset-0 bg-slate-900/70 z-10 lg:hidden" />
         <picture>
           <source
             type="image/webp"
@@ -27,12 +27,12 @@ const HeroPatro = memo(() => {
           />
           <img
             src="/images/hero-home-1280.webp"
-            alt="Família brasileira em momento de união - Atendimento humanizado Patro Seguros"
+            alt="Atendimento humanizado Patro Seguros - Proteção para você e sua família"
             width={1280}
             height={720}
             loading="eager"
             decoding="async"
-            className="w-full h-full object-cover lg:object-[center_right] opacity-90 lg:opacity-100 transition-opacity duration-700 select-none pointer-events-none"
+            className="w-full h-full object-cover lg:object-right-top opacity-100 transition-opacity duration-700 select-none pointer-events-none"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
