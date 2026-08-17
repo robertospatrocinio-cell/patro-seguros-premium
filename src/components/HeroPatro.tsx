@@ -37,7 +37,7 @@ const HeroPatro = memo(() => {
             height={720}
             loading="eager"
             decoding="sync"
-            className="w-full h-full object-cover lg:object-[75%_25%] opacity-100 transition-opacity duration-700 select-none pointer-events-none"
+            className="w-full h-full object-cover lg:object-[65%_25%] opacity-100 transition-opacity duration-700 select-none pointer-events-none"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
