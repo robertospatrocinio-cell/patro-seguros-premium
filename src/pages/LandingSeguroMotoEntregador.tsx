@@ -357,13 +357,13 @@ const LandingSeguroMotoEntregador = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="secondary" className="text-primary font-bold px-8 py-7 text-lg rounded-full" asChild>
-                  <a href="https://patroseguros.com.br/cotacao-auto">
+                  <a href="/cotacao-auto">
                     Cote Agora no Site
                   </a>
                 </Button>
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-8 py-7 text-lg rounded-full flex items-center gap-2 border-none" asChild>
                   <a 
-                    href="https://patroseguros.com.br/cotacao-auto"
+                    href="/cotacao-auto"
                     onClick={() => trackWhatsAppClick(source)}
                   >
                     Cote Agora no WhatsApp <Smartphone className="h-5 w-5" />
@@ -378,7 +378,7 @@ const LandingSeguroMotoEntregador = () => {
              {/* Sticky Scroll CTA */}
              <div className={`transition-all duration-500 transform ${showStickyCta ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
                <Button className="bg-primary text-white font-bold shadow-2xl rounded-full pr-6 pl-2 py-6 flex items-center gap-3 border-2 border-white/20 hover:scale-105 transition-transform" asChild>
-                 <a href="https://patroseguros.com.br/cotacao-auto">
+                 <a href="/cotacao-auto">
                    <div className="bg-white text-primary rounded-full p-2">
                      <ArrowRight className="h-4 w-4" />
                    </div>
@@ -389,7 +389,7 @@ const LandingSeguroMotoEntregador = () => {
 
              {/* WhatsApp Floating Button */}
               <a 
-                href="https://patroseguros.com.br/cotacao-auto"
+                href="/cotacao-auto"
                 onClick={() => trackWhatsAppClick(source)}
                className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group animate-pulse hover:animate-none"
              >
