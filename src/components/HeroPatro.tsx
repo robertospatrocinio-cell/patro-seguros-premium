@@ -22,17 +22,17 @@ const HeroPatro = memo(() => {
         <picture>
           <source
             type="image/webp"
-            srcSet="/images/hero-familia-sm.webp 640w, /images/hero-familia.webp 1280w"
+            srcSet="/images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
             sizes="(max-width: 1024px) 100vw, 48vw"
           />
           <img
-            src="/images/hero-familia.webp"
+            src="/images/hero-home-1280.webp"
             alt="Família brasileira em momento de união - Atendimento humanizado Patro Seguros"
             width={1280}
-            height={853}
+            height={720}
             loading="eager"
             decoding="async"
-            className="w-full h-full object-cover lg:object-[center_right] opacity-80 lg:opacity-100 transition-opacity duration-700 select-none pointer-events-none"
+            className="w-full h-full object-cover lg:object-[center_right] opacity-90 lg:opacity-100 transition-opacity duration-700 select-none pointer-events-none"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
