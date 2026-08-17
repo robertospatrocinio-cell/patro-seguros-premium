@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Star, MapPin, Quote } from "lucide-react";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { PATRO_LOCAL_TESTIMONIALS } from "@/data/patroTestimonials";
+import { EMPRESA } from "@/config/empresa";
 
 // Depoimentos vêm da fonte única `src/data/patroTestimonials.ts`.
 // Enquanto os textos reais do Google não são enviados, exibimos os itens
@@ -69,7 +70,7 @@ const LocalTestimonials = () => {
         
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground font-medium">
-            Junte-se a mais de 2.500 segurados protegidos pela Patro em Guarulhos.
+            Junte-se a mais de {EMPRESA.metricas.clientesAtendidos} segurados protegidos pela Patro em Guarulhos.
           </p>
         </div>
       </div>
