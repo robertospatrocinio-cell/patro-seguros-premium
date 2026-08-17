@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { logForgottenQuote } from "@/lib/quoteHistory";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { scheduleIdle } from "@/lib/prefetch";
+import { EMPRESA } from "@/config/empresa";
 
 
 
