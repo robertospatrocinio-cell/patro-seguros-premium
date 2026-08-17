@@ -100,7 +100,7 @@ const HeroPatro = memo(() => {
               <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-white/10">
                 <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <Clock className="h-4 w-4 shrink-0 text-primary-light" />
-                  <span>Mais de 20 anos de experiência</span>
+                  <span>Mais de {EMPRESA.metricas.experienciaAnos} anos de experiência</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <ShieldCheck className="h-4 w-4 shrink-0 text-primary-light" />

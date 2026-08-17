@@ -1,49 +1,45 @@
+import React from "react";
+import { EMPRESA } from "@/config/empresa";
+
 /**
  * JSON-LD Person schema para os dois fundadores da Patro Seguros.
- *
- * Fortalece o Knowledge Graph e a citação por LLMs (E-E-A-T):
- * - `jobTitle`, `knowsAbout`, `hasCredential`, `worksFor`
- * - `sameAs` com perfis públicos verificáveis (LinkedIn, Instagram)
- * - `url` aponta para a página do autor no blog (perfil canônico)
- *
- * Renderiza um único bloco `@graph` com os 2 nós Person + referência
- * à Organization pai (via `@id`), evitando duplicar a InsuranceAgency.
  */
 
-const ORG_ID = "https://www.patroseguros.com.br/#insuranceagency";
+const ORG_ID = `${EMPRESA.dominioCanonico}/#insurance-agency`;
 
 const persons = [
   {
-    id: "https://www.patroseguros.com.br/sobre#roberto-patrocinio",
+    id: `${EMPRESA.dominioCanonico}/sobre#roberto-patrocinio`,
     name: "Roberto Patrocínio",
     givenName: "Roberto",
     familyName: "Patrocínio",
     jobTitle: "Sócio-Fundador e Diretor Comercial",
     description:
-      "Corretor de seguros com mais de 15 anos de atuação em seguros empresariais, agronegócio (PSR), galpões logísticos em Cumbica/Guarulhos e responsabilidade civil. Lidera parcerias estratégicas com 16+ seguradoras e é responsável pela carteira corporativa da Patro.",
+      "Especialista em Seguros de Transportes e Riscos Corporativos com mais de 20 anos de atuação no mercado segurador brasileiro. Lidera a estratégia de expansão nacional da Patro Seguros focada em Agronegócio e Logística.",
     knowsAbout: [
-      "Seguro Empresarial",
-      "Seguro de Galpões e Riscos Patrimoniais",
-      "Seguro Agrícola (PSR)",
-      "Responsabilidade Civil (RC)",
-      "Seguro de Frota",
+      "Seguro de Transportes (RCTR-C, RCF-DC)",
+      "Seguro de Carga",
+      "Seguro para Agronegócio",
+      "Responsabilidade Civil Profissional",
       "Gestão de Riscos Corporativos",
+      "Logística e Supply Chain",
     ],
-    image: "https://www.patroseguros.com.br/socio-roberto.webp",
+    image: `${EMPRESA.dominioCanonico}/socio-roberto.webp`,
+    url: `${EMPRESA.dominioCanonico}/blog/autor/roberto-patrocinio`,
     sameAs: [
-      "https://www.linkedin.com/in/roberto-patrocinio",
-      "https://www.instagram.com/patroseguros",
+      "https://www.linkedin.com/in/robertopatrocinio/",
+      EMPRESA.redesSociais.instagram,
     ],
-    url: "https://www.patroseguros.com.br/blog/autor/roberto-patro",
+    worksFor: { "@id": ORG_ID },
   },
   {
-    id: "https://www.patroseguros.com.br/sobre#sandra-patrocinio",
+    id: `${EMPRESA.dominioCanonico}/sobre#sandra-patrocinio`,
     name: "Sandra Patrocínio",
     givenName: "Sandra",
     familyName: "Patrocínio",
     jobTitle: "Sócia-Fundadora e Diretora de Operações",
     description:
-      "Corretora de seguros especializada em planos de saúde PME, seguros pessoais (vida, APH) e gestão de sinistros. Responsável pela operação diária da Patro e pelo relacionamento com 20+ operadoras de saúde, incluindo Bradesco Saúde, SulAmérica, Amil, Porto Seguro Saúde e Notre Dame.",
+      `Corretora de seguros especializada em planos de saúde PME, seguros pessoais (vida, APH) e gestão de sinistros. Responsável pela operação diária da Patro e pelo relacionamento com ${EMPRESA.metricas.operadorasSaude} operadoras de saúde, incluindo Bradesco Saúde, SulAmérica, Amil, Porto Seguro Saúde e Notre Dame.`,
     knowsAbout: [
       "Planos de Saúde PME",
       "Seguro de Vida",
@@ -52,49 +48,36 @@ const persons = [
       "Odontologia Empresarial",
       "Atendimento ao Cliente em Seguros",
     ],
-    image: "https://www.patroseguros.com.br/socia-sandra.webp",
+    image: `${EMPRESA.dominioCanonico}/socia-sandra.webp`,
+    url: `${EMPRESA.dominioCanonico}/blog/autor/sandra-patrocinio`,
     sameAs: [
-      "https://www.linkedin.com/in/sandra-patrocinio",
-      "https://www.instagram.com/patroseguros",
+      "https://www.linkedin.com/in/sandra-patrocinio-b7b51b32/",
+      EMPRESA.redesSociais.instagram,
     ],
-    url: "https://www.patroseguros.com.br/blog/autor/sandra-patro",
+    worksFor: { "@id": ORG_ID },
   },
-] as const;
+];
 
-const buildPerson = (p: (typeof persons)[number]) => ({
-  "@type": "Person",
-  "@id": p.id,
-  name: p.name,
-  givenName: p.givenName,
-  familyName: p.familyName,
-  jobTitle: p.jobTitle,
-  description: p.description,
-  image: p.image,
-  url: p.url,
-  worksFor: { "@id": ORG_ID },
-  affiliation: { "@id": ORG_ID },
-  knowsAbout: p.knowsAbout,
-  sameAs: p.sameAs,
-  hasCredential: [
-    {
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "license",
-      name: "Corretor(a) de Seguros habilitado(a) pela SUSEP",
-      recognizedBy: {
-        "@type": "GovernmentOrganization",
-        name: "Superintendência de Seguros Privados (SUSEP)",
-        url: "https://www.gov.br/susep",
-      },
-      identifier: "SUSEP 212113511",
-      url: "https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp",
-    },
-  ],
-});
-
-const PersonAuthorsSchema = () => {
+const PersonAuthorsSchema: React.FC = () => {
   const schema = {
     "@context": "https://schema.org",
-    "@graph": persons.map(buildPerson),
+    "@graph": persons.map((p) => ({
+      "@type": "Person",
+      "@id": p.id,
+      name: p.name,
+      givenName: p.givenName,
+      familyName: p.familyName,
+      jobTitle: p.jobTitle,
+      description: p.description,
+      image: p.image,
+      url: p.url,
+      sameAs: p.sameAs,
+      knowsAbout: p.knowsAbout.map((topic) => ({
+        "@type": "Thing",
+        name: topic,
+      })),
+      worksFor: p.worksFor,
+    })),
   };
 
   return (

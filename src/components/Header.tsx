@@ -9,12 +9,13 @@ import { toast } from "sonner";
 import { logForgottenQuote } from "@/lib/quoteHistory";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { scheduleIdle } from "@/lib/prefetch";
+import { EMPRESA } from "@/config/empresa";
 
 
 
 const logoFull = "/images/logo-full.webp";
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
-const WHATSAPP_SINISTRO_URL = "https://wa.me/551151997500?text=" + encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.");
+const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.")}`;
+const WHATSAPP_SINISTRO_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.")}`;
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -273,7 +274,7 @@ const Header = memo(() => {
               </span>
               <a href="tel:1151997500" aria-label="Ligar (11) 5199-7500" className="flex items-center gap-1.5 text-white hover:text-white/80 transition-base font-medium">
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" role="presentation" />
-                <span>(11) 5199-7500 • Seg. a Sex. 8h30–18h</span>
+                <span>{EMPRESA.telefone} • {EMPRESA.horario}</span>
               </a>
               <a href="mailto:contato@patroseguros.com.br" aria-label="Enviar e-mail para contato@patroseguros.com.br" className="flex items-center gap-1.5 text-white/85 hover:text-white transition-base min-w-0">
                 <Mail className="h-3.5 w-3.5 shrink-0" aria-hidden="true" role="presentation" />

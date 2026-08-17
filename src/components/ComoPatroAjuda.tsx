@@ -13,6 +13,7 @@
 
 import { MessageCircle, ArrowRight, PhoneCall, ClipboardList, Scale, ShieldCheck } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import { EMPRESA } from "@/config/empresa";
 
 interface ComoPatroAjudaProps {
   /** Nome do produto/seguro exibido no título e mensagem do WhatsApp. */
@@ -42,13 +43,13 @@ const STEPS = [
     icon: PhoneCall,
     title: "Você conta o que precisa",
     description:
-      "Fale por WhatsApp, telefone (11) 5199-7500 ou formulário. Sem robô, sem call center.",
+      `Fale por WhatsApp, telefone ${EMPRESA.telefone} ou formulário. Sem robô, sem call center.`,
   },
   {
     icon: ClipboardList,
     title: "Analisamos seu perfil",
     description:
-      "Nosso time consulta 16+ seguradoras parceiras e monta um comparativo transparente para o seu caso.",
+      `Nosso time consulta ${EMPRESA.metricas.seguradorasParceiras} seguradoras parceiras e monta um comparativo transparente para o seu caso.`,
   },
   {
     icon: Scale,
@@ -68,7 +69,7 @@ const buildWhatsAppUrl = (product?: string) => {
   const base = product
     ? `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${product}. Pode me ajudar?`
     : "Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.";
-  return `https://wa.me/551151997500?text=${encodeURIComponent(base)}`;
+  return `https://wa.me/${EMPRESA.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(base)}`;
 };
 
 const ComoPatroAjuda = ({

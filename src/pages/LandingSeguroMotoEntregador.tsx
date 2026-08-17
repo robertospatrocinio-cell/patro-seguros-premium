@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { buildLpWhatsAppUrl } from "@/lib/whatsapp";
-import { EMPRESA, ENDERECO_LINHA } from "@/config/empresa";
+import { EMPRESA, ENDERECO_LINHA, WHATSAPP_DIGITS } from "@/config/empresa";
 import { highlightBrands, BrandText } from "@/components/BrandText";
 
 const LandingSeguroMotoEntregador = () => {
@@ -62,7 +62,7 @@ const LandingSeguroMotoEntregador = () => {
       heroEmoji="🏍️"
       indexable={true}
       ctaText="Solicitar Cotação"
-      ctaUrl="https://patroseguros.com.br/cotacao-auto"
+      ctaUrl="/cotacao-auto"
       urgencyText="A cada 15 minutos uma moto é roubada em SP — não seja a próxima vítima"
       priceAnchor="Planos para CG, Fazer e Titan a partir de R$ 49/mês"
       guaranteeText="Consultoria humana especializada: não vendemos apenas apólices, protegemos seu ganha-pão com quem conhece o dia a dia das ruas de Guarulhos."
@@ -188,19 +188,19 @@ const LandingSeguroMotoEntregador = () => {
               "@type": "Article",
               "headline": "Seguro de Moto para Entregadores em Guarulhos: Preço e Coberturas iFood, 99 e Keeta",
               "description": "Guia especializado em seguro de moto para entregadores de aplicativos em Guarulhos e SP. Saiba como proteger sua moto contra roubo e furto com planos profissionais.",
-              "image": "https://www.patroseguros.com.br/images/hero-home.webp",
+              "image": `${EMPRESA.dominioCanonico}/images/hero-home.webp`,
               "author": {
                 "@type": "Organization",
                 "name": "Patro Seguros",
-                "url": "https://www.patroseguros.com.br"
+                "url": EMPRESA.dominioCanonico
               },
               "publisher": {
-                "@id": "https://www.patroseguros.com.br/#insurance-agency"
+                "@id": `${EMPRESA.dominioCanonico}/#insurance-agency`
               },
               "datePublished": "2026-08-12",
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://www.patroseguros.com.br/seguro-moto-entregadores-guarulhos"
+                "@id": `${EMPRESA.dominioCanonico}/seguro-moto-entregadores-guarulhos`
               }
             })}
           </script>
@@ -357,13 +357,13 @@ const LandingSeguroMotoEntregador = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" variant="secondary" className="text-primary font-bold px-8 py-7 text-lg rounded-full" asChild>
-                  <a href="https://patroseguros.com.br/cotacao-auto">
+                  <a href="/cotacao-auto">
                     Cote Agora no Site
                   </a>
                 </Button>
                 <Button size="lg" className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-8 py-7 text-lg rounded-full flex items-center gap-2 border-none" asChild>
                   <a 
-                    href="https://patroseguros.com.br/cotacao-auto"
+                    href="/cotacao-auto"
                     onClick={() => trackWhatsAppClick(source)}
                   >
                     Cote Agora no WhatsApp <Smartphone className="h-5 w-5" />
@@ -378,7 +378,7 @@ const LandingSeguroMotoEntregador = () => {
              {/* Sticky Scroll CTA */}
              <div className={`transition-all duration-500 transform ${showStickyCta ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'}`}>
                <Button className="bg-primary text-white font-bold shadow-2xl rounded-full pr-6 pl-2 py-6 flex items-center gap-3 border-2 border-white/20 hover:scale-105 transition-transform" asChild>
-                 <a href="https://patroseguros.com.br/cotacao-auto">
+                 <a href="/cotacao-auto">
                    <div className="bg-white text-primary rounded-full p-2">
                      <ArrowRight className="h-4 w-4" />
                    </div>
@@ -389,7 +389,7 @@ const LandingSeguroMotoEntregador = () => {
 
              {/* WhatsApp Floating Button */}
               <a 
-                href="https://patroseguros.com.br/cotacao-auto"
+                href="/cotacao-auto"
                 onClick={() => trackWhatsAppClick(source)}
                className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center gap-2 group animate-pulse hover:animate-none"
              >
