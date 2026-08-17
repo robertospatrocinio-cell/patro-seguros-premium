@@ -1,4 +1,4 @@
-/** Execute esta instrucao no projeto: Reorganizar os elementos da Home para manter um CTA dominante no hero e reduzir a redundância de chamadas secundárias. Padronizar a frase institucional da Patro para que apareça uma única vez na Home e fique consistente em todas as páginas do site. */
+/** Execute esta instrucao no projeto: AJUSTE CORRETIVO EXCLUSIVO DO HERO DA HOME — PATRO SEGUROS */
 import { lazy, Suspense } from "react";
 import { EMPRESA } from "@/config/empresa";
 import { Link } from "react-router-dom";
@@ -41,6 +41,7 @@ const loadGoogleBusinessWidget = () => import("@/components/GoogleBusinessWidget
 const loadProvaSocialPatro = () => import("@/components/ProvaSocialPatro");
 const loadAutoridadePatro = () => import("@/components/AutoridadePatro");
 const loadComoPatroAjuda = () => import("@/components/ComoPatroAjuda");
+const HeroPatro = lazy(() => import("@/components/HeroPatro"));
 
 const HeroInsuranceCarousel = lazy(loadHeroInsuranceCarousel);
 const QuickLeadForm = lazy(() => loadQuickLeadForm().then((m) => ({ default: m.QuickLeadForm })));
@@ -137,70 +138,9 @@ const Index = () => {
       <Header />
       <main id="main-content">
         {/* HERO SECTION */}
-        <section className="relative min-h-[600px] flex items-center bg-slate-900 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <picture>
-              {/* AVIF primeiro (menor payload em ~20-40% vs WebP). Browsers sem
-                  suporte descartam a <source> e caem para WebP; se nem WebP, o
-                  <img> serve como último fallback. srcSet responsivo evita
-                  baixar 1280px num celular. */}
-              <source
-                type="image/avif"
-                srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
-                sizes="100vw"
-              />
-              <source
-                type="image/webp"
-                srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
-                sizes="100vw"
-              />
-              <img
-                src="/images/hero-home-960.webp"
-                alt="Corretora de seguros em Guarulhos — Patro Seguros, com 20+ anos de mercado e atendimento consultivo"
-                width={1280}
-                height={720}
-                sizes="100vw"
-                loading="eager"
-                decoding="async"
-                className="w-full h-full object-cover opacity-30"
-                {...({ fetchpriority: "high" } as any)}
-              />
-            </picture>
-          </div>
-          <div className="container mx-auto px-4 relative z-10 py-12 md:py-20 text-center lg:text-left">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="max-w-3xl">
-                <SeloMelhorCorretora size="lg" priority className="mb-8 mx-auto lg:mx-0" />
-                <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                  Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras
-                </h1>
-                <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                  {EMPRESA.posicionamento}
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <Link to="/cotacao" onClick={handleHeroCotacaoClick}>
-                    <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all shadow-xl">
-                      Cotar agora com especialistas
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={handleHeroWhatsAppClick}>
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 px-8 bg-white/5 hover:bg-white/10 text-white/80 hover:text-white border-white/20 hover:border-white/40 font-medium transition-all">
-                      <MessageCircle className="mr-2 h-5 w-5" />
-                      Falar no WhatsApp
-                    </Button>
-                  </a>
-                </div>
-              </div>
-
-              <div className="hidden lg:block animate-in fade-in slide-in-from-right duration-700">
-                <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
-                  <GoogleBusinessWidget />
-                </Suspense>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Suspense fallback={<div className="min-h-[640px] bg-slate-900 animate-pulse" />}>
+          <HeroPatro />
+        </Suspense>
 
 
         {/* QUICK LEAD FORM */}

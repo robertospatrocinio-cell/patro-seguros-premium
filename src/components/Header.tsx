@@ -307,7 +307,7 @@ const Header = memo(() => {
                 decoding="sync"
                 loading="eager"
                 {...({ fetchpriority: "high" } as any)}
-                className="h-16 w-auto object-contain relative z-50"
+                className="h-16 md:h-20 w-auto object-contain relative z-50 transition-all"
               />
             </SmartLink>
 
