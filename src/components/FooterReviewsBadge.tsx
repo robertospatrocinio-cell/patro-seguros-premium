@@ -9,7 +9,7 @@ const REVIEW_COUNT = PATRO_SOCIAL_PROOF.googleReviewCount;
 
 /**
  * Compact Google Reviews badge for the footer.
- * Reinforces local SEO trust signals (4.9★ · 67 avaliações no Google).
+ * Reinforces local SEO trust signals (${PATRO_SOCIAL_PROOF.googleRating}★ · ${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações no Google).
  * The aggregateRating is also embedded in LocalBusinessSchema (JSON-LD)
  * so Google can render rich snippets in the SERP.
  */
