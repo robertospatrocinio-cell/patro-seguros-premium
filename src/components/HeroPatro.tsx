@@ -21,9 +21,14 @@ const HeroPatro = memo(() => {
         <div className="absolute inset-0 bg-slate-900/70 z-10 lg:hidden" />
         <picture>
           <source
+            type="image/avif"
+            srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+          <source
             type="image/webp"
-            srcSet="/images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
-            sizes="(max-width: 1024px) 100vw, 48vw"
+            srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
           <img
             src="/images/hero-home-1280.webp"
@@ -31,8 +36,8 @@ const HeroPatro = memo(() => {
             width={1280}
             height={720}
             loading="eager"
-            decoding="async"
-            className="w-full h-full object-cover lg:object-right-top opacity-100 transition-opacity duration-700 select-none pointer-events-none"
+            decoding="sync"
+            className="w-full h-full object-cover lg:object-[65%_25%] opacity-100 transition-opacity duration-700 select-none pointer-events-none"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
