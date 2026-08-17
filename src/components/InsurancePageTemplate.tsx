@@ -44,6 +44,7 @@ import SmartText from "@/components/SmartText";
 import { getBreadcrumbChain } from "@/lib/breadcrumbCategory";
 import { useBreadcrumbOverrides } from "@/hooks/useBreadcrumbOverrides";
 import { getRelatedLinks } from "@/lib/relatedFromText";
+import { EMPRESA } from "@/config/empresa";
 
 // Inferência de palavras-chave (em inglês) para a galeria temática automática
 const inferGalleryKeywords = (title: string): string[] => {

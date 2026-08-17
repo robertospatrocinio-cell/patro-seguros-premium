@@ -17,6 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
+import { EMPRESA } from "@/config/empresa";
 
 interface QuickQuoteFormProps {
   /** Insurance product name shown in the heading */
