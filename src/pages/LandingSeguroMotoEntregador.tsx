@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { buildLpWhatsAppUrl } from "@/lib/whatsapp";
-import { EMPRESA, ENDERECO_LINHA } from "@/config/empresa";
+import { EMPRESA, ENDERECO_LINHA, WHATSAPP_DIGITS } from "@/config/empresa";
 import { highlightBrands, BrandText } from "@/components/BrandText";
 
 const LandingSeguroMotoEntregador = () => {
@@ -62,7 +62,7 @@ const LandingSeguroMotoEntregador = () => {
       heroEmoji="🏍️"
       indexable={true}
       ctaText="Solicitar Cotação"
-      ctaUrl="https://patroseguros.com.br/cotacao-auto"
+      ctaUrl="/cotacao-auto"
       urgencyText="A cada 15 minutos uma moto é roubada em SP — não seja a próxima vítima"
       priceAnchor="Planos para CG, Fazer e Titan a partir de R$ 49/mês"
       guaranteeText="Consultoria humana especializada: não vendemos apenas apólices, protegemos seu ganha-pão com quem conhece o dia a dia das ruas de Guarulhos."
@@ -188,19 +188,19 @@ const LandingSeguroMotoEntregador = () => {
               "@type": "Article",
               "headline": "Seguro de Moto para Entregadores em Guarulhos: Preço e Coberturas iFood, 99 e Keeta",
               "description": "Guia especializado em seguro de moto para entregadores de aplicativos em Guarulhos e SP. Saiba como proteger sua moto contra roubo e furto com planos profissionais.",
-              "image": "https://www.patroseguros.com.br/images/hero-home.webp",
+              "image": `${EMPRESA.dominioCanonico}/images/hero-home.webp`,
               "author": {
                 "@type": "Organization",
                 "name": "Patro Seguros",
-                "url": "https://www.patroseguros.com.br"
+                "url": EMPRESA.dominioCanonico
               },
               "publisher": {
-                "@id": "https://www.patroseguros.com.br/#insurance-agency"
+                "@id": `${EMPRESA.dominioCanonico}/#insurance-agency`
               },
               "datePublished": "2026-08-12",
               "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://www.patroseguros.com.br/seguro-moto-entregadores-guarulhos"
+                "@id": `${EMPRESA.dominioCanonico}/seguro-moto-entregadores-guarulhos`
               }
             })}
           </script>
