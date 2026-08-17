@@ -17,8 +17,8 @@ const HeroPatro = memo(() => {
     <section className="relative overflow-hidden bg-slate-900 pt-0">
       {/* Background Image Container - Desktop/Tablet Right Side, Mobile Background */}
       <div className="absolute top-0 right-0 w-full lg:w-[48%] h-full z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent z-10 hidden lg:block" />
-        <div className="absolute inset-0 bg-slate-900/60 z-10 lg:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/50 to-transparent z-10 hidden lg:block" />
+        <div className="absolute inset-0 bg-slate-900/70 z-10 lg:hidden" />
         <picture>
           <source
             type="image/webp"
