@@ -162,7 +162,7 @@ export const cardsPessoa: InsuranceCard[] = [
   { title: "Seguro Moto", short: "Proteção para sua moto no dia a dia.", href: "/seguro-moto", Icon: Bike, slug: "seguro-moto" },
   { title: "Seguro Residencial", short: "Casa, apto e assistência completa.", href: "/seguro-residencial", Icon: Home, slug: "seguro-residencial" },
   { title: "Seguro de Vida", short: "Estabilidade financeira para sua família.", href: "/seguro-vida", Icon: HeartPulse, slug: "seguro-vida" },
-  { title: "Plano de Saúde", short: "Comparamos 20+ operadoras para você.", href: "/planos-de-saude", Icon: Stethoscope, slug: "plano-saude" },
+  { title: "Plano de Saúde", short: `Comparamos ${EMPRESA.metricas.operadorasSaude} operadoras para você.`, href: "/planos-de-saude", Icon: Stethoscope, slug: "plano-saude" },
   { title: "Seguro Viagem", short: "Cobertura médica e bagagem no exterior.", href: "/seguro-viagem", Icon: Plane, slug: "seguro-viagem" },
   { title: "Seguro Celular", short: "Roubo, furto e danos acidentais.", href: "/seguro-celular", Icon: Smartphone, slug: "seguro-celular" },
   { title: "Motorista de App", short: "Cobertura para quem dirige Uber/99.", href: "/seguro-motorista-app", Icon: Navigation, slug: "seguro-motorista-app" },
