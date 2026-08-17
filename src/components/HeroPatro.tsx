@@ -27,12 +27,12 @@ const HeroPatro = memo(() => {
           />
           <img
             src="/images/hero-home-1280.webp"
-            alt="Família brasileira em momento de união - Atendimento humanizado Patro Seguros"
+            alt="Atendimento humanizado Patro Seguros - Proteção para você e sua família"
             width={1280}
             height={720}
             loading="eager"
             decoding="async"
-            className="w-full h-full object-cover lg:object-[center_right] opacity-90 lg:opacity-100 transition-opacity duration-700 select-none pointer-events-none"
+            className="w-full h-full object-cover lg:object-right-top opacity-100 transition-opacity duration-700 select-none pointer-events-none"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
