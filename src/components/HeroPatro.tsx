@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Star, ShieldCheck, CheckCircle2, Globe, Building2 } from "lucide-react";
+import { Star, ShieldCheck, CheckCircle2, Globe, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageCircle } from "lucide-react";
@@ -14,11 +14,11 @@ const HeroPatro = memo(() => {
   const handleWhatsAppClick = () => trackWhatsAppClick("hero");
 
   return (
-    <section className="relative overflow-hidden bg-slate-900 pt-20 md:pt-0">
+    <section className="relative overflow-hidden bg-slate-900 pt-0">
       {/* Background Image Container - Desktop/Tablet Right Side, Mobile Background */}
       <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent z-10 hidden lg:block" />
-        <div className="absolute inset-0 bg-slate-900/60 z-10 lg:hidden" />
+        <div className="absolute inset-0 bg-slate-900/70 z-10 lg:hidden" />
         <picture>
           <source
             type="image/avif"
@@ -37,14 +37,14 @@ const HeroPatro = memo(() => {
             height={720}
             loading="eager"
             decoding="async"
-            className="w-full h-full object-cover lg:object-[center_right]"
+            className="w-full h-full object-cover lg:object-[center_right] opacity-70 lg:opacity-100"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
       </div>
 
       <div className="container relative z-20 mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center min-h-[640px] lg:min-h-[720px] py-12 lg:py-0">
+        <div className="flex flex-col lg:flex-row items-center min-h-[600px] lg:min-h-[720px] py-20 lg:py-0">
           {/* Content Area */}
           <div className="w-full lg:w-[58%] text-left">
             <div className="max-w-[680px]">
@@ -54,12 +54,12 @@ const HeroPatro = memo(() => {
               </span>
               
               {/* H1 Title */}
-              <h1 className="text-white text-[32px] md:text-[54px] lg:text-[62px] font-extrabold mb-6 leading-[1.1] tracking-tight">
+              <h1 className="text-white text-[32px] md:text-[54px] lg:text-[60px] font-extrabold mb-6 leading-[1.1] tracking-tight">
                 Proteção inteligente para você, sua família e sua empresa.
               </h1>
               
               {/* Subtitle */}
-              <p className="text-white/80 text-lg md:text-xl mb-8 leading-relaxed max-w-[620px]">
+              <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed max-w-[620px]">
                 Compare soluções entre 16 seguradoras com orientação especializada e atendimento humano do início ao sinistro.
               </p>
 
@@ -97,20 +97,20 @@ const HeroPatro = memo(() => {
               </div>
 
               {/* Trust Indicators */}
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-8 gap-y-4 pt-4 border-t border-white/10">
-                <div className="flex items-center gap-2 text-white/70 text-sm">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-white/10">
+                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <Clock className="h-4 w-4 shrink-0 text-primary-light" />
                   <span>Mais de 20 anos de experiência</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/70 text-sm">
+                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <ShieldCheck className="h-4 w-4 shrink-0 text-primary-light" />
                   <span>16 seguradoras</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/70 text-sm">
+                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-primary-light" />
                   <span>Corretora registrada na SUSEP</span>
                 </div>
-                <div className="flex items-center gap-2 text-white/70 text-sm">
+                <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <Globe className="h-4 w-4 shrink-0 text-primary-light" />
                   <span>Atendimento em todo o Brasil</span>
                 </div>
@@ -124,5 +124,3 @@ const HeroPatro = memo(() => {
 });
 
 export default HeroPatro;
-
-import { Clock } from "lucide-react";
