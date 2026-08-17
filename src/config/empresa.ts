@@ -46,7 +46,7 @@ export const EMPRESA = {
   // Dados de Confiança e Prova Social (Tarefa 5)
   metricas: {
     googleRating: 4.9,
-    googleReviews: 67,
+    googleReviews: 70,
     clientesAtendidos: "2.500+",
     sinistrosPagos: "1.800+",
     experienciaAnos: "20+",
