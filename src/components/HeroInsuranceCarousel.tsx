@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
+import { EMPRESA } from "@/config/empresa";
 import useEmblaCarousel from "embla-carousel-react";
 import type { LucideIcon } from "lucide-react";
 import {
