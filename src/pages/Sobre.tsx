@@ -24,28 +24,28 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%2
 const SOBRE_FAQS = [
   {
     question: "Quem é a Patro Seguros?",
-    answer: "A Patro Seguros é uma corretora de seguros com sede em Guarulhos/SP, fundada em 2021 por sócios com mais de 20 anos de experiência no mercado segurador, registrada na SUSEP sob o número 212113511 e CNPJ 41.641.558/0001-33. Atende pessoas físicas e empresas em todo o Brasil com equipe própria e parceria ativa com mais de 16 seguradoras.",
+    answer: `A Patro Seguros é uma corretora de seguros com sede em Guarulhos/SP, fundada em 2021 por sócios com mais de ${EMPRESA.metricas.experienciaAnos} de experiência no mercado segurador, registrada na SUSEP sob o número ${EMPRESA.susep} e CNPJ ${EMPRESA.cnpj}. Atende pessoas físicas e empresas em todo o Brasil com equipe própria e parceria ativa com mais de ${EMPRESA.metricas.seguradorasParceiras} seguradoras.`,
   },
   {
     question: "Onde fica a sede da Patro Seguros?",
-    answer: "Av. Salgado Filho, 2120 — Sala 219, Edifício Via Alameda, bairro Cidade Maia, Guarulhos/SP. Atendimento presencial de segunda a sexta, das 8h30 às 18h; WhatsApp 24h em (11) 5199-7500.",
+    answer: `Av. Salgado Filho, 2120 — Sala 219, Edifício Via Alameda, bairro Cidade Maia, Guarulhos/SP. Atendimento presencial de segunda a sexta, ${EMPRESA.horario}; WhatsApp 24h em ${EMPRESA.telefone}.`,
   },
   {
     question: "A Patro Seguros é regulamentada pela SUSEP?",
-    answer: "Sim. A Patro Corretora de Seguros possui registro ativo na SUSEP nº 212113511 e pode ser consultada publicamente no portal oficial da Superintendência de Seguros Privados.",
+    answer: `Sim. A Patro Corretora de Seguros possui registro ativo na SUSEP nº ${EMPRESA.susep} e pode ser consultada publicamente no portal oficial da Superintendência de Seguros Privados.`,
   },
   {
     question: "Quantos clientes a Patro atende?",
-    answer: `Mais de 2.500 clientes ativos entre pessoas físicas, famílias e empresas, com 1.800+ sinistros resolvidos e nota ${PATRO_SOCIAL_PROOF.googleRating} no Google (${PATRO_SOCIAL_PROOF.googleReviewCount}+ avaliações reais).`,
+    answer: `Mais de ${EMPRESA.metricas.clientesAtendidos} clientes ativos entre pessoas físicas, famílias e empresas, com ${EMPRESA.metricas.sinistrosPagos} sinistros resolvidos e nota ${PATRO_SOCIAL_PROOF.googleRating} no Google (${PATRO_SOCIAL_PROOF.googleReviewCount}+ avaliações reais).`,
   },
   {
     question: "Quais tipos de seguro a Patro comercializa?",
-    answer: "Auto, moto, vida, residencial, viagem, plano de saúde, empresarial, frota, transporte, galpões, responsabilidade civil, cyber, agro, consórcio e previdência privada — via 16+ seguradoras parceiras.",
+    answer: `Auto, moto, vida, residencial, viagem, plano de saúde, empresarial, frota, transporte, galpões, responsabilidade civil, cyber, agro, consórcio e previdência privada — via ${EMPRESA.metricas.seguradorasParceiras} seguradoras parceiras.`,
   },
 ];
 
 const stats = [
-  { value: EMPRESA.metricas.experienciaAnos, label: "Anos de Experiência", desc: "Sócios com mais de 20 anos" },
+  { value: EMPRESA.metricas.experienciaAnos, label: "Anos de Experiência", desc: `Sócios com mais de ${EMPRESA.metricas.experienciaAnos}` },
   { value: EMPRESA.metricas.clientesAtendidos, label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
   { value: EMPRESA.metricas.sinistrosPagos, label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
   { value: String(PATRO_SOCIAL_PROOF.googleRating), label: "Nota no Google", desc: `${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais` },
@@ -65,7 +65,7 @@ const Sobre = () => {
     <Fragment>
       <PageMeta
         title="Sobre a Patro Seguros — Corretora SUSEP em Guarulhos"
-        description="Corretora registrada na SUSEP nº 212113511, em Guarulhos/SP, fundada em 2021 por sócios com 20+ anos de experiência. 2.500+ clientes e 16+ seguradoras parceiras. Conheça Roberto e Sandra Patrocínio."
+        description={`Corretora registrada na SUSEP nº ${EMPRESA.susep}, em Guarulhos/SP, fundada em 2021 por sócios com ${EMPRESA.metricas.experienciaAnos} de experiência. ${EMPRESA.metricas.clientesAtendidos} clientes e ${EMPRESA.metricas.seguradorasParceiras} seguradoras parceiras. Conheça Roberto e Sandra Patrocínio.`}
       
       skipBreadcrumb
     />
@@ -130,7 +130,7 @@ const Sobre = () => {
                     Verifique nosso registro na SUSEP
                   </p>
                   <p className="text-xs text-emerald-900/80 mt-0.5">
-                    Consulta pública direto no portal oficial da Superintendência de Seguros Privados — Registro nº 212113511.
+                    Consulta pública direto no portal oficial da Superintendência de Seguros Privados — Registro nº ${EMPRESA.susep}.
                   </p>
                 </div>
               </div>
@@ -163,18 +163,18 @@ const Sobre = () => {
               <p>
                 A <strong className="text-foreground">Patro Corretora de Seguros</strong> nasceu com um propósito claro:
                 transformar a forma como as pessoas e empresas de Guarulhos se protegem. Fundada por <strong className="text-foreground">Roberto e Sandra Patrocínio</strong>,
-                profissionais com mais de 20 anos de experiência no mercado de seguros, nossa corretora se destaca
+                profissionais com mais de ${EMPRESA.metricas.experienciaAnos} de experiência no mercado de seguros, nossa corretora se destaca
                 pelo atendimento humanizado e pela busca incansável pelas melhores soluções para cada cliente.
               </p>
               <p>
-                Ao longo dos anos, construímos parcerias sólidas com as maiores seguradoras do Brasil — mais de 16 seguradoras
-                e 20 operadoras de saúde — o que nos permite oferecer uma ampla gama de produtos com as melhores condições do
+                Ao longo dos anos, construímos parcerias sólidas com as maiores seguradoras do Brasil — mais de ${EMPRESA.metricas.seguradorasParceiras} seguradoras
+                e ${EMPRESA.metricas.operadorasSaude} operadoras de saúde — o que nos permite oferecer uma ampla gama de produtos com as melhores condições do
                 mercado. Mas o que realmente nos diferencia não são apenas os produtos que oferecemos — é a forma como
                 cuidamos de cada cliente.
               </p>
               <p>
                 Hoje, somos reconhecidos como a <strong className="text-foreground">melhor corretora de seguros de Guarulhos</strong>,
-                com nota {PATRO_SOCIAL_PROOF.googleRating} no Google e mais de 2.500 clientes atendidos — famílias, profissionais liberais, empresas e
+                com nota {PATRO_SOCIAL_PROOF.googleRating} no Google e mais de {EMPRESA.metricas.clientesAtendidos} clientes atendidos — famílias, profissionais liberais, empresas e
                 produtores rurais que confiam na nossa expertise e compromisso com a proteção de seus patrimônios e vidas. Fundada em 2021, a Patro combina a energia de uma empresa moderna com o conhecimento profundo de sócios experientes.
               </p>
             </div>

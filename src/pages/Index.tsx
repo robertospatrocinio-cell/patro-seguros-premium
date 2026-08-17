@@ -55,7 +55,7 @@ const ProvaSocialPatro = lazy(loadProvaSocialPatro);
 const AutoridadePatro = lazy(loadAutoridadePatro);
 const ComoPatroAjuda = lazy(loadComoPatroAjuda);
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
+const WHATSAPP_URL = `${EMPRESA.whatsapp}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.`;
 
 // Handlers dos CTAs extraídos para o escopo do módulo: closures estáveis
 // entre renders, sem realocação por render do <Index>, e prontas para
@@ -75,7 +75,7 @@ const faqs = [
   },
   { 
     question: "Quanto custa um seguro de carro em Guarulhos?", 
-    answer: "O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros compara propostas de 16+ seguradoras para você encontrar a melhor cobertura pelo melhor preço, com cotação em até 2h úteis." 
+    answer: `O preço varia conforme o veículo, CEP de pernoite e perfil do motorista. A Patro Seguros compara propostas de ${EMPRESA.metricas.seguradorasParceiras} seguradoras para você encontrar a melhor cobertura pelo melhor preço, com cotação em até 2h úteis.` 
   },
   { 
     question: "Quais seguros a Patro Seguros oferece?", 
@@ -116,7 +116,7 @@ const Index = () => {
   return (
     <>
       <PageMeta 
-        title="Seguros em Guarulhos | Patro Seguros — Compare 16 Seguradoras"
+        title={`Seguros em Guarulhos | Patro Seguros — Compare ${EMPRESA.metricas.seguradorasParceiras} Seguradoras`}
         description={EMPRESA.posicionamento}
         absoluteTitle={true}
       />
@@ -133,7 +133,7 @@ const Index = () => {
       <AggregateRatingSchema
         serviceName="Corretora de Seguros em Guarulhos"
         url={CANONICAL_BASE_URL}
-        description="Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. 16+ seguradoras parceiras."
+        description={`Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. ${EMPRESA.metricas.seguradorasParceiras} seguradoras parceiras.`}
       />
       <Header />
       <main id="main-content">

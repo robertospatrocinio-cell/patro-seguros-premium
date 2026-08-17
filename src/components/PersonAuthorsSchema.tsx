@@ -15,7 +15,7 @@ const persons = [
     familyName: "Patrocínio",
     jobTitle: "Sócio-Fundador e Diretor Comercial",
     description:
-      "Especialista em Seguros de Transportes e Riscos Corporativos com mais de 20 anos de atuação no mercado segurador brasileiro. Lidera a estratégia de expansão nacional da Patro Seguros focada em Agronegócio e Logística.",
+      `Especialista em Seguros de Transportes e Riscos Corporativos com mais de ${EMPRESA.metricas.experienciaAnos} de atuação no mercado segurador brasileiro. Lidera a estratégia de expansão nacional da Patro Seguros focada em Agronegócio e Logística.`,
     knowsAbout: [
       "Seguro de Transportes (RCTR-C, RCF-DC)",
       "Seguro de Carga",

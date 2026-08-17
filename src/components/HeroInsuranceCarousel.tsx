@@ -441,7 +441,7 @@ const HeroInsuranceCarousel = ({
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 backdrop-blur">
-            Cotação consultiva · 16+ seguradoras
+            Cotação consultiva · {EMPRESA.metricas.seguradorasParceiras} seguradoras
           </span>
           <HeadingTag
             id={headingId}

@@ -15,7 +15,7 @@ import { EMPRESA } from "@/config/empresa";
 
 const logoFull = "/images/logo-full.webp";
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.")}`;
-const WHATSAPP_SINISTRO_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.")}`;
+const WHATSAPP_SINISTRO_URL = `${EMPRESA.whatsapp}?text=${encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.")}`;
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -272,7 +272,7 @@ const Header = memo(() => {
                 <MapPin className="h-3 w-3" aria-hidden="true" role="presentation" />
                 Cidade Maia, Guarulhos/SP
               </span>
-              <a href="tel:1151997500" aria-label="Ligar (11) 5199-7500" className="flex items-center gap-1.5 text-white hover:text-white/80 transition-base font-medium">
+              <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} aria-label={`Ligar ${EMPRESA.telefone}`} className="flex items-center gap-1.5 text-white hover:text-white/80 transition-base font-medium">
                 <Phone className="h-3.5 w-3.5" aria-hidden="true" role="presentation" />
                 <span>{EMPRESA.telefone} • {EMPRESA.horario}</span>
               </a>

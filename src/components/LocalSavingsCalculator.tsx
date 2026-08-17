@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Calculator, TrendingDown, CheckCircle2, Car, Home, Building2, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { EMPRESA } from "@/config/empresa";
 
 const insuranceTypes = [
   { id: 'auto', label: 'Auto', icon: Car, discount: 0.15, uberBonus: 0.10 },
@@ -34,7 +35,7 @@ const LocalSavingsCalculator = () => {
         </div>
         <CardTitle className="text-2xl font-bold font-heading">Simulador de Economia Local</CardTitle>
         <p className="text-sm text-foreground/70">
-          Descubra quanto você pode economizar comparando 16+ seguradoras em Guarulhos.
+          Descubra quanto você pode economizar comparando {EMPRESA.metricas.seguradorasParceiras} seguradoras em Guarulhos.
         </p>
       </CardHeader>
       <CardContent className="space-y-8">
@@ -154,7 +155,7 @@ const LocalSavingsCalculator = () => {
         {/* Benefits List */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {[
-            "Cotação em 16+ Seguradoras",
+            `Cotação em ${EMPRESA.metricas.seguradorasParceiras} Seguradoras`,
             "Análise do CEP de Guarulhos",
             "Desconto para Motorista APP",
             "Atendimento Humano VIP"

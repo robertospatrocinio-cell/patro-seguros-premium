@@ -1,5 +1,6 @@
- import { Suspense, lazy } from "react";
- const QuickQuoteForm = lazy(() => import("./QuickQuoteForm"));
+import { Suspense, lazy } from "react";
+import { EMPRESA } from "@/config/empresa";
+const QuickQuoteForm = lazy(() => import("./QuickQuoteForm"));
  
  interface BlogFormCTAProps {
    title?: string;
@@ -25,7 +26,7 @@
            <ul className="space-y-3 mb-8">
              {[
                "Atendimento humano em Guarulhos",
-               "Comparativo de 16+ seguradoras",
+               `Comparativo de ${EMPRESA.metricas.seguradorasParceiras} seguradoras`,
                "Especialistas em grandes riscos"
              ].map((item, i) => (
                <li key={i} className="flex items-center gap-2 text-sm text-white/90">

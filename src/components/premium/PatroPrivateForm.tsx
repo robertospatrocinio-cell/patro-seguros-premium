@@ -1,6 +1,8 @@
 import { useState, FormEvent } from "react";
 import { submitLead } from "@/lib/leadsApi";
 import { trackCotacaoClick } from "@/lib/tracking";
+import { EMPRESA } from "@/config/empresa";
+
 
 const PROFILES = [
   "Veículo premium",
@@ -161,7 +163,7 @@ export const PatroPrivateForm = () => {
 
       {state === "error" && (
         <p className="mt-4 text-sm" style={{ color: "hsl(var(--destructive))" }}>
-          Não foi possível enviar agora. Tente novamente ou fale via WhatsApp (11) 5199-7500.
+          Não foi possível enviar agora. Tente novamente ou fale via WhatsApp {EMPRESA.telefone}.
         </p>
       )}
     </form>

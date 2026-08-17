@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import PageMeta from "@/components/PageMeta";
 import OptimizedImage from "@/components/OptimizedImage";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
+import { EMPRESA } from "@/config/empresa";
 
-const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.";
+const WHATSAPP_URL = `${EMPRESA.whatsapp}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.`;
 const logoUrl = "/images/logo-full.webp";
 
 interface Benefit { icon: string; title: string; description: ReactNode; }
@@ -87,8 +88,8 @@ const LandingPageTemplate = ({
           <Link to="/">
             <img src={logoUrl} alt="Patro Seguros Guarulhos - Corretora de Seguros" width={160} height={40} className="h-10 w-auto" loading="eager" decoding="sync" fetchPriority="high" />
           </Link>
-          <a href={`tel:1151997500`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            <Phone className="h-4 w-4" /> (11) 5199-7500
+          <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Phone className="h-4 w-4" /> {EMPRESA.telefone}
           </a>
         </div>
       </header>
@@ -343,8 +344,8 @@ const LandingPageTemplate = ({
               <CtaButton />
               <CtaButton variant="whatsapp" />
             </div>
-            <a href="tel:1151997500" className="text-white/40 text-sm hover:text-white/60 transition-colors">
-              Prefere ligar? <strong className="text-white/60">(11) 5199-7500</strong>
+            <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="text-white/40 text-sm hover:text-white/60 transition-colors">
+              Prefere ligar? <strong className="text-white/60">{EMPRESA.telefone}</strong>
             </a>
           </div>
         </section>
