@@ -27,12 +27,12 @@ const HeroPatro = memo(() => {
           />
           <img
             src="/images/hero-familia.webp"
-            alt="Família brasileira reunida em momento de tranquilidade - Proteção Patro Seguros"
+            alt="Família brasileira em momento de união - Atendimento humanizado Patro Seguros"
             width={1280}
             height={853}
             loading="eager"
             decoding="async"
-            className="w-full h-full object-cover lg:object-[center_right] opacity-80 lg:opacity-100 transition-opacity duration-700"
+            className="w-full h-full object-cover lg:object-[center_right] opacity-80 lg:opacity-100 transition-opacity duration-700 select-none pointer-events-none"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
@@ -78,7 +78,7 @@ const HeroPatro = memo(() => {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <Link to="/cotacao" onClick={handleCotacaoClick}>
-                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#F2994A] hover:bg-[#e88a35] text-white border-b-4 border-[#c77a30] active:border-b-0 active:translate-y-1 transition-all shadow-xl shadow-orange-900/20">
+                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#F2994A] hover:bg-[#e88a35] text-white border-b-4 border-[#c77a30] active:border-b-0 active:translate-y-1 transition-all shadow-xl shadow-[#F2994A]/20">
                     Solicitar cotação
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
