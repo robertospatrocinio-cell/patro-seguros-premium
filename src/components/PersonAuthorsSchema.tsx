@@ -43,7 +43,7 @@ const persons = [
     familyName: "Patrocínio",
     jobTitle: "Sócia-Fundadora e Diretora de Operações",
     description:
-      "Corretora de seguros especializada em planos de saúde PME, seguros pessoais (vida, APH) e gestão de sinistros. Responsável pela operação diária da Patro e pelo relacionamento com 20+ operadoras de saúde, incluindo Bradesco Saúde, SulAmérica, Amil, Porto Seguro Saúde e Notre Dame.",
+      `Corretora de seguros especializada em planos de saúde PME, seguros pessoais (vida, APH) e gestão de sinistros. Responsável pela operação diária da Patro e pelo relacionamento com ${EMPRESA.metricas.operadorasSaude} operadoras de saúde, incluindo Bradesco Saúde, SulAmérica, Amil, Porto Seguro Saúde e Notre Dame.`,
     knowsAbout: [
       "Planos de Saúde PME",
       "Seguro de Vida",
