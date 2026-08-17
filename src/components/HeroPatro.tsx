@@ -16,28 +16,23 @@ const HeroPatro = memo(() => {
   return (
     <section className="relative overflow-hidden bg-slate-900 pt-0">
       {/* Background Image Container - Desktop/Tablet Right Side, Mobile Background */}
-      <div className="absolute top-0 right-0 w-full lg:w-[45%] h-full z-0 overflow-hidden">
+      <div className="absolute top-0 right-0 w-full lg:w-[48%] h-full z-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/40 to-transparent z-10 hidden lg:block" />
-        <div className="absolute inset-0 bg-slate-900/70 z-10 lg:hidden" />
+        <div className="absolute inset-0 bg-slate-900/60 z-10 lg:hidden" />
         <picture>
           <source
-            type="image/avif"
-            srcSet="/images/hero-home-480.avif 480w, /images/hero-home-960.avif 960w, /images/hero-home-1280.avif 1280w"
-            sizes="(max-width: 1024px) 100vw, 45vw"
-          />
-          <source
             type="image/webp"
-            srcSet="/images/hero-home-480.webp 480w, /images/hero-home-960.webp 960w, /images/hero-home-1280.webp 1280w"
-            sizes="(max-width: 1024px) 100vw, 45vw"
+            srcSet="/images/hero-familia-sm.webp 640w, /images/hero-familia.webp 1280w"
+            sizes="(max-width: 1024px) 100vw, 48vw"
           />
           <img
-            src="/images/hero-home-960.webp"
-            alt="Família protegida pela Patro Seguros - Atendimento humanizado e especializado"
+            src="/images/hero-familia.webp"
+            alt="Família brasileira em momento de união - Atendimento humanizado Patro Seguros"
             width={1280}
-            height={720}
+            height={853}
             loading="eager"
             decoding="async"
-            className="w-full h-full object-cover lg:object-[center_right] opacity-70 lg:opacity-100"
+            className="w-full h-full object-cover lg:object-[center_right] opacity-80 lg:opacity-100 transition-opacity duration-700 select-none pointer-events-none"
             {...({ fetchpriority: "high" } as any)}
           />
         </picture>
@@ -83,7 +78,7 @@ const HeroPatro = memo(() => {
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
                 <Link to="/cotacao" onClick={handleCotacaoClick}>
-                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#1e3a8a] hover:bg-[#1e40af] text-white border-b-4 border-[#172554] active:border-b-0 active:translate-y-1 transition-all shadow-xl">
+                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 font-bold bg-[#F2994A] hover:bg-[#e88a35] text-white border-b-4 border-[#c77a30] active:border-b-0 active:translate-y-1 transition-all shadow-xl shadow-[#F2994A]/20">
                     Solicitar cotação
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
