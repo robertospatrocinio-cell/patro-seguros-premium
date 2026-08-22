@@ -1,11 +1,14 @@
 import React from "react";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import { SPECIALIZED_PAGES } from "@/data/specializedVerticals";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, useLocation, Navigate } from "react-router-dom";
 
 const SpecializedVerticalPage = () => {
   const { slug } = useParams();
-  const page = SPECIALIZED_PAGES.find(p => p.slug === slug);
+  const { pathname } = useLocation();
+  // Rotas fixas (sem :slug) resolvem o slug pelo próprio pathname.
+  const resolvedSlug = slug ?? pathname.replace(/^\/+|\/+$/g, "");
+  const page = SPECIALIZED_PAGES.find(p => p.slug === resolvedSlug);
 
   if (!page) return <Navigate to="/" replace />;
 

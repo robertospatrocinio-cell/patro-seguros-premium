@@ -215,7 +215,7 @@ interface SaudeBairroSeed {
      ],
      whyPatro: [
        "Corretora local com escritório no Cidade Maia",
-       "Comparativo entre 9 seguradoras líderes de mercado",
+       "Comparativo entre 16 seguradoras líderes de mercado",
        "Assessoria na escolha do valor de capital segurado correto",
        "Atendimento humano e suporte em caso de sinistro"
      ],
@@ -249,7 +249,7 @@ interface SaudeBairroSeed {
    "seguro-residencial-taboao-guarulhos": {
      slug: "seguro-residencial-taboao-guarulhos",
      title: "Seguro Residencial Taboão (Guarulhos) — Cotação Local",
-     subtitle: "Proteja sua casa no Taboão com a Patro Seguros. Compare 9 seguradoras líderes.",
+     subtitle: "Proteja sua casa no Taboão com a Patro Seguros. Compare 16 seguradoras líderes.",
      description: "Buscando seguro residencial no Taboão, Guarulhos? A Patro Seguros oferece proteção completa para sua residência com assistência 24h na região da Avenida Silvestre Pires de Freitas.",
      detailedDescription: "O bairro do Taboão é uma região mista com forte presença residencial. Ter um seguro residencial no Taboão garante que seu patrimônio esteja protegido contra incêndios, roubos e danos elétricos, além de contar com serviços emergenciais de chaveiro e encanador.\n\nNa Patro Seguros, conhecemos bem o perfil do Taboão e oferecemos apólices personalizadas que cabem no seu orçamento, garantindo a melhor rede de assistência em Guarulhos.",
      metaDescription: "Seguro residencial no Taboão, Guarulhos. Proteção contra roubo e incêndio com assistência 24h. Peça sua cotação grátis!",

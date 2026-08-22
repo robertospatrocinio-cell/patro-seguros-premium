@@ -187,7 +187,7 @@ export const seoLocalBairrosGuarulhos: Record<string, SeoLocalPageConfig> = BAIR
       },
       { 
         title: "Cotação Comparativa", 
-        description: `Morador do bairro economizou 18% na renovação do seguro auto ao comparar 9 seguradoras com a Patro.` 
+        description: `Morador do bairro economizou 18% na renovação do seguro auto ao comparar 16 seguradoras com a Patro.` 
       }
     ],
     tips: [

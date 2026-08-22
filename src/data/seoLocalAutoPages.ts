@@ -1,3 +1,4 @@
+import { EMPRESA } from "@/config/empresa";
 import type { ComponentProps } from "react";
 import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTemplate";
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
@@ -180,7 +181,7 @@ const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
   subtitle: `Cotação de seguro auto para moradores do ${b.bairro}, em Guarulhos. Compare Porto Seguro, Allianz, HDI e mais 6 seguradoras com a Patro Seguros.`,
   description: `Seguro auto no ${b.bairro}, Guarulhos, com atendimento presencial no Cidade Maia e cotação por WhatsApp. ${partnersLine} O CEP do ${b.bairro} entra como variável principal no cálculo do prêmio — moradores costumam pagar entre ${b.priceRange} para cobertura compreensiva.`,
   detailedDescription: `### Perfil do Seguro Auto no ${b.bairro}\n\nO ${b.bairro} é uma ${b.context} Para o seguro auto, o CEP de pernoite é uma das variáveis mais importantes no cálculo do prêmio: seguradoras consultam estatísticas de roubo, furto e colisão por logradouro antes de fechar a apólice.\n\n### Atendimento Local Patro Seguros\n\nA Patro Seguros atua em Guarulhos, fundada em 2021 por uma equipe de sócios que soma mais de 20 anos de experiência no mercado segurador, e atende moradores do ${b.bairro} ${b.reference}. Em vez de você ter que procurar 8 seguradoras diferentes, fazemos uma única cotação e enviamos o comparativo entre as gigantes do mercado. Nossa sede fica no Cidade Maia, garantindo proximidade e confiança para quem mora ou trabalha no ${b.bairro}.\n\n### Estratégias para Reduzir seu Seguro\n\nNossa orientação é específica para o perfil de risco do bairro: classificação ${b.riskLevel} de sinistralidade, recomendações sobre rastreador, garagem coberta e franquia ideal. Além do seguro de carro, oferecemos proteção para frotas comerciais, motoristas de aplicativo e motos.\n\n### Diferenciais no ${b.bairro}\n\nSabemos que a segurança no entorno do ${b.reference} exige coberturas específicas para acessórios e retrovisores. Garantimos que sua apólice não tenha brechas e que, em caso de imprevisto, o suporte seja humanizado e ágil, com guincho ilimitado e carro reserva conforme sua necessidade.`,
-  metaDescription: `Seguro auto ${b.bairro}: cotação online, atendimento local e comparativo entre 9 seguradoras com a Patro Seguros. ${b.priceRange}.`,
+  metaDescription: `Seguro auto ${b.bairro}: cotação online, atendimento local e comparativo entre 16 seguradoras com a Patro Seguros. ${b.priceRange}.`,
   icon: "🚗",
   pricingIntro: `O seguro auto no ${b.bairro} custa em média ${b.priceRange} para cobertura compreensiva (roubo, furto, colisão e terceiros), considerando perfil de risco ${b.riskLevel} do bairro. Veículos populares com garagem coberta e rastreador ficam na faixa inferior; SUVs e veículos premium, na superior.`,
   pricingFactors: [
@@ -211,7 +212,7 @@ const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
   ],
   whyPatro: [
     `Atendimento presencial no Cidade Maia, próximo ao ${b.bairro}`,
-    "Comparativo entre 9 seguradoras em uma única cotação",
+    "Comparativo entre 16 seguradoras em uma única cotação",
     "Mais de 500 apólices de seguro auto ativas em Guarulhos",
     "Suporte em sinistro com argumentação técnica para evitar negativas",
     "Renovação anual otimizada — recotamos automaticamente para garantir o melhor preço",
@@ -219,7 +220,7 @@ const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
   ],
   coverages: baseCoverages,
   realScenarios: [
-    { title: `Economia de 22% para morador do ${b.bairro}`, description: `Cliente da Patro pagava R$ 4.800/ano em seguro auto contratado direto pelo site da seguradora. Após cotação no ${b.bairro} comparando 9 seguradoras, migrou para uma apólice equivalente em outra companhia por R$ 3.750/ano — economia de R$ 1.050 mantendo a mesma cobertura.` },
+    { title: `Economia de 22% para morador do ${b.bairro}`, description: `Cliente da Patro pagava R$ 4.800/ano em seguro auto contratado direto pelo site da seguradora. Após cotação no ${b.bairro} comparando 16 seguradoras, migrou para uma apólice equivalente em outra companhia por R$ 3.750/ano — economia de R$ 1.050 mantendo a mesma cobertura.` },
     { title: `Sinistro de roubo resolvido em 16 dias`, description: `Veículo de cliente foi furtado próximo à região do ${b.bairro}. A Patro acompanhou o processo desde o boletim de ocorrência até a indenização integral pela seguradora — 16 dias entre o sinistro e o pagamento, com cliente já podendo comprar carro novo.` },
     { title: `Renovação automática evitando aumento abusivo`, description: `Na renovação, a seguradora original tentou aplicar aumento de 38% para morador do ${b.bairro}. A Patro recotou automaticamente e encontrou apólice melhor em outra companhia, com aumento real de apenas 6% sobre o ano anterior.` },
   ],
@@ -300,10 +301,10 @@ const seguroShoppingBonsucesso: SeoLocalPageConfig = {
 const cotacaoSeguroAuto: SeoLocalPageConfig = {
   slug: "cotacao-seguro-auto-guarulhos",
   title: "Cotação Seguro Auto Guarulhos — 9 Seguradoras em 2h",
-  subtitle: "Solicite sua cotação de seguro auto em Guarulhos online ou pelo WhatsApp e receba comparativo entre 9 seguradoras em até 2 horas úteis.",
+  subtitle: "Solicite sua cotação de seguro auto em Guarulhos online ou pelo WhatsApp e receba comparativo entre 16 seguradoras em até 2 horas úteis.",
   description: `Cotação de seguro auto em Guarulhos com a Patro Seguros: enviamos a mesma proposta para Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul, e devolvemos um comparativo único em até 2 horas úteis. Sem compromisso, sem cadastro forçado e sem tarifa de corretagem cobrada de você. ${partnersLine}`,
-  detailedDescription: `### O Problema da Cotação Fragmentada\n\nPedir cotação direto no site de cada seguradora consome em média 4 a 6 horas e gera respostas com coberturas diferentes — impossíveis de comparar lado a lado. A Patro Seguros padroniza as coberturas e envia uma única proposta para 9 seguradoras simultaneamente.\n\n### Como Funciona a Cotação em 2 Horas\n\nVocê informa: modelo, ano, CEP de pernoite em Guarulhos, idade do condutor principal, uso do veículo e cobertura desejada. Em até 2 horas úteis devolvemos um quadro comparativo claro com preço, franquia e diferenciais de cada seguradora — sem precisar interpretar cláusulas técnicas.\n\n### Custo Zero para o Cliente\n\nA cotação é totalmente gratuita. A corretora é remunerada pela seguradora, não pelo cliente, então o valor da apólice é exatamente o mesmo que você pagaria contratando direto — só que com comparativo, suporte em sinistro e renovação otimizada todo ano.`,
-  metaDescription: "Cotação seguro auto Guarulhos: receba comparativo entre 9 seguradoras em até 2h. Porto, Allianz, HDI, Bradesco e mais. Grátis e sem compromisso.",
+  detailedDescription: `### O Problema da Cotação Fragmentada\n\nPedir cotação direto no site de cada seguradora consome em média 4 a 6 horas e gera respostas com coberturas diferentes — impossíveis de comparar lado a lado. A Patro Seguros padroniza as coberturas e envia uma única proposta para 16 seguradoras simultaneamente.\n\n### Como Funciona a Cotação em 2 Horas\n\nVocê informa: modelo, ano, CEP de pernoite em Guarulhos, idade do condutor principal, uso do veículo e cobertura desejada. Em até 2 horas úteis devolvemos um quadro comparativo claro com preço, franquia e diferenciais de cada seguradora — sem precisar interpretar cláusulas técnicas.\n\n### Custo Zero para o Cliente\n\nA cotação é totalmente gratuita. A corretora é remunerada pela seguradora, não pelo cliente, então o valor da apólice é exatamente o mesmo que você pagaria contratando direto — só que com comparativo, suporte em sinistro e renovação otimizada todo ano.`,
+  metaDescription: "Cotação seguro auto Guarulhos: receba comparativo entre 16 seguradoras em até 2h. Porto, Allianz, HDI, Bradesco e mais. Grátis e sem compromisso.",
   icon: "📋",
   pricingIntro: "A cotação de seguro auto em Guarulhos é gratuita. Você recebe entre 6 e 9 propostas reais (uma por seguradora compatível com seu perfil) com prêmio anual variando, em média, entre R$ 2.200 e R$ 6.800/ano para cobertura compreensiva.",
   pricingFactors: [
@@ -317,12 +318,12 @@ const cotacaoSeguroAuto: SeoLocalPageConfig = {
   ],
   pricingNote: "A cotação é grátis e sem compromisso. Você só contrata se aprovar — e o preço final é o mesmo que pagaria direto na seguradora.",
   faqs: [
-    { question: "Quanto tempo demora para receber a cotação de seguro auto em Guarulhos?", answer: "Em até 2 horas úteis enviamos o comparativo entre 9 seguradoras. Em casos simples (veículo popular, perfil sem agravantes), a cotação fica pronta em 30 minutos." },
+    { question: "Quanto tempo demora para receber a cotação de seguro auto em Guarulhos?", answer: "Em até 2 horas úteis enviamos o comparativo entre 16 seguradoras. Em casos simples (veículo popular, perfil sem agravantes), a cotação fica pronta em 30 minutos." },
     { question: "Preciso pagar pela cotação?", answer: "Não. A cotação é 100% gratuita e sem compromisso. A corretora é remunerada pela seguradora apenas se você efetivamente contratar — o preço da apólice é o mesmo que pagaria direto." },
     { question: "Quais seguradoras a Patro cota em Guarulhos?", answer: "Cotamos com Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco Seguros, SulAmérica, Liberty, Mapfre e Azul Seguros. Cada perfil recebe entre 6 e 9 propostas, dependendo da compatibilidade." },
     { question: "Como envio meus dados para a cotação?", answer: "Pelo formulário do site, por WhatsApp (11 5199-7500) ou presencialmente no escritório no Cidade Maia. Pedimos os dados mínimos necessários para a cotação real, sem cadastro extenso." },
     { question: "A cotação serve para qualquer bairro de Guarulhos?", answer: "Sim. Atendemos todos os bairros de Guarulhos: Cidade Maia, Vila Augusta, Vila Galvão, Cumbica, Pimentas, Bonsucesso, Centro, Taboão, Jardim São João e demais regiões. O CEP entra como variável da cotação." },
-    { question: "Posso renovar minha apólice atual com a Patro mesmo sendo de outra corretora?", answer: "Sim. Basta enviar a apólice atual ou a renovação proposta e a Patro recota com as 9 seguradoras parceiras. Em mais de 60% dos casos conseguimos preço melhor do que a renovação automática." },
+    { question: "Posso renovar minha apólice atual com a Patro mesmo sendo de outra corretora?", answer: "Sim. Basta enviar a apólice atual ou a renovação proposta e a Patro recota com as 16 seguradoras parceiras. Em mais de 60% dos casos conseguimos preço melhor do que a renovação automática." },
   ],
   whoNeeds: [
     "Quem está comprando o primeiro seguro auto em Guarulhos",
@@ -333,7 +334,7 @@ const cotacaoSeguroAuto: SeoLocalPageConfig = {
     "Empresas com veículo PJ ou frotas pequenas (até 5 veículos)",
   ],
   whyPatro: [
-    "Comparativo entre 9 seguradoras em até 2 horas úteis",
+    "Comparativo entre 16 seguradoras em até 2 horas úteis",
     "Cotação 100% gratuita e sem compromisso",
     "Atendimento presencial no Cidade Maia ou por WhatsApp",
     "Mais de 500 apólices de seguro auto ativas em Guarulhos",
@@ -362,9 +363,9 @@ const melhorCorretora: SeoLocalPageConfig = {
   subtitle: "Patro Seguros: corretora SUSEP em Guarulhos (fundada em 2021 por sócios com 20+ anos de mercado), com 4.9 no Google, mais de 500 apólices ativas e atendimento presencial no Cidade Maia.",
   description: `Procurando a melhor corretora de seguros em Guarulhos? A Patro Seguros é referência local com sócios com mais de 20 anos de experiência no mercado (fundada em 2021): registro SUSEP, escritório físico no Cidade Maia, nota 4.9 no Google e mais de 500 apólices ativas em seguro auto, vida, residencial, empresarial e plano de saúde. ${partnersLine}`,
   detailedDescription: `### O que Define a Melhor Corretora em Guarulhos?\n\nO que define a melhor corretora de seguros em Guarulhos não é tamanho de marca — é registro regulatório, presença local, transparência na cotação, qualidade do suporte em sinistro e capacidade de renovar a apólice anualmente sem deixar o cliente refém de aumentos abusivos.\n\n### Tradição e Tecnologia: Patro Seguros\n\nA Patro Seguros é uma corretora familiar fundada por Roberto e Sandra Patrocínio, com escritório físico no Cidade Maia e atendimento que combina tradição (visita presencial, café no escritório) com tecnologia (cotação por WhatsApp, assinatura digital). O time conhece os CEPs da cidade, as oficinas referenciadas e os perfis de risco de cada bairro de Guarulhos.\n\n### Acompanhamento Individualizado\n\nDiferentemente de corretoras nacionais que tratam o cliente como número, na Patro cada apólice é acompanhada individualmente: recotação anual automática, lembretes de vencimento, suporte completo em caso de sinistro e renovação otimizada para garantir que você nunca pague mais do que o mercado oferece.`,
-  metaDescription: "Melhor corretora de seguros em Guarulhos: Patro Seguros. SUSEP, 4.9 no Google, atendimento presencial no Cidade Maia, 9 seguradoras parceiras.",
+  metaDescription: "Melhor corretora de seguros em Guarulhos: Patro Seguros. SUSEP, 4.9 no Google, atendimento presencial no Cidade Maia, 16 seguradoras parceiras.",
   icon: "🏆",
-  pricingIntro: "Trabalhar com a Patro não custa nada para o cliente. A corretora é remunerada pela seguradora apenas quando há contratação efetiva. O preço da apólice é exatamente o mesmo que você pagaria contratando direto no site — só que com comparativo entre 9 seguradoras, suporte em sinistro e renovação otimizada.",
+  pricingIntro: "Trabalhar com a Patro não custa nada para o cliente. A corretora é remunerada pela seguradora apenas quando há contratação efetiva. O preço da apólice é exatamente o mesmo que você pagaria contratando direto no site — só que com comparativo entre 16 seguradoras, suporte em sinistro e renovação otimizada.",
   pricingFactors: [
     "A corretora não cobra taxa de cotação, intermediação ou consultoria",
     "Comissão da seguradora já está embutida no preço final, mesmo na contratação direta",
@@ -372,11 +373,11 @@ const melhorCorretora: SeoLocalPageConfig = {
     "Recotação anual e suporte em sinistro são incluídos no serviço",
     "Atendimento por WhatsApp, presencial e telefone — todos sem custo adicional",
   ],
-  pricingNote: "Garantia Patro: se a renovação proposta tiver aumento acima de 15% sem agravamento de risco, recotamos com 9 seguradoras e mostramos alternativas reais.",
+  pricingNote: "Garantia Patro: se a renovação proposta tiver aumento acima de 15% sem agravamento de risco, recotamos com 16 seguradoras e mostramos alternativas reais.",
   faqs: [
-    { question: "Por que a Patro é considerada a melhor corretora de seguros em Guarulhos?", answer: "Por reunir presença local (escritório físico no Cidade Maia, com sócios com mais de 20 anos de mercado), credenciais regulatórias (SUSEP), reputação comprovada (4.9 no Google com avaliações reais), portfólio amplo (9 seguradoras e 16 operadoras de saúde) e atendimento personalizado em todas as etapas." },
+    { question: "Por que a Patro é considerada a melhor corretora de seguros em Guarulhos?", answer: "Por reunir presença local (escritório físico no Cidade Maia, com sócios com mais de 20 anos de mercado), credenciais regulatórias (SUSEP), reputação comprovada (4.9 no Google com avaliações reais), portfólio amplo (16 seguradoras e 16 operadoras de saúde) e atendimento personalizado em todas as etapas." },
     { question: "Qual a diferença entre a Patro e uma corretora nacional?", answer: "A Patro tem escritório físico em Guarulhos onde você pode visitar, time que conhece os CEPs e oficinas da região e atendimento individualizado. Corretoras nacionais costumam ter call centers terceirizados e tratam o cliente como número de protocolo." },
-    { question: "Contratar com corretora é mais caro do que direto na seguradora?", answer: "Não. O preço final é exatamente o mesmo, pois a remuneração da corretora já está embutida no prêmio da seguradora. A diferença é que pela corretora você tem comparativo entre 9 seguradoras, suporte em sinistro e renovação otimizada." },
+    { question: "Contratar com corretora é mais caro do que direto na seguradora?", answer: "Não. O preço final é exatamente o mesmo, pois a remuneração da corretora já está embutida no prêmio da seguradora. A diferença é que pela corretora você tem comparativo entre 16 seguradoras, suporte em sinistro e renovação otimizada." },
   { question: "A Patro tem registro na SUSEP?", answer: "Sim. A Patro Seguros possui registro ativo na SUSEP (Superintendência de Seguros Privados), órgão regulador do mercado de seguros no Brasil. Sempre verifique o registro de qualquer corretora antes de contratar." },
     { question: "Quais seguros a Patro oferece em Guarulhos?", answer: "Auto, moto, residencial, condomínio, vida, viagem, fiança, empresarial, frota, transporte, RC profissional, plano de saúde individual e empresarial, odonto, previdência e consórcio. Cobertura completa para pessoa física e jurídica." },
     { question: "A Patro atende em quais bairros de Guarulhos?", answer: "Atendemos toda a cidade: Cidade Maia, Vila Augusta, Vila Galvão, Centro, Cumbica, Pimentas, Bonsucesso, Taboão, Jardim São João e demais regiões. Atendimento presencial no escritório do Cidade Maia ou remoto por WhatsApp." },
@@ -390,7 +391,7 @@ const melhorCorretora: SeoLocalPageConfig = {
     "Quem valoriza corretora com tradição local e referências verificáveis",
   ],
   whyPatro: [
-    "Mais de 17 anos de mercado em Guarulhos (fundada em 2008)",
+    `Mais de ${EMPRESA.metricas.experienciaAnos.replace("+","")} anos de experiência de mercado dos sócios em Guarulhos (Patro fundada em ${EMPRESA.fundacao})`,
     "Nota 4.9 no Google com avaliações de clientes reais da região",
     "Escritório físico no Cidade Maia, próximo ao Shopping Maia",
     "Registro SUSEP ativo e equipe capacitada",
@@ -398,7 +399,7 @@ const melhorCorretora: SeoLocalPageConfig = {
     "Atendimento por WhatsApp, presencial, telefone e e-mail",
   ],
   coverages: [
-    { title: "Auto e Moto", description: "Seguro veicular completo com cotação entre 9 seguradoras." },
+    { title: "Auto e Moto", description: "Seguro veicular completo com cotação entre 16 seguradoras." },
     { title: "Residencial e Condomínio", description: "Proteção patrimonial para casas, apartamentos e condomínios em Guarulhos." },
     { title: "Vida e Saúde", description: "Seguro de vida individual, em grupo, plano de saúde individual e empresarial." },
     { title: "Empresarial e Frota", description: "Cobertura para PMEs, MEIs, transportadoras e frotas em Cumbica e região." },
@@ -510,10 +511,10 @@ export const seoLocalPages: Record<string, SeoLocalPageConfig> = {
 const seguroEmpresarialCumbica: SeoLocalPageConfig = {
   slug: "seguro-empresarial-cumbica",
   title: "Seguro Empresarial Cumbica — Galpões e Riscos Patrimoniais",
-  subtitle: "Seguro empresarial em Cumbica, Guarulhos, para galpões logísticos, transportadoras e indústrias no entorno do GRU Airport. Cotação entre 9 seguradoras.",
+  subtitle: "Seguro empresarial em Cumbica, Guarulhos, para galpões logísticos, transportadoras e indústrias no entorno do GRU Airport. Cotação entre 16 seguradoras.",
   description: `Seguro empresarial Cumbica para galpões, transportadoras e indústrias na região do Aeroporto de Guarulhos. A Patro Seguros é especialista em riscos patrimoniais em Cumbica desde 2021, com sócios com 20+ anos de experiência no segmento. ${partnersLine}`,
   detailedDescription: `### Cumbica: O Coração Industrial de Guarulhos\n\nCumbica é o maior polo logístico e industrial de Guarulhos, no entorno do GRU Airport e da Rodovia Hélio Smidt. A região concentra centenas de galpões de e-commerce, transportadoras, terminais aeroportuários, hangares e indústrias — todos com perfil de risco patrimonial elevado por concentração de mercadoria e fluxo intenso de veículos pesados.\n\n### Coberturas Estratégicas para Galpões\n\nO seguro empresarial Cumbica precisa contemplar coberturas específicas que vão além do básico: incêndio, raio e explosão, danos elétricos, roubo e furto qualificado de mercadorias, responsabilidade civil operações, RC armazenagem, lucros cessantes durante reconstrução e cobertura para equipamentos eletrônicos. Para galpões com mercadoria de alto giro, o limite máximo de indenização (LMI) precisa ser dimensionado com cuidado.\n\n### Expertise Patro Seguros em Riscos Patrimoniais\n\nA Patro Seguros tem mais de 60 apólices ativas em Cumbica, atende presencialmente no Cidade Maia e cota com Porto Seguro Empresarial, Allianz Empresas, HDI Empresarial, Tokio Marine, Bradesco Riscos Patrimoniais, Sompo, Mapfre e demais. Em até 4 horas úteis devolvemos o quadro comparativo com prêmio, franquia e LMI por cobertura.`,
-  metaDescription: "Seguro empresarial Cumbica para galpões, transportadoras e indústrias no entorno do GRU. Patro Seguros: 9 seguradoras, especialista em riscos patrimoniais.",
+  metaDescription: "Seguro empresarial Cumbica para galpões, transportadoras e indústrias no entorno do GRU. Patro Seguros: 16 seguradoras, especialista em riscos patrimoniais.",
   icon: "🏭",
   pricingIntro: "O seguro empresarial Cumbica varia de R$ 4.800/ano para galpões de até 500m² com mercadoria leve até R$ 80.000+/ano para grandes complexos logísticos com LMI acima de R$ 10 milhões. O cálculo considera atividade, área construída, valor em risco e vizinhança imediata.",
   pricingFactors: [
@@ -527,7 +528,7 @@ const seguroEmpresarialCumbica: SeoLocalPageConfig = {
   ],
   pricingNote: "Dica Patro: galpões com sprinklers FM-Global e CFTV monitorado 24h conseguem desconto de 18% a 30% no prêmio em Cumbica.",
   faqs: [
-    { question: "Quanto custa seguro empresarial em Cumbica para galpão de 1.000m²?", answer: "Para um galpão padrão de 1.000m² em Cumbica com mercadoria de e-commerce até R$ 2 milhões, o seguro empresarial fica entre R$ 9.800 e R$ 18.000/ano dependendo de proteção contra incêndio, CFTV e franquia. Cotamos com 9 seguradoras para encontrar o melhor preço." },
+    { question: "Quanto custa seguro empresarial em Cumbica para galpão de 1.000m²?", answer: "Para um galpão padrão de 1.000m² em Cumbica com mercadoria de e-commerce até R$ 2 milhões, o seguro empresarial fica entre R$ 9.800 e R$ 18.000/ano dependendo de proteção contra incêndio, CFTV e franquia. Cotamos com 16 seguradoras para encontrar o melhor preço." },
     { question: "Por que Cumbica tem prêmio de seguro empresarial mais alto?", answer: "Porque Cumbica concentra o maior fluxo de carga de Guarulhos (entorno do GRU Airport), tem alta densidade de galpões e histórico de sinistros de roubo e incêndio acima da média. Seguradoras precificam o CEP de risco operacional além do imóvel em si." },
     { question: "Quais coberturas são essenciais para galpão em Cumbica?", answer: "Incêndio, raio e explosão (cobertura básica), danos elétricos, roubo e furto qualificado de mercadorias, RC operações, RC armazenagem (se guarda mercadoria de terceiros), equipamentos eletrônicos e lucros cessantes. Para grandes operações, vale incluir transporte e responsabilidade civil empregador." },
     { question: "Posso parcelar o seguro empresarial em Cumbica?", answer: "Sim. A maioria das seguradoras parcela em até 12x sem juros no boleto ou cartão. Para empresas com fluxo de caixa apertado, também é possível negociar pagamento mensal proporcional sem entrada inicial." },
@@ -544,7 +545,7 @@ const seguroEmpresarialCumbica: SeoLocalPageConfig = {
   ],
   whyPatro: [
     "Mais de 60 apólices empresariais ativas em Cumbica e entorno do GRU",
-    "Comparativo entre 9 seguradoras (Porto, Allianz, HDI, Tokio, Bradesco, Sompo, Mapfre, Liberty, Zurich)",
+    "Comparativo entre 16 seguradoras (Porto, Allianz, HDI, Tokio, Bradesco, Sompo, Mapfre, Liberty, Zurich)",
     "Vistoria técnica gratuita pré-cotação para galpões acima de R$ 3 mi de LMI",
     "Atendimento presencial no Cidade Maia, a 15 minutos de Cumbica",
     "Plantão 24/7 em sinistros graves de incêndio, alagamento e roubo",
@@ -559,7 +560,7 @@ const seguroEmpresarialCumbica: SeoLocalPageConfig = {
     { title: "Equipamentos Eletrônicos", description: "Cobertura específica para empilhadeiras elétricas, leitores de código de barras, computadores e servidores." },
   ],
   realScenarios: [
-    { title: "Galpão de e-commerce em Cumbica economizou R$ 28 mil/ano", description: "Operador logístico com 4.500m² em Cumbica pagava R$ 92 mil/ano em seguro empresarial pela renovação automática. Patro recotou com 9 seguradoras e fechou apólice equivalente em LMI e franquia por R$ 64 mil/ano — economia de R$ 28 mil mantendo todas as coberturas." },
+    { title: "Galpão de e-commerce em Cumbica economizou R$ 28 mil/ano", description: "Operador logístico com 4.500m² em Cumbica pagava R$ 92 mil/ano em seguro empresarial pela renovação automática. Patro recotou com 16 seguradoras e fechou apólice equivalente em LMI e franquia por R$ 64 mil/ano — economia de R$ 28 mil mantendo todas as coberturas." },
     { title: "Indenização de R$ 1,2 milhão em incêndio elétrico", description: "Indústria alimentícia em Cumbica teve incêndio causado por curto-circuito em painel elétrico. Patro acompanhou regulação e garantiu indenização integral de R$ 1,2 milhão (imóvel + mercadoria + lucros cessantes) em 47 dias — cliente retomou operação no mesmo galpão após reforma." },
     { title: "Renegociação de subseguro evitou prejuízo", description: "Transportadora em Cumbica tinha LMI de R$ 800 mil em galpão com mercadoria média de R$ 2,5 milhões. Patro identificou subseguro grave e renegociou apólice com LMI proporcional ao risco real, evitando indenização de apenas 32% em caso de sinistro futuro." },
   ],
@@ -583,10 +584,10 @@ const seguroEmpresarialCumbica: SeoLocalPageConfig = {
 const seguroTransportadora: SeoLocalPageConfig = {
   slug: "seguro-transportadora-guarulhos",
   title: "Seguro para Transportadora em Guarulhos — RCTR-C, RCF-DC e Frota",
-  subtitle: "Seguro completo para transportadoras em Guarulhos: RCTR-C obrigatório, RCF-DC, frota, galpão e RC ambiental. Cotação entre 9 seguradoras especializadas em logística.",
+  subtitle: "Seguro completo para transportadoras em Guarulhos: RCTR-C obrigatório, RCF-DC, frota, galpão e RC ambiental. Cotação entre 16 seguradoras especializadas em logística.",
   description: `Seguro para transportadora em Guarulhos cobrindo RCTR-C (obrigatório por lei), RCF-DC, frota de caminhões, galpão de armazenagem e RC ambiental. ${partnersLine} Especialistas em transportadoras na região do GRU Airport e Rodovia Presidente Dutra.`,
   detailedDescription: `### O Desafio da Transportadora em Guarulhos\n\nTransportadora em Guarulhos opera em um dos maiores corredores logísticos da América Latina: Rodovia Presidente Dutra (BR-116), Fernão Dias (BR-381), Ayrton Senna e proximidade com o GRU Airport. Esse posicionamento estratégico vem acompanhado de exposição patrimonial relevante: roubo de carga, acidentes em rodovia e danos a mercadoria de terceiros.\n\n### Coberturas Obrigatórias e Facultativas\n\nO seguro de transportadora em Guarulhos não é um produto único — é uma combinação de coberturas obrigatórias e facultativas: RCTR-C (Responsabilidade Civil do Transportador Rodoviário de Carga, obrigatório pela ANTT), RCF-DC (Responsabilidade Civil Facultativa por Desaparecimento de Carga, contra roubo), seguro de frota (caminhões e carretas), seguro empresarial do galpão de armazenagem, RC ambiental para cargas perigosas e seguro de vida para motoristas.\n\n### Expertise Patro Seguros em Logística Rodoviária\n\nA Patro Seguros tem mais de 40 transportadoras ativas em Guarulhos, da pequena empresa familiar a operadores com mais de 100 veículos. Cotamos com as melhores seguradoras, comparando RCTR-C, RCF-DC e frota lado a lado em até 4 horas úteis. O atendimento inclui suporte em sinistro de carga, gerenciamento documental e renovação anual otimizada.`,
-  metaDescription: "Seguro para transportadora em Guarulhos: RCTR-C, RCF-DC, frota e galpão. Patro Seguros compara 9 seguradoras especializadas em logística rodoviária.",
+  metaDescription: "Seguro para transportadora em Guarulhos: RCTR-C, RCF-DC, frota e galpão. Patro Seguros compara 16 seguradoras especializadas em logística rodoviária.",
   icon: "🚚",
   pricingIntro: "O seguro de transportadora em Guarulhos parte de R$ 6.000/ano para empresa com 3 a 5 caminhões cobrindo RCTR-C básico e chega a R$ 250.000+/ano para frotas com mais de 50 veículos e cobertura completa (RCTR-C + RCF-DC + frota + galpão + RC ambiental). O cálculo considera tipo de carga, valor médio embarcado, rotas e histórico de sinistros.",
   pricingFactors: [
@@ -618,7 +619,7 @@ const seguroTransportadora: SeoLocalPageConfig = {
   whyPatro: [
     "Mais de 40 transportadoras ativas em Guarulhos e região",
     "Especialistas em RCTR-C, RCF-DC e gerenciamento documental",
-    "Comparativo entre 9 seguradoras especializadas em transporte rodoviário",
+    "Comparativo entre 16 seguradoras especializadas em transporte rodoviário",
     "Suporte em sinistro de carga com argumentação técnica e regulação",
     "Atendimento integrado: RCTR-C + frota + galpão em uma única corretora",
     "Renovação anual com revisão de faturamento e rotas para evitar pagar a mais",
@@ -802,10 +803,10 @@ const planoSaudeEmpresarialGuarulhos: SeoLocalPageConfig = {
 const seguroAutoBarato: SeoLocalPageConfig = {
   slug: "seguro-auto-barato-guarulhos",
   title: "Seguro Auto Barato Guarulhos — Como Pagar Menos em 2026",
-  subtitle: "Seguro auto barato em Guarulhos sem perder cobertura: 10 estratégias reais para reduzir o prêmio + cotação entre 9 seguradoras com a Patro Seguros.",
-  description: `Seguro auto barato em Guarulhos é possível sem comprometer cobertura. ${partnersLine} Comparativo gratuito entre 9 seguradoras + 10 estratégias técnicas para reduzir o prêmio anual.`,
+  subtitle: "Seguro auto barato em Guarulhos sem perder cobertura: 10 estratégias reais para reduzir o prêmio + cotação entre 16 seguradoras com a Patro Seguros.",
+  description: `Seguro auto barato em Guarulhos é possível sem comprometer cobertura. ${partnersLine} Comparativo gratuito entre 16 seguradoras + 10 estratégias técnicas para reduzir o prêmio anual.`,
   detailedDescription: `### O Mito do Seguro Auto Barato em Guarulhos\n\n"Seguro auto barato em Guarulhos" é a busca mais comum no Google para o tema — e também a mais perigosa. A maioria das ofertas baratas que circulam por anúncios online corta coberturas essenciais, aplica franquias absurdas ou esconde restrições contratuais que só aparecem no momento do sinistro. O resultado é o pior cenário possível: o motorista paga prêmio menor por 12 meses e descobre, no acidente, que está sem proteção real.\n\n### Como Obter um Seguro Auto Barato de Verdade\n\nA boa notícia é que existe seguro auto barato real em Guarulhos — desde que você combine três coisas: (1) cotação comparativa entre seguradoras (preços variam até 80% para o mesmo perfil), (2) ajuste técnico de coberturas (sem cortes que destroem a apólice) e (3) aplicação das estratégias clássicas de redução de prêmio (rastreador, garagem, classe de bônus, franquia adequada, perfil correto declarado). A Patro Seguros aplica essa metodologia em mais de 500 apólices ativas em Guarulhos e consegue reduções médias de 18% a 35% em recotações.\n\n### Estratégias Práticas para Economizar\n\nTrazemos as 10 estratégias que mais funcionam para baratear seguro auto em Guarulhos sem perder cobertura, os erros mais comuns que destroem o valor da apólice em troca de desconto e o que esperar de cada seguradora em termos de preço para perfis diferentes. No final, você pode pedir cotação grátis para validar quanto pode economizar no seu próprio caso.`,
-  metaDescription: "Seguro auto barato Guarulhos: 10 estratégias para reduzir prêmio sem perder cobertura + cotação grátis entre 9 seguradoras com a Patro Seguros.",
+  metaDescription: "Seguro auto barato Guarulhos: 10 estratégias para reduzir prêmio sem perder cobertura + cotação grátis entre 16 seguradoras com a Patro Seguros.",
   icon: "💰",
   pricingIntro: "Seguro auto barato em Guarulhos depende de perfil: motorista acima de 30 anos com classe de bônus 5+, rastreador e garagem coberta consegue cobertura compreensiva por R$ 1.600 a R$ 2.400/ano. Sem essas variáveis favoráveis, o piso fica em R$ 2.800/ano. Veículos populares (Onix, HB20, Mobi) sempre têm o melhor custo-benefício.",
   pricingFactors: [
@@ -835,7 +836,7 @@ const seguroAutoBarato: SeoLocalPageConfig = {
     "Quem quer entender, antes de contratar, quais cortes de cobertura compensam",
   ],
   whyPatro: [
-    "Cotação comparativa entre 9 seguradoras em até 2 horas úteis",
+    "Cotação comparativa entre 16 seguradoras em até 2 horas úteis",
     "Mais de 500 apólices ativas com economia média de 22% sobre renovação",
     "Aplicação técnica de 10 estratégias de redução de prêmio sem perder cobertura",
     "Recotação anual automática para garantir o melhor preço todo ano",
@@ -856,7 +857,7 @@ const seguroAutoBarato: SeoLocalPageConfig = {
   { title: "Motorista jovem em Bonsucesso encontrou prêmio aceitável", description: "Motorista de 23 anos em Bonsucesso recebeu cotação de R$ 6.800/ano em uma corretora online. Patro recotou em HDI (especialista em jovem condutor) e fechou por R$ 4.100/ano — diferença de R$ 2.700/ano para o mesmo perfil." },
   ],
   tips: [
-    "Cote sempre em 9 seguradoras — preço para mesmo perfil pode variar 80%.",
+    "Cote sempre em 16 seguradoras — preço para mesmo perfil pode variar 80%.",
     "Instale rastreador homologado se ainda não tem — desconto imediato e libera coberturas adicionais.",
     "Declare garagem coberta (residência e trabalho) — reduz até 20% sem custo nenhum.",
     "Avalie franquia maior se você é motorista experiente — economia anual costuma compensar a chance de sinistro.",
@@ -876,10 +877,10 @@ const seguroAutoBarato: SeoLocalPageConfig = {
 const seguroLogistica: SeoLocalPageConfig = {
   slug: "seguro-logistica-guarulhos",
   title: "Seguro para Logística em Guarulhos — Galpão, Frota, Carga e RC",
-  subtitle: "Seguro completo para operadores logísticos em Guarulhos: galpão, frota, RCTR-C, RCF-DC, RC operações e equipamentos. Cotação entre 9 seguradoras especializadas.",
+  subtitle: "Seguro completo para operadores logísticos em Guarulhos: galpão, frota, RCTR-C, RCF-DC, RC operações e equipamentos. Cotação entre 16 seguradoras especializadas.",
   description: `Seguro logística Guarulhos para operadores logísticos, 3PLs e fulfillment no entorno do GRU Airport. Galpão, frota, carga, RC operações, RC armazenagem e equipamentos eletrônicos. ${partnersLine}`,
   detailedDescription: `### Guarulhos: O Maior Hub Logístico do Brasil\n\nGuarulhos é o maior hub logístico do Brasil. O entorno do GRU Airport (maior aeroporto de cargas do país), as Rodovias Presidente Dutra e Ayrton Senna e a proximidade com o Porto de Santos fazem da cidade o endereço de operadores logísticos de e-commerce, 3PLs (Third-Party Logistics), fulfillment de marketplaces, distribuição de farmacêuticos e centros de distribuição automotivos. Cada um desses perfis tem exposição patrimonial específica que exige uma combinação de seguros — não apenas um produto único.\n\n### Composição do Seguro Logística Completo\n\nO seguro logística Guarulhos completo geralmente combina: (1) seguro empresarial do galpão (incêndio, roubo, RC operações, lucros cessantes), (2) seguro de frota dos veículos próprios (vans, caminhões, empilhadeiras elétricas), (3) RCTR-C e RCF-DC para carga em trânsito, (4) seguro de equipamentos eletrônicos, (5) seguro de responsabilidade civil de armazenagem e (6) seguro de vida em grupo para operadores e motoristas. Para operações com carga sensível (farmacêutica, eletrônicos, alta tecnologia), também vale incluir cobertura de cadeia de frio e GR (gerenciamento de risco).\n\n### Consultoria e Gestão Patro Seguros\n\nA Patro Seguros é especialista em logística no entorno de Guarulhos com mais de 35 operadores ativos: pequenos 3PLs com 1 galpão até grandes operações com 12 unidades distribuídas. Cotamos com Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, Sompo, Mapfre, Liberty e Zurich, comparando coberturas, LMI e franquias em quadro técnico único. Em sinistro, oferecemos plantão 24/7 e suporte em regulação.`,
-  metaDescription: "Seguro logística Guarulhos: galpão, frota, RCTR-C, RC armazenagem e equipamentos. Patro Seguros compara 9 seguradoras especializadas no hub do GRU.",
+  metaDescription: "Seguro logística Guarulhos: galpão, frota, RCTR-C, RC armazenagem e equipamentos. Patro Seguros compara 16 seguradoras especializadas no hub do GRU.",
   icon: "📦",
   pricingIntro: "O seguro logística Guarulhos varia de R$ 12.000/ano para operação pequena (1 galpão até 800m² + 3 vans) até R$ 350.000+/ano para grandes operações com múltiplos galpões, frota de 50+ veículos e cobertura completa. O cálculo considera valor em risco, frequência de operações, tipo de mercadoria e nível de proteção.",
   pricingFactors: [
@@ -911,7 +912,7 @@ const seguroLogistica: SeoLocalPageConfig = {
   whyPatro: [
     "Mais de 35 operadores logísticos ativos em Guarulhos atendidos pela Patro",
     "Especialistas em montagem de pacote integrado (galpão + frota + carga)",
-    "Comparativo entre 9 seguradoras em quadro técnico único",
+    "Comparativo entre 16 seguradoras em quadro técnico único",
     "Vistoria técnica gratuita pré-cotação para operações acima de R$ 5 mi de LMI",
     "Plantão 24/7 em sinistros graves com 92% de indenização integral",
     "Renovação anual com revisão de LMI baseada em volume real de operação",
@@ -925,7 +926,7 @@ const seguroLogistica: SeoLocalPageConfig = {
     { title: "Vida em Grupo Operadores", description: "Seguro de vida coletivo para operadores de armazém, separadores, motoristas e empilhadores. Indenização por morte, invalidez e auxílio funeral." },
   ],
   realScenarios: [
-    { title: "3PL em Cumbica reduziu prêmio total em R$ 52 mil/ano", description: "Operador logístico com 2 galpões em Cumbica e frota de 12 vans tinha 4 corretoras diferentes para os 5 produtos de seguro. Patro consolidou tudo em pacote único, recotou com 9 seguradoras e reduziu prêmio total em R$ 52 mil/ano mantendo coberturas e LMI." },
+    { title: "3PL em Cumbica reduziu prêmio total em R$ 52 mil/ano", description: "Operador logístico com 2 galpões em Cumbica e frota de 12 vans tinha 4 corretoras diferentes para os 5 produtos de seguro. Patro consolidou tudo em pacote único, recotou com 16 seguradoras e reduziu prêmio total em R$ 52 mil/ano mantendo coberturas e LMI." },
     { title: "Indenização de R$ 880 mil em incêndio elétrico de galpão", description: "Operador de fulfillment teve incêndio causado por painel elétrico no galpão de Cumbica. Patro acompanhou regulação e garantiu indenização integral de R$ 880 mil (imóvel + mercadoria de terceiros via RC armazenagem + lucros cessantes) em 52 dias." },
     { title: "Adequação de LMI evitou subseguro grave em operação de e-commerce", description: "Operador de e-commerce em Guarulhos tinha LMI de R$ 1,2 milhão em galpão com mercadoria média de R$ 3,8 milhões. Patro identificou subseguro de 68%, renegociou LMI proporcional ao risco real e evitou potencial indenização de apenas 32% em sinistro futuro." },
   ],
@@ -1211,7 +1212,7 @@ seoLocalPages["seguro-auto-vila-galvao"] = {
     { question: "Preciso ter rastreador para contratar seguro auto no Vila Galvão?", answer: "Geralmente não é obrigatório no Vila Galvão por causa da baixa sinistralidade do CEP. Mas instalar rastreador ainda reduz o prêmio entre 8% e 15% e libera coberturas adicionais — para veículos acima de R$ 80 mil costuma compensar." },
     { question: "Onde fica a corretora Patro Seguros para moradores do Vila Galvão?", answer: "O escritório fica no Cidade Maia, em Guarulhos, a aproximadamente 10 minutos de carro do Vila Galvão pela Avenida Brasil. Atendemos presencialmente com agendamento, ou 100% por WhatsApp (11 5199-7500) se você preferir resolver à distância." },
     { question: "O seguro auto vale para quem mora no Vila Galvão e trabalha em São Paulo capital?", answer: "Sim. A apólice cobre todo o território nacional. Como muitos moradores do Vila Galvão trabalham na zona norte de SP (Tucuruvi, Santana, Vila Maria), informamos esse trajeto na cotação para que a seguradora calcule corretamente o uso urbano e considere o CEP do trabalho." },
-    { question: "A Patro atende renovações de moradores do Vila Galvão que estão em outra corretora?", answer: "Sim. Basta enviar a apólice atual ou a renovação proposta por WhatsApp. Em até 2 horas úteis devolvemos comparativo entre 9 seguradoras. Mais de 60% dos clientes do Vila Galvão que recotam conosco economizam na primeira renovação." },
+    { question: "A Patro atende renovações de moradores do Vila Galvão que estão em outra corretora?", answer: "Sim. Basta enviar a apólice atual ou a renovação proposta por WhatsApp. Em até 2 horas úteis devolvemos comparativo entre 16 seguradoras. Mais de 60% dos clientes do Vila Galvão que recotam conosco economizam na primeira renovação." },
   ],
   testimonials: [
     {
@@ -1240,10 +1241,10 @@ seoLocalPages["seguro-auto-vila-galvao"] = {
 const seguroRestauranteGuarulhos: SeoLocalPageConfig = {
   slug: "seguro-restaurante-guarulhos",
   title: "Seguro para Restaurante em Guarulhos — Incêndio, RC e Equipamentos",
-  subtitle: "Seguro para restaurante, bar e lanchonete em Guarulhos: incêndio, roubo, RC alimentar, equipamentos de cozinha e lucros cessantes. Cotação entre 9 seguradoras.",
+  subtitle: "Seguro para restaurante, bar e lanchonete em Guarulhos: incêndio, roubo, RC alimentar, equipamentos de cozinha e lucros cessantes. Cotação entre 16 seguradoras.",
   description: `Seguro para restaurante em Guarulhos cobrindo incêndio, danos elétricos em equipamentos de cozinha (chapas, fornos, freezers), responsabilidade civil alimentar, roubo de caixa e lucros cessantes. ${partnersLine}`,
   detailedDescription: `Restaurantes, bares, lanchonetes e dark kitchens em Guarulhos têm um perfil de risco patrimonial muito específico: forte uso de equipamentos elétricos e a gás (fritadeiras, chapas, fornos combinados, exaustão), giro alto de mercadoria perecível, exposição a incêndio em cozinha (principal causa de sinistro do segmento) e responsabilidade civil por intoxicação alimentar — uma das fontes mais comuns de processos contra estabelecimentos do ramo food service.\n\nO seguro para restaurante em Guarulhos completo combina: (1) cobertura empresarial básica de incêndio, raio e explosão, (2) roubo de caixa e mercadoria, (3) danos elétricos em equipamentos de cozinha (cobertura específica e essencial, já que panificadoras, freezers e fornos representam 30% a 60% do investimento), (4) responsabilidade civil operações + RC alimentar (intoxicação), (5) lucros cessantes para manter o caixa rodando enquanto o salão está em reforma e (6) vidros, fachada e luminosos. Para delivery próprio, vale também incluir cobertura para motos da operação.\n\nA Patro Seguros tem mais de 25 restaurantes ativos em Guarulhos — de pizzarias familiares a redes com 4 unidades. Cotamos com Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, Mapfre, Sompo e mais, comparando coberturas e franquias em quadro técnico único. A apólice típica para restaurante de até 200m² em Guarulhos sai entre R$ 3.200 e R$ 8.500/ano.`,
-  metaDescription: "Seguro para restaurante em Guarulhos: incêndio, RC alimentar, equipamentos de cozinha e lucros cessantes. Patro Seguros compara 9 seguradoras especializadas.",
+  metaDescription: "Seguro para restaurante em Guarulhos: incêndio, RC alimentar, equipamentos de cozinha e lucros cessantes. Patro Seguros compara 16 seguradoras especializadas.",
   icon: "🍽️",
   pricingIntro: "O seguro para restaurante em Guarulhos parte de R$ 3.200/ano para estabelecimentos pequenos (até 80m², 1 cozinha simples) e chega a R$ 28.000+/ano para grandes restaurantes (acima de 400m²) ou redes com múltiplas unidades. O cálculo considera área, tipo de cozinha, valor dos equipamentos e capacidade de público.",
   pricingFactors: [
@@ -1257,7 +1258,7 @@ const seguroRestauranteGuarulhos: SeoLocalPageConfig = {
   ],
   pricingNote: "Dica Patro: restaurantes em Guarulhos com sistema de exaustão limpo periodicamente, AVCB vigente e brigada treinada conseguem desconto de 15% a 25% no prêmio.",
   faqs: [
-    { question: "Quanto custa seguro para restaurante em Guarulhos?", answer: "Para restaurante padrão de até 150m² em Guarulhos com cozinha equipada e capacidade de 60-80 pessoas, o seguro empresarial completo (incêndio, roubo, RC alimentar, equipamentos e lucros cessantes) fica entre R$ 4.500 e R$ 9.800/ano. A Patro cota com 9 seguradoras especializadas em food service." },
+    { question: "Quanto custa seguro para restaurante em Guarulhos?", answer: "Para restaurante padrão de até 150m² em Guarulhos com cozinha equipada e capacidade de 60-80 pessoas, o seguro empresarial completo (incêndio, roubo, RC alimentar, equipamentos e lucros cessantes) fica entre R$ 4.500 e R$ 9.800/ano. A Patro cota com 16 seguradoras especializadas em food service." },
     { question: "Seguro de restaurante cobre intoxicação alimentar?", answer: "Sim, com a cobertura específica de RC Alimentar (Responsabilidade Civil por Produtos). Cobre danos materiais, corporais e morais a clientes vítimas de intoxicação ou contaminação alimentar comprovada. Cobertura essencial para todo restaurante, especialmente os que servem peixes, frutos do mar e carnes." },
     { question: "Equipamentos de cozinha (chapas, fornos, freezers) entram no seguro?", answer: "Sim, na cobertura de Danos Elétricos e Equipamentos. Cobre curto-circuito, sobretensão, raio e queima por sobrecarga. Para freezers e geladeiras com mercadoria, vale também incluir cobertura de Quebra de Equipamento Frigorífico, que indeniza tanto o equipamento quanto a mercadoria perdida." },
     { question: "Preciso de AVCB para contratar seguro de restaurante em Guarulhos?", answer: "Não é exigência da seguradora na contratação, mas é fundamental: em sinistro de incêndio, a falta de AVCB vigente pode ser usada para reduzir ou negar a indenização. A Patro orienta o cliente sobre AVCB adequado ao porte do restaurante e mantém o documento em pasta digital de risco." },
@@ -1275,7 +1276,7 @@ const seguroRestauranteGuarulhos: SeoLocalPageConfig = {
   whyPatro: [
     "Mais de 25 restaurantes ativos em Guarulhos atendidos pela Patro",
     "Especialistas em RC alimentar e equipamentos de cozinha",
-    "Comparativo entre 9 seguradoras especializadas em food service",
+    "Comparativo entre 16 seguradoras especializadas em food service",
     "Vistoria técnica gratuita pré-cotação para restaurantes acima de R$ 1 mi de LMI",
     "Suporte em sinistro com plantão 24/7 para incêndio e roubo",
     "Renovação anual com revisão de LMI baseada em valor real de equipamentos",
@@ -1313,10 +1314,10 @@ const seguroRestauranteGuarulhos: SeoLocalPageConfig = {
 const seguroLojaGuarulhos: SeoLocalPageConfig = {
   slug: "seguro-loja-guarulhos",
   title: "Seguro para Loja em Guarulhos — Roubo, Incêndio e Vidros",
-  subtitle: "Seguro para loja, comércio e varejo em Guarulhos: roubo, incêndio, vidros, RC operações e lucros cessantes. Cotação entre 9 seguradoras especializadas em comércio.",
+  subtitle: "Seguro para loja, comércio e varejo em Guarulhos: roubo, incêndio, vidros, RC operações e lucros cessantes. Cotação entre 16 seguradoras especializadas em comércio.",
   description: `Seguro para loja em Guarulhos cobrindo roubo e furto qualificado de mercadoria, incêndio, danos elétricos, vidros e fachada, RC operações e lucros cessantes. ${partnersLine} Comparativo gratuito para Centro de Guarulhos, Shopping Maia, Internacional Shopping e ruas comerciais.`,
   detailedDescription: `Lojas e comércios em Guarulhos têm exposição patrimonial direta: estoque de mercadoria visível, fluxo intenso de público, vidraças e fachadas caras e, em algumas regiões (Centro, Bonsucesso, Pimentas), estatísticas de roubo e furto qualificado significativamente acima da média da cidade. Para o comerciante, contratar o seguro errado significa pagar prêmio caro por pouca cobertura — ou pior, descobrir no sinistro que a apólice não protege o que mais importa.\n\nO seguro para loja em Guarulhos completo combina: (1) cobertura empresarial básica (incêndio, raio, explosão, danos elétricos), (2) roubo e furto qualificado de mercadoria — cobertura mais acionada do segmento, (3) vidros e fachada (vitrines, portas, fachadas em ACM), (4) RC operações por danos a clientes dentro da loja, (5) equipamentos eletrônicos (POS, computadores, sistema antifurto, CFTV) e (6) lucros cessantes durante reforma. Para lojas em shopping, geralmente o condomínio exige apólice mínima — a Patro adequa exatamente ao contrato.\n\nA Patro Seguros tem mais de 60 lojas ativas em Guarulhos: do varejo independente em Centro à franquia em Shopping Maia e Internacional Shopping. Cotamos com Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, Mapfre e Sompo, com prêmios a partir de R$ 1.800/ano para lojas de até 60m² e até R$ 22.000+/ano para grandes magazines com mercadoria valiosa.`,
-  metaDescription: "Seguro para loja em Guarulhos: roubo, incêndio, vidros, RC e lucros cessantes. Patro Seguros compara 9 seguradoras para lojas em shopping e ruas comerciais.",
+  metaDescription: "Seguro para loja em Guarulhos: roubo, incêndio, vidros, RC e lucros cessantes. Patro Seguros compara 16 seguradoras para lojas em shopping e ruas comerciais.",
   icon: "🏪",
   pricingIntro: "O seguro para loja em Guarulhos parte de R$ 1.800/ano para lojas pequenas (até 60m², mercadoria até R$ 100 mil) e chega a R$ 22.000+/ano para grandes lojas com mercadoria valiosa (joalheria, eletrônicos, óticas). Lojas em shopping geralmente têm prêmio 20-30% menor que em rua por causa da segurança 24h.",
   pricingFactors: [
@@ -1330,7 +1331,7 @@ const seguroLojaGuarulhos: SeoLocalPageConfig = {
   ],
   pricingNote: "Dica Patro: lojas em Guarulhos com alarme monitorado 24h por empresa especializada, CFTV com gravação remota e antifurto eletrônico conseguem reduções de 18% a 30% no prêmio.",
   faqs: [
-    { question: "Quanto custa seguro para loja em Guarulhos?", answer: "Para loja padrão de 80m² em Guarulhos com mercadoria de R$ 200 mil, o seguro empresarial completo (incêndio, roubo, vidros, RC, lucros cessantes) fica entre R$ 2.800 e R$ 5.400/ano. Lojas em shopping com segurança 24h tendem a ser 20-30% mais baratas que em rua. A Patro cota com 9 seguradoras." },
+    { question: "Quanto custa seguro para loja em Guarulhos?", answer: "Para loja padrão de 80m² em Guarulhos com mercadoria de R$ 200 mil, o seguro empresarial completo (incêndio, roubo, vidros, RC, lucros cessantes) fica entre R$ 2.800 e R$ 5.400/ano. Lojas em shopping com segurança 24h tendem a ser 20-30% mais baratas que em rua. A Patro cota com 16 seguradoras." },
     { question: "Seguro de loja cobre roubo de mercadoria em Guarulhos?", answer: "Sim, na cobertura de Roubo e Furto Qualificado. Cobre subtração de mercadoria mediante arrombamento (entrada forçada com vestígios) ou grave ameaça. Furto simples (sem arrombamento) só é coberto em planos premium e geralmente com franquia maior. A Patro orienta dimensionamento conforme perfil de risco da rua." },
     { question: "Vidros e fachada estão inclusos no seguro de loja?", answer: "Sim, na cobertura específica de Vidros, Fachada e Luminosos. Cobre vitrines, portas de vidro, fachadas em ACM ou granito e letreiros luminosos. Cobertura essencial em Guarulhos por causa de manifestações, vandalismo e impacto de veículos em ruas comerciais movimentadas." },
     { question: "Loja em shopping de Guarulhos precisa de seguro obrigatório?", answer: "Quase sempre. Tanto Shopping Maia quanto Internacional Shopping exigem apólice mínima de RC Operações no contrato de locação, com cobertura para danos ao condomínio e a terceiros. A Patro lê o contrato de locação e dimensiona a apólice exatamente conforme exigência do shopping." },
@@ -1348,7 +1349,7 @@ const seguroLojaGuarulhos: SeoLocalPageConfig = {
   whyPatro: [
     "Mais de 60 lojas ativas em Guarulhos atendidas pela Patro",
     "Especialistas em adequação de apólice ao contrato de locação de shoppings",
-    "Comparativo entre 9 seguradoras especializadas em comércio",
+    "Comparativo entre 16 seguradoras especializadas em comércio",
     "Suporte 24/7 em sinistro de roubo, incêndio e dano elétrico",
     "Renovação anual com revisão de mercadoria e mudança de mix de produtos",
     "Atendimento presencial no Cidade Maia ou 100% por WhatsApp",
@@ -1386,10 +1387,10 @@ const seguroLojaGuarulhos: SeoLocalPageConfig = {
 const seguroFrotaPequenaGuarulhos: SeoLocalPageConfig = {
   slug: "seguro-frota-pequena-guarulhos",
   title: "Seguro Frota Pequena em Guarulhos — A Partir de 4 Veículos",
-  subtitle: "Seguro frota pequena em Guarulhos a partir de 4 veículos (vans, carros e motos) com gestão única, prêmio reduzido e cobertura padronizada. Cotação entre 9 seguradoras.",
+  subtitle: "Seguro frota pequena em Guarulhos a partir de 4 veículos (vans, carros e motos) com gestão única, prêmio reduzido e cobertura padronizada. Cotação entre 16 seguradoras.",
   description: `Seguro frota pequena em Guarulhos para empresas com 4 a 15 veículos. ${partnersLine} Gestão centralizada, prêmio até 30% menor que apólices individuais e atendimento dedicado.`,
-  detailedDescription: `Empresas com 4 a 15 veículos em Guarulhos costumam cair em uma faixa cinzenta: deixaram de ser pequenas demais para apólices individuais (com gestão complicada e preço cheio) mas ainda não têm volume para frotas grandes (com tabelas corporativas customizadas). É exatamente nessa faixa de 4 a 15 veículos que entra o seguro frota pequena — produto desenhado para PMEs com vans de entrega, carros executivos, frotas comerciais e motos de delivery.\n\nA principal vantagem do seguro frota pequena em Guarulhos é a economia de 15% a 30% em relação a apólices individuais, conseguida via tabela de frota das seguradoras (Porto Seguro Frota, Allianz Frota, HDI Frota, Bradesco Frota, Tokio Marine Frota, Mapfre Frota). Além do preço, ganha-se uniformidade de coberturas (todos os veículos com a mesma proteção), gestão centralizada (1 apólice em vez de 4-15), parcelamento integrado (1 boleto), endossos rápidos (inclusão e exclusão de veículos sem nova cotação) e atendimento corporativo em sinistro.\n\nA Patro Seguros tem mais de 35 frotas pequenas ativas em Guarulhos: empresas de delivery com 4-8 motos, PMEs com 5-10 vans de distribuição, escritórios com frota executiva e prestadores de serviço com utilitários. Cotamos com 9 seguradoras especializadas em frota e devolvemos quadro técnico em até 4 horas úteis com prêmio total e por veículo, franquias e LMI por cobertura.`,
-  metaDescription: "Seguro frota pequena Guarulhos a partir de 4 veículos: gestão única, economia de até 30% e atendimento dedicado. Patro Seguros cota com 9 seguradoras.",
+  detailedDescription: `Empresas com 4 a 15 veículos em Guarulhos costumam cair em uma faixa cinzenta: deixaram de ser pequenas demais para apólices individuais (com gestão complicada e preço cheio) mas ainda não têm volume para frotas grandes (com tabelas corporativas customizadas). É exatamente nessa faixa de 4 a 15 veículos que entra o seguro frota pequena — produto desenhado para PMEs com vans de entrega, carros executivos, frotas comerciais e motos de delivery.\n\nA principal vantagem do seguro frota pequena em Guarulhos é a economia de 15% a 30% em relação a apólices individuais, conseguida via tabela de frota das seguradoras (Porto Seguro Frota, Allianz Frota, HDI Frota, Bradesco Frota, Tokio Marine Frota, Mapfre Frota). Além do preço, ganha-se uniformidade de coberturas (todos os veículos com a mesma proteção), gestão centralizada (1 apólice em vez de 4-15), parcelamento integrado (1 boleto), endossos rápidos (inclusão e exclusão de veículos sem nova cotação) e atendimento corporativo em sinistro.\n\nA Patro Seguros tem mais de 35 frotas pequenas ativas em Guarulhos: empresas de delivery com 4-8 motos, PMEs com 5-10 vans de distribuição, escritórios com frota executiva e prestadores de serviço com utilitários. Cotamos com 16 seguradoras especializadas em frota e devolvemos quadro técnico em até 4 horas úteis com prêmio total e por veículo, franquias e LMI por cobertura.`,
+  metaDescription: "Seguro frota pequena Guarulhos a partir de 4 veículos: gestão única, economia de até 30% e atendimento dedicado. Patro Seguros cota com 16 seguradoras.",
   icon: "🚐",
   pricingIntro: "O seguro frota pequena em Guarulhos parte de R$ 6.500/ano para 4 motos de delivery e chega a R$ 95.000+/ano para frotas com 15 vans e utilitários. O ticket médio por veículo fica entre R$ 1.450 e R$ 3.200/ano, dependendo do tipo de veículo, uso, motoristas e cobertura.",
   pricingFactors: [
@@ -1420,7 +1421,7 @@ const seguroFrotaPequenaGuarulhos: SeoLocalPageConfig = {
   ],
   whyPatro: [
     "Mais de 35 frotas pequenas ativas em Guarulhos atendidas pela Patro",
-    "Comparativo entre 9 seguradoras especializadas em frota PME",
+    "Comparativo entre 16 seguradoras especializadas em frota PME",
     "Gestão centralizada de endossos, sinistros e renovação",
     "Suporte dedicado em sinistro com plantão 24/7",
     "Renovação anual com revisão de sinistralidade da frota",
@@ -1465,10 +1466,10 @@ Object.assign(seoLocalPages, {
 const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
   slug: "seguro-galpao-guarulhos",
   title: "Seguro de Galpão em Guarulhos — Riscos Patrimoniais e Lucros Cessantes",
-  subtitle: "Seguro para galpão em Guarulhos: incêndio, roubo, RC operações, RC armazenagem, equipamentos e lucros cessantes. Vistoria técnica grátis e cotação entre 9 seguradoras.",
+  subtitle: "Seguro para galpão em Guarulhos: incêndio, roubo, RC operações, RC armazenagem, equipamentos e lucros cessantes. Vistoria técnica grátis e cotação entre 16 seguradoras.",
   description: `Seguro para galpão em Guarulhos cobrindo incêndio, raio, explosão, roubo qualificado de mercadoria, RC operações, RC armazenagem (mercadoria de terceiros), equipamentos eletrônicos e lucros cessantes. ${partnersLine} Especialistas em galpões na região do GRU Airport, Cumbica, Bonsucesso, Pimentas e Vila Endres.`,
   detailedDescription: `Guarulhos é o segundo maior parque de galpões logísticos e industriais do Brasil — atrás apenas de Cajamar/Extrema —, com mais de 6 milhões de m² de área construída em galpões classe A, B e C distribuídos por Cumbica (entorno do GRU Airport), Vila Endres, Bonsucesso, Pimentas, Vila Galvão Industrial e ao longo das Rodovias Presidente Dutra e Hélio Smidt. Cada perfil de galpão tem exposição patrimonial específica que precisa ser refletida na apólice — não existe seguro de galpão "padrão" que sirva para qualquer operação.\n\nO seguro para galpão em Guarulhos exige análise técnica de 6 grandes blocos: (1) características construtivas (alvenaria, pré-moldado, estrutura metálica, telhado em metal sanduíche ou fibrocimento — fator decisivo para precificação de incêndio), (2) atividade exata declarada (logística, indústria, e-commerce, fulfillment, distribuição farmacêutica, dark store), (3) valor em risco real (imóvel + mercadoria média + equipamentos + estoque máximo no pico de safra/black friday), (4) sistema de proteção (CFTV monitorado 24h, controle de acesso, brigada, hidrantes, sprinklers, AVCB), (5) coberturas adicionais (RC armazenagem para mercadoria de terceiros, equipamentos eletrônicos, lucros cessantes) e (6) limites máximos de indenização (LMI) corretamente dimensionados para evitar subseguro — principal causa de indenização parcial em sinistro de galpão.\n\nA Patro Seguros é especialista em galpões em Guarulhos com mais de 80 apólices ativas — de pequenos depósitos de 400m² a complexos com 25.000m² e LMI acima de R$ 60 milhões. Cotamos com Porto Seguro Empresarial, Allianz Empresas, HDI Empresarial, Tokio Marine, Bradesco Riscos Patrimoniais, Sompo, Mapfre, Liberty e Zurich, comparando coberturas, franquias e LMI por cobertura em quadro técnico único. Para galpões acima de R$ 5 milhões de LMI, oferecemos vistoria técnica gratuita pré-cotação para fundamentar o risco e evitar surpresas em sinistro.`,
-  metaDescription: "Seguro para galpão em Guarulhos: incêndio, roubo, RC armazenagem e lucros cessantes. Patro Seguros compara 9 seguradoras com vistoria técnica gratuita.",
+  metaDescription: "Seguro para galpão em Guarulhos: incêndio, roubo, RC armazenagem e lucros cessantes. Patro Seguros compara 16 seguradoras com vistoria técnica gratuita.",
   icon: "🏗️",
   pricingIntro: "O seguro para galpão em Guarulhos varia de R$ 4.800/ano para galpões pequenos (até 500m², mercadoria leve, LMI até R$ 600 mil) até R$ 480.000+/ano para grandes galpões logísticos (acima de 15.000m² e LMI acima de R$ 30 milhões). O cálculo considera atividade, área, construção, valor em risco e sistema de proteção.",
   pricingFactors: [
@@ -1482,7 +1483,7 @@ const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
   ],
   pricingNote: "Dica Patro: galpões em Guarulhos com sprinklers FM-Global homologados, CFTV monitorado 24h por empresa especializada, controle de acesso eletrônico e brigada certificada conseguem reduções de 30% a 45% no prêmio total — em galpões grandes isso representa centenas de milhares de reais por ano.",
   faqs: mergeGalpaoFAQs([
-    { question: "Quanto custa seguro de galpão em Guarulhos?", answer: "Para galpão padrão de 2.000m² em Guarulhos, alvenaria com telhado metálico, mercadoria média de R$ 3 milhões e LMI total de R$ 5 milhões, o seguro empresarial completo (incêndio, roubo, RC armazenagem, equipamentos e lucros cessantes) fica entre R$ 18.000 e R$ 32.000/ano dependendo de proteção, franquias e seguradora. A Patro cota com 9 seguradoras." },
+    { question: "Quanto custa seguro de galpão em Guarulhos?", answer: "Para galpão padrão de 2.000m² em Guarulhos, alvenaria com telhado metálico, mercadoria média de R$ 3 milhões e LMI total de R$ 5 milhões, o seguro empresarial completo (incêndio, roubo, RC armazenagem, equipamentos e lucros cessantes) fica entre R$ 18.000 e R$ 32.000/ano dependendo de proteção, franquias e seguradora. A Patro cota com 16 seguradoras." },
     { question: "Galpão com telhado de fibrocimento tem aceitação no seguro em Guarulhos?", answer: "Sim, mas com restrições. Telhado de fibrocimento (Eternit antigo) tem prêmio de incêndio mais alto e pode ter LMI limitado por algumas seguradoras. Recomendamos vistoria técnica para mapear pontos de risco. Em alguns casos vale trocar para telha metálica isolada — investimento se paga em 3-4 anos via redução de prêmio." },
     { question: "Preciso de RC armazenagem se guardo mercadoria de terceiros no galpão?", answer: "Sim, é essencial. RC Armazenagem cobre danos materiais à mercadoria de clientes durante a custódia (incêndio, roubo, dano físico). Sem essa cobertura específica, em sinistro envolvendo mercadoria de terceiros, a operadora responde com patrimônio próprio. Cobertura indispensável para 3PLs, fulfillment, operadores logísticos e armazéns gerais em Guarulhos." },
     { question: "Como dimensionar corretamente o LMI do galpão em Guarulhos?", answer: "O LMI (Limite Máximo de Indenização) deve cobrir: 100% do valor de reconstrução do imóvel + mercadoria média mais 30% para picos de estoque + 100% dos equipamentos + 6 a 12 meses de lucros cessantes. Subseguro (LMI menor que valor real) é a causa #1 de indenização parcial em sinistro de galpão. A Patro faz dimensionamento técnico em vistoria pré-cotação." },
@@ -1503,7 +1504,7 @@ const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
   whyPatro: [
     "Mais de 80 apólices de galpão ativas em Guarulhos — especialistas no segmento, com sócios com mais de 20 anos de experiência",
     "Vistoria técnica gratuita pré-cotação para galpões acima de R$ 5 mi de LMI",
-    "Comparativo entre 9 seguradoras (Porto, Allianz, HDI, Tokio, Bradesco, Sompo, Mapfre, Liberty, Zurich)",
+    "Comparativo entre 16 seguradoras (Porto, Allianz, HDI, Tokio, Bradesco, Sompo, Mapfre, Liberty, Zurich)",
     "Plantão 24/7 em sinistros graves de incêndio, alagamento e roubo",
     "92% de indenização integral em sinistros graves nos últimos 5 anos",
     "Pasta digital de risco com gestão de AVCB, brigada e renovações",
@@ -1521,7 +1522,7 @@ const seguroGalpaoGuarulhos: SeoLocalPageConfig = {
   ],
   realScenarios: [
     { title: "Galpão de e-commerce em Cumbica teve indenização integral de R$ 2,4 milhões em incêndio elétrico", description: "Operador de fulfillment com galpão de 4.200m² em Cumbica teve incêndio causado por curto-circuito em painel elétrico durante a madrugada. Patro acompanhou regulação completa e garantiu indenização integral de R$ 2,4 milhões: R$ 1,1 mi em mercadoria de terceiros (via RC armazenagem), R$ 850 mil em reforma do imóvel, R$ 280 mil em equipamentos eletrônicos e R$ 170 mil em lucros cessantes de 90 dias. Operação retomou em 110 dias." },
-    { title: "Indústria alimentícia em Vila Endres economizou R$ 38 mil/ano consolidando coberturas", description: "Indústria com galpão de 3.500m² em Vila Endres tinha 3 corretoras diferentes para empresarial, RC e equipamentos. Patro consolidou em apólice única, recotou em 9 seguradoras e reduziu prêmio total em R$ 38 mil/ano mantendo coberturas e LMI. Renovação anual passou a incluir revisão de inventário e ajuste automático de LMI." },
+    { title: "Indústria alimentícia em Vila Endres economizou R$ 38 mil/ano consolidando coberturas", description: "Indústria com galpão de 3.500m² em Vila Endres tinha 3 corretoras diferentes para empresarial, RC e equipamentos. Patro consolidou em apólice única, recotou em 16 seguradoras e reduziu prêmio total em R$ 38 mil/ano mantendo coberturas e LMI. Renovação anual passou a incluir revisão de inventário e ajuste automático de LMI." },
     { title: "Distribuidora farmacêutica em Cumbica evitou subseguro grave de R$ 4 milhões", description: "Distribuidora com galpão em Cumbica tinha LMI de R$ 3,5 milhões em apólice antiga, mas mercadoria média havia crescido para R$ 7,5 milhões com aumento de portfólio. Patro identificou subseguro de 53% em vistoria técnica, renegociou LMI proporcional e evitou potencial indenização de apenas 47% em sinistro futuro — economia de prejuízo potencial de R$ 4 milhões." },
     { title: "3PL em Bonsucesso reduziu prêmio em 32% após instalação de sprinklers", description: "Operador logístico com galpão de 8.000m² em Bonsucesso pagava R$ 142 mil/ano em seguro empresarial. Após instalação de sprinklers FM-Global e melhoria do CFTV, Patro renegociou apólice e reduziu prêmio para R$ 96 mil/ano — investimento em proteção se pagou em 3,5 anos via economia de prêmio." },
   ],
@@ -1576,7 +1577,7 @@ const seguroGalpaoCumbica: SeoLocalPageConfig = {
     { question: "Seguro de galpão em Cumbica cobre quebra de cadeia de frio para farmacêutica?", answer: "Apenas com cobertura específica de Quebra de Equipamento Frigorífico + Mercadoria Refrigerada. Cobre perda de mercadoria por queda de refrigeração superior ao tempo crítico (geralmente 4-6h para farmacêuticos sensíveis). Indispensável para distribuidoras farmacêuticas e centros de distribuição de imunobiológicos em Cumbica — sinistros podem ultrapassar R$ 2 milhões em lotes inteiros." },
     { question: "RC armazenagem é obrigatória para 3PL em Cumbica?", answer: "Não é obrigatória por lei, mas é contratualmente exigida pela quase totalidade dos clientes (embarcadores, marketplaces, indústrias que terceirizam logística). Sem RC armazenagem, o 3PL responde com patrimônio próprio em sinistro com mercadoria de terceiros — em Cumbica, com valores médios altos, isso pode liquidar a operação. Cobertura essencial em todo contrato de 3PL." },
     { question: "Roubo de carga em Cumbica tem cobertura no seguro de galpão?", answer: "Sim, em duas modalidades: (1) Roubo qualificado dentro do galpão (cobertura padrão de seguro empresarial com cláusula de mercadoria); (2) Roubo de carga em trânsito de/para o galpão — esse exige RCF-DC (Responsabilidade Civil Facultativa por Desaparecimento de Carga) que é parte do seguro de transporte (RCTR-C). A Patro monta pacote integrado galpão + transporte para cobrir os dois cenários." },
-    { question: "Quanto tempo a Patro leva para fazer vistoria técnica e devolver cotação para galpão em Cumbica?", answer: "Vistoria técnica em até 48h úteis após o pedido — saímos do escritório em Cidade Maia (12 min de Cumbica) e fazemos análise presencial de construção, proteção e fluxo. Quadro técnico comparativo entre 9 seguradoras devolvido em até 4h úteis após a vistoria. Para galpões acima de R$ 5 mi de LMI, vistoria é gratuita e fundamenta melhores condições com as seguradoras." },
+    { question: "Quanto tempo a Patro leva para fazer vistoria técnica e devolver cotação para galpão em Cumbica?", answer: "Vistoria técnica em até 48h úteis após o pedido — saímos do escritório em Cidade Maia (12 min de Cumbica) e fazemos análise presencial de construção, proteção e fluxo. Quadro técnico comparativo entre 16 seguradoras devolvido em até 4h úteis após a vistoria. Para galpões acima de R$ 5 mi de LMI, vistoria é gratuita e fundamenta melhores condições com as seguradoras." },
     { question: "A Patro atende sinistro grave em galpão de Cumbica no fim de semana?", answer: "Sim. Plantão 24/7 para sinistros graves (incêndio, alagamento, roubo grande, vazamento). Em Cumbica, com a concentração logística da região, a maioria dos sinistros graves acontece fora do horário comercial. Em mais de 60 apólices ativas no polo, a Patro acompanhou perícia, ajustamento e regulação com 92% de indenização integral nos últimos 5 anos." },
   ], ["localCumbica", "localGuarulhos", "technical", "comparison", "informational", "navigational"]),
   whoNeeds: [
@@ -1593,7 +1594,7 @@ const seguroGalpaoCumbica: SeoLocalPageConfig = {
     "Mais de 60 apólices de galpão ativas em Cumbica e entorno do GRU Airport",
     "Especialistas no polo logístico aeroportuário, com sócios com 20+ anos de experiência no segmento",
     "Vistoria técnica gratuita em até 48h úteis (escritório a 12 min de Cumbica)",
-    "Comparativo entre 9 seguradoras especializadas em risco logístico/aeroportuário",
+    "Comparativo entre 16 seguradoras especializadas em risco logístico/aeroportuário",
     "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
     "Pacote integrado galpão + transporte (RCTR-C/RCF-DC) para cobrir trânsito e armazenagem",
     "Dimensionamento de LMI com cláusula de pico sazonal para Black Friday e fim de ano",
@@ -1645,9 +1646,9 @@ const seguroCarroEletricoGuarulhos: SeoLocalPageConfig = {
   slug: "seguro-carro-eletrico-guarulhos",
   title: "Seguro para Carro Elétrico em Guarulhos e Região",
   subtitle: "Cotação especializada de seguro para carros elétricos e híbridos plug-in em Guarulhos, Cumbica, Cidade Maia, Vila Galvão, ABC e Grande SP. Cobertura para bateria de tração, recarga e assistência guincho prancha.",
-  description: `Seguro auto especializado para carros elétricos (BEV) e híbridos plug-in (PHEV) em Guarulhos e região metropolitana. Cobertura para bateria de tração, módulo de recarga (wallbox), incêndio em ponto de carga, guincho prancha e oficinas autorizadas em SP. ${partnersLine} Cotamos com as 9 seguradoras que aceitam BYD, Tesla, GWM, Volvo, Volkswagen, Chevrolet, Caoa Chery, Nissan, Toyota e Renault elétricos.`,
-  detailedDescription: `O mercado de carros elétricos em Guarulhos cresceu 6x entre 2022 e 2026, puxado pela invasão das marcas chinesas: BYD (Dolphin, Yuan Plus, Song Plus, Seal, Han, Tan), GWM (Ora 03, Haval H6 PHEV, Haval H9, Tank 300), Geely (EX5, Geometry C, Geometry E) e Changan (Deepal S07, Lumin, E-Star, Eado EV) — somadas a Volvo XC40/EX30/EX40 Recharge, Tesla Model Y/3, Caoa Chery iCar, VW ID.4/ID.Buzz, Nissan Leaf e Renault Kwid E-Tech. Mas o seguro auto tradicional não está pronto para esses veículos: a bateria de tração responde por 35% a 55% do valor total do carro, oficinas autorizadas das marcas chinesas recém-chegadas (Geely e Changan, com rede em estruturação no Brasil desde 2024-2025) são pouquíssimas e concentradas em SP capital, e o guincho convencional não pode rebocar elétrico — exige guincho prancha ou plataforma.\n\nA Patro Seguros é especialista em seguro para carro elétrico em Guarulhos e região, atendendo moradores de Cidade Maia, Vila Galvão, Vila Augusta, Cumbica, Bonsucesso, Centro, Macedo, Aeroporto, além de Mairiporã, Arujá, Itaquaquecetuba, Santa Isabel, Suzano, Mogi das Cruzes e zona norte/leste de São Paulo. Cotamos exclusivamente com as 9 seguradoras que já têm produto para EV (Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul), comparando coberturas críticas: bateria de tração contra defeito, incêndio em wallbox doméstico, guincho prancha (não convencional), assistência 24h em rodovias com baixa cobertura de carregadores, cláusula de oficina autorizada exclusiva para marcas com rede em expansão (BYD, GWM, Geely, Changan), isenção/redução de franquia para vidros, faróis de LED e câmeras 360°, e RC ampliada para colisões com pedestres (carro elétrico é mais silencioso).\n\nNosso atendimento presencial fica no Cidade Maia, a 12 minutos de Cumbica e 25 minutos do ABC pela Rodovia Ayrton Senna. Para clientes em todo Estado de SP, atendimento 100% por WhatsApp e e-mail. Apólice emitida em 24 a 48h após aceite, com cobertura provisória disponível para clientes que estão recebendo o veículo da concessionária.`,
-  metaDescription: "Seguro carro elétrico Guarulhos: cobertura bateria, wallbox e guincho prancha. Cotamos BYD, Tesla, GWM, Volvo e VW ID com 9 seguradoras.",
+  description: `Seguro auto especializado para carros elétricos (BEV) e híbridos plug-in (PHEV) em Guarulhos e região metropolitana. Cobertura para bateria de tração, módulo de recarga (wallbox), incêndio em ponto de carga, guincho prancha e oficinas autorizadas em SP. ${partnersLine} Cotamos com as 16 seguradoras que aceitam BYD, Tesla, GWM, Volvo, Volkswagen, Chevrolet, Caoa Chery, Nissan, Toyota e Renault elétricos.`,
+  detailedDescription: `O mercado de carros elétricos em Guarulhos cresceu 6x entre 2022 e 2026, puxado pela invasão das marcas chinesas: BYD (Dolphin, Yuan Plus, Song Plus, Seal, Han, Tan), GWM (Ora 03, Haval H6 PHEV, Haval H9, Tank 300), Geely (EX5, Geometry C, Geometry E) e Changan (Deepal S07, Lumin, E-Star, Eado EV) — somadas a Volvo XC40/EX30/EX40 Recharge, Tesla Model Y/3, Caoa Chery iCar, VW ID.4/ID.Buzz, Nissan Leaf e Renault Kwid E-Tech. Mas o seguro auto tradicional não está pronto para esses veículos: a bateria de tração responde por 35% a 55% do valor total do carro, oficinas autorizadas das marcas chinesas recém-chegadas (Geely e Changan, com rede em estruturação no Brasil desde 2024-2025) são pouquíssimas e concentradas em SP capital, e o guincho convencional não pode rebocar elétrico — exige guincho prancha ou plataforma.\n\nA Patro Seguros é especialista em seguro para carro elétrico em Guarulhos e região, atendendo moradores de Cidade Maia, Vila Galvão, Vila Augusta, Cumbica, Bonsucesso, Centro, Macedo, Aeroporto, além de Mairiporã, Arujá, Itaquaquecetuba, Santa Isabel, Suzano, Mogi das Cruzes e zona norte/leste de São Paulo. Cotamos exclusivamente com as 16 seguradoras que já têm produto para EV (Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul), comparando coberturas críticas: bateria de tração contra defeito, incêndio em wallbox doméstico, guincho prancha (não convencional), assistência 24h em rodovias com baixa cobertura de carregadores, cláusula de oficina autorizada exclusiva para marcas com rede em expansão (BYD, GWM, Geely, Changan), isenção/redução de franquia para vidros, faróis de LED e câmeras 360°, e RC ampliada para colisões com pedestres (carro elétrico é mais silencioso).\n\nNosso atendimento presencial fica no Cidade Maia, a 12 minutos de Cumbica e 25 minutos do ABC pela Rodovia Ayrton Senna. Para clientes em todo Estado de SP, atendimento 100% por WhatsApp e e-mail. Apólice emitida em 24 a 48h após aceite, com cobertura provisória disponível para clientes que estão recebendo o veículo da concessionária.`,
+  metaDescription: "Seguro carro elétrico Guarulhos: cobertura bateria, wallbox e guincho prancha. Cotamos BYD, Tesla, GWM, Volvo e VW ID com 16 seguradoras.",
   icon: "⚡",
   city: "Guarulhos",
   pricingIntro: "O seguro para carro elétrico em Guarulhos custa em média 18% a 35% mais caro que o seguro de um veículo a combustão de mesmo valor FIPE — diferença explicada principalmente pelo custo de reposição da bateria de tração e pela rede limitada de oficinas autorizadas. Em 2026, o prêmio anual médio fica entre R$ 4.200 (BYD Dolphin Mini, Renault Kwid E-Tech) e R$ 18.000 (Volvo EX90, Tesla Model X, Porsche Taycan).",
@@ -1663,7 +1664,7 @@ const seguroCarroEletricoGuarulhos: SeoLocalPageConfig = {
   ],
   pricingNote: "Dica Patro: para BYD, GWM e Caoa Chery (marcas com rede de assistência ainda em expansão), avalie sempre cláusula de oficina autorizada exclusiva — algumas seguradoras incluem por padrão, outras cobram à parte. Para Tesla e Porsche, exija cláusula de reparo em concessionária autorizada (sem isso, o reparo cai em oficina multimarca e pode invalidar a garantia da bateria).",
   faqs: [
-    { question: "Quanto custa seguro para carro elétrico em Guarulhos em 2026?", answer: "Para BYD Dolphin (R$ 130 mil) com perfil de 35 anos, garagem coberta em Cidade Maia, o seguro fica entre R$ 4.200 e R$ 6.500/ano com cobertura compreensiva. Para Tesla Model 3 Performance (R$ 360 mil), entre R$ 11.000 e R$ 17.000/ano. Para Volvo XC40 Recharge (R$ 290 mil), entre R$ 8.500 e R$ 13.000/ano. A Patro cota com 9 seguradoras para encontrar o melhor preço." },
+    { question: "Quanto custa seguro para carro elétrico em Guarulhos em 2026?", answer: "Para BYD Dolphin (R$ 130 mil) com perfil de 35 anos, garagem coberta em Cidade Maia, o seguro fica entre R$ 4.200 e R$ 6.500/ano com cobertura compreensiva. Para Tesla Model 3 Performance (R$ 360 mil), entre R$ 11.000 e R$ 17.000/ano. Para Volvo XC40 Recharge (R$ 290 mil), entre R$ 8.500 e R$ 13.000/ano. A Patro cota com 16 seguradoras para encontrar o melhor preço." },
     { question: "Seguro para carro elétrico cobre a bateria de tração?", answer: "Sim, mas a forma de cobertura varia entre seguradoras. Em colisão e roubo, a bateria entra na indenização integral (FIPE) como parte do veículo. Em defeito espontâneo da bateria, a maioria das seguradoras NÃO cobre — é responsabilidade da garantia de fábrica (BYD oferece 8 anos/160 mil km, Tesla 8 anos/192 mil km). Porto Seguro e Allianz têm produto de extensão de garantia de bateria que pode ser contratado separadamente." },
     { question: "O seguro cobre o wallbox (carregador residencial) em incêndio ou furto?", answer: "Apenas com cobertura específica de Equipamentos Elétricos Externos ou inclusão como 'acessório' na apólice. Wallbox custa entre R$ 3.500 e R$ 12.000 (instalado) e está exposto a incêndio elétrico, furto e vandalismo. Para garagem em condomínio, recomendamos também avisar o seguro condominial — alguns sinistros podem ser divididos entre as duas apólices." },
     { question: "Carro elétrico precisa de guincho especial em caso de pane ou colisão?", answer: "Sim. Carros elétricos NÃO podem ser rebocados em guincho convencional (com rodas no chão) — a regeneração da frenagem pode danificar o motor elétrico e a bateria. Exige guincho prancha (plataforma) ou guincho com eixo traseiro suspenso. A Patro só fecha apólice com seguradoras que garantem guincho prancha como cobertura padrão (Porto, Allianz, HDI, Bradesco, Tokio, SulAmérica, Liberty, Mapfre)." },
@@ -1672,7 +1673,7 @@ const seguroCarroEletricoGuarulhos: SeoLocalPageConfig = {
     { question: "Seguradoras já aceitam Geely EX5 e Changan Deepal S07 no Brasil?", answer: "Sim, mas com restrições. Geely (relançada no Brasil em 2025 em joint venture com Renault) e Changan (chegada em 2024-2025 com Deepal, Lumin e E-Star) já estão na tabela FIPE — Porto Seguro, Allianz, HDI, Bradesco e Tokio Marine cotam normalmente. Pontos de atenção: rede de oficinas autorizadas ainda em expansão (concentrada em SP capital), peças importadas com prazo médio de 25-45 dias e algumas seguradoras pedem rastreador obrigatório por falta de histórico de sinistralidade. A Patro negocia cláusula de oficina autorizada exclusiva e isenção de rastreador quando o cliente tem garagem coberta em CEP de baixo risco." },
     { question: "Quanto custa seguro de GWM Haval H6 PHEV, BYD Song Plus, Geely EX5 e Changan Deepal S07 em Guarulhos?", answer: "Faixas médias para perfil de 35 anos, garagem coberta em Cidade Maia ou Vila Galvão (CEP de baixo risco): GWM Haval H6 PHEV (R$ 230 mil) entre R$ 6.800 e R$ 10.500/ano; BYD Song Plus (R$ 220 mil) entre R$ 6.500 e R$ 9.800/ano; Geely EX5 (R$ 200 mil estimado) entre R$ 7.200 e R$ 11.000/ano (prêmio um pouco maior pela rede em estruturação); Changan Deepal S07 (R$ 250 mil estimado) entre R$ 8.500 e R$ 12.500/ano. CEPs de risco médio-alto (Cumbica, Pimentas, Bonsucesso) somam 15% a 30% nesses valores." },
     { question: "Por que GWM, BYD, Geely e Changan exigem cláusula de oficina autorizada exclusiva?", answer: "Porque as marcas chinesas têm rede de assistência ainda em expansão no Brasil — oficinas multimarca não têm scanner, ferramental ou peças genuínas para reparar bateria de tração, módulo de carregamento (OBC) e centralinas específicas. Reparo fora da rede autorizada pode invalidar a garantia de fábrica da bateria (BYD: 8 anos; GWM: 8 anos; Geely: 8 anos; Changan: 8 anos ou 160 mil km). A cláusula de oficina autorizada exclusiva, negociada pela Patro junto à apólice, garante reparo na concessionária da marca sem risco de quebra de garantia." },
-    { question: "Cotação de seguro para Geely Geometry e Changan Lumin (carros populares chineses) compensa em Guarulhos?", answer: "Sim, especialmente para uso urbano. Geely Geometry C (R$ 160 mil estimado) e Changan Lumin (R$ 110-130 mil) são opções de entrada do segmento elétrico, com prêmio anual entre R$ 4.500 e R$ 7.200 para perfil padrão em Guarulhos. Atenção: para Lumin (citycar de 4 lugares), nem todas as seguradoras aceitam — Porto, HDI e Bradesco já cotam, Allianz pede vistoria presencial. A Patro testa as 9 seguradoras e indica a com melhor custo-benefício para o modelo." },
+    { question: "Cotação de seguro para Geely Geometry e Changan Lumin (carros populares chineses) compensa em Guarulhos?", answer: "Sim, especialmente para uso urbano. Geely Geometry C (R$ 160 mil estimado) e Changan Lumin (R$ 110-130 mil) são opções de entrada do segmento elétrico, com prêmio anual entre R$ 4.500 e R$ 7.200 para perfil padrão em Guarulhos. Atenção: para Lumin (citycar de 4 lugares), nem todas as seguradoras aceitam — Porto, HDI e Bradesco já cotam, Allianz pede vistoria presencial. A Patro testa as 16 seguradoras e indica a com melhor custo-benefício para o modelo." },
     { question: "Motorista de Uber Black com Tesla ou BYD pode contratar seguro pela Patro?", answer: "Sim, mas com declaração obrigatória de uso por aplicativo. Não declarar uso comercial é o erro #1 que invalida sinistro de motorista de aplicativo — apólice nega cobertura por agravamento de risco não declarado. As seguradoras Porto, Allianz e Bradesco têm produto específico para motoristas de aplicativo premium (Uber Black/Comfort, 99Top), com adicional médio de 25% a 40% sobre o seguro particular." },
     { question: "Seguro para híbrido plug-in (PHEV) tem o mesmo preço de seguro para elétrico puro (BEV)?", answer: "Não. PHEV (Caoa Tiggo 8, GWM Haval H6, Toyota RAV4, Volvo XC60 Recharge T8) costuma ter prêmio 8% a 15% mais barato que BEV de mesmo valor FIPE — porque tem motor a combustão como backup, pode ser rebocado em guincho convencional em emergência e tem oficinas multimarca aptas a manutenção mecânica. Híbrido leve (Toyota Corolla Cross Hybrid, Honda Civic Hybrid) tem precificação muito próxima de carro a combustão tradicional." },
     { question: "Em sinistro de perda total de carro elétrico, a indenização cobre 100% da FIPE?", answer: "Sim, na cobertura compreensiva com cláusula de indenização integral (FIPE 100% ou valor de mercado referenciado). É importante manter a tabela FIPE atualizada na apólice — carros elétricos têm depreciação mais rápida nos primeiros 2 anos (15% a 25% no primeiro ano para Tesla e Volvo importados). A Patro reajusta automaticamente o LMI a cada renovação para evitar subseguro." },
@@ -1691,7 +1692,7 @@ const seguroCarroEletricoGuarulhos: SeoLocalPageConfig = {
   ],
   whyPatro: [
     "Especialistas em seguro para carro elétrico desde 2022 — mais de 180 apólices ativas de EV",
-    "Cotação simultânea com as 9 seguradoras que aceitam carro elétrico no Brasil",
+    "Cotação simultânea com as 16 seguradoras que aceitam carro elétrico no Brasil",
     "Conhecimento técnico de cada modelo: bateria, oficinas autorizadas, garantia de fábrica",
     "Garantia de guincho prancha em 100% das apólices fechadas — nunca guincho convencional",
     "Atendimento presencial no Cidade Maia, Guarulhos — a 12 min de Cumbica, 25 min do ABC",
@@ -1801,11 +1802,11 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
     extras: [
       {
         question: `A Patro Seguros atende em ${c.city}? Existe escritório físico na cidade?`,
-        answer: `Sim, atendemos toda a região de ${c.city}. Nossa sede física fica em Guarulhos (Cidade Maia), mas todo o processo — cotação, análise de risco, vistoria, emissão da apólice, suporte em sinistro e renovação anual — é 100% remoto, por WhatsApp (11 5199-7500), e-mail e telefone, sem necessidade de visita presencial. As 9 seguradoras parceiras realizam vistoria por aplicativo na maioria dos casos. Para clientes que preferem encontro presencial, recebemos no escritório do Cidade Maia mediante agendamento.`,
+        answer: `Sim, atendemos toda a região de ${c.city}. Nossa sede física fica em Guarulhos (Cidade Maia), mas todo o processo — cotação, análise de risco, vistoria, emissão da apólice, suporte em sinistro e renovação anual — é 100% remoto, por WhatsApp (11 5199-7500), e-mail e telefone, sem necessidade de visita presencial. As 16 seguradoras parceiras realizam vistoria por aplicativo na maioria dos casos. Para clientes que preferem encontro presencial, recebemos no escritório do Cidade Maia mediante agendamento.`,
       },
       {
         question: `Por que contratar seguro auto em ${c.city} com a Patro, sediada em Guarulhos?`,
-        answer: `Porque seguro auto é produto regulado pela SUSEP e a corretora atua em todo o território nacional, independentemente da cidade da sede física. A Patro tem registro SUSEP ativo, 17+ anos de mercado, nota 4.9 no Google e parceria com as principais seguradoras do país. O modelo remoto garante o mesmo nível de atendimento que clientes de Guarulhos recebem — com a vantagem adicional de comparativo entre 9 seguradoras em uma única cotação, em vez de você precisar cotar separadamente em cada site.`,
+        answer: `Porque seguro auto é produto regulado pela SUSEP e a corretora atua em todo o território nacional, independentemente da cidade da sede física. A Patro tem registro SUSEP ativo, sócios com ${EMPRESA.metricas.experienciaAnos} anos de experiência de mercado, nota 4.9 no Google e parceria com as principais seguradoras do país. O modelo remoto garante o mesmo nível de atendimento que clientes de Guarulhos recebem — com a vantagem adicional de comparativo entre 16 seguradoras em uma única cotação, em vez de você precisar cotar separadamente em cada site.`,
       },
     ],
   });
@@ -1817,8 +1818,8 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
     title: `${titlePrefix} — Cotação Online com a Patro Seguros`,
     subtitle: `Cotação de seguro auto em ${c.city} com atendimento 100% remoto pela Patro Seguros (sede em Guarulhos/SP). Comparamos Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul Seguros em uma única cotação.`,
     description: `Procurando seguro auto em ${c.city}? A Patro Seguros é uma corretora SUSEP sediada em Guarulhos/SP que atende ${c.city} de forma 100% remota (WhatsApp, e-mail e telefone). ${c.context.charAt(0).toUpperCase() + c.context.slice(1)} A faixa de preço média para cobertura compreensiva em ${c.city} fica em ${c.priceRange}, variando conforme modelo, versão, CEP de pernoite e perfil do condutor. ${partnersLine}`,
-    detailedDescription: `### Como a Patro atende ${c.city}\n\nSomos uma corretora física de Guarulhos (Cidade Maia), com 17+ anos de mercado e registro SUSEP ativo, que oferece atendimento 100% remoto para toda a Grande São Paulo — incluindo ${c.city}. Toda a operação (cotação, vistoria, emissão de apólice, suporte em sinistro e renovação anual) é feita por WhatsApp, e-mail, telefone e plataforma das seguradoras, sem necessidade de visita presencial.\n\n### Mercado de Seguro Auto em ${c.city}\n\n${c.context} ${c.highlights.map((h) => `(${h})`).join("; ")}. Em 2026, o prêmio anual médio para cobertura compreensiva fica em ${c.priceRange}, com perfil de risco classificado como ${c.riskLevel}. As variáveis de maior peso são versão do veículo, CEP de pernoite, idade e tempo de habilitação do condutor principal, uso e instalação de rastreador.\n\n### Por que Comparar 9 Seguradoras faz Diferença?\n\nCada seguradora trata os CEPs da Grande SP de forma diferente. Para o mesmo perfil em ${c.city}, é comum encontrar variação superior a 35% no prêmio anual entre a seguradora mais cara e a mais barata. Pelo modelo da Patro, você recebe comparativo padronizado em até 2 horas úteis — sem precisar preencher 9 cotações em sites diferentes.\n\n### Suporte em Sinistro\n\nA Patro acompanha integralmente o processo de sinistro em ${c.city}, da abertura à liquidação, com argumentação técnica quando necessário — sem custo adicional para o cliente. Vistorias presenciais podem ser feitas no escritório do Cidade Maia ou diretamente em oficinas referenciadas da seguradora em ${c.city}.`,
-    metaDescription: `Seguro auto ${c.metaCity ?? c.city}: cotação online entre 9 seguradoras com a Patro Seguros (sede Guarulhos/SP, atendimento 100% remoto). ${c.priceRange}.`,
+    detailedDescription: `### Como a Patro atende ${c.city}\n\nSomos uma corretora física de Guarulhos (Cidade Maia), com sócios de ${EMPRESA.metricas.experienciaAnos} anos de experiência de mercado e registro SUSEP ativo, que oferece atendimento 100% remoto para toda a Grande São Paulo — incluindo ${c.city}. Toda a operação (cotação, vistoria, emissão de apólice, suporte em sinistro e renovação anual) é feita por WhatsApp, e-mail, telefone e plataforma das seguradoras, sem necessidade de visita presencial.\n\n### Mercado de Seguro Auto em ${c.city}\n\n${c.context} ${c.highlights.map((h) => `(${h})`).join("; ")}. Em 2026, o prêmio anual médio para cobertura compreensiva fica em ${c.priceRange}, com perfil de risco classificado como ${c.riskLevel}. As variáveis de maior peso são versão do veículo, CEP de pernoite, idade e tempo de habilitação do condutor principal, uso e instalação de rastreador.\n\n### Por que Comparar 9 Seguradoras faz Diferença?\n\nCada seguradora trata os CEPs da Grande SP de forma diferente. Para o mesmo perfil em ${c.city}, é comum encontrar variação superior a 35% no prêmio anual entre a seguradora mais cara e a mais barata. Pelo modelo da Patro, você recebe comparativo padronizado em até 2 horas úteis — sem precisar preencher 16 cotações em sites diferentes.\n\n### Suporte em Sinistro\n\nA Patro acompanha integralmente o processo de sinistro em ${c.city}, da abertura à liquidação, com argumentação técnica quando necessário — sem custo adicional para o cliente. Vistorias presenciais podem ser feitas no escritório do Cidade Maia ou diretamente em oficinas referenciadas da seguradora em ${c.city}.`,
+    metaDescription: `Seguro auto ${c.metaCity ?? c.city}: cotação online entre 16 seguradoras com a Patro Seguros (sede Guarulhos/SP, atendimento 100% remoto). ${c.priceRange}.`,
     icon: "🚗",
     city: c.city,
     pricingIntro: `O seguro auto em ${c.city} fica em média ${c.priceRange} para cobertura compreensiva (roubo, furto, colisão e terceiros). O perfil de risco da cidade é classificado como ${c.riskLevel}. CEP de pernoite, versão do veículo, idade do condutor e uso (particular ou aplicativo) são os fatores de maior impacto no prêmio final.`,
@@ -1834,7 +1835,7 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
     pricingNote: `Dica Patro: em ${c.city}, perfil de risco ${c.riskLevel}, instalar rastreador costuma reduzir o prêmio entre ${c.riskLevel === "alto" || c.riskLevel === "médio-alto" ? "10% e 22%" : "6% e 14%"}.`,
     faqs,
     whoNeeds: [
-      `Moradores de ${c.city} que querem comparar 9 seguradoras sem cotar uma a uma`,
+      `Moradores de ${c.city} que querem comparar 16 seguradoras sem cotar uma a uma`,
       `Quem comprou veículo 0km em concessionária de ${c.city} ou região e precisa de cotação rápida`,
       `Quem recebeu renovação automática com aumento abusivo em ${c.city}`,
       `Motoristas de Uber/99 em ${c.city} que precisam de cláusula EAR para uso em aplicativo`,
@@ -1843,8 +1844,8 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
     ],
     whyPatro: [
       `Atendimento 100% remoto para ${c.city} — WhatsApp, e-mail, telefone e vistoria por app`,
-      "17+ anos de mercado e registro SUSEP ativo",
-      "Comparativo entre 9 seguradoras em até 2 horas úteis",
+      `Sócios com ${EMPRESA.metricas.experienciaAnos} anos de experiência de mercado e registro SUSEP ativo`,
+      "Comparativo entre 16 seguradoras em até 2 horas úteis",
       "Nota 4.9 no Google com avaliações verificadas",
       "Suporte em sinistro com argumentação técnica — sem custo adicional",
       "Renovação anual revista automaticamente para evitar aumentos abusivos",
@@ -1854,7 +1855,7 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
     realScenarios: [
       {
         title: `Cliente em ${c.city} economizou 26% na renovação`,
-        description: `Cliente recebeu renovação automática com aumento de 31% sem sinistro registrado. A Patro recotou com 9 seguradoras pelo WhatsApp e migrou para apólice equivalente com 26% de economia em relação ao valor proposto — toda a operação resolvida sem visita presencial.`,
+        description: `Cliente recebeu renovação automática com aumento de 31% sem sinistro registrado. A Patro recotou com 16 seguradoras pelo WhatsApp e migrou para apólice equivalente com 26% de economia em relação ao valor proposto — toda a operação resolvida sem visita presencial.`,
       },
       {
         title: `Cotação de veículo 0km em ${c.city} entregue em 1h12`,

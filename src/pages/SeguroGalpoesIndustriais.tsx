@@ -12,7 +12,7 @@ import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
  */
 const INDUSTRIAL_BASE_FAQS = [
   { question: "O seguro cobre o conteúdo do galpão?", answer: "Sim, é possível segurar tanto a estrutura quanto máquinas, equipamentos e mercadorias armazenadas. Para galpão industrial, o ideal é declarar separadamente o LMI de Estrutura, Máquinas e Equipamentos, Mercadoria/Estoque e Equipamentos Eletrônicos para evitar subseguro em qualquer dos blocos." },
-  { question: "Quanto custa seguro de galpão industrial?", answer: "O valor depende da localização, tipo de atividade, valor do imóvel e coberturas. Para galpão industrial padrão de 3.000m² com LMI total de R$ 8 milhões, o seguro empresarial completo (incêndio, roubo, danos elétricos, RC operações, lucros cessantes) fica entre R$ 24.000 e R$ 55.000/ano. A Patro cota com 9 seguradoras especializadas em risco industrial pesado." },
+  { question: "Quanto custa seguro de galpão industrial?", answer: "O valor depende da localização, tipo de atividade, valor do imóvel e coberturas. Para galpão industrial padrão de 3.000m² com LMI total de R$ 8 milhões, o seguro empresarial completo (incêndio, roubo, danos elétricos, RC operações, lucros cessantes) fica entre R$ 24.000 e R$ 55.000/ano. A Patro cota com 16 seguradoras especializadas em risco industrial pesado." },
 ];
 
 const INDUSTRIAL_FAQS = mergeGalpaoFAQs(INDUSTRIAL_BASE_FAQS, [

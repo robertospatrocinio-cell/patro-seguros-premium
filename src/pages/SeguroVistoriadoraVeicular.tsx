@@ -59,7 +59,7 @@ const SeguroVistoriadoraVeicular = () => (
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
         { title: "Responsabilidade Civil Profissional (E&O)", link: "/seguro-rc-profissional" },
         { title: "Seguro Cyber / LGPD", link: "/seguro-cyber" },
-        { title: "Seguro Empresas de Vistoria Veicular (Guarulhos)", link: "/seguro-vistoria-veicular-guarulhos" },
+        { title: "Seguro Empresas de Vistoria Veicular (Guarulhos)", link: "/seguro-vistoriadora-veicular" },
         { title: "Seguro para Despachantes e Vistorias", link: "/seguro-despachantes-e-vistorias" },
       ]}
     />

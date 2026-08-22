@@ -61,7 +61,7 @@ export const galpaoClusterFAQs: Record<GalpaoFAQIntent, FAQ[]> = {
     {
       question: "Como contratar seguro de galpão pela Patro Seguros?",
       answer:
-        "Em 4 passos: (1) Você envia área, atividade, valor de mercadoria média e endereço pelo WhatsApp ou formulário; (2) A Patro pré-cota em até 4h úteis com 9 seguradoras; (3) Para galpões acima de R$ 5 mi de LMI, agendamos vistoria técnica gratuita em até 48h; (4) Apresentamos quadro comparativo de coberturas, franquias e prêmios e fechamos com a seguradora vencedora. Apólice emitida em 2-5 dias úteis após o aceite.",
+        "Em 4 passos: (1) Você envia área, atividade, valor de mercadoria média e endereço pelo WhatsApp ou formulário; (2) A Patro pré-cota em até 4h úteis com 16 seguradoras; (3) Para galpões acima de R$ 5 mi de LMI, agendamos vistoria técnica gratuita em até 48h; (4) Apresentamos quadro comparativo de coberturas, franquias e prêmios e fechamos com a seguradora vencedora. Apólice emitida em 2-5 dias úteis após o aceite.",
     },
     {
       question: "Quanto tempo leva para emitir uma apólice de seguro de galpão?",
@@ -71,7 +71,7 @@ export const galpaoClusterFAQs: Record<GalpaoFAQIntent, FAQ[]> = {
     {
       question: "É possível parcelar o seguro de galpão? Em quantas vezes?",
       answer:
-        "Sim. As 9 seguradoras parceiras parcelam em até 6x sem juros via boleto bancário e até 10x no cartão de crédito (com juros). Para apólices acima de R$ 100 mil/ano, algumas seguradoras aceitam parcelamento em 12x sem juros mediante análise de crédito. A Patro negocia a melhor condição de parcelamento como parte do quadro comparativo.",
+        "Sim. As 16 seguradoras parceiras parcelam em até 6x sem juros via boleto bancário e até 10x no cartão de crédito (com juros). Para apólices acima de R$ 100 mil/ano, algumas seguradoras aceitam parcelamento em 12x sem juros mediante análise de crédito. A Patro negocia a melhor condição de parcelamento como parte do quadro comparativo.",
     },
     {
       question: "Posso trocar de seguradora no meio do contrato sem perder cobertura?",
@@ -99,7 +99,7 @@ export const galpaoClusterFAQs: Record<GalpaoFAQIntent, FAQ[]> = {
     {
       question: "Vale a pena contratar seguro de galpão direto na seguradora ou via corretora especializada?",
       answer:
-        "Via corretora especializada quase sempre. Na seguradora direta, você só vê uma cotação e a precificação tende a ser conservadora (mais cara). Uma corretora especializada como a Patro cota com 9 seguradoras simultaneamente, identifica subseguro, negocia franquias e faz acompanhamento de regulação no sinistro — o serviço da corretora não é cobrado do cliente (é remunerado pela seguradora) e historicamente reduz o prêmio em 15-30%.",
+        "Via corretora especializada quase sempre. Na seguradora direta, você só vê uma cotação e a precificação tende a ser conservadora (mais cara). Uma corretora especializada como a Patro cota com 16 seguradoras simultaneamente, identifica subseguro, negocia franquias e faz acompanhamento de regulação no sinistro — o serviço da corretora não é cobrado do cliente (é remunerado pela seguradora) e historicamente reduz o prêmio em 15-30%.",
     },
   ],
 

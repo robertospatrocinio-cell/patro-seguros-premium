@@ -3,20 +3,98 @@ Allow: /
 Allow: /assets/
 Allow: /images/
 Allow: /fonts/
-Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+Disallow: /~api/
+Disallow: /~flock.js
 Disallow: /crm
-Disallow: /~*
+Disallow: /performance-diagnostico
+Disallow: /conversion-dashboard
+Disallow: /seo-technical-report
+Disallow: /pagespeed-history
 
-# AI & Search Crawlers
-User-agent: ChatGPT-User
+# Allow public high-value paths
+Allow: /lp/
+Allow: /blog/
+Allow: /seguros-guarulhos/
+Allow: /planos-de-saude/
+
+# Sitemaps
+Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
+
+# Search bots
+User-agent: Googlebot
 Allow: /
-User-agent: GPTBot
+Crawl-delay: 0.1
+
+User-agent: Bingbot
 Allow: /
-User-agent: Google-Extended
-Allow: /
+Crawl-delay: 0.5
+
+# AI answer engines (AEO/GEO) — liberados para descoberta e citação
 User-agent: OAI-SearchBot
 Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
 User-agent: SemrushBot
 Allow: /
 
-Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
+# Scrapers sem valor de descoberta/citação
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /

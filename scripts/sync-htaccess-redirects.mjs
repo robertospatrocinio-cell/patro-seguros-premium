@@ -55,7 +55,7 @@ let htaccess = fs.readFileSync(HTACCESS, "utf-8");
 if (htaccess.includes(START)) {
   htaccess = htaccess.replace(
     new RegExp(`${START.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}[\\s\\S]*?${END.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}`),
-    block,
+    () => block,
   );
 } else {
   // Insere logo antes da regra de remoção de barra final.
@@ -64,7 +64,7 @@ if (htaccess.includes(START)) {
     console.error("❌ âncora não encontrada no .htaccess");
     process.exit(1);
   }
-  htaccess = htaccess.replace(anchor, `${block}\n\n${anchor}`);
+  htaccess = htaccess.replace(anchor, () => `${block}\n\n${anchor}`);
 }
 
 if (process.argv.includes("--check")) {

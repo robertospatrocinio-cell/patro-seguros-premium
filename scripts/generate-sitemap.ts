@@ -650,7 +650,47 @@ export function generateSitemap(blogSlugs: string[]): string {
       dedup.set(e.loc, e);
     }
   }
-  const allEntries = [...dedup.values()];
+  // ---- Remove URLs que respondem 301/redirect ------------------------------
+  // Um sitemap só deve listar URLs canônicas que retornam 200. Estas rotas
+  // redirecionam (Navigate no App.tsx ou regra em src/lib/redirects.ts) e por
+  // isso são excluídas — os 301 continuam ativos para preservar equity.
+  const REDIRECTED_PATHS = new Set<string>([
+    "/consorcio-guarulhos",
+    "/cotacao-seguro-auto-guarulhos",
+    "/planejamento-patrimonial",
+    "/plano-saude-empresarial-guarulhos",
+    "/plano-saude-familia-guarulhos",
+    "/plano-saude-mei-guarulhos",
+    "/plano-saude-pme-guarulhos",
+    "/planos-saude-senior-guarulhos",
+    "/seguro-auto-barato-guarulhos",
+    "/seguro-auto-bonsucesso-guarulhos",
+    "/seguro-auto-por-modelo-guarulhos",
+    "/seguro-case-ih-guarulhos",
+    "/seguro-civic-guarulhos",
+    "/seguro-compass-guarulhos",
+    "/seguro-corolla-guarulhos",
+    "/seguro-galpao-guarulhos",
+    "/seguro-logistica-guarulhos",
+    "/seguro-loja-guarulhos",
+    "/seguro-restaurante-guarulhos",
+    "/seguro-transportadora-guarulhos",
+    "/seguro-para-empresas-de-vistoria-veicular",
+    // Redirects declarados em src/lib/redirects.ts
+    "/seguros-cidade-maia-guarulhos",
+    "/planos-de-saude",
+    "/seguro-saude",
+    "/plano-de-saude",
+    "/seguros-em-guarulhos",
+    "/corretora-de-seguros-em-guarulhos",
+    "/seguro-transporte",
+    "/nossos-parceiros",
+    "/politica-de-privacidade",
+  ]);
+
+  const allEntries = [...dedup.values()].filter(
+    (e) => !REDIRECTED_PATHS.has(e.loc.toLowerCase().replace(/\/+$/, "")),
+  );
 
   // ---- Split by cluster ----------------------------------------------------
 

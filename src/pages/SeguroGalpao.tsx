@@ -9,7 +9,7 @@ import { mergeGalpaoFAQs } from "@/data/galpaoClusterFAQs";
  *
  * Centraliza a rota /seguro-galpao reunindo:
  *  - Especialização em Guarulhos/Cumbica (maior polo logístico do país)
- *  - Atendimento nacional via parcerias com 9 seguradoras
+ *  - Atendimento nacional via parcerias com 16 seguradoras
  *  - Cluster interno para páginas locais (/seguro-galpao-guarulhos,
  *    /seguro-galpao-cumbica, /seguro-galpoes-industriais e correlatas)
  *
@@ -37,8 +37,8 @@ const CLUSTER_LINKS = [
  * Resultado: ~22 perguntas únicas no FAQPage Schema.
  */
 const HUB_BASE_FAQS = [
-  { question: "A Patro Seguros atende galpões em todo o Brasil ou só em Guarulhos?", answer: "Atendemos em todos os estados via parcerias com 9 seguradoras nacionais (Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, Sompo, Mapfre, Liberty e Zurich). A especialização hiperlocal está em Guarulhos/Cumbica, mas mais de 30% das apólices ativas são de galpões fora da região metropolitana de SP — atendimento e gestão 100% por WhatsApp e e-mail para clientes nacionais." },
-  { question: "Quanto custa seguro de galpão no Brasil?", answer: "Varia muito por região e atividade. Para galpão padrão de 2.000m², alvenaria com telhado metálico, mercadoria média de R$ 3 milhões e LMI total de R$ 5 milhões, o seguro empresarial completo fica entre R$ 18.000 e R$ 40.000/ano dependendo da localização (Guarulhos/Cumbica, interior de SP, RJ, MG, PR, RS, NE) e proteção. A Patro cota com 9 seguradoras." },
+  { question: "A Patro Seguros atende galpões em todo o Brasil ou só em Guarulhos?", answer: "Atendemos em todos os estados via parcerias com 16 seguradoras nacionais (Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, Sompo, Mapfre, Liberty e Zurich). A especialização hiperlocal está em Guarulhos/Cumbica, mas mais de 30% das apólices ativas são de galpões fora da região metropolitana de SP — atendimento e gestão 100% por WhatsApp e e-mail para clientes nacionais." },
+  { question: "Quanto custa seguro de galpão no Brasil?", answer: "Varia muito por região e atividade. Para galpão padrão de 2.000m², alvenaria com telhado metálico, mercadoria média de R$ 3 milhões e LMI total de R$ 5 milhões, o seguro empresarial completo fica entre R$ 18.000 e R$ 40.000/ano dependendo da localização (Guarulhos/Cumbica, interior de SP, RJ, MG, PR, RS, NE) e proteção. A Patro cota com 16 seguradoras." },
   { question: "Por que escolher uma corretora de Guarulhos para um galpão em outro estado?", answer: "Por especialização técnica. Guarulhos/Cumbica é o maior polo logístico do Brasil — corretoras da região têm mais experiência em galpões, RC armazenagem e dimensionamento de LMI do que corretoras generalistas de outras praças. A regulação de sinistro e a relação com seguradoras é nacional, não local." },
   { question: "Quais seguradoras atendem galpões em todo o território nacional?", answer: "As 9 que a Patro coordena atendem nacionalmente: Porto Seguro Empresarial, Allianz Empresas, HDI Empresarial, Tokio Marine, Bradesco Riscos Patrimoniais, Sompo, Mapfre, Liberty e Zurich. Para galpões em capitais e regiões metropolitanas a oferta é completa; em municípios pequenos algumas seguradoras pedem vistoria técnica obrigatória." },
   { question: "Como funciona a vistoria técnica para galpão fora de Guarulhos?", answer: "Para LMI acima de R$ 5 milhões, a seguradora indica vistoriador credenciado na praça do galpão (custo arcado pela seguradora na apólice fechada). A Patro acompanha remotamente, valida o laudo e usa os apontamentos para argumentar coberturas e franquias melhores. Para LMI abaixo desse patamar, a vistoria geralmente é dispensada." },
@@ -102,7 +102,7 @@ const SeguroGalpao = () => {
       ]}
       whyPatro={[
         "Consultoria para validação de cláusulas de seguro em contratos de locação",
-        "Especialização em hubs como Guarulhos/Cumbica + atendimento nacional via 9 seguradoras",
+        "Especialização em hubs como Guarulhos/Cumbica + atendimento nacional via 16 seguradoras",
         "Análise de risco técnica e vistoria gratuita para galpões de grande porte",
         "Mais de 140 apólices ativas — especialistas no segmento logístico, com sócios com 20+ anos de experiência",
         "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
