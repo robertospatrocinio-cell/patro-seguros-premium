@@ -297,7 +297,7 @@ function buildEmpresarial(s: Seed): SeoLocalPageConfig {
     whyPatro: [
       `Atendimento presencial no Cidade Maia, próximo ao ${s.bairro}`,
       "Comparativo entre Porto, Allianz, HDI, Tokio Marine, Mapfre e Berkley Empresarial",
-      "Mais de 500 apólices empresariais ativas em Guarulhos",
+      "Carteira empresarial ativa em Guarulhos",
       "Vistoria presencial e argumentação técnica em sinistros médios e grandes",
       "Revisão anual conforme crescimento do faturamento",
     ],

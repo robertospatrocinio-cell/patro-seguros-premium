@@ -621,7 +621,7 @@ const Sobre = () => {
                 </div>
                 <div>
                   <dt className="font-semibold text-foreground">Experiência</dt>
-                  <dd className="text-muted-foreground">25+ anos · 500+ empresas atendidas</dd>
+                  <dd className="text-muted-foreground">20+ anos de experiência dos sócios · atendimento a empresas de diversos portes</dd>
                 </div>
                 <div>
                   <dt className="font-semibold text-foreground">Parcerias</dt>

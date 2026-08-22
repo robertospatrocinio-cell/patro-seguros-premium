@@ -183,7 +183,7 @@ Nossa equipe técnica acompanha o sinistro do início ao fim. Em caso de furto e
     whyPatro={[
       "Escritório no Edifício Via Alameda — Sala 219, em frente ao Shopping Maia, atendimento presencial com agendamento",
       "Mais de 16 seguradoras comparadas em paralelo (Porto, Allianz, Bradesco, Tokio Marine, HDI, Mapfre, Sompo, SulAmérica e outras)",
-      "Mais de 500 PMEs e famílias atendidas em Guarulhos — referência local desde 2012",
+      "PMEs e famílias atendidas em Guarulhos — atendimento local e presencial",
       "Suporte humano: você fala direto com seu corretor em caso de sinistro, sem call center ou URA",
       "Conhecimento técnico das exigências do Shopping Maia para lojistas e dos condomínios da Cidade Maia",
       "Atendimento digital paralelo via WhatsApp e formulário online para quem prefere a distância",

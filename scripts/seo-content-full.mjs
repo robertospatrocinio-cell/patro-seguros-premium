@@ -608,8 +608,7 @@ export const FULL_SEO_CONTENT = {
         <li>SUSEP 212113511 — corretora habilitada;</li>
         <li>Fundada em 2021;</li>
         <li>Equipe com 20+ anos de experiência no setor;</li>
-        <li>2.500+ apólices ativas para pessoas físicas;</li>
-        <li>500+ apólices ativas para PMEs;</li>
+        <li>carteira ativa de apólices para pessoas físicas, famílias e empresas;</li>
         <li>16+ seguradoras parceiras;</li>
         <li>20+ operadoras de saúde;</li>
         <li>Nota 4.9 em avaliações Google.</li>

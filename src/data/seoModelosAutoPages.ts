@@ -1244,7 +1244,7 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
       `Especialistas em cotação de ${m.modeloShort} em Guarulhos`,
       "Comparativo entre 16 seguradoras em até 2 horas úteis",
       "Atendimento presencial no Cidade Maia ou 100% por WhatsApp",
-      "Mais de 500 apólices de seguro auto ativas em Guarulhos",
+      "Carteira de seguro auto ativa em Guarulhos",
       "Suporte em sinistro com argumentação técnica",
       "Renovação anual otimizada — recotamos automaticamente todo ano",
     ],

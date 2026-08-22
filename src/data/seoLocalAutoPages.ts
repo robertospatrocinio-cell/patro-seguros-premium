@@ -213,7 +213,7 @@ const buildBairroConfig = (b: BairroSeed): SeoLocalPageConfig => ({
   whyPatro: [
     `Atendimento presencial no Cidade Maia, próximo ao ${b.bairro}`,
     "Comparativo entre 16 seguradoras em uma única cotação",
-    "Mais de 500 apólices de seguro auto ativas em Guarulhos",
+    "Carteira de seguro auto ativa em Guarulhos",
     "Suporte em sinistro com argumentação técnica para evitar negativas",
     "Renovação anual otimizada — recotamos automaticamente para garantir o melhor preço",
     "Zero custo: o pagamento da corretora é feito pela seguradora, não por você",
@@ -337,7 +337,7 @@ const cotacaoSeguroAuto: SeoLocalPageConfig = {
     "Comparativo entre 16 seguradoras em até 2 horas úteis",
     "Cotação 100% gratuita e sem compromisso",
     "Atendimento presencial no Cidade Maia ou por WhatsApp",
-    "Mais de 500 apólices de seguro auto ativas em Guarulhos",
+    "Carteira de seguro auto ativa em Guarulhos",
     "Suporte em sinistro com argumentação técnica",
     "Renovação anual otimizada para evitar aumentos abusivos",
   ],
