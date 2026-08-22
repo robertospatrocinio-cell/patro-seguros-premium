@@ -679,7 +679,7 @@ const App = () => {
                   <Route path="/consorcio-veiculos-guarulhos" element={<ConsorcioGuarulhosVertical />} />
                   <Route path="/consorcio-caminhoes-guarulhos" element={<ConsorcioGuarulhosVertical />} />
                   <Route path="/consorcio-empresarial-guarulhos" element={<ConsorcioGuarulhosVertical />} />
-                  <Route path="/consorcio-guarulhos" element={<Navigate to="/consorcio" replace />} />
+                  
                   <Route path="/consorcio-carro" element={<ConsorcioCarro />} />
                   <Route path="/consorcio-imoveis" element={<ConsorcioImoveis />} />
                   <Route path="/consorcio-veiculos-pesados" element={<ConsorcioVeiculosPesados />} />
