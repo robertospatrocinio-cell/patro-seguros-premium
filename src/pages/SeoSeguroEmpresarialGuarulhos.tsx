@@ -7,7 +7,7 @@ const SeoSeguroEmpresarialGuarulhos = () => (
     <PrerenderText slug="seguro-empresarial-guarulhos" />
     <InsurancePageTemplate
     heroImage={heroImg}
-    quoteUrl="https://patroseguros.com.br/cotacao-auto"
+    quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
     title="Seguro Empresarial em Guarulhos | PME e Empresas | Patro Seguros"
     subtitle="Seguro Empresarial em Guarulhos — Seu Negócio Protegido"
     description="Seguro empresarial em Guarulhos para proteger seu negócio. Cobertura para incêndio, roubo e responsabilidade civil. Cotação grátis."

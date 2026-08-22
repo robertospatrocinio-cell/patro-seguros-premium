@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Valida que https://patroseguros.com.br/cotacao-auto responde com:
+ * Valida que https://www.patroseguros.com.br/cotacao-auto responde com:
  *   - HTTP 302 (Found)
  *   - Header `Location` apontando para o formulário oficial da Segfy
  *
@@ -13,7 +13,7 @@
  *   1 = falha (status, location ou rede)
  */
 
-const DEFAULT_URL = "https://patroseguros.com.br/cotacao-auto";
+const DEFAULT_URL = "https://www.patroseguros.com.br/cotacao-auto";
 const EXPECTED_LOCATION =
   "https://villa.segfy.com/Publico/Segurados/Orcamentos/SolicitarCotacao?e=t6RDiR%2F1ioARkspweLWOgQ%3D%3D";
 const EXPECTED_STATUS = 302;

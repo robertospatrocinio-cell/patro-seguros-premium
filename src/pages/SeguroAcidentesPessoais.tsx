@@ -5,7 +5,7 @@ const SeguroAcidentesPessoais = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
       title="Seguro de Acidentes Pessoais"
       subtitle="Proteção financeira para você e sua família em caso de acidentes"
       icon="🛡️"

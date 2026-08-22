@@ -6,7 +6,7 @@ import heroImg from "@/assets/lp-seguro-empresarial.webp";
 const LandingSeguroEmpresarial = () => (
   <LandingPageTemplate
     heroImage={heroImg}
-    ctaUrl="https://patroseguros.com.br/cotacao-auto"
+    ctaUrl="https://www.patroseguros.com.br/cotacao-auto"
     title="Seguro Empresarial"
     heroEmoji="🏢"
     headline="Sua empresa pode fechar amanhã por um incêndio. Você está preparado?"
