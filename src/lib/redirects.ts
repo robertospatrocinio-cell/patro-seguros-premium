@@ -79,6 +79,16 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
     from: "/politica-de-privacidade",
     to: "/politica-privacidade",
     reason: "Slug antigo da mesma política.",
+  },
+  {
+    from: "/previdencia",
+    to: "/previdencia-privada",
+    reason: "Slug antigo da mesma vertical de previdência.",
+  },
+  {
+    from: "/odonto-personal",
+    to: "/seguro-odonto",
+    reason: "Produto legado consolidado na página de seguro odontológico.",
   }
 ];
 
@@ -86,6 +96,11 @@ export const EXACT_REDIRECTS: RedirectRule[] = [
  * Padrões de redirect baseados em Regex.
  */
 export const PATTERN_REDIRECTS = [
+  {
+    pattern: /^\/artigos\/(.+)/,
+    replace: (match: RegExpMatchArray) => `/blog/${match[1]}`,
+    reason: "Migração da estrutura legada /artigos para /blog.",
+  },
   {
     pattern: /^\/bairro\/(.*)/,
     replace: (match: RegExpMatchArray) => `/seguros-${match[1]}-guarulhos`,
@@ -100,6 +115,22 @@ export const GONE_PATTERNS: GoneRule[] = [
   {
     pattern: /\/old-wp-content\/.*/,
     reason: "Conteúdo legado do WordPress sem equivalência no novo site."
+  },
+  {
+    pattern: /^\/(tag|category)(\/|$)/,
+    reason: "Arquivos de tag/categoria do WordPress sem equivalência (thin content)."
+  },
+  {
+    pattern: /(^|\/)(feed|rss|rss2|atom)$/,
+    reason: "Feeds do WordPress descontinuados."
+  },
+  {
+    pattern: /^\/wp-(content|admin|includes|json)(\/|$)/,
+    reason: "Estrutura interna do WordPress descontinuada."
+  },
+  {
+    pattern: /^\/author(\/|$)/,
+    reason: "Arquivos de autor do WordPress sem equivalência."
   }
 ];
 

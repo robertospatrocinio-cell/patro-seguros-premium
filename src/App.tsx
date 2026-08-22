@@ -981,7 +981,7 @@ const App = () => {
                   <Route path="/seguro-new-holland-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-new-holland-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-valtra-guarulhos" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-valtra-guarulhos" }); return <Comp />; })()} />
                   {/* Vistoria — empresas */}
-                  <Route path="/seguro-para-empresas-de-vistoria-veicular" element={<Navigate to="/seguro-vistoria-veicular-guarulhos" replace />} />
+                  <Route path="/seguro-para-empresas-de-vistoria-veicular" element={<Navigate to="/seguro-vistoriadora-veicular" replace />} />
                   <Route path="/seguro-vistoriadora-veicular" element={<SeguroVistoriadoraVeicular />} />
                   <Route path="/guias-seguros" element={<CentralDeGuias />} />
                   <Route path="/perguntas-frequentes-seguros" element={<CentralDePerguntas />} />
@@ -996,7 +996,7 @@ const App = () => {
                   <Route path="/seguro-despachantes-e-vistorias" element={<SeoDespachantesVistoriasGuarulhos />} />
                   <Route path="/seguro-condominio-guarulhos" element={<SeoSeguroCondominioGuarulhos />} />
                   <Route path="/seguro-fianca-guarulhos" element={<SeguroFiancaGuarulhos />} />
-                  <Route path="/seguro-carro-eletrico-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
+                  
                   <Route path="/seguro-civic-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-compass-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />
                   <Route path="/seguro-corolla-guarulhos" element={<Navigate to="/seguro-auto-guarulhos" replace />} />

@@ -316,6 +316,33 @@ function sitemapPlugin(): Plugin {
         "Allow: /",
         "Crawl-delay: 0.5",
         "",
+        "# AI answer engines (AEO/GEO) — liberados para descoberta e citação",
+        ...[
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "GPTBot",
+          "Google-Extended",
+          "PerplexityBot",
+          "Perplexity-User",
+          "ClaudeBot",
+          "Claude-SearchBot",
+          "Claude-User",
+          "anthropic-ai",
+          "Applebot",
+          "Applebot-Extended",
+          "Amazonbot",
+          "DuckAssistBot",
+          "MistralAI-User",
+          "cohere-ai",
+          "YouBot",
+          "SemrushBot",
+        ].flatMap((bot) => [`User-agent: ${bot}`, "Allow: /", ""]),
+        "# Scrapers sem valor de descoberta/citação",
+        ...["CCBot", "Bytespider", "MJ12bot", "DotBot"].flatMap((bot) => [
+          `User-agent: ${bot}`,
+          "Disallow: /",
+          "",
+        ]),
       ].join("\n");
       fs.writeFileSync(path.join(outDir, "robots.txt"), robotsTxt, "utf-8");
       console.log("✅ robots.txt gerado (com Sitemap-index + sitemap-guarulhos.xml).");

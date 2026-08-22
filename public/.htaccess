@@ -247,19 +247,17 @@
     # NÃO EDITAR À MÃO — gerado de src/lib/redirects.ts
 
     # 301 — conteúdo com substituto semanticamente equivalente (1 salto)
-    RewriteRule ^previdencia/?$ /previdencia-privada [R=301,L,NC]
-    RewriteRule ^odonto-personal/?$ /seguro-odonto [R=301,L,NC]
-    RewriteRule ^riscos-industriais/?$ /seguro-galpoes-industriais [R=301,L,NC]
-    RewriteRule ^planos-saude-empresarial/?$ /plano-saude-empresarial [R=301,L,NC]
-    RewriteRule ^planos-de-saude-empresarial/?$ /plano-de-saude-empresarial-guarulhos [R=301,L,NC]
-    RewriteRule ^seguro-do/?$ /seguro-rc-executivos [R=301,L,NC]
-    RewriteRule ^seguro-penhor-rural/?$ /seguro-rural [R=301,L,NC]
-    RewriteRule ^seguro-valores/?$ /seguro-empresarial [R=301,L,NC]
-    RewriteRule ^odonto-personal-guarulhos/?$ /plano-odontologico-guarulhos [R=301,L,NC]
-    RewriteRule ^blog-sobre-seguros/?$ /blog [R=301,L,NC]
+    RewriteRule ^seguros-cidade-maia-guarulhos/?$ /seguros-shopping-maia-cidade-maia-guarulhos [R=301,L,NC]
+    RewriteRule ^planos-de-saude/?$ /plano-de-saude-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-saude/?$ /plano-de-saude-guarulhos [R=301,L,NC]
+    RewriteRule ^plano-de-saude/?$ /plano-de-saude-guarulhos [R=301,L,NC]
+    RewriteRule ^seguros-em-guarulhos/?$ /seguros-guarulhos [R=301,L,NC]
+    RewriteRule ^corretora-de-seguros-em-guarulhos/?$ /seguros-guarulhos [R=301,L,NC]
+    RewriteRule ^seguro-transporte/?$ /seguro-transporte-carga-guarulhos [R=301,L,NC]
     RewriteRule ^nossos-parceiros/?$ /parceiros [R=301,L,NC]
     RewriteRule ^politica-de-privacidade/?$ /politica-privacidade [R=301,L,NC]
-    RewriteRule ^artigos/?$ /blog [R=301,L,NC]
+    RewriteRule ^previdencia/?$ /previdencia-privada [R=301,L,NC]
+    RewriteRule ^odonto-personal/?$ /seguro-odonto [R=301,L,NC]
 
     # 301 — unificação /artigos/{slug} → /blog/{slug} preservando o slug
     RewriteRule ^artigos/([^/]+)/?$ /blog/$1 [R=301,L,NC]

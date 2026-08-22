@@ -1,3 +1,4 @@
+import { EMPRESA } from "@/config/empresa";
 import type { ComponentProps } from "react";
 import type { LocalInsurer, LocalTestimonial } from "@/components/LocalPageTemplate";
 import { generateLocalFAQs } from "@/data/localFAQGenerator";
@@ -390,7 +391,7 @@ const melhorCorretora: SeoLocalPageConfig = {
     "Quem valoriza corretora com tradição local e referências verificáveis",
   ],
   whyPatro: [
-    "Mais de 17 anos de mercado em Guarulhos (fundada em 2008)",
+    `Mais de ${EMPRESA.metricas.experienciaAnos.replace("+","")} anos de experiência de mercado dos sócios em Guarulhos (Patro fundada em ${EMPRESA.fundacao})`,
     "Nota 4.9 no Google com avaliações de clientes reais da região",
     "Escritório físico no Cidade Maia, próximo ao Shopping Maia",
     "Registro SUSEP ativo e equipe capacitada",
@@ -1805,7 +1806,7 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
       },
       {
         question: `Por que contratar seguro auto em ${c.city} com a Patro, sediada em Guarulhos?`,
-        answer: `Porque seguro auto é produto regulado pela SUSEP e a corretora atua em todo o território nacional, independentemente da cidade da sede física. A Patro tem registro SUSEP ativo, 17+ anos de mercado, nota 4.9 no Google e parceria com as principais seguradoras do país. O modelo remoto garante o mesmo nível de atendimento que clientes de Guarulhos recebem — com a vantagem adicional de comparativo entre 9 seguradoras em uma única cotação, em vez de você precisar cotar separadamente em cada site.`,
+        answer: `Porque seguro auto é produto regulado pela SUSEP e a corretora atua em todo o território nacional, independentemente da cidade da sede física. A Patro tem registro SUSEP ativo, sócios com ${EMPRESA.metricas.experienciaAnos} anos de experiência de mercado, nota 4.9 no Google e parceria com as principais seguradoras do país. O modelo remoto garante o mesmo nível de atendimento que clientes de Guarulhos recebem — com a vantagem adicional de comparativo entre 9 seguradoras em uma única cotação, em vez de você precisar cotar separadamente em cada site.`,
       },
     ],
   });
@@ -1817,7 +1818,7 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
     title: `${titlePrefix} — Cotação Online com a Patro Seguros`,
     subtitle: `Cotação de seguro auto em ${c.city} com atendimento 100% remoto pela Patro Seguros (sede em Guarulhos/SP). Comparamos Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco, SulAmérica, Liberty, Mapfre e Azul Seguros em uma única cotação.`,
     description: `Procurando seguro auto em ${c.city}? A Patro Seguros é uma corretora SUSEP sediada em Guarulhos/SP que atende ${c.city} de forma 100% remota (WhatsApp, e-mail e telefone). ${c.context.charAt(0).toUpperCase() + c.context.slice(1)} A faixa de preço média para cobertura compreensiva em ${c.city} fica em ${c.priceRange}, variando conforme modelo, versão, CEP de pernoite e perfil do condutor. ${partnersLine}`,
-    detailedDescription: `### Como a Patro atende ${c.city}\n\nSomos uma corretora física de Guarulhos (Cidade Maia), com 17+ anos de mercado e registro SUSEP ativo, que oferece atendimento 100% remoto para toda a Grande São Paulo — incluindo ${c.city}. Toda a operação (cotação, vistoria, emissão de apólice, suporte em sinistro e renovação anual) é feita por WhatsApp, e-mail, telefone e plataforma das seguradoras, sem necessidade de visita presencial.\n\n### Mercado de Seguro Auto em ${c.city}\n\n${c.context} ${c.highlights.map((h) => `(${h})`).join("; ")}. Em 2026, o prêmio anual médio para cobertura compreensiva fica em ${c.priceRange}, com perfil de risco classificado como ${c.riskLevel}. As variáveis de maior peso são versão do veículo, CEP de pernoite, idade e tempo de habilitação do condutor principal, uso e instalação de rastreador.\n\n### Por que Comparar 9 Seguradoras faz Diferença?\n\nCada seguradora trata os CEPs da Grande SP de forma diferente. Para o mesmo perfil em ${c.city}, é comum encontrar variação superior a 35% no prêmio anual entre a seguradora mais cara e a mais barata. Pelo modelo da Patro, você recebe comparativo padronizado em até 2 horas úteis — sem precisar preencher 9 cotações em sites diferentes.\n\n### Suporte em Sinistro\n\nA Patro acompanha integralmente o processo de sinistro em ${c.city}, da abertura à liquidação, com argumentação técnica quando necessário — sem custo adicional para o cliente. Vistorias presenciais podem ser feitas no escritório do Cidade Maia ou diretamente em oficinas referenciadas da seguradora em ${c.city}.`,
+    detailedDescription: `### Como a Patro atende ${c.city}\n\nSomos uma corretora física de Guarulhos (Cidade Maia), com sócios de ${EMPRESA.metricas.experienciaAnos} anos de experiência de mercado e registro SUSEP ativo, que oferece atendimento 100% remoto para toda a Grande São Paulo — incluindo ${c.city}. Toda a operação (cotação, vistoria, emissão de apólice, suporte em sinistro e renovação anual) é feita por WhatsApp, e-mail, telefone e plataforma das seguradoras, sem necessidade de visita presencial.\n\n### Mercado de Seguro Auto em ${c.city}\n\n${c.context} ${c.highlights.map((h) => `(${h})`).join("; ")}. Em 2026, o prêmio anual médio para cobertura compreensiva fica em ${c.priceRange}, com perfil de risco classificado como ${c.riskLevel}. As variáveis de maior peso são versão do veículo, CEP de pernoite, idade e tempo de habilitação do condutor principal, uso e instalação de rastreador.\n\n### Por que Comparar 9 Seguradoras faz Diferença?\n\nCada seguradora trata os CEPs da Grande SP de forma diferente. Para o mesmo perfil em ${c.city}, é comum encontrar variação superior a 35% no prêmio anual entre a seguradora mais cara e a mais barata. Pelo modelo da Patro, você recebe comparativo padronizado em até 2 horas úteis — sem precisar preencher 9 cotações em sites diferentes.\n\n### Suporte em Sinistro\n\nA Patro acompanha integralmente o processo de sinistro em ${c.city}, da abertura à liquidação, com argumentação técnica quando necessário — sem custo adicional para o cliente. Vistorias presenciais podem ser feitas no escritório do Cidade Maia ou diretamente em oficinas referenciadas da seguradora em ${c.city}.`,
     metaDescription: `Seguro auto ${c.metaCity ?? c.city}: cotação online entre 9 seguradoras com a Patro Seguros (sede Guarulhos/SP, atendimento 100% remoto). ${c.priceRange}.`,
     icon: "🚗",
     city: c.city,
@@ -1843,7 +1844,7 @@ const buildCityConfig = (c: CitySeed): SeoLocalPageConfig => {
     ],
     whyPatro: [
       `Atendimento 100% remoto para ${c.city} — WhatsApp, e-mail, telefone e vistoria por app`,
-      "17+ anos de mercado e registro SUSEP ativo",
+      `Sócios com ${EMPRESA.metricas.experienciaAnos} anos de experiência de mercado e registro SUSEP ativo`,
       "Comparativo entre 9 seguradoras em até 2 horas úteis",
       "Nota 4.9 no Google com avaliações verificadas",
       "Suporte em sinistro com argumentação técnica — sem custo adicional",
