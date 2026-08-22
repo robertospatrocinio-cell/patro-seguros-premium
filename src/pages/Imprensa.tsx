@@ -57,7 +57,7 @@ const SPOKES = [
   {
     name: "Roberto Patrocínio",
     role: "Sócio-fundador da Patro Seguros",
-    bio: "Mais de 25 anos no mercado segurador, especialista em riscos patrimoniais, galpões industriais e seguros corporativos. Atende empresas em Guarulhos, Cumbica e em todo o Brasil.",
+    bio: "Mais de 20 anos no mercado segurador, especialista em riscos patrimoniais, galpões industriais e seguros corporativos. Atende empresas em Guarulhos, Cumbica e em todo o Brasil.",
   },
   {
     name: "Sandra Patrocínio",
