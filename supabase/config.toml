@@ -12,3 +12,5 @@ verify_jwt = true
 verify_jwt = true
 [functions.refresh-anchor-priorities]
 verify_jwt = true
+[functions.domain-drift-check]
+verify_jwt = true

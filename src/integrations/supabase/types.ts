@@ -802,6 +802,54 @@ export type Database = {
           },
         ]
       }
+      domain_health_checks: {
+        Row: {
+          checked_at: string
+          details: Json
+          dns_a: string[]
+          dns_cname: string[]
+          expected_ip: string | null
+          final_url: string | null
+          hostname: string
+          http_status: number | null
+          id: string
+          reasons: Json
+          redirect_chain: Json
+          status: string
+          txt_lovable: string[]
+        }
+        Insert: {
+          checked_at?: string
+          details?: Json
+          dns_a?: string[]
+          dns_cname?: string[]
+          expected_ip?: string | null
+          final_url?: string | null
+          hostname: string
+          http_status?: number | null
+          id?: string
+          reasons?: Json
+          redirect_chain?: Json
+          status: string
+          txt_lovable?: string[]
+        }
+        Update: {
+          checked_at?: string
+          details?: Json
+          dns_a?: string[]
+          dns_cname?: string[]
+          expected_ip?: string | null
+          final_url?: string | null
+          hostname?: string
+          http_status?: number | null
+          id?: string
+          reasons?: Json
+          redirect_chain?: Json
+          status?: string
+          txt_lovable?: string[]
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string
