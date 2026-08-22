@@ -129,7 +129,7 @@ const FAQS = [
   { question: "Quais seguradoras a Patro representa em Guarulhos?", answer: "Trabalhamos com 16+ seguradoras (Porto Seguro, Bradesco, Tokio Marine, HDI, Liberty, Sompo, Mapfre, Allianz, SulAmérica, Itaú, entre outras) e 20+ operadoras de saúde. Comparamos opções para você." },
   { question: "Atendem em todos os bairros de Guarulhos?", answer: "Sim. Atendemos do Centro, Maia, Vila Galvão, Cumbica, Bonsucesso, Picanço, Macedo, Gopouva, Continental, Paraventi e demais bairros. Nosso escritório fica na Cidade Maia." },
   { question: "Em quanto tempo recebo a cotação?", answer: "Em até 2 horas úteis enviamos o comparativo das melhores opções por WhatsApp ou e-mail. Para casos mais complexos (frota, RC profissional, agro), o prazo pode chegar a 24h." },
-  { question: "A Patro atende empresas de Guarulhos?", answer: "Sim — temos mais de 500 empresas atendidas em Guarulhos e região, com pacotes para indústrias, comércios, prestadores de serviços, condomínios e PMEs." },
+  { question: "A Patro atende empresas de Guarulhos?", answer: "Sim — atendemos empresas de diversos portes em Guarulhos e região, com pacotes para indústrias, comércios, prestadores de serviços, condomínios e PMEs." },
   { question: "Posso resolver tudo online ou preciso ir até o escritório?", answer: "Tudo pode ser feito online (WhatsApp, e-mail, formulário). Mas se preferir atendimento presencial, nosso escritório fica na Av. Salgado Filho 2120 (Cidade Maia, Guarulhos/SP)." },
 ];
 
@@ -258,7 +258,7 @@ const HubSegurosGuarulhos = () => {
                 "16+ seguradoras parceiras + 20 operadoras de saúde",
                 "Atendimento presencial na Cidade Maia",
                 "Cotação em até 2 horas úteis",
-                "500+ empresas atendidas em Guarulhos",
+                "Atendimento a empresas de diversos portes em Guarulhos",
                 "Especialistas em RC profissional e agronegócio",
                 "Suporte completo em sinistros — você não fica sozinho",
                 `Avaliação ${PATRO_SOCIAL_PROOF.googleRating} estrelas no Google`,

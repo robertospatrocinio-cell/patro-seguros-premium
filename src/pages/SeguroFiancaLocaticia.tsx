@@ -51,7 +51,7 @@ Na Patro Seguros, trabalhamos com análise de crédito em múltiplas seguradoras
           "Pessoa física ou jurídica",
           "Coberturas adicionais escolhidas",
         ],
-        note: "Para aluguel de R$ 1.500/mês: seguro fiança de R$ 1.500 a R$ 2.250/ano (R$ 125 a R$ 187/mês). Para R$ 3.000/mês: R$ 3.000 a R$ 4.500/ano. Parcelável em até 12x sem juros no cartão.",
+        note: "Para aluguel de R$ 1.500/mês: seguro fiança de R$ 1.500 a R$ 2.250/ano (R$ 125 a R$ 187/mês). Para R$ 3.000/mês: R$ 3.000 a R$ 4.500/ano. Parcelável conforme condições da seguradora no cartão.",
       }}
       realScenarios={[
         { title: "MEI aprovado sem fiador", description: "Um microempreendedor individual que não conseguia fiador teve seu seguro fiança aprovado em 6 horas com comprovação de renda por extratos bancários e declaração de faturamento." },
@@ -81,7 +81,7 @@ Na Patro Seguros, trabalhamos com análise de crédito em múltiplas seguradoras
       whyPatro={[
         "Aprovação em até 24 horas na maioria dos casos",
         "Análise de crédito facilitada com múltiplas seguradoras",
-        "Parcelamento em até 12x sem juros no cartão",
+        "Parcelamento conforme condições da seguradora no cartão",
         "Orientação completa sobre documentação e processo",
         "Atendimento tanto para locador quanto para locatário",
         "Renovação automática alinhada ao contrato de locação",

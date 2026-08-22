@@ -7,7 +7,7 @@ const SeoSeguroEmpresaGuarulhos = () => (
     quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
     title="Seguro para Empresa em Guarulhos — Proteção Patrimonial e RC"
     subtitle="Seguro empresarial completo para empresas de Guarulhos: patrimônio, responsabilidade civil, lucros cessantes e mais."
-    description="Seguro para empresa em Guarulhos com cobertura patrimonial completa, responsabilidade civil, lucros cessantes e equipamentos. A Patro Seguros já protege mais de 500 empresas em Guarulhos e região, com atendimento presencial no Cidade Maia e parceria com 16+ seguradoras líderes — Porto Seguro, Tokio Marine, AIG, Allianz, Bradesco e Sompo."
+    description="Seguro para empresa em Guarulhos com cobertura patrimonial completa, responsabilidade civil, lucros cessantes e equipamentos. A Patro Seguros protege empresas de diversos portes em Guarulhos e região, com atendimento presencial no Cidade Maia e parceria com 16+ seguradoras líderes — Porto Seguro, Tokio Marine, AIG, Allianz, Bradesco e Sompo."
     detailedDescription={`Guarulhos é o segundo maior PIB municipal do estado de São Paulo, abrigando mais de 60 mil empresas ativas — desde indústrias de grande porte em Cumbica até comércios e prestadores de serviço no Cidade Maia, Vila Augusta e Centro. A cidade concentra polos industriais (cosméticos, química, autopeças), logístico (proximidade do GRU Airport e Dutra) e comercial (shoppings Maia, Internacional e Bonsucesso).
 
 Esse perfil produtivo expõe empresas a riscos significativos: incêndio, roubo, danos elétricos, responsabilidade civil contra terceiros, paralisação de atividades, ataques cibernéticos e processos trabalhistas. Um sinistro mal coberto pode comprometer anos de faturamento ou até inviabilizar o negócio.
@@ -72,7 +72,7 @@ Nossa atuação inclui análise de risco no local, orientação sobre coberturas
       "PMEs que prestam serviço B2B com exigência contratual de seguro RC",
     ]}
     whyPatro={[
-      "Mais de 500 empresas atendidas em Guarulhos desde 2020",
+      "Atendimento a empresas de diversos portes em Guarulhos",
       "Especialistas em seguros para indústria, comércio e serviços locais",
       "Parceria com 16+ seguradoras: Porto, Tokio, AIG, Allianz, Bradesco, Sompo",
       "Atendimento presencial no Cidade Maia com visita técnica",

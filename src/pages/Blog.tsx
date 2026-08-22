@@ -763,7 +763,7 @@ const Blog = () => {
               <div>
                 <h2 id="editorial-heading" className="text-lg font-semibold mb-2">Padrão editorial Patro Seguros</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Conteúdo produzido e revisado pela equipe da Patro Seguros — corretora registrada na SUSEP (nº 212113511), com sede em Cidade Maia, Guarulhos/SP, atendimento consultivo e mais de 500 casos empresariais atendidos. Todos os artigos citam fontes, datas de publicação e de atualização.
+                  Conteúdo produzido e revisado pela equipe da Patro Seguros — corretora registrada na SUSEP (nº 212113511), com sede em Cidade Maia, Guarulhos/SP, atendimento consultivo e atendimento consultivo a empresas de diversos portes. Todos os artigos citam fontes, datas de publicação e de atualização.
                 </p>
                 <div className="mt-3 flex flex-wrap gap-3 text-xs">
                   <Link to="/sobre" className="text-primary hover:underline">Sobre a Patro</Link>

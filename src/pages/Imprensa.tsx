@@ -62,7 +62,7 @@ const SPOKES = [
   {
     name: "Sandra Patrocínio",
     role: "Sócia-fundadora da Patro Seguros",
-    bio: "Especialista em seguros de vida, saúde e benefícios para pessoas físicas e PMEs. Liderou mais de 500 atendimentos consultivos para famílias e empresas em Guarulhos.",
+    bio: "Especialista em seguros de vida, saúde e benefícios para pessoas físicas e PMEs. Conduz atendimentos consultivos para famílias e empresas em Guarulhos.",
   },
 ];
 

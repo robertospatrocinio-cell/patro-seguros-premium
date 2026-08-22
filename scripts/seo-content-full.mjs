@@ -52,7 +52,7 @@ export const FULL_SEO_CONTENT = {
       </ul>
 
       <h2>Seguros empresariais, PMEs, frotas e condomínios</h2>
-      <p>Somos especialistas em <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>, <a href="/seguros-empresariais-pme-guarulhos">seguros para PMEs</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>. Atendemos indústrias, galpões e armazéns em Cumbica, escritórios, comércios, restaurantes, clínicas e prestadores de serviço em toda a região. Já fechamos mais de 500 apólices para pequenas e médias empresas de Guarulhos e desenvolvemos apetite técnico em riscos patrimoniais, responsabilidade civil (RC), lucros cessantes e transporte de cargas.</p>
+      <p>Somos especialistas em <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>, <a href="/seguros-empresariais-pme-guarulhos">seguros para PMEs</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>. Atendemos indústrias, galpões e armazéns em Cumbica, escritórios, comércios, restaurantes, clínicas e prestadores de serviço em toda a região. Estruturamos apólices para pequenas e médias empresas de Guarulhos e desenvolvemos apetite técnico em riscos patrimoniais, responsabilidade civil (RC), lucros cessantes e transporte de cargas.</p>
 
       <h2>Consórcio e agronegócio</h2>
       <p>Oferecemos <a href="/consorcio-guarulhos">consórcio de imóveis, automóveis, serviços e veículos pesados</a> por administradoras autorizadas pelo Banco Central, além de <strong>seguros rurais</strong> com cobertura nacional — seguro agrícola, pecuário, penhor rural, máquinas e equipamentos, benfeitorias e vida do produtor.</p>
@@ -82,7 +82,7 @@ export const FULL_SEO_CONTENT = {
         { q: "Em quanto tempo recebo a cotação?", a: "Cotações simples (auto, residencial, moto) saem em até 2 horas úteis. Cotações empresariais, frotas e condomínios levam em média 24 a 48 horas por envolverem análise técnica das seguradoras." },
       ])}
 
-      <p>Endereço: Avenida Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda, Cidade Maia, Guarulhos/SP. Telefone: (11) 5199-7500. WhatsApp disponível no mesmo número. CNPJ 41.641.558/0001-33 · SUSEP 212113511. Horário: segunda a sexta, das 9h às 18h.</p>
+      <p>Endereço: Avenida Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda, Cidade Maia, Guarulhos/SP. Telefone: (11) 5199-7500. WhatsApp disponível no mesmo número. CNPJ 41.641.558/0001-33 · SUSEP 212113511. Horário: segunda a sexta, das 8h30 às 18h.</p>
       <p><a href="/sobre">Conheça nossa história</a>, <a href="/depoimentos">leia depoimentos</a> ou <a href="/contato">fale com um corretor</a>.</p>
     `,
   },
@@ -119,7 +119,7 @@ export const FULL_SEO_CONTENT = {
         <li>Você envia dados básicos (CEP, modelo/ano do veículo, perfil do condutor principal, uso, garagem);</li>
         <li>Rodamos a cotação nas 12+ seguradoras parceiras;</li>
         <li>Enviamos comparativo em até 2 horas com preço, franquia e cobertura lado a lado;</li>
-        <li>Você escolhe a apólice — pagamento em até 12x sem juros no cartão ou boleto mensal.</li>
+        <li>Você escolhe a apólice — pagamento conforme condições da seguradora no cartão ou boleto mensal.</li>
       </ol>
 
       <h2>Por que cotar com corretora em Guarulhos</h2>
@@ -374,7 +374,7 @@ export const FULL_SEO_CONTENT = {
   "/seguros-empresariais-pme-guarulhos": {
     h1: "Seguros Empresariais para PMEs em Guarulhos",
     body: `
-      <p><strong>Seguro empresarial para PMEs em Guarulhos</strong> com a Patro Seguros: pacotes acessíveis para pequenas e médias empresas, com mais de 500 cases atendidos no segmento. Estruturamos apólices sob medida para MEI, EPP e ME, com preço a partir de R$ 60/mês e ativação em até 48 horas.</p>
+      <p><strong>Seguro empresarial para PMEs em Guarulhos</strong> com a Patro Seguros: pacotes acessíveis para pequenas e médias empresas, com atendimento consultivo dedicado ao segmento. Estruturamos apólices sob medida para MEI, EPP e ME, com preço a partir de R$ 60/mês e ativação em até 48 horas.</p>
 
       <h2>Por que sua PME em Guarulhos precisa de seguro</h2>
       <p>Segundo o Sebrae, 60% das pequenas empresas que sofrem sinistros graves (incêndio, roubo, enchente) fecham em até 2 anos por não conseguirem retomar operação. O seguro empresarial garante proteção patrimonial, continuidade do negócio via lucros cessantes, RC frente a terceiros e tranquilidade para focar no crescimento — a partir de R$ 60/mês para MEI e R$ 120/mês para pequenos comércios.</p>
@@ -428,7 +428,7 @@ export const FULL_SEO_CONTENT = {
   "/seguro-frota-empresas-guarulhos": {
     h1: "Seguro de Frota para Empresas em Guarulhos",
     body: `
-      <p><strong>Seguro de frota em Guarulhos</strong> para empresas com 4 ou mais veículos. A Patro Seguros cota com as principais seguradoras (Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Sompo, Mitsui) e entrega economia média de 15% a 30% em relação a apólices individuais, com gestão centralizada e prêmio único.</p>
+      <p><strong>Seguro de frota em Guarulhos</strong> para empresas com 4 ou mais veículos. A Patro Seguros cota com as principais seguradoras (Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Sompo, Mitsui) e permite comparar alternativas entre seguradoras em relação a apólices individuais, com gestão centralizada e prêmio único.</p>
 
       <h2>Vantagens do seguro frota</h2>
       <ul>
@@ -588,7 +588,7 @@ export const FULL_SEO_CONTENT = {
 
       <h2>Nossa história</h2>
       <p>Roberto e Sandra Patrocínio construíram carreira em grandes seguradoras (Porto, Bradesco e SulAmérica) e em corretoras nacionais antes de fundar a Patro Seguros. A decisão de abrir a própria corretora veio do desejo de fazer diferente: cada cliente é atendido por um corretor dedicado, com análise técnica real de perfil, comparação transparente de coberturas e representação genuína nos sinistros — sem pressão de venda ou produto empurrado.</p>
-      <p>Em pouco mais de quatro anos, atendemos mais de 2.500 famílias e 500 empresas de Guarulhos, Cumbica, Grande São Paulo e clientes em todo o Brasil. Somos parceiros de 16+ seguradoras (auto, patrimonial, vida, empresarial) e 20+ operadoras de saúde.</p>
+      <p>Em pouco mais de quatro anos, atendemos mais de 2.500 clientes entre pessoas, famílias e empresas de Guarulhos, Cumbica, Grande São Paulo e clientes em todo o Brasil. Somos parceiros de 16+ seguradoras (auto, patrimonial, vida, empresarial) e 20+ operadoras de saúde.</p>
 
       <h2>Nossos valores</h2>
       <ul>
@@ -616,7 +616,7 @@ export const FULL_SEO_CONTENT = {
       </ul>
 
       <h2>Atendimento</h2>
-      <p>Escritório na Avenida Salgado Filho, 2120 — Sala 219, Edifício Via Alameda, Cidade Maia, Guarulhos/SP. Telefone (11) 5199-7500. WhatsApp no mesmo número. E-mail contato@patroseguros.com.br. Horário: segunda a sexta, das 9h às 18h. Atendemos presencialmente em Guarulhos e remotamente em todo o Brasil.</p>
+      <p>Escritório na Avenida Salgado Filho, 2120 — Sala 219, Edifício Via Alameda, Cidade Maia, Guarulhos/SP. Telefone (11) 5199-7500. WhatsApp no mesmo número. E-mail contato@patroseguros.com.br. Horário: segunda a sexta, das 8h30 às 18h. Atendemos presencialmente em Guarulhos e remotamente em todo o Brasil.</p>
 
       ${DEPOIMENTOS([
         { texto: "Atendimento realmente humano. Já indiquei a Patro para toda minha família.", autor: "Cliente há 3 anos", perfil: "auto e residencial, Cidade Maia" },
@@ -630,7 +630,7 @@ export const FULL_SEO_CONTENT = {
   "/depoimentos": {
     h1: "Depoimentos de Clientes — Patro Seguros Guarulhos",
     body: `
-      <p>Depoimentos reais de clientes da <strong>Patro Seguros</strong> em Guarulhos, Cumbica, Grande São Paulo e demais regiões atendidas. Somos avaliados com nota 4.9 no Google, refletindo a satisfação de mais de 2.500 famílias e 500 empresas com nosso atendimento consultivo, transparente e presente no sinistro.</p>
+      <p>Depoimentos reais de clientes da <strong>Patro Seguros</strong> em Guarulhos, Cumbica, Grande São Paulo e demais regiões atendidas. Somos avaliados com nota 4.9 no Google, refletindo a satisfação de mais de 2.500 clientes entre pessoas, famílias e empresas com nosso atendimento consultivo, transparente e presente no sinistro.</p>
 
       <h2>Depoimentos de clientes pessoa física</h2>
       ${DEPOIMENTOS([
@@ -691,7 +691,7 @@ export const FULL_SEO_CONTENT = {
       CNPJ 41.641.558/0001-33 · SUSEP 212113511</p>
 
       <h2>Horário de atendimento</h2>
-      <p>Segunda a sexta, das 9h às 18h. Fora do horário comercial, mensagens no WhatsApp e formulário de cotação são respondidos no próximo dia útil. Sinistros emergenciais devem ser reportados diretamente ao 0800 da seguradora indicada na apólice — mas mesmo assim seu corretor Patro é acionado para acompanhamento.</p>
+      <p>Segunda a sexta, das 8h30 às 18h. Fora do horário comercial, mensagens no WhatsApp e formulário de cotação são respondidos no próximo dia útil. Sinistros emergenciais devem ser reportados diretamente ao 0800 da seguradora indicada na apólice — mas mesmo assim seu corretor Patro é acionado para acompanhamento.</p>
 
       <h2>Área de atendimento</h2>
       <ul>
@@ -845,7 +845,7 @@ const SHARED_EXPANSION_BLOCK = `
     <h2>Credenciamento SUSEP, CNPJ e regulamentação</h2>
     <p>Somos corretora <strong>registrada na SUSEP sob o código 212113511</strong>, com <strong>CNPJ 41.641.558/0001-33</strong>. Toda apólice emitida através da Patro Seguros é regulada pela Superintendência de Seguros Privados (SUSEP), órgão federal responsável pela fiscalização do mercado segurador brasileiro. Você pode verificar nossa habilitação diretamente no site oficial da SUSEP (consulta pública de corretores) e confirmar que operamos em conformidade com a Circular SUSEP nº 510, Resolução CNSP 382 e demais normas aplicáveis a corretores independentes de seguros. Trabalhamos com as maiores seguradoras do país — Porto Seguro, Bradesco Seguros, Tokio Marine, HDI, Allianz, AIG, Sompo, Zurich, Mapfre, SulAmérica, Liberty/Yelum, Mitsui Sumitomo, Chubb, Sompo Cargo, Fairfax e outras — sempre com transparência sobre comissões e sem custo adicional para o cliente (a corretagem é remunerada pela seguradora, não por você).</p>
     <h2>Canais oficiais e horário de atendimento</h2>
-    <p>Nossos canais oficiais são <strong>WhatsApp e telefone (11) 5199-7500</strong>, e-mail <strong>contato@patroseguros.com.br</strong> e o formulário de cotação online disponível em todas as páginas de produto. O horário comercial é de <strong>segunda a sexta-feira, das 9h às 18h</strong>, com atendimento emergencial de sinistro 24/7 via central da seguradora contratada (número informado na apólice e reforçado no primeiro contato pós-emissão). Fundada em 2021 por profissionais com mais de 20 anos de experiência no mercado segurador, a Patro Seguros já atendeu mais de 500 clientes PJ e milhares de clientes PF, mantendo nota média 4,9/5 no Google (mais de 100 avaliações verificadas). Se você prefere um contato humano, agende uma visita presencial no nosso escritório em Guarulhos ou solicite uma videoconferência — sem custo e sem compromisso de contratação.</p>
+    <p>Nossos canais oficiais são <strong>WhatsApp e telefone (11) 5199-7500</strong>, e-mail <strong>contato@patroseguros.com.br</strong> e o formulário de cotação online disponível em todas as páginas de produto. O horário comercial é de <strong>segunda a sexta-feira, das 8h30 às 18h</strong>, com atendimento emergencial de sinistro 24/7 via central da seguradora contratada (número informado na apólice e reforçado no primeiro contato pós-emissão). Fundada em 2021 por profissionais com mais de 20 anos de experiência no mercado segurador, a Patro Seguros atende pessoas, famílias e empresas, mantendo nota 4,9/5 no Google. Se você prefere um contato humano, agende uma visita presencial no nosso escritório em Guarulhos ou solicite uma videoconferência — sem custo e sem compromisso de contratação.</p>
   </section>
 `;
 

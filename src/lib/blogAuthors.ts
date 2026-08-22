@@ -24,7 +24,7 @@ export const blogAuthors: BlogAuthor[] = [
     bio: [
       "Roberto Patrocínio é sócio-fundador da Patro Corretora de Seguros, com sede em Guarulhos/SP, e atua há mais de 25 anos no mercado segurador brasileiro.",
       "Como corretor habilitado pela SUSEP, é especialista em proteção patrimonial para galpões em Cumbica, seguros de frota, agronegócio (com atendimento nacional) e responsabilidade civil para empresas.",
-      "Lidera negociações com mais de 16 seguradoras e 20 operadoras de saúde, conduzindo análises técnicas de risco para mais de 500 empresas atendidas.",
+      "Lidera negociações com mais de 16 seguradoras e 20 operadoras de saúde, conduzindo análises técnicas de risco para empresas de diversos portes atendidas.",
     ],
     image: robertoImg,
     expertise: [
