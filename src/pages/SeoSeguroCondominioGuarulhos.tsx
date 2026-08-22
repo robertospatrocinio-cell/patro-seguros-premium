@@ -4,7 +4,7 @@ import heroImg from "@/assets/hero-seguro-residencial.webp";
 const SeoSeguroCondominioGuarulhos = () => (
   <InsurancePageTemplate
     heroImage={heroImg}
-    quoteUrl="https://patroseguros.com.br/cotacao-auto"
+    quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
     title="Seguro Condomínio em Guarulhos"
     subtitle="Proteção obrigatória para condomínios residenciais e comerciais em Guarulhos. Cotação gratuita."
     description="O seguro de condomínio é obrigatório por lei (Lei 4.591/64) e a Patro Seguros ajuda síndicos e administradoras de Guarulhos a encontrar a melhor proteção. Atendemos condomínios na Cidade Maia, Vila Augusta, Gopouva, Macedo e toda região de Guarulhos. Comparamos seguradoras para garantir cobertura completa com o melhor custo-benefício."

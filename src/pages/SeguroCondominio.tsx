@@ -5,7 +5,7 @@ const SeguroCondominio = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
       title="Seguro Condomínio"
       subtitle="Proteção completa para áreas comuns e patrimônio coletivo"
       icon="🏢"

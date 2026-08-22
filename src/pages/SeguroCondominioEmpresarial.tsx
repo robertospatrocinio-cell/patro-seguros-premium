@@ -5,7 +5,7 @@ const SeguroCondominioEmpresarial = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
       title="Seguro de Condomínio Empresarial"
       subtitle="Proteção sob medida para edifícios comerciais, escritórios e centros de negócios"
       icon="🏢"

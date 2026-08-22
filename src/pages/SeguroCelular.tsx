@@ -5,7 +5,7 @@ const SeguroCelular = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
       title="Seguro Celular em Guarulhos – Cidade Maia"
       subtitle="Cobertura contra roubo, furto, quebra acidental, danos por líquidos e defeitos elétricos. Proteção para iPhone, Samsung, Xiaomi e todos os modelos."
       icon="📱"

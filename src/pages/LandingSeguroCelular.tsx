@@ -10,7 +10,7 @@ const LandingSeguroCelular = () => (
     subheadline="Roubo, furto, quebra acidental e dano por líquido. Proteja seu smartphone por menos de R$ 1 por dia."
     metaDescription="Seguro Celular contra roubo, furto e quebra acidental. iPhone e Android. A partir de R$ 19/mês. Cotação gratuita. Patro Seguros."
     ctaText="Proteger Meu Celular Agora"
-    ctaUrl="https://patroseguros.com.br/cotacao-auto"
+    ctaUrl="https://www.patroseguros.com.br/cotacao-auto"
     urgencyText="1 celular é roubado a cada 5 minutos no Brasil"
     priceAnchor="A partir de R$ 19/mês* — menos que R$ 1 por dia"
     guaranteeText="Cotação instantânea e sem compromisso. Proteção começa no mesmo dia da contratação."

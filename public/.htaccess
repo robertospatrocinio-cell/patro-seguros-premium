@@ -7,11 +7,13 @@
  <IfModule mod_rewrite.c>
    RewriteEngine On
    RewriteBase /
-   
-   # Force apex -> www and HTTPS in one go for maximum efficiency
-   RewriteCond %{HTTP_HOST} ^patroseguros\.com\.br$ [NC,OR]
+
+   # Canonical host + scheme: qualquer host que não seja www.patroseguros.com.br
+   # (apex, http, subdomínios legados) é redirecionado com 301 permanente,
+   # preservando path e query string (QSA).
+   RewriteCond %{HTTP_HOST} !^www\.patroseguros\.com\.br$ [NC,OR]
    RewriteCond %{HTTPS} !=on
-   RewriteRule ^(.*)$ https://www.patroseguros.com.br/$1 [R=301,L]
+   RewriteRule ^(.*)$ https://www.patroseguros.com.br/$1 [R=301,L,QSA,NE]
  </IfModule>
  
  DirectoryIndex index.html

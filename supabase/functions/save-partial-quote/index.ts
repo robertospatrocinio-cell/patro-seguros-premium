@@ -9,7 +9,7 @@ const corsHeaders = {
 
 const ALLOWED_ORIGINS = [
   "https://www.patroseguros.com.br",
-  "https://patroseguros.com.br",
+  "https://www.patroseguros.com.br",
   "https://patroseguros.lovable.app",
 ];
 const ALLOWED_ORIGIN_SUFFIXES = [".lovable.app", ".lovableproject.com"];

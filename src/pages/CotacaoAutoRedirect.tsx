@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import PageMeta from "@/components/PageMeta";
 
 const SEGFY_URL =
-  "https://patroseguros.com.br/cotacao-auto";
+  "https://www.patroseguros.com.br/cotacao-auto";
 
 const CotacaoAutoRedirect = () => {
   useEffect(() => {

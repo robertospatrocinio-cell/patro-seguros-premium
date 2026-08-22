@@ -17,7 +17,7 @@ const SeguroEmpresarialSegmento = ({ segmento: segmentoProp }: SeguroEmpresarial
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
       title={`Seguro para ${data.nome} em Guarulhos`}
       subtitle={data.subtitle}
       icon={data.icon}

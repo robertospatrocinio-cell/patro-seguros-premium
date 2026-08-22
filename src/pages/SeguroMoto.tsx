@@ -108,7 +108,7 @@ Outro diferencial importante: motos exigem assistência 24h especializada. O gui
         { title: "Seguro Acidentes Pessoais", link: "/seguro-acidentes-pessoais" },
         { title: "Seguro de Frota", link: "/seguro-frota" },
       ]}
-      quoteUrl="https://patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
       canonicalUrl="https://www.patroseguros.com.br/seguro-moto"
     />
     </>
