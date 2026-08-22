@@ -1008,7 +1008,7 @@ const MODELOS: ModeloSeed[] = [
       { name: "Tokio Marine", reason: "boa subscrição para T-Cross em CEPs residenciais" },
       { name: "HDI", reason: "agressivo em condutor 30+ com garagem e rastreador" }
     ],
-    context: "O VW T-Cross é o SUV compacto mais visado da Patro em Guarulhos. Apesar do risco médio-alto, o comparativo entre 9 seguradoras costuma achar variação de até R$ 1.500/ano."
+    context: "O VW T-Cross é o SUV compacto mais visado da Patro em Guarulhos. Apesar do risco médio-alto, o comparativo entre 16 seguradoras costuma achar variação de até R$ 1.500/ano."
   },
   {
     slug: "seguro-compass-guarulhos",
@@ -1187,7 +1187,7 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
     subtitle: `Cotação de seguro para ${m.modelo} em Guarulhos. Comparamos Porto Seguro, Allianz, HDI, Tokio Marine, Bradesco e mais para encontrar o melhor preço para seu ${m.modeloShort}.`,
     description: `Procurando seguro para ${m.modelo} em Guarulhos? A Patro Seguros é especialista em cotações por modelo e compara as 9 maiores seguradoras do país em uma única solicitação. Para o ${m.modeloShort}, o prêmio anual fica em média ${m.priceRange.label} para cobertura compreensiva, considerando perfil de risco ${m.theftProfile} de furto/roubo. Faixa FIPE: ${m.fipeRange}.`,
     detailedDescription: `### Por que o Seguro do ${m.modelo} em Guarulhos é Diferenciado?\n\n${m.context}\n\nCada seguradora precifica modelos específicos de forma diferente. Para o ${m.modelo}, a Patro identifica quais companhias entregam melhor preço, melhor franquia e melhor cobertura adicional. ${m.bestInsurers[0].name}: ${m.bestInsurers[0].reason}. ${m.bestInsurers[1].name}: ${m.bestInsurers[1].reason}. Em vez de cotar em 9 sites diferentes, fazemos uma única cotação padronizada e devolvemos comparativo claro em até 2 horas úteis.\n\n### Pontos Fortes e Atenção para o ${m.modeloShort}\n\nPontos fortes do ${m.modeloShort} para o seguro: ${m.pros.join("; ")}. Pontos de atenção: ${m.cons.join("; ")}. Nossa orientação combina perfil do veículo, CEP de pernoite em Guarulhos, idade do condutor e uso (particular, profissional ou aplicativo) para entregar a apólice mais adequada e mais barata possível.`,
-    metaDescription: `Seguro ${m.modelo} Guarulhos: cotação online e comparativo entre 9 seguradoras. Patro Seguros — ${m.priceRange.label}.`,
+    metaDescription: `Seguro ${m.modelo} Guarulhos: cotação online e comparativo entre 16 seguradoras. Patro Seguros — ${m.priceRange.label}.`,
     icon: m.slug.includes("moto") ? "🏍️" : m.categoria === "suv" ? "🚙" : m.categoria === "premium" ? "🛻" : "🚗",
     pricingIntro: `O seguro do ${m.modelo} em Guarulhos custa em média ${m.priceRange.label} para cobertura compreensiva (roubo, furto, colisão e terceiros). Versões de entrada ficam na faixa inferior; versões topo de linha, na superior. CEP de pernoite, idade do condutor e uso do veículo também alteram significativamente o preço.`,
     pricingFactors: [
@@ -1203,7 +1203,7 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
     faqs: [
       {
         question: `Quanto custa seguro de ${m.modelo} em Guarulhos?`,
-        answer: `O seguro do ${m.modelo} em Guarulhos fica entre ${m.priceRange.label} para cobertura compreensiva. O valor exato depende da versão (faixa FIPE ${m.fipeRange}), CEP de pernoite, idade do condutor e dispositivos de segurança. Solicite cotação grátis com a Patro para receber comparativo entre 9 seguradoras.`,
+        answer: `O seguro do ${m.modelo} em Guarulhos fica entre ${m.priceRange.label} para cobertura compreensiva. O valor exato depende da versão (faixa FIPE ${m.fipeRange}), CEP de pernoite, idade do condutor e dispositivos de segurança. Solicite cotação grátis com a Patro para receber comparativo entre 16 seguradoras.`,
       },
       {
         question: `Qual a melhor seguradora para ${m.modelo} em Guarulhos?`,
@@ -1226,11 +1226,11 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
       },
       {
         question: `Quanto tempo demora para receber a cotação do ${m.modeloShort} pela Patro?`,
-        answer: `Em até 2 horas úteis enviamos comparativo entre 9 seguradoras. Em casos simples (versão popular, sem agravantes), a cotação fica pronta em 30 minutos. Cotação 100% gratuita e sem compromisso.`,
+        answer: `Em até 2 horas úteis enviamos comparativo entre 16 seguradoras. Em casos simples (versão popular, sem agravantes), a cotação fica pronta em 30 minutos. Cotação 100% gratuita e sem compromisso.`,
       },
       {
         question: `A Patro atende renovação de apólice do ${m.modeloShort} contratada em outra corretora?`,
-        answer: `Sim. Basta enviar a apólice atual ou a renovação proposta por WhatsApp (11 5199-7500). Em até 2 horas devolvemos comparativo entre 9 seguradoras. Em mais de 60% dos casos conseguimos preço melhor do que a renovação automática.`,
+        answer: `Sim. Basta enviar a apólice atual ou a renovação proposta por WhatsApp (11 5199-7500). Em até 2 horas devolvemos comparativo entre 16 seguradoras. Em mais de 60% dos casos conseguimos preço melhor do que a renovação automática.`,
       },
     ],
     whoNeeds: [
@@ -1242,7 +1242,7 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
     ],
     whyPatro: [
       `Especialistas em cotação de ${m.modeloShort} em Guarulhos`,
-      "Comparativo entre 9 seguradoras em até 2 horas úteis",
+      "Comparativo entre 16 seguradoras em até 2 horas úteis",
       "Atendimento presencial no Cidade Maia ou 100% por WhatsApp",
       "Mais de 500 apólices de seguro auto ativas em Guarulhos",
       "Suporte em sinistro com argumentação técnica",
@@ -1252,7 +1252,7 @@ const buildModeloConfig = (m: ModeloSeed): SeoLocalPageConfig => {
     realScenarios: [
       {
         title: `Economia de 24% para proprietário de ${m.modeloShort}`,
-        description: `Cliente da Patro pagava ${fmtBRL(m.priceRange.max)}/ano em seguro do ${m.modeloShort} contratado direto pelo site da seguradora. Após cotação comparando 9 seguradoras, migrou para apólice equivalente em outra companhia por aproximadamente 24% menos — mantendo cobertura compreensiva e franquia normal.`,
+        description: `Cliente da Patro pagava ${fmtBRL(m.priceRange.max)}/ano em seguro do ${m.modeloShort} contratado direto pelo site da seguradora. Após cotação comparando 16 seguradoras, migrou para apólice equivalente em outra companhia por aproximadamente 24% menos — mantendo cobertura compreensiva e franquia normal.`,
       },
       {
         title: `Cotação de ${m.modeloShort} 0km em 47 minutos`,

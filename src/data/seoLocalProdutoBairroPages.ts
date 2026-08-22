@@ -117,10 +117,10 @@ function buildResidencial(s: Seed): SeoLocalPageConfig {
   return {
     slug,
     title: `Seguro Residencial ${s.bairro} (Guarulhos) — Cotação Local`,
-    subtitle: `Proteja sua casa ou apartamento no ${s.bairro}, Guarulhos. Compare 9 seguradoras com a Patro Seguros.`,
+    subtitle: `Proteja sua casa ou apartamento no ${s.bairro}, Guarulhos. Compare 16 seguradoras com a Patro Seguros.`,
     description: `Seguro residencial no ${s.bairro}, Guarulhos, com atendimento local ${s.referencia}. ${partnersLine} Moradores do ${s.bairro} pagam em média ${s.preco.residencial} para cobertura ampla contra incêndio, roubo, danos elétricos e responsabilidade civil familiar.`,
     detailedDescription: `### Perfil do Seguro Residencial no ${s.bairro}\n\nO ${s.bairro} tem perfil de risco ${s.risco} para sinistros residenciais, considerando incidência de furto, danos elétricos e ocorrências climáticas na região ${s.referencia}. A localização impacta diretamente o cálculo do prêmio — casas de rua costumam ter prêmio 20% a 40% maior do que apartamentos com portaria 24h no mesmo CEP.\n\n### Atendimento Local Patro Seguros\n\nA Patro Seguros atua com escritório físico no Cidade Maia e atende moradores do ${s.bairro} presencialmente ou por WhatsApp. Em vez de você negociar diretamente com uma seguradora, comparamos 9 companhias em uma única cotação e apresentamos o comparativo lado a lado (cobertura × franquia × assistências).\n\n### O que está incluso\n\nAlém das coberturas obrigatórias (incêndio, raio e explosão), incluímos por padrão danos elétricos, roubo/furto qualificado, RC familiar e assistência 24h (chaveiro, encanador, eletricista). Para o ${s.bairro}, recomendamos revisar anualmente o valor de reconstrução do imóvel e o LMI de eletrônicos.\n\n### Diferenciais Patro no ${s.bairro}\n\nMais de 500 apólices residenciais ativas em Guarulhos, argumentação técnica em sinistros para evitar negativas indevidas e recotação automática na renovação — sem custo adicional para o cliente.`,
-    metaDescription: `Seguro residencial ${s.bairro} Guarulhos: cotação com 9 seguradoras, ${s.preco.residencial}, incêndio, roubo, danos elétricos e assistência 24h.`,
+    metaDescription: `Seguro residencial ${s.bairro} Guarulhos: cotação com 16 seguradoras, ${s.preco.residencial}, incêndio, roubo, danos elétricos e assistência 24h.`,
     icon: "🏠",
     pricingIntro: `O seguro residencial no ${s.bairro} custa em média ${s.preco.residencial} — um dos investimentos mais acessíveis para proteção patrimonial, com prêmio anual menor que uma única parcela do seguro auto.`,
     pricingFactors: [
@@ -149,7 +149,7 @@ function buildResidencial(s: Seed): SeoLocalPageConfig {
     ],
     whyPatro: [
       `Atendimento presencial no Cidade Maia, próximo ao ${s.bairro}`,
-      "Comparativo entre 9 seguradoras em uma única cotação",
+      "Comparativo entre 16 seguradoras em uma única cotação",
       "Mais de 500 apólices residenciais ativas em Guarulhos",
       "Suporte técnico em sinistro para evitar negativas indevidas",
       "Recotação automática na renovação, sem custo adicional",
@@ -193,8 +193,8 @@ function buildVida(s: Seed): SeoLocalPageConfig {
     title: `Seguro de Vida ${s.bairro} (Guarulhos) — Cotação Local`,
     subtitle: `Seguro de vida individual e familiar para moradores do ${s.bairro}, Guarulhos. Compare Prudential, MetLife, Bradesco e mais 6 seguradoras.`,
     description: `Seguro de vida no ${s.bairro}, Guarulhos, com atendimento presencial no Cidade Maia. ${partnersLine} Prêmios a partir de ${s.preco.vida} conforme idade, capital segurado e coberturas adicionais (invalidez, doenças graves, funeral familiar).`,
-    detailedDescription: `### Por que contratar Seguro de Vida no ${s.bairro}\n\nO seguro de vida é a proteção financeira mais eficiente por real investido: por menos que um plano de streaming, você garante capital de até R$ 1 milhão para sua família em caso de morte, invalidez ou doenças graves. Para moradores do ${s.bairro} ${s.referencia}, atendemos presencialmente ou 100% online.\n\n### Coberturas mais contratadas\n\nAlém da cobertura básica de morte (natural e acidental), as seguradoras oferecem: Invalidez Permanente Total ou Parcial por Acidente (IPA), Doenças Graves (câncer, infarto, AVC), Diária de Incapacidade Temporária (DIT), Assistência Funeral Familiar e Assistência Serviços (segunda opinião médica, orientação nutricional).\n\n### Como funciona a cotação\n\nComparamos até 9 seguradoras em uma única proposta, ajustando capital segurado e coberturas ao seu orçamento. O prêmio é calculado por idade, sexo, profissão e histórico de saúde — quanto mais jovem, menor o custo. Renovação automática com garantia contratual de que o preço não sobe abusivamente.\n\n### Diferenciais Patro no ${s.bairro}\n\nMais de 20 anos de atuação dos sócios, atendimento humano no processo de sinistro (fase mais crítica da família) e consultoria gratuita para escolha do capital segurado ideal com base em renda, dívidas e dependentes.`,
-    metaDescription: `Seguro de vida ${s.bairro} Guarulhos: cotação com 9 seguradoras, ${s.preco.vida}, cobertura para morte, invalidez, doenças graves e funeral.`,
+    detailedDescription: `### Por que contratar Seguro de Vida no ${s.bairro}\n\nO seguro de vida é a proteção financeira mais eficiente por real investido: por menos que um plano de streaming, você garante capital de até R$ 1 milhão para sua família em caso de morte, invalidez ou doenças graves. Para moradores do ${s.bairro} ${s.referencia}, atendemos presencialmente ou 100% online.\n\n### Coberturas mais contratadas\n\nAlém da cobertura básica de morte (natural e acidental), as seguradoras oferecem: Invalidez Permanente Total ou Parcial por Acidente (IPA), Doenças Graves (câncer, infarto, AVC), Diária de Incapacidade Temporária (DIT), Assistência Funeral Familiar e Assistência Serviços (segunda opinião médica, orientação nutricional).\n\n### Como funciona a cotação\n\nComparamos até 16 seguradoras em uma única proposta, ajustando capital segurado e coberturas ao seu orçamento. O prêmio é calculado por idade, sexo, profissão e histórico de saúde — quanto mais jovem, menor o custo. Renovação automática com garantia contratual de que o preço não sobe abusivamente.\n\n### Diferenciais Patro no ${s.bairro}\n\nMais de 20 anos de atuação dos sócios, atendimento humano no processo de sinistro (fase mais crítica da família) e consultoria gratuita para escolha do capital segurado ideal com base em renda, dívidas e dependentes.`,
+    metaDescription: `Seguro de vida ${s.bairro} Guarulhos: cotação com 16 seguradoras, ${s.preco.vida}, cobertura para morte, invalidez, doenças graves e funeral.`,
     icon: "❤️",
     pricingIntro: `O seguro de vida no ${s.bairro} custa a partir de ${s.preco.vida} para capital de R$ 100 mil, com valores que variam conforme idade, sexo, profissão e coberturas adicionais contratadas.`,
     pricingFactors: [
@@ -221,7 +221,7 @@ function buildVida(s: Seed): SeoLocalPageConfig {
     ],
     whyPatro: [
       `Atendimento presencial no Cidade Maia, próximo ao ${s.bairro}`,
-      "Comparativo entre 9 seguradoras (Prudential, MetLife, Bradesco, Icatu, MAG, Porto)",
+      "Comparativo entre 16 seguradoras (Prudential, MetLife, Bradesco, Icatu, MAG, Porto)",
       "Consultoria gratuita para dimensionar o capital segurado ideal",
       "Suporte humano na fase de sinistro — momento mais crítico para a família",
       "Recotação automática antes do reajuste anual",
