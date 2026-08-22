@@ -76,7 +76,7 @@ const HeroPatro = memo(() => {
                   rel="noopener noreferrer"
                   className="text-white/90 text-sm hover:underline"
                 >
-                  <span className="font-bold">{PATRO_SOCIAL_PROOF.googleRating}</span> no Google · {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações
+                  <span className="font-bold">{PATRO_SOCIAL_PROOF.googleRating}</span> no Google · avaliações verificadas
                 </a>
               </div>
 

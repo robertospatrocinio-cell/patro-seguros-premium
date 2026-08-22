@@ -261,7 +261,7 @@ const HubSegurosGuarulhos = () => {
                 "500+ empresas atendidas em Guarulhos",
                 "Especialistas em RC profissional e agronegócio",
                 "Suporte completo em sinistros — você não fica sozinho",
-                `Avaliação ${PATRO_SOCIAL_PROOF.googleRating} estrelas no Google (${PATRO_SOCIAL_PROOF.googleReviewCount} reviews)`,
+                `Avaliação ${PATRO_SOCIAL_PROOF.googleRating} estrelas no Google`,
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 bg-card rounded-xl p-5 border">
                   <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />

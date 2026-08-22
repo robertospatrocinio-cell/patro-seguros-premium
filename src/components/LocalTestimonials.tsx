@@ -35,7 +35,7 @@ const LocalTestimonials = () => {
                 <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Reviews</span>
               </div>
               <p className="text-[11px] text-muted-foreground font-medium">
-                Baseado em {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações no Google
+                {PATRO_SOCIAL_PROOF.reviewsCtaLabel}
               </p>
             </div>
           </div>

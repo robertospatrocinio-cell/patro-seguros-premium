@@ -408,7 +408,7 @@ const IndiqueEGanhe = () => {
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-current" />
                   ))}
-                  <span className="ml-2 text-xs text-muted-foreground">{`${EMPRESA.metricas.googleRating.toString().replace(".", ",")}/5 no Google · ${EMPRESA.metricas.googleReviews} avaliações`}</span>
+                  <span className="ml-2 text-xs text-muted-foreground">{`${EMPRESA.metricas.googleRating.toString().replace(".", ",")}/5 no Google`}</span>
                 </div>
               </div>
             </div>

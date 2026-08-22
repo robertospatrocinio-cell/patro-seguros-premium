@@ -45,7 +45,7 @@ const passos = [
   },
   {
     name: "Ver perfis públicos e reputação",
-    text: `Cruze com fontes independentes: perfil no Google Business (${PATRO_SOCIAL_PROOF.googleRating}★, ${PATRO_SOCIAL_PROOF.googleReviewCount}+ avaliações), LinkedIn corporativo e Reclame Aqui — todos abertos e verificáveis.`,
+    text: `Cruze com fontes independentes: perfil no Google Business (${PATRO_SOCIAL_PROOF.googleRating}★), LinkedIn corporativo e Reclame Aqui — todos abertos e verificáveis.`,
   },
 ];
 

@@ -5,11 +5,11 @@ import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 const GOOGLE_REVIEWS_URL = PATRO_SOCIAL_PROOF.googleProfileUrl;
 const LEAVE_REVIEW_URL = PATRO_SOCIAL_PROOF.leaveReviewUrl;
 const RATING = PATRO_SOCIAL_PROOF.googleRating;
-const REVIEW_COUNT = PATRO_SOCIAL_PROOF.googleReviewCount;
+const REVIEWS_LABEL = PATRO_SOCIAL_PROOF.reviewsCtaLabel;
 
 /**
  * Compact Google Reviews badge for the footer.
- * Reinforces local SEO trust signals (${PATRO_SOCIAL_PROOF.googleRating}★ · ${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações no Google).
+ * Reinforces local SEO trust signals (nota ${PATRO_SOCIAL_PROOF.googleRating}★ no Google).
  * The aggregateRating is also embedded in LocalBusinessSchema (JSON-LD)
  * so Google can render rich snippets in the SERP.
  */
@@ -37,7 +37,7 @@ const FooterReviewsBadge = () => (
             <Star key={i} className="h-3.5 w-3.5 fill-amber-500 text-amber-500" aria-hidden="true" />
           ))}
         </div>
-        <p className="text-[11px] text-white/80">{REVIEW_COUNT} avaliações reais</p>
+        <p className="text-[11px] text-white/80">{REVIEWS_LABEL}</p>
       </div>
     </div>
 

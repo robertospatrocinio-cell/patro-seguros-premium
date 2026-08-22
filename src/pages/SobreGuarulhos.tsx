@@ -16,7 +16,7 @@ const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pela%2
 
 const faqs = [
   { question: "A Patro Seguros atende apenas Guarulhos?", answer: "Não. Nossa sede fica em Guarulhos, mas atendemos toda a Região Metropolitana de São Paulo, interior do estado e, para seguros Agro, todo o Brasil. O atendimento é presencial, por WhatsApp, telefone e videochamada." },
-  { question: "Qual é a melhor corretora de seguros em Guarulhos?", answer: `A Patro Seguros é referência em Guarulhos, com nota ${PATRO_SOCIAL_PROOF.googleRating} no Google, ${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações positivas e registro na SUSEP (nº 212113511). Comparamos cotações de 16+ seguradoras para encontrar o melhor custo-benefício.` },
+  { question: "Qual é a melhor corretora de seguros em Guarulhos?", answer: `A Patro Seguros é referência em Guarulhos, com nota ${PATRO_SOCIAL_PROOF.googleRating} no Google e registro na SUSEP (nº 212113511). Comparamos cotações de 16+ seguradoras para encontrar o melhor custo-benefício.` },
   { question: "Vocês fazem seguro para empresas em Guarulhos?", answer: "Sim! Temos ampla experiência com empresas de Guarulhos — desde pequenas lojas até indústrias e transportadoras. Oferecemos Seguro Empresarial, RC, Frota, Cyber, Plano de Saúde Empresarial e mais." },
   { question: "Como funciona o atendimento presencial?", answer: "Nosso escritório fica na Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219 – Cidade Maia, com fácil acesso e estacionamento. Atendemos de segunda a sexta das 8h30 às 18h. Recomendamos agendar pelo WhatsApp." },
   { question: "Vocês trabalham com planos de saúde em Guarulhos?", answer: "Sim! Trabalhamos com as principais operadoras que atendem Guarulhos: Amil, Bradesco Saúde, SulAmérica, Hapvida/NotreDame, Prevent Senior, Unimed e mais. Comparamos preços e coberturas para encontrar o ideal." },
@@ -121,7 +121,7 @@ const SobreGuarulhos = () => (
             {[
               "Sede em Guarulhos — conhecemos a realidade local, os bairros e os riscos da região",
               "Registrada na SUSEP (nº 212113511) — corretora regulamentada e fiscalizada",
-              `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google com ${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações de clientes reais`,
+              `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google, com perfil público e verificável`,
               "Comparamos cotações de 16+ seguradoras e 20 operadoras de saúde",
               "Atendimento presencial no escritório ou 100% online (WhatsApp, e-mail, videochamada)",
               "Resposta em até 2 horas com propostas comparativas",
