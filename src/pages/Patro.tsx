@@ -253,7 +253,7 @@ const Patro = () => {
                   { icon: Clock, t: "Cotação em até 2h úteis", d: "Resposta rápida, sem você ficar refém de call center." },
                   { icon: Users, t: "Corretor SUSEP dedicado", d: "Mesma pessoa do orçamento ao sinistro." },
                   { icon: Shield, t: "16+ seguradoras", d: "Porto, Allianz, HDI, Tokio Marine, Bradesco e mais." },
-                  { icon: Award, t: "500+ PMEs atendidas", d: "Especialistas em galpões, agro, RC e empresarial." },
+                  { icon: Award, t: "Atendimento a PMEs", d: "Especialistas em galpões, agro, RC e empresarial." },
                 ].map(({ icon: Icon, t, d }) => (
                   <div key={t} className="flex gap-4">
                     <div className="shrink-0 w-11 h-11 rounded-xl bg-[#003366] flex items-center justify-center">

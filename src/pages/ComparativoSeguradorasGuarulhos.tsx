@@ -25,7 +25,7 @@ Neste comparativo, consideramos dados reais de cotações realizadas para morado
       ]}
       whyPatro={[
         "20+ anos de experiência no mercado de seguros",
-        "Avaliação 4.9 no Google com 67 reviews reais",
+        "Avaliação 4.9 no Google (perfil público e verificável)",
       ]}
       faqs={[
         { question: "Qual seguradora é mais barata em Guarulhos?", answer: "HDI e Tokio Marine costumam ser muito competitivas, mas depende do CEP exato e modelo do veículo." },

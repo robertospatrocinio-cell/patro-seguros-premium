@@ -114,7 +114,7 @@ export const materiaisConteudo: Record<string, MaterialConteudo> = {
       { q: "Posso cobrir múltiplos endereços?", a: "Sim, com apólice multi-risco. É o mais indicado para redes e franquias." },
     ],
     "Cote seu seguro empresarial com quem entende de PMEs",
-    "500+ empresas atendidas em Guarulhos e São Paulo. Envie o checklist e receba 3 propostas comparáveis.",
+    "Atendimento a empresas de diversos portes em Guarulhos e São Paulo. Envie o checklist e receba 3 propostas comparáveis.",
   ),
   "checklist-plano-saude-empresarial": c(
     "A escolha do plano de saúde empresarial vai muito além do preço por vida. Reajuste, coparticipação, rede e portabilidade impactam a retenção da equipe e o custo em 3 anos. Use este checklist para levar informação precisa à mesa.",
@@ -390,7 +390,7 @@ export const materiaisConteudo: Record<string, MaterialConteudo> = {
       { q: "Vale contratar gerenciamento de risco?", a: "Para frotas com 10+ veículos, sim. Reduz sinistralidade e prêmio ao mesmo tempo." },
     ],
     "Cote sua frota com quem entende de gestão",
-    "500+ empresas atendidas. Envie o checklist e receba diagnóstico + propostas comparáveis.",
+    "Atendimento a empresas de diversos portes. Envie o checklist e receba diagnóstico + propostas comparáveis.",
   ),
   "checklist-seguro-cyber": c(
     "O seguro cyber é a única proteção real contra ataques, vazamentos e sanções da LGPD. Mas antes de contratar, é preciso mapear a superfície de risco. Este checklist é o que a Patro Seguros aplica em empresas de todos os portes.",

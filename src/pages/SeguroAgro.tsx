@@ -254,7 +254,7 @@ const SeguroAgro = () => {
             </p>
             <div className="mt-5 inline-flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-              Sede em Guarulhos/SP · Atendimento nacional · 500+ apólices PME emitidas
+              Sede em Guarulhos/SP · Atendimento nacional · Carteira ativa de apólices PME
             </div>
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
               <Link

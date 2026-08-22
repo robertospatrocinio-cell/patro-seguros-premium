@@ -71,7 +71,7 @@ export const galpaoClusterFAQs: Record<GalpaoFAQIntent, FAQ[]> = {
     {
       question: "É possível parcelar o seguro de galpão? Em quantas vezes?",
       answer:
-        "Sim. As 16 seguradoras parceiras parcelam em até 6x sem juros via boleto bancário e até 10x no cartão de crédito (com juros). Para apólices acima de R$ 100 mil/ano, algumas seguradoras aceitam parcelamento em 12x sem juros mediante análise de crédito. A Patro negocia a melhor condição de parcelamento como parte do quadro comparativo.",
+        "Sim. As 16 seguradoras parceiras parcelam em até 6x sem juros via boleto bancário e até 10x no cartão de crédito (com juros). Para apólices acima de R$ 100 mil/ano, as condições de pagamento e parcelamento variam conforme seguradora, produto e perfil do risco (mediante análise de crédito). A Patro negocia a melhor condição de parcelamento como parte do quadro comparativo.",
     },
     {
       question: "Posso trocar de seguradora no meio do contrato sem perder cobertura?",
@@ -186,7 +186,7 @@ export const galpaoClusterFAQs: Record<GalpaoFAQIntent, FAQ[]> = {
     {
       question: "Como a Patro acompanha um sinistro grave de galpão (incêndio, alagamento, roubo)?",
       answer:
-        "Rotina padrão da Patro em sinistro grave: (1) acionamento por WhatsApp ou telefone 24/7; (2) abertura imediata do aviso de sinistro junto à seguradora; (3) acompanhamento presencial da perícia e do regulador; (4) defesa técnica do laudo e revisão de cláusulas para evitar negativa indevida; (5) negociação de adiantamento e liberação parcial; (6) acompanhamento até indenização final. Em mais de 140 apólices ativas, taxa de indenização integral foi de 92% nos últimos 5 anos.",
+        "Rotina padrão da Patro em sinistro grave: (1) acionamento por WhatsApp ou telefone 24/7; (2) abertura imediata do aviso de sinistro junto à seguradora; (3) acompanhamento presencial da perícia e do regulador; (4) defesa técnica do laudo e revisão de cláusulas para evitar negativa indevida; (5) negociação de adiantamento e liberação parcial; (6) acompanhamento até indenização final. Acompanhamos tecnicamente cada etapa da regulação justamente para reduzir o risco de negativa indevida.",
     },
   ],
 };

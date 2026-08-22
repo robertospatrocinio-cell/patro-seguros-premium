@@ -294,7 +294,7 @@ const Depoimentos = () => {
             </div>
             <p className="text-3xl font-bold mb-1">{PATRO_SOCIAL_PROOF.googleRating}</p>
             <p className="text-sm text-muted-foreground mb-2">Nota no Google Meu Negócio</p>
-            <p className="text-xs text-muted-foreground mb-6">Baseado em {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais de clientes</p>
+            <p className="text-xs text-muted-foreground mb-6">{PATRO_SOCIAL_PROOF.reviewsCtaLabel}</p>
             <a
               href={PATRO_SOCIAL_PROOF.googleProfileUrl}
               target="_blank"

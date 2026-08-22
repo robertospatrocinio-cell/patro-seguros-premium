@@ -32,13 +32,21 @@ const InsuranceAgencySchema = () => {
       "latitude": EMPRESA.geo.latitude,
       "longitude": EMPRESA.geo.longitude
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": EMPRESA.metricas.googleRating,
-      "reviewCount": EMPRESA.metricas.googleReviews,
-      "bestRating": "5",
-      "worstRating": "1"
-    },
+    // aggregateRating REMOVIDO: sem integração automática com o Google Business
+    // não há reviewCount verificável, e o Google exige reviewCount/ratingCount.
+    // Publicar estrelas sem fonte auditável seria dado não comprovado.
+    "founder": [
+      {
+        "@type": "Person",
+        "name": EMPRESA.socios.roberto.nome,
+        "sameAs": [EMPRESA.socios.roberto.linkedin]
+      },
+      {
+        "@type": "Person",
+        "name": EMPRESA.socios.sandra.nome,
+        "sameAs": [EMPRESA.socios.sandra.linkedin]
+      }
+    ],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",

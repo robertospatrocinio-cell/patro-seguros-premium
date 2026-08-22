@@ -41,7 +41,7 @@ const GoogleBusinessWidget = () => {
             ))}
           </div>
           <p className="text-xs text-muted-foreground">
-            {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações no Google
+            {PATRO_SOCIAL_PROOF.reviewsCtaLabel}
           </p>
         </div>
       </div>

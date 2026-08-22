@@ -45,7 +45,7 @@ export const perguntasCategoriaAprofundamento: Record<string, CategoriaAprofunda
     "Olá, quero cotar seguro auto com a Patro. Tenho dúvidas específicas.",
   ),
   empresarial: c(
-    "Seguro empresarial envolve leitura fina de CNAE, valor de estoque, RC e cobertura de lucros cessantes. A Patro Seguros atende 500+ PMEs em Guarulhos e São Paulo — aqui estão as perguntas que mais aparecem.",
+    "Seguro empresarial envolve leitura fina de CNAE, valor de estoque, RC e cobertura de lucros cessantes. A Patro Seguros atende PMEs em Guarulhos e São Paulo — aqui estão as perguntas que mais aparecem.",
     [
       { title: "O que compõe uma apólice empresarial", content: "Incêndio, raio e explosão (básico), roubo/furto qualificado, danos elétricos, vendaval, equipamentos, RC Operações e, opcionalmente, lucros cessantes." },
       { title: "Erros comuns na contratação", content: "Subestimar valor do estoque (gera rateio em sinistro), esquecer melhorias e benfeitorias, e contratar apenas cobertura básica sem RC." },

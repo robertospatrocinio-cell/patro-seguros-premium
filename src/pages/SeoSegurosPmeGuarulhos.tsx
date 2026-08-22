@@ -54,7 +54,7 @@ const casesReais = [
 
 const estatisticas = [
   { numero: "200+", label: "Empresas protegidas em Guarulhos" },
-  { numero: `${PATRO_SOCIAL_PROOF.googleRating}★`, label: `Avaliação Google (${PATRO_SOCIAL_PROOF.googleReviewCount} reviews)` },
+  { numero: `${PATRO_SOCIAL_PROOF.googleRating}★`, label: "Avaliação no Google" },
   { numero: "R$ 2M+", label: "Em sinistros empresariais resolvidos" },
   { numero: "40%", label: "Economia média na primeira cotação" },
 ];

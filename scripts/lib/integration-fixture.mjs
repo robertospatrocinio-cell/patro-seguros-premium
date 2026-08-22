@@ -99,7 +99,7 @@ export function fixtureBlocksFor(route) {
         faqPageJsonLd([
           { q: "Como faço uma cotação?", a: "Preencha o formulário no site ou fale via WhatsApp." },
           { q: "Vocês atendem fora de Guarulhos?", a: "Sim, atendemos em todo o Brasil via canais digitais." },
-          { q: "Qual o horário de atendimento?", a: "Segunda a sexta, das 9h às 18h, e sábado das 9h às 13h." },
+          { q: "Qual o horário de atendimento?", a: "Segunda a sexta, das 8h30 às 18h, e sábado das 9h às 13h." },
         ]),
       ];
     default:

@@ -185,7 +185,7 @@ const AvaliarNoGoogle = () => {
                   <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <span>· {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais de clientes em Guarulhos</span>
+              <span>· avaliações de clientes em Guarulhos</span>
             </div>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Sua avaliação no Google ajuda outras pessoas de Guarulhos, Cidade Maia, Cumbica e

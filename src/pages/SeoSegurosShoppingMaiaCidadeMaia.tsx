@@ -125,7 +125,7 @@ Esse perfil cria necessidades de seguro muito específicas. Lojistas e operadore
 
 A Patro Seguros está literalmente na frente do shopping, com atendimento presencial mediante agendamento, estacionamento próprio no Via Alameda e suporte digital via WhatsApp para quem prefere resolver tudo a distância. Conhecemos a realidade do bairro, dos lojistas que abrem antes das 10h, das clínicas que atendem até à noite, dos condomínios com poucas vagas para visitantes, e adaptamos cada apólice ao uso real — sem cobertura sobrando ou faltando.
 
-Nossa equipe técnica acompanha o sinistro do início ao fim. Em caso de furto em loja, alagamento em sala comercial, batida no estacionamento do shopping ou processo contra um profissional liberal, o cliente fala diretamente com seu corretor responsável — sem call center, sem URA, sem sistema de senha. É essa proximidade que nos rendeu a indicação de mais de 500 PMEs e famílias na região.`}
+Nossa equipe técnica acompanha o sinistro do início ao fim. Em caso de furto em loja, alagamento em sala comercial, batida no estacionamento do shopping ou processo contra um profissional liberal, o cliente fala diretamente com seu corretor responsável — sem call center, sem URA, sem sistema de senha. É essa proximidade que nos rendeu a indicação de PMEs e famílias na região.`}
     icon="🏬"
     badge="Atendimento presencial — em frente ao Shopping Maia"
     metaDescription="Corretora em frente ao Shopping Maia, Cidade Maia (Guarulhos). Seguro para lojistas, quiosques, consultórios e moradores. Cotação grátis com 16+ seguradoras."
@@ -183,7 +183,7 @@ Nossa equipe técnica acompanha o sinistro do início ao fim. Em caso de furto e
     whyPatro={[
       "Escritório no Edifício Via Alameda — Sala 219, em frente ao Shopping Maia, atendimento presencial com agendamento",
       "Mais de 16 seguradoras comparadas em paralelo (Porto, Allianz, Bradesco, Tokio Marine, HDI, Mapfre, Sompo, SulAmérica e outras)",
-      "Mais de 500 PMEs e famílias atendidas em Guarulhos — referência local desde 2012",
+      "PMEs e famílias atendidas em Guarulhos — atendimento local e presencial",
       "Suporte humano: você fala direto com seu corretor em caso de sinistro, sem call center ou URA",
       "Conhecimento técnico das exigências do Shopping Maia para lojistas e dos condomínios da Cidade Maia",
       "Atendimento digital paralelo via WhatsApp e formulário online para quem prefere a distância",

@@ -89,7 +89,7 @@ const AvaliacoesClientes = () => {
             <div className="py-16 md:py-24 max-w-4xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-[11px] font-semibold text-white/85 mb-6">
                 <Star className="h-3.5 w-3.5 text-amber-400 fill-amber-400" aria-hidden="true" />
-                {PATRO_SOCIAL_PROOF.googleRating} · {PATRO_SOCIAL_PROOF.googleReviewCount} avaliações no Google
+                {PATRO_SOCIAL_PROOF.googleRating} no Google
               </div>
 
               <h1

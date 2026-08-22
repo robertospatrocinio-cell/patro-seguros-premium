@@ -36,7 +36,7 @@ const SOBRE_FAQS = [
   },
   {
     question: "Quantos clientes a Patro atende?",
-    answer: `Mais de ${EMPRESA.metricas.clientesAtendidos} clientes ativos entre pessoas físicas, famílias e empresas, com ${EMPRESA.metricas.sinistrosPagos} sinistros resolvidos e nota ${PATRO_SOCIAL_PROOF.googleRating} no Google (${PATRO_SOCIAL_PROOF.googleReviewCount}+ avaliações reais).`,
+    answer: `Mais de ${EMPRESA.metricas.clientesAtendidos} clientes atendidos entre pessoas físicas, famílias e empresas, com nota ${PATRO_SOCIAL_PROOF.googleRating} no Google.`,
   },
   {
     question: "Quais tipos de seguro a Patro comercializa?",
@@ -47,8 +47,7 @@ const SOBRE_FAQS = [
 const stats = [
   { value: EMPRESA.metricas.experienciaAnos, label: "Anos de Experiência", desc: `Sócios com mais de ${EMPRESA.metricas.experienciaAnos}` },
   { value: EMPRESA.metricas.clientesAtendidos, label: "Clientes Atendidos", desc: "Pessoas, famílias e empresas" },
-  { value: EMPRESA.metricas.sinistrosPagos, label: "Sinistros Resolvidos", desc: "Com acompanhamento completo" },
-  { value: String(PATRO_SOCIAL_PROOF.googleRating), label: "Nota no Google", desc: `${PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais` },
+  { value: String(PATRO_SOCIAL_PROOF.googleRating), label: "Nota no Google", desc: "Perfil público e verificável" },
 ];
 
 const equipe = [
@@ -622,7 +621,7 @@ const Sobre = () => {
                 </div>
                 <div>
                   <dt className="font-semibold text-foreground">Experiência</dt>
-                  <dd className="text-muted-foreground">25+ anos · 500+ empresas atendidas</dd>
+                  <dd className="text-muted-foreground">20+ anos de experiência dos sócios · atendimento a empresas de diversos portes</dd>
                 </div>
                 <div>
                   <dt className="font-semibold text-foreground">Parcerias</dt>

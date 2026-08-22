@@ -88,7 +88,7 @@ O critério mais importante para escolher o melhor seguro Uber em Guarulhos não
       "Quem tem seguro convencional hoje e quer migrar para apólice com cláusula de app",
     ]}
     whyPatro={[
-      "200+ motoristas de app protegidos em Guarulhos desde 2020",
+      "200+ motoristas de app protegidos em Guarulhos",
       "Ranking técnico atualizado com preços reais das 4 seguradoras Uber-friendly",
       "Análise gratuita da cláusula contratual antes de contratar",
       "Atendimento presencial no Cidade Maia + WhatsApp para motoristas em qualquer bairro",

@@ -265,7 +265,7 @@ const premiumPages: Record<string, PremiumMeta> = {
   },
   "/hub-empresarial": {
     title: "Seguros Empresariais | PME e Grandes Riscos | Patro",
-    description: "Hub de seguros empresariais: galpão, escritório, frota, RC, D&O, cyber, lucros cessantes e benefícios. Mais de 500 empresas atendidas em Guarulhos/SP.",
+    description: "Hub de seguros empresariais: galpão, escritório, frota, RC, D&O, cyber, lucros cessantes e benefícios. Atendimento a empresas de diversos portes em Guarulhos/SP.",
     h1: "Hub de Seguros Empresariais",
     collection: true,
   },

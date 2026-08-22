@@ -136,7 +136,7 @@ Solicite uma [análise gratuita de prevenção e cotação em até 12 seguradora
       },
       {
         q: "Quanto uma família economiza usando corretor vs. cotação direta?",
-        a: "A análise de 500+ cotações comparativas entre 2024 e 2026 mostrou economia média de R$ 1.870/ano quando o cliente compara 4+ seguradoras via corretora, ante a cotação direta em app/site de uma única seguradora. Em bairros de alto padrão (Cidade Maia), a economia média sobe para R$ 2.410/ano.",
+        a: "A análise de cotações comparativas entre 2024 e 2026 mostrou economia média de R$ 1.870/ano quando o cliente compara 4+ seguradoras via corretora, ante a cotação direta em app/site de uma única seguradora. Em bairros de alto padrão (Cidade Maia), a economia média sobe para R$ 2.410/ano.",
       },
       {
         q: "Qual a metodologia deste estudo?",

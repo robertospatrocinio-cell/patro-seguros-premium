@@ -439,7 +439,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-slate-500 font-medium">{PATRO_SOCIAL_PROOF.googleReviewCount} avaliações reais no Google</p>
+              <p className="text-slate-500 font-medium">{PATRO_SOCIAL_PROOF.reviewsCtaLabel}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">

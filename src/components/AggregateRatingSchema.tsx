@@ -13,7 +13,6 @@ import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 // Sempre derivado da fonte única em `@/lib/patroSocialProof` — nunca hardcode.
 export const PATRO_RATING = {
   ratingValue: PATRO_SOCIAL_PROOF.googleRating,
-  reviewCount: String(PATRO_SOCIAL_PROOF.googleReviewCount),
   bestRating: PATRO_SOCIAL_PROOF.bestRating,
   worstRating: PATRO_SOCIAL_PROOF.worstRating,
 } as const;

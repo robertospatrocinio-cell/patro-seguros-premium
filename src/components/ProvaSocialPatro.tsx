@@ -46,7 +46,6 @@ const ProvaSocialPatro = ({
 }: ProvaSocialPatroProps) => {
   const {
     googleRating,
-    googleReviewCount,
     leaveReviewUrl,
     googleProfileUrl,
     whatsappUrl,
@@ -72,7 +71,7 @@ const ProvaSocialPatro = ({
           </div>
         </div>
         <span className="text-xs text-muted-foreground">
-          {googleReviewCount} avaliações no Google
+          Avaliações verificadas no Google
         </span>
         {!hideReviewsLink && (
           <Link
@@ -116,7 +115,7 @@ const ProvaSocialPatro = ({
                   ))}
                 </div>
                 <p className={`text-xs ${isHero ? "text-white/70" : "text-muted-foreground"}`}>
-                  {googleReviewCount} avaliações reais
+                  Avaliações verificadas no Google
                 </p>
               </div>
             </div>

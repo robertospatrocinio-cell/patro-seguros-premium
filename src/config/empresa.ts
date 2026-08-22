@@ -35,7 +35,7 @@ export const EMPRESA = {
   dominioCanonico: "https://www.patroseguros.com.br",
   horario: "Segunda a Sexta, 8h30 às 18h",
   posicionamento:
-    "A Patro Seguros é a corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google (70 avaliações). Comparamos cotações em 16+ seguradoras para garantir a melhor cobertura pelo menor custo real.",
+    "A Patro Seguros é a corretora de seguros em Guarulhos fundada em 2021 por sócios com mais de 20 anos de experiência, com registro SUSEP 212113511 e avaliação 4.9 no Google. Comparamos cotações em 16+ seguradoras para buscar a combinação mais adequada entre cobertura, assistência e preço.",
   redesSociais: {
     google: "https://www.google.com/maps?cid=273879799324962533",
     instagram: "https://www.instagram.com/patroseguros",
@@ -43,12 +43,31 @@ export const EMPRESA = {
     linkedin: "https://www.linkedin.com/company/patro-seguros",
     youtube: "https://www.youtube.com/@patroseguros",
   },
-  // Dados de Confiança e Prova Social (Tarefa 5)
+  /**
+   * Perfis pessoais oficiais dos sócios (usados como `sameAs` em schema Person).
+   * Conteúdo biográfico só pode ser publicado após validação humana.
+   */
+  socios: {
+    roberto: {
+      nome: "Roberto Patrocínio",
+      linkedin: "https://www.linkedin.com/in/roberto-patrocinio",
+    },
+    sandra: {
+      nome: "Sandra Patrocínio",
+      linkedin: "https://www.linkedin.com/in/sandra-patrocinio",
+    },
+  },
+  /**
+   * Somente indicadores confirmados pela direção da Patro Seguros.
+   * REGRA: nenhum número pode ser publicado sem confirmação documentada.
+   * - `googleReviews` foi REMOVIDO: não há integração automática com o Google,
+   *   portanto a quantidade de avaliações não é exibida em nenhum lugar
+   *   (nem no conteúdo, nem no JSON-LD).
+   * - `sinistrosPagos` foi REMOVIDO por falta de fonte interna comprovada.
+   */
   metricas: {
     googleRating: 4.9,
-    googleReviews: 70,
     clientesAtendidos: "2.500+",
-    sinistrosPagos: "1.800+",
     experienciaAnos: "20+",
     seguradorasParceiras: "16+",
     operadorasSaude: "20+",

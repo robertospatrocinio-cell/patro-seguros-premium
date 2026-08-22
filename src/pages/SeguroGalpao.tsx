@@ -45,7 +45,7 @@ const HUB_BASE_FAQS = [
   { question: "Seguro de galpão cobre mercadoria de terceiros (3PL e fulfillment)?", answer: "Apenas com cobertura específica de RC Armazenagem. Sem essa cobertura adicional, em sinistro envolvendo mercadoria de terceiros, a operadora responde com patrimônio próprio. Cobertura indispensável para 3PLs, fulfillment de marketplace, dark stores e armazéns gerais — em qualquer região do Brasil." },
   { question: "Como dimensionar corretamente o LMI do galpão?", answer: "O LMI deve cobrir: 100% do valor de reconstrução do imóvel + mercadoria média mais 30% para picos de estoque + 100% dos equipamentos + 6 a 12 meses de lucros cessantes. Subseguro (LMI menor que valor real) é a causa #1 de indenização parcial em sinistro de galpão. A Patro faz dimensionamento técnico em vistoria pré-cotação." },
   { question: "Galpão alugado precisa de seguro? Quem contrata, locador ou inquilino?", answer: "Geralmente os dois. O locador contrata seguro do imóvel (incêndio, vendaval, danos elétricos estruturais). O inquilino contrata seguro de conteúdo (mercadoria, equipamentos, lucros cessantes, RC operações). Contratos de locação bem feitos definem com clareza esse split — a Patro lê o contrato e ajusta as duas apólices para evitar gaps de cobertura." },
-  { question: "Quanto tempo demora a indenização em sinistro grave de galpão?", answer: "Para sinistros bem documentados (com Patro acompanhando regulação), o prazo médio é 30 a 60 dias para liberação parcial e 90 a 120 dias para indenização final em sinistros grandes. Em mais de 140 apólices ativas, a taxa de indenização integral em sinistros graves foi de 92% nos últimos 5 anos." },
+  { question: "Quanto tempo demora a indenização em sinistro grave de galpão?", answer: "Para sinistros bem documentados (com Patro acompanhando regulação), o prazo médio é 30 a 60 dias para liberação parcial e 90 a 120 dias para indenização final em sinistros grandes. Acompanhamos tecnicamente cada etapa da regulação justamente para reduzir o risco de negativa indevida." },
 ];
 
 const HUB_FAQS = mergeGalpaoFAQs(HUB_BASE_FAQS, [
@@ -104,7 +104,7 @@ const SeguroGalpao = () => {
         "Consultoria para validação de cláusulas de seguro em contratos de locação",
         "Especialização em hubs como Guarulhos/Cumbica + atendimento nacional via 16 seguradoras",
         "Análise de risco técnica e vistoria gratuita para galpões de grande porte",
-        "Mais de 140 apólices ativas — especialistas no segmento logístico, com sócios com 20+ anos de experiência",
+        "Especialistas no segmento logístico, com sócios com 20+ anos de experiência",
         "Plantão 24/7 em sinistros graves — 92% de indenização integral nos últimos 5 anos",
         "Dimensionamento de LMI com cláusula de pico sazonal (Black Friday e fim de ano)",
         "Implementação de apólices All-risks para operações de alta complexidade",

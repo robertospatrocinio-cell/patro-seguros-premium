@@ -75,7 +75,7 @@ Nosso atendimento presencial no Cidade Maia inclui análise gratuita de apólice
       "Casais sem filhos com dívidas conjuntas ou patrimônio compartilhado",
     ]}
     whyPatro={[
-      "Mais de 400 vidas protegidas em Guarulhos desde 2020",
+      "Mais de 400 vidas protegidas em Guarulhos",
       "Comparação entre 8+ seguradoras de vida líderes do Brasil",
       "Atendimento presencial humanizado no Cidade Maia",
       "Análise gratuita de apólices existentes — economia média de 25%",
