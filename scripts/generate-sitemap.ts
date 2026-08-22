@@ -655,7 +655,6 @@ export function generateSitemap(blogSlugs: string[]): string {
   // redirecionam (Navigate no App.tsx ou regra em src/lib/redirects.ts) e por
   // isso são excluídas — os 301 continuam ativos para preservar equity.
   const REDIRECTED_PATHS = new Set<string>([
-    "/consorcio-guarulhos",
     "/cotacao-seguro-auto-guarulhos",
     "/planejamento-patrimonial",
     "/plano-saude-empresarial-guarulhos",
