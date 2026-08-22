@@ -196,7 +196,6 @@ const PlanoSaudeIdososGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaude
 const PlanoOdontologicoGuarulhosCanonical = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhosCanonical"), "PlanoOdontologicoGuarulhosCanonical");
 const SeoSeguroEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroEmpresarialGuarulhos"), "SeoSeguroEmpresarialGuarulhos");
 const CorretoraDeSegurosEmGuarulhos = lazyWithRetry(() => import("./pages/CorretoraDeSegurosEmGuarulhos"), "CorretoraDeSegurosEmGuarulhos");
-const ConsorcioGuarulhos = lazyWithRetry(() => import("./pages/ConsorcioGuarulhos"), "ConsorcioGuarulhos");
 const SeoSeguroResidencialGuarulhos = lazyWithRetry(() => import("./pages/SeoSeguroResidencialGuarulhos"), "SeoSeguroResidencialGuarulhos");
 const SegurosEmGuarulhosHub = lazyWithRetry(() => import("./pages/local-guarulhos/SegurosEmGuarulhos"), "SegurosEmGuarulhosHub");
 
