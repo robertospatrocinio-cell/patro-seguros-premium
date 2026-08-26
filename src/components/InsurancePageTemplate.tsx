@@ -179,6 +179,7 @@ export interface InsurancePageProps {
   coverageExclusions?: string[];
   tips?: string[];
   quoteUrl?: string;
+  quoteCtaText?: string;
   heroImage?: string;
   mobileHeroImage?: string;
   /**
@@ -293,6 +294,7 @@ const InsurancePageTemplate = ({
   coverageExclusions,
   tips,
   quoteUrl,
+  quoteCtaText,
   heroImage,
   mobileHeroImage,
   galleryImages,
@@ -525,13 +527,13 @@ const InsurancePageTemplate = ({
                 {quoteUrl && quoteUrl.startsWith('/') ? (
                   <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      Pedir Cotação do {title}
+                      {quoteCtaText || `Pedir Cotação do ${title}`}
                     </Button>
                   </Link>
                 ) : (
                   <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      Pedir Cotação do {title}
+                      {quoteCtaText || `Pedir Cotação do ${title}`}
                     </Button>
                   </Link>
                 )}
@@ -942,20 +944,20 @@ const InsurancePageTemplate = ({
                 quoteUrl.startsWith('/') ? (
                   <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Pedir Cotação do {title}
+                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> {quoteCtaText || `Pedir Cotação do ${title}`}
                     </Button>
                   </Link>
                 ) : (
                   <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Pedir Cotação do {title}
+                      <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> {quoteCtaText || `Pedir Cotação do ${title}`}
                     </Button>
                   </a>
                 )
               ) : (
                 <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
-                    <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Pedir Cotação do {title}
+                    <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> {quoteCtaText || `Pedir Cotação do ${title}`}
                   </Button>
                 </Link>
               )}
