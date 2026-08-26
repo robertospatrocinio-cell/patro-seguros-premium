@@ -179,6 +179,7 @@ export interface InsurancePageProps {
   coverageExclusions?: string[];
   tips?: string[];
   quoteUrl?: string;
+  quoteCtaText?: string;
   heroImage?: string;
   mobileHeroImage?: string;
   /**
@@ -293,6 +294,7 @@ const InsurancePageTemplate = ({
   coverageExclusions,
   tips,
   quoteUrl,
+  quoteCtaText,
   heroImage,
   mobileHeroImage,
   galleryImages,
