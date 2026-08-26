@@ -29,6 +29,8 @@ test.describe("Exclusividade do CTA Clube Santuu", () => {
       for (const link of await links.all()) {
         await expect(link).toHaveAttribute("href", EXPECTED_HREF);
         await expect(link).toHaveAttribute("target", "_blank");
+        await expect(link).toHaveAttribute("rel", /noopener/);
+        await expect(link).toHaveAttribute("rel", /noreferrer/);
         await expect(link).toContainText(EXPECTED_TEXT);
       }
     });
