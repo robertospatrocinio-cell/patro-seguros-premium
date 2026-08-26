@@ -117,6 +117,7 @@ A contratação é simples: basta informar marca, modelo, ano e valor da bike (n
         { title: "Seguro de Vida", link: "/seguro-vida" },
       ]}
       quoteUrl="https://app.clubesantuu.com/indicacao/PAGINA"
+      quoteCtaText="Cote Agora o seu Seguro Bike"
     />
   );
 };
