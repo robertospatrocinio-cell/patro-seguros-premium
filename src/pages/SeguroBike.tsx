@@ -116,6 +116,7 @@ A contratação é simples: basta informar marca, modelo, ano e valor da bike (n
         { title: "Seguro Viagem", link: "/seguro-viagem" },
         { title: "Seguro de Vida", link: "/seguro-vida" },
       ]}
+      quoteUrl="https://app.clubesantuu.com/indicacao/PAGINA"
     />
   );
 };
