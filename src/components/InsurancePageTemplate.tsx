@@ -181,6 +181,13 @@ export interface InsurancePageProps {
   tips?: string[];
   quoteUrl?: string;
   quoteCtaText?: string;
+  /**
+   * Modo de atendimento/suporte (ex.: Central de Sinistros).
+   * Quando true, os CTAs deixam de falar em "cotação" e passam a
+   * direcionar o visitante para o WhatsApp de atendimento.
+   */
+  supportMode?: boolean;
+  supportCtaText?: string;
   heroImage?: string;
   mobileHeroImage?: string;
   /**
