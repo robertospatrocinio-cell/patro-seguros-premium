@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, MapPin, Star, Building2, ShieldCheck, ArrowRight } from "lucide-react";
 import Breadcrumb from "@/components/Breadcrumb";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import { trackCotacaoClick } from "@/lib/tracking";
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
@@ -312,16 +313,12 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
           que cada página local exponha um WhatsApp link com mensagem
           slug-específica. O botão flutuante visível é renderizado pelo
           `WhatsAppButton` global, configurado via override abaixo. */}
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackWhatsAppClick(`local-page:${slug}:sr-link`, { origin: "local-page-sr", insuranceType: title })}
+      <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`local-page:${slug}:sr-link`, { origin: "local-page-sr", insuranceType: title })}
         className="sr-only"
         aria-label={`Falar com a Patro Seguros sobre ${title} pelo WhatsApp`}
       >
         WhatsApp Patro Seguros — {title}
-      </a>
+      </ExternalLink>
 
       {/* Adição de Botões de Ação Visíveis com Tracking para Bairros */}
       <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row gap-4 justify-center items-center border-t border-b bg-muted/20">
@@ -339,17 +336,12 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
               <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Cotar meu seguro agora
             </Button>
           </Link>
-          <a 
-            href={whatsappUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="w-full sm:w-auto"
-            onClick={() => trackWhatsAppClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
+          <ExternalLink href={whatsappUrl} className="w-full sm:w-auto" onClick={() => trackWhatsAppClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
           >
             <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm border-primary/20 text-primary hover:bg-primary/5">
               <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar com especialista no WhatsApp
             </Button>
-          </a>
+          </ExternalLink>
         </div>
       </div>
 

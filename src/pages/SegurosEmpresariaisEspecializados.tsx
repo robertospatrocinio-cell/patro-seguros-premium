@@ -9,6 +9,7 @@ import {
   Handshake,
 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -130,16 +131,12 @@ const SegurosEmpresariaisEspecializados = () => {
                   Cotar Seguro de Crédito
                 </Button>
               </Link>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("b2b_hub_especializados")}
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_hub_especializados")}
               >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Falar com especialista B2B
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -421,16 +418,12 @@ const SegurosEmpresariaisEspecializados = () => {
             <p className="text-muted-foreground mb-6">
               Envie o contrato, edital ou uma descrição da sua operação. Nós retornamos com uma análise consultiva e propostas comparadas de seguradoras parceiras.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("b2b_hub_especializados_cta_final")}
+            <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_hub_especializados_cta_final")}
             >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

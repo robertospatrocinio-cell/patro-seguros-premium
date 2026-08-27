@@ -1,4 +1,5 @@
-import { Star, MapPin, Clock, Phone, ExternalLink, MessageSquare } from "lucide-react";
+import { Star, MapPin, Clock, Phone, ExternalLink as ExternalLinkIcon, MessageSquare } from "lucide-react";
+import ExternalLink from "@/components/ExternalLink";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { EMPRESA } from "@/config/empresa";
 
@@ -58,7 +59,7 @@ const GoogleBusinessWidget = () => {
           rel="noopener noreferrer"
           className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
         >
-          <ExternalLink className="h-3 w-3" /> Ler avaliações no Google
+          <ExternalLinkIcon className="h-3 w-3" /> Ler avaliações no Google
         </a>
       </div>
 
@@ -88,14 +89,9 @@ const GoogleBusinessWidget = () => {
         >
           <MessageSquare className="h-3.5 w-3.5" /> Deixar Avaliação
         </a>
-        <a
-          href="https://maps.google.com/?q=Avenida+Salgado+Filho+2120+Guarulhos+SP"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-1.5 rounded-xl border px-4 py-2.5 text-xs font-medium hover:bg-muted transition-base"
-        >
-          <ExternalLink className="h-3.5 w-3.5" /> Ver no Maps
-        </a>
+        <ExternalLink href="https://maps.google.com/?q=Avenida+Salgado+Filho+2120+Guarulhos+SP" className="inline-flex items-center justify-center gap-1.5 rounded-xl border px-4 py-2.5 text-xs font-medium hover:bg-muted transition-base">
+          <ExternalLinkIcon className="h-3.5 w-3.5" /> Ver no Maps
+        </ExternalLink>
       </div>
     </div>
   );

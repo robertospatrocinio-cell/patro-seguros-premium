@@ -1,4 +1,5 @@
 import { useState, useEffect, useSyncExternalStore, useRef } from "react";
+import ExternalLink from "@/components/ExternalLink";
 import { Link, useLocation } from "react-router-dom";
 import { MessageCircle, FileText, ShieldCheck, ArrowRight, Plus, X } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -154,11 +155,7 @@ const WhatsAppButton = () => {
                 Pedir Cotação
               </Link>
             )}
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => {
+            <ExternalLink href={whatsappHref} onClick={() => {
                 trackWhatsAppClick(trackingLabel, { origin: "sticky-fab-mobile" });
                 setOpen(false);
               }}
@@ -168,7 +165,7 @@ const WhatsAppButton = () => {
                 <MessageCircle className="h-3.5 w-3.5" strokeWidth={2.2} />
               </span>
               WhatsApp
-            </a>
+            </ExternalLink>
           </div>
 
           {/* Botão principal mobile */}
@@ -200,12 +197,7 @@ const WhatsAppButton = () => {
             Pedir Cotação
           </Link>
         )}
-        <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={ariaLabel}
-          onClick={() =>
+        <ExternalLink href={whatsappHref} aria-label={ariaLabel} onClick={() =>
             trackWhatsAppClick(trackingLabel, {
               origin: "sticky-cta",
               ...(override ? { localOverride: true } : {}),
@@ -217,7 +209,7 @@ const WhatsAppButton = () => {
             <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />
           </div>
-        </a>
+        </ExternalLink>
       </div>
     </>
   );

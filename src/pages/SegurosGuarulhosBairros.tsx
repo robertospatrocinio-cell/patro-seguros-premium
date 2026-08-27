@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useMemo, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -273,16 +274,12 @@ const SegurosGuarulhosBairros = () => {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick(`hero_bairro_${selectedBairro.id}`)}
+                <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`hero_bairro_${selectedBairro.id}`)}
                   className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"
                 >
                   <MessageCircle className="h-5 w-5" />
                   Falar com especialista no WhatsApp
-                </a>
+                </ExternalLink>
                 <button
                   onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-2 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"

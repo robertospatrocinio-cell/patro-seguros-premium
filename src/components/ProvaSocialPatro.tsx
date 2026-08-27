@@ -10,8 +10,9 @@
  */
 
 import { Link } from "react-router-dom";
-import { Star, MessageCircle, ExternalLink, ShieldCheck } from "lucide-react";
+import { Star, MessageCircle, ExternalLink as ExternalLinkIcon, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { trackWhatsAppClick } from "@/lib/tracking";
 
@@ -161,11 +162,7 @@ const ProvaSocialPatro = ({
             <Star className="mr-2 h-4 w-4" /> Avaliar no Google
           </Button>
         </a>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => trackWhatsAppClick(`prova-social:${trackingContext}`)}
+        <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`prova-social:${trackingContext}`)}
           className="flex-1 sm:flex-none"
         >
           <Button
@@ -174,7 +171,7 @@ const ProvaSocialPatro = ({
           >
             <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
           </Button>
-        </a>
+        </ExternalLink>
         <a
           href={googleProfileUrl}
           target="_blank"
@@ -186,7 +183,7 @@ const ProvaSocialPatro = ({
             variant="ghost"
             className={`w-full rounded-xl h-10 px-4 text-sm ${isHero ? "text-white hover:bg-white/10" : ""}`}
           >
-            <ExternalLink className="mr-2 h-4 w-4" /> Ver no Google
+            <ExternalLinkIcon className="mr-2 h-4 w-4" /> Ver no Google
           </Button>
         </a>
         {!hideReviewsLink && (

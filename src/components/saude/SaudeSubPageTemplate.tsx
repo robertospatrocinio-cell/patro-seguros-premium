@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, MessageCircle, ArrowRight, Users } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
@@ -77,11 +78,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                   {cta.primary} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
+              <ExternalLink href={whatsappUrl} onClick={() =>
                   trackWhatsAppClick(whatsapp.origem, { insuranceType: subtype.slug })
                 }
               >
@@ -89,7 +86,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                   <MessageCircle className="mr-2 h-5 w-5" />
                   {cta.secondary}
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import PageMeta from "@/components/PageMeta";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -64,14 +65,9 @@ const CentralDeMateriais = () => {
                   <CardDescription className="leading-relaxed">{m.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto flex flex-col gap-2">
-                  <a
-                    href={m.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-                  >
+                  <ExternalLink href={m.whatsapp} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
                     Solicitar checklist <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </ExternalLink>
                   <Link to={m.relatedHref} className="text-xs text-muted-foreground hover:text-primary">
                     {m.relatedLabel}
                   </Link>

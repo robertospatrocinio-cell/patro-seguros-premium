@@ -3,6 +3,7 @@ import { SmartLink } from "./SmartLink";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin, MessageCircle, Clock, ShieldCheck, Star } from "lucide-react";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import FooterReviewsBadge from "@/components/FooterReviewsBadge";
+import ExternalLink from "@/components/ExternalLink";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import NapBlock from "@/components/NapBlock";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -41,15 +42,9 @@ const Footer = memo(() => {
                   ))}
                   <span className="ml-1.5 text-white/90 font-bold tracking-tight text-[10px] uppercase">Nota {EMPRESA.metricas.googleRating}</span>
                 </div>
-                <a
-                  href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white underline decoration-white/30 hover:decoration-white transition-colors"
-                  aria-label={`Consultar registro SUSEP ${EMPRESA.susep} no site oficial`}
-                >
+                <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="hover:text-white underline decoration-white/30 hover:decoration-white transition-colors" aria-label={`Consultar registro SUSEP ${EMPRESA.susep} no site oficial`}>
                   SUSEP {EMPRESA.susep}
-                </a>
+                </ExternalLink>
                 <br />CNPJ {EMPRESA.cnpj}
               </div>
             </div>

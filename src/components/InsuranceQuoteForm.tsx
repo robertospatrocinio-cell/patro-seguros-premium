@@ -6,6 +6,7 @@ import { z } from "zod";
 import { debounce } from "@/lib/debounce";
 import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle, Mail, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -739,16 +740,11 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
         <div className="flex flex-col items-center gap-4 pt-4 border-t border-primary/10 mt-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
-            <a 
-              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Estou preenchendo o formulário de ${config.type} e gostaria de tirar uma dúvida.`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs font-semibold text-green-600 hover:text-green-700 transition-colors"
-              onClick={() => trackWhatsAppClick(`form-help:${config.type.toLowerCase()}`)}
+            <ExternalLink href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Estou preenchendo o formulário de ${config.type} e gostaria de tirar uma dúvida.`)}`} className="flex items-center gap-2 text-xs font-semibold text-green-600 hover:text-green-700 transition-colors" onClick={() => trackWhatsAppClick(`form-help:${config.type.toLowerCase()}`)}
             >
               <MessageCircle className="h-4 w-4" />
               Dúvidas? Chamar no WhatsApp
-            </a>
+            </ExternalLink>
             <div className="hidden sm:block w-px h-3 bg-slate-300" />
             <a 
               href="mailto:atendimento@patroseguros.com.br"

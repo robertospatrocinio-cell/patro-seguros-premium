@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, MessageCircle, ArrowRight, PiggyBank, Target } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -65,16 +66,12 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
             <h1 className="text-white mb-4">{page.h1}</h1>
             <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">{page.subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick(page.whatsappOrigem, { insuranceType: page.slug })}
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(page.whatsappOrigem, { insuranceType: page.slug })}
               >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Simular no WhatsApp
                 </Button>
-              </a>
+              </ExternalLink>
               <Link
                 to={CONSORCIO_LOCAL_PATH}
                 onClick={() =>
@@ -223,18 +220,14 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
               Um consultor da Patro Seguros compara administradoras, prazos e taxas e explica o
               regulamento antes de você assinar qualquer coisa.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
+            <ExternalLink href={whatsappUrl} onClick={() =>
                 trackWhatsAppClick(page.whatsappOrigem, { insuranceType: `${page.slug}-cta-final` })
               }
             >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

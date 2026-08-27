@@ -13,6 +13,7 @@
 import type { ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import {
   Star,
@@ -27,7 +28,7 @@ import {
   LifeBuoy,
   Building2,
   Handshake,
-  ExternalLink,
+  ExternalLink as ExternalLinkIcon,
   ShieldCheck,
 } from "lucide-react";
 import Header from "@/components/Header";
@@ -114,14 +115,10 @@ const AvaliacoesClientes = () => {
                     size="lg"
                     className="rounded-xl bg-white text-primary hover:bg-white/90 h-11 px-6 text-sm font-semibold"
                   >
-                    <ExternalLink className="mr-2 h-4 w-4" /> Ver avaliações no Google
+                    <ExternalLinkIcon className="mr-2 h-4 w-4" /> Ver avaliações no Google
                   </Button>
                 </a>
-                <a
-                  href={PATRO_SOCIAL_PROOF.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick("avaliacoes-hero")}
+                <ExternalLink href={PATRO_SOCIAL_PROOF.whatsappUrl} onClick={() => trackWhatsAppClick("avaliacoes-hero")}
                 >
                   <Button
                     size="lg"
@@ -129,7 +126,7 @@ const AvaliacoesClientes = () => {
                   >
                     <MessageCircle className="mr-2 h-4 w-4" /> Falar com a Patro no WhatsApp
                   </Button>
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </div>
@@ -239,7 +236,7 @@ const AvaliacoesClientes = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
               >
-                Ver todas as avaliações no perfil do Google <ExternalLink className="h-3.5 w-3.5" />
+                Ver todas as avaliações no perfil do Google <ExternalLinkIcon className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
@@ -275,11 +272,7 @@ const AvaliacoesClientes = () => {
               contratar.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={PATRO_SOCIAL_PROOF.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("avaliacoes-cta-final")}
+              <ExternalLink href={PATRO_SOCIAL_PROOF.whatsappUrl} onClick={() => trackWhatsAppClick("avaliacoes-cta-final")}
               >
                 <Button
                   size="lg"
@@ -288,7 +281,7 @@ const AvaliacoesClientes = () => {
                   <MessageCircle className="mr-2 h-4 w-4" />
                   Solicitar cotação pelo WhatsApp
                 </Button>
-              </a>
+              </ExternalLink>
               <Link to="/cotacao">
                 <Button
                   size="lg"

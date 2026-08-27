@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, Phone, CheckCircle, Shield, Clock, Users, St
 import { Button } from "@/components/ui/button";
 import PageMeta from "@/components/PageMeta";
 import OptimizedImage from "@/components/OptimizedImage";
+import ExternalLink from "@/components/ExternalLink";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { EMPRESA } from "@/config/empresa";
 
@@ -54,11 +55,11 @@ const LandingPageTemplate = ({
   const CtaButton = ({ variant = "primary", size = "lg" }: { variant?: "primary" | "whatsapp"; size?: "lg" | "md" }) => {
     if (variant === "whatsapp") {
       return (
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackWhatsAppClick(`lp-${title}`)}>
+        <ExternalLink href={WHATSAPP_URL} className="w-full sm:w-auto" onClick={() => trackWhatsAppClick(`lp-${title}`)}>
           <Button size={size === "lg" ? "lg" : "default"} className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-[hsl(142,70%,45%)] hover:bg-[hsl(142,70%,40%)] text-white font-semibold shadow-lg">
             <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Chamar no WhatsApp
           </Button>
-        </a>
+        </ExternalLink>
       );
     }
     const btn = (
@@ -67,7 +68,7 @@ const LandingPageTemplate = ({
       </Button>
     );
     if (isExternal) {
-      return <a href={mainCtaLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">{btn}</a>;
+      return <ExternalLink href={mainCtaLink} className="w-full sm:w-auto">{btn}</ExternalLink>;
     }
     return <Link to={mainCtaLink} className="w-full sm:w-auto">{btn}</Link>;
   };

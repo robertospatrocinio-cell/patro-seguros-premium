@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShieldCheck, MessageCircle, ArrowRight, CheckCircle, FileText, Building2 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -100,16 +101,12 @@ const SeguroGarantia = () => {
               A Patro Seguros compara opções de Seguro Garantia com seguradoras parceiras para empresas que precisam proteger contratos, participar de licitações ou substituir garantias tradicionais.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("b2b_garantia_hub")}
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_garantia_hub")}
               >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Cotar Seguro Garantia
                 </Button>
-              </a>
+              </ExternalLink>
               <Link
                 to={GARANTIA_LOCAL_PATH}
                 onClick={() =>
@@ -355,16 +352,12 @@ const SeguroGarantia = () => {
             <p className="text-muted-foreground mb-6">
               A Patro Seguros analisa o caso e retorna com propostas comparadas de seguradoras parceiras.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("b2b_garantia_hub_cta_final")}
+            <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_garantia_hub_cta_final")}
             >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

@@ -3,6 +3,7 @@ import SeoLocalPage from "@/pages/SeoLocalPage";
 import { seoLocalGuarulhosHub } from "@/data/seoLocalGuarulhosHub";
 import { BAIRROS_MATRIZ } from "@/data/seoLocalBairrosGuarulhos";
 import { Card, CardContent } from "@/components/ui/card";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { MapPin, ArrowRight, MessageCircle } from "lucide-react";
@@ -68,15 +69,11 @@ const SegurosEmGuarulhos = () => {
                         Ver seguros em {b.nome} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                    <a 
-                      href={`https://wa.me/551151997500?text=${encodeURIComponent(`Olá! Gostaria de cotar um seguro para o bairro ${b.nome} em Guarulhos.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <ExternalLink href={`https://wa.me/551151997500?text=${encodeURIComponent(`Olá! Gostaria de cotar um seguro para o bairro ${b.nome} em Guarulhos.`)}`}>
                       <Button variant="ghost" className="w-full text-primary hover:bg-primary/5">
                         <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp {b.nome}
                       </Button>
-                    </a>
+                    </ExternalLink>
                   </div>
                 </CardContent>
               </Card>

@@ -7,6 +7,7 @@ import {
   Building2,
 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -84,16 +85,12 @@ const B2bIntentPageTemplate = ({ page }: Props) => {
               {page.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick(page.whatsappOrigem, { insuranceType: page.slug })}
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(page.whatsappOrigem, { insuranceType: page.slug })}
               >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Falar com especialista B2B
                 </Button>
-              </a>
+              </ExternalLink>
               <Link
                 to={parentHub}
                 onClick={() =>
@@ -235,18 +232,14 @@ const B2bIntentPageTemplate = ({ page }: Props) => {
             <p className="text-muted-foreground mb-6">
               Envie o contrato, edital ou detalhes da operação. A Patro Seguros analisa e traz propostas comparadas de seguradoras parceiras.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
+            <ExternalLink href={whatsappUrl} onClick={() =>
                 trackWhatsAppClick(page.whatsappOrigem, { insuranceType: `${page.slug}-cta-final` })
               }
             >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

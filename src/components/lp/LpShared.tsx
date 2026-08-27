@@ -1,6 +1,7 @@
 import { ReactNode, useRef, MutableRefObject } from "react";
 import { MessageCircle, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { EMPRESA, WHATSAPP_DIGITS } from "@/config/empresa";
 
@@ -97,16 +98,9 @@ export const HeroSection = ({
           >
             {primaryCta}
           </Button>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onWhatsApp}
-            aria-label="Falar com a Patro Seguros no WhatsApp"
-            className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
-          >
+          <ExternalLink href={whatsappUrl} onClick={onWhatsApp} aria-label="Falar com a Patro Seguros no WhatsApp" className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors">
             <MessageCircle className="h-5 w-5" /> {secondaryCta}
-          </a>
+          </ExternalLink>
         </div>
 
         {supportLine && <p className="mt-6 text-sm text-white/70">{supportLine}</p>}
@@ -198,16 +192,9 @@ export const LpFinalCTA = ({
         >
           {primaryCta}
         </Button>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onWhatsApp}
-          aria-label={secondaryCta}
-          className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
-        >
+        <ExternalLink href={whatsappUrl} onClick={onWhatsApp} aria-label={secondaryCta} className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors">
           <MessageCircle className="h-5 w-5" /> {secondaryCta}
-        </a>
+        </ExternalLink>
       </div>
       {legalNote && <p className="mt-8 text-xs text-white/60 max-w-3xl mx-auto">{legalNote}</p>}
     </div>

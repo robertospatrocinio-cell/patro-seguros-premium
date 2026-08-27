@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import { toast } from "sonner";
 import { submitLead } from "@/lib/leadsApi";
 import { trackCotacaoSubmit, trackWhatsAppClick } from "@/lib/tracking";
@@ -122,15 +123,11 @@ export const LpEnterpriseForm = ({
         <h3 className="text-xl font-semibold">Recebemos suas informações.</h3>
         <p className="mt-3 text-muted-foreground">{successMessage}</p>
         <div className="mt-6">
-          <a
-            href={buildWhatsAppUrl(whatsappSuccessMessage || "Olá! Acabei de enviar um formulário no site da Patro Seguros e gostaria de continuar o atendimento.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick(`${source}-form-success`, { insuranceType, origin: source })}
+          <ExternalLink href={buildWhatsAppUrl(whatsappSuccessMessage || "Olá! Acabei de enviar um formulário no site da Patro Seguros e gostaria de continuar o atendimento.")} onClick={() => trackWhatsAppClick(`${source}-form-success`, { insuranceType, origin: source })}
             className="inline-flex items-center gap-2 rounded-md bg-accent hover:bg-[hsl(var(--accent-hover))] text-accent-foreground font-semibold px-6 py-3"
           >
             <MessageCircle className="h-5 w-5" /> Falar pelo WhatsApp agora
-          </a>
+          </ExternalLink>
         </div>
       </div>
     );

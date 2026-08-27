@@ -1,6 +1,7 @@
 import { useState, useMemo, Fragment, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
@@ -769,14 +770,9 @@ const Blog = () => {
                   <Link to="/sobre" className="text-primary hover:underline">Sobre a Patro</Link>
                   <Link to="/contato" className="text-primary hover:underline">Contato</Link>
                   <Link to="/seguradoras" className="text-primary hover:underline">Seguradoras parceiras</Link>
-                  <a
-                    href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="text-primary hover:underline"
-                  >
+                  <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-primary hover:underline">
                     Consultar registro SUSEP
-                  </a>
+                  </ExternalLink>
                 </div>
               </div>
             </div>

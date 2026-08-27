@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, MessageCircle, ArrowRight, Handshake, CheckCircle } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -65,16 +66,12 @@ const SeguroDeCreditoGuarulhos = () => {
             <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">
               Guarulhos é um polo estratégico para indústrias, logística, distribuição, comércio B2B e empresas que vendem a prazo. A Patro Seguros atende empresas da região que desejam reduzir riscos de inadimplência e proteger o fluxo de caixa com Seguro de Crédito.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("b2b_credito_guarulhos")}
+            <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_credito_guarulhos")}
             >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar com especialista B2B
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
 
@@ -177,16 +174,12 @@ const SeguroDeCreditoGuarulhos = () => {
             <p className="text-muted-foreground mb-6">
               Envie uma amostra da sua carteira PJ. Comparamos propostas de seguradoras parceiras.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("b2b_credito_guarulhos_cta_final")}
+            <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_credito_guarulhos_cta_final")}
             >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

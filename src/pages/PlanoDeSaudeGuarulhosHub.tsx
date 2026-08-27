@@ -9,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -161,17 +162,13 @@ const PlanoDeSaudeGuarulhosHub = () => {
                   Comparar planos de saúde <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("saude_hub_guarulhos")}
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("saude_hub_guarulhos")}
               >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Falar com especialista
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -347,14 +344,9 @@ const PlanoDeSaudeGuarulhosHub = () => {
             <ul className="text-sm space-y-2 text-muted-foreground">
               <li>
                 Regras de portabilidade, carência e segmentação:{" "}
-                <a
-                  href="https://www.gov.br/ans/pt-br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline"
-                >
+                <ExternalLink href="https://www.gov.br/ans/pt-br" className="text-primary underline">
                   ANS — Agência Nacional de Saúde Suplementar
-                </a>
+                </ExternalLink>
                 .
               </li>
               <li>

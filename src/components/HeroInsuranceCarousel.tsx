@@ -42,6 +42,7 @@ import {
   Plane as PlaneIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import {
   trackCotacaoClick,
   trackWhatsAppClick,
@@ -472,22 +473,7 @@ const HeroInsuranceCarousel = ({
                 <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
               </Button>
             </Link>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsApp}
-              aria-label={`Falar com consultor da Patro Seguros pelo WhatsApp — perfil ${
-                audience === "pessoa"
-                  ? "Para Você"
-                  : audience === "empresa"
-                  ? "Para sua Empresa"
-                  : audience === "agro"
-                  ? "Para o Agro"
-                  : "Para Consórcio"
-              }`}
-              className="w-full sm:w-auto"
-            >
+            <ExternalLink href={whatsappUrl} onClick={handleWhatsApp} aria-label={`Falar com consultor da Patro Seguros pelo WhatsApp — perfil ${ audience === "pessoa" ? "Para Você" : audience === "empresa" ? "Para sua Empresa" : audience === "agro" ? "Para o Agro" : "Para Consórcio" }`} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
@@ -496,7 +482,7 @@ const HeroInsuranceCarousel = ({
                 <MessageCircle className="mr-2 h-4 w-4" aria-hidden />
                 Falar com consultor
               </Button>
-            </a>
+            </ExternalLink>
           </div>
           )}
         </div>

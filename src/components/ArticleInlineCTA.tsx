@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import { trackCotacaoClick, trackWhatsAppClick } from "@/lib/tracking";
 import { EMPRESA } from "@/config/empresa";
 
@@ -52,11 +53,7 @@ export default function ArticleInlineCTA({
               Pedir Cotação <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick(source)}
+          <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(source)}
           >
             <Button
               size="lg"
@@ -70,7 +67,7 @@ export default function ArticleInlineCTA({
             >
               <MessageCircle className="mr-2 h-4 w-4 text-green-600" /> Falar no WhatsApp
             </Button>
-          </a>
+          </ExternalLink>
         </div>
       </div>
     </aside>

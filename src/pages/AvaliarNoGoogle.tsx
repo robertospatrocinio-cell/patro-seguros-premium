@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Star,
   MapPin,
-  ExternalLink,
+  ExternalLink as ExternalLinkIcon,
   Copy,
   Check,
   MessageSquare,
@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import HowToSchema from "@/components/HowToSchema";
@@ -206,7 +207,7 @@ const AvaliarNoGoogle = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 py-3 transition-colors"
               >
-                <ExternalLink className="h-5 w-5" /> Ver perfil no Google Maps
+                <ExternalLinkIcon className="h-5 w-5" /> Ver perfil no Google Maps
               </a>
             </div>
           </div>
@@ -382,17 +383,11 @@ const AvaliarNoGoogle = () => {
               Tem alguma dúvida ou quer falar direto com a equipe? Estamos no WhatsApp.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent(
-                  "Olá! Vim pela página de avaliações da Patro Seguros e queria falar com a equipe.",
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("avaliar-no-google:closing")}
+              <ExternalLink href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent( "Olá! Vim pela página de avaliações da Patro Seguros e queria falar com a equipe.", )}`} onClick={() => trackWhatsAppClick("avaliar-no-google:closing")}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-primary font-semibold px-6 py-3 hover:opacity-90 transition-opacity"
               >
                 Falar no WhatsApp
-              </a>
+              </ExternalLink>
               <Link
                 to="/depoimentos"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 text-white font-semibold px-6 py-3 hover:bg-white/10 transition-colors"

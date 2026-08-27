@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import PageMeta from "@/components/PageMeta";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -148,9 +149,9 @@ const MaterialDetalhePage = () => {
             </ul>
             <div className="flex flex-wrap gap-3">
               <Button asChild variant="default">
-                <a href={material.whatsapp} target="_blank" rel="noopener noreferrer">
+                <ExternalLink href={material.whatsapp}>
                   <MessageCircle className="h-4 w-4 mr-2" /> Falar no WhatsApp
-                </a>
+                </ExternalLink>
               </Button>
               <Button asChild variant="outline">
                 <Link to={material.relatedHref}>
@@ -179,9 +180,9 @@ const MaterialDetalhePage = () => {
                     Nossa equipe entra em contato pelo WhatsApp em minutos.
                   </p>
                   <Button asChild className="w-full">
-                    <a href={material.whatsapp} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href={material.whatsapp}>
                       <MessageCircle className="h-4 w-4 mr-2" /> Acelerar pelo WhatsApp
-                    </a>
+                    </ExternalLink>
                   </Button>
                 </div>
               ) : (
@@ -282,9 +283,9 @@ const MaterialDetalhePage = () => {
           <p className="mb-6 text-primary-foreground/85">{conteudo.ctaSubline}</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Button size="lg" variant="secondary" asChild>
-              <a href={material.whatsapp} target="_blank" rel="noopener noreferrer">
+              <ExternalLink href={material.whatsapp}>
                 <MessageCircle className="h-5 w-5 mr-2" /> Falar no WhatsApp
-              </a>
+              </ExternalLink>
             </Button>
             <Button size="lg" variant="outline" asChild className="bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
               <Link to={material.relatedHref}>

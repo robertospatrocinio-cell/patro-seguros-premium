@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Building2, FlaskConical, Stethoscope, UserPlus, Users } from "lucide-react";
 import StickyQuoteBar from "@/components/StickyQuoteBar";
+import ExternalLink from "@/components/ExternalLink";
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h2 className="text-center mb-4">Rede Credenciada em Guarulhos e Região</h2>
@@ -260,9 +261,9 @@ const PlanosDeSaude = () => {
             <h2 className="mb-6 text-white">Encontre o Plano de Saúde Ideal</h2>
             <p className="text-xl mb-8 text-white/90">Use nosso simulador ou fale com um especialista</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <ExternalLink href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." className="w-full sm:w-auto">
                 <Button size="lg" variant="secondary" className="w-full sm:w-auto">Solicitar Simulação Grátis</Button>
-              </a>
+              </ExternalLink>
               <a href="tel:1151997500" className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary">
                   <Phone className="mr-2 h-5 w-5" aria-hidden="true" /> (11) 5199-7500

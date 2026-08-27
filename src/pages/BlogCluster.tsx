@@ -2,6 +2,7 @@ import { Fragment, useMemo } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -93,17 +94,13 @@ const BlogCluster = () => {
                   {config.primaryCTA.label}
                 </Button>
               </Link>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-hero`)}
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-hero`)}
                 aria-label={`Falar no WhatsApp sobre ${config.title} — abre em nova aba`}
               >
                 <Button size="lg" variant="outline" className="rounded-lg h-11 bg-white/5 border-white/30 text-white hover:bg-white/15">
                   <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -282,17 +279,13 @@ const BlogCluster = () => {
                     {config.primaryCTA.label}
                   </Button>
                 </Link>
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-final`)}
+                <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-final`)}
                   aria-label={`Falar no WhatsApp sobre ${config.title} — abre em nova aba`}
                 >
                   <Button size="lg" variant="outline" className="rounded-lg bg-white/5 border-white/30 text-white hover:bg-white/15">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                   </Button>
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </div>

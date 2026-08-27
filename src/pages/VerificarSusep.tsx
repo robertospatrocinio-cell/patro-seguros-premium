@@ -1,7 +1,8 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { ShieldCheck, ExternalLink, CheckCircle, Search, FileText, AlertTriangle, MessageCircle, BadgeCheck } from "lucide-react";
+import { ShieldCheck, ExternalLink as ExternalLinkIcon, CheckCircle, Search, FileText, AlertTriangle, MessageCircle, BadgeCheck } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -131,7 +132,7 @@ const VerificarSusep = () => {
               >
                 <div className="flex items-start justify-between mb-3">
                   <ShieldCheck className="h-8 w-8 text-primary" />
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLinkIcon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <h2 className="text-lg font-bold mb-1">Consulta SUSEP</h2>
                 <p className="text-sm text-muted-foreground mb-3">Portal oficial da Superintendência de Seguros Privados.</p>
@@ -146,7 +147,7 @@ const VerificarSusep = () => {
               >
                 <div className="flex items-start justify-between mb-3">
                   <FileText className="h-8 w-8 text-primary" />
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLinkIcon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <h2 className="text-lg font-bold mb-1">Cartão CNPJ (Receita Federal)</h2>
                 <p className="text-sm text-muted-foreground mb-3">Situação cadastral e atividade principal.</p>
@@ -189,7 +190,7 @@ const VerificarSusep = () => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline mt-2"
                       >
-                        Abrir portal oficial <ExternalLink className="h-3 w-3" />
+                        Abrir portal oficial <ExternalLinkIcon className="h-3 w-3" />
                       </a>
                     )}
                   </div>
@@ -257,7 +258,7 @@ const VerificarSusep = () => {
                     className="border rounded-xl p-4 text-sm hover:border-primary transition-colors flex items-center justify-between gap-2"
                   >
                     <span>{l.label}</span>
-                    <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                    <ExternalLinkIcon className="h-3.5 w-3.5 text-muted-foreground" />
                   </a>
                 )
               )}
@@ -296,7 +297,7 @@ const VerificarSusep = () => {
               <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
               <p className="text-sm text-amber-900">
                 <strong>Denúncia de irregularidade:</strong> se você identificar uma corretora atuando sem SUSEP,
-                denuncie gratuitamente pelo portal <a href="https://www.gov.br/susep" target="_blank" rel="noopener noreferrer" className="underline">gov.br/susep</a>
+                denuncie gratuitamente pelo portal <ExternalLink href="https://www.gov.br/susep" className="underline">gov.br/susep</ExternalLink>
                 {" "}ou pelo Procon do seu município. Contratar seguro fora da regulação é crime previsto pela Lei 4.594/1964.
               </p>
             </div>
