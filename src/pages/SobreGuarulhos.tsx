@@ -241,7 +241,7 @@ const SobreGuarulhos = () => (
             </Link>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("sobre-guarulhos-cta")}>
               <Button size="lg" variant="cta" className="rounded-lg"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp</Button>
-            </ExternalLink>
+            </a>
           </div>
         </div>
       </section>

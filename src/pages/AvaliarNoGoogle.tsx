@@ -208,7 +208,7 @@ const AvaliarNoGoogle = () => {
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 py-3 transition-colors"
               >
                 <ExternalLink className="h-5 w-5" /> Ver perfil no Google Maps
-              </ExternalLink>
+              </a>
             </div>
           </div>
         </section>

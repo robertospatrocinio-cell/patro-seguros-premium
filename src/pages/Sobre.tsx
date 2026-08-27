@@ -248,7 +248,7 @@ const Sobre = () => {
               <p className="text-sm text-muted-foreground mb-4">Quer falar diretamente com Roberto ou Sandra?</p>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("sobre-socios")}>
                 <Button variant="cta" className="rounded-lg"><MessageCircle className="mr-2 h-4 w-4" /> Conversar com os Sócios</Button>
-              </ExternalLink>
+              </a>
             </div>
           </div>
         </section>
@@ -425,7 +425,7 @@ const Sobre = () => {
                               <Icon className="h-3.5 w-3.5 text-primary" />
                               <span className="underline-offset-2 group-hover:underline">{ev.label}</span>
                               {isExternal && <ExternalLink className="h-3 w-3 opacity-50" />}
-                            </ExternalLink>
+                            </a>
                           </li>
                         );
                       })}
@@ -590,7 +590,7 @@ const Sobre = () => {
                   <dd className="text-muted-foreground">
                     <a href="tel:+551151997500" className="underline hover:text-primary">
                       +55 11 5199-7500
-                    </ExternalLink>
+                    </a>
                   </dd>
                 </div>
                 <div>
@@ -598,7 +598,7 @@ const Sobre = () => {
                   <dd className="text-muted-foreground">
                     <a href="mailto:contato@patroseguros.com.br" className="underline hover:text-primary">
                       contato@patroseguros.com.br
-                    </ExternalLink>
+                    </a>
                   </dd>
                 </div>
                 <div>
@@ -687,7 +687,7 @@ const Sobre = () => {
                 <Button size="lg" className="bg-white/10 border border-white/20 text-white hover:bg-white/20 rounded-lg">
                   <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
                 </Button>
-              </ExternalLink>
+              </a>
             </div>
           </div>
         </section>

@@ -268,7 +268,7 @@ const PlanosDeSaude = () => {
                 <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary">
                   <Phone className="mr-2 h-5 w-5" aria-hidden="true" /> (11) 5199-7500
                 </Button>
-              </ExternalLink>
+              </a>
             </div>
           </div>
         </section>

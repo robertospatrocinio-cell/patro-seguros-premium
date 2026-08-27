@@ -60,7 +60,7 @@ const GoogleBusinessWidget = () => {
           className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
         >
           <ExternalLink className="h-3 w-3" /> Ler avaliações no Google
-        </ExternalLink>
+        </a>
       </div>
 
       {/* Info */}
@@ -71,7 +71,7 @@ const GoogleBusinessWidget = () => {
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Phone className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
-          <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="hover:text-primary transition-colors">{EMPRESA.telefone}</ExternalLink>
+          <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="hover:text-primary transition-colors">{EMPRESA.telefone}</a>
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Clock className="h-3.5 w-3.5 flex-shrink-0" aria-hidden="true" />
@@ -88,7 +88,7 @@ const GoogleBusinessWidget = () => {
           className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-primary text-primary-foreground px-4 py-2.5 text-xs font-semibold hover:bg-primary-hover transition-base"
         >
           <MessageSquare className="h-3.5 w-3.5" /> Deixar Avaliação
-        </ExternalLink>
+        </a>
         <ExternalLink href="https://maps.google.com/?q=Avenida+Salgado+Filho+2120+Guarulhos+SP" className="inline-flex items-center justify-center gap-1.5 rounded-xl border px-4 py-2.5 text-xs font-medium hover:bg-muted transition-base">
           <ExternalLink className="h-3.5 w-3.5" /> Ver no Maps
         </ExternalLink>

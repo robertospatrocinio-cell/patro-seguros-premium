@@ -286,14 +286,14 @@ const PoliticaPrivacidade = () => {
                       className="text-primary font-semibold underline underline-offset-2"
                     >
                       contato@patroseguros.com.br
-                    </ExternalLink>{" "}
+                    </a>{" "}
                     ou WhatsApp{" "}
                     <a
                       href="https://wa.me/551151997500"
                       className="text-primary font-semibold underline underline-offset-2"
                     >
                       (11) 5199-7500
-                    </ExternalLink>
+                    </a>
                     .
                   </p>
                 </div>
@@ -359,7 +359,7 @@ const PoliticaPrivacidade = () => {
                       <p className="text-sm font-semibold break-all">
                         contato@patroseguros.com.br
                       </p>
-                    </ExternalLink>
+                    </a>
                     <ExternalLink href="https://wa.me/551151997500" className="p-4 rounded-2xl bg-white/10 hover:bg-white/15 transition-colors backdrop-blur-sm">
                       <Phone className="w-5 h-5 mb-2 text-white/70" />
                       <p className="text-xs font-bold uppercase tracking-wider text-white/60 mb-1">

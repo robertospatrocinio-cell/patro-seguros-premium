@@ -91,7 +91,7 @@ const LandingPageTemplate = ({
           </Link>
           <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             <Phone className="h-4 w-4" /> {EMPRESA.telefone}
-          </ExternalLink>
+          </a>
         </div>
       </header>
 
@@ -309,7 +309,7 @@ const LandingPageTemplate = ({
                   Baixe o E-book "Guia do Consórcio Desvendado" da Patro Seguros
                 </p>
                 <p className="text-sm text-white/70 mt-1">Material exclusivo — clique aqui para baixar gratuitamente</p>
-              </ExternalLink>
+              </a>
             </div>
           </section>
         )}
@@ -347,7 +347,7 @@ const LandingPageTemplate = ({
             </div>
             <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} className="text-white/40 text-sm hover:text-white/60 transition-colors">
               Prefere ligar? <strong className="text-white/60">{EMPRESA.telefone}</strong>
-            </ExternalLink>
+            </a>
           </div>
         </section>
 

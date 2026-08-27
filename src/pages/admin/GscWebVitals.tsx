@@ -386,7 +386,7 @@ const GscWebVitals = () => {
                         {priorityBadge(r.priority)}
                         <a href={`${PATRO}${r.path}`} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary">
                           <ExternalLink className="h-3.5 w-3.5" />
-                        </ExternalLink>
+                        </a>
                       </div>
                       <p className="text-xs text-muted-foreground mt-0.5">{r.priorityReason}</p>
                       <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs mt-1 text-muted-foreground">

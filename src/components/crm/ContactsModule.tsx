@@ -1653,7 +1653,7 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                             className="text-[10px] text-blue-600 hover:underline flex items-center gap-1"
                           >
                             <ExternalLink className="w-2.5 h-2.5" /> Google Drive Link
-                          </ExternalLink>
+                          </a>
                         ))}
                       </div>
                     </TableCell>
@@ -1673,7 +1673,7 @@ const ContactsModule = ({ initialEditContact }: { initialEditContact?: any }) =>
                               aria-label="Abrir WhatsApp"
                             >
                               <MessageCircle className="w-4 h-4" />
-                            </ExternalLink>
+                            </a>
                           </Button>
                         )}
                         <DropdownMenu>

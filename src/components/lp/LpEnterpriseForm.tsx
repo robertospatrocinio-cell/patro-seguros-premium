@@ -237,7 +237,7 @@ export const LpEnterpriseForm = ({
           Autorizo o contato da Patro Seguros e declaro que li a{" "}
           <a href="/politica-de-privacidade" className="text-primary underline" target="_blank" rel="noreferrer">
             Política de Privacidade
-          </ExternalLink>.
+          </a>.
         </span>
       </label>
       {errors.consent && <p className="text-xs text-destructive -mt-3">{errors.consent}</p>}

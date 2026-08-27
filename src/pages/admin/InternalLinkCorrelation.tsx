@@ -1261,7 +1261,7 @@ export default function InternalLinkCorrelation() {
                           >
                             {r.pathname}
                             <ExternalLink className="w-3 h-3" />
-                          </ExternalLink>
+                          </a>
                         </TableCell>
                         <TableCell className="text-right tabular-nums">{fmtInt(r.internalClicks)}</TableCell>
                         <TableCell className="text-right tabular-nums">{fmtInt(r.internalSessions)}</TableCell>

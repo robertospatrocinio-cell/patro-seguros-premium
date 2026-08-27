@@ -332,7 +332,7 @@ const BlogArticle = () => {
                         if (url.startsWith("/")) {
                           return <Link key={j} to={url} className="text-primary underline hover:text-primary/80 font-medium">{text}</Link>;
                         }
-                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{text}</ExternalLink>;
+                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{text}</a>;
                       }
                       return <Fragment key={j}>{part}</Fragment>;
                     })}

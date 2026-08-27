@@ -752,7 +752,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             >
               <Mail className="h-4 w-4" />
               Enviar por E-mail
-            </ExternalLink>
+            </a>
           </div>
 
           <p className="text-[10px] text-muted-foreground text-center flex items-center gap-1.5">

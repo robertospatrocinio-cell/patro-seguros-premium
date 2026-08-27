@@ -185,7 +185,7 @@ const ProvaSocialPatro = ({
           >
             <ExternalLink className="mr-2 h-4 w-4" /> Ver no Google
           </Button>
-        </ExternalLink>
+        </a>
         {!hideReviewsLink && (
           <Link to={reviewsPageUrl} className="flex-1 sm:flex-none">
             <Button

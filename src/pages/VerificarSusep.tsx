@@ -137,7 +137,7 @@ const VerificarSusep = () => {
                 <h2 className="text-lg font-bold mb-1">Consulta SUSEP</h2>
                 <p className="text-sm text-muted-foreground mb-3">Portal oficial da Superintendência de Seguros Privados.</p>
                 <p className="text-xs font-mono bg-muted/60 px-2 py-1 rounded inline-block">SUSEP 212113511</p>
-              </ExternalLink>
+              </a>
 
               <a
                 href={CNPJ_URL}
@@ -152,7 +152,7 @@ const VerificarSusep = () => {
                 <h2 className="text-lg font-bold mb-1">Cartão CNPJ (Receita Federal)</h2>
                 <p className="text-sm text-muted-foreground mb-3">Situação cadastral e atividade principal.</p>
                 <p className="text-xs font-mono bg-muted/60 px-2 py-1 rounded inline-block">41.641.558/0001-33</p>
-              </ExternalLink>
+              </a>
             </div>
           </div>
         </section>
@@ -191,7 +191,7 @@ const VerificarSusep = () => {
                         className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline mt-2"
                       >
                         Abrir portal oficial <ExternalLink className="h-3 w-3" />
-                      </ExternalLink>
+                      </a>
                     )}
                   </div>
                 </li>
@@ -259,7 +259,7 @@ const VerificarSusep = () => {
                   >
                     <span>{l.label}</span>
                     <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
-                  </ExternalLink>
+                  </a>
                 )
               )}
             </div>
@@ -316,7 +316,7 @@ const VerificarSusep = () => {
                   <Button variant="cta" size="lg" className="rounded-lg w-full sm:w-auto">
                     <MessageCircle className="mr-2 h-5 w-5" /> Receber comprovante no WhatsApp
                   </Button>
-                </ExternalLink>
+                </a>
                 <Link
                   to={COTACAO_URL}
                   onClick={() => trackCotacaoClick(CTA_SOURCE, CTA_META)}

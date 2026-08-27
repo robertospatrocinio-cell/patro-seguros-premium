@@ -105,7 +105,7 @@ export default function SeoScanSummary() {
                       className="text-primary hover:underline truncate"
                     >
                       {url}
-                    </ExternalLink>
+                    </a>
                   </li>
                 ))}
               </ul>
