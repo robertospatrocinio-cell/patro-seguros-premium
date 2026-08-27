@@ -831,7 +831,7 @@ const Blog = () => {
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Cotar pelo WhatsApp
                   </Button>
-                </ExternalLink>
+                </a>
               </div>
             </div>
           </div>
