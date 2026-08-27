@@ -183,7 +183,7 @@ const ProvaSocialPatro = ({
             variant="ghost"
             className={`w-full rounded-xl h-10 px-4 text-sm ${isHero ? "text-white hover:bg-white/10" : ""}`}
           >
-            <ExternalLink className="mr-2 h-4 w-4" /> Ver no Google
+            <ExternalLinkIcon className="mr-2 h-4 w-4" /> Ver no Google
           </Button>
         </a>
         {!hideReviewsLink && (

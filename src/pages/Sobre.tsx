@@ -142,7 +142,7 @@ const Sobre = () => {
                 </Link>
                 <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="inline-flex">
                   <Button size="sm" className="w-full sm:w-auto">
-                    Consultar SUSEP <ExternalLink className="ml-2 h-4 w-4" />
+                    Consultar SUSEP <ExternalLinkIcon className="ml-2 h-4 w-4" />
                   </Button>
                 </ExternalLink>
               </div>
@@ -424,7 +424,7 @@ const Sobre = () => {
                             >
                               <Icon className="h-3.5 w-3.5 text-primary" />
                               <span className="underline-offset-2 group-hover:underline">{ev.label}</span>
-                              {isExternal && <ExternalLink className="h-3 w-3 opacity-50" />}
+                              {isExternal && <ExternalLinkIcon className="h-3 w-3 opacity-50" />}
                             </a>
                           </li>
                         );

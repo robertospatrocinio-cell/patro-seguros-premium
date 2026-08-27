@@ -132,7 +132,7 @@ const VerificarSusep = () => {
               >
                 <div className="flex items-start justify-between mb-3">
                   <ShieldCheck className="h-8 w-8 text-primary" />
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLinkIcon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <h2 className="text-lg font-bold mb-1">Consulta SUSEP</h2>
                 <p className="text-sm text-muted-foreground mb-3">Portal oficial da Superintendência de Seguros Privados.</p>
@@ -147,7 +147,7 @@ const VerificarSusep = () => {
               >
                 <div className="flex items-start justify-between mb-3">
                   <FileText className="h-8 w-8 text-primary" />
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLinkIcon className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <h2 className="text-lg font-bold mb-1">Cartão CNPJ (Receita Federal)</h2>
                 <p className="text-sm text-muted-foreground mb-3">Situação cadastral e atividade principal.</p>
@@ -190,7 +190,7 @@ const VerificarSusep = () => {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline mt-2"
                       >
-                        Abrir portal oficial <ExternalLink className="h-3 w-3" />
+                        Abrir portal oficial <ExternalLinkIcon className="h-3 w-3" />
                       </a>
                     )}
                   </div>
@@ -258,7 +258,7 @@ const VerificarSusep = () => {
                     className="border rounded-xl p-4 text-sm hover:border-primary transition-colors flex items-center justify-between gap-2"
                   >
                     <span>{l.label}</span>
-                    <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                    <ExternalLinkIcon className="h-3.5 w-3.5 text-muted-foreground" />
                   </a>
                 )
               )}

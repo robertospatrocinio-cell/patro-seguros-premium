@@ -115,7 +115,7 @@ const AvaliacoesClientes = () => {
                     size="lg"
                     className="rounded-xl bg-white text-primary hover:bg-white/90 h-11 px-6 text-sm font-semibold"
                   >
-                    <ExternalLink className="mr-2 h-4 w-4" /> Ver avaliações no Google
+                    <ExternalLinkIcon className="mr-2 h-4 w-4" /> Ver avaliações no Google
                   </Button>
                 </a>
                 <ExternalLink href={PATRO_SOCIAL_PROOF.whatsappUrl} onClick={() => trackWhatsAppClick("avaliacoes-hero")}
@@ -236,7 +236,7 @@ const AvaliacoesClientes = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
               >
-                Ver todas as avaliações no perfil do Google <ExternalLink className="h-3.5 w-3.5" />
+                Ver todas as avaliações no perfil do Google <ExternalLinkIcon className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
