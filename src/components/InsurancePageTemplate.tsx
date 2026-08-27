@@ -973,14 +973,34 @@ const InsurancePageTemplate = ({
          </section>
 
         {/* CTA */}
-        <section className="py-28 gradient-hero relative overflow-hidden" aria-label="Solicitar cotação">
+        <section className="py-28 gradient-hero relative overflow-hidden" aria-label={supportMode ? "Falar com atendimento" : "Solicitar cotação"}>
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,hsla(215,100%,60%,0.12),transparent)]" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
           <div className="container mx-auto px-4 text-center relative">
-            <h2 className="text-white mb-4">Pronto para proteger o seu {title}?</h2>
-            <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">Cotação gratuita do {title} em até 2h úteis — fale agora com um especialista da Patro.</p>
+            {supportMode ? (
+              <>
+                <h2 className="text-white mb-4">Precisa de ajuda com o seu sinistro?</h2>
+                <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">Nossa equipe de atendimento está pronta para orientar você com calma, agilidade e todo o suporte necessário.</p>
+              </>
+            ) : (
+              <>
+                <h2 className="text-white mb-4">Pronto para proteger o seu {title}?</h2>
+                <p className="text-base text-white/60 mb-12 max-w-lg mx-auto">Cotação gratuita do {title} em até 2h úteis — fale agora com um especialista da Patro.</p>
+              </>
+            )}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              {quoteUrl ? (
+              {supportMode ? (
+                <ExternalLink
+                  href={buildSupportWhatsAppUrl(title)}
+                  className="w-full sm:w-auto"
+                  aria-label={`Falar com atendimento sobre ${title}`}
+                  onClick={() => trackWhatsAppClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}
+                >
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                    <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> {supportCtaText || "Falar com Atendimento"}
+                  </Button>
+                </ExternalLink>
+              ) : quoteUrl ? (
                 quoteUrl.startsWith('/') ? (
                   <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
@@ -1002,13 +1022,13 @@ const InsurancePageTemplate = ({
                 </Link>
               )}
               <ExternalLink
-                href={buildProductWhatsAppUrl(title)}
-                aria-label={`Falar no WhatsApp sobre ${title}`}
+                href={supportMode ? buildSupportWhatsAppUrl(title) : buildProductWhatsAppUrl(title)}
+                aria-label={supportMode ? `Falar com atendimento sobre ${title}` : `Falar no WhatsApp sobre ${title}`}
                 className="w-full sm:w-auto"
                 onClick={() => trackWhatsAppClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}
               >
                 <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-[#25D366] text-white hover:bg-[#1ebe57] border border-[#25D366]/40 shadow-lg shadow-[#25D366]/20">
-                  <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp sobre {title}
+                  <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> {supportMode ? "WhatsApp de Suporte" : `Falar no WhatsApp sobre ${title}`}
                 </Button>
               </ExternalLink>
               <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} aria-label={`Ligar para ${EMPRESA.telefone}`} className="w-full sm:w-auto">
