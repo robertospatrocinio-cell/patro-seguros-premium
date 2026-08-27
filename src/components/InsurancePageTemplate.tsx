@@ -540,7 +540,18 @@ const InsurancePageTemplate = ({
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">{headline || title.split('|')[0].trim()}</h1>
               <p className="text-base md:text-lg text-white/50 mb-10 animate-fade-up-delay-2 max-w-2xl mx-auto">{subtitle}</p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
-                {quoteUrl ? (
+                {supportMode ? (
+                  <ExternalLink
+                    href={buildSupportWhatsAppUrl(title)}
+                    className="w-full sm:w-auto"
+                    aria-label={`Falar com atendimento sobre ${title}`}
+                    onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}
+                  >
+                    <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
+                      <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> {supportCtaText || "Falar com Atendimento"}
+                    </Button>
+                  </ExternalLink>
+                ) : quoteUrl ? (
                   quoteUrl.startsWith('/') ? (
                     <Link to={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                       <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
@@ -561,9 +572,14 @@ const InsurancePageTemplate = ({
                     </Button>
                   </Link>
                 )}
-                <ExternalLink href={buildProductWhatsAppUrl(title)} className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                <ExternalLink
+                  href={supportMode ? buildSupportWhatsAppUrl(title) : buildProductWhatsAppUrl(title)}
+                  className="w-full sm:w-auto"
+                  aria-label={supportMode ? `Falar com atendimento sobre ${title}` : `Falar no WhatsApp sobre ${title}`}
+                  onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}
+                >
                   <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
-                    <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
+                    <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> {supportMode ? "WhatsApp de Suporte" : "Falar no WhatsApp"}
                   </Button>
                 </ExternalLink>
               </div>
