@@ -482,7 +482,7 @@ const HeroInsuranceCarousel = ({
                 <MessageCircle className="mr-2 h-4 w-4" aria-hidden />
                 Falar com consultor
               </Button>
-            </a>
+            </ExternalLink>
           </div>
           )}
         </div>

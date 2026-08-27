@@ -49,11 +49,11 @@ const LocalInfoBlock = ({ position }: { position: "top" | "bottom" }) => (
             <ExternalLink href="https://www.google.com/maps/dir/?api=1&destination=Av.+Salgado+Filho,+2120+-+Cidade+Maia,+Guarulhos+-+SP" className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-md font-semibold hover:bg-accent/90 transition">
               <Navigation className="w-4 h-4" aria-hidden="true" />
               Como chegar (Google Maps)
-            </a>
+            </ExternalLink>
             <ExternalLink href="https://waze.com/ul?q=Av.+Salgado+Filho,+2120,+Cidade+Maia,+Guarulhos" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:bg-primary/90 transition">
               <Navigation className="w-4 h-4" aria-hidden="true" />
               Abrir no Waze
-            </a>
+            </ExternalLink>
             <Link
               to="/contato"
               className="inline-flex items-center gap-2 border border-primary text-primary px-4 py-2 rounded-md font-semibold hover:bg-primary/5 transition"

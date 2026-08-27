@@ -263,12 +263,12 @@ const PlanosDeSaude = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <ExternalLink href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20gostaria%20de%20simular%20um%20plano%20de%20sa%C3%BAde." className="w-full sm:w-auto">
                 <Button size="lg" variant="secondary" className="w-full sm:w-auto">Solicitar Simulação Grátis</Button>
-              </a>
+              </ExternalLink>
               <a href="tel:1151997500" className="w-full sm:w-auto">
                 <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 border-white text-white hover:bg-white hover:text-primary">
                   <Phone className="mr-2 h-5 w-5" aria-hidden="true" /> (11) 5199-7500
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>

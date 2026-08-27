@@ -168,7 +168,7 @@ const PlanoDeSaudeGuarulhosHub = () => {
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Falar com especialista
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -346,7 +346,7 @@ const PlanoDeSaudeGuarulhosHub = () => {
                 Regras de portabilidade, carência e segmentação:{" "}
                 <ExternalLink href="https://www.gov.br/ans/pt-br" className="text-primary underline">
                   ANS — Agência Nacional de Saúde Suplementar
-                </a>
+                </ExternalLink>
                 .
               </li>
               <li>

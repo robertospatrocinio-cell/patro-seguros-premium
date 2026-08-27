@@ -150,7 +150,7 @@ const PoliticaPrivacidade = () => {
                     <ExternalLink href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20uma%20solicita%C3%A7%C3%A3o%20LGPD%20relacionada%20aos%20meus%20dados.">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Falar no WhatsApp
-                    </a>
+                    </ExternalLink>
                   </Button>
                 </div>
               </aside>
@@ -286,14 +286,14 @@ const PoliticaPrivacidade = () => {
                       className="text-primary font-semibold underline underline-offset-2"
                     >
                       contato@patroseguros.com.br
-                    </a>{" "}
+                    </ExternalLink>{" "}
                     ou WhatsApp{" "}
                     <a
                       href="https://wa.me/551151997500"
                       className="text-primary font-semibold underline underline-offset-2"
                     >
                       (11) 5199-7500
-                    </a>
+                    </ExternalLink>
                     .
                   </p>
                 </div>
@@ -359,14 +359,14 @@ const PoliticaPrivacidade = () => {
                       <p className="text-sm font-semibold break-all">
                         contato@patroseguros.com.br
                       </p>
-                    </a>
+                    </ExternalLink>
                     <ExternalLink href="https://wa.me/551151997500" className="p-4 rounded-2xl bg-white/10 hover:bg-white/15 transition-colors backdrop-blur-sm">
                       <Phone className="w-5 h-5 mb-2 text-white/70" />
                       <p className="text-xs font-bold uppercase tracking-wider text-white/60 mb-1">
                         Telefone / WhatsApp
                       </p>
                       <p className="text-sm font-semibold">(11) 5199-7500</p>
-                    </a>
+                    </ExternalLink>
                     <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-sm">
                       <MapPin className="w-5 h-5 mb-2 text-white/70" />
                       <p className="text-xs font-bold uppercase tracking-wider text-white/60 mb-1">

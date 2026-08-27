@@ -208,7 +208,7 @@ const AvaliarNoGoogle = () => {
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 py-3 transition-colors"
               >
                 <ExternalLink className="h-5 w-5" /> Ver perfil no Google Maps
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -387,7 +387,7 @@ const AvaliarNoGoogle = () => {
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-primary font-semibold px-6 py-3 hover:opacity-90 transition-opacity"
               >
                 Falar no WhatsApp
-              </a>
+              </ExternalLink>
               <Link
                 to="/depoimentos"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 text-white font-semibold px-6 py-3 hover:bg-white/10 transition-colors"

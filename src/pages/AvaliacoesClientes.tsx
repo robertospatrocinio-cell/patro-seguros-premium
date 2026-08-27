@@ -117,7 +117,7 @@ const AvaliacoesClientes = () => {
                   >
                     <ExternalLink className="mr-2 h-4 w-4" /> Ver avaliações no Google
                   </Button>
-                </a>
+                </ExternalLink>
                 <ExternalLink href={PATRO_SOCIAL_PROOF.whatsappUrl} onClick={() => trackWhatsAppClick("avaliacoes-hero")}
                 >
                   <Button
@@ -126,7 +126,7 @@ const AvaliacoesClientes = () => {
                   >
                     <MessageCircle className="mr-2 h-4 w-4" /> Falar com a Patro no WhatsApp
                   </Button>
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </div>
@@ -237,7 +237,7 @@ const AvaliacoesClientes = () => {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
               >
                 Ver todas as avaliações no perfil do Google <ExternalLink className="h-3.5 w-3.5" />
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -281,7 +281,7 @@ const AvaliacoesClientes = () => {
                   <MessageCircle className="mr-2 h-4 w-4" />
                   Solicitar cotação pelo WhatsApp
                 </Button>
-              </a>
+              </ExternalLink>
               <Link to="/cotacao">
                 <Button
                   size="lg"

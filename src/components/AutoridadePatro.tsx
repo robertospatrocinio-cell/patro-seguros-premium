@@ -132,7 +132,7 @@ const AutoridadePatro = ({
         </Link>
         <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-xs text-muted-foreground hover:text-primary hover:underline underline-offset-4">
           Consultar registro na SUSEP →
-        </a>
+        </ExternalLink>
       </div>
     </section>
   );

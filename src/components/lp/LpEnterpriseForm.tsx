@@ -127,7 +127,7 @@ export const LpEnterpriseForm = ({
             className="inline-flex items-center gap-2 rounded-md bg-accent hover:bg-[hsl(var(--accent-hover))] text-accent-foreground font-semibold px-6 py-3"
           >
             <MessageCircle className="h-5 w-5" /> Falar pelo WhatsApp agora
-          </a>
+          </ExternalLink>
         </div>
       </div>
     );
@@ -237,7 +237,7 @@ export const LpEnterpriseForm = ({
           Autorizo o contato da Patro Seguros e declaro que li a{" "}
           <a href="/politica-de-privacidade" className="text-primary underline" target="_blank" rel="noreferrer">
             Política de Privacidade
-          </a>.
+          </ExternalLink>.
         </span>
       </label>
       {errors.consent && <p className="text-xs text-destructive -mt-3">{errors.consent}</p>}

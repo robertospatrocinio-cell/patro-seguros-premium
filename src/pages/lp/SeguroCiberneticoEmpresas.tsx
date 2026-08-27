@@ -304,7 +304,7 @@ const SeguroCiberneticoEmpresas = () => {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary underline"
               >
                 Acessar referência oficial <ExternalLink className="h-4 w-4" />
-              </a>
+              </ExternalLink>
             ) : (
               <p className="text-xs text-muted-foreground">
                 Espaço reservado para inserir posteriormente o link oficial da Susep.

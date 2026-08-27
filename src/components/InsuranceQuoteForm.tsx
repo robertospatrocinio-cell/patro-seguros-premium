@@ -744,7 +744,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             >
               <MessageCircle className="h-4 w-4" />
               Dúvidas? Chamar no WhatsApp
-            </a>
+            </ExternalLink>
             <div className="hidden sm:block w-px h-3 bg-slate-300" />
             <a 
               href="mailto:atendimento@patroseguros.com.br"
@@ -752,7 +752,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             >
               <Mail className="h-4 w-4" />
               Enviar por E-mail
-            </a>
+            </ExternalLink>
           </div>
 
           <p className="text-[10px] text-muted-foreground text-center flex items-center gap-1.5">

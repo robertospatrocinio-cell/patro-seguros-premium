@@ -279,7 +279,7 @@ const SegurosGuarulhosBairros = () => {
                 >
                   <MessageCircle className="h-5 w-5" />
                   Falar com especialista no WhatsApp
-                </a>
+                </ExternalLink>
                 <button
                   onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-2 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"

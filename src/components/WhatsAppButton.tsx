@@ -165,7 +165,7 @@ const WhatsAppButton = () => {
                 <MessageCircle className="h-3.5 w-3.5" strokeWidth={2.2} />
               </span>
               WhatsApp
-            </a>
+            </ExternalLink>
           </div>
 
           {/* Botão principal mobile */}
@@ -209,7 +209,7 @@ const WhatsAppButton = () => {
             <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />
           </div>
-        </a>
+        </ExternalLink>
       </div>
     </>
   );

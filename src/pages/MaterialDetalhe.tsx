@@ -151,7 +151,7 @@ const MaterialDetalhePage = () => {
               <Button asChild variant="default">
                 <ExternalLink href={material.whatsapp}>
                   <MessageCircle className="h-4 w-4 mr-2" /> Falar no WhatsApp
-                </a>
+                </ExternalLink>
               </Button>
               <Button asChild variant="outline">
                 <Link to={material.relatedHref}>
@@ -182,7 +182,7 @@ const MaterialDetalhePage = () => {
                   <Button asChild className="w-full">
                     <ExternalLink href={material.whatsapp}>
                       <MessageCircle className="h-4 w-4 mr-2" /> Acelerar pelo WhatsApp
-                    </a>
+                    </ExternalLink>
                   </Button>
                 </div>
               ) : (
@@ -285,7 +285,7 @@ const MaterialDetalhePage = () => {
             <Button size="lg" variant="secondary" asChild>
               <ExternalLink href={material.whatsapp}>
                 <MessageCircle className="h-5 w-5 mr-2" /> Falar no WhatsApp
-              </a>
+              </ExternalLink>
             </Button>
             <Button size="lg" variant="outline" asChild className="bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
               <Link to={material.relatedHref}>

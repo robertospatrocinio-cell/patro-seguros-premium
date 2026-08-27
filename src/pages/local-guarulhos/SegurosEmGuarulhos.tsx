@@ -73,7 +73,7 @@ const SegurosEmGuarulhos = () => {
                       <Button variant="ghost" className="w-full text-primary hover:bg-primary/5">
                         <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp {b.nome}
                       </Button>
-                    </a>
+                    </ExternalLink>
                   </div>
                 </CardContent>
               </Card>

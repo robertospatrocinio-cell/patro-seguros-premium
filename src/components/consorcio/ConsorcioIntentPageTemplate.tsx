@@ -71,7 +71,7 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Simular no WhatsApp
                 </Button>
-              </a>
+              </ExternalLink>
               <Link
                 to={CONSORCIO_LOCAL_PATH}
                 onClick={() =>
@@ -227,7 +227,7 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

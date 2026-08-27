@@ -772,7 +772,7 @@ const Blog = () => {
                   <Link to="/seguradoras" className="text-primary hover:underline">Seguradoras parceiras</Link>
                   <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-primary hover:underline">
                     Consultar registro SUSEP
-                  </a>
+                  </ExternalLink>
                 </div>
               </div>
             </div>
@@ -831,7 +831,7 @@ const Blog = () => {
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" />
                     Cotar pelo WhatsApp
                   </Button>
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </div>

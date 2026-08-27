@@ -192,7 +192,7 @@ export default function AnchorAlerts() {
                                 >
                                   {a.top_pathname}
                                   <ExternalLink className="w-3 h-3" />
-                                </a>
+                                </ExternalLink>
                               )}
                             </TableCell>
                             <TableCell className="max-w-[320px] text-sm">{a.reason}</TableCell>

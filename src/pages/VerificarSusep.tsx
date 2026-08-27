@@ -137,7 +137,7 @@ const VerificarSusep = () => {
                 <h2 className="text-lg font-bold mb-1">Consulta SUSEP</h2>
                 <p className="text-sm text-muted-foreground mb-3">Portal oficial da Superintendência de Seguros Privados.</p>
                 <p className="text-xs font-mono bg-muted/60 px-2 py-1 rounded inline-block">SUSEP 212113511</p>
-              </a>
+              </ExternalLink>
 
               <a
                 href={CNPJ_URL}
@@ -152,7 +152,7 @@ const VerificarSusep = () => {
                 <h2 className="text-lg font-bold mb-1">Cartão CNPJ (Receita Federal)</h2>
                 <p className="text-sm text-muted-foreground mb-3">Situação cadastral e atividade principal.</p>
                 <p className="text-xs font-mono bg-muted/60 px-2 py-1 rounded inline-block">41.641.558/0001-33</p>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -191,7 +191,7 @@ const VerificarSusep = () => {
                         className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline mt-2"
                       >
                         Abrir portal oficial <ExternalLink className="h-3 w-3" />
-                      </a>
+                      </ExternalLink>
                     )}
                   </div>
                 </li>
@@ -259,7 +259,7 @@ const VerificarSusep = () => {
                   >
                     <span>{l.label}</span>
                     <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
-                  </a>
+                  </ExternalLink>
                 )
               )}
             </div>
@@ -297,7 +297,7 @@ const VerificarSusep = () => {
               <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
               <p className="text-sm text-amber-900">
                 <strong>Denúncia de irregularidade:</strong> se você identificar uma corretora atuando sem SUSEP,
-                denuncie gratuitamente pelo portal <ExternalLink href="https://www.gov.br/susep" className="underline">gov.br/susep</a>
+                denuncie gratuitamente pelo portal <ExternalLink href="https://www.gov.br/susep" className="underline">gov.br/susep</ExternalLink>
                 {" "}ou pelo Procon do seu município. Contratar seguro fora da regulação é crime previsto pela Lei 4.594/1964.
               </p>
             </div>
@@ -316,7 +316,7 @@ const VerificarSusep = () => {
                   <Button variant="cta" size="lg" className="rounded-lg w-full sm:w-auto">
                     <MessageCircle className="mr-2 h-5 w-5" /> Receber comprovante no WhatsApp
                   </Button>
-                </a>
+                </ExternalLink>
                 <Link
                   to={COTACAO_URL}
                   onClick={() => trackCotacaoClick(CTA_SOURCE, CTA_META)}

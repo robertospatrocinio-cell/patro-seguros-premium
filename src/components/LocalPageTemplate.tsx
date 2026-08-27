@@ -318,7 +318,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
         aria-label={`Falar com a Patro Seguros sobre ${title} pelo WhatsApp`}
       >
         WhatsApp Patro Seguros — {title}
-      </a>
+      </ExternalLink>
 
       {/* Adição de Botões de Ação Visíveis com Tracking para Bairros */}
       <div className="container mx-auto px-4 py-8 flex flex-col sm:flex-row gap-4 justify-center items-center border-t border-b bg-muted/20">
@@ -341,7 +341,7 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
             <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm border-primary/20 text-primary hover:bg-primary/5">
               <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar com especialista no WhatsApp
             </Button>
-          </a>
+          </ExternalLink>
         </div>
       </div>
 

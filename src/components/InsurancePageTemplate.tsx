@@ -984,7 +984,7 @@ const InsurancePageTemplate = ({
                 <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> {EMPRESA.telefone}
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>

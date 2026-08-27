@@ -79,7 +79,7 @@ const B2bInsurerPageTemplate = ({ page }: Props) => {
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Cotar {page.lineLabel}
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
 

@@ -86,7 +86,7 @@ const SeguroGarantiaGuarulhos = () => {
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Cotar Seguro Garantia
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
 
@@ -220,7 +220,7 @@ const SeguroGarantiaGuarulhos = () => {
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

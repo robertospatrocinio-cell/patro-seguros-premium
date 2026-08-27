@@ -218,7 +218,7 @@ const BlogArticle = () => {
                   className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-[#25D366] text-white text-xs font-bold hover:bg-[#1ebe57] transition-colors whitespace-nowrap"
                 >
                   <MessageCircle className="h-4 w-4" /> WhatsApp
-                </a>
+                </ExternalLink>
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-top")}
@@ -280,7 +280,7 @@ const BlogArticle = () => {
                             <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
                               <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
                             </Button>
-                          </a>
+                          </ExternalLink>
                         </div>
                       </div>
                     </div>
@@ -315,7 +315,7 @@ const BlogArticle = () => {
                             <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold">
                               <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
                             </Button>
-                          </a>
+                          </ExternalLink>
                         </div>
                       </div>
                     </div>
@@ -332,7 +332,7 @@ const BlogArticle = () => {
                         if (url.startsWith("/")) {
                           return <Link key={j} to={url} className="text-primary underline hover:text-primary/80 font-medium">{text}</Link>;
                         }
-                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{text}</a>;
+                        return <a key={j} href={url} target="_blank" rel="noopener noreferrer" className="text-primary underline hover:text-primary/80 font-medium">{text}</ExternalLink>;
                       }
                       return <Fragment key={j}>{part}</Fragment>;
                     })}
@@ -379,7 +379,7 @@ const BlogArticle = () => {
                       <Button variant="outline" size="lg" className="w-full h-14 px-8 rounded-xl border-white/10 bg-white/5 text-white hover:bg-white/10 font-bold transition-all">
                         <MessageCircle className="mr-2 h-5 w-5 text-green-500" /> Falar no WhatsApp
                       </Button>
-                    </a>
+                    </ExternalLink>
                   </div>
                 </div>
               </div>
@@ -414,7 +414,7 @@ const BlogArticle = () => {
                       <Button variant="outline" size="sm" className="w-full sm:w-auto font-bold border-primary text-primary hover:bg-primary hover:text-white transition-all">
                         <MessageCircle className="mr-2 h-4 w-4" /> {variant === 'A' ? 'Consultoria via WhatsApp' : 'Falar com Especialista de Frota'}
                       </Button>
-                    </a>
+                    </ExternalLink>
                   </div>
                 </div>
 
@@ -462,7 +462,7 @@ const BlogArticle = () => {
                       <Button variant="outline" size="lg" className="w-full sm:w-auto bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold transition-all">
                         <MessageCircle className="mr-2 h-4 w-4" /> {variant === 'A' ? 'Falar com Especialista' : 'Orçamento via WhatsApp'}
                       </Button>
-                    </a>
+                    </ExternalLink>
                   </div>
                 </div>
                 {extraFaqBlock.relatedLink && (
@@ -686,7 +686,7 @@ const BlogArticle = () => {
                   >
                     <MessageCircle className="h-5 w-5" aria-hidden="true" />
                     Pedir simulação no WhatsApp
-                  </a>
+                  </ExternalLink>
                   <Link
                     to="/seguro-vida/formulario"
                     onClick={() => trackCotacaoClick("blog_cta_sucessao_patrimonial")}
@@ -755,7 +755,7 @@ const BlogArticle = () => {
                   className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-[#25D366] text-white text-base font-semibold hover:bg-[#1ebe57] transition-colors"
                 >
                   <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
-                </a>
+                </ExternalLink>
                 <Link
                   to={quoteHref}
                   onClick={() => trackCotacaoClick("blog-article-bottom")}

@@ -100,7 +100,7 @@ export const HeroSection = ({
           </Button>
           <ExternalLink href={whatsappUrl} onClick={onWhatsApp} aria-label="Falar com a Patro Seguros no WhatsApp" className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors">
             <MessageCircle className="h-5 w-5" /> {secondaryCta}
-          </a>
+          </ExternalLink>
         </div>
 
         {supportLine && <p className="mt-6 text-sm text-white/70">{supportLine}</p>}
@@ -194,7 +194,7 @@ export const LpFinalCTA = ({
         </Button>
         <ExternalLink href={whatsappUrl} onClick={onWhatsApp} aria-label={secondaryCta} className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors">
           <MessageCircle className="h-5 w-5" /> {secondaryCta}
-        </a>
+        </ExternalLink>
       </div>
       {legalNote && <p className="mt-8 text-xs text-white/60 max-w-3xl mx-auto">{legalNote}</p>}
     </div>

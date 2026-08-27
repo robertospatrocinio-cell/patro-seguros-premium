@@ -44,7 +44,7 @@ const Footer = memo(() => {
                 </div>
                 <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="hover:text-white underline decoration-white/30 hover:decoration-white transition-colors" aria-label={`Consultar registro SUSEP ${EMPRESA.susep} no site oficial`}>
                   SUSEP {EMPRESA.susep}
-                </a>
+                </ExternalLink>
                 <br />CNPJ {EMPRESA.cnpj}
               </div>
             </div>
@@ -61,13 +61,13 @@ const Footer = memo(() => {
                 <a href={`tel:${TELEFONE_DIGITS}`} className="flex items-center gap-2 hover:text-white transition-colors">
                   <Phone className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
                   <span>{EMPRESA.telefone}</span>
-                </a>
+                </ExternalLink>
               </li>
               <li>
                 <a href={`mailto:${EMPRESA.email}`} className="flex items-center gap-2 hover:text-white transition-colors">
                   <Mail className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
                   <span>{EMPRESA.email}</span>
-                </a>
+                </ExternalLink>
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="h-3.5 w-3.5 shrink-0 text-white/50" aria-hidden="true" />
@@ -92,7 +92,7 @@ const Footer = memo(() => {
                         className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
                       >
                         <Icon className="h-4 w-4" aria-hidden="true" />
-                      </a>
+                      </ExternalLink>
                     </TooltipTrigger>
                     <TooltipContent side="top" className="text-[10px]">{label}</TooltipContent>
                   </Tooltip>
@@ -173,7 +173,7 @@ const Footer = memo(() => {
             className="flex items-center gap-1 hover:text-white transition-colors"
           >
             <MapPin className="h-3 w-3" /> {ENDERECO_LINHA}
-          </a>
+          </ExternalLink>
         </div>
 
         {/* Bloco NAP canônico — obrigatório em 100% das páginas para SEO local + GEO */}

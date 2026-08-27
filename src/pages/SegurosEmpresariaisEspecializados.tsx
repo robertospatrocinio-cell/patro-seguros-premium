@@ -136,7 +136,7 @@ const SegurosEmpresariaisEspecializados = () => {
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Falar com especialista B2B
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -423,7 +423,7 @@ const SegurosEmpresariaisEspecializados = () => {
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

@@ -100,7 +100,7 @@ const BlogCluster = () => {
                 <Button size="lg" variant="outline" className="rounded-lg h-11 bg-white/5 border-white/30 text-white hover:bg-white/15">
                   <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -285,7 +285,7 @@ const BlogCluster = () => {
                   <Button size="lg" variant="outline" className="rounded-lg bg-white/5 border-white/30 text-white hover:bg-white/15">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                   </Button>
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </div>

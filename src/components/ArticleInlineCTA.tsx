@@ -67,7 +67,7 @@ export default function ArticleInlineCTA({
             >
               <MessageCircle className="mr-2 h-4 w-4 text-green-600" /> Falar no WhatsApp
             </Button>
-          </a>
+          </ExternalLink>
         </div>
       </div>
     </aside>

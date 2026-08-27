@@ -87,7 +87,7 @@ const SeoPlanoSaudeGuarulhos = () => (
             </Link>
             <ExternalLink href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20quero%20cotar%20plano%20de%20sa%C3%BAde%20em%20Guarulhos">
               <Button size="lg" variant="cta"><MessageCircle className="mr-2 h-5 w-5" /> WhatsApp</Button>
-            </a>
+            </ExternalLink>
           </div>
         </div>
       </section>

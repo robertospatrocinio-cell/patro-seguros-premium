@@ -144,7 +144,7 @@ const Sobre = () => {
                   <Button size="sm" className="w-full sm:w-auto">
                     Consultar SUSEP <ExternalLink className="ml-2 h-4 w-4" />
                   </Button>
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </div>
@@ -205,10 +205,10 @@ const Sobre = () => {
                   <div className="flex gap-2">
                     <ExternalLink href="https://linkedin.com/in/roberto-patrocinio" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-3.5 w-3.5" /> LinkedIn
-                    </a>
+                    </ExternalLink>
                     <ExternalLink href="https://www.instagram.com/patroseguros" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Instagram className="h-3.5 w-3.5" /> Instagram
-                    </a>
+                    </ExternalLink>
                   </div>
                 </div>
               </div>
@@ -234,10 +234,10 @@ const Sobre = () => {
                   <div className="flex gap-2">
                     <ExternalLink href="https://linkedin.com/in/sandra-patrocinio" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-3.5 w-3.5" /> LinkedIn
-                    </a>
+                    </ExternalLink>
                     <ExternalLink href="https://www.instagram.com/patroseguros" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Instagram className="h-3.5 w-3.5" /> Instagram
-                    </a>
+                    </ExternalLink>
                   </div>
                 </div>
               </div>
@@ -248,7 +248,7 @@ const Sobre = () => {
               <p className="text-sm text-muted-foreground mb-4">Quer falar diretamente com Roberto ou Sandra?</p>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("sobre-socios")}>
                 <Button variant="cta" className="rounded-lg"><MessageCircle className="mr-2 h-4 w-4" /> Conversar com os Sócios</Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
@@ -303,7 +303,7 @@ const Sobre = () => {
                       <Button variant="outline" className="w-full gap-2">
                         Ver no Maps
                       </Button>
-                    </a>
+                    </ExternalLink>
                   </div>
                 </div>
               </div>
@@ -425,7 +425,7 @@ const Sobre = () => {
                               <Icon className="h-3.5 w-3.5 text-primary" />
                               <span className="underline-offset-2 group-hover:underline">{ev.label}</span>
                               {isExternal && <ExternalLink className="h-3 w-3 opacity-50" />}
-                            </a>
+                            </ExternalLink>
                           </li>
                         );
                       })}
@@ -574,7 +574,7 @@ const Sobre = () => {
                   <dd className="text-muted-foreground">
                     <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="underline hover:text-primary">
                       212113511
-                    </a>
+                    </ExternalLink>
                   </dd>
                 </div>
                 <div>
@@ -590,7 +590,7 @@ const Sobre = () => {
                   <dd className="text-muted-foreground">
                     <a href="tel:+551151997500" className="underline hover:text-primary">
                       +55 11 5199-7500
-                    </a>
+                    </ExternalLink>
                   </dd>
                 </div>
                 <div>
@@ -598,7 +598,7 @@ const Sobre = () => {
                   <dd className="text-muted-foreground">
                     <a href="mailto:contato@patroseguros.com.br" className="underline hover:text-primary">
                       contato@patroseguros.com.br
-                    </a>
+                    </ExternalLink>
                   </dd>
                 </div>
                 <div>
@@ -620,15 +620,15 @@ const Sobre = () => {
                 <div className="sm:col-span-2">
                   <dt className="font-semibold text-foreground">Presença digital verificável</dt>
                   <dd className="text-muted-foreground flex flex-wrap gap-x-3 gap-y-1">
-                    <ExternalLink href="https://www.google.com/maps?cid=273879799324962533" className="underline hover:text-primary">Google Maps</a>
+                    <ExternalLink href="https://www.google.com/maps?cid=273879799324962533" className="underline hover:text-primary">Google Maps</ExternalLink>
                     <span aria-hidden>·</span>
-                    <ExternalLink href="https://www.instagram.com/patroseguros" className="underline hover:text-primary">Instagram</a>
+                    <ExternalLink href="https://www.instagram.com/patroseguros" className="underline hover:text-primary">Instagram</ExternalLink>
                     <span aria-hidden>·</span>
-                    <ExternalLink href="https://www.facebook.com/patroseguros" className="underline hover:text-primary">Facebook</a>
+                    <ExternalLink href="https://www.facebook.com/patroseguros" className="underline hover:text-primary">Facebook</ExternalLink>
                     <span aria-hidden>·</span>
-                    <ExternalLink href="https://www.linkedin.com/company/patro-seguros" className="underline hover:text-primary">LinkedIn</a>
+                    <ExternalLink href="https://www.linkedin.com/company/patro-seguros" className="underline hover:text-primary">LinkedIn</ExternalLink>
                     <span aria-hidden>·</span>
-                    <ExternalLink href="https://wa.me/551151997500" className="underline hover:text-primary">WhatsApp</a>
+                    <ExternalLink href="https://wa.me/551151997500" className="underline hover:text-primary">WhatsApp</ExternalLink>
                   </dd>
                 </div>
               </dl>
@@ -687,7 +687,7 @@ const Sobre = () => {
                 <Button size="lg" className="bg-white/10 border border-white/20 text-white hover:bg-white/20 rounded-lg">
                   <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>

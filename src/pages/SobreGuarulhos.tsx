@@ -190,7 +190,7 @@ const SobreGuarulhos = () => (
                   <div className="flex flex-wrap gap-2 pt-2">
                     <ExternalLink href="https://www.google.com/maps?cid=273879799324962533" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition">
                       <Navigation className="w-4 h-4" /> Ver no Maps
-                    </a>
+                    </ExternalLink>
                     <Link to="/contato">
                       <Button variant="outline" size="sm" className="rounded-lg">Falar com Consultor</Button>
                     </Link>
@@ -241,7 +241,7 @@ const SobreGuarulhos = () => (
             </Link>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("sobre-guarulhos-cta")}>
               <Button size="lg" variant="cta" className="rounded-lg"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp</Button>
-            </a>
+            </ExternalLink>
           </div>
         </div>
       </section>

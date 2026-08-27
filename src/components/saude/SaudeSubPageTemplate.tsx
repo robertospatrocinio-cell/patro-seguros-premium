@@ -86,7 +86,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                   <MessageCircle className="mr-2 h-5 w-5" />
                   {cta.secondary}
                 </Button>
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </section>
