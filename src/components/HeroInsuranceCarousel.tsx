@@ -472,22 +472,7 @@ const HeroInsuranceCarousel = ({
                 <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
               </Button>
             </Link>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsApp}
-              aria-label={`Falar com consultor da Patro Seguros pelo WhatsApp — perfil ${
-                audience === "pessoa"
-                  ? "Para Você"
-                  : audience === "empresa"
-                  ? "Para sua Empresa"
-                  : audience === "agro"
-                  ? "Para o Agro"
-                  : "Para Consórcio"
-              }`}
-              className="w-full sm:w-auto"
-            >
+            <a href={whatsappUrl} onClick={handleWhatsApp} aria-label={`Falar com consultor da Patro Seguros pelo WhatsApp — perfil ${ audience === "pessoa" ? "Para Você" : audience === "empresa" ? "Para sua Empresa" : audience === "agro" ? "Para o Agro" : "Para Consórcio" }`} className="w-full sm:w-auto" target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 variant="outline"

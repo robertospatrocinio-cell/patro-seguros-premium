@@ -122,13 +122,8 @@ export const LpEnterpriseForm = ({
         <h3 className="text-xl font-semibold">Recebemos suas informações.</h3>
         <p className="mt-3 text-muted-foreground">{successMessage}</p>
         <div className="mt-6">
-          <a
-            href={buildWhatsAppUrl(whatsappSuccessMessage || "Olá! Acabei de enviar um formulário no site da Patro Seguros e gostaria de continuar o atendimento.")}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick(`${source}-form-success`, { insuranceType, origin: source })}
+          <a href={buildWhatsAppUrl(whatsappSuccessMessage || "Olá! Acabei de enviar um formulário no site da Patro Seguros e gostaria de continuar o atendimento.")} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`${source}-form-success`, { insuranceType, origin: source })}>
             className="inline-flex items-center gap-2 rounded-md bg-accent hover:bg-[hsl(var(--accent-hover))] text-accent-foreground font-semibold px-6 py-3"
-          >
             <MessageCircle className="h-5 w-5" /> Falar pelo WhatsApp agora
           </a>
         </div>
@@ -201,7 +196,6 @@ export const LpEnterpriseForm = ({
                             ? "bg-primary text-primary-foreground border-primary"
                             : "bg-background border-border hover:border-primary"
                         }`}
-                      >
                         {o}
                       </button>
                     );
@@ -250,7 +244,6 @@ export const LpEnterpriseForm = ({
         size="lg"
         disabled={isSubmitting}
         className="w-full bg-accent hover:bg-[hsl(var(--accent-hover))] text-accent-foreground font-semibold"
-      >
         {isSubmitting ? "Enviando…" : submitLabel}
       </Button>
 

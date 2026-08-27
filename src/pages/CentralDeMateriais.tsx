@@ -64,12 +64,7 @@ const CentralDeMateriais = () => {
                   <CardDescription className="leading-relaxed">{m.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto flex flex-col gap-2">
-                  <a
-                    href={m.whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
-                  >
+                  <a href={m.whatsapp} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                     Solicitar checklist <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link to={m.relatedHref} className="text-xs text-muted-foreground hover:text-primary">

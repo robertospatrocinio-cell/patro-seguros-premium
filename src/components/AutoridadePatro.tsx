@@ -129,12 +129,7 @@ const AutoridadePatro = ({
         >
           Conhecer a história da Patro <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Link>
-        <a
-          href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-muted-foreground hover:text-primary hover:underline underline-offset-4"
-        >
+        <a href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-xs text-muted-foreground hover:text-primary hover:underline underline-offset-4" target="_blank" rel="noopener noreferrer">
           Consultar registro na SUSEP →
         </a>
       </div>

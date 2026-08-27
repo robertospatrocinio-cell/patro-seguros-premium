@@ -80,12 +80,7 @@ const SeguroGarantiaGuarulhos = () => {
             <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">
               A Patro Seguros atende empresas de Guarulhos, Cumbica, Cidade Maia, Centro, Vila Galvão, Bonsucesso, Pimentas, Arujá, Itaquaquecetuba, São Paulo e região metropolitana que precisam de Seguro Garantia para contratos, licitações e obrigações empresariais.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("b2b_garantia_guarulhos")}
-            >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_garantia_guarulhos")}>
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Cotar Seguro Garantia
               </Button>
@@ -150,7 +145,6 @@ const SeguroGarantiaGuarulhos = () => {
                     })
                   }
                   className="p-4 bg-white border rounded-lg hover:border-primary/60 transition"
-                >
                   <div className="flex items-center gap-2 text-primary mb-1">
                     <ShieldCheck className="h-4 w-4" />
                     <span className="text-xs uppercase font-bold">{p.navLabel}</span>
@@ -218,12 +212,7 @@ const SeguroGarantiaGuarulhos = () => {
             <p className="text-muted-foreground mb-6">
               Envie o edital ou contrato e receba propostas comparadas de seguradoras parceiras em Seguro Garantia.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("b2b_garantia_guarulhos_cta_final")}
-            >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_garantia_guarulhos_cta_final")}>
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>

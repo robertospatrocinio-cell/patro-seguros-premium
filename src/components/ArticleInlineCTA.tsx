@@ -38,7 +38,6 @@ export default function ArticleInlineCTA({
           ? "bg-primary text-primary-foreground"
           : "bg-primary/5 border border-primary/20 text-foreground")
       }
-    >
       <div className="flex flex-col md:flex-row items-center gap-6">
         <div className="flex-1 text-center md:text-left">
           <h3 className={"text-xl md:text-2xl font-bold mb-2 " + (isSolid ? "" : "text-primary")}>{headline}</h3>
@@ -52,12 +51,7 @@ export default function ArticleInlineCTA({
               Pedir Cotação <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick(source)}
-          >
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(source)}>
             <Button
               size="lg"
               variant="outline"
@@ -67,7 +61,6 @@ export default function ArticleInlineCTA({
                   ? "bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
                   : "bg-white")
               }
-            >
               <MessageCircle className="mr-2 h-4 w-4 text-green-600" /> Falar no WhatsApp
             </Button>
           </a>

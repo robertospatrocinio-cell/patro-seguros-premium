@@ -65,12 +65,7 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
             <h1 className="text-white mb-4">{page.h1}</h1>
             <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">{page.subtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick(page.whatsappOrigem, { insuranceType: page.slug })}
-              >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(page.whatsappOrigem, { insuranceType: page.slug })}>
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Simular no WhatsApp
                 </Button>
@@ -85,12 +80,10 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
                     label: "Hub de Consórcio em Guarulhos",
                   })
                 }
-              >
                 <Button
                   size="lg"
                   variant="outline"
                   className="text-base px-6 bg-white/10 border-white/40 text-white hover:bg-white/20"
-                >
                   Ver todas as modalidades <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -207,7 +200,6 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
                     })
                   }
                   className="p-4 bg-background border rounded-lg hover:border-primary/60 transition flex items-center justify-between text-sm"
-                >
                   <span className="font-medium">{link.label}</span>
                   <ArrowRight className="h-4 w-4 text-primary flex-shrink-0 ml-2" />
                 </Link>
@@ -223,14 +215,7 @@ const ConsorcioIntentPageTemplate = ({ page }: Props) => {
               Um consultor da Patro Seguros compara administradoras, prazos e taxas e explica o
               regulamento antes de você assinar qualquer coisa.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackWhatsAppClick(page.whatsappOrigem, { insuranceType: `${page.slug}-cta-final` })
-              }
-            >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(page.whatsappOrigem, { insuranceType: `${page.slug}-cta-final` })}>
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>

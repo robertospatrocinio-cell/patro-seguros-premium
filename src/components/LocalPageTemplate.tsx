@@ -312,14 +312,9 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
           que cada página local exponha um WhatsApp link com mensagem
           slug-específica. O botão flutuante visível é renderizado pelo
           `WhatsAppButton` global, configurado via override abaixo. */}
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => trackWhatsAppClick(`local-page:${slug}:sr-link`, { origin: "local-page-sr", insuranceType: title })}
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`local-page:${slug}:sr-link`, { origin: "local-page-sr", insuranceType: title })}
         className="sr-only"
-        aria-label={`Falar com a Patro Seguros sobre ${title} pelo WhatsApp`}
-      >
+        aria-label={`Falar com a Patro Seguros sobre ${title} pelo WhatsApp`}>
         WhatsApp Patro Seguros — {title}
       </a>
 
@@ -334,18 +329,11 @@ const buildWhatsAppUrl = (msg: string) => WHATSAPP_BASE + encodeURIComponent(msg
             to={`/cotacao?tipo=${getQuoteType(icon)}`}
             className="w-full sm:w-auto"
             onClick={() => trackCotacaoClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
-          >
             <Button size="lg" className="w-full sm:w-auto rounded-xl bg-primary text-primary-foreground h-12 px-8 text-sm font-bold shadow-lg">
               <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> Cotar meu seguro agora
             </Button>
           </Link>
-          <a 
-            href={whatsappUrl} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="w-full sm:w-auto"
-            onClick={() => trackWhatsAppClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}
-          >
+          <a href={whatsappUrl} className="w-full sm:w-auto" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`local-page:${slug}:mid-cta`, { origin: "local-page-mid", insuranceType: title })}>
             <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm border-primary/20 text-primary hover:bg-primary/5">
               <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar com especialista no WhatsApp
             </Button>

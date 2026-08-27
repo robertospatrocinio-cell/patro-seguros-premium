@@ -128,10 +128,9 @@ const VerificarSusep = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-background border-2 border-primary/20 hover:border-primary rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl"
-              >
                 <div className="flex items-start justify-between mb-3">
                   <ShieldCheck className="h-8 w-8 text-primary" />
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <a className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" / target="_blank" rel="noopener noreferrer">
                 </div>
                 <h2 className="text-lg font-bold mb-1">Consulta SUSEP</h2>
                 <p className="text-sm text-muted-foreground mb-3">Portal oficial da Superintendência de Seguros Privados.</p>
@@ -143,10 +142,9 @@ const VerificarSusep = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-background border-2 border-primary/20 hover:border-primary rounded-2xl p-6 shadow-lg transition-all hover:shadow-xl"
-              >
                 <div className="flex items-start justify-between mb-3">
                   <FileText className="h-8 w-8 text-primary" />
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <a className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" / target="_blank" rel="noopener noreferrer">
                 </div>
                 <h2 className="text-lg font-bold mb-1">Cartão CNPJ (Receita Federal)</h2>
                 <p className="text-sm text-muted-foreground mb-3">Situação cadastral e atividade principal.</p>
@@ -173,7 +171,6 @@ const VerificarSusep = () => {
                   key={p.name}
                   data-speakable="faq"
                   className="bg-background border rounded-xl p-5 flex gap-4"
-                >
                   <span className="shrink-0 w-9 h-9 rounded-full bg-primary text-white font-bold text-sm flex items-center justify-center">
                     {i + 1}
                   </span>
@@ -188,8 +185,7 @@ const VerificarSusep = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:underline mt-2"
-                      >
-                        Abrir portal oficial <ExternalLink className="h-3 w-3" />
+                        Abrir portal oficial <a className="h-3 w-3" / target="_blank" rel="noopener noreferrer">
                       </a>
                     )}
                   </div>
@@ -255,9 +251,8 @@ const VerificarSusep = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border rounded-xl p-4 text-sm hover:border-primary transition-colors flex items-center justify-between gap-2"
-                  >
                     <span>{l.label}</span>
-                    <ExternalLink className="h-3.5 w-3.5 text-muted-foreground" />
+                    <a className="h-3.5 w-3.5 text-muted-foreground" / target="_blank" rel="noopener noreferrer">
                   </a>
                 )
               )}
@@ -275,7 +270,6 @@ const VerificarSusep = () => {
                   key={f.question}
                   data-speakable="faq"
                   className="group bg-background border rounded-xl p-4 [&_summary::-webkit-details-marker]:hidden"
-                >
                   <summary className="cursor-pointer font-semibold text-sm flex items-center justify-between gap-3">
                     <span>{f.question}</span>
                     <span className="text-primary group-open:rotate-180 transition-transform">▾</span>
@@ -296,7 +290,7 @@ const VerificarSusep = () => {
               <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
               <p className="text-sm text-amber-900">
                 <strong>Denúncia de irregularidade:</strong> se você identificar uma corretora atuando sem SUSEP,
-                denuncie gratuitamente pelo portal <a href="https://www.gov.br/susep" target="_blank" rel="noopener noreferrer" className="underline">gov.br/susep</a>
+                denuncie gratuitamente pelo portal <a href="https://www.gov.br/susep" className="underline" target="_blank" rel="noopener noreferrer">gov.br/susep</a>
                 {" "}ou pelo Procon do seu município. Contratar seguro fora da regulação é crime previsto pela Lei 4.594/1964.
               </p>
             </div>
@@ -311,7 +305,6 @@ const VerificarSusep = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick(CTA_SOURCE, CTA_META)}
-                >
                   <Button variant="cta" size="lg" className="rounded-lg w-full sm:w-auto">
                     <MessageCircle className="mr-2 h-5 w-5" /> Receber comprovante no WhatsApp
                   </Button>
@@ -319,7 +312,6 @@ const VerificarSusep = () => {
                 <Link
                   to={COTACAO_URL}
                   onClick={() => trackCotacaoClick(CTA_SOURCE, CTA_META)}
-                >
                   <Button variant="outline" size="lg" className="rounded-lg w-full sm:w-auto">
                     Pedir cotação com corretora verificada
                   </Button>

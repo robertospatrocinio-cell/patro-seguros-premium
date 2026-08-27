@@ -3,6 +3,7 @@ import { lazy, Suspense, type ReactNode } from "react";
 import { CheckCircle, Phone, MessageCircle, ArrowRight, Award, AlertTriangle, DollarSign, BookOpen, Lightbulb } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick, trackInternalLinkClick, buildInternalLinkSource } from "@/lib/tracking";
 import OptimizedImage from "@/components/OptimizedImage";
+import ExternalLink from "@/components/ExternalLink";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
@@ -532,11 +533,11 @@ const InsurancePageTemplate = ({
                       </Button>
                     </Link>
                   ) : (
-                    <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                    <ExternalLink href={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                       <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
                         {quoteCtaText || `Pedir Cotação do ${title}`}
                       </Button>
-                    </a>
+                    </ExternalLink>
                   )
                 ) : (
                   <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
@@ -545,11 +546,11 @@ const InsurancePageTemplate = ({
                     </Button>
                   </Link>
                 )}
-                <a href={buildProductWhatsAppUrl(title)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
+                <ExternalLink href={buildProductWhatsAppUrl(title)} className="w-full sm:w-auto" aria-label={`Falar no WhatsApp sobre ${title}`} onClick={() => trackWhatsAppClick(`product-page:hero:${title}`, { origin: "product-page-hero", insuranceType: title })}>
                   <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                   </Button>
-                </a>
+                </ExternalLink>
               </div>
             </div>
           </div>
@@ -956,11 +957,11 @@ const InsurancePageTemplate = ({
                     </Button>
                   </Link>
                 ) : (
-                  <a href={quoteUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
+                  <ExternalLink href={quoteUrl} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
                     <Button size="lg" className="w-full sm:w-auto rounded-xl bg-white text-primary hover:bg-white/90 h-12 px-8 text-sm font-semibold shadow-lg shadow-white/10">
                       <ArrowRight className="mr-2 h-4 w-4" aria-hidden="true" /> {quoteCtaText || `Pedir Cotação do ${title}`}
                     </Button>
-                  </a>
+                  </ExternalLink>
                 )
               ) : (
                 <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} className="w-full sm:w-auto" onClick={() => trackCotacaoClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}>
@@ -969,10 +970,8 @@ const InsurancePageTemplate = ({
                   </Button>
                 </Link>
               )}
-              <a
+              <ExternalLink
                 href={buildProductWhatsAppUrl(title)}
-                target="_blank"
-                rel="noopener noreferrer"
                 aria-label={`Falar no WhatsApp sobre ${title}`}
                 className="w-full sm:w-auto"
                 onClick={() => trackWhatsAppClick(`product-page:bottom:${title}`, { origin: "product-page-bottom", insuranceType: title })}
@@ -980,7 +979,7 @@ const InsurancePageTemplate = ({
                 <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-[#25D366] text-white hover:bg-[#1ebe57] border border-[#25D366]/40 shadow-lg shadow-[#25D366]/20">
                   <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp sobre {title}
                 </Button>
-              </a>
+              </ExternalLink>
               <a href={`tel:${EMPRESA.telefone.replace(/\D/g, '')}`} aria-label={`Ligar para ${EMPRESA.telefone}`} className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto rounded-xl h-12 px-8 text-sm bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/[0.12]">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> {EMPRESA.telefone}
@@ -1099,16 +1098,14 @@ const InsurancePageTemplate = ({
                 Atendemos produtores rurais de todos os estados do Brasil. Solicite sua cotação personalizada por WhatsApp — retornamos com a melhor proposta em até 24h.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a
+                <ExternalLink
                   href="https://wa.me/551151997500?text=Olá! Sou de fora de Guarulhos e gostaria de uma cotação de seguro."
-                  target="_blank"
-                  rel="noopener noreferrer"
                   onClick={() => trackWhatsAppClick(`faq-fora-guarulhos-${title}`)}
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 text-sm transition-colors"
                 >
                   <MessageCircle className="h-4 w-4" aria-hidden="true" />
                   Cotação Rápida por WhatsApp
-                </a>
+                </ExternalLink>
                 <Link to={`/cotacao?tipo=${inferQuoteType(title)}`} onClick={() => trackCotacaoClick(`faq-fora-guarulhos-${title}`)}>
                   <Button variant="outline" className="rounded-xl w-full sm:w-auto">
                     Preencher formulário online

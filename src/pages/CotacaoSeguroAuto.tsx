@@ -3,6 +3,7 @@ import { trackWhatsAppClick } from "@/lib/tracking";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 
 const SEGFY_URL = "https://patro.seucorretor.digital/#/formularios/auto";
@@ -21,11 +22,11 @@ const CotacaoSeguroAuto = () => {
             <p className="text-xl text-white/70 mb-8">
               Faça sua cotação 100% online e gratuita. Compare as melhores seguradoras em minutos.
             </p>
-            <a href={SEGFY_URL} target="_blank" rel="noopener noreferrer">
+            <ExternalLink href={SEGFY_URL}>
               <Button size="lg" className="text-lg px-10 bg-white text-primary hover:bg-white/90">
                 Fazer Cotação Online <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
 
@@ -54,11 +55,11 @@ const CotacaoSeguroAuto = () => {
             <p className="text-muted-foreground mb-8">
               Nosso time está pronto para te ajudar a encontrar a melhor proteção para o seu veículo.
             </p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("cotacao-seguro-auto")}>
+            <ExternalLink href={WHATSAPP_URL} onClick={() => trackWhatsAppClick("cotacao-seguro-auto")}>
               <Button size="lg" className="text-lg px-8">
                 <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" /> Falar no WhatsApp
               </Button>
-            </a>
+            </ExternalLink>
           </div>
         </section>
       </main>

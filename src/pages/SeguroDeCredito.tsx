@@ -99,12 +99,7 @@ const SeguroDeCredito = () => {
               A Patro Seguros ajuda empresas a avaliar Seguro de Crédito para proteger recebíveis, vender com mais segurança e reduzir perdas por inadimplência de clientes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("b2b_credito_hub")}
-              >
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_credito_hub")}>
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Cotar Seguro de Crédito
                 </Button>
@@ -119,7 +114,6 @@ const SeguroDeCredito = () => {
                     label: "Guarulhos e SP",
                   })
                 }
-              >
                 <Button size="lg" variant="outline" className="text-base px-6 bg-white/10 border-white/40 text-white hover:bg-white/20">
                   Empresa em Guarulhos <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -215,7 +209,6 @@ const SeguroDeCredito = () => {
                     })
                   }
                   className="p-4 bg-white border rounded-lg hover:border-primary/60 transition"
-                >
                   <span className="text-xs uppercase text-primary font-bold">{p.navLabel}</span>
                   <h3 className="font-bold mt-1 mb-1 text-sm">{p.h1}</h3>
                   <p className="text-xs text-muted-foreground line-clamp-3">{p.subtitle}</p>
@@ -323,7 +316,6 @@ const SeguroDeCredito = () => {
                     })
                   }
                   className="p-3 bg-white border rounded hover:border-primary/60 transition text-sm"
-                >
                   <span className="font-bold">{p.insurer}</span>
                   <span className="text-muted-foreground block text-xs">Página dedicada</span>
                 </Link>
@@ -355,12 +347,7 @@ const SeguroDeCredito = () => {
             <p className="text-muted-foreground mb-6">
               Envie uma amostra da sua carteira PJ. Nós retornamos com propostas comparadas das seguradoras parceiras.
             </p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick("b2b_credito_hub_cta_final")}
-            >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_credito_hub_cta_final")}>
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>

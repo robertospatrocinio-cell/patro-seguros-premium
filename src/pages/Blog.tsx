@@ -769,12 +769,7 @@ const Blog = () => {
                   <Link to="/sobre" className="text-primary hover:underline">Sobre a Patro</Link>
                   <Link to="/contato" className="text-primary hover:underline">Contato</Link>
                   <Link to="/seguradoras" className="text-primary hover:underline">Seguradoras parceiras</Link>
-                  <a
-                    href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
-                    className="text-primary hover:underline"
-                  >
+                  <a href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                     Consultar registro SUSEP
                   </a>
                 </div>

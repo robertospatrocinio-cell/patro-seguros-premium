@@ -187,12 +187,7 @@ const SobreGuarulhos = () => (
                   </ul>
                   
                   <div className="flex flex-wrap gap-2 pt-2">
-                    <a 
-                      href="https://www.google.com/maps?cid=273879799324962533" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition"
-                    >
+                    <a href="https://www.google.com/maps?cid=273879799324962533" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition" target="_blank" rel="noopener noreferrer">
                       <Navigation className="w-4 h-4" /> Ver no Maps
                     </a>
                     <Link to="/contato">

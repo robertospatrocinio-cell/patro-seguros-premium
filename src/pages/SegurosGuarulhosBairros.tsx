@@ -233,7 +233,6 @@ const SegurosGuarulhosBairros = () => {
         <section className="relative min-h-[70vh] flex items-center overflow-hidden">
           <div
             className={`absolute inset-0 transition-opacity duration-500 ${transitioning ? "opacity-0" : "opacity-100"}`}
-          >
             <img
               src={selectedBairro.image}
               alt={`Seguros em ${selectedBairro.nome} — Patro Seguros, Corretora em Guarulhos/SP`}
@@ -273,20 +272,14 @@ const SegurosGuarulhosBairros = () => {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick(`hero_bairro_${selectedBairro.id}`)}
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`hero_bairro_${selectedBairro.id}`)}>
                   className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"
-                >
                   <MessageCircle className="h-5 w-5" />
                   Falar com especialista no WhatsApp
                 </a>
                 <button
                   onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
                   className="inline-flex items-center justify-center gap-2 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"
-                >
                   Cotar meu seguro agora
                   <ChevronRight className="h-4 w-4" />
                 </button>
@@ -308,7 +301,6 @@ const SegurosGuarulhosBairros = () => {
                       ? "bg-[#003366] text-white shadow-md"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
-                >
                   {b.nome}
                 </button>
               ))}
@@ -475,7 +467,6 @@ const SegurosGuarulhosBairros = () => {
                             <li
                               key={m}
                               className="text-xs font-semibold bg-[#F2994A]/20 text-[#F2994A] px-3 py-1 rounded-full border border-[#F2994A]/40"
-                            >
                               {m}
                             </li>
                           ))}
@@ -511,7 +502,6 @@ const SegurosGuarulhosBairros = () => {
                                 <li
                                   key={m}
                                   className="text-[11px] font-semibold bg-[#003366]/5 text-[#003366] px-2.5 py-1 rounded-full border border-[#003366]/10"
-                                >
                                   {m}
                                 </li>
                               ))}
@@ -657,7 +647,6 @@ const SegurosGuarulhosBairros = () => {
                   type="submit"
                   disabled={sending}
                   className="w-full h-12 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-bold text-base"
-                >
                   {sending ? "Enviando..." : "Cotar meu seguro agora"}
                 </Button>
                 <p className="text-xs text-center text-gray-400">
@@ -692,7 +681,6 @@ const SegurosGuarulhosBairros = () => {
                             <Link
                               to={n.href}
                               className="inline-flex items-center gap-1 bg-white border border-gray-200 hover:border-[#003366] hover:text-[#003366] text-gray-700 text-sm font-medium px-3 py-2 rounded-full transition-colors"
-                            >
                               Seguros em {n.nome}
                               <ChevronRight className="h-3.5 w-3.5" aria-hidden />
                             </Link>
@@ -721,7 +709,6 @@ const SegurosGuarulhosBairros = () => {
                           <Link
                             to={v.href}
                             className="flex items-center justify-between gap-2 bg-white border border-gray-200 hover:border-[#F2994A] hover:text-[#003366] text-gray-700 text-sm font-semibold px-3 py-2 rounded-lg transition-colors"
-                          >
                             <span>{v.label}</span>
                             <ChevronRight className="h-3.5 w-3.5 text-[#F2994A]" aria-hidden />
                           </Link>

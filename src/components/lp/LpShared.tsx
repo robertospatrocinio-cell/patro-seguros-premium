@@ -97,14 +97,7 @@ export const HeroSection = ({
           >
             {primaryCta}
           </Button>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={onWhatsApp}
-            aria-label="Falar com a Patro Seguros no WhatsApp"
-            className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
-          >
+          <a href={whatsappUrl} onClick={onWhatsApp} aria-label="Falar com a Patro Seguros no WhatsApp" className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-5 w-5" /> {secondaryCta}
           </a>
         </div>
@@ -198,14 +191,7 @@ export const LpFinalCTA = ({
         >
           {primaryCta}
         </Button>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onWhatsApp}
-          aria-label={secondaryCta}
-          className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors"
-        >
+        <a href={whatsappUrl} onClick={onWhatsApp} aria-label={secondaryCta} className="inline-flex items-center gap-2 rounded-md border border-white/40 hover:bg-white/10 px-6 py-3 font-semibold transition-colors" target="_blank" rel="noopener noreferrer">
           <MessageCircle className="h-5 w-5" /> {secondaryCta}
         </a>
       </div>

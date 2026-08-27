@@ -41,13 +41,7 @@ const Footer = memo(() => {
                   ))}
                   <span className="ml-1.5 text-white/90 font-bold tracking-tight text-[10px] uppercase">Nota {EMPRESA.metricas.googleRating}</span>
                 </div>
-                <a
-                  href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white underline decoration-white/30 hover:decoration-white transition-colors"
-                  aria-label={`Consultar registro SUSEP ${EMPRESA.susep} no site oficial`}
-                >
+                <a href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="hover:text-white underline decoration-white/30 hover:decoration-white transition-colors" aria-label={`Consultar registro SUSEP ${EMPRESA.susep} no site oficial`} target="_blank" rel="noopener noreferrer">
                   SUSEP {EMPRESA.susep}
                 </a>
                 <br />CNPJ {EMPRESA.cnpj}

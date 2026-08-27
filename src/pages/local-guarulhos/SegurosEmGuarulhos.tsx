@@ -68,11 +68,7 @@ const SegurosEmGuarulhos = () => {
                         Ver seguros em {b.nome} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                    <a 
-                      href={`https://wa.me/551151997500?text=${encodeURIComponent(`Olá! Gostaria de cotar um seguro para o bairro ${b.nome} em Guarulhos.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={`https://wa.me/551151997500?text=${encodeURIComponent(`Olá! Gostaria de cotar um seguro para o bairro ${b.nome} em Guarulhos.`)}`} target="_blank" rel="noopener noreferrer">
                       <Button variant="ghost" className="w-full text-primary hover:bg-primary/5">
                         <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp {b.nome}
                       </Button>
