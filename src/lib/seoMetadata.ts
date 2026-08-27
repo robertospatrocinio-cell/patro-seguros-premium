@@ -235,7 +235,14 @@ const premiumPages: Record<string, PremiumMeta> = {
     h1: "Seguro para Petshop e Clínicas Veterinárias",
     serviceType: "Seguro Empresarial para Petshop",
   },
+  "/seguro-app-motoristas-passageiros": {
+    title: "Seguro APP Motoristas e Passageiros | R$ 56,20 ao ano",
+    description: "Seguro APP para motoristas e passageiros a partir de R$ 56,20 ao ano. Acidentes pessoais para transporte remunerado. Cote com a Patro.",
+    h1: "Seguro APP para Motoristas e Passageiros",
+    serviceType: "Acidentes Pessoais para Motoristas e Passageiros",
+  },
   "/seguro-motorista-app": {
+
     title: "Seguro Motorista de App | Uber, 99 e iFood | Patro",
     description: "Seguro com cobertura específica para motoristas de aplicativo (Uber, 99, InDriver) e entregadores: terceiros, passageiros, APP e furto qualificado.",
     h1: "Seguro para Motorista de Aplicativo",

@@ -110,7 +110,11 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
 
   // Bloco A (auditoria jul/2026) — hubs que estavam servindo HTML da home
   "/seguradoras-parceiras",
+
+  // Acidentes Pessoais para Motoristas e Passageiros (Seguro APP)
+  "/seguro-app-motoristas-passageiros",
 ];
+
 
 /**
  * FASE 2 — Conteúdo de cauda longa (blog + bairros).
