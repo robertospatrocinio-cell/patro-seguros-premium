@@ -28,7 +28,7 @@ import {
   LifeBuoy,
   Building2,
   Handshake,
-  ExternalLink,
+  ExternalLink as ExternalLinkIcon,
   ShieldCheck,
 } from "lucide-react";
 import Header from "@/components/Header";

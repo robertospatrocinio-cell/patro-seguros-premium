@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Star,
   MapPin,
-  ExternalLink,
+  ExternalLink as ExternalLinkIcon,
   Copy,
   Check,
   MessageSquare,
