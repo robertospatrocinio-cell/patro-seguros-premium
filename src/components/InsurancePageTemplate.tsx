@@ -121,6 +121,12 @@ const buildProductWhatsAppUrl = (title: string): string => {
   return `${EMPRESA.whatsapp}?text=${encodeURIComponent(msg)}`;
 };
 
+// Mensagem de suporte/atendimento para páginas que não vendem produtos
+const buildSupportWhatsAppUrl = (title: string): string => {
+  const msg = `Olá! Vim pelo site da Patro Seguros, pela página de ${title}, e preciso de atendimento e orientação. Pode me ajudar?`;
+  return `${EMPRESA.whatsapp}?text=${encodeURIComponent(msg)}`;
+};
+
 interface Coverage { title: string; description: string; }
 interface FAQ { question: string; answer: string; }
 interface HowItWorksStep { step: string; title: string; description: string; }
