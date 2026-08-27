@@ -33,6 +33,7 @@ const SeoAutoPosVistoriaGuarulhos = () => (
       { question: "Aceitam carros com histórico de leilão?", answer: "Sim, trabalhamos com seguradoras especialistas que aceitam veículos com restrições com ótimas taxas." }
     ]}
     ctaText="Solicitar Cotação Agora"
+    ctaUrl="https://patro.seucorretor.digital/#/formularios/auto"
     heroEmoji="🚗"
     heroImage={heroImg}
   />
