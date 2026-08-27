@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { ShieldCheck, ExternalLink, CheckCircle, Search, FileText, AlertTriangle, MessageCircle, BadgeCheck } from "lucide-react";
+import { ShieldCheck, ExternalLink as ExternalLinkIcon, CheckCircle, Search, FileText, AlertTriangle, MessageCircle, BadgeCheck } from "lucide-react";
 import Header from "@/components/Header";
 import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";

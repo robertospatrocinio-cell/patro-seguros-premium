@@ -1,4 +1,4 @@
-import { Star, MapPin, Clock, Phone, ExternalLink, MessageSquare } from "lucide-react";
+import { Star, MapPin, Clock, Phone, ExternalLink as ExternalLinkIcon, MessageSquare } from "lucide-react";
 import ExternalLink from "@/components/ExternalLink";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { EMPRESA } from "@/config/empresa";

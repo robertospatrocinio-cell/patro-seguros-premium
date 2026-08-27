@@ -10,7 +10,7 @@
  */
 
 import { Link } from "react-router-dom";
-import { Star, MessageCircle, ExternalLink, ShieldCheck } from "lucide-react";
+import { Star, MessageCircle, ExternalLink as ExternalLinkIcon, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ExternalLink from "@/components/ExternalLink";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
