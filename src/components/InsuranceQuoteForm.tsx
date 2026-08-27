@@ -6,6 +6,7 @@ import { z } from "zod";
 import { debounce } from "@/lib/debounce";
 import { Send, CheckCircle, MessageCircle, ListChecks, ChevronRight, ChevronLeft, Save, RotateCcw, AlertCircle, Mail, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -441,6 +442,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
           <Button 
             className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-6 text-lg h-auto gap-3"
             onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(finalMsg)}`, "_blank")}
+          >
             <MessageCircle className="h-6 w-6" />
             Continuar no WhatsApp
           </Button>
@@ -468,6 +470,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             size="sm"
             className="text-muted-foreground hover:text-primary"
             onClick={() => { setSent(false); setFormData({}); setCheckboxGroups({}); setConsent(false); setFinalMsg(""); setShowChecklist(false); setChecklistItems({}); }}
+          >
             Fazer outra simulação
           </Button>
         </div>
@@ -503,6 +506,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
               size="sm" 
               className="h-9 gap-2 border-primary/30 text-primary hover:bg-primary/10"
               onClick={startOver}
+            >
               <RotateCcw className="h-3.5 w-3.5" />
               Reiniciar
             </Button>
@@ -586,12 +590,14 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                         update(field.id, v);
                         handleBlur(field.id);
                       }}
+                    >
                       <SelectTrigger 
                         id={`iq-${field.id}`}
                         className={`h-11 ${error ? "border-destructive focus-visible:ring-destructive" : ""}`}
                         aria-invalid={!!error}
                         aria-describedby={error ? `error-iq-${field.id}` : undefined}
                         aria-required={field.required}
+                      >
                         <SelectValue placeholder={field.placeholder || "Selecione"} />
                       </SelectTrigger>
                       <SelectContent>
@@ -614,6 +620,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                                 ? "border-destructive hover:border-destructive/80"
                                 : "border-input hover:border-primary/30"
                           }`}
+                        >
                           <input
                             type="radio"
                             name={field.id}
@@ -654,6 +661,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                                   ? "border-destructive hover:border-destructive/80"
                                   : "border-input hover:border-primary/30"
                             }`}
+                          >
                             <Checkbox 
                               checked={checked} 
                               onCheckedChange={() => {
@@ -709,6 +717,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
               onClick={prevStep} 
               className="h-12 order-2 sm:order-1"
               disabled={sending}
+            >
               <ChevronLeft className="mr-2 h-4 w-4" /> Voltar
             </Button>
           )}
@@ -718,6 +727,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             variant="cta" 
             className={`h-12 font-bold text-base flex-1 order-1 sm:order-2 ${currentStep === 1 ? "w-full" : ""}`}
             disabled={sending}
+          >
             {sending ? (
               "Enviando..."
             ) : currentStep < totalSteps ? (
@@ -730,7 +740,8 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
 
         <div className="flex flex-col items-center gap-4 pt-4 border-t border-primary/10 mt-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full">
-            <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Estou preenchendo o formulário de ${config.type} e gostaria de tirar uma dúvida.`)}`} className="flex items-center gap-2 text-xs font-semibold text-green-600 hover:text-green-700 transition-colors" target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`form-help:${config.type.toLowerCase()}`)}>
+            <ExternalLink href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá! Estou preenchendo o formulário de ${config.type} e gostaria de tirar uma dúvida.`)}`} className="flex items-center gap-2 text-xs font-semibold text-green-600 hover:text-green-700 transition-colors" onClick={() => trackWhatsAppClick(`form-help:${config.type.toLowerCase()}`)}
+            >
               <MessageCircle className="h-4 w-4" />
               Dúvidas? Chamar no WhatsApp
             </a>
@@ -738,6 +749,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
             <a 
               href="mailto:atendimento@patroseguros.com.br"
               className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-primary transition-colors"
+            >
               <Mail className="h-4 w-4" />
               Enviar por E-mail
             </a>

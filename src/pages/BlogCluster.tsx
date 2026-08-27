@@ -2,6 +2,7 @@ import { Fragment, useMemo } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -88,12 +89,14 @@ const BlogCluster = () => {
                 to={config.primaryCTA.href}
                 aria-label={`${config.primaryCTA.label} — abrir formulário de cotação`}
                 onClick={() => trackCotacaoClick(`blog-cluster-${config.slug}-hero`)}
+              >
                 <Button size="lg" className="rounded-lg h-11 bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">
                   {config.primaryCTA.label}
                 </Button>
               </Link>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-hero`)}
-                aria-label={`Falar no WhatsApp sobre ${config.title} — abre em nova aba`}>
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-hero`)}
+                aria-label={`Falar no WhatsApp sobre ${config.title} — abre em nova aba`}
+              >
                 <Button size="lg" variant="outline" className="rounded-lg h-11 bg-white/5 border-white/30 text-white hover:bg-white/15">
                   <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                 </Button>
@@ -125,10 +128,12 @@ const BlogCluster = () => {
                             ? trackCotacaoClick(`blog-cluster-${config.slug}-intent`)
                             : undefined
                         }
+                      >
                         <Button
                           size="sm"
                           variant={c.variant === "primary" ? "default" : "outline"}
                           className={c.variant === "primary" ? "bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold" : ""}
+                        >
                           {c.label}
                         </Button>
                       </Link>
@@ -163,6 +168,7 @@ const BlogCluster = () => {
                     key={a.slug}
                     to={`/blog/${a.slug}`}
                     className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+                  >
                     <Card className="hover:shadow-lg transition-base h-full overflow-hidden group">
                       <div className="aspect-video w-full overflow-hidden">
                         <OptimizedImage
@@ -216,6 +222,7 @@ const BlogCluster = () => {
                   aria-label={`${p.label} — página da Patro Seguros`}
                   onClick={() => trackCotacaoClick(`blog-cluster-${config.slug}-related`)}
                   className="rounded-xl border bg-background p-4 hover:shadow-md transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
                   <p className="text-sm font-semibold text-foreground">{p.label}</p>
                   {p.description && (
                     <p className="text-xs text-muted-foreground mt-1">{p.description}</p>
@@ -267,12 +274,14 @@ const BlogCluster = () => {
                   to={config.primaryCTA.href}
                   aria-label={`${config.primaryCTA.label} — abrir formulário de cotação`}
                   onClick={() => trackCotacaoClick(`blog-cluster-${config.slug}-final`)}
+                >
                   <Button size="lg" className="rounded-lg bg-[#B45309] hover:bg-[#9a4708] text-white font-semibold">
                     {config.primaryCTA.label}
                   </Button>
                 </Link>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-final`)}
-                  aria-label={`Falar no WhatsApp sobre ${config.title} — abre em nova aba`}>
+                <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`blog-cluster-${config.slug}-final`)}
+                  aria-label={`Falar no WhatsApp sobre ${config.title} — abre em nova aba`}
+                >
                   <Button size="lg" variant="outline" className="rounded-lg bg-white/5 border-white/30 text-white hover:bg-white/15">
                     <MessageCircle className="mr-2 h-4 w-4" aria-hidden="true" /> Falar no WhatsApp
                   </Button>

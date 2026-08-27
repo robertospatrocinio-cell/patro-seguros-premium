@@ -12,6 +12,7 @@
 import { Link } from "react-router-dom";
 import { Star, MessageCircle, ExternalLink, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ExternalLink from "@/components/ExternalLink";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { trackWhatsAppClick } from "@/lib/tracking";
 
@@ -60,6 +61,7 @@ const ProvaSocialPatro = ({
     return (
       <div
         className={`flex flex-wrap items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-2.5 shadow-sm ${className ?? ""}`}
+      >
         <GoogleG className="h-4 w-4" />
         <div className="flex items-center gap-1.5" role="img" aria-label={ratingLabel}>
           <span className="text-sm font-bold text-foreground">{googleRating}</span>
@@ -76,6 +78,7 @@ const ProvaSocialPatro = ({
           <Link
             to={reviewsPageUrl}
             className="text-xs font-semibold text-primary hover:underline underline-offset-4"
+          >
             Ver avaliações →
           </Link>
         )}
@@ -89,6 +92,7 @@ const ProvaSocialPatro = ({
     <div
       className={`rounded-2xl border ${isHero ? "border-white/15 bg-white/[0.06] text-white" : "border-slate-200 bg-white text-foreground"} p-6 md:p-7 shadow-sm ${className ?? ""}`}
       aria-labelledby="prova-social-heading"
+    >
       <div className="flex flex-col md:flex-row md:items-center gap-6">
         {/* Bloco nota + estrelas */}
         <div className="flex items-center gap-4">
@@ -96,6 +100,7 @@ const ProvaSocialPatro = ({
           <div>
             <p
               className={`text-[11px] uppercase tracking-[0.12em] font-semibold ${isHero ? "text-white/70" : "text-muted-foreground"}`}
+            >
               Avaliações no Google
             </p>
             <div className="mt-1 flex items-end gap-2.5">
@@ -105,6 +110,7 @@ const ProvaSocialPatro = ({
                   className="flex gap-0.5 text-amber-500"
                   role="img"
                   aria-label={ratingLabel}
+                >
                   {[1, 2, 3, 4, 5].map(i => (
                     <Star key={i} className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
                   ))}
@@ -128,6 +134,7 @@ const ProvaSocialPatro = ({
           <h3
             id="prova-social-heading"
             className={`text-sm font-normal leading-relaxed ${isHero ? "text-white/85" : "text-foreground/85"}`}
+          >
             {finalCopy}
           </h3>
           <div className="mt-2 flex items-center gap-1.5 text-[11px] font-medium">
@@ -146,18 +153,22 @@ const ProvaSocialPatro = ({
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 sm:flex-none"
+        >
           <Button
             size="sm"
             variant={isHero ? "secondary" : "outline"}
             className="w-full rounded-xl h-10 px-4 text-sm"
+          >
             <Star className="mr-2 h-4 w-4" /> Avaliar no Google
           </Button>
         </a>
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(`prova-social:${trackingContext}`)}>
+        <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(`prova-social:${trackingContext}`)}
           className="flex-1 sm:flex-none"
+        >
           <Button
             size="sm"
             className="w-full rounded-xl h-10 px-4 text-sm bg-green-600 hover:bg-green-700 text-white"
+          >
             <MessageCircle className="mr-2 h-4 w-4" /> Falar no WhatsApp
           </Button>
         </a>
@@ -166,11 +177,13 @@ const ProvaSocialPatro = ({
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 sm:flex-none"
+        >
           <Button
             size="sm"
             variant="ghost"
             className={`w-full rounded-xl h-10 px-4 text-sm ${isHero ? "text-white hover:bg-white/10" : ""}`}
-            <a className="mr-2 h-4 w-4" / target="_blank" rel="noopener noreferrer"> Ver no Google
+          >
+            <ExternalLink className="mr-2 h-4 w-4" /> Ver no Google
           </Button>
         </a>
         {!hideReviewsLink && (
@@ -179,6 +192,7 @@ const ProvaSocialPatro = ({
               size="sm"
               variant="ghost"
               className={`w-full rounded-xl h-10 px-4 text-sm ${isHero ? "text-white hover:bg-white/10" : ""}`}
+            >
               Ver avaliações dos clientes →
             </Button>
           </Link>

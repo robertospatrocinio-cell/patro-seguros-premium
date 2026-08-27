@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import PageMeta from "@/components/PageMeta";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -74,7 +75,7 @@ const PerguntasCategoriaPage = () => {
           <p className="text-lg text-muted-foreground mb-6">{extra.intro}</p>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
-              <a href={WA_BASE + encodeURIComponent(extra.whatsappMsg)} target="_blank" rel="noopener noreferrer">
+              <ExternalLink href={WA_BASE + encodeURIComponent(extra.whatsappMsg)}>
                 <MessageCircle className="h-4 w-4 mr-2" /> Tirar dúvida no WhatsApp
               </a>
             </Button>
@@ -169,7 +170,7 @@ const PerguntasCategoriaPage = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-3">{extra.ctaLine}</h2>
           <p className="mb-6 text-primary-foreground/85">Especialistas em {cat.title.toLowerCase()} — respostas rápidas pelo WhatsApp.</p>
           <Button size="lg" variant="secondary" asChild>
-            <a href={WA_BASE + encodeURIComponent(extra.whatsappMsg)} target="_blank" rel="noopener noreferrer">
+            <ExternalLink href={WA_BASE + encodeURIComponent(extra.whatsappMsg)}>
               <MessageCircle className="h-5 w-5 mr-2" /> Falar com especialista
             </a>
           </Button>

@@ -9,6 +9,7 @@ import {
   Handshake,
 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -110,6 +111,7 @@ const SegurosEmpresariaisEspecializados = () => {
                     label: "Cotar Seguro Garantia",
                   })
                 }
+              >
                 <Button size="lg" className="text-base px-6">
                   Cotar Seguro Garantia <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -124,11 +126,13 @@ const SegurosEmpresariaisEspecializados = () => {
                     label: "Cotar Seguro de Crédito",
                   })
                 }
+              >
                 <Button size="lg" variant="outline" className="text-base px-6 bg-white/10 border-white/40 text-white hover:bg-white/20">
                   Cotar Seguro de Crédito
                 </Button>
               </Link>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_hub_especializados")}>
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_hub_especializados")}
+              >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Falar com especialista B2B
                 </Button>
@@ -172,6 +176,7 @@ const SegurosEmpresariaisEspecializados = () => {
                     })
                   }
                   className="text-sm text-primary font-medium underline-offset-2 hover:underline"
+                >
                   Ver Seguro Garantia →
                 </Link>
                 <Link
@@ -185,6 +190,7 @@ const SegurosEmpresariaisEspecializados = () => {
                     })
                   }
                   className="text-sm text-muted-foreground underline-offset-2 hover:underline"
+                >
                   Guarulhos e SP →
                 </Link>
               </div>
@@ -210,6 +216,7 @@ const SegurosEmpresariaisEspecializados = () => {
                     })
                   }
                   className="text-sm text-primary font-medium underline-offset-2 hover:underline"
+                >
                   Ver Seguro de Crédito →
                 </Link>
                 <Link
@@ -223,6 +230,7 @@ const SegurosEmpresariaisEspecializados = () => {
                     })
                   }
                   className="text-sm text-muted-foreground underline-offset-2 hover:underline"
+                >
                   Guarulhos e SP →
                 </Link>
               </div>
@@ -252,6 +260,7 @@ const SegurosEmpresariaisEspecializados = () => {
                             label: p.h1,
                           })
                         }
+                      >
                         {p.h1}
                       </Link>
                     </li>
@@ -276,6 +285,7 @@ const SegurosEmpresariaisEspecializados = () => {
                             label: p.h1,
                           })
                         }
+                      >
                         {p.h1}
                       </Link>
                     </li>
@@ -408,7 +418,8 @@ const SegurosEmpresariaisEspecializados = () => {
             <p className="text-muted-foreground mb-6">
               Envie o contrato, edital ou uma descrição da sua operação. Nós retornamos com uma análise consultiva e propostas comparadas de seguradoras parceiras.
             </p>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_hub_especializados_cta_final")}>
+            <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_hub_especializados_cta_final")}
+            >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useSyncExternalStore, useRef } from "react";
+import ExternalLink from "@/components/ExternalLink";
 import { Link, useLocation } from "react-router-dom";
 import { MessageCircle, FileText, ShieldCheck, ArrowRight, Plus, X } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -116,6 +117,7 @@ const WhatsAppButton = () => {
         className={`fixed bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] right-3 z-50 flex flex-col items-end gap-2 transition-all duration-300 motion-reduce:transition-none lg:bottom-4 lg:right-4 ${
           visible && (!isMobileViewport || !isUserScrolling || open) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
+      >
         {/* === MOBILE: FAB retrátil agrupando as 3 ações === */}
         <div ref={menuRef} className="lg:hidden flex flex-col items-end gap-2">
           {/* Itens expansíveis */}
@@ -125,11 +127,13 @@ const WhatsAppButton = () => {
             }`}
             aria-hidden={!open}
             {...(!open ? { inert: "" as unknown as boolean } : {})}
+          >
             {!isSinistroPage && (
               <Link
                 to="/central-de-sinistro"
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-2 bg-white text-foreground rounded-full pl-2 pr-3 py-1.5 shadow-md border border-border text-xs font-semibold active:scale-95"
+              >
                 <span className="bg-orange-600 text-white rounded-full p-1.5">
                   <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.2} />
                 </span>
@@ -144,17 +148,19 @@ const WhatsAppButton = () => {
                   setOpen(false);
                 }}
                 className="flex items-center gap-2 bg-white text-foreground rounded-full pl-2 pr-3 py-1.5 shadow-md border border-border text-xs font-semibold active:scale-95"
+              >
                 <span className="bg-primary text-primary-foreground rounded-full p-1.5">
                   <FileText className="h-3.5 w-3.5" strokeWidth={2.2} />
                 </span>
                 Pedir Cotação
               </Link>
             )}
-            <a href={whatsappHref} target="_blank" rel="noopener noreferrer" onClick={() => {
+            <ExternalLink href={whatsappHref} onClick={() => {
                 trackWhatsAppClick(trackingLabel, { origin: "sticky-fab-mobile" });
                 setOpen(false);
-              }>
+              }}
               className="flex items-center gap-2 bg-white text-foreground rounded-full pl-2 pr-3 py-1.5 shadow-md border border-border text-xs font-semibold active:scale-95"
+            >
               <span className="bg-[#25D366] text-white rounded-full p-1.5">
                 <MessageCircle className="h-3.5 w-3.5" strokeWidth={2.2} />
               </span>
@@ -169,6 +175,7 @@ const WhatsAppButton = () => {
             aria-label={open ? "Fechar menu de atendimento" : "Abrir menu de atendimento"}
             aria-expanded={open}
             className="relative bg-primary text-primary-foreground rounded-full p-2.5 shadow-xl active:scale-95 transition-transform"
+          >
             {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
             {!open && (
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#25D366] rounded-full border-2 border-white animate-pulse" />
@@ -185,14 +192,19 @@ const WhatsAppButton = () => {
               trackCotacaoClick("botao-fixo", { origin: "sticky-cta", insuranceType: tipo || undefined })
             }
             className="hidden lg:inline-flex group items-center gap-2 rounded-full bg-primary text-primary-foreground pl-3 pr-4 py-2.5 shadow-xl transition-base hover:scale-105 hover:shadow-2xl text-sm font-semibold"
+          >
             <FileText className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
             Pedir Cotação
           </Link>
         )}
-        <a href={whatsappHref} aria-label={ariaLabel} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(trackingLabel, {
+        <ExternalLink href={whatsappHref} aria-label={ariaLabel} onClick={() =>
+            trackWhatsAppClick(trackingLabel, {
               origin: "sticky-cta",
               ...(override ? { localOverride: true } : {}),
-            })} className="group hidden lg:block">
+            })
+          }
+          className="group hidden lg:block"
+        >
           <div className="relative bg-[#25D366] text-white rounded-full p-3.5 shadow-xl transition-base group-hover:scale-110 group-hover:shadow-2xl">
             <MessageCircle className="h-6 w-6" strokeWidth={1.8} aria-hidden="true" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse" />

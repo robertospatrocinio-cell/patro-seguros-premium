@@ -17,6 +17,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -146,7 +147,7 @@ const PoliticaPrivacidade = () => {
                     size="lg"
                     className="w-full bg-emerald-600 hover:bg-emerald-700 font-bold"
                   >
-                    <a href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20uma%20solicita%C3%A7%C3%A3o%20LGPD%20relacionada%20aos%20meus%20dados." target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20uma%20solicita%C3%A7%C3%A3o%20LGPD%20relacionada%20aos%20meus%20dados.">
                       <MessageCircle className="w-4 h-4 mr-2" />
                       Falar no WhatsApp
                     </a>
@@ -359,7 +360,7 @@ const PoliticaPrivacidade = () => {
                         contato@patroseguros.com.br
                       </p>
                     </a>
-                    <a href="https://wa.me/551151997500" className="p-4 rounded-2xl bg-white/10 hover:bg-white/15 transition-colors backdrop-blur-sm" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://wa.me/551151997500" className="p-4 rounded-2xl bg-white/10 hover:bg-white/15 transition-colors backdrop-blur-sm">
                       <Phone className="w-5 h-5 mb-2 text-white/70" />
                       <p className="text-xs font-bold uppercase tracking-wider text-white/60 mb-1">
                         Telefone / WhatsApp

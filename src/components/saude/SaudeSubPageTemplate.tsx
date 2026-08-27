@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, MessageCircle, ArrowRight, Users } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import FAQSchema from "@/components/FAQSchema";
@@ -77,7 +78,10 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                   {cta.primary} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(whatsapp.origem, { insuranceType: subtype.slug })}>
+              <ExternalLink href={whatsappUrl} onClick={() =>
+                  trackWhatsAppClick(whatsapp.origem, { insuranceType: subtype.slug })
+                }
+              >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" />
                   {cta.secondary}
@@ -154,6 +158,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                       })
                     }
                     className="block p-5 bg-white rounded-lg border hover:border-primary/60 transition-colors"
+                  >
                     <h3 className="font-bold mb-1">{op.name}</h3>
                     <p className="text-sm text-muted-foreground line-clamp-3">
                       {op.shortDescription}
@@ -201,6 +206,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                   })
                 }
                 className="p-4 border rounded-lg hover:border-primary/60 flex items-center justify-between text-sm"
+              >
                 <span>Hub: Plano de Saúde em Guarulhos</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -217,6 +223,7 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
                     })
                   }
                   className="p-4 border rounded-lg hover:border-primary/60 flex items-center justify-between text-sm"
+                >
                   <span>{s.cardTitle}</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>

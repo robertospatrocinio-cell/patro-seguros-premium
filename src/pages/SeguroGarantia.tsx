@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ShieldCheck, MessageCircle, ArrowRight, CheckCircle, FileText, Building2 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -100,7 +101,8 @@ const SeguroGarantia = () => {
               A Patro Seguros compara opções de Seguro Garantia com seguradoras parceiras para empresas que precisam proteger contratos, participar de licitações ou substituir garantias tradicionais.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_garantia_hub")}>
+              <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_garantia_hub")}
+              >
                 <Button size="lg" variant="cta" className="text-base px-6">
                   <MessageCircle className="mr-2 h-5 w-5" /> Cotar Seguro Garantia
                 </Button>
@@ -115,6 +117,7 @@ const SeguroGarantia = () => {
                     label: "Guarulhos e SP",
                   })
                 }
+              >
                 <Button size="lg" variant="outline" className="text-base px-6 bg-white/10 border-white/40 text-white hover:bg-white/20">
                   Empresa em Guarulhos <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -207,6 +210,7 @@ const SeguroGarantia = () => {
                     })
                   }
                   className="p-4 bg-white border rounded-lg hover:border-primary/60 transition"
+                >
                   <span className="text-xs uppercase text-primary font-bold">{p.navLabel}</span>
                   <h3 className="font-bold mt-1 mb-1 text-sm">{p.h1}</h3>
                   <p className="text-xs text-muted-foreground line-clamp-3">{p.subtitle}</p>
@@ -318,6 +322,7 @@ const SeguroGarantia = () => {
                     })
                   }
                   className="p-3 bg-white border rounded hover:border-primary/60 transition text-sm"
+                >
                   <span className="font-bold">{p.insurer}</span>
                   <span className="text-muted-foreground block text-xs">Página dedicada</span>
                 </Link>
@@ -347,7 +352,8 @@ const SeguroGarantia = () => {
             <p className="text-muted-foreground mb-6">
               A Patro Seguros analisa o caso e retorna com propostas comparadas de seguradoras parceiras.
             </p>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("b2b_garantia_hub_cta_final")}>
+            <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick("b2b_garantia_hub_cta_final")}
+            >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Falar no WhatsApp
               </Button>

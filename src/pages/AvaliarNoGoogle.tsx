@@ -11,6 +11,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import HowToSchema from "@/components/HowToSchema";
@@ -197,6 +198,7 @@ const AvaliarNoGoogle = () => {
                 type="button"
                 onClick={() => openReview("hero")}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[hsl(var(--cta))] hover:opacity-90 text-white font-semibold px-6 py-3 transition-opacity"
+              >
                 <Star className="h-5 w-5 fill-white" /> Avaliar no Google
               </button>
               <a
@@ -204,7 +206,8 @@ const AvaliarNoGoogle = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-6 py-3 transition-colors"
-                <a className="h-5 w-5" / target="_blank" rel="noopener noreferrer"> Ver perfil no Google Maps
+              >
+                <ExternalLink className="h-5 w-5" /> Ver perfil no Google Maps
               </a>
             </div>
           </div>
@@ -263,6 +266,7 @@ const AvaliarNoGoogle = () => {
                       ? "bg-primary text-primary-foreground border-primary"
                       : "bg-background text-foreground border-border hover:border-primary"
                   }`}
+                >
                   {s.label}
                 </button>
               ))}
@@ -275,6 +279,7 @@ const AvaliarNoGoogle = () => {
                   <span
                     key={k}
                     className="text-[11px] uppercase tracking-wide font-semibold px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                  >
                     {k}
                   </span>
                 ))}
@@ -287,6 +292,7 @@ const AvaliarNoGoogle = () => {
                   type="button"
                   onClick={handleCopy}
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-5 py-2.5 transition-colors"
+                >
                   {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                   {copied ? "Copiado!" : "Copiar modelo"}
                 </button>
@@ -294,6 +300,7 @@ const AvaliarNoGoogle = () => {
                   type="button"
                   onClick={() => openReview(`template:${active.id}`)}
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-[hsl(var(--cta))] hover:opacity-90 text-white font-semibold px-5 py-2.5 transition-opacity"
+                >
                   Abrir avaliação no Google <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
@@ -344,6 +351,7 @@ const AvaliarNoGoogle = () => {
                 type="button"
                 onClick={() => openReview("address-card")}
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-[hsl(var(--cta))] hover:opacity-90 text-white font-semibold px-6 py-3 transition-opacity"
+              >
                 <Star className="h-5 w-5 fill-white" /> Avaliar agora no Google
               </button>
             </div>
@@ -375,13 +383,15 @@ const AvaliarNoGoogle = () => {
               Tem alguma dúvida ou quer falar direto com a equipe? Estamos no WhatsApp.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent( "Olá! Vim pela página de avaliações da Patro Seguros e queria falar com a equipe.", )}`} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("avaliar-no-google:closing")}>
+              <ExternalLink href={`https://wa.me/${PHONE_WA}?text=${encodeURIComponent( "Olá! Vim pela página de avaliações da Patro Seguros e queria falar com a equipe.", )}`} onClick={() => trackWhatsAppClick("avaliar-no-google:closing")}
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-primary font-semibold px-6 py-3 hover:opacity-90 transition-opacity"
+              >
                 Falar no WhatsApp
               </a>
               <Link
                 to="/depoimentos"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/40 text-white font-semibold px-6 py-3 hover:bg-white/10 transition-colors"
+              >
                 Ver depoimentos completos
               </Link>
             </div>

@@ -15,6 +15,7 @@
  */
 
 import { Link } from "react-router-dom";
+import ExternalLink from "@/components/ExternalLink";
 import { ShieldCheck, Award, Users, Building2, ArrowRight } from "lucide-react";
 import roberto from "@/assets/socio-roberto.webp";
 import sandra from "@/assets/socia-sandra.webp";
@@ -129,7 +130,7 @@ const AutoridadePatro = ({
         >
           Conhecer a história da Patro <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
         </Link>
-        <a href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-xs text-muted-foreground hover:text-primary hover:underline underline-offset-4" target="_blank" rel="noopener noreferrer">
+        <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-xs text-muted-foreground hover:text-primary hover:underline underline-offset-4">
           Consultar registro na SUSEP →
         </a>
       </div>

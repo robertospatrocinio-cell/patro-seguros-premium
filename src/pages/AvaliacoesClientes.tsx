@@ -13,6 +13,7 @@
 import type { ElementType } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
+import ExternalLink from "@/components/ExternalLink";
 import { Button } from "@/components/ui/button";
 import {
   Star,
@@ -74,6 +75,7 @@ const AvaliacoesClientes = () => {
         <section
           className="gradient-hero relative overflow-hidden"
           aria-labelledby="avaliacoes-heading"
+        >
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsla(215,100%,60%,0.12),transparent)]" />
           <div className="container mx-auto px-4 relative">
             <div className="pt-6">
@@ -94,6 +96,7 @@ const AvaliacoesClientes = () => {
               <h1
                 id="avaliacoes-heading"
                 className="text-white text-balance mb-5"
+              >
                 Avaliações dos Clientes da Patro Seguros
               </h1>
               <p className="text-base md:text-lg text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -107,16 +110,20 @@ const AvaliacoesClientes = () => {
                   href={PATRO_SOCIAL_PROOF.googleProfileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                >
                   <Button
                     size="lg"
                     className="rounded-xl bg-white text-primary hover:bg-white/90 h-11 px-6 text-sm font-semibold"
-                    <a className="mr-2 h-4 w-4" / target="_blank" rel="noopener noreferrer"> Ver avaliações no Google
+                  >
+                    <ExternalLink className="mr-2 h-4 w-4" /> Ver avaliações no Google
                   </Button>
                 </a>
-                <a href={PATRO_SOCIAL_PROOF.whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("avaliacoes-hero")}>
+                <ExternalLink href={PATRO_SOCIAL_PROOF.whatsappUrl} onClick={() => trackWhatsAppClick("avaliacoes-hero")}
+                >
                   <Button
                     size="lg"
                     className="rounded-xl bg-green-600 hover:bg-green-700 text-white h-11 px-6 text-sm font-semibold"
+                  >
                     <MessageCircle className="mr-2 h-4 w-4" /> Falar com a Patro no WhatsApp
                   </Button>
                 </a>
@@ -188,6 +195,7 @@ const AvaliacoesClientes = () => {
                     key={i}
                     {...wrapperProps}
                     className="block group"
+                  >
                     <Card className="h-full border border-slate-200 shadow-sm hover:shadow-md transition-shadow bg-white">
                       <CardContent className="p-6 space-y-3">
                         <div className="flex items-center justify-between">
@@ -227,7 +235,8 @@ const AvaliacoesClientes = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline underline-offset-4"
-                Ver todas as avaliações no perfil do Google <a className="h-3.5 w-3.5" / target="_blank" rel="noopener noreferrer">
+              >
+                Ver todas as avaliações no perfil do Google <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
           </div>
@@ -263,10 +272,12 @@ const AvaliacoesClientes = () => {
               contratar.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href={PATRO_SOCIAL_PROOF.whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("avaliacoes-cta-final")}>
+              <ExternalLink href={PATRO_SOCIAL_PROOF.whatsappUrl} onClick={() => trackWhatsAppClick("avaliacoes-cta-final")}
+              >
                 <Button
                   size="lg"
                   className="rounded-xl bg-green-600 hover:bg-green-700 text-white h-12 px-8 text-sm font-semibold"
+                >
                   <MessageCircle className="mr-2 h-4 w-4" />
                   Solicitar cotação pelo WhatsApp
                 </Button>
@@ -276,6 +287,7 @@ const AvaliacoesClientes = () => {
                   size="lg"
                   variant="outline"
                   className="rounded-xl h-12 px-8 text-sm bg-transparent border-white/30 text-white hover:bg-white/10"
+                >
                   Preencher formulário de cotação
                 </Button>
               </Link>

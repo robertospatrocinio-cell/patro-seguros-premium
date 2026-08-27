@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import { Shield, ShieldCheck, Target, Heart, Award, Phone, MessageCircle, Users, Clock, CheckCircle, Play, Linkedin, Instagram, User, BadgeCheck, ExternalLink, BookOpen, MapPin, FileText, Navigation } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -139,9 +140,9 @@ const Sobre = () => {
                     <BadgeCheck className="mr-2 h-4 w-4" /> Como verificar
                   </Button>
                 </Link>
-                <a href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="inline-flex" target="_blank" rel="noopener noreferrer">
+                <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="inline-flex">
                   <Button size="sm" className="w-full sm:w-auto">
-                    Consultar SUSEP <a className="ml-2 h-4 w-4" / target="_blank" rel="noopener noreferrer">
+                    Consultar SUSEP <ExternalLink className="ml-2 h-4 w-4" />
                   </Button>
                 </a>
               </div>
@@ -202,10 +203,10 @@ const Sobre = () => {
                     <span className="bg-muted px-2 py-1 rounded">RC</span>
                   </div>
                   <div className="flex gap-2">
-                    <a href="https://linkedin.com/in/roberto-patrocinio" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://linkedin.com/in/roberto-patrocinio" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-3.5 w-3.5" /> LinkedIn
                     </a>
-                    <a href="https://www.instagram.com/patroseguros" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://www.instagram.com/patroseguros" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Instagram className="h-3.5 w-3.5" /> Instagram
                     </a>
                   </div>
@@ -231,10 +232,10 @@ const Sobre = () => {
                     <span className="bg-muted px-2 py-1 rounded">Sinistros</span>
                   </div>
                   <div className="flex gap-2">
-                    <a href="https://linkedin.com/in/sandra-patrocinio" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://linkedin.com/in/sandra-patrocinio" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-3.5 w-3.5" /> LinkedIn
                     </a>
-                    <a href="https://www.instagram.com/patroseguros" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://www.instagram.com/patroseguros" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
                       <Instagram className="h-3.5 w-3.5" /> Instagram
                     </a>
                   </div>
@@ -298,7 +299,7 @@ const Sobre = () => {
                         Como Chegar <Navigation className="h-4 w-4" />
                       </Button>
                     </Link>
-                    <a href="https://www.google.com/maps?cid=273879799324962533" className="flex-1" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://www.google.com/maps?cid=273879799324962533" className="flex-1">
                       <Button variant="outline" className="w-full gap-2">
                         Ver no Maps
                       </Button>
@@ -420,9 +421,10 @@ const Sobre = () => {
                               target={isExternal ? "_blank" : undefined}
                               rel={isExternal ? "noopener noreferrer" : undefined}
                               className="inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-primary transition-colors group"
+                            >
                               <Icon className="h-3.5 w-3.5 text-primary" />
                               <span className="underline-offset-2 group-hover:underline">{ev.label}</span>
-                              {isExternal && <a className="h-3 w-3 opacity-50" / target="_blank" rel="noopener noreferrer">}
+                              {isExternal && <ExternalLink className="h-3 w-3 opacity-50" />}
                             </a>
                           </li>
                         );
@@ -570,7 +572,7 @@ const Sobre = () => {
                 <div>
                   <dt className="font-semibold text-foreground">Registro SUSEP</dt>
                   <dd className="text-muted-foreground">
-                    <a href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="underline hover:text-primary">
                       212113511
                     </a>
                   </dd>
@@ -618,15 +620,15 @@ const Sobre = () => {
                 <div className="sm:col-span-2">
                   <dt className="font-semibold text-foreground">Presença digital verificável</dt>
                   <dd className="text-muted-foreground flex flex-wrap gap-x-3 gap-y-1">
-                    <a href="https://www.google.com/maps?cid=273879799324962533" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">Google Maps</a>
+                    <ExternalLink href="https://www.google.com/maps?cid=273879799324962533" className="underline hover:text-primary">Google Maps</a>
                     <span aria-hidden>·</span>
-                    <a href="https://www.instagram.com/patroseguros" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <ExternalLink href="https://www.instagram.com/patroseguros" className="underline hover:text-primary">Instagram</a>
                     <span aria-hidden>·</span>
-                    <a href="https://www.facebook.com/patroseguros" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <ExternalLink href="https://www.facebook.com/patroseguros" className="underline hover:text-primary">Facebook</a>
                     <span aria-hidden>·</span>
-                    <a href="https://www.linkedin.com/company/patro-seguros" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <ExternalLink href="https://www.linkedin.com/company/patro-seguros" className="underline hover:text-primary">LinkedIn</a>
                     <span aria-hidden>·</span>
-                    <a href="https://wa.me/551151997500" className="underline hover:text-primary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <ExternalLink href="https://wa.me/551151997500" className="underline hover:text-primary">WhatsApp</a>
                   </dd>
                 </div>
               </dl>

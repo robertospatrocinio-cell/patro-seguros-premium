@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CheckCircle, MessageCircle, ArrowRight, ShieldCheck } from "lucide-react";
 import Header from "@/components/Header";
+import ExternalLink from "@/components/ExternalLink";
 import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -73,7 +74,8 @@ const B2bInsurerPageTemplate = ({ page }: Props) => {
             <p className="text-lg text-white/85 max-w-2xl mx-auto mb-8">
               {page.intro}
             </p>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick(whatsappOrigem, { insuranceType: page.slug })}>
+            <ExternalLink href={whatsappUrl} onClick={() => trackWhatsAppClick(whatsappOrigem, { insuranceType: page.slug })}
+            >
               <Button size="lg" variant="cta" className="text-base px-8">
                 <MessageCircle className="mr-2 h-5 w-5" /> Cotar {page.lineLabel}
               </Button>
@@ -137,6 +139,7 @@ const B2bInsurerPageTemplate = ({ page }: Props) => {
                     })
                   }
                   className="p-4 bg-white border rounded-lg hover:border-primary/60 transition flex items-center justify-between text-sm"
+                >
                   <span className="font-medium">{link.label}</span>
                   <ArrowRight className="h-4 w-4 text-primary" />
                 </Link>
