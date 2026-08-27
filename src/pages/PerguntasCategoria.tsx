@@ -77,7 +77,7 @@ const PerguntasCategoriaPage = () => {
             <Button asChild>
               <ExternalLink href={WA_BASE + encodeURIComponent(extra.whatsappMsg)}>
                 <MessageCircle className="h-4 w-4 mr-2" /> Tirar dúvida no WhatsApp
-              </a>
+              </ExternalLink>
             </Button>
             <Button asChild variant="outline">
               <Link to={cat.relatedHref}>
@@ -172,7 +172,7 @@ const PerguntasCategoriaPage = () => {
           <Button size="lg" variant="secondary" asChild>
             <ExternalLink href={WA_BASE + encodeURIComponent(extra.whatsappMsg)}>
               <MessageCircle className="h-5 w-5 mr-2" /> Falar com especialista
-            </a>
+            </ExternalLink>
           </Button>
         </div>
       </section>
