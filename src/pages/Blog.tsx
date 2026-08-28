@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import Breadcrumb from "@/components/Breadcrumb";
+import GooglePreferredSource from "@/components/GooglePreferredSource";
 import FAQSchema from "@/components/FAQSchema";
 import { Helmet } from "react-helmet-async";
 import { Card, CardContent } from "@/components/ui/card";
@@ -356,6 +357,7 @@ const Blog = () => {
                 </Button>
               </a>
             </div>
+            <GooglePreferredSource context="blog-hero" className="mt-8 [&_p]:text-white/70 [&_a]:text-white/60 [&_a:hover]:text-white" />
           </div>
         </section>
 
