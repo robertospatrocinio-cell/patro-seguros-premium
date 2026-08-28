@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { MessageCircle, ArrowRight, BookOpen, Clock } from "lucide-react";
 import { guiasBlocks } from "@/data/guiasHubData";
+import GooglePreferredSource from "@/components/GooglePreferredSource";
 import { CANONICAL_BASE_URL } from "@/lib/canonical";
 
 const HERO_WA = "https://wa.me/5511913800021?text=" + encodeURIComponent("Olá, quero orientação da Patro Seguros sobre seguros, planos ou consórcios.");
@@ -112,6 +113,13 @@ const CentralDeGuias = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Fonte preferencial no Google — discreto, antes do CTA final */}
+      <section className="border-t py-10">
+        <div className="container mx-auto px-4">
+          <GooglePreferredSource context="guias-seguros" />
         </div>
       </section>
 

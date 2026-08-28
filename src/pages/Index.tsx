@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import LazySection from "@/components/LazySection";
+import GooglePreferredSource from "@/components/GooglePreferredSource";
 import { useEffect } from "react";
 import { prefetchOnIdleAll } from "@/lib/prefetch";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
@@ -600,6 +601,10 @@ const Index = () => {
               <Suspense fallback={null}>
                 <ProvaSocialPatro variant="default" trackingContext="home:prova-social" />
               </Suspense>
+              {/* Fonte preferencial no Google — discreto, junto ao bloco de confiança */}
+              <div className="mt-8 border-t border-slate-200 pt-8">
+                <GooglePreferredSource context="home:prova-social" />
+              </div>
             </div>
           </section>
         </LazySection>
