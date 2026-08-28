@@ -7,6 +7,7 @@ import PageMeta from "@/components/PageMeta";
 import SpeakableSchema from "@/components/SpeakableSchema";
 import FAQSchema from "@/components/FAQSchema";
 import Breadcrumb from "@/components/Breadcrumb";
+import GooglePreferredSource from "@/components/GooglePreferredSource";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import ArticleSchema from "@/components/ArticleSchema";
 import { getCanonicalUrl, CANONICAL_BASE_URL } from "@/lib/canonical";
@@ -808,6 +809,12 @@ const BlogArticle = () => {
           </div>
         </section>
       </main>
+      {/* Fonte preferencial no Google — discreto, antes do rodapé */}
+      <div className="border-t bg-muted/20 py-8">
+        <div className="container mx-auto px-4">
+          <GooglePreferredSource context={`artigo:${slug}`} />
+        </div>
+      </div>
       <ContextualSeoHub />
       <Suspense fallback={null}>
        <StickyQuoteBar 
