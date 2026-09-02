@@ -139,7 +139,7 @@ serve(async (req) => {
 
     // e-mail apenas se houver transições
     if (transitions.length > 0) {
-      const smtpHost = Deno.env.get("SMTP_HOST");
+      const smtpHost = (Deno.env.get("SMTP_HOST") === "webmail.patroseguros.com.br" ? "smtp.hostinger.com" : Deno.env.get("SMTP_HOST"));
       const smtpUser = Deno.env.get("SMTP_USER");
       const smtpPass = Deno.env.get("SMTP_PASS");
       if (smtpHost && smtpUser && smtpPass) {
