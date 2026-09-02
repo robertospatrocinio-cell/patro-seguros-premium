@@ -897,7 +897,7 @@ const InsurancePageTemplate = ({
         </section>
 
          {/* CTA Form Integrado */}
-         <section className="py-24 bg-muted/30" aria-labelledby="formulario-heading">
+         <section className="py-24 bg-muted/30" {...(supportMode ? { "aria-label": "Atendimento e suporte da Patro" } : { "aria-labelledby": "formulario-heading" })}>
            <div className="container mx-auto px-4 max-w-5xl">
              {/* Prova social unificada — reforça confiança antes do formulário */}
              <div className="mb-10">
