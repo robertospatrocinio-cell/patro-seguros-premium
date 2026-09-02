@@ -66,17 +66,34 @@ serve(async (req) => {
       });
     }
     const jwt = authHeader.replace("Bearer ", "").trim();
-    const supabaseAuthClient = createClient(
-      Deno.env.get("SUPABASE_URL") ?? "",
-      Deno.env.get("SUPABASE_ANON_KEY") ?? ""
-    );
-    const { data: claimsData, error: claimsError } = await supabaseAuthClient.auth.getClaims(jwt);
-    if (claimsError || !claimsData?.claims) {
+
+    // Accept either a valid Supabase-issued user JWT or the project's public
+    // anon/publishable key (used by anonymous visitors submitting the form).
+    const publishableKeys = [
+      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+      ...(Deno.env.get("SUPABASE_PUBLISHABLE_KEYS") ?? "").split(","),
+    ]
+      .map((k) => k.trim())
+      .filter(Boolean);
+
+    let authorized = publishableKeys.includes(jwt);
+
+    if (!authorized) {
+      const supabaseAuthClient = createClient(
+        Deno.env.get("SUPABASE_URL") ?? "",
+        Deno.env.get("SUPABASE_ANON_KEY") ?? ""
+      );
+      const { data: claimsData, error: claimsError } = await supabaseAuthClient.auth.getClaims(jwt);
+      authorized = !claimsError && !!claimsData?.claims;
+    }
+
+    if (!authorized) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
+
 
     const ip =
       req.headers.get("cf-connecting-ip") ||
