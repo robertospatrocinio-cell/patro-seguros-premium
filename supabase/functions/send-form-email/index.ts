@@ -149,7 +149,13 @@ serve(async (req) => {
     // Build a safe HTML body server-side from the (escaped) plain text.
     const safeHtmlBody = `<pre style="font-family:Arial,sans-serif;white-space:pre-wrap;word-wrap:break-word;">${escapeHtml(textStr)}</pre>`;
 
-    const smtpHost = Deno.env.get("SMTP_HOST");
+    // The legacy host webmail.patroseguros.com.br no longer resolves (NXDOMAIN).
+    // MX records point to Hostinger, so fall back to the Hostinger SMTP host.
+    const configuredHost = Deno.env.get("SMTP_HOST");
+    const smtpHost = configuredHost === "webmail.patroseguros.com.br"
+      ? "smtp.hostinger.com"
+      : configuredHost;
+
     const smtpUser = Deno.env.get("SMTP_USER");
     const smtpPass = Deno.env.get("SMTP_PASS");
 
