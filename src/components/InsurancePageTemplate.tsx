@@ -913,7 +913,7 @@ const InsurancePageTemplate = ({
              {/* Como a Patro ajuda — 4 passos + CTA duplo consistente.
                  Suprimido quando a página traz `howItWorks` próprio para
                  evitar dois blocos "como funciona" no mesmo URL. */}
-             {!(howItWorks && howItWorks.length > 0) && (
+             {!supportMode && !(howItWorks && howItWorks.length > 0) && (
                <div className="mb-10">
                  <ComoPatroAjuda
                    product={title}
