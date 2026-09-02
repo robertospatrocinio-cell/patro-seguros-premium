@@ -883,7 +883,7 @@ const InsurancePageTemplate = ({
               <div className="flex justify-center mb-6">
                 <SeloMelhorCorretora size="md" />
               </div>
-              <h2 id="por-que-patro-heading">Por que contratar {title} com a Patro{hasGeo ? "" : " em Guarulhos"}?</h2>
+              <h2 id="por-que-patro-heading">{supportMode ? `Por que contar com a Patro${hasGeo ? "" : " em Guarulhos"} nesse momento?` : `Por que contratar ${title} com a Patro${hasGeo ? "" : " em Guarulhos"}?`}</h2>
             </div>
             <ul className="grid md:grid-cols-2 gap-4 list-none">
               {whyPatro.map((reason, i) => (
