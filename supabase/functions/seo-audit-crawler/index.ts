@@ -166,7 +166,7 @@ async function sendAlertEmail(runId: string, stats: { failed: number; new_failur
   const transporter = nodemailer.createTransport({
     host: smtpHost, port: 465, secure: true,
     auth: { user: smtpUser, pass: smtpPass },
-    tls: { servername: smtpHost === "webmail.patroseguros.com.br" ? "hostgator.com.br" : smtpHost },
+    tls: { servername: smtpHost },
   });
   await transporter.sendMail({
     from: `"Patro SEO Monitor" <${smtpUser}>`,

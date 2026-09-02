@@ -30,10 +30,8 @@ function isAllowedOrigin(origin: string | null): boolean {
   }
 }
 
-const resolveSmtpTlsServername = (host: string) => {
-  if (host === "webmail.patroseguros.com.br") return "hostgator.com.br";
-  return host;
-};
+const resolveSmtpTlsServername = (host: string) => host;
+
 
 /** Escape HTML special characters to prevent injection in email bodies */
 const escapeHtml = (str: string): string =>
