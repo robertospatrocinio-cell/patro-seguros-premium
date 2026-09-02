@@ -883,7 +883,7 @@ const InsurancePageTemplate = ({
               <div className="flex justify-center mb-6">
                 <SeloMelhorCorretora size="md" />
               </div>
-              <h2 id="por-que-patro-heading">Por que contratar {title} com a Patro{hasGeo ? "" : " em Guarulhos"}?</h2>
+              <h2 id="por-que-patro-heading">{supportMode ? `Por que contar com a Patro${hasGeo ? "" : " em Guarulhos"} nesse momento?` : `Por que contratar ${title} com a Patro${hasGeo ? "" : " em Guarulhos"}?`}</h2>
             </div>
             <ul className="grid md:grid-cols-2 gap-4 list-none">
               {whyPatro.map((reason, i) => (
@@ -897,7 +897,7 @@ const InsurancePageTemplate = ({
         </section>
 
          {/* CTA Form Integrado */}
-         <section className="py-24 bg-muted/30" aria-labelledby="formulario-heading">
+         <section className="py-24 bg-muted/30" {...(supportMode ? { "aria-label": "Atendimento e suporte da Patro" } : { "aria-labelledby": "formulario-heading" })}>
            <div className="container mx-auto px-4 max-w-5xl">
              {/* Prova social unificada — reforça confiança antes do formulário */}
              <div className="mb-10">
@@ -913,7 +913,7 @@ const InsurancePageTemplate = ({
              {/* Como a Patro ajuda — 4 passos + CTA duplo consistente.
                  Suprimido quando a página traz `howItWorks` próprio para
                  evitar dois blocos "como funciona" no mesmo URL. */}
-             {!(howItWorks && howItWorks.length > 0) && (
+             {!supportMode && !(howItWorks && howItWorks.length > 0) && (
                <div className="mb-10">
                  <ComoPatroAjuda
                    product={title}
@@ -925,6 +925,7 @@ const InsurancePageTemplate = ({
                  />
                </div>
              )}
+             {!supportMode && (
              <div className="grid lg:grid-cols-2 gap-12 items-center">
                <div>
                  <span className="section-label mb-4 inline-block">Cotação Gratuita</span>
@@ -969,6 +970,7 @@ const InsurancePageTemplate = ({
                  </Suspense>
                </div>
              </div>
+             )}
            </div>
          </section>
 

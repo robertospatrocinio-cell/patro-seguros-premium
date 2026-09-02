@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -56,10 +57,36 @@ export const priorityWeight = (row: AnchorPriorityRow | undefined): number => {
   return base * (1 + rate * 10);
 };
 
-export const useAnchorPriorities = () =>
-  useQuery({
+/**
+ * `anchor_priorities` é uma tabela administrativa: a leitura é restrita a
+ * usuários autenticados com papel admin. Visitantes anônimos recebiam
+ * "permission denied" a cada página pública. Por isso a query só roda
+ * quando existe sessão — sem sessão, os componentes públicos simplesmente
+ * mantêm a ordem original dos clusters.
+ */
+export const useAnchorPriorities = () => {
+  const [hasSession, setHasSession] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    supabase.auth.getSession().then(({ data }) => {
+      if (active) setHasSession(!!data.session);
+    });
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setHasSession(!!session);
+    });
+    return () => {
+      active = false;
+      sub.subscription.unsubscribe();
+    };
+  }, []);
+
+  return useQuery({
     queryKey: ["anchor-priorities"],
     queryFn: fetchAnchorPriorities,
+    enabled: hasSession,
+    retry: false,
     staleTime: 15 * 60 * 1000,
     gcTime: 60 * 60 * 1000,
   });
+};
