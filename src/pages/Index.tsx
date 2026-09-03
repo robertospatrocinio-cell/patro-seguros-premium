@@ -117,10 +117,11 @@ const Index = () => {
   return (
     <>
       <PageMeta 
-        title={`Seguros em Guarulhos | Patro Seguros — Compare ${EMPRESA.metricas.seguradorasParceiras} Seguradoras`}
-        description={EMPRESA.posicionamento}
+        title="Patro Seguros | Corretora de Seguros em Guarulhos e Brasil"
+        description={`Faça sua cotação de seguro auto, empresarial e saúde em Guarulhos com a Patro Seguros. Comparamos ${EMPRESA.metricas.seguradorasParceiras} seguradoras. Atendimento humano e sem burocracia.`}
         absoluteTitle={true}
       />
+
       <FAQSchema faqs={[...faqs, ...sinistroFaqs]} />
       <SpeakableSchema url={CANONICAL_BASE_URL} />
       <InsuranceAgencySchema />
