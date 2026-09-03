@@ -32,9 +32,10 @@ const HeroPatro = memo(() => {
           />
           <img
             src="/images/hero-home-1280.webp"
-            alt="Atendimento humanizado Patro Seguros - Proteção para você e sua família"
+            alt="Consultor da Patro Seguros realizando cotação de seguro empresarial em Guarulhos"
             width={1280}
             height={720}
+
             loading="eager"
             decoding="sync"
             className="w-full h-full object-cover lg:object-[65%_25%] opacity-100 transition-opacity duration-700 select-none pointer-events-none"
