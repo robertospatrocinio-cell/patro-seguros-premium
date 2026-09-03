@@ -32,9 +32,10 @@ const HeroPatro = memo(() => {
           />
           <img
             src="/images/hero-home-1280.webp"
-            alt="Atendimento humanizado Patro Seguros - Proteção para você e sua família"
+            alt="Consultor da Patro Seguros realizando cotação de seguro empresarial em Guarulhos"
             width={1280}
             height={720}
+
             loading="eager"
             decoding="sync"
             className="w-full h-full object-cover lg:object-[65%_25%] opacity-100 transition-opacity duration-700 select-none pointer-events-none"
@@ -55,30 +56,37 @@ const HeroPatro = memo(() => {
               
               {/* H1 Title */}
               <h1 className="text-white text-[32px] md:text-[54px] lg:text-[60px] font-extrabold mb-6 leading-[1.1] tracking-tight">
-                Proteção inteligente para você, sua família e sua empresa.
+                Corretora de Seguros em Guarulhos: Proteção Inteligente para Você e sua Empresa
               </h1>
-              
+
+              {/* Prova social imediatamente abaixo do H1 (CRO) */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6">
+                <div className="flex items-center gap-2">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
+                  <a
+                    href={PATRO_SOCIAL_PROOF.googleProfileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/90 text-sm hover:underline"
+                  >
+                    <span className="font-bold">{PATRO_SOCIAL_PROOF.googleRating}</span> no Google · avaliações verificadas
+                  </a>
+                </div>
+                <span className="inline-flex items-center gap-2 text-white/80 text-sm">
+                  <ShieldCheck className="h-4 w-4 shrink-0 text-primary-light" />
+                  SUSEP {EMPRESA.susep}
+                </span>
+              </div>
+
               {/* Subtitle */}
               <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed max-w-[620px]">
                 Compare soluções entre 16 seguradoras com orientação especializada e atendimento humano do início ao sinistro.
               </p>
 
-              {/* Google Social Proof */}
-              <div className="flex items-center gap-2 mb-8">
-                <div className="flex text-yellow-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-                <a 
-                  href={PATRO_SOCIAL_PROOF.googleProfileUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-white/90 text-sm hover:underline"
-                >
-                  <span className="font-bold">{PATRO_SOCIAL_PROOF.googleRating}</span> no Google · avaliações verificadas
-                </a>
-              </div>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
