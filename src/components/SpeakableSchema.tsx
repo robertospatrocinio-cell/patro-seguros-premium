@@ -14,7 +14,9 @@ interface SpeakableSchemaProps {
   selectors?: string[];
   /** URL canônica da página que hospeda o schema. Opcional. */
   url?: string;
-}
+  /** Nome da página (obrigatório para elegibilidade do nó WebPage). */
+  name?: string;
+
 
 const DEFAULT_SELECTORS = [
   "h1",
