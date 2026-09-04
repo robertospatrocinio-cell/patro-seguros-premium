@@ -16,6 +16,7 @@ const InsuranceAgencySchema = () => {
     return null;
   }
 
+  const schema = {
 
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
