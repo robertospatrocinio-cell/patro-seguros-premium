@@ -16,7 +16,7 @@ interface SpeakableSchemaProps {
   url?: string;
   /** Nome da página (obrigatório para elegibilidade do nó WebPage). */
   name?: string;
-
+}
 
 const DEFAULT_SELECTORS = [
   "h1",
@@ -25,11 +25,15 @@ const DEFAULT_SELECTORS = [
   '[data-speakable="faq"] [data-speakable-answer]',
 ];
 
-const SpeakableSchema = ({ selectors = DEFAULT_SELECTORS, url }: SpeakableSchemaProps) => {
+const SpeakableSchema = ({ selectors = DEFAULT_SELECTORS, url, name }: SpeakableSchemaProps) => {
+  const pageName =
+    name ?? (typeof document !== "undefined" ? document.title : undefined);
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    ...(pageName ? { name: pageName } : {}),
     ...(url ? { url, "@id": `${url}#speakable` } : {}),
+
     speakable: {
       "@type": "SpeakableSpecification",
       cssSelector: selectors,
