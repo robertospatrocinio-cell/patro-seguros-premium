@@ -1,0 +1,4718 @@
+{
+  ".lovable/gsc-indexing-baseline.json": {
+    "mtime": 1788537005.0874631,
+    "seen": 1788537026.982376,
+    "ast_hash": "2ff8b686b6c3194ecc85ca73c3c29fec",
+    "semantic_hash": "2ff8b686b6c3194ecc85ca73c3c29fec"
+  },
+  "audit-output/breadcrumb-2026-05-06T17-30-15.json": {
+    "mtime": 1788537005.0881486,
+    "seen": 1788537026.9823806,
+    "ast_hash": "15e29dfab6e7e27f06c60cfa43d684fd",
+    "semantic_hash": "15e29dfab6e7e27f06c60cfa43d684fd"
+  },
+  "audit-output/canonical-audit-2026-05-08T14-04-07-350Z.json": {
+    "mtime": 1788537005.0881486,
+    "seen": 1788537026.9823825,
+    "ast_hash": "b7a5a44771783ef3369610fed9d2ace9",
+    "semantic_hash": "b7a5a44771783ef3369610fed9d2ace9"
+  },
+  "audit-output/canonical-audit-2026-05-08T14-04-21-236Z.json": {
+    "mtime": 1788537005.0889356,
+    "seen": 1788537026.982384,
+    "ast_hash": "444ccd829230b3e801b5c0524f48b02c",
+    "semantic_hash": "444ccd829230b3e801b5c0524f48b02c"
+  },
+  "audit-output/canonical-audit-2026-05-21T12-41-12-990Z.json": {
+    "mtime": 1788537005.0889356,
+    "seen": 1788537026.982385,
+    "ast_hash": "0b0c7cedda2b69e1e2e3d8dfbb6a4835",
+    "semantic_hash": "0b0c7cedda2b69e1e2e3d8dfbb6a4835"
+  },
+  "components.json": {
+    "mtime": 1788537005.0909357,
+    "seen": 1788537026.9823859,
+    "ast_hash": "a547944ace00dc5d5373aaca70a40bc4",
+    "semantic_hash": "a547944ace00dc5d5373aaca70a40bc4"
+  },
+  "e2e/breadcrumb-jsonld-parity.spec.ts": {
+    "mtime": 1788537005.0917783,
+    "seen": 1788537026.9823873,
+    "ast_hash": "e37d8237705e3e974693a2185c66a290",
+    "semantic_hash": "e37d8237705e3e974693a2185c66a290"
+  },
+  "e2e/clubesantuu-exclusivity.spec.ts": {
+    "mtime": 1788537005.092175,
+    "seen": 1788537026.982388,
+    "ast_hash": "2d5c42ff8f57d6c36ab574e6d77c4954",
+    "semantic_hash": "2d5c42ff8f57d6c36ab574e6d77c4954"
+  },
+  "e2e/hash-deep-links.spec.ts": {
+    "mtime": 1788537005.092175,
+    "seen": 1788537026.9823887,
+    "ast_hash": "a991262d38d0a484788f3837fe815f68",
+    "semantic_hash": "a991262d38d0a484788f3837fe815f68"
+  },
+  "e2e/jump-links-clusters.spec.ts": {
+    "mtime": 1788537005.092175,
+    "seen": 1788537026.98239,
+    "ast_hash": "0e1f894d51210a4b38c7ded092bfa33f",
+    "semantic_hash": "0e1f894d51210a4b38c7ded092bfa33f"
+  },
+  "e2e/jump-links.spec.ts": {
+    "mtime": 1788537005.092175,
+    "seen": 1788537026.982391,
+    "ast_hash": "4e779baff7cfd22fcd7da648d52f57c3",
+    "semantic_hash": "4e779baff7cfd22fcd7da648d52f57c3"
+  },
+  "e2e/seo-meta.spec.ts": {
+    "mtime": 1788537005.092175,
+    "seen": 1788537026.9823923,
+    "ast_hash": "63e7bfac3399967422dcd11a4ebcd488",
+    "semantic_hash": "63e7bfac3399967422dcd11a4ebcd488"
+  },
+  "eslint.config.js": {
+    "mtime": 1788537005.092175,
+    "seen": 1788537026.9823933,
+    "ast_hash": "31c0881fdd8500aa4d0aa963079713ae",
+    "semantic_hash": "31c0881fdd8500aa4d0aa963079713ae"
+  },
+  "lighthouserc.json": {
+    "mtime": 1788537005.092175,
+    "seen": 1788537026.9823945,
+    "ast_hash": "4b36229fcfd0a7840c6571b32d71109c",
+    "semantic_hash": "4b36229fcfd0a7840c6571b32d71109c"
+  },
+  "package.json": {
+    "mtime": 1788537005.0929356,
+    "seen": 1788537026.9823954,
+    "ast_hash": "61f34563999c39fd65e7d7515229352a",
+    "semantic_hash": "61f34563999c39fd65e7d7515229352a"
+  },
+  "playwright.config.ts": {
+    "mtime": 1788537005.0929356,
+    "seen": 1788537026.9823964,
+    "ast_hash": "433f24c8547740161336cfd0352b3fef",
+    "semantic_hash": "433f24c8547740161336cfd0352b3fef"
+  },
+  "postcss.config.js": {
+    "mtime": 1788537005.0929356,
+    "seen": 1788537026.982397,
+    "ast_hash": "f4483e879ae82763db8660d4e65fb9d7",
+    "semantic_hash": "f4483e879ae82763db8660d4e65fb9d7"
+  },
+  "public/admin/faq-underfilled.json": {
+    "mtime": 1788537005.0935163,
+    "seen": 1788537026.9823983,
+    "ast_hash": "2a1c25a9cc85b6d9b137d36f2afacf2f",
+    "semantic_hash": "2a1c25a9cc85b6d9b137d36f2afacf2f"
+  },
+  "public/manifest.json": {
+    "mtime": 1788537005.1159358,
+    "seen": 1788537026.9823992,
+    "ast_hash": "60b56de66a90d693b286ff6c8dd5abed",
+    "semantic_hash": "60b56de66a90d693b286ff6c8dd5abed"
+  },
+  "public/sw.js": {
+    "mtime": 1788537005.1159358,
+    "seen": 1788537026.9824,
+    "ast_hash": "5586e1cc65dd6a1101d297c07899b71e",
+    "semantic_hash": "5586e1cc65dd6a1101d297c07899b71e"
+  },
+  "reports/heading-hierarchy-report.json": {
+    "mtime": 1788537005.1170657,
+    "seen": 1788537026.9824011,
+    "ast_hash": "aa08ccd07b73a5cf99537cde2e786bd4",
+    "semantic_hash": "aa08ccd07b73a5cf99537cde2e786bd4"
+  },
+  "schema-validation-report.json": {
+    "mtime": 1788537005.1170657,
+    "seen": 1788537026.982402,
+    "ast_hash": "52d109c46e89a22bed6a4de7ab926b4d",
+    "semantic_hash": "52d109c46e89a22bed6a4de7ab926b4d"
+  },
+  "scripts/__reports__/baseline.json": {
+    "mtime": 1788537005.117354,
+    "seen": 1788537026.9824033,
+    "ast_hash": "127c541e5131e39883709deaaf9e650a",
+    "semantic_hash": "127c541e5131e39883709deaaf9e650a"
+  },
+  "scripts/__reports__/current.json": {
+    "mtime": 1788537005.1174166,
+    "seen": 1788537026.9824045,
+    "ast_hash": "127c541e5131e39883709deaaf9e650a",
+    "semantic_hash": "127c541e5131e39883709deaaf9e650a"
+  },
+  "scripts/analyze-boot-impact.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824054,
+    "ast_hash": "3a20be8a3c66afcf68f6c8a82462bfa9",
+    "semantic_hash": "3a20be8a3c66afcf68f6c8a82462bfa9"
+  },
+  "scripts/audit-aggregate-rating.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824061,
+    "ast_hash": "a10c5f50f5533ade92c904b8fa2e73e6",
+    "semantic_hash": "a10c5f50f5533ade92c904b8fa2e73e6"
+  },
+  "scripts/audit-breadcrumb-jsonld.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.982407,
+    "ast_hash": "baa6c9463fa2c773fdd6a42a98eb811b",
+    "semantic_hash": "baa6c9463fa2c773fdd6a42a98eb811b"
+  },
+  "scripts/audit-canonical.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824085,
+    "ast_hash": "a524906838ec5e17f7afdf23464f0b04",
+    "semantic_hash": "a524906838ec5e17f7afdf23464f0b04"
+  },
+  "scripts/audit-dashboard.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824095,
+    "ast_hash": "5cdf927eeae15d44faaa9a0a62814df6",
+    "semantic_hash": "5cdf927eeae15d44faaa9a0a62814df6"
+  },
+  "scripts/audit-redirects.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824102,
+    "ast_hash": "7d836c6d96558193640efbaaf1e634da",
+    "semantic_hash": "7d836c6d96558193640efbaaf1e634da"
+  },
+  "scripts/audit-seo-runtime.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824116,
+    "ast_hash": "31128b985b9d4dbe0cd59d16a041fc27",
+    "semantic_hash": "31128b985b9d4dbe0cd59d16a041fc27"
+  },
+  "scripts/audit-web-vitals.ts": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824126,
+    "ast_hash": "fa07cfeab237683c6e58168d0bb10fa7",
+    "semantic_hash": "fa07cfeab237683c6e58168d0bb10fa7"
+  },
+  "scripts/build-integration-report.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824135,
+    "ast_hash": "292a5a1f3e1654c60158090e2afe6fd4",
+    "semantic_hash": "292a5a1f3e1654c60158090e2afe6fd4"
+  },
+  "scripts/build-rich-results-html.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824145,
+    "ast_hash": "48d84c6235a6b252197d866b9fc53e56",
+    "semantic_hash": "48d84c6235a6b252197d866b9fc53e56"
+  },
+  "scripts/build-sitemap-index.mjs": {
+    "mtime": 1788537005.117519,
+    "seen": 1788537026.9824157,
+    "ast_hash": "e1c181388083278222a1fa25b6786607",
+    "semantic_hash": "e1c181388083278222a1fa25b6786607"
+  },
+  "scripts/canonical-allowlist.json": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824166,
+    "ast_hash": "45cf5a2d6f43654e1431890858cedbed",
+    "semantic_hash": "45cf5a2d6f43654e1431890858cedbed"
+  },
+  "scripts/canonical-host.test.ts": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824176,
+    "ast_hash": "d5b2caeb11c7fba547d2fcfefc56054a",
+    "semantic_hash": "d5b2caeb11c7fba547d2fcfefc56054a"
+  },
+  "scripts/check-internal-links.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824185,
+    "ast_hash": "0877aba3158bb6e8bb6eb1ee0181a9e3",
+    "semantic_hash": "0877aba3158bb6e8bb6eb1ee0181a9e3"
+  },
+  "scripts/check-new-verticals.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824195,
+    "ast_hash": "0949b340b975a92838bc478c98c6bcf0",
+    "semantic_hash": "0949b340b975a92838bc478c98c6bcf0"
+  },
+  "scripts/check-wikidata-item.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824207,
+    "ast_hash": "06fc128895ab81e8f9be11cf21262388",
+    "semantic_hash": "06fc128895ab81e8f9be11cf21262388"
+  },
+  "scripts/detect-faq-underfilled.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824219,
+    "ast_hash": "df54cfd4c912beb24ad5ac0971134120",
+    "semantic_hash": "df54cfd4c912beb24ad5ac0971134120"
+  },
+  "scripts/diff-rich-results-report.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824228,
+    "ast_hash": "c4a2b6d37f3b01769c3ece996e35b951",
+    "semantic_hash": "c4a2b6d37f3b01769c3ece996e35b951"
+  },
+  "scripts/emit-redirect-stubs.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824238,
+    "ast_hash": "591546af764377c9d4b81f10be695f86",
+    "semantic_hash": "591546af764377c9d4b81f10be695f86"
+  },
+  "scripts/ensure-prerender.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824283,
+    "ast_hash": "9d15df177ed6702afa3e4b2422ff362f",
+    "semantic_hash": "9d15df177ed6702afa3e4b2422ff362f"
+  },
+  "scripts/extract-blog-content.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824295,
+    "ast_hash": "ba1bdc1f4a34274778045066949a1153",
+    "semantic_hash": "ba1bdc1f4a34274778045066949a1153"
+  },
+  "scripts/extract_lote4.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824305,
+    "ast_hash": "3bbe8361a715e75ee389fb0f64cbf0b7",
+    "semantic_hash": "3bbe8361a715e75ee389fb0f64cbf0b7"
+  },
+  "scripts/final-check.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824312,
+    "ast_hash": "1306da118443530ed0bc9cd50c3e46b9",
+    "semantic_hash": "1306da118443530ed0bc9cd50c3e46b9"
+  },
+  "scripts/find_missing.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824328,
+    "ast_hash": "d262149654494d581dd474477dff3fee",
+    "semantic_hash": "d262149654494d581dd474477dff3fee"
+  },
+  "scripts/fix-generic-anchors.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824338,
+    "ast_hash": "f68f136392ef0775e1824cecdbe6b907",
+    "semantic_hash": "f68f136392ef0775e1824cecdbe6b907"
+  },
+  "scripts/fix-index-syntax.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824347,
+    "ast_hash": "76deec396246b4262bc29bd16f981c7e",
+    "semantic_hash": "76deec396246b4262bc29bd16f981c7e"
+  },
+  "scripts/gen-hero-variants.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824355,
+    "ast_hash": "10176b97a4a542aa92d27c64dc39167e",
+    "semantic_hash": "10176b97a4a542aa92d27c64dc39167e"
+  },
+  "scripts/generate-og-images.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824367,
+    "ast_hash": "94431fc44c6460984872c7c3e41c063e",
+    "semantic_hash": "94431fc44c6460984872c7c3e41c063e"
+  },
+  "scripts/generate-seo-report.mjs": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824374,
+    "ast_hash": "dbfc253a3d058235f2b2f3cc4c1a6faa",
+    "semantic_hash": "dbfc253a3d058235f2b2f3cc4c1a6faa"
+  },
+  "scripts/generate-sitemap.ts": {
+    "mtime": 1788537005.1179357,
+    "seen": 1788537026.9824383,
+    "ast_hash": "4f935e91954c74db91ba698d10ccc605",
+    "semantic_hash": "4f935e91954c74db91ba698d10ccc605"
+  },
+  "scripts/generate-static-sitemap.ts": {
+    "mtime": 1788537005.1189358,
+    "seen": 1788537026.9824398,
+    "ast_hash": "4c310ca1454b7150e0390b21d659efe3",
+    "semantic_hash": "4c310ca1454b7150e0390b21d659efe3"
+  },
+  "scripts/health-plan-consolidator.mjs": {
+    "mtime": 1788537005.1189358,
+    "seen": 1788537026.9824407,
+    "ast_hash": "dea2448208fbe9d3214198dc2fff0d4b",
+    "semantic_hash": "dea2448208fbe9d3214198dc2fff0d4b"
+  },
+  "scripts/hostinger-cron.sh": {
+    "mtime": 1788537005.1189358,
+    "seen": 1788537026.9824417,
+    "ast_hash": "00e3bb89b51d4a21405b83dca8ca9bbd",
+    "semantic_hash": "00e3bb89b51d4a21405b83dca8ca9bbd"
+  },
+  "scripts/lib/canonical-heading-validator.mjs": {
+    "mtime": 1788537005.1189358,
+    "seen": 1788537026.9824424,
+    "ast_hash": "448f2257163aad6ba8d30097ec56bd11",
+    "semantic_hash": "448f2257163aad6ba8d30097ec56bd11"
+  },
+  "scripts/lib/canonical-heading-validator.test.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824438,
+    "ast_hash": "29a3487ffbcf2a72e58f49f88812f03d",
+    "semantic_hash": "29a3487ffbcf2a72e58f49f88812f03d"
+  },
+  "scripts/lib/faq-underfilled-helpers.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824445,
+    "ast_hash": "6ec4c281baa08a37be7b7e46f00938f8",
+    "semantic_hash": "6ec4c281baa08a37be7b7e46f00938f8"
+  },
+  "scripts/lib/faq-underfilled-helpers.test.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824455,
+    "ast_hash": "8126e3c09ee9a42b26da7b9639f44970",
+    "semantic_hash": "8126e3c09ee9a42b26da7b9639f44970"
+  },
+  "scripts/lib/fuzz-coverage.baseline.json": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824464,
+    "ast_hash": "3620eae1ece1645768965cdb3169fd0a",
+    "semantic_hash": "3620eae1ece1645768965cdb3169fd0a"
+  },
+  "scripts/lib/fuzz-coverage.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824474,
+    "ast_hash": "484c48496342af191a2066c54b525d0e",
+    "semantic_hash": "484c48496342af191a2066c54b525d0e"
+  },
+  "scripts/lib/fuzz-coverage.test.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.982448,
+    "ast_hash": "569e98933ffc80666145c8fbe2766f30",
+    "semantic_hash": "569e98933ffc80666145c8fbe2766f30"
+  },
+  "scripts/lib/github-annotations.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824488,
+    "ast_hash": "406f60d60e57272688d1c3a49eded98b",
+    "semantic_hash": "406f60d60e57272688d1c3a49eded98b"
+  },
+  "scripts/lib/hubs-collectionpage.test.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.98245,
+    "ast_hash": "18b783260f7bc28702bfd3c52ef2c7e2",
+    "semantic_hash": "18b783260f7bc28702bfd3c52ef2c7e2"
+  },
+  "scripts/lib/integration-fixture.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824507,
+    "ast_hash": "b3e1ed42424e84cc4db1c73d5f2ad635",
+    "semantic_hash": "b3e1ed42424e84cc4db1c73d5f2ad635"
+  },
+  "scripts/lib/jsonld-shrinker.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824517,
+    "ast_hash": "696f76924856415f60e07bfd90c01995",
+    "semantic_hash": "696f76924856415f60e07bfd90c01995"
+  },
+  "scripts/lib/jsonld-shrinker.test.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824526,
+    "ast_hash": "d16d89ee7d4979554526a7c0e33fbd23",
+    "semantic_hash": "d16d89ee7d4979554526a7c0e33fbd23"
+  },
+  "scripts/lib/jsonld-validator.mjs": {
+    "mtime": 1788537005.119421,
+    "seen": 1788537026.9824538,
+    "ast_hash": "c0f555c178497bce94589b88173753e5",
+    "semantic_hash": "c0f555c178497bce94589b88173753e5"
+  },
+  "scripts/lib/jsonld-validator.test.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824548,
+    "ast_hash": "7a2e37005a4c88250f39bdf089786e56",
+    "semantic_hash": "7a2e37005a4c88250f39bdf089786e56"
+  },
+  "scripts/lib/rich-results-checkers.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824555,
+    "ast_hash": "05b3dda55d4ab93861f04af15fc20ca9",
+    "semantic_hash": "05b3dda55d4ab93861f04af15fc20ca9"
+  },
+  "scripts/lib/rich-results-checkers.test.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824567,
+    "ast_hash": "5ef2039dd0da6c28d68c3342920d4a91",
+    "semantic_hash": "5ef2039dd0da6c28d68c3342920d4a91"
+  },
+  "scripts/lib/rich-results-fuzz.test.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824574,
+    "ast_hash": "3c31d5361265608aad12b96dc55c73d3",
+    "semantic_hash": "3c31d5361265608aad12b96dc55c73d3"
+  },
+  "scripts/lib/rich-results-message-patterns.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824584,
+    "ast_hash": "d041e6792458b5262d11bdd850796843",
+    "semantic_hash": "d041e6792458b5262d11bdd850796843"
+  },
+  "scripts/lib/rich-results-message-patterns.test.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.982459,
+    "ast_hash": "b39ca3d3f1c98e1a86b44c04e4a67548",
+    "semantic_hash": "b39ca3d3f1c98e1a86b44c04e4a67548"
+  },
+  "scripts/lib/rich-results-url-image.test.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.98246,
+    "ast_hash": "555a8b757f2bd31a7a53239667fe58fb",
+    "semantic_hash": "555a8b757f2bd31a7a53239667fe58fb"
+  },
+  "scripts/lib/url-image-helpers.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.982461,
+    "ast_hash": "1635ed2a703e6c5e53f4f2c03d27d0b5",
+    "semantic_hash": "1635ed2a703e6c5e53f4f2c03d27d0b5"
+  },
+  "scripts/lib/url-image-helpers.test.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824617,
+    "ast_hash": "4c90a704c94c429f0508352c885a6778",
+    "semantic_hash": "4c90a704c94c429f0508352c885a6778"
+  },
+  "scripts/list-drive-files.ts": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824626,
+    "ast_hash": "d0266984682214cd181a5628ee726f19",
+    "semantic_hash": "d0266984682214cd181a5628ee726f19"
+  },
+  "scripts/load-data-module.d.mts": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824636,
+    "ast_hash": "fabc15841fa920eadb1a6ca2163566dc",
+    "semantic_hash": "fabc15841fa920eadb1a6ca2163566dc"
+  },
+  "scripts/load-data-module.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824643,
+    "ast_hash": "fe0d9c0278dd639000ce675fdd8ab92c",
+    "semantic_hash": "fe0d9c0278dd639000ce675fdd8ab92c"
+  },
+  "scripts/perf-audit.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824653,
+    "ast_hash": "6dc1163d2b36326f563023261e33336c",
+    "semantic_hash": "6dc1163d2b36326f563023261e33336c"
+  },
+  "scripts/prerender-react.mjs": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824662,
+    "ast_hash": "085bfdc711d68587d7d88abe680d3925",
+    "semantic_hash": "085bfdc711d68587d7d88abe680d3925"
+  },
+  "scripts/prerender-routes.ts": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824672,
+    "ast_hash": "101434db3ffa5ccc02de60dbd65346e9",
+    "semantic_hash": "101434db3ffa5ccc02de60dbd65346e9"
+  },
+  "scripts/prerender-trailing-slash.test.ts": {
+    "mtime": 1788537005.1199358,
+    "seen": 1788537026.9824681,
+    "ast_hash": "e37ad53959258476bfee495fcd69624f",
+    "semantic_hash": "e37ad53959258476bfee495fcd69624f"
+  },
+  "scripts/prerender-validate-integration.test.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824698,
+    "ast_hash": "d6b1186b3c3102f17bebb3134f03d7b0",
+    "semantic_hash": "d6b1186b3c3102f17bebb3134f03d7b0"
+  },
+  "scripts/prerender.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.982471,
+    "ast_hash": "8436df0c7a0e1d4bfeff9d0976dad9ef",
+    "semantic_hash": "8436df0c7a0e1d4bfeff9d0976dad9ef"
+  },
+  "scripts/redirects-single-hop.test.ts": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824717,
+    "ast_hash": "ad078fcc0d0ac9f8dd643371e339b5c5",
+    "semantic_hash": "ad078fcc0d0ac9f8dd643371e339b5c5"
+  },
+  "scripts/refactor-template.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824727,
+    "ast_hash": "fd80d98dcc25e36e0619cde11d0ea616",
+    "semantic_hash": "fd80d98dcc25e36e0619cde11d0ea616"
+  },
+  "scripts/refresh-sitemaps.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824734,
+    "ast_hash": "9560d78f7019712796d713b78189b8be",
+    "semantic_hash": "9560d78f7019712796d713b78189b8be"
+  },
+  "scripts/report-schema-coverage.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824746,
+    "ast_hash": "89a5bb45816f75f01c55f65944f2ad97",
+    "semantic_hash": "89a5bb45816f75f01c55f65944f2ad97"
+  },
+  "scripts/report-schema-uniqueness.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824753,
+    "ast_hash": "c2b1c89718e45efb9aee40791d912253",
+    "semantic_hash": "c2b1c89718e45efb9aee40791d912253"
+  },
+  "scripts/rewrite-blog-article.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.982476,
+    "ast_hash": "e26f6b6a9774af5c4f21f8af9a6fc5aa",
+    "semantic_hash": "e26f6b6a9774af5c4f21f8af9a6fc5aa"
+  },
+  "scripts/robots-http.test.ts": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.982477,
+    "ast_hash": "4c558b400d6a6638da40f445a8657c40",
+    "semantic_hash": "4c558b400d6a6638da40f445a8657c40"
+  },
+  "scripts/robots-sitemap-index.test.ts": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824781,
+    "ast_hash": "4983f11ffa381e72bc1b8351814564d5",
+    "semantic_hash": "4983f11ffa381e72bc1b8351814564d5"
+  },
+  "scripts/robots-sitemap.test.ts": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824789,
+    "ast_hash": "edf61f75ef137085e6548a357917f4a1",
+    "semantic_hash": "edf61f75ef137085e6548a357917f4a1"
+  },
+  "scripts/scan-seo-issues.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.9824798,
+    "ast_hash": "0926ac940f8ba95252f09ebef8ad024d",
+    "semantic_hash": "0926ac940f8ba95252f09ebef8ad024d"
+  },
+  "scripts/seo-content-full.mjs": {
+    "mtime": 1788537005.1209357,
+    "seen": 1788537026.982481,
+    "ast_hash": "44ca00904ccc5ca48d6aff15ee84f06f",
+    "semantic_hash": "44ca00904ccc5ca48d6aff15ee84f06f"
+  },
+  "scripts/seo-validator.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824817,
+    "ast_hash": "8c7879e89a22a4c2779e0532ed4e145f",
+    "semantic_hash": "8c7879e89a22a4c2779e0532ed4e145f"
+  },
+  "scripts/sitemap-canonical.test.ts": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824827,
+    "ast_hash": "9c18ffafe6b52212d6fb79dfb2544fa0",
+    "semantic_hash": "9c18ffafe6b52212d6fb79dfb2544fa0"
+  },
+  "scripts/sitemap-hygiene.test.ts": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824836,
+    "ast_hash": "a277d603fa1e98b0e6a19abe6f484169",
+    "semantic_hash": "a277d603fa1e98b0e6a19abe6f484169"
+  },
+  "scripts/submit-sitemaps-incremental.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824846,
+    "ast_hash": "50b219e4a2c9a2d652d12827db37179a",
+    "semantic_hash": "50b219e4a2c9a2d652d12827db37179a"
+  },
+  "scripts/sync-htaccess-redirects.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824855,
+    "ast_hash": "ea361281077e2767f66dc4a132378f86",
+    "semantic_hash": "ea361281077e2767f66dc4a132378f86"
+  },
+  "scripts/test-dev-server.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824862,
+    "ast_hash": "bda7d814ade5de8d322d657bf645948c",
+    "semantic_hash": "bda7d814ade5de8d322d657bf645948c"
+  },
+  "scripts/update-redirects-specialized.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824872,
+    "ast_hash": "f80bed5a75ad898fca97f3ffdd1d942b",
+    "semantic_hash": "f80bed5a75ad898fca97f3ffdd1d942b"
+  },
+  "scripts/validate-artigos-jsonld.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824882,
+    "ast_hash": "ce11b40e4357779701fd5ffff01a2303",
+    "semantic_hash": "ce11b40e4357779701fd5ffff01a2303"
+  },
+  "scripts/validate-canonical-headings-build.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824889,
+    "ast_hash": "00bcd676e273133c9761ac200f0d528f",
+    "semantic_hash": "00bcd676e273133c9761ac200f0d528f"
+  },
+  "scripts/validate-canonical-strict.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824898,
+    "ast_hash": "5b765599b9210bc5873f8c9ff1355548",
+    "semantic_hash": "5b765599b9210bc5873f8c9ff1355548"
+  },
+  "scripts/validate-cotacao-auto-redirect.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824908,
+    "ast_hash": "bbb4445f0fc2b15e9b21ed7a27ef9b78",
+    "semantic_hash": "bbb4445f0fc2b15e9b21ed7a27ef9b78"
+  },
+  "scripts/validate-critical-schemas.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824917,
+    "ast_hash": "0e25374eb6d59426d98a6bf7c6dfe873",
+    "semantic_hash": "0e25374eb6d59426d98a6bf7c6dfe873"
+  },
+  "scripts/validate-google-rich-results.cli.test.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824924,
+    "ast_hash": "5eb696b52635bed137d3349ef8710e0f",
+    "semantic_hash": "5eb696b52635bed137d3349ef8710e0f"
+  },
+  "scripts/validate-google-rich-results.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824934,
+    "ast_hash": "10c9a3d3619f418c3c33791771375d23",
+    "semantic_hash": "10c9a3d3619f418c3c33791771375d23"
+  },
+  "scripts/validate-google-rich-results.snapshot.test.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.982494,
+    "ast_hash": "8910a2cc1cf6b748a0ece2ab75c697e0",
+    "semantic_hash": "8910a2cc1cf6b748a0ece2ab75c697e0"
+  },
+  "scripts/validate-gsc-indexing.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824953,
+    "ast_hash": "e63b0f31b70e759bf87ae2a877cff7af",
+    "semantic_hash": "e63b0f31b70e759bf87ae2a877cff7af"
+  },
+  "scripts/validate-heading-hierarchy.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.9824963,
+    "ast_hash": "d5d389734fd228f726ad129bef79b703",
+    "semantic_hash": "d5d389734fd228f726ad129bef79b703"
+  },
+  "scripts/validate-heading-hierarchy.test.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.982497,
+    "ast_hash": "39c4cb5e36b69242133f5a35e16f3856",
+    "semantic_hash": "39c4cb5e36b69242133f5a35e16f3856"
+  },
+  "scripts/validate-heading-uniqueness.mjs": {
+    "mtime": 1788537005.1219356,
+    "seen": 1788537026.982498,
+    "ast_hash": "89105cedf9de115ecfdc362f93c1873b",
+    "semantic_hash": "89105cedf9de115ecfdc362f93c1873b"
+  },
+  "scripts/validate-http-status.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.982499,
+    "ast_hash": "dd42ea81ed6f3dc9b0013d9269301de8",
+    "semantic_hash": "dd42ea81ed6f3dc9b0013d9269301de8"
+  },
+  "scripts/validate-insurance-agency-global.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9824998,
+    "ast_hash": "2f538e9efdefd88fb2edf6f7cc827b38",
+    "semantic_hash": "2f538e9efdefd88fb2edf6f7cc827b38"
+  },
+  "scripts/validate-jsonld-build.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825008,
+    "ast_hash": "4d949c6d6a6d36ee6ed4e2f2a0209175",
+    "semantic_hash": "4d949c6d6a6d36ee6ed4e2f2a0209175"
+  },
+  "scripts/validate-jumplinks-headings.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825017,
+    "ast_hash": "5c46570b501e4cde9b0dc19fd4801d1c",
+    "semantic_hash": "5c46570b501e4cde9b0dc19fd4801d1c"
+  },
+  "scripts/validate-jumplinks.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825025,
+    "ast_hash": "adbd3396a4b098c0cfe783a67f0d4c2c",
+    "semantic_hash": "adbd3396a4b098c0cfe783a67f0d4c2c"
+  },
+  "scripts/validate-local-pages.d.mts": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825032,
+    "ast_hash": "72589f7a761328e8830b87d52c8d6d5d",
+    "semantic_hash": "72589f7a761328e8830b87d52c8d6d5d"
+  },
+  "scripts/validate-local-pages.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825041,
+    "ast_hash": "18271344b2aebfeb69959779b565cb4b",
+    "semantic_hash": "18271344b2aebfeb69959779b565cb4b"
+  },
+  "scripts/validate-nap-citations.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825048,
+    "ast_hash": "8bec347e5470883333b1135602cb18c0",
+    "semantic_hash": "8bec347e5470883333b1135602cb18c0"
+  },
+  "scripts/validate-new-pages-schemas.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.982506,
+    "ast_hash": "0ee29bd51382161402ffa57c7d5ce042",
+    "semantic_hash": "0ee29bd51382161402ffa57c7d5ce042"
+  },
+  "scripts/validate-opening-hours.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825068,
+    "ast_hash": "0599ae9c432a34dfaff95326976fd6d5",
+    "semantic_hash": "0599ae9c432a34dfaff95326976fd6d5"
+  },
+  "scripts/validate-page-meta.d.mts": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825075,
+    "ast_hash": "7118da4e6ed10512f72c6d7d12846550",
+    "semantic_hash": "7118da4e6ed10512f72c6d7d12846550"
+  },
+  "scripts/validate-page-meta.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825082,
+    "ast_hash": "3cc3192a09a75270ecd7577812f8fd8c",
+    "semantic_hash": "3cc3192a09a75270ecd7577812f8fd8c"
+  },
+  "scripts/validate-rich-snippets.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825091,
+    "ast_hash": "d0927fbc97fbdfa2df387c0c6b620578",
+    "semantic_hash": "d0927fbc97fbdfa2df387c0c6b620578"
+  },
+  "scripts/validate-schema-uniqueness.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.98251,
+    "ast_hash": "5c49a6e5d4195cce8a0657ea61613229",
+    "semantic_hash": "5c49a6e5d4195cce8a0657ea61613229"
+  },
+  "scripts/validate-schemas.ts": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825108,
+    "ast_hash": "934371b4b7ef0399a9cd7df98fc8783b",
+    "semantic_hash": "934371b4b7ef0399a9cd7df98fc8783b"
+  },
+  "scripts/validate-sitemaps.ts": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825118,
+    "ast_hash": "4dad99b9d2713ae56b2e4901645b4bb0",
+    "semantic_hash": "4dad99b9d2713ae56b2e4901645b4bb0"
+  },
+  "scripts/validate-source-word-count.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.982513,
+    "ast_hash": "aabfe18b8de07026dfb8cee3acdc739a",
+    "semantic_hash": "aabfe18b8de07026dfb8cee3acdc739a"
+  },
+  "scripts/validate-url-consistency.mjs": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.982514,
+    "ast_hash": "3013b452f3b9f8873a7df1cc9e59f752",
+    "semantic_hash": "3013b452f3b9f8873a7df1cc9e59f752"
+  },
+  "scripts/validate-url-consistency.test.ts": {
+    "mtime": 1788537005.1229358,
+    "seen": 1788537026.9825146,
+    "ast_hash": "599ca7094a8eb514c5b5472e885bc2cf",
+    "semantic_hash": "599ca7094a8eb514c5b5472e885bc2cf"
+  },
+  "scripts/validate-word-count.mjs": {
+    "mtime": 1788537005.1239357,
+    "seen": 1788537026.9825156,
+    "ast_hash": "5e08c6f7eaa551234d9bee6fd29c11f7",
+    "semantic_hash": "5e08c6f7eaa551234d9bee6fd29c11f7"
+  },
+  "src/App.tsx": {
+    "mtime": 1788537005.1239357,
+    "seen": 1788537026.9825165,
+    "ast_hash": "d0c8ae8501d4999b6ce0f3968acd5c75",
+    "semantic_hash": "d0c8ae8501d4999b6ce0f3968acd5c75"
+  },
+  "src/assets/roberto-e-sandra-patrocinio.jpeg.asset.json": {
+    "mtime": 1788537005.192936,
+    "seen": 1788537026.9825172,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "src/components/AggregateRatingSchema.tsx": {
+    "mtime": 1788537005.196936,
+    "seen": 1788537026.9825182,
+    "ast_hash": "29ccd1b8954929da3e221302157863ca",
+    "semantic_hash": "29ccd1b8954929da3e221302157863ca"
+  },
+  "src/components/AgrishowPromoBanner.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825191,
+    "ast_hash": "2dc5adce1225ea4244029ef8f3dab382",
+    "semantic_hash": "2dc5adce1225ea4244029ef8f3dab382"
+  },
+  "src/components/ArticleInlineCTA.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825199,
+    "ast_hash": "d87eef5cbb57b8b80c90721bd3d15abe",
+    "semantic_hash": "d87eef5cbb57b8b80c90721bd3d15abe"
+  },
+  "src/components/ArticleSchema.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825208,
+    "ast_hash": "c60ecb965ee281eb2d39b0cca4ca1c8a",
+    "semantic_hash": "c60ecb965ee281eb2d39b0cca4ca1c8a"
+  },
+  "src/components/AutoridadePatro.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825218,
+    "ast_hash": "deb032357a6500a909c48c88f243e796",
+    "semantic_hash": "deb032357a6500a909c48c88f243e796"
+  },
+  "src/components/BairroStickyCTABar.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825227,
+    "ast_hash": "6d1e95468347ab7694cc77cbc1e425ff",
+    "semantic_hash": "6d1e95468347ab7694cc77cbc1e425ff"
+  },
+  "src/components/BlogFormCTA.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825237,
+    "ast_hash": "7988426797baa7d237d49db69ff381e2",
+    "semantic_hash": "7988426797baa7d237d49db69ff381e2"
+  },
+  "src/components/BrandText.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825244,
+    "ast_hash": "8989daae976cec616c2496f01bff6dfe",
+    "semantic_hash": "8989daae976cec616c2496f01bff6dfe"
+  },
+  "src/components/Breadcrumb.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.982525,
+    "ast_hash": "932bef8138abe3b9c3120005bef06569",
+    "semantic_hash": "932bef8138abe3b9c3120005bef06569"
+  },
+  "src/components/BreadcrumbSchema.tsx": {
+    "mtime": 1788537005.197746,
+    "seen": 1788537026.9825263,
+    "ast_hash": "d8e129fa0797e17b6e24ef79d5f1f728",
+    "semantic_hash": "d8e129fa0797e17b6e24ef79d5f1f728"
+  },
+  "src/components/ComoPatroAjuda.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.982527,
+    "ast_hash": "7d26433614e0662f1623a46abdd0642a",
+    "semantic_hash": "7d26433614e0662f1623a46abdd0642a"
+  },
+  "src/components/ComparadorSeguradoras.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825277,
+    "ast_hash": "ff21569dbc633ac679469e4c78585a43",
+    "semantic_hash": "ff21569dbc633ac679469e4c78585a43"
+  },
+  "src/components/ComparisonTableResidencial.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825287,
+    "ast_hash": "643222aa51c17f4e9f986b287fa0e971",
+    "semantic_hash": "643222aa51c17f4e9f986b287fa0e971"
+  },
+  "src/components/ContactMapSection.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825296,
+    "ast_hash": "9d0394aa43e6907e45334d8b727f95d6",
+    "semantic_hash": "9d0394aa43e6907e45334d8b727f95d6"
+  },
+  "src/components/ContextualSeoHub.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825306,
+    "ast_hash": "41c65812fd6de2c314f5dd117cfc5a49",
+    "semantic_hash": "41c65812fd6de2c314f5dd117cfc5a49"
+  },
+  "src/components/CookieBanner.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825313,
+    "ast_hash": "82e92c4251fe5d4a887a0dce31f2aded",
+    "semantic_hash": "82e92c4251fe5d4a887a0dce31f2aded"
+  },
+  "src/components/EbookConsorcioBanner.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.982532,
+    "ast_hash": "0bd101bbfc66c8955d70bddf6b9dd3ec",
+    "semantic_hash": "0bd101bbfc66c8955d70bddf6b9dd3ec"
+  },
+  "src/components/ErrorBoundary.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825332,
+    "ast_hash": "67a41a7f27505a8ff22e769790d334c3",
+    "semantic_hash": "67a41a7f27505a8ff22e769790d334c3"
+  },
+  "src/components/ExitIntentPopup.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825342,
+    "ast_hash": "ff4b4d4e5841a5162cce2fae835be4b2",
+    "semantic_hash": "ff4b4d4e5841a5162cce2fae835be4b2"
+  },
+  "src/components/ExternalLink.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.982535,
+    "ast_hash": "baf9db2e2b8586e78f4bb9da5e257bbf",
+    "semantic_hash": "baf9db2e2b8586e78f4bb9da5e257bbf"
+  },
+  "src/components/FAQBlock.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825356,
+    "ast_hash": "76f1828d7be69f8b2b4ef61d9e55d3ad",
+    "semantic_hash": "76f1828d7be69f8b2b4ef61d9e55d3ad"
+  },
+  "src/components/FAQSchema.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825368,
+    "ast_hash": "46c622cdb9d010690da32befcebd373c",
+    "semantic_hash": "46c622cdb9d010690da32befcebd373c"
+  },
+  "src/components/Footer.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825375,
+    "ast_hash": "d0678102905fb7e32e08bcc1b3d03d34",
+    "semantic_hash": "d0678102905fb7e32e08bcc1b3d03d34"
+  },
+  "src/components/FooterReviewsBadge.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825385,
+    "ast_hash": "15ae14f0852e0af9481e8d9fc1a93263",
+    "semantic_hash": "15ae14f0852e0af9481e8d9fc1a93263"
+  },
+  "src/components/FormCTASection.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825392,
+    "ast_hash": "7a6de45c684f7eeece5fa85ec5d416a6",
+    "semantic_hash": "7a6de45c684f7eeece5fa85ec5d416a6"
+  },
+  "src/components/GalpaoStickyCTABar.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825401,
+    "ast_hash": "eac6a3f23e57e2c39f82fd8e9adb1810",
+    "semantic_hash": "eac6a3f23e57e2c39f82fd8e9adb1810"
+  },
+  "src/components/GoogleBusinessWidget.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.982541,
+    "ast_hash": "d1faaefbe49dded36232de3a1482affc",
+    "semantic_hash": "d1faaefbe49dded36232de3a1482affc"
+  },
+  "src/components/GooglePreferredSource.tsx": {
+    "mtime": 1788537005.1979358,
+    "seen": 1788537026.9825418,
+    "ast_hash": "8d9b6bd74e7ae6127b44fa8e1f10c438",
+    "semantic_hash": "8d9b6bd74e7ae6127b44fa8e1f10c438"
+  },
+  "src/components/Header.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825425,
+    "ast_hash": "e2cd43ecf7af9a92a4ae1b5ad9578bd2",
+    "semantic_hash": "e2cd43ecf7af9a92a4ae1b5ad9578bd2"
+  },
+  "src/components/HealthPlanTemplate.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825437,
+    "ast_hash": "36957ba43bd9ef6d962589ce75880f9c",
+    "semantic_hash": "36957ba43bd9ef6d962589ce75880f9c"
+  },
+  "src/components/HeroInsuranceCarousel.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825447,
+    "ast_hash": "8708adda06e489e01c606284e6afbb0c",
+    "semantic_hash": "8708adda06e489e01c606284e6afbb0c"
+  },
+  "src/components/HeroPatro.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825468,
+    "ast_hash": "9c18f03b5f284b17dfce9b6c716cafba",
+    "semantic_hash": "9c18f03b5f284b17dfce9b6c716cafba"
+  },
+  "src/components/HomeBlogSection.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825478,
+    "ast_hash": "b76f0cd37896c69e411c24b0e17c70c0",
+    "semantic_hash": "b76f0cd37896c69e411c24b0e17c70c0"
+  },
+  "src/components/HomeSelector.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825485,
+    "ast_hash": "a440402f9efeaa25917c54b2f645f1a2",
+    "semantic_hash": "a440402f9efeaa25917c54b2f645f1a2"
+  },
+  "src/components/HowToSchema.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825492,
+    "ast_hash": "d760014dc07baf2c72e5c7a0c8719bfe",
+    "semantic_hash": "d760014dc07baf2c72e5c7a0c8719bfe"
+  },
+  "src/components/InsuranceAgencySchema.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825504,
+    "ast_hash": "a174af8e3310777897c2df0ba84779f8",
+    "semantic_hash": "a174af8e3310777897c2df0ba84779f8"
+  },
+  "src/components/InsuranceHeroSelector.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.982551,
+    "ast_hash": "8f1ceca1cb309a086a4f7300c143e727",
+    "semantic_hash": "8f1ceca1cb309a086a4f7300c143e727"
+  },
+  "src/components/InsuranceHubLinks.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825518,
+    "ast_hash": "53246f40bc7142cfa344e06d2f935c97",
+    "semantic_hash": "53246f40bc7142cfa344e06d2f935c97"
+  },
+  "src/components/InsurancePageTemplate.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.9825528,
+    "ast_hash": "d0ab28b60a4963301a220f15b90e88dd",
+    "semantic_hash": "d0ab28b60a4963301a220f15b90e88dd"
+  },
+  "src/components/InsuranceQuoteForm.test.tsx": {
+    "mtime": 1788537005.198936,
+    "seen": 1788537026.982554,
+    "ast_hash": "b5b0fd7ff8a2acc73bec7b6091ad28e3",
+    "semantic_hash": "b5b0fd7ff8a2acc73bec7b6091ad28e3"
+  },
+  "src/components/InsuranceQuoteForm.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825547,
+    "ast_hash": "3081b2f870b39f269b64ccdb61a648ef",
+    "semantic_hash": "3081b2f870b39f269b64ccdb61a648ef"
+  },
+  "src/components/InsurerPageTemplate.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825554,
+    "ast_hash": "4409a1f9692f0c707b96dd9766a9d815",
+    "semantic_hash": "4409a1f9692f0c707b96dd9766a9d815"
+  },
+  "src/components/InteractiveChecklist.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825563,
+    "ast_hash": "331ac0f9f978175d46e6f74aa569c809",
+    "semantic_hash": "331ac0f9f978175d46e6f74aa569c809"
+  },
+  "src/components/JumpLinksNav.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825573,
+    "ast_hash": "04bdf225afda4f6aa67962ae5a36346f",
+    "semantic_hash": "04bdf225afda4f6aa67962ae5a36346f"
+  },
+  "src/components/LandingPageTemplate.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.982558,
+    "ast_hash": "b75f1ac9bd47faf92b8f0238d82dd6a6",
+    "semantic_hash": "b75f1ac9bd47faf92b8f0238d82dd6a6"
+  },
+  "src/components/LazyMapEmbed.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.982559,
+    "ast_hash": "517c6d7ab613e725cba177318641b825",
+    "semantic_hash": "517c6d7ab613e725cba177318641b825"
+  },
+  "src/components/LazySection.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825597,
+    "ast_hash": "30bef3052e6aca0e7535dce67408bbc2",
+    "semantic_hash": "30bef3052e6aca0e7535dce67408bbc2"
+  },
+  "src/components/LeadMagnetSection.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825604,
+    "ast_hash": "c8345d6cc2738522b5be5a954d280ec2",
+    "semantic_hash": "c8345d6cc2738522b5be5a954d280ec2"
+  },
+  "src/components/LocalAreaSchema.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825616,
+    "ast_hash": "293b6d1a166a71eff63e55706d63dce2",
+    "semantic_hash": "293b6d1a166a71eff63e55706d63dce2"
+  },
+  "src/components/LocalBusinessSchema.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825623,
+    "ast_hash": "c6da4e0f58c93d746083e81875026495",
+    "semantic_hash": "c6da4e0f58c93d746083e81875026495"
+  },
+  "src/components/LocalMapSection.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825633,
+    "ast_hash": "a328c5c1a0748c0284cb8dfacb0faac3",
+    "semantic_hash": "a328c5c1a0748c0284cb8dfacb0faac3"
+  },
+  "src/components/LocalPageTemplate.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825642,
+    "ast_hash": "e94c8647807b2c403c9128726675e5ed",
+    "semantic_hash": "e94c8647807b2c403c9128726675e5ed"
+  },
+  "src/components/LocalSavingsCalculator.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.982565,
+    "ast_hash": "6984ad357ecb61976a331c1c1bb96395",
+    "semantic_hash": "6984ad357ecb61976a331c1c1bb96395"
+  },
+  "src/components/LocalTestimonials.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825659,
+    "ast_hash": "fcca23860a4ba71bd52fbfafb4672111",
+    "semantic_hash": "fcca23860a4ba71bd52fbfafb4672111"
+  },
+  "src/components/LongtailPagerNav.tsx": {
+    "mtime": 1788537005.199936,
+    "seen": 1788537026.9825666,
+    "ast_hash": "f4970c253388c46ce387c8f18821a523",
+    "semantic_hash": "f4970c253388c46ce387c8f18821a523"
+  },
+  "src/components/MedicalOrganizationSchema.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825673,
+    "ast_hash": "1201e0f0bf64f76989e00b44bcf9ce49",
+    "semantic_hash": "1201e0f0bf64f76989e00b44bcf9ce49"
+  },
+  "src/components/MobileClusterNextCta.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825685,
+    "ast_hash": "16a2f832d965bcc145c9eb2bb5a97f4e",
+    "semantic_hash": "16a2f832d965bcc145c9eb2bb5a97f4e"
+  },
+  "src/components/ModelHub.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825692,
+    "ast_hash": "b1c64566a079ef7db273f9a44a4115fb",
+    "semantic_hash": "b1c64566a079ef7db273f9a44a4115fb"
+  },
+  "src/components/NapBlock.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.98257,
+    "ast_hash": "1ab2c86757c1830b918455522242c3ec",
+    "semantic_hash": "1ab2c86757c1830b918455522242c3ec"
+  },
+  "src/components/NavLink.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825711,
+    "ast_hash": "8f7c178b4776787e58e1011855ca28f6",
+    "semantic_hash": "8f7c178b4776787e58e1011855ca28f6"
+  },
+  "src/components/NeighborhoodHub.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825718,
+    "ast_hash": "30c3873fd0714849273df70927f0d70f",
+    "semantic_hash": "30c3873fd0714849273df70927f0d70f"
+  },
+  "src/components/NextSectionCta.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825726,
+    "ast_hash": "2764d0e01ff30db0dda86e3c99717519",
+    "semantic_hash": "2764d0e01ff30db0dda86e3c99717519"
+  },
+  "src/components/OptimizedImage.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825733,
+    "ast_hash": "4a71b43e3fe56eab0af744af4905c7a9",
+    "semantic_hash": "4a71b43e3fe56eab0af744af4905c7a9"
+  },
+  "src/components/OrganizationSchema.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825742,
+    "ast_hash": "6fad2dfbbaeeaf762cf0afbc21992262",
+    "semantic_hash": "6fad2dfbbaeeaf762cf0afbc21992262"
+  },
+  "src/components/PageLoader.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825752,
+    "ast_hash": "db6960bf75721d28117f94fb4e917ba2",
+    "semantic_hash": "db6960bf75721d28117f94fb4e917ba2"
+  },
+  "src/components/PageMeta.robots.test.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.982576,
+    "ast_hash": "90059e256dedc2f5b14d1736302a7656",
+    "semantic_hash": "90059e256dedc2f5b14d1736302a7656"
+  },
+  "src/components/PageMeta.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825766,
+    "ast_hash": "b222257991ba5c43b4db6f37f127b1ab",
+    "semantic_hash": "b222257991ba5c43b4db6f37f127b1ab"
+  },
+  "src/components/PageSkeleton.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825776,
+    "ast_hash": "bb114f955e5453f0bfd808a7f276df7a",
+    "semantic_hash": "bb114f955e5453f0bfd808a7f276df7a"
+  },
+  "src/components/PartnerInsurerPage.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825785,
+    "ast_hash": "2c86d1add7b78a6c7d67dd9c30a6dffc",
+    "semantic_hash": "2c86d1add7b78a6c7d67dd9c30a6dffc"
+  },
+  "src/components/PersonAuthorsSchema.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825792,
+    "ast_hash": "eb18320b0a7425d438b503b54949f380",
+    "semantic_hash": "eb18320b0a7425d438b503b54949f380"
+  },
+  "src/components/PortoPartnershipSection.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825802,
+    "ast_hash": "4e62cfcfdafc3a10de871e1fa4b914fe",
+    "semantic_hash": "4e62cfcfdafc3a10de871e1fa4b914fe"
+  },
+  "src/components/PrerenderText.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.982581,
+    "ast_hash": "f844860d294f9f4b95cb5c44d6336adf",
+    "semantic_hash": "f844860d294f9f4b95cb5c44d6336adf"
+  },
+  "src/components/ProvaSocialPatro.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825819,
+    "ast_hash": "2b8a95784825affcf9038c3ad9376f23",
+    "semantic_hash": "2b8a95784825affcf9038c3ad9376f23"
+  },
+  "src/components/ProximasLeiturasCluster.tsx": {
+    "mtime": 1788537005.2009358,
+    "seen": 1788537026.9825828,
+    "ast_hash": "8af2dda9254cb042a6cdfa134ec833ab",
+    "semantic_hash": "8af2dda9254cb042a6cdfa134ec833ab"
+  },
+  "src/components/QuickLeadForm.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825835,
+    "ast_hash": "228671d4c591bf2ada8d2b9d4fa03325",
+    "semantic_hash": "228671d4c591bf2ada8d2b9d4fa03325"
+  },
+  "src/components/QuickQuoteForm.test.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825842,
+    "ast_hash": "1eba25bdf645612e42c859890c49e8e8",
+    "semantic_hash": "1eba25bdf645612e42c859890c49e8e8"
+  },
+  "src/components/QuickQuoteForm.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825854,
+    "ast_hash": "50227312c66dc3f112f642a16ed86212",
+    "semantic_hash": "50227312c66dc3f112f642a16ed86212"
+  },
+  "src/components/RequireAdmin.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825861,
+    "ast_hash": "414fcb3d017314c7b77446ac76759363",
+    "semantic_hash": "414fcb3d017314c7b77446ac76759363"
+  },
+  "src/components/ScrollToTop.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.982587,
+    "ast_hash": "6c9ac5d6510e894234f1885140998497",
+    "semantic_hash": "6c9ac5d6510e894234f1885140998497"
+  },
+  "src/components/SeloMelhorCorretora.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825878,
+    "ast_hash": "456bc82c8ffae0af11466267d794a35d",
+    "semantic_hash": "456bc82c8ffae0af11466267d794a35d"
+  },
+  "src/components/ServiceSchema.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825888,
+    "ast_hash": "ecc7aee8044d4886caae6a9170df2434",
+    "semantic_hash": "ecc7aee8044d4886caae6a9170df2434"
+  },
+  "src/components/ServiceWorkerCheck.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825897,
+    "ast_hash": "b8909916d78b8c7c0a032c0220cb3b4e",
+    "semantic_hash": "b8909916d78b8c7c0a032c0220cb3b4e"
+  },
+  "src/components/SiteNavigationSchema.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.982591,
+    "ast_hash": "d934dba3e3325465ce5eb2be835c0e61",
+    "semantic_hash": "d934dba3e3325465ce5eb2be835c0e61"
+  },
+  "src/components/SkipLink.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825916,
+    "ast_hash": "899e719f4283a059622461c97a0b1845",
+    "semantic_hash": "899e719f4283a059622461c97a0b1845"
+  },
+  "src/components/SmartLink.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825928,
+    "ast_hash": "d0713fe4c7555e2e6bf64070a70f370e",
+    "semantic_hash": "d0713fe4c7555e2e6bf64070a70f370e"
+  },
+  "src/components/SmartText.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825938,
+    "ast_hash": "4b022f11e6e70cd0adf4e21711a4f929",
+    "semantic_hash": "4b022f11e6e70cd0adf4e21711a4f929"
+  },
+  "src/components/SpeakableSchema.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825945,
+    "ast_hash": "56169c5e3645752bf7e326a6983d1066",
+    "semantic_hash": "56169c5e3645752bf7e326a6983d1066"
+  },
+  "src/components/StickyQuoteBar.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825957,
+    "ast_hash": "97ea513cdce9923622e04360ba5e68bc",
+    "semantic_hash": "97ea513cdce9923622e04360ba5e68bc"
+  },
+  "src/components/TrilhaSeoRelacionados.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825964,
+    "ast_hash": "cbe437b886cbdf16d2fe43824ad63993",
+    "semantic_hash": "cbe437b886cbdf16d2fe43824ad63993"
+  },
+  "src/components/WebSiteSchema.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.9825974,
+    "ast_hash": "7e203e600256886da6f270d7591f6465",
+    "semantic_hash": "7e203e600256886da6f270d7591f6465"
+  },
+  "src/components/WhatsAppButton.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.982598,
+    "ast_hash": "2f09878d95bb02d0ce5b23e91b5978d0",
+    "semantic_hash": "2f09878d95bb02d0ce5b23e91b5978d0"
+  },
+  "src/components/b2b/B2bInsurerPageTemplate.tsx": {
+    "mtime": 1788537005.201936,
+    "seen": 1788537026.982599,
+    "ast_hash": "3bc910d9d42f630831d022ca0afa212f",
+    "semantic_hash": "3bc910d9d42f630831d022ca0afa212f"
+  },
+  "src/components/b2b/B2bIntentPageTemplate.tsx": {
+    "mtime": 1788537005.202936,
+    "seen": 1788537026.9825997,
+    "ast_hash": "113d1c4bb9c7c7b7baf80d67241ad24d",
+    "semantic_hash": "113d1c4bb9c7c7b7baf80d67241ad24d"
+  },
+  "src/components/consorcio/ConsorcioIntentPageTemplate.tsx": {
+    "mtime": 1788537005.202936,
+    "seen": 1788537026.9826007,
+    "ast_hash": "6b9989fa1c339fe3deac4f970b480165",
+    "semantic_hash": "6b9989fa1c339fe3deac4f970b480165"
+  },
+  "src/components/crm/CarriersModule.tsx": {
+    "mtime": 1788537005.202936,
+    "seen": 1788537026.9826014,
+    "ast_hash": "938fb5f6c69c2fe7f8b1a3c1d1482d02",
+    "semantic_hash": "938fb5f6c69c2fe7f8b1a3c1d1482d02"
+  },
+  "src/components/crm/ClaimsModule.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.9826024,
+    "ast_hash": "5faf6295ec00db2ce5d2afd70c8e0cfa",
+    "semantic_hash": "5faf6295ec00db2ce5d2afd70c8e0cfa"
+  },
+  "src/components/crm/ContactInteractionDialog.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.9826033,
+    "ast_hash": "af24490955789decb693d240502ff474",
+    "semantic_hash": "af24490955789decb693d240502ff474"
+  },
+  "src/components/crm/ContactsModule.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.9826043,
+    "ast_hash": "70dd2637682146d147775885dfb6ab5c",
+    "semantic_hash": "70dd2637682146d147775885dfb6ab5c"
+  },
+  "src/components/crm/DashboardOverview.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.982605,
+    "ast_hash": "de81c572975d0a98cc35f4b1f34c81ad",
+    "semantic_hash": "de81c572975d0a98cc35f4b1f34c81ad"
+  },
+  "src/components/crm/KanbanBoard.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.982606,
+    "ast_hash": "4fd0314780be9b63cb845f65b3286394",
+    "semantic_hash": "4fd0314780be9b63cb845f65b3286394"
+  },
+  "src/components/crm/LeadsTable.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.982607,
+    "ast_hash": "4b48470b007c89d586145c12e5eb7da1",
+    "semantic_hash": "4b48470b007c89d586145c12e5eb7da1"
+  },
+  "src/components/crm/OpportunitiesModule.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.9826078,
+    "ast_hash": "bfe8b2959fecfef515ca2ab9951d3fd3",
+    "semantic_hash": "bfe8b2959fecfef515ca2ab9951d3fd3"
+  },
+  "src/components/crm/PerformanceReports.tsx": {
+    "mtime": 1788537005.2034657,
+    "seen": 1788537026.9826088,
+    "ast_hash": "a53d119cf9c38e6174926b8e17eb34d1",
+    "semantic_hash": "a53d119cf9c38e6174926b8e17eb34d1"
+  },
+  "src/components/crm/RelationshipModule.tsx": {
+    "mtime": 1788537005.2039359,
+    "seen": 1788537026.9826097,
+    "ast_hash": "917af8f7f6f3ee2ce76acc6e724dc76c",
+    "semantic_hash": "917af8f7f6f3ee2ce76acc6e724dc76c"
+  },
+  "src/components/lp/LpEnterpriseForm.tsx": {
+    "mtime": 1788537005.2039359,
+    "seen": 1788537026.982611,
+    "ast_hash": "9dacfc0e0765cb9dfce14889b7115435",
+    "semantic_hash": "9dacfc0e0765cb9dfce14889b7115435"
+  },
+  "src/components/lp/LpShared.tsx": {
+    "mtime": 1788537005.2044694,
+    "seen": 1788537026.9826117,
+    "ast_hash": "b438131e3f768505fa6b71b6c21c8e90",
+    "semantic_hash": "b438131e3f768505fa6b71b6c21c8e90"
+  },
+  "src/components/premium/PatroPrivateForm.tsx": {
+    "mtime": 1788537005.2044694,
+    "seen": 1788537026.9826128,
+    "ast_hash": "3fbe555f38b5e7842f5bdc007017fb69",
+    "semantic_hash": "3fbe555f38b5e7842f5bdc007017fb69"
+  },
+  "src/components/premium/PremiumHero.tsx": {
+    "mtime": 1788537005.2046402,
+    "seen": 1788537026.9826136,
+    "ast_hash": "74406d6be6815656d20bd5a41243109d",
+    "semantic_hash": "74406d6be6815656d20bd5a41243109d"
+  },
+  "src/components/premium/PremiumPageTemplate.tsx": {
+    "mtime": 1788537005.2046402,
+    "seen": 1788537026.9826145,
+    "ast_hash": "0f980bc8ffb24d0a09017d488fdc806f",
+    "semantic_hash": "0f980bc8ffb24d0a09017d488fdc806f"
+  },
+  "src/components/premium/PremiumSection.tsx": {
+    "mtime": 1788537005.2046402,
+    "seen": 1788537026.9826152,
+    "ast_hash": "c8c2260ac781370456e132bf89d562ad",
+    "semantic_hash": "c8c2260ac781370456e132bf89d562ad"
+  },
+  "src/components/premium/PremiumShell.tsx": {
+    "mtime": 1788537005.2046402,
+    "seen": 1788537026.982616,
+    "ast_hash": "3769d9748b8e039339971e794f1a7f21",
+    "semantic_hash": "3769d9748b8e039339971e794f1a7f21"
+  },
+  "src/components/premium/PremiumTrustBlock.tsx": {
+    "mtime": 1788537005.2046402,
+    "seen": 1788537026.9826171,
+    "ast_hash": "8d0f807d7081c800ca42cc1ba03ffc70",
+    "semantic_hash": "8d0f807d7081c800ca42cc1ba03ffc70"
+  },
+  "src/components/saude/SaudeSubPageTemplate.tsx": {
+    "mtime": 1788537005.2046402,
+    "seen": 1788537026.9826179,
+    "ast_hash": "96887d387d0978fa2468cdae5ac68919",
+    "semantic_hash": "96887d387d0978fa2468cdae5ac68919"
+  },
+  "src/components/ui/accordion.tsx": {
+    "mtime": 1788537005.2046402,
+    "seen": 1788537026.9826188,
+    "ast_hash": "f9ebb6ee913b44e5f3e06fe1d9679784",
+    "semantic_hash": "f9ebb6ee913b44e5f3e06fe1d9679784"
+  },
+  "src/components/ui/badge.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826198,
+    "ast_hash": "8db4e6d330f88f4041f81e7cde43782b",
+    "semantic_hash": "8db4e6d330f88f4041f81e7cde43782b"
+  },
+  "src/components/ui/breadcrumb.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826205,
+    "ast_hash": "c200fc41e9b214ebb6ccd19a300c42c5",
+    "semantic_hash": "c200fc41e9b214ebb6ccd19a300c42c5"
+  },
+  "src/components/ui/button.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826214,
+    "ast_hash": "e218eff42759d2ecf8aa22c24764384b",
+    "semantic_hash": "e218eff42759d2ecf8aa22c24764384b"
+  },
+  "src/components/ui/calendar.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826221,
+    "ast_hash": "55e056ce133551e33a0ea836ee07b586",
+    "semantic_hash": "55e056ce133551e33a0ea836ee07b586"
+  },
+  "src/components/ui/card.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826229,
+    "ast_hash": "202402023747c80d975f48b906e6eb1b",
+    "semantic_hash": "202402023747c80d975f48b906e6eb1b"
+  },
+  "src/components/ui/checkbox.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.982624,
+    "ast_hash": "cb12d2f3410761f7a678add95c90ac5d",
+    "semantic_hash": "cb12d2f3410761f7a678add95c90ac5d"
+  },
+  "src/components/ui/dialog.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826248,
+    "ast_hash": "fc3a9626ba52435552c93ac3a74374ec",
+    "semantic_hash": "fc3a9626ba52435552c93ac3a74374ec"
+  },
+  "src/components/ui/dropdown-menu.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826257,
+    "ast_hash": "f308eb98a2e21bf8bd1e30dbcb741dc0",
+    "semantic_hash": "f308eb98a2e21bf8bd1e30dbcb741dc0"
+  },
+  "src/components/ui/form.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826267,
+    "ast_hash": "4bb820d59aad3ee5bc78097596298ace",
+    "semantic_hash": "4bb820d59aad3ee5bc78097596298ace"
+  },
+  "src/components/ui/input.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826276,
+    "ast_hash": "b8279d768c2a1ce78a05a369a0502877",
+    "semantic_hash": "b8279d768c2a1ce78a05a369a0502877"
+  },
+  "src/components/ui/label.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826283,
+    "ast_hash": "cd2b2255bbe519cb0865dfeaa6615797",
+    "semantic_hash": "cd2b2255bbe519cb0865dfeaa6615797"
+  },
+  "src/components/ui/popover.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826293,
+    "ast_hash": "fc70a6c55ac2e65fef3344cdb78a3258",
+    "semantic_hash": "fc70a6c55ac2e65fef3344cdb78a3258"
+  },
+  "src/components/ui/progress.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826303,
+    "ast_hash": "9a8b05beca19e008a562a10e489f5968",
+    "semantic_hash": "9a8b05beca19e008a562a10e489f5968"
+  },
+  "src/components/ui/scroll-area.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.982631,
+    "ast_hash": "cfbc224001af0e6daba676de225a2a47",
+    "semantic_hash": "cfbc224001af0e6daba676de225a2a47"
+  },
+  "src/components/ui/select.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.982632,
+    "ast_hash": "25de64d0126624cbd8efa50cfb64bd21",
+    "semantic_hash": "25de64d0126624cbd8efa50cfb64bd21"
+  },
+  "src/components/ui/separator.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826326,
+    "ast_hash": "ed1101f185e9dc801712593e3330a75d",
+    "semantic_hash": "ed1101f185e9dc801712593e3330a75d"
+  },
+  "src/components/ui/sheet.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826338,
+    "ast_hash": "3660be09e2e40467a22fd46b354c1b50",
+    "semantic_hash": "3660be09e2e40467a22fd46b354c1b50"
+  },
+  "src/components/ui/skeleton.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826345,
+    "ast_hash": "c55f76f4faa1d6e888dbc51d41eaa586",
+    "semantic_hash": "c55f76f4faa1d6e888dbc51d41eaa586"
+  },
+  "src/components/ui/slider.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826353,
+    "ast_hash": "ccbb4f4470af296eafa94f9972e8a4f9",
+    "semantic_hash": "ccbb4f4470af296eafa94f9972e8a4f9"
+  },
+  "src/components/ui/sonner.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826362,
+    "ast_hash": "88644703cc00886c56e0e3b7df0e21d8",
+    "semantic_hash": "88644703cc00886c56e0e3b7df0e21d8"
+  },
+  "src/components/ui/switch.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826374,
+    "ast_hash": "01cee656394023fcf9b3b76a78fc5bac",
+    "semantic_hash": "01cee656394023fcf9b3b76a78fc5bac"
+  },
+  "src/components/ui/table.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826381,
+    "ast_hash": "d0ff87c4734c23839337811378ad07df",
+    "semantic_hash": "d0ff87c4734c23839337811378ad07df"
+  },
+  "src/components/ui/tabs.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.982639,
+    "ast_hash": "26b15e1ffce0f831be4da95b8f8a43df",
+    "semantic_hash": "26b15e1ffce0f831be4da95b8f8a43df"
+  },
+  "src/components/ui/textarea.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826398,
+    "ast_hash": "29ab470ee59e9da5070d4fba251bce81",
+    "semantic_hash": "29ab470ee59e9da5070d4fba251bce81"
+  },
+  "src/components/ui/toast.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.982641,
+    "ast_hash": "7c08b5cb6026058514672a4ebc53847e",
+    "semantic_hash": "7c08b5cb6026058514672a4ebc53847e"
+  },
+  "src/components/ui/toaster.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826417,
+    "ast_hash": "1903846ab268620de6356ef667e3fa21",
+    "semantic_hash": "1903846ab268620de6356ef667e3fa21"
+  },
+  "src/components/ui/toggle.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826427,
+    "ast_hash": "ff7a7deebff23c3488e79ad72ee47e4b",
+    "semantic_hash": "ff7a7deebff23c3488e79ad72ee47e4b"
+  },
+  "src/components/ui/tooltip.tsx": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826434,
+    "ast_hash": "d7e923341b9e91d77db45ba5f2fa0cf9",
+    "semantic_hash": "d7e923341b9e91d77db45ba5f2fa0cf9"
+  },
+  "src/components/ui/use-toast.ts": {
+    "mtime": 1788537005.2050314,
+    "seen": 1788537026.9826443,
+    "ast_hash": "4f094014a1315ca1081cbdc7f78d55cc",
+    "semantic_hash": "4f094014a1315ca1081cbdc7f78d55cc"
+  },
+  "src/config/empresa.ts": {
+    "mtime": 1788537005.205936,
+    "seen": 1788537026.9826453,
+    "ast_hash": "d931038ce38d87437645d3e437573a77",
+    "semantic_hash": "d931038ce38d87437645d3e437573a77"
+  },
+  "src/data/b2bVertical.ts": {
+    "mtime": 1788537005.205936,
+    "seen": 1788537026.9826462,
+    "ast_hash": "b917da26f31665b300b6ac6d9f74c33f",
+    "semantic_hash": "b917da26f31665b300b6ac6d9f74c33f"
+  },
+  "src/data/blogAgroContent.ts": {
+    "mtime": 1788537005.2064822,
+    "seen": 1788537026.982647,
+    "ast_hash": "505bc71a1142c97f21540024768ed7ad",
+    "semantic_hash": "505bc71a1142c97f21540024768ed7ad"
+  },
+  "src/data/blogAgroData.ts": {
+    "mtime": 1788537005.2064822,
+    "seen": 1788537026.9826481,
+    "ast_hash": "e0ebbdccfeffad5f423e23bdf834b4f6",
+    "semantic_hash": "e0ebbdccfeffad5f423e23bdf834b4f6"
+  },
+  "src/data/blogArticlesContent.ts": {
+    "mtime": 1788537005.2064822,
+    "seen": 1788537026.9826488,
+    "ast_hash": "a74217601a35baf58c60f0a66f03c400",
+    "semantic_hash": "a74217601a35baf58c60f0a66f03c400"
+  },
+  "src/data/blogAutoContent.ts": {
+    "mtime": 1788537005.206936,
+    "seen": 1788537026.9826496,
+    "ast_hash": "ef4d8bebebadef6c912824a361cd406f",
+    "semantic_hash": "ef4d8bebebadef6c912824a361cd406f"
+  },
+  "src/data/blogAutoData.ts": {
+    "mtime": 1788537005.206936,
+    "seen": 1788537026.9826505,
+    "ast_hash": "d88b3111c81d7eca5ce4670d6747728b",
+    "semantic_hash": "d88b3111c81d7eca5ce4670d6747728b"
+  },
+  "src/data/blogCalendar90dContent.ts": {
+    "mtime": 1788537005.206936,
+    "seen": 1788537026.9826515,
+    "ast_hash": "77b3a6b8846c1def44c8c77b4ed17dba",
+    "semantic_hash": "77b3a6b8846c1def44c8c77b4ed17dba"
+  },
+  "src/data/blogCalendar90dData.ts": {
+    "mtime": 1788537005.206936,
+    "seen": 1788537026.9826524,
+    "ast_hash": "75f1ffd1e612abcdf6174dabb943e5cc",
+    "semantic_hash": "75f1ffd1e612abcdf6174dabb943e5cc"
+  },
+  "src/data/blogClusters.ts": {
+    "mtime": 1788537005.206936,
+    "seen": 1788537026.9826534,
+    "ast_hash": "83c6b3fdd9ff441f24f02c7c1a8a36b5",
+    "semantic_hash": "83c6b3fdd9ff441f24f02c7c1a8a36b5"
+  },
+  "src/data/blogConsultorioContent.ts": {
+    "mtime": 1788537005.206936,
+    "seen": 1788537026.9826546,
+    "ast_hash": "4191c13359f45d6c5b528da4e9676887",
+    "semantic_hash": "4191c13359f45d6c5b528da4e9676887"
+  },
+  "src/data/blogConsultorioData.ts": {
+    "mtime": 1788537005.206936,
+    "seen": 1788537026.9826555,
+    "ast_hash": "2a83bf1c5a22a45610cf261723b03c05",
+    "semantic_hash": "2a83bf1c5a22a45610cf261723b03c05"
+  },
+  "src/data/blogContentIndex.ts": {
+    "mtime": 1788537005.207936,
+    "seen": 1788537026.9826562,
+    "ast_hash": "bf02f095f74f0f8c40f79dff7215f0c6",
+    "semantic_hash": "bf02f095f74f0f8c40f79dff7215f0c6"
+  },
+  "src/data/blogDicasRcResidContent.ts": {
+    "mtime": 1788537005.207936,
+    "seen": 1788537026.9826572,
+    "ast_hash": "0f8c3e72056ed154cd1addca9a4453ae",
+    "semantic_hash": "0f8c3e72056ed154cd1addca9a4453ae"
+  },
+  "src/data/blogEstudoOriginalContent.ts": {
+    "mtime": 1788537005.207936,
+    "seen": 1788537026.9826584,
+    "ast_hash": "15b35622eadc6c96cca066aa72f7b42c",
+    "semantic_hash": "15b35622eadc6c96cca066aa72f7b42c"
+  },
+  "src/data/blogExtraData.ts": {
+    "mtime": 1788537005.207936,
+    "seen": 1788537026.982659,
+    "ast_hash": "173bc99e0e654b565deea7e9f75beebb",
+    "semantic_hash": "173bc99e0e654b565deea7e9f75beebb"
+  },
+  "src/data/blogEzzeContent.ts": {
+    "mtime": 1788537005.207936,
+    "seen": 1788537026.9826598,
+    "ast_hash": "a3b04a18a6eecb948ec005a49df76def",
+    "semantic_hash": "a3b04a18a6eecb948ec005a49df76def"
+  },
+  "src/data/blogFaqBackfill.ts": {
+    "mtime": 1788537005.207936,
+    "seen": 1788537026.9826608,
+    "ast_hash": "68afef703372a8d7b1226fb725ab4352",
+    "semantic_hash": "68afef703372a8d7b1226fb725ab4352"
+  },
+  "src/data/blogFase5LocalContent.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.982662,
+    "ast_hash": "80b98983ce886c6214abcf5824ca0d9c",
+    "semantic_hash": "80b98983ce886c6214abcf5824ca0d9c"
+  },
+  "src/data/blogFase5LocalData.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.9826627,
+    "ast_hash": "a9656aa8232a8e0564812518d8fbfc88",
+    "semantic_hash": "a9656aa8232a8e0564812518d8fbfc88"
+  },
+  "src/data/blogFlatContent.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.9826636,
+    "ast_hash": "f851492e1413c30773a366593bfc97b4",
+    "semantic_hash": "f851492e1413c30773a366593bfc97b4"
+  },
+  "src/data/blogFlatData.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.9826646,
+    "ast_hash": "29b0b515eaeecdba4d3f78ff6e3b71d0",
+    "semantic_hash": "29b0b515eaeecdba4d3f78ff6e3b71d0"
+  },
+  "src/data/blogGuarulhosContent.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.9826655,
+    "ast_hash": "f6de7398ebf0f66d403c84fe7da89be5",
+    "semantic_hash": "f6de7398ebf0f66d403c84fe7da89be5"
+  },
+  "src/data/blogGuarulhosData.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.9826665,
+    "ast_hash": "fcd696fe5706dda2f93cbb9b724776bf",
+    "semantic_hash": "fcd696fe5706dda2f93cbb9b724776bf"
+  },
+  "src/data/blogGuarulhosLojistasContent.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.9826672,
+    "ast_hash": "8ffa22ba79c1a9449e26bbc2802304da",
+    "semantic_hash": "8ffa22ba79c1a9449e26bbc2802304da"
+  },
+  "src/data/blogGuarulhosLojistasData.ts": {
+    "mtime": 1788537005.208936,
+    "seen": 1788537026.982668,
+    "ast_hash": "034e6b0c271be6e66463a28816c2e1ff",
+    "semantic_hash": "034e6b0c271be6e66463a28816c2e1ff"
+  },
+  "src/data/blogLote5Content.ts": {
+    "mtime": 1788537005.209936,
+    "seen": 1788537026.982669,
+    "ast_hash": "895ad4628a2af1c14515a502c0c0d00c",
+    "semantic_hash": "895ad4628a2af1c14515a502c0c0d00c"
+  },
+  "src/data/blogOdontologiaContent.ts": {
+    "mtime": 1788537005.210936,
+    "seen": 1788537026.9826698,
+    "ast_hash": "ecfb2df705e4430f8f009daff7d15d1e",
+    "semantic_hash": "ecfb2df705e4430f8f009daff7d15d1e"
+  },
+  "src/data/blogOdontologiaData.ts": {
+    "mtime": 1788537005.210936,
+    "seen": 1788537026.9826705,
+    "ast_hash": "43f88bdb35e37379dd1cd42416d89c79",
+    "semantic_hash": "43f88bdb35e37379dd1cd42416d89c79"
+  },
+  "src/data/blogP2GuarulhosContent.ts": {
+    "mtime": 1788537005.210936,
+    "seen": 1788537026.9826715,
+    "ast_hash": "97e5b10799230890fdc017d867535460",
+    "semantic_hash": "97e5b10799230890fdc017d867535460"
+  },
+  "src/data/blogPatroPrivateContent.ts": {
+    "mtime": 1788537005.210936,
+    "seen": 1788537026.9826725,
+    "ast_hash": "173c83354ba8730d40a591ce25f9bc85",
+    "semantic_hash": "173c83354ba8730d40a591ce25f9bc85"
+  },
+  "src/data/blogPatroPrivateData.ts": {
+    "mtime": 1788537005.210936,
+    "seen": 1788537026.9826734,
+    "ast_hash": "24a57e11eb4027543b3e8ba9876ddff5",
+    "semantic_hash": "24a57e11eb4027543b3e8ba9876ddff5"
+  },
+  "src/data/blogSalaComercialContent.ts": {
+    "mtime": 1788537005.210936,
+    "seen": 1788537026.9826741,
+    "ast_hash": "b711376951693498950b7c38cf3936d3",
+    "semantic_hash": "b711376951693498950b7c38cf3936d3"
+  },
+  "src/data/blogSalaComercialData.ts": {
+    "mtime": 1788537005.210936,
+    "seen": 1788537026.9826748,
+    "ast_hash": "03921df0b36e0cbe631cda3441f2230c",
+    "semantic_hash": "03921df0b36e0cbe631cda3441f2230c"
+  },
+  "src/data/blogSaudeAgroContent.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826758,
+    "ast_hash": "60ad753fd65d9c99c186ade89122a6ed",
+    "semantic_hash": "60ad753fd65d9c99c186ade89122a6ed"
+  },
+  "src/data/blogVeterinariaContent.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826767,
+    "ast_hash": "e5eaef9bcc5091371a4ccf644affc113",
+    "semantic_hash": "e5eaef9bcc5091371a4ccf644affc113"
+  },
+  "src/data/blogVeterinariaData.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826775,
+    "ast_hash": "bdecee86e6318549f76b4ba8556ac0c4",
+    "semantic_hash": "bdecee86e6318549f76b4ba8556ac0c4"
+  },
+  "src/data/blogVistoriaContent.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826784,
+    "ast_hash": "5999e8e8e992dbd5ec6f0fbd2797c854",
+    "semantic_hash": "5999e8e8e992dbd5ec6f0fbd2797c854"
+  },
+  "src/data/blogVistoriaData.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826796,
+    "ast_hash": "32fa278775c35d28b435212d1f463547",
+    "semantic_hash": "32fa278775c35d28b435212d1f463547"
+  },
+  "src/data/comparativosData.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826806,
+    "ast_hash": "63ed0b4120ee61cb0e7118a3b36ba04c",
+    "semantic_hash": "63ed0b4120ee61cb0e7118a3b36ba04c"
+  },
+  "src/data/consorcioVertical.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826813,
+    "ast_hash": "097fc65626fa3b87849c8e29ca59f381",
+    "semantic_hash": "097fc65626fa3b87849c8e29ca59f381"
+  },
+  "src/data/ezzeSegurosCorinthians.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826825,
+    "ast_hash": "4c71c05b049299dcf47adf2cf2fb77f6",
+    "semantic_hash": "4c71c05b049299dcf47adf2cf2fb77f6"
+  },
+  "src/data/faqHomeContent.ts": {
+    "mtime": 1788537005.211936,
+    "seen": 1788537026.9826832,
+    "ast_hash": "321d3a609ad33f881a12e1441cfe7765",
+    "semantic_hash": "321d3a609ad33f881a12e1441cfe7765"
+  },
+  "src/data/galpaoClusterFAQs.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.982684,
+    "ast_hash": "b78fc7888b85670f909756cd8d8452a6",
+    "semantic_hash": "b78fc7888b85670f909756cd8d8452a6"
+  },
+  "src/data/generatedOgImages.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.9826849,
+    "ast_hash": "de95fb5c9265630f8324d6ab658ea089",
+    "semantic_hash": "de95fb5c9265630f8324d6ab658ea089"
+  },
+  "src/data/glossarioSegurosData.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.9826858,
+    "ast_hash": "4f1adf20de681d6ee9014edc5080064e",
+    "semantic_hash": "4f1adf20de681d6ee9014edc5080064e"
+  },
+  "src/data/guiasHubData.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.9826865,
+    "ast_hash": "24b92f181531eade552edcc7c950b119",
+    "semantic_hash": "24b92f181531eade552edcc7c950b119"
+  },
+  "src/data/guiasPilaresData.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.9826875,
+    "ast_hash": "c55cf1a6d204fa164940bfb124bbbbd6",
+    "semantic_hash": "c55cf1a6d204fa164940bfb124bbbbd6"
+  },
+  "src/data/insurerWebsites.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.9826882,
+    "ast_hash": "1ea3e0437b50b7251f108a6bb6705067",
+    "semantic_hash": "1ea3e0437b50b7251f108a6bb6705067"
+  },
+  "src/data/landingPages.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.9826891,
+    "ast_hash": "4a36c746afc26a85e0d8f59a46b06b9a",
+    "semantic_hash": "4a36c746afc26a85e0d8f59a46b06b9a"
+  },
+  "src/data/localDefaults.ts": {
+    "mtime": 1788537005.212936,
+    "seen": 1788537026.9826899,
+    "ast_hash": "f44fbe30f1ed91b9047cd1f6dbbcae97",
+    "semantic_hash": "f44fbe30f1ed91b9047cd1f6dbbcae97"
+  },
+  "src/data/localFAQGenerator.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826908,
+    "ast_hash": "d6f8e41d83b3bc41adcb8b996ee3531e",
+    "semantic_hash": "d6f8e41d83b3bc41adcb8b996ee3531e"
+  },
+  "src/data/materiaisConteudoData.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826915,
+    "ast_hash": "54a854a9cbacf095ec1d433ba0c3e844",
+    "semantic_hash": "54a854a9cbacf095ec1d433ba0c3e844"
+  },
+  "src/data/materiaisData.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826927,
+    "ast_hash": "8d9d7ea14eb3aa1447436b421ee5c0a6",
+    "semantic_hash": "8d9d7ea14eb3aa1447436b421ee5c0a6"
+  },
+  "src/data/partnerInsurers.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826937,
+    "ast_hash": "05040c4ebfc5193b3e5dbf672b37a3c9",
+    "semantic_hash": "05040c4ebfc5193b3e5dbf672b37a3c9"
+  },
+  "src/data/patroTestimonials.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826944,
+    "ast_hash": "64c5c74ab95b11ac58eadb728d650aba",
+    "semantic_hash": "64c5c74ab95b11ac58eadb728d650aba"
+  },
+  "src/data/perguntasCategoriaAprofundamento.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826953,
+    "ast_hash": "02986aa63cf450e76c790418a0c8b875",
+    "semantic_hash": "02986aa63cf450e76c790418a0c8b875"
+  },
+  "src/data/perguntasHubData.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826963,
+    "ast_hash": "2ac95d9541bd7acf620024f42976224f",
+    "semantic_hash": "2ac95d9541bd7acf620024f42976224f"
+  },
+  "src/data/premiumBrandsConfig.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9826972,
+    "ast_hash": "bd17e990fbd09a74fba70087c19e0acc",
+    "semantic_hash": "bd17e990fbd09a74fba70087c19e0acc"
+  },
+  "src/data/premiumPagesContent.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9827003,
+    "ast_hash": "96690c675fc7e2d33157fe404523f1a0",
+    "semantic_hash": "96690c675fc7e2d33157fe404523f1a0"
+  },
+  "src/data/saudeConsolidada.ts": {
+    "mtime": 1788537005.213936,
+    "seen": 1788537026.9827013,
+    "ast_hash": "d634edf3588477525ae88d41f6aae020",
+    "semantic_hash": "d634edf3588477525ae88d41f6aae020"
+  },
+  "src/data/saudeVertical.ts": {
+    "mtime": 1788537005.214936,
+    "seen": 1788537026.982702,
+    "ast_hash": "74c8744c3e4b801c37a7e47c7aecddb7",
+    "semantic_hash": "74c8744c3e4b801c37a7e47c7aecddb7"
+  },
+  "src/data/segmentosEmpresariais.ts": {
+    "mtime": 1788537005.214936,
+    "seen": 1788537026.9827032,
+    "ast_hash": "74af1e63466d619c4ce5f86bec0842fc",
+    "semantic_hash": "74af1e63466d619c4ce5f86bec0842fc"
+  },
+  "src/data/seguradorasParceirasSeo.ts": {
+    "mtime": 1788537005.214936,
+    "seen": 1788537026.982704,
+    "ast_hash": "dc1d5dc556adf289b5ec19ea1d43dfa6",
+    "semantic_hash": "dc1d5dc556adf289b5ec19ea1d43dfa6"
+  },
+  "src/data/seoHubs.ts": {
+    "mtime": 1788537005.214936,
+    "seen": 1788537026.9827049,
+    "ast_hash": "acb5f11161f073245d9723168bbdeb9d",
+    "semantic_hash": "acb5f11161f073245d9723168bbdeb9d"
+  },
+  "src/data/seoLocalAutoPages.ts": {
+    "mtime": 1788537005.215936,
+    "seen": 1788537026.9827058,
+    "ast_hash": "a263e35806b17ed81746405d02f5bf2e",
+    "semantic_hash": "a263e35806b17ed81746405d02f5bf2e"
+  },
+  "src/data/seoLocalBairrosGuarulhos.ts": {
+    "mtime": 1788537005.215936,
+    "seen": 1788537026.982707,
+    "ast_hash": "36e6ff899dcb7e513b20d11fc6094c3d",
+    "semantic_hash": "36e6ff899dcb7e513b20d11fc6094c3d"
+  },
+  "src/data/seoLocalGuarulhosHub.ts": {
+    "mtime": 1788537005.215936,
+    "seen": 1788537026.982708,
+    "ast_hash": "b18490001196c1e674d241668a9025a2",
+    "semantic_hash": "b18490001196c1e674d241668a9025a2"
+  },
+  "src/data/seoLocalProdutoBairroPages.ts": {
+    "mtime": 1788537005.215936,
+    "seen": 1788537026.982709,
+    "ast_hash": "1ea6b3476209ec596e83f4c6fae14b4d",
+    "semantic_hash": "1ea6b3476209ec596e83f4c6fae14b4d"
+  },
+  "src/data/seoLocalSaudePages.ts": {
+    "mtime": 1788537005.215936,
+    "seen": 1788537026.9827096,
+    "ast_hash": "c764ac4709fbda2f588639fb3588513a",
+    "semantic_hash": "c764ac4709fbda2f588639fb3588513a"
+  },
+  "src/data/seoModelosAutoPages.ts": {
+    "mtime": 1788537005.2169359,
+    "seen": 1788537026.9827108,
+    "ast_hash": "493dfc550ca73a3c253f87794fc3b756",
+    "semantic_hash": "493dfc550ca73a3c253f87794fc3b756"
+  },
+  "src/data/seoScanSnapshot.ts": {
+    "mtime": 1788537005.2169359,
+    "seen": 1788537026.9827118,
+    "ast_hash": "16091ca7c1d2eb850005d061b92af529",
+    "semantic_hash": "16091ca7c1d2eb850005d061b92af529"
+  },
+  "src/data/seoServiceContent.ts": {
+    "mtime": 1788537005.2169359,
+    "seen": 1788537026.9827125,
+    "ast_hash": "39d880d34ebc99625ee174452789950e",
+    "semantic_hash": "39d880d34ebc99625ee174452789950e"
+  },
+  "src/data/specializedVerticals.ts": {
+    "mtime": 1788537005.2169359,
+    "seen": 1788537026.9827135,
+    "ast_hash": "693eb15cca3a8a1b0d9891702e45a51c",
+    "semantic_hash": "693eb15cca3a8a1b0d9891702e45a51c"
+  },
+  "src/data/veterinariaFormConfig.ts": {
+    "mtime": 1788537005.2169359,
+    "seen": 1788537026.9827144,
+    "ast_hash": "f53c31f815e850866b74d42195d920fc",
+    "semantic_hash": "f53c31f815e850866b74d42195d920fc"
+  },
+  "src/hooks/queries/useClaims.ts": {
+    "mtime": 1788537005.2175367,
+    "seen": 1788537026.9827151,
+    "ast_hash": "951401b8632b7a7962b3f4737a8f8f2c",
+    "semantic_hash": "951401b8632b7a7962b3f4737a8f8f2c"
+  },
+  "src/hooks/queries/useContacts.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827158,
+    "ast_hash": "18508d1da8010d45ce02e1dc11a17403",
+    "semantic_hash": "18508d1da8010d45ce02e1dc11a17403"
+  },
+  "src/hooks/queries/useInsuranceSales.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.982717,
+    "ast_hash": "cbbead183de2a81d46d1c3e96550981c",
+    "semantic_hash": "cbbead183de2a81d46d1c3e96550981c"
+  },
+  "src/hooks/queries/useInteractions.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.982718,
+    "ast_hash": "94ce5c54ca81d446687612fa0145fe85",
+    "semantic_hash": "94ce5c54ca81d446687612fa0145fe85"
+  },
+  "src/hooks/queries/useKanbanStages.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827187,
+    "ast_hash": "bdeef8fb020e38aaad0ff6201963cb80",
+    "semantic_hash": "bdeef8fb020e38aaad0ff6201963cb80"
+  },
+  "src/hooks/queries/useLeads.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827197,
+    "ast_hash": "51ce446289f1d9131d286d8dca8418d0",
+    "semantic_hash": "51ce446289f1d9131d286d8dca8418d0"
+  },
+  "src/hooks/use-mobile.tsx": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827206,
+    "ast_hash": "c0a0bdd4638c391a1dd06ac82074e60b",
+    "semantic_hash": "c0a0bdd4638c391a1dd06ac82074e60b"
+  },
+  "src/hooks/use-toast.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827213,
+    "ast_hash": "e706bc004c87e17db559a113637eddea",
+    "semantic_hash": "e706bc004c87e17db559a113637eddea"
+  },
+  "src/hooks/useABTest.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827223,
+    "ast_hash": "2ca0df531488c299c39b70bfc6e804dc",
+    "semantic_hash": "2ca0df531488c299c39b70bfc6e804dc"
+  },
+  "src/hooks/useAnchorPriorities.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.982723,
+    "ast_hash": "0f435d87b1125de493800bcf18438640",
+    "semantic_hash": "0f435d87b1125de493800bcf18438640"
+  },
+  "src/hooks/useBreadcrumbOverrides.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.982724,
+    "ast_hash": "051b78d6c6a15cd88b0731f4488d4063",
+    "semantic_hash": "051b78d6c6a15cd88b0731f4488d4063"
+  },
+  "src/hooks/useDebouncedValue.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827247,
+    "ast_hash": "c69667d922f29ed8c1c888f101853158",
+    "semantic_hash": "c69667d922f29ed8c1c888f101853158"
+  },
+  "src/hooks/useInsuranceForm.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827256,
+    "ast_hash": "0d3c8c4834e4cf8d99e2361964970d30",
+    "semantic_hash": "0d3c8c4834e4cf8d99e2361964970d30"
+  },
+  "src/hooks/usePersistentForm.ts": {
+    "mtime": 1788537005.2176054,
+    "seen": 1788537026.9827263,
+    "ast_hash": "430d71ec782a1ea5a7ca461fb1c65135",
+    "semantic_hash": "430d71ec782a1ea5a7ca461fb1c65135"
+  },
+  "src/integrations/supabase/client.ts": {
+    "mtime": 1788537005.217936,
+    "seen": 1788537026.982727,
+    "ast_hash": "ea731aa7f857b1b89542717c662d05c0",
+    "semantic_hash": "ea731aa7f857b1b89542717c662d05c0"
+  },
+  "src/integrations/supabase/previewAuthStorage.ts": {
+    "mtime": 1788537005.2183034,
+    "seen": 1788537026.982728,
+    "ast_hash": "bc45a76c9242c4b85d6d4345625c46e9",
+    "semantic_hash": "bc45a76c9242c4b85d6d4345625c46e9"
+  },
+  "src/integrations/supabase/types.ts": {
+    "mtime": 1788537005.2183034,
+    "seen": 1788537026.982729,
+    "ast_hash": "46b8817c978751be55b9397270a81cc7",
+    "semantic_hash": "46b8817c978751be55b9397270a81cc7"
+  },
+  "src/lib/__tests__/leadValidation.test.ts": {
+    "mtime": 1788537005.2185702,
+    "seen": 1788537026.9827297,
+    "ast_hash": "59f6c1f65afa6b40ffda33ecb165f24f",
+    "semantic_hash": "59f6c1f65afa6b40ffda33ecb165f24f"
+  },
+  "src/lib/__tests__/tracking.test.ts": {
+    "mtime": 1788537005.2186484,
+    "seen": 1788537026.9827309,
+    "ast_hash": "fb65e71ad756cfa7a1b230b9be882919",
+    "semantic_hash": "fb65e71ad756cfa7a1b230b9be882919"
+  },
+  "src/lib/anchorClusters.ts": {
+    "mtime": 1788537005.2186484,
+    "seen": 1788537026.9827316,
+    "ast_hash": "bb766c544fba9ed027831711ba96c0a5",
+    "semantic_hash": "bb766c544fba9ed027831711ba96c0a5"
+  },
+  "src/lib/bairroNeighbors.ts": {
+    "mtime": 1788537005.2186484,
+    "seen": 1788537026.9827323,
+    "ast_hash": "3a79050120a6f841b7bfd46882abbc0a",
+    "semantic_hash": "3a79050120a6f841b7bfd46882abbc0a"
+  },
+  "src/lib/bairrosData.ts": {
+    "mtime": 1788537005.2186484,
+    "seen": 1788537026.9827332,
+    "ast_hash": "f359f916a7ed6c685c498398c48ff6d7",
+    "semantic_hash": "f359f916a7ed6c685c498398c48ff6d7"
+  },
+  "src/lib/blogAuthors.ts": {
+    "mtime": 1788537005.2186484,
+    "seen": 1788537026.982734,
+    "ast_hash": "3216a0cb045e851c20e23987fca8353b",
+    "semantic_hash": "3216a0cb045e851c20e23987fca8353b"
+  },
+  "src/lib/blogData.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827352,
+    "ast_hash": "da1fd62ed10806634a589d933b2c0985",
+    "semantic_hash": "da1fd62ed10806634a589d933b2c0985"
+  },
+  "src/lib/blogImages.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.982736,
+    "ast_hash": "14ac76437a4cbcc36c5688917a498d71",
+    "semantic_hash": "14ac76437a4cbcc36c5688917a498d71"
+  },
+  "src/lib/breadcrumbCategory.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827368,
+    "ast_hash": "948e22d2b9179ff013b8166ea51fb173",
+    "semantic_hash": "948e22d2b9179ff013b8166ea51fb173"
+  },
+  "src/lib/breadcrumbValidation.test.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.982738,
+    "ast_hash": "cf2720e8a2b1e572e1f5814d525f66a4",
+    "semantic_hash": "cf2720e8a2b1e572e1f5814d525f66a4"
+  },
+  "src/lib/breadcrumbValidation.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827387,
+    "ast_hash": "f9612a0a1bc2ad4872321f0a952497ca",
+    "semantic_hash": "f9612a0a1bc2ad4872321f0a952497ca"
+  },
+  "src/lib/canonical.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827394,
+    "ast_hash": "38f77f1d03ef548499a4bd9ef45be49d",
+    "semantic_hash": "38f77f1d03ef548499a4bd9ef45be49d"
+  },
+  "src/lib/collectionPageSchemas.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827404,
+    "ast_hash": "71498cda923a9ac0dbc1bb32e0a5086e",
+    "semantic_hash": "71498cda923a9ac0dbc1bb32e0a5086e"
+  },
+  "src/lib/contactImport.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827416,
+    "ast_hash": "3792180302108e43d7f7c83c8632f058",
+    "semantic_hash": "3792180302108e43d7f7c83c8632f058"
+  },
+  "src/lib/contextualKeywords.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827425,
+    "ast_hash": "3101c4bbbc584e6a0079c393e5338ffc",
+    "semantic_hash": "3101c4bbbc584e6a0079c393e5338ffc"
+  },
+  "src/lib/crmDates.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827435,
+    "ast_hash": "11d95bc17d83c53880597129af734262",
+    "semantic_hash": "11d95bc17d83c53880597129af734262"
+  },
+  "src/lib/debounce.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827442,
+    "ast_hash": "f15d8a6b2ed3d5b16421a5b624882dfc",
+    "semantic_hash": "f15d8a6b2ed3d5b16421a5b624882dfc"
+  },
+  "src/lib/externalLink.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827454,
+    "ast_hash": "9e720fbdcff1585562eb2dcd7f066650",
+    "semantic_hash": "9e720fbdcff1585562eb2dcd7f066650"
+  },
+  "src/lib/friendlyToast.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827461,
+    "ast_hash": "28bad40613c7de5ce3fe0eabbc718bc2",
+    "semantic_hash": "28bad40613c7de5ce3fe0eabbc718bc2"
+  },
+  "src/lib/guarulhosGeo.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827473,
+    "ast_hash": "e6be6021af6df17e707cd39440cdbf50",
+    "semantic_hash": "e6be6021af6df17e707cd39440cdbf50"
+  },
+  "src/lib/imageSrcSet.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827483,
+    "ast_hash": "eaae61a47b5ea7fbeccd93e307343da4",
+    "semantic_hash": "eaae61a47b5ea7fbeccd93e307343da4"
+  },
+  "src/lib/inferQuoteType.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827492,
+    "ast_hash": "c037da3201d58c7ae6875eba24bffbb0",
+    "semantic_hash": "c037da3201d58c7ae6875eba24bffbb0"
+  },
+  "src/lib/insuranceFormConfigs.ts": {
+    "mtime": 1788537005.218936,
+    "seen": 1788537026.9827502,
+    "ast_hash": "951c96423683ea71e2755de8f6be2268",
+    "semantic_hash": "951c96423683ea71e2755de8f6be2268"
+  },
+  "src/lib/insuranceHubLinks.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827511,
+    "ast_hash": "c2433e8a25a44ba86ff493d5dbb82691",
+    "semantic_hash": "c2433e8a25a44ba86ff493d5dbb82691"
+  },
+  "src/lib/leadValidation.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827523,
+    "ast_hash": "8619956f22d85beb4c9b8e732b89e5e9",
+    "semantic_hash": "8619956f22d85beb4c9b8e732b89e5e9"
+  },
+  "src/lib/leadsApi.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.982753,
+    "ast_hash": "74853b2251f5c2f4b510bd508ad55452",
+    "semantic_hash": "74853b2251f5c2f4b510bd508ad55452"
+  },
+  "src/lib/legacyBairroRedirects.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.982754,
+    "ast_hash": "8ef1e02ee236ba418a200033b2d07764",
+    "semantic_hash": "8ef1e02ee236ba418a200033b2d07764"
+  },
+  "src/lib/longtailClusters.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827552,
+    "ast_hash": "e704a478a6101990ee3588fa66236ed7",
+    "semantic_hash": "e704a478a6101990ee3588fa66236ed7"
+  },
+  "src/lib/longtailSpotlight.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827561,
+    "ast_hash": "beb82b7ee434ae4a992e5e3ff296dec5",
+    "semantic_hash": "beb82b7ee434ae4a992e5e3ff296dec5"
+  },
+  "src/lib/monitoring.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.982757,
+    "ast_hash": "19c1ba35874ce607582213b5245fa88b",
+    "semantic_hash": "19c1ba35874ce607582213b5245fa88b"
+  },
+  "src/lib/monitoringSession.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827578,
+    "ast_hash": "9d83aff2cd4bb122db8ca2965f4406c8",
+    "semantic_hash": "9d83aff2cd4bb122db8ca2965f4406c8"
+  },
+  "src/lib/patroSocialProof.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827592,
+    "ast_hash": "1c7bb14806b172f9cc2b88f55acbdee7",
+    "semantic_hash": "1c7bb14806b172f9cc2b88f55acbdee7"
+  },
+  "src/lib/perfRules.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827602,
+    "ast_hash": "a4389d5f4f7d723827e814c0eb1f53fc",
+    "semantic_hash": "a4389d5f4f7d723827e814c0eb1f53fc"
+  },
+  "src/lib/prefetch.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.982761,
+    "ast_hash": "155fb6be1a4bc295a3b82a6bf7af5d06",
+    "semantic_hash": "155fb6be1a4bc295a3b82a6bf7af5d06"
+  },
+  "src/lib/quoteHistory.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.982762,
+    "ast_hash": "fa8e12427839f9700cd0f03b5c7e746c",
+    "semantic_hash": "fa8e12427839f9700cd0f03b5c7e746c"
+  },
+  "src/lib/redirects.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827628,
+    "ast_hash": "d622753bd7c731e93bb31fb21fdb868b",
+    "semantic_hash": "d622753bd7c731e93bb31fb21fdb868b"
+  },
+  "src/lib/relatedFromText.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827638,
+    "ast_hash": "54b495cb630cfec6156823b448a20d89",
+    "semantic_hash": "54b495cb630cfec6156823b448a20d89"
+  },
+  "src/lib/schemaValidator.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827645,
+    "ast_hash": "951b0c0d8595dc54a875fe2cbf05cc51",
+    "semantic_hash": "951b0c0d8595dc54a875fe2cbf05cc51"
+  },
+  "src/lib/seo-infrastructure.test.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827657,
+    "ast_hash": "fa8eaa858acde1ddb9ae63c1f48a7d5f",
+    "semantic_hash": "fa8eaa858acde1ddb9ae63c1f48a7d5f"
+  },
+  "src/lib/seo-runtime.spec.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827664,
+    "ast_hash": "8309759aa48aad4345824b846d4894ed",
+    "semantic_hash": "8309759aa48aad4345824b846d4894ed"
+  },
+  "src/lib/seoHubResolver.ts": {
+    "mtime": 1788537005.219936,
+    "seen": 1788537026.9827673,
+    "ast_hash": "2ffb1cf0a26e66542174c3a31853bfb6",
+    "semantic_hash": "2ffb1cf0a26e66542174c3a31853bfb6"
+  },
+  "src/lib/seoMetadata.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827683,
+    "ast_hash": "98a218b68e6f57aff5add461daea2537",
+    "semantic_hash": "98a218b68e6f57aff5add461daea2537"
+  },
+  "src/lib/supabase-helpers.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827695,
+    "ast_hash": "71bbb7368d897c8c5d05b3f0afcece31",
+    "semantic_hash": "71bbb7368d897c8c5d05b3f0afcece31"
+  },
+  "src/lib/tracking.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827707,
+    "ast_hash": "20325b9f81fee3dd1653a981cfa797d8",
+    "semantic_hash": "20325b9f81fee3dd1653a981cfa797d8"
+  },
+  "src/lib/trilhaSeoRecomendacoes.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827714,
+    "ast_hash": "4bc2a9e000b6686f937e1599cfc2a9ee",
+    "semantic_hash": "4bc2a9e000b6686f937e1599cfc2a9ee"
+  },
+  "src/lib/utils.test.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827726,
+    "ast_hash": "6001f19c304d3ad4ee3b99b316acf7e9",
+    "semantic_hash": "6001f19c304d3ad4ee3b99b316acf7e9"
+  },
+  "src/lib/utils.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827733,
+    "ast_hash": "cf3d82d8c5c398d4ae58cdcc8d5e7c00",
+    "semantic_hash": "cf3d82d8c5c398d4ae58cdcc8d5e7c00"
+  },
+  "src/lib/utils/export.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827745,
+    "ast_hash": "df5ee816ea0fdd6b027315c69d401bda",
+    "semantic_hash": "df5ee816ea0fdd6b027315c69d401bda"
+  },
+  "src/lib/webVitals.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827754,
+    "ast_hash": "554f006302c181b19c911c918cdf4fb7",
+    "semantic_hash": "554f006302c181b19c911c918cdf4fb7"
+  },
+  "src/lib/whatsapp.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827769,
+    "ast_hash": "94fb4808cb14b94010bfaed0746e646d",
+    "semantic_hash": "94fb4808cb14b94010bfaed0746e646d"
+  },
+  "src/lib/whatsappOverride.ts": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827778,
+    "ast_hash": "0e25dae61ec6ca7f7ef04097325b4336",
+    "semantic_hash": "0e25dae61ec6ca7f7ef04097325b4336"
+  },
+  "src/main.tsx": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.9827788,
+    "ast_hash": "74703f984c02e9a57f6c1ffd8036a6da",
+    "semantic_hash": "74703f984c02e9a57f6c1ffd8036a6da"
+  },
+  "src/pages/AdminLogin.tsx": {
+    "mtime": 1788537005.220936,
+    "seen": 1788537026.98278,
+    "ast_hash": "e82ad2936e3c3f2f96c0aaacb1de44e7",
+    "semantic_hash": "e82ad2936e3c3f2f96c0aaacb1de44e7"
+  },
+  "src/pages/AdminSeoMonitor.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.982781,
+    "ast_hash": "d70e13aa1082fcc40aa6f745f3c45e7e",
+    "semantic_hash": "d70e13aa1082fcc40aa6f745f3c45e7e"
+  },
+  "src/pages/AvaliacoesClientes.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.982782,
+    "ast_hash": "d5b605be4e274c4d7b0d556e03dfad03",
+    "semantic_hash": "d5b605be4e274c4d7b0d556e03dfad03"
+  },
+  "src/pages/AvaliarNoGoogle.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.982783,
+    "ast_hash": "58a0141761397884c7630f0c406734f9",
+    "semantic_hash": "58a0141761397884c7630f0c406734f9"
+  },
+  "src/pages/Blog.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827845,
+    "ast_hash": "c859fcf4b5cb8d1d4981c65125b3875e",
+    "semantic_hash": "c859fcf4b5cb8d1d4981c65125b3875e"
+  },
+  "src/pages/BlogArticle.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827855,
+    "ast_hash": "3862ccf96a913a30767ee754babf85aa",
+    "semantic_hash": "3862ccf96a913a30767ee754babf85aa"
+  },
+  "src/pages/BlogAuthor.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827867,
+    "ast_hash": "9ea851579d12485663ff72636f82c897",
+    "semantic_hash": "9ea851579d12485663ff72636f82c897"
+  },
+  "src/pages/BlogCalendario90Dias.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827876,
+    "ast_hash": "b5ae3224b160bc6b6426da6aad7d2288",
+    "semantic_hash": "b5ae3224b160bc6b6426da6aad7d2288"
+  },
+  "src/pages/BlogCategory.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827886,
+    "ast_hash": "d83266148f1caedf152b30984724b11d",
+    "semantic_hash": "d83266148f1caedf152b30984724b11d"
+  },
+  "src/pages/BlogClinicasVeterinarias.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827895,
+    "ast_hash": "f6d62990dab3a59b63bdd046e93765cd",
+    "semantic_hash": "f6d62990dab3a59b63bdd046e93765cd"
+  },
+  "src/pages/BlogCluster.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.982791,
+    "ast_hash": "9e30b9335ab6425a90d0162653ef7dcb",
+    "semantic_hash": "9e30b9335ab6425a90d0162653ef7dcb"
+  },
+  "src/pages/BlogOdontologia.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.982792,
+    "ast_hash": "077539fac715022a7a1ee94bfb4977d8",
+    "semantic_hash": "077539fac715022a7a1ee94bfb4977d8"
+  },
+  "src/pages/BlogVistoriaVeicular.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827926,
+    "ast_hash": "659d65e4b772863bc300e18262e71522",
+    "semantic_hash": "659d65e4b772863bc300e18262e71522"
+  },
+  "src/pages/CRM.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827938,
+    "ast_hash": "937c43e9f71d630e2bf77fb9c1958152",
+    "semantic_hash": "937c43e9f71d630e2bf77fb9c1958152"
+  },
+  "src/pages/CentralDeGuias.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827948,
+    "ast_hash": "269b7a0d0faff3e0a7caff7bea82928b",
+    "semantic_hash": "269b7a0d0faff3e0a7caff7bea82928b"
+  },
+  "src/pages/CentralDeMateriais.tsx": {
+    "mtime": 1788537005.2220047,
+    "seen": 1788537026.9827957,
+    "ast_hash": "bb7c9aec2bf3390470710e5bbee7e1d4",
+    "semantic_hash": "bb7c9aec2bf3390470710e5bbee7e1d4"
+  },
+  "src/pages/CentralDePerguntas.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982797,
+    "ast_hash": "5999f22421f50ae5525023eb045deade",
+    "semantic_hash": "5999f22421f50ae5525023eb045deade"
+  },
+  "src/pages/CentralDeSinistro.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.9827979,
+    "ast_hash": "fa22c03f159c55c55c7a100c86eb605a",
+    "semantic_hash": "fa22c03f159c55c55c7a100c86eb605a"
+  },
+  "src/pages/ComoCompararSeguradorasGuarulhos.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.9827988,
+    "ast_hash": "1d4615206d66373e0a5e30d78ed92557",
+    "semantic_hash": "1d4615206d66373e0a5e30d78ed92557"
+  },
+  "src/pages/ComparativoCategoria.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.9827998,
+    "ast_hash": "22ec8d015820eb5d59145203ba36b7ce",
+    "semantic_hash": "22ec8d015820eb5d59145203ba36b7ce"
+  },
+  "src/pages/ComparativoPlanosSaude.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982801,
+    "ast_hash": "6c8a2478579d25c3d6186cd0b92fe0df",
+    "semantic_hash": "6c8a2478579d25c3d6186cd0b92fe0df"
+  },
+  "src/pages/ComparativoSeguradorasGuarulhos.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982802,
+    "ast_hash": "d75d9bea6f26422f61d5d504fff2288c",
+    "semantic_hash": "d75d9bea6f26422f61d5d504fff2288c"
+  },
+  "src/pages/ComparativosSegurosHub.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.9828026,
+    "ast_hash": "5fd374c35027bdd247fba584bed14ab6",
+    "semantic_hash": "5fd374c35027bdd247fba584bed14ab6"
+  },
+  "src/pages/Consorcio.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982804,
+    "ast_hash": "8a0625a9c6e2fccd551ddac9d2b3ae9a",
+    "semantic_hash": "8a0625a9c6e2fccd551ddac9d2b3ae9a"
+  },
+  "src/pages/ConsorcioCarro.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982805,
+    "ast_hash": "b89eb8e440752b4b58d18372d20a49e2",
+    "semantic_hash": "b89eb8e440752b4b58d18372d20a49e2"
+  },
+  "src/pages/ConsorcioGuarulhos.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982806,
+    "ast_hash": "08d12afbe1b9a1a7dea536f26e1b3769",
+    "semantic_hash": "08d12afbe1b9a1a7dea536f26e1b3769"
+  },
+  "src/pages/ConsorcioGuarulhosVertical.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.9828067,
+    "ast_hash": "52224b626d37c646daead1dc98fe0847",
+    "semantic_hash": "52224b626d37c646daead1dc98fe0847"
+  },
+  "src/pages/ConsorcioImoveis.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982808,
+    "ast_hash": "fea035ce3312109415e6c3925b3fd0dc",
+    "semantic_hash": "fea035ce3312109415e6c3925b3fd0dc"
+  },
+  "src/pages/ConsorcioVeiculosPesados.tsx": {
+    "mtime": 1788537005.222936,
+    "seen": 1788537026.982809,
+    "ast_hash": "f31e01252d6c57d781dacfc8554d3b98",
+    "semantic_hash": "f31e01252d6c57d781dacfc8554d3b98"
+  },
+  "src/pages/Contato.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.98281,
+    "ast_hash": "77c5bcece24cb7b082d52cadc5888793",
+    "semantic_hash": "77c5bcece24cb7b082d52cadc5888793"
+  },
+  "src/pages/ConversionDashboard.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.9828112,
+    "ast_hash": "0c49ddf82d2f0859b71b9a51a877bc81",
+    "semantic_hash": "0c49ddf82d2f0859b71b9a51a877bc81"
+  },
+  "src/pages/CorretoraDeSegurosEmGuarulhos.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.9828124,
+    "ast_hash": "fb95606fd5bbae5be1f668cb1ad9ecc7",
+    "semantic_hash": "fb95606fd5bbae5be1f668cb1ad9ecc7"
+  },
+  "src/pages/Cotacao.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.9828131,
+    "ast_hash": "d165d68b95f93c6f579f08e31683529b",
+    "semantic_hash": "d165d68b95f93c6f579f08e31683529b"
+  },
+  "src/pages/CotacaoAutoRedirect.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.9828143,
+    "ast_hash": "1aaa59db1aeeb62d94583f3cf19ce5cd",
+    "semantic_hash": "1aaa59db1aeeb62d94583f3cf19ce5cd"
+  },
+  "src/pages/CotacaoObrigado.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.9828153,
+    "ast_hash": "e744f1cdc811f92a6bea1928b340860b",
+    "semantic_hash": "e744f1cdc811f92a6bea1928b340860b"
+  },
+  "src/pages/CotacaoSeguroAuto.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.982816,
+    "ast_hash": "7f76f7001d345cbdea8eda683b6e2247",
+    "semantic_hash": "7f76f7001d345cbdea8eda683b6e2247"
+  },
+  "src/pages/Depoimentos.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.982817,
+    "ast_hash": "6d69ab00b3d5e10d340d8436bfa0a632",
+    "semantic_hash": "6d69ab00b3d5e10d340d8436bfa0a632"
+  },
+  "src/pages/Diagnostico.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.9828181,
+    "ast_hash": "a5b14bd7ea28db6979b3a3e52b5e7454",
+    "semantic_hash": "a5b14bd7ea28db6979b3a3e52b5e7454"
+  },
+  "src/pages/DynamicLandingPage.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.982819,
+    "ast_hash": "1992b9ee981ef1010227ded6232b4fbf",
+    "semantic_hash": "1992b9ee981ef1010227ded6232b4fbf"
+  },
+  "src/pages/EbookConsorcio.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.98282,
+    "ast_hash": "88b32348bc2f16ce3adccf2632b42b2e",
+    "semantic_hash": "88b32348bc2f16ce3adccf2632b42b2e"
+  },
+  "src/pages/FAQ.tsx": {
+    "mtime": 1788537005.223936,
+    "seen": 1788537026.9828212,
+    "ast_hash": "64d7849fcf5ea5e474c7caa5c6d416be",
+    "semantic_hash": "64d7849fcf5ea5e474c7caa5c6d416be"
+  },
+  "src/pages/FormularioSeguroVida.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.9828222,
+    "ast_hash": "bb0bb7d637b881a082a0ee777a481ef5",
+    "semantic_hash": "bb0bb7d637b881a082a0ee777a481ef5"
+  },
+  "src/pages/GlossarioLetra.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.982823,
+    "ast_hash": "133586bf2f4a4b1c3b44873da04e37cb",
+    "semantic_hash": "133586bf2f4a4b1c3b44873da04e37cb"
+  },
+  "src/pages/GlossarioSeguros.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.9828238,
+    "ast_hash": "a97f38144cef2d06e48b97f90628f8a2",
+    "semantic_hash": "a97f38144cef2d06e48b97f90628f8a2"
+  },
+  "src/pages/GuiaClusterLongtail.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.982825,
+    "ast_hash": "7002a4efabe5f0ab7c8f052e143c8b5f",
+    "semantic_hash": "7002a4efabe5f0ab7c8f052e143c8b5f"
+  },
+  "src/pages/GuiaPilar.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.982826,
+    "ast_hash": "edd6607a7527e52d79e4d781765c7490",
+    "semantic_hash": "edd6607a7527e52d79e4d781765c7490"
+  },
+  "src/pages/HubEmpresarial.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.982827,
+    "ast_hash": "2e199b76ef94dd0fa0510974f9c76942",
+    "semantic_hash": "2e199b76ef94dd0fa0510974f9c76942"
+  },
+  "src/pages/HubPatrimonio.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.9828284,
+    "ast_hash": "1be26160ea3d3954e7a029a7d17bb456",
+    "semantic_hash": "1be26160ea3d3954e7a029a7d17bb456"
+  },
+  "src/pages/HubRC.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.982829,
+    "ast_hash": "39a979bf3978c69a25ed2ff5f82b06dd",
+    "semantic_hash": "39a979bf3978c69a25ed2ff5f82b06dd"
+  },
+  "src/pages/HubSegurosGuarulhos.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.98283,
+    "ast_hash": "bc74eaeab0f3d0be3c2aae6500c6c55d",
+    "semantic_hash": "bc74eaeab0f3d0be3c2aae6500c6c55d"
+  },
+  "src/pages/HubVeiculos.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.9828308,
+    "ast_hash": "e54e648dd8313ccbeeac78e956313a9b",
+    "semantic_hash": "e54e648dd8313ccbeeac78e956313a9b"
+  },
+  "src/pages/HubVidaSaude.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.982832,
+    "ast_hash": "0df6987125dc8f9504e068aab2c5c91c",
+    "semantic_hash": "0df6987125dc8f9504e068aab2c5c91c"
+  },
+  "src/pages/Imprensa.tsx": {
+    "mtime": 1788537005.224936,
+    "seen": 1788537026.982833,
+    "ast_hash": "268379f020c61652be7c3ab198d3bd9a",
+    "semantic_hash": "268379f020c61652be7c3ab198d3bd9a"
+  },
+  "src/pages/Index.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.982834,
+    "ast_hash": "e2ec5c8ec20817f29c46cb05fb71e496",
+    "semantic_hash": "e2ec5c8ec20817f29c46cb05fb71e496"
+  },
+  "src/pages/IndiqueAmigo.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.9828353,
+    "ast_hash": "9e9428380138db21516e27d64fac7308",
+    "semantic_hash": "9e9428380138db21516e27d64fac7308"
+  },
+  "src/pages/IndiqueEGanhe.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.9828362,
+    "ast_hash": "1dd730badc2880a15c543f34a7a5a070",
+    "semantic_hash": "1dd730badc2880a15c543f34a7a5a070"
+  },
+  "src/pages/Investimentos.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.9828372,
+    "ast_hash": "c1e9702532f48e821c345d9623542225",
+    "semantic_hash": "c1e9702532f48e821c345d9623542225"
+  },
+  "src/pages/LandingAlice.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.9828382,
+    "ast_hash": "a18f39de8f824505f49fe34241856995",
+    "semantic_hash": "a18f39de8f824505f49fe34241856995"
+  },
+  "src/pages/LandingConsorcio.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.982839,
+    "ast_hash": "5a9102ca21baa66a382e2696c506cfa8",
+    "semantic_hash": "5a9102ca21baa66a382e2696c506cfa8"
+  },
+  "src/pages/LandingMedSenior.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.98284,
+    "ast_hash": "25f500d3d5b79ee16228420f81c9ffc5",
+    "semantic_hash": "25f500d3d5b79ee16228420f81c9ffc5"
+  },
+  "src/pages/LandingPages.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.982841,
+    "ast_hash": "9873d92b81af422092ba46be479e37d1",
+    "semantic_hash": "9873d92b81af422092ba46be479e37d1"
+  },
+  "src/pages/LandingPlanoSaude.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.9828422,
+    "ast_hash": "ab9fb291250beb18522c9d65c7cae5c1",
+    "semantic_hash": "ab9fb291250beb18522c9d65c7cae5c1"
+  },
+  "src/pages/LandingSeguroAcidentesPessoais.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.9828432,
+    "ast_hash": "b20133943a2010ca6ef40bea54839d18",
+    "semantic_hash": "b20133943a2010ca6ef40bea54839d18"
+  },
+  "src/pages/LandingSeguroAuto.tsx": {
+    "mtime": 1788537005.225936,
+    "seen": 1788537026.982844,
+    "ast_hash": "8dc4966b378f2b05d87811bd738c1f24",
+    "semantic_hash": "8dc4966b378f2b05d87811bd738c1f24"
+  },
+  "src/pages/LandingSeguroAutoPremium.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.982845,
+    "ast_hash": "94de9102ebb93974bdc8bcc72d8b34b1",
+    "semantic_hash": "94de9102ebb93974bdc8bcc72d8b34b1"
+  },
+  "src/pages/LandingSeguroCelular.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.9828463,
+    "ast_hash": "7b753f5546c5ebfe991958d9b20120ed",
+    "semantic_hash": "7b753f5546c5ebfe991958d9b20120ed"
+  },
+  "src/pages/LandingSeguroEmpresarial.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.9828472,
+    "ast_hash": "a92775f4b583e7dc070e140b0bbf3c61",
+    "semantic_hash": "a92775f4b583e7dc070e140b0bbf3c61"
+  },
+  "src/pages/LandingSeguroGalpaoAlugado.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.982848,
+    "ast_hash": "e757b3fc15f7f834329d0630ec2cff7e",
+    "semantic_hash": "e757b3fc15f7f834329d0630ec2cff7e"
+  },
+  "src/pages/LandingSeguroGalpoes.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.9828491,
+    "ast_hash": "19dae444cbeb1e5e7b5fa7001075f547",
+    "semantic_hash": "19dae444cbeb1e5e7b5fa7001075f547"
+  },
+  "src/pages/LandingSeguroMoto.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.9828503,
+    "ast_hash": "5a8be3adbc8612f05233c5d4a93bfce6",
+    "semantic_hash": "5a8be3adbc8612f05233c5d4a93bfce6"
+  },
+  "src/pages/LandingSeguroMotoEntregador.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.982851,
+    "ast_hash": "973aedf056f847c9965b97ffdd329646",
+    "semantic_hash": "973aedf056f847c9965b97ffdd329646"
+  },
+  "src/pages/LandingSeguroMotoristaApp.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.982852,
+    "ast_hash": "fc699b4637bd0bfdb02440f8a9811221",
+    "semantic_hash": "fc699b4637bd0bfdb02440f8a9811221"
+  },
+  "src/pages/LandingSeguroResidencial.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.9828532,
+    "ast_hash": "6a27efeab9b80b0270419928a2d83601",
+    "semantic_hash": "6a27efeab9b80b0270419928a2d83601"
+  },
+  "src/pages/LandingSeguroVida.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.9828541,
+    "ast_hash": "5da92d9a2e46a05170776b6830ef8780",
+    "semantic_hash": "5da92d9a2e46a05170776b6830ef8780"
+  },
+  "src/pages/LongtailCotacaoSeguroResidencialOnline.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.982855,
+    "ast_hash": "712e2ad7a036b6b35f0a92d898d5d89f",
+    "semantic_hash": "712e2ad7a036b6b35f0a92d898d5d89f"
+  },
+  "src/pages/LongtailMelhorSeguroUberGuarulhos.tsx": {
+    "mtime": 1788537005.226936,
+    "seen": 1788537026.9828563,
+    "ast_hash": "50d3a00f83a25015fb7c1bd685f19538",
+    "semantic_hash": "50d3a00f83a25015fb7c1bd685f19538"
+  },
+  "src/pages/LongtailPlanosSaudeGuarulhosComparativo.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.982857,
+    "ast_hash": "5127407439721511bcbf1ee5f11c102d",
+    "semantic_hash": "5127407439721511bcbf1ee5f11c102d"
+  },
+  "src/pages/LongtailValorSeguroBydDolphin.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.9828582,
+    "ast_hash": "b331920ea88e0466a5efa3da6cd40ebd",
+    "semantic_hash": "b331920ea88e0466a5efa3da6cd40ebd"
+  },
+  "src/pages/LpMaquinasEquipamentos.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.982859,
+    "ast_hash": "72dbe36608dbd20e58a41207bcd52bf4",
+    "semantic_hash": "72dbe36608dbd20e58a41207bcd52bf4"
+  },
+  "src/pages/LpTransportes360.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.9828606,
+    "ast_hash": "b81c4af6c5c73b672c8159478b54a14d",
+    "semantic_hash": "b81c4af6c5c73b672c8159478b54a14d"
+  },
+  "src/pages/MaterialDetalhe.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.9828615,
+    "ast_hash": "bcdf36e7d3df4dbfc0c41a4bbe70a07f",
+    "semantic_hash": "bcdf36e7d3df4dbfc0c41a4bbe70a07f"
+  },
+  "src/pages/NichoClinicasOdontologicas.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.9828627,
+    "ast_hash": "6c98e8ec900601678ddec508d83b7e67",
+    "semantic_hash": "6c98e8ec900601678ddec508d83b7e67"
+  },
+  "src/pages/NichoClinicasVeterinarias.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.9828637,
+    "ast_hash": "c447bf992f9c252c087ab326d3a9f1ae",
+    "semantic_hash": "c447bf992f9c252c087ab326d3a9f1ae"
+  },
+  "src/pages/NichoEmpresarios.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.9828646,
+    "ast_hash": "c0b9103b9e72a2ea03515e32e532c865",
+    "semantic_hash": "c0b9103b9e72a2ea03515e32e532c865"
+  },
+  "src/pages/NichoLojistasGuarulhos.tsx": {
+    "mtime": 1788537005.227936,
+    "seen": 1788537026.9828656,
+    "ast_hash": "173cc0743a62c4dc67b471416a3b765b",
+    "semantic_hash": "173cc0743a62c4dc67b471416a3b765b"
+  },
+  "src/pages/NichoMedicos.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828668,
+    "ast_hash": "6199e3407ef130ec1a8e306633b12433",
+    "semantic_hash": "6199e3407ef130ec1a8e306633b12433"
+  },
+  "src/pages/NichoMotoristasApp.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828677,
+    "ast_hash": "6473ffea05938f36932198fb4383200b",
+    "semantic_hash": "6473ffea05938f36932198fb4383200b"
+  },
+  "src/pages/NichoProfissionaisLiberais.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828687,
+    "ast_hash": "860d93fa5cf668a4cccf162b058d9750",
+    "semantic_hash": "860d93fa5cf668a4cccf162b058d9750"
+  },
+  "src/pages/NichoTransportadoras.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828699,
+    "ast_hash": "2cb739e355b24dee8b57d807379c0010",
+    "semantic_hash": "2cb739e355b24dee8b57d807379c0010"
+  },
+  "src/pages/NotFound.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828708,
+    "ast_hash": "82e2d971f525e707c3e46ee2a4fa3984",
+    "semantic_hash": "82e2d971f525e707c3e46ee2a4fa3984"
+  },
+  "src/pages/ObrigadoIndicacao.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.982872,
+    "ast_hash": "4d077b4058f3939fba72959beea5aa48",
+    "semantic_hash": "4d077b4058f3939fba72959beea5aa48"
+  },
+  "src/pages/PagespeedHistory.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828732,
+    "ast_hash": "8e9b1f24e98693a1b3db21f8c1c737bb",
+    "semantic_hash": "8e9b1f24e98693a1b3db21f8c1c737bb"
+  },
+  "src/pages/Parceiros.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828746,
+    "ast_hash": "ec93175300bc4ff28088536e1aa6db8b",
+    "semantic_hash": "ec93175300bc4ff28088536e1aa6db8b"
+  },
+  "src/pages/ParceirosLocais.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828756,
+    "ast_hash": "6bfc929cde07dcbe0a4f069d15572583",
+    "semantic_hash": "6bfc929cde07dcbe0a4f069d15572583"
+  },
+  "src/pages/ParceriasClinicasOdontologicas.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.9828768,
+    "ast_hash": "50ce51cc84dea117af1a873db5b15347",
+    "semantic_hash": "50ce51cc84dea117af1a873db5b15347"
+  },
+  "src/pages/ParceriasClinicasVeterinarias.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.982878,
+    "ast_hash": "88ae458a4f4352757d07d79cead6fe16",
+    "semantic_hash": "88ae458a4f4352757d07d79cead6fe16"
+  },
+  "src/pages/Patro.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.982879,
+    "ast_hash": "ffa75e3fee641cfcc3d8eb8291b9e557",
+    "semantic_hash": "ffa75e3fee641cfcc3d8eb8291b9e557"
+  },
+  "src/pages/PatroPrivate.tsx": {
+    "mtime": 1788537005.228936,
+    "seen": 1788537026.98288,
+    "ast_hash": "da192cf95d3758a39c91e9087c233f62",
+    "semantic_hash": "da192cf95d3758a39c91e9087c233f62"
+  },
+  "src/pages/PerformanceDiagnostico.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.982881,
+    "ast_hash": "c724fe3def878ef65868628bf6e66326",
+    "semantic_hash": "c724fe3def878ef65868628bf6e66326"
+  },
+  "src/pages/PerguntasCategoria.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.982882,
+    "ast_hash": "9f9ddbca1b39afea3c682fc18b80e029",
+    "semantic_hash": "9f9ddbca1b39afea3c682fc18b80e029"
+  },
+  "src/pages/PlanoDeSaudeGuarulhosHub.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.982883,
+    "ast_hash": "3d6f5c306f16f1b86acc226d4552d60d",
+    "semantic_hash": "3d6f5c306f16f1b86acc226d4552d60d"
+  },
+  "src/pages/PlanoOdontologicoGuarulhos.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828844,
+    "ast_hash": "dd74883898e80663ba95f0bc52b33e07",
+    "semantic_hash": "dd74883898e80663ba95f0bc52b33e07"
+  },
+  "src/pages/PlanoOdontologicoGuarulhosCanonical.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828854,
+    "ast_hash": "b0c2cdebecc2d056fb614e4a52b9158f",
+    "semantic_hash": "b0c2cdebecc2d056fb614e4a52b9158f"
+  },
+  "src/pages/PlanoPet.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.982886,
+    "ast_hash": "21a5ba5c60ccc262079ae532882f15f8",
+    "semantic_hash": "21a5ba5c60ccc262079ae532882f15f8"
+  },
+  "src/pages/PlanoSaudeClinicasOdontologicas.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828873,
+    "ast_hash": "0bc479d41b1ab35c2d24236d11b82da4",
+    "semantic_hash": "0bc479d41b1ab35c2d24236d11b82da4"
+  },
+  "src/pages/PlanoSaudeClinicasVeterinarias.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828885,
+    "ast_hash": "ec2c0305a0fda69770098f4780787710",
+    "semantic_hash": "ec2c0305a0fda69770098f4780787710"
+  },
+  "src/pages/PlanoSaudeEmpresarial.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828892,
+    "ast_hash": "56e2b4865e551b719e4a9891782dd3bc",
+    "semantic_hash": "56e2b4865e551b719e4a9891782dd3bc"
+  },
+  "src/pages/PlanoSaudeEmpresarialGuarulhos.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828901,
+    "ast_hash": "6cab93ecbd57bf9c6618776b957ec0bc",
+    "semantic_hash": "6cab93ecbd57bf9c6618776b957ec0bc"
+  },
+  "src/pages/PlanoSaudeEmpresarialGuarulhosCanonical.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828913,
+    "ast_hash": "1df4042504f508b61e231046446ae928",
+    "semantic_hash": "1df4042504f508b61e231046446ae928"
+  },
+  "src/pages/PlanoSaudeFamiliarGuarulhos.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828923,
+    "ast_hash": "902ea95c96733b99184a05286e396133",
+    "semantic_hash": "902ea95c96733b99184a05286e396133"
+  },
+  "src/pages/PlanoSaudeGuarulhosVertical.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828932,
+    "ast_hash": "2a60fa355c770a72d8a550e81aaf68cb",
+    "semantic_hash": "2a60fa355c770a72d8a550e81aaf68cb"
+  },
+  "src/pages/PlanoSaudeIdososGuarulhos.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828944,
+    "ast_hash": "ca3640844a9c623bec62245f433b4dce",
+    "semantic_hash": "ca3640844a9c623bec62245f433b4dce"
+  },
+  "src/pages/PlanoSaudeIndividualGuarulhos.tsx": {
+    "mtime": 1788537005.2299361,
+    "seen": 1788537026.9828956,
+    "ast_hash": "a494bffaf323a2a6d1bef94dd4098537",
+    "semantic_hash": "a494bffaf323a2a6d1bef94dd4098537"
+  },
+  "src/pages/PlanoSaudeMeiGuarulhos.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9828963,
+    "ast_hash": "646539f3f0aa92fce83d3374c409da4f",
+    "semantic_hash": "646539f3f0aa92fce83d3374c409da4f"
+  },
+  "src/pages/PlanoSaudePmeGuarulhos.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9828978,
+    "ast_hash": "24750a513a5d059e5ca20d86b74d12ad",
+    "semantic_hash": "24750a513a5d059e5ca20d86b74d12ad"
+  },
+  "src/pages/PlanosDeSaude.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9828987,
+    "ast_hash": "9727b01a9996c53a47701d686a7d1769",
+    "semantic_hash": "9727b01a9996c53a47701d686a7d1769"
+  },
+  "src/pages/PlanosSaudeSeniorGuarulhos.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9828994,
+    "ast_hash": "074f5e7235e91bd90dbbf236b3dc0b4d",
+    "semantic_hash": "074f5e7235e91bd90dbbf236b3dc0b4d"
+  },
+  "src/pages/PoliticaPrivacidade.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829004,
+    "ast_hash": "fe2199e7700b87be5a0b9b9d6ed77a12",
+    "semantic_hash": "fe2199e7700b87be5a0b9b9d6ed77a12"
+  },
+  "src/pages/PrevidenciaPrivada.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829013,
+    "ast_hash": "535a814e1a2e8159029277f7a2ba0992",
+    "semantic_hash": "535a814e1a2e8159029277f7a2ba0992"
+  },
+  "src/pages/ProtecaoPetPremium.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829023,
+    "ast_hash": "67c3906b616c88811d91710dd29a0133",
+    "semantic_hash": "67c3906b616c88811d91710dd29a0133"
+  },
+  "src/pages/PurgeLogs.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829032,
+    "ast_hash": "fca77ae113d2c8925682532afe9b9278",
+    "semantic_hash": "fca77ae113d2c8925682532afe9b9278"
+  },
+  "src/pages/SchemaDashboard.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829044,
+    "ast_hash": "d2a576a45b058e1957de6180faaaea36",
+    "semantic_hash": "d2a576a45b058e1957de6180faaaea36"
+  },
+  "src/pages/SeguradoraParceiraSeoPage.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829054,
+    "ast_hash": "598dccdcdb6e9474cd6be49ad7914c62",
+    "semantic_hash": "598dccdcdb6e9474cd6be49ad7914c62"
+  },
+  "src/pages/SeguradorasParceirasHub.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829063,
+    "ast_hash": "5189ee69f22baa4c0334ac7359f9784f",
+    "semantic_hash": "5189ee69f22baa4c0334ac7359f9784f"
+  },
+  "src/pages/SeguroAcidentesPessoais.tsx": {
+    "mtime": 1788537005.230936,
+    "seen": 1788537026.9829073,
+    "ast_hash": "979eedc3a3b620011851677edda614b0",
+    "semantic_hash": "979eedc3a3b620011851677edda614b0"
+  },
+  "src/pages/SeguroAgro.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.9829082,
+    "ast_hash": "3e78736a86d1fd5c6b046e9aa94bd79b",
+    "semantic_hash": "3e78736a86d1fd5c6b046e9aa94bd79b"
+  },
+  "src/pages/SeguroAmbiental.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.9829092,
+    "ast_hash": "57bb92a64fecfeade3a32ee18061a8a3",
+    "semantic_hash": "57bb92a64fecfeade3a32ee18061a8a3"
+  },
+  "src/pages/SeguroAppMotoristasPassageiros.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.9829102,
+    "ast_hash": "72671573efb2242e00b56f8b36cff2a4",
+    "semantic_hash": "72671573efb2242e00b56f8b36cff2a4"
+  },
+  "src/pages/SeguroArmazenagem.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.9829109,
+    "ast_hash": "671f6b337f51fcbac0718d44e165786e",
+    "semantic_hash": "671f6b337f51fcbac0718d44e165786e"
+  },
+  "src/pages/SeguroAuto.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.9829123,
+    "ast_hash": "f40004722fc7146ec03c568a5df62c21",
+    "semantic_hash": "f40004722fc7146ec03c568a5df62c21"
+  },
+  "src/pages/SeguroAutoComparativoCoberturas.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.982913,
+    "ast_hash": "be899033299489d4ce30388efd54951d",
+    "semantic_hash": "be899033299489d4ce30388efd54951d"
+  },
+  "src/pages/SeguroAutoEzzeCorinthians.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.982914,
+    "ast_hash": "10b94cb37112c7f08e33a9b282d4080c",
+    "semantic_hash": "10b94cb37112c7f08e33a9b282d4080c"
+  },
+  "src/pages/SeguroAutoMarcas.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.9829152,
+    "ast_hash": "4cf49994a3c029bfea4c74a11daa9391",
+    "semantic_hash": "4cf49994a3c029bfea4c74a11daa9391"
+  },
+  "src/pages/SeguroAvioes.tsx": {
+    "mtime": 1788537005.231936,
+    "seen": 1788537026.982916,
+    "ast_hash": "60b3a6956d44564fd815ccec0d80d53e",
+    "semantic_hash": "60b3a6956d44564fd815ccec0d80d53e"
+  },
+  "src/pages/SeguroBMW.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.982917,
+    "ast_hash": "c39468a3f1af8c9d6e79c0c69f5760a1",
+    "semantic_hash": "c39468a3f1af8c9d6e79c0c69f5760a1"
+  },
+  "src/pages/SeguroBike.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829183,
+    "ast_hash": "8bc0a51290ea4c8ef3098bccfceea634",
+    "semantic_hash": "8bc0a51290ea4c8ef3098bccfceea634"
+  },
+  "src/pages/SeguroCafe.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.982919,
+    "ast_hash": "f1357c90ef97e30a79097f38b1bf5a1b",
+    "semantic_hash": "f1357c90ef97e30a79097f38b1bf5a1b"
+  },
+  "src/pages/SeguroCaminhao.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829202,
+    "ast_hash": "938fb9bb358910a3f188b74041bb260b",
+    "semantic_hash": "938fb9bb358910a3f188b74041bb260b"
+  },
+  "src/pages/SeguroCartaVerde.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829211,
+    "ast_hash": "6d5ceb618df80c39d1abe30c23fb4f3d",
+    "semantic_hash": "6d5ceb618df80c39d1abe30c23fb4f3d"
+  },
+  "src/pages/SeguroCelular.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829223,
+    "ast_hash": "376e21b2c40ce7c87a76a2381fd6df54",
+    "semantic_hash": "376e21b2c40ce7c87a76a2381fd6df54"
+  },
+  "src/pages/SeguroClinicaEsteticaGuarulhos.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829233,
+    "ast_hash": "8fe746f7b44cb6baef34a0bd97dcbed0",
+    "semantic_hash": "8fe746f7b44cb6baef34a0bd97dcbed0"
+  },
+  "src/pages/SeguroClinicaOdontologica.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829242,
+    "ast_hash": "051c50c763b7485be86c6165df3f0880",
+    "semantic_hash": "051c50c763b7485be86c6165df3f0880"
+  },
+  "src/pages/SeguroClinicaPequenaGuarulhos.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829254,
+    "ast_hash": "bdbc684381c0bcc3346c8c6f5b99013a",
+    "semantic_hash": "bdbc684381c0bcc3346c8c6f5b99013a"
+  },
+  "src/pages/SeguroClinicaVeterinaria.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829264,
+    "ast_hash": "0094c4b94f7e10996ed1996e7fd4497b",
+    "semantic_hash": "0094c4b94f7e10996ed1996e7fd4497b"
+  },
+  "src/pages/SeguroColhedoraAlgodao.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829273,
+    "ast_hash": "ae6e69e2bed69bea4ed9bdea6477799f",
+    "semantic_hash": "ae6e69e2bed69bea4ed9bdea6477799f"
+  },
+  "src/pages/SeguroColhedoraCana.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.982928,
+    "ast_hash": "80b7ba2becb3b8c2d10ebb92f9907698",
+    "semantic_hash": "80b7ba2becb3b8c2d10ebb92f9907698"
+  },
+  "src/pages/SeguroColheitadeiraGraos.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829295,
+    "ast_hash": "39b01c2578034ed073f07cf797385671",
+    "semantic_hash": "39b01c2578034ed073f07cf797385671"
+  },
+  "src/pages/SeguroCondominio.tsx": {
+    "mtime": 1788537005.2329361,
+    "seen": 1788537026.9829304,
+    "ast_hash": "0b62fdbdeee9db401828b1b4302226d5",
+    "semantic_hash": "0b62fdbdeee9db401828b1b4302226d5"
+  },
+  "src/pages/SeguroCondominioEmpresarial.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829314,
+    "ast_hash": "eef1ab581c7a6860dc17a4b1d51787c7",
+    "semantic_hash": "eef1ab581c7a6860dc17a4b1d51787c7"
+  },
+  "src/pages/SeguroCondominioResidencial.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829326,
+    "ast_hash": "65c7ebb2a902083674c8ca3ad0a240a9",
+    "semantic_hash": "65c7ebb2a902083674c8ca3ad0a240a9"
+  },
+  "src/pages/SeguroConsultorioGuarulhos.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829335,
+    "ast_hash": "f488b5f7b0887d8cdfb0358def9c792e",
+    "semantic_hash": "f488b5f7b0887d8cdfb0358def9c792e"
+  },
+  "src/pages/SeguroConsultorioMedicoGuarulhos.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829345,
+    "ast_hash": "78f27a123761d2537307cfd1b2440b5c",
+    "semantic_hash": "78f27a123761d2537307cfd1b2440b5c"
+  },
+  "src/pages/SeguroConsultorioOdontologico.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829352,
+    "ast_hash": "7ac19b40446a12577210affdac980cb8",
+    "semantic_hash": "7ac19b40446a12577210affdac980cb8"
+  },
+  "src/pages/SeguroConsultorioOdontologicoGuarulhos.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829364,
+    "ast_hash": "376d8689a263e2071250f34341b643fb",
+    "semantic_hash": "376d8689a263e2071250f34341b643fb"
+  },
+  "src/pages/SeguroConsultorioVeterinarioGuarulhos.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.982937,
+    "ast_hash": "170c38bd6f258e5f8204b5cb6c1bf24e",
+    "semantic_hash": "170c38bd6f258e5f8204b5cb6c1bf24e"
+  },
+  "src/pages/SeguroCyber.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.982938,
+    "ast_hash": "a7315a9e688fb253118d49ceaf0ca470",
+    "semantic_hash": "a7315a9e688fb253118d49ceaf0ca470"
+  },
+  "src/pages/SeguroDeCredito.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829392,
+    "ast_hash": "961a90b8b6fbdd38db0116dfa5eeb757",
+    "semantic_hash": "961a90b8b6fbdd38db0116dfa5eeb757"
+  },
+  "src/pages/SeguroDeCreditoGuarulhos.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829402,
+    "ast_hash": "eb2b8c603e6cbea9dd41f217aea5d146",
+    "semantic_hash": "eb2b8c603e6cbea9dd41f217aea5d146"
+  },
+  "src/pages/SeguroDecesso.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.982941,
+    "ast_hash": "ec62132af89a7adf635d850b74cc3c83",
+    "semantic_hash": "ec62132af89a7adf635d850b74cc3c83"
+  },
+  "src/pages/SeguroDroneAgricola.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.9829419,
+    "ast_hash": "69739a504c57686155bc2aba7603dd53",
+    "semantic_hash": "69739a504c57686155bc2aba7603dd53"
+  },
+  "src/pages/SeguroEmbarcacoes.tsx": {
+    "mtime": 1788537005.233936,
+    "seen": 1788537026.982943,
+    "ast_hash": "9e199aab19aecb14e4ffab213ac5ad60",
+    "semantic_hash": "9e199aab19aecb14e4ffab213ac5ad60"
+  },
+  "src/pages/SeguroEmpresarial.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.982944,
+    "ast_hash": "f460a3e717ecb00eb30fc79e6ab35147",
+    "semantic_hash": "f460a3e717ecb00eb30fc79e6ab35147"
+  },
+  "src/pages/SeguroEmpresarialSegmento.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.982945,
+    "ast_hash": "6b79c0e747c44466bce86c80228dd5c0",
+    "semantic_hash": "6b79c0e747c44466bce86c80228dd5c0"
+  },
+  "src/pages/SeguroEngenharia.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829462,
+    "ast_hash": "00855377f89e99c59756cca3e6fe79e7",
+    "semantic_hash": "00855377f89e99c59756cca3e6fe79e7"
+  },
+  "src/pages/SeguroEquipamentosAgricolas.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.982947,
+    "ast_hash": "cb3ad02ed9d355ed7c46f54553238858",
+    "semantic_hash": "cb3ad02ed9d355ed7c46f54553238858"
+  },
+  "src/pages/SeguroEquipamentosConsultorioGuarulhos.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829478,
+    "ast_hash": "7902659240125aa632e85676cd4de2cf",
+    "semantic_hash": "7902659240125aa632e85676cd4de2cf"
+  },
+  "src/pages/SeguroEquipamentosOdontologicos.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829488,
+    "ast_hash": "ad07f86fea1892ab700cc86a72d07467",
+    "semantic_hash": "ad07f86fea1892ab700cc86a72d07467"
+  },
+  "src/pages/SeguroEquipamentosVeterinarios.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829497,
+    "ast_hash": "3f559b7fc5b4b14900e77ca911239a1b",
+    "semantic_hash": "3f559b7fc5b4b14900e77ca911239a1b"
+  },
+  "src/pages/SeguroEstagiario.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829507,
+    "ast_hash": "063b223eafe41a9b0a2b58708440ffba",
+    "semantic_hash": "063b223eafe41a9b0a2b58708440ffba"
+  },
+  "src/pages/SeguroFianca.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829516,
+    "ast_hash": "7f3c0ec70e4c69962da20ae042d840c5",
+    "semantic_hash": "7f3c0ec70e4c69962da20ae042d840c5"
+  },
+  "src/pages/SeguroFiancaGuarulhos.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829524,
+    "ast_hash": "dd4609ec1a479bd67df94023b5e6cd05",
+    "semantic_hash": "dd4609ec1a479bd67df94023b5e6cd05"
+  },
+  "src/pages/SeguroFiancaLocaticia.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829535,
+    "ast_hash": "08fbd5d0633dbae01d81cca9a3b604d7",
+    "semantic_hash": "08fbd5d0633dbae01d81cca9a3b604d7"
+  },
+  "src/pages/SeguroFlatGuarulhos.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829545,
+    "ast_hash": "b80478b99db45a4b601bfda6230b1e82",
+    "semantic_hash": "b80478b99db45a4b601bfda6230b1e82"
+  },
+  "src/pages/SeguroFrota.tsx": {
+    "mtime": 1788537005.234936,
+    "seen": 1788537026.9829555,
+    "ast_hash": "03babf48c80972ca1fa145ee3a15b716",
+    "semantic_hash": "03babf48c80972ca1fa145ee3a15b716"
+  },
+  "src/pages/SeguroFuneral.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829566,
+    "ast_hash": "0bdbf9724bc96220a8760e60e9186680",
+    "semantic_hash": "0bdbf9724bc96220a8760e60e9186680"
+  },
+  "src/pages/SeguroGalpao.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829576,
+    "ast_hash": "47027b0f1afb1a5fd4fd917a446c762c",
+    "semantic_hash": "47027b0f1afb1a5fd4fd917a446c762c"
+  },
+  "src/pages/SeguroGalpaoCumbica.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829586,
+    "ast_hash": "e4a5c110fc78e2d7d7e732adc77e9738",
+    "semantic_hash": "e4a5c110fc78e2d7d7e732adc77e9738"
+  },
+  "src/pages/SeguroGalpoesIndustriais.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829595,
+    "ast_hash": "d14c35ee175321385af1007b15966f47",
+    "semantic_hash": "d14c35ee175321385af1007b15966f47"
+  },
+  "src/pages/SeguroGarantia.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829605,
+    "ast_hash": "9e580dded5497e893eb84186669268e3",
+    "semantic_hash": "9e580dded5497e893eb84186669268e3"
+  },
+  "src/pages/SeguroGarantiaGuarulhos.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829614,
+    "ast_hash": "2fe48ba1fabab9f254ad8e449790d710",
+    "semantic_hash": "2fe48ba1fabab9f254ad8e449790d710"
+  },
+  "src/pages/SeguroGeada.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829621,
+    "ast_hash": "a6d2711b7b1d50920ac9d73d177273cf",
+    "semantic_hash": "a6d2711b7b1d50920ac9d73d177273cf"
+  },
+  "src/pages/SeguroGeradorEnergia.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.982963,
+    "ast_hash": "350d804e3567991e752f8a34be085659",
+    "semantic_hash": "350d804e3567991e752f8a34be085659"
+  },
+  "src/pages/SeguroGranja.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829643,
+    "ast_hash": "69b278c80cff4a2064188dfb4a33b134",
+    "semantic_hash": "69b278c80cff4a2064188dfb4a33b134"
+  },
+  "src/pages/SeguroHelicopteros.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829652,
+    "ast_hash": "9bdce25bec39084a94bc38487f59d14f",
+    "semantic_hash": "9bdce25bec39084a94bc38487f59d14f"
+  },
+  "src/pages/SeguroHospitalVeterinario.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829662,
+    "ast_hash": "95714b5a609223f90c1b196c00f65f02",
+    "semantic_hash": "95714b5a609223f90c1b196c00f65f02"
+  },
+  "src/pages/SeguroImobiliario.tsx": {
+    "mtime": 1788537005.235936,
+    "seen": 1788537026.9829676,
+    "ast_hash": "02ad22f01731fcc248f2e80166fdf25c",
+    "semantic_hash": "02ad22f01731fcc248f2e80166fdf25c"
+  },
+  "src/pages/SeguroJetSki.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829686,
+    "ast_hash": "0ee0ecd2f582456dd60484d48aa966bb",
+    "semantic_hash": "0ee0ecd2f582456dd60484d48aa966bb"
+  },
+  "src/pages/SeguroLojasShopping.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829695,
+    "ast_hash": "ed7f31636af349012a8296af5e9d5f42",
+    "semantic_hash": "ed7f31636af349012a8296af5e9d5f42"
+  },
+  "src/pages/SeguroMaquinas.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829707,
+    "ast_hash": "7c05684f3d72b671e0cd18c3d300f700",
+    "semantic_hash": "7c05684f3d72b671e0cd18c3d300f700"
+  },
+  "src/pages/SeguroMaquinasAgricolas.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829714,
+    "ast_hash": "962a2051aacd5f5b8130c5db7c48b07b",
+    "semantic_hash": "962a2051aacd5f5b8130c5db7c48b07b"
+  },
+  "src/pages/SeguroMaquinasIndustriais.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829726,
+    "ast_hash": "92664f115e84431d85896f1c04d7ffae",
+    "semantic_hash": "92664f115e84431d85896f1c04d7ffae"
+  },
+  "src/pages/SeguroMaquinasLinhaAmarela.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829738,
+    "ast_hash": "bc8151ca753b426070a1375288b3c940",
+    "semantic_hash": "bc8151ca753b426070a1375288b3c940"
+  },
+  "src/pages/SeguroMarcaPremium.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829748,
+    "ast_hash": "fc084e9f3e3719ff6c063b5f24e30e28",
+    "semantic_hash": "fc084e9f3e3719ff6c063b5f24e30e28"
+  },
+  "src/pages/SeguroMicroOnibus.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829757,
+    "ast_hash": "2bce75d4d1bfa863039263550ac72490",
+    "semantic_hash": "2bce75d4d1bfa863039263550ac72490"
+  },
+  "src/pages/SeguroMoto.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829767,
+    "ast_hash": "497b256e556c0dc64e6f1ab209235e27",
+    "semantic_hash": "497b256e556c0dc64e6f1ab209235e27"
+  },
+  "src/pages/SeguroMotoristaApp.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829779,
+    "ast_hash": "86870840f7d4c0ea8f0bbb00de4d9f27",
+    "semantic_hash": "86870840f7d4c0ea8f0bbb00de4d9f27"
+  },
+  "src/pages/SeguroOdonto.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829786,
+    "ast_hash": "b5b652c8dbe06b1513557a4b69570e02",
+    "semantic_hash": "b5b652c8dbe06b1513557a4b69570e02"
+  },
+  "src/pages/SeguroParaDentistas.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829795,
+    "ast_hash": "7f00752799708d2e1e2f37e3bfb14b6e",
+    "semantic_hash": "7f00752799708d2e1e2f37e3bfb14b6e"
+  },
+  "src/pages/SeguroParaVeterinarios.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829805,
+    "ast_hash": "ad5dd734ffad6816886f59a455d00edb",
+    "semantic_hash": "ad5dd734ffad6816886f59a455d00edb"
+  },
+  "src/pages/SeguroPecuario.tsx": {
+    "mtime": 1788537005.236936,
+    "seen": 1788537026.9829817,
+    "ast_hash": "4d72a56e110a00e2da839deefdd37173",
+    "semantic_hash": "4d72a56e110a00e2da839deefdd37173"
+  },
+  "src/pages/SeguroPetshop.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829826,
+    "ast_hash": "64fddea132e7722420cabe7dc83b7849",
+    "semantic_hash": "64fddea132e7722420cabe7dc83b7849"
+  },
+  "src/pages/SeguroPlacaSolar.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829836,
+    "ast_hash": "d65b669930719217d841a1844eb75847",
+    "semantic_hash": "d65b669930719217d841a1844eb75847"
+  },
+  "src/pages/SeguroPropriedadeRural.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829848,
+    "ast_hash": "49d53cc799a40e79c77795ddb667bdb7",
+    "semantic_hash": "49d53cc799a40e79c77795ddb667bdb7"
+  },
+  "src/pages/SeguroPulverizadorAgricola.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829857,
+    "ast_hash": "1eb97845a9a8ecb3afc83c1bd714b624",
+    "semantic_hash": "1eb97845a9a8ecb3afc83c1bd714b624"
+  },
+  "src/pages/SeguroRC.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829865,
+    "ast_hash": "751224b4e2d4199b1783bd81e37f0205",
+    "semantic_hash": "751224b4e2d4199b1783bd81e37f0205"
+  },
+  "src/pages/SeguroRCAdvogados.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829874,
+    "ast_hash": "3b5aa95c6cef54d1e97616bfbf24c3e6",
+    "semantic_hash": "3b5aa95c6cef54d1e97616bfbf24c3e6"
+  },
+  "src/pages/SeguroRCDentistas.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829886,
+    "ast_hash": "c34fba14ca20938b1b6793cf569b90a6",
+    "semantic_hash": "c34fba14ca20938b1b6793cf569b90a6"
+  },
+  "src/pages/SeguroRCEngenheiros.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829893,
+    "ast_hash": "eedf6f1bf6704c3198c3c0b03ad97539",
+    "semantic_hash": "eedf6f1bf6704c3198c3c0b03ad97539"
+  },
+  "src/pages/SeguroRCEventos.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829903,
+    "ast_hash": "a569fd71c0afbe79e9726f5b76ef5bbc",
+    "semantic_hash": "a569fd71c0afbe79e9726f5b76ef5bbc"
+  },
+  "src/pages/SeguroRCExecutivos.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829917,
+    "ast_hash": "8c6ad8740200b40e4b530e5ef45cbf67",
+    "semantic_hash": "8c6ad8740200b40e4b530e5ef45cbf67"
+  },
+  "src/pages/SeguroRCMedicos.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829926,
+    "ast_hash": "056bb98f347ce73e8eb355b94a434236",
+    "semantic_hash": "056bb98f347ce73e8eb355b94a434236"
+  },
+  "src/pages/SeguroRCObras.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829934,
+    "ast_hash": "cf9163bfcdc2ee592cb50df45457506d",
+    "semantic_hash": "cf9163bfcdc2ee592cb50df45457506d"
+  },
+  "src/pages/SeguroRCPrestacaoServicos.tsx": {
+    "mtime": 1788537005.237936,
+    "seen": 1788537026.9829943,
+    "ast_hash": "c01e30e1c9453fc2c56586e49b1a246c",
+    "semantic_hash": "c01e30e1c9453fc2c56586e49b1a246c"
+  },
+  "src/pages/SeguroRCProfissional.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9829955,
+    "ast_hash": "2a10d8e80477e7e3fe8aa3b731dfff5e",
+    "semantic_hash": "2a10d8e80477e7e3fe8aa3b731dfff5e"
+  },
+  "src/pages/SeguroRCVeterinarios.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9829965,
+    "ast_hash": "f374b4edf4303aba5ff2258770e5d171",
+    "semantic_hash": "f374b4edf4303aba5ff2258770e5d171"
+  },
+  "src/pages/SeguroResidencial.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9829977,
+    "ast_hash": "14bc04d00b40ddfcf691368ac592ed3f",
+    "semantic_hash": "14bc04d00b40ddfcf691368ac592ed3f"
+  },
+  "src/pages/SeguroRestaurante.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9829988,
+    "ast_hash": "38b1e3b953612d0d44adc03ef4713338",
+    "semantic_hash": "38b1e3b953612d0d44adc03ef4713338"
+  },
+  "src/pages/SeguroRural.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9829998,
+    "ast_hash": "f0db40a3b6e16a18828bdbfd6d4b44a7",
+    "semantic_hash": "f0db40a3b6e16a18828bdbfd6d4b44a7"
+  },
+  "src/pages/SeguroSalaComercialGuarulhos.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9830008,
+    "ast_hash": "ae7bdc23700de716637be7ba49cb306c",
+    "semantic_hash": "ae7bdc23700de716637be7ba49cb306c"
+  },
+  "src/pages/SeguroSaude.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.983002,
+    "ast_hash": "e73c321bda2b7029aa84f52b8caccb69",
+    "semantic_hash": "e73c321bda2b7029aa84f52b8caccb69"
+  },
+  "src/pages/SeguroSiloAgricola.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.983003,
+    "ast_hash": "b9bb12742dcff7d2c26409d6c0396e45",
+    "semantic_hash": "b9bb12742dcff7d2c26409d6c0396e45"
+  },
+  "src/pages/SeguroTaxiGuarulhos.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9830039,
+    "ast_hash": "fe7fb3c4181f84aa0684a974fab0b568",
+    "semantic_hash": "fe7fb3c4181f84aa0684a974fab0b568"
+  },
+  "src/pages/SeguroTransporte.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9830053,
+    "ast_hash": "7d8601319e160bf26ccaea5b265afbae",
+    "semantic_hash": "7d8601319e160bf26ccaea5b265afbae"
+  },
+  "src/pages/SeguroTransporteAgro.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9830062,
+    "ast_hash": "a50e4f5ce26924c57a5110f37651dbdb",
+    "semantic_hash": "a50e4f5ce26924c57a5110f37651dbdb"
+  },
+  "src/pages/SeguroTransporteCargaGuarulhos.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9830072,
+    "ast_hash": "88f412274f77b46edbe94d82ce6998e9",
+    "semantic_hash": "88f412274f77b46edbe94d82ce6998e9"
+  },
+  "src/pages/SeguroTratorAgricola.tsx": {
+    "mtime": 1788537005.238936,
+    "seen": 1788537026.9830081,
+    "ast_hash": "8dac7b59f96b2980c5d0d42626992239",
+    "semantic_hash": "8dac7b59f96b2980c5d0d42626992239"
+  },
+  "src/pages/SeguroTratorIndustrial.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830093,
+    "ast_hash": "72195aa1579d7103505698924c4ce5f1",
+    "semantic_hash": "72195aa1579d7103505698924c4ce5f1"
+  },
+  "src/pages/SeguroViagem.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830103,
+    "ast_hash": "c00c82e3fb896e85f1733da4629c5ddd",
+    "semantic_hash": "c00c82e3fb896e85f1733da4629c5ddd"
+  },
+  "src/pages/SeguroVida.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830112,
+    "ast_hash": "0e152f35d95a04d9b34054bab593cf67",
+    "semantic_hash": "0e152f35d95a04d9b34054bab593cf67"
+  },
+  "src/pages/SeguroVidaClinicasOdontologicas.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830124,
+    "ast_hash": "855116f64bb6c4cf9c85fb3da7a212fb",
+    "semantic_hash": "855116f64bb6c4cf9c85fb3da7a212fb"
+  },
+  "src/pages/SeguroVidaClinicasVeterinarias.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830134,
+    "ast_hash": "97cf294946920b25d34335fcaf7f5d9a",
+    "semantic_hash": "97cf294946920b25d34335fcaf7f5d9a"
+  },
+  "src/pages/SeguroVidaPME.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830143,
+    "ast_hash": "1d1785fee228be99016d7fe167cf64d6",
+    "semantic_hash": "1d1785fee228be99016d7fe167cf64d6"
+  },
+  "src/pages/SeguroVistoriadoraVeicular.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.983015,
+    "ast_hash": "ef3446a3ffd94d979b5e569ce9dfd594",
+    "semantic_hash": "ef3446a3ffd94d979b5e569ce9dfd594"
+  },
+  "src/pages/SegurosEmpresariaisEspecializados.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830163,
+    "ast_hash": "a91bbc539d30b5c14502b0083a2f6954",
+    "semantic_hash": "a91bbc539d30b5c14502b0083a2f6954"
+  },
+  "src/pages/SegurosGuarulhosBairros.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830172,
+    "ast_hash": "04bb165221c639ed106d41fc295656b7",
+    "semantic_hash": "04bb165221c639ed106d41fc295656b7"
+  },
+  "src/pages/SegurosPorSegmento.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830184,
+    "ast_hash": "9797247949ad859bcc3843c054703fc8",
+    "semantic_hash": "9797247949ad859bcc3843c054703fc8"
+  },
+  "src/pages/SegurosQuotePage.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830196,
+    "ast_hash": "994240bc1835597085c01d15aa2598f3",
+    "semantic_hash": "994240bc1835597085c01d15aa2598f3"
+  },
+  "src/pages/SeoAutoPosVistoriaGuarulhos.tsx": {
+    "mtime": 1788537005.239936,
+    "seen": 1788537026.9830208,
+    "ast_hash": "418d6dcaf9e58d8b6517b21c8b8642f8",
+    "semantic_hash": "418d6dcaf9e58d8b6517b21c8b8642f8"
+  },
+  "src/pages/SeoDespachantesVistoriasGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830217,
+    "ast_hash": "8ed2c3482284616fa3ab88e762d676ce",
+    "semantic_hash": "8ed2c3482284616fa3ab88e762d676ce"
+  },
+  "src/pages/SeoECVGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.983023,
+    "ast_hash": "ed21f2f2cd3e6ec9607a0e9cd69973aa",
+    "semantic_hash": "ed21f2f2cd3e6ec9607a0e9cd69973aa"
+  },
+  "src/pages/SeoHubBairrosGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830236,
+    "ast_hash": "670b582ff2b707bcd49c2aac0cf4a44d",
+    "semantic_hash": "670b582ff2b707bcd49c2aac0cf4a44d"
+  },
+  "src/pages/SeoInspecaoVeicularGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830246,
+    "ast_hash": "e9dafc71b2833c3fda9e561de1263da0",
+    "semantic_hash": "e9dafc71b2833c3fda9e561de1263da0"
+  },
+  "src/pages/SeoLocalPage.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830256,
+    "ast_hash": "443b2c28346a6b53aa4cf9662169a9a1",
+    "semantic_hash": "443b2c28346a6b53aa4cf9662169a9a1"
+  },
+  "src/pages/SeoParceriaVistoriaGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830267,
+    "ast_hash": "74af965b7cf7e0045dde0c4bf9f53e40",
+    "semantic_hash": "74af965b7cf7e0045dde0c4bf9f53e40"
+  },
+  "src/pages/SeoPlanoSaudeGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830275,
+    "ast_hash": "63ab16a82c304fdb120c2b0c0a26e213",
+    "semantic_hash": "63ab16a82c304fdb120c2b0c0a26e213"
+  },
+  "src/pages/SeoScanSummary.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830284,
+    "ast_hash": "c6ac50a7faeb60695b887e1b1c47030a",
+    "semantic_hash": "c6ac50a7faeb60695b887e1b1c47030a"
+  },
+  "src/pages/SeoSeguroAutoGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830296,
+    "ast_hash": "7f14450fcf41c6c419586d50c5a0eec9",
+    "semantic_hash": "7f14450fcf41c6c419586d50c5a0eec9"
+  },
+  "src/pages/SeoSeguroAutoPorModeloGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830306,
+    "ast_hash": "ffd5324113e77061c6748fea6c94f454",
+    "semantic_hash": "ffd5324113e77061c6748fea6c94f454"
+  },
+  "src/pages/SeoSeguroCondominioGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830313,
+    "ast_hash": "4fa81c9f3cf188e77a2977e65cd8284e",
+    "semantic_hash": "4fa81c9f3cf188e77a2977e65cd8284e"
+  },
+  "src/pages/SeoSeguroEmpresaGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830322,
+    "ast_hash": "23a722c3e0ad091204133989d33f7063",
+    "semantic_hash": "23a722c3e0ad091204133989d33f7063"
+  },
+  "src/pages/SeoSeguroEmpresarialGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830332,
+    "ast_hash": "92b6d9a6e167545de534b5da3f6d7b38",
+    "semantic_hash": "92b6d9a6e167545de534b5da3f6d7b38"
+  },
+  "src/pages/SeoSeguroFrotaGuarulhos.tsx": {
+    "mtime": 1788537005.240936,
+    "seen": 1788537026.9830341,
+    "ast_hash": "a64ceebdcd2e66ca6eccfcd8b473e092",
+    "semantic_hash": "a64ceebdcd2e66ca6eccfcd8b473e092"
+  },
+  "src/pages/SeoSeguroMotoGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830348,
+    "ast_hash": "b44fe9b41eddf260b2768ac20812a089",
+    "semantic_hash": "b44fe9b41eddf260b2768ac20812a089"
+  },
+  "src/pages/SeoSeguroMotoristaAppGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.983036,
+    "ast_hash": "d4c93903727c7f40dcc8134e2695d25a",
+    "semantic_hash": "d4c93903727c7f40dcc8134e2695d25a"
+  },
+  "src/pages/SeoSeguroResidencialGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830372,
+    "ast_hash": "5d068cbd79f44c120b8ff1d4d939385a",
+    "semantic_hash": "5d068cbd79f44c120b8ff1d4d939385a"
+  },
+  "src/pages/SeoSeguroUberGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830382,
+    "ast_hash": "1b6d2006b99ef7865339d14300b51acb",
+    "semantic_hash": "1b6d2006b99ef7865339d14300b51acb"
+  },
+  "src/pages/SeoSeguroVidaGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830427,
+    "ast_hash": "f8c0d82c7b32d0ca1f8cd09d7ad28150",
+    "semantic_hash": "f8c0d82c7b32d0ca1f8cd09d7ad28150"
+  },
+  "src/pages/SeoSeguroVidaSaudeGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830441,
+    "ast_hash": "6590d5833a1fe9e3c142768dac288937",
+    "semantic_hash": "6590d5833a1fe9e3c142768dac288937"
+  },
+  "src/pages/SeoSegurosPmeGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830449,
+    "ast_hash": "03c4ced2e5dc4ad80087c2c28e9d18ea",
+    "semantic_hash": "03c4ced2e5dc4ad80087c2c28e9d18ea"
+  },
+  "src/pages/SeoSegurosShoppingMaiaCidadeMaia.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830458,
+    "ast_hash": "5b9bce449b8b9219609a277eff3c91c8",
+    "semantic_hash": "5b9bce449b8b9219609a277eff3c91c8"
+  },
+  "src/pages/SeoTechnicalReport.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.9830472,
+    "ast_hash": "5464a291bcbeaa1e836bcc601a62516e",
+    "semantic_hash": "5464a291bcbeaa1e836bcc601a62516e"
+  },
+  "src/pages/SeoTransferenciaVeicularGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.983048,
+    "ast_hash": "b152133763ca09c58a1e59901fd0529f",
+    "semantic_hash": "b152133763ca09c58a1e59901fd0529f"
+  },
+  "src/pages/SeoVistoriaCautelarGuarulhos.tsx": {
+    "mtime": 1788537005.241936,
+    "seen": 1788537026.983049,
+    "ast_hash": "9533e01e04d5b79a1696c5f17afad0fd",
+    "semantic_hash": "9533e01e04d5b79a1696c5f17afad0fd"
+  },
+  "src/pages/SeoVistoriaVeicularGuarulhos.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.9830496,
+    "ast_hash": "967cd8d629cb23bb37d85491e4501bad",
+    "semantic_hash": "967cd8d629cb23bb37d85491e4501bad"
+  },
+  "src/pages/Servicos.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.9830508,
+    "ast_hash": "9146ecf80bfdb6c8d3241125539666ad",
+    "semantic_hash": "9146ecf80bfdb6c8d3241125539666ad"
+  },
+  "src/pages/SiteMap.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.9830515,
+    "ast_hash": "1614633e9afd2e3ba974e52b1fcdda37",
+    "semantic_hash": "1614633e9afd2e3ba974e52b1fcdda37"
+  },
+  "src/pages/Sobre.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.9830525,
+    "ast_hash": "f43561a8a988600d104ea23f257ce61c",
+    "semantic_hash": "f43561a8a988600d104ea23f257ce61c"
+  },
+  "src/pages/SobreGuarulhos.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.9830532,
+    "ast_hash": "1ff96f0f8474a041e94e096c3c8ece7a",
+    "semantic_hash": "1ff96f0f8474a041e94e096c3c8ece7a"
+  },
+  "src/pages/SolucoesEmpresariais.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.9830544,
+    "ast_hash": "7818ed4aeec3bdd8aeebac6b6ff4a0fa",
+    "semantic_hash": "7818ed4aeec3bdd8aeebac6b6ff4a0fa"
+  },
+  "src/pages/SpecializedVerticalPage.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.983055,
+    "ast_hash": "f576540583e6a4af44cd8dba66da1044",
+    "semantic_hash": "f576540583e6a4af44cd8dba66da1044"
+  },
+  "src/pages/TermosDeUso.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.983056,
+    "ast_hash": "5a3b97bf390ab30ed0c343e23665cd4e",
+    "semantic_hash": "5a3b97bf390ab30ed0c343e23665cd4e"
+  },
+  "src/pages/VerificarSusep.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.9830568,
+    "ast_hash": "a26bec2ada7ce639e24ea765de2e66fd",
+    "semantic_hash": "a26bec2ada7ce639e24ea765de2e66fd"
+  },
+  "src/pages/admin/AnchorAlerts.tsx": {
+    "mtime": 1788537005.2429361,
+    "seen": 1788537026.983058,
+    "ast_hash": "a728e9b668d471ff18c098d8a286a54a",
+    "semantic_hash": "a728e9b668d471ff18c098d8a286a54a"
+  },
+  "src/pages/admin/BreadcrumbsAdmin.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.983059,
+    "ast_hash": "8531fdb440b71493cd868e42880ec1e9",
+    "semantic_hash": "8531fdb440b71493cd868e42880ec1e9"
+  },
+  "src/pages/admin/DomainDrift.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.98306,
+    "ast_hash": "706de86e09febc6795342c1d468d5b2e",
+    "semantic_hash": "706de86e09febc6795342c1d468d5b2e"
+  },
+  "src/pages/admin/FaqUnderfilled.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.9830608,
+    "ast_hash": "d33657e954df782ef65093b627f4ba73",
+    "semantic_hash": "d33657e954df782ef65093b627f4ba73"
+  },
+  "src/pages/admin/GscKeywordPerformance.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.9830618,
+    "ast_hash": "5d32facbfef1aa6d544b543691b34d25",
+    "semantic_hash": "5d32facbfef1aa6d544b543691b34d25"
+  },
+  "src/pages/admin/GscWebVitals.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.9830625,
+    "ast_hash": "71db04cdfc406339ac07e6fad76feffd",
+    "semantic_hash": "71db04cdfc406339ac07e6fad76feffd"
+  },
+  "src/pages/admin/InternalLinkCorrelation.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.9830632,
+    "ast_hash": "563d7e246c38b28c86272ad0129baef1",
+    "semantic_hash": "563d7e246c38b28c86272ad0129baef1"
+  },
+  "src/pages/admin/MonitorIndexacao.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.9830644,
+    "ast_hash": "787f4c6a3b62bc26fa1b27b2b81e10ab",
+    "semantic_hash": "787f4c6a3b62bc26fa1b27b2b81e10ab"
+  },
+  "src/pages/admin/NextSectionCtaReport.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.9830651,
+    "ast_hash": "dc576e291821cdc16f03d39b4150f632",
+    "semantic_hash": "dc576e291821cdc16f03d39b4150f632"
+  },
+  "src/pages/admin/WebVitalsCorrelation.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.9830663,
+    "ast_hash": "fad231be9a1571daff00020af8e0be7a",
+    "semantic_hash": "fad231be9a1571daff00020af8e0be7a"
+  },
+  "src/pages/b2b/B2bInsurerRoute.tsx": {
+    "mtime": 1788537005.24403,
+    "seen": 1788537026.983067,
+    "ast_hash": "eb0564142f478cdd95365a1da52409a4",
+    "semantic_hash": "eb0564142f478cdd95365a1da52409a4"
+  },
+  "src/pages/b2b/B2bIntentRoute.tsx": {
+    "mtime": 1788537005.2450104,
+    "seen": 1788537026.9830682,
+    "ast_hash": "3bc1713361ae75807bc50ae8b9a14438",
+    "semantic_hash": "3bc1713361ae75807bc50ae8b9a14438"
+  },
+  "src/pages/local-guarulhos/SegurosEmGuarulhos.tsx": {
+    "mtime": 1788537005.2450104,
+    "seen": 1788537026.9830692,
+    "ast_hash": "4a38b33a33624ff8b7174f8343ba4e3c",
+    "semantic_hash": "4a38b33a33624ff8b7174f8343ba4e3c"
+  },
+  "src/pages/lp/ResponsabilidadeAdministradoresProfissionais.tsx": {
+    "mtime": 1788537005.2450104,
+    "seen": 1788537026.9830701,
+    "ast_hash": "077e157a437701257e2c03babcc42fa2",
+    "semantic_hash": "077e157a437701257e2c03babcc42fa2"
+  },
+  "src/pages/lp/SeguroCiberneticoEmpresas.tsx": {
+    "mtime": 1788537005.2453163,
+    "seen": 1788537026.9830713,
+    "ast_hash": "84090149421053d30775567d26647310",
+    "semantic_hash": "84090149421053d30775567d26647310"
+  },
+  "src/pages/lp/SeguroGalpoesCentrosDistribuicao.tsx": {
+    "mtime": 1788537005.2453163,
+    "seen": 1788537026.9830723,
+    "ast_hash": "cc9c432a7a6e976f70469e342c56f1db",
+    "semantic_hash": "cc9c432a7a6e976f70469e342c56f1db"
+  },
+  "src/pages/lp/SeguroLocadorasEquipamentos.tsx": {
+    "mtime": 1788537005.2453163,
+    "seen": 1788537026.983073,
+    "ast_hash": "20e4fbba819a6bbd06a8520556cf2c2f",
+    "semantic_hash": "20e4fbba819a6bbd06a8520556cf2c2f"
+  },
+  "src/pages/premium/ProtecaoPatrimonialFamiliarGuarulhos.tsx": {
+    "mtime": 1788537005.2453163,
+    "seen": 1788537026.983074,
+    "ast_hash": "9fa816fbef2c91d603fe90c5bf466cf6",
+    "semantic_hash": "9fa816fbef2c91d603fe90c5bf466cf6"
+  },
+  "src/pages/premium/SeguroAutoPremiumGuarulhos.tsx": {
+    "mtime": 1788537005.2456958,
+    "seen": 1788537026.983075,
+    "ast_hash": "6871f3a77e827461509e103ed0c6064a",
+    "semantic_hash": "6871f3a77e827461509e103ed0c6064a"
+  },
+  "src/pages/premium/SeguroCarroBlindadoGuarulhos.tsx": {
+    "mtime": 1788537005.2456958,
+    "seen": 1788537026.9830756,
+    "ast_hash": "7099846e925ded1308ed65883ab993ca",
+    "semantic_hash": "7099846e925ded1308ed65883ab993ca"
+  },
+  "src/pages/premium/SeguroCarrosLuxoGuarulhos.tsx": {
+    "mtime": 1788537005.2456958,
+    "seen": 1788537026.9830766,
+    "ast_hash": "70babe125479298cf98464c59a5550a1",
+    "semantic_hash": "70babe125479298cf98464c59a5550a1"
+  },
+  "src/pages/premium/SeguroResidencialAltoPadraoGuarulhos.tsx": {
+    "mtime": 1788537005.2456958,
+    "seen": 1788537026.9830775,
+    "ast_hash": "6ded399eae07cf27646d1afba907a1dc",
+    "semantic_hash": "6ded399eae07cf27646d1afba907a1dc"
+  },
+  "src/pages/premium/SegurosParaEmpresariosGuarulhos.tsx": {
+    "mtime": 1788537005.2456958,
+    "seen": 1788537026.9830787,
+    "ast_hash": "a3c8067332bb666721936fbb3865a202",
+    "semantic_hash": "a3c8067332bb666721936fbb3865a202"
+  },
+  "src/pages/saude/Alice.tsx": {
+    "mtime": 1788537005.2456958,
+    "seen": 1788537026.9830797,
+    "ast_hash": "9ecd126366600d31f9e51983ad812395",
+    "semantic_hash": "9ecd126366600d31f9e51983ad812395"
+  },
+  "src/pages/saude/Amil.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830806,
+    "ast_hash": "ce4a976517bdbeb7c9e5bc56b116862a",
+    "semantic_hash": "ce4a976517bdbeb7c9e5bc56b116862a"
+  },
+  "src/pages/saude/Bradesco.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830818,
+    "ast_hash": "737126f9c55b34218fe368fdef302f96",
+    "semantic_hash": "737126f9c55b34218fe368fdef302f96"
+  },
+  "src/pages/saude/CarePlus.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830828,
+    "ast_hash": "eac2cbb1e22484a33a40c86475ea9568",
+    "semantic_hash": "eac2cbb1e22484a33a40c86475ea9568"
+  },
+  "src/pages/saude/Hapvida.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830837,
+    "ast_hash": "efd27d4591c8d7c45ba78001e12320c2",
+    "semantic_hash": "efd27d4591c8d7c45ba78001e12320c2"
+  },
+  "src/pages/saude/Medsenior.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830844,
+    "ast_hash": "f705bd7abc58c801d7335fb9056a425e",
+    "semantic_hash": "f705bd7abc58c801d7335fb9056a425e"
+  },
+  "src/pages/saude/Omint.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830856,
+    "ast_hash": "6ea7b0cc8e7aaf929a4792a1367c9e91",
+    "semantic_hash": "6ea7b0cc8e7aaf929a4792a1367c9e91"
+  },
+  "src/pages/saude/PortoSaude.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830866,
+    "ast_hash": "13af4d9fd8505277ef146761b91eef83",
+    "semantic_hash": "13af4d9fd8505277ef146761b91eef83"
+  },
+  "src/pages/saude/PreventSenior.tsx": {
+    "mtime": 1788537005.2459123,
+    "seen": 1788537026.9830873,
+    "ast_hash": "7b47f67186e33ac471492d7eb14e7349",
+    "semantic_hash": "7b47f67186e33ac471492d7eb14e7349"
+  },
+  "src/pages/saude/Sami.tsx": {
+    "mtime": 1788537005.2459362,
+    "seen": 1788537026.983088,
+    "ast_hash": "34db23b3e60774a30868adb55073fd1e",
+    "semantic_hash": "34db23b3e60774a30868adb55073fd1e"
+  },
+  "src/pages/saude/SulAmerica.tsx": {
+    "mtime": 1788537005.2459362,
+    "seen": 1788537026.9830894,
+    "ast_hash": "af8540997cad7adc0190c79fb8361b24",
+    "semantic_hash": "af8540997cad7adc0190c79fb8361b24"
+  },
+  "src/pages/saude/Unimed.tsx": {
+    "mtime": 1788537005.2459362,
+    "seen": 1788537026.9830904,
+    "ast_hash": "6e49eb268ce68ee1456b4e0f4af9b3dd",
+    "semantic_hash": "6e49eb268ce68ee1456b4e0f4af9b3dd"
+  },
+  "src/pages/seguradoras/Allianz.tsx": {
+    "mtime": 1788537005.2459362,
+    "seen": 1788537026.983091,
+    "ast_hash": "d7d5d1cf202b0078bb1bf7a06eab6dbd",
+    "semantic_hash": "d7d5d1cf202b0078bb1bf7a06eab6dbd"
+  },
+  "src/pages/seguradoras/AzulSeguros.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9830923,
+    "ast_hash": "cfc68003623426ba1c91fb7ccaf1f688",
+    "semantic_hash": "cfc68003623426ba1c91fb7ccaf1f688"
+  },
+  "src/pages/seguradoras/Bradesco.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.983093,
+    "ast_hash": "42e999915d4fedbb370e4ab1d29c64ff",
+    "semantic_hash": "42e999915d4fedbb370e4ab1d29c64ff"
+  },
+  "src/pages/seguradoras/HDI.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.983094,
+    "ast_hash": "08f43f61ea293480ec2183db51a4c3fa",
+    "semantic_hash": "08f43f61ea293480ec2183db51a4c3fa"
+  },
+  "src/pages/seguradoras/Itau.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9830947,
+    "ast_hash": "bbe3be8987e8cbb6a5d5781cc10b9f84",
+    "semantic_hash": "bbe3be8987e8cbb6a5d5781cc10b9f84"
+  },
+  "src/pages/seguradoras/Mapfre.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.983096,
+    "ast_hash": "6a7b6788ed3754498efe04db2fc1563f",
+    "semantic_hash": "6a7b6788ed3754498efe04db2fc1563f"
+  },
+  "src/pages/seguradoras/Mitsui.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9830966,
+    "ast_hash": "c6a459f1dd1eedfd3605dfb135b37ab3",
+    "semantic_hash": "c6a459f1dd1eedfd3605dfb135b37ab3"
+  },
+  "src/pages/seguradoras/PortoSeguro.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9830973,
+    "ast_hash": "7b7f08a9f6fd35cd75bf56aedb75fd97",
+    "semantic_hash": "7b7f08a9f6fd35cd75bf56aedb75fd97"
+  },
+  "src/pages/seguradoras/SeguradorasHub.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9830983,
+    "ast_hash": "0aa031ef68e1a8b4a8c42fc846ad7396",
+    "semantic_hash": "0aa031ef68e1a8b4a8c42fc846ad7396"
+  },
+  "src/pages/seguradoras/Suhai.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9830992,
+    "ast_hash": "ddc60517630505842fe3448029a5148d",
+    "semantic_hash": "ddc60517630505842fe3448029a5148d"
+  },
+  "src/pages/seguradoras/TokioMarine.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9831002,
+    "ast_hash": "278adebd32d7b83e8c1e02edf0af2378",
+    "semantic_hash": "278adebd32d7b83e8c1e02edf0af2378"
+  },
+  "src/pages/seguradoras/Yellum.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9831011,
+    "ast_hash": "9b9525b112bfaf44965e5587010f95c4",
+    "semantic_hash": "9b9525b112bfaf44965e5587010f95c4"
+  },
+  "src/pages/seguradoras/Zurich.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9831023,
+    "ast_hash": "ee44e0f740e98cd8f3712cb6bee17ca9",
+    "semantic_hash": "ee44e0f740e98cd8f3712cb6bee17ca9"
+  },
+  "src/routes/index.tsx": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9831033,
+    "ast_hash": "d127ae8bc0a14134340a37be523e0235",
+    "semantic_hash": "d127ae8bc0a14134340a37be523e0235"
+  },
+  "src/test/clubesantuu-link.test.ts": {
+    "mtime": 1788537005.2464228,
+    "seen": 1788537026.9831042,
+    "ast_hash": "2cdbf91d015dc51459b98c0ed6df21b5",
+    "semantic_hash": "2cdbf91d015dc51459b98c0ed6df21b5"
+  },
+  "src/test/collection-pages.test.ts": {
+    "mtime": 1788537005.2470767,
+    "seen": 1788537026.983105,
+    "ast_hash": "d5ec38ba1dd47a87b1bea5092c11652f",
+    "semantic_hash": "d5ec38ba1dd47a87b1bea5092c11652f"
+  },
+  "src/test/jsonld-generators.test.tsx": {
+    "mtime": 1788537005.2470767,
+    "seen": 1788537026.9831061,
+    "ast_hash": "5cccac48fc3a2b03cda7bc5a20d2e72c",
+    "semantic_hash": "5cccac48fc3a2b03cda7bc5a20d2e72c"
+  },
+  "src/test/seo-metadata.test.ts": {
+    "mtime": 1788537005.2470767,
+    "seen": 1788537026.983107,
+    "ast_hash": "19c33cba92f33d7fafc07591930ae5da",
+    "semantic_hash": "19c33cba92f33d7fafc07591930ae5da"
+  },
+  "src/test/setup.ts": {
+    "mtime": 1788537005.2470767,
+    "seen": 1788537026.9831078,
+    "ast_hash": "5b817f42b4d0e3d6120e6965ef25fb81",
+    "semantic_hash": "5b817f42b4d0e3d6120e6965ef25fb81"
+  },
+  "src/types/tracking.d.ts": {
+    "mtime": 1788537005.2470767,
+    "seen": 1788537026.9831085,
+    "ast_hash": "3f7446ead0dbc5c889714967d0893892",
+    "semantic_hash": "3f7446ead0dbc5c889714967d0893892"
+  },
+  "src/vite-env.d.ts": {
+    "mtime": 1788537005.2470767,
+    "seen": 1788537026.9831097,
+    "ast_hash": "0352474ba2918efe13895edbc3780d94",
+    "semantic_hash": "0352474ba2918efe13895edbc3780d94"
+  },
+  "supabase/functions/apply-internal-link-recommendation/index.ts": {
+    "mtime": 1788537005.2474828,
+    "seen": 1788537026.9831104,
+    "ast_hash": "bab45cf145fa50fed763ebb3658d9a32",
+    "semantic_hash": "bab45cf145fa50fed763ebb3658d9a32"
+  },
+  "supabase/functions/detect-anchor-alerts/index.ts": {
+    "mtime": 1788537005.2474828,
+    "seen": 1788537026.9831111,
+    "ast_hash": "4e83bf1dc5a2ddfdd7b36bc3b0c77dd9",
+    "semantic_hash": "4e83bf1dc5a2ddfdd7b36bc3b0c77dd9"
+  },
+  "supabase/functions/domain-drift-check/index.ts": {
+    "mtime": 1788537005.2474828,
+    "seen": 1788537026.983112,
+    "ast_hash": "6ff6fb58bafc8d5f24438f9623160e59",
+    "semantic_hash": "6ff6fb58bafc8d5f24438f9623160e59"
+  },
+  "supabase/functions/gsc-keyword-performance/index.ts": {
+    "mtime": 1788537005.2474828,
+    "seen": 1788537026.9831133,
+    "ast_hash": "e6c649009b2efd9d2a5f0f555f692983",
+    "semantic_hash": "e6c649009b2efd9d2a5f0f555f692983"
+  },
+  "supabase/functions/gsc-performance/index.ts": {
+    "mtime": 1788537005.2474828,
+    "seen": 1788537026.983114,
+    "ast_hash": "a61cd50d43c7d4b46685bb4d30710fac",
+    "semantic_hash": "a61cd50d43c7d4b46685bb4d30710fac"
+  },
+  "supabase/functions/internal-link-correlation/index.ts": {
+    "mtime": 1788537005.2474828,
+    "seen": 1788537026.983115,
+    "ast_hash": "f8ac7068d80e3af24591d469408e75d6",
+    "semantic_hash": "f8ac7068d80e3af24591d469408e75d6"
+  },
+  "supabase/functions/log-web-vitals/index.ts": {
+    "mtime": 1788537005.247936,
+    "seen": 1788537026.9831161,
+    "ast_hash": "ec43a06625ac32169c31291cb6a33cfd",
+    "semantic_hash": "ec43a06625ac32169c31291cb6a33cfd"
+  },
+  "supabase/functions/monitor-gsc-indexation/index.ts": {
+    "mtime": 1788537005.247936,
+    "seen": 1788537026.983117,
+    "ast_hash": "2588f8c740b4788e190d8943185860ae",
+    "semantic_hash": "2588f8c740b4788e190d8943185860ae"
+  },
+  "supabase/functions/monitor-rich-results/index.ts": {
+    "mtime": 1788537005.247936,
+    "seen": 1788537026.9831183,
+    "ast_hash": "0e712f71482e9b87f693907bcda228c6",
+    "semantic_hash": "0e712f71482e9b87f693907bcda228c6"
+  },
+  "supabase/functions/monitor-sitemap-errors/index.ts": {
+    "mtime": 1788537005.247936,
+    "seen": 1788537026.9831192,
+    "ast_hash": "234f88c2096ce03c8b1099755d8912ea",
+    "semantic_hash": "234f88c2096ce03c8b1099755d8912ea"
+  },
+  "supabase/functions/next-section-cta-report/index.ts": {
+    "mtime": 1788537005.247936,
+    "seen": 1788537026.9831204,
+    "ast_hash": "acec362858e1c86a64128f6292963cad",
+    "semantic_hash": "acec362858e1c86a64128f6292963cad"
+  },
+  "supabase/functions/process-email-queue/deno.json": {
+    "mtime": 1788537005.247936,
+    "seen": 1788537026.9831212,
+    "ast_hash": "99914b932bd37a50b983c5e7c90ae93b",
+    "semantic_hash": "99914b932bd37a50b983c5e7c90ae93b"
+  },
+  "supabase/functions/process-email-queue/index.ts": {
+    "mtime": 1788537005.2487342,
+    "seen": 1788537026.983122,
+    "ast_hash": "1f2115aa26489a9c710ffbf4df720dfb",
+    "semantic_hash": "1f2115aa26489a9c710ffbf4df720dfb"
+  },
+  "supabase/functions/purge-cache/index.ts": {
+    "mtime": 1788537005.2487342,
+    "seen": 1788537026.9831228,
+    "ast_hash": "db15a3f861d56d124bbee4cd84d59a4f",
+    "semantic_hash": "db15a3f861d56d124bbee4cd84d59a4f"
+  },
+  "supabase/functions/quote-reminders-cron/index.ts": {
+    "mtime": 1788537005.2487342,
+    "seen": 1788537026.983124,
+    "ast_hash": "1598230cacae8a5cec2c9a3497c59142",
+    "semantic_hash": "1598230cacae8a5cec2c9a3497c59142"
+  },
+  "supabase/functions/refresh-anchor-priorities/index.ts": {
+    "mtime": 1788537005.2487342,
+    "seen": 1788537026.983125,
+    "ast_hash": "8be14801274020080e7971bdc3839b90",
+    "semantic_hash": "8be14801274020080e7971bdc3839b90"
+  },
+  "supabase/functions/resubmit-sitemaps/index.ts": {
+    "mtime": 1788537005.2487342,
+    "seen": 1788537026.9831257,
+    "ast_hash": "4a08a9da3e9e46bfc6bdfed148e30487",
+    "semantic_hash": "4a08a9da3e9e46bfc6bdfed148e30487"
+  },
+  "supabase/functions/run-pagespeed-audit/index.ts": {
+    "mtime": 1788537005.2489362,
+    "seen": 1788537026.9831269,
+    "ast_hash": "50b68a755a7c41e5b29089673aa040a1",
+    "semantic_hash": "50b68a755a7c41e5b29089673aa040a1"
+  },
+  "supabase/functions/save-partial-quote/index.ts": {
+    "mtime": 1788537005.2489362,
+    "seen": 1788537026.9831278,
+    "ast_hash": "b236d12b1e6577dc8a47f54eaac23c44",
+    "semantic_hash": "b236d12b1e6577dc8a47f54eaac23c44"
+  },
+  "supabase/functions/send-form-email/index.ts": {
+    "mtime": 1788537005.2489362,
+    "seen": 1788537026.9831288,
+    "ast_hash": "b24344d2bba238bb302b38f21a39fbd1",
+    "semantic_hash": "b24344d2bba238bb302b38f21a39fbd1"
+  },
+  "supabase/functions/seo-audit-crawler/index.ts": {
+    "mtime": 1788537005.2489362,
+    "seen": 1788537026.9831297,
+    "ast_hash": "c306c0d1285a457cae9714f5a3d42ce1",
+    "semantic_hash": "c306c0d1285a457cae9714f5a3d42ce1"
+  },
+  "supabase/functions/snapshot-anchor-history/index.ts": {
+    "mtime": 1788537005.2489362,
+    "seen": 1788537026.9831643,
+    "ast_hash": "479240b456cb577c579fe936a4bdfb3e",
+    "semantic_hash": "479240b456cb577c579fe936a4bdfb3e"
+  },
+  "supabase/functions/submit-lead/index.ts": {
+    "mtime": 1788537005.2489362,
+    "seen": 1788537026.9831657,
+    "ast_hash": "e4abba18b5e37d91615ac730a05a7774",
+    "semantic_hash": "e4abba18b5e37d91615ac730a05a7774"
+  },
+  "supabase/functions/weekly-indexation-summary/index.ts": {
+    "mtime": 1788537005.2489362,
+    "seen": 1788537026.9831665,
+    "ast_hash": "f63f03a11efe0e57bf2a82218ad1fafc",
+    "semantic_hash": "f63f03a11efe0e57bf2a82218ad1fafc"
+  },
+  "tailwind.config.ts": {
+    "mtime": 1788537005.2529361,
+    "seen": 1788537026.9831672,
+    "ast_hash": "d50a1fd4e657dd3c948f211c8abc1fa8",
+    "semantic_hash": "d50a1fd4e657dd3c948f211c8abc1fa8"
+  },
+  "tests/seo/browser-seo-validation.spec.ts": {
+    "mtime": 1788537005.2539601,
+    "seen": 1788537026.9831684,
+    "ast_hash": "0ecf23aabe6d0e818bb2a0b6668c5442",
+    "semantic_hash": "0ecf23aabe6d0e818bb2a0b6668c5442"
+  },
+  "tsconfig.app.json": {
+    "mtime": 1788537005.2539601,
+    "seen": 1788537026.983169,
+    "ast_hash": "8712c60b1f86eac1daa91619eb776efd",
+    "semantic_hash": "8712c60b1f86eac1daa91619eb776efd"
+  },
+  "tsconfig.json": {
+    "mtime": 1788537005.2539601,
+    "seen": 1788537026.98317,
+    "ast_hash": "bb72695c901d34a52a46196ba258371d",
+    "semantic_hash": "bb72695c901d34a52a46196ba258371d"
+  },
+  "tsconfig.node.json": {
+    "mtime": 1788537005.2539601,
+    "seen": 1788537026.9831707,
+    "ast_hash": "1417fb05378a1d1102f085e60b20db0e",
+    "semantic_hash": "1417fb05378a1d1102f085e60b20db0e"
+  },
+  "vite.config.ts": {
+    "mtime": 1788537005.2539601,
+    "seen": 1788537026.983172,
+    "ast_hash": "40b344155a7318654d18367882cbe053",
+    "semantic_hash": "40b344155a7318654d18367882cbe053"
+  },
+  "vitest.config.ts": {
+    "mtime": 1788537005.2539601,
+    "seen": 1788537026.9831727,
+    "ast_hash": "731cdbbe669ad249468691d0c14ce5b9",
+    "semantic_hash": "731cdbbe669ad249468691d0c14ce5b9"
+  }
+}
