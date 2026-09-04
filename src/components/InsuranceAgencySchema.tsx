@@ -7,7 +7,16 @@ import { EMPRESA } from "@/config/empresa";
  * Centralizado aqui para evitar duplicidade e garantir que o postbuild valide OK.
  */
 const InsuranceAgencySchema = () => {
-  const schema = {
+  // O mesmo nó (@id #insurance-agency) já é servido estaticamente no index.html
+  // para crawlers sem JS. Reemitir aqui criaria bloco duplicado no Rich Results Test.
+  if (
+    typeof document !== "undefined" &&
+    document.querySelector('script[data-insurance-agency-schema="static"]')
+  ) {
+    return null;
+  }
+
+
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     "@id": `${EMPRESA.dominioCanonico}/#insurance-agency`,
