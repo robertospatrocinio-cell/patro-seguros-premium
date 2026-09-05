@@ -120,7 +120,7 @@ A Patro Seguros trabalha com Porto Seguro, Allianz, HDI, Tokio Marine e Bradesco
     )}
     relatedInsurances={[
       { title: "Seguro Auto por Bairro em Guarulhos (Hub Local)", link: "/seguros-guarulhos" },
-      { title: "Seguro BYD Dolphin Guarulhos", link: "/seguro-byd-dolphin-guarulhos" },
+      { title: "Seguro Auto Elétrico e Híbrido", link: "/seguro-carro-eletrico-guarulhos" },
       { title: "Seguro Auto por Modelo Guarulhos", link: "/seguro-auto-por-modelo-guarulhos" },
       { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
       { title: "Seguro para Uber Guarulhos", link: "/seguro-uber-guarulhos" },

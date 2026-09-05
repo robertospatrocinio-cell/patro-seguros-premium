@@ -36,7 +36,7 @@ const SeguroConsultorioVeterinarioGuarulhos = () => (
     ]}
     relatedInsurances={[
       { title: "Hub Consultórios e Clínicas", link: "/seguro-consultorio-guarulhos" },
-      { title: "Seguro Clínica Veterinária", link: "/seguro-clinica-veterinaria" },
+      { title: "Seguro Clínica Veterinária", link: "/seguros-para-clinicas-veterinarias" },
       { title: "RC Profissional", link: "/seguro-rc-profissional" },
       { title: "Equipamentos de Consultório", link: "/seguro-equipamentos-consultorio-guarulhos" },
       { title: "Seguro Empresarial", link: "/seguro-empresarial" },
