@@ -71,7 +71,7 @@ export const seoLocalGuarulhosHub: SeoLocalPageConfig = {
     { title: "Seguro Auto Guarulhos", link: "/seguro-auto-guarulhos" },
     { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
     { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
-    { title: "Planos de Saúde Guarulhos", link: "/planos-saude-guarulhos" }
+    { title: "Planos de Saúde Guarulhos", link: "/plano-de-saude-guarulhos" }
   ]
 
 };

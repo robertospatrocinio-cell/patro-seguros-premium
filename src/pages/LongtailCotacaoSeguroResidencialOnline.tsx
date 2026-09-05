@@ -123,7 +123,7 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
       { title: "Seguro Residencial por Bairro em Guarulhos (Hub Local)", link: "/seguros-guarulhos" },
       { title: "Seguro Residencial Guarulhos", link: "/seguro-residencial-guarulhos" },
       { title: "Seguro Residencial", link: "/seguro-residencial" },
-      { title: "Landing Seguro Residencial", link: "/landing-seguro-residencial" },
+      { title: "Seguro Residencial Alto Padrão Guarulhos", link: "/seguro-residencial-alto-padrao-guarulhos" },
       { title: "Seguro Condomínio Guarulhos", link: "/seguro-condominio-guarulhos" },
       { title: "Seguro Fiança Locatícia", link: "/seguro-fianca-locaticia" },
       { title: "Como Comparar Seguradoras em Guarulhos", link: "/como-comparar-seguradoras-guarulhos" },

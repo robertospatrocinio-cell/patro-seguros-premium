@@ -35,7 +35,7 @@ const SeguroEquipamentosConsultorioGuarulhos = () => (
     relatedInsurances={[
       { title: "Hub Consultórios e Clínicas", link: "/seguro-consultorio-guarulhos" },
       { title: "Equipamentos Odontológicos", link: "/seguro-equipamentos-odontologicos" },
-      { title: "Equipamentos Veterinários", link: "/seguro-equipamentos-veterinarios" },
+      { title: "Seguro para Clínicas Veterinárias", link: "/seguros-para-clinicas-veterinarias" },
       { title: "Seguro Cyber", link: "/seguro-cyber" },
       { title: "Seguro Empresarial", link: "/seguro-empresarial" },
     ]}

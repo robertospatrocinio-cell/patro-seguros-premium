@@ -78,7 +78,7 @@ const SiteMap = () => {
             <h2 className="text-2xl font-bold mb-8 border-b pb-2">Institucional e Suporte</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <ul className="space-y-3 text-sm">
-                <li><SmartLink to="/quem-somos" className="hover:text-primary underline">Quem Somos</SmartLink></li>
+                <li><SmartLink to="/sobre" className="hover:text-primary underline">Quem Somos</SmartLink></li>
                 <li><SmartLink to="/contato" className="hover:text-primary underline">Contato</SmartLink></li>
                 <li><SmartLink to="/blog" className="hover:text-primary underline">Blog da Patro</SmartLink></li>
               </ul>
