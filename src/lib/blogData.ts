@@ -27,6 +27,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "vale-a-pena-seguro-corretora-ou-banco",
+    title: "Vale a pena contratar seguro com corretora ou direto com o banco?",
+    excerpt: "Comparativo honesto entre contratar seguro por corretora especializada ou pelo banco: preço, cobertura, personalização, atendimento no sinistro e quando cada caminho faz sentido.",
+    category: "Dicas",
+    tags: ["corretora de seguros", "banco", "cotação", "economia", "guarulhos"],
+    author: "Roberto Patro",
+    date: "2026-09-06",
+    updatedAt: "2026-09-06",
+    readTime: 9,
+  },
+  {
     slug: "estudo-sinistros-prevencao-guarulhos-2026",
     title: "Estudo Patro Seguros 2026: Sinistros e Prevenção em Guarulhos — Dados Próprios por Categoria e Bairro",
     excerpt: "1.284 sinistros reais analisados (2022–2026) em 5 ramos e 10 bairros de Guarulhos. Tabela por categoria, ranking por bairro e ROI de 6 medidas de prevenção. Ticket médio R$ 18.470, pagamento em 11 dias úteis.",
