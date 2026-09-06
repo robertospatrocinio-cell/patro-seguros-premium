@@ -12,20 +12,36 @@ const SpecializedVerticalPage = () => {
 
   if (!page) return <Navigate to="/" replace />;
 
+  const related = SPECIALIZED_PAGES.filter(p => p.slug !== page.slug).map(p => ({
+    title: p.h1,
+    link: `/${p.slug}`,
+  }));
+
   return (
     <InsurancePageTemplate
       title={page.title}
       headline={page.h1}
-      subtitle="Especialização técnica para riscos complexos e novas tecnologias."
-      description={page.metaDescription}
+      subtitle={page.subtitle}
+      description={page.intro}
       metaDescription={page.metaDescription}
       icon="Shield"
-      coverages={[{ title: "Proteção Sob Medida", description: "Desenho de apólice conforme a necessidade do risco." }]}
-      whoNeeds={["Empresas e Profissionais de Guarulhos"]}
-      whyPatro={["Expertise em Riscos Patrimoniais", "Atendimento Nacional"]}
-      faqs={[]}
+      coverages={page.coverages}
+      whoNeeds={page.whoNeeds}
+      whyPatro={[
+        "Cotação simultânea entre seguradoras com apetite para o seu risco",
+        "Análise técnica de coberturas, franquias e exclusões",
+        "Atendimento local em Guarulhos/SP, com corretor responsável",
+        "Acompanhamento em renovações e em caso de sinistro",
+      ]}
+      faqs={page.faqs}
+      detailedDescription={page.sections
+        .map(s => `### ${s.heading}\n\n${s.body}`)
+        .join("\n\n")}
+      relatedInsurances={[
+        ...related,
+        { title: "Seguro Empresarial Guarulhos", link: "/seguro-empresarial-guarulhos" },
+      ]}
       localSeo={{ city: "Guarulhos" }}
-
     />
   );
 };
