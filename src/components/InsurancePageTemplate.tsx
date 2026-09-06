@@ -926,7 +926,7 @@ const InsurancePageTemplate = ({
                </div>
              )}
              {!supportMode && (
-             <div className="grid lg:grid-cols-2 gap-12 items-center">
+             <section aria-labelledby="formulario-heading" className="grid lg:grid-cols-2 gap-12 items-center">
                <div>
                  <span className="section-label mb-4 inline-block">Cotação Gratuita</span>
                  <h2 id="formulario-heading" className="text-3xl md:text-4xl mb-6">
