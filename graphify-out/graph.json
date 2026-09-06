@@ -17858,7 +17858,7 @@
       "file_type": "code",
       "norm_label": "formatdate()",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L338"
+      "source_location": "L349"
     },
     {
       "id": "src_lib_blogdata_getarticlesbycategory",
@@ -17869,7 +17869,7 @@
       "file_type": "code",
       "norm_label": "getarticlesbycategory()",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L310"
+      "source_location": "L321"
     },
     {
       "id": "src_lib_blogdata_getcategorybyslug",
@@ -17880,7 +17880,7 @@
       "file_type": "code",
       "norm_label": "getcategorybyslug()",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L306"
+      "source_location": "L317"
     },
     {
       "id": "src_lib_blogdata_slugifycategory",
@@ -17891,7 +17891,7 @@
       "file_type": "code",
       "norm_label": "slugifycategory()",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L297"
+      "source_location": "L308"
     },
     {
       "id": "src_lib_blogimages_getarticleimage",
@@ -18133,7 +18133,7 @@
       "file_type": "code",
       "norm_label": "getarticlemeta()",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L316"
+      "source_location": "L327"
     },
     {
       "id": "src_lib_blogdata_getrelatedarticles",
@@ -18144,7 +18144,7 @@
       "file_type": "code",
       "norm_label": "getrelatedarticles()",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L320"
+      "source_location": "L331"
     },
     {
       "id": "src_pages_blogarticle_blogarticle",
@@ -36596,7 +36596,7 @@
       "file_type": "code",
       "norm_label": "alltags",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L291"
+      "source_location": "L302"
     },
     {
       "id": "scripts_load_data_module",
@@ -43416,7 +43416,7 @@
       "file_type": "code",
       "norm_label": "allcategories",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L294"
+      "source_location": "L305"
     },
     {
       "id": "src_pages_blogcategory",
@@ -52293,7 +52293,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L307",
+      "source_location": "L318",
       "weight": 1.0
     },
     {
@@ -52305,7 +52305,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L321",
+      "source_location": "L332",
       "weight": 1.0
     },
     {
@@ -159401,7 +159401,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L291",
+      "source_location": "L302",
       "weight": 1.0
     },
     {
@@ -159412,7 +159412,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L294",
+      "source_location": "L305",
       "weight": 1.0
     },
     {
@@ -159423,7 +159423,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L297",
+      "source_location": "L308",
       "weight": 1.0
     },
     {
@@ -159434,7 +159434,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L306",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
@@ -159445,7 +159445,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L310",
+      "source_location": "L321",
       "weight": 1.0
     },
     {
@@ -159456,7 +159456,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L316",
+      "source_location": "L327",
       "weight": 1.0
     },
     {
@@ -159467,7 +159467,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L320",
+      "source_location": "L331",
       "weight": 1.0
     },
     {
@@ -159478,7 +159478,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/blogData.ts",
-      "source_location": "L338",
+      "source_location": "L349",
       "weight": 1.0
     },
     {
@@ -177269,5 +177269,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "20f03e7047f2b5ec0471f45425e918034c86e6ff"
+  "built_at_commit": "0e81655c0b3fa24316079d5c89b7c8e511e78b4f"
 }
