@@ -969,7 +969,7 @@ const InsurancePageTemplate = ({
                    />
                  </Suspense>
                </div>
-             </div>
+             </section>
              )}
            </div>
          </section>
