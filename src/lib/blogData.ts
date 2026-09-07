@@ -27,6 +27,28 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "opiniao-protecao-patrimonial-galpoes-guarulhos",
+    title: "Opinião: por que a proteção patrimonial de galpões em Guarulhos ainda é subdimensionada",
+    excerpt: "Análise assinada por Roberto Patrocínio, sócio-fundador da Patro Seguros: o que 20+ anos negociando riscos patrimoniais em Cumbica ensinam sobre subseguro, rateio, lucros cessantes e a conta que ninguém faz antes do sinistro.",
+    category: "Opinião & Análise",
+    tags: ["opinião", "análise de mercado", "galpões", "riscos patrimoniais", "cumbica", "guarulhos", "lucros cessantes"],
+    author: "Roberto Patro",
+    date: "2026-09-07",
+    updatedAt: "2026-09-07",
+    readTime: 10,
+  },
+  {
+    slug: "analise-mercado-gestao-risco-frotas-guarulhos",
+    title: "Análise de mercado: a gestão de risco de frotas deixou de ser só apólice — e as empresas ainda não perceberam",
+    excerpt: "Artigo assinado por Sandra Patrocínio, sócia-fundadora da Patro Seguros: telemetria, seleção de condutores, RC contra terceiros e proteção das pessoas ao volante estão redefinindo o custo total de rodar uma frota na região de Guarulhos.",
+    category: "Opinião & Análise",
+    tags: ["opinião", "análise de mercado", "frota", "gestão de risco", "telemetria", "responsabilidade civil", "guarulhos"],
+    author: "Sandra Patro",
+    date: "2026-09-07",
+    updatedAt: "2026-09-07",
+    readTime: 10,
+  },
+  {
     slug: "vale-a-pena-seguro-corretora-ou-banco",
     title: "Vale a pena contratar seguro com corretora ou direto com o banco?",
     excerpt: "Comparativo honesto entre contratar seguro por corretora especializada ou pelo banco: preço, cobertura, personalização, atendimento no sinistro e quando cada caminho faz sentido.",
