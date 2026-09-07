@@ -28,6 +28,7 @@ import { GUIAS_PILARES_SLUGS } from "../src/data/guiasPilaresData";
 import { materiais as MATERIAIS_LIST } from "../src/data/materiaisData";
 import { faqCategories as FAQ_CATEGORIES } from "../src/data/perguntasHubData";
 import { COMPARATIVOS_SLUGS } from "../src/data/comparativosData";
+import { cidadesRegiaoSlugs, cidadeRegiaoPath, CIDADES_REGIAO_HUB_PATH } from "../src/data/cidadesRegiao";
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -245,8 +246,14 @@ const enterpriseLps: SitemapEntry[] = [
   { loc: "/lp-maquinas-equipamentos", priority: "0.85", changefreq: "weekly" },
 ];
 
+ const cidadesRegiaoEntries: SitemapEntry[] = [
+   { loc: CIDADES_REGIAO_HUB_PATH, priority: "0.8", changefreq: "monthly" },
+   ...cidadesRegiaoSlugs.map((s) => ({ loc: cidadeRegiaoPath(s), priority: "0.8", changefreq: "monthly" })),
+ ];
+
  const hubs: SitemapEntry[] = [
    { loc: "/seguros-em-guarulhos", priority: "0.9", changefreq: "daily" },
+
    { loc: "/seguros-de-veiculos", priority: "0.8", changefreq: "weekly" },
    { loc: "/seguros-empresariais", priority: "0.8", changefreq: "weekly" },
    { loc: "/seguros-de-patrimonio", priority: "0.8", changefreq: "weekly" },
@@ -632,6 +639,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     ...restoredRoutes,
     ...investments,
     ...hubs,
+    ...cidadesRegiaoEntries,
     ...landingPages,
     ...bairroEntries,
     ...localPageEntries,
