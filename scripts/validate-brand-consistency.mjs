@@ -16,22 +16,36 @@ const PATTERNS = [
 ];
 
 
-/** Detecta `${...}` escrito fora de template literal (aparece literal na página). */
+/** Detecta `${...}` escrito fora de template literal (apareceria literal na página). */
 function findUnrenderedInterpolations(src) {
   const out = [];
-  let mode = null;
+  const stack = []; // "`" | '"' | "'" | "code"
+  const top = () => stack[stack.length - 1];
   for (let i = 0; i < src.length; i++) {
     const c = src[i];
-    if (mode === null) {
-      if (c === "`" || c === '"' || c === "'") { mode = c; continue; }
-      if (src.startsWith("//", i)) { const j = src.indexOf("\n", i); i = j < 0 ? src.length : j; continue; }
-      if (src.startsWith("/*", i)) { const j = src.indexOf("*/", i); i = j < 0 ? src.length : j + 1; continue; }
-      if (src.startsWith("${", i)) out.push(i);
-    } else {
+    const state = top();
+    if (state === '"' || state === "'") {
       if (c === "\\") { i++; continue; }
-      if (c === mode) { mode = null; continue; }
-      if (mode !== "`" && src.startsWith("${", i)) out.push(i);
+      if (c === state) { stack.pop(); continue; }
+      if (src.startsWith("${", i)) out.push(i);
+      continue;
     }
+    if (state === "`") {
+      if (c === "\\") { i++; continue; }
+      if (c === "`") { stack.pop(); continue; }
+      if (src.startsWith("${", i)) { stack.push("code"); i++; }
+      continue;
+    }
+    // top-level ou dentro de ${ } de um template
+    if (c === "`" || c === '"' || c === "'") { stack.push(c); continue; }
+    if (src.startsWith("//", i)) { const j = src.indexOf("\n", i); i = j < 0 ? src.length : j; continue; }
+    if (src.startsWith("/*", i)) { const j = src.indexOf("*/", i); i = j < 0 ? src.length : j + 1; continue; }
+    if (state === "code") {
+      if (c === "{") { stack.push("code"); continue; }
+      if (c === "}") { stack.pop(); continue; }
+      continue;
+    }
+    if (src.startsWith("${", i)) out.push(i);
   }
   return out;
 }
