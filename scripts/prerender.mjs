@@ -143,11 +143,52 @@ function buildFallbackBody(metadata) {
   return parts.join("\n      ");
 }
 
-function buildSeoBlock(route, metadata) {
+function markdownToHtml(md) {
+  const lines = String(md).split(/\r?\n/);
+  const out = [];
+  let list = null;
+  const flush = () => {
+    if (list) {
+      out.push(`<ul>${list.join("")}</ul>`);
+      list = null;
+    }
+  };
+  const inline = (t) =>
+    escapeHtml(t)
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line) { flush(); continue; }
+    const h = line.match(/^(#{2,4})\s+(.*)$/);
+    if (h) { flush(); const lvl = Math.min(h[1].length, 4); out.push(`<h${lvl}>${inline(h[2])}</h${lvl}>`); continue; }
+    const li = line.match(/^[-*]\s+(.*)$/);
+    if (li) { list = list || []; list.push(`<li>${inline(li[1])}</li>`); continue; }
+    flush();
+    out.push(`<p>${inline(line)}</p>`);
+  }
+  flush();
+  return out.join("\n      ");
+}
+
+function buildArticleBody(article) {
+  const parts = [markdownToHtml(article.content)];
+  if (Array.isArray(article.faqs) && article.faqs.length) {
+    parts.push(
+      `<h2>Perguntas frequentes</h2>${article.faqs
+        .map((f) => `<h3>${escapeHtml(String(f.q))}</h3><p>${escapeHtml(String(f.a))}</p>`)
+        .join("")}`,
+    );
+  }
+  return parts.join("\n      ");
+}
+
+function buildSeoBlock(route, metadata, article) {
   const content = FULL_SEO_CONTENT[route] || SEO_CONTENT[route];
-  const h1 = content?.h1 || metadata.h1 || metadata.title;
-  const isFallback = !content?.body;
-  const body = content?.body || buildFallbackBody(metadata);
+  const h1 = content?.h1 || article?.title || metadata.h1 || metadata.title;
+  const articleBody = article?.content ? buildArticleBody(article) : null;
+  const isFallback = !content?.body && !articleBody;
+  const body = content?.body || articleBody || buildFallbackBody(metadata);
 
   // Conteúdo visível antes da hidratação (nada de display:none — o React
   // substitui o container ao montar, então não há cloaking).
@@ -316,7 +357,8 @@ async function run() {
       }
     }
 
-    const seoBlock = buildSeoBlock(route, metadata);
+    const blogSlug = route.match(/^\/(?:artigos|blog)\/(.+)$/)?.[1];
+    const seoBlock = buildSeoBlock(route, metadata, blogSlug ? getBlogContent(blogSlug) : null);
     if (seoBlock) {
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', `<div id="root" data-prerender-seo="1">${seoBlock}</div>`);
