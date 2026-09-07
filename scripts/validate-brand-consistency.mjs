@@ -24,6 +24,9 @@ const walk = (p) => {
 };
 ROOTS.forEach(walk);
 
+const TODAY = new Date().toISOString().slice(0, 10);
+const DATE_FIELD = /\b(date|updatedAt|datePublished|dateModified|lastReviewed)\s*[:=]\s*"(\d{4}-\d{2}-\d{2})"/g;
+
 const errors = [];
 for (const f of files) {
   const lines = readFileSync(f, "utf8").split("\n");
@@ -31,6 +34,13 @@ for (const f of files) {
     for (const { re, msg } of PATTERNS) {
       re.lastIndex = 0;
       if (re.test(line)) errors.push(`${f}:${i + 1} → ${line.trim().slice(0, 120)}\n    ${msg}`);
+    }
+    DATE_FIELD.lastIndex = 0;
+    let m;
+    while ((m = DATE_FIELD.exec(line)) !== null) {
+      if (m[2] > TODAY) {
+        errors.push(`${f}:${i + 1} → ${m[1]}="${m[2]}" está no futuro (hoje: ${TODAY}).\n    Publique apenas conteúdo com data igual ou anterior a hoje.`);
+      }
     }
   });
 }
