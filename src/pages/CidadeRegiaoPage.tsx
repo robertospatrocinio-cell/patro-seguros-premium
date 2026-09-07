@@ -19,6 +19,7 @@ import {
   CIDADES_REGIAO_HUB_PATH,
   type CidadeRegiao,
 } from "@/data/cidadesRegiao";
+import { usePublishedContentOverride } from "@/hooks/useContentOverrides";
 
 const MAPS_URL = EMPRESA.redesSociais.google;
 
@@ -26,9 +27,27 @@ const CidadeRegiaoPage = () => {
   const { cidade } = useParams<{ cidade: string }>();
   const data = getCidadeRegiao(cidade);
 
+  const override = usePublishedContentOverride("cidade", cidade);
+
   if (!data) return <Navigate to="/404" replace />;
 
-  return <CidadeRegiaoContent data={data} />;
+  /**
+   * Override editorial (painel /admin/conteudo): substitui apenas os campos
+   * preenchidos. Nenhuma rota nova é criada, então o sitemap permanece válido.
+   */
+  const merged: CidadeRegiao = override
+    ? {
+        ...data,
+        resumo: override.summary?.trim() || data.resumo,
+        intro: override.intro?.trim() || data.intro,
+        contexto: override.body?.trim() || data.contexto,
+        faqs: override.faqs.length
+          ? override.faqs.map((f) => ({ pergunta: f.q, resposta: f.a }))
+          : data.faqs,
+      }
+    : data;
+
+  return <CidadeRegiaoContent data={merged} />;
 };
 
 const CidadeRegiaoContent = ({ data }: { data: CidadeRegiao }) => {

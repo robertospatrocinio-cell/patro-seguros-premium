@@ -24,6 +24,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import { extraFaqsBySlug } from "@/data/blogExtraData";
 import { blogFaqBackfill } from "@/data/blogFaqBackfill";
 import { getBlogContent } from "@/data/blogContentIndex";
+import { usePublishedContentOverride } from "@/hooks/useContentOverrides";
 import { useABTest } from "@/hooks/useABTest";
 import ArticleInlineCTA from "@/components/ArticleInlineCTA";
 
@@ -44,7 +45,18 @@ const BlogArticle = () => {
 
   // Lookup SÍNCRONO no índice unificado de conteúdo (8 módulos mesclados).
   // Essencial para o SSG capturar o conteúdo já renderizado sem race.
-  const article = useMemo(() => getBlogContent(slug) ?? defaultArticle, [slug]);
+  const staticArticle = useMemo(() => getBlogContent(slug) ?? defaultArticle, [slug]);
+  const override = usePublishedContentOverride("blog", slug);
+  // Override editorial do painel /admin/conteudo: só substitui campos preenchidos.
+  const article = useMemo(() => {
+    if (!override) return staticArticle;
+    return {
+      ...staticArticle,
+      title: override.title?.trim() || staticArticle.title,
+      content: override.body?.trim() || staticArticle.content,
+      faqs: override.faqs.length ? override.faqs : staticArticle.faqs,
+    };
+  }, [staticArticle, override]);
   const meta = slug ? getArticleMeta(slug) : undefined;
   const related = slug ? getRelatedArticles(slug, 3) : [];
   const authorInfo = meta ? getAuthorByName(meta.author) : undefined;
