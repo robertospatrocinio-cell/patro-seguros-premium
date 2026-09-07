@@ -146,12 +146,13 @@ function buildFallbackBody(metadata) {
 function buildSeoBlock(route, metadata) {
   const content = FULL_SEO_CONTENT[route] || SEO_CONTENT[route];
   const h1 = content?.h1 || metadata.h1 || metadata.title;
+  const isFallback = !content?.body;
   const body = content?.body || buildFallbackBody(metadata);
 
   // Conteúdo visível antes da hidratação (nada de display:none — o React
   // substitui o container ao montar, então não há cloaking).
   return `
-    <div id="crawler-content">
+    <div id="crawler-content"${isFallback ? ' data-prerender-fallback="1"' : ''}>
       <h1>${h1}</h1>
       ${body}
     </div>
