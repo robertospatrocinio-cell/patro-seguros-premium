@@ -35,7 +35,7 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
     ]}
     howItWorks={[
       { step: "1", title: "Preencha o formulário online", description: "CEP, tipo do imóvel (casa/apartamento), valor de reconstrução e valor dos bens. Leva 2 minutos." },
-      { step: "2", title: "Cotamos em 16+ seguradoras", description: "Porto Seguro, Bradesco, Allianz, SulAmérica, HDI, Tokio, Mapfre e Liberty em uma única passada." },
+      { step: "2", title: "Cotamos em 16+ seguradoras", description: "Entre elas Porto Seguro, Bradesco, Allianz, SulAmérica, HDI, Tokio, Mapfre e Liberty em uma única passada." },
       { step: "3", title: "Comparativo por WhatsApp em 2h", description: "Você recebe tabela com preço, franquia, coberturas e assistência de cada uma — não só o mais barato." },
       { step: "4", title: "Escolha e contrate online", description: "Documentação simples, apólice digital, ativação imediata. Sem visita técnica na maioria dos casos." },
       { step: "5", title: "Suporte em sinistro", description: "Se acontecer algo, orientamos como abrir sinistro, agilizamos vistoria e acompanhamos até a indenização." },

@@ -74,6 +74,16 @@ export const EMPRESA = {
   },
 } as const;
 
+/**
+ * Frase institucional canônica sobre fundação x experiência dos sócios.
+ * Use SEMPRE esta redação para evitar a leitura equivocada de que a empresa
+ * teria 20/30 anos de existência: a empresa foi fundada em 2021; a experiência
+ * de 20+ anos é dos sócios.
+ */
+export const FRASE_FUNDACAO =
+  "Patro Seguros, fundada em 2021 por profissionais com mais de 20 anos de experiência no mercado.";
+
+
 /** Somente dígitos do WhatsApp (formato wa.me). Ex.: "551151997500". */
 export const WHATSAPP_DIGITS = EMPRESA.whatsapp.replace(/\D/g, "");
 
