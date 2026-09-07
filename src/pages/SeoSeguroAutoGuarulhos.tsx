@@ -107,7 +107,7 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
     whyPatro={[
       "Corretora local em Guarulhos com atendimento presencial no Cidade Maia",
       `Mais de 2.500 clientes atendidos desde 2021 — nota ${PATRO_SOCIAL_PROOF.googleRating} no Google`,
-      "Comparação entre 8+ seguradoras: Porto, Tokio, Allianz, HDI, Mapfre e mais",
+      "Comparação entre 16+ seguradoras: Porto, Tokio, Allianz, HDI, Mapfre e mais",
       "Cotação em até 2 horas — as mais rápidas da região",
       "Suporte completo em sinistros: abertura, vistoria, oficina e indenização",
       "Especialistas em seguros para motoristas de aplicativo em Guarulhos",

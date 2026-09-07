@@ -797,7 +797,7 @@ export const GUIAS_PILARES: GuiaPilar[] = [
         "id": "preco",
         "heading": "Quanto custa o seguro residencial em Guarulhos?",
         "paragraphs": [
-          "Em bairros residenciais padrão de Guarulhos, apólices completas para apartamentos partem de faixas mensais bem acessíveis, e casas com IS mais alta e coberturas amplas ficam em faixas ligeiramente superiores. A cotação com 8+ seguradoras via Patro costuma reduzir 20% a 40% em relação à compra direta."
+          "Em bairros residenciais padrão de Guarulhos, apólices completas para apartamentos partem de faixas mensais bem acessíveis, e casas com IS mais alta e coberturas amplas ficam em faixas ligeiramente superiores. A cotação com 16+ seguradoras via Patro costuma reduzir 20% a 40% em relação à compra direta."
         ]
       },
       {

@@ -46,7 +46,7 @@ const SECTIONS: Section[] = [
       { label: "Seguros no Shopping/Cidade Maia", href: "/seguros-shopping-maia-cidade-maia-guarulhos", description: "Especializado para a região nobre" },
       { label: "Seguro Fiança Locatícia", href: "/seguro-fianca-locaticia" },
       { label: "Seguro Placa Solar", href: "/seguro-placa-solar" },
-      { label: "Cotação de Seguro Residencial Online", href: "/cotacao-seguro-residencial-online", description: "Comparativo em 8 seguradoras via WhatsApp em 2h" },
+      { label: "Cotação de Seguro Residencial Online", href: "/cotacao-seguro-residencial-online", description: "Comparativo em 16+ seguradoras via WhatsApp em 2h" },
     ],
   },
   {

@@ -38,7 +38,7 @@ const CLUSTER_INTRO: Record<string, string> = {
   "/valor-seguro-byd-dolphin":
     "Faixa real R$ 2.500–4.800/ano em seguradoras que cobrem bateria de tração.",
   "/cotacao-seguro-residencial-online":
-    "8 seguradoras cotadas em até 2h para casa, apartamento e condomínio.",
+    "16+ seguradoras cotadas em até 2h para casa, apartamento e condomínio.",
   "/planos-de-saude-guarulhos-comparativo":
     "SulAmérica, Bradesco, Amil e Hapvida lado a lado, com rede em Cidade Maia e Cumbica.",
 };

@@ -161,7 +161,7 @@ const premiumPages: Record<string, PremiumMeta> = {
   },
   "/seguro-condominio-empresarial": {
     title: "Seguro Condomínio Empresarial e Comercial | Patro",
-    description: "Seguro obrigatório para condomínios empresariais: incêndio, RC síndico, danos a terceiros, equipamentos e áreas comuns. Cotação com 8+ seguradoras.",
+    description: "Seguro obrigatório para condomínios empresariais: incêndio, RC síndico, danos a terceiros, equipamentos e áreas comuns. Cotação com 16+ seguradoras.",
     h1: "Seguro para Condomínio Empresarial",
     serviceType: "Seguro de Condomínio Comercial",
   },

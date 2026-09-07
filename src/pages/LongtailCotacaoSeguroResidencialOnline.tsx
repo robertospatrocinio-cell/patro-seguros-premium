@@ -15,7 +15,7 @@ const LongtailCotacaoSeguroResidencialOnline = () => (
     ]}
     title="Cotação de Seguro Residencial Online — Preço em 2 Minutos"
     subtitle="Faça sua cotação de seguro residencial online e receba propostas de Porto Seguro, Bradesco, Allianz, SulAmérica e HDI em até 2 horas. Cobertura completa a partir de R$ 25/mês para casas e apartamentos em Guarulhos e Grande SP."
-    description="Cotação de seguro residencial online 100% gratuita e sem compromisso. A Patro Seguros compara 8 seguradoras em uma única cotação e envia o comparativo por WhatsApp em até 2h — com preço, coberturas, franquia e assistência 24h de cada uma."
+    description="Cotação de seguro residencial online 100% gratuita e sem compromisso. A Patro Seguros compara 16+ seguradoras em uma única cotação e envia o comparativo por WhatsApp em até 2h — com preço, coberturas, franquia e assistência 24h de cada uma."
     detailedDescription={`Fazer cotação de seguro residencial online deveria ser simples, mas na prática cada seguradora tem seu próprio simulador com perguntas diferentes, resultados que variam bastante e coberturas nem sempre comparáveis. A Patro Seguros resolve isso: você preenche um único formulário rápido (endereço, tipo do imóvel, valor a segurar e coberturas desejadas) e nós cotamos em Porto Seguro, Bradesco Auto RE, Allianz Casa, SulAmérica Residencial, HDI Residencial, Tokio Marine, Mapfre e Liberty em uma única passada.
 
 O preço médio de seguro residencial online em 2026 para um apartamento de R$ 400 mil em Guarulhos, com R$ 40 mil em bens (móveis, eletrônicos), cobertura básica (incêndio, raio, explosão) mais roubo e danos elétricos, fica entre R$ 320 e R$ 580/ano — o equivalente a R$ 27 a R$ 48/mês. Para casa térrea de R$ 600 mil com R$ 80 mil em bens e coberturas ampliadas (impacto de veículos, vendaval, danos por água), o preço vai de R$ 480 a R$ 890/ano.
@@ -35,7 +35,7 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
     ]}
     howItWorks={[
       { step: "1", title: "Preencha o formulário online", description: "CEP, tipo do imóvel (casa/apartamento), valor de reconstrução e valor dos bens. Leva 2 minutos." },
-      { step: "2", title: "Cotamos em 8 seguradoras", description: "Porto Seguro, Bradesco, Allianz, SulAmérica, HDI, Tokio, Mapfre e Liberty em uma única passada." },
+      { step: "2", title: "Cotamos em 16+ seguradoras", description: "Porto Seguro, Bradesco, Allianz, SulAmérica, HDI, Tokio, Mapfre e Liberty em uma única passada." },
       { step: "3", title: "Comparativo por WhatsApp em 2h", description: "Você recebe tabela com preço, franquia, coberturas e assistência de cada uma — não só o mais barato." },
       { step: "4", title: "Escolha e contrate online", description: "Documentação simples, apólice digital, ativação imediata. Sem visita técnica na maioria dos casos." },
       { step: "5", title: "Suporte em sinistro", description: "Se acontecer algo, orientamos como abrir sinistro, agilizamos vistoria e acompanhamos até a indenização." },
@@ -80,7 +80,7 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
       "Condomínios que querem oferecer cotação coletiva aos moradores",
     ]}
     whyPatro={[
-      "Cotação online em 8 seguradoras em uma única passada",
+      "Cotação online em 16+ seguradoras em uma única passada",
       "Resposta em até 2h no WhatsApp — sem visita técnica na maioria dos casos",
       "Comparativo completo com franquia, sublimites e assistência — não só o preço",
       "Análise gratuita do valor de bens para evitar indenização proporcional",
@@ -88,11 +88,11 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
       "Suporte em sinistro do início ao fim — vistoria, negociação, indenização",
     ]}
     faqs={[
-      { question: "Como funciona a cotação de seguro residencial online?", answer: "Você preenche um formulário rápido (CEP, tipo do imóvel, valor a segurar, coberturas desejadas) e a Patro cota em 8 seguradoras simultaneamente — Porto, Bradesco, Allianz, SulAmérica, HDI, Tokio, Mapfre e Liberty. O comparativo chega no seu WhatsApp em até 2h." },
+      { question: "Como funciona a cotação de seguro residencial online?", answer: "Você preenche um formulário rápido (CEP, tipo do imóvel, valor a segurar, coberturas desejadas) e a Patro cota em 16+ seguradoras simultaneamente — Porto, Bradesco, Allianz, SulAmérica, HDI, Tokio, Mapfre e Liberty. O comparativo chega no seu WhatsApp em até 2h." },
       { question: "Quanto custa um seguro residencial em Guarulhos?", answer: "A cotação online mostra preços a partir de R$ 25/mês para apartamento pequeno com cobertura básica + roubo, chegando a R$ 75/mês para casa grande com coberturas ampliadas. O preço médio para apartamento de R$ 400 mil fica em R$ 35/mês." },
       { question: "Preciso de visita técnica para contratar seguro residencial online?", answer: "Na maioria dos casos, não. Para apartamentos e casas de até R$ 1 milhão, a contratação é 100% online sem vistoria prévia. Imóveis acima disso ou com bens de alto valor (joias, obras de arte) podem exigir vistoria." },
       { question: "A cotação online da Patro é gratuita?", answer: "Sim, 100% gratuita e sem compromisso. Você recebe o comparativo completo e decide se quer ou não contratar — sem custo em nenhum caso." },
-      { question: "Qual a diferença entre cotar direto no site da seguradora e cotar pela Patro?", answer: "No site da seguradora você vê o preço de uma única empresa. Pela Patro você vê 8 seguradoras lado a lado, com franquia, sublimites e assistência — e ainda tem suporte técnico em sinistro. Em 90% dos casos, o preço da mesma cobertura é melhor via corretora." },
+      { question: "Qual a diferença entre cotar direto no site da seguradora e cotar pela Patro?", answer: "No site da seguradora você vê o preço de uma única empresa. Pela Patro você vê 16+ seguradoras lado a lado, com franquia, sublimites e assistência — e ainda tem suporte técnico em sinistro. Em 90% dos casos, o preço da mesma cobertura é melhor via corretora." },
       { question: "A cotação online de seguro residencial serve para casas em toda Guarulhos?", answer: "Sim. A cotação online cobre todos os bairros de Guarulhos (Cidade Maia, Vila Galvão, Bosque Maia, Cocaia, Cumbica, Pimentas, Macedo, Vila Augusta, Jardim Maia, Ponte Grande) e Grande SP. O CEP entra no cálculo — bairros com menor índice de roubo recebem prêmio mais barato." },
       { question: "Posso fazer cotação de seguro residencial online e contratar sem visita técnica?", answer: "Sim. Para apartamentos e casas de até R$ 1 milhão a contratação é 100% online — cotação, comparativo, assinatura digital e emissão de apólice em 24h, sem vistoria prévia. Imóveis maiores ou com bens de alto valor (joias, obras de arte) podem exigir vistoria simples por foto." },
     ]}
@@ -103,7 +103,7 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
             Cotação de seguro residencial online em Guarulhos: passo a passo
           </h2>
           <p className="text-foreground/80 mb-4">
-            A cotação de seguro residencial online da Patro Seguros foi desenhada para responder em 2h com preço real (não simulado) de 8 seguradoras. Diferente dos simuladores individuais das seguradoras, você recebe um comparativo consolidado — não só o valor da mensalidade, mas franquia, sublimites por cobertura, valor de bens coberto e assistência 24h.
+            A cotação de seguro residencial online da Patro Seguros foi desenhada para responder em 2h com preço real (não simulado) de 16+ seguradoras. Diferente dos simuladores individuais das seguradoras, você recebe um comparativo consolidado — não só o valor da mensalidade, mas franquia, sublimites por cobertura, valor de bens coberto e assistência 24h.
           </p>
           <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Preço médio da cotação online por tipo de imóvel (2026)</h3>
           <ul className="list-disc pl-5 space-y-2 text-foreground/80 mb-4">
@@ -114,7 +114,7 @@ A Patro Seguros mostra o comparativo completo com franquia, sublimites por cober
           </ul>
           <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Comparativo de seguradoras na cotação residencial online</h3>
           <p className="text-foreground/80">
-            As 8 seguradoras cotadas simultaneamente pela Patro são Porto Seguro, Bradesco Auto RE, Allianz Casa, SulAmérica Residencial, HDI Residencial, Tokio Marine, Mapfre e Liberty. Cada uma tem forças diferentes: Porto lidera em assistência 24h, Allianz em preço para casa térrea, SulAmérica em danos elétricos, Bradesco em cobertura de joias. A cotação online mostra qual se encaixa melhor no seu perfil.
+            As seguradoras cotadas simultaneamente pela Patro são Porto Seguro, Bradesco Auto RE, Allianz Casa, SulAmérica Residencial, HDI Residencial, Tokio Marine, Mapfre e Liberty. Cada uma tem forças diferentes: Porto lidera em assistência 24h, Allianz em preço para casa térrea, SulAmérica em danos elétricos, Bradesco em cobertura de joias. A cotação online mostra qual se encaixa melhor no seu perfil.
           </p>
         </div>
       </section>
