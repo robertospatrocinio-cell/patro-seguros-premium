@@ -15,6 +15,44 @@ const PATTERNS = [
   { re: /\b8\+?\s+seguradoras\b/gi, msg: 'Padronize para "16+ seguradoras".' },
 ];
 
+
+const TRACKED = ["${EMPRESA.", "${PATRO_", "${FRASE_"];
+const isTracked = (src, i) => TRACKED.some((t) => src.startsWith(t, i));
+
+/** Detecta `${...}` escrito fora de template literal (apareceria literal na página). */
+function findUnrenderedInterpolations(src) {
+  const out = [];
+  const stack = []; // "`" | '"' | "'" | "code"
+  const top = () => stack[stack.length - 1];
+  for (let i = 0; i < src.length; i++) {
+    const c = src[i];
+    const state = top();
+    if (state === '"' || state === "'") {
+      if (c === "\\") { i++; continue; }
+      if (c === state) { stack.pop(); continue; }
+      if (isTracked(src, i)) out.push(i);
+      continue;
+    }
+    if (state === "`") {
+      if (c === "\\") { i++; continue; }
+      if (c === "`") { stack.pop(); continue; }
+      if (src.startsWith("${", i)) { stack.push("code"); i++; }
+      continue;
+    }
+    // top-level ou dentro de ${ } de um template
+    if (c === "`" || c === '"' || c === "'") { stack.push(c); continue; }
+    if (src.startsWith("//", i)) { const j = src.indexOf("\n", i); i = j < 0 ? src.length : j; continue; }
+    if (src.startsWith("/*", i)) { const j = src.indexOf("*/", i); i = j < 0 ? src.length : j + 1; continue; }
+    if (state === "code") {
+      if (c === "{") { stack.push("code"); continue; }
+      if (c === "}") { stack.pop(); continue; }
+      continue;
+    }
+    if (isTracked(src, i)) out.push(i);
+  }
+  return out;
+}
+
 const files = [];
 const walk = (p) => {
   const st = statSync(p, { throwIfNoEntry: false });
@@ -43,6 +81,15 @@ for (const f of files) {
       }
     }
   });
+}
+
+for (const f of files) {
+  if (!/\.(tsx?|jsx?)$/.test(f)) continue;
+  const src = readFileSync(f, "utf8");
+  for (const idx of findUnrenderedInterpolations(src)) {
+    const line = src.slice(0, idx).split("\n").length;
+    errors.push(`${f}:${line} → interpolação \`${src.slice(idx, idx + 40)}\` fora de template literal; o texto sairia literal na página.`);
+  }
 }
 
 if (errors.length) {
