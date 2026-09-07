@@ -16,6 +16,9 @@ const PATTERNS = [
 ];
 
 
+const TRACKED = ["${EMPRESA.", "${PATRO_", "${FRASE_"];
+const isTracked = (src, i) => TRACKED.some((t) => src.startsWith(t, i));
+
 /** Detecta `${...}` escrito fora de template literal (apareceria literal na página). */
 function findUnrenderedInterpolations(src) {
   const out = [];
@@ -27,7 +30,7 @@ function findUnrenderedInterpolations(src) {
     if (state === '"' || state === "'") {
       if (c === "\\") { i++; continue; }
       if (c === state) { stack.pop(); continue; }
-      if (src.startsWith("${", i)) out.push(i);
+      if (isTracked(src, i)) out.push(i);
       continue;
     }
     if (state === "`") {
@@ -45,7 +48,7 @@ function findUnrenderedInterpolations(src) {
       if (c === "}") { stack.pop(); continue; }
       continue;
     }
-    if (src.startsWith("${", i)) out.push(i);
+    if (isTracked(src, i)) out.push(i);
   }
   return out;
 }
