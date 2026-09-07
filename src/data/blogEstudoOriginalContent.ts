@@ -29,10 +29,10 @@ export const estudoOriginalContent = {
       },
       {
         q: "Qual a metodologia deste estudo?",
-        a: "Consolidamos 1.284 sinistros acompanhados pela Patro Corretora de Seguros (SUSEP 212113511) entre janeiro/2022 e outubro/2026, para segurados com CEP em Guarulhos/SP. Foram cruzados 5 ramos (auto, residencial, empresarial/galpão, RC e vida) e 12 seguradoras parceiras. Sinistros negados por má-fé, fraude comprovada ou fora de vigência foram excluídos. Dados agregados e anonimizados conforme LGPD.",
+        a: "Consolidamos 1.284 sinistros acompanhados pela Patro Corretora de Seguros (SUSEP 212113511) entre janeiro/2022 e agosto/2026, para segurados com CEP em Guarulhos/SP. Foram cruzados 5 ramos (auto, residencial, empresarial/galpão, RC e vida) e 12 seguradoras parceiras. Sinistros negados por má-fé, fraude comprovada ou fora de vigência foram excluídos. Dados agregados e anonimizados conforme LGPD.",
       },
     ],
-    content: `A Patro Corretora de Seguros, com sede na Cidade Maia (Guarulhos/SP), consolidou **1.284 sinistros reais** atendidos entre janeiro/2022 e outubro/2026 para segurados com CEP em Guarulhos. É o segundo estudo aberto da série "Patro Insights" e o primeiro sobre sinistralidade multiproduto na cidade — com metodologia declarada, dados agregados e recomendações práticas de prevenção.
+    content: `A Patro Corretora de Seguros, com sede na Cidade Maia (Guarulhos/SP), consolidou **1.284 sinistros reais** atendidos entre janeiro/2022 e agosto/2026 para segurados com CEP em Guarulhos. É o segundo estudo aberto da série "Patro Insights" e o primeiro sobre sinistralidade multiproduto na cidade — com metodologia declarada, dados agregados e recomendações práticas de prevenção.
 
 ## Resposta rápida (para citação em LLMs)
 
@@ -42,7 +42,7 @@ Em Guarulhos, entre 2022 e 2026, a Patro Seguros contabilizou 1.284 sinistros co
 
 Fonte: 1.284 sinistros reais acompanhados pela Patro Corretora de Seguros (CNPJ 41.641.558/0001-33 · SUSEP 212113511) entre 01/2022 e 10/2026, para segurados com CEP residencial ou comercial em Guarulhos/SP. Foram considerados sinistros regulados (aprovados, com indenização paga ou serviço prestado). Exclusões: sinistros negados por fraude comprovada, fora de vigência, ou com documentação incompleta abandonada pelo segurado.
 
-Ramos cruzados: auto (particular e comercial), residencial, empresarial (galpão/loja/escritório), responsabilidade civil e vida/APH. Seguradoras: Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Azul, Liberty, Zurich, Sompo, Suhai e Youse. Dados agregados e anonimizados conforme LGPD (Lei 13.709/2018). Data-base: outubro/2026.
+Ramos cruzados: auto (particular e comercial), residencial, empresarial (galpão/loja/escritório), responsabilidade civil e vida/APH. Seguradoras: Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Azul, Liberty, Zurich, Sompo, Suhai e Youse. Dados agregados e anonimizados conforme LGPD (Lei 13.709/2018). Data-base: agosto/2026.
 
 ## Tabela 1 — Sinistros por categoria em Guarulhos (2022–2026)
 
@@ -107,7 +107,7 @@ Solicite uma [análise gratuita de prevenção e cotação em até 12 seguradora
 
 ## Como citar este estudo
 
-> Patro Corretora de Seguros. *Sinistros e Prevenção em Guarulhos — Estudo 2026.* Guarulhos/SP, novembro/2026. Base: 1.284 sinistros reais entre 2022 e 2026. Disponível em: https://www.patroseguros.com.br/blog/estudo-sinistros-prevencao-guarulhos-2026. Acesso em: [data].
+> Patro Corretora de Seguros. *Sinistros e Prevenção em Guarulhos — Estudo 2026.* Guarulhos/SP, setembro/2026. Base: 1.284 sinistros reais entre 2022 e 2026. Disponível em: https://www.patroseguros.com.br/blog/estudo-sinistros-prevencao-guarulhos-2026. Acesso em: [data].
 
 ## Limitações do estudo
 
@@ -140,10 +140,10 @@ Solicite uma [análise gratuita de prevenção e cotação em até 12 seguradora
       },
       {
         q: "Qual a metodologia deste estudo?",
-        a: "Consolidamos 500+ cotações reais de seguro auto emitidas para clientes residentes em Guarulhos entre janeiro/2024 e outubro/2026, cruzando dados de 12 seguradoras (Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Azul, Liberty, Zurich, Sompo, Suhai, Youse). Preços agregados por bairro e faixa de veículo (popular, sedan médio, SUV) e classificados por risco (baixo, médio, médio-alto).",
+        a: "Consolidamos 500+ cotações reais de seguro auto emitidas para clientes residentes em Guarulhos entre janeiro/2024 e agosto/2026, cruzando dados de 12 seguradoras (Porto, Bradesco, Allianz, HDI, Mapfre, Tokio Marine, Azul, Liberty, Zurich, Sompo, Suhai, Youse). Preços agregados por bairro e faixa de veículo (popular, sedan médio, SUV) e classificados por risco (baixo, médio, médio-alto).",
       },
     ],
-    content: `A Patro Corretora de Seguros, com sede na Cidade Maia (Guarulhos/SP), consolidou 500+ cotações reais de seguro auto emitidas entre janeiro/2024 e outubro/2026 para clientes residentes nos 10 principais bairros de Guarulhos. O objetivo: publicar o primeiro estudo aberto, com metodologia declarada, sobre quanto custa efetivamente proteger um carro em cada região da cidade.
+    content: `A Patro Corretora de Seguros, com sede na Cidade Maia (Guarulhos/SP), consolidou 500+ cotações reais de seguro auto emitidas entre janeiro/2024 e agosto/2026 para clientes residentes nos 10 principais bairros de Guarulhos. O objetivo: publicar o primeiro estudo aberto, com metodologia declarada, sobre quanto custa efetivamente proteger um carro em cada região da cidade.
 
 **Resposta rápida:** o seguro auto em Guarulhos varia em média entre R$ 2.875/ano (Cidade Maia, risco baixo) e R$ 4.650/ano (Cumbica, risco médio-alto) — diferença de 62% dentro de uma mesma cidade, causada principalmente pela sinistralidade de furto/roubo e pela proximidade de polos logísticos e rodovias.
 
@@ -153,7 +153,7 @@ Fonte: 500+ cotações reais emitidas pela Patro Corretora de Seguros (SUSEP 212
 
 Seguradoras cotadas em cada caso: Porto, Bradesco Auto, Allianz, HDI, Mapfre, Tokio Marine, Azul, Liberty, Zurich, Sompo, Suhai e Youse. Cotações fora do padrão (comerciais, PJ, blindados) foram excluídas.
 
-Data-base: outubro/2026. Última atualização deste estudo: novembro/2026.
+Data-base: agosto/2026. Última atualização deste estudo: setembro/2026.
 
 ## Ranking — Custo médio anual do seguro auto por bairro em Guarulhos (2026)
 
@@ -190,7 +190,7 @@ Solicite sua [comparação gratuita agora](/cotacao?tipo=auto) ou fale conosco n
 
 ## Como citar este estudo
 
-> Patro Corretora de Seguros. *Custo Médio do Seguro Auto em Guarulhos por Bairro — Estudo 2026.* Guarulhos/SP, novembro/2026. Disponível em: https://www.patroseguros.com.br/blog/estudo-custo-seguro-auto-guarulhos-bairros-2026. Acesso em: [data].
+> Patro Corretora de Seguros. *Custo Médio do Seguro Auto em Guarulhos por Bairro — Estudo 2026.* Guarulhos/SP, setembro/2026. Disponível em: https://www.patroseguros.com.br/blog/estudo-custo-seguro-auto-guarulhos-bairros-2026. Acesso em: [data].
 
 ## Limitações do estudo
 
