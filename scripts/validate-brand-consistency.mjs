@@ -15,6 +15,27 @@ const PATTERNS = [
   { re: /\b8\+?\s+seguradoras\b/gi, msg: 'Padronize para "16+ seguradoras".' },
 ];
 
+
+/** Detecta `${...}` escrito fora de template literal (aparece literal na página). */
+function findUnrenderedInterpolations(src) {
+  const out = [];
+  let mode = null;
+  for (let i = 0; i < src.length; i++) {
+    const c = src[i];
+    if (mode === null) {
+      if (c === "`" || c === '"' || c === "'") { mode = c; continue; }
+      if (src.startsWith("//", i)) { const j = src.indexOf("\n", i); i = j < 0 ? src.length : j; continue; }
+      if (src.startsWith("/*", i)) { const j = src.indexOf("*/", i); i = j < 0 ? src.length : j + 1; continue; }
+      if (src.startsWith("${", i)) out.push(i);
+    } else {
+      if (c === "\\") { i++; continue; }
+      if (c === mode) { mode = null; continue; }
+      if (mode !== "`" && src.startsWith("${", i)) out.push(i);
+    }
+  }
+  return out;
+}
+
 const files = [];
 const walk = (p) => {
   const st = statSync(p, { throwIfNoEntry: false });
@@ -43,6 +64,15 @@ for (const f of files) {
       }
     }
   });
+}
+
+for (const f of files) {
+  if (!/\.(tsx?|jsx?)$/.test(f)) continue;
+  const src = readFileSync(f, "utf8");
+  for (const idx of findUnrenderedInterpolations(src)) {
+    const line = src.slice(0, idx).split("\n").length;
+    errors.push(`${f}:${line} → interpolação \`${src.slice(idx, idx + 40)}\` fora de template literal; o texto sairia literal na página.`);
+  }
 }
 
 if (errors.length) {
