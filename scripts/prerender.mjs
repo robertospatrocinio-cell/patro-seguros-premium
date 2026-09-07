@@ -89,18 +89,75 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+// Links institucionais para dar profundidade de rastreamento a partir de
+// qualquer rota (o Googlebot encontra o cluster sem executar JavaScript).
+const CRAWL_LINKS = [
+  ["/seguro-auto-guarulhos", "Seguro auto em Guarulhos"],
+  ["/seguro-residencial-guarulhos", "Seguro residencial"],
+  ["/seguro-empresarial-guarulhos", "Seguro empresarial"],
+  ["/plano-de-saude-guarulhos", "Plano de saúde"],
+  ["/consorcio-guarulhos", "Consórcio"],
+  ["/blog", "Blog"],
+  ["/contato", "Contato"],
+];
+
+function buildFallbackBody(metadata) {
+  const parts = [];
+  if (metadata.description) parts.push(`<p>${escapeHtml(metadata.description)}</p>`);
+  if (metadata.detailedDescription) parts.push(`<p>${escapeHtml(metadata.detailedDescription)}</p>`);
+
+  if (Array.isArray(metadata.whoNeeds) && metadata.whoNeeds.length) {
+    parts.push(
+      `<h2>Para quem é indicado</h2><ul>${metadata.whoNeeds
+        .map((i) => `<li>${escapeHtml(String(i))}</li>`)
+        .join("")}</ul>`,
+    );
+  }
+  if (Array.isArray(metadata.whyPatro) && metadata.whyPatro.length) {
+    parts.push(
+      `<h2>Por que contratar com a Patro Seguros</h2><ul>${metadata.whyPatro
+        .map((i) => `<li>${escapeHtml(String(i))}</li>`)
+        .join("")}</ul>`,
+    );
+  }
+  if (Array.isArray(metadata.faqs) && metadata.faqs.length) {
+    parts.push(
+      `<h2>Perguntas frequentes</h2>${metadata.faqs
+        .map(
+          (f) =>
+            `<h3>${escapeHtml(String(f.question))}</h3><p>${escapeHtml(String(f.answer))}</p>`,
+        )
+        .join("")}`,
+    );
+  }
+
+  parts.push(
+    `<h2>Navegue pela Patro Seguros</h2><ul>${CRAWL_LINKS.map(
+      ([href, label]) => `<li><a href="${href}">${label}</a></li>`,
+    ).join("")}</ul>`,
+  );
+  parts.push(
+    `<p>Patro Seguros — Av. Salgado Filho, 2120, Sala 219, Cidade Maia, Guarulhos/SP. Telefone (11) 5199-7500. CNPJ 41.641.558/0001-33 · SUSEP 212113511.</p>`,
+  );
+
+  return parts.join("\n      ");
+}
+
 function buildSeoBlock(route, metadata) {
   const content = FULL_SEO_CONTENT[route] || SEO_CONTENT[route];
-  if (!content) return null;
+  const h1 = content?.h1 || metadata.h1 || metadata.title;
+  const body = content?.body || buildFallbackBody(metadata);
 
-  const h1 = content.h1 || metadata.title;
+  // Conteúdo visível antes da hidratação (nada de display:none — o React
+  // substitui o container ao montar, então não há cloaking).
   return `
-    <div id="crawler-content" style="display:none">
+    <div id="crawler-content">
       <h1>${h1}</h1>
-      ${content.body}
+      ${body}
     </div>
   `;
 }
+
 
 async function run() {
   if (!fs.existsSync(INDEX_HTML)) {
