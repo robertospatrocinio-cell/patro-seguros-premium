@@ -11,6 +11,8 @@ import { landingPagesData } from "@/data/landingPages";
 import { servicePagesContent } from "@/data/seoServiceContent";
 import { SEO_HUBS } from "@/data/seoHubs";
 import { EMPRESA } from "@/config/empresa";
+import { cidadesRegiao, getCidadeRegiao, CIDADES_REGIAO_HUB_PATH } from "@/data/cidadesRegiao";
+
 
 export interface Metadata {
   title: string;
@@ -562,6 +564,117 @@ function buildPremiumMetadata(cleanPath: string, p: PremiumMeta): Metadata {
   };
 }
 
+/**
+ * Metadados + JSON-LD LocalBusiness das páginas de cidade/região
+ * (`/corretora-de-seguros` e `/corretora-de-seguros/:cidade`).
+ * O NAP é sempre o do escritório físico em Guarulhos (fonte: EMPRESA).
+ */
+const CIDADE_NAP = {
+  "@type": "PostalAddress",
+  streetAddress: `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero} — ${EMPRESA.endereco.complemento}`,
+  addressLocality: EMPRESA.endereco.cidade,
+  addressRegion: EMPRESA.endereco.estadoSigla,
+  postalCode: EMPRESA.endereco.cep,
+  addressCountry: "BR",
+};
+
+const CIDADE_OPENING_HOURS = [
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:30",
+    closes: "18:00",
+  },
+];
+
+function buildCidadeRegiaoMetadata(cleanPath: string): Metadata | null {
+  const url = `${DOMAIN}${cleanPath}`;
+  const base = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${url}#localbusiness`,
+    legalName: EMPRESA.razaoSocial,
+    url,
+    telephone: EMPRESA.telefoneE164,
+    email: EMPRESA.email,
+    image: `${DOMAIN}/images/og-cover.webp`,
+    hasMap: EMPRESA.redesSociais.google,
+    priceRange: "$$",
+    address: CIDADE_NAP,
+    geo: { "@type": "GeoCoordinates", latitude: EMPRESA.geo.latitude, longitude: EMPRESA.geo.longitude },
+    openingHoursSpecification: CIDADE_OPENING_HOURS,
+    sameAs: [
+      EMPRESA.redesSociais.google,
+      EMPRESA.redesSociais.instagram,
+      EMPRESA.redesSociais.facebook,
+      EMPRESA.redesSociais.linkedin,
+    ],
+  };
+
+  if (cleanPath === CIDADES_REGIAO_HUB_PATH) {
+    const description = `Corretora de seguros em Guarulhos/SP atendendo ${cidadesRegiao.length} cidades da Grande São Paulo e do Alto Tietê. Endereço, telefone e Google Maps.`;
+    return {
+      title: "Cidades e Regiões Atendidas | Patro Seguros",
+      description,
+      canonical: url,
+      h1: "Cidades e regiões atendidas pela Patro Seguros",
+      ogUrl: url,
+      ogType: "website",
+      schema: {
+        ...base,
+        name: `${EMPRESA.nomeFantasia} — Corretora de Seguros`,
+        description,
+        areaServed: cidadesRegiao.map((c) => ({
+          "@type": "City",
+          name: c.nome,
+          address: { "@type": "PostalAddress", addressLocality: c.nome, addressRegion: c.uf, addressCountry: "BR" },
+        })),
+      },
+    };
+  }
+
+  const slug = cleanPath.slice(CIDADES_REGIAO_HUB_PATH.length + 1);
+  const cidade = getCidadeRegiao(slug);
+  if (!cidade) return null;
+
+  const description = `Corretora de seguros atendendo ${cidade.nome}/${cidade.uf}. ${cidade.resumo} Endereço, telefone e cotação comparada em ${EMPRESA.metricas.seguradorasParceiras} seguradoras.`;
+
+  return {
+    title: `Corretora de Seguros em ${cidade.nome} | Patro Seguros`,
+    description: description.slice(0, 160),
+    canonical: url,
+    h1: `Corretora de Seguros em ${cidade.nome}`,
+    ogUrl: url,
+    ogType: "website",
+    faqs: cidade.faqs.map((f) => ({ question: f.pergunta, answer: f.resposta })),
+    schema: [
+      {
+        ...base,
+        name: `${EMPRESA.nomeFantasia} — Corretora de Seguros em ${cidade.nome}`,
+        description,
+        areaServed: {
+          "@type": "City",
+          name: cidade.nome,
+          address: { "@type": "PostalAddress", addressLocality: cidade.nome, addressRegion: cidade.uf, addressCountry: "BR" },
+          geo: { "@type": "GeoCoordinates", latitude: cidade.geo.latitude, longitude: cidade.geo.longitude },
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: cidade.faqs.map((f) => ({
+          "@type": "Question",
+          name: f.pergunta,
+          acceptedAnswer: { "@type": "Answer", text: f.resposta },
+        })),
+      },
+    ],
+  };
+}
+
+
+
 export function getMetadataForRoute(pathname: string): Metadata | null {
   const cleanPath = pathname.replace(/\/$/, "") || "/";
   let slug = cleanPath.startsWith("/") ? cleanPath.slice(1) : cleanPath;
@@ -576,6 +689,13 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
     const premium = premiumPages[cleanPath];
     if (premium) return buildPremiumMetadata(cleanPath, premium);
   }
+
+  // Páginas de cidade/região (NAP + LocalBusiness)
+  if (cleanPath === CIDADES_REGIAO_HUB_PATH || cleanPath.startsWith(`${CIDADES_REGIAO_HUB_PATH}/`)) {
+    const cidadeMeta = buildCidadeRegiaoMetadata(cleanPath);
+    if (cidadeMeta) return cidadeMeta;
+  }
+
 
   // 1. Home
   if (cleanPath === "/") {

@@ -9,6 +9,8 @@ import {
   CREDITO_INTENT_PAGES,
   B2B_INSURER_PAGES,
 } from "@/data/b2bVertical";
+import { CIDADES_REGIAO_HUB_PATH } from "@/data/cidadesRegiao";
+
 
 // Helper for type-safe property passing to memoized components in lazy loading
 const withProps = <T extends object>(Component: React.ComponentType<T>, props: T) => {
@@ -223,6 +225,9 @@ const LongtailMelhorSeguroUberGuarulhos = lazyWithRetry(() => import("./pages/Lo
 const LongtailCotacaoSeguroResidencialOnline = lazyWithRetry(() => import("./pages/LongtailCotacaoSeguroResidencialOnline"), "LongtailCotacaoSeguroResidencialOnline");
 const GuiaClusterLongtail = lazyWithRetry(() => import("./pages/GuiaClusterLongtail"), "GuiaClusterLongtail");
 const SeoLocalPage = lazyWithRetry(() => import("./pages/SeoLocalPage"), "SeoLocalPage");
+const CidadesRegiaoHub = lazyWithRetry(() => import("./pages/CidadesRegiaoHub"), "CidadesRegiaoHub");
+const CidadeRegiaoPage = lazyWithRetry(() => import("./pages/CidadeRegiaoPage"), "CidadeRegiaoPage");
+
 const PlanoSaudeEmpresarialGuarulhos = lazyWithRetry(() => import("./pages/PlanoSaudeEmpresarialGuarulhos"), "PlanoSaudeEmpresarialGuarulhos");
 const PlanosSaudeSeniorGuarulhos = lazyWithRetry(() => import("./pages/PlanosSaudeSeniorGuarulhos"), "PlanosSaudeSeniorGuarulhos");
 const PlanoOdontologicoGuarulhos = lazyWithRetry(() => import("./pages/PlanoOdontologicoGuarulhos"), "PlanoOdontologicoGuarulhos");
@@ -820,6 +825,9 @@ const App = () => {
                    <Route path="/seguros-em-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
                    <Route path="/seguros-guarulhos-bairros" element={<Navigate to="/seguros-guarulhos" replace />} />
                    <Route path="/seguros-guarulhos/:slug" element={<SeoLocalPage />} />
+                   <Route path={CIDADES_REGIAO_HUB_PATH} element={<CidadesRegiaoHub />} />
+                   <Route path="/corretora-de-seguros/:cidade" element={<CidadeRegiaoPage />} />
+
                    <Route path="/corretora-de-seguros-em-:bairro-guarulhos" element={<SeoLocalPage />} />
                    <Route path="/seguros-em-:bairro-guarulhos" element={<SeoLocalPage />} />
                    <Route path="/seguro-auto-:bairro-guarulhos" element={<SeoLocalPage />} />
