@@ -124,9 +124,16 @@ export async function saveContentOverride(input: SaveContentOverrideInput) {
   const { data: userData } = await supabase.auth.getUser();
   const { error } = await supabase.from("content_overrides").upsert(
     {
-      ...input,
-      faqs: input.faqs,
-      updated_by: userData.user?.id ?? null,
+      scope: input.scope,
+      slug: input.slug,
+      title: input.title ?? undefined,
+      summary: input.summary ?? undefined,
+      intro: input.intro ?? undefined,
+      body: input.body ?? undefined,
+      faqs: input.faqs as unknown as Record<string, unknown>[],
+      published: input.published,
+      notes: input.notes ?? undefined,
+      updated_by: userData.user?.id ?? undefined,
     },
     { onConflict: "scope,slug" },
   );
