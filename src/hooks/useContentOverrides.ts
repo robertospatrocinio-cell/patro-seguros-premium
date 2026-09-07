@@ -122,21 +122,22 @@ export interface SaveContentOverrideInput {
 
 export async function saveContentOverride(input: SaveContentOverrideInput) {
   const { data: userData } = await supabase.auth.getUser();
-  const { error } = await supabase.from("content_overrides").upsert(
-    {
-      scope: input.scope,
-      slug: input.slug,
-      title: input.title ?? undefined,
-      summary: input.summary ?? undefined,
-      intro: input.intro ?? undefined,
-      body: input.body ?? undefined,
-      faqs: input.faqs as unknown as Record<string, unknown>[],
-      published: input.published,
-      notes: input.notes ?? undefined,
-      updated_by: userData.user?.id ?? undefined,
-    },
-    { onConflict: "scope,slug" },
-  );
+  const payload = {
+    scope: input.scope,
+    slug: input.slug,
+    title: input.title,
+    summary: input.summary,
+    intro: input.intro,
+    body: input.body,
+    faqs: input.faqs,
+    published: input.published,
+    notes: input.notes,
+    updated_by: userData.user?.id ?? null,
+  };
+  const { error } = await supabase
+    .from("content_overrides")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .upsert(payload as any, { onConflict: "scope,slug" });
   if (error) throw error;
 }
 
