@@ -27,6 +27,28 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "opiniao-protecao-patrimonial-galpoes-guarulhos",
+    title: "Opinião: proteção patrimonial de galpões em Guarulhos precisa sair do papel",
+    excerpt: "Roberto Patrocínio analisa por que galpões logísticos de Guarulhos seguem subsegurados, o que muda com a atualização de valor em risco e como estruturar a cobertura antes do próximo sinistro.",
+    category: "Opinião",
+    tags: ["opinião", "galpões", "logística", "seguro empresarial", "guarulhos", "patrimônio"],
+    author: "Roberto Patro",
+    date: "2026-09-08",
+    updatedAt: "2026-09-08",
+    readTime: 9,
+  },
+  {
+    slug: "analise-mercado-gestao-risco-frotas-guarulhos",
+    title: "Análise de mercado: gestão de risco de frotas em Guarulhos entra em nova fase",
+    excerpt: "Sandra Patrocínio analisa o custo do risco em frotas que circulam por Dutra, Ayrton Senna e Cumbica, e o que muda na negociação com seguradoras quando a empresa apresenta dados de telemetria.",
+    category: "Opinião",
+    tags: ["análise de mercado", "frotas", "gestão de risco", "logística", "guarulhos", "telemetria"],
+    author: "Sandra Patro",
+    date: "2026-09-08",
+    updatedAt: "2026-09-08",
+    readTime: 9,
+  },
+  {
     slug: "seguro-auto-motorista-aplicativo-guarulhos",
     title: "Seguro Auto para Motorista de Aplicativo em Guarulhos: Por que o Seguro Particular Pode Não Pagar Seu Sinistro",
     excerpt: "Seguro particular não cobre corridas de Uber/99/IFood e pode negar o sinistro. Veja quanto custa o seguro correto para motorista de app em Guarulhos e compare seguradoras.",
