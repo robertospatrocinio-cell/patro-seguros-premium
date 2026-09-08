@@ -22589,7 +22589,7 @@
       "file_type": "code",
       "norm_label": "full_block_routes",
       "source_file": "scripts/seo-content-full.mjs",
-      "source_location": "L862"
+      "source_location": "L895"
     },
     {
       "id": "scripts_seo_content_full_full_seo_content",
@@ -146212,7 +146212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/seo-content-full.mjs",
-      "source_location": "L862",
+      "source_location": "L895",
       "weight": 1.0
     },
     {
@@ -179476,5 +179476,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "314a6fd7a5a9db705499d5f4ec0be282d6ac20ec"
+  "built_at_commit": "c85a67a8214a0468374a6126f0c9a9bb02083dc5"
 }
