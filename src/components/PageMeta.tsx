@@ -125,9 +125,11 @@ const PageMeta = ({ title, description, noindex = false, absoluteTitle = false, 
     const isPreviewHost =
       typeof window !== "undefined" && (window.location.hostname.endsWith(PREVIEW_SUFFIX) || window.location.hostname.endsWith(DEV_SUFFIX));
     if (robots) {
+      // Páginas de formulário: noindex mas com follow, para que os links
+      // internos continuem sendo rastreados. Preview/dev: bloqueio total.
       robots.setAttribute(
         "content",
-        noindex || isPreviewHost ? "noindex, nofollow" : "index, follow",
+        isPreviewHost ? "noindex, nofollow" : noindex ? "noindex, follow" : "index, follow",
       );
     }
 

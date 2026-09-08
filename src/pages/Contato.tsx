@@ -152,9 +152,9 @@ const Contato = () => {
       <PageMeta
         title="Fale Conosco — Patro Seguros Guarulhos Cidade Maia"
         description="Corretora de seguros em Guarulhos na Av. Salgado Filho (Cidade Maia), perto do Shopping Maia. Atendimento presencial, WhatsApp (11) 5199-7500 e consultoria técnica."
-      
-      skipBreadcrumb
-    />
+        noindex
+        skipBreadcrumb
+      />
       <FAQSchema faqs={contatoFaqs} />
       <BreadcrumbSchema items={[{ name: "Início", url: "/" }, { name: "Contato", url: "/contato" }]} />
       <HowToSchema
