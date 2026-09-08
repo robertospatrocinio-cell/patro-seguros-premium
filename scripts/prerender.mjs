@@ -99,7 +99,7 @@ function buildSeoBlock(route, metadata) {
 
   const h1 = content.h1 || metadata.title;
   return `
-    <div id="crawler-content" style="display:none">
+    <div id="crawler-content">
       <h1>${h1}</h1>
       ${content.body}
     </div>
@@ -125,6 +125,76 @@ async function run() {
   const { blogAuthors } = await loadDataModule("src/lib/blogAuthors.ts");
   const { getBlogContent } = await loadDataModule("src/data/blogContentIndex.ts");
   const { extraFaqsBySlug } = await loadDataModule("src/data/blogExtraData.ts");
+  const REGIONAL = await loadDataModule("src/data/segurosSaoPauloRegional.ts");
+
+  // ---- Expansão regional (hub Grande São Paulo + bairros piloto da capital)
+  // Injeta o conteúdo textual, os links internos e as FAQs dessas rotas no
+  // HTML estático, sem depender da execução de JavaScript.
+  {
+    const esc = escapeHtml;
+    const ul = (items) => `<ul>${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+    const faqHtml = (faqs) =>
+      `<h2>Perguntas frequentes</h2>${faqs
+        .map((f) => `<h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p>`)
+        .join("")}`;
+    const napHtml =
+      `<p>Patro Seguros — Av. Salgado Filho, 2120 — Sala 219, Edifício Via Alameda, Cidade Maia, Guarulhos/SP — CEP 07115-000. Telefone e WhatsApp: (11) 5199-7500. CNPJ 41.641.558/0001-33 · SUSEP 212113511.</p>`;
+
+    const hub = REGIONAL.GRANDE_SP_HUB;
+    const hubBody = [
+      hub.intro.map((t) => `<p>${esc(t)}</p>`).join(""),
+      `<h2>${esc(hub.guarulhos.title)}</h2><p>${esc(hub.guarulhos.text)}</p>`,
+      ul(hub.guarulhos.links.map((l) => `<a href="${l.href}">${esc(l.label)}</a>`)),
+      `<h2>${esc(hub.capital.title)}</h2><p>${esc(hub.capital.text)}</p>`,
+      ul(
+        Object.values(REGIONAL.bairrosSaoPauloAuto).map(
+          (b) => `<a href="/${b.slug}">Seguro auto em ${esc(b.bairro)}</a>`,
+        ),
+      ),
+      `<h2>${esc(hub.metropolitana.title)}</h2><p>${esc(hub.metropolitana.text)}</p>`,
+      `<h2>${esc(hub.brasil.title)}</h2><p>${esc(hub.brasil.text)}</p>`,
+      `<h2>Seguros para pessoas e empresas</h2>`,
+      ul(hub.produtos.map((pr) => `<a href="${pr.href}">${esc(pr.title)}</a> — ${esc(pr.text)}`)),
+      `<h2>Sede física em Guarulhos</h2>`,
+      napHtml,
+      faqHtml(hub.faqs),
+    ].join("");
+
+    FULL_SEO_CONTENT[hub.path] = { h1: hub.h1, body: hubBody };
+    PAGE_FAQS[hub.path] = hub.faqs.map((f) => ({ q: f.question, a: f.answer }));
+
+    for (const b of Object.values(REGIONAL.bairrosSaoPauloAuto)) {
+      const route = `/${b.slug}`;
+      const body = [
+        b.intro.map((t) => `<p>${esc(t)}</p>`).join(""),
+        `<h2>Seguro auto em ${esc(b.bairro)}</h2>`,
+        b.contexto.map((t) => `<p>${esc(t)}</p>`).join(""),
+        `<h2>O que influencia o preço na região</h2>`,
+        b.fatores.map((f) => `<h3>${esc(f.title)}</h3><p>${esc(f.description)}</p>`).join(""),
+        `<h2>Coberturas importantes para quem dirige em ${esc(b.bairro)}</h2>`,
+        b.coberturas.map((c) => `<h3>${esc(c.title)}</h3><p>${esc(c.description)}</p>`).join(""),
+        `<h2>Perfis que atendemos na região</h2>`,
+        ul(b.perfis.map(esc)),
+        `<h2>Por que comparar seguradoras antes de contratar</h2>`,
+        REGIONAL.POR_QUE_COMPARAR.map((t) => `<p>${esc(t)}</p>`).join(""),
+        `<h2>Como funciona a cotação com a Patro</h2>`,
+        REGIONAL.PASSOS_COTACAO.map((st) => `<h3>${esc(st.title)}</h3><p>${esc(st.description)}</p>`).join(""),
+        `<h2>Outros seguros disponíveis</h2>`,
+        ul(b.outrosSeguros.map((o) => `<a href="${o.link}">${esc(o.title)}</a>`)),
+        `<h2>Atendimento em Guarulhos e Grande São Paulo</h2>`,
+        REGIONAL.ATENDIMENTO_REGIONAL.map((t) => `<p>${esc(t)}</p>`).join(""),
+        napHtml,
+        `<p><a href="${REGIONAL.GRANDE_SP_PATH}">Atendimento da Patro na Grande São Paulo</a></p>`,
+        `<h2>Bairros próximos</h2>`,
+        ul(b.bairrosProximos.map((n) => `<a href="${n.link}">Seguro auto em ${esc(n.name)}</a>`)),
+        faqHtml(b.faqs),
+      ].join("");
+
+      FULL_SEO_CONTENT[route] = { h1: `Seguro Auto em ${b.bairro} – São Paulo`, body };
+      PAGE_FAQS[route] = b.faqs.map((f) => ({ q: f.question, a: f.answer }));
+    }
+  }
+
   const { blogFaqBackfill: FAQ_BACKFILL } = await loadDataModule("src/data/blogFaqBackfill.ts");
 
   const blogSlugs = articles.map(a => a.slug);
