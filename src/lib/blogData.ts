@@ -27,39 +27,6 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
-    slug: "opiniao-protecao-patrimonial-galpoes-guarulhos",
-    title: "Opinião: proteção patrimonial de galpões em Guarulhos precisa sair do papel",
-    excerpt: "Roberto Patrocínio analisa por que galpões logísticos de Guarulhos seguem subsegurados, o que muda com a atualização de valor em risco e como estruturar a cobertura antes do próximo sinistro.",
-    category: "Opinião",
-    tags: ["opinião", "galpões", "logística", "seguro empresarial", "guarulhos", "patrimônio"],
-    author: "Roberto Patro",
-    date: "2026-09-08",
-    updatedAt: "2026-09-08",
-    readTime: 9,
-  },
-  {
-    slug: "analise-mercado-gestao-risco-frotas-guarulhos",
-    title: "Análise de mercado: gestão de risco de frotas em Guarulhos entra em nova fase",
-    excerpt: "Sandra Patrocínio analisa o custo do risco em frotas que circulam por Dutra, Ayrton Senna e Cumbica, e o que muda na negociação com seguradoras quando a empresa apresenta dados de telemetria.",
-    category: "Opinião",
-    tags: ["análise de mercado", "frotas", "gestão de risco", "logística", "guarulhos", "telemetria"],
-    author: "Sandra Patro",
-    date: "2026-09-08",
-    updatedAt: "2026-09-08",
-    readTime: 9,
-  },
-  {
-    slug: "seguro-auto-motorista-aplicativo-guarulhos",
-    title: "Seguro Auto para Motorista de Aplicativo em Guarulhos: Por que o Seguro Particular Pode Não Pagar Seu Sinistro",
-    excerpt: "Seguro particular não cobre corridas de Uber/99/IFood e pode negar o sinistro. Veja quanto custa o seguro correto para motorista de app em Guarulhos e compare seguradoras.",
-    category: "Seguro Auto",
-    tags: ["seguro auto", "motorista de aplicativo", "uber", "99", "ifood", "guarulhos"],
-    author: "Roberto Patro",
-    date: "2026-09-08",
-    updatedAt: "2026-09-08",
-    readTime: 8,
-  },
-  {
     slug: "vale-a-pena-seguro-corretora-ou-banco",
     title: "Vale a pena contratar seguro com corretora ou direto com o banco?",
     excerpt: "Comparativo honesto entre contratar seguro por corretora especializada ou pelo banco: preço, cobertura, personalização, atendimento no sinistro e quando cada caminho faz sentido.",
@@ -376,37 +343,6 @@ export const getRelatedArticles = (slug: string, limit = 3): BlogArticleMeta[] =
     .sort((a, b) => b.score - a.score);
 
   return scored.slice(0, limit);
-};
-
-/**
- * Seleciona artigos do blog relacionados a um tema/produto (ex.: título de uma
- * página de seguro). Faz o cruzamento por categoria e por tags, sem inventar
- * conteúdo: só retorna artigos já publicados.
- */
-export const getArticlesByTopic = (topic: string, limit = 3): BlogArticleMeta[] => {
-  const norm = (s: string) =>
-    s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const t = norm(topic);
-  const words = new Set(t.split(/[^a-z0-9]+/).filter((w) => w.length > 3));
-
-  const scored = articles
-    .map((a) => {
-      let score = 0;
-      const cat = norm(a.category);
-      if (t.includes(cat) || cat.includes(t)) score += 5;
-      for (const tag of a.tags) {
-        const nt = norm(tag);
-        if (t.includes(nt)) score += 3;
-        else if (nt.split(/\s+/).some((w) => w.length > 3 && words.has(w))) score += 1;
-      }
-      const titleWords = norm(a.title).split(/[^a-z0-9]+/);
-      score += titleWords.filter((w) => w.length > 4 && words.has(w)).length * 0.5;
-      return { article: a, score };
-    })
-    .filter((s) => s.score >= 3)
-    .sort((a, b) => b.score - a.score || (a.article.date < b.article.date ? 1 : -1));
-
-  return scored.slice(0, limit).map((s) => s.article);
 };
 
 // Format date to Brazilian locale

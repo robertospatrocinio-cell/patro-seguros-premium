@@ -12,6 +12,7 @@ import { servicePagesContent } from "@/data/seoServiceContent";
 import { SEO_HUBS } from "@/data/seoHubs";
 import { EMPRESA } from "@/config/empresa";
 import { cidadesRegiao, getCidadeRegiao, CIDADES_REGIAO_HUB_PATH } from "@/data/cidadesRegiao";
+import { GRANDE_SP_HUB, bairrosSaoPauloAuto } from "@/data/segurosSaoPauloRegional";
 
 
 export interface Metadata {
@@ -700,10 +701,10 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
   // 1. Home
   if (cleanPath === "/") {
     return {
-      title: "Patro Seguros | Corretora de Seguros em Guarulhos",
-      description: "Corretora de seguros em Guarulhos: auto, residencial, vida, saúde e frotas. Compare 16+ seguradoras. Cotação em 2h. Patro Seguros (11) 5199-7500.",
+      title: "Corretora de Seguros em Guarulhos e Grande São Paulo | Patro",
+      description: "Corretora sediada em Guarulhos, com atendimento em toda a Grande São Paulo: auto, residencial, vida, saúde, frotas e empresarial. Compare 16+ seguradoras.",
       canonical: DOMAIN,
-      h1: "Corretora de seguros em Guarulhos para você e sua empresa",
+      h1: "Corretora de Seguros em Guarulhos e Grande São Paulo",
       ogUrl: DOMAIN,
       ogType: "website",
       // NOTE: home não emite schema próprio aqui — o `index.html` já carrega
@@ -716,7 +717,26 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
 
   // 2. Static Pages Mapping (Commercial/Informative focus) - Only if NOT an LP route
   if (!isLP) {
+    const regionalPages: Record<string, { title: string; description: string; h1: string }> = {
+      [GRANDE_SP_HUB.path]: {
+        title: GRANDE_SP_HUB.title,
+        description: GRANDE_SP_HUB.metaDescription,
+        h1: GRANDE_SP_HUB.h1,
+      },
+      ...Object.fromEntries(
+        Object.values(bairrosSaoPauloAuto).map((b) => [
+          `/${b.slug}`,
+          {
+            title: b.title,
+            description: b.metaDescription,
+            h1: `Seguro Auto em ${b.bairro} – São Paulo`,
+          },
+        ]),
+      ),
+    };
+
     const staticPages: Record<string, { title: string; description: string; h1: string }> = {
+      ...regionalPages,
       "/blog": {
         title: "Blog Patro Seguros | Notícias e Dicas sobre Seguros",
         description: "Acompanhe as últimas notícias, dicas e novidades sobre o mercado de seguros em Guarulhos e no Brasil.",

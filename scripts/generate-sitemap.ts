@@ -29,6 +29,7 @@ import { materiais as MATERIAIS_LIST } from "../src/data/materiaisData";
 import { faqCategories as FAQ_CATEGORIES } from "../src/data/perguntasHubData";
 import { COMPARATIVOS_SLUGS } from "../src/data/comparativosData";
 import { cidadesRegiaoSlugs, cidadeRegiaoPath, CIDADES_REGIAO_HUB_PATH } from "../src/data/cidadesRegiao";
+import { GRANDE_SP_PATH, bairroSpPaths } from "../src/data/segurosSaoPauloRegional";
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -114,6 +115,12 @@ const highIntentTransactional: SitemapEntry[] = [
    { loc: "/cotacao-seguro-residencial-online", priority: "0.9", changefreq: "weekly" },
    { loc: "/contato", priority: "0.8", changefreq: "weekly" },
    { loc: "/sobre", priority: "0.8", changefreq: "monthly" },
+];
+
+// Expansão regional — hub Grande São Paulo + bairros piloto da capital.
+const regionalGrandeSp: SitemapEntry[] = [
+  { loc: GRANDE_SP_PATH, priority: "0.9", changefreq: "weekly" },
+  ...bairroSpPaths.map(loc => ({ loc, priority: "0.8", changefreq: "weekly" })),
 ];
 
 const seoLocalGuarulhos: SitemapEntry[] = [
@@ -617,6 +624,7 @@ export function generateSitemap(blogSlugs: string[]): string {
 
   const flat = [
     ...highIntentTransactional,
+    ...regionalGrandeSp,
     ...seoLocalGuarulhos,
     ...coreProducts,
     ...secondaryProducts,
@@ -763,8 +771,6 @@ export function generateSitemap(blogSlugs: string[]): string {
     // Legacy flat sitemap kept for backward compatibility with already-submitted URLs
     "sitemap.xml": urlsetFor(allEntries),
     // Mirror of index for compatibility
-    // Índice oficial referenciado no robots.txt (hífen) + mirror legado (underscore)
-    "sitemap-index.xml": index,
     "sitemap_index.xml": index,
   };
 
