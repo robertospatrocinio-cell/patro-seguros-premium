@@ -280,6 +280,8 @@ const SeguroAvioes = lazy(() => import("./pages/SeguroAvioes"));
 const SeguroHelicopteros = lazy(() => import("./pages/SeguroHelicopteros"));
 const SeguroAutoEzzeCorinthians = lazyWithRetry(() => import("./pages/SeguroAutoEzzeCorinthians"), "SeguroAutoEzzeCorinthians");
 const SeguroCartaVerde = lazy(() => import("./pages/SeguroCartaVerde"));
+const GrandeSaoPaulo = lazy(() => import("./pages/GrandeSaoPaulo"));
+const SeguroAutoBairroSp = lazy(() => import("./pages/SeguroAutoBairroSp"));
 const IndiqueEGanhe = lazy(() => import("./pages/IndiqueEGanhe"));
 const ObrigadoIndicacao = lazy(() => import("./pages/ObrigadoIndicacao"));
 const SeguroDecesso = lazy(() => import("./pages/SeguroDecesso"));
