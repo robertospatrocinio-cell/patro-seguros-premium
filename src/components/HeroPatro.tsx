@@ -51,12 +51,12 @@ const HeroPatro = memo(() => {
             <div className="max-w-[680px]">
               {/* Header Label */}
               <span className="inline-block text-[11px] md:text-[13px] font-bold tracking-widest text-primary-light mb-4 uppercase">
-                SEGUROS EM GUARULHOS • ATENDIMENTO EM TODO O BRASIL
+                SEDE EM GUARULHOS • ATENDIMENTO NA GRANDE SÃO PAULO
               </span>
               
               {/* H1 Title */}
               <h1 className="text-white text-[32px] md:text-[54px] lg:text-[60px] font-extrabold mb-6 leading-[1.1] tracking-tight">
-                Corretora de Seguros em Guarulhos: Proteção Inteligente para Você e sua Empresa
+                Corretora de Seguros em Guarulhos e Grande São Paulo
               </h1>
 
               {/* Prova social imediatamente abaixo do H1 (CRO) */}
