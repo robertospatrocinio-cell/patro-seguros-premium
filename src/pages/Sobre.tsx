@@ -18,7 +18,7 @@ import AutoridadePatro from "@/components/AutoridadePatro";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import socioRoberto from "@/assets/socio-roberto.webp";
 import sociaSandra from "@/assets/socia-sandra.webp";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2 } from "@/config/empresa";
 
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.";
 
@@ -271,8 +271,8 @@ const Sobre = () => {
                     <MapPin className="h-5 w-5" /> Localização Cidade Maia
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                    Av. Salgado Filho, 2120 – Ed. Via Alameda – Sala 219<br />
-                    Cidade Maia, Guarulhos/SP – CEP 07115-000<br />
+                    {NAP_LINHA_1}<br />
+                    {NAP_LINHA_2}<br />
                     <strong>Referência:</strong> Em frente ao Shopping Maia.
                   </p>
                   
