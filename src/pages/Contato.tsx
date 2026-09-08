@@ -24,6 +24,7 @@ import { showFriendlyError } from "@/lib/friendlyToast";
 import { buildWhatsAppUrl, buildMailtoUrl, openWhatsAppOrFallback } from "@/lib/whatsapp";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { toast as sonnerToast } from "sonner";
+import ExternalLink from "@/components/ExternalLink";
 import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2, GOOGLE_MAPS_URL } from "@/config/empresa";
 
 const contatoSchema = z.object({
