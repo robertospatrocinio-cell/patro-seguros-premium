@@ -328,6 +328,13 @@ async function run() {
         const faqScript = `\n    <script type="application/ld+json" data-faqpage="1">\n      ${JSON.stringify(faqSchema, null, 2)}\n    </script>`;
         html = html.replace("</head>", `${faqScript}\n</head>`);
       }
+
+      blogSeoBlock = buildBlogSeoBlock(
+        metadata,
+        articles.find((a) => a.slug === slug),
+        contentArticle,
+        uniqueFaqs,
+      );
     }
 
     // FAQPage estático para páginas de produto/institucionais (não-blog):
