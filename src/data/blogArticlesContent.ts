@@ -16,6 +16,89 @@ export const articlesContent: Record<string, { title: string; content: string; f
   ...patroPrivateArticlesContent,
   ...agroArticlesContent,
   ...autoArticlesContent,
+  "seguro-auto-motorista-aplicativo-guarulhos": {
+    title: "Seguro Auto para Motorista de Aplicativo em Guarulhos: Por que o Seguro Particular Pode Não Pagar Seu Sinistro",
+    content: `Se você roda com Uber, 99 ou IFood em Guarulhos — principalmente fazendo corridas para o Aeroporto de Cumbica, uma das rotas mais movimentadas da Grande São Paulo — existe um detalhe no seu seguro auto que pode custar muito mais caro do que a diferença de preço entre uma apólice particular e uma comercial: a forma como o uso do veículo foi declarado.
+
+## O erro que cancela o seguro sem você perceber
+
+A maioria dos motoristas de aplicativo em Guarulhos contrata ou mantém o seguro do carro como "uso particular" para pagar um prêmio mais baixo. O problema aparece exatamente no momento em que ele mais precisa da cobertura: no sinistro.
+
+Quando um carro segurado como particular sofre uma colisão, um roubo ou qualquer outro evento coberto enquanto estava em atividade comercial — ou seja, com o motorista logado no aplicativo, a caminho de um passageiro ou durante uma corrida — a seguradora tem o direito de apurar o uso real do veículo. Se constatar que havia uso comercial não declarado, a indenização pode ser negada integralmente, mesmo que todas as parcelas do seguro estivessem em dia.
+
+Na prática, isso significa que o motorista paga o seguro mês a mês achando que está protegido, e descobre que não estava exatamente no dia em que o carro — sua ferramenta de trabalho e sua fonte de renda — foi danificado ou roubado.
+
+## Seguro particular x seguro para motorista de aplicativo: qual a diferença real
+
+A diferença não está só no preço, está no que cada apólice reconhece como uso legítimo do veículo:
+
+**Seguro particular (uso pessoal):**
+- Cobre o carro no trajeto casa-trabalho, lazer e uso familiar
+- Não reconhece corridas remuneradas de passageiros como uso coberto
+- Prêmio mais baixo, mas risco de negativa total em caso de sinistro durante corrida
+
+**Seguro com uso comercial declarado (para motorista de app):**
+- Reconhece corridas de aplicativo como atividade coberta
+- Inclui, na maioria das apólices, cobertura de Acidentes Pessoais de Passageiros (APP) — item que as próprias plataformas (Uber, IFood e 99) passaram a cobrar como condição para manter o motorista ativo na base
+- Prêmio mais alto (a diferença costuma ficar entre 40% e 60% acima do seguro particular equivalente), mas com a proteção efetivamente válida no momento em que ela é necessária
+
+## Quanto custa o seguro para motorista de aplicativo em Guarulhos
+
+O valor varia conforme o modelo do carro, o perfil do condutor, a quilometragem rodada por dia e a seguradora escolhida — mas hoje o mercado trabalha, em média, com valores entre R$ 3.200 e R$ 6.800 por ano (o equivalente a algo entre R$ 265 e R$ 570 por mês) para uma apólice completa com uso comercial declarado.
+
+Alguns fatores que pesam diretamente no valor final:
+
+- **Volume de corridas por dia** — quanto mais horas o carro roda em atividade comercial, maior a exposição a risco e, consequentemente, o prêmio
+- **Modelo e ano do veículo** — carros mais visados por roubo/furto (comuns na frota de aplicativo, como sedãs compactos) tendem a ter prêmio mais alto
+- **Região de circulação** — em Guarulhos, o CEP de pernoite do veículo e a proximidade com áreas de maior sinistralidade influenciam diretamente a cotação
+- **Franquia escolhida** — aumentar a franquia reduz o valor da mensalidade, mas eleva o custo em caso de sinistro
+- **Uso de rastreador** — instalar rastreador é um dos fatores que mais reduzem o prêmio para motoristas de app
+
+## Quais seguradoras aceitam uso por aplicativo
+
+Nem todas as seguradoras trabalham com apólices para uso comercial de transporte de passageiros, e as que aceitam têm critérios diferentes de precificação e sinistro. Entre as parceiras da [Patro Seguros](/sobre), trabalhamos a cotação comparativa para motorista de aplicativo com Porto Seguro, Tokio Marine, HDI, Liberty, Azul Seguros, Allianz e Suhai, entre outras — sempre verificando qual delas oferece a melhor relação entre cobertura e custo para o seu perfil específico de rodagem.
+
+Como corretora, nosso papel aqui é justamente evitar que você contrate uma apólice genérica que pareça barata, mas que na letra miúda não reconhece seu uso real do veículo.
+
+## Guarulhos e o Aeroporto de Cumbica: um perfil de risco específico
+
+Motoristas de aplicativo que trabalham fazendo o trajeto até o Aeroporto Internacional de Guarulhos têm um padrão de rodagem diferente do motorista de app em bairros majoritariamente residenciais: mais quilometragem por corrida, mais tempo em rodovias (Rodovia Presidente Dutra, Ayrton Senna) e maior exposição a sinistros de trânsito de longa distância. Esse perfil deve ser declarado corretamente na cotação — omitir esse detalhe para tentar reduzir o prêmio é exatamente o tipo de omissão que leva à negativa de sinistro.
+
+## Como economizar sem abrir mão da cobertura correta
+
+- Compare a cotação em pelo menos 4 seguradoras antes de decidir — a variação de preço entre elas para o mesmo perfil de motorista de app costuma ser grande
+- Avalie o equilíbrio entre franquia e mensalidade de acordo com sua reserva financeira para imprevistos
+- Instale rastreador, quando exigido ou oferecido como opcional com desconto
+- Declare corretamente o uso comercial desde o início — o custo de contratar certo é sempre menor do que o custo de um sinistro negado
+
+## Proteja seu carro e sua renda ao mesmo tempo
+
+Se você depende do carro para trabalhar, a decisão de como declarar o uso do veículo não é um detalhe burocrático — é o que determina se você vai ficar protegido ou desamparado no dia em que mais precisar. A Patro Seguros compara sua cotação entre as principais seguradoras que aceitam uso comercial para aplicativo, sem custo adicional para você.
+
+**Fale agora com um especialista pelo WhatsApp e receba sua comparação em até 2h úteis.** Veja também o guia completo de [seguro auto em Guarulhos](/seguro-auto-guarulhos) ou solicite sua [cotação de seguro auto](/cotacao?tipo=auto).`,
+    faqs: [
+      {
+        q: "Meu seguro particular cobre corridas de Uber e 99?",
+        a: "Na grande maioria dos casos, não. Seguros contratados como uso particular não reconhecem corridas remuneradas de passageiros como atividade coberta, e a seguradora pode negar a indenização se identificar uso comercial não declarado no momento do sinistro.",
+      },
+      {
+        q: "A cobertura APP (Acidentes Pessoais de Passageiros) é obrigatória?",
+        a: "As próprias plataformas (Uber e 99) exigem comprovação de cobertura para acidentes com passageiros como condição para manter o motorista ativo na base, e a maioria das apólices para uso comercial já inclui esse item. Recomendamos sempre confirmar a presença dessa cobertura antes de fechar a apólice.",
+      },
+      {
+        q: "Posso usar o carro da família para rodar aplicativo?",
+        a: "Pode, mas o uso comercial precisa constar na apólice do veículo, independentemente de quem seja o proprietário. O que importa para a seguradora é como o carro está sendo usado, não apenas quem está no nome do documento.",
+      },
+      {
+        q: "Vale a pena declarar uso comercial mesmo rodando poucas horas por dia?",
+        a: "Depende do seu volume de corridas. Para quem roda poucas horas por semana, algumas seguradoras oferecem modalidades de cobrança por uso (telemetria), que podem sair mais em conta do que a apólice comercial tradicional. O ideal é comparar as duas modalidades na cotação.",
+      },
+      {
+        q: "Como faço a cotação certa para o meu perfil de motorista de app em Guarulhos?",
+        a: "A Patro Seguros compara sua cotação simultaneamente entre as principais seguradoras que aceitam uso comercial, considerando seu volume real de corridas, modelo do veículo e região de circulação em Guarulhos. Fale com a gente pelo WhatsApp (11) 5199-7500 e receba a comparação em até 2h úteis.",
+      },
+    ],
+  },
   "vale-a-pena-seguro-corretora-ou-banco": {
     title: "Vale a pena contratar seguro com corretora ou direto com o banco?",
     content: `Na hora de contratar um seguro, muita gente recebe a oferta do gerente do banco junto com o financiamento, a conta corrente ou o cartão. A pergunta aparece naturalmente: vale mais a pena fechar ali mesmo ou procurar uma corretora especializada? Este guia compara os dois caminhos de forma objetiva, sem torcida, para você decidir com informação.\n\n## O que muda na prática\n\nO banco é um **canal de distribuição**: normalmente trabalha com uma seguradora do próprio grupo financeiro (ou poucas parceiras) e oferece produtos padronizados, pensados para vender em escala junto de outros serviços.\n\nA corretora é um **intermediário registrado na SUSEP**, obrigada por lei a representar o interesse do cliente. Ela cota em várias seguradoras, compara condições e acompanha a apólice ao longo do tempo — inclusive no sinistro.\n\nUm ponto importante: **a corretora não cobra do cliente**. A remuneração já está embutida no prêmio pago à seguradora, do mesmo jeito que acontece quando o banco vende. Ou seja, contratar por corretora não é mais caro por definição.\n\n## Vantagens de contratar com uma corretora especializada\n\n- **Comparação real de preços e coberturas.** A [Patro Seguros](/sobre) trabalha com ${EMPRESA.metricas.seguradorasParceiras} seguradoras. Cotar em várias companhias muda o valor final, porque cada uma precifica o risco do seu perfil e do seu CEP de forma diferente.\n- **Cobertura sob medida.** Franquia reduzida, carro reserva, vidros, RC contra terceiros, danos morais: a corretora ajusta o que faz sentido para você em vez de empurrar um pacote fechado.\n- **Assessoria no sinistro.** Este é o ponto mais subestimado. Quando acontece o problema, você fala com quem conhece o seu caso, e não com um call center genérico.\n- **Renovação analisada.** Todo ano o mercado muda. A corretora recota antes do vencimento em vez de renovar automaticamente.\n- **Atendimento humano e local.** A Patro fica no Cidade Maia, em Guarulhos, e atende presencialmente quem prefere resolver olho no olho.\n\n## Limitações de contratar direto com o banco\n\n- **Leque restrito de seguradoras**, o que reduz o poder de comparação.\n- **Produtos padronizados**, com coberturas pouco flexíveis.\n- **Venda casada percebida.** Contratar seguro não pode ser condição para liberar crédito — isso é prática vedada. Se o gerente condicionar, desconfie.\n- **Pós-venda pulverizado.** O gerente muda, a agência muda, e o atendimento do sinistro costuma ser feito por central.\n\n## Quando o banco pode fazer sentido\n\nSeria desonesto dizer que o banco nunca serve. Ele pode ser conveniente em situações como:\n\n- Seguros simples e de baixo valor (seguro de vida básico, proteção de cartão);\n- Condições promocionais amarradas a um pacote de relacionamento que você já usa;\n- Necessidade imediata de uma apólice ligada a um financiamento em andamento.\n\nMesmo nesses casos, vale pedir uma segunda cotação antes de assinar. Comparar não custa nada.\n\n## Comparativo direto\n\n| Critério | Corretora especializada | Banco |\n| --- | --- | --- |\n| Nº de seguradoras cotadas | Várias (${EMPRESA.metricas.seguradorasParceiras} na Patro) | Geralmente uma ou poucas |\n| Personalização de coberturas | Alta | Baixa a média |\n| Custo do serviço para o cliente | Sem custo adicional | Sem custo adicional |\n| Apoio no sinistro | Acompanhamento direto | Central de atendimento |\n| Revisão na renovação | Recotação anual | Renovação automática frequente |\n| Atendimento presencial local | Sim, em Guarulhos | Depende da agência |\n\n## Como decidir em 4 passos\n\n1. **Peça a proposta do banco por escrito**, com coberturas, limites e franquia detalhados.\n2. **Solicite uma cotação comparativa** com uma corretora, usando os mesmos parâmetros.\n3. **Compare cobertura antes de preço.** Um seguro mais barato com franquia alta pode sair caro no sinistro.\n4. **Avalie o pós-venda.** Pergunte quem vai te atender no dia do problema.\n\n## Nossa experiência\n\nA Patro Seguros atua há ${EMPRESA.metricas.experienciaAnos} anos de experiência de mercado, já atendeu ${EMPRESA.metricas.clientesAtendidos} clientes e mantém nota ${EMPRESA.metricas.googleRating} no Google. Somos registrados na SUSEP sob o nº ${EMPRESA.susep}. Na prática, o que mais ouvimos de quem migrou do banco para a corretora é sobre o atendimento no momento do sinistro.\n\nQuer comparar? Faça uma [cotação de seguro auto](/seguro-auto), veja as opções de [seguro residencial](/seguro-residencial) ou fale com a gente pelo WhatsApp. Levamos as propostas lado a lado e você decide.`,
