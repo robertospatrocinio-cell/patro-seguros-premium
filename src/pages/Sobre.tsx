@@ -83,9 +83,9 @@ const Sobre = () => {
             <div className="flex justify-center mb-6">
               <SeloMelhorCorretora size="lg" priority />
             </div>
-            <h1 className="text-white mb-4">Corretora de Seguros em Guarulhos</h1>
+            <h1 className="text-white mb-4">Corretora de Seguros em Guarulhos e Grande São Paulo</h1>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Uma consultoria de seguros feita por pessoas reais — para cuidar, com método e proximidade, de famílias, empresários e produtores em Guarulhos e em todo o Brasil.
+              A Patro Seguros é uma corretora sediada em Guarulhos, com atendimento a pessoas e empresas em Guarulhos, na Grande São Paulo e em outras regiões do Brasil — sempre com método, proximidade e gente de verdade do outro lado.
             </p>
           </div>
         </section>
