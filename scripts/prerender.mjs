@@ -295,6 +295,7 @@ async function run() {
 
     // FAQ logic
     const isBlogOrArtigo = route.startsWith("/artigos/") || route.startsWith("/blog/");
+    let blogSeoBlock = null;
     if (isBlogOrArtigo) {
       const slug = route.replace(/^\/(artigos|blog)\//, "");
       const contentArticle = getBlogContent(slug);
