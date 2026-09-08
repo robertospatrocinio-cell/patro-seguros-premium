@@ -282,6 +282,7 @@ const SeguroAutoEzzeCorinthians = lazyWithRetry(() => import("./pages/SeguroAuto
 const SeguroCartaVerde = lazy(() => import("./pages/SeguroCartaVerde"));
 const GrandeSaoPaulo = lazy(() => import("./pages/GrandeSaoPaulo"));
 const AtendimentoDigital = lazy(() => import("./pages/AtendimentoDigital"));
+const CotacaoComparativaBairros = lazy(() => import("./pages/CotacaoComparativaBairros"));
 const SeguroAutoBairroSp = lazy(() => import("./pages/SeguroAutoBairroSp"));
 const IndiqueEGanhe = lazy(() => import("./pages/IndiqueEGanhe"));
 const ObrigadoIndicacao = lazy(() => import("./pages/ObrigadoIndicacao"));
@@ -635,6 +636,7 @@ const App = () => {
                   {/* Expansão regional — hub Grande São Paulo + bairros piloto da capital */}
                   <Route path="/grande-sao-paulo" element={<GrandeSaoPaulo />} />
                   <Route path="/atendimento-digital" element={<AtendimentoDigital />} />
+                  <Route path="/cotacao-seguro-auto-por-bairro" element={<CotacaoComparativaBairros />} />
                   {[
                     "seguro-auto-itaim-bibi",
                     "seguro-auto-moema",
