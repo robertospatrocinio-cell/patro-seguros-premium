@@ -53,7 +53,7 @@ const GrandeSaoPaulo = () => {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="bg-transparent">
-                <a href={`tel:${EMPRESA.telefoneRaw ?? "+551151997500"}`}>
+                <a href={`tel:${EMPRESA.telefoneE164}`}>
                   <Phone className="h-4 w-4 mr-2" aria-hidden="true" />
                   {EMPRESA.telefone}
                 </a>
