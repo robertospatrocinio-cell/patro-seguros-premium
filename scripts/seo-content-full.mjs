@@ -848,8 +848,22 @@ const SHARED_EXPANSION_BLOCK = `
   </section>
 `;
 
+// Versão resumida (2-3 linhas) usada em todas as rotas que NÃO são a Home
+// nem /sobre. Mantém os sinais de confiança essenciais (CNPJ, SUSEP, telefone)
+// sem duplicar o texto institucional completo, que fica centralizado em / e /sobre.
+const SHORT_TRUST_BLOCK = `
+  <section aria-label="Credenciamento e canais oficiais da Patro Seguros">
+    <h2>Sobre a Patro Seguros</h2>
+    <p>Corretora registrada na <strong>SUSEP 212113511</strong>, <strong>CNPJ 41.641.558/0001-33</strong>, com escritório em Guarulhos/SP (Cidade Maia). Atendimento por telefone e WhatsApp <strong>(11) 5199-7500</strong>, e-mail contato@patroseguros.com.br, de segunda a sexta das 8h30 às 18h. <a href="/sobre">Saiba mais sobre a Patro</a>.</p>
+  </section>
+`;
+
+// Rotas que mantêm o bloco institucional completo (evita conteúdo duplicado).
+const FULL_BLOCK_ROUTES = new Set(["/", "/sobre"]);
+
 for (const [route, entry] of Object.entries(FULL_SEO_CONTENT)) {
-  entry.body = `${entry.body}\n${SHARED_EXPANSION_BLOCK}`;
+  const block = FULL_BLOCK_ROUTES.has(route) ? SHARED_EXPANSION_BLOCK : SHORT_TRUST_BLOCK;
+  entry.body = `${entry.body}\n${block}`;
 }
 
 export default FULL_SEO_CONTENT;
