@@ -1291,7 +1291,7 @@ const seguroRestauranteGuarulhos: SeoLocalPageConfig = {
   ],
   realScenarios: [
     { title: "Pizzaria em Centro de Guarulhos teve indenização de R$ 180 mil em incêndio", description: "Pizzaria familiar com 14 anos de operação teve incêndio em coifa por acúmulo de gordura. Patro acompanhou regulação e garantiu R$ 180 mil (R$ 95 mil em equipamentos + R$ 65 mil em reforma + R$ 20 mil em lucros cessantes de 45 dias). Restaurante reabriu na mesma operação." },
-    { title: "Restaurante economizou R$ 4.200/ano consolidando coberturas", description: "Restaurante japonês em Cidade Maia tinha empresarial e RC em corretoras separadas. Patro consolidou em apólice única, recotou em 8 seguradoras e reduziu prêmio total em R$ 4.200/ano mantendo coberturas e franquias." },
+    { title: "Restaurante economizou R$ 4.200/ano consolidando coberturas", description: "Restaurante japonês em Cidade Maia tinha empresarial e RC em corretoras separadas. Patro consolidou em apólice única, recotou em 16 seguradoras e reduziu prêmio total em R$ 4.200/ano mantendo coberturas e franquias." },
     { title: "Dark kitchen evitou processo de R$ 80 mil por intoxicação", description: "Dark kitchen em Vila Galvão com operação iFood teve denúncia de intoxicação alimentar em 4 clientes. RC Alimentar cobriu despesas médicas (R$ 22 mil), indenizações por danos morais (R$ 48 mil) e custos jurídicos (R$ 10 mil). Operação seguiu sem prejuízo direto." },
   ],
   tips: [
