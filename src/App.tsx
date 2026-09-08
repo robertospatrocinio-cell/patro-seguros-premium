@@ -631,6 +631,22 @@ const App = () => {
                   <Route path="/artigos/:slug" element={<ArtigosToBlogRedirect />} />
                   <Route path="/blog/:slug" element={<BlogArticle />} />
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
+                  {/* Expansão regional — hub Grande São Paulo + bairros piloto da capital */}
+                  <Route path="/grande-sao-paulo" element={<GrandeSaoPaulo />} />
+                  {[
+                    "seguro-auto-itaim-bibi",
+                    "seguro-auto-moema",
+                    "seguro-auto-vila-nova-conceicao",
+                    "seguro-auto-jardim-paulista",
+                    "seguro-auto-vila-olimpia",
+                    "seguro-auto-pinheiros",
+                    "seguro-auto-brooklin",
+                    "seguro-auto-vila-mariana",
+                    "seguro-auto-campo-belo",
+                    "seguro-auto-perdizes",
+                  ].map((s) => (
+                    <Route key={s} path={`/${s}`} element={<SeguroAutoBairroSp slug={s} />} />
+                  ))}
                   <Route path="/seguro-auto-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-maia-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-vila-augusta" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-vila-augusta-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-bonsucesso-guarulhos-v2" }); return <Comp />; })()} />
