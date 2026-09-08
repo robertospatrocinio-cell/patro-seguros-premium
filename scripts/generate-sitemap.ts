@@ -624,6 +624,7 @@ export function generateSitemap(blogSlugs: string[]): string {
 
   const flat = [
     ...highIntentTransactional,
+    ...regionalGrandeSp,
     ...seoLocalGuarulhos,
     ...coreProducts,
     ...secondaryProducts,
