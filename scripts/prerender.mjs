@@ -359,7 +359,7 @@ async function run() {
 
 
 
-    const seoBlock = buildSeoBlock(route, metadata);
+    const seoBlock = buildSeoBlock(route, metadata) || blogSeoBlock;
     if (seoBlock) {
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', `<div id="root" data-prerender-seo="1">${seoBlock}</div>`);
