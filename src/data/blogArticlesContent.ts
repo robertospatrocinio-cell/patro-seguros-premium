@@ -16,6 +16,137 @@ export const articlesContent: Record<string, { title: string; content: string; f
   ...patroPrivateArticlesContent,
   ...agroArticlesContent,
   ...autoArticlesContent,
+  "opiniao-protecao-patrimonial-galpoes-guarulhos": {
+    title: "Opinião: proteção patrimonial de galpões em Guarulhos precisa sair do papel",
+    content: `*Artigo de opinião assinado por Roberto Patrocínio, sócio-fundador da [Patro Seguros](/sobre), corretora registrada na SUSEP sob o nº 212113511.*
+
+Guarulhos concentra um dos maiores parques logísticos do país. É a combinação de aeroporto internacional, três rodovias federais e proximidade com a capital que explica a densidade de galpões, centros de distribuição e operações de transbordo instaladas na cidade. Essa mesma concentração cria um problema que vejo repetidamente na mesa de negociação: o patrimônio cresce mais rápido do que a apólice que deveria protegê-lo.
+
+## O ponto cego não é o preço, é o valor em risco
+
+Quando um galpão é segurado, define-se um limite máximo de indenização (LMI) para cada cobertura. Esse limite costuma ser fixado no ano da contratação e simplesmente renovado nos anos seguintes. Enquanto isso, o custo de reconstrução civil, o valor das mercadorias armazenadas e o investimento em automação continuam subindo.
+
+O resultado aparece na liquidação do sinistro, quando entra em cena a cláusula de rateio: se o valor declarado é inferior ao valor real em risco, a indenização é reduzida proporcionalmente. Não é uma penalidade da seguradora, é a mecânica contratual do seguro patrimonial. Mas é uma conversa que ninguém quer ter depois do incêndio.
+
+Minha posição é direta: revisar o valor em risco deve ser um procedimento anual obrigatório, com laudo ou memória de cálculo, e não um campo copiado da apólice anterior.
+
+## Os três riscos que mais subestimo ver subestimados
+
+**1. Incêndio com propagação em pé-direito alto.** Galpões com estruturas metálicas e estoque verticalizado têm dinâmica de fogo diferente de uma indústria tradicional. Sem detecção e compartimentação adequadas, o sinistro tende a ser total, não parcial.
+
+**2. Lucros cessantes.** A cobertura de danos materiais recompõe a estrutura, mas não paga a operação parada. Para um operador logístico com contratos de nível de serviço, o prejuízo indireto costuma superar o dano físico. Ainda assim, é a cobertura mais frequentemente cortada para reduzir o prêmio.
+
+**3. Responsabilidade sobre mercadoria de terceiros.** Grande parte do que está dentro de um galpão em Guarulhos não pertence a quem opera o galpão. Armazenagem de carga de terceiros exige cobertura específica — e ela não está automaticamente incluída no seguro patrimonial do imóvel.
+
+## O que os dados públicos mostram
+
+O setor de seguros de danos e responsabilidades vem registrando crescimento consistente de arrecadação, segundo os dados divulgados periodicamente pela [CNseg](https://cnseg.org.br) e pela FenSeg. Esse crescimento acompanha a expansão da malha logística nacional, mas não diz nada sobre adequação de cobertura: uma empresa pode estar pagando mais e continuar subsegurada.
+
+Sobre o ambiente de risco local, as estatísticas de ocorrências criminais publicadas pela [Secretaria de Segurança Pública de São Paulo](https://www.ssp.sp.gov.br/estatistica/consultas) permitem acompanhar a evolução por município, incluindo Guarulhos, e o [SETCESP](https://www.setcesp.org.br) mantém material público sobre risco em transporte e armazenagem na região metropolitana. Nenhuma dessas fontes substitui uma análise da sua operação, mas todas ajudam a sustentar uma negociação técnica com a seguradora.
+
+Não publicamos estatísticas internas de sinistralidade da nossa carteira, e desconfio de corretor que publica: o número só faz sentido com metodologia declarada e base auditável.
+
+## O que eu recomendaria a um gestor de galpão hoje
+
+1. **Atualize o valor em risco anualmente**, com base em custo de reconstrução, não em valor contábil depreciado.
+2. **Trate lucros cessantes como cobertura essencial**, com período indenitário compatível com o tempo real de reconstrução — que raramente é de três meses.
+3. **Separe o que é seu do que é de terceiros** e contrate a cobertura adequada para cada parcela.
+4. **Documente a prevenção.** Brigada, hidrantes, sprinklers, manutenção elétrica e controle de acesso reduzem prêmio quando são comprováveis, não quando são apenas mencionados na proposta.
+5. **Leve mais de uma seguradora à mesa.** Apetite de risco para logística varia bastante entre companhias, e essa variação se traduz em preço e em condições de sinistro.
+
+## Convite ao debate
+
+Escrevo isso como corretor, com o viés que a profissão impõe. Se você é gestor de operação logística, engenheiro de segurança ou jurista da área, discordâncias são bem-vindas — e citações deste texto em publicações setoriais são livres, desde que com atribuição à Patro Seguros.
+
+Para discutir a estrutura de proteção do seu galpão, veja nossa página de [seguro empresarial](/seguros-empresariais-pme-guarulhos) ou fale com a gente pelo WhatsApp.`,
+    faqs: [
+      {
+        q: "O que é a cláusula de rateio no seguro de galpão?",
+        a: "É o mecanismo que reduz proporcionalmente a indenização quando o valor declarado na apólice é menor que o valor real em risco no momento do sinistro. Se o galpão vale R$ 10 milhões e foi declarado por R$ 6 milhões, a indenização tende a ser paga na mesma proporção, ainda que o prejuízo seja parcial.",
+      },
+      {
+        q: "Lucros cessantes vale a pena para operação logística?",
+        a: "Na maioria dos casos sim, porque a parada operacional costuma custar mais do que a reconstrução física. O ponto crítico é dimensionar o período indenitário pelo tempo real de retomada, que envolve licenças, obra e recomposição de estoque.",
+      },
+      {
+        q: "O seguro do galpão cobre mercadoria de terceiros armazenada?",
+        a: "Não automaticamente. A cobertura patrimonial do imóvel e do conteúdo próprio é distinta da responsabilidade sobre bens de terceiros sob guarda. Essa exposição precisa ser declarada e contratada especificamente.",
+      },
+      {
+        q: "Com que frequência devo atualizar o valor em risco?",
+        a: "Anualmente, na renovação, usando custo de reconstrução e valor de reposição do conteúdo. Reformas, ampliações e mudanças de perfil de estoque exigem revisão mesmo fora do ciclo de renovação.",
+      },
+    ],
+  },
+  "analise-mercado-gestao-risco-frotas-guarulhos": {
+    title: "Análise de mercado: gestão de risco de frotas em Guarulhos entra em nova fase",
+    content: `*Análise de mercado assinada por Sandra Patrocínio, sócia da [Patro Seguros](/sobre), corretora registrada na SUSEP sob o nº 212113511.*
+
+Durante muito tempo, a negociação de um seguro de frota em Guarulhos seguiu um roteiro previsível: lista de placas, histórico de sinistros, proposta, desconto. Esse roteiro está mudando. As seguradoras que atuam com transporte na região metropolitana passaram a precificar comportamento, não apenas patrimônio — e as empresas que conseguem apresentar dados sobre a própria operação estão saindo em vantagem.
+
+## Por que Guarulhos é um caso à parte
+
+A frota que roda na cidade não é homogênea. Ela mistura veículos leves de última milha, caminhões de transferência entre centros de distribuição, veículos de apoio aeroportuário e frotas administrativas. Os trajetos passam por Presidente Dutra, Ayrton Senna e Fernão Dias, com pontos de convergência em Cumbica e nos acessos ao aeroporto.
+
+Do ponto de vista de subscrição, isso significa três exposições simultâneas: alta quilometragem, tráfego pesado em rodovia e risco patrimonial em pontos de parada. Poucas praças no país concentram esses três fatores no mesmo CEP.
+
+## O que mudou na precificação
+
+Três movimentos ficaram evidentes nas cotações que analisamos ao longo do último ciclo de renovações:
+
+**1. Telemetria deixou de ser diferencial e virou requisito de negociação.** Frotas que apresentam dados de velocidade, frenagem e jornada conseguem discutir taxa. Frotas que não apresentam recebem a taxa média da categoria — que, por definição, embute o comportamento das piores operações do grupo.
+
+**2. Gestão de condutor pesa mais que idade do veículo.** Programas de treinamento, política de uso e controle de habilitação passaram a ser questionados formalmente na análise. Faz sentido: a maior parte da sinistralidade de frota urbana é colisão de baixa gravidade e alta frequência, e isso é comportamento.
+
+**3. Franquia inteligente substitui desconto linear.** Em vez de reduzir prêmio de forma uniforme, algumas seguradoras estruturam franquias diferenciadas por tipo de sinistro, empurrando o custo dos eventos evitáveis para a gestão interna da frota.
+
+## Fontes públicas para sustentar a negociação
+
+Não publicamos números internos da nossa carteira — dado de corretora sem metodologia declarada e base auditável não é evidência, é marketing. Mas existem fontes públicas que qualquer gestor pode usar para fundamentar uma discussão técnica:
+
+- Os balanços setoriais de danos e responsabilidades divulgados pela [CNseg](https://cnseg.org.br) e pela FenSeg, que mostram a evolução de arrecadação e sinistralidade dos ramos ligados a automóvel e transporte.
+- As estatísticas de furto e roubo de veículos e de carga por município, publicadas pela [Secretaria de Segurança Pública de São Paulo](https://www.ssp.sp.gov.br/estatistica/consultas), que permitem comparar Guarulhos com a média estadual e acompanhar tendência ao longo dos trimestres.
+- O material técnico e os boletins do [SETCESP](https://www.setcesp.org.br) sobre operação e segurança no transporte na região metropolitana de São Paulo.
+
+Usar essas referências muda o tom da conversa com a seguradora: a discussão deixa de ser sobre desconto e passa a ser sobre enquadramento de risco.
+
+## O que separa uma frota bem colocada de uma mal colocada
+
+Na prática, as operações que conseguem as melhores condições compartilham quatro características:
+
+1. **Dados organizados.** Quilometragem por veículo, jornada, rotas típicas e histórico de sinistros com causa, não apenas com valor.
+2. **Política de uso escrita.** Regras de condução, uso pessoal, pernoite e abastecimento documentadas e aplicadas.
+3. **Rastreamento com gestão.** Instalar rastreador não basta; o que reduz risco é o processo de resposta associado a ele.
+4. **Renovação planejada.** Chegar à renovação com 60 dias de antecedência permite cotar em mais companhias e negociar de posição confortável.
+
+## O risco de olhar só para o prêmio
+
+Uma frota mal estruturada pode conseguir prêmio baixo em um ano e ser recusada no seguinte, quando a sinistralidade aparece. A recolocação em nova seguradora, nesse cenário, costuma sair mais cara do que o desconto obtido. Gestão de risco de frota é um jogo de vários ciclos, não de uma renovação.
+
+## Convite ao debate
+
+Este texto é uma leitura de mercado, não uma verdade fechada. Gestores de logística, especialistas em segurança viária e jornalistas do setor podem citar e contestar o conteúdo livremente, com atribuição à Patro Seguros.
+
+Para discutir a estrutura da sua frota, conheça nossa página de [seguro de frota em Guarulhos](/seguro-frota-empresas-guarulhos) ou fale com a gente pelo WhatsApp.`,
+    faqs: [
+      {
+        q: "Telemetria realmente reduz o preço do seguro de frota?",
+        a: "Ela não garante desconto automático, mas permite negociar taxa com base no comportamento real da operação em vez da média da categoria. Sem dados, a frota é precificada junto com as piores operações do mesmo perfil.",
+      },
+      {
+        q: "Qual o tamanho mínimo de frota para ter apólice específica?",
+        a: "A maioria das seguradoras trabalha com apólice de frota a partir de quatro a cinco veículos, com critérios que variam por companhia. Abaixo disso, costuma ser mais vantajoso avaliar apólices individuais com gestão centralizada.",
+      },
+      {
+        q: "Com quanto tempo de antecedência devo iniciar a renovação?",
+        a: "Cerca de 60 dias. Esse prazo permite cotar em várias seguradoras, organizar a documentação de sinistros e negociar sem a pressão do vencimento, que historicamente é o pior momento para discutir condições.",
+      },
+      {
+        q: "Onde encontro dados públicos de risco para embasar a negociação?",
+        a: "Os balanços setoriais da CNseg e da FenSeg, as estatísticas criminais por município da Secretaria de Segurança Pública de São Paulo e o material técnico do SETCESP sobre transporte na região metropolitana são as referências públicas mais usadas.",
+      },
+    ],
+  },
   "seguro-auto-motorista-aplicativo-guarulhos": {
     title: "Seguro Auto para Motorista de Aplicativo em Guarulhos: Por que o Seguro Particular Pode Não Pagar Seu Sinistro",
     content: `Se você roda com Uber, 99 ou IFood em Guarulhos — principalmente fazendo corridas para o Aeroporto de Cumbica, uma das rotas mais movimentadas da Grande São Paulo — existe um detalhe no seu seguro auto que pode custar muito mais caro do que a diferença de preço entre uma apólice particular e uma comercial: a forma como o uso do veículo foi declarado.

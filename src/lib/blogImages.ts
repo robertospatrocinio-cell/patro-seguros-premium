@@ -396,6 +396,10 @@ export const getArticleImage = (slug: string): string => {
  * `getArticleImageAlt()` falls back to the article title when missing.
  */
 export const blogImageAltMap: Record<string, string> = {
+  "opiniao-protecao-patrimonial-galpoes-guarulhos":
+    "Complexo de galpões logísticos com docas e caminhões em Guarulhos",
+  "analise-mercado-gestao-risco-frotas-guarulhos":
+    "Frota de caminhões e vans estacionada em pátio logístico próximo a rodovia",
   "seguro-auto-motorista-aplicativo-guarulhos":
     "Motorista de aplicativo dirigindo em Guarulhos com celular no suporte do para-brisa",
   // Cluster Agro — capas únicas
