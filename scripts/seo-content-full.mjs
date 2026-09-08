@@ -236,6 +236,9 @@ export const FULL_SEO_CONTENT = {
         { q: "Seguro de vida cobre suicídio?", a: "Sim, após 24 meses de vigência (carência legal). Antes disso, apenas devolução dos prêmios pagos, conforme Código Civil." },
       ])}
 
+      <h2>Como funciona a consultoria Patro em vida e saúde</h2>
+      <p>Antes de cotar, seu corretor Patro levanta idade, dependentes, histórico de saúde e orçamento familiar. Com esse perfil, comparamos coberturas, carências e rede credenciada entre as operadoras — e você recebe um comparativo objetivo, sem letra miúda. Na renovação, revisamos o contrato para evitar reajustes abusivos e, no uso, ajudamos com autorizações, reembolsos e portabilidade.</p>
+
       <p>Veja também <a href="/plano-de-saude-guarulhos">plano de saúde em Guarulhos</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a> e <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>.</p>
     `,
   },
@@ -273,6 +276,9 @@ export const FULL_SEO_CONTENT = {
         { q: "Quanto custa em média o seguro moto em Guarulhos?", a: "Depende do modelo, ano, CEP e perfil. Motos populares 125-160cc: R$ 90 a R$ 180/mês. Motos 300-500cc: R$ 180 a R$ 320/mês. Motos big trail e esportivas: R$ 350+ /mês." },
         { q: "Vale a pena rastreador para reduzir o prêmio?", a: "Sim, especialmente em motos acima de R$ 20 mil. Reduz o prêmio em 10% a 25% em várias seguradoras e é obrigatório em modelos de alto risco (Yamaha Fazer 250, Honda XRE 300, motos esportivas)." },
       ])}
+
+      <h2>Dicas para baratear o seguro da sua moto</h2>
+      <p>O CEP de pernoite pesa bastante no prêmio: guardar a moto em garagem fechada ou condomínio monitorado pode reduzir o valor em 10% a 25%. Alarme, rastreador e trava de disco também entram no cálculo de várias seguradoras. Para entregadores de aplicativo, informe o uso comercial na cotação — seguradoras como Suhai e Mitsui têm produtos específicos para esse perfil, e declarar o uso real evita negativa de indenização em caso de sinistro durante entregas.</p>
 
       <p>Veja também <a href="/seguro-auto-guarulhos">seguro auto</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-vida-saude-guarulhos">seguro de vida</a>.</p>
     `,
@@ -316,6 +322,9 @@ export const FULL_SEO_CONTENT = {
         { q: "Posso abrir MEI só para contratar plano PJ?", a: "Tecnicamente sim, mas a maioria das operadoras exige comprovação de atividade e faturamento mínimo. A Patro te orienta sobre viabilidade real caso a caso." },
         { q: "O que é reajuste anual e por faixa etária?", a: "Reajuste anual: aplicado por sinistralidade/inflação médica (individual segue teto ANS; coletivo é livre). Faixa etária: aumento nas mudanças de faixa (0-18, 19-23, 24-28, 29-33... até 59+), regulado pela ANS." },
       ])}
+
+      <h2>Como escolher o plano certo em Guarulhos</h2>
+      <p>Mais do que preço, compare três pontos antes de contratar: (1) a <strong>rede credenciada</strong> perto de casa e do trabalho — confira se os hospitais e laboratórios que você realmente usa estão cobertos; (2) o tipo de <strong>acomodação</strong> (enfermaria costuma ser 20% a 30% mais barata que apartamento); e (3) a <strong>abrangência</strong> — planos regionais cobrem Guarulhos e Grande São Paulo, enquanto nacionais atendem viagens. Para famílias com filhos, priorize rede pediátrica e pronto-socorro próximo. Para quem tem CNPJ, mesmo MEI, vale simular a modalidade empresarial: com 2 vidas ou mais, o preço por pessoa cai de forma expressiva e o contrato pode ser portado no futuro. A Patro monta esse comparativo sem custo e indica a opção com melhor equilíbrio entre rede, carência e mensalidade para o seu perfil.</p>
 
       <p>Veja também <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a> e <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>.</p>
     `,
@@ -366,6 +375,9 @@ export const FULL_SEO_CONTENT = {
         { q: "Vocês atendem MEI?", a: "Sim. Há apólices simplificadas para MEI a partir de R$ 60/mês, especialmente para lojas, ateliês e prestadores de serviço." },
         { q: "O que é RC operações vs. RC produtos?", a: "RC operações cobre danos a terceiros durante a operação normal (cliente escorrega na loja). RC produtos cobre danos causados por defeito no produto vendido/fabricado (alimento contaminado, equipamento com falha)." },
       ])}
+
+      <h2>Setores que mais atendemos em Guarulhos</h2>
+      <p>Logística e transporte em Cumbica, comércio varejista no Centro e na Cidade Maia, clínicas e consultórios na Vila Galvão, restaurantes e bares no Macedo, indústrias leves no Bonsucesso e escritórios de serviços em toda a cidade. Cada setor tem riscos diferentes — estoque, equipamentos, movimento de público, entregas — e a apólice precisa refletir essa realidade. É por isso que a cotação Patro começa com uma conversa sobre a sua operação, não com um formulário genérico: o resultado é uma cobertura que realmente indeniza quando você precisa.</p>
 
       <p>Veja também <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>.</p>
     `,
@@ -420,6 +432,9 @@ export const FULL_SEO_CONTENT = {
         { q: "Preciso ter alarme e monitoramento?", a: "Não obrigatoriamente. Mas ter alarme monitorado, brigada de incêndio e sprinkler reduz o prêmio em 15% a 40% dependendo da seguradora e do CNAE." },
         { q: "Seguro cobre roubo do meu estoque?", a: "Sim, mediante contratação da cobertura de roubo/furto qualificado — que exige sinal de arrombamento comprovado. O capital segurado deve refletir o valor real do estoque médio." },
       ])}
+
+      <h2>Como a Patro estrutura o seguro da sua PME</h2>
+      <p>O processo é simples: primeiro, entendemos sua operação — o que você vende ou produz, o valor do estoque e dos equipamentos, quantas pessoas circulam pelo local e quais contratos exigem seguro. Depois, cotamos em várias seguradoras ao mesmo tempo e apresentamos um comparativo com coberturas equivalentes, para a escolha ser por conteúdo, não por logotipo. Por fim, acompanhamos a vigência: renovações, endossos quando a empresa cresce e, principalmente, a regulação em caso de sinistro. A maioria das PMEs de Guarulhos que atendemos paga entre R$ 120 e R$ 350 por mês por uma proteção patrimonial completa — menos do que um dia de operação parada custaria.</p>
 
       <p>Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial completo</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>.</p>
     `,
@@ -482,6 +497,9 @@ export const FULL_SEO_CONTENT = {
         { q: "E se um motorista causar acidente?", a: "A cobertura RCF-V indeniza terceiros. O condutor deve constar como habilitado a dirigir o veículo (frotas geralmente têm cláusula ampla). Sinistros com culpa impactam a sinistralidade e podem gerar reajuste na renovação." },
       ])}
 
+      <h2>Gestão de frota além do seguro</h2>
+      <p>Empresas de Guarulhos que combinam apólice de frota com telemetria e checklist de manutenção preventiva conseguem reduzir a sinistralidade ano após ano — e a sinistralidade baixa é o que mais derruba o prêmio na renovação. A Patro ajuda na implantação de boas práticas: cadastro de condutores habilitados, política de uso fora do expediente e revisão anual do valor segurado de cada veículo. Para transportadoras que circulam pelo eixo Dutra-Fernão Dias e região do aeroporto GRU, também avaliamos coberturas de carga em conjunto com a frota.</p>
+
       <p>Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>, <a href="/seguro-auto-guarulhos">seguro auto</a> e <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>.</p>
     `,
   },
@@ -527,6 +545,9 @@ export const FULL_SEO_CONTENT = {
         { q: "RC do síndico é obrigatória?", a: "Não obrigatória, mas altamente recomendada. Protege o síndico contra ações judiciais por atos de gestão (erros administrativos, decisões questionáveis, falhas em contratos), com capital de R$ 100 mil a R$ 500 mil típicos." },
         { q: "Cobre alagamento de garagem?", a: "Sim, se contratada a cobertura de vendaval/alagamento. Guarulhos tem áreas propensas — recomendamos sempre incluir." },
       ])}
+
+      <h2>Sinistros mais comuns em condomínios de Guarulhos</h2>
+      <p>Pela nossa experiência com condomínios da região, os eventos que mais acionam a apólice são: curto-circuito em quadros elétricos e bombas de piscina (danos elétricos), temporais com destelhamento e alagamento de garagem no verão, pane em elevadores e furtos em salões de festa e bicicletários. Em todos esses casos, quem tem apólice bem estruturada resolve sem rateio extra entre condôminos. Na cotação, a Patro verifica o valor de reconstrução do prédio — o erro mais comum é segurar pelo valor de mercado, o que gera rateio proporcional na hora da indenização.</p>
 
       <p>Veja também <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-empresarial-guarulhos">seguro empresarial</a> e <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>.</p>
     `,
@@ -576,6 +597,9 @@ export const FULL_SEO_CONTENT = {
         { q: "Como funciona o lance?", a: "Lance é uma antecipação de parcelas para acelerar a contemplação. Pode ser livre (você define o valor) ou fixo (percentual pré-definido pela administradora). Quem oferecer o maior lance no mês é contemplado, além do sorteado." },
         { q: "Posso usar FGTS no consórcio de imóvel?", a: "Sim, tanto no lance quanto na quitação de parcelas, respeitadas as regras do FGTS (imóvel residencial urbano, uso próprio, valor até o teto do SFH, entre outras)." },
       ])}
+
+      <h2>Como escolher a carta de crédito ideal</h2>
+      <p>O valor da carta deve considerar o preço do bem hoje e a correção pelo INCC (imóveis) ou tabela de referência (veículos) ao longo do grupo. Um erro comum é escolher carta curta demais e, na contemplação, precisar complementar com financiamento caro. A Patro simula cenários de contemplação por sorteio e por lance, compara taxas de administração entre administradoras autorizadas pelo Banco Central e indica o grupo com melhor histórico de assembleias em Guarulhos e região.</p>
 
       <p>Veja também <a href="/seguro-auto-guarulhos">seguro auto</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a> e <a href="/contato">fale com um consultor</a>.</p>
     `,
@@ -663,6 +687,9 @@ export const FULL_SEO_CONTENT = {
       <h2>Nossa nota no Google</h2>
       <p>A Patro Seguros mantém <strong>nota 4.9 no Google</strong> em avaliações reais de clientes em Guarulhos. Cada avaliação reflete o compromisso com atendimento humano, resposta rápida no WhatsApp, comparativo transparente de seguradoras e presença ativa no momento do sinistro.</p>
 
+      <h2>O que esses depoimentos têm em comum</h2>
+      <p>Repare que os elogios raramente são sobre preço: são sobre clareza na contratação, rapidez na resposta e presença no sinistro. É essa a régua que usamos para medir nosso trabalho todos os dias em Guarulhos — do seguro de uma moto de entregador ao galpão logístico em Cumbica.</p>
+
       <p>Quer se tornar cliente? <a href="/cotacao">Solicite sua cotação online</a> ou <a href="/contato">fale com um consultor</a>. Veja também <a href="/sobre">nossa história</a>.</p>
     `,
   },
@@ -719,6 +746,12 @@ export const FULL_SEO_CONTENT = {
         { q: "Preciso ir até o escritório para contratar?", a: "Não. Todo o processo pode ser feito à distância — cotação, análise, contratação e emissão da apólice — via WhatsApp, telefone e e-mail. Presencial é opcional para quem prefere." },
         { q: "Vocês atendem fora de Guarulhos?", a: "Sim. Atendemos toda a Grande São Paulo presencialmente e clientes em todo o Brasil de forma remota. Nossos seguros rurais têm alcance nacional." },
       ])}
+
+      <h2>Como se preparar para a sua cotação</h2>
+      <p>Para agilizar o atendimento, tenha em mãos algumas informações básicas conforme o produto desejado. Para <strong>seguro auto ou moto</strong>: placa ou modelo/ano do veículo, CEP de pernoite e perfil dos condutores. Para <strong>seguro residencial</strong>: tipo do imóvel (casa, apartamento ou flat), se é próprio ou alugado e valor aproximado dos bens. Para <strong>seguro empresarial</strong>: CNPJ, atividade principal, endereço da operação e estimativa de faturamento — usada apenas para dimensionar coberturas. Para <strong>plano de saúde</strong>: idades das pessoas a incluir e, se houver, o plano atual para análise de portabilidade. Não se preocupe se faltar algum dado: seu corretor Patro orienta a coleta do que falta no decorrer da conversa.</p>
+
+      <h2>O que esperar depois do primeiro contato</h2>
+      <p>Em até 2 horas úteis você recebe um comparativo objetivo entre seguradoras, com coberturas equivalentes e preços lado a lado. Se decidir avançar, a contratação é feita 100% à distância, com apólice emitida em nome da seguradora escolhida. A partir daí, seu corretor dedicado acompanha renovações, endossos e, principalmente, o momento do sinistro — que é quando uma corretora de verdade faz diferença.</p>
 
       <p>Conheça <a href="/sobre">nossa história</a> ou <a href="/depoimentos">leia depoimentos de clientes</a>. Ou <a href="/cotacao">solicite sua cotação agora</a>.</p>
     `,
