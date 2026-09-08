@@ -24,7 +24,8 @@ import { showFriendlyError } from "@/lib/friendlyToast";
 import { buildWhatsAppUrl, buildMailtoUrl, openWhatsAppOrFallback } from "@/lib/whatsapp";
 import { trackWhatsAppClick } from "@/lib/tracking";
 import { toast as sonnerToast } from "sonner";
-import { EMPRESA } from "@/config/empresa";
+import ExternalLink from "@/components/ExternalLink";
+import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2, GOOGLE_MAPS_URL } from "@/config/empresa";
 
 const contatoSchema = z.object({
   nome: nameSchema,
@@ -330,8 +331,15 @@ const Contato = () => {
                       <div>
                         <h3 className="font-semibold mb-1">Nosso Endereço</h3>
                         <p className="text-sm text-muted-foreground">
-                          Avenida Salgado Filho, 2120 – Ed. Via Alameda – Sala 219<br />Cidade Maia, Guarulhos/SP · CEP 07115-000
+                          {NAP_LINHA_1}<br />{NAP_LINHA_2}
                         </p>
+                        <ExternalLink
+                          href={GOOGLE_MAPS_URL}
+                          className="mt-3 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:brightness-110 transition"
+                          aria-label="Ver a Patro Seguros no Google Maps (abre em nova aba)"
+                        >
+                          <MapPin className="h-4 w-4" aria-hidden="true" /> Ver no Google Maps
+                        </ExternalLink>
                       </div>
                     </div>
                     <div className="border-t pt-5">

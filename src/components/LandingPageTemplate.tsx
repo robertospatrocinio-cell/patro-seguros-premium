@@ -8,6 +8,9 @@ import ExternalLink from "@/components/ExternalLink";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 import { EMPRESA } from "@/config/empresa";
 
+/** Mesmo @id do schema InsuranceAgency global — vincula cada Review à empresa. */
+const REVIEW_ORG_ID = "https://www.patroseguros.com.br/#insurance-agency";
+
 const WHATSAPP_URL = `${EMPRESA.whatsapp}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.`;
 const logoUrl = "/images/logo-full.webp";
 
@@ -246,13 +249,38 @@ const LandingPageTemplate = ({
             </div>
             <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
               {testimonials.map((t, i) => (
-                <article key={i} className="premium-card p-7 flex flex-col">
-                  <div className="flex gap-0.5 mb-4" role="img" aria-label={`${t.stars} de 5 estrelas`}>
+                <article
+                  key={i}
+                  className="premium-card p-7 flex flex-col"
+                  itemScope
+                  itemType="https://schema.org/Review"
+                >
+                  <div
+                    itemProp="itemReviewed"
+                    itemScope
+                    itemType="https://schema.org/InsuranceAgency"
+                    itemID={REVIEW_ORG_ID}
+                  >
+                    <meta itemProp="name" content={EMPRESA.nomeFantasia} />
+                    <meta itemProp="url" content={EMPRESA.dominioCanonico} />
+                    <meta itemProp="telephone" content={EMPRESA.telefoneE164} />
+                  </div>
+                  <div
+                    className="flex gap-0.5 mb-4"
+                    role="img"
+                    aria-label={`${t.stars} de 5 estrelas`}
+                    itemProp="reviewRating"
+                    itemScope
+                    itemType="https://schema.org/Rating"
+                  >
+                    <meta itemProp="ratingValue" content={String(t.stars)} />
+                    <meta itemProp="bestRating" content="5" />
+                    <meta itemProp="worstRating" content="1" />
                     {Array.from({ length: t.stars }).map((_, j) => (
                       <Star key={j} className="h-3.5 w-3.5 fill-primary text-primary" aria-hidden="true" />
                     ))}
                   </div>
-                  <blockquote className="text-[13px] text-muted-foreground leading-relaxed flex-1 mb-5">
+                  <blockquote className="text-[13px] text-muted-foreground leading-relaxed flex-1 mb-5" itemProp="reviewBody">
                     "{t.content}"
                   </blockquote>
                   <div className="flex items-center gap-3 pt-4 border-t">
@@ -260,7 +288,14 @@ const LandingPageTemplate = ({
                       {t.name[0]}
                     </div>
                     <div>
-                      <p className="text-[13px] font-semibold">{t.name}</p>
+                      <p
+                        className="text-[13px] font-semibold"
+                        itemProp="author"
+                        itemScope
+                        itemType="https://schema.org/Person"
+                      >
+                        <span itemProp="name">{t.name}</span>
+                      </p>
                       <p className="text-[11px] text-muted-foreground">{t.role}</p>
                     </div>
                   </div>

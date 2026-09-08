@@ -81,6 +81,18 @@ export const WHATSAPP_DIGITS = EMPRESA.whatsapp.replace(/\D/g, "");
 export const TELEFONE_DIGITS = EMPRESA.telefone.replace(/\D/g, "");
 
 /** Endereço em uma linha (footer, JSON-LD). */
+/** Linha 1 do NAP canônico. Idêntica em rodapé, /sobre, /contato e JSON-LD. */
+export const NAP_LINHA_1 = `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero} — Sala 219`;
+
+/** Linha 2 do NAP canônico. */
+export const NAP_LINHA_2 = `Edifício Via Alameda — ${EMPRESA.endereco.bairro}, ${EMPRESA.endereco.cidade}/${EMPRESA.endereco.estadoSigla} — CEP ${EMPRESA.endereco.cep}`;
+
+/** streetAddress usado em TODO JSON-LD/Microdata do site. */
+export const NAP_STREET_ADDRESS = `${NAP_LINHA_1} — Edifício Via Alameda`;
+
+/** Ficha oficial no Google Business Profile / Google Maps. */
+export const GOOGLE_MAPS_URL = EMPRESA.redesSociais.google;
+
 export const ENDERECO_LINHA = `${EMPRESA.endereco.logradouro}, ${EMPRESA.endereco.numero} — ${EMPRESA.endereco.complemento} — ${EMPRESA.endereco.bairro}, ${EMPRESA.endereco.cidade}/${EMPRESA.endereco.estadoSigla}`;
 
 export default EMPRESA;
