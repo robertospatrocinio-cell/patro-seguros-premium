@@ -763,6 +763,8 @@ export function generateSitemap(blogSlugs: string[]): string {
     // Legacy flat sitemap kept for backward compatibility with already-submitted URLs
     "sitemap.xml": urlsetFor(allEntries),
     // Mirror of index for compatibility
+    // Índice oficial referenciado no robots.txt (hífen) + mirror legado (underscore)
+    "sitemap-index.xml": index,
     "sitemap_index.xml": index,
   };
 

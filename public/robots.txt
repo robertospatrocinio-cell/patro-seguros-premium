@@ -1,13 +1,12 @@
+# Gerado automaticamente pelo sitemapPlugin — não editar manualmente.
 User-agent: *
 Allow: /
-Allow: /assets/
-Allow: /images/
-Allow: /fonts/
 Disallow: /admin/
 Disallow: /api/
 Disallow: /~api/
 Disallow: /~flock.js
-Disallow: /crm
+Disallow: /ebook-consorcio/
+Disallow: /avaliar-no-google/
 Disallow: /performance-diagnostico
 Disallow: /conversion-dashboard
 Disallow: /seo-technical-report
@@ -22,7 +21,7 @@ Allow: /planos-de-saude/
 # Sitemaps
 Sitemap: https://www.patroseguros.com.br/sitemap-index.xml
 
-# Search bots
+# Optimization for Search Bots
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0.1
