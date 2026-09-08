@@ -723,6 +723,12 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         description: GRANDE_SP_HUB.metaDescription,
         h1: GRANDE_SP_HUB.h1,
       },
+      "/atendimento-digital": {
+        title: "Atendimento Digital por WhatsApp e E-mail | Patro Seguros",
+        description:
+          "Fale com a Patro Seguros por WhatsApp ou e-mail: cotação, contratação e acompanhamento de seguros 100% digitais, com consultores de verdade na sede em Guarulhos.",
+        h1: "Atendimento Digital por WhatsApp e E-mail",
+      },
       ...Object.fromEntries(
         Object.values(bairrosSaoPauloAuto).map((b) => [
           `/${b.slug}`,

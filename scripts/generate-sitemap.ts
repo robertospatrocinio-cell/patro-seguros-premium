@@ -120,6 +120,7 @@ const highIntentTransactional: SitemapEntry[] = [
 // Expansão regional — hub Grande São Paulo + bairros piloto da capital.
 const regionalGrandeSp: SitemapEntry[] = [
   { loc: GRANDE_SP_PATH, priority: "0.9", changefreq: "weekly" },
+  { loc: "/atendimento-digital", priority: "0.8", changefreq: "weekly" },
   ...bairroSpPaths.map(loc => ({ loc, priority: "0.8", changefreq: "weekly" })),
 ];
 
