@@ -396,6 +396,8 @@ export const getArticleImage = (slug: string): string => {
  * `getArticleImageAlt()` falls back to the article title when missing.
  */
 export const blogImageAltMap: Record<string, string> = {
+  "seguro-auto-motorista-aplicativo-guarulhos":
+    "Motorista de aplicativo dirigindo em Guarulhos com celular no suporte do para-brisa",
   // Cluster Agro — capas únicas
   "psr-passo-a-passo-produtor-rural-subvencao":
     "Produtor rural assinando documentos de subvenção do PSR em escritório com lavoura de soja ao fundo",
