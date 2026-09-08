@@ -7,7 +7,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import FAQSchema from "@/components/FAQSchema";
 import { Button } from "@/components/ui/button";
 import { EMPRESA, NAP_LINHA_1, NAP_LINHA_2 } from "@/config/empresa";
-import { buildWhatsAppUrl, trackWhatsAppClick } from "@/lib/whatsapp";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { trackWhatsAppClick } from "@/lib/tracking";
 import {
   GRANDE_SP_HUB,
   GRANDE_SP_PATH,
