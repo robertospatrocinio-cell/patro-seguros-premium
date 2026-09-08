@@ -258,6 +258,28 @@ async function run() {
       }
     }
 
+    // FAQPage estático para páginas de produto/institucionais (não-blog):
+    // usa exatamente as perguntas e respostas já publicadas na página React
+    // (extraídas de src/pages/*.tsx), garantindo o schema no HTML sem JS.
+    if (!isBlogOrArtigo && !html.includes('"FAQPage"')) {
+      const pageFaqs = PAGE_FAQS[route] || [];
+      if (pageFaqs.length >= 2) {
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": pageFaqs.map((f) => ({
+            "@type": "Question",
+            "name": f.q,
+            "acceptedAnswer": { "@type": "Answer", "text": f.a },
+          })),
+        };
+        const faqScript = `\n    <script type="application/ld+json" data-faqpage="1">\n      ${JSON.stringify(faqSchema, null, 2)}\n    </script>`;
+        html = html.replace("</head>", `${faqScript}\n</head>`);
+      }
+    }
+
+
+
     const seoBlock = buildSeoBlock(route, metadata);
     if (seoBlock) {
       if (html.includes('<div id="root"></div>')) {
