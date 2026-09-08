@@ -149,7 +149,7 @@ export const bairrosSaoPauloAuto: Record<string, BairroSpConfig> = {
       { title: "Seguro residencial", link: "/seguro-residencial" },
       { title: "Seguro empresarial", link: "/seguro-empresarial" },
       { title: "Seguro de vida", link: "/seguro-vida" },
-      { title: "Plano de saúde empresarial", link: "/plano-de-saude-empresarial" },
+      { title: "Plano de saúde empresarial", link: "/plano-saude-empresarial" },
     ],
     bairrosProximos: [
       { name: "Vila Olímpia", link: linkAuto("seguro-auto-vila-olimpia") },
@@ -374,7 +374,7 @@ export const bairrosSaoPauloAuto: Record<string, BairroSpConfig> = {
       "Quem alterna carro próprio e transporte público no dia a dia",
     ],
     outrosSeguros: [
-      { title: "Seguro para consultórios e clínicas", link: "/seguro-consultorio" },
+      { title: "Seguro para consultórios e clínicas", link: "/seguro-consultorio-guarulhos" },
       { title: "Seguro residencial", link: "/seguro-residencial" },
       { title: "Seguro de vida", link: "/seguro-vida" },
       { title: "Plano de saúde", link: "/planos-de-saude" },
@@ -453,7 +453,7 @@ export const bairrosSaoPauloAuto: Record<string, BairroSpConfig> = {
       { title: "Seguro de frota", link: "/seguro-frota" },
       { title: "Seguro empresarial", link: "/seguro-empresarial" },
       { title: "Seguro de responsabilidade civil", link: "/seguro-rc" },
-      { title: "Plano de saúde empresarial", link: "/plano-de-saude-empresarial" },
+      { title: "Plano de saúde empresarial", link: "/plano-saude-empresarial" },
     ],
     bairrosProximos: [
       { name: "Itaim Bibi", link: linkAuto("seguro-auto-itaim-bibi") },
@@ -681,7 +681,7 @@ export const bairrosSaoPauloAuto: Record<string, BairroSpConfig> = {
       { title: "Seguro residencial", link: "/seguro-residencial" },
       { title: "Seguro de vida", link: "/seguro-vida" },
       { title: "Plano de saúde", link: "/planos-de-saude" },
-      { title: "Seguro para consultórios", link: "/seguro-consultorio" },
+      { title: "Seguro para consultórios", link: "/seguro-consultorio-guarulhos" },
     ],
     bairrosProximos: [
       { name: "Jardim Paulista", link: linkAuto("seguro-auto-jardim-paulista") },
