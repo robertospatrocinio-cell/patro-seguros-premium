@@ -313,7 +313,10 @@ const Sobre = () => {
                   src="/images/blog/cobertura-seguro-sala-comercial.webp" 
                   alt="Escritório Patro Seguros no Edifício Via Alameda Guarulhos" 
                   className="w-full h-full object-cover"
+                  width={1200}
+                  height={720}
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
