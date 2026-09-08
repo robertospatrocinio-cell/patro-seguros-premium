@@ -47,7 +47,7 @@ Segundo dados do ISP (Índice de Sinistralidade por Praça), Guarulhos está ent
 
 A Patro Seguros conhece profundamente a realidade local. Nossa equipe de consultores analisa o perfil de cada cliente — idade, CEP, modelo do veículo, quilometragem e uso — para encontrar a seguradora que oferece a melhor relação custo-benefício. Em muitos casos, conseguimos economias de 15% a 35% em relação à cotação direta.
 
-Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFood), que representam uma parcela significativa da frota de Guarulhos. Para esse público, oferecemos coberturas específicas que incluem proteção durante o uso profissional do veículo, algo que muitas apólices convencionais não cobrem.`}
+Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFood), que representam uma parcela significativa da frota de Guarulhos. Para esse público, oferecemos coberturas específicas que incluem proteção durante o uso profissional do veículo, algo que muitas apólices convencionais não cobrem. Entenda em detalhe por que o seguro particular pode negar o sinistro em [seguro auto para motorista de aplicativo em Guarulhos](/blog/seguro-auto-motorista-aplicativo-guarulhos).`}
     icon="🚗"
     metaDescription="Seguro auto Guarulhos: cotação Porto Seguro Guarulhos, Tokio, Allianz, HDI. Encontre o melhor seguro carro Guarulhos com a Patro Seguros. Cotação grátis."
     coverages={[
@@ -128,6 +128,7 @@ Nossa experiência inclui atendimento a motoristas de aplicativo (Uber, 99, iFoo
       { title: "Seguro Vida e Saúde Guarulhos", link: "/seguro-vida-saude-guarulhos" },
       { title: "Corretora Seguros Guarulhos", link: "/" },
       { title: "Seguro Auto por Modelo (Corolla, HB20, Onix...)", link: "/seguro-auto-por-modelo-guarulhos" },
+      { title: "Artigo: Seguro auto para motorista de aplicativo em Guarulhos", link: "/blog/seguro-auto-motorista-aplicativo-guarulhos" },
     ]}
     extraSections={
       <>

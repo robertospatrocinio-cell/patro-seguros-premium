@@ -27,6 +27,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "seguro-auto-motorista-aplicativo-guarulhos",
+    title: "Seguro Auto para Motorista de Aplicativo em Guarulhos: Por que o Seguro Particular Pode Não Pagar Seu Sinistro",
+    excerpt: "Seguro particular não cobre corridas de Uber/99/IFood e pode negar o sinistro. Veja quanto custa o seguro correto para motorista de app em Guarulhos e compare seguradoras.",
+    category: "Seguro Auto",
+    tags: ["seguro auto", "motorista de aplicativo", "uber", "99", "ifood", "guarulhos"],
+    author: "Roberto Patro",
+    date: "2026-09-08",
+    updatedAt: "2026-09-08",
+    readTime: 8,
+  },
+  {
     slug: "vale-a-pena-seguro-corretora-ou-banco",
     title: "Vale a pena contratar seguro com corretora ou direto com o banco?",
     excerpt: "Comparativo honesto entre contratar seguro por corretora especializada ou pelo banco: preço, cobertura, personalização, atendimento no sinistro e quando cada caminho faz sentido.",
