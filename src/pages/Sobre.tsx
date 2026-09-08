@@ -130,7 +130,7 @@ const Sobre = () => {
                     Verifique nosso registro na SUSEP
                   </p>
                   <p className="text-xs text-emerald-900/80 mt-0.5">
-                    Consulta pública direto no portal oficial da Superintendência de Seguros Privados — Registro nº {EMPRESA.susep}.
+                    Consulta pública direto no portal oficial da Superintendência de Seguros Privados — Registro nº ${EMPRESA.susep}.
                   </p>
                 </div>
               </div>
@@ -158,12 +158,12 @@ const Sobre = () => {
               <p>
                 A <strong className="text-foreground">Patro Corretora de Seguros</strong> nasceu com um propósito claro:
                 transformar a forma como as pessoas e empresas de Guarulhos se protegem. Fundada por <strong className="text-foreground">Roberto e Sandra Patrocínio</strong>,
-                profissionais com {EMPRESA.metricas.experienciaAnos} anos de experiência no mercado de seguros, nossa corretora se destaca
+                profissionais com mais de ${EMPRESA.metricas.experienciaAnos} de experiência no mercado de seguros, nossa corretora se destaca
                 pelo atendimento humanizado e pela busca incansável pelas melhores soluções para cada cliente.
               </p>
               <p>
-                Ao longo dos anos, construímos parcerias sólidas com as maiores seguradoras do Brasil — {EMPRESA.metricas.seguradorasParceiras} seguradoras
-                e {EMPRESA.metricas.operadorasSaude} operadoras de saúde — o que nos permite oferecer uma ampla gama de produtos com as melhores condições do
+                Ao longo dos anos, construímos parcerias sólidas com as maiores seguradoras do Brasil — mais de ${EMPRESA.metricas.seguradorasParceiras} seguradoras
+                e ${EMPRESA.metricas.operadorasSaude} operadoras de saúde — o que nos permite oferecer uma ampla gama de produtos com as melhores condições do
                 mercado. Mas o que realmente nos diferencia não são apenas os produtos que oferecemos — é a forma como
                 cuidamos de cada cliente.
               </p>

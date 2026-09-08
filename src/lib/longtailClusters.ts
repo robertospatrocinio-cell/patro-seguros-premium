@@ -87,7 +87,7 @@ export const LONGTAIL_CLUSTERS: Record<
       {
         title: "Residencial online — proteja onde você para o carro",
         description:
-          "Cobertura para garagem, portão e equipamentos em 16+ seguradoras.",
+          "Cobertura para garagem, portão e equipamentos em 16 seguradoras.",
         href: "/cotacao-seguro-residencial-online#coberturas-heading",
         badge: "Coberturas",
       },
@@ -132,7 +132,7 @@ export const LONGTAIL_CLUSTERS: Record<
       "Links diretos para a seção que responde a próxima pergunta — sem rolar o hero de novo.",
     items: [
       {
-        title: "Cotação residencial online — 16+ seguradoras em 2h",
+        title: "Cotação residencial online — 16 seguradoras em 2h",
         description: "Pule direto para o que a apólice residencial cobre.",
         href: "/cotacao-seguro-residencial-online#coberturas-heading",
         badge: "Residencial",
@@ -319,7 +319,7 @@ const LONGTAIL_PAGER: LongtailPagerEntry[] = [
   {
     slug: "/cotacao-seguro-residencial-online",
     label: "Cotação de seguro residencial online",
-    hint: "16+ seguradoras comparadas em até 2 horas",
+    hint: "16 seguradoras comparadas em até 2 horas",
   },
   {
     slug: "/planos-de-saude-guarulhos-comparativo",

@@ -772,7 +772,6 @@ const Blog = () => {
                   <Link to="/sobre" className="text-primary hover:underline">Sobre a Patro</Link>
                   <Link to="/contato" className="text-primary hover:underline">Contato</Link>
                   <Link to="/seguradoras" className="text-primary hover:underline">Seguradoras parceiras</Link>
-                  <Link to="/faq" className="text-primary hover:underline">Perguntas frequentes sobre seguros</Link>
                   <ExternalLink href="https://www2.susep.gov.br/safe/menumercado/regcorretores/pesquisa.asp" className="text-primary hover:underline">
                     Consultar registro SUSEP
                   </ExternalLink>

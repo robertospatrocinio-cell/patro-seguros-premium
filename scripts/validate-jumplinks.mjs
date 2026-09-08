@@ -184,11 +184,7 @@ function validate() {
     let distHtml = distPath ? readFile(distPath) : null;
     // SPA shells (root vazio) não contêm headings — o React hidrata no
     // cliente. Validar ids nelas gera falsos positivos e bloqueia o build.
-    if (
-      distHtml &&
-      (/<div id="root">\s*<\/div>/.test(distHtml) ||
-        distHtml.includes('data-prerender-fallback="1"'))
-    ) {
+    if (distHtml && /<div id="root">\s*<\/div>/.test(distHtml)) {
       warnings.push(
         `[${page.name}] rota ${route} gerou apenas shell SPA em dist/ — validação de ids no HTML pulada.`
       );

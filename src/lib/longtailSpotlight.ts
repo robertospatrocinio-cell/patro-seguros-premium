@@ -46,6 +46,6 @@ export const LONGTAIL_SPOTLIGHT: LongtailSpotlightItem[] = [
     contextualTitle: "cotação de seguro residencial online",
     link: "/cotacao-seguro-residencial-online",
     keyword: "cotação seguro residencial online",
-    description: "Comparativo em 16+ seguradoras via WhatsApp em 2h, sem visita técnica.",
+    description: "Comparativo em 16 seguradoras via WhatsApp em 2h, sem visita técnica.",
   },
 ];

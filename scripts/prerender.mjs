@@ -89,117 +89,18 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-// Links institucionais para dar profundidade de rastreamento a partir de
-// qualquer rota (o Googlebot encontra o cluster sem executar JavaScript).
-const CRAWL_LINKS = [
-  ["/seguro-auto-guarulhos", "Seguro auto em Guarulhos"],
-  ["/seguro-residencial-guarulhos", "Seguro residencial"],
-  ["/seguro-empresarial-guarulhos", "Seguro empresarial"],
-  ["/plano-de-saude-guarulhos", "Plano de saúde"],
-  ["/consorcio-guarulhos", "Consórcio"],
-  ["/blog", "Blog"],
-  ["/contato", "Contato"],
-];
-
-function buildFallbackBody(metadata) {
-  const parts = [];
-  if (metadata.description) parts.push(`<p>${escapeHtml(metadata.description)}</p>`);
-  if (metadata.detailedDescription) parts.push(`<p>${escapeHtml(metadata.detailedDescription)}</p>`);
-
-  if (Array.isArray(metadata.whoNeeds) && metadata.whoNeeds.length) {
-    parts.push(
-      `<h2>Para quem é indicado</h2><ul>${metadata.whoNeeds
-        .map((i) => `<li>${escapeHtml(String(i))}</li>`)
-        .join("")}</ul>`,
-    );
-  }
-  if (Array.isArray(metadata.whyPatro) && metadata.whyPatro.length) {
-    parts.push(
-      `<h2>Por que contratar com a Patro Seguros</h2><ul>${metadata.whyPatro
-        .map((i) => `<li>${escapeHtml(String(i))}</li>`)
-        .join("")}</ul>`,
-    );
-  }
-  if (Array.isArray(metadata.faqs) && metadata.faqs.length) {
-    parts.push(
-      `<h2>Perguntas frequentes</h2>${metadata.faqs
-        .map(
-          (f) =>
-            `<h3>${escapeHtml(String(f.question))}</h3><p>${escapeHtml(String(f.answer))}</p>`,
-        )
-        .join("")}`,
-    );
-  }
-
-  parts.push(
-    `<h2>Navegue pela Patro Seguros</h2><ul>${CRAWL_LINKS.map(
-      ([href, label]) => `<li><a href="${href}">${label}</a></li>`,
-    ).join("")}</ul>`,
-  );
-  parts.push(
-    `<p>Patro Seguros — Av. Salgado Filho, 2120, Sala 219, Cidade Maia, Guarulhos/SP. Telefone (11) 5199-7500. CNPJ 41.641.558/0001-33 · SUSEP 212113511.</p>`,
-  );
-
-  return parts.join("\n      ");
-}
-
-function markdownToHtml(md) {
-  const lines = String(md).split(/\r?\n/);
-  const out = [];
-  let list = null;
-  const flush = () => {
-    if (list) {
-      out.push(`<ul>${list.join("")}</ul>`);
-      list = null;
-    }
-  };
-  const inline = (t) =>
-    escapeHtml(t)
-      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-  for (const raw of lines) {
-    const line = raw.trim();
-    if (!line) { flush(); continue; }
-    const h = line.match(/^(#{2,4})\s+(.*)$/);
-    if (h) { flush(); const lvl = Math.min(h[1].length, 4); out.push(`<h${lvl}>${inline(h[2])}</h${lvl}>`); continue; }
-    const li = line.match(/^[-*]\s+(.*)$/);
-    if (li) { list = list || []; list.push(`<li>${inline(li[1])}</li>`); continue; }
-    flush();
-    out.push(`<p>${inline(line)}</p>`);
-  }
-  flush();
-  return out.join("\n      ");
-}
-
-function buildArticleBody(article) {
-  const parts = [markdownToHtml(article.content)];
-  if (Array.isArray(article.faqs) && article.faqs.length) {
-    parts.push(
-      `<h2>Perguntas frequentes</h2>${article.faqs
-        .map((f) => `<h3>${escapeHtml(String(f.q))}</h3><p>${escapeHtml(String(f.a))}</p>`)
-        .join("")}`,
-    );
-  }
-  return parts.join("\n      ");
-}
-
-function buildSeoBlock(route, metadata, article) {
+function buildSeoBlock(route, metadata) {
   const content = FULL_SEO_CONTENT[route] || SEO_CONTENT[route];
-  const h1 = content?.h1 || article?.title || metadata.h1 || metadata.title;
-  const articleBody = article?.content ? buildArticleBody(article) : null;
-  const isFallback = !content?.body && !articleBody;
-  const body = content?.body || articleBody || buildFallbackBody(metadata);
+  if (!content) return null;
 
-  // Conteúdo visível antes da hidratação (nada de display:none — o React
-  // substitui o container ao montar, então não há cloaking).
+  const h1 = content.h1 || metadata.title;
   return `
-    <div id="crawler-content"${isFallback ? ' data-prerender-fallback="1"' : ''}>
+    <div id="crawler-content" style="display:none">
       <h1>${h1}</h1>
-      ${body}
+      ${content.body}
     </div>
   `;
 }
-
 
 async function run() {
   if (!fs.existsSync(INDEX_HTML)) {
@@ -357,8 +258,7 @@ async function run() {
       }
     }
 
-    const blogSlug = route.match(/^\/(?:artigos|blog)\/(.+)$/)?.[1];
-    const seoBlock = buildSeoBlock(route, metadata, blogSlug ? getBlogContent(blogSlug) : null);
+    const seoBlock = buildSeoBlock(route, metadata);
     if (seoBlock) {
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', `<div id="root" data-prerender-seo="1">${seoBlock}</div>`);
