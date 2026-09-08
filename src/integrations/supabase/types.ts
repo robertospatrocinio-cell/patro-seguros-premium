@@ -497,6 +497,54 @@ export type Database = {
           },
         ]
       }
+      content_overrides: {
+        Row: {
+          body: string | null
+          created_at: string
+          faqs: Json
+          id: string
+          intro: string | null
+          notes: string | null
+          published: boolean
+          scope: string
+          slug: string
+          summary: string | null
+          title: string | null
+          updated_at: string
+          updated_by: string | null
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          faqs?: Json
+          id?: string
+          intro?: string | null
+          notes?: string | null
+          published?: boolean
+          scope: string
+          slug: string
+          summary?: string | null
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          faqs?: Json
+          id?: string
+          intro?: string | null
+          notes?: string | null
+          published?: boolean
+          scope?: string
+          slug?: string
+          summary?: string | null
+          title?: string | null
+          updated_at?: string
+          updated_by?: string | null
+        }
+        Relationships: []
+      }
       conversion_click_events: {
         Row: {
           analytics_loaded: boolean
