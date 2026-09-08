@@ -77,8 +77,8 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "Qual a diferença entre corretora e seguradora?", a: "A seguradora emite a apólice e assume o risco. A corretora (Patro Seguros) representa o cliente, compara seguradoras e presta suporte durante todo o ciclo — cotação, contratação, alterações e sinistro. Somos habilitados pela SUSEP sob o registro 212113511." },
-        { q: "Vocês atendem só em Guarulhos?", a: "Nosso escritório fica na Cidade Maia, Guarulhos, mas atendemos toda a Grande São Paulo presencialmente e clientes em todo o Brasil de forma remota, com corretor dedicado por WhatsApp e telefone." },
-        { q: "Quanto custa contratar seguro pela corretora?", a: "Nada além do prêmio da apólice. A comissão da corretora está embutida no preço final da seguradora — o mesmo que você pagaria contratando direto, só que com atendimento consultivo e representação em sinistro." },
+        { q: "Vocês atendem só em Guarulhos?", a: "Nosso escritório fica na Cidade Maia, Guarulhos, mas atendemos toda a Grande São Paulo presencialmente e clientes em todo o Brasil de forma remota, com corretor dedicado por WhatsApp e telefone. Exemplo prático: um cliente em Arujá contratou seguro empresarial 100% remoto — cotação enviada em 2 horas e apólice emitida no mesmo dia, sem nenhuma visita presencial." },
+        { q: "Quanto custa contratar seguro pela corretora?", a: "Nada além do prêmio da apólice. A comissão da corretora está embutida no preço final da seguradora — o mesmo que você pagaria contratando direto, só que com atendimento consultivo e representação em sinistro. Exemplo prático: em uma apólice auto de R$ 2.400/ano, você paga exatamente R$ 2.400 — o mesmo valor da seguradora direta, com a diferença de ter um corretor comparando 16+ propostas e acompanhando o sinistro." },
         { q: "Em quanto tempo recebo a cotação?", a: "Cotações simples (auto, residencial, moto) saem em até 2 horas úteis. Cotações empresariais, frotas e condomínios levam em média 24 a 48 horas por envolverem análise técnica das seguradoras." },
       ])}
 
@@ -132,10 +132,10 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "Preciso de vistoria prévia?", a: "Sim, na maioria das seguradoras. A vistoria pode ser presencial ou digital (por app) e é feita em até 48h após a contratação. A Patro agenda para você." },
-        { q: "Posso incluir mais de um condutor?", a: "Sim. Todo motorista frequente do veículo (inclusive filhos jovens) deve ser declarado — isso protege sua indenização em caso de sinistro." },
-        { q: "O seguro cobre roubo em Guarulhos?", a: "Sim, todas as coberturas compreensivas incluem roubo e furto. O prêmio varia conforme o CEP: bairros com maior incidência (Pimentas, partes de Cumbica) pagam mais que bairros de baixo índice." },
+        { q: "Posso incluir mais de um condutor?", a: "Sim. Todo motorista frequente do veículo (inclusive filhos jovens) deve ser declarado — isso protege sua indenização em caso de sinistro. Exemplo prático: incluir um filho de 19 anos pode elevar o prêmio de R$ 2.400 para cerca de R$ 3.600/ano — mas omitir esse condutor pode custar a recusa integral de uma indenização de R$ 70 mil." },
+        { q: "O seguro cobre roubo em Guarulhos?", a: "Sim, todas as coberturas compreensivas incluem roubo e furto. O prêmio varia conforme o CEP: bairros com maior incidência (Pimentas, partes de Cumbica) pagam mais que bairros de baixo índice. Exemplo prático: o mesmo Onix 2022 pode sair por cerca de R$ 2.200/ano em Vila Galvão e passar de R$ 3.000/ano em CEPs de maior incidência — diferença de aproximadamente R$ 800 apenas pelo endereço de pernoite." },
         { q: "Vocês trabalham com seguro popular?", a: "Sim. Suhai, Azul Seguros, HDI Bem-Te-Vi e Mitsui Auto Rota atendem perfis de preço mais acessível, geralmente para veículos populares com mais de 5 anos." },
-        { q: "Vale a pena contratar carro reserva?", a: "Depende do uso. Quem depende do carro para trabalhar (Uber, motorista de aplicativo, representante comercial) deve contratar. Uso familiar com segundo carro em casa pode dispensar." },
+        { q: "Vale a pena contratar carro reserva?", a: "Depende do uso. Quem depende do carro para trabalhar (Uber, motorista de aplicativo, representante comercial) deve contratar. Uso familiar com segundo carro em casa pode dispensar. Exemplo prático: a cobertura de 15 dias custa cerca de R$ 12 a R$ 20/mês. Um motorista de aplicativo que fatura R$ 200/dia perderia cerca de R$ 3.000 em 15 dias parado, ou gastaria de R$ 120 a R$ 150/dia alugando um carro — a cobertura se paga no primeiro sinistro." },
       ])}
 
       <p>Veja também <a href="/seguro-moto-guarulhos">seguro moto</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-residencial-guarulhos">seguro residencial</a>. Ou <a href="/cotacao">solicite sua cotação agora</a>.</p>
@@ -183,8 +183,8 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "Quanto custa um seguro residencial em Guarulhos?", a: "Apartamentos com valor de conteúdo de R$ 30 mil pagam a partir de R$ 25/mês. Casas com maior valor de reconstrução e conteúdo tendem a R$ 40 a R$ 80/mês, dependendo do CEP e das coberturas." },
-        { q: "Preciso declarar o valor exato dos meus bens?", a: "Sim. O valor declarado (capital segurado do conteúdo) é o limite máximo de indenização. Declarar valores muito baixos pode gerar rateio; declarar valores muito altos apenas encarece o prêmio sem benefício." },
-        { q: "Seguro residencial cobre alagamento?", a: "Sim, se contratada a cobertura de vendaval/alagamento — não é básica em todas as seguradoras. Guarulhos tem áreas historicamente sujeitas a enchente; recomendamos sempre incluir." },
+        { q: "Preciso declarar o valor exato dos meus bens?", a: "Sim. O valor declarado (capital segurado do conteúdo) é o limite máximo de indenização. Declarar valores muito baixos pode gerar rateio; declarar valores muito altos apenas encarece o prêmio sem benefício. Exemplo prático: se você declarar R$ 20 mil de conteúdo quando o valor real é R$ 40 mil, uma perda de R$ 10 mil pode ser indenizada por apenas R$ 5 mil por rateio proporcional." },
+        { q: "Seguro residencial cobre alagamento?", a: "Sim, se contratada a cobertura de vendaval/alagamento — não é básica em todas as seguradoras. Guarulhos tem áreas historicamente sujeitas a enchente; recomendamos sempre incluir. Exemplo prático: a cobertura adicional de vendaval/alagamento costuma custar de R$ 4 a R$ 9/mês e já evitou prejuízos de R$ 15 mil a R$ 30 mil em móveis e eletrodomésticos em bairros próximos a córregos." },
         { q: "Seguro do condomínio já cobre meu apartamento?", a: "Não. O seguro obrigatório do condomínio (Lei 4.591/64) cobre apenas áreas comuns e estrutura. O conteúdo do seu apartamento, RC familiar e danos elétricos só são cobertos pelo seguro residencial voluntário." },
       ])}
 
@@ -269,7 +269,7 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "Seguro moto é obrigatório?", a: "Não. O único obrigatório é o DPVAT (extinto em 2020 e retomado como SPVAT em 2025). O seguro voluntário é opcional, mas fortemente recomendado — motos têm alto risco de roubo em Guarulhos." },
-        { q: "Posso rodar de app com seguro particular?", a: "Não. Uso comercial deve ser declarado. Rodar de app com apólice particular pode gerar negativa de indenização em sinistro. Sempre cote apólice comercial se você faz entregas." },
+        { q: "Posso rodar de app com seguro particular?", a: "Não. Uso comercial deve ser declarado. Rodar de app com apólice particular pode gerar negativa de indenização em sinistro. Sempre cote apólice comercial se você faz entregas. Exemplo prático: declarar uso de aplicativo encarece o prêmio em torno de 20% a 35% (de R$ 2.600 para cerca de R$ 3.300/ano), enquanto uma negativa por uso não declarado significa perder 100% de uma indenização que pode passar de R$ 60 mil." },
         { q: "Quanto custa em média o seguro moto em Guarulhos?", a: "Depende do modelo, ano, CEP e perfil. Motos populares 125-160cc: R$ 90 a R$ 180/mês. Motos 300-500cc: R$ 180 a R$ 320/mês. Motos big trail e esportivas: R$ 350+ /mês." },
         { q: "Vale a pena rastreador para reduzir o prêmio?", a: "Sim, especialmente em motos acima de R$ 20 mil. Reduz o prêmio em 10% a 25% em várias seguradoras e é obrigatório em modelos de alto risco (Yamaha Fazer 250, Honda XRE 300, motos esportivas)." },
       ])}
@@ -313,7 +313,7 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "Quanto custa plano de saúde em Guarulhos?", a: "Depende de idade, tipo de plano, acomodação (enfermaria ou apto) e rede. Faixa 0-18 anos: R$ 180 a R$ 400. Faixa 30-38: R$ 350 a R$ 700. Faixa 59+: R$ 900 a R$ 2.500. PJ tende a ser 20-40% mais barato." },
-        { q: "Posso abrir MEI só para contratar plano PJ?", a: "Tecnicamente sim, mas a maioria das operadoras exige comprovação de atividade e faturamento mínimo. A Patro te orienta sobre viabilidade real caso a caso." },
+        { q: "Posso abrir MEI só para contratar plano PJ?", a: "Tecnicamente sim, mas a maioria das operadoras exige comprovação de atividade e faturamento mínimo. A Patro te orienta sobre viabilidade real caso a caso. Exemplo prático: um plano individual de R$ 780/mês para 40 anos pode cair para cerca de R$ 520/mês na versão PME — economia próxima de R$ 3.100/ano —, mas só se a empresa tiver atividade e faturamento comprováveis." },
         { q: "O que é reajuste anual e por faixa etária?", a: "Reajuste anual: aplicado por sinistralidade/inflação médica (individual segue teto ANS; coletivo é livre). Faixa etária: aumento nas mudanças de faixa (0-18, 19-23, 24-28, 29-33... até 59+), regulado pela ANS." },
       ])}
 
@@ -362,9 +362,9 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "Seguro empresarial cobre lucros cessantes?", a: "Sim, mediante contratação da cobertura específica. Cobre a receita esperada durante o período de paralisação decorrente de sinistro coberto (incêndio, danos elétricos, roubo etc.), pelo prazo indenitário contratado (3, 6, 12 meses)." },
-        { q: "Preciso declarar todos os bens?", a: "Sim. O capital segurado é o limite máximo de indenização — declarar valores muito baixos gera rateio no sinistro. Recomendamos inventário anual atualizado ao valor de reposição." },
+        { q: "Preciso declarar todos os bens?", a: "Sim. O capital segurado é o limite máximo de indenização — declarar valores muito baixos gera rateio no sinistro. Recomendamos inventário anual atualizado ao valor de reposição. Exemplo prático: uma loja que declara R$ 100 mil de estoque quando mantém R$ 200 mil recebe cerca de metade em um sinistro — R$ 25 mil em vez de R$ 50 mil." },
         { q: "Vocês atendem MEI?", a: "Sim. Há apólices simplificadas para MEI a partir de R$ 60/mês, especialmente para lojas, ateliês e prestadores de serviço." },
-        { q: "O que é RC operações vs. RC produtos?", a: "RC operações cobre danos a terceiros durante a operação normal (cliente escorrega na loja). RC produtos cobre danos causados por defeito no produto vendido/fabricado (alimento contaminado, equipamento com falha)." },
+        { q: "O que é RC operações vs. RC produtos?", a: "RC operações cobre danos a terceiros durante a operação normal (cliente escorrega na loja). RC produtos cobre danos causados por defeito no produto vendido/fabricado (alimento contaminado, equipamento com falha). Exemplo prático: um cliente que escorrega na loja e processa a empresa em R$ 30 mil aciona a RC operações; um lote de produto defeituoso que causa dano a 10 clientes aciona a RC produtos, geralmente contratada com LMI de R$ 100 mil a R$ 500 mil." },
       ])}
 
       <p>Veja também <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>.</p>
@@ -418,7 +418,7 @@ export const FULL_SEO_CONTENT = {
       ${FAQ([
         { q: "MEI pode contratar seguro empresarial?", a: "Sim. Existem produtos específicos para MEI a partir de R$ 60/mês, com coberturas simplificadas de incêndio, roubo e RC básica. Ideal para autônomos com pequeno estoque, ateliês, prestadores locais." },
         { q: "Preciso ter alarme e monitoramento?", a: "Não obrigatoriamente. Mas ter alarme monitorado, brigada de incêndio e sprinkler reduz o prêmio em 15% a 40% dependendo da seguradora e do CNAE." },
-        { q: "Seguro cobre roubo do meu estoque?", a: "Sim, mediante contratação da cobertura de roubo/furto qualificado — que exige sinal de arrombamento comprovado. O capital segurado deve refletir o valor real do estoque médio." },
+        { q: "Seguro cobre roubo do meu estoque?", a: "Sim, mediante contratação da cobertura de roubo/furto qualificado — que exige sinal de arrombamento comprovado. O capital segurado deve refletir o valor real do estoque médio. Exemplo prático: uma cobertura de roubo de R$ 150 mil em estoque custa em média de R$ 120 a R$ 250/mês em lojas de Guarulhos, dependendo de alarme, grades e circuito de câmeras." },
       ])}
 
       <p>Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial completo</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>.</p>
@@ -477,9 +477,9 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "A partir de quantos veículos posso ter apólice de frota?", a: "Geralmente a partir de 4 veículos, mas algumas seguradoras aceitam a partir de 3. Frotas menores podem seguir com apólices individuais consolidadas na mesma corretora." },
-        { q: "Posso incluir veículos novos ao longo do ano?", a: "Sim. A apólice de frota permite endossos de inclusão/exclusão a qualquer momento, com cálculo pro-rata do prêmio adicional." },
+        { q: "Posso incluir veículos novos ao longo do ano?", a: "Sim. A apólice de frota permite endossos de inclusão/exclusão a qualquer momento, com cálculo pro-rata do prêmio adicional. Exemplo prático: incluir uma van em março numa apólice que vence em dezembro gera endosso pro rata de cerca de 9/12 do prêmio anual — se o prêmio cheio é R$ 4.800, o endosso sai por volta de R$ 3.600." },
         { q: "Vale a pena rastrear a frota?", a: "Sim, especialmente para frotas pesadas e de transporte. Reduz o prêmio em 15% a 40% e aumenta o índice de recuperação em caso de roubo. Algumas seguradoras exigem rastreador para veículos acima de determinado valor." },
-        { q: "E se um motorista causar acidente?", a: "A cobertura RCF-V indeniza terceiros. O condutor deve constar como habilitado a dirigir o veículo (frotas geralmente têm cláusula ampla). Sinistros com culpa impactam a sinistralidade e podem gerar reajuste na renovação." },
+        { q: "E se um motorista causar acidente?", a: "A cobertura RCF-V indeniza terceiros. O condutor deve constar como habilitado a dirigir o veículo (frotas geralmente têm cláusula ampla). Sinistros com culpa impactam a sinistralidade e podem gerar reajuste na renovação. Exemplo prático: com RCF-V de R$ 200 mil, um acidente com R$ 45 mil em danos materiais e R$ 60 mil em danos corporais fica integralmente coberto — a empresa desembolsa apenas a franquia do próprio veículo." },
       ])}
 
       <p>Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>, <a href="/seguro-auto-guarulhos">seguro auto</a> e <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>.</p>
@@ -522,10 +522,10 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       ${FAQ([
-        { q: "Quem contrata o seguro do condomínio?", a: "O síndico, com aprovação em assembléia. O custo é rateado entre os condôminos via cota condominial ordinária ou extraordinária, dependendo da convenção." },
+        { q: "Quem contrata o seguro do condomínio?", a: "O síndico, com aprovação em assembléia. O custo é rateado entre os condôminos via cota condominial ordinária ou extraordinária, dependendo da convenção. Exemplo prático: em um prédio de 60 unidades, uma apólice anual de R$ 12 mil representa cerca de R$ 17 por unidade ao mês na cota condominial." },
         { q: "O que acontece se o condomínio não tiver seguro?", a: "Ilegalidade — a Lei 4.591/64 torna obrigatória a contratação. Em sinistro sem seguro, o síndico responde civilmente e os condôminos podem ter que ratear o prejuízo total." },
         { q: "RC do síndico é obrigatória?", a: "Não obrigatória, mas altamente recomendada. Protege o síndico contra ações judiciais por atos de gestão (erros administrativos, decisões questionáveis, falhas em contratos), com capital de R$ 100 mil a R$ 500 mil típicos." },
-        { q: "Cobre alagamento de garagem?", a: "Sim, se contratada a cobertura de vendaval/alagamento. Guarulhos tem áreas propensas — recomendamos sempre incluir." },
+        { q: "Cobre alagamento de garagem?", a: "Sim, se contratada a cobertura de vendaval/alagamento. Guarulhos tem áreas propensas — recomendamos sempre incluir. Exemplo prático: um alagamento de garagem que danifica portão eletrônico, bombas e quadros elétricos costuma gerar prejuízo de R$ 25 mil a R$ 60 mil — valor que a cobertura adicional, de poucas centenas de reais por ano, absorve." },
       ])}
 
       <p>Veja também <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-empresarial-guarulhos">seguro empresarial</a> e <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>.</p>
@@ -572,9 +572,9 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "Consórcio vale mais a pena que financiamento?", a: "Depende do prazo. Se você não precisa do bem imediatamente e quer economizar juros (R$ 100-400 mil em imóveis), consórcio compensa. Se precisa do bem agora, financiamento é a saída — mas com custo bem maior." },
-        { q: "Posso desistir do consórcio?", a: "Sim. Cotas não contempladas podem ser vendidas ou canceladas. O valor pago (menos taxas) é devolvido no encerramento do grupo — não é imediato. Recomendamos leitura atenta do contrato antes de aderir." },
-        { q: "Como funciona o lance?", a: "Lance é uma antecipação de parcelas para acelerar a contemplação. Pode ser livre (você define o valor) ou fixo (percentual pré-definido pela administradora). Quem oferecer o maior lance no mês é contemplado, além do sorteado." },
-        { q: "Posso usar FGTS no consórcio de imóvel?", a: "Sim, tanto no lance quanto na quitação de parcelas, respeitadas as regras do FGTS (imóvel residencial urbano, uso próprio, valor até o teto do SFH, entre outras)." },
+        { q: "Posso desistir do consórcio?", a: "Sim. Cotas não contempladas podem ser vendidas ou canceladas. O valor pago (menos taxas) é devolvido no encerramento do grupo — não é imediato. Recomendamos leitura atenta do contrato antes de aderir. Exemplo prático: em uma cota de R$ 100 mil com 3 anos pagos (cerca de R$ 45 mil aportados), a venda da cota no mercado costuma ser bem mais vantajosa que aguardar o encerramento do grupo para receber o saldo com desconto da taxa de administração." },
+        { q: "Como funciona o lance?", a: "Lance é uma antecipação de parcelas para acelerar a contemplação. Pode ser livre (você define o valor) ou fixo (percentual pré-definido pela administradora). Quem oferecer o maior lance no mês é contemplado, além do sorteado. Exemplo prático: em um grupo de imóvel de R$ 300 mil, um lance embutido de 25% equivale a R$ 75 mil abatidos do próprio crédito — você é contemplado sem tirar dinheiro do bolso, recebendo R$ 225 mil líquidos." },
+        { q: "Posso usar FGTS no consórcio de imóvel?", a: "Sim, tanto no lance quanto na quitação de parcelas, respeitadas as regras do FGTS (imóvel residencial urbano, uso próprio, valor até o teto do SFH, entre outras). Exemplo prático: R$ 40 mil de FGTS usados como lance em uma cota de R$ 250 mil equivalem a 16% do crédito e costumam ser suficientes para contemplação em muitos grupos residenciais." },
       ])}
 
       <p>Veja também <a href="/seguro-auto-guarulhos">seguro auto</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a> e <a href="/contato">fale com um consultor</a>.</p>
@@ -714,10 +714,10 @@ export const FULL_SEO_CONTENT = {
       </ul>
 
       ${FAQ([
-        { q: "Qual o prazo de resposta no WhatsApp?", a: "No horário comercial, mensagens são respondidas em minutos por um corretor. Fora do horário, no próximo dia útil pela manhã." },
-        { q: "A cotação é gratuita?", a: "Sim, sempre. A comissão da corretora está embutida no prêmio da seguradora — não pagamos nada a mais por cotar via Patro. É o mesmo preço que você pagaria contratando direto, com atendimento consultivo incluído." },
-        { q: "Preciso ir até o escritório para contratar?", a: "Não. Todo o processo pode ser feito à distância — cotação, análise, contratação e emissão da apólice — via WhatsApp, telefone e e-mail. Presencial é opcional para quem prefere." },
-        { q: "Vocês atendem fora de Guarulhos?", a: "Sim. Atendemos toda a Grande São Paulo presencialmente e clientes em todo o Brasil de forma remota. Nossos seguros rurais têm alcance nacional." },
+        { q: "Qual o prazo de resposta no WhatsApp?", a: "No horário comercial, mensagens são respondidas em minutos por um corretor. Fora do horário, no próximo dia útil pela manhã. Exemplo prático: uma dúvida enviada às 10h de uma terça costuma ser respondida em menos de 15 minutos; mensagens de domingo à noite são tratadas na manhã seguinte, a partir das 9h." },
+        { q: "A cotação é gratuita?", a: "Sim, sempre. A comissão da corretora está embutida no prêmio da seguradora — não pagamos nada a mais por cotar via Patro. É o mesmo preço que você pagaria contratando direto, com atendimento consultivo incluído. Exemplo prático: numa apólice residencial de R$ 480/ano, você paga R$ 480 — nem um real a mais por termos comparado 16+ seguradoras para chegar a esse preço." },
+        { q: "Preciso ir até o escritório para contratar?", a: "Não. Todo o processo pode ser feito à distância — cotação, análise, contratação e emissão da apólice — via WhatsApp, telefone e e-mail. Presencial é opcional para quem prefere. Exemplo prático: a maioria das apólices auto é fechada 100% online — documentos por WhatsApp, vistoria digital pelo celular em cerca de 10 minutos e apólice por e-mail em até 48h." },
+        { q: "Vocês atendem fora de Guarulhos?", a: "Sim. Atendemos toda a Grande São Paulo presencialmente e clientes em todo o Brasil de forma remota. Nossos seguros rurais têm alcance nacional. Exemplo prático: atendemos frotas em Campinas e seguros agrícolas no interior de Goiás e Mato Grosso sem qualquer custo adicional de deslocamento para o cliente." },
       ])}
 
       <p>Conheça <a href="/sobre">nossa história</a> ou <a href="/depoimentos">leia depoimentos de clientes</a>. Ou <a href="/cotacao">solicite sua cotação agora</a>.</p>
@@ -749,10 +749,10 @@ export const FULL_SEO_CONTENT = {
 
       ${FAQ([
         { q: "A Patro Seguros é filial de alguma seguradora?", a: "Não. A Patro é uma corretora de seguros independente, registrada na SUSEP sob o código 212113511. Representamos o cliente — não a seguradora — e comparamos cotações entre mais de 16 companhias antes de indicar a melhor opção." },
-        { q: "Contratar pela Patro é mais caro que direto na seguradora?", a: "Não. O preço final é o mesmo. A comissão da corretora já está embutida no prêmio pago à seguradora — você paga o mesmo valor, mas com atendimento consultivo, comparação técnica e representação em caso de sinistro." },
-        { q: "Quais seguradoras vocês representam?", a: "Trabalhamos com Porto Seguro, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty/Yelum, Mapfre, Azul, Zurich, Sompo, Mitsui, Suhai, Pottencial, Akad, Ezze e outras. A escolha depende do tipo de risco e perfil do cliente." },
-        { q: "Vocês vendem só de uma seguradora?", a: "Não. Cotamos com múltiplas seguradoras em cada solicitação e apresentamos as opções lado a lado. Você escolhe a melhor relação custo-benefício, sem pressão comercial." },
-        { q: "E se eu tiver problema no sinistro?", a: "A Patro acompanha o processo do aviso à indenização, intermediando toda a comunicação com a seguradora. É um dos principais benefícios de contratar via corretora." },
+        { q: "Contratar pela Patro é mais caro que direto na seguradora?", a: "Não. O preço final é o mesmo. A comissão da corretora já está embutida no prêmio pago à seguradora — você paga o mesmo valor, mas com atendimento consultivo, comparação técnica e representação em caso de sinistro. Exemplo prático: em cotações de seguro auto, é comum a melhor proposta comparada ficar R$ 600 a R$ 1.200/ano abaixo da renovação automática enviada pela seguradora do cliente." },
+        { q: "Quais seguradoras vocês representam?", a: "Trabalhamos com Porto Seguro, Bradesco, SulAmérica, Allianz, Tokio Marine, HDI, Liberty/Yelum, Mapfre, Azul, Zurich, Sompo, Mitsui, Suhai, Pottencial, Akad, Ezze e outras. A escolha depende do tipo de risco e perfil do cliente. Exemplo prático: em uma única cotação de seguro auto rodamos, em média, de 8 a 12 dessas seguradoras — o comparativo chega em até 2 horas com preço, franquia e coberturas lado a lado." },
+        { q: "Vocês vendem só de uma seguradora?", a: "Não. Cotamos com múltiplas seguradoras em cada solicitação e apresentamos as opções lado a lado. Você escolhe a melhor relação custo-benefício, sem pressão comercial. Exemplo prático: num comparativo típico de residencial, as propostas variam de R$ 28 a R$ 62/mês para a mesma cobertura — diferença superior a 100% que só aparece cotando várias seguradoras." },
+        { q: "E se eu tiver problema no sinistro?", a: "A Patro acompanha o processo do aviso à indenização, intermediando toda a comunicação com a seguradora. É um dos principais benefícios de contratar via corretora. Exemplo prático: em uma negativa por documentação incompleta, reunimos boletim, laudo e notas fiscais e reapresentamos o processo — casos assim costumam ser revertidos em 10 a 20 dias." },
       ])}
 
       <p>Solicite sua <a href="/cotacao">cotação online</a>, fale com um consultor pelo <a href="/contato">canal de contato</a> ou volte para a <a href="/">página inicial</a>.</p>
@@ -783,10 +783,10 @@ export const FULL_SEO_CONTENT = {
       <p><strong>SUSEP:</strong> Superintendência de Seguros Privados — órgão federal que fiscaliza seguradoras, corretoras e capitalização. <strong>ANS:</strong> Agência Nacional de Saúde Suplementar — regula planos de saúde e odontológicos. <strong>Banco Central:</strong> regula e fiscaliza administradoras de consórcio. <strong>CNSP:</strong> Conselho Nacional de Seguros Privados. <strong>Segurado:</strong> pessoa física ou jurídica que contrata o seguro. <strong>Corretora:</strong> pessoa jurídica habilitada pela SUSEP para intermediar seguros — representa o cliente. <strong>Seguradora:</strong> instituição autorizada a emitir apólices e assumir o risco.</p>
 
       ${FAQ([
-        { q: "Qual a diferença entre prêmio e indenização?", a: "Prêmio é o valor que o segurado paga à seguradora para ter direito à cobertura. Indenização é o valor que a seguradora paga ao segurado em caso de sinistro coberto." },
-        { q: "Franquia alta ou baixa: qual é melhor?", a: "Depende do perfil. Franquia alta reduz o prêmio mensal, mas exige mais desembolso em caso de sinistro. Franquia baixa aumenta o prêmio e reduz o desembolso na hora do sinistro. Consulte um corretor para simular." },
-        { q: "O que é portabilidade de carências?", a: "É o direito, regulado pela ANS, de trocar de operadora de plano de saúde sem cumprir novas carências, desde que atendidos os requisitos de tempo mínimo no plano atual e compatibilidade de faixa de preço." },
-        { q: "Consórcio tem juros?", a: "Consórcio não cobra juros de financiamento, mas possui taxa de administração, fundo de reserva, seguros e outros custos previstos em contrato, todos regulados pelo Banco Central." },
+        { q: "Qual a diferença entre prêmio e indenização?", a: "Prêmio é o valor que o segurado paga à seguradora para ter direito à cobertura. Indenização é o valor que a seguradora paga ao segurado em caso de sinistro coberto. Exemplo prático: você paga um prêmio de R$ 2.400/ano; em perda total de um carro avaliado em R$ 80 mil, a indenização é de R$ 80 mil (100% da tabela FIPE contratada)." },
+        { q: "Franquia alta ou baixa: qual é melhor?", a: "Depende do perfil. Franquia alta reduz o prêmio mensal, mas exige mais desembolso em caso de sinistro. Franquia baixa aumenta o prêmio e reduz o desembolso na hora do sinistro. Consulte um corretor para simular. Exemplo prático: subir a franquia de R$ 4.000 para R$ 6.000 costuma reduzir o prêmio em R$ 250 a R$ 400/ano. Quem roda pouco e não bate há anos ganha; quem já teve dois sinistros pequenos no período perde." },
+        { q: "O que é portabilidade de carências?", a: "É o direito, regulado pela ANS, de trocar de operadora de plano de saúde sem cumprir novas carências, desde que atendidos os requisitos de tempo mínimo no plano atual e compatibilidade de faixa de preço. Exemplo prático: quem já cumpriu 24 meses de carência para doenças preexistentes pode trocar de operadora sem reiniciar esse prazo, desde que respeite a janela anual e a compatibilidade de faixa de preço definida pela ANS." },
+        { q: "Consórcio tem juros?", a: "Consórcio não cobra juros de financiamento, mas possui taxa de administração, fundo de reserva, seguros e outros custos previstos em contrato, todos regulados pelo Banco Central. Exemplo prático: em uma cota de R$ 100 mil com taxa de administração de 18% em 100 meses, o custo total é de cerca de R$ 118 mil, contra R$ 180 mil a R$ 200 mil em um financiamento de mesmo prazo." },
       ])}
 
       <p>Consulte também nossa <a href="/central-de-guias-de-seguros">Central de Guias</a>, o <a href="/faq">FAQ geral</a> ou <a href="/contato">fale com um consultor</a> se restar dúvida.</p>
@@ -820,10 +820,10 @@ export const FULL_SEO_CONTENT = {
       <p>Atendemos flats em toda Guarulhos e Grande São Paulo: <strong>Cidade Maia</strong>, <strong>Centro</strong>, <strong>Vila Galvão</strong>, <strong>Vila Augusta</strong>, <strong>Bonsucesso</strong>, <strong>Gopoúva</strong>, <strong>Jardim Maia</strong>, <strong>Macedo</strong>, <strong>Picanço</strong>, <strong>Taboão</strong>, <strong>Cumbica</strong> e cidades vizinhas. Também atendemos investidores que operam flats em <strong>São Paulo capital</strong> (Vila Olímpia, Itaim, Faria Lima, Berrini, Moema, Paulista) de forma remota. Nossa área <strong>Patro Private</strong> cuida de carteiras com múltiplos flats/imóveis com relatório consolidado e vencimentos unificados.</p>
 
       ${FAQ([
-        { q: "Seguro residencial normal cobre flat de temporada?", a: "Nem sempre. Muitas apólices residenciais padrão excluem uso comercial rotativo (Airbnb, Booking). É preciso declarar o uso real na cotação e escolher seguradora com apetite para esse perfil, senão a apólice pode ser invalidada em sinistro." },
-        { q: "Quem paga o seguro do flat: proprietário ou inquilino?", a: "Ambos podem. O proprietário costuma segurar estrutura, mobília e perda de aluguel. O inquilino segura conteúdo próprio e RC Locatária. Contratos de administração muitas vezes exigem seguro do inquilino." },
-        { q: "Flat mobiliado precisa de seguro específico?", a: "Sim. A mobília, eletrodomésticos e itens de decoração compõem o capital segurado de conteúdo, que precisa ser dimensionado corretamente para não haver rateio no sinistro." },
-        { q: "Perda de aluguel é sempre coberta?", a: "Não. É uma cobertura adicional disponível em algumas seguradoras, contratada à parte, com limite e prazo previstos em apólice." },
+        { q: "Seguro residencial normal cobre flat de temporada?", a: "Nem sempre. Muitas apólices residenciais padrão excluem uso comercial rotativo (Airbnb, Booking). É preciso declarar o uso real na cotação e escolher seguradora com apetite para esse perfil, senão a apólice pode ser invalidada em sinistro. Exemplo prático: um flat alugado 15 dias por mês por temporada exige apólice com uso comercial declarado — o custo sobe de cerca de R$ 35 para R$ 70 a R$ 90/mês, mas sem esse enquadramento a negativa é praticamente certa." },
+        { q: "Quem paga o seguro do flat: proprietário ou inquilino?", a: "Ambos podem. O proprietário costuma segurar estrutura, mobília e perda de aluguel. O inquilino segura conteúdo próprio e RC Locatária. Contratos de administração muitas vezes exigem seguro do inquilino. Exemplo prático: em um flat de 40 m² na Cidade Maia, o proprietário costuma investir R$ 60 a R$ 90/mês em estrutura, mobília e perda de aluguel, enquanto o inquilino gasta R$ 20 a R$ 30/mês para proteger bens pessoais e RC." },
+        { q: "Flat mobiliado precisa de seguro específico?", a: "Sim. A mobília, eletrodomésticos e itens de decoração compõem o capital segurado de conteúdo, que precisa ser dimensionado corretamente para não haver rateio no sinistro. Exemplo prático: mobília, eletrodomésticos e decoração de um flat compacto somam com facilidade R$ 40 mil a R$ 60 mil — capital segurado que custa cerca de R$ 45 a R$ 70/mês." },
+        { q: "Perda de aluguel é sempre coberta?", a: "Não. É uma cobertura adicional disponível em algumas seguradoras, contratada à parte, com limite e prazo previstos em apólice. Exemplo prático: com diária de R$ 250 e um sinistro que deixa o flat 60 dias sem uso, a perda chega a R$ 15 mil — a cobertura adicional costuma custar de R$ 10 a R$ 25/mês." },
         { q: "Vocês atendem flats em São Paulo capital?", a: "Sim. Atendemos Guarulhos presencialmente e clientes em São Paulo capital e Grande SP de forma remota, com corretor dedicado e emissão de apólice em até 24h úteis." },
       ])}
 

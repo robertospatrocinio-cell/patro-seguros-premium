@@ -89,18 +89,94 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
-function buildSeoBlock(route, metadata) {
+// Converte o markdown dos artigos em HTML simples, garantindo hierarquia
+// H2 > H3 (o H1 é sempre o título da página) e sem pular níveis.
+function markdownToHtml(md) {
+  const out = [];
+  let sawH2 = false;
+  let list = [];
+  const flushList = () => {
+    if (list.length) {
+      out.push(`<ul>${list.map((li) => `<li>${inline(li)}</li>`).join("")}</ul>`);
+      list = [];
+    }
+  };
+  const inline = (s) =>
+    escapeHtml(s)
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+
+  for (const raw of String(md).split("\n")) {
+    const line = raw.trim();
+    if (!line) { flushList(); continue; }
+    if (/^\|/.test(line) || /^\[\[/.test(line)) { flushList(); continue; }
+    const h = line.match(/^(#{2,6})\s+(.*)$/);
+    if (h) {
+      flushList();
+      const level = h[1].length === 2 || !sawH2 ? 2 : 3;
+      if (level === 2) sawH2 = true;
+      out.push(`<h${level}>${inline(h[2])}</h${level}>`);
+      continue;
+    }
+    if (/^[-*]\s+/.test(line)) { list.push(line.replace(/^[-*]\s+/, "")); continue; }
+    if (/^\d+\.\s+/.test(line)) { list.push(line.replace(/^\d+\.\s+/, "")); continue; }
+    flushList();
+    out.push(`<p>${inline(line)}</p>`);
+  }
+  flushList();
+  return out.join("\n      ");
+}
+
+
+// Título limpo para uso como H1: remove sufixo de marca e separadores.
+function titleToH1(title) {
+  if (!title) return "Patro Seguros";
+  const cleaned = String(title)
+    .replace(/\s*[|·]\s*Patro.*$/i, "")
+    .replace(/\s*(\.{3}|…)\s*$/, "")
+    .trim();
+  return cleaned || String(title).trim();
+}
+
+
+function buildSeoBlock(route, metadata, extras = {}) {
   const content = FULL_SEO_CONTENT[route] || SEO_CONTENT[route];
-  if (!content) return null;
+
+  // Fallback: toda rota indexável precisa de exatamente um H1 no HTML estático,
+  // com hierarquia H1 > H2 > H3 sem pular níveis.
+  if (!content) {
+    const h1 = extras.h1 ? String(extras.h1).trim() : titleToH1(metadata.title);
+
+    const parts = [`<h1>${escapeHtml(h1)}</h1>`];
+    if (metadata.description) parts.push(`<p>${escapeHtml(metadata.description)}</p>`);
+    if (extras.body) parts.push(extras.body);
+    if (Array.isArray(extras.faqs) && extras.faqs.length) {
+      parts.push("<h2>Perguntas frequentes</h2>");
+      for (const f of extras.faqs) {
+        parts.push(`<h3>${escapeHtml(String(f.q).trim())}</h3><p>${escapeHtml(String(f.a).trim())}</p>`);
+      }
+    }
+    parts.push(
+      `<h2>Atendimento Patro Seguros em Guarulhos</h2>`,
+      `<p>Patro Seguros — Av. Salgado Filho, 2120, Sala 219, Cidade Maia, Guarulhos/SP. Telefone (11) 5199-7500. CNPJ 41.641.558/0001-33 · SUSEP 212113511.</p>`,
+      `<p>Veja também <a href="/seguro-auto-guarulhos">seguro auto</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/plano-de-saude-guarulhos">plano de saúde</a>, <a href="/blog">nosso blog</a> ou <a href="/contato">fale com um corretor</a>.</p>`,
+    );
+    return `
+    <div id="crawler-content">
+      ${parts.join("\n      ")}
+    </div>
+  `;
+  }
 
   const h1 = content.h1 || metadata.title;
   return `
-    <div id="crawler-content" style="display:none">
+    <div id="crawler-content">
       <h1>${h1}</h1>
       ${content.body}
     </div>
   `;
 }
+
 
 async function run() {
   if (!fs.existsSync(INDEX_HTML)) {
@@ -108,7 +184,13 @@ async function run() {
     process.exit(1);
   }
 
-  const indexContent = fs.readFileSync(INDEX_HTML, "utf-8");
+  // O shell base precisa estar limpo: se um prerender anterior já injetou o
+  // bloco de conteúdo da home, ele contaminaria todas as demais rotas (H1 errado).
+  const indexContent = fs
+    .readFileSync(INDEX_HTML, "utf-8")
+    .replace(/<div id="root"[^>]*>[\s\S]*?<\/div>\s*<\/div>/, '<div id="root"></div>')
+    .replace(/<div id="root" data-prerender-seo="1">/, '<div id="root">');
+
 
   const { getMetadataForRoute } = await loadDataModule("src/lib/seoMetadata.ts");
   const { generateSitemapBundle } = await loadDataModule("scripts/generate-sitemap.ts");
@@ -223,6 +305,7 @@ async function run() {
     }
 
     // FAQ logic
+    const extras = { body: "", faqs: [] };
     const isBlogOrArtigo = route.startsWith("/artigos/") || route.startsWith("/blog/");
     if (isBlogOrArtigo) {
       const slug = route.replace(/^\/(artigos|blog)\//, "");
@@ -243,6 +326,21 @@ async function run() {
         return true;
       });
 
+      extras.faqs = uniqueFaqs;
+      if (contentArticle?.content) extras.body = markdownToHtml(contentArticle.content);
+      if (contentArticle?.title) extras.h1 = contentArticle.title;
+
+      // Listagens do blog: H1 legível em vez do slug da rota.
+      if (route.startsWith("/blog/categoria/")) {
+        const cat = (allCategories || []).find((c) => slugifyCategory(c) === slug.replace("categoria/", ""));
+        extras.h1 = `Artigos sobre ${cat || humanizeSlug(slug.replace("categoria/", ""))}`;
+      } else if (route.startsWith("/blog/autor/")) {
+        const author = (blogAuthors || []).find((a) => a.slug === slug.replace("autor/", ""));
+        extras.h1 = author?.name ? `Artigos de ${author.name}` : `Artigos do autor`;
+      }
+
+
+
       if (uniqueFaqs.length >= 2) {
         const faqSchema = {
           "@context": "https://schema.org",
@@ -258,7 +356,8 @@ async function run() {
       }
     }
 
-    const seoBlock = buildSeoBlock(route, metadata);
+    const seoBlock = buildSeoBlock(route, metadata, extras);
+
     if (seoBlock) {
       if (html.includes('<div id="root"></div>')) {
         html = html.replace('<div id="root"></div>', `<div id="root" data-prerender-seo="1">${seoBlock}</div>`);
