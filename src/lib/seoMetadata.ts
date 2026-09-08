@@ -161,7 +161,7 @@ const premiumPages: Record<string, PremiumMeta> = {
   },
   "/seguro-condominio-empresarial": {
     title: "Seguro Condomínio Empresarial e Comercial | Patro",
-    description: "Seguro obrigatório para condomínios empresariais: incêndio, RC síndico, danos a terceiros, equipamentos e áreas comuns. Cotação com 8+ seguradoras.",
+    description: "Seguro obrigatório para condomínios empresariais: incêndio, RC síndico, danos a terceiros, equipamentos e áreas comuns. Cotação com 16+ seguradoras.",
     h1: "Seguro para Condomínio Empresarial",
     serviceType: "Seguro de Condomínio Comercial",
   },
@@ -286,7 +286,7 @@ const premiumPages: Record<string, PremiumMeta> = {
   },
   "/hub-veiculos": {
     title: "Seguros de Veículos | Auto, Moto, Frota e Pesados",
-    description: "Hub de seguros para veículos: auto, moto, caminhão, frota, motorista de app, micro-ônibus e implementos. Compare 12+ seguradoras em uma cotação.",
+    description: "Hub de seguros para veículos: auto, moto, caminhão, frota, motorista de app, micro-ônibus e implementos. Compare 16+ seguradoras em uma cotação.",
     h1: "Hub de Seguros de Veículos",
     collection: true,
   },
