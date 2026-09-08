@@ -237,6 +237,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/plano-de-saude-guarulhos">plano de saúde em Guarulhos</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a> e <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>.</p>
+
+      <h2>Atendimento em Guarulhos e Grande São Paulo</h2>
+      <p>A Patro Seguros tem sede em Guarulhos, na Cidade Maia, e atende famílias e empresas da cidade, da capital e das demais cidades da Grande São Paulo. Em vida e saúde, isso faz diferença prática: a análise de perfil, o preenchimento da declaração pessoal de saúde, o envio de exames complementares quando a seguradora pede e o acompanhamento da proposta são feitos de forma digital, com um consultor responsável do começo ao fim. Nada disso exige deslocamento até o escritório. Para quem prefere conversar pessoalmente, a visita à sede pode ser agendada com hora marcada. Também apoiamos o cliente nos momentos em que ninguém quer precisar de ajuda: comunicação de sinistro, reunião de documentos, prazos de análise e interlocução com a seguradora até a conclusão do processo. Se você está comparando seguro de vida e plano de saúde ao mesmo tempo, avaliamos as duas frentes em conjunto, porque a decisão sobre uma costuma mudar o orçamento disponível para a outra. Veja como funciona nosso <a href="/grande-sao-paulo">atendimento em Guarulhos e na Grande São Paulo</a>.</p>
     `,
   },
 
@@ -275,6 +278,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/seguro-auto-guarulhos">seguro auto</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-vida-saude-guarulhos">seguro de vida</a>.</p>
+
+      <h2>Atendimento para motociclistas em Guarulhos e região</h2>
+      <p>Quem usa moto no dia a dia costuma rodar por mais de uma cidade da Grande São Paulo na mesma semana: trabalho em Guarulhos, entrega na capital, visita a cliente em outro município da região metropolitana. A apólice acompanha o condutor, porque a cobertura das seguradoras parceiras tem abrangência nacional — o endereço influencia o preço, não o território de proteção. Na cotação, olhamos com atenção para três pontos que costumam passar batido: o uso real da moto (lazer, deslocamento ou trabalho remunerado), a existência de acessórios instalados fora do padrão de fábrica e a cobertura de danos a terceiros, que em acidente com motociclista tende a ser a garantia mais acionada. Se a moto é ferramenta de trabalho, a apólice precisa contemplar essa atividade de forma expressa, sob risco de negativa. A Patro Seguros é sediada em Guarulhos e atende também motociclistas de cidades vizinhas — veja o <a href="/grande-sao-paulo">atendimento na Grande São Paulo</a> ou fale com um consultor por WhatsApp.</p>
     `,
   },
 
@@ -318,6 +324,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/seguro-vida-saude-guarulhos">seguro de vida e saúde</a> e <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>.</p>
+
+      <h2>Rede credenciada, portabilidade e atendimento regional</h2>
+      <p>Escolher plano de saúde em Guarulhos passa por três perguntas objetivas: quais hospitais e laboratórios você quer ter acesso, quanto o orçamento familiar comporta por mês e quais carências você já cumpriu em um plano anterior. A rede credenciada é o ponto que mais gera arrependimento depois da contratação, e por isso conferimos junto com você, operadora por operadora, se os prestadores que importam para a sua rotina estão incluídos — em Guarulhos e também na capital, já que boa parte dos moradores usa serviços nas duas cidades. Quem já tem plano pode ter direito à portabilidade de carências dentro das regras da ANS, o que evita recomeçar prazos do zero; verificamos essa possibilidade antes de qualquer proposta. A Patro Seguros é sediada em Guarulhos e atende beneficiários da cidade, da capital e da região metropolitana de forma digital e consultiva. Conheça o <a href="/grande-sao-paulo">nosso atendimento na Grande São Paulo</a> ou compare opções com um consultor.</p>
     `,
   },
 
@@ -368,6 +377,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>.</p>
+
+      <h2>Empresas em Guarulhos e na Grande São Paulo</h2>
+      <p>Uma empresa raramente tem risco em um só endereço. Sede em Guarulhos, depósito em outro município, equipe circulando pela capital, equipamentos que saem para obra ou evento: cada uma dessas situações pede uma leitura específica da apólice. Por isso o nosso processo começa por um levantamento simples e honesto do que existe, quanto vale e o que pararia se um sinistro acontecesse amanhã. A partir daí definimos importâncias seguradas realistas — subseguro é o erro mais caro e mais comum em apólices empresariais — e comparamos as seguradoras parceiras com o mesmo padrão de cobertura, para que a comparação seja justa. Também orientamos sobre exigências contratuais que muitos clientes descobrem tarde: seguro exigido em contrato de locação, em edital ou por um cliente de grande porte. A Patro Seguros é sediada em Guarulhos e atende empresas da cidade, da capital e das demais cidades da região — veja o <a href="/grande-sao-paulo">atendimento em Guarulhos e Grande São Paulo</a>.</p>
     `,
   },
 
@@ -422,6 +434,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial completo</a>, <a href="/seguro-frota-empresas-guarulhos">seguro de frota</a> e <a href="/seguro-condominio-guarulhos">seguro condomínio</a>.</p>
+
+      <h2>PMEs de Guarulhos, capital e região metropolitana</h2>
+      <p>Pequenas e médias empresas costumam contratar seguro por obrigação contratual e descobrir depois que a apólice não conversa com a operação real. O caminho que seguimos é o inverso: entender o negócio primeiro, a apólice depois. Uma loja de rua tem exposição diferente de um escritório em edifício comercial; uma cozinha industrial tem risco de incêndio diferente do de uma clínica; um prestador de serviço que trabalha na casa do cliente precisa de responsabilidade civil, não só de patrimônio. Com esse mapa em mãos, cotamos com as seguradoras parceiras e explicamos, em linguagem direta, o que muda de uma proposta para outra em franquia, limites e assistências. Também revisamos a apólice na renovação, porque o faturamento, o estoque e a estrutura mudam mais rápido do que o contrato. A Patro Seguros é sediada em Guarulhos e atende PMEs da cidade, da capital e da Grande São Paulo — conheça o <a href="/grande-sao-paulo">nosso atendimento regional</a> ou fale com um consultor.</p>
     `,
   },
 
@@ -483,6 +498,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/seguro-empresarial-guarulhos">seguro empresarial</a>, <a href="/seguro-auto-guarulhos">seguro auto</a> e <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>.</p>
+
+      <h2>Gestão de frota em Guarulhos e Grande São Paulo</h2>
+      <p>Frota não é um monte de seguros individuais somados: é uma operação que precisa de política clara de uso, controle de condutores e previsibilidade de custo. Empresas sediadas em Guarulhos costumam rodar diariamente pela capital, pelas marginais e pelas rodovias que cortam a região metropolitana, o que muda a exposição em relação a um veículo particular que fica parado a maior parte do dia. Na estruturação da apólice, avaliamos a composição da frota, o perfil de uso de cada veículo, a rotina de manutenção e a forma como os sinistros vêm sendo tratados até aqui. Isso permite discutir franquias, limites de terceiros e assistência com base em números, não em suposição. Também organizamos inclusões e exclusões de veículos ao longo da vigência, para que a apólice acompanhe a operação sem sustos na renovação. A Patro Seguros é sediada em Guarulhos e atende frotas na cidade e em toda a <a href="/grande-sao-paulo">Grande São Paulo</a>.</p>
     `,
   },
 
@@ -529,6 +547,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/seguro-residencial-guarulhos">seguro residencial</a>, <a href="/seguro-empresarial-guarulhos">seguro empresarial</a> e <a href="/seguros-empresariais-pme-guarulhos">seguro PME</a>.</p>
+
+      <h2>Síndicos e administradoras em Guarulhos e região</h2>
+      <p>O seguro de condomínio é obrigatório por lei, mas a obrigatoriedade costuma ser cumprida no mínimo — e é aí que mora o problema. Coberturas de danos elétricos, vazamento, quebra de vidros, responsabilidade civil do condomínio e do síndico, além de equipamentos como bombas, portões e elevadores, fazem parte da rotina real de um prédio e nem sempre estão contempladas com limites suficientes. Trabalhamos com síndicos, conselhos e administradoras revisando a apólice item por item, comparando as seguradoras parceiras e apresentando o resultado em uma linguagem que possa ser levada para a assembleia sem tradução. Também orientamos sobre a documentação exigida na contratação e sobre o passo a passo de um aviso de sinistro, que costuma ser o momento em que a diferença entre uma apólice bem feita e uma apólice barata aparece. A Patro Seguros é sediada em Guarulhos e atende condomínios da cidade e da <a href="/grande-sao-paulo">Grande São Paulo</a>.</p>
     `,
   },
 
@@ -578,6 +599,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Veja também <a href="/seguro-auto-guarulhos">seguro auto</a>, <a href="/seguro-residencial-guarulhos">seguro residencial</a> e <a href="/contato">fale com um consultor</a>.</p>
+
+      <h2>Consórcio com acompanhamento em Guarulhos e Grande São Paulo</h2>
+      <p>Consórcio é uma forma de compra planejada, não um empréstimo — e essa diferença muda tudo na hora de decidir. Não há juros, mas há taxa de administração, fundo de reserva e, na maior parte dos grupos, um prazo até a contemplação que depende de sorteio ou de lance. Para quem tem tempo e disciplina, costuma ser uma alternativa eficiente; para quem precisa do bem imediatamente, raramente é o caminho certo. Nosso papel é dizer isso com clareza antes da adesão, simular parcelas reais, explicar como funcionam lances embutidos e livres e comparar administradoras autorizadas pelo Banco Central. Depois da adesão, seguimos acompanhando: alteração de plano, uso do lance, contemplação e liberação do crédito. A Patro Seguros é sediada em Guarulhos e atende consorciados da cidade, da capital e da região metropolitana de forma digital — conheça o <a href="/grande-sao-paulo">atendimento em Guarulhos e Grande São Paulo</a>.</p>
     `,
   },
 
@@ -664,6 +688,9 @@ export const FULL_SEO_CONTENT = {
       <p>A Patro Seguros mantém <strong>nota 4.9 no Google</strong> em avaliações reais de clientes em Guarulhos. Cada avaliação reflete o compromisso com atendimento humano, resposta rápida no WhatsApp, comparativo transparente de seguradoras e presença ativa no momento do sinistro.</p>
 
       <p>Quer se tornar cliente? <a href="/cotacao">Solicite sua cotação online</a> ou <a href="/contato">fale com um consultor</a>. Veja também <a href="/sobre">nossa história</a>.</p>
+
+      <h2>Clientes em Guarulhos, na capital e na Grande São Paulo</h2>
+      <p>A carteira da Patro Seguros começou em Guarulhos e cresceu para a capital e para as demais cidades da região metropolitana, sem que a corretora abrisse filiais: o atendimento é digital e consultivo, com um responsável por cliente. Na prática, quem contrata conosco de outro município tem o mesmo processo de quem mora ao lado da sede — cotação comparada entre seguradoras parceiras, explicação das diferenças entre as propostas, emissão acompanhada e suporte no sinistro. Os relatos publicados aqui vêm de clientes reais atendidos por essa mesma rotina, em produtos diferentes: auto, residencial, vida, saúde, empresarial e frota. Não publicamos depoimento que não tenha sido dado pelo cliente, e não usamos texto genérico no lugar de experiência concreta. Se você quer entender como o atendimento funciona antes de pedir uma cotação, veja <a href="/sobre">quem somos</a> e como atuamos em <a href="/grande-sao-paulo">Guarulhos e na Grande São Paulo</a>.</p>
     `,
   },
 
@@ -721,6 +748,9 @@ export const FULL_SEO_CONTENT = {
       ])}
 
       <p>Conheça <a href="/sobre">nossa história</a> ou <a href="/depoimentos">leia depoimentos de clientes</a>. Ou <a href="/cotacao">solicite sua cotação agora</a>.</p>
+
+      <h2>Como falar com a Patro Seguros</h2>
+      <p>Você pode falar com a Patro Seguros por WhatsApp, telefone ou e-mail, e também agendar uma visita à sede em Guarulhos, na Cidade Maia. O canal mais rápido para cotação é o WhatsApp: com o modelo do veículo, o CEP de pernoite ou o endereço do imóvel em mãos, conseguimos iniciar a comparação entre as seguradoras parceiras no mesmo dia útil. Para sinistros, o atendimento é feito pelo mesmo canal, com orientação sobre documentos, prazos e acompanhamento junto à seguradora até a conclusão. Para assuntos administrativos — segunda via de apólice, alteração de dados, boleto, cancelamento ou renovação — o e-mail costuma ser o caminho mais organizado, porque deixa o histórico registrado. A corretora é sediada em Guarulhos e atende clientes na cidade, na capital e nas demais cidades da <a href="/grande-sao-paulo">Grande São Paulo</a>, além de outras regiões do Brasil, sempre com um consultor responsável pelo caso.</p>
     `,
   },
 
