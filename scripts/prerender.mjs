@@ -93,6 +93,73 @@ function escapeHtml(text) {
     .replace(/'/g, "&#039;");
 }
 
+/**
+ * Conversor mínimo de Markdown (subset usado nos artigos do blog) para HTML.
+ * Cobre headings, listas, links, negrito/itálico e parágrafos — suficiente
+ * para entregar o texto do artigo aos crawlers sem depender de JavaScript.
+ */
+function blogMarkdownToHtml(markdown) {
+  const inline = (text) =>
+    escapeHtml(text)
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2">$1</a>')
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+
+  const out = [];
+  let listOpen = false;
+  const closeList = () => {
+    if (listOpen) {
+      out.push("</ul>");
+      listOpen = false;
+    }
+  };
+
+  for (const rawLine of String(markdown || "").split("\n")) {
+    const line = rawLine.trim();
+    if (!line) {
+      closeList();
+      continue;
+    }
+    const heading = line.match(/^(#{1,4})\s+(.*)$/);
+    if (heading) {
+      closeList();
+      // H1 do artigo é emitido separadamente pelo bloco do prerender.
+      const level = Math.min(Math.max(heading[1].length, 2), 4);
+      out.push(`<h${level}>${inline(heading[2])}</h${level}>`);
+      continue;
+    }
+    const item = line.match(/^[-*]\s+(.*)$/) || line.match(/^\d+\.\s+(.*)$/);
+    if (item) {
+      if (!listOpen) {
+        out.push("<ul>");
+        listOpen = true;
+      }
+      out.push(`<li>${inline(item[1])}</li>`);
+      continue;
+    }
+    out.push(`<p>${inline(line)}</p>`);
+  }
+  closeList();
+  return out.join("\n      ");
+}
+
+function buildBlogSeoBlock(metadata, article, contentArticle, faqs) {
+  if (!contentArticle?.content) return null;
+  const h1 = contentArticle.title || article?.title || metadata.title;
+  const faqHtml = (faqs || [])
+    .map((f) => `<h3>${escapeHtml(f.q)}</h3>\n      <p>${escapeHtml(f.a)}</p>`)
+    .join("\n      ");
+  return `
+    <div id="crawler-content">
+      <h1>${escapeHtml(h1)}</h1>
+      ${article?.excerpt ? `<p>${escapeHtml(article.excerpt)}</p>` : ""}
+      ${blogMarkdownToHtml(contentArticle.content)}
+      ${faqHtml ? `<h2>Perguntas frequentes</h2>\n      ${faqHtml}` : ""}
+      <p>Patro Seguros — Av. Salgado Filho, 2120 — Sala 219 / Edifício Via Alameda — Cidade Maia, Guarulhos/SP — CEP 07115-000. Telefone e WhatsApp: (11) 5199-7500. CNPJ 41.641.558/0001-33 · SUSEP 212113511.</p>
+    </div>
+  `;
+}
+
 function buildSeoBlock(route, metadata) {
   const content = FULL_SEO_CONTENT[route] || SEO_CONTENT[route];
   if (!content) return null;
