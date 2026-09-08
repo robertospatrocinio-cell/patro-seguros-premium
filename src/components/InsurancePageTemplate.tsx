@@ -1201,6 +1201,8 @@ const InsurancePageTemplate = ({
         )}
         {/* Trilha automática por hub SEO — não renderiza fora de cluster. */}
         <ContextualSeoHub />
+        {/* Artigos do blog com a mesma tag/categoria deste produto. */}
+        <BlogRelatedByTopic topic={title} />
         {extraSections}
       </main>
       <Footer />
