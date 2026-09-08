@@ -1,5 +1,5 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
-import heroImg from "@/assets/hero-agro-maquinas.jpg";
+import heroImg from "@/assets/hero-agro-maquinas.webp";
 
 
 const SeguroColheitadeiraGraos = () => {
