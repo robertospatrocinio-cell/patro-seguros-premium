@@ -281,6 +281,7 @@ const SeguroHelicopteros = lazy(() => import("./pages/SeguroHelicopteros"));
 const SeguroAutoEzzeCorinthians = lazyWithRetry(() => import("./pages/SeguroAutoEzzeCorinthians"), "SeguroAutoEzzeCorinthians");
 const SeguroCartaVerde = lazy(() => import("./pages/SeguroCartaVerde"));
 const GrandeSaoPaulo = lazy(() => import("./pages/GrandeSaoPaulo"));
+const AtendimentoDigital = lazy(() => import("./pages/AtendimentoDigital"));
 const SeguroAutoBairroSp = lazy(() => import("./pages/SeguroAutoBairroSp"));
 const IndiqueEGanhe = lazy(() => import("./pages/IndiqueEGanhe"));
 const ObrigadoIndicacao = lazy(() => import("./pages/ObrigadoIndicacao"));
@@ -633,6 +634,7 @@ const App = () => {
                   <Route path="/seguro-maquinas-agricolas" element={<SeguroMaquinasAgricolas />} />
                   {/* Expansão regional — hub Grande São Paulo + bairros piloto da capital */}
                   <Route path="/grande-sao-paulo" element={<GrandeSaoPaulo />} />
+                  <Route path="/atendimento-digital" element={<AtendimentoDigital />} />
                   {[
                     "seguro-auto-itaim-bibi",
                     "seguro-auto-moema",
