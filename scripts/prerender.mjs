@@ -3,6 +3,10 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { loadDataModule } from "./load-data-module.mjs";
 import { FULL_SEO_CONTENT } from "./seo-content-full.mjs";
+import { extractPageFaqs } from "./extract-page-faqs.mjs";
+
+// Mapa rota -> FAQs já publicadas nas páginas React (fonte: src/pages/*.tsx).
+const PAGE_FAQS = extractPageFaqs();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
