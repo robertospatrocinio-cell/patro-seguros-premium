@@ -751,6 +751,9 @@ export const FULL_SEO_CONTENT = {
 
       <h2>Como falar com a Patro Seguros</h2>
       <p>Você pode falar com a Patro Seguros por WhatsApp, telefone ou e-mail, e também agendar uma visita à sede em Guarulhos, na Cidade Maia. O canal mais rápido para cotação é o WhatsApp: com o modelo do veículo, o CEP de pernoite ou o endereço do imóvel em mãos, conseguimos iniciar a comparação entre as seguradoras parceiras no mesmo dia útil. Para sinistros, o atendimento é feito pelo mesmo canal, com orientação sobre documentos, prazos e acompanhamento junto à seguradora até a conclusão. Para assuntos administrativos — segunda via de apólice, alteração de dados, boleto, cancelamento ou renovação — o e-mail costuma ser o caminho mais organizado, porque deixa o histórico registrado. A corretora é sediada em Guarulhos e atende clientes na cidade, na capital e nas demais cidades da <a href="/grande-sao-paulo">Grande São Paulo</a>, além de outras regiões do Brasil, sempre com um consultor responsável pelo caso.</p>
+
+      <h2>Horário de atendimento e o que ter em mãos</h2>
+      <p>Atendemos de segunda a sexta, das 8h30 às 18h, no telefone e no escritório; mensagens enviadas fora desse horário são respondidas no próximo dia útil. Para acelerar uma cotação de seguro auto, tenha o documento do veículo, o CEP onde ele passa a noite e os dados do condutor principal. Para seguro residencial, o endereço do imóvel, a metragem aproximada e uma ideia do valor do conteúdo já bastam para começar. Para seguro empresarial, ajudam o CNPJ, a atividade exercida e uma noção do patrimônio no endereço. Se o assunto for sinistro, reúna boletim de ocorrência quando houver, fotos e o número da apólice — com isso, conseguimos orientar o próximo passo já no primeiro contato.</p>
     `,
   },
 
