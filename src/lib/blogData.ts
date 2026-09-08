@@ -345,6 +345,37 @@ export const getRelatedArticles = (slug: string, limit = 3): BlogArticleMeta[] =
   return scored.slice(0, limit);
 };
 
+/**
+ * Seleciona artigos do blog relacionados a um tema/produto (ex.: título de uma
+ * página de seguro). Faz o cruzamento por categoria e por tags, sem inventar
+ * conteúdo: só retorna artigos já publicados.
+ */
+export const getArticlesByTopic = (topic: string, limit = 3): BlogArticleMeta[] => {
+  const norm = (s: string) =>
+    s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const t = norm(topic);
+  const words = new Set(t.split(/[^a-z0-9]+/).filter((w) => w.length > 3));
+
+  const scored = articles
+    .map((a) => {
+      let score = 0;
+      const cat = norm(a.category);
+      if (t.includes(cat) || cat.includes(t)) score += 5;
+      for (const tag of a.tags) {
+        const nt = norm(tag);
+        if (t.includes(nt)) score += 3;
+        else if (nt.split(/\s+/).some((w) => w.length > 3 && words.has(w))) score += 1;
+      }
+      const titleWords = norm(a.title).split(/[^a-z0-9]+/);
+      score += titleWords.filter((w) => w.length > 4 && words.has(w)).length * 0.5;
+      return { article: a, score };
+    })
+    .filter((s) => s.score >= 3)
+    .sort((a, b) => b.score - a.score || (a.article.date < b.article.date ? 1 : -1));
+
+  return scored.slice(0, limit).map((s) => s.article);
+};
+
 // Format date to Brazilian locale
 export const formatDate = (dateStr: string): string => {
   const date = new Date(dateStr + "T12:00:00");
