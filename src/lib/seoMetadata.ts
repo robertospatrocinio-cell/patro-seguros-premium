@@ -12,6 +12,7 @@ import { servicePagesContent } from "@/data/seoServiceContent";
 import { SEO_HUBS } from "@/data/seoHubs";
 import { EMPRESA } from "@/config/empresa";
 import { cidadesRegiao, getCidadeRegiao, CIDADES_REGIAO_HUB_PATH } from "@/data/cidadesRegiao";
+import { GRANDE_SP_HUB, bairrosSaoPauloAuto } from "@/data/segurosSaoPauloRegional";
 
 
 export interface Metadata {
@@ -716,7 +717,26 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
 
   // 2. Static Pages Mapping (Commercial/Informative focus) - Only if NOT an LP route
   if (!isLP) {
+    const regionalPages: Record<string, { title: string; description: string; h1: string }> = {
+      [GRANDE_SP_HUB.path]: {
+        title: GRANDE_SP_HUB.title,
+        description: GRANDE_SP_HUB.metaDescription,
+        h1: GRANDE_SP_HUB.h1,
+      },
+      ...Object.fromEntries(
+        Object.values(bairrosSaoPauloAuto).map((b) => [
+          `/${b.slug}`,
+          {
+            title: b.title,
+            description: b.metaDescription,
+            h1: `Seguro Auto em ${b.bairro} – São Paulo`,
+          },
+        ]),
+      ),
+    };
+
     const staticPages: Record<string, { title: string; description: string; h1: string }> = {
+      ...regionalPages,
       "/blog": {
         title: "Blog Patro Seguros | Notícias e Dicas sobre Seguros",
         description: "Acompanhe as últimas notícias, dicas e novidades sobre o mercado de seguros em Guarulhos e no Brasil.",
