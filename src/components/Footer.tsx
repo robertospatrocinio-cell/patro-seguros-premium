@@ -8,7 +8,7 @@ import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import NapBlock from "@/components/NapBlock";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { memo } from "react";
-import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS, ENDERECO_LINHA } from "@/config/empresa";
+import { EMPRESA, TELEFONE_DIGITS, WHATSAPP_DIGITS, ENDERECO_LINHA, NAP_LINHA_1, NAP_LINHA_2, GOOGLE_MAPS_URL } from "@/config/empresa";
 
 const logoFull = "/images/logo-full.webp";
 
@@ -52,10 +52,19 @@ const Footer = memo(() => {
               <li className="flex items-start gap-2">
                 <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0 text-white/50" aria-hidden="true" />
                 <span>
-                  {EMPRESA.endereco.logradouro}, {EMPRESA.endereco.numero} – Sala 219
+                  {NAP_LINHA_1}
                   <br />
-                  {EMPRESA.endereco.bairro}, {EMPRESA.endereco.cidade}/{EMPRESA.endereco.estadoSigla}
+                  {NAP_LINHA_2}
                 </span>
+              </li>
+              <li>
+                <ExternalLink
+                  href={GOOGLE_MAPS_URL}
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#F2994A] px-3 py-2 font-bold text-[12px] text-[#1a1a1a] hover:brightness-110 transition"
+                  aria-label="Ver a Patro Seguros no Google Maps (abre em nova aba)"
+                >
+                  <MapPin className="h-3.5 w-3.5" aria-hidden="true" /> Ver no Google Maps
+                </ExternalLink>
               </li>
               <li>
                 <a href={`tel:${TELEFONE_DIGITS}`} className="flex items-center gap-2 hover:text-white transition-colors">
