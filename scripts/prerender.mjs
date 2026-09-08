@@ -129,7 +129,15 @@ function markdownToHtml(md) {
 
 
 // Título limpo para uso como H1: remove sufixo de marca e separadores.
+function humanizeSlug(slug) {
+  return String(slug)
+    .split("-")
+    .map((w) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+    .join(" ");
+}
+
 function titleToH1(title) {
+
   if (!title) return "Patro Seguros";
   const cleaned = String(title)
     .replace(/\s*[|·]\s*Patro.*$/i, "")
