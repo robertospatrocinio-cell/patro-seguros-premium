@@ -55,7 +55,7 @@ function fixIndex() {
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Avenida Salgado Filho, 2120 - Sala 219",
+      "streetAddress": "Av. Salgado Filho, 2120 — Sala 219 — Edifício Via Alameda",
       "addressLocality": "Guarulhos",
       "addressRegion": "SP",
       "postalCode": "07115-000",
