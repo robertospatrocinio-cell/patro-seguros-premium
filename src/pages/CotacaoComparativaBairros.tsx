@@ -305,8 +305,8 @@ const CotacaoComparativaBairros = () => {
               ))}
             </ul>
             <p className="text-sm text-muted-foreground">
-              {EMPRESA.nome} — {NAP_LINHA_1} — {NAP_LINHA_2}. CNPJ {EMPRESA.cnpj} • SUSEP{" "}
-              {EMPRESA.susep} • WhatsApp {EMPRESA.telefoneFormatado}.{" "}
+              {EMPRESA.nomeFantasia} — {NAP_LINHA_1} — {NAP_LINHA_2}. CNPJ {EMPRESA.cnpj} • SUSEP{" "}
+              {EMPRESA.susep} • WhatsApp {EMPRESA.telefone}.{" "}
               <Link to={GRANDE_SP_PATH} className="text-primary hover:underline">
                 Atendimento na Grande São Paulo
               </Link>
