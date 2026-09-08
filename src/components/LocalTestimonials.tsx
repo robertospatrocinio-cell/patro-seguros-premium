@@ -10,6 +10,9 @@ import { EMPRESA } from "@/config/empresa";
 // legacy migrados da versão anterior (já visíveis em produção).
 const testimonials = PATRO_LOCAL_TESTIMONIALS;
 
+/** Mesmo @id do schema InsuranceAgency global (index.html) — vincula cada Review à empresa. */
+const ORG_ID = "https://www.patroseguros.com.br/#insurance-agency";
+
 const LocalTestimonials = () => {
   return (
     <section className="py-16 bg-slate-50 overflow-hidden" aria-label="Depoimentos de clientes em Guarulhos">
@@ -43,8 +46,32 @@ const LocalTestimonials = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((t, i) => (
-            <Card key={i} className="border-none shadow-md hover:shadow-lg transition-shadow bg-white group">
+            <Card
+              key={i}
+              className="border-none shadow-md hover:shadow-lg transition-shadow bg-white group"
+              itemScope
+              itemType="https://schema.org/Review"
+            >
               <CardContent className="p-6 space-y-4">
+                <div
+                  itemProp="itemReviewed"
+                  itemScope
+                  itemType="https://schema.org/InsuranceAgency"
+                  itemID={ORG_ID}
+                >
+                  <meta itemProp="name" content={EMPRESA.nomeFantasia} />
+                  <meta itemProp="url" content={EMPRESA.dominioCanonico} />
+                  <meta itemProp="telephone" content={EMPRESA.telefoneE164} />
+                </div>
+                <div
+                  itemProp="reviewRating"
+                  itemScope
+                  itemType="https://schema.org/Rating"
+                >
+                  <meta itemProp="ratingValue" content="5" />
+                  <meta itemProp="bestRating" content="5" />
+                  <meta itemProp="worstRating" content="1" />
+                </div>
                 <div className="flex justify-between items-start">
                   <div className="flex text-yellow-400">
                     {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
@@ -52,12 +79,19 @@ const LocalTestimonials = () => {
                   <Quote className="w-6 h-6 text-primary/10 group-hover:text-primary/20 transition-colors" />
                 </div>
                 
-                <p className="text-sm text-foreground/80 italic leading-relaxed">
+                <p className="text-sm text-foreground/80 italic leading-relaxed" itemProp="reviewBody">
                   "{t.text}"
                 </p>
                 
                 <div className="pt-4 border-t border-slate-50">
-                  <p className="font-bold text-sm text-foreground">{t.name}</p>
+                  <p
+                    className="font-bold text-sm text-foreground"
+                    itemProp="author"
+                    itemScope
+                    itemType="https://schema.org/Person"
+                  >
+                    <span itemProp="name">{t.name}</span>
+                  </p>
                   <div className="flex items-center gap-1 text-[11px] text-muted-foreground font-medium mt-0.5">
                     <MapPin className="w-3 h-3 text-primary" />
                     {t.location} • {t.insurance}
