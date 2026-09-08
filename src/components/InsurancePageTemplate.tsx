@@ -42,6 +42,7 @@ import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
 import SmartText from "@/components/SmartText";
+import BlogRelatedByTopic from "@/components/BlogRelatedByTopic";
 import { getBreadcrumbChain } from "@/lib/breadcrumbCategory";
 import { useBreadcrumbOverrides } from "@/hooks/useBreadcrumbOverrides";
 import { getRelatedLinks } from "@/lib/relatedFromText";
@@ -1201,6 +1202,8 @@ const InsurancePageTemplate = ({
         )}
         {/* Trilha automática por hub SEO — não renderiza fora de cluster. */}
         <ContextualSeoHub />
+        {/* Artigos do blog com a mesma tag/categoria deste produto. */}
+        <BlogRelatedByTopic topic={title} />
         {extraSections}
       </main>
       <Footer />
