@@ -76,7 +76,7 @@ Nosso atendimento presencial no Cidade Maia inclui análise gratuita de apólice
     ]}
     whyPatro={[
       "Mais de 400 vidas protegidas em Guarulhos",
-      "Comparação entre 8+ seguradoras de vida líderes do Brasil",
+      "Comparação entre 16+ seguradoras de vida líderes do Brasil",
       "Atendimento presencial humanizado no Cidade Maia",
       "Análise gratuita de apólices existentes — economia média de 25%",
       "Suporte completo aos familiares no momento do sinistro",
