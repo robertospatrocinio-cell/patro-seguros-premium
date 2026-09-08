@@ -723,6 +723,12 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
         description: GRANDE_SP_HUB.metaDescription,
         h1: GRANDE_SP_HUB.h1,
       },
+      "/cotacao-seguro-auto-por-bairro": {
+        title: "Cotação de Seguro Auto por Bairro em São Paulo | Patro Seguros",
+        description:
+          "Compare seguradoras de seguro auto bairro a bairro em São Paulo: veja o que muda em franquia, oficina e danos a terceiros e receba a cotação comentada da Patro Seguros.",
+        h1: "Cotação de Seguro Auto por Bairro em São Paulo",
+      },
       "/atendimento-digital": {
         title: "Atendimento Digital por WhatsApp e E-mail | Patro Seguros",
         description:
