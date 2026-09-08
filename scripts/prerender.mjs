@@ -267,6 +267,17 @@ async function run() {
       }
     }
 
+    // Páginas de formulário sem conteúdo único: noindex (com follow, para
+    // preservar o rastreamento dos links internos). Mantido em sincronia com
+    // a prop `noindex` do PageMeta/SeoHead.
+    const NOINDEX_ROUTES = new Set(["/contato", "/cotacao"]);
+    if (NOINDEX_ROUTES.has(route)) {
+      html = html.replace(
+        '<meta name="robots" content="index, follow" />',
+        '<meta name="robots" content="noindex, follow" />',
+      );
+    }
+
     if (route === "/") {
       fs.writeFileSync(INDEX_HTML, html, "utf-8");
     } else {
