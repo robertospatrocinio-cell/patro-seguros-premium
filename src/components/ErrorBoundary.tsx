@@ -203,7 +203,7 @@ interface Props {
                               <p className="text-[10px] text-muted-foreground uppercase font-bold">Código de Referência</p>
                               <p className="font-mono text-lg tracking-wider">{this.state.errorId}</p>
                             </div>
-                            <Button size="icon" variant="ghost" onClick={this.copyErrorId}>
+                            <Button size="icon" variant="ghost" onClick={this.copyErrorId} aria-label="Copiar código de referência do erro">
                               {this.state.copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4" />}
                             </Button>
                           </div>

@@ -206,7 +206,7 @@ const NichoMotoristasApp = () => {
                 <div>
                   <Label>Plataforma(s) *</Label>
                   <Select value={formData.plataforma} onValueChange={(v) => setFormData({ ...formData, plataforma: v })}>
-                    <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+                    <SelectTrigger aria-label="Plataformas de aplicativo"><SelectValue placeholder="Selecione" /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="Uber">Uber</SelectItem>
                       <SelectItem value="99">99</SelectItem>
@@ -220,7 +220,7 @@ const NichoMotoristasApp = () => {
                 <div>
                   <Label>Horas rodadas/dia</Label>
                   <Select value={formData.horas} onValueChange={(v) => setFormData({ ...formData, horas: v })}>
-                    <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+                    <SelectTrigger aria-label="Horas rodadas por dia"><SelectValue placeholder="Selecione" /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="Até 4h">Até 4h (parcial)</SelectItem>
                       <SelectItem value="4h a 8h">4h a 8h</SelectItem>
@@ -233,7 +233,7 @@ const NichoMotoristasApp = () => {
               <div>
                 <Label>Região de atuação</Label>
                 <Select value={formData.regiao} onValueChange={(v) => setFormData({ ...formData, regiao: v })}>
-                  <SelectTrigger><SelectValue placeholder="Selecione" /></SelectTrigger>
+                  <SelectTrigger aria-label="Região de atuação"><SelectValue placeholder="Selecione" /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Guarulhos">Guarulhos</SelectItem>
                     <SelectItem value="São Paulo">São Paulo - Capital</SelectItem>

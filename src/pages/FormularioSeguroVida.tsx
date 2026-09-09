@@ -476,7 +476,7 @@ const FormularioSeguroVida = () => {
                         <div className="space-y-1.5">
                           <Label htmlFor="estado" className="font-semibold">Estado</Label>
                           <Select value={form.estado || ""} onValueChange={v => { u("estado", v); handleBlur("estado"); }}>
-                            <SelectTrigger id="estado" className="h-11"><SelectValue placeholder="UF" /></SelectTrigger>
+                            <SelectTrigger id="estado" className="h-11" aria-label="Estado"><SelectValue placeholder="UF" /></SelectTrigger>
                             <SelectContent>
                               {estadosBR.map(uf => <SelectItem key={uf} value={uf}>{uf}</SelectItem>)}
                             </SelectContent>
@@ -500,6 +500,7 @@ const FormularioSeguroVida = () => {
                         <Select value={form.valorSeguro || ""} onValueChange={v => { u("valorSeguro", v); handleBlur("valorSeguro"); }}>
                           <SelectTrigger 
                             id="valorSeguro"
+                            aria-label="Capital segurado desejado"
                             className={`h-11 ${getFieldError("valorSeguro") ? "border-destructive focus-visible:ring-destructive" : ""}`}
                           ><SelectValue placeholder="Selecione o valor" /></SelectTrigger>
                           <SelectContent>

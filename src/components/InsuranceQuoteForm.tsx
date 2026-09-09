@@ -593,6 +593,7 @@ const InsuranceQuoteForm = ({ config, compact = false }: Props) => {
                     >
                       <SelectTrigger 
                         id={`iq-${field.id}`}
+                        aria-label={field.label}
                         className={`h-11 ${error ? "border-destructive focus-visible:ring-destructive" : ""}`}
                         aria-invalid={!!error}
                         aria-describedby={error ? `error-iq-${field.id}` : undefined}

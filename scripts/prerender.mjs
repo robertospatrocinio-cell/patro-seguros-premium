@@ -195,6 +195,115 @@ async function run() {
     }
   }
 
+  // ---- Grupo A (capital): hubs de bairro + Seguro Residencial/Empresarial
+  // Mesma estratégia de injeção estática: H1/H2/H3, FAQs, links internos e
+  // NAP real (sede Guarulhos) no HTML, sem depender de JavaScript.
+  {
+    const PROD = await loadDataModule("src/data/segurosSaoPauloProdutos.ts");
+    const esc = escapeHtml;
+    const ul = (items) => `<ul>${items.map((i) => `<li>${i}</li>`).join("")}</ul>`;
+    const faqHtml = (faqs) =>
+      `<h2>Perguntas frequentes</h2>${faqs
+        .map((f) => `<h3>${esc(f.question)}</h3><p>${esc(f.answer)}</p>`)
+        .join("")}`;
+    const napHtml =
+      `<p>Patro Seguros — Av. Salgado Filho, 2120 — Sala 219, Edifício Via Alameda, Cidade Maia, Guarulhos/SP — CEP 07115-000. Telefone e WhatsApp: (11) 5199-7500. CNPJ 41.641.558/0001-33 · SUSEP 212113511.</p>`;
+    const WHATSAPP_URL =
+      "https://wa.me/551151997500?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o.";
+
+    for (const key of PROD.bairroGrupoAKeys) {
+      const bairro = PROD.bairrosGrupoA[key];
+      const res = PROD.residencialBairrosSp[key];
+      const emp = PROD.empresarialBairrosSp[key];
+      const hubPath = `/${bairro.key}`;
+      const resPath = `/${res.slug}`;
+      const empPath = `/${emp.slug}`;
+
+      // Hub do bairro
+      {
+        const body = [
+          `<p>${esc(bairro.posicionamento)}</p>`,
+          bairro.hubIntro.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Seguro Auto em ${esc(bairro.nome)}</h2>`,
+          `<p>Comparação de coberturas e assistências para quem circula por ${esc(bairro.nome)} e região.</p>`,
+          `<p><a href="/${bairro.autoSlug}">Ver seguro auto em ${esc(bairro.nome)}</a></p>`,
+          `<h2>Seguro Residencial em ${esc(bairro.nome)}</h2>`,
+          `<p>${esc(res.contexto[0] ?? res.intro[0])}</p>`,
+          `<p><a href="${resPath}">Ver seguro residencial em ${esc(bairro.nome)}</a></p>`,
+          `<h2>Seguro Empresarial em ${esc(bairro.nome)}</h2>`,
+          `<p>${esc(emp.contexto[0] ?? emp.intro[0])}</p>`,
+          `<p><a href="${empPath}">Ver seguro empresarial em ${esc(bairro.nome)}</a></p>`,
+          `<h2>Atendimento consultivo, sem escritório na capital</h2>`,
+          `<p>A Patro Seguros tem sede única em Guarulhos e atende ${esc(bairro.nome)} de forma digital e consultiva, com um especialista dedicado do primeiro contato à emissão.</p>`,
+          napHtml,
+          `<p><a href="${WHATSAPP_URL}">Pedir cotação pelo WhatsApp</a></p>`,
+          `<h2>Bairros vizinhos</h2>`,
+          ul(bairro.vizinhos.map((v) => `<a href="/${v}">Seguros em ${esc(PROD.bairrosGrupoA[v]?.nome ?? v)}</a>`)),
+        ].join("");
+        FULL_SEO_CONTENT[hubPath] = { h1: `Seguros em ${bairro.nome} – São Paulo`, body };
+      }
+
+      // Seguro Residencial no bairro
+      {
+        const body = [
+          res.intro.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Por que o perfil do ${esc(bairro.nome)} muda a apólice</h2>`,
+          res.contexto.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Apartamento em ${esc(bairro.nome)}: o que a apólice precisa prever</h2>`,
+          res.apartamento.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Casa em ${esc(bairro.nome)}: outros pontos de atenção</h2>`,
+          res.casa.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Proprietário ou inquilino: quem contrata o quê</h2>`,
+          res.proprietarioInquilino.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Coberturas que costumam entrar na apólice</h2>`,
+          PROD.RESIDENCIAL_COBERTURAS.map((c) => `<h3>${esc(c.title)}</h3><p>${esc(c.description)}</p>`).join(""),
+          `<h2>Assistência 24h no dia a dia</h2>`,
+          ul(PROD.RESIDENCIAL_ASSISTENCIA.map(esc)),
+          `<h2>Como montamos a sua cotação</h2>`,
+          PROD.RESIDENCIAL_PASSOS.map((st) => `<h3>${esc(st.title)}</h3><p>${esc(st.description)}</p>`).join(""),
+          `<h2>Como personalizar a apólice</h2>`,
+          ul(PROD.PERSONALIZAR_APOLICE.map(esc)),
+          res.escolha.map((e) => `<h3>${esc(e.title)}</h3><p>${esc(e.description)}</p>`).join(""),
+          `<h2>Atendimento em Guarulhos e Grande São Paulo</h2>`,
+          napHtml,
+          `<p>Veja também: <a href="${hubPath}">todos os seguros em ${esc(bairro.nome)}</a> · <a href="/${bairro.autoSlug}">seguro auto em ${esc(bairro.nome)}</a> · <a href="${empPath}">seguro empresarial em ${esc(bairro.nome)}</a> · <a href="${WHATSAPP_URL}">pedir cotação pelo WhatsApp</a>.</p>`,
+          faqHtml(res.faqs),
+        ].join("");
+        FULL_SEO_CONTENT[resPath] = { h1: res.title, body };
+        PAGE_FAQS[resPath] = res.faqs.map((f) => ({ q: f.question, a: f.answer }));
+      }
+
+      // Seguro Empresarial no bairro
+      {
+        const body = [
+          emp.intro.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>O cenário de risco de ${esc(bairro.nome)}</h2>`,
+          emp.contexto.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Quem contrata</h2>`,
+          ul(emp.quemContrata.map(esc)),
+          `<h2>Riscos que mapeamos antes da proposta</h2>`,
+          emp.riscos.map((r) => `<h3>${esc(r.title)}</h3><p>${esc(r.description)}</p>`).join(""),
+          `<h2>Coberturas estruturantes</h2>`,
+          PROD.EMPRESARIAL_COBERTURAS.map((c) => `<h3>${esc(c.title)}</h3><p>${esc(c.description)}</p>`).join(""),
+          `<h2>Segmentos atendidos em ${esc(bairro.nome)}</h2>`,
+          emp.segmentos.map((s) => `<h3>${esc(s.title)}</h3><p>${esc(s.description)}</p>`).join(""),
+          `<h2>PME: apólice sob medida, sem excesso</h2>`,
+          emp.pme.map((t) => `<p>${esc(t)}</p>`).join(""),
+          `<h2>Como montamos a sua cotação</h2>`,
+          PROD.EMPRESARIAL_PASSOS.map((st) => `<h3>${esc(st.title)}</h3><p>${esc(st.description)}</p>`).join(""),
+          `<h2>Como personalizar a apólice</h2>`,
+          ul(PROD.PERSONALIZAR_APOLICE.map(esc)),
+          `<h2>Atendimento em Guarulhos e Grande São Paulo</h2>`,
+          napHtml,
+          `<p>Veja também: <a href="${hubPath}">todos os seguros em ${esc(bairro.nome)}</a> · <a href="/${bairro.autoSlug}">seguro auto em ${esc(bairro.nome)}</a> · <a href="${resPath}">seguro residencial em ${esc(bairro.nome)}</a> · <a href="${WHATSAPP_URL}">pedir cotação pelo WhatsApp</a>.</p>`,
+          faqHtml(emp.faqs),
+        ].join("");
+        FULL_SEO_CONTENT[empPath] = { h1: emp.title, body };
+        PAGE_FAQS[empPath] = emp.faqs.map((f) => ({ q: f.question, a: f.answer }));
+      }
+    }
+  }
+
   const { blogFaqBackfill: FAQ_BACKFILL } = await loadDataModule("src/data/blogFaqBackfill.ts");
 
   const blogSlugs = articles.map(a => a.slug);

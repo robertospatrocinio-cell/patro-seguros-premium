@@ -299,7 +299,7 @@ const Contato = () => {
                       <div className="space-y-1.5">
                         <Label htmlFor="servico">Tipo de Serviço</Label>
                         <Select value={formState.servico} onValueChange={v => update("servico", v)}>
-                          <SelectTrigger id="servico">
+                          <SelectTrigger id="servico" aria-label="Tipo de Serviço">
                             <SelectValue placeholder="Selecione o serviço de interesse" />
                           </SelectTrigger>
                           <SelectContent>

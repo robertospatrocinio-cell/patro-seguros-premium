@@ -119,13 +119,25 @@ const QuickLeadFormImpl = () => {
             </div>
 
             <div className="relative">
+              <label
+                id="tipo-seguro-label"
+                htmlFor="tipo-seguro"
+                className="block text-xs font-medium text-slate-600 mb-1"
+              >
+                Tipo de Seguro
+              </label>
               <Select
                 value={formData.insuranceType}
                 onValueChange={(v) => setFormData({ ...formData, insuranceType: v })}
               >
-                <SelectTrigger className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all rounded-xl pl-10 relative">
-                  <ShieldCheck className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 z-10" />
-                  <SelectValue placeholder="Tipo de Seguro" />
+                <SelectTrigger
+                  id="tipo-seguro"
+                  aria-labelledby="tipo-seguro-label"
+                  aria-label="Selecione o tipo de seguro"
+                  className="h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all rounded-xl pl-10 relative"
+                >
+                  <ShieldCheck className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 z-10" aria-hidden="true" />
+                  <SelectValue placeholder="Selecione o tipo de seguro" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="Auto">Seguro Auto</SelectItem>

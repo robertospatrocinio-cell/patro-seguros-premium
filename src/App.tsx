@@ -284,6 +284,10 @@ const GrandeSaoPaulo = lazy(() => import("./pages/GrandeSaoPaulo"));
 const AtendimentoDigital = lazy(() => import("./pages/AtendimentoDigital"));
 const CotacaoComparativaBairros = lazy(() => import("./pages/CotacaoComparativaBairros"));
 const SeguroAutoBairroSp = lazy(() => import("./pages/SeguroAutoBairroSp"));
+const BairroHubSp = lazy(() => import("./pages/BairroHubSp"));
+const SeguroResidencialBairroSp = lazy(() => import("./pages/SeguroResidencialBairroSp"));
+const SeguroEmpresarialBairroSp = lazy(() => import("./pages/SeguroEmpresarialBairroSp"));
+
 const IndiqueEGanhe = lazy(() => import("./pages/IndiqueEGanhe"));
 const ObrigadoIndicacao = lazy(() => import("./pages/ObrigadoIndicacao"));
 const SeguroDecesso = lazy(() => import("./pages/SeguroDecesso"));
@@ -651,6 +655,39 @@ const App = () => {
                   ].map((s) => (
                     <Route key={s} path={`/${s}`} element={<SeguroAutoBairroSp slug={s} />} />
                   ))}
+                  {/* Hubs de bairro Grupo A — rotas literais para o prerender (Fase 3) */}
+                  <Route path="/itaim-bibi" element={<BairroHubSp bairroKey="itaim-bibi" />} />
+                  <Route path="/moema" element={<BairroHubSp bairroKey="moema" />} />
+                  <Route path="/vila-nova-conceicao" element={<BairroHubSp bairroKey="vila-nova-conceicao" />} />
+                  <Route path="/jardim-paulista" element={<BairroHubSp bairroKey="jardim-paulista" />} />
+                  <Route path="/vila-olimpia" element={<BairroHubSp bairroKey="vila-olimpia" />} />
+                  <Route path="/pinheiros" element={<BairroHubSp bairroKey="pinheiros" />} />
+                  <Route path="/brooklin" element={<BairroHubSp bairroKey="brooklin" />} />
+                  <Route path="/vila-mariana" element={<BairroHubSp bairroKey="vila-mariana" />} />
+                  <Route path="/campo-belo" element={<BairroHubSp bairroKey="campo-belo" />} />
+                  <Route path="/perdizes" element={<BairroHubSp bairroKey="perdizes" />} />
+                  {/* Seguro Residencial por bairro */}
+                  <Route path="/seguro-residencial-itaim-bibi" element={<SeguroResidencialBairroSp bairroKey="itaim-bibi" />} />
+                  <Route path="/seguro-residencial-moema" element={<SeguroResidencialBairroSp bairroKey="moema" />} />
+                  <Route path="/seguro-residencial-vila-nova-conceicao" element={<SeguroResidencialBairroSp bairroKey="vila-nova-conceicao" />} />
+                  <Route path="/seguro-residencial-jardim-paulista" element={<SeguroResidencialBairroSp bairroKey="jardim-paulista" />} />
+                  <Route path="/seguro-residencial-vila-olimpia" element={<SeguroResidencialBairroSp bairroKey="vila-olimpia" />} />
+                  <Route path="/seguro-residencial-pinheiros" element={<SeguroResidencialBairroSp bairroKey="pinheiros" />} />
+                  <Route path="/seguro-residencial-brooklin" element={<SeguroResidencialBairroSp bairroKey="brooklin" />} />
+                  <Route path="/seguro-residencial-vila-mariana" element={<SeguroResidencialBairroSp bairroKey="vila-mariana" />} />
+                  <Route path="/seguro-residencial-campo-belo" element={<SeguroResidencialBairroSp bairroKey="campo-belo" />} />
+                  <Route path="/seguro-residencial-perdizes" element={<SeguroResidencialBairroSp bairroKey="perdizes" />} />
+                  {/* Seguro Empresarial por bairro */}
+                  <Route path="/seguro-empresarial-itaim-bibi" element={<SeguroEmpresarialBairroSp bairroKey="itaim-bibi" />} />
+                  <Route path="/seguro-empresarial-moema" element={<SeguroEmpresarialBairroSp bairroKey="moema" />} />
+                  <Route path="/seguro-empresarial-vila-nova-conceicao" element={<SeguroEmpresarialBairroSp bairroKey="vila-nova-conceicao" />} />
+                  <Route path="/seguro-empresarial-jardim-paulista" element={<SeguroEmpresarialBairroSp bairroKey="jardim-paulista" />} />
+                  <Route path="/seguro-empresarial-vila-olimpia" element={<SeguroEmpresarialBairroSp bairroKey="vila-olimpia" />} />
+                  <Route path="/seguro-empresarial-pinheiros" element={<SeguroEmpresarialBairroSp bairroKey="pinheiros" />} />
+                  <Route path="/seguro-empresarial-brooklin" element={<SeguroEmpresarialBairroSp bairroKey="brooklin" />} />
+                  <Route path="/seguro-empresarial-vila-mariana" element={<SeguroEmpresarialBairroSp bairroKey="vila-mariana" />} />
+                  <Route path="/seguro-empresarial-campo-belo" element={<SeguroEmpresarialBairroSp bairroKey="campo-belo" />} />
+                  <Route path="/seguro-empresarial-perdizes" element={<SeguroEmpresarialBairroSp bairroKey="perdizes" />} />
                   <Route path="/seguro-auto-maia" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-maia-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-vila-augusta" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-vila-augusta-guarulhos" }); return <Comp />; })()} />
                   <Route path="/seguro-auto-bonsucesso" element={(() => { const Comp = withProps(SeoLocalPage, { slug: "seguro-auto-bonsucesso-guarulhos-v2" }); return <Comp />; })()} />

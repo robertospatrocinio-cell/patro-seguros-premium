@@ -284,7 +284,7 @@ const IndiqueEGanhe = () => {
                     <div>
                       <Label htmlFor="relationship">Qual sua relação com o indicado? *</Label>
                       <Select value={relationship} onValueChange={(v) => setValue("relationship", v, { shouldValidate: true })}>
-                        <SelectTrigger id="relationship"><SelectValue placeholder="Selecione" /></SelectTrigger>
+                        <SelectTrigger id="relationship" aria-label="Qual sua relação com o indicado?"><SelectValue placeholder="Selecione" /></SelectTrigger>
                         <SelectContent>
                           {RELATIONSHIP_OPTIONS.map((o) => (
                             <SelectItem key={o} value={o}>{o}</SelectItem>
@@ -316,7 +316,7 @@ const IndiqueEGanhe = () => {
                     <div>
                       <Label htmlFor="insuranceType">Interesse principal *</Label>
                       <Select value={insuranceType} onValueChange={(v) => setValue("insuranceType", v, { shouldValidate: true })}>
-                        <SelectTrigger id="insuranceType"><SelectValue placeholder="Selecione o tipo de seguro" /></SelectTrigger>
+                        <SelectTrigger id="insuranceType" aria-label="Interesse principal"><SelectValue placeholder="Selecione o tipo de seguro" /></SelectTrigger>
                         <SelectContent>
                           {INSURANCE_OPTIONS.map((o) => (
                             <SelectItem key={o} value={o}>{o}</SelectItem>
