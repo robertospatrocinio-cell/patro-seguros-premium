@@ -257,7 +257,7 @@ const IndiqueAmigo = () => {
                               <FormLabel className="font-semibold">Qual Seguro Ele(a) Precisa? *</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
-                                  <SelectTrigger className="h-11">
+                                  <SelectTrigger className="h-11" aria-label="Qual seguro ele(a) precisa?">
                                     <SelectValue placeholder="Selecione o tipo de seguro" />
                                   </SelectTrigger>
                                 </FormControl>

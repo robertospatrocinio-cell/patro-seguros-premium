@@ -428,11 +428,12 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
                     >
                       <SelectTrigger 
                         id={`qq-${field.id}-${trackingLabel}`}
+                        aria-label={field.label}
                         className={fieldError ? "border-destructive focus-visible:ring-destructive" : ""}
                         aria-invalid={!!fieldError}
                         aria-describedby={fieldError ? `error-qq-${field.id}-${trackingLabel}` : undefined}
                       >
-                        <SelectValue placeholder={field.placeholder} />
+                        <SelectValue placeholder={field.placeholder || "Selecione"} />
                       </SelectTrigger>
                       <SelectContent>
                         {field.options.map(opt => (

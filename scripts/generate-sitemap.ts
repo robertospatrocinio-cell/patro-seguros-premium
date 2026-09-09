@@ -30,6 +30,7 @@ import { faqCategories as FAQ_CATEGORIES } from "../src/data/perguntasHubData";
 import { COMPARATIVOS_SLUGS } from "../src/data/comparativosData";
 import { cidadesRegiaoSlugs, cidadeRegiaoPath, CIDADES_REGIAO_HUB_PATH } from "../src/data/cidadesRegiao";
 import { GRANDE_SP_PATH, bairroSpPaths } from "../src/data/segurosSaoPauloRegional";
+import { produtosBairroPaths } from "../src/data/segurosSaoPauloProdutos";
 
 const DOMAIN = "https://www.patroseguros.com.br";
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -123,6 +124,7 @@ const regionalGrandeSp: SitemapEntry[] = [
   { loc: "/atendimento-digital", priority: "0.8", changefreq: "weekly" },
   { loc: "/cotacao-seguro-auto-por-bairro", priority: "0.8", changefreq: "weekly" },
   ...bairroSpPaths.map(loc => ({ loc, priority: "0.8", changefreq: "weekly" })),
+  ...produtosBairroPaths.map(loc => ({ loc, priority: "0.8", changefreq: "weekly" })),
 ];
 
 const seoLocalGuarulhos: SitemapEntry[] = [

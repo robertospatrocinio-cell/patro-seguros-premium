@@ -13,6 +13,7 @@ import { SEO_HUBS } from "@/data/seoHubs";
 import { EMPRESA } from "@/config/empresa";
 import { cidadesRegiao, getCidadeRegiao, CIDADES_REGIAO_HUB_PATH } from "@/data/cidadesRegiao";
 import { GRANDE_SP_HUB, bairrosSaoPauloAuto } from "@/data/segurosSaoPauloRegional";
+import { bairrosGrupoA, residencialBairrosSp, empresarialBairrosSp } from "@/data/segurosSaoPauloProdutos";
 
 
 export interface Metadata {
@@ -742,6 +743,37 @@ export function getMetadataForRoute(pathname: string): Metadata | null {
             title: b.title,
             description: b.metaDescription,
             h1: `Seguro Auto em ${b.bairro} – São Paulo`,
+          },
+        ]),
+      ),
+      // Hubs de bairro Grupo A (Auto + Residencial + Empresarial)
+      ...Object.fromEntries(
+        Object.values(bairrosGrupoA).map((b) => [
+          `/${b.key}`,
+          {
+            title: `Seguros em ${b.nome} | Auto, Residencial e Empresarial | Patro Seguros`,
+            description: `Seguros em ${b.nome} (${b.regiao}): cotação consultiva de seguro auto, residencial e empresarial com corretora sediada em Guarulhos. Fale com a Patro Seguros.`,
+            h1: `Seguros em ${b.nome} – São Paulo`,
+          },
+        ]),
+      ),
+      ...Object.fromEntries(
+        Object.entries(residencialBairrosSp).map(([key, r]) => [
+          `/${r.slug}`,
+          {
+            title: r.title,
+            description: r.metaDescription,
+            h1: `Seguro Residencial em ${bairrosGrupoA[key].nome} – São Paulo`,
+          },
+        ]),
+      ),
+      ...Object.fromEntries(
+        Object.entries(empresarialBairrosSp).map(([key, e]) => [
+          `/${e.slug}`,
+          {
+            title: e.title,
+            description: e.metaDescription,
+            h1: `Seguro Empresarial em ${bairrosGrupoA[key].nome} – São Paulo`,
           },
         ]),
       ),
