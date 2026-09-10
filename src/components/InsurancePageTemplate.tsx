@@ -651,15 +651,25 @@ const InsurancePageTemplate = ({
             />
             {detailedDescription && (
               <div className="mt-8 space-y-4">
-                {detailedDescription.split('\n\n').map((paragraph, i) => (
-                  <SmartText
-                    key={i}
-                    text={paragraph}
-                    className="text-muted-foreground leading-relaxed text-[15px]"
-                    linkedKeywords={linkedKeywords}
-                    maxLinks={2}
-                  />
-                ))}
+                {detailedDescription.split('\n\n').map((paragraph, i) => {
+                  const heading = paragraph.match(/^(#{2,4})\s+(.*)$/);
+                  if (heading) {
+                    return (
+                      <h3 key={i} className="text-lg md:text-xl font-semibold text-foreground pt-4">
+                        {heading[2]}
+                      </h3>
+                    );
+                  }
+                  return (
+                    <SmartText
+                      key={i}
+                      text={paragraph}
+                      className="text-muted-foreground leading-relaxed text-[15px]"
+                      linkedKeywords={linkedKeywords}
+                      maxLinks={2}
+                    />
+                  );
+                })}
               </div>
             )}
             {contextualLinks && (
