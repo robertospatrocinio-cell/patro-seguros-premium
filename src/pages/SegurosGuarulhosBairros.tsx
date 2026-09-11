@@ -249,7 +249,7 @@ const SegurosGuarulhosBairros = () => {
           <div className="container mx-auto px-4 relative z-10 py-20">
             <Breadcrumb items={breadcrumbItems} />
             <div className={`max-w-3xl transition-all duration-500 ${transitioning ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"}`}>
-              <span className="inline-block bg-[#F2994A] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+              <span className="inline-block bg-[#F2994A] text-[#14243d] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
                 {selectedBairro.foco}
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
@@ -282,7 +282,7 @@ const SegurosGuarulhosBairros = () => {
                 </ExternalLink>
                 <button
                   onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
-                  className="inline-flex items-center justify-center gap-2 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-base"
+                  className="inline-flex items-center justify-center gap-2 bg-[#F2994A] hover:bg-[#e08a3a] text-[#14243d] font-semibold px-6 py-3 rounded-lg transition-colors text-base"
                 >
                   Cotar meu seguro agora
                   <ChevronRight className="h-4 w-4" />
@@ -653,7 +653,7 @@ const SegurosGuarulhosBairros = () => {
                 <Button
                   type="submit"
                   disabled={sending}
-                  className="w-full h-12 bg-[#F2994A] hover:bg-[#e08a3a] text-white font-bold text-base"
+                  className="w-full h-12 bg-[#F2994A] hover:bg-[#e08a3a] text-[#14243d] font-bold text-base"
                 >
                   {sending ? "Enviando..." : "Cotar meu seguro agora"}
                 </Button>

@@ -298,7 +298,7 @@ const Consorcio = () => {
                   Planeje a compra do seu imóvel, veículo ou projeto pessoal com uma consultoria que explica cada etapa: crédito, parcelas, lances, assembleias e contemplação.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 mb-8">
-                  <Button size="lg" onClick={goToForm} className="rounded-xl text-base px-7 h-12 bg-[#F2994A] hover:bg-[#e58a3b] text-white shadow-lg">
+                  <Button size="lg" onClick={goToForm} className="rounded-xl text-base px-7 h-12 bg-[#F2994A] hover:bg-[#e58a3b] text-[#14243d] shadow-lg">
                     Simular consórcio <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio_hero")}>
@@ -638,7 +638,7 @@ const Consorcio = () => {
               Conversamos sobre seu objetivo, simulamos as melhores possibilidades e explicamos cada regra antes de você decidir.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" onClick={goToForm} className="rounded-xl h-12 px-7 bg-[#F2994A] hover:bg-[#e58a3b] text-white">
+              <Button size="lg" onClick={goToForm} className="rounded-xl h-12 px-7 bg-[#F2994A] hover:bg-[#e58a3b] text-[#14243d]">
                 Receber simulação <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackWhatsAppClick("consorcio_cta_final")}>

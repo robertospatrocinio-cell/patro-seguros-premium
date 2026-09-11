@@ -339,7 +339,7 @@ const IndiqueEGanhe = () => {
                   </label>
                   {errors.consent && <p className="text-xs text-red-600 -mt-2">{errors.consent.message}</p>}
 
-                  <Button type="submit" disabled={submitting} className="w-full bg-[#F2994A] hover:bg-[#e08535] text-white font-bold h-12 text-base">
+                  <Button type="submit" disabled={submitting} className="w-full bg-[#F2994A] hover:bg-[#e08535] text-[#14243d] font-bold h-12 text-base">
                     {submitting ? (<><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Enviando...</>) : (<>Enviar indicação <ArrowRight className="h-4 w-4 ml-2" /></>)}
                   </Button>
                 </form>
@@ -361,7 +361,7 @@ const IndiqueEGanhe = () => {
                 { n: "03", icon: Heart, title: "Todos ganham", desc: "O indicado recebe a melhor cotação entre 16+ seguradoras. Você recebe agradecimento pessoal e atenção prioritária." },
               ].map(({ n, icon: Icon, title, desc }) => (
                 <div key={n} className="relative bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:shadow-lg transition-shadow">
-                  <span className="absolute -top-4 left-6 bg-[#F2994A] text-white text-xs font-bold px-3 py-1 rounded-full">{n}</span>
+                  <span className="absolute -top-4 left-6 bg-[#F2994A] text-[#14243d] text-xs font-bold px-3 py-1 rounded-full">{n}</span>
                   <Icon className="h-10 w-10 text-[#003366] mb-4" />
                   <h3 className="text-xl font-bold mb-2 text-[#003366]">{title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
@@ -439,7 +439,7 @@ const IndiqueEGanhe = () => {
               Leva menos de 1 minuto. Retornamos em até 24 horas úteis, sempre com atendimento humano.
             </p>
             <a href="#formulario">
-              <Button className="bg-[#F2994A] hover:bg-[#e08535] text-white font-bold h-12 px-8 text-base">
+              <Button className="bg-[#F2994A] hover:bg-[#e08535] text-[#14243d] font-bold h-12 px-8 text-base">
                 Fazer minha indicação <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             </a>
