@@ -485,13 +485,13 @@ const Index = () => {
 
 
         {/* CHAMADA FIXA CENTRAL DE SINISTRO */}
-        <div className="bg-orange-600 py-3 text-white mt-12 md:mt-20">
+        <div className="bg-orange-700 py-3 text-white mt-12 md:mt-20">
           <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
             <div className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 animate-pulse text-white" />
               <span className="font-bold text-sm md:text-base">Precisando de ajuda agora? Central de Sinistro 24h</span>
             </div>
-            <Link to="/central-de-sinistro" className="bg-white text-orange-600 px-6 py-1.5 rounded-full font-bold text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
+            <Link to="/central-de-sinistro" className="bg-white text-orange-800 px-6 py-1.5 rounded-full font-bold text-sm hover:bg-orange-50 transition-colors uppercase shadow-sm">
               Clique aqui
             </Link>
           </div>
@@ -550,7 +550,7 @@ const Index = () => {
             {[...parceiros, ...parceiros].map((name, i) => {
               const url = INSURER_WEBSITES[name];
               const baseClass =
-                "mx-8 text-lg font-bold text-muted-foreground/60 transition-all duration-200 hover:scale-115 hover:text-primary hover:font-extrabold focus-visible:outline-none focus-visible:text-primary";
+                "mx-8 text-lg font-bold text-muted-foreground transition-all duration-200 hover:scale-115 hover:text-primary hover:font-extrabold focus-visible:outline-none focus-visible:text-primary";
               return url ? (
                 <a
                   key={`${name}-${i}`}
