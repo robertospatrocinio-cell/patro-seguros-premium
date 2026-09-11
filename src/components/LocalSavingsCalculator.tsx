@@ -144,7 +144,7 @@ const LocalSavingsCalculator = () => {
               <span className="text-4xl md:text-5xl font-black text-primary tracking-tighter">
                 R$ {estimatedSavings.toLocaleString()}
               </span>
-              <span className="text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold">-{Math.round((estimatedSavings/currentInsurance)*100)}%</span>
+              <span className="text-xs bg-green-700 text-white px-2 py-1 rounded-full font-bold">-{Math.round((estimatedSavings/currentInsurance)*100)}%</span>
             </div>
             <p className="text-sm text-foreground/80 max-w-[300px] mx-auto">
               Seu novo preço estimado: <strong className="text-foreground">R$ {newPrice.toLocaleString()}</strong>

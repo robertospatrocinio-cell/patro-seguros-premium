@@ -648,7 +648,7 @@ const Header = memo(() => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("floating-desktop-sinistro")}
-            className="flex items-center gap-3 bg-green-500 text-white shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:bg-green-600 transition-all translate-x-[calc(100%-48px)] hover:translate-x-0"
+            className="flex items-center gap-3 bg-green-700 text-white shadow-xl rounded-full pl-4 pr-1.5 py-1.5 hover:bg-green-800 transition-all translate-x-[calc(100%-48px)] hover:translate-x-0"
           >
             <span className="text-xs font-bold whitespace-nowrap">WhatsApp de Emergência</span>
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-green-600">

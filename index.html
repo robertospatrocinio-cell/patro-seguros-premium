@@ -126,18 +126,13 @@
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
     <!-- Backend — Web Vitals sendBeacon dispara logo após o load -->
     <link rel="preconnect" href="https://vjzsekwkeixbbpldiqmd.supabase.co" crossorigin />
-    <!-- Mídia acima/abaixo da dobra: avatares (prova social) e textura de fundo (seções).
-         Preconnect só no avatar (usado logo abaixo do hero); textura é decorativa e ganha
-         apenas dns-prefetch para não competir com o LCP. -->
-    <link rel="preconnect" href="https://i.pravatar.cc" crossorigin />
+    <!-- Origens secundárias (avatares, textura, destinos de CTA): apenas
+         dns-prefetch. O Lighthouse penaliza >4 preconnects e cada handshake
+         TLS extra compete com o download do hero (LCP). O DNS já resolvido
+         cobre a maior parte da latência quando o recurso é realmente pedido. -->
     <link rel="dns-prefetch" href="https://i.pravatar.cc" />
     <link rel="dns-prefetch" href="https://www.transparenttextures.com" />
-    <!-- Destinos dos CTAs principais: WhatsApp (wa.me) e formulário de cotação
-         (patro.seucorretor.digital). Preconnect antecipa TLS handshake para a
-         navegação de saída, sem baixar recursos. -->
-    <link rel="preconnect" href="https://wa.me" />
     <link rel="dns-prefetch" href="https://wa.me" />
-    <link rel="preconnect" href="https://patro.seucorretor.digital" />
     <link rel="dns-prefetch" href="https://patro.seucorretor.digital" />
     <!-- Google Maps embed (lazy, abaixo da dobra) — só DNS para acelerar quando
          entra em viewport, sem gastar handshake TLS antes do LCP. -->
@@ -472,8 +467,32 @@
       SF Pro / Inter / system. Manter o CSS externo do Google só custava
       2 preconnects + 1 request bloqueante concorrendo com o hero LCP.
     -->
-    <!-- Google News — botão oficial "Adicionar como fonte preferencial" (async, não bloqueia LCP) -->
-    <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+    <!-- Google News — botão "Adicionar como fonte preferencial".
+         Injetado só depois do load + primeira janela ociosa: é um script de
+         terceiro sem papel na primeira pintura, e carregá-lo no <head>
+         roubava banda e main thread do LCP/FCP no mobile. -->
+    <script>
+      (function () {
+        var injected = false;
+        function loadSwg() {
+          if (injected) return;
+          injected = true;
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://news.google.com/swg/js/v1/publisher.js';
+          document.head.appendChild(s);
+        }
+        function schedule() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadSwg, { timeout: 6000 });
+          } else {
+            setTimeout(loadSwg, 3000);
+          }
+        }
+        if (document.readyState === 'complete') schedule();
+        else window.addEventListener('load', schedule, { once: true });
+      })();
+    </script>
 </head>
   <body>
     <noscript><img height="1" width="1" style="display:none"
