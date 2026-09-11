@@ -159,3 +159,14 @@
   .print-checklist { page-break-inside: avoid; }
   a[href]::after { content: ""; }
 }
+
+/**
+ * WCAG 1.4.1 (Use of Color): links embutidos em blocos de texto precisam
+ * ser distinguíveis por algo além da cor. Sublinhamos apenas links dentro
+ * de parágrafos — menus, cards e botões-link não são afetados.
+ */
+p a[href] {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: from-font;
+}
