@@ -569,8 +569,10 @@ const App = () => {
                   index.html para sobreviver ao prerender (ex.: validador de
                   rich snippets). Não emitir via Helmet aqui para evitar
                   duplicidade após hidratação. */}
-              <Toaster />
-              <Sonner position="top-right" closeButton richColors />
+              <Suspense fallback={null}>
+                <Toaster />
+                <Sonner position="top-right" closeButton richColors />
+              </Suspense>
               <DeferredGlobalUi />
               <ScrollToTop />
               <Suspense fallback={<PageSkeleton />}>
