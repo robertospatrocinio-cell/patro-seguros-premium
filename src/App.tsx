@@ -113,8 +113,14 @@ import { resolveRoute, normalizePath, CANONICAL_ORIGIN } from "@/lib/redirects";
 import { useEffect } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
+// Toasters saem do bundle de entrada: nenhum toast existe na primeira
+// pintura, então radix-toast + sonner viram chunks carregados após o mount.
+const Toaster = lazy(() =>
+  import("@/components/ui/toaster").then((m) => ({ default: m.Toaster })),
+);
+const Sonner = lazy(() =>
+  import("@/components/ui/sonner").then((m) => ({ default: m.Toaster })),
+);
 import PageSkeleton from "@/components/PageSkeleton";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
