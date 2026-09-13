@@ -3,7 +3,7 @@ import { captureException } from "@/lib/monitoring";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, RefreshCcw, Home, ArrowLeft, Copy, Check, MessageSquare, PhoneCall, Info } from "lucide-react";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
   import {
     Dialog,
     DialogContent,
@@ -34,7 +34,7 @@ interface Props {
 
      private handleWhatsAppReport = () => {
        const message = encodeURIComponent(`Olá, encontrei um erro no site da Patro Seguros. ID do Erro: ${this.state.errorId}`);
-       window.open(`https://wa.me/${EMPRESA.whatsapp.split('wa.me/')[1]}?text=${message}`, "_blank");
+       window.open(`${WHATSAPP_URL_BASE}?text=${message}`, "_blank");
      };
 
       public state: State = {

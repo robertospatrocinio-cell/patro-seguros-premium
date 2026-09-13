@@ -9,13 +9,13 @@ import { toast } from "sonner";
 import { logForgottenQuote } from "@/lib/quoteHistory";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { scheduleIdle } from "@/lib/prefetch";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
 
 
 
 const logoFull = "/images/logo-full.webp";
 const WHATSAPP_URL = `https://wa.me/551151997500?text=${encodeURIComponent("Olá, vim pelo site da Patro Seguros e gostaria de solicitar uma cotação de seguro.")}`;
-const WHATSAPP_SINISTRO_URL = `${EMPRESA.whatsapp}?text=${encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.")}`;
+const WHATSAPP_SINISTRO_URL = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent("Olá, preciso de ajuda com um sinistro. Vim pela Central de Sinistro do site.")}`;
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

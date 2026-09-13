@@ -506,12 +506,28 @@
     <script>
       (function() {
         var loader = document.getElementById('initial-loader');
+        var root = document.getElementById('root');
         var startTime = Date.now();
         var timeout = 12000;
+
+        function reveal() {
+          document.body.classList.add('loaded');
+        }
+
+        // Conteúdo pré-renderizado já existe no HTML: nada a esperar, o loader
+        // sai imediatamente (senão ele cobre o conteúdo e atrasa FCP/LCP).
+        if (root && root.getAttribute('data-prerender-seo') === '1' && root.children.length > 0) {
+          reveal();
+          return;
+        }
+
+        window.addEventListener('patro:app-mounted', reveal, { once: true });
+
         var checkInterval = setInterval(function() {
-          var root = document.getElementById('root');
-          if (root && root.children.length > 0) {
-            document.body.classList.add('loaded');
+          // children.length > 0 não prova que a página carregou (o skip link
+          // já conta). Só consideramos pronto quando existe um <main>.
+          if ((root && root.querySelector('main')) || document.body.classList.contains('loaded')) {
+            reveal();
             clearInterval(checkInterval);
           } else if (Date.now() - startTime > timeout) {
             var text = document.querySelector('.loader-text');
