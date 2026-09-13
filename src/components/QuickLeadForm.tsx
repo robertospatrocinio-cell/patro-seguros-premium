@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import { useState, memo, useRef, useMemo } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,16 +7,234 @@ import { Phone, User, ShieldCheck, ArrowRight, Mail, MapPin, Lock } from "lucide
 import { expressLeadSchema, firstZodMessage } from "@/lib/leadValidation";
 import { showFriendlyError, showValidationError } from "@/lib/friendlyToast";
 import { trackCotacaoSubmit } from "@/lib/tracking";
+import {
+  QUICK_LEAD_INSURANCE_TYPES,
+  QUICK_LEAD_INSURANCE_TYPE_IDS,
+  resolveInsuranceTypeId,
+} from "@/data/quickLeadInsuranceTypes";
+import { useWebMcpTool } from "@/hooks/useWebMcpTool";
+import { textResult } from "@/lib/webmcp";
+
+type QuickLeadFields = {
+  name: string;
+  phone: string;
+  email: string;
+  city: string;
+  insuranceType: string;
+};
+
+const FIELD_LABELS: Record<keyof QuickLeadFields, string> = {
+  name: "Nome",
+  phone: "WhatsApp",
+  email: "E-mail",
+  city: "Cidade",
+  insuranceType: "Tipo de Seguro",
+};
+
+/** Nunca devolve o dado pessoal completo — apenas confirmação de que está no campo. */
+function maskValue(field: keyof QuickLeadFields, value: string): string {
+  const v = value.trim();
+  if (!v) return "";
+  if (field === "name") return `${v.split(/\s+/)[0]} …`;
+  if (field === "phone") {
+    const d = v.replace(/\D/g, "");
+    return `••••${d.slice(-4)}`;
+  }
+  if (field === "email") {
+    const [, domain] = v.split("@");
+    return domain ? `•••@${domain}` : "•••";
+  }
+  return v;
+}
 
 const QuickLeadFormImpl = () => {
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<QuickLeadFields>({
     name: "",
     phone: "",
     email: "",
     city: "",
     insuranceType: "",
   });
+
+  // Espelho do estado para leitura dentro do execute da ferramenta WebMCP.
+  const formDataRef = useRef(formData);
+  formDataRef.current = formData;
+
+  useWebMcpTool(
+    useMemo(
+      () => ({
+        name: "listar_tipos_de_seguro",
+        description:
+          "Lista os tipos de seguro realmente disponíveis no formulário de Cotação Express da Patro Seguros, com identificador e nome exibido. Não retorna preços, coberturas nem cálculos.",
+        inputSchema: { type: "object", properties: {}, additionalProperties: false },
+        annotations: { readOnlyHint: true, openWorldHint: false, destructiveHint: false },
+        execute: () =>
+          textResult({
+            tipos: QUICK_LEAD_INSURANCE_TYPES.map((t) => ({ id: t.id, nome: t.label })),
+            observacao:
+              "Somente as opções do formulário atual. Preços e coberturas não são informados aqui.",
+          }),
+      }),
+      [],
+    ),
+  );
+
+  useWebMcpTool(
+    useMemo(
+      () => ({
+        name: "preparar_solicitacao_cotacao",
+        description:
+          "Preenche o formulário de Cotação Express da Patro Seguros para revisão do visitante. NÃO envia a solicitação, não abre o WhatsApp, não grava dados e não calcula cotação. O visitante precisa revisar e clicar no botão de envio do próprio formulário.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            nome: {
+              type: "string",
+              description: "Nome completo do visitante (3 a 100 caracteres).",
+              minLength: 3,
+              maxLength: 100,
+            },
+            whatsapp: {
+              type: "string",
+              description: "WhatsApp com DDD, 10 ou 11 dígitos. Ex: (11) 99999-9999.",
+              maxLength: 25,
+            },
+            cidade: {
+              type: "string",
+              description: "Cidade do visitante (opcional, máx. 80 caracteres).",
+              maxLength: 80,
+            },
+            tipo_de_seguro: {
+              type: "string",
+              description:
+                "Identificador do tipo de seguro, conforme a ferramenta listar_tipos_de_seguro.",
+              enum: [...QUICK_LEAD_INSURANCE_TYPE_IDS],
+            },
+            email: {
+              type: "string",
+              description: "E-mail do visitante (opcional).",
+              maxLength: 255,
+            },
+          },
+          additionalProperties: false,
+        },
+        annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: false },
+        execute: (args: unknown, extra?: unknown) => {
+          const signal = (extra as { signal?: AbortSignal } | undefined)?.signal;
+          if (signal?.aborted) return textResult({ status: "cancelado" }, true);
+
+          if (!args || typeof args !== "object" || Array.isArray(args)) {
+            return textResult({ status: "erro", motivo: "Argumentos inválidos." }, true);
+          }
+          const raw = args as Record<string, unknown>;
+
+          const allowed = ["nome", "whatsapp", "cidade", "tipo_de_seguro", "email"];
+          const unknownKeys = Object.keys(raw).filter((k) => !allowed.includes(k));
+          if (unknownKeys.length) {
+            return textResult(
+              { status: "erro", motivo: `Campos não suportados: ${unknownKeys.join(", ")}` },
+              true,
+            );
+          }
+
+          const asString = (v: unknown) => (typeof v === "string" ? v.trim() : "");
+          const proposed: Partial<QuickLeadFields> = {};
+          const invalid: string[] = [];
+
+          for (const [key, field] of [
+            ["nome", "name"],
+            ["whatsapp", "phone"],
+            ["cidade", "city"],
+            ["email", "email"],
+            ["tipo_de_seguro", "insuranceType"],
+          ] as Array<[string, keyof QuickLeadFields]>) {
+            if (raw[key] === undefined || raw[key] === null || raw[key] === "") continue;
+            if (typeof raw[key] !== "string") {
+              invalid.push(`${FIELD_LABELS[field]}: deve ser texto`);
+              continue;
+            }
+            const value = asString(raw[key]);
+            if (field === "insuranceType") {
+              const id = resolveInsuranceTypeId(value);
+              if (!id) {
+                invalid.push(
+                  `${FIELD_LABELS[field]}: use um dos identificadores ${QUICK_LEAD_INSURANCE_TYPE_IDS.join(", ")}`,
+                );
+                continue;
+              }
+              proposed.insuranceType = id;
+              continue;
+            }
+            proposed[field] = value;
+          }
+
+          if (!Object.keys(proposed).length) {
+            return textResult(
+              { status: "erro", motivo: "Nenhum campo válido informado." },
+              true,
+            );
+          }
+
+          // Validação com o mesmo schema do envio manual (campos parciais permitidos).
+          const current = formDataRef.current;
+          const candidate = { ...current, ...proposed };
+          const parsed = expressLeadSchema
+            .partial()
+            .safeParse(
+              Object.fromEntries(
+                Object.entries(candidate).filter(([, v]) => typeof v === "string" && v !== ""),
+              ),
+            );
+          if (!parsed.success) invalid.push(firstZodMessage(parsed.error));
+
+          if (invalid.length) {
+            return textResult({ status: "erro_de_validacao", problemas: invalid }, true);
+          }
+
+          // Conflito: valor diferente já preenchido no formulário.
+          const conflitos = (Object.keys(proposed) as Array<keyof QuickLeadFields>)
+            .filter((f) => current[f].trim() !== "" && current[f].trim() !== proposed[f])
+            .map((f) => ({
+              campo: FIELD_LABELS[f],
+              valor_atual: maskValue(f, current[f]),
+            }));
+
+          if (conflitos.length) {
+            return textResult({
+              status: "conflito",
+              conflitos,
+              proximo_passo:
+                "O formulário já tem valores diferentes nesses campos. Peça ao visitante para revisar e ajustar manualmente; nada foi alterado.",
+            });
+          }
+
+          if (signal?.aborted) return textResult({ status: "cancelado" }, true);
+
+          setFormData((prev) => ({ ...prev, ...proposed }));
+
+          const preenchidos = (Object.keys(proposed) as Array<keyof QuickLeadFields>).map((f) => ({
+            campo: FIELD_LABELS[f],
+            valor: maskValue(f, proposed[f] as string),
+          }));
+          const obrigatorios: Array<keyof QuickLeadFields> = ["name", "phone", "insuranceType"];
+          const pendentes = obrigatorios
+            .filter((f) => !(candidate[f] ?? "").trim())
+            .map((f) => FIELD_LABELS[f]);
+
+          return textResult({
+            status: "preparado_para_revisao",
+            campos_preenchidos: preenchidos,
+            campos_pendentes: pendentes,
+            enviado: false,
+            proximo_passo:
+              "Os dados estão visíveis e editáveis no formulário Cotação Express. O visitante deve revisar e clicar em “Receber Cotação em 2 Horas” para enviar. Nenhuma cotação foi calculada ou enviada.",
+          });
+        },
+      }),
+      [],
+    ),
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,12 +358,9 @@ const QuickLeadFormImpl = () => {
                   <SelectValue placeholder="Selecione o tipo de seguro" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Auto">Seguro Auto</SelectItem>
-                  <SelectItem value="Uber">Seguro Uber / APP</SelectItem>
-                  <SelectItem value="Saude">Plano de Saúde</SelectItem>
-                  <SelectItem value="Vida">Seguro de Vida</SelectItem>
-                  <SelectItem value="Residencial">Seguro Residencial</SelectItem>
-                  <SelectItem value="Empresarial">Seguro Empresa</SelectItem>
+                  {QUICK_LEAD_INSURANCE_TYPES.map((t) => (
+                    <SelectItem key={t.id} value={t.id}>{t.label}</SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
