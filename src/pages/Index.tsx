@@ -1,6 +1,6 @@
 /** Execute esta instrucao no projeto: AJUSTE CORRETIVO EXCLUSIVO DO HERO DA HOME — PATRO SEGUROS */
 import { lazy, Suspense } from "react";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
 import { Link } from "react-router-dom";
 import { ArrowRight, MessageCircle, AlertTriangle, Clock, ShieldCheck, Building2, MapPin } from "lucide-react";
 import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
@@ -56,7 +56,7 @@ const ProvaSocialPatro = lazy(loadProvaSocialPatro);
 const AutoridadePatro = lazy(loadAutoridadePatro);
 const ComoPatroAjuda = lazy(loadComoPatroAjuda);
 
-const WHATSAPP_URL = `${EMPRESA.whatsapp}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.`;
+const WHATSAPP_URL = `${WHATSAPP_URL_BASE}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o.`;
 
 // Handlers dos CTAs extraídos para o escopo do módulo: closures estáveis
 // entre renders, sem realocação por render do <Index>, e prontas para

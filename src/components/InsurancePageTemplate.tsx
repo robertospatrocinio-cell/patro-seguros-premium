@@ -45,7 +45,7 @@ import SmartText from "@/components/SmartText";
 import { getBreadcrumbChain } from "@/lib/breadcrumbCategory";
 import { useBreadcrumbOverrides } from "@/hooks/useBreadcrumbOverrides";
 import { getRelatedLinks } from "@/lib/relatedFromText";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
 
 // Inferência de palavras-chave (em inglês) para a galeria temática automática
 const inferGalleryKeywords = (title: string): string[] => {
@@ -113,18 +113,18 @@ const inferQuoteType = (title: string): string => {
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
 
-const WHATSAPP_URL = `${EMPRESA.whatsapp}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.`;
+const WHATSAPP_URL = `${WHATSAPP_URL_BASE}?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Patro%20Seguros%20e%20gostaria%20de%20solicitar%20uma%20cota%C3%A7%C3%A3o%20de%20seguro.`;
 
 // Mensagem personalizada por tipo de seguro para o link do WhatsApp
 const buildProductWhatsAppUrl = (title: string): string => {
   const msg = `Olá! Vim pelo site da Patro Seguros e gostaria de uma cotação de ${title}. Pode me ajudar?`;
-  return `${EMPRESA.whatsapp}?text=${encodeURIComponent(msg)}`;
+  return `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(msg)}`;
 };
 
 // Mensagem de suporte/atendimento para páginas que não vendem produtos
 const buildSupportWhatsAppUrl = (title: string): string => {
   const msg = `Olá! Vim pelo site da Patro Seguros, pela página de ${title}, e preciso de atendimento e orientação. Pode me ajudar?`;
-  return `${EMPRESA.whatsapp}?text=${encodeURIComponent(msg)}`;
+  return `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(msg)}`;
 };
 
 interface Coverage { title: string; description: string; }

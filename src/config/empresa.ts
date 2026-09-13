@@ -77,6 +77,9 @@ export const EMPRESA = {
 /** Somente dígitos do WhatsApp (formato wa.me). Ex.: "551151997500". */
 export const WHATSAPP_DIGITS = EMPRESA.whatsapp.replace(/\D/g, "");
 
+/** URL base canônica do WhatsApp (wa.me). Ex.: "https://wa.me/551151997500". */
+export const WHATSAPP_URL_BASE = `https://wa.me/${WHATSAPP_DIGITS}`;
+
 /** Somente dígitos do telefone (para href="tel:"). Ex.: "1151997500". */
 export const TELEFONE_DIGITS = EMPRESA.telefone.replace(/\D/g, "");
 

@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
-import { EMPRESA } from "@/config/empresa";
+import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
 
 interface QuickQuoteFormProps {
   /** Insurance product name shown in the heading */
@@ -243,7 +243,7 @@ const QuickQuoteForm = ({ insuranceType, extraFields = [], trackingLabel }: Quic
 
       localStorage.removeItem(`${storageKey}-step`);
       window.open(
-        `${EMPRESA.whatsapp}?text=${encodeURIComponent(finalParts)}`,
+        `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(finalParts)}`,
         "_blank"
       );
     }, 500);
