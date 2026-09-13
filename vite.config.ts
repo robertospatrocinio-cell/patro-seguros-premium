@@ -291,6 +291,7 @@ function sitemapPlugin(): Plugin {
         "Disallow: /api/",
         "Disallow: /~api/",
         "Disallow: /~flock.js",
+        "Disallow: /crm",
         "Disallow: /ebook-consorcio/",
         "Disallow: /avaliar-no-google/",
         "Disallow: /performance-diagnostico",
