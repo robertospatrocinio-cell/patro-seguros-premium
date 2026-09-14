@@ -4,7 +4,7 @@ const PageSkeleton = () => {
   const pulse = "animate-pulse rounded-md bg-slate-200 dark:bg-slate-800 will-change-opacity";
   
    return (
-    <div className="min-h-screen bg-background" id="main-content">
+    <main className="min-h-screen bg-background" id="main-content" aria-busy="true">
       {/* Header skeleton */}
       <div className="h-16 border-b border-border/40 bg-background/95 flex items-center px-4 sticky top-0 z-50">
         <div className={`h-8 w-32 md:w-48 ${pulse}`} />
@@ -51,7 +51,7 @@ const PageSkeleton = () => {
           ))}
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

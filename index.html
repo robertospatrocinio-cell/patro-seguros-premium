@@ -522,7 +522,12 @@
           return;
         }
 
-        window.addEventListener('patro:app-mounted', reveal, { once: true });
+        // Montar o app não significa que a rota já pintou conteúdo: o chunk
+        // lazy da página ainda pode estar baixando. Só revelamos quando existe
+        // um <main> (conteúdo real ou skeleton do Suspense).
+        window.addEventListener('patro:app-mounted', function () {
+          if (root && root.querySelector('main')) reveal();
+        }, { once: true });
 
         var checkInterval = setInterval(function() {
           // children.length > 0 não prova que a página carregou (o skip link
