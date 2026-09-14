@@ -514,9 +514,10 @@
           document.body.classList.add('loaded');
         }
 
-        // Conteúdo pré-renderizado já existe no HTML: nada a esperar, o loader
-        // sai imediatamente (senão ele cobre o conteúdo e atrasa FCP/LCP).
-        if (root && root.getAttribute('data-prerender-seo') === '1' && root.children.length > 0) {
+        // Só libera imediatamente quando o HTML pré-renderizado contém a página
+        // visual completa. O bloco #crawler-content é apenas conteúdo SEO oculto
+        // e não comprova que a aplicação esteja pronta para ser exibida.
+        if (root && root.getAttribute('data-prerender-seo') === '1' && root.querySelector('main')) {
           reveal();
           return;
         }

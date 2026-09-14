@@ -99,7 +99,7 @@ function buildSeoBlock(route, metadata) {
 
   const h1 = content.h1 || metadata.title;
   return `
-    <div id="crawler-content">
+    <div id="crawler-content" style="display:none">
       <h1>${h1}</h1>
       ${content.body}
     </div>
