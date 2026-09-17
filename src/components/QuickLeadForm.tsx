@@ -232,7 +232,7 @@ const QuickLeadFormImpl = () => {
             campos_pendentes: pendentes,
             enviado: false,
             proximo_passo:
-              "Os dados estão visíveis e editáveis no formulário Cotação Express. O visitante deve revisar e clicar em “Receber Cotação em 2 Horas” para enviar. Nenhuma cotação foi calculada ou enviada.",
+              "Os dados estão visíveis e editáveis no formulário Cotação Express. Para Seguro Auto, o botão de envio abre a cotação online imediata; nos demais tipos, abre o WhatsApp. Nenhuma cotação foi calculada ou enviada.",
           });
         },
       }),
