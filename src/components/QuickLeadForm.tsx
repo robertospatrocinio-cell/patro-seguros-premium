@@ -252,6 +252,26 @@ const QuickLeadFormImpl = () => {
     setLoading(true);
     try {
       const { name, phone, email, city, insuranceType } = parsed.data;
+
+      // Seguro Auto: cotação online imediata no SmartBroker, sem esperar 2 horas.
+      if (insuranceType === "Auto") {
+        trackCotacaoSubmit(insuranceType, { origin: "quick_lead_form_smartbroker" });
+        const popup = window.open(SMARTBROKER_AUTO_URL, "_blank", "noopener,noreferrer");
+        if (!popup) {
+          toast.error("Não conseguimos abrir a cotação online automaticamente.", {
+            duration: 10000,
+            action: {
+              label: "Abrir cotação online",
+              onClick: () => window.open(SMARTBROKER_AUTO_URL, "_blank", "noopener,noreferrer"),
+            },
+          });
+          return;
+        }
+        toast.success("Abrindo sua cotação online do Seguro Auto — leva poucos minutos.");
+        setFormData({ name: "", phone: "", email: "", city: "", insuranceType: "" });
+        return;
+      }
+
       const msg = `Olá, meu nome é ${name} (${phone}). Sou de ${city} e gostaria de uma cotação de ${insuranceType}.\nE-mail: ${email}`;
 
       const popup = window.open(
