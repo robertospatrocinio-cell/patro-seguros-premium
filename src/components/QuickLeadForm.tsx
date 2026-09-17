@@ -102,7 +102,8 @@ const QuickLeadFormImpl = () => {
             },
             cidade: {
               type: "string",
-              description: "Cidade do visitante (opcional, máx. 80 caracteres).",
+              description: "Cidade do visitante (obrigatório no envio, 2 a 80 caracteres).",
+              minLength: 2,
               maxLength: 80,
             },
             tipo_de_seguro: {
@@ -113,7 +114,7 @@ const QuickLeadFormImpl = () => {
             },
             email: {
               type: "string",
-              description: "E-mail do visitante (opcional).",
+              description: "E-mail do visitante (obrigatório no envio).",
               maxLength: 255,
             },
           },
@@ -217,7 +218,7 @@ const QuickLeadFormImpl = () => {
             campo: FIELD_LABELS[f],
             valor: maskValue(f, proposed[f] as string),
           }));
-          const obrigatorios: Array<keyof QuickLeadFields> = ["name", "phone", "insuranceType"];
+          const obrigatorios: Array<keyof QuickLeadFields> = ["name", "phone", "email", "city", "insuranceType"];
           const pendentes = obrigatorios
             .filter((f) => !(candidate[f] ?? "").trim())
             .map((f) => FIELD_LABELS[f]);
@@ -248,9 +249,7 @@ const QuickLeadFormImpl = () => {
     setLoading(true);
     try {
       const { name, phone, email, city, insuranceType } = parsed.data;
-      const cidade = city?.trim() ? city : "Guarulhos";
-      const extras = [email ? `E-mail: ${email}` : null].filter(Boolean).join(" • ");
-      const msg = `Olá, meu nome é ${name} (${phone}). Sou de ${cidade} e gostaria de uma cotação de ${insuranceType}.${extras ? `\n${extras}` : ""}`;
+      const msg = `Olá, meu nome é ${name} (${phone}). Sou de ${city} e gostaria de uma cotação de ${insuranceType}.\nE-mail: ${email}`;
 
       const popup = window.open(
         `https://wa.me/551151997500?text=${encodeURIComponent(msg)}`,
@@ -294,7 +293,7 @@ const QuickLeadFormImpl = () => {
               <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <Input
                 aria-label="Seu nome"
-                placeholder="Seu Nome"
+                placeholder="Seu nome completo"
                 className="pl-10 h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all rounded-xl"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -316,9 +315,9 @@ const QuickLeadFormImpl = () => {
             <div className="relative">
               <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <Input
-                aria-label="E-mail (opcional)"
+                aria-label="Seu e-mail"
                 type="email"
-                placeholder="E-mail (opcional)"
+                placeholder="Seu e-mail"
                 className="pl-10 h-12 bg-slate-50 border-slate-200 focus:bg-white transition-all rounded-xl"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
