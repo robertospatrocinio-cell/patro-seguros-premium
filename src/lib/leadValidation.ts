@@ -55,12 +55,15 @@ export const quickLeadSchema = z.object({
 
 export type QuickLeadInput = z.infer<typeof quickLeadSchema>;
 
-/** Cotação Express na home — 5 campos (e-mail e cidade são opcionais mas validados quando preenchidos). */
+/** Cotação Express na home — nome completo, WhatsApp, e-mail, cidade e tipo de seguro são obrigatórios. */
 export const expressLeadSchema = z.object({
-  name: nameSchema,
+  name: nameSchema.refine(
+    (v) => v.trim().split(/\s+/).length >= 2,
+    "Informe seu nome e sobrenome",
+  ),
   phone: phoneSchema,
-  email: z.string().trim().email("E-mail inválido").max(255).optional().or(z.literal("")),
-  city: z.string().trim().max(80, "Cidade muito longa").optional().or(z.literal("")),
+  email: emailSchema,
+  city: z.string().trim().min(2, "Informe sua cidade").max(80, "Cidade muito longa"),
   insuranceType: insuranceTypeSchema,
 });
 export type ExpressLeadInput = z.infer<typeof expressLeadSchema>;
