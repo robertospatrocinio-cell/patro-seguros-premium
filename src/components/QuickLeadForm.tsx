@@ -400,7 +400,15 @@ const QuickLeadFormImpl = () => {
               >
                 {loading ? "Enviando..." : (
                   <span className="flex items-center gap-2">
-                    Receber Cotação em 2 Horas <ArrowRight className="h-4 w-4" />
+                    {isAuto ? (
+                      <>
+                        Fazer Cotação Online Agora <ArrowRight className="h-4 w-4" />
+                      </>
+                    ) : (
+                      <>
+                        Receber Cotação em 2 Horas <ArrowRight className="h-4 w-4" />
+                      </>
+                    )}
                   </span>
                 )}
               </Button>
