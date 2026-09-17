@@ -88,7 +88,7 @@ const QuickLeadFormImpl = () => {
       () => ({
         name: "preparar_solicitacao_cotacao",
         description:
-          "Preenche o formulário de Cotação Express da Patro Seguros para revisão do visitante. NÃO envia a solicitação, não abre o WhatsApp, não grava dados e não calcula cotação. O visitante precisa revisar e clicar no botão de envio do próprio formulário.",
+          "Preenche o formulário de Cotação Express da Patro Seguros para revisão do visitante. NÃO envia a solicitação, não abre o WhatsApp nem o site de cotação online, não grava dados e não calcula cotação. O visitante precisa revisar e clicar no botão de envio do próprio formulário. Para Seguro Auto, o envio abre a cotação online imediata (SmartBroker) em vez do WhatsApp.",
         inputSchema: {
           type: "object",
           properties: {
