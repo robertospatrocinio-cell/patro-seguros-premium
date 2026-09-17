@@ -308,7 +308,11 @@ const QuickLeadFormImpl = () => {
           <div className="text-center lg:text-left shrink-0 lg:max-w-[220px] lg:pt-1">
             <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Cotação Express</span>
             <h2 className="text-xl font-bold tracking-tight text-slate-900 leading-tight">Resposta em até 2 horas</h2>
-            <p className="text-sm text-slate-500 mt-2">Preencha 5 campos e receba propostas no WhatsApp.</p>
+            <p className="text-sm text-slate-500 mt-2">
+              {isAuto
+                ? "Preencha 5 campos e faça sua cotação online em minutos."
+                : "Preencha 5 campos e receba propostas no WhatsApp."}
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
