@@ -511,6 +511,12 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
         output: {
           /**
+           * O boot da home baixava ~30 chunks minúsculos (1-5 KB cada), e cada
+           * um custava um round-trip em 4G — encadeamento que empurrava o LCP.
+           * Rollup funde chunks abaixo desse limite nos seus importadores.
+           */
+          experimentalMinChunkSize: 24_000,
+          /**
            * Code-splitting conservador para reduzir o entry e melhorar LCP mobile.
            *
            * Regras de segurança (evitam o TDZ que motivou a remoção anterior):
@@ -526,10 +532,12 @@ export default defineConfig(({ mode }) => ({
           manualChunks(id: string) {
             if (!id.includes("node_modules")) return undefined;
 
-            // Recharts: ~250 KB, só usado no CRM/dashboards (lazy).
-            if (/[\\/]node_modules[\\/](recharts|d3-[^\\/]+|victory-vendor|internmap|delaunator|robust-predicates)[\\/]/.test(id)) {
-              return "vendor-charts";
-            }
+            // Recharts/d3 NÃO recebem chunk manual: agrupá-los arrastava
+            // helpers compartilhados (lodash/react-is/commonjs shims) para
+            // dentro de `vendor-charts`, e o entry passava a importá-lo
+            // estaticamente — 525 KB baixados no boot da home. Deixando o
+            // Rollup decidir, o recharts fica dentro do chunk lazy das
+            // páginas de dashboard que realmente o usam.
 
             // Embla carousel: usado apenas no hero da home (já dentro do entry,
             // mas isolar permite cache independente de updates do entry).

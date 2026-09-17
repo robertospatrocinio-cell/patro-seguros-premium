@@ -69,6 +69,7 @@
       /* Botão primário (CTA hero) — evita repaint quando o Tailwind chega */
       .btn-primary-shell{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.5rem;border-radius:.5rem;background:hsl(var(--accent));color:hsl(var(--accent-foreground));font-weight:600;line-height:1.2;min-height:44px}
       #initial-loader{position:fixed;inset:0;background:white;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s ease-out, visibility 0.5s}
+      .loader-logo{width:126px;height:70px;object-fit:contain;margin-bottom:1.25rem}
       .loader-spinner{width:40px;height:40px;border:3px solid #f3f3f3;border-top:3px solid #1e3a8a;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:1rem}
       .loader-text{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,sans-serif;color:#1e3a8a;font-weight:600;font-size:14px}
       .retry-button{display:none;margin-top:1rem;padding:0.5rem 1rem;background:#1e3a8a;color:white;border-radius:0.5rem;border:none;cursor:pointer;font-weight:600}
@@ -500,8 +501,9 @@
     alt="" /></noscript>
     <div id="root"></div>
     <div id="initial-loader" aria-hidden="true">
+      <img class="loader-logo" src="/images/logo-full.webp" width="251" height="140" alt="" decoding="async" fetchpriority="high" />
       <div class="loader-spinner"></div>
-      <div class="loader-text"></div>
+      <div class="loader-text">Carregando…</div>
     </div>
     <script>
       (function() {
