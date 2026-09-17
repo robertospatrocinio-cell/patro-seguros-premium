@@ -15,6 +15,9 @@ import {
 import { useWebMcpTool } from "@/hooks/useWebMcpTool";
 import { textResult } from "@/lib/webmcp";
 
+/** Cotação online imediata de Seguro Auto (SmartBroker). */
+const SMARTBROKER_AUTO_URL = "https://patroseguros.smartbroker.net.br";
+
 type QuickLeadFields = {
   name: string;
   phone: string;
