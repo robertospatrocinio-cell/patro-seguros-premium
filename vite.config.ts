@@ -511,6 +511,12 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
         output: {
           /**
+           * O boot da home baixava ~30 chunks minúsculos (1-5 KB cada), e cada
+           * um custava um round-trip em 4G — encadeamento que empurrava o LCP.
+           * Rollup funde chunks abaixo desse limite nos seus importadores.
+           */
+          experimentalMinChunkSize: 24_000,
+          /**
            * Code-splitting conservador para reduzir o entry e melhorar LCP mobile.
            *
            * Regras de segurança (evitam o TDZ que motivou a remoção anterior):
