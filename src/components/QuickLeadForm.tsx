@@ -418,7 +418,9 @@ const QuickLeadFormImpl = () => {
                   <Lock className="h-3 w-3" aria-hidden="true" />
                   Dados protegidos pela LGPD
                 </span>
-                <span className="italic line-clamp-1 max-w-[60%] text-right">"{whatsappMessage}"</span>
+                <span className="italic line-clamp-1 max-w-[60%] text-right">
+                  {isAuto ? "Você será direcionado à cotação online do Seguro Auto." : `"${whatsappMessage}"`}
+                </span>
               </div>
               <p className="text-[11px] text-slate-500 leading-relaxed">
                 Ao enviar, você concorda com a nossa{" "}
