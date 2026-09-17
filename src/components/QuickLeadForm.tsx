@@ -298,6 +298,7 @@ const QuickLeadFormImpl = () => {
     }
   };
 
+  const isAuto = formData.insuranceType === "Auto";
   const cidadePreview = formData.city?.trim() || "Guarulhos";
   const whatsappMessage = `Olá, meu nome é ${formData.name || '...'}. Sou de ${cidadePreview} e gostaria de uma cotação de ${formData.insuranceType || '...'}.`;
 
