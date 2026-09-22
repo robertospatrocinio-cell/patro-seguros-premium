@@ -12,7 +12,7 @@ const options = [
   { label: 'Minha empresa', icon: Building2, path: '/seguro-empresarial' },
   { label: 'Minha frota', icon: Truck, path: '/seguro-frota' },
   { label: 'Minha carga', icon: Package, path: '/seguro-transporte' },
-  { label: 'Meu patrimônio', icon: ShieldCheck, path: '/seguros-de-patrimonio' },
+  { label: 'Meu patrimônio', icon: ShieldCheck, path: '/seguro-empresarial' },
   { label: 'Minhas máquinas', icon: Settings, path: '/seguro-maquinas' },
 ];
 
