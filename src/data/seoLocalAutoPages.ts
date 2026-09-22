@@ -360,7 +360,7 @@ const cotacaoSeguroAuto: SeoLocalPageConfig = {
 const melhorCorretora: SeoLocalPageConfig = {
   slug: "melhor-corretora-de-seguros-guarulhos",
   title: "Melhor Corretora de Seguros em Guarulhos — Patro Seguros",
-  subtitle: "Patro Seguros: corretora SUSEP em Guarulhos (fundada em 2021 por sócios com 20+ anos de mercado), com 4.9 no Google, carteira ativa de apólices e atendimento presencial no Cidade Maia.",
+  subtitle: "Patro Seguros: corretora SUSEP em Guarulhos (fundada em 2021 por sócios com mais de 20 anos de experiência profissional), com 4.9 no Google, carteira ativa de apólices e atendimento presencial no Cidade Maia.",
   description: `Procurando a melhor corretora de seguros em Guarulhos? A Patro Seguros é referência local com sócios com mais de 20 anos de experiência no mercado (fundada em 2021): registro SUSEP, escritório físico no Cidade Maia, nota 4.9 no Google e carteira ativa de apólices em seguro auto, vida, residencial, empresarial e plano de saúde. ${partnersLine}`,
   detailedDescription: `### O que Define a Melhor Corretora em Guarulhos?\n\nO que define a melhor corretora de seguros em Guarulhos não é tamanho de marca — é registro regulatório, presença local, transparência na cotação, qualidade do suporte em sinistro e capacidade de renovar a apólice anualmente sem deixar o cliente refém de aumentos abusivos.\n\n### Tradição e Tecnologia: Patro Seguros\n\nA Patro Seguros é uma corretora familiar fundada por Roberto e Sandra Patrocínio, com escritório físico no Cidade Maia e atendimento que combina tradição (visita presencial, café no escritório) com tecnologia (cotação por WhatsApp, assinatura digital). O time conhece os CEPs da cidade, as oficinas referenciadas e os perfis de risco de cada bairro de Guarulhos.\n\n### Acompanhamento Individualizado\n\nDiferentemente de corretoras nacionais que tratam o cliente como número, na Patro cada apólice é acompanhada individualmente: recotação anual automática, lembretes de vencimento, suporte completo em caso de sinistro e renovação otimizada para garantir que você nunca pague mais do que o mercado oferece.`,
   metaDescription: "Melhor corretora de seguros em Guarulhos: Patro Seguros. SUSEP, 4.9 no Google, atendimento presencial no Cidade Maia, 16 seguradoras parceiras.",
@@ -375,7 +375,7 @@ const melhorCorretora: SeoLocalPageConfig = {
   ],
   pricingNote: "Garantia Patro: se a renovação proposta tiver aumento acima de 15% sem agravamento de risco, recotamos com 16 seguradoras e mostramos alternativas reais.",
   faqs: [
-    { question: "Por que a Patro é considerada a melhor corretora de seguros em Guarulhos?", answer: "Por reunir presença local (escritório físico no Cidade Maia, com sócios com mais de 20 anos de mercado), credenciais regulatórias (SUSEP), reputação comprovada (4.9 no Google com avaliações reais), portfólio amplo (16 seguradoras e 16 operadoras de saúde) e atendimento personalizado em todas as etapas." },
+    { question: "Por que a Patro é considerada a melhor corretora de seguros em Guarulhos?", answer: "Por reunir presença local (escritório físico no Cidade Maia, com sócios com mais de 20 anos de experiência profissional), credenciais regulatórias (SUSEP), reputação comprovada (4.9 no Google com avaliações reais), portfólio amplo (16 seguradoras e 16 operadoras de saúde) e atendimento personalizado em todas as etapas." },
     { question: "Qual a diferença entre a Patro e uma corretora nacional?", answer: "A Patro tem escritório físico em Guarulhos onde você pode visitar, time que conhece os CEPs e oficinas da região e atendimento individualizado. Corretoras nacionais costumam ter call centers terceirizados e tratam o cliente como número de protocolo." },
     { question: "Contratar com corretora é mais caro do que direto na seguradora?", answer: "Não. O preço final é exatamente o mesmo, pois a remuneração da corretora já está embutida no prêmio da seguradora. A diferença é que pela corretora você tem comparativo entre 16 seguradoras, suporte em sinistro e renovação otimizada." },
   { question: "A Patro tem registro na SUSEP?", answer: "Sim. A Patro Seguros possui registro ativo na SUSEP (Superintendência de Seguros Privados), órgão regulador do mercado de seguros no Brasil. Sempre verifique o registro de qualquer corretora antes de contratar." },
@@ -464,7 +464,7 @@ const planoSaudeMei: SeoLocalPageConfig = {
   ],
   whyPatro: [
     "Cotação entre 16 operadoras de saúde em até 4 horas úteis",
-    "Especialistas em adesão MEI, com sócios com mais de 20 anos de mercado — mais de 200 MEIs ativos em Guarulhos",
+    "Especialistas em adesão MEI, com sócios com mais de 20 anos de experiência profissional — mais de 200 MEIs ativos em Guarulhos",
     "Atendimento presencial no Cidade Maia ou totalmente online",
     "Suporte em autorizações, marcações e renovação anual",
     "Comparativo claro: preço, rede credenciada, cobertura e carência lado a lado",
