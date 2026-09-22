@@ -5,7 +5,7 @@ const SeguroEstagiario = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao?tipo=empresarial"
       title="Seguro Estagiário"
       subtitle="Proteção obrigatória para estagiários conforme a Lei do Estágio"
       icon="🎓"

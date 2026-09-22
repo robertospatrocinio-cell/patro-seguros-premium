@@ -20,7 +20,7 @@ export const blogAuthors: BlogAuthor[] = [
     name: "Roberto Patro",
     role: "Sócio-fundador e Corretor de Seguros — SUSEP",
     shortBio:
-      "Especialista em seguros patrimoniais, frota, agro e responsabilidade civil, com mais de 20 anos de mercado em Guarulhos/SP.",
+      "Especialista em seguros patrimoniais, frota, agro e responsabilidade civil, com mais de 20 anos de experiência profissional em Guarulhos/SP.",
     bio: [
       "Roberto Patrocínio é sócio-fundador da Patro Corretora de Seguros, com sede em Guarulhos/SP, e atua há mais de 20 anos no mercado segurador brasileiro.",
       "Como corretor habilitado pela SUSEP, é especialista em proteção patrimonial para galpões em Cumbica, seguros de frota, agronegócio (com atendimento nacional) e responsabilidade civil para empresas.",
