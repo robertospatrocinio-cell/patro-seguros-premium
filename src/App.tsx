@@ -830,6 +830,8 @@ const App = () => {
                   <Route path="/seguro-petshop" element={<SeguroPetshop />} />
                   {/* Nichos / Parcerias / Odonto / Vet */}
                   <Route path="/nicho-transportadoras" element={<NichoTransportadoras />} />
+                  {/* Página já existente cujo canonical/breadcrumb declara esta URL. */}
+                  <Route path="/seguros-para-lojistas-guarulhos" element={<NichoLojistasGuarulhos />} />
                   <Route path="/parcerias-clinicas-odontologicas" element={<ParceriasClinicasOdontologicas />} />
                   <Route path="/parcerias-clinicas-veterinarias" element={<ParceriasClinicasVeterinarias />} />
                   <Route path="/seguro-clinica-odontologica" element={<SeguroClinicaOdontologica />} />
