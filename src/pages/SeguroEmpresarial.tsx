@@ -15,7 +15,7 @@ const SeguroEmpresarial = () => {
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
-      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao?tipo=empresarial"
       title="Seguro Empresarial em Guarulhos | Cotação em 2h | Patro Seguros"
       headline="Seguro empresarial em Guarulhos para PMEs e indústrias"
       subtitle="Consultoria empresarial dedicada a proteger patrimônio, faturamento e a continuidade do seu negócio"

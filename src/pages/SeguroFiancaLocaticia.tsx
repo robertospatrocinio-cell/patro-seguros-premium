@@ -5,7 +5,7 @@ const SeguroFiancaLocaticia = () => {
   return (
     <InsurancePageTemplate
       heroImage={heroImg}
-      quoteUrl="https://www.patroseguros.com.br/cotacao-auto"
+      quoteUrl="https://www.patroseguros.com.br/cotacao?tipo=residencial"
       title="Seguro Fiança Locatícia"
       subtitle="A substituição inteligente do fiador para aluguel de imóveis residenciais e comerciais"
       icon="🏠"
