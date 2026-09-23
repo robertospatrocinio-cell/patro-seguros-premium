@@ -1,13 +1,8 @@
 import { createRoot } from "react-dom/client";
 import { useEffect, useState } from "react";
 import "./index.css";
-import "@fontsource/urbanist/400.css";
-import "@fontsource/urbanist/600.css";
-import "@fontsource/urbanist/700.css";
-import "@fontsource/urbanist/800.css";
-import "@fontsource/epilogue/400.css";
-import "@fontsource/epilogue/500.css";
-import "@fontsource/epilogue/600.css";
+// Urbanist/Epilogue são usadas apenas em src/pages/Patro.tsx — os @font-face
+// foram movidos para lá para não pesar no CSS crítico de todas as páginas.
 import ErrorBoundary from "./components/ErrorBoundary";
 import App from "./App.tsx";
 

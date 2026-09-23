@@ -194,7 +194,17 @@ const faqs = [
 
 const Index = () => {
   useEffect(() => {
-    prefetchOnIdleAll([loadQuickLeadForm, loadGoogleBusinessWidget]);
+    // O warm-up desses chunks (formulário + widget do Google) puxa o cliente do
+    // backend e roda avaliação de JS. Em mobile a primeira janela ociosa chega
+    // antes do LCP, então esperamos o `load` + idle para não competir com a
+    // primeira pintura.
+    const start = () => prefetchOnIdleAll([loadQuickLeadForm, loadGoogleBusinessWidget], 8000);
+    if (document.readyState === "complete") {
+      start();
+      return;
+    }
+    window.addEventListener("load", start, { once: true });
+    return () => window.removeEventListener("load", start);
   }, []);
 
   return (
