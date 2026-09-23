@@ -208,7 +208,7 @@ const tertiaryProducts: SitemapEntry[] = [
   "/seguro-imobiliario", "/seguro-lojas-shopping", "/seguro-armazenagem",
   "/seguro-placa-solar", "/seguro-maquinas-industriais",
   "/seguro-maquinas-linha-amarela", "/seguro-equipamentos-agricolas",
-  "/seguro-drone-agricola", "/seguro-transporte-agro", "/seguro-pecuario",
+  "/seguro-drone-agricola", "/seguro-reta-drone", "/seguro-transporte-agro", "/seguro-pecuario",
   "/seguro-cafe", "/seguro-geada", "/seguro-ambiental",
   "/seguro-propriedade-rural", "/seguro-jetski", "/seguro-embarcacoes",
   "/seguro-avioes", "/seguro-helicopteros",
