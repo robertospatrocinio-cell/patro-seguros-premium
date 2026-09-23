@@ -62,6 +62,7 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-condominio",
   "/seguro-engenharia",
   "/seguro-cyber",
+  "/seguro-reta-drone",
 
   // Responsabilidade Civil
   "/seguro-rc",

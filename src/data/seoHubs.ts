@@ -241,6 +241,7 @@ export const SEO_HUBS: SeoHub[] = [
       "/seguro-colhedora-algodao",
       "/seguro-colheitadeira-graos",
       "/seguro-drone-agricola",
+      "/seguro-reta-drone",
       "/seguro-pulverizador-agricola",
       "/seguro-silo-agricola",
       "/seguro-equipamentos-agricolas",

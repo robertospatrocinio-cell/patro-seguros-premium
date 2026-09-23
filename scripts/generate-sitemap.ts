@@ -33,8 +33,6 @@ import { GRANDE_SP_PATH, bairroSpPaths } from "../src/data/segurosSaoPauloRegion
 import { produtosBairroPaths } from "../src/data/segurosSaoPauloProdutos";
 
 const DOMAIN = "https://www.patroseguros.com.br";
-const TODAY = new Date().toISOString().slice(0, 10);
-
 interface SitemapEntry {
   loc: string;
   priority: string;
@@ -88,7 +86,7 @@ function loadPriorLastmodMap(): Map<string, string> {
         }
       }
     } catch {
-      // arquivo inválido: ignora, cairá em TODAY na URL afetada
+      // Arquivo inválido: ignora e omite lastmod quando não houver data confiável.
     }
   }
   return map;
@@ -208,7 +206,7 @@ const tertiaryProducts: SitemapEntry[] = [
   "/seguro-imobiliario", "/seguro-lojas-shopping", "/seguro-armazenagem",
   "/seguro-placa-solar", "/seguro-maquinas-industriais",
   "/seguro-maquinas-linha-amarela", "/seguro-equipamentos-agricolas",
-  "/seguro-drone-agricola", "/seguro-transporte-agro", "/seguro-pecuario",
+  "/seguro-drone-agricola", "/seguro-reta-drone", "/seguro-transporte-agro", "/seguro-pecuario",
   "/seguro-cafe", "/seguro-geada", "/seguro-ambiental",
   "/seguro-propriedade-rural", "/seguro-jetski", "/seguro-embarcacoes",
   "/seguro-avioes", "/seguro-helicopteros",
@@ -468,7 +466,6 @@ function buildImageSitemap(): string {
       // A home é `${DOMAIN}` sem barra final — igual ao canonical emitido
       // pelo PageMeta. Publicar `${DOMAIN}/` criaria uma segunda URL.
       `    <loc>${esc(`${DOMAIN}${e.page === "/" ? "" : e.page.replace(/\/+$/, "")}`)}</loc>`,
-      `    <lastmod>${TODAY}</lastmod>`,
       imgs,
       "  </url>",
     ].join("\n");
@@ -760,7 +757,7 @@ export function generateSitemap(blogSlugs: string[]): string {
     '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     ...indexOrder.map(name => {
       const loc = cleanXmlString(`${DOMAIN}/${name}`);
-      return `  <sitemap>\n    <loc>${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n  </sitemap>`;
+      return `  <sitemap>\n    <loc>${loc}</loc>\n  </sitemap>`;
     }),
     '</sitemapindex>',
     '' // Final newline
