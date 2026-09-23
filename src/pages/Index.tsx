@@ -345,12 +345,12 @@ const Index = () => {
           </div>
         </section>
 
-        <SolutionGuide onSelectInsuranceType={setQuickLeadInsuranceType} />
-
         {/* 6. COTAÇÃO EXPRESS */}
         <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
           <QuickLeadForm prefillInsuranceType={quickLeadInsuranceType} />
         </Suspense>
+
+        <SolutionGuide onSelectInsuranceType={setQuickLeadInsuranceType} />
 
         {/* 7. DIFERENCIAIS */}
         <section className="py-20 bg-slate-50" aria-label="Diferenciais da Patro Seguros">
