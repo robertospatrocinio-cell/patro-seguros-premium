@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import SeguroRetaDrone from "./SeguroRetaDrone";
 
 vi.mock("@/components/Header", () => ({ default: () => <header /> }));
@@ -11,9 +12,11 @@ vi.mock("@/hooks/useBreadcrumbOverrides", () => ({ useBreadcrumbOverrides: () =>
 describe("SeguroRetaDrone", () => {
   it("separa RETA de casco e evita preços não verificados", () => {
     render(
-      <MemoryRouter initialEntries={["/seguro-reta-drone"]}>
-        <SeguroRetaDrone />
-      </MemoryRouter>,
+      <HelmetProvider>
+        <MemoryRouter initialEntries={["/seguro-reta-drone"]}>
+          <SeguroRetaDrone />
+        </MemoryRouter>
+      </HelmetProvider>,
     );
 
     expect(screen.getByRole("heading", { level: 1, name: "Seguro RETA Drone" })).toBeInTheDocument();
