@@ -474,6 +474,9 @@
          roubava banda e main thread do LCP/FCP no mobile. -->
     <script>
       (function () {
+        // Só faz sentido nas páginas editoriais (/blog). Em qualquer outra rota
+        // o script é 38KB + ~200ms de main thread sem nenhum benefício.
+        if (!/^\/blog(\/|$)/.test(location.pathname)) return;
         var injected = false;
         function loadSwg() {
           if (injected) return;
