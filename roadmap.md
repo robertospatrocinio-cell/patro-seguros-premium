@@ -10,3 +10,4 @@
 - [x] Adicionar Guia Rápido de Soluções integrado à Cotação Express
 - [x] Reforçar verificação Google e exibir somente datas comprovadas
 - [x] Validar novos fluxos em desktop e celular, links e testes
+- [ ] Criar página separada de Seguro RETA Drone com conteúdo regulatório, comparação com casco, cotação e SEO
