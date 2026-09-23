@@ -7,6 +7,7 @@ import SeguroRetaDrone from "./SeguroRetaDrone";
 vi.mock("@/components/Header", () => ({ default: () => <header /> }));
 vi.mock("@/components/Footer", () => ({ default: () => <footer /> }));
 vi.mock("@/components/PageMeta", () => ({ default: () => null }));
+vi.mock("@/components/JumpLinksNav", () => ({ default: () => <nav aria-label="Navegação desta página" /> }));
 vi.mock("@/hooks/useBreadcrumbOverrides", () => ({ useBreadcrumbOverrides: () => ({ data: undefined }) }));
 
 describe("SeguroRetaDrone", () => {
