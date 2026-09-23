@@ -248,6 +248,8 @@ const LpSeguroCiberneticoEmpresas = lazyWithRetry(() => import("./pages/lp/Segur
 const LpResponsabilidadeAdminProf = lazyWithRetry(() => import("./pages/lp/ResponsabilidadeAdministradoresProfissionais"), "ResponsabilidadeAdministradoresProfissionais");
 
 const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
+const TelefonesSeguradoras = lazy(() => import("./pages/TelefonesSeguradoras"));
+const ConsultaTabelaFipe = lazy(() => import("./pages/ConsultaTabelaFipe"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
 
 const SeguroGeada = lazy(() => import("./pages/SeguroGeada"));
@@ -734,6 +736,8 @@ const App = () => {
                   <Route path="/investimentos" element={<Investimentos />} />
                   {/* === Rotas restauradas (Fase 1: correção de 73 links quebrados no menu/hubs) === */}
                   <Route path="/central-de-sinistro" element={<CentralDeSinistro />} />
+                  <Route path="/telefones-seguradoras" element={<TelefonesSeguradoras />} />
+                  <Route path="/consulta-tabela-fipe" element={<ConsultaTabelaFipe />} />
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
                   {/* Alias legado/typo — evita 404 */}

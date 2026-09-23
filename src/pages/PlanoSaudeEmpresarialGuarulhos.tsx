@@ -1,5 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-seguro-saude.webp";
+import RhOperationalSupport from "@/components/RhOperationalSupport";
 
 /**
  * Plano de Saúde Empresarial em Guarulhos — variante local SEO da página
@@ -104,6 +105,7 @@ A Patro Seguros é uma corretora de seguros em Guarulhos especializada em saúde
           { name: "Ative carteirinhas em até 5 dias úteis", text: "Após aprovação, a operadora libera carteirinhas digitais e a Patro entrega manual de utilização + canal direto de gestão." },
         ],
       }}
+      extraSections={<RhOperationalSupport trackingContext="plano-saude-empresarial-guarulhos-rh" />}
     />
   );
 };

@@ -418,6 +418,8 @@ const Header = memo(() => {
                       <SmartLink to="/contato" className="block py-1 hover:text-primary">Renovar Seguro</SmartLink>
                       <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Acionar Sinistro</SmartLink>
                       <SmartLink to="/central-de-sinistro" className="block py-1 hover:text-primary">Assistência 24h</SmartLink>
+                       <SmartLink to="/telefones-seguradoras" className="block py-1 hover:text-primary">Telefones e 0800</SmartLink>
+                       <SmartLink to="/consulta-tabela-fipe" className="block py-1 hover:text-primary">Consulta Tabela FIPE</SmartLink>
                       <SmartLink to="/contato" className="block py-1 hover:text-primary">Segunda Via</SmartLink>
                       <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block py-1 hover:text-primary">Falar com Consultor</a>
                       <SmartLink to="/verificar-susep" className="flex items-center gap-1.5 py-1 font-semibold text-primary hover:text-primary/80">
@@ -620,6 +622,8 @@ const Header = memo(() => {
               <MobileLink to="/cotacao">Solicitar Cotação</MobileLink>
               <MobileLink to="/contato">Renovar Seguro</MobileLink>
               <MobileLink to="/central-de-sinistro">Central de Sinistro</MobileLink>
+               <MobileLink to="/telefones-seguradoras">Telefones e 0800</MobileLink>
+               <MobileLink to="/consulta-tabela-fipe">Consulta Tabela FIPE</MobileLink>
               <MobileLink to="/verificar-susep">Verificar habilitação SUSEP</MobileLink>
               <Link to="/crm" className="block py-2 px-2 text-[13px] font-bold text-primary" onClick={close}>Área do Cliente</Link>
             </MobileSection>

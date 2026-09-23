@@ -27,6 +27,8 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/glossario-seguros",
   "/blog",
   "/central-de-sinistro",
+  "/telefones-seguradoras",
+  "/consulta-tabela-fipe",
   "/politica-privacidade",
   "/termos-de-uso",
 

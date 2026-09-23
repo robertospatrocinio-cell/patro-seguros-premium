@@ -245,6 +245,8 @@ const informational: SitemapEntry[] = [
   { loc: "/indique-um-amigo", priority: "0.5", changefreq: "monthly" },
   { loc: "/sobre-guarulhos", priority: "0.7", changefreq: "monthly" },
   { loc: "/seguros-guarulhos", priority: "0.8", changefreq: "monthly" },
+  { loc: "/telefones-seguradoras", priority: "0.6", changefreq: "monthly" },
+  { loc: "/consulta-tabela-fipe", priority: "0.6", changefreq: "monthly" },
 ];
 
 const enterpriseLps: SitemapEntry[] = [

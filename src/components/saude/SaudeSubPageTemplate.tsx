@@ -18,6 +18,7 @@ import {
   SAUDE_SUBTYPES,
   type SaudeSubtype,
 } from "@/data/saudeVertical";
+import RhOperationalSupport from "@/components/RhOperationalSupport";
 
 interface Props {
   subtype: SaudeSubtype;
@@ -231,6 +232,10 @@ const SaudeSubPageTemplate = ({ subtype }: Props) => {
             </div>
           </div>
         </section>
+
+        {subtype.slug === "empresarial" && (
+          <RhOperationalSupport trackingContext="saude-empresarial-guarulhos-rh" />
+        )}
       </main>
       <Footer />
     </>

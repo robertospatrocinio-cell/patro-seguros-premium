@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, MapPin, Quote } from "lucide-react";
+import { Star, MapPin, Quote, ShieldCheck } from "lucide-react";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { PATRO_LOCAL_TESTIMONIALS } from "@/data/patroTestimonials";
 import { EMPRESA } from "@/config/empresa";
@@ -40,6 +40,10 @@ const LocalTestimonials = () => {
               <p className="text-[11px] text-muted-foreground font-medium">
                 {PATRO_SOCIAL_PROOF.reviewsCtaLabel}
               </p>
+              <a href={PATRO_SOCIAL_PROOF.googleProfileUrl} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:underline">
+                <ShieldCheck className="h-3 w-3" aria-hidden="true" />
+                Avaliações verificadas diretamente no Google Maps
+              </a>
             </div>
           </div>
         </div>

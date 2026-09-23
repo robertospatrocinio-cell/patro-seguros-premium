@@ -1,4 +1,4 @@
-import { useState, memo, useRef, useMemo } from "react";
+import { useState, memo, useRef, useMemo, useEffect } from "react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,7 +50,11 @@ function maskValue(field: keyof QuickLeadFields, value: string): string {
   return v;
 }
 
-const QuickLeadFormImpl = () => {
+interface QuickLeadFormProps {
+  prefillInsuranceType?: string;
+}
+
+const QuickLeadFormImpl = ({ prefillInsuranceType }: QuickLeadFormProps) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<QuickLeadFields>({
     name: "",
@@ -63,6 +67,13 @@ const QuickLeadFormImpl = () => {
   // Espelho do estado para leitura dentro do execute da ferramenta WebMCP.
   const formDataRef = useRef(formData);
   formDataRef.current = formData;
+
+  useEffect(() => {
+    if (!prefillInsuranceType) return;
+    const resolved = resolveInsuranceTypeId(prefillInsuranceType);
+    if (!resolved) return;
+    setFormData((current) => ({ ...current, insuranceType: resolved }));
+  }, [prefillInsuranceType]);
 
   useWebMcpTool(
     useMemo(
@@ -303,7 +314,7 @@ const QuickLeadFormImpl = () => {
   const whatsappMessage = `Olá, meu nome é ${formData.name || '...'}. Sou de ${cidadePreview} e gostaria de uma cotação de ${formData.insuranceType || '...'}.`;
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 -mt-12 relative z-20">
+    <div id="cotacao-express" className="w-full max-w-6xl mx-auto px-4 -mt-12 relative z-20" tabIndex={-1}>
       <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 md:p-8">
         <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
           <div className="text-center lg:text-left shrink-0 lg:max-w-[220px] lg:pt-1">

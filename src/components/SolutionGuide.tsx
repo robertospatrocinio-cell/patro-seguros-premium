@@ -63,7 +63,7 @@ interface SolutionGuideProps {
 }
 
 const SolutionGuide = ({ onSelectInsuranceType }: SolutionGuideProps) => {
-  const [activeId, setActiveId] = useState(profiles[0].id);
+  const [activeId, setActiveId] = useState<(typeof profiles)[number]["id"]>(profiles[0].id);
   const active = profiles.find((profile) => profile.id === activeId) ?? profiles[0];
 
   const selectType = (type: InsuranceType) => {

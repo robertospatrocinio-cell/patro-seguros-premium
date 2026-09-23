@@ -12,7 +12,7 @@
  *  - uma única FAQ comercial (FAQ de sinistro vive em /central-de-sinistro);
  *  - CTAs de cotação por produto via /cotacao?tipo=...
  */
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { EMPRESA, WHATSAPP_URL_BASE } from "@/config/empresa";
 import { Link } from "react-router-dom";
 import {
@@ -49,6 +49,8 @@ import GooglePreferredSource from "@/components/GooglePreferredSource";
 import { prefetchOnIdleAll } from "@/lib/prefetch";
 import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import { INSURER_WEBSITES } from "@/data/insurerWebsites";
+import SolutionGuide from "@/components/SolutionGuide";
+import ClaimsSupportTimeline from "@/components/ClaimsSupportTimeline";
 
 // Below-the-fold heavy components — code-split to lighten initial JS
 const loadQuickLeadForm = () => import("@/components/QuickLeadForm");
@@ -193,6 +195,7 @@ const faqs = [
 ];
 
 const Index = () => {
+  const [quickLeadInsuranceType, setQuickLeadInsuranceType] = useState<string>();
   useEffect(() => {
     // O warm-up desses chunks (formulário + widget do Google) puxa o cliente do
     // backend e roda avaliação de JS. Em mobile a primeira janela ociosa chega
@@ -342,9 +345,11 @@ const Index = () => {
           </div>
         </section>
 
+        <SolutionGuide onSelectInsuranceType={setQuickLeadInsuranceType} />
+
         {/* 6. COTAÇÃO EXPRESS */}
         <Suspense fallback={<div style={{ minHeight: 320 }} aria-hidden="true" />}>
-          <QuickLeadForm />
+          <QuickLeadForm prefillInsuranceType={quickLeadInsuranceType} />
         </Suspense>
 
         {/* 7. DIFERENCIAIS */}
@@ -483,6 +488,15 @@ const Index = () => {
                 </div>
               </div>
               <p className="text-slate-500 font-medium">{PATRO_SOCIAL_PROOF.reviewsCtaLabel}</p>
+              <a
+                href={PATRO_SOCIAL_PROOF.googleProfileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary hover:bg-primary/10"
+              >
+                <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                Avaliações verificadas diretamente no Google Maps
+              </a>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -697,6 +711,8 @@ const Index = () => {
             </div>
           </div>
         </section>
+
+        <ClaimsSupportTimeline compact />
 
         {/* CHAMADA CENTRAL DE SINISTRO */}
         <div className="bg-orange-700 py-3 text-white">

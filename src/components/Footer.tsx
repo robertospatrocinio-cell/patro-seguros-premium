@@ -143,6 +143,7 @@ const Footer = memo(() => {
               <li><SmartLink to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</SmartLink></li>
               <li><SmartLink to="/indique-e-ganhe" className="hover:text-white transition-colors">Indique um Amigo</SmartLink></li>
               <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>
+              <li><SmartLink to="/telefones-seguradoras" className="hover:text-white transition-colors">Telefones e 0800</SmartLink></li>
               <li>
                 <SmartLink to="/verificar-susep" className="inline-flex items-center gap-1.5 text-white font-semibold hover:text-primary transition-colors">
                   <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
@@ -167,6 +168,7 @@ const Footer = memo(() => {
               <li><SmartLink to="/seguradoras-parceiras" className="hover:text-white transition-colors">Seguradoras Parceiras</SmartLink></li>
               <li><SmartLink to="/grande-sao-paulo" className="hover:text-white transition-colors">Guarulhos e Grande São Paulo</SmartLink></li>
               <li><SmartLink to="/atendimento-digital" className="hover:text-white transition-colors">Atendimento Digital</SmartLink></li>
+              <li><SmartLink to="/consulta-tabela-fipe" className="hover:text-white transition-colors">Consulta Tabela FIPE</SmartLink></li>
               <li><SmartLink to="/mapa-do-site" className="text-primary font-bold hover:text-white">Mapa do Site</SmartLink></li>
               <li><SmartLink to="/politica-privacidade" className="hover:text-white transition-colors">Privacidade</SmartLink></li>
               <li><SmartLink to="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</SmartLink></li>

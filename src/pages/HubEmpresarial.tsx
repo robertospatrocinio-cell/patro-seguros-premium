@@ -13,6 +13,7 @@
   import StickyQuoteBar from "@/components/StickyQuoteBar";
   import FormCTASection from "@/components/FormCTASection";
   import SpeakableSchema from "@/components/SpeakableSchema";
+  import RhOperationalSupport from "@/components/RhOperationalSupport";
  
  const WHATSAPP_URL = "https://wa.me/551151997500?text=Olá! Gostaria de uma cotação de seguro empresarial para meu negócio.";
  
@@ -110,6 +111,8 @@ const HubEmpresarial = () => {
             ))}
           </div>
         </div>
+
+        <RhOperationalSupport trackingContext="hub-empresarial-rh" />
 
         <section className="py-24 bg-muted/30 border-y border-border" aria-labelledby="especialistas-empresariais-guarulhos">
           <div className="container mx-auto px-4 text-center max-w-4xl">
