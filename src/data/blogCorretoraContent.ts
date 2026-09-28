@@ -150,4 +150,71 @@ Consulte os dados do profissional ou da empresa nos canais oficiais da SUSEP e c
       { q: "Como verificar se uma corretora está regular?", a: "Consulte os dados do profissional ou da empresa nos canais oficiais da SUSEP e confira a identificação da seguradora e da apólice." },
     ],
   },
+  "corretora-de-seguros-x-seguradora": {
+    title: "Corretora de seguros x seguradora: qual é a diferença?",
+    content: `A corretora de seguros intermedeia a contratação e orienta o cliente; a seguradora analisa e aceita o risco, emite a apólice e responde pela regulação e pelo pagamento de indenizações quando houver cobertura contratada. A corretora não assume o risco segurado e não substitui a decisão da seguradora.
+
+## Diferença entre corretora de seguros e seguradora
+Em termos simples, a corretora atua na relação de intermediação entre cliente e seguradora. A seguradora é a empresa que aceita o risco e assume as obrigações previstas no contrato de seguro.
+
+## Tabela comparativa: corretora x seguradora
+| Critério | Corretora de seguros | Seguradora |
+| --- | --- | --- |
+| Função | Intermediar a contratação, orientar o cliente e apoiar o atendimento. | Analisar, aceitar ou recusar o risco e cumprir as obrigações da apólice. |
+| Relação com o cliente | Atua como ponto de orientação e intermediação. | Mantém a relação contratual com o segurado. |
+| Análise de alternativas | Pode pesquisar e comparar propostas compatíveis com o perfil informado. | Analisa a proposta submetida e define suas condições de aceitação. |
+| Emissão da apólice | Não emite a apólice em nome próprio. | Emite a apólice ou documento contratual correspondente. |
+| Assunção do risco | Não assume o risco segurado. | Assume o risco aceito nos termos do contrato. |
+| Pagamento de indenização | Não decide nem paga a indenização. | Regula o sinistro e paga a indenização quando houver cobertura. |
+| Suporte ao segurado | Pode orientar dúvidas, documentos, alterações e sinistros. | Presta o atendimento previsto e executa as obrigações contratuais. |
+
+## Quem assume o risco do seguro?
+A seguradora assume o risco que aceitou e que está delimitado na apólice. Ela avalia a proposta, estabelece as condições de aceitação e cumpre a cobertura contratada quando o evento estiver amparado pelo contrato.
+
+A corretora não assume esse risco. Seu papel é aproximar cliente e seguradora, explicar propostas disponíveis e apoiar a contratação.
+
+## Quem intermedeia a contratação?
+A corretora, por meio do corretor ou de sua equipe, intermedeia a contratação. Ela pode levantar necessidades, solicitar cotações, comparar alternativas e orientar o preenchimento da proposta.
+
+A escolha da proposta cabe ao cliente, enquanto a aceitação do risco cabe à seguradora. Depois da aceitação, confira apólice, vigência, coberturas, limites, franquias e exclusões.
+
+Para entender as etapas desse trabalho, leia [o que faz uma corretora de seguros](/blog/o-que-faz-corretora-de-seguros) e [como funciona uma corretora de seguros no Brasil](/blog/como-funciona-corretora-de-seguros).
+
+## Como funciona o atendimento em caso de sinistro?
+O segurado deve seguir os canais indicados na apólice e comunicar o evento assim que possível. A corretora pode ajudar a organizar documentos, orientar protocolos e acompanhar a comunicação.
+
+A análise dos fatos, a verificação da cobertura e a decisão de indenizar são responsabilidades da seguradora, de acordo com a apólice. O segurado deve fornecer informações verdadeiras, preservar documentos e evidências e seguir as orientações recebidas.
+
+## Por que essa diferença importa para o segurado?
+Saber quem faz o quê ajuda o segurado a procurar o canal correto. A corretora é o ponto de apoio da intermediação; a seguradora é responsável pelo contrato, pela regulação e pela indenização prevista.
+
+Isso evita uma confusão comum: uma corretora pode apoiar o cliente em um sinistro sem poder alterar as condições da apólice ou obrigar a seguradora a indenizar um evento sem cobertura.
+
+## Perguntas frequentes
+### A corretora é a empresa que paga o seguro?
+Não. A corretora intermedeia e orienta. O pagamento da indenização, quando devido, é responsabilidade da seguradora conforme a apólice.
+
+### A seguradora pode recusar uma proposta?
+Sim. A seguradora analisa o risco e pode aceitar ou recusar a proposta segundo seus critérios e as regras aplicáveis.
+
+### Posso falar com a corretora depois de contratar?
+Sim. A corretora pode apoiar dúvidas, alterações, renovação e comunicação de sinistros, conforme o produto.
+
+### Quem devo procurar primeiro em um sinistro?
+Siga o canal indicado na apólice ou pela seguradora. A corretora também pode orientar a comunicação e o envio de documentos.
+
+## Fontes e referências
+- [SUSEP — Corretores de seguros](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros)
+- [SUSEP — Consumidor de seguros](https://www.gov.br/susep/pt-br/assuntos/consumidor)
+- [Planalto — Decreto-Lei nº 73/1966](https://www.planalto.gov.br/ccivil_03/decreto-lei/del0073.htm)
+- [Planalto — Código Civil, contratos de seguro](https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm)
+
+<p><small>Conteúdo revisado pela equipe da Patro Seguros, corretora que atende clientes em todo o Brasil.</small></p>`,
+    faqs: [
+      { q: "A corretora é a empresa que paga o seguro?", a: "Não. A corretora intermedeia e orienta. O pagamento da indenização, quando devido, é responsabilidade da seguradora conforme a apólice." },
+      { q: "Quem assume o risco do seguro?", a: "A seguradora assume o risco que aceitou e que está delimitado na apólice." },
+      { q: "Quem intermedeia a contratação?", a: "A corretora, por meio do corretor ou de sua equipe, intermedeia a contratação entre cliente e seguradora." },
+      { q: "Quem analisa e decide o sinistro?", a: "A seguradora regula o sinistro e decide sobre a cobertura conforme as condições da apólice." },
+    ],
+  },
 };

@@ -27,6 +27,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "corretora-de-seguros-x-seguradora",
+    title: "Corretora de seguros x seguradora: qual é a diferença?",
+    excerpt: "Compare as funções da corretora e da seguradora: quem intermedeia, quem emite a apólice, quem assume o risco e quem paga a indenização.",
+    category: "Dicas",
+    tags: ["corretora de seguros", "seguradora", "corretor de seguros", "apólice", "sinistro"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    updatedAt: "2026-09-28",
+    readTime: 9,
+  },
+  {
     slug: "o-que-faz-corretora-de-seguros",
     title: "O que faz uma corretora de seguros? Entenda o papel do corretor",
     excerpt: "Entenda como uma corretora identifica necessidades, compara alternativas, orienta coberturas e acompanha o cliente antes, durante e depois da contratação.",
