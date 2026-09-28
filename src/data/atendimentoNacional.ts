@@ -31,7 +31,13 @@ export const produtosNacionais: ProdutoNacional[] = [
 export interface EstadoNacional {
   uf: string;
   nome: string;
+  /** Slug usado na URL (/atendimento-nacional/estado/<slug>). */
+  slug: string;
+  regiao: string;
   cidades: string[];
+  /** Perfil econômico resumido (conhecimento público geral, sem dados de carteira). */
+  perfil: string;
+  foco: "agro" | "empresas" | "logistica";
 }
 
 export interface RegiaoNacional {
@@ -41,7 +47,6 @@ export interface RegiaoNacional {
   resumo: string;
   intro: string[];
   destaques: string[];
-  estados: EstadoNacional[];
   faqs: { question: string; answer: string }[];
 }
 
@@ -79,11 +84,6 @@ export const regioesNacionais: RegiaoNacional[] = [
       "Fazemos a análise do risco, comparamos seguradoras parceiras e acompanhamos a apólice e eventuais sinistros sem que você precise se deslocar.",
     ],
     destaques: ["Seguro rural e de máquinas agrícolas", "Frotas e transporte de cargas", "Seguro empresarial para indústria e comércio", "Saúde PME para equipes"],
-    estados: [
-      { uf: "PR", nome: "Paraná", cidades: ["Curitiba", "Londrina", "Maringá", "Cascavel", "Ponta Grossa", "Toledo"] },
-      { uf: "SC", nome: "Santa Catarina", cidades: ["Florianópolis", "Joinville", "Blumenau", "Chapecó", "Itajaí"] },
-      { uf: "RS", nome: "Rio Grande do Sul", cidades: ["Porto Alegre", "Caxias do Sul", "Passo Fundo", "Santa Maria", "Cruz Alta"] },
-    ],
     faqs: faqsComuns("na Região Sul"),
   },
   {
@@ -96,12 +96,6 @@ export const regioesNacionais: RegiaoNacional[] = [
       "Para quem está fora da Grande São Paulo, o atendimento é remoto, com o mesmo acompanhamento consultivo de cotação, contratação e pós-venda.",
     ],
     destaques: ["Seguro empresarial e responsabilidade civil", "Plano de saúde empresarial", "Frotas e caminhões", "Rural, máquinas e drones agrícolas"],
-    estados: [
-      { uf: "SP", nome: "São Paulo (interior e litoral)", cidades: ["Campinas", "Ribeirão Preto", "Sorocaba", "São José dos Campos", "Piracicaba", "Bauru", "Presidente Prudente"] },
-      { uf: "MG", nome: "Minas Gerais", cidades: ["Belo Horizonte", "Uberlândia", "Uberaba", "Patos de Minas", "Montes Claros"] },
-      { uf: "RJ", nome: "Rio de Janeiro", cidades: ["Rio de Janeiro", "Niterói", "Campos dos Goytacazes", "Volta Redonda"] },
-      { uf: "ES", nome: "Espírito Santo", cidades: ["Vitória", "Serra", "Linhares", "Cachoeiro de Itapemirim"] },
-    ],
     faqs: faqsComuns("no Sudeste, fora da Grande São Paulo"),
   },
   {
@@ -114,12 +108,6 @@ export const regioesNacionais: RegiaoNacional[] = [
       "A Patro Seguros atende produtores rurais, operadores de drones agrícolas, transportadoras e empresas da região de forma remota, com análise técnica de cada operação.",
     ],
     destaques: ["Seguro rural e pecuário", "Máquinas e implementos agrícolas", "Drone agrícola (casco e RETA)", "Transporte agro e frotas"],
-    estados: [
-      { uf: "MT", nome: "Mato Grosso", cidades: ["Cuiabá", "Rondonópolis", "Sinop", "Sorriso", "Lucas do Rio Verde", "Primavera do Leste"] },
-      { uf: "MS", nome: "Mato Grosso do Sul", cidades: ["Campo Grande", "Dourados", "Três Lagoas", "Maracaju"] },
-      { uf: "GO", nome: "Goiás", cidades: ["Goiânia", "Rio Verde", "Jataí", "Anápolis", "Cristalina"] },
-      { uf: "DF", nome: "Distrito Federal", cidades: ["Brasília"] },
-    ],
     faqs: faqsComuns("no Centro-Oeste"),
   },
   {
@@ -132,14 +120,6 @@ export const regioesNacionais: RegiaoNacional[] = [
       "A Patro Seguros atende produtores, empresas e frotas nordestinas de forma remota, comparando seguradoras com atuação nacional.",
     ],
     destaques: ["Seguro rural e máquinas agrícolas", "Drones agrícolas", "Seguro empresarial e saúde PME", "Frotas e caminhões"],
-    estados: [
-      { uf: "BA", nome: "Bahia", cidades: ["Salvador", "Luís Eduardo Magalhães", "Barreiras", "Feira de Santana", "Juazeiro"] },
-      { uf: "MA", nome: "Maranhão", cidades: ["São Luís", "Balsas", "Imperatriz"] },
-      { uf: "PI", nome: "Piauí", cidades: ["Teresina", "Uruçuí", "Bom Jesus"] },
-      { uf: "PE", nome: "Pernambuco", cidades: ["Recife", "Petrolina", "Caruaru"] },
-      { uf: "CE", nome: "Ceará", cidades: ["Fortaleza", "Juazeiro do Norte", "Sobral"] },
-      { uf: "RN, PB, AL e SE", nome: "Demais estados", cidades: ["Natal", "Mossoró", "João Pessoa", "Maceió", "Aracaju"] },
-    ],
     faqs: faqsComuns("no Nordeste"),
   },
   {
@@ -152,12 +132,6 @@ export const regioesNacionais: RegiaoNacional[] = [
       "A Patro Seguros atende produtores, transportadoras e empresas da região de forma remota, sempre verificando a disponibilidade de cada seguradora para a localidade.",
     ],
     destaques: ["Seguro rural e pecuário", "Máquinas agrícolas e drones", "Transporte e frotas", "Seguro empresarial"],
-    estados: [
-      { uf: "TO", nome: "Tocantins", cidades: ["Palmas", "Araguaína", "Gurupi", "Porto Nacional"] },
-      { uf: "PA", nome: "Pará", cidades: ["Belém", "Paragominas", "Marabá", "Santarém"] },
-      { uf: "RO", nome: "Rondônia", cidades: ["Porto Velho", "Vilhena", "Ji-Paraná"] },
-      { uf: "AM, AC, RR e AP", nome: "Demais estados", cidades: ["Manaus", "Rio Branco", "Boa Vista", "Macapá"] },
-    ],
     faqs: faqsComuns("na Região Norte"),
   },
 ];
