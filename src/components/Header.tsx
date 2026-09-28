@@ -400,6 +400,8 @@ const Header = memo(() => {
                       <SmartLink to="/seguro-propriedade-rural" className="block py-1 hover:text-primary">Propriedade Rural</SmartLink>
                       <SmartLink to="/seguro-pecuario" className="block py-1 hover:text-primary">Seguro Pecuário</SmartLink>
                       <SmartLink to="/seguro-transporte-agro" className="block py-1 hover:text-primary">Transporte Agro</SmartLink>
+                      <SmartLink to="/seguro-drone" className="block py-1 hover:text-primary">Seguro Drone (Casco)</SmartLink>
+                      <SmartLink to="/seguro-reta-drone" className="block py-1 hover:text-primary">RETA Drone (Responsabilidade Civil)</SmartLink>
                     </div>
                   </div>
                 </div>
@@ -616,6 +618,8 @@ const Header = memo(() => {
             <MobileSection id="agro" label="Agronegócio">
               <MobileLink to="/seguro-rural">Seguro Rural</MobileLink>
               <MobileLink to="/seguro-maquinas-agricolas">Máquinas Agrícolas</MobileLink>
+              <MobileLink to="/seguro-drone">Seguro Drone (Casco)</MobileLink>
+              <MobileLink to="/seguro-reta-drone">RETA Drone (RC)</MobileLink>
             </MobileSection>
 
             <MobileSection id="atendimento" label="Atendimento">
