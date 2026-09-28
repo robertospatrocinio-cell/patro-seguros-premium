@@ -82,4 +82,72 @@ A corretora pode apoiar dúvidas, alterações, renovação e comunicação de s
       { q: "O corretor acompanha o seguro depois da contratação?", a: "A corretora pode apoiar dúvidas, alterações, renovação e comunicação de sinistros, conforme o produto." },
     ],
   },
+  "o-que-faz-corretora-de-seguros": {
+    title: "O que faz uma corretora de seguros? Entenda o papel do corretor",
+    content: `Uma corretora de seguros identifica os riscos e necessidades do cliente, pesquisa alternativas disponíveis, explica as condições das propostas e acompanha a contratação e o atendimento do seguro. Ela atua como intermediária entre cliente e seguradora, mas não assume o risco nem decide sozinha sobre a aceitação ou o pagamento de sinistros.
+
+## Qual é a função de uma corretora de seguros?
+A função da corretora é intermediar a contratação e orientar para que o cliente compreenda as opções antes de decidir. Isso inclui organizar informações, solicitar propostas, esclarecer diferenças entre produtos e apoiar a comunicação com a seguradora.
+
+## Como a corretora identifica as necessidades do cliente?
+A corretora faz perguntas sobre o bem, a pessoa ou a atividade que se pretende proteger, os riscos percebidos, o orçamento e as prioridades do cliente. Considera o uso do bem, quem está exposto ao risco, os eventos de maior impacto e as informações necessárias para a análise da seguradora.
+
+## Como a corretora compara alternativas?
+A corretora reúne propostas de seguradoras que possam atender ao perfil informado e compara preço, coberturas, limites, franquias, exclusões, serviços e condições de aceitação. Uma comparação responsável não escolhe automaticamente a proposta mais barata.
+
+Para entender a diferença entre orientação e assunção do risco, veja também o artigo pilar [Como funciona uma corretora de seguros no Brasil?](/blog/como-funciona-corretora-de-seguros).
+
+## Como a corretora auxilia na escolha de coberturas?
+A corretora explica o alcance de cada cobertura, limites de indenização, participação do segurado, exclusões e condições para acionar o seguro. O corretor pode relacionar as opções ao contexto do cliente, como nos casos de [seguro auto](/seguro-auto), [seguro residencial](/seguro-residencial), [seguro de vida](/seguro-vida) e [seguro empresarial](/seguro-empresarial).
+
+## Como a corretora acompanha a contratação?
+A corretora pode apoiar o preenchimento da proposta, a organização de documentos e a comunicação de exigências, vistoria ou análise solicitada pela seguradora. Depois da aceitação, o cliente deve conferir seguradora, vigência, coberturas, limites, prêmio, franquias, exclusões e canais de atendimento.
+
+## Qual é o papel da corretora durante a vigência?
+Durante a vigência, a corretora pode apoiar dúvidas, atualizações cadastrais, movimentações, renovação e segunda via de documentos, conforme o produto e os serviços disponíveis. O segurado continua responsável por manter informações corretas, pagar o prêmio e comunicar alterações relevantes no risco.
+
+## Como a corretora pode auxiliar em sinistros?
+Em um sinistro, a corretora pode orientar sobre canais, documentos, protocolos e próximos passos, ajudando a organizar a comunicação com a seguradora. A regulação e a decisão sobre cobertura cabem à seguradora, conforme a apólice. O cliente deve priorizar a segurança, comunicar o evento, preservar evidências, fornecer informações verdadeiras e seguir as instruções recebidas.
+
+## Qual é a diferença entre corretor, corretora e seguradora?
+Corretor é o profissional que atua na intermediação; corretora é a empresa ou organização de corretagem; seguradora é a sociedade que aceita o risco e assume as obrigações do contrato.
+
+| Termo | Papel principal |
+| --- | --- |
+| Corretor de seguros | Profissional que orienta e intermedeia a contratação. |
+| Corretora de seguros | Empresa ou organização que presta a intermediação e o atendimento. |
+| Seguradora | Empresa que analisa e aceita o risco, emite a apólice e regula o sinistro. |
+
+## Na prática: como a Patro Seguros atende um cliente
+Na prática, a Patro Seguros começa entendendo o que o cliente deseja proteger e quais são suas principais dúvidas. Depois, organiza as informações necessárias, consulta alternativas compatíveis, explica diferenças entre propostas e acompanha a conferência dos documentos da contratação.
+
+Durante a vigência, o atendimento pode apoiar dúvidas, alterações e renovação. Se ocorrer um sinistro, a equipe orienta sobre comunicação, documentos e acompanhamento do protocolo, sem substituir a análise e a decisão da seguradora. Esse atendimento é feito por canais digitais e alcança clientes em todo o Brasil.
+
+## Perguntas frequentes sobre o trabalho da corretora
+### A corretora escolhe a seguradora pelo cliente?
+Não. Ela pode comparar e explicar alternativas, mas a decisão de contratação é do cliente e a aceitação do risco é da seguradora.
+
+### A corretora é responsável por pagar a indenização?
+Não. A seguradora é responsável pela regulação e pela indenização quando houver cobertura e cumprimento das condições da apólice.
+
+### A corretora continua atendendo depois da contratação?
+Pode continuar apoiando dúvidas, movimentações, renovação e sinistros, conforme o produto e os serviços disponíveis.
+
+### Como verificar se uma corretora está regular?
+Consulte os dados do profissional ou da empresa nos canais oficiais da SUSEP e confira a identificação da seguradora e da apólice.
+
+## Fontes e referências
+- [SUSEP — Corretores de seguros](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros)
+- [SUSEP — Consulta pública de corretores](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros/consulta-publica-de-corretores)
+- [SUSEP — Consumidor de seguros](https://www.gov.br/susep/pt-br/assuntos/consumidor)
+- [Planalto — Decreto-Lei nº 73/1966](https://www.planalto.gov.br/ccivil_03/decreto-lei/del0073.htm)
+
+<p><small>Conteúdo revisado pela equipe da Patro Seguros, corretora que atende clientes em todo o Brasil.</small></p>`,
+    faqs: [
+      { q: "A corretora escolhe a seguradora pelo cliente?", a: "Não. Ela pode comparar e explicar alternativas, mas a decisão de contratação é do cliente e a aceitação do risco é da seguradora." },
+      { q: "A corretora é responsável por pagar a indenização?", a: "Não. A seguradora é responsável pela regulação e pela indenização quando houver cobertura e cumprimento das condições da apólice." },
+      { q: "A corretora continua atendendo depois da contratação?", a: "Pode continuar apoiando dúvidas, movimentações, renovação e sinistros, conforme o produto e os serviços disponíveis." },
+      { q: "Como verificar se uma corretora está regular?", a: "Consulte os dados do profissional ou da empresa nos canais oficiais da SUSEP e confira a identificação da seguradora e da apólice." },
+    ],
+  },
 };

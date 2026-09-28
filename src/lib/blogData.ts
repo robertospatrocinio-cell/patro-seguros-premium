@@ -27,6 +27,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "o-que-faz-corretora-de-seguros",
+    title: "O que faz uma corretora de seguros? Entenda o papel do corretor",
+    excerpt: "Entenda como uma corretora identifica necessidades, compara alternativas, orienta coberturas e acompanha o cliente antes, durante e depois da contratação.",
+    category: "Dicas",
+    tags: ["corretora de seguros", "corretor de seguros", "seguradora", "coberturas", "sinistro"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    updatedAt: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "como-funciona-corretora-de-seguros",
     title: "Como funciona uma corretora de seguros no Brasil? Guia completo",
     excerpt: "Entenda o que uma corretora de seguros faz, como funciona a cotação, a contratação, o atendimento durante a vigência e o suporte em caso de sinistro.",
