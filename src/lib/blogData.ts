@@ -27,6 +27,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "como-escolher-corretora-de-seguros",
+    title: "Como escolher uma corretora de seguros confiável?",
+    excerpt: "Checklist prático para verificar cadastro, transparência, orientação, atendimento, pós-venda, sinistros, canais oficiais e tratamento de dados.",
+    category: "Dicas",
+    tags: ["corretora de seguros", "SUSEP", "confiança", "sinistro", "pós-venda"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    updatedAt: "2026-09-28",
+    readTime: 9,
+  },
+  {
     slug: "servicos-corretora-de-seguros",
     title: "Quais serviços uma corretora de seguros oferece?",
     excerpt: "Conheça os serviços que uma corretora pode oferecer, da análise de riscos e cotação à renovação, endossos, vigência e orientação em sinistros.",

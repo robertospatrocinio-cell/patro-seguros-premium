@@ -290,4 +290,74 @@ Pode acompanhar, revisar informações e apresentar alternativas, conforme o pro
       { q: "A corretora acompanha a renovação?", a: "Pode acompanhar, revisar informações e apresentar alternativas, conforme o produto e o serviço oferecido." },
     ],
   },
+  "como-escolher-corretora-de-seguros": {
+    title: "Como escolher uma corretora de seguros confiável?",
+    content: `Uma corretora de seguros confiável é aquela cuja identificação pode ser verificada, que explica as condições com clareza, conhece o produto oferecido e mantém canais de atendimento antes e depois da contratação. A escolha deve ser baseada em informações verificáveis e na qualidade do atendimento, não em um ranking ou promessa de “melhor corretora”.
+
+## Como escolher uma corretora de seguros confiável?
+Comece confirmando a identidade da empresa e avaliando como ela orienta, atende e acompanha o cliente. Use o checklist abaixo antes de enviar documentos ou aceitar uma proposta.
+
+## Checklist prático
+Use estas perguntas como lista de verificação:
+
+- [ ] A corretora informa razão social, CNPJ, endereço e canais de contato?
+- [ ] O corretor ou a corretora pode ser localizado nos canais de consulta da SUSEP?
+- [ ] A proposta explica seguradora, coberturas, limites, franquias, exclusões, vigência e prêmio?
+- [ ] A orientação responde às suas dúvidas sem pressionar a decisão?
+- [ ] A corretora demonstra conhecer o produto e suas condições?
+- [ ] Há um canal claro para pós-venda, renovação e alterações?
+- [ ] Está explicado quem deve ser acionado em caso de sinistro?
+- [ ] Os canais usados são oficiais e coerentes com a identificação da empresa?
+- [ ] O tratamento de documentos e dados pessoais é explicado e protegido?
+
+## Verifique a regularidade cadastral em fontes oficiais
+Consulte a SUSEP usando os dados de identificação do profissional ou da empresa. Compare o resultado com o nome, CNPJ ou CPF e os contatos apresentados. A consulta ajuda a confirmar o cadastro; não substitui a leitura da proposta e da apólice.
+
+Use a [consulta pública de corretores da SUSEP](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros/consulta-publica-de-corretores) e a página institucional da [SUSEP sobre corretores](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros). Em caso de dúvida sobre direitos e orientação ao consumidor, consulte [SUSEP — Consumidor de seguros](https://www.gov.br/susep/pt-br/assuntos/consumidor).
+
+## Avalie a transparência
+Uma corretora deve deixar claro quem está intermediando, qual seguradora apresentou a proposta e quais condições estão sendo comparadas. Peça explicações por escrito sobre coberturas, limites, franquias, exclusões, vigência, prêmio e eventuais exigências.
+
+Desconfie de promessas de cobertura sem consultar a apólice, de pressão para pagamento imediato e de propostas sem identificação da seguradora.
+
+## Observe a qualidade da orientação e o conhecimento dos produtos
+Pergunte quais riscos o produto cobre, o que exclui, quais documentos podem ser exigidos e como funciona o acionamento. Uma boa orientação reconhece limites e não promete aprovação de proposta ou pagamento de sinistro.
+
+## Confirme atendimento, pós-venda e sinistros
+Antes de contratar, confirme canal, horário, protocolo e quem acompanha renovação, endosso, segunda via e sinistro. A corretora pode orientar e intermediar, mas a seguradora regula o sinistro e decide conforme a apólice.
+
+## Verifique os canais oficiais e a segurança dos dados
+Prefira canais que correspondam aos dados institucionais da empresa. Não envie documentos para contatos não confirmados. Pergunte por que cada dado é necessário, como será usado, quem terá acesso e como solicitar atendimento sobre seus dados. A [LGPD](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm) estabelece regras gerais para o tratamento de dados pessoais.
+
+## O que não é possível concluir apenas pelo checklist
+O checklist ajuda a reduzir riscos de contratação, mas não prova que uma corretora será adequada para todo consumidor ou produto. Condições, atendimento e escopo variam conforme corretora, produto e seguradora. Não use apenas preço, anúncios ou uma promessa de “melhor corretora” como critério.
+
+## Perguntas frequentes
+### Como consultar um corretor ou corretora?
+Use a consulta pública da SUSEP e compare os dados encontrados com a identificação apresentada.
+
+### A consulta na SUSEP garante a qualidade do atendimento?
+Não. Ela ajuda na verificação cadastral; transparência, orientação e pós-venda precisam ser avaliados pelo consumidor.
+
+### O que devo conferir antes de enviar documentos?
+Confirme a identidade da corretora, o canal oficial, a finalidade dos dados e a seguradora ou proposta relacionada à solicitação.
+
+### Quem atende o sinistro?
+Siga os canais da apólice ou da seguradora. A corretora pode orientar e acompanhar a comunicação, mas a seguradora regula o sinistro.
+
+## Fontes e referências
+- [SUSEP — Corretores de seguros](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros)
+- [SUSEP — Consulta pública de corretores](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros/consulta-publica-de-corretores)
+- [SUSEP — Consumidor de seguros](https://www.gov.br/susep/pt-br/assuntos/consumidor)
+- [Planalto — Decreto-Lei nº 73/1966](https://www.planalto.gov.br/ccivil_03/decreto-lei/del0073.htm)
+- [Planalto — Lei Geral de Proteção de Dados Pessoais](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm)
+
+<p><small>Conteúdo revisado pela equipe da Patro Seguros, corretora que atende clientes em todo o Brasil.</small></p>`,
+    faqs: [
+      { q: "Como consultar um corretor ou corretora?", a: "Use a consulta pública da SUSEP e compare os dados encontrados com a identificação apresentada." },
+      { q: "A consulta na SUSEP garante a qualidade do atendimento?", a: "Não. Ela ajuda na verificação cadastral; transparência, orientação e pós-venda precisam ser avaliados pelo consumidor." },
+      { q: "O que devo conferir antes de enviar documentos?", a: "Confirme a identidade da corretora, o canal oficial, a finalidade dos dados e a seguradora ou proposta relacionada à solicitação." },
+      { q: "Quem atende o sinistro?", a: "Siga os canais da apólice ou da seguradora. A corretora pode orientar e acompanhar a comunicação, mas a seguradora regula o sinistro." },
+    ],
+  },
 };
