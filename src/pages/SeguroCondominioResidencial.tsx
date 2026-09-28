@@ -11,9 +11,9 @@ const SeguroCondominioResidencial = () => {
       icon="🏢"
       metaDescription="Seguro Condomínio Residencial em Guarulhos: proteção para áreas comuns, lazer e RC síndico. Cobertura contra incêndio e danos elétricos. Cotação Patro Seguros."
       description="O Seguro Condomínio Residencial é essencial para proteger a estrutura e as áreas comuns de edifícios e loteamentos, garantindo tranquilidade aos moradores e proteção legal ao síndico."
-      detailedDescription={`Administrar um condomínio residencial exige responsabilidade com o patrimônio de dezenas ou centenas de famílias. O seguro obrigatório por lei protege a edificação contra incêndio e explosão, mas a Patro Seguros oferece coberturas que vão muito além do básico.
+      detailedDescription={`Administrar um condomínio residencial exige responsabilidade com o patrimônio de dezenas ou centenas de famílias. O art. 1.346 do Código Civil exige seguro da edificação contra incêndio ou destruição, total ou parcial. Outras coberturas dependem do produto e da apólice contratados.
 
-Protegemos as áreas de lazer (piscina, academia, salão de festas), os sistemas coletivos (elevadores, portões automáticos, geradores) e, principalmente, a Responsabilidade Civil do Condomínio. Isso significa proteção contra processos de moradores ou terceiros por acidentes ocorridos nas dependências do prédio.
+Podem ser avaliadas coberturas para áreas de lazer (piscina, academia, salão de festas), sistemas coletivos (elevadores, portões automáticos, geradores) e Responsabilidade Civil do Condomínio. A disponibilidade, a extensão e os limites dependem da seguradora, do produto, do risco e da apólice contratada.
 
 Com o Seguro Condomínio Residencial, o síndico tem a segurança de que um imprevisto elétrico ou um vazamento em área comum não gerará um rateio extra inesperado para os condôminos.`}
       howItWorks={[

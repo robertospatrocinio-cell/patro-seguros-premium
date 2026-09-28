@@ -40,7 +40,6 @@ const WA_URL = buildWhatsAppLink({
 type Item = { name: string; slug: string; desc: string };
 
 const LAVOURA: Item[] = [
-  { name: "Seguro Agrícola (Lavoura)", slug: "seguro-agricola", desc: "Cobertura para o ciclo da cultura contra granizo, geada, seca, vendaval e chuva excessiva — conforme aceitação da seguradora." },
   { name: "Seguro de Geada", slug: "seguro-geada", desc: "Proteção específica contra perdas por geada em café, fruticultura e culturas sensíveis." },
   { name: "Seguro de Café", slug: "seguro-cafe", desc: "Cobertura para lavoura cafeeira (geada, granizo, vendaval) e estoque em armazém." },
 ];
@@ -63,7 +62,7 @@ const MAQUINAS: Item[] = [
 const PROPRIEDADE: Item[] = [
   { name: "Seguro de Propriedade Rural", slug: "seguro-propriedade-rural", desc: "Sede, benfeitorias, máquinas paradas, estoque e RC contra incêndio, raio e vendaval." },
   { name: "Seguro de Silo Agrícola", slug: "seguro-silo-agricola", desc: "Silos metálicos e armazéns graneleiros — cobertura para estrutura, conteúdo e perda de qualidade do grão." },
-  { name: "Seguro Rural (Penhor Rural)", slug: "seguro-rural", desc: "Estoque rural (grãos, insumos, defensivos) penhorado em operação de crédito." },
+  { name: "Seguro Rural e Penhor Rural", slug: "seguro-rural", desc: "Modalidades e coberturas para atividades, patrimônio e bens rurais; Penhor Rural depende de bem efetivamente oferecido em garantia de crédito rural." },
 ];
 
 const TRANSPORTE: Item[] = [
@@ -74,7 +73,7 @@ const FAQS = [
   {
     question: "O que cobre um seguro agro completo?",
     answer:
-      "Um programa agro completo cobre quatro frentes: (1) a lavoura/cultura no campo contra eventos climáticos cobertos (granizo, geada, vendaval, chuva excessiva, seca, conforme produto); (2) máquinas e implementos contra incêndio, colisão, tombamento, roubo e furto qualificado; (3) propriedade rural — sede, benfeitorias e estoque em silo/armazém; (4) transporte de grãos, insumos e maquinário. As coberturas são contratadas separadamente ou em conjunto, conforme aceitação da seguradora e perfil da operação.",
+      "Um programa agro pode combinar Seguro Agrícola, máquinas, propriedade, produtos e transporte, mas cada frente possui produto, cobertura, limite, exclusão e aceitação próprios. Eventos climáticos, roubo, colisão, tombamento, transporte e RC não devem ser tratados como garantias automáticas.",
   },
   {
     question: "A Patro atende produtor de fora de São Paulo?",
@@ -82,39 +81,39 @@ const FAQS = [
       "Sim. Apesar de a sede ficar em Guarulhos/SP, a Patro atende produtores rurais e agroindústrias em todo o Brasil de forma digital. Operamos com seguradoras de presença nacional (Porto Seguro, Allianz, Tokio Marine, HDI, Sancor, Mapfre, Essor, entre outras parceiras) — o que muda por região é o apetite técnico e a aceitação do CNAE, não o atendimento.",
   },
   {
-    question: "Seguro agrícola tem PSR (Programa de Subvenção ao Prêmio)?",
+    question: "O Seguro Agrícola pode ter subvenção do PSR?",
     answer:
-      "Sim, parte das apólices de seguro agrícola é elegível à subvenção federal do PSR, que reduz o custo do prêmio para o produtor. A elegibilidade depende da cultura, da região, do volume orçamentário liberado pelo Ministério da Agricultura no ano e da seguradora habilitada. Ajudamos a verificar enquadramento e a documentação — sujeito a disponibilidade de cota da seguradora.",
+      "O PSR pode subvencionar parte do prêmio de apólices elegíveis. A elegibilidade depende do exercício, da modalidade, da cultura, da região, do orçamento, da seguradora habilitada e dos critérios vigentes; não é automática.",
   },
   {
     question: "Qual a diferença entre Seguro Agrícola e Penhor Rural?",
     answer:
-      "O Seguro Agrícola cobre a lavoura no campo (planta) contra eventos climáticos durante o ciclo da cultura. O Penhor Rural (Seguro Rural) cobre o estoque já colhido — grãos, insumos, defensivos — quando esse estoque está dado em garantia a uma instituição financeira em operação de crédito rural. São produtos complementares, não substitutos.",
+      "Seguro Agrícola e Penhor Rural não são sinônimos. O primeiro é uma modalidade voltada à produção agrícola conforme o produto; o segundo se relaciona a bens oferecidos em garantia de operação de crédito rural, quando o enquadramento e o contrato forem aplicáveis.",
   },
   {
     question: "Trator e colheitadeira têm seguro como o de carro?",
     answer:
-      "A lógica é parecida, mas o produto é específico para máquinas agrícolas. Cobre incêndio, colisão, tombamento, roubo, furto qualificado e RC para danos a terceiros durante a operação. Trabalhamos com Porto Seguro, Allianz, HDI, Tokio Marine, Sancor e Essor para tratores e colheitadeiras de John Deere, Massey Ferguson, New Holland, Case IH, Valtra, Mahindra e Jacto — conforme aceitação da seguradora.",
+      "O produto é específico para máquinas agrícolas. Pode contemplar incêndio, colisão, tombamento, roubo, furto qualificado e RC, desde que essas coberturas sejam contratadas e aceitas. Operação, parada, deslocamento e transporte devem ser analisados separadamente.",
   },
   {
-    question: "Silo metálico e armazém de grãos têm seguro?",
+    question: "Silo metálico e armazém de grãos podem ser segurados?",
     answer:
-      "Sim. O seguro de silo agrícola cobre a estrutura metálica (incêndio, raio, explosão, vendaval, colapso), o conteúdo armazenado (grãos) e, em alguns produtos, perda de qualidade por falha de equipamento de aeração ou termometria. Valor segurado considera capacidade em sacas e cotação da commodity na data do sinistro, conforme cláusula contratada.",
+      "Podem ser analisados em produtos próprios, com estrutura, conteúdo e eventuais extensões definidos pela proposta e pela apólice. Os riscos, limites, exclusões e critérios de aceitação devem ser conferidos no contrato.",
   },
   {
-    question: "Drone de pulverização precisa de seguro?",
+    question: "Como o seguro de drone se relaciona ao ecossistema Agro?",
     answer:
-      "Sim, e é altamente recomendado. Cobre danos ao próprio drone (queda, colisão, falha mecânica) e Responsabilidade Civil do operador por danos a terceiros, lavouras vizinhas ou pessoas. Operadores certificados pela ANAC têm aceitação mais ampla nas seguradoras.",
+      "O drone agrícola é uma categoria própria. O produto pode analisar danos ao equipamento e responsabilidade civil, conforme uso declarado, regras aplicáveis, cobertura contratada e aceitação da seguradora.",
   },
   {
-    question: "Como funciona o sinistro agro?",
+    question: "Como funciona um sinistro em uma operação agro?",
     answer:
-      "Comunicação imediata via WhatsApp da Patro (11) 5199-7500. A seguradora envia regulador (presencial para máquinas/silo, ou peritagem por imagem em drone/satélite para lavoura). Indenização paga após apuração técnica do prejuízo, descontada franquia e cláusulas contratuais. Acompanhamos cada etapa para evitar travas comuns (subseguro, documentação incompleta, divergência de NF de máquina).",
+      "O segurado deve comunicar o evento pelos canais indicados e preservar documentos, registros e evidências. A seguradora analisa o aviso, a cobertura contratada e os danos conforme o procedimento da apólice; a corretora pode acompanhar a comunicação e a documentação.",
   },
   {
-    question: "Vocês cotam apólice de agroindústria e cooperativa?",
+    question: "A corretora pode analisar uma operação de agroindústria ou cooperativa?",
     answer:
-      "Sim. Atendemos produtores individuais (PF e PJ), agroindústrias, cooperativas, revendas de insumos e tradings. Para operações grandes, montamos programa multilinha com cláusulas específicas (lucros cessantes, RC produto, transporte internacional, D&O) — sujeito a análise da seguradora e visita técnica.",
+      "A Patro pode orientar a análise de operações empresariais do agronegócio. O escopo, os produtos, as coberturas e a aceitação dependem das características do risco e da análise das seguradoras.",
   },
   {
     question: "Preciso ir até Guarulhos para fechar a apólice?",
@@ -216,8 +215,8 @@ const SeguroAgro = () => {
   return (
     <>
       <PageMeta
-        title="Seguro Agro — Lavoura, Máquinas, Silo e Propriedade Rural | Patro Seguros"
-        description="Hub completo de seguro agro: lavoura (PSR), pecuário, trator, colheitadeira, pulverizador, silo, propriedade rural e transporte agro. Atendimento nacional pela Patro Seguros."
+        title="Seguro Agro: modalidades para proteger uma operação rural | Patro Seguros"
+        description="Entenda as modalidades de seguro que podem atender uma operação do agronegócio, como Seguro Rural, máquinas, propriedade rural e transporte."
       
       skipBreadcrumb
     />
@@ -244,17 +243,16 @@ const SeguroAgro = () => {
           <div className="container mx-auto px-4 max-w-5xl text-center relative z-10">
             <span className="section-label">Cluster Agro</span>
             <h1 className="mt-3 text-3xl md:text-5xl font-bold text-foreground leading-tight">
-              Seguro Agro — proteção completa do plantio à porteira
+              Seguro Agro: modalidades de proteção para o agronegócio
             </h1>
             <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Especialistas em seguro rural, lavoura, máquinas agrícolas, silo, propriedade e
-              transporte agro. Atendimento <strong>nacional</strong> via WhatsApp e e-mail, com
-              cotação simultânea nas principais seguradoras do agronegócio brasileiro — conforme
-              aceitação da seguradora e perfil da operação.
+              A Patro Seguros é uma corretora que orienta a análise de diferentes modalidades de
+              proteção para operações rurais. A solução depende da atividade, do bem, do risco,
+              do produto disponível e das condições aceitas pela seguradora.
             </p>
             <div className="mt-5 inline-flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-              Sede em Guarulhos/SP · Atendimento nacional · Carteira ativa de apólices PME
+              Sede em Guarulhos/SP · Atendimento em todo o Brasil
             </div>
             <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
@@ -277,23 +275,37 @@ const SeguroAgro = () => {
           </div>
         </section>
 
+        <section className="py-10 border-b border-border" aria-labelledby="resposta-agro-heading">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 id="resposta-agro-heading" className="text-2xl md:text-3xl font-bold text-foreground">
+              Quais seguros podem proteger uma operação do agronegócio?
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Uma operação do agronegócio pode precisar de modalidades diferentes, como Seguro Rural,
+              seguro para máquinas agrícolas, propriedade rural, transporte ou responsabilidade civil.
+              A solução depende da atividade, do bem, dos riscos, do produto contratado e das condições
+              de aceitação da seguradora; não existe uma cobertura única para todas as operações.
+            </p>
+          </div>
+        </section>
+
         {/* Trust strip */}
         <section className="py-8 border-y border-border bg-card">
           <div className="container mx-auto px-4 max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
               <ShieldCheck className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
-              <p className="mt-2 text-sm font-semibold text-foreground">16+ seguradoras</p>
-              <p className="text-xs text-muted-foreground">Cotação simultânea</p>
+              <p className="mt-2 text-sm font-semibold text-foreground">16 seguradoras</p>
+              <p className="text-xs text-muted-foreground">Disponibilidade varia por produto</p>
             </div>
             <div>
               <Sprout className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
-              <p className="mt-2 text-sm font-semibold text-foreground">PSR elegível</p>
-              <p className="text-xs text-muted-foreground">Subvenção federal</p>
+              <p className="mt-2 text-sm font-semibold text-foreground">PSR</p>
+              <p className="text-xs text-muted-foreground">Regras e elegibilidade variam</p>
             </div>
             <div>
               <Tractor className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
-              <p className="mt-2 text-sm font-semibold text-foreground">Todas as marcas</p>
-              <p className="text-xs text-muted-foreground">JD, MF, NH, Case, Valtra, Jacto</p>
+              <p className="mt-2 text-sm font-semibold text-foreground">Máquinas agrícolas</p>
+              <p className="text-xs text-muted-foreground">Conforme produto e aceitação</p>
             </div>
             <div>
               <MapPin className="h-6 w-6 text-primary mx-auto" aria-hidden="true" />
@@ -311,14 +323,13 @@ const SeguroAgro = () => {
                 Linhas de seguro agro que cotamos
               </h2>
               <p className="mt-3 text-muted-foreground">
-                Escolha a frente da sua operação. Cada produto abre a página dedicada com
-                coberturas, exclusões frequentes, exigências de aceitação e exemplos de sinistro.
+                Cada frente possui produto, condições, limites, exclusões e critérios de aceitação próprios.
               </p>
             </div>
 
             <CategoryBlock
               title="Lavoura e culturas"
-              description="Proteção do ciclo da cultura contra eventos climáticos cobertos. Elegível ao PSR conforme cultura, região e cota da seguradora."
+              description="Modalidades para a produção agrícola, conforme cultura, risco, produto, condições contratuais e eventual enquadramento em regras vigentes."
               icon={Wheat}
               items={LAVOURA}
               source="lavoura"
@@ -334,7 +345,7 @@ const SeguroAgro = () => {
 
             <CategoryBlock
               title="Máquinas e equipamentos"
-              description="Tratores, colheitadeiras, pulverizadores, implementos e drones. Cobertura para operação, deslocamento e pernoite."
+              description="Tratores, colheitadeiras, pulverizadores, implementos e drones, tratados como categorias próprias conforme produto e aceitação."
               icon={Tractor}
               items={MAQUINAS}
               source="maquinas"
@@ -342,7 +353,7 @@ const SeguroAgro = () => {
 
             <CategoryBlock
               title="Propriedade rural, silo e estoque"
-              description="Sede, benfeitorias, silos metálicos, armazéns graneleiros e estoque dado em penhor rural."
+              description="Propriedade rural, benfeitorias, silos e estoques podem exigir produtos e coberturas específicos."
               icon={Warehouse}
               items={PROPRIEDADE}
               source="propriedade"
@@ -389,9 +400,9 @@ const SeguroAgro = () => {
               Quer um diagnóstico da sua operação agro?
             </h2>
             <p className="mt-3 text-muted-foreground">
-              Mande no WhatsApp o que você tem hoje (apólices, máquinas, hectares, cultura, silo,
-              caminhões) e devolvemos em até 2 horas úteis um mapa de risco e proposta multilinha
-              com as melhores seguradoras do agro — sem custo e sem compromisso.
+              Mande no WhatsApp informações sobre sua operação, como apólices, máquinas, hectares,
+              cultura, silo ou caminhões. A equipe orienta os próximos passos e avalia as alternativas
+              disponíveis conforme o risco e o retorno das seguradoras.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
               <a

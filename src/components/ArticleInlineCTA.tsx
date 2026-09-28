@@ -25,7 +25,7 @@ export default function ArticleInlineCTA({
   whatsappUrl,
   source,
   headline = "Quer uma cotação personalizada agora?",
-  subline = `Comparamos ${EMPRESA.metricas.seguradorasParceiras} seguradoras e devolvemos a melhor proposta em até 2h úteis. Atendimento humano, sem call center.`,
+  subline = "Analisamos sua necessidade e apresentamos alternativas disponíveis com atendimento humano.",
   variant = "solid",
 }: Props) {
   const isSolid = variant === "solid";

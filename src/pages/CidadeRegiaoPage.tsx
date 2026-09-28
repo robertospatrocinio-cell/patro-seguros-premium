@@ -109,7 +109,7 @@ const CidadeRegiaoContent = ({ data }: { data: CidadeRegiao }) => {
       <PageMeta
         title={`Corretora de Seguros em ${data.nome} | Patro Seguros`}
         absoluteTitle
-        description={`Corretora de seguros atendendo ${data.nome}/${data.uf}. ${data.resumo} Cotação comparada em ${EMPRESA.metricas.seguradorasParceiras} seguradoras, endereço e telefone para contato.`}
+        description={`Corretora de seguros atendendo ${data.nome}/${data.uf}. ${data.resumo} A Patro trabalha com 16 seguradoras; a quantidade consultada varia conforme produto, perfil, risco e aceitação.`}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>

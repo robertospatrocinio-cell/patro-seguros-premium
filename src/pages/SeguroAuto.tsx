@@ -17,13 +17,11 @@ import TrilhaSeoRelacionados from "@/components/TrilhaSeoRelacionados";
 import { trilhaAuto } from "@/lib/trilhaSeoRecomendacoes";
 import OrganizationSchema from "@/components/OrganizationSchema";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
-import LocalAreaSchema from "@/components/LocalAreaSchema";
 import AggregateRatingSchema from "@/components/AggregateRatingSchema";
 import ServiceSchema from "@/components/ServiceSchema";
 import ProvaSocialPatro from "@/components/ProvaSocialPatro";
 import AutoridadePatro from "@/components/AutoridadePatro";
 import ComoPatroAjuda from "@/components/ComoPatroAjuda";
-import { PATRO_SOCIAL_PROOF } from "@/lib/patroSocialProof";
 import heroImg from "@/assets/hero-seguro-auto.webp";
 
 const QuickQuoteForm = lazy(() => import("@/components/QuickQuoteForm"));
@@ -38,44 +36,44 @@ const WHATSAPP_URL = buildWhatsAppLink({
 
 const faqs = [
   {
-    question: "Qual o valor médio de um seguro auto em Guarulhos?",
-    answer: "O valor varia muito de acordo com o modelo do carro, ano, CEP de pernoite e perfil do condutor. Por isso, a Patro Seguros cota em mais de 16 seguradoras simultaneamente para garantir que você não pague mais caro do que deveria.",
+    question: "Como é definido o preço do Seguro Auto?",
+    answer: "O prêmio depende do veículo, perfil de uso, local de pernoite, coberturas, limites, franquias, produto e análise da seguradora. Não há preço médio universal.",
   },
   {
     question: "O seguro cobre carro de aplicativo (Uber/99)?",
-    answer: "Sim! Temos seguradoras parceiras com produtos específicos para motoristas de aplicativo, incluindo a cobertura obrigatória de Acidentes Pessoais de Passageiros (APP).",
+    answer: "Depende da seguradora, do produto e das condições contratadas. O uso profissional para Uber, 99 ou outro aplicativo deve ser informado na avaliação do risco. Quando contratada, a cobertura de Acidentes Pessoais de Passageiros (APP) deve observar os limites e as condições da apólice.",
   },
   {
     question: "O que é a Franquia do seguro?",
-    answer: "A franquia é o valor de participação obrigatória do segurado em caso de perda parcial (uma batida que dá conserto, por exemplo). Em casos de perda total por roubo ou colisão, você não paga franquia.",
+    answer: "A franquia é a participação do segurado nos prejuízos indenizáveis quando houver previsão de aplicação na cobertura contratada. O valor e as hipóteses de cobrança devem constar da proposta e da apólice; não é correto presumir uma regra única para todo evento.",
   },
   {
     question: "A cotação com a Patro Seguros tem algum custo?",
-    answer: "Não. Nossa consultoria e o levantamento de preços são 100% gratuitos e sem compromisso.",
+    answer: "A solicitação de análise pode ser feita pelos canais da Patro. As condições comerciais e a eventual contratação são apresentadas conforme o produto e a seguradora.",
   },
   {
     question: "Qual a diferença entre cobertura básica, intermediária e compreensiva?",
-    answer: "Básica cobre só terceiros (RCF-V) + assistência 24h. Intermediária acrescenta colisão, roubo, furto e incêndio. Compreensiva é a mais completa, incluindo vidros, carro reserva e flexibilidade para acessórios. Conforme aceitação da seguradora e perfil do cliente, é possível personalizar coberturas dentro de cada nível. Veja o comparativo completo em /seguro-auto/comparativo-coberturas.",
+    answer: "As coberturas variam conforme o produto, a seguradora e o que foi efetivamente contratado. Uma proposta pode prever responsabilidade civil, danos ao veículo, roubo, furto, incêndio, vidros, carro reserva ou assistência, mas cada item depende das condições da apólice. Veja o comparativo em /seguro-auto/comparativo-coberturas.",
   },
   {
     question: "Preciso de rastreador para contratar seguro auto em Guarulhos?",
-    answer: "Depende do modelo, CEP de pernoite e valor FIPE. Para veículos acima de R$ 80 mil em bairros como Cumbica, Bonsucesso e Pimentas, a maioria das seguradoras exige rastreador. Para modelos populares ou em CEPs de baixo risco, costuma ser opcional — mas instalar reduz o prêmio entre 8% e 18%.",
+    answer: "A necessidade de rastreador depende do veículo, do risco, do produto e das exigências da seguradora. A corretora pode orientar a consulta, mas não há regra universal para todos os modelos ou regiões.",
   },
   {
     question: "Posso transferir minha apólice de outra corretora para a Patro?",
-    answer: "Sim, a qualquer momento. Você não perde classe de bônus nem coberturas. Basta enviar sua apólice atual pelo WhatsApp (11) 5199-7500 que recotamos em até 2 horas úteis. Em mais de 60% dos casos conseguimos preço melhor que a renovação automática.",
+    answer: "Sim, a qualquer momento. Envie sua apólice atual pelo WhatsApp (11) 5199-7500 para que a equipe analise as alternativas disponíveis. O resultado depende do perfil e das condições apresentadas.",
   },
   {
     question: "Em quanto tempo recebo a cotação?",
-    answer: "Cotações simples (modelos populares, perfil sem agravantes) ficam prontas em 30 minutos. Casos mais complexos (premium, blindados, motorista de app, frota) saem em até 2 horas úteis. Tudo por WhatsApp ou presencial no Cidade Maia.",
+    answer: "O prazo depende da complexidade do risco, dos dados recebidos e da disponibilidade das seguradoras. O atendimento pode ocorrer por WhatsApp ou presencialmente no Cidade Maia.",
   },
   {
     question: "Vale a pena seguro auto ou proteção veicular?",
-    answer: "Seguro auto é regulado pela SUSEP, tem garantia de pagamento via reserva técnica obrigatória e indenização pela tabela FIPE. Proteção veicular opera em associações sem regulação SUSEP — em caso de aumento de sinistralidade, a mensalidade pode subir bruscamente e a associação pode não honrar a indenização. Para a Patro, recomendamos sempre seguro regulado.",
+    answer: "Seguro Auto é comercializado por seguradoras autorizadas e deve observar as condições do produto e da apólice. A modalidade de indenização pode ser por valor de mercado referenciado, valor determinado ou outra forma prevista contratualmente; a Tabela FIPE não é sinônimo universal de indenização.",
   },
   {
-    question: "Quais seguradoras a Patro cota em Guarulhos?",
-    answer: "Cotamos em 16 seguradoras parceiras: Porto Seguro, Allianz, Tokio Marine, HDI, SulAmérica, Bradesco Seguros, Mapfre, Azul Seguros, Sompo, Suhai, entre outras. Cada cotação compara automaticamente as elegíveis para o seu perfil — você recebe comparativo lado a lado.",
+    question: "Com quantas seguradoras a Patro trabalha?",
+    answer: "A Patro Seguros trabalha com 16 seguradoras. A quantidade efetivamente consultada pode variar conforme produto, perfil, risco, critérios de aceitação, disponibilidade e integração de cada companhia.",
   },
 ];
 
@@ -88,8 +86,8 @@ const SeguroAuto = () => {
   return (
     <>
       <PageMeta
-        title="Seguro Auto em Guarulhos | Cotação com 16 Seguradoras | Patro"
-        description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
+        title="Seguro Auto: como funciona, coberturas e cotação | Patro Seguros"
+        description="Entenda como funciona o Seguro Auto, quais coberturas podem ser contratadas, como funciona a franquia e como solicitar uma análise com a Patro Seguros."
       
       skipBreadcrumb
     />
@@ -101,16 +99,9 @@ const SeguroAuto = () => {
           { name: "Seguro Auto", url: "/seguro-auto" },
         ]}
       />
-      <LocalAreaSchema
-        serviceName="Seguro Auto"
-        url="https://www.patroseguros.com.br/seguro-auto"
-        description="Seguro auto em Guarulhos: compare 16 seguradoras e economize até 35%. Cotação rápida em até 2 horas e atendimento especializado na Patro Seguros."
-        city="Guarulhos"
-        faqs={faqs}
-      />
       <ServiceSchema 
         name="Seguro Auto" 
-        description="O seguro auto em Guarulhos protege seu veículo contra colisão, roubo, furto e danos a terceiros. A Patro Seguros, corretora com mais de 20 anos de experiência e registro SUSEP 212113511, compara propostas de 16 seguradoras para você encontrar a melhor cobertura pelo melhor preço, com atendimento consultivo e cotação em até 2 horas úteis."
+        description="O Seguro Auto pode reunir coberturas e serviços conforme o veículo, o perfil, o risco e as condições contratadas. A Patro Seguros atua como corretora."
         serviceType="AutoInsurance"
       />
       <Header />
@@ -129,16 +120,16 @@ const SeguroAuto = () => {
             <div className="py-24 md:py-32 max-w-3xl mx-auto text-center">
               <div className="text-5xl mb-6 animate-fade-up" role="img" aria-label="Seguro Auto">🚗</div>
               <h1 className="text-white text-balance mb-5 animate-fade-up-delay-1">
-                Seguro Auto em Guarulhos | Patro Seguros — Compare 16 Seguradoras
+                Seguro Auto: entenda como funciona e como contratar
               </h1>
               <p className="text-base md:text-lg text-white/60 mb-6 animate-fade-up-delay-2 max-w-2xl mx-auto">
-                Compare seguradoras e encontre proteção para seu carro com atendimento consultivo da Patro Seguros, fundada em 2021 por sócios com mais de 20 anos de experiência.
+                Compare alternativas de proteção para seu carro com atendimento consultivo da Patro Seguros.
               </p>
               
               {/* BLOCO RESPOSTA RÁPIDA (ANSWER-READY) */}
               <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-sm p-5 rounded-xl border border-white/10 mb-8 animate-fade-up-delay-2">
                 <p className="text-white/90 text-sm leading-relaxed text-left">
-                  <strong>Resposta rápida:</strong> A Patro Seguros é a corretora de seguros de referência em Guarulhos, fundada em 2021 por sócios com mais de 20 anos de experiência (registro SUSEP 212113511). Comparamos seu Seguro Auto em 16 seguradoras (Porto, Allianz, Tokio, etc) com resposta em até 2h úteis via WhatsApp (11) 5199-7500.
+                  <strong>O que é Seguro Auto e como funciona?</strong> É um produto que pode reunir coberturas e serviços conforme o veículo, o risco, o perfil, a seguradora, os limites, as franquias e as condições da apólice.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up-delay-3">
@@ -153,15 +144,6 @@ const SeguroAuto = () => {
                   </Button>
                 </a>
               </div>
-              {/* Prova Social */}
-              <div className="mt-8 flex items-center justify-center gap-2 text-white/60 text-sm animate-fade-up-delay-3">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <span>Nota {PATRO_SOCIAL_PROOF.googleRating}/5 no Google | Mais de 2.500 clientes atendidos e 20+ anos de experiência dos sócios</span>
-              </div>
             </div>
           </div>
         </section>
@@ -171,7 +153,7 @@ const SeguroAuto = () => {
           <section className="py-24" aria-labelledby="problema-heading">
             <div className="container mx-auto px-4 max-w-4xl">
               <div className="text-center mb-12">
-                <h2 id="problema-heading">Por que fazer seu Seguro de Carro com uma Corretora de Guarulhos?</h2>
+                <h2 id="problema-heading">Por que analisar o Seguro Auto com uma corretora?</h2>
                 <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-[15px]">
                   O trânsito da Grande São Paulo é imprevisível. Você não precisa de um 0800 demorado quando ocorre um imprevisto na Dutra ou na Fernão Dias. Você precisa de quem resolve.
                 </p>
@@ -181,27 +163,27 @@ const SeguroAuto = () => {
                   <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
                     <Search className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-[15px] font-semibold mb-2">Análise de 16 Seguradoras</h3>
+                  <h3 className="text-[15px] font-semibold mb-2">Análise de alternativas</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Porto Seguro, Tokio Marine, Allianz, HDI e muito mais. Nós fazemos o trabalho duro de comparar os preços para você.
+                    A corretora organiza informações e alternativas disponíveis conforme o seu perfil e o produto.
                   </p>
                 </div>
                 <div className="premium-card p-7 text-center">
                   <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
                     <Shield className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-[15px] font-semibold mb-2">Especialistas na Região</h3>
+                  <h3 className="text-[15px] font-semibold mb-2">Orientação sobre o risco</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Conhecemos os índices de sinistralidade de Guarulhos e sabemos exatamente qual seguradora oferece o melhor preço para o seu CEP.
+                    Veículo, uso, local de pernoite e perfil influenciam a análise; a decisão depende da seguradora e da apólice.
                   </p>
                 </div>
                 <div className="premium-card p-7 text-center">
                   <div className="w-14 h-14 rounded-2xl bg-primary/[0.08] flex items-center justify-center mx-auto mb-5">
                     <Handshake className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-[15px] font-semibold mb-2">Suporte de Ponta a Ponta</h3>
+                  <h3 className="text-[15px] font-semibold mb-2">Acompanhamento</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Bateu o carro? Nós cuidamos de toda a papelada, do guincho até a liberação do carro reserva. Você não fala com robôs, fala com a Patro.
+                    A corretora pode orientar a contratação e o encaminhamento de solicitações durante a vigência, conforme o contrato.
                   </p>
                 </div>
               </div>
@@ -215,7 +197,7 @@ const SeguroAuto = () => {
             <div className="text-center mb-16">
               <span className="section-label">Coberturas</span>
               <h2 id="coberturas-heading" className="mt-4">O que o seu Seguro Auto pode cobrir?</h2>
-              <p className="text-muted-foreground mt-3 max-w-xl mx-auto text-[15px]">Monte o plano ideal para o seu bolso. Você escolhe o que é prioridade:</p>
+              <p className="text-muted-foreground mt-3 max-w-xl mx-auto text-[15px]">As coberturas disponíveis dependem do produto, da seguradora, do perfil do risco e do que for contratado na apólice.</p>
             </div>
 
             {/* Essenciais */}
@@ -225,9 +207,9 @@ const SeguroAuto = () => {
               </h3>
               <ul className="grid md:grid-cols-1 gap-4 list-none">
                 {[
-                  { title: "Colisão, Roubo e Furto", desc: "Indenização de 100% da Tabela FIPE em caso de perda total." },
-                  { title: "Danos a Terceiros (RCF-V)", desc: "Cobertura para danos materiais, corporais e morais causados a outros veículos ou pessoas." },
-                  { title: "Assistência 24 Horas", desc: "Guincho, socorro mecânico, pane seca (falta de combustível), troca de pneu e chaveiro." },
+                  { title: "Colisão, Roubo e Furto", desc: "Quando contratadas, essas coberturas seguem a modalidade de indenização e as condições previstas na apólice." },
+                  { title: "Danos a Terceiros (RCF-V)", desc: "Pode ser contratada para danos previstos a terceiros, conforme limites, condições e exclusões da apólice." },
+                  { title: "Assistências", desc: "Serviços como guincho, socorro mecânico, pane seca, troca de pneu ou chaveiro dependem do produto contratado." },
                 ].map((c, i) => (
                   <li key={i} className="premium-card p-6 flex items-start gap-3">
                     <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
@@ -243,13 +225,13 @@ const SeguroAuto = () => {
             {/* Adicionais */}
             <div>
               <h3 className="text-base font-semibold mb-4 flex items-center gap-2">
-                <Star className="h-5 w-5 text-yellow-500" /> Coberturas Adicionais (Recomendadas)
+                <Star className="h-5 w-5 text-yellow-500" /> Serviços e coberturas adicionais
               </h3>
               <ul className="grid md:grid-cols-1 gap-4 list-none">
                 {[
-                  { title: "Carro Reserva", desc: "Fique motorizado por 7, 15 ou 30 dias enquanto seu carro está na oficina." },
-                  { title: "Vidros, Faróis e Lanternas", desc: "Reparo ou troca rápida pagando apenas uma pequena franquia." },
-                  { title: "Proteção para Acessórios", desc: "Cobertura para kit multimídia, blindagem e kit gás." },
+                  { title: "Carro Reserva", desc: "Pode ser contratado quando previsto no produto, com limites, condições e período definidos na apólice." },
+                  { title: "Vidros, Faróis e Lanternas", desc: "Podem ter cobertura específica, sujeita às condições, limites e eventual franquia aplicáveis." },
+                  { title: "Acessórios", desc: "Itens como equipamentos, blindagem ou kit gás dependem da declaração, aceitação e cobertura contratada." },
                 ].map((c, i) => (
                   <li key={i} className="premium-card p-6 flex items-start gap-3">
                     <CheckCircle className="h-4 w-4 text-primary flex-shrink-0 mt-1" />
@@ -272,12 +254,40 @@ const SeguroAuto = () => {
           </div>
         </section>
 
+        <section className="py-20" aria-labelledby="conceitos-auto-heading">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <h2 id="conceitos-auto-heading" className="mb-10">Conceitos importantes do Seguro Auto</h2>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Como funciona a franquia?</h3>
+                <p className="text-muted-foreground leading-relaxed">Franquia é a participação do segurado nos prejuízos indenizáveis quando houver previsão de aplicação na cobertura contratada. O valor e as hipóteses de cobrança devem constar da proposta e da apólice.</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Como funciona a indenização integral?</h3>
+                <p className="text-muted-foreground leading-relaxed">A indenização integral e seus critérios dependem da modalidade contratada, do evento, dos limites e das condições da apólice. O valor de mercado referenciado e o valor determinado são formas contratuais distintas; a Tabela FIPE não é regra universal de pagamento.</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Uso profissional e motorista de aplicativo</h3>
+                <p className="text-muted-foreground leading-relaxed">O uso profissional deve ser informado na análise do risco. Uber, 99 e outras plataformas podem ter exigências e produtos diferentes; consulte o <Link to="/seguro-motorista-app" className="text-primary hover:underline font-medium">seguro para motorista de aplicativo</Link> sem presumir aceitação ou cobertura automática.</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">O que fazer em caso de sinistro?</h3>
+                <p className="text-muted-foreground leading-relaxed">Comunique o evento pelos canais indicados, preserve documentos e evidências e siga o procedimento da apólice. A decisão sobre cobertura cabe à seguradora, conforme o contrato e a regulação aplicável. A Patro pode orientar o atendimento pelo <Link to="/central-de-sinistro" className="text-primary hover:underline font-medium">canal de sinistros</Link>.</p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Como fazer uma cotação?</h3>
+                <p className="text-muted-foreground leading-relaxed">Envie os dados do veículo, do condutor, do uso e do local de pernoite. A corretora pode comparar alternativas disponíveis entre as seguradoras com as quais trabalha, conforme produto, perfil, risco, aceitação e disponibilidade. <Link to="/cotacao" className="text-primary hover:underline font-medium">Solicite uma análise de cotação</Link>.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ===== 4. AUTORIDADE (Parceiros) ===== */}
         <LazySection minHeight="250px">
           <section className="py-20" aria-labelledby="autoridade-heading">
             <div className="container mx-auto px-4 max-w-4xl text-center">
-              <h2 id="autoridade-heading" className="mb-3">Trabalhamos apenas com as gigantes do mercado</h2>
-              <p className="text-muted-foreground text-[15px] mb-10">Sua apólice garantida pelas seguradoras mais sólidas do Brasil.</p>
+              <h2 id="autoridade-heading" className="mb-3">Seguradoras disponíveis conforme o produto</h2>
+              <p className="text-muted-foreground text-[15px] mb-10">A Patro Seguros trabalha com 16 seguradoras. A consulta efetiva varia conforme produto, perfil, risco, aceitação e disponibilidade.</p>
               <div className="flex flex-wrap justify-center gap-4">
                 {parceiros.map((nome, i) => (
                   <span
@@ -297,7 +307,7 @@ const SeguroAuto = () => {
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-16">
               <span className="section-label">Passo a Passo</span>
-              <h2 id="processo-heading" className="mt-4">Seu seguro aprovado em 3 passos simples</h2>
+              <h2 id="processo-heading" className="mt-4">Como funciona a contratação do Seguro Auto</h2>
             </div>
             <ol className="grid md:grid-cols-3 gap-6 list-none">
               {[
@@ -308,13 +318,13 @@ const SeguroAuto = () => {
                 },
                 {
                   step: "2",
-                  title: "Nós comparamos os preços",
-                  desc: "Nosso sistema cruza seus dados com as 16 seguradoras parceiras para encontrar o menor preço com a melhor cobertura.",
+                  title: "Analisamos as alternativas",
+                  desc: "A equipe analisa o perfil e as alternativas disponíveis entre as seguradoras aplicáveis ao risco.",
                 },
                 {
                   step: "3",
-                  title: "Você escolhe e viaja tranquilo",
-                  desc: "Apresentamos as opções, você escolhe a que cabe no bolso, assina digitalmente e seu carro já sai protegido.",
+                  title: "Você escolhe e contrata",
+                  desc: "Apresentamos as condições para decisão do cliente. A contratação e o início da vigência dependem da proposta, aceitação e emissão da apólice.",
                 },
               ].map((item, i) => (
                 <li key={i} className="premium-card p-7 text-center">
@@ -395,7 +405,7 @@ const SeguroAuto = () => {
               <span className="section-label">Aprofundar</span>
               <h2 id="hubs-auto-heading" className="mt-3">Explore o seguro auto pelo caminho que faz sentido pra você</h2>
               <p className="text-muted-foreground text-[15px] mt-3 max-w-2xl mx-auto">
-                Páginas dedicadas por marca, modelo e nível de cobertura para você comparar antes de cotar.
+                Páginas dedicadas por marca, modelo e nível de cobertura aprofundam temas específicos sem substituir este pilar.
               </p>
             </div>
             <div className="grid sm:grid-cols-3 gap-4">
@@ -404,7 +414,7 @@ const SeguroAuto = () => {
                   <Gem className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="text-[15px] font-semibold mb-1">Por marca</h3>
-                <p className="text-sm text-muted-foreground">Volkswagen, Toyota, Honda, BMW, Mercedes, BYD e mais — com a melhor seguradora para cada uma.</p>
+                <p className="text-sm text-muted-foreground">Conteúdos específicos por marca e perfil de veículo, quando disponíveis.</p>
                 <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
                   Ver hub de marcas <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                 </span>
@@ -414,7 +424,7 @@ const SeguroAuto = () => {
                   <Search className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="text-[15px] font-semibold mb-1">Por modelo</h3>
-                <p className="text-sm text-muted-foreground">Onix, HB20, Corolla, Civic, T-Cross, Hilux, Compass, Strada e 40+ modelos com faixa de preço e dicas.</p>
+                <p className="text-sm text-muted-foreground">Conteúdos específicos por modelo, sem presumir preço, aceitação ou cobertura.</p>
                 <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
                   Ver hub de modelos <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                 </span>
@@ -424,7 +434,7 @@ const SeguroAuto = () => {
                   <Shield className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="text-[15px] font-semibold mb-1">Comparativo de coberturas</h3>
-                <p className="text-sm text-muted-foreground">Básica, intermediária e compreensiva lado a lado — entenda o que entra em cada nível antes de cotar.</p>
+                <p className="text-sm text-muted-foreground">Compare conceitos e condições de coberturas antes de solicitar uma cotação.</p>
                 <span className="mt-3 inline-flex items-center text-sm font-medium text-primary">
                   Ver comparativo <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-0.5" />
                 </span>
@@ -462,22 +472,22 @@ const SeguroAuto = () => {
               <h2 id="protecao-completa-heading" className="text-base font-semibold mb-4">Seu carro está protegido — e o resto?</h2>
               <div className="space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Proteger o veículo é fundamental, mas a segurança completa vai além. Sua casa também merece proteção: o <Link to="/seguro-residencial" className="text-primary hover:underline font-medium">seguro residencial</Link> cobre incêndio, roubo e danos elétricos a partir de R$ 150/ano — e muitas seguradoras oferecem desconto de até 15% ao contratar junto com o seguro auto.
+                  Proteger o veículo é uma frente da proteção patrimonial. Para conhecer outra categoria, veja o <Link to="/seguro-residencial" className="text-primary hover:underline font-medium">seguro residencial</Link> e consulte as coberturas previstas no produto contratado.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Se você tem família, o <Link to="/seguro-vida" className="text-primary hover:underline font-medium">seguro de vida</Link> garante estabilidade financeira em caso de imprevistos graves. Já para quem usa moto como segundo veículo, temos condições especiais no <Link to="/seguro-moto" className="text-primary hover:underline font-medium">seguro de moto</Link>. Empresários com frota podem economizar até 30% com o <Link to="/seguro-frota" className="text-primary hover:underline font-medium">seguro de frota</Link>.
+                  Se você tem família, conheça o <Link to="/seguro-vida" className="text-primary hover:underline font-medium">seguro de vida</Link>. Para outro veículo, veja o <Link to="/seguro-moto" className="text-primary hover:underline font-medium">seguro de moto</Link>. Empresas com vários veículos podem avaliar o <Link to="/seguro-frota" className="text-primary hover:underline font-medium">seguro de frota</Link>.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Motoristas de aplicativo precisam de <Link to="/seguro-motorista-app" className="text-primary hover:underline font-medium">cobertura específica para uso profissional</Link>. E não esqueça do <Link to="/planos-de-saude" className="text-primary hover:underline font-medium">plano de saúde</Link> — proteção completa é cuidar do patrimônio e de quem dirige.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Trabalhamos com as principais <Link to="/seguradoras-parceiras" className="text-primary hover:underline font-medium">seguradoras parceiras</Link> do mercado (Porto Seguro, Tokio Marine, Allianz, Azul, Mapfre e outras) para comparar preços e coberturas em Guarulhos e São Paulo. Veja também nosso guia de <Link to="/como-comparar-seguradoras-guarulhos" className="text-primary hover:underline font-medium">como escolher e comparar seguradoras em Guarulhos</Link>.
+                  A Patro trabalha com <Link to="/seguradoras-parceiras" className="text-primary hover:underline font-medium">seguradoras parceiras</Link> e pode orientar a comparação de condições conforme o perfil do risco. Veja também o guia de <Link to="/como-comparar-seguradoras-guarulhos" className="text-primary hover:underline font-medium">como comparar seguradoras</Link>.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Motoristas rodam mais e se expõem a mais riscos: complemente com o <Link to="/lp/seguro-acidentes-pessoais" className="text-primary hover:underline font-medium">seguro de acidentes pessoais</Link> (contratação em poucos minutos) e, se você cuida dos pais, conheça nosso <Link to="/planos-saude-senior-guarulhos" className="text-primary hover:underline font-medium">plano de saúde sênior em Guarulhos</Link>.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Para modelos elétricos, veja o guia com o <Link to="/valor-seguro-byd-dolphin" className="text-primary hover:underline font-medium">valor do seguro BYD Dolphin</Link> (faixa real de R$ 2.500 a R$ 4.800/ano). Motoristas de app têm ranking técnico dedicado no nosso comparativo do <Link to="/melhor-seguro-para-uber-guarulhos" className="text-primary hover:underline font-medium">melhor seguro para Uber em Guarulhos</Link>.
+                  Para um modelo específico, consulte o conteúdo correspondente, como o <Link to="/valor-seguro-byd-dolphin" className="text-primary hover:underline font-medium">guia do BYD Dolphin</Link>. Motoristas de aplicativo podem conhecer o conteúdo específico sobre <Link to="/seguro-motorista-app" className="text-primary hover:underline font-medium">uso profissional</Link>.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 mt-5">
@@ -526,31 +536,6 @@ const SeguroAuto = () => {
           items={trilhaAuto}
         />
 
-        {/* Hub de Bairros em Guarulhos */}
-        <section className="py-20 bg-white border-t border-slate-100">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">
-              Seguro Auto em todos os Bairros de Guarulhos
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-              {[
-                "Cidade Maia", "Cumbica", "Pimentas", "Bonsucesso", 
-                "Vila Augusta", "Centro", "Taboão", "Vila Galvão", 
-                "Macedo", "Gopoúva", "Jardim Maia", "Picanço",
-                "Continental", "Paraventi", "Cocaia", "Ponte Grande",
-                "Torres Tibagy", "Jardim Vila Galvão", "Monte Carmelo", "Presidente Dutra"
-              ].sort().map((bairro, i) => (
-                <Link 
-                  key={i}
-                  to={`/seguro-auto-${bairro.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "-")}`}
-                  className="px-4 py-2 rounded-lg bg-slate-50 border border-slate-200 text-sm text-slate-600 hover:bg-primary/5 hover:border-primary/20 hover:text-primary transition-all text-center"
-                >
-                  {bairro}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
       <Suspense fallback={null}>

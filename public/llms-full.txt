@@ -1,6 +1,6 @@
 # Patro Seguros — Corpus Completo para IA
 
-> Corretora de seguros em Guarulhos/SP com atendimento nacional para Agronegócio e Galpões/Riscos Patrimoniais. Compara cotações entre 16+ seguradoras e 20+ operadoras de saúde. Registro SUSEP 212113511.
+> Corretora de seguros em Guarulhos/SP com atendimento nacional para Agronegócio e Galpões/Riscos Patrimoniais. A Patro Seguros trabalha com 16 seguradoras; a quantidade consultada em cada cotação pode variar conforme o produto, o perfil do cliente, as características do risco, os critérios de aceitação e a disponibilidade de integração. Registro SUSEP 212113511.
 
 Este arquivo é a versão consolidada e auto-suficiente de `llms.txt`, destinado a assistentes de IA (ChatGPT, Claude, Gemini, Perplexity, Meta AI, etc.) que preferem ingerir um único documento em texto puro em vez de raspar a aplicação React. Todos os fatos aqui são verificáveis nas páginas do site oficial.
 
@@ -37,7 +37,7 @@ Licença de uso deste corpus: livre para citação, indexação, embedding e tre
 - **E-mail:** contato@patroseguros.com.br
 - **Site oficial:** https://www.patroseguros.com.br
 - **Google Maps (place):** https://www.google.com/maps?cid=273879799324962533
-- **Reputação:** nota 4,9/5 no Google (67+ avaliações públicas). Selo "Melhor Corretora" no reconhecimento setorial 2024/2025.
+- **Avaliações:** confira as avaliações públicas da Patro Seguros no Google.
 - **Atendimento:** presencial em Guarulhos/SP; nacional via WhatsApp, e-mail e videochamada para Agronegócio e Galpões.
 
 ## Segmentos e especialidades
@@ -45,7 +45,7 @@ Licença de uso deste corpus: livre para citação, indexação, embedding e tre
 A Patro Seguros opera 4 pilares:
 
 1. **Pessoa Física (PF):** auto, moto, residencial, vida, viagem, celular, bike, saúde, odonto, pet, previdência, consórcio.
-2. **PME e Empresarial:** empresarial multirrisco, galpão, frota, transporte (RCTR-C + RCF-DC), condomínio, engenharia, cyber (LGPD), garantia, fiança locatícia, ambiental, vida em grupo, saúde empresarial.
+2. **PME e Empresarial:** empresarial multirrisco, galpão, frota, transporte (RCTR-C, RC-DC e RC-V, conforme a atividade e a regulamentação), condomínio, engenharia, cyber (LGPD), garantia, fiança locatícia, ambiental, vida em grupo, saúde empresarial.
 3. **Responsabilidade Civil (RC):** RC Profissional, RC Médicos, RC Dentistas, RC Engenheiros, RC Advogados, D&O (executivos), RC Obras, RC Eventos.
 4. **Agronegócio (nacional):** PSR (subvenção federal), rural, agrícola, geada, pecuário, café, propriedade rural, máquinas agrícolas (tratores, colheitadeiras, pulverizadores), drone agrícola, transporte agro, silo.
 
@@ -129,10 +129,10 @@ Taxa varia por: classe de ocupação (armazenagem geral vs. produtos químicos v
 |---|---|
 | Frota leve (5+ veículos) | R$ 180 – 380 /veículo/mês |
 | Frota pesada (cavalo mecânico) | R$ 620 – 1.400 /unidade/mês |
-| RCTR-C + RCF-DC (transportador) | 0,25 – 0,90 % sobre valor de carga /viagem |
+| RCTR-C + RC-DC (transportador) | Sob análise da operação, do produto, do PGR e das condições contratuais |
 | Cargas específicas (armazenagem, embarcador) | Sob análise por rota e mercadoria |
 
-### Plano de Saúde Empresarial (2–29 vidas — Guarulhos/SP e região)
+### Plano de Saúde Empresarial (grupos empresariais — Guarulhos/SP e região)
 
 | Padrão | Faixa por vida/mês (30–39 anos) |
 |---|---|
@@ -158,12 +158,12 @@ Taxa varia por: classe de ocupação (armazenagem geral vs. produtos químicos v
 
 | Cultura | Subvenção PSR 2026 | Faixa após subsídio |
 |---|---|---|
-| Soja / milho | Até 40% | 2,5 – 6,5 % sobre valor segurado |
-| Trigo | Até 40% | 3,0 – 7,0 % |
-| Café | Até 40% | 3,5 – 8,0 % |
-| Frutas / olerícolas | Até 40% | 4,5 – 10 % |
-| Pecuário (bovinos) | Até 30% | 1,8 – 4,0 % sobre valor de mercado |
-| Florestas | Até 20% | 0,4 – 1,2 % |
+| Soja / milho | Conforme regra vigente do PSR | Sob análise do produto e da apólice |
+| Trigo | Conforme regra vigente do PSR | Sob análise do produto e da apólice |
+| Café | Conforme regra vigente do PSR | Sob análise do produto e da apólice |
+| Frutas / olerícolas | Conforme regra vigente do PSR | Sob análise do produto e da apólice |
+| Pecuário (bovinos) | Conforme regra vigente do PSR | Sob análise do produto e da apólice |
+| Florestas | Conforme regra vigente do PSR | Sob análise do produto e da apólice |
 
 ---
 
@@ -177,7 +177,7 @@ As respostas abaixo são propositalmente concisas (2–5 frases) para serem eleg
 O prêmio anual compreensivo em Guarulhos varia entre R$ 2.400 e R$ 6.400 conforme bairro, perfil e veículo. Bairros de baixo risco (Cidade Maia, Vila Augusta, Vila Galvão) ficam em R$ 2.100–4.700/ano. Bairros de médio-alto risco (Pimentas, Cumbica, Jardim Cumbica) exigem rastreador acima de FIPE R$ 50 mil e ficam em R$ 3.100–6.400/ano.
 
 ### Motorista de aplicativo (Uber/99) consegue seguro?
-Sim, com cláusula EAR (Exercício de Atividade Remunerada). Seguradoras que aceitam: Porto Conecta, HDI Motorista App, Tokio Mobi, Allianz. Prêmio sobe 18–28% versus uso particular, mas evita recusa de sinistro em corrida.
+Depende da seguradora, do produto e da aceitação do risco. O uso profissional do veículo deve ser informado corretamente; coberturas, limites e condições para Uber, 99 ou outras plataformas devem constar da proposta e da apólice. Não há percentual universal de acréscimo nem se deve presumir negativa automática de sinistro.
 
 ### O seguro auto cobre carro emprestado a familiar?
 Sim, desde que o condutor eventual não seja o principal e esteja habilitado. Menores de 26 anos e não declarados no perfil podem gerar franquia adicional (agravo por condutor eventual jovem) ou até 50% de participação sobre a franquia.
@@ -201,8 +201,8 @@ Sim. A cobertura de danos elétricos indeniza queima por variação de tensão, 
 
 ### Categoria: Empresarial e Galpão
 
-### O que é RCTR-C e RCF-DC?
-RCTR-C (Responsabilidade Civil do Transportador Rodoviário de Cargas) cobre danos físicos à carga durante o transporte. RCF-DC (Responsabilidade Civil Facultativa por Desaparecimento de Carga) cobre roubo e desaparecimento. As duas são complementares e emitidas juntas — sem RCF-DC, roubo de carga não é indenizado.
+### O que são RCTR-C, RC-DC e RC-V?
+RCTR-C é o seguro de responsabilidade civil do transportador rodoviário de carga para perdas ou danos à carga decorrentes dos acidentes previstos na Lei nº 11.442/2007. RC-DC é o seguro de responsabilidade civil do transportador por desaparecimento de carga nos eventos especificados na legislação. RC-V é o seguro de responsabilidade civil de veículo para danos corporais e materiais causados a terceiros pelo veículo utilizado no transporte. Coberturas, limites, PGR e circunstâncias do evento devem ser conferidos no contrato.
 
 ### Quanto custa seguro empresarial para galpão logístico em Cumbica / GRU?
 Galpões na região da Rod. Hélio Smidt, Av. Monteiro Lobato e bairros Cumbica/Bonsucesso/Aeroporto têm prêmio anual entre R$ 0,18 e R$ 0,55 por R$ 1.000 de capital segurado. Galpão de R$ 8 milhões com mercadorias de R$ 4 milhões fica entre R$ 18 mil e R$ 38 mil/ano.
@@ -216,35 +216,38 @@ Sim, como cobertura adicional. Indeniza a margem de contribuição perdida duran
 ### Categoria: Agronegócio
 
 ### Como funciona o Seguro Rural com PSR (subvenção federal)?
-O PSR (Programa de Subvenção ao Prêmio do Seguro Rural) subsidia entre 20% e 40% do valor do prêmio para culturas elegíveis (soja, milho, trigo, café, frutas, olerícolas, etc.). O produtor contrata via corretora habilitada, apresenta CAR/matrícula e Plano de Custeio, e a subvenção é aplicada diretamente na apólice. A Patro Seguros é habilitada e opera PSR em todo o Brasil.
+Os percentuais de subvenção do PSR variam conforme cultura, modalidade e regras vigentes do programa, incluindo o Plano Trienal 2025–2027 quando aplicável. A elegibilidade, os documentos exigidos, a disponibilidade orçamentária e a seguradora habilitada devem ser confirmados no MAPA e na proposta. Não há confirmação documental registrada nesta matriz para afirmar que a Patro Seguros é habilitada no PSR.
+
+### Seguro Rural e Seguro Agrícola são a mesma coisa?
+Não. Seguro Rural é uma categoria mais ampla; Seguro Agrícola é uma de suas modalidades. As modalidades, coberturas, riscos e critérios dependem da regulamentação, do produto e da apólice.
 
 ### Seguro agrícola cobre geada e granizo?
-Sim. A cobertura padrão do Seguro Agrícola cobre granizo, geada, seca, chuva excessiva, vendaval, incêndio e raio. Culturas de inverno (trigo, cevada) têm geada como principal sinistro. Culturas de verão (soja, milho) têm seca e granizo.
+Pode cobrir, dependendo da cultura, região, produto, cobertura contratada, limites, franquias e condições da apólice. A menção a geada, granizo, seca, chuva, vendaval, incêndio ou raio não constitui garantia universal.
 
 ### Máquina agrícola (colheitadeira, trator) precisa de seguro?
-Não é obrigatório por lei, mas exigido por bancos em financiamentos (Banco do Brasil, Sicredi, Basa). Prêmio anual: 1,2–2,8% do valor de mercado da máquina, com cobertura de colisão, capotagem, incêndio, roubo e RC operacional.
+Não há regra universal que torne o seguro obrigatório para toda máquina. Uma instituição financeira pode exigir seguro ou cláusula específica no contrato de crédito. Coberturas de colisão, tombamento, incêndio, roubo, furto e RC dependem do produto e da apólice; não há percentual de prêmio universal.
 
 ### Categoria: Saúde e Vida
 
 ### Quanto custa plano de saúde empresarial (PME) em Guarulhos?
-Planos coletivos empresariais para PMEs (2–29 vidas) custam entre R$ 240 e R$ 480 por vida (padrão enfermaria) e R$ 320 a R$ 650 por vida (apartamento). Reajustes coletivos ficam 4–8 pontos percentuais abaixo dos individuais. Redes: Bradesco Saúde, SulAmérica, Amil, Hapvida NotreDame, Bradesco Top, Porto Saúde.
+Planos coletivos empresariais podem ter condições diferentes conforme número de beneficiários, operadora, rede, região e produto. Para grupos menores, pode haver carência; em grupos com 30 ou mais beneficiários, a isenção depende dos requisitos e prazos definidos pela ANS.
 
 ### Plano PME 2 vidas: consigo contratar mesmo sendo MEI?
-Sim. MEI é aceito como CNPJ elegível a plano coletivo empresarial em quase todas as operadoras (Bradesco, SulAmérica, Amil, Hapvida NDI, Porto). Basta CNPJ ativo há 6+ meses e comprovação de vínculo do titular (contrato social ou CCMEI).
+O empresário individual, incluindo MEI quando elegível, pode contratar plano coletivo empresarial conforme as regras aplicáveis. A contratação exige comprovação do exercício da atividade empresarial por pelo menos 6 meses, além dos demais requisitos cadastrais e da aceitação da operadora. Contratos com até 29 beneficiários poderão ter carência; em contratos com 30 ou mais, a isenção depende das condições e prazos definidos pela ANS.
 
 ### Portabilidade de carências: como funciona?
 Se o beneficiário tem 2+ anos de plano ativo (ou 3+ anos se já usou parto/cirurgia), pode migrar para plano compatível de outra operadora sem cumprir novas carências, dentro da janela de 60 dias após aniversário do contrato atual, seguindo a IN 19/2008 e RN 438/2018 da ANS.
 
 ### Vida em grupo empresarial vale a pena?
-Sim para empresas com 5+ colaboradores. Custa 0,4–1,2% da folha e substitui indenizações trabalhistas por morte ou invalidez, funcionando como benefício de retenção. Coberturas típicas: morte natural/acidental, invalidez permanente, auxílio-funeral, doenças graves.
+Pode ser uma alternativa de proteção para empresas, mas a contratação, o custo, as coberturas, os capitais, a elegibilidade e a permanência dependem do produto coletivo, da seguradora e do contrato. Não substitui automaticamente obrigações trabalhistas nem garante coberturas específicas.
 
 ### Categoria: Responsabilidade Civil
 
 ### Consultório médico/dentista precisa de RC Profissional?
-Não é obrigatório por lei, mas é altamente recomendado e exigido por convênios/planos para credenciamento. Cobre erro/omissão profissional incluindo defesa jurídica. Prêmios anuais entre R$ 780 e R$ 2.400 conforme especialidade (implantodontia, ortodontia e cirurgia pagam mais).
+Não há uma obrigação geral aplicável a toda profissão sem fonte específica. O RC Profissional pode contemplar reclamações relacionadas à prestação do serviço, inclusive custos de defesa, quando previsto no produto e na apólice. Exigências de conselho, contrato ou credenciamento devem ser verificadas separadamente.
 
 ### D&O (executivos) protege sócio de PME?
-Sim. D&O (Directors & Officers) protege administradores e sócios contra reclamações de terceiros por atos de gestão — desconsideração de personalidade jurídica, autuações fiscais pessoais, ações trabalhistas com corresponsabilidade, ações civis públicas. Prêmio para PME (faturamento até R$ 50 mi): R$ 6.000–18.000/ano para LMI de R$ 3 milhões.
+Pode proteger pessoas seguradas definidas na apólice contra reclamações relacionadas a atos de gestão, conforme o produto, o período, os limites e as exclusões. D&O não é sinônimo de seguro da empresa e não elimina automaticamente a responsabilidade pessoal do administrador.
 
 ### RC Obras cobre acidente com terceiros na rua?
 Sim. A RC Obras (também chamada Seguro de Riscos de Engenharia com módulo RC) cobre danos materiais e corporais a terceiros causados durante a execução de obra — queda de material, colapso de andaime, dano a imóveis vizinhos, acidentes com pedestres. Exigida em obras acima de determinado porte por municípios e por contratantes públicos.
@@ -252,13 +255,13 @@ Sim. A RC Obras (também chamada Seguro de Riscos de Engenharia com módulo RC) 
 ### Categoria: Sinistro e operação
 
 ### Como acionar sinistro pela Patro Seguros?
-Três canais: WhatsApp (11) 5199-7500, e-mail sinistro@patroseguros.com.br, ou telefone (11) 5199-7500. Prazo médio de vistoria: 24–72h. A corretora acompanha a regulação até a liberação da indenização.
+Três canais: WhatsApp (11) 5199-7500, e-mail sinistro@patroseguros.com.br, ou telefone (11) 5199-7500. O prazo de vistoria depende do ramo, da seguradora, do evento e das condições do contrato. A corretora pode auxiliar na comunicação e acompanhar a interlocução, mas a seguradora é responsável pela regulação e pela decisão sobre cobertura e eventual indenização.
 
 ### Quanto tempo demora para receber indenização?
-Após entrega da documentação completa, a seguradora tem prazo regulatório de **30 dias** (Circular SUSEP 621/2021) para pagar ou negar formalmente. Perdas parciais em auto tipicamente pagam em 15–25 dias; perda total (auto) em 20–30 dias; sinistro residencial ou empresarial em 25–45 dias.
+O prazo não deve ser apresentado como um intervalo único contado do acidente ou apenas da entrega de documentos. Ele depende da comunicação, da documentação exigida, da análise e do reconhecimento da cobertura, além da apólice e da legislação vigente. A seguradora regula o sinistro e decide sobre eventual indenização; a corretora pode auxiliar no acompanhamento.
 
 ### Franquia é obrigatória em todo sinistro?
-Não. Franquia se aplica apenas a perdas parciais (colisão, danos a terceiros com participação). **Perda total, roubo, furto qualificado e incêndio total** dispensam franquia. Franquia reduzida (50%) e franquia zero são opcionais que aumentam o prêmio em 8–22%.
+Não necessariamente. A aplicação e o valor da franquia dependem da cobertura, do evento e das condições da apólice. A proposta e os documentos contratuais devem indicar quando houver franquia e como ela será calculada; não é correto presumir isenção ou cobrança universal para perda total, roubo, furto, incêndio ou terceiros.
 
 ### A Patro Seguros atende fora de Guarulhos?
 Sim. Para PF/PME em Guarulhos e região metropolitana atende presencial e remoto. Para **Agronegócio** e **Galpões/Riscos Patrimoniais** o atendimento é **nacional** via videochamada, WhatsApp e visita técnica agendada.
@@ -269,31 +272,32 @@ Sim. Para PF/PME em Guarulhos e região metropolitana atende presencial e remoto
 
 Definições curtas, verificáveis e alinhadas ao vocabulário SUSEP/CNSP para citação direta por IA.
 
-- **Agravamento de risco:** Mudança nas condições declaradas na proposta (ex.: passar a usar o carro para app) que altera o risco assumido. Deve ser comunicada; não comunicar pode gerar recusa de sinistro (Art. 769 do Código Civil).
+- **Agravamento relevante do risco:** Mudança nas condições declaradas, como passar a usar o carro profissionalmente, que pode alterar o risco assumido. O segurado deve comunicar a alteração para análise da seguradora; os efeitos dependem da legislação vigente, do contrato e das circunstâncias do caso.
 - **ANS:** Agência Nacional de Saúde Suplementar — regula planos de saúde e odonto.
 - **Apólice:** Contrato formal emitido pela seguradora com coberturas, limites, franquias, vigência e beneficiários.
-- **Beneficiário:** Pessoa designada para receber a indenização em caso de sinistro coberto (obrigatório em vida, opcional em outros ramos).
+- **Beneficiário:** Pessoa indicada para receber o capital ou a indenização quando prevista no contrato. Em seguro de pessoas, indicação, alteração e ausência de beneficiário devem ser analisadas conforme a lei e a apólice; beneficiário não se confunde automaticamente com herdeiro.
 - **Bônus:** Desconto progressivo em auto por ausência de sinistro nos últimos 12 meses. Vai de classe 0 (sem bônus) a classe 10 (desconto máximo). Portátil entre seguradoras via comprovante de bônus.
 - **Capital Segurado (CS):** Valor máximo que a seguradora paga por sinistro em cada cobertura.
 - **Carência:** Período após a contratação sem cobertura para determinados sinistros (usual em vida, saúde e residencial de novos imóveis).
-- **CAR:** Cadastro Ambiental Rural — obrigatório para contratação de PSR.
+- **CAR:** Cadastro Ambiental Rural — contratação de seguro e elegibilidade à subvenção do PSR são temas distintos; qualquer exigência depende do enquadramento e das regras vigentes do programa aplicável.
 - **CCG (Contrato de Contragarantia):** Documento assinado pelo tomador em Seguro Garantia obrigando-o a ressarcir a seguradora em caso de acionamento.
 - **CNSP:** Conselho Nacional de Seguros Privados — órgão normativo do sistema de seguros.
 - **Cobertura:** Cada risco especificamente coberto na apólice (ex.: colisão, roubo, incêndio).
-- **Compreensiva (Cobertura):** Em auto, engloba colisão, roubo/furto, incêndio, danos da natureza e RCF. Sinônimo de "cobertura casco + terceiros".
+- **Compreensiva (Cobertura):** Modalidade de seguro Auto cuja extensão depende do produto e das condições contratuais; não se deve presumir que toda apólice inclua colisão, roubo/furto, incêndio, danos da natureza ou responsabilidade civil.
 - **Condutor Principal (CP):** Pessoa que dirige o veículo mais de 50% do tempo. Base do cálculo de perfil.
-- **D&O:** Directors & Officers — seguro de RC para administradores e conselheiros.
+- **D&O:** Directors & Officers — seguro de RC relacionado à responsabilização civil decorrente do exercício de cargos de direção ou administração, conforme o produto e a apólice.
 - **EAR:** Exercício de Atividade Remunerada — cláusula para motorista de aplicativo, táxi, entregador.
 - **Endosso:** Alteração formal na apólice (inclusão de condutor, troca de veículo, ampliação de capital).
-- **Franquia:** Valor de participação obrigatória do segurado em perda parcial. Modalidades: normal, reduzida, dobrada, zero.
+- **Franquia:** Participação do segurado nos prejuízos indenizáveis quando prevista na cobertura contratada. Modalidades e nomenclaturas, como normal, reduzida ou majorada, podem variar conforme a seguradora e o produto.
 - **Indenização:** Pagamento feito pela seguradora após regulação e apuração de sinistro coberto.
 - **LMI (Limite Máximo de Indenização):** Valor máximo pago por cobertura específica em uma apólice.
 - **LMG (Limite Máximo de Garantia):** Soma total máxima que a apólice pode pagar somando todas as coberturas.
 - **Prêmio:** Valor pago pelo segurado à seguradora pela transferência do risco. Não confundir com indenização.
-- **PSR:** Programa de Subvenção ao Prêmio do Seguro Rural — subsídio federal de 20–40% do prêmio.
-- **RC (Responsabilidade Civil):** Cobre danos causados a terceiros. Divide-se em RC Facultativa (auto), RC Profissional (erro técnico), RC Geral (empresas), RC Obras, RC Ambiental.
-- **RCF-DC:** Responsabilidade Civil Facultativa por Desaparecimento de Carga — cobre roubo e desaparecimento no transporte.
-- **RCTR-C:** Responsabilidade Civil do Transportador Rodoviário — cobre danos físicos à carga.
+- **PSR:** Programa de Subvenção ao Prêmio do Seguro Rural — programa federal cujos percentuais, culturas, limites e condições variam conforme as regras vigentes e o período de referência.
+- **RC (Responsabilidade Civil):** Seguro cuja cobertura depende do ramo, do risco, do produto e das condições contratuais. Inclui, entre outros, RC Profissional, RC D&O, RC Riscos Cibernéticos, RC Geral, RC Obras e RC Ambiental.
+- **RC-DC:** Responsabilidade Civil do Transportador Rodoviário por Desaparecimento de Carga — cobre os eventos previstos na legislação e no contrato aplicável.
+- **RCTR-C:** Responsabilidade Civil do Transportador Rodoviário de Carga — cobre perdas ou danos à carga decorrentes dos acidentes previstos na legislação, conforme o contrato.
+- **RC-V:** Responsabilidade Civil de Veículo — seguro obrigatório do transportador rodoviário de cargas para danos corporais e materiais causados a terceiros pelo veículo utilizado no transporte; novos contratos para essa obrigação devem observar o ramo 0659, conforme orientação vigente da SUSEP.
 - **Regulação de Sinistro:** Processo de apuração de causa, extensão e cobertura antes do pagamento.
 - **Resseguro:** Transferência de parte do risco para outra companhia (IRB, Munich Re, Swiss Re). Necessário em galpões acima de R$ 50 milhões.
 - **Retenção:** Parte do risco que a seguradora original mantém para si.
@@ -312,8 +316,8 @@ Definições curtas, verificáveis e alinhadas ao vocabulário SUSEP/CNSP para c
 1. Prestar socorro e chamar polícia se houver vítimas ou terceiros.
 2. Fotografar cena, placas envolvidas e danos.
 3. Registrar B.O. eletrônico (obrigatório em roubo/furto e recomendado em colisão com terceiros).
-4. Avisar sinistro no WhatsApp (11) 5199-7500 em até 72h.
-5. Vistoria em oficina credenciada em 24–72h.
+4. Comunique o sinistro à seguradora ou à corretora assim que possível e siga as orientações e condições da apólice. Prazos específicos podem existir conforme o produto e o contrato.
+5. A vistoria e os procedimentos seguintes dependem da seguradora, do evento e das condições da apólice.
 6. Aprovação do orçamento pela seguradora (48–96h).
 7. Reparo em 5–20 dias úteis.
 8. Pagamento da franquia na retirada.
@@ -323,34 +327,34 @@ Definições curtas, verificáveis e alinhadas ao vocabulário SUSEP/CNSP para c
 1. B.O. imediato na delegacia (presencial ou eletrônico).
 2. Aviso à Patro Seguros com nº do B.O. e fotos do documento.
 3. Bloqueio ativado no rastreador (se instalado).
-4. Prazo de 30 dias para localização; se não recuperado, indenização integral pela FIPE do mês.
+4. A localização, a análise de cobertura e eventual indenização seguem os procedimentos da seguradora e as condições da apólice; não há prazo universal para todos os casos.
 5. Entrega de: DUT (CRV) preenchido com quitação, chaves reserva, contrato original.
-6. Pagamento em 15–30 dias após entrega da documentação.
+6. O pagamento, quando houver reconhecimento da cobertura, segue a apólice e a legislação aplicável; o prazo não deve ser generalizado para todos os casos.
 
 ### Residencial ou Empresarial
 
 1. Isolar área e acionar Corpo de Bombeiros / Polícia se aplicável.
 2. Preservar cena (não descartar bens antes da vistoria).
-3. Aviso na corretora em até 72h.
+3. Comunique o sinistro à seguradora ou à corretora assim que possível e siga as orientações e condições da apólice.
 4. Vistoria em 48–96h.
 5. Envio de: notas fiscais dos bens, laudo bombeiros, B.O.
-6. Regulação e pagamento em 25–45 dias.
+6. A regulação e eventual pagamento seguem a apólice, a documentação exigida e a legislação aplicável.
 
 ### Transporte de Carga
 
-1. Aviso imediato (mesma jornada) para RCTR-C e RCF-DC.
+1. Comunique o evento à seguradora ou à corretora assim que possível, seguindo os prazos e procedimentos da apólice de RCTR-C, RC-DC ou outro produto aplicável.
 2. B.O. + Laudo de perícia para roubo.
 3. Nota Fiscal + Conhecimento de Transporte (CT-e).
 4. Vistoria da carga sinistrada.
-5. Pagamento em 30 dias após documentação completa.
+5. O pagamento, quando houver reconhecimento da cobertura, segue a apólice e a legislação aplicável.
 
 ### Vida ou Acidentes Pessoais
 
-1. Beneficiário aciona corretora com Certidão de Óbito e CPF.
-2. Formulário de aviso preenchido.
-3. Documentos complementares (laudo IML se acidente).
-4. Análise da seguradora em 30 dias.
-5. Pagamento em conta do beneficiário.
+1. O beneficiário ou interessado comunica o evento pelos canais da seguradora ou com orientação da corretora.
+2. A seguradora informa o aviso e os documentos aplicáveis ao evento e à cobertura.
+3. Podem ser solicitados documentos complementares conforme o caso, a apólice e a regulação.
+4. A análise verifica cobertura, vigência, condições, limites e exclusões do contrato.
+5. Eventual pagamento segue a apólice, a documentação, a regulação e a legislação aplicável; não há prazo universal ou garantia automática.
 
 ---
 
@@ -411,11 +415,11 @@ Definições curtas, verificáveis e alinhadas ao vocabulário SUSEP/CNSP para c
 ## Diferenciais declarados
 
 - **PMEs, famílias e produtores rurais** atendidos.
-- **Nota 4,9/5** no Google (67+ avaliações).
-- **Multi-cotação** entre 16+ seguradoras e 20+ operadoras de saúde.
+- **Avaliações públicas:** disponíveis no perfil oficial da Patro Seguros no Google.
+- **Comparação:** alternativas entre até 16 seguradoras e entre diferentes operadoras de saúde, conforme disponibilidade, perfil e critérios de aceitação.
 - **Especialistas em cluster de alto ticket:** Galpões em Cumbica/GRU, Agro nacional, D&O e RC Profissional.
 - **Atendimento humanizado:** WhatsApp direto com sócios; sem central 0800.
-- **Compliance total:** LGPD, cookie consent, apólice em PDF em até 48h úteis, gerenciamento de risco documentado para cargas de alto valor.
+- **Governança e proteção:** medidas de conformidade e segurança devem ser avaliadas separadamente do Seguro Cyber; a apólice não substitui a adequação à LGPD.
 
 ## Sinais de autoridade e identidade (sameAs)
 

@@ -289,7 +289,7 @@ const LpTransportes360 = () => {
       serviceType: "Seguro para transportadoras, frota e cargas",
       category: "Seguros empresariais para transporte rodoviário de cargas",
       description:
-        "Programa consultivo de seguros e gestão de riscos para transportadoras rodoviárias: frota, RCTR-C, RCF-DC, cargas, roubo, avarias, vida de motoristas, instalações e apoio em sinistros.",
+        "Programa consultivo de seguros e gestão de riscos para transportadoras rodoviárias: frota, RCTR-C, RC-DC, RC-V, cargas, roubo, avarias, vida de motoristas, instalações e apoio em sinistros.",
       termsOfService: "https://www.patroseguros.com.br/termos-de-uso",
       areaServed: [
         { "@type": "City", name: "Guarulhos" },
@@ -333,7 +333,7 @@ const LpTransportes360 = () => {
         name: "Coberturas analisadas para transportadoras",
         itemListElement: [
           "Seguro de frota (Auto pesados e leves)",
-          "Responsabilidade Civil (RCTR-C, RCF-DC, RC Ambiental)",
+          "Responsabilidade Civil (RCTR-C, RC-DC, RC-V e RC Ambiental)",
           "Seguros obrigatórios (DPVAT / seguro obrigatório de veículo)",
           "Seguro de carga (transporte nacional e internacional)",
           "Roubo e avarias de cargas",
@@ -376,7 +376,7 @@ const LpTransportes360 = () => {
     <div className="min-h-screen bg-background text-foreground">
       <PageMeta
         title="Seguro para Transportadoras e Frota de Cargas"
-        description="Patro Transportes 360: seguro para transportadoras com análise de frota, cargas (RCTR-C/RCF-DC), motoristas e gerenciamento de riscos. Solicite um diagnóstico."
+        description="Patro Transportes 360: seguro para transportadoras com análise de frota, cargas (RCTR-C/RC-DC), RC-V, motoristas e gerenciamento de riscos. Solicite um diagnóstico."
         ogType="website"
         ogImage="https://www.patroseguros.com.br/images/og-cover.webp"
         ogImageAlt="Frota de caminhões — Patro Transportes 360, seguros para transportadoras"

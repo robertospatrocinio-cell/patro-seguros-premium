@@ -19,10 +19,8 @@ export const PATRO_SOCIAL_PROOF = {
   googleProfileUrl: EMPRESA.redesSociais.google,
   whatsappUrl: "https://wa.me/551151997500",
   reviewsPageUrl: "/avaliacoes",
-  trustCopy: `Mais de ${EMPRESA.metricas.clientesAtendidos} clientes atendidos e sócios com mais de ${EMPRESA.metricas.experienciaAnos} anos de experiência. Nossa nota ${EMPRESA.metricas.googleRating} no Google reflete o compromisso com a agilidade no sinistro.`,
+  trustCopy: "Confira as avaliações públicas da Patro Seguros no Google e conheça nossos canais oficiais de atendimento.",
   stats: {
-    experience: EMPRESA.metricas.experienciaAnos,
-    clients: EMPRESA.metricas.clientesAtendidos,
     partners: EMPRESA.metricas.seguradorasParceiras,
   }
 };

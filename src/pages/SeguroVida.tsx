@@ -10,48 +10,46 @@ const SeguroVida = () => {
     <>
       <ServiceSchema
         name="Seguro de Vida"
-        description="O seguro de vida em Guarulhos garante proteção financeira completa para sua família contra morte, invalidez e doenças graves. A Patro Seguros, corretora com mais de 20 anos de experiência (registro SUSEP 212113511), compara propostas de 16 seguradoras para você encontrar a melhor cobertura com cotação em até 2 horas úteis."
+        description="O seguro de vida em Guarulhos oferece proteção conforme as coberturas contratadas. A Patro Seguros, corretora registrada na SUSEP, compara alternativas entre até 16 seguradoras conforme o perfil e o produto."
         serviceType="LifeInsurance"
       />
     <InsurancePageTemplate
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
-      title="Seguro de Vida em Guarulhos | Cotação em 2h | Patro Seguros"
+      title="Seguro de Vida em Guarulhos | Patro Seguros"
       headline="Seguro de vida em Guarulhos para proteger sua família"
       subtitle="Consultoria sensível e técnica para garantir estabilidade à sua família — em qualquer cenário"
       icon="❤️"
-      metaDescription="Seguro de vida em Guarulhos: proteção familiar completa contra morte, invalidez e doenças graves. Cotação em 2h com as melhores seguradoras na Patro Seguros."
-      description="O Seguro de Vida é, antes de qualquer cobertura, um ato de planejamento. Ele garante que as pessoas que dependem de você manterão o padrão de vida — caso falte ou não consiga mais gerar renda — e dá a você o controle de definir, em vida, como esse cuidado será entregue."
-      detailedDescription={`Muitos brasileiros associam o seguro de vida apenas à morte, mas as coberturas mais acionadas são as de invalidez e doenças graves — situações em que o segurado está vivo, mas impossibilitado de gerar renda. Um profissional de 40 anos que sofre um acidente grave e fica impossibilitado de trabalhar enfrenta décadas de despesas sem receita.
+      metaDescription="Seguro de vida em Guarulhos: conheça alternativas de proteção e compare propostas conforme seu perfil com a Patro Seguros."
+      description="O Seguro de Vida é uma forma de planejamento financeiro que pode oferecer proteção conforme as coberturas contratadas, inclusive em situações de morte ou invalidez previstas no contrato."
+      detailedDescription={`Muitas pessoas associam o seguro de vida apenas à morte, mas o produto pode incluir garantias adicionais para situações em que o segurado está vivo, conforme o contrato. O impacto financeiro de um acidente ou doença depende da renda, das responsabilidades e da proteção efetivamente contratada.
 
-Segundo dados do mercado segurador, apenas 18% dos brasileiros possuem seguro de vida. Isso significa que a maioria das famílias não tem nenhuma rede de proteção financeira em caso de imprevistos graves com o principal provedor.
-
-O seguro de vida moderno vai além da indenização por morte: inclui cobertura para invalidez parcial ou total, diagnóstico de doenças graves (câncer, AVC, infarto), assistência funeral, diárias por internação hospitalar e até auxílio alimentação para a família. Algumas apólices também funcionam como reserva financeira resgatável.`}
+O seguro de vida pode reunir coberturas para morte e, conforme o produto contratado, garantias adicionais relacionadas a invalidez, doenças graves, diárias, assistência funeral ou outras situações previstas nas condições contratuais. A existência, o alcance e os critérios de cada cobertura devem ser conferidos na proposta e na apólice.`}
       howItWorks={[
-        { step: "1", title: "Análise das Necessidades", description: "Avaliamos sua situação familiar e financeira: quantos dependentes, renda mensal, dívidas existentes (financiamentos, empréstimos), custo de vida da família e objetivos. Com base nisso, calculamos o capital segurado adequado — geralmente entre 5 e 10 anos de renda familiar." },
-        { step: "2", title: "Escolha das Coberturas", description: "Definimos quais coberturas fazem sentido: morte (natural e acidental), invalidez permanente (total ou parcial), doenças graves, diária por internação, assistência funeral. Cada cobertura tem seu próprio capital segurado e pode ser ajustada conforme o orçamento." },
-        { step: "3", title: "Cotação e Contratação", description: "Cotamos com seguradoras especializadas em vida. Na maioria dos casos, a contratação é feita com DPS (Declaração Pessoal de Saúde) — um questionário simples, sem exames médicos. Para capitais muito altos ou idades avançadas, pode ser solicitado exame." },
+        { step: "1", title: "Análise das Necessidades", description: "Avaliamos sua situação familiar e financeira, incluindo dependentes, renda, dívidas, custo de vida, profissão e objetivos. O capital adequado depende desse diagnóstico e da aceitação da seguradora; não há uma regra universal de meses de renda." },
+        { step: "2", title: "Escolha das Coberturas", description: "Analisamos coberturas de morte e, quando disponíveis e contratadas, invalidez, doenças graves, diárias, assistência funeral e outras garantias. Cada cobertura possui definição, capital, limites, carências e exclusões próprios." },
+        { step: "3", title: "Cotação e Contratação", description: "A cotação considera o perfil, o produto e os critérios de aceitação da seguradora. A proposta pode exigir DPS e, conforme o caso, informações ou exames adicionais; o procedimento não é igual em todos os produtos." },
         { step: "4", title: "Revisão Periódica", description: "A vida muda — e o seguro precisa acompanhar. Nascimento de filhos, aquisição de imóvel, mudança de renda: tudo isso impacta o capital necessário. Revisamos anualmente para manter a proteção adequada." },
       ]}
       coverages={[
-        { title: "Morte Natural ou Acidental", description: "Indenização integral paga aos beneficiários em caso de falecimento do segurado. O valor é livre de imposto de renda, não entra em inventário e é pago em média em 30 dias — dinheiro que a família recebe rapidamente em um momento crítico." },
-        { title: "Invalidez Permanente Total por Acidente (IPA)", description: "Indenização integral se o segurado ficar permanentemente incapacitado para qualquer trabalho por consequência de acidente. Exemplos: perda de membros, paralisia, cegueira total." },
-        { title: "Invalidez Funcional Permanente por Doença (IFPD)", description: "Cobertura para invalidez causada por doença (não acidente). Se uma doença grave impossibilitar permanentemente o segurado de exercer sua profissão, a indenização é paga integralmente." },
-        { title: "Doenças Graves (DG)", description: "Indenização antecipada em caso de diagnóstico de doenças como câncer, infarto, AVC, insuficiência renal, transplante de órgãos, entre outras. O dinheiro pode ser usado para tratamento, adaptação da casa ou manutenção da família durante a recuperação." },
-        { title: "Diária por Internação Hospitalar (DIH)", description: "Pagamento de valor diário por cada dia de internação hospitalar. Funciona como complemento de renda durante o período em que o segurado está internado e sem trabalhar." },
-        { title: "Assistência Funeral (Individual ou Familiar)", description: "Cobre todas as despesas com funeral: velório, sepultamento ou cremação, translado do corpo, documentação. Pode ser contratada para o segurado individual ou extensiva à família (cônjuge, filhos e pais)." },
+        { title: "Morte", description: "Pode prever indenização aos beneficiários em caso de morte natural, acidental ou ambas, conforme a cobertura contratada, os limites, as exclusões e as condições da apólice." },
+        { title: "Invalidez por acidente", description: "Pode oferecer indenização por invalidez permanente total ou parcial decorrente de acidente, conforme a definição, o grau de invalidez e o critério previsto no contrato." },
+        { title: "Invalidez por doença", description: "Modalidades como IFPD ou outras garantias de invalidez dependem da definição contratual. Não se deve confundir incapacidade para a profissão com os critérios específicos da cobertura." },
+        { title: "Doenças graves", description: "Quando contratada, a cobertura depende da lista de doenças, diagnóstico, período de carência, critérios, limites e demais condições previstos na apólice." },
+        { title: "Diária por internação hospitalar", description: "Pode prever pagamento diário durante internação, se essa garantia estiver contratada e forem atendidos os requisitos, limites, carências e documentos do produto." },
+        { title: "Assistência funeral", description: "Pode oferecer serviços ou reembolso relacionados ao funeral, conforme a modalidade contratada, limites, rede, eventos cobertos e condições da seguradora." },
       ]}
       coverageExclusions={[
-        "Suicídio nos primeiros 2 anos de vigência (após 2 anos, é coberto por lei)",
+        "Suicídio: a aplicação da regra legal e contratual deve ser analisada conforme o art. 120 da Lei nº 15.040/2024 e as circunstâncias do caso",
         "Atos ilícitos dolosos praticados pelo segurado",
         "Participação em guerras, insurreições ou atos terroristas",
-        "Prática de esportes radicais não declarados na contratação",
+        "Atividade esportiva ou de risco não informada ou não aceita, conforme o produto e as condições contratuais",
         "Uso de drogas ilícitas como causa direta do sinistro",
         "Epidemias e pandemias (varia conforme a seguradora e apólice)",
-        "Doenças preexistentes não declaradas na DPS",
+        "Informações de saúde omitidas ou inexatas podem ser analisadas conforme a lei, a proposta, o conhecimento do segurado e a relação com o sinistro",
       ]}
       pricingInfo={{
-        intro: "O seguro de vida é mais acessível do que a maioria imagina. Para um adulto de 30 a 40 anos, é possível contratar uma cobertura de R$ 200.000 por morte e invalidez a partir de R$ 30 a R$ 80 por mês. O valor aumenta com a idade e com a inclusão de coberturas adicionais.",
+        intro: "O preço depende do capital segurado, coberturas, idade, perfil, profissão, saúde declarada, prazo, forma de contratação e critérios de aceitação. Não há um preço médio universal aplicável a todos os segurados.",
         factors: [
           "Idade — é o principal fator. Quanto mais jovem, mais barato. Contratar cedo trava condições melhores",
           "Capital segurado — valor da indenização desejada",
@@ -60,26 +58,26 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
           "Estado de saúde — fumantes pagam mais; doenças preexistentes podem encarecer ou restringir",
           "Sexo — estatisticamente, mulheres pagam menos (menor taxa de mortalidade)",
         ],
-        note: "Importante: a indenização do seguro de vida é isenta de Imposto de Renda e não entra em inventário. O pagamento é feito diretamente aos beneficiários, sem esperar processos judiciais — em média, em 30 dias após a entrega da documentação.",
+        note: "Importante: a incidência tributária, os efeitos sucessórios e o prazo de pagamento devem ser analisados conforme a legislação vigente, a cobertura, a apólice e os documentos do sinistro. A Lei nº 15.040/2024 disciplina o capital segurado devido por morte, sem permitir generalização para previdência ou investimentos.",
       }}
       realScenarios={[
-        { title: "Diagnóstico de câncer aos 42 anos", description: "Um executivo recebeu R$ 150 mil da cobertura de Doenças Graves após diagnóstico de câncer. O valor custeou o tratamento e manteve as despesas da família por 8 meses." },
-        { title: "Invalidez por acidente de trânsito", description: "Motorista de 35 anos recebeu R$ 300 mil por invalidez total após acidente. O recurso foi usado para adaptar sua casa e quitar o financiamento imobiliário." },
-        { title: "Falecimento do provedor familiar", description: "Família recebeu R$ 500 mil em 25 dias após perda do provedor. O valor quitou o imóvel e garantiu a educação dos filhos sem desespero financeiro." },
+        { title: "Doença grave", description: "Uma cobertura de doenças graves pode prever pagamento após diagnóstico que atenda aos critérios contratuais. O uso do valor e os limites dependem da apólice." },
+        { title: "Invalidez por acidente", description: "Uma cobertura de invalidez pode prever indenização quando o evento e o grau de invalidez atendem à definição contratual. A regulação é feita pela seguradora." },
+        { title: "Falecimento do provedor familiar", description: "Em caso de morte coberta, os beneficiários podem requerer a indenização conforme a apólice, a documentação e a análise da seguradora." },
       ]}
       importantDetails={[
-        { title: "Como Calcular o Capital Segurado Ideal", content: "A regra prática é multiplicar sua renda mensal líquida por 60 a 120 meses (5 a 10 anos). Some a isso dívidas existentes (financiamento imobiliário, empréstimos, cartão) e custos de educação dos filhos.\n\nExemplo: renda de R$ 8.000/mês × 84 meses (7 anos) = R$ 672.000 + R$ 200.000 de financiamento = R$ 872.000 de capital ideal. Parece muito, mas o custo mensal de um capital de R$ 800.000 para uma pessoa de 35 anos pode ser menor que R$ 150/mês." },
-        { title: "Beneficiários — Como Definir", content: "Você pode indicar qualquer pessoa como beneficiário: cônjuge, filhos, pais, irmãos ou até amigos. É possível definir percentuais (ex: 50% cônjuge, 25% cada filho). A indicação pode ser alterada a qualquer momento durante a vigência, sem burocracia.\n\nImportante: se não houver beneficiários indicados, a indenização segue a ordem legal de sucessão e pode entrar em inventário — perdendo a principal vantagem tributária do seguro de vida." },
+        { title: "Como dimensionar o capital segurado", content: "Não existe uma fórmula universal. Considere dependentes, renda, dívidas, despesas futuras, patrimônio, objetivos e o orçamento disponível. O capital é livremente estipulado na contratação, dentro da aceitação e dos limites do produto." },
+        { title: "Beneficiários — Como definir", content: "O beneficiário não se confunde automaticamente com herdeiro. A indicação, a alteração e a ausência de beneficiário devem ser analisadas conforme a Lei nº 15.040/2024, a apólice e eventual manifestação do segurado. Não se deve prometer alteração sem burocracia nem afirmar que todo caso evitará inventário." },
         { title: "Seguro de Vida vs Previdência Privada", content: "São produtos diferentes e complementares. O seguro de vida paga indenização em caso de sinistro (morte, invalidez). A previdência privada é um investimento de longo prazo para aposentadoria.\n\nO seguro de vida é essencial durante a fase ativa (quando você trabalha e tem dependentes). A previdência privada constrói reserva para quando você parar de trabalhar. O ideal é ter os dois." },
-        { title: "DPS — Declaração Pessoal de Saúde", content: "A DPS é um questionário sobre seu histórico de saúde que substitui exames médicos na maioria dos casos. É fundamental responder com honestidade: omitir doenças preexistentes pode causar a negativa do sinistro pela seguradora.\n\nSe você tem alguma condição pré-existente (diabetes, hipertensão, etc.), não se preocupe: é possível contratar com agravamento (valor um pouco maior) ou com exclusão específica daquela condição. A Patro orienta sobre a melhor abordagem." },
+        { title: "DPS — Declaração Pessoal de Saúde", content: "A DPS é um questionário de saúde usado em determinados processos de aceitação. A seguradora pode solicitar informações ou exames conforme o produto, o capital, a idade e seus critérios. As respostas devem ser completas e verdadeiras; eventual omissão será analisada conforme a lei, a proposta, o conhecimento do segurado e sua relação com o sinistro. A aceitação de condição preexistente, agravamento ou exclusão depende da seguradora e do contrato." },
       ]}
       tips={[
-        "Contrate jovem — a idade é o principal fator de preço. Contratar aos 30 custa metade de contratar aos 50.",
+        "A idade é um dos fatores de precificação; compare propostas sem presumir um percentual ou preço universal.",
         "Revise o capital segurado quando sua vida mudar: casamento, filhos, compra de imóvel, aumento de renda.",
-        "Considere a cobertura de Doenças Graves — é a mais acionada e garante recursos durante o tratamento.",
+        "Considere Doenças Graves apenas se a definição, a lista, a carência e os critérios da cobertura fizerem sentido para o seu perfil.",
         "Não esqueça da assistência funeral familiar — em momento de luto, não ter que lidar com custos faz enorme diferença.",
         "Se você fuma, há seguradoras com condições melhores para fumantes — comparar é essencial.",
-        "Mantenha os beneficiários sempre atualizados para evitar que a indenização entre em inventário.",
+        "Mantenha os dados dos beneficiários atualizados e confirme as regras legais e contratuais aplicáveis.",
       ]}
       whoNeeds={[
         "Pessoas com dependentes financeiros — cônjuge, filhos menores, pais idosos",
@@ -91,21 +89,21 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         "Qualquer adulto a partir dos 25 anos que queira proteger quem ama",
       ]}
       whyPatro={[
-        "Cálculo preciso do capital segurado com base na sua realidade financeira e familiar",
-        "Comparação entre seguradoras especializadas em vida para encontrar o melhor custo-benefício",
+        "Orientação para dimensionar o capital segurado com base na sua realidade financeira e familiar",
+        "Comparação entre alternativas de seguradoras especializadas em vida, conforme o perfil e as condições do produto",
         "Orientação sobre DPS — como declarar condições preexistentes sem comprometer a apólice",
-        "Suporte total aos beneficiários no momento do sinistro — cuidamos de toda a documentação",
+        "Orientação aos beneficiários sobre comunicação e documentação do sinistro, sem substituir a regulação da seguradora",
         "Revisão periódica das coberturas conforme mudanças na vida (filhos, imóvel, renda)",
         "Atendimento humanizado — entendemos a sensibilidade do tema e tratamos com cuidado",
       ]}
       faqs={[
-        { question: "Quanto custa um seguro de vida?", answer: "Depende principalmente da idade, capital segurado e coberturas. Para referência: uma pessoa de 30-35 anos pode contratar R$ 300.000 de cobertura por morte + invalidez por aproximadamente R$ 40 a R$ 100/mês. Aos 45-50 anos, o mesmo capital custa entre R$ 100 e R$ 250/mês. Coberturas adicionais (doenças graves, DIH) aumentam o valor, mas proporcionalmente pouco." },
-        { question: "Qual o valor ideal de cobertura?", answer: "A recomendação é cobrir de 5 a 10 anos de renda familiar líquida, mais dívidas (financiamentos, empréstimos). Exemplo: renda de R$ 6.000 × 84 meses = R$ 504.000 + R$ 150.000 de financiamento = R$ 654.000. Parece alto, mas o custo mensal é acessível. Na Patro, fazemos esse cálculo detalhado com você." },
-        { question: "Quem pode ser beneficiário?", answer: "Qualquer pessoa: cônjuge, filhos, pais, irmãos, amigos ou até uma instituição. Você define os percentuais livremente e pode alterar a qualquer momento. Se não indicar beneficiários, a indenização segue a ordem legal de sucessão e pode entrar em inventário — perdendo a vantagem de pagamento rápido e isenção fiscal." },
-        { question: "Preciso fazer exames médicos?", answer: "Na maioria dos casos, não. Até capitais de R$ 500.000 a R$ 1.000.000 (varia por seguradora e idade), basta preencher a DPS (Declaração Pessoal de Saúde). Para capitais acima ou idades mais avançadas, podem ser solicitados exames básicos (sangue, ECG). Facilitamos todo o processo." },
-        { question: "O seguro de vida cobre suicídio?", answer: "Após 2 anos de vigência contínua da apólice, sim — é garantido pelo Código Civil (art. 798). Nos primeiros 2 anos, a maioria das seguradoras não cobre. Essa regra existe para evitar contratação com intenção fraudulenta e é padrão no mercado mundial." },
-        { question: "A indenização paga Imposto de Renda?", answer: "Não! A indenização do seguro de vida é isenta de IR e não entra em inventário. O pagamento é feito diretamente aos beneficiários indicados, geralmente em até 30 dias. É uma das formas mais eficientes de transferência de patrimônio no Brasil." },
-        { question: "Posso ter mais de um seguro de vida?", answer: "Sim! Não existe limite. Você pode ter seguros em diferentes seguradoras e, em caso de sinistro, todas pagam integralmente. Muitas pessoas têm seguro pela empresa (em grupo) e complementam com um seguro individual com capitais mais altos." },
+        { question: "Quanto custa um seguro de vida?", answer: "Depende do capital segurado, coberturas, idade, perfil, profissão, saúde declarada, prazo e critérios da seguradora. A proposta e as condições do produto devem ser analisadas individualmente." },
+        { question: "Qual o valor ideal de cobertura?", answer: "Não há uma fórmula universal. O capital deve considerar dependentes, renda, dívidas, despesas futuras, patrimônio, objetivos e orçamento, sempre conforme a aceitação e os limites do produto." },
+        { question: "Quem pode ser beneficiário?", answer: "A indicação deve ser analisada conforme a lei e a apólice. Beneficiário e herdeiro não são conceitos automaticamente iguais; a ausência, a alteração e a distribuição dependem das regras aplicáveis ao caso." },
+        { question: "Preciso fazer exames médicos?", answer: "Depende do produto, capital, idade, perfil e critérios de aceitação. A seguradora pode usar DPS e solicitar informações ou exames adicionais; não há uma regra única para todas as propostas." },
+        { question: "O seguro de vida cobre suicídio?", answer: "A regra deve ser analisada à luz do art. 120 da Lei nº 15.040/2024, da vigência e das circunstâncias do caso. Não é correto tratar a cobertura como sempre excluída ou sempre garantida sem examinar a norma e o contrato." },
+        { question: "A indenização paga Imposto de Renda?", answer: "A tributação e os efeitos sucessórios dependem da legislação vigente, da natureza do pagamento e do produto. Não generalize essa resposta para previdência ou investimentos; confirme o caso concreto com orientação especializada." },
+        { question: "Posso ter mais de um seguro de vida?", answer: "Em princípio, é possível contratar mais de uma apólice, mas a aceitação, os capitais, a acumulação de coberturas e o pagamento dependem das condições de cada contrato e da análise do sinistro." },
         { question: "Seguro de vida em grupo (empresa) é suficiente?", answer: "Geralmente não. O seguro de vida em grupo oferecido pela empresa costuma ter capitais baixos (12 a 24 salários) e você perde a cobertura ao sair da empresa. O ideal é ter um seguro individual com capital adequado como base e considerar o do grupo como complemento." },
       ]}
       contextualLinks={{
@@ -146,10 +144,10 @@ O seguro de vida moderno vai além da indenização por morte: inclui cobertura 
         tool: ["WhatsApp Patro Seguros", "Formulário online"],
         steps: [
           { name: "Levante suas responsabilidades", text: "Some renda anual x anos que sua família precisaria de suporte + dívidas em aberto (financiamento, escola, cartão). Esse é o capital-alvo do seu seguro." },
-          { name: "Escolha as coberturas essenciais", text: "Além de morte, inclua Invalidez Permanente Total ou Parcial por Acidente (IPTA/IPPA) e Doenças Graves — as coberturas mais acionadas na prática." },
-          { name: "Solicite cotação comparativa", text: "Envie os dados à Patro Seguros pelo WhatsApp (11) 5199-7500 ou pelo formulário. Comparamos em até 6 seguradoras (Prudential, MetLife, Icatu, Bradesco, Porto, SulAmérica)." },
-          { name: "Analise a proposta e a declaração de saúde", text: "Preencha a DPS (declaração pessoal de saúde) com veracidade — omissões são a causa nº 1 de sinistros negados. A Patro te orienta em cada campo." },
-          { name: "Assine digitalmente e ative a apólice", text: "Assinatura eletrônica em até 10 minutos. A apólice entra em vigor no dia útil seguinte ao primeiro pagamento aprovado." },
+          { name: "Escolha as coberturas essenciais", text: "Além da cobertura de morte, avalie garantias de invalidez, doenças graves ou outras opções somente quando disponíveis, contratadas e adequadas às definições e critérios da apólice." },
+          { name: "Solicite cotação comparativa", text: "Envie os dados à Patro Seguros pelo WhatsApp (11) 5199-7500 ou pelo formulário. A quantidade de seguradoras consultadas depende do produto, do perfil e dos critérios de aceitação." },
+          { name: "Analise a proposta e a declaração de saúde", text: "Preencha a DPS ou os formulários solicitados com veracidade. A análise de informações de saúde e eventual pedido de exames seguem o produto e os critérios da seguradora." },
+          { name: "Assine digitalmente e ative a apólice", text: "A vigência começa conforme a proposta, a aceitação, o pagamento e as condições contratuais; não há promessa universal de ativação em prazo fixo." },
         ],
       }}
       trilhaSeo={{

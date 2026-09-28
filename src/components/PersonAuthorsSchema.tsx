@@ -15,7 +15,7 @@ const persons = [
     familyName: "Patrocínio",
     jobTitle: "Sócio-Fundador e Diretor Comercial",
     description:
-      `Especialista em Seguros de Transportes e Riscos Corporativos com mais de ${EMPRESA.metricas.experienciaAnos} de atuação no mercado segurador brasileiro. Lidera a estratégia de expansão nacional da Patro Seguros focada em Agronegócio e Logística.`,
+      "Especialista em Seguros de Transportes e Riscos Corporativos, com atuação no mercado segurador brasileiro. Lidera a estratégia de expansão nacional da Patro Seguros focada em Agronegócio e Logística.",
     knowsAbout: [
       "Seguro de Transportes (RCTR-C, RCF-DC)",
       "Seguro de Carga",
@@ -39,7 +39,7 @@ const persons = [
     familyName: "Patrocínio",
     jobTitle: "Sócia-Fundadora e Diretora de Operações",
     description:
-      `Corretora de seguros especializada em planos de saúde PME, seguros pessoais (vida, APH) e gestão de sinistros. Responsável pela operação diária da Patro e pelo relacionamento com ${EMPRESA.metricas.operadorasSaude} operadoras de saúde, incluindo Bradesco Saúde, SulAmérica, Amil, Porto Seguro Saúde e Notre Dame.`,
+      "Corretora de seguros especializada em planos de saúde PME, seguros pessoais (vida, APH) e gestão de sinistros. Responsável pela operação diária da Patro e pelo relacionamento com operadoras de saúde, conforme produto e disponibilidade.",
     knowsAbout: [
       "Planos de Saúde PME",
       "Seguro de Vida",

@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: "Quando o Seguro RETA é obrigatório?",
-    answer: "O RBAC-E nº 94 prevê seguro com cobertura de danos a terceiros para operações de aeronaves não tripuladas acima de 250 gramas, exceto operações de aeronaves pertencentes a entidades controladas pelo Estado. O uso, o peso, a classe e as características da operação devem ser verificados conforme a regulamentação vigente.",
+    answer: "A obrigação depende do enquadramento da operação. O RBAC nº 100 estabelece seguro com cobertura de danos a terceiros para operações abrangidas pelo regulamento, observadas as exceções previstas na própria norma. O uso, o peso, a classe e as características da operação devem ser verificados conforme a regulamentação vigente.",
   },
   {
     question: "O RETA cobre queda, roubo ou dano no meu drone?",
@@ -58,7 +58,7 @@ RETA é a sigla usada para a responsabilidade do explorador ou transportador aé
 
 ## Obrigatoriedade e operação regular
 
-O Código Brasileiro de Aeronáutica e o RBAC-E nº 94 integram a base regulatória do produto. O RBAC-E nº 94 prevê seguro com cobertura de danos a terceiros para operações de aeronaves não tripuladas acima de 250 gramas, com a exceção regulatória indicada para aeronaves pertencentes a entidades controladas pelo Estado. Cadastro, homologação do equipamento, acesso ao espaço aéreo e demais autorizações continuam sendo responsabilidades do operador.
+O Código Brasileiro de Aeronáutica e o RBAC nº 100 integram a base regulatória do produto. A seção 100.37 estabelece seguro com cobertura de danos a terceiros para operações abrangidas pelo regulamento, observadas as exceções previstas na norma. Entre as exceções a analisar estão operações VLOS ou EVLOS, até 120 metros (400 pés) AGL, para aplicação agrícola sobre áreas desabitadas, conforme a redação vigente. Cadastro, homologação do equipamento, acesso ao espaço aéreo e demais autorizações continuam sendo responsabilidades do operador.
 
 ## Limites e aceitação
 

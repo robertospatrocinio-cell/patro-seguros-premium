@@ -137,7 +137,7 @@ const ComparisonTableResidencial = ({
 
               <div className="p-8 mt-auto border-t border-slate-50 text-center">
                 <p className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">
-                  Cotação em até 2 horas úteis
+                  Solicite sua cotação
                 </p>
               </div>
             </div>

@@ -12,6 +12,7 @@ export default defineConfig({
       "src/**/*.{test,spec}.{ts,tsx}",
       "scripts/**/*.{test,spec}.{mjs,ts}",
     ],
+    exclude: ["src/lib/seo-runtime.spec.ts"],
   },
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },

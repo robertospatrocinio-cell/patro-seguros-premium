@@ -116,7 +116,7 @@ export const perguntasCategoriaAprofundamento: Record<string, CategoriaAprofunda
   residencial: c(
     "Seguro residencial é o mais acessível e o mais subutilizado do mercado. Aqui as dúvidas mais frequentes sobre coberturas, RC familiar, aluguel de temporada e assistência 24h.",
     [
-      { title: "Coberturas essenciais", content: "Incêndio, raio, explosão (obrigatório em condomínio), danos elétricos, vendaval e roubo/furto qualificado de bens." },
+      { title: "Coberturas essenciais", content: "O Código Civil exige seguro da edificação contra incêndio ou destruição, total ou parcial. Raio, danos elétricos, vendaval e roubo/furto são coberturas que podem ser contratadas conforme o produto, a seguradora, o risco e a apólice." },
       { title: "RC familiar", content: "Cobre danos causados a terceiros por você ou familiares, dentro ou fora de casa." },
       { title: "Assistência 24h", content: "Chaveiro, encanador, eletricista, vidraceiro, desentupimento — geralmente com franquia zero em serviços emergenciais." },
     ],

@@ -16,7 +16,7 @@
 
 import { Link } from "react-router-dom";
 import ExternalLink from "@/components/ExternalLink";
-import { ShieldCheck, Award, Users, Building2, ArrowRight } from "lucide-react";
+import { ShieldCheck, Building2, ArrowRight } from "lucide-react";
 import roberto from "@/assets/socio-roberto.webp";
 import sandra from "@/assets/socia-sandra.webp";
 import { EMPRESA } from "@/config/empresa";
@@ -29,10 +29,8 @@ const CREDENCIAIS = {
 } as const;
 
 const STATS: Array<{ icon: typeof ShieldCheck; value: string; label: string }> = [
-  { icon: Users,      value: EMPRESA.metricas.clientesAtendidos, label: "Clientes atendidos" },
   { icon: Building2,  value: EMPRESA.metricas.seguradorasParceiras,    label: "Seguradoras parceiras" },
-  { icon: Award,      value: EMPRESA.metricas.experienciaAnos,    label: "Anos de experiência" },
-  { icon: ShieldCheck, value: "100%",  label: "Registrada na SUSEP" },
+  { icon: ShieldCheck, value: "SUSEP",  label: `Registro nº ${EMPRESA.susep}` },
 ];
 
 type Variant = "default" | "compact";

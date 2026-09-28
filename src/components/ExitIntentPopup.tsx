@@ -103,7 +103,7 @@ const ExitIntentPopup = () => {
                 Espere! Não feche seu seguro antes de ler isso.
               </h3>
               <p className="text-white/60 text-sm mb-6 leading-relaxed">
-                Descubra como motoristas de Guarulhos estão <strong className="text-white/80">economizando até 30%</strong> na renovação.
+                Compare alternativas para a renovação do seu seguro em Guarulhos.
               </p>
 
                <form onSubmit={handleSubmit} className="space-y-3">
