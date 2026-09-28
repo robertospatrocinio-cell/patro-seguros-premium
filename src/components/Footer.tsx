@@ -129,6 +129,7 @@ const Footer = memo(() => {
             <ul className="space-y-2.5 text-[13px]">
               <li><SmartLink to="/seguro-empresarial" className="hover:text-white transition-colors">Seguro Empresarial</SmartLink></li>
               <li><SmartLink to="/seguro-frota" className="hover:text-white transition-colors">Seguro Frota</SmartLink></li>
+              <li><SmartLink to="/seguro-acidentes-pessoais-passageiros" className="hover:text-white transition-colors">Seguro APP Passageiros</SmartLink></li>
               <li><SmartLink to="/seguro-transporte" className="hover:text-white transition-colors">Transporte e Carga</SmartLink></li>
               <li><SmartLink to="/plano-saude-empresarial" className="hover:text-white transition-colors">Plano de Saúde PME</SmartLink></li>
               <li><SmartLink to="/seguro-vida-pme" className="hover:text-white transition-colors">Seguro de Vida em Grupo</SmartLink></li>
