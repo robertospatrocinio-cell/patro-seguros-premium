@@ -140,7 +140,7 @@ const AppQuoteForm = ({ pageTitle }: { pageTitle: string }) => {
 
 const AppPassageirosPage = ({ data }: { data: AppPageData }) => {
   const waUrl = `${WHATSAPP_URL_BASE}?text=${encodeURIComponent(data.whatsappMessage)}`;
-  const onWa = () => trackWhatsAppClick?.(data.path);
+  const onWa = () => trackWhatsAppClick(data.path);
 
   const Ctas = ({ waLabel = "Falar com um corretor no WhatsApp" }: { waLabel?: string }) => (
     <div className="flex flex-col gap-3 sm:flex-row">
@@ -177,7 +177,7 @@ const AppPassageirosPage = ({ data }: { data: AppPageData }) => {
               <Phone className="h-5 w-5 text-primary" aria-hidden="true" /> Telefone e WhatsApp: {EMPRESA.telefone}
             </a>
           </div>
-          <img src={data.heroImage} alt={data.heroAlt} width={720} height={480} fetchpriority="high" className="h-auto w-full rounded-2xl object-cover shadow-lg" />
+          <img src={data.heroImage} alt={data.heroAlt} width={720} height={480} loading="eager" decoding="async" className="h-auto w-full rounded-2xl object-cover shadow-lg" />
         </section>
 
         {data.sections.map((s, i) => (
