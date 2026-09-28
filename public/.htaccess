@@ -249,6 +249,7 @@
     # NÃO EDITAR À MÃO — gerado de src/lib/redirects.ts
 
     # 301 — conteúdo com substituto semanticamente equivalente (1 salto)
+    RewriteRule ^seguro-app-motoristas-passageiros/?$ /seguro-acidentes-pessoais-passageiros [R=301,L,NC]
     RewriteRule ^seguros-cidade-maia-guarulhos/?$ /seguros-shopping-maia-cidade-maia-guarulhos [R=301,L,NC]
     RewriteRule ^planos-de-saude/?$ /plano-de-saude-guarulhos [R=301,L,NC]
     RewriteRule ^seguro-saude/?$ /plano-de-saude-guarulhos [R=301,L,NC]

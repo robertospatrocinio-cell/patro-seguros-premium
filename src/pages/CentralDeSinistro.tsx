@@ -1,6 +1,7 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import PrerenderText from "@/components/PrerenderText";
 import heroImg from "@/assets/hero-seguro-auto.webp";
+import ClaimsSupportTimeline from "@/components/ClaimsSupportTimeline";
 
 const CentralDeSinistro = () => (
   <>
@@ -53,6 +54,7 @@ const CentralDeSinistro = () => (
         { title: "Seguro Residencial", link: "/seguro-residencial" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
       ]}
+      extraSections={<ClaimsSupportTimeline />}
     />
   </>
 );

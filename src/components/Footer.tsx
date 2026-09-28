@@ -129,6 +129,7 @@ const Footer = memo(() => {
             <ul className="space-y-2.5 text-[13px]">
               <li><SmartLink to="/seguro-empresarial" className="hover:text-white transition-colors">Seguro Empresarial</SmartLink></li>
               <li><SmartLink to="/seguro-frota" className="hover:text-white transition-colors">Seguro Frota</SmartLink></li>
+              <li><SmartLink to="/seguro-acidentes-pessoais-passageiros" className="hover:text-white transition-colors">Seguro APP Passageiros</SmartLink></li>
               <li><SmartLink to="/seguro-transporte" className="hover:text-white transition-colors">Transporte e Carga</SmartLink></li>
               <li><SmartLink to="/plano-saude-empresarial" className="hover:text-white transition-colors">Plano de Saúde PME</SmartLink></li>
               <li><SmartLink to="/seguro-vida-pme" className="hover:text-white transition-colors">Seguro de Vida em Grupo</SmartLink></li>
@@ -143,6 +144,8 @@ const Footer = memo(() => {
               <li><SmartLink to="/cotacao" className="hover:text-white transition-colors">Solicitar Cotação</SmartLink></li>
               <li><SmartLink to="/indique-e-ganhe" className="hover:text-white transition-colors">Indique um Amigo</SmartLink></li>
               <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>
+              <li><SmartLink to="/telefones-seguradoras" className="hover:text-white transition-colors">Telefones e 0800</SmartLink></li>
+              <li><SmartLink to="/atendimento-nacional" className="hover:text-white transition-colors">Atendimento em todo o Brasil</SmartLink></li>
               <li>
                 <SmartLink to="/verificar-susep" className="inline-flex items-center gap-1.5 text-white font-semibold hover:text-primary transition-colors">
                   <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
@@ -167,6 +170,7 @@ const Footer = memo(() => {
               <li><SmartLink to="/seguradoras-parceiras" className="hover:text-white transition-colors">Seguradoras Parceiras</SmartLink></li>
               <li><SmartLink to="/grande-sao-paulo" className="hover:text-white transition-colors">Guarulhos e Grande São Paulo</SmartLink></li>
               <li><SmartLink to="/atendimento-digital" className="hover:text-white transition-colors">Atendimento Digital</SmartLink></li>
+              <li><SmartLink to="/consulta-tabela-fipe" className="hover:text-white transition-colors">Consulta Tabela FIPE</SmartLink></li>
               <li><SmartLink to="/mapa-do-site" className="text-primary font-bold hover:text-white">Mapa do Site</SmartLink></li>
               <li><SmartLink to="/politica-privacidade" className="hover:text-white transition-colors">Privacidade</SmartLink></li>
               <li><SmartLink to="/termos-de-uso" className="hover:text-white transition-colors">Termos de Uso</SmartLink></li>

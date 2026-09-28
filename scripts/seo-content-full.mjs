@@ -58,7 +58,7 @@ export const FULL_SEO_CONTENT = {
       <p>Oferecemos <a href="/consorcio-guarulhos">consórcio de imóveis, automóveis, serviços e veículos pesados</a> por administradoras autorizadas pelo Banco Central, além de <strong>seguros rurais</strong> com cobertura nacional — seguro agrícola, pecuário, penhor rural, máquinas e equipamentos, benfeitorias e vida do produtor.</p>
 
       <h2>Por que escolher uma corretora de seguros em Guarulhos</h2>
-      <p>Uma corretora habilitada pela SUSEP representa o cliente — não a seguradora. Isso significa que trabalhamos para você conseguir a melhor cobertura pelo preço mais adequado ao seu perfil, e defendemos seus interesses em caso de sinistro. Nossa equipe tem mais de 20 anos de experiência no mercado segurador e domina o apetite técnico de cada seguradora, o que permite direcionar cada cotação para quem realmente vai aceitar bem o risco.</p>
+      <p>Uma corretora habilitada pela SUSEP representa o cliente — não a seguradora. Isso significa que trabalhamos para você conseguir a melhor cobertura pelo preço mais adequado ao seu perfil, e defendemos seus interesses em caso de sinistro. Nossos sócios têm mais de 20 anos de experiência profissional em seguros e dominam o apetite técnico de cada seguradora, o que permite direcionar cada cotação para quem realmente vai aceitar bem o risco.</p>
 
       ${TABELA_COBERTURAS([
         { cob: "Auto", desc: "Colisão, roubo/furto, RCF-V, APP, carro reserva, assistência 24h" },

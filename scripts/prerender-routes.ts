@@ -27,6 +27,8 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/glossario-seguros",
   "/blog",
   "/central-de-sinistro",
+  "/telefones-seguradoras",
+  "/consulta-tabela-fipe",
   "/politica-privacidade",
   "/termos-de-uso",
 
@@ -60,6 +62,14 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguro-condominio",
   "/seguro-engenharia",
   "/seguro-cyber",
+  "/seguro-reta-drone",
+  "/seguro-drone",
+  "/atendimento-nacional",
+  "/atendimento-nacional/sul",
+  "/atendimento-nacional/sudeste",
+  "/atendimento-nacional/centro-oeste",
+  "/atendimento-nacional/nordeste",
+  "/atendimento-nacional/norte",
 
   // Responsabilidade Civil
   "/seguro-rc",
@@ -112,7 +122,10 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguradoras-parceiras",
 
   // Acidentes Pessoais para Motoristas e Passageiros (Seguro APP)
-  "/seguro-app-motoristas-passageiros",
+  "/seguro-acidentes-pessoais-passageiros",
+  "/seguro-app-motorista-aplicativo",
+  "/seguro-app-taxi-transporte-executivo",
+  "/seguro-app-onibus-vans-frotas",
 ];
 
 

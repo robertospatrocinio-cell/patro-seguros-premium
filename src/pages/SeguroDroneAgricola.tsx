@@ -105,6 +105,7 @@ Na Patro Seguros, atendemos operadores de drones agrícolas em todos os estados 
         { question: "Como recebo a proposta de seguro?", answer: "Enviamos a proposta pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com um resumo comparativo de valores e coberturas das melhores seguradoras do mercado." },
       ]}
       relatedInsurances={[
+        { title: "Seguro RETA Drone", link: "/seguro-reta-drone" },
         { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
         { title: "Seguro Rural", link: "/seguro-rural" },
         { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },

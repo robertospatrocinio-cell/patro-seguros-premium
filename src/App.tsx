@@ -248,6 +248,8 @@ const LpSeguroCiberneticoEmpresas = lazyWithRetry(() => import("./pages/lp/Segur
 const LpResponsabilidadeAdminProf = lazyWithRetry(() => import("./pages/lp/ResponsabilidadeAdministradoresProfissionais"), "ResponsabilidadeAdministradoresProfissionais");
 
 const CentralDeSinistro = lazy(() => import("./pages/CentralDeSinistro"));
+const TelefonesSeguradoras = lazy(() => import("./pages/TelefonesSeguradoras"));
+const ConsultaTabelaFipe = lazy(() => import("./pages/ConsultaTabelaFipe"));
 const SeguroAmbiental = lazy(() => import("./pages/SeguroAmbiental"));
 
 const SeguroGeada = lazy(() => import("./pages/SeguroGeada"));
@@ -277,6 +279,8 @@ const SeguroLojasShopping = lazy(() => import("./pages/SeguroLojasShopping"));
 const SegurosPorSegmento = lazy(() => import("./pages/SegurosPorSegmento"));
 const SeguroEmpresarialSegmento = lazy(() => import("./pages/SeguroEmpresarialSegmento"));
 const SeguroDroneAgricola = lazy(() => import("./pages/SeguroDroneAgricola"));
+const SeguroRetaDrone = lazy(() => import("./pages/SeguroRetaDrone"));
+const SeguroDrone = lazy(() => import("./pages/SeguroDrone"));
 const SeguroTransporteAgro = lazy(() => import("./pages/SeguroTransporteAgro"));
 const SeguroGranja = lazy(() => import("./pages/SeguroGranja"));
 const SeguroBike = lazy(() => import("./pages/SeguroBike"));
@@ -290,6 +294,8 @@ const GrandeSaoPaulo = lazy(() => import("./pages/GrandeSaoPaulo"));
 const AtendimentoDigital = lazy(() => import("./pages/AtendimentoDigital"));
 const CotacaoComparativaBairros = lazy(() => import("./pages/CotacaoComparativaBairros"));
 const SeguroAutoBairroSp = lazy(() => import("./pages/SeguroAutoBairroSp"));
+const SeguroRegiaoEstado = lazy(() => import("./pages/SeguroRegiaoEstado"));
+const AtendimentoNacional = lazy(() => import("./pages/AtendimentoNacional"));
 const BairroHubSp = lazy(() => import("./pages/BairroHubSp"));
 const SeguroResidencialBairroSp = lazy(() => import("./pages/SeguroResidencialBairroSp"));
 const SeguroEmpresarialBairroSp = lazy(() => import("./pages/SeguroEmpresarialBairroSp"));
@@ -329,7 +335,10 @@ const SeguroCondominioEmpresarial = lazy(() => import("./pages/SeguroCondominioE
 const SeguroCondominioResidencial = lazy(() => import("./pages/SeguroCondominioResidencial"));
 const SeguroFuneral = lazy(() => import("./pages/SeguroFuneral"));
 const SeguroMotoristaApp = lazy(() => import("./pages/SeguroMotoristaApp"));
-const SeguroAppMotoristasPassageiros = lazy(() => import("./pages/SeguroAppMotoristasPassageiros"));
+const SeguroAcidentesPessoaisPassageiros = lazy(() => import("./pages/SeguroAcidentesPessoaisPassageiros"));
+const SeguroAppMotoristaAplicativo = lazy(() => import("./pages/SeguroAppMotoristaAplicativo"));
+const SeguroAppTaxiExecutivo = lazy(() => import("./pages/SeguroAppTaxiExecutivo"));
+const SeguroAppOnibusVansFrotas = lazy(() => import("./pages/SeguroAppOnibusVansFrotas"));
 
 const LandingPages = lazy(() => import("./pages/LandingPages"));
 const LandingSeguroAuto = lazy(() => import("./pages/LandingSeguroAuto"));
@@ -664,6 +673,39 @@ const App = () => {
                     <Route key={s} path={`/${s}`} element={<SeguroAutoBairroSp slug={s} />} />
                   ))}
                   {/* Hubs de bairro Grupo A — rotas literais para o prerender (Fase 3) */}
+                  <Route path="/atendimento-nacional/estado/parana" element={<SeguroRegiaoEstado estadoSlug="parana" />} />
+                  <Route path="/atendimento-nacional/estado/santa-catarina" element={<SeguroRegiaoEstado estadoSlug="santa-catarina" />} />
+                  <Route path="/atendimento-nacional/estado/rio-grande-do-sul" element={<SeguroRegiaoEstado estadoSlug="rio-grande-do-sul" />} />
+                  <Route path="/atendimento-nacional/estado/sao-paulo-interior" element={<SeguroRegiaoEstado estadoSlug="sao-paulo-interior" />} />
+                  <Route path="/atendimento-nacional/estado/minas-gerais" element={<SeguroRegiaoEstado estadoSlug="minas-gerais" />} />
+                  <Route path="/atendimento-nacional/estado/rio-de-janeiro" element={<SeguroRegiaoEstado estadoSlug="rio-de-janeiro" />} />
+                  <Route path="/atendimento-nacional/estado/espirito-santo" element={<SeguroRegiaoEstado estadoSlug="espirito-santo" />} />
+                  <Route path="/atendimento-nacional/estado/mato-grosso" element={<SeguroRegiaoEstado estadoSlug="mato-grosso" />} />
+                  <Route path="/atendimento-nacional/estado/mato-grosso-do-sul" element={<SeguroRegiaoEstado estadoSlug="mato-grosso-do-sul" />} />
+                  <Route path="/atendimento-nacional/estado/goias" element={<SeguroRegiaoEstado estadoSlug="goias" />} />
+                  <Route path="/atendimento-nacional/estado/distrito-federal" element={<SeguroRegiaoEstado estadoSlug="distrito-federal" />} />
+                  <Route path="/atendimento-nacional/estado/bahia" element={<SeguroRegiaoEstado estadoSlug="bahia" />} />
+                  <Route path="/atendimento-nacional/estado/maranhao" element={<SeguroRegiaoEstado estadoSlug="maranhao" />} />
+                  <Route path="/atendimento-nacional/estado/piaui" element={<SeguroRegiaoEstado estadoSlug="piaui" />} />
+                  <Route path="/atendimento-nacional/estado/pernambuco" element={<SeguroRegiaoEstado estadoSlug="pernambuco" />} />
+                  <Route path="/atendimento-nacional/estado/ceara" element={<SeguroRegiaoEstado estadoSlug="ceara" />} />
+                  <Route path="/atendimento-nacional/estado/rio-grande-do-norte" element={<SeguroRegiaoEstado estadoSlug="rio-grande-do-norte" />} />
+                  <Route path="/atendimento-nacional/estado/paraiba" element={<SeguroRegiaoEstado estadoSlug="paraiba" />} />
+                  <Route path="/atendimento-nacional/estado/alagoas" element={<SeguroRegiaoEstado estadoSlug="alagoas" />} />
+                  <Route path="/atendimento-nacional/estado/sergipe" element={<SeguroRegiaoEstado estadoSlug="sergipe" />} />
+                  <Route path="/atendimento-nacional/estado/tocantins" element={<SeguroRegiaoEstado estadoSlug="tocantins" />} />
+                  <Route path="/atendimento-nacional/estado/para" element={<SeguroRegiaoEstado estadoSlug="para" />} />
+                  <Route path="/atendimento-nacional/estado/rondonia" element={<SeguroRegiaoEstado estadoSlug="rondonia" />} />
+                  <Route path="/atendimento-nacional/estado/amazonas" element={<SeguroRegiaoEstado estadoSlug="amazonas" />} />
+                  <Route path="/atendimento-nacional/estado/acre" element={<SeguroRegiaoEstado estadoSlug="acre" />} />
+                  <Route path="/atendimento-nacional/estado/roraima" element={<SeguroRegiaoEstado estadoSlug="roraima" />} />
+                  <Route path="/atendimento-nacional/estado/amapa" element={<SeguroRegiaoEstado estadoSlug="amapa" />} />
+                  <Route path="/atendimento-nacional" element={<AtendimentoNacional />} />
+                  <Route path="/atendimento-nacional/sul" element={<SeguroRegiaoEstado regiaoSlug="sul" />} />
+                  <Route path="/atendimento-nacional/sudeste" element={<SeguroRegiaoEstado regiaoSlug="sudeste" />} />
+                  <Route path="/atendimento-nacional/centro-oeste" element={<SeguroRegiaoEstado regiaoSlug="centro-oeste" />} />
+                  <Route path="/atendimento-nacional/nordeste" element={<SeguroRegiaoEstado regiaoSlug="nordeste" />} />
+                  <Route path="/atendimento-nacional/norte" element={<SeguroRegiaoEstado regiaoSlug="norte" />} />
                   <Route path="/itaim-bibi" element={<BairroHubSp bairroKey="itaim-bibi" />} />
                   <Route path="/moema" element={<BairroHubSp bairroKey="moema" />} />
                   <Route path="/vila-nova-conceicao" element={<BairroHubSp bairroKey="vila-nova-conceicao" />} />
@@ -734,6 +776,8 @@ const App = () => {
                   <Route path="/investimentos" element={<Investimentos />} />
                   {/* === Rotas restauradas (Fase 1: correção de 73 links quebrados no menu/hubs) === */}
                   <Route path="/central-de-sinistro" element={<CentralDeSinistro />} />
+                  <Route path="/telefones-seguradoras" element={<TelefonesSeguradoras />} />
+                  <Route path="/consulta-tabela-fipe" element={<ConsultaTabelaFipe />} />
                   <Route path="/faq" element={<FAQ />} />
                   <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
                   {/* Alias legado/typo — evita 404 */}
@@ -795,6 +839,8 @@ const App = () => {
                   <Route path="/seguro-propriedade-rural" element={<SeguroPropriedadeRural />} />
                   <Route path="/seguro-equipamentos-agricolas" element={<SeguroEquipamentosAgricolas />} />
                   <Route path="/seguro-drone-agricola" element={<SeguroDroneAgricola />} />
+                   <Route path="/seguro-reta-drone" element={<SeguroRetaDrone />} />
+                   <Route path="/seguro-drone" element={<SeguroDrone />} />
                   <Route path="/seguro-transporte-agro" element={<SeguroTransporteAgro />} />
                   <Route path="/seguro-trator-agricola" element={<SeguroTratorAgricola />} />
                   <Route path="/seguro-colhedora-cana" element={<SeguroColhedoraCana />} />
@@ -806,7 +852,11 @@ const App = () => {
                   <Route path="/seguro-caminhao" element={<SeguroCaminhao />} />
                   <Route path="/seguro-micro-onibus" element={<SeguroMicroOnibus />} />
                   <Route path="/seguro-motorista-app" element={<SeguroMotoristaApp />} />
-                  <Route path="/seguro-app-motoristas-passageiros" element={<SeguroAppMotoristasPassageiros />} />
+                  <Route path="/seguro-app-motoristas-passageiros" element={<Navigate to="/seguro-acidentes-pessoais-passageiros" replace />} />
+                  <Route path="/seguro-acidentes-pessoais-passageiros" element={<SeguroAcidentesPessoaisPassageiros />} />
+                  <Route path="/seguro-app-motorista-aplicativo" element={<SeguroAppMotoristaAplicativo />} />
+                  <Route path="/seguro-app-taxi-transporte-executivo" element={<SeguroAppTaxiExecutivo />} />
+                  <Route path="/seguro-app-onibus-vans-frotas" element={<SeguroAppOnibusVansFrotas />} />
 
                   <Route path="/seguro-bike" element={<SeguroBike />} />
                   <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
@@ -830,6 +880,8 @@ const App = () => {
                   <Route path="/seguro-petshop" element={<SeguroPetshop />} />
                   {/* Nichos / Parcerias / Odonto / Vet */}
                   <Route path="/nicho-transportadoras" element={<NichoTransportadoras />} />
+                  {/* Página já existente cujo canonical/breadcrumb declara esta URL. */}
+                  <Route path="/seguros-para-lojistas-guarulhos" element={<NichoLojistasGuarulhos />} />
                   <Route path="/parcerias-clinicas-odontologicas" element={<ParceriasClinicasOdontologicas />} />
                   <Route path="/parcerias-clinicas-veterinarias" element={<ParceriasClinicasVeterinarias />} />
                   <Route path="/seguro-clinica-odontologica" element={<SeguroClinicaOdontologica />} />

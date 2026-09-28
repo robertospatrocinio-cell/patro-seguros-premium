@@ -1,5 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-seguro-saude.webp";
+import RhOperationalSupport from "@/components/RhOperationalSupport";
 
 const PlanoSaudeEmpresarial = () => {
   return (
@@ -103,6 +104,7 @@ Atendemos desde microempreendedores individuais (MEI) com 2 beneficiários até 
         { title: "Seguro Odonto", link: "/seguro-odonto" },
         { title: "Seguro Empresarial", link: "/seguro-empresarial" },
       ]}
+      extraSections={<RhOperationalSupport trackingContext="plano-saude-empresarial-rh" />}
     />
   );
 };

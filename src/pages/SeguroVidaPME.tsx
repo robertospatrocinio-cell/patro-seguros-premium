@@ -1,5 +1,6 @@
 import InsurancePageTemplate from "@/components/InsurancePageTemplate";
 import heroImg from "@/assets/hero-seguro-vida.webp";
+import RhOperationalSupport from "@/components/RhOperationalSupport";
 
 const SeguroVidaPME = () => {
   return (
@@ -63,6 +64,7 @@ const SeguroVidaPME = () => {
           answer: "Em caso de sinistro, a empresa ou os beneficiários acionam a seguradora com a documentação necessária. A Patro Seguros auxilia em todo o processo para garantir agilidade no pagamento, que geralmente ocorre em até 30 dias.",
         },
       ]}
+      extraSections={<RhOperationalSupport trackingContext="seguro-vida-pme-rh" />}
     />
   );
 };

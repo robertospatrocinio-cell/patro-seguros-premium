@@ -53,10 +53,13 @@ const block = lines.join("\n");
 let htaccess = fs.readFileSync(HTACCESS, "utf-8");
 
 if (htaccess.includes(START)) {
-  htaccess = htaccess.replace(
-    new RegExp(`${START.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}[\\s\\S]*?${END.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}`),
-    () => block,
-  );
+  const startIdx = htaccess.indexOf(START);
+  const endIdx = htaccess.indexOf(END, startIdx);
+  if (endIdx === -1) {
+    console.error("❌ marcador END não encontrado no .htaccess");
+    process.exit(1);
+  }
+  htaccess = htaccess.slice(0, startIdx) + block + htaccess.slice(endIdx + END.length);
 } else {
   // Insere logo antes da regra de remoção de barra final.
   const anchor = "    # Strip trailing slash on non-asset URLs";

@@ -344,7 +344,7 @@ const Sobre = () => {
                   nome: "Roberto Patrocínio",
                   cargo: "Sócio-Fundador · Diretor Comercial",
                   susep: "SUSEP 212113511",
-                  experiencia: "15+ anos em seguros empresariais",
+                  experiencia: "20+ anos de experiência profissional em seguros empresariais",
                   especialidades: [
                     "Galpões e Riscos Patrimoniais (Cumbica/Guarulhos)",
                     "Seguro Agrícola (PSR) — atendimento nacional",
@@ -362,7 +362,7 @@ const Sobre = () => {
                   nome: "Sandra Patrocínio",
                   cargo: "Sócia-Fundadora · Diretora de Operações",
                   susep: "SUSEP 212113511",
-                  experiencia: "15+ anos em saúde e vida",
+                  experiencia: "20+ anos de experiência profissional em saúde e vida",
                   especialidades: [
                     "Planos de Saúde PME (20+ operadoras)",
                     "Seguro de Vida e APH",

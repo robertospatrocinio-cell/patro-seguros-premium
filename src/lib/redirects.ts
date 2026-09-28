@@ -36,6 +36,11 @@ export interface GoneRule {
  */
 export const EXACT_REDIRECTS: RedirectRule[] = [
   {
+    from: "/seguro-app-motoristas-passageiros",
+    to: "/seguro-acidentes-pessoais-passageiros",
+    reason: "Consolidação do tema APP em página principal para evitar canibalização.",
+  },
+  {
     from: "/seguros-cidade-maia-guarulhos",
     to: "/seguros-shopping-maia-cidade-maia-guarulhos",
     reason: "Redirecionamento técnico para URL canônica do bairro Cidade Maia.",

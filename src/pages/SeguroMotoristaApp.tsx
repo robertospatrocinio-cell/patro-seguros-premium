@@ -109,7 +109,7 @@ Além da proteção patrimonial, o seguro para app inclui coberturas de Responsa
         { question: "O seguro cobre o celular e acessórios do carro?", answer: "Acessórios como suporte de celular, câmera veicular e carregadores precisam ser declarados na apólice para terem cobertura. O celular em si não é coberto pelo seguro auto — para proteger o smartphone, recomendamos um seguro de celular específico. Na Patro, oferecemos ambos e podemos fazer um pacote com condições especiais." },
       ]}
       relatedInsurances={[
-        { title: "Seguro APP para Motoristas e Passageiros", link: "/seguro-app-motoristas-passageiros" },
+        { title: "Seguro APP para Motorista de Aplicativo", link: "/seguro-app-motorista-aplicativo" },
         { title: "Seguro Auto", link: "/seguro-auto" },
 
         { title: "Seguro de Moto", link: "/seguro-moto" },
