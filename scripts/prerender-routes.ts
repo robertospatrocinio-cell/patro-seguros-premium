@@ -115,7 +115,10 @@ export const PRERENDER_ROUTES_PHASE_1: string[] = [
   "/seguradoras-parceiras",
 
   // Acidentes Pessoais para Motoristas e Passageiros (Seguro APP)
-  "/seguro-app-motoristas-passageiros",
+  "/seguro-acidentes-pessoais-passageiros",
+  "/seguro-app-motorista-aplicativo",
+  "/seguro-app-taxi-transporte-executivo",
+  "/seguro-app-onibus-vans-frotas",
 ];
 
 

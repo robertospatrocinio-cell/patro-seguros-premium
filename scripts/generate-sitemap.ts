@@ -179,7 +179,8 @@ const coreProducts: SitemapEntry[] = [
 
 const secondaryProducts: SitemapEntry[] = [
   "/seguro-viagem", "/seguro-celular", "/seguro-odonto",
-  "/seguro-motorista-app", "/seguro-acidentes-pessoais", "/seguro-app-motoristas-passageiros",
+  "/seguro-motorista-app", "/seguro-acidentes-pessoais", "/seguro-acidentes-pessoais-passageiros", "/seguro-app-motorista-aplicativo",
+  "/seguro-app-taxi-transporte-executivo", "/seguro-app-onibus-vans-frotas",
   "/seguro-condominio", "/seguro-transporte", "/seguro-rc",
   "/seguro-rc-profissional", "/seguro-cyber", "/seguro-engenharia",
   "/seguro-fianca", "/seguro-fianca-locaticia", "/seguro-caminhao",

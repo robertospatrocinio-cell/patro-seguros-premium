@@ -97,6 +97,7 @@ Na Patro Seguros, analisamos seu perfil profissional, atividades de risco e nece
       relatedInsurances={[
         { title: "Seguro de Vida", link: "/seguro-vida" },
         { title: "Contratar Acidentes Pessoais (LP)", link: "/lp/seguro-acidentes-pessoais" },
+        { title: "Seguro APP para Passageiros", link: "/seguro-acidentes-pessoais-passageiros" },
         { title: "Planos de Saúde", link: "/planos-de-saude" },
         { title: "Plano Saúde Sênior Guarulhos", link: "/planos-saude-senior-guarulhos" },
         { title: "Seguro Viagem", link: "/seguro-viagem" },

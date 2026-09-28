@@ -332,7 +332,10 @@ const SeguroCondominioEmpresarial = lazy(() => import("./pages/SeguroCondominioE
 const SeguroCondominioResidencial = lazy(() => import("./pages/SeguroCondominioResidencial"));
 const SeguroFuneral = lazy(() => import("./pages/SeguroFuneral"));
 const SeguroMotoristaApp = lazy(() => import("./pages/SeguroMotoristaApp"));
-const SeguroAppMotoristasPassageiros = lazy(() => import("./pages/SeguroAppMotoristasPassageiros"));
+const SeguroAcidentesPessoaisPassageiros = lazy(() => import("./pages/SeguroAcidentesPessoaisPassageiros"));
+const SeguroAppMotoristaAplicativo = lazy(() => import("./pages/SeguroAppMotoristaAplicativo"));
+const SeguroAppTaxiExecutivo = lazy(() => import("./pages/SeguroAppTaxiExecutivo"));
+const SeguroAppOnibusVansFrotas = lazy(() => import("./pages/SeguroAppOnibusVansFrotas"));
 
 const LandingPages = lazy(() => import("./pages/LandingPages"));
 const LandingSeguroAuto = lazy(() => import("./pages/LandingSeguroAuto"));
@@ -812,7 +815,11 @@ const App = () => {
                   <Route path="/seguro-caminhao" element={<SeguroCaminhao />} />
                   <Route path="/seguro-micro-onibus" element={<SeguroMicroOnibus />} />
                   <Route path="/seguro-motorista-app" element={<SeguroMotoristaApp />} />
-                  <Route path="/seguro-app-motoristas-passageiros" element={<SeguroAppMotoristasPassageiros />} />
+                  <Route path="/seguro-app-motoristas-passageiros" element={<Navigate to="/seguro-acidentes-pessoais-passageiros" replace />} />
+                  <Route path="/seguro-acidentes-pessoais-passageiros" element={<SeguroAcidentesPessoaisPassageiros />} />
+                  <Route path="/seguro-app-motorista-aplicativo" element={<SeguroAppMotoristaAplicativo />} />
+                  <Route path="/seguro-app-taxi-transporte-executivo" element={<SeguroAppTaxiExecutivo />} />
+                  <Route path="/seguro-app-onibus-vans-frotas" element={<SeguroAppOnibusVansFrotas />} />
 
                   <Route path="/seguro-bike" element={<SeguroBike />} />
                   <Route path="/seguro-embarcacoes" element={<SeguroEmbarcacoes />} />
