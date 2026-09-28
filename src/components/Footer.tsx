@@ -145,6 +145,7 @@ const Footer = memo(() => {
               <li><SmartLink to="/indique-e-ganhe" className="hover:text-white transition-colors">Indique um Amigo</SmartLink></li>
               <li><SmartLink to="/central-de-sinistro" className="hover:text-white transition-colors">Acionar Sinistro</SmartLink></li>
               <li><SmartLink to="/telefones-seguradoras" className="hover:text-white transition-colors">Telefones e 0800</SmartLink></li>
+              <li><SmartLink to="/atendimento-nacional" className="hover:text-white transition-colors">Atendimento em todo o Brasil</SmartLink></li>
               <li>
                 <SmartLink to="/verificar-susep" className="inline-flex items-center gap-1.5 text-white font-semibold hover:text-primary transition-colors">
                   <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
