@@ -1,7 +1,8 @@
 import type { AppPageData } from "@/components/AppPassageirosPage";
-import heroApp from "@/assets/lp-seguro-acidentes-pessoais.webp";
+import heroApp from "@/assets/hero-seguro-app-passageiros.jpg";
 import heroMotorista from "@/assets/hero-seguro-motorista-app.webp";
-import heroFrota from "@/assets/hero-seguro-frota.webp";
+import heroTaxi from "@/assets/hero-seguro-app-taxi.jpg";
+import heroFrota from "@/assets/hero-seguro-app-van.jpg";
 
 const COND = "conforme contratação e condições da apólice";
 
