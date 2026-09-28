@@ -217,4 +217,77 @@ Siga o canal indicado na apólice ou pela seguradora. A corretora também pode o
       { q: "Quem analisa e decide o sinistro?", a: "A seguradora regula o sinistro e decide sobre a cobertura conforme as condições da apólice." },
     ],
   },
+  "servicos-corretora-de-seguros": {
+    title: "Quais serviços uma corretora de seguros oferece?",
+    content: `Uma corretora de seguros pode oferecer serviços de orientação e intermediação antes, durante e depois da contratação. Entre eles estão análise de riscos, cotação, comparação de alternativas, explicação de coberturas, apoio na contratação, renovação, endossos, assistência durante a vigência e orientação em sinistros. O serviço e o escopo variam conforme a corretora, o produto e a seguradora.
+
+## Quais serviços uma corretora de seguros oferece?
+Os serviços normalmente acompanham as principais etapas da jornada do seguro: entender o risco, encontrar alternativas, formalizar a contratação e apoiar o segurado durante a vigência. O escopo pode variar conforme o produto, a seguradora, os canais disponíveis e a necessidade do cliente.
+
+## Análise de riscos
+A corretora busca entender o que será protegido, como o bem ou atividade é utilizado e quais eventos poderiam causar prejuízo. Essa análise organiza a demanda, mas não substitui a análise de aceitação feita pela seguradora.
+
+## Cotação de seguros
+A cotação consiste em solicitar propostas de seguradoras compatíveis com as informações fornecidas. O preço apresentado não significa aceitação automática do risco nem garante que todas as condições permanecerão iguais até a emissão da apólice.
+
+## Comparação de alternativas
+A corretora pode comparar preço, coberturas, limites, franquias, exclusões, serviços e condições de aceitação. Comparar não significa escolher sempre a opção de menor preço: propostas mais baratas podem ter limites diferentes ou menos serviços.
+
+## Orientação sobre coberturas
+A corretora pode explicar o que cada cobertura protege, seus limites, franquias, exclusões e condições de acionamento. As condições gerais, especiais e particulares da apólice são a referência final do contrato.
+
+## Apoio na contratação
+A corretora pode orientar o preenchimento da proposta, a entrega de documentos, a vistoria e o atendimento de exigências. A contratação depende do fluxo do produto e da aceitação da seguradora; depois da emissão, confira vigência, coberturas, limites, prêmio, franquias e exclusões.
+
+## Renovação do seguro
+Na renovação, a corretora pode revisar informações, apresentar condições atualizadas e apoiar a comparação com alternativas. O cliente deve verificar mudanças de preço, cobertura, limites, franquias e condições antes de renovar.
+
+## Endossos e alterações na apólice
+Endosso é o procedimento usado para formalizar uma alteração durante a vigência, quando previsto para o produto. A corretora pode orientar atualizações, inclusão ou exclusão de itens e mudanças no risco, mas a alteração depende das regras da apólice e da confirmação da seguradora.
+
+## Assistência durante a vigência
+Durante a vigência, a corretora pode apoiar dúvidas, segunda via de documentos, atualizações, comunicação com a seguradora e preparação para a renovação. O segurado continua responsável por manter dados corretos, pagar o prêmio e informar alterações relevantes.
+
+## Orientação em sinistros
+Em um sinistro, a corretora pode orientar canais de aviso, documentos, protocolos e próximos passos. Ela não regula o sinistro nem garante o pagamento: a seguradora analisa os fatos e decide sobre a cobertura conforme a apólice.
+
+## Exemplos de segmentos atendidos pela Patro Seguros
+Os exemplos abaixo correspondem a páginas de produtos existentes no site da Patro Seguros. A disponibilidade de coberturas, serviços e condições depende do perfil, da análise e da seguradora:
+
+- [Seguro auto](/seguro-auto), para proteção relacionada a veículos;
+- [Seguro residencial](/seguro-residencial), para proteção do imóvel e de interesses relacionados à residência;
+- [Seguro de vida](/seguro-vida), voltado à proteção financeira prevista no contrato;
+- [Seguro empresarial](/seguro-empresarial), para necessidades de proteção de empresas.
+
+A Patro Seguros atende clientes em todo o Brasil por canais digitais. A página de cada produto e a proposta da seguradora devem ser consultadas para conhecer o escopo aplicável.
+
+## Serviços podem variar conforme o caso
+Não existe um pacote único obrigatório de serviços para todas as corretoras. Antes de contratar, confirme quais etapas serão acompanhadas, quais canais estarão disponíveis, quem deve ser acionado em um sinistro e quais responsabilidades permanecem com o segurado.
+
+## Perguntas frequentes
+### Toda corretora oferece os mesmos serviços?
+Não. O escopo pode variar conforme a corretora, o produto, a seguradora e os canais disponíveis.
+
+### A corretora pode fazer endosso sozinha?
+O procedimento depende da apólice e da análise ou confirmação da seguradora.
+
+### A corretora pode garantir o pagamento de um sinistro?
+Não. A seguradora regula o sinistro e decide sobre a cobertura conforme o contrato.
+
+### A corretora acompanha a renovação?
+Pode acompanhar, revisar informações e apresentar alternativas, conforme o produto e o serviço oferecido.
+
+## Fontes e referências
+- [SUSEP — Corretores de seguros](https://www.gov.br/susep/pt-br/assuntos/corretor-de-seguros)
+- [SUSEP — Consumidor de seguros](https://www.gov.br/susep/pt-br/assuntos/consumidor)
+- [Planalto — Decreto-Lei nº 73/1966](https://www.planalto.gov.br/ccivil_03/decreto-lei/del0073.htm)
+
+<p><small>Conteúdo revisado pela equipe da Patro Seguros, corretora que atende clientes em todo o Brasil.</small></p>`,
+    faqs: [
+      { q: "Toda corretora oferece os mesmos serviços?", a: "Não. O escopo pode variar conforme a corretora, o produto, a seguradora e os canais disponíveis." },
+      { q: "A corretora pode fazer endosso sozinha?", a: "O procedimento depende da apólice e da análise ou confirmação da seguradora." },
+      { q: "A corretora pode garantir o pagamento de um sinistro?", a: "Não. A seguradora regula o sinistro e decide sobre a cobertura conforme o contrato." },
+      { q: "A corretora acompanha a renovação?", a: "Pode acompanhar, revisar informações e apresentar alternativas, conforme o produto e o serviço oferecido." },
+    ],
+  },
 };

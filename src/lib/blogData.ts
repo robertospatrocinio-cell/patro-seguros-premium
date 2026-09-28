@@ -27,6 +27,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "servicos-corretora-de-seguros",
+    title: "Quais serviços uma corretora de seguros oferece?",
+    excerpt: "Conheça os serviços que uma corretora pode oferecer, da análise de riscos e cotação à renovação, endossos, vigência e orientação em sinistros.",
+    category: "Dicas",
+    tags: ["corretora de seguros", "serviços", "cotação", "renovação", "endosso", "sinistro"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    updatedAt: "2026-09-28",
+    readTime: 10,
+  },
+  {
     slug: "corretora-de-seguros-x-seguradora",
     title: "Corretora de seguros x seguradora: qual é a diferença?",
     excerpt: "Compare as funções da corretora e da seguradora: quem intermedeia, quem emite a apólice, quem assume o risco e quem paga a indenização.",
