@@ -150,7 +150,7 @@ const AtendimentoNacional = ({ regiaoSlug }: Props) => {
               <p className="text-xs font-semibold tracking-widest uppercase opacity-80 mb-3 inline-flex items-center gap-1">
                 <MapPin className="h-3 w-3" aria-hidden="true" /> {regiao.estados.map((e) => e.uf).join(" • ")}
               </p>
-              <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">{regiao.titulo}</h1>
+              <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-primary-foreground">{regiao.titulo}</h1>
               {regiao.intro.map((p) => (
                 <p key={p.slice(0, 30)} className="opacity-90 mb-3">{p}</p>
               ))}
@@ -227,7 +227,7 @@ const AtendimentoNacional = ({ regiaoSlug }: Props) => {
             <p className="text-xs font-semibold tracking-widest uppercase opacity-80 mb-3 inline-flex items-center gap-1">
               <MapPin className="h-3 w-3" aria-hidden="true" /> Sede em Guarulhos/SP • Atendimento em todo o Brasil
             </p>
-            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">Seguros com atendimento em todo o Brasil</h1>
+            <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-primary-foreground">Seguros com atendimento em todo o Brasil</h1>
             <p className="opacity-90 mb-3">
               A Patro Seguros é uma corretora com sede em Guarulhos/SP que atende clientes de todas as regiões do país
               de forma remota. Para agronegócio, transporte, empresas e pessoas, fazemos a análise do risco, comparamos
