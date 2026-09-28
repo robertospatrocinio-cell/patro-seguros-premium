@@ -280,6 +280,7 @@ const SegurosPorSegmento = lazy(() => import("./pages/SegurosPorSegmento"));
 const SeguroEmpresarialSegmento = lazy(() => import("./pages/SeguroEmpresarialSegmento"));
 const SeguroDroneAgricola = lazy(() => import("./pages/SeguroDroneAgricola"));
 const SeguroRetaDrone = lazy(() => import("./pages/SeguroRetaDrone"));
+const SeguroDrone = lazy(() => import("./pages/SeguroDrone"));
 const SeguroTransporteAgro = lazy(() => import("./pages/SeguroTransporteAgro"));
 const SeguroGranja = lazy(() => import("./pages/SeguroGranja"));
 const SeguroBike = lazy(() => import("./pages/SeguroBike"));
@@ -804,6 +805,7 @@ const App = () => {
                   <Route path="/seguro-equipamentos-agricolas" element={<SeguroEquipamentosAgricolas />} />
                   <Route path="/seguro-drone-agricola" element={<SeguroDroneAgricola />} />
                    <Route path="/seguro-reta-drone" element={<SeguroRetaDrone />} />
+                   <Route path="/seguro-drone" element={<SeguroDrone />} />
                   <Route path="/seguro-transporte-agro" element={<SeguroTransporteAgro />} />
                   <Route path="/seguro-trator-agricola" element={<SeguroTratorAgricola />} />
                   <Route path="/seguro-colhedora-cana" element={<SeguroColhedoraCana />} />
