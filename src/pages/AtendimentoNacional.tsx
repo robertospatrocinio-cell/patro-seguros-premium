@@ -12,6 +12,7 @@ import {
   produtosNacionais,
   regioesNacionais,
   regiaoPath,
+  estadosDaRegiao,
   type RegiaoNacional,
 } from "@/data/atendimentoNacional";
 
@@ -148,7 +149,7 @@ const AtendimentoNacional = ({ regiaoSlug }: Props) => {
           <section className="bg-primary text-primary-foreground py-14">
             <div className="container mx-auto px-4 max-w-4xl">
               <p className="text-xs font-semibold tracking-widest uppercase opacity-80 mb-3 inline-flex items-center gap-1">
-                <MapPin className="h-3 w-3" aria-hidden="true" /> {regiao.estados.map((e) => e.uf).join(" • ")}
+                <MapPin className="h-3 w-3" aria-hidden="true" /> {estadosDaRegiao(regiao.slug).map((e) => e.uf).join(" • ")}
               </p>
               <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-primary-foreground">{regiao.titulo}</h1>
               {regiao.intro.map((p) => (
@@ -169,7 +170,7 @@ const AtendimentoNacional = ({ regiaoSlug }: Props) => {
                 Cidades de referência da região. Atendemos também os demais municípios, sempre de forma remota.
               </p>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {regiao.estados.map((e) => (
+                {estadosDaRegiao(regiao.slug).map((e) => (
                   <div key={e.uf} className="rounded-lg border border-border bg-card p-5">
                     <h3 className="font-semibold text-foreground mb-2">
                       {e.nome} ({e.uf})
@@ -256,7 +257,7 @@ const AtendimentoNacional = ({ regiaoSlug }: Props) => {
                 >
                   <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary">{r.titulo}</h3>
                   <p className="text-sm text-muted-foreground mb-2">{r.resumo}</p>
-                  <p className="text-xs text-muted-foreground">{r.estados.map((e) => e.uf).join(" • ")}</p>
+                  <p className="text-xs text-muted-foreground">{estadosDaRegiao(r.slug).map((e) => e.uf).join(" • ")}</p>
                 </Link>
               ))}
             </div>

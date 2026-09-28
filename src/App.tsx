@@ -294,6 +294,7 @@ const GrandeSaoPaulo = lazy(() => import("./pages/GrandeSaoPaulo"));
 const AtendimentoDigital = lazy(() => import("./pages/AtendimentoDigital"));
 const CotacaoComparativaBairros = lazy(() => import("./pages/CotacaoComparativaBairros"));
 const SeguroAutoBairroSp = lazy(() => import("./pages/SeguroAutoBairroSp"));
+const SeguroRegiaoEstado = lazy(() => import("./pages/SeguroRegiaoEstado"));
 const AtendimentoNacional = lazy(() => import("./pages/AtendimentoNacional"));
 const BairroHubSp = lazy(() => import("./pages/BairroHubSp"));
 const SeguroResidencialBairroSp = lazy(() => import("./pages/SeguroResidencialBairroSp"));
@@ -672,12 +673,39 @@ const App = () => {
                     <Route key={s} path={`/${s}`} element={<SeguroAutoBairroSp slug={s} />} />
                   ))}
                   {/* Hubs de bairro Grupo A — rotas literais para o prerender (Fase 3) */}
+                  <Route path="/atendimento-nacional/estado/parana" element={<SeguroRegiaoEstado estadoSlug="parana" />} />
+                  <Route path="/atendimento-nacional/estado/santa-catarina" element={<SeguroRegiaoEstado estadoSlug="santa-catarina" />} />
+                  <Route path="/atendimento-nacional/estado/rio-grande-do-sul" element={<SeguroRegiaoEstado estadoSlug="rio-grande-do-sul" />} />
+                  <Route path="/atendimento-nacional/estado/sao-paulo-interior" element={<SeguroRegiaoEstado estadoSlug="sao-paulo-interior" />} />
+                  <Route path="/atendimento-nacional/estado/minas-gerais" element={<SeguroRegiaoEstado estadoSlug="minas-gerais" />} />
+                  <Route path="/atendimento-nacional/estado/rio-de-janeiro" element={<SeguroRegiaoEstado estadoSlug="rio-de-janeiro" />} />
+                  <Route path="/atendimento-nacional/estado/espirito-santo" element={<SeguroRegiaoEstado estadoSlug="espirito-santo" />} />
+                  <Route path="/atendimento-nacional/estado/mato-grosso" element={<SeguroRegiaoEstado estadoSlug="mato-grosso" />} />
+                  <Route path="/atendimento-nacional/estado/mato-grosso-do-sul" element={<SeguroRegiaoEstado estadoSlug="mato-grosso-do-sul" />} />
+                  <Route path="/atendimento-nacional/estado/goias" element={<SeguroRegiaoEstado estadoSlug="goias" />} />
+                  <Route path="/atendimento-nacional/estado/distrito-federal" element={<SeguroRegiaoEstado estadoSlug="distrito-federal" />} />
+                  <Route path="/atendimento-nacional/estado/bahia" element={<SeguroRegiaoEstado estadoSlug="bahia" />} />
+                  <Route path="/atendimento-nacional/estado/maranhao" element={<SeguroRegiaoEstado estadoSlug="maranhao" />} />
+                  <Route path="/atendimento-nacional/estado/piaui" element={<SeguroRegiaoEstado estadoSlug="piaui" />} />
+                  <Route path="/atendimento-nacional/estado/pernambuco" element={<SeguroRegiaoEstado estadoSlug="pernambuco" />} />
+                  <Route path="/atendimento-nacional/estado/ceara" element={<SeguroRegiaoEstado estadoSlug="ceara" />} />
+                  <Route path="/atendimento-nacional/estado/rio-grande-do-norte" element={<SeguroRegiaoEstado estadoSlug="rio-grande-do-norte" />} />
+                  <Route path="/atendimento-nacional/estado/paraiba" element={<SeguroRegiaoEstado estadoSlug="paraiba" />} />
+                  <Route path="/atendimento-nacional/estado/alagoas" element={<SeguroRegiaoEstado estadoSlug="alagoas" />} />
+                  <Route path="/atendimento-nacional/estado/sergipe" element={<SeguroRegiaoEstado estadoSlug="sergipe" />} />
+                  <Route path="/atendimento-nacional/estado/tocantins" element={<SeguroRegiaoEstado estadoSlug="tocantins" />} />
+                  <Route path="/atendimento-nacional/estado/para" element={<SeguroRegiaoEstado estadoSlug="para" />} />
+                  <Route path="/atendimento-nacional/estado/rondonia" element={<SeguroRegiaoEstado estadoSlug="rondonia" />} />
+                  <Route path="/atendimento-nacional/estado/amazonas" element={<SeguroRegiaoEstado estadoSlug="amazonas" />} />
+                  <Route path="/atendimento-nacional/estado/acre" element={<SeguroRegiaoEstado estadoSlug="acre" />} />
+                  <Route path="/atendimento-nacional/estado/roraima" element={<SeguroRegiaoEstado estadoSlug="roraima" />} />
+                  <Route path="/atendimento-nacional/estado/amapa" element={<SeguroRegiaoEstado estadoSlug="amapa" />} />
                   <Route path="/atendimento-nacional" element={<AtendimentoNacional />} />
-                  <Route path="/atendimento-nacional/sul" element={<AtendimentoNacional regiaoSlug="sul" />} />
-                  <Route path="/atendimento-nacional/sudeste" element={<AtendimentoNacional regiaoSlug="sudeste" />} />
-                  <Route path="/atendimento-nacional/centro-oeste" element={<AtendimentoNacional regiaoSlug="centro-oeste" />} />
-                  <Route path="/atendimento-nacional/nordeste" element={<AtendimentoNacional regiaoSlug="nordeste" />} />
-                  <Route path="/atendimento-nacional/norte" element={<AtendimentoNacional regiaoSlug="norte" />} />
+                  <Route path="/atendimento-nacional/sul" element={<SeguroRegiaoEstado regiaoSlug="sul" />} />
+                  <Route path="/atendimento-nacional/sudeste" element={<SeguroRegiaoEstado regiaoSlug="sudeste" />} />
+                  <Route path="/atendimento-nacional/centro-oeste" element={<SeguroRegiaoEstado regiaoSlug="centro-oeste" />} />
+                  <Route path="/atendimento-nacional/nordeste" element={<SeguroRegiaoEstado regiaoSlug="nordeste" />} />
+                  <Route path="/atendimento-nacional/norte" element={<SeguroRegiaoEstado regiaoSlug="norte" />} />
                   <Route path="/itaim-bibi" element={<BairroHubSp bairroKey="itaim-bibi" />} />
                   <Route path="/moema" element={<BairroHubSp bairroKey="moema" />} />
                   <Route path="/vila-nova-conceicao" element={<BairroHubSp bairroKey="vila-nova-conceicao" />} />
