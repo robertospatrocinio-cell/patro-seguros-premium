@@ -294,6 +294,7 @@ const GrandeSaoPaulo = lazy(() => import("./pages/GrandeSaoPaulo"));
 const AtendimentoDigital = lazy(() => import("./pages/AtendimentoDigital"));
 const CotacaoComparativaBairros = lazy(() => import("./pages/CotacaoComparativaBairros"));
 const SeguroAutoBairroSp = lazy(() => import("./pages/SeguroAutoBairroSp"));
+const AtendimentoNacional = lazy(() => import("./pages/AtendimentoNacional"));
 const BairroHubSp = lazy(() => import("./pages/BairroHubSp"));
 const SeguroResidencialBairroSp = lazy(() => import("./pages/SeguroResidencialBairroSp"));
 const SeguroEmpresarialBairroSp = lazy(() => import("./pages/SeguroEmpresarialBairroSp"));
@@ -671,6 +672,12 @@ const App = () => {
                     <Route key={s} path={`/${s}`} element={<SeguroAutoBairroSp slug={s} />} />
                   ))}
                   {/* Hubs de bairro Grupo A — rotas literais para o prerender (Fase 3) */}
+                  <Route path="/atendimento-nacional" element={<AtendimentoNacional />} />
+                  <Route path="/atendimento-nacional/sul" element={<AtendimentoNacional regiaoSlug="sul" />} />
+                  <Route path="/atendimento-nacional/sudeste" element={<AtendimentoNacional regiaoSlug="sudeste" />} />
+                  <Route path="/atendimento-nacional/centro-oeste" element={<AtendimentoNacional regiaoSlug="centro-oeste" />} />
+                  <Route path="/atendimento-nacional/nordeste" element={<AtendimentoNacional regiaoSlug="nordeste" />} />
+                  <Route path="/atendimento-nacional/norte" element={<AtendimentoNacional regiaoSlug="norte" />} />
                   <Route path="/itaim-bibi" element={<BairroHubSp bairroKey="itaim-bibi" />} />
                   <Route path="/moema" element={<BairroHubSp bairroKey="moema" />} />
                   <Route path="/vila-nova-conceicao" element={<BairroHubSp bairroKey="vila-nova-conceicao" />} />
