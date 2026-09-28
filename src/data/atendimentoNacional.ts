@@ -137,3 +137,45 @@ export const regioesNacionais: RegiaoNacional[] = [
 ];
 
 export const regiaoPath = (slug: string) => `${ATENDIMENTO_NACIONAL_PATH}/${slug}`;
+
+const e = (
+  regiao: string, uf: string, nome: string, slug: string, foco: EstadoNacional["foco"], perfil: string, cidades: string[],
+): EstadoNacional => ({ regiao, uf, nome, slug, foco, perfil, cidades });
+
+export const estadosNacionais: EstadoNacional[] = [
+  // Sul
+  e("sul", "PR", "Paraná", "parana", "agro", "O Paraná combina produção de grãos, cooperativas agroindustriais, avicultura e um polo industrial e logístico ligado ao Porto de Paranaguá.", ["Curitiba", "Londrina", "Maringá", "Cascavel", "Ponta Grossa", "Toledo"]),
+  e("sul", "SC", "Santa Catarina", "santa-catarina", "empresas", "Santa Catarina tem indústria diversificada, forte agroindústria de proteína animal no oeste e portos movimentados no litoral.", ["Florianópolis", "Joinville", "Blumenau", "Chapecó", "Itajaí"]),
+  e("sul", "RS", "Rio Grande do Sul", "rio-grande-do-sul", "agro", "O Rio Grande do Sul reúne lavouras de soja, arroz e trigo, pecuária, indústria metalmecânica e intenso transporte rodoviário.", ["Porto Alegre", "Caxias do Sul", "Passo Fundo", "Santa Maria", "Cruz Alta"]),
+  // Sudeste
+  e("sudeste", "SP", "São Paulo (interior e litoral)", "sao-paulo-interior", "empresas", "O interior e o litoral paulista concentram indústria, centros de distribuição, cana-de-açúcar, laranja e café, além do Porto de Santos.", ["Campinas", "Ribeirão Preto", "Sorocaba", "São José dos Campos", "Piracicaba", "Bauru", "Santos"]),
+  e("sudeste", "MG", "Minas Gerais", "minas-gerais", "agro", "Minas Gerais tem forte produção de café, leite e grãos no Triângulo e no Alto Paranaíba, além de mineração e indústria.", ["Belo Horizonte", "Uberlândia", "Uberaba", "Patos de Minas", "Montes Claros"]),
+  e("sudeste", "RJ", "Rio de Janeiro", "rio-de-janeiro", "empresas", "O Rio de Janeiro concentra serviços, comércio, energia e logística portuária, com agropecuária no norte e noroeste fluminense.", ["Rio de Janeiro", "Niterói", "Campos dos Goytacazes", "Volta Redonda"]),
+  e("sudeste", "ES", "Espírito Santo", "espirito-santo", "logistica", "O Espírito Santo se destaca na produção de café conilon, rochas ornamentais e na logística portuária.", ["Vitória", "Serra", "Linhares", "Cachoeiro de Itapemirim"]),
+  // Centro-Oeste
+  e("centro-oeste", "MT", "Mato Grosso", "mato-grosso", "agro", "Mato Grosso é um dos maiores produtores de soja, milho e algodão do país, com grande frota de máquinas e transporte rodoviário da safra.", ["Cuiabá", "Rondonópolis", "Sinop", "Sorriso", "Lucas do Rio Verde", "Primavera do Leste"]),
+  e("centro-oeste", "MS", "Mato Grosso do Sul", "mato-grosso-do-sul", "agro", "Mato Grosso do Sul combina grãos, pecuária de corte, cana e celulose, com polos industriais em expansão.", ["Campo Grande", "Dourados", "Três Lagoas", "Maracaju"]),
+  e("centro-oeste", "GO", "Goiás", "goias", "agro", "Goiás tem produção relevante de soja, milho, cana e pecuária, além de agroindústria e distribuição logística.", ["Goiânia", "Rio Verde", "Jataí", "Anápolis", "Cristalina"]),
+  e("centro-oeste", "DF", "Distrito Federal", "distrito-federal", "empresas", "O Distrito Federal concentra serviços, comércio e empresas, com produção agrícola na região do PAD-DF.", ["Brasília"]),
+  // Nordeste
+  e("nordeste", "BA", "Bahia", "bahia", "agro", "A Bahia reúne o polo de grãos e algodão do oeste baiano, a fruticultura do Vale do São Francisco e um grande setor de comércio e serviços.", ["Salvador", "Luís Eduardo Magalhães", "Barreiras", "Feira de Santana", "Juazeiro"]),
+  e("nordeste", "MA", "Maranhão", "maranhao", "agro", "O Maranhão integra o Matopiba, com soja e milho no sul do estado, e tem logística portuária em São Luís.", ["São Luís", "Balsas", "Imperatriz"]),
+  e("nordeste", "PI", "Piauí", "piaui", "agro", "O Piauí tem fronteira agrícola de grãos no cerrado, no sul do estado, dentro da região do Matopiba.", ["Teresina", "Uruçuí", "Bom Jesus"]),
+  e("nordeste", "PE", "Pernambuco", "pernambuco", "logistica", "Pernambuco combina o Porto de Suape, polos industriais e a fruticultura irrigada de Petrolina.", ["Recife", "Petrolina", "Caruaru"]),
+  e("nordeste", "CE", "Ceará", "ceara", "empresas", "O Ceará tem comércio e serviços fortes, indústria e o complexo portuário do Pecém.", ["Fortaleza", "Juazeiro do Norte", "Sobral"]),
+  e("nordeste", "RN", "Rio Grande do Norte", "rio-grande-do-norte", "empresas", "O Rio Grande do Norte reúne fruticultura irrigada, energia e comércio.", ["Natal", "Mossoró"]),
+  e("nordeste", "PB", "Paraíba", "paraiba", "empresas", "A Paraíba concentra comércio, serviços e indústria nas regiões de João Pessoa e Campina Grande.", ["João Pessoa", "Campina Grande"]),
+  e("nordeste", "AL", "Alagoas", "alagoas", "agro", "Alagoas tem tradição na cana-de-açúcar e um setor de comércio e serviços concentrado em Maceió.", ["Maceió", "Arapiraca"]),
+  e("nordeste", "SE", "Sergipe", "sergipe", "empresas", "Sergipe combina comércio, serviços e agropecuária, com destaque para a região de Aracaju.", ["Aracaju", "Itabaiana"]),
+  // Norte
+  e("norte", "TO", "Tocantins", "tocantins", "agro", "Tocantins integra o Matopiba, com grãos e pecuária em expansão e logística ligada à Ferrovia Norte-Sul.", ["Palmas", "Araguaína", "Gurupi", "Porto Nacional"]),
+  e("norte", "PA", "Pará", "para", "agro", "O Pará combina pecuária, grãos no sudeste e oeste do estado, mineração e logística fluvial.", ["Belém", "Paragominas", "Marabá", "Santarém"]),
+  e("norte", "RO", "Rondônia", "rondonia", "agro", "Rondônia tem pecuária, grãos e café em expansão, com transporte rodoviário e fluvial.", ["Porto Velho", "Vilhena", "Ji-Paraná"]),
+  e("norte", "AM", "Amazonas", "amazonas", "empresas", "O Amazonas concentra indústria e comércio na Zona Franca de Manaus, com logística fluvial.", ["Manaus"]),
+  e("norte", "AC", "Acre", "acre", "empresas", "O Acre tem economia de comércio, serviços e agropecuária, com destaque para Rio Branco.", ["Rio Branco"]),
+  e("norte", "RR", "Roraima", "roraima", "agro", "Roraima tem produção de grãos em expansão e comércio concentrado em Boa Vista.", ["Boa Vista"]),
+  e("norte", "AP", "Amapá", "amapa", "empresas", "O Amapá concentra comércio e serviços em Macapá, com logística fluvial e portuária.", ["Macapá"]),
+];
+
+export const estadoPath = (slug: string) => `${ATENDIMENTO_NACIONAL_PATH}/estado/${slug}`;
+export const estadosDaRegiao = (regiao: string) => estadosNacionais.filter((x) => x.regiao === regiao);
