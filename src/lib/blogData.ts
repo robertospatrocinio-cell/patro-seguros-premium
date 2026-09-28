@@ -27,6 +27,17 @@ export interface BlogArticleMeta {
 
 export const articles: BlogArticleMeta[] = [
   {
+    slug: "como-funciona-corretora-de-seguros",
+    title: "Como funciona uma corretora de seguros no Brasil? Guia completo",
+    excerpt: "Entenda o que uma corretora de seguros faz, como funciona a cotação, a contratação, o atendimento durante a vigência e o suporte em caso de sinistro.",
+    category: "Dicas",
+    tags: ["corretora de seguros", "cotação", "contratação", "sinistro", "seguro auto", "seguro vida"],
+    author: "Roberto Patro",
+    date: "2026-09-28",
+    updatedAt: "2026-09-28",
+    readTime: 12,
+  },
+  {
     slug: "vale-a-pena-seguro-corretora-ou-banco",
     title: "Vale a pena contratar seguro com corretora ou direto com o banco?",
     excerpt: "Comparativo honesto entre contratar seguro por corretora especializada ou pelo banco: preço, cobertura, personalização, atendimento no sinistro e quando cada caminho faz sentido.",
