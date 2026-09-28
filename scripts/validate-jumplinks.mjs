@@ -191,8 +191,21 @@ function validate() {
       distHtml = null;
     }
 
+    // Ids de seções extras: definidos na própria página ou em componentes
+    // importados via "@/components/X" (ex.: extraSections).
+    const extraIds = collectTemplateIds(page.src);
+    for (const imp of page.src.matchAll(/from\s+["']@\/components\/([A-Za-z0-9_/]+)["']/g)) {
+      const p = path.join(ROOT, "src", "components", `${imp[1]}.tsx`);
+      if (fs.existsSync(p)) {
+        const s = readFile(p);
+        const labelled = collectAriaLabelledBy(s);
+        for (const id of collectTemplateIds(s)) if (labelled.has(id)) extraIds.add(id);
+      }
+    }
+
     for (const id of page.hrefs) {
       totalHrefs++;
+      if (!templateIds.has(id) && extraIds.has(id)) continue;
       // 1. id precisa existir no template
       if (!templateIds.has(id)) {
         errors.push(
