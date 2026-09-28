@@ -36,7 +36,7 @@ export const APP_MAIN: AppPageData = {
   heroText:
     "Proteção financeira para passageiros e condutores em caso de acidente, com coberturas personalizadas para carros, aplicativos, táxis, vans, ônibus e frotas.",
   heroImage: heroApp,
-  heroAlt: "Família sorridente ao ar livre, representando a proteção do seguro de acidentes pessoais para passageiros",
+  heroAlt: "Passageira sorrindo no banco traseiro de um carro de aplicativo, representando a proteção do seguro APP",
   whatsappMessage: "Olá! Quero uma cotação de Seguro de Acidentes Pessoais para Passageiros (APP).",
   sections: [
     {
@@ -199,8 +199,8 @@ export const APP_TAXI: AppPageData = {
   h1: "Seguro APP para Táxi e Transporte Executivo",
   heroTitle: "Proteção para quem transporta passageiros de forma remunerada",
   heroText: "Táxis, carros executivos e vans atendem clientes que esperam segurança. O seguro APP complementa essa proteção para os ocupantes.",
-  heroImage: heroApp,
-  heroAlt: "Família sorridente, representando a proteção de passageiros em táxis e transporte executivo",
+  heroImage: heroTaxi,
+  heroAlt: "Motorista de transporte executivo abrindo a porta do carro para uma passageira com bagagem",
   whatsappMessage: "Olá! Quero cotar Seguro APP para táxi / transporte executivo.",
   sections: [
     {
@@ -245,7 +245,7 @@ export const APP_FROTAS: AppPageData = {
   heroTitle: "Proteção para passageiros em operações de transporte",
   heroText: "Empresas de transporte, turismo e fretamento transportam muitas pessoas por dia. O seguro APP ajuda a proteger passageiros e o negócio.",
   heroImage: heroFrota,
-  heroAlt: "Frota de ônibus e vans estacionada no pátio de uma empresa de transporte",
+  heroAlt: "Passageiros sentados com cinto de segurança dentro de uma van de transporte",
   whatsappMessage: "Olá! Quero uma análise de Seguro APP para a frota da minha empresa.",
   sections: [
     {
