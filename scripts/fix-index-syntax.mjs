@@ -86,13 +86,7 @@ function fixIndex() {
         "name": "São Paulo"
       }
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "67",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
+    
     "founder": [
       {
         "@type": "Person",
@@ -103,40 +97,7 @@ function fixIndex() {
         "name": "Sandra Patrocínio"
       }
     ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Catálogo de Seguros",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Seguro Automóvel em Guarulhos"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Seguro Residencial e Condomínio"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Seguro Carga e Logística (RCTR-C)"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Seguro Empresarial e Frotas"
-          }
-        }
-      ]
-    },
+  
     "sameAs": [
       "https://www.instagram.com/patroseguros",
       "https://www.facebook.com/patroseguros",
