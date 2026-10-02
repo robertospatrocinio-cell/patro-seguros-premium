@@ -8,37 +8,40 @@ const SeguroRural = () => {
       localSeo={{ skip: true }}
       heroImage={heroImg}
       mobileHeroImage={heroMobileImg}
-      title="Seguro Rural"
-      subtitle="Proteção completa para o agronegócio em todo o Brasil. Atendemos produtores de todos os estados."
+      title="Seguro Rural | Modalidades e condições de contratação | Patro Seguros"
+      headline="Seguro Rural: entenda a categoria e suas modalidades"
+      subtitle="Orientação para analisar modalidades de Seguro Rural conforme a atividade, o risco, o produto e as condições contratuais."
       icon="🚜"
-      badge="Atendimento em Todo o Brasil"
+      badge="Atendimento em todo o Brasil"
       showAgrishowBanner
-      metaDescription="Seguro Rural para lavoura, pecuária e máquinas agrícolas. Subsídio do governo federal. Proteção contra seca, granizo e geada. Cotação grátis."
-      description="O Seguro Rural protege produtores contra perdas na lavoura, pecuária, máquinas agrícolas e benfeitorias. Fenômenos climáticos, pragas, doenças e acidentes podem comprometer toda a produção."
-      detailedDescription={`O agronegócio brasileiro é um dos mais importantes do mundo, mas também um dos mais expostos a riscos climáticos e biológicos. Secas prolongadas, geadas devastadoras, granizo, excesso de chuvas, pragas e doenças podem destruir safras inteiras em questão de horas. Para o produtor rural, cada safra representa meses de trabalho e investimentos significativos em insumos, combustível e mão de obra.
+      metaDescription="Seguro Rural para atividades agrícolas, pecuárias, patrimônio e produtos rurais. Coberturas conforme o produto, a apólice e as regras vigentes."
+      description="Seguro Rural é uma categoria ampla que pode abranger atividades agrícolas e pecuárias, patrimônio, produtos, crédito e outras modalidades previstas na regulamentação. As coberturas dependem do produto, da apólice e dos riscos contratados."
+      detailedDescription={`O que é Seguro Rural? É uma categoria de seguros que pode abranger diferentes modalidades relacionadas a atividades, bens e interesses do meio rural. Seguro Agrícola é uma modalidade voltada à produção agrícola, conforme o enquadramento aplicável; não é sinônimo de toda a categoria Seguro Rural.
 
-O Seguro Rural existe justamente para proteger esse investimento. E o melhor: o governo federal, através do Programa de Subvenção ao Prêmio do Seguro Rural (PSR), subsidia parte do custo do seguro agrícola — em alguns casos, até 40% do valor do prêmio. Isso torna o seguro muito mais acessível para produtores de todos os portes.
+O Proagro é um instrumento distinto do seguro privado. A existência de uma modalidade, a elegibilidade a programas públicos e as condições de contratação dependem das regras vigentes, do produto, da seguradora e da apólice.
 
-A Patro Seguros atende produtores rurais de todos os estados do Brasil — de Mato Grosso ao Rio Grande do Sul, de Goiás à Bahia, de Minas Gerais ao Maranhão. Todo o processo é feito de forma remota, com a mesma qualidade e agilidade. Somos especialistas no setor agro e entendemos as particularidades de cada cultura e região.`}
+O PSR pode subvencionar parte do prêmio de apólices elegíveis. Cultura, região, exercício, orçamento, seguradora habilitada e demais critérios devem ser verificados em fonte oficial e na documentação da contratação. ZARC é referência de zoneamento de risco climático e não garante aceitação, cobertura ou indenização.
+
+A Patro Seguros atua como corretora e atende clientes em todo o Brasil. A orientação pode ser feita remotamente, conforme as informações do risco e a disponibilidade das seguradoras.`}
       howItWorks={[
         { step: "1", title: "Análise da Propriedade", description: "Identificamos culturas, área plantada, região, histórico climático e riscos predominantes" },
         { step: "2", title: "Escolha das Coberturas", description: "Definimos coberturas por tipo de risco: seca, geada, granizo, excesso de chuva, pragas, etc." },
-        { step: "3", title: "Aplicação do Subsídio", description: "Verificamos elegibilidade para subsídio do governo federal (PSR) e aplicamos na cotação" },
-        { step: "4", title: "Acompanhamento da Safra", description: "Em caso de sinistro, acionamos a seguradora para vistoria técnica e indenização rápida" },
+        { step: "3", title: "Verificação das regras aplicáveis", description: "Quando houver interesse em PSR ou outra condição específica, verificamos os critérios vigentes e a documentação pertinente." },
+        { step: "4", title: "Acompanhamento", description: "Durante a vigência, a corretora pode orientar comunicações e documentos conforme o produto e o procedimento da apólice." },
       ]}
       coverages={[
-        { title: "Seguro Agrícola (PROAGRO Mais)", description: "Proteção para lavouras contra fenômenos climáticos adversos" },
+        { title: "Seguro Agrícola", description: "Proteção para lavouras conforme a cultura, os riscos, os limites e as condições contratadas. Seguro Agrícola e Proagro são instrumentos distintos." },
         { title: "Seguro Pecuário", description: "Cobertura para morte de animais por doenças e acidentes" },
         { title: "Máquinas e Equipamentos Agrícolas", description: "Proteção para tratores, colheitadeiras e implementos" },
         { title: "Benfeitorias Rurais", description: "Cobertura para galpões, silos, estufas e instalações" },
         { title: "Produtos Agropecuários", description: "Proteção para grãos armazenados e produtos estocados" },
         { title: "Florestas Plantadas", description: "Cobertura para reflorestamento e silvicultura" },
         { title: "Aquicultura", description: "Seguro para criação de peixes e camarões" },
-        { title: "Penhor Rural", description: "Garantia para financiamentos e custeios rurais" },
+        { title: "Penhor Rural", description: "Modalidade relacionada a bens rurais oferecidos em garantia de operação de crédito rural, quando o enquadramento e o produto forem aplicáveis." },
       ]}
       coverageExclusions={[
         "Perdas causadas por falta de manejo adequado ou abandono da lavoura",
-        "Plantio fora da janela recomendada pelo Zoneamento Agrícola (ZARC)",
+        "Situações não amparadas pelas condições gerais, especiais ou particulares da apólice",
         "Doenças e pragas quando não aplicados os tratamentos recomendados",
         "Perdas em áreas não declaradas ou com informações incorretas",
         "Roubo e furto de produção (cobertura específica necessária)",
@@ -51,28 +54,26 @@ A Patro Seguros atende produtores rurais de todos os estados do Brasil — de Ma
           "Região e município (histórico climático e risco)",
           "Nível de cobertura (% da produtividade esperada)",
           "Área plantada em hectares",
-          "Disponibilidade de subsídio do PSR (até 40% de desconto)",
+          "Critérios e eventual disponibilidade de programas públicos aplicáveis",
           "Histórico de sinistros do produtor e da região",
         ],
-        note: "Uma lavoura de soja de 500 hectares em Mato Grosso pode custar entre R$ 50.000 e R$ 120.000 antes do subsídio. Com subsídio de 40%, o custo cai para R$ 30.000 a R$ 72.000. Dividido pela produção esperada, representa centavos por saca — um investimento muito baixo frente ao risco.",
+        note: "Não há preço ou percentual de subvenção universal. A proposta, a apólice e a regulamentação do exercício são as referências para o prêmio e eventual benefício.",
       }}
       realScenarios={[
-        { title: "Geada devastou cafezal", description: "Um produtor de café no Paraná perdeu 70% da produção em uma geada severa. O Seguro Rural indenizou R$ 620.000, permitindo que o produtor mantivesse os tratos culturais e se preparasse para a próxima safra." },
-        { title: "Seca prolongada no milho safrinha", description: "Produtor em Goiás enfrentou 45 dias sem chuva durante o período crítico do milho safrinha. A produtividade caiu de 100 para 30 sacas/hectare. O seguro cobriu a diferença, indenizando R$ 280.000 em 800 hectares." },
-        { title: "Granizo destruiu lavoura de soja", description: "Uma tempestade de granizo atingiu lavoura de soja em Mato Grosso do Sul, causando perda de 85% da área. A indenização de R$ 450.000 garantiu que o produtor pagasse os custos de custeio e mantivesse a operação." },
+        { title: "Exemplo de análise de risco climático", description: "A modalidade, o risco coberto, a franquia, os limites e a forma de apuração devem ser verificados na proposta e na apólice antes da contratação." },
       ]}
       importantDetails={[
-        { title: "Zoneamento Agrícola de Risco Climático (ZARC)", content: "Para ter direito ao subsídio do governo e à cobertura do seguro, o plantio deve seguir as recomendações do ZARC — janela de plantio, cultivares indicadas e manejo recomendado para cada município." },
-        { title: "Subsídio do governo (PSR)", content: "O Programa de Subvenção ao Prêmio do Seguro Rural subsidia de 20% a 40% do custo do seguro, dependendo da cultura e da região. O recurso é limitado e costuma esgotar no primeiro semestre — contrate cedo!" },
+        { title: "Zoneamento Agrícola de Risco Climático (ZARC)", content: "O ZARC é uma referência de zoneamento de risco climático. Segui-lo não garante aceitação, cobertura ou indenização; os efeitos dependem da modalidade, do produto, da apólice e das regras do PSR quando aplicáveis." },
+        { title: "Subsídio do governo (PSR)", content: "O PSR pode subvencionar parte do prêmio de apólices elegíveis, conforme exercício, cultura, modalidade, região, orçamento, seguradora habilitada e critérios vigentes. Consulte a regra oficial do MAPA antes de usar percentuais." },
         { title: "Vistoria de sinistro", content: "Em caso de sinistro, a seguradora envia perito para vistoriar a lavoura. É fundamental não colher ou alterar a área afetada antes da vistoria. Documente com fotos e registros." },
       ]}
       tips={[
-        "Contrate o seguro logo após o plantio — quanto antes, melhor a disponibilidade de subsídio do PSR",
-        "Siga rigorosamente o Zoneamento Agrícola (ZARC) para garantir cobertura e subsídio",
+        "Confira a modalidade, os riscos, os limites e as exclusões antes da contratação",
+        "Consulte as regras oficiais quando houver referência a PSR, ZARC ou outro programa público",
         "Mantenha registros de todos os insumos aplicados, notas fiscais e relatórios de manejo",
         "Em caso de sinistro, não colha nem altere a área afetada antes da vistoria do perito",
         "Considere segurar também máquinas e benfeitorias — uma perda de trator na safra pode ser tão grave quanto a perda da lavoura",
-        "Produtores de todos os estados podem contratar conosco — atendimento 100% remoto",
+        "Atendimento em todo o Brasil por canais remotos, conforme o risco e o produto",
       ]}
       whoNeeds={[
         "Produtores rurais de grãos e culturas em qualquer estado",
@@ -83,30 +84,26 @@ A Patro Seguros atende produtores rurais de todos os estados do Brasil — de Ma
         "Aquicultores e piscicultores",
       ]}
       whyPatro={[
-        "Atendimento em todos os estados do Brasil — não apenas Guarulhos",
-        "Conhecimento do setor rural e suas especificidades regionais",
-        "Acesso a seguros com subsídio do governo federal",
-        "Orientação sobre documentação e processos do MAPA",
-        "Análise de riscos climatológicos por região",
-        "Suporte completo em sinistros com vistoria técnica",
-        "Parcerias com seguradoras especializadas no agro",
+        "Atendimento em todo o Brasil",
+        "Orientação sobre modalidades e documentação do risco",
+        "Análise conforme produto, seguradora e condições contratuais",
+        "Acompanhamento durante a contratação e a vigência",
       ]}
       faqs={[
-        { question: "A Patro Seguros atende produtores rurais fora de São Paulo?", answer: "Sim! Atendemos produtores rurais de todos os estados do Brasil. Nossa sede é em Guarulhos/SP, mas fazemos cotações e acompanhamos sinistros em qualquer região." },
-        { question: "O que é o subsídio do governo no seguro rural?", answer: "O governo federal subsidia parte do prêmio do seguro agrícola (até 40% em alguns casos), tornando-o mais acessível aos produtores de todo o país." },
-        { question: "Como funciona o seguro agrícola?", answer: "Protege contra perdas na produção por fenômenos como seca, geada, granizo, excesso de chuva, pragas e doenças. A indenização é baseada na produtividade esperada." },
-        { question: "Posso segurar animais?", answer: "Sim! O seguro pecuário cobre morte de bovinos, equinos, suínos e outros animais por doenças, acidentes, raios e outros eventos cobertos." },
-        { question: "Quanto custa o seguro rural?", answer: "Varia conforme a cultura, localização, histórico da região e nível de cobertura. Com subsídio governamental, fica significativamente mais acessível." },
-        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Todo o processo é 100% remoto. Basta entrar em contato pelo WhatsApp (11) 5199-7500, telefone ou e-mail. Enviamos a documentação digitalmente e acompanhamos tudo à distância — da cotação à regulação de sinistro." },
-        { question: "Quais cidades e estados a Patro atende?", answer: "Atendemos produtores rurais e empresas do agronegócio em todos os 26 estados brasileiros e o Distrito Federal — capitais, interior e zona rural. Do Sul (PR, SC, RS) ao Norte (PA, TO, RO), passando por Centro-Oeste (MT, MS, GO), Sudeste (SP, MG, ES, RJ) e Nordeste (BA, PI, MA). Nossa sede é em Guarulhos/SP, mas o atendimento é 100% remoto." },
-        { question: "Qual o prazo para receber a proposta?", answer: "Após o envio das informações sobre o bem ou atividade a ser segurada, retornamos com propostas comparativas de diversas seguradoras em até 24 horas úteis." },
-        { question: "Como recebo a proposta de seguro?", answer: "Enviamos a proposta pelo canal de sua preferência — WhatsApp, e-mail ou ambos — com um resumo comparativo de valores e coberturas das melhores seguradoras do mercado." },
+        { question: "A Patro Seguros atende produtores rurais fora de São Paulo?", answer: "Sim. A sede fica em Guarulhos/SP, mas a Patro atende clientes em todo o Brasil por canais remotos, conforme o risco e a disponibilidade das seguradoras." },
+        { question: "O que é o PSR no contexto do Seguro Rural?", answer: "O PSR pode subvencionar parte do prêmio de apólices elegíveis. A elegibilidade e os critérios dependem do exercício, da modalidade, da cultura, da região, do orçamento, da seguradora habilitada e das regras vigentes." },
+        { question: "Como funciona o seguro agrícola?", answer: "É uma modalidade do Seguro Rural. Pode proteger a produção contra riscos previstos no produto e na apólice; eventos climáticos, produtividade, franquias e critérios de indenização devem ser conferidos no contrato." },
+        { question: "O Seguro Rural pode abranger pecuária?", answer: "A categoria pode incluir modalidade pecuária, mas o produto, os riscos, os limites e as condições dependem da proposta e da apólice contratada." },
+        { question: "Quanto custa o Seguro Rural?", answer: "O prêmio depende da modalidade, do risco, do bem ou atividade, da região, dos limites, da franquia e das condições aceitas pela seguradora. Não há preço universal." },
+        { question: "Como solicitar cotação se estou longe de Guarulhos?", answer: "Entre em contato pelos canais da Patro e envie as informações disponíveis sobre o risco. A orientação e o retorno dependem do produto, da documentação e da análise das seguradoras." },
+        { question: "A Patro atende clientes fora de São Paulo?", answer: "Sim. A Patro Seguros atende clientes em todo o Brasil por canais remotos, conforme as informações do risco e a disponibilidade das seguradoras." },
+        { question: "Como recebo uma proposta?", answer: "Após a análise das informações necessárias, a corretora pode apresentar alternativas disponíveis pelos canais de atendimento, sempre sujeitas à análise e aceitação da seguradora." },
       ]}
       relatedInsurances={[
-        { title: "Seguro de Máquinas", link: "/seguro-maquinas" },
-        { title: "Seguro Empresarial", link: "/seguro-empresarial" },
-        { title: "Seguro de Transporte", link: "/seguro-transporte" },
-        { title: "Seguro Ambiental", link: "/seguro-ambiental" },
+        { title: "Seguro Agro", link: "/seguro-agro" },
+        { title: "Máquinas Agrícolas", link: "/seguro-maquinas-agricolas" },
+        { title: "Propriedade Rural", link: "/seguro-propriedade-rural" },
+        { title: "Equipamentos Agrícolas", link: "/seguro-equipamentos-agricolas" },
       ]}
     />
   );

@@ -108,7 +108,7 @@ const LocalTestimonials = () => {
         
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground font-medium">
-            Junte-se a mais de {EMPRESA.metricas.clientesAtendidos} segurados protegidos pela Patro em Guarulhos.
+            Conheça os relatos públicos de clientes atendidos pela Patro em Guarulhos.
           </p>
         </div>
       </div>

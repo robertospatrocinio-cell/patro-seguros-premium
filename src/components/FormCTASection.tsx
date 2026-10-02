@@ -13,7 +13,7 @@ const QuickQuoteForm = lazy(() => import("./QuickQuoteForm"));
  
  const FormCTASection = ({
    title = "Solicite uma Cotação Personalizada",
-   subtitle = "Resposta em até 2 horas úteis com o comparativo das melhores seguradoras.",
+   subtitle = "Nossa equipe analisa sua solicitação e retorna com as alternativas disponíveis.",
    insuranceType = "Seguros",
    trackingLabel = "home-cta",
    bgClass = "bg-muted/30"
@@ -34,7 +34,7 @@ const QuickQuoteForm = lazy(() => import("./QuickQuoteForm"));
                <div className="space-y-4">
                  {[
                    "Consultoria técnica especializada",
-                   `Comparativo entre ${EMPRESA.metricas.seguradorasParceiras} seguradoras`,
+                   `Comparativo entre até ${EMPRESA.metricas.seguradorasParceiras} seguradoras`,
                    "Atendimento humano e ágil",
                    "Suporte completo do início ao sinistro"
                  ].map((item, i) => (

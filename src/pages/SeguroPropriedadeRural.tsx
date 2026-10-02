@@ -14,7 +14,7 @@ const SeguroPropriedadeRural = () => {
       description="A propriedade rural é a base de tudo o que se produz nela — e tratamos cada apólice como o desenho técnico do que sua família levou décadas para construir. Nossa consultoria de Propriedade Rural dimensiona, com critério, a proteção das estruturas físicas e benfeitorias da sua fazenda."
       detailedDescription={`Investir em infraestrutura rural exige capital e planejamento. De sedes imponentes a galpões de máquinas e silos de armazenamento, cada estrutura é vital para a operação. O risco de eventos climáticos, como vendavais e granizos, ou acidentes como incêndios e quedas de raios, pode gerar prejuízos que comprometem gerações de trabalho.
 
-Nossa consultoria para Seguro de Propriedade Rural foca na blindagem patrimonial completa. Desenvolvemos apólices que cobrem desde a casa sede até cercas, currais e sistemas de irrigação. Atendemos proprietários em todas as regiões do Brasil, oferecendo um atendimento consultivo que entende a geografia e os riscos específicos de cada estado.
+Nossa consultoria para Seguro de Propriedade Rural analisa estruturas, benfeitorias e instalações conforme o produto. Cercas, currais, irrigação, máquinas, estoque e outras partes da operação só devem ser considerados quando descritos, aceitos e cobertos pela apólice.
 
 Com a Patro Seguros, você tem a garantia de que cada benfeitoria da sua propriedade está amparada pelas maiores seguradoras rurais do mundo, com suporte total para renovações e gestão ágil de sinistros catastróficos.`}
       howItWorks={[
@@ -24,10 +24,10 @@ Com a Patro Seguros, você tem a garantia de que cada benfeitoria da sua proprie
         { step: "4", title: "Emissão Digital", description: "Apólice emitida com rapidez e validade nacional, ideal para garantias bancárias." },
       ]}
       coverages={[
-        { title: "Incêndio e Explosão", description: "Cobre danos térmicos na sede, casas de funcionários, galpões e silos." },
+        { title: "Incêndio e explosão", description: "Podem ser contemplados para estruturas descritas e aceitas, conforme limites e condições da apólice." },
         { title: "Vendaval, Ciclone e Granizo", description: "Proteção indispensável contra ventos fortes que atingem telhados e estruturas." },
-        { title: "Raio e Danos Elétricos", description: "Garante instalações elétricas e transformadores próprios contra descargas atmosféricas." },
-        { title: "Alagamento e Inundação", description: "Cobre danos causados por entrada de água em edificações e depósitos." },
+        { title: "Raio e danos elétricos", description: "Dependem da cobertura contratada, do evento, dos bens descritos e dos limites aplicáveis." },
+        { title: "Alagamento e inundação", description: "Podem ser contratados conforme o produto, o risco e as condições da apólice." },
         { title: "Roubo e Furto Qualificado", description: "Segurança para móveis, utensílios e insumos estocados no interior das construções." },
         { title: "Responsabilidade Civil Familiar", description: "Proteção contra danos a terceiros ocorridos dentro dos limites da propriedade." },
         { title: "Instalações de Energia Solar", description: "Cobertura específica para usinas fotovoltaicas e painéis solares da fazenda." },
@@ -48,7 +48,7 @@ Com a Patro Seguros, você tem a garantia de que cada benfeitoria da sua proprie
           "Existência de sistemas de vigilância e combate a incêndio",
           "Finalidade da propriedade (Lazer, Criação, Cultivo)",
         ],
-        note: "O seguro de benfeitorias rurais é fundamental para quem busca financiamento de infraestrutura em bancos.",
+        note: "Quando houver financiamento, confirme eventual exigência contratual do banco e a cláusula de beneficiário. A existência do financiamento não garante cobertura nem cria obrigação universal de seguro.",
       }}
       realScenarios={[
         { title: "Vendaval em Galpão de Máquinas", description: "Um vendaval de 85km/h arrancou o telhado metálico do galpão principal. O seguro cobriu os R$ 65.000 da reconstrução em tempo recorde." },
@@ -56,7 +56,7 @@ Com a Patro Seguros, você tem a garantia de que cada benfeitoria da sua proprie
         { title: "Incêndio em Curral e Cerca", description: "Um incêndio em pastagem atingiu as cercas e o curral de manejo. A cobertura de incêndio indenizou os materiais e a mão de obra para reparo." },
       ]}
       importantDetails={[
-        { title: "Valor de Reconstrução", content: "Sempre oriente-se pelo custo de reconstruir a estrutura hoje, e não pelo valor de venda. Isso garante que a indenização seja suficiente em caso de perda total." },
+        { title: "Valor de reconstrução", content: "O critério de valor segurado — reposição, reconstrução, valor atual ou outro — deve ser definido conforme a modalidade, os limites e as condições do contrato. Não há garantia automática de indenização integral do valor da propriedade." },
         { title: "Seguro Rural vs Seguro Residencial", content: "Propriedades rurais exigem apólices específicas que permitem cobrir benfeitorias produtivas, algo que o seguro residencial urbano comum não aceita." },
       ]}
       tips={[
@@ -80,9 +80,9 @@ Com a Patro Seguros, você tem a garantia de que cada benfeitoria da sua proprie
         "Suporte humanizado em casos de eventos climáticos severos",
       ]}
       faqs={[
-        { question: "O seguro cobre as cercas da propriedade?", answer: "Sim, é possível incluir a cobertura para cercas contra incêndio, raio e impacto de veículos." },
-        { question: "Cobre a casa do caseiro?", answer: "Sim, todas as moradias de funcionários e dependências de serviço podem ser incluídas na apólice." },
-        { question: "O seguro é aceito para garantia de empréstimos?", answer: "Sim, emitimos apólices com a cláusula de beneficiário exigida pelos bancos para liberação de crédito rural." },
+        { question: "O seguro cobre as cercas da propriedade?", answer: "Pode cobrir se a cerca estiver descrita, aceita e abrangida pela cobertura e pelos limites da apólice." },
+        { question: "Cobre a casa do caseiro?", answer: "A inclusão depende da descrição das edificações, da aceitação, da cobertura e das condições do produto." },
+        { question: "O seguro é aceito para garantia de empréstimos?", answer: "Pode ser solicitado pela instituição financeira conforme o contrato de crédito. A cláusula, o beneficiário e o produto devem ser confirmados com o banco e a seguradora." },
         { question: "Quanto tempo dura a apólice?", answer: "Geralmente a vigência é de 1 ano, com renovação automática analisada pela nossa equipe." },
       ]}
       relatedInsurances={[

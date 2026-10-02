@@ -13,12 +13,12 @@ const LongtailMelhorSeguroUberGuarulhos = () => (
       { label: "Perguntas frequentes", href: "#faq-heading" },
       { label: "Cotar agora", href: "#formulario-heading" },
     ]}
-    title="Qual o Melhor Seguro para Uber em Guarulhos? Ranking 2026"
-    subtitle="Comparativo direto entre as 4 seguradoras que realmente cobrem Uber em Guarulhos: Porto Seguro, Allianz, HDI e Tokio Marine. Preço, franquia, aceitação de app e cobertura em corrida — lado a lado."
-    description="Ranking técnico das melhores seguradoras para motorista Uber em Guarulhos, com base em 200+ cotações reais feitas pela Patro Seguros. Apenas produtos com cláusula expressa de uso por aplicativo — nenhum risco de negativa em sinistro durante corrida."
-    detailedDescription={`Perguntar 'qual o melhor seguro para Uber em Guarulhos' é a dúvida mais comum entre motoristas de app da região. A resposta técnica não é uma seguradora única — é a que oferece a melhor combinação de preço, franquia baixa, cláusula expressa para app e assistência 24h para o seu perfil e CEP dentro de Guarulhos. Neste ranking consolidamos as 4 seguradoras que trabalham com Uber, 99 e InDriver em Guarulhos, com base em 200+ cotações reais feitas pela Patro em 2025 e 2026.
+    title="Como comparar seguro para Uber em Guarulhos? Guia 2026"
+    subtitle="Comparativo de alternativas para motoristas Uber em Guarulhos. Preço, franquia, aceitação de uso profissional e coberturas devem ser avaliados conforme o perfil e as condições de cada proposta."
+    description="Comparativo de alternativas de seguro para motorista Uber em Guarulhos, considerando produtos com cláusula expressa de uso por aplicativo e análise conforme o perfil."
+    detailedDescription={`Perguntar 'qual o melhor seguro para Uber em Guarulhos' exige considerar idade, modelo do carro, CEP, uso profissional e condições da apólice. A análise deve comparar as alternativas disponíveis para o perfil, sem presumir uma seguradora única ou uma ordem universal de preferência.
 
-Ranking Patro 2026 (motorista 32 anos, Onix 2022, CEP Cidade Maia, sem sinistros, 8h/dia em app):
+Exemplo de análise para um perfil específico (motorista 32 anos, Onix 2022, CEP Cidade Maia, sem sinistros, 8h/dia em app):
 
 1º Porto Seguro Auto Uber — R$ 3.100/ano. Melhor custo-benefício. Franquia R$ 4.200, carro reserva 15 dias, cobertura APP inclusa, rede referenciada ampla em Guarulhos. Aceita novos motoristas com CNH >2 anos.
 
@@ -28,21 +28,21 @@ Ranking Patro 2026 (motorista 32 anos, Onix 2022, CEP Cidade Maia, sem sinistros
 
 4º Tokio Marine App Protect — R$ 3.800/ano. Melhor para motoristas jovens (21-25 anos) que outras seguradoras recusam. Franquia R$ 5.500.
 
-Bradesco Auto, SulAmérica Auto e Mapfre não aceitam expressamente uso por app em 2026 — se você contratar apólice convencional dessas e sofrer sinistro em corrida, a chance de negativa é alta.
+Bradesco Auto, SulAmérica Auto e Mapfre podem ter regras próprias de aceitação. Não é possível presumir a negativa de um sinistro sem analisar a apólice, o risco declarado e as circunstâncias do evento.
 
 O critério mais importante para escolher o melhor seguro Uber em Guarulhos não é apenas o preço: é ter cláusula expressa no contrato reconhecendo o uso remunerado. Sem isso, mesmo apólice cara pode ser negada em sinistro.`}
     icon="🏆"
-    metaDescription="Melhor seguro para Uber em Guarulhos 2026: ranking Porto Seguro, Allianz, HDI e Tokio Marine com preços reais (R$ 3.100 a R$ 3.800/ano) e cláusula de app. Cotação Patro."
+    metaDescription="Como comparar seguro para Uber em Guarulhos em 2026: uso profissional, franquia, coberturas e condições da apólice. Cotação conforme o perfil."
     coverages={[
-      { title: "Cláusula Expressa para App", description: "Contrato que reconhece uso por Uber/99/InDriver — única forma de ter cobertura real em sinistro durante corrida." },
-      { title: "Roubo e Furto em Guarulhos", description: "Indenização 100% FIPE, válida em Cumbica, Pimentas, Vila Galvão, Cidade Maia e demais bairros de Guarulhos." },
+      { title: "Uso profissional informado", description: "A utilização por aplicativo deve ser informada e aceita conforme o produto e as condições contratuais aplicáveis." },
+      { title: "Roubo e Furto em Guarulhos", description: "A indenização e a forma de cálculo dependem da cobertura contratada, da modalidade de valor e das condições da apólice." },
       { title: "Colisão + Terceiros", description: "Cobertura para o próprio carro, terceiros (materiais/corporais) e passageiros — essencial para motoristas de app." },
       { title: "Carro Reserva Estendido", description: "10 a 20 dias de carro reserva — o motorista não fica sem renda enquanto o veículo está em conserto." },
       { title: "Assistência 24h em Guarulhos", description: "Guincho, chaveiro, socorro mecânico — atendimento em até 60min nas melhores seguradoras." },
-      { title: "APP — Acidentes Pessoais Passageiros", description: "Indenização para passageiros feridos em corrida — exigido por algumas modalidades e categorias premium do Uber." },
+      { title: "APP — Acidentes Pessoais de Passageiros", description: "Quando contratado, observa os limites, eventos e condições previstos na apólice. Não presumir exigência igual para Uber e 99." },
     ]}
     howItWorks={[
-      { step: "1", title: "Cotação em 4 seguradoras Uber-friendly", description: "Enviamos seu perfil para Porto, Allianz, HDI e Tokio simultaneamente — únicas com cláusula expressa para app em 2026." },
+      { step: "1", title: "Cotação conforme aceitação", description: "Analisamos as alternativas disponíveis para o seu perfil, produto, veículo e uso profissional." },
       { step: "2", title: "Ranking técnico personalizado", description: "Comparativo com preço, franquia, cobertura APP e tempo de assistência para o seu perfil e CEP em Guarulhos." },
       { step: "3", title: "Análise da cláusula contratual", description: "Validamos que o contrato menciona expressamente uso por aplicativo — não vale confiar em 'palavra do vendedor'." },
       { step: "4", title: "Contratação em 24h", description: "Ativação rápida, apólice digital, sem burocracia. Você começa a rodar coberto no dia seguinte." },
@@ -55,7 +55,7 @@ O critério mais importante para escolher o melhor seguro Uber em Guarulhos não
         "CEP de pernoite — Cidade Maia < Vila Galvão < Cumbica < Pimentas",
         "Modelo e ano do carro — Onix e HB20 são os mais baratos de segurar em app",
         "Horas rodadas por dia — full-time 8h+ tem prêmio maior que 4h/dia",
-        "Bônus (classe de sinistralidade) — motoristas sem sinistro pagam até 40% menos",
+        "Bônus — a classe e os critérios de desconto dependem da seguradora e das condições aplicáveis",
         "Rastreador ativo + garagem fechada reduzem o prêmio em 10–15%",
       ],
       note: "Dica Patro: motorista Uber em Guarulhos que renova apólice sem cotar em outras seguradoras costuma pagar 15–25% acima do mercado. Faça cotação anual — os preços mudam constantemente e a economia acumulada em 3 anos passa de R$ 2.500.",
@@ -93,16 +93,16 @@ O critério mais importante para escolher o melhor seguro Uber em Guarulhos não
       "Análise gratuita da cláusula contratual antes de contratar",
       "Atendimento presencial no Cidade Maia + WhatsApp para motoristas em qualquer bairro",
       "Suporte técnico em sinistro para evitar negativa por argumentação",
-      "Cotação em até 2h nas 4 seguradoras simultaneamente",
+      "Análise das alternativas disponíveis conforme o perfil",
     ]}
     faqs={[
-      { question: "Qual o melhor seguro para Uber em Guarulhos em 2026?", answer: "Para perfil médio, Porto Seguro Auto Uber lidera (R$ 3.100/ano). Para melhor cobertura de terceiros, Allianz Auto App. Para carros mais antigos, HDI Seguros. Para motoristas jovens, Tokio Marine App Protect. A Patro compara os 4 e monta o ranking personalizado para o seu perfil." },
+      { question: "Qual o melhor seguro para Uber em Guarulhos em 2026?", answer: "Não existe uma opção universalmente melhor. A escolha depende do perfil, do veículo, do uso profissional, do CEP e das condições de cada proposta. A Patro pode comparar as alternativas disponíveis para o caso." },
       { question: "Quanto custa o melhor seguro Uber em Guarulhos?", answer: "Entre R$ 3.100 e R$ 3.800/ano para perfil médio (motorista 32 anos, Onix 2022, Cidade Maia). Motoristas jovens (21-25) pagam 30–50% mais, motoristas 40+ com bônus completo pagam menos que R$ 3.000/ano." },
       { question: "Quais seguradoras aceitam Uber em Guarulhos com cláusula expressa?", answer: "Em 2026: Porto Seguro, Allianz, HDI e Tokio Marine. Bradesco, SulAmérica e Mapfre não aceitam expressamente — apólice contratada nelas para Uber corre alto risco de negativa em sinistro." },
       { question: "Posso usar meu seguro comum se não avisei que dirijo para Uber?", answer: "Não. Omitir uso remunerado configura má-fé contratual e permite à seguradora negar qualquer sinistro, mesmo em situações não ligadas às corridas. Sempre declare uso por app na contratação." },
       { question: "Vale a pena pagar mais caro por seguro Uber?", answer: "Sim. O custo adicional (R$ 500 a R$ 1.000/ano) é irrelevante comparado ao risco de perder o carro por negativa em sinistro. Um Onix roubado sem cobertura custa R$ 60 mil — 20 anos de diferença de prêmio." },
       { question: "Qual o melhor seguro Uber em Guarulhos para BYD Dolphin e elétricos?", answer: "Para motorista Uber com BYD Dolphin (ou outro elétrico) em Guarulhos, a Porto Seguro Elétricos App e a HDI Green Motorista de App são as únicas que combinam cláusula de uso remunerado + cobertura de bateria de tração + rede autorizada BYD. Preço entre R$ 3.900 e R$ 4.800/ano." },
-      { question: "Como fazer cotação online do melhor seguro Uber em Guarulhos?", answer: "Envie CPF, CNH, modelo/ano do carro e CEP de Guarulhos pelo WhatsApp da Patro. Em até 2h você recebe o ranking das 4 seguradoras Uber-friendly (Porto, Allianz, HDI, Tokio) com preço real, franquia, cláusula de app e assistência 24h — comparativo pronto para decisão." },
+      { question: "Como fazer cotação online de seguro Uber em Guarulhos?", answer: "Envie os dados solicitados pela corretora, incluindo veículo, condutor, CEP e uso profissional. A análise e o prazo dependem da complexidade do risco, da disponibilidade e dos procedimentos das seguradoras consultadas." },
     ]}
     extraSections={(
       <section aria-labelledby="ranking-seguro-uber-guarulhos" className="py-12 bg-muted/30">
@@ -111,23 +111,23 @@ O critério mais importante para escolher o melhor seguro Uber em Guarulhos não
             Ranking do melhor seguro para Uber em Guarulhos por perfil de motorista
           </h2>
           <p className="text-foreground/80 mb-4">
-            Não existe um único &quot;melhor seguro Uber em Guarulhos&quot; — a resposta depende de idade, modelo do carro, CEP e horas rodadas. Este é o ranking técnico da Patro por perfil, com base em 200+ cotações reais em 2025-2026.
+            Não existe um único &quot;melhor seguro Uber em Guarulhos&quot; — a resposta depende de idade, modelo do carro, CEP e horas rodadas. A comparação deve considerar as condições efetivamente disponíveis para cada perfil.
           </p>
           <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Motorista Uber jovem (21-27 anos)</h3>
           <p className="text-foreground/80 mb-4">
-            <strong>Melhor opção:</strong> Tokio Marine App Protect (R$ 3.800–4.400/ano). Única que aceita motoristas jovens sem penalizar preço em excesso. Porto e Allianz frequentemente recusam esse perfil ou cobram &gt; R$ 5.000/ano.
+            <strong>Exemplo de alternativa:</strong> Tokio Marine App Protect. A aceitação, o preço e as coberturas devem ser confirmados para o perfil e a proposta analisados.
           </p>
           <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Motorista Uber full-time (8h+/dia)</h3>
           <p className="text-foreground/80 mb-4">
-            <strong>Melhor opção:</strong> Porto Seguro Auto Uber (R$ 3.100–3.500/ano). Combinação de menor franquia, carro reserva estendido (15 dias) e rede referenciada ampla em Cumbica, Cidade Maia e Pimentas.
+            <strong>Exemplo de alternativa:</strong> Porto Seguro Auto Uber. Franquia, carro reserva, rede referenciada e demais condições dependem da proposta e da apólice.
           </p>
           <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Motorista Uber com carro elétrico (BYD Dolphin, Volt)</h3>
           <p className="text-foreground/80 mb-4">
-            <strong>Melhor opção:</strong> Porto Seguro Elétricos App ou HDI Green Motorista de App (R$ 3.900–4.800/ano). Únicas que combinam cláusula de uso por aplicativo com cobertura de bateria de tração e guincho com prancha.
+            <strong>Exemplos para análise:</strong> produtos para veículos elétricos podem ter condições específicas de uso profissional, bateria e assistência. Confirme a disponibilidade e os limites na proposta.
           </p>
           <h3 className="text-xl font-semibold text-primary mt-6 mb-3">Cotação de seguro Uber online em Guarulhos</h3>
           <p className="text-foreground/80">
-            A cotação online do seguro Uber pela Patro é gratuita e cobre as 4 seguradoras Uber-friendly em uma única passada. Envie os dados pelo WhatsApp e receba o ranking personalizado por perfil em até 2h — sem visita, sem burocracia.
+            A cotação online depende dos dados recebidos, da aceitação do risco e da disponibilidade das seguradoras. A corretora pode apresentar um comparativo conforme as alternativas efetivamente disponíveis para o perfil.
           </p>
         </div>
       </section>

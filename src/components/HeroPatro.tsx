@@ -84,7 +84,7 @@ const HeroPatro = memo(() => {
 
               {/* Subtitle */}
               <p className="text-white/90 text-lg md:text-xl mb-8 leading-relaxed max-w-[620px]">
-                Compare soluções entre 16 seguradoras com orientação especializada e atendimento humano do início ao sinistro.
+                Compare alternativas de diferentes seguradoras com orientação especializada e atendimento humano do início ao sinistro.
               </p>
 
 
@@ -108,11 +108,11 @@ const HeroPatro = memo(() => {
               <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-8 gap-y-4 pt-6 border-t border-white/10">
                 <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <Clock className="h-4 w-4 shrink-0 text-primary-light" />
-                  <span>Mais de {EMPRESA.metricas.experienciaAnos} anos de experiência</span>
+                  <span>Equipe com experiência no mercado de seguros</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <ShieldCheck className="h-4 w-4 shrink-0 text-primary-light" />
-                  <span>16 seguradoras</span>
+                  <span>Diferentes seguradoras</span>
                 </div>
                 <div className="flex items-center gap-2 text-white/70 text-[13px] md:text-sm">
                   <CheckCircle2 className="h-4 w-4 shrink-0 text-primary-light" />

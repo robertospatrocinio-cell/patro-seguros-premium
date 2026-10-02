@@ -68,9 +68,8 @@ const SPOKES = [
 
 const FACTS = [
   "Corretora com sede no Cidade Maia, Guarulhos/SP, atendendo toda a Grande São Paulo.",
-  "Hub de mais de 16 seguradoras e 20+ operadoras de saúde.",
+  "Atendimento consultivo com alternativas de diferentes seguradoras e operadoras, conforme o produto.",
   "Especialização em galpões e riscos patrimoniais (Guarulhos, Cumbica e nacional).",
-  "Mais de 500 cases atendidos para PMEs e pessoas físicas.",
   `Nota ${PATRO_SOCIAL_PROOF.googleRating} no Google Business (perfil público e verificável).`,
   "Atendimento Agro com cobertura nacional para máquinas, lavoura e propriedades rurais.",
 ];

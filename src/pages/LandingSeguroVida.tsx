@@ -8,10 +8,10 @@ const LandingSeguroVida = () => (
     heroEmoji="❤️"
     headline="Se algo acontecer com você, sua família vai ficar bem?"
     subheadline="Seguro de Vida não é sobre morrer — é sobre garantir que quem você ama continue protegido. Cotação gratuita e personalizada."
-    metaDescription="Seguro de Vida individual e familiar. Proteção financeira para sua família. A partir de R$ 39/mês. Cotação gratuita. Patro Seguros Guarulhos."
+    metaDescription="Seguro de Vida individual e familiar. Conheça alternativas de proteção conforme seu perfil e as condições da apólice. Cotação com a Patro Seguros."
     ctaText="Proteger Minha Família Agora"
     urgencyText="Quanto mais jovem, mais barato. Não espere."
-    priceAnchor="A partir de R$ 39/mês* — menos que sua conta de celular"
+    priceAnchor="Cotação personalizada conforme seu perfil e as coberturas escolhidas"
     guaranteeText="Cotação personalizada e gratuita. Analisamos seu perfil, suas necessidades e apresentamos as melhores opções. Você decide sem nenhuma pressão."
     painPoints={[
       "Se você ficasse impossibilitado de trabalhar amanhã, quem pagaria as contas da sua família?",
@@ -20,15 +20,15 @@ const LandingSeguroVida = () => (
       "Acha que seguro de vida é caro e nunca fez uma cotação para conferir?",
     ]}
     stats={[
-      { value: "R$39", label: "A partir de" },
+      { value: "Sob análise", label: "Preço" },
       { value: "16+", label: "Seguradoras" },
       { value: "2h", label: "Tempo Resposta" },
       { value: "100%", label: "Gratuito" },
     ]}
     benefits={[
       { icon: "👨‍👩‍👧‍👦", title: "Proteção familiar", description: "Indenização para sua família manter o padrão de vida, pagar contas e realizar planos caso você falte." },
-      { icon: "🏥", title: "Doenças graves", description: "Diagnóstico de câncer, infarto ou AVC? Receba uma indenização antecipada para tratar com tranquilidade." },
-      { icon: "🦽", title: "Invalidez", description: "Se um acidente impedir você de trabalhar, o seguro garante renda para você e sua família." },
+      { icon: "🏥", title: "Doenças graves", description: "Quando contratada, a cobertura pode prever indenização conforme a lista, os critérios e os limites da apólice." },
+      { icon: "🦽", title: "Invalidez", description: "Quando contratada, a cobertura pode prever indenização conforme a definição, o grau de invalidez e as condições da apólice." },
       { icon: "🏠", title: "Quitação de dívidas", description: "Financiamento, empréstimos — o seguro quita suas dívidas para sua família não herdar problemas." },
       { icon: "💰", title: "Diária de internação", description: "Ficou internado? Receba uma diária para cobrir custos extras que o plano de saúde não paga." },
       { icon: "📈", title: "Quanto mais jovem, mais barato", description: "O preço é calculado pela idade de contratação. Quanto antes você contratar, menos vai pagar para sempre." },
@@ -39,11 +39,11 @@ const LandingSeguroVida = () => (
       { name: "Juliana K.", role: "Professora", stars: 5, content: "Pago R$ 55/mês por R$ 300 mil de cobertura. Durmo tranquila sabendo que meus filhos estarão protegidos." },
     ]}
     objections={[
-      { question: "Seguro de vida é caro?", answer: "Não! A partir de R$ 39/mês você garante proteção de R$ 100 mil+. É mais barato que Netflix e protege quem você mais ama." },
+      { question: "Seguro de vida é caro?", answer: "O preço depende do capital, coberturas, idade, perfil, profissão, saúde declarada e critérios da seguradora. A proposta individual é necessária para comparar valores." },
       { question: "Sou jovem e saudável, preciso?", answer: "Justamente por ser jovem que o preço é mais baixo. E acidentes não escolhem idade. Quanto antes contratar, melhor o custo-benefício." },
       { question: "E se eu nunca usar?", answer: "Seguro de vida não é investimento — é proteção. Mas muitos incluem cobertura em vida: doenças graves, invalidez e diária de internação." },
       { question: "Quanto minha família receberia?", answer: "Depende do plano. Coberturas vão de R$ 50 mil a R$ 2 milhões+. Calculamos o valor ideal baseado em suas despesas e patrimônio." },
-      { question: "Demora para pagar o sinistro?", answer: "Por lei, a seguradora tem até 30 dias. Na prática, com documentação completa, nossos clientes recebem em 10 a 20 dias." },
+      { question: "Demora para pagar o sinistro?", answer: "O prazo depende do evento, da cobertura, da documentação, da apólice, da regulação e da legislação aplicável. Não há promessa universal de pagamento em prazo fixo." },
     ]}
   />
 );

@@ -58,7 +58,7 @@ const BairroStickyCTABar = ({ bairroNome, bairroSlug, onQuoteClick }: Props) => 
       <div className="container mx-auto px-3 py-2.5 md:py-3 flex items-center gap-2 md:gap-4">
         <div className="hidden md:flex items-center gap-2 text-sm font-medium text-foreground/90 mr-auto">
           <MapPin className="h-5 w-5 text-[hsl(var(--primary))]" aria-hidden="true" />
-          <span>Corretora local em {bairroNome} — resposta em até 2h úteis</span>
+          <span>Corretora local em {bairroNome} — solicite sua cotação</span>
         </div>
         <button
           type="button"

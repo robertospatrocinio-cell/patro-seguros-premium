@@ -54,14 +54,14 @@ const products = [
 
 const proof = [
   { value: `${PATRO_SOCIAL_PROOF.googleRating}/5`, label: "Avaliação no Google" },
-  { value: "500+", label: "PMEs atendidas" },
+  { value: "", label: "Atendimento a PMEs" },
   { value: "16+", label: "Seguradoras parceiras" },
   { value: "2h", label: "Cotação comparativa" },
 ];
 
 const steps = [
   { n: "01", title: "Conte o que precisa", desc: "WhatsApp, formulário ou telefone — em 3 minutos." },
-  { n: "02", title: "Recebe propostas em 2h", desc: "Comparamos 16+ seguradoras com transparência total." },
+  { n: "02", title: "Recebe as alternativas", desc: "Comparamos até 16 seguradoras conforme o produto e o perfil." },
   { n: "03", title: "Contrate com suporte", desc: "Corretor SUSEP cuida da apólice, renovação e sinistro." },
 ];
 
@@ -79,7 +79,7 @@ const faqs = [
   {
     question: "Em quanto tempo recebo a cotação?",
     answer:
-      "Cotação comparativa em até 2 horas úteis, com explicação detalhada de coberturas, franquias e preços das principais seguradoras.",
+      "Análise comparativa conforme disponibilidade, com explicação detalhada das condições apresentadas.",
   },
   {
     question: "Quais seguros a Patro oferece?",
@@ -92,8 +92,8 @@ const Patro = () => {
   return (
     <Fragment>
       <PageMeta
-        title="Patro Corretora de Seguros — Cotação em 2h | Guarulhos/SP"
-        description="Patro Seguros: corretora SUSEP em Guarulhos com cotação comparativa em 2h. 16+ seguradoras, atendimento humano e suporte completo em sinistros. Fale no WhatsApp."
+        title="Patro Corretora de Seguros | Guarulhos/SP"
+        description="Patro Seguros: corretora SUSEP em Guarulhos, com atendimento humano e comparação entre até 16 seguradoras, conforme o perfil e o produto."
       />
       <FAQSchema faqs={faqs} />
       <Header />
@@ -122,7 +122,7 @@ const Patro = () => {
                 style={heading}
               >
                 Sua proteção,{" "}
-                <span className="text-[#F2994A]">cotada em 2 horas</span> com 16+ seguradoras.
+                <span className="text-[#F2994A]">analisada pela nossa equipe</span> entre até 16 seguradoras, conforme o caso.
               </h1>
               <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
                 A Patro é a corretora que humaniza seguros: comparamos as principais seguradoras do Brasil
@@ -257,9 +257,9 @@ const Patro = () => {
               </h2>
               <div className="mt-8 space-y-5">
                 {[
-                  { icon: Clock, t: "Cotação em até 2h úteis", d: "Resposta rápida, sem você ficar refém de call center." },
+                  { icon: Clock, t: "Análise consultiva", d: "Nossa equipe avalia a solicitação e apresenta as alternativas disponíveis." },
                   { icon: Users, t: "Corretor SUSEP dedicado", d: "Mesma pessoa do orçamento ao sinistro." },
-                  { icon: Shield, t: "16+ seguradoras", d: "Porto, Allianz, HDI, Tokio Marine, Bradesco e mais." },
+                  { icon: Shield, t: "Até 16 seguradoras", d: "Porto, Allianz, HDI, Tokio Marine, Bradesco e outras, conforme o caso." },
                   { icon: Award, t: "Atendimento a PMEs", d: "Especialistas em galpões, agro, RC e empresarial." },
                 ].map(({ icon: Icon, t, d }) => (
                   <div key={t} className="flex gap-4">

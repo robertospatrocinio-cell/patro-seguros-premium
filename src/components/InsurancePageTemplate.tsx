@@ -37,7 +37,6 @@ import {
 import { getCanonicalUrl } from "@/lib/canonical";
 import EbookConsorcioBanner from "@/components/EbookConsorcioBanner";
 import AgrishowPromoBanner from "@/components/AgrishowPromoBanner";
-import SeloMelhorCorretora from "@/components/SeloMelhorCorretora";
 import InsuranceHubLinks from "@/components/InsuranceHubLinks";
 import TrilhaSeoRelacionados, { type TrilhaSeoItem } from "@/components/TrilhaSeoRelacionados";
 import ContextualSeoHub from "@/components/ContextualSeoHub";
@@ -893,7 +892,6 @@ const InsurancePageTemplate = ({
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="text-center mb-16">
               <div className="flex justify-center mb-6">
-                <SeloMelhorCorretora size="md" />
               </div>
               <h2 id="por-que-patro-heading">{supportMode ? `Por que contar com a Patro${hasGeo ? "" : " em Guarulhos"} nesse momento?` : `Por que contratar ${title} com a Patro${hasGeo ? "" : " em Guarulhos"}?`}</h2>
             </div>

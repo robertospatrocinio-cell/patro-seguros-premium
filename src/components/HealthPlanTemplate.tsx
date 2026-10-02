@@ -83,9 +83,9 @@ const HealthPlanTemplate = ({ operator, description, benefits, faqs, accentColor
               
               <Card className="border-none shadow-2xl bg-slate-900 text-white overflow-hidden">
                 <CardContent className="p-8 space-y-6">
-                  <h3 className="text-2xl font-bold">Cote agora e economize</h3>
+                  <h3 className="text-2xl font-bold">Compare alternativas</h3>
                   <p className="text-slate-400 text-sm">
-                    Nossa equipe analisa sua necessidade e envia o comparativo completo em até 2 horas.
+                  Nossa equipe analisa sua necessidade e envia as alternativas disponíveis.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-center gap-2 text-sm">

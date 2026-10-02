@@ -33,10 +33,7 @@ jobs:
         os: [ubuntu-latest]
         runtime: [bun, node]
         include:
-          # Bun: LTS estável + latest para pegar regressões cedo.
-          - runtime: bun
-            version: "1.1.34"
-            os: ubuntu-latest
+          # Bun: versão atual para validar o lockfile e detectar regressões.
           - runtime: bun
             version: "latest"
             os: ubuntu-latest

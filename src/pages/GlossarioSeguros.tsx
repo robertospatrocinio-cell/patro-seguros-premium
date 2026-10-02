@@ -122,7 +122,7 @@ const CATEGORIES: Category[] = [
       { term: "Silo / Armazém Graneleiro", definition: "Estrutura para armazenamento de grãos — seguro cobre a estrutura, conteúdo e, em alguns produtos, perda por falha de aeração.", related: [{ label: "Seguro de silo", href: "/seguro-silo-agricola" }] },
       { term: "Importância Segurada por hectare", definition: "Valor segurado calculado por hectare plantado, multiplicado pela área da apólice — base do cálculo no seguro agrícola." },
       { term: "ZARC (Zoneamento Agrícola de Risco Climático)", definition: "Estudo do MAPA que define janelas de plantio por município e cultura com menor risco climático. Plantar fora do ZARC tende a recusa de cobertura, mesmo com apólice vigente." },
-      { term: "Drone Agrícola (RPA)", definition: "Aeronave remotamente pilotada usada para mapeamento ou pulverização. Operação acima de 25 kg ou comercial exige registro ANAC, cadastro SISANT e Seguro RCF obrigatório.", related: [{ label: "Seguro de drone agrícola", href: "/seguro-drone-agricola" }] },
+      { term: "Drone Agrícola (RPA)", definition: "Aeronave remotamente pilotada usada para mapeamento ou pulverização. Registro, cadastro e seguro dependem da categoria e das características da operação conforme a regulamentação vigente.", related: [{ label: "Seguro de drone agrícola", href: "/seguro-drone-agricola" }] },
     ],
   },
   {

@@ -11,16 +11,16 @@ import { trackWhatsAppClick, trackCotacaoClick } from "@/lib/tracking";
 const WHATSAPP_URL = "https://wa.me/551151997500?text=Ol%C3%A1%2C%20tenho%20uma%20transportadora%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o%20de%20seguros.";
 
 const faqs = [
-  { question: "Qual seguro é obrigatório para transportadoras?", answer: "O RCTR-C (Responsabilidade Civil do Transportador Rodoviário de Cargas) é obrigatório para toda transportadora que realiza transporte de cargas de terceiros." },
+  { question: "Quais seguros podem ser obrigatórios para uma transportadora rodoviária de cargas?", answer: "A Lei nº 11.442/2007 prevê RCTR-C, RC-DC e RC-V para os transportadores e prestadores do serviço de transporte rodoviário de cargas enquadrados na obrigação legal. O sujeito obrigado, o vínculo ao RNTR-C, o escopo e as condições devem ser verificados conforme a atividade e a regulamentação vigente." },
   { question: "Como funciona o seguro de frota?", answer: "O seguro de frota cobre todos os veículos da empresa em uma única apólice, com condições e preços melhores do que segurar individualmente cada veículo." },
   { question: "Seguro de frota cobre terceiros?", answer: "Sim. A cobertura de RC Facultativa protege contra danos causados a terceiros (outros veículos, pedestres, propriedades) em caso de acidente com veículos da frota." },
   { question: "Quanto custa o seguro de frota?", answer: "Depende do número de veículos, tipos, perfil dos motoristas e região de atuação. Frotas maiores tendem a ter descontos progressivos." },
-  { question: "O seguro cobre roubo de carga?", answer: "O RCTR-C cobre roubo de carga em algumas modalidades. Para proteção completa, recomendamos combinar com seguro de carga específico e gerenciamento de risco." },
+  { question: "RCTR-C cobre roubo de carga?", answer: "Não se deve responder de forma simplista. O RCTR-C trata de perdas ou danos à carga decorrentes dos acidentes previstos na legislação. Eventos de desaparecimento de carga são tratados no RC-DC, observadas a apólice, o PGR, os limites e as condições contratuais." },
 ];
 
 const seguros = [
   { title: "Seguro de Frota", desc: "Proteção completa para todos os veículos da empresa em uma única apólice.", link: "/seguro-frota" },
-  { title: "Seguro de Transporte (RCTR-C)", desc: "Cobertura obrigatória para transporte de cargas de terceiros.", link: "/seguro-transporte" },
+  { title: "Seguro de Transporte", desc: "Análise separada do seguro da carga e dos seguros de responsabilidade civil do transportador, incluindo RCTR-C e RC-DC quando aplicáveis.", link: "/seguro-transporte" },
   { title: "Seguro de Caminhão", desc: "Proteção individual para caminhões, carretas e veículos pesados.", link: "/seguro-caminhao" },
   { title: "RC do Transportador", desc: "Responsabilidade civil por danos a cargas, terceiros e meio ambiente.", link: "/seguro-rc" },
   { title: "Seguro Empresarial", desc: "Proteção do patrimônio: galpões, escritórios e equipamentos.", link: "/seguro-empresarial" },
@@ -34,7 +34,7 @@ const dores = [
   "Acidentes com veículos pesados envolvem indenizações de alto valor a terceiros",
   "Frota parada por sinistro significa faturamento perdido e contratos descumpridos",
   "Custos crescentes de manutenção e seguro individual por veículo",
-  "Exigência de RCTR-C para operar — multas e impedimentos sem o seguro obrigatório",
+  "Necessidade de analisar RCTR-C, RC-DC e RC-V conforme a atividade, o RNTR-C e a regulamentação vigente",
 ];
 
 const NichoTransportadoras = () => (
@@ -139,7 +139,7 @@ const NichoTransportadoras = () => (
       <section className="py-16 gradient-hero">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-white mb-4">Proteja Sua Frota e Suas Cargas</h2>
-          <p className="text-white/70 mb-8 max-w-lg mx-auto text-sm">Cotação gratuita e sem compromisso. Resposta em até 2 horas.</p>
+          <p className="text-white/70 mb-8 max-w-lg mx-auto text-sm">Cotação gratuita e sem compromisso. O prazo depende dos dados da operação e da análise das seguradoras.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link to="/cotacao" onClick={() => trackCotacaoClick("nicho-transportadoras-cta")}>
               <Button size="lg" className="bg-white text-foreground hover:bg-white/90 font-semibold rounded-lg">Cotação Rápida</Button>

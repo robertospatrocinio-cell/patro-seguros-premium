@@ -7,7 +7,7 @@ const LandingSeguroMotoristaApp = () => (
     title="Seguro Motorista App"
     heroEmoji="📱"
     headline="Você roda por app sem seguro? Seu próximo sinistro pode custar seu carro."
-    subheadline="Seguro específico para Uber, 99 e inDrive. Cobertura real durante corridas, RC passageiros e carro reserva — para você não ficar parado sem ganhar."
+    subheadline="Seguro para uso profissional em Uber, 99 e outros aplicativos, conforme aceitação da seguradora e condições contratadas. Coberturas para o veículo, passageiros e carro reserva dependem da apólice."
     metaDescription="Seguro para motorista de aplicativo em Guarulhos: cobertura durante corridas, RC passageiros e carro reserva estendido. Cotação grátis."
     ctaText="Cotar Meu Seguro de App Grátis"
     ctaUrl="/seguro-motorista-app"
@@ -21,30 +21,30 @@ const LandingSeguroMotoristaApp = () => (
       "Está pagando seguro convencional achando que está protegido — mas na hora H, descobre que não está?",
     ]}
     stats={[
-      { value: "40%", label: "Economia média" },
-      { value: "2h", label: "Tempo Resposta" },
-      { value: "24h", label: "Apólice Ativa" },
-      { value: "30 dias", label: "Carro Reserva" },
+      { value: "Conforme perfil", label: "Análise de risco" },
+      { value: "Conforme produto", label: "Condições de contratação" },
+      { value: "Conforme apólice", label: "Assistências" },
+      { value: "Quando contratado", label: "Carro reserva" },
     ]}
     benefits={[
-      { icon: "✅", title: "Cobertura válida durante corridas", description: "Diferente do seguro convencional, sua cobertura vale com passageiro no carro e app ativo. Sem surpresas na hora do sinistro." },
-      { icon: "👥", title: "RC Passageiros incluso", description: "Cobertura obrigatória por lei para transporte remunerado. Protege você de processos judiciais de passageiros." },
-      { icon: "🚗", title: "Carro reserva estendido", description: "Até 30 dias de carro substituto. Cada dia parado é renda perdida — continue trabalhando enquanto seu carro é reparado." },
-      { icon: "💰", title: "Preço justo para app", description: "Cotamos com seguradoras que têm produtos específicos para motoristas de app. Até 40% mais barato que adaptar seguro convencional." },
+      { icon: "✅", title: "Uso profissional informado", description: "O uso do veículo em aplicativo deve ser declarado para que a seguradora avalie o risco e apresente as condições aplicáveis ao produto." },
+      { icon: "👥", title: "Acidentes Pessoais de Passageiros (APP)", description: "Pode ser contratado quando oferecido no produto. Limites, eventos cobertos e condições dependem da apólice e da seguradora." },
+      { icon: "🚗", title: "Carro reserva quando contratado", description: "A disponibilidade, categoria e quantidade de diárias dependem da cobertura contratada e das condições da seguradora." },
+      { icon: "💰", title: "Alternativas conforme o perfil", description: "A corretora pode comparar alternativas disponíveis, mas preço, aceitação e coberturas dependem do risco e das regras de cada seguradora." },
       { icon: "🔧", title: "Assistência 24h ampliada", description: "Guincho com quilometragem estendida para quem roda longe. Socorro mecânico, elétrico, troca de pneu e chaveiro." },
-      { icon: "⚡", title: "Ativação em 24 horas", description: "Vistoria por fotos do celular. Sem burocracia, sem ir a lugar nenhum. Continue rodando sem interrupção." },
+      { icon: "⚡", title: "Contratação acompanhada", description: "A proposta, a vistoria e o início da vigência dependem da análise, aceitação e procedimentos definidos pela seguradora." },
     ]}
     testimonials={[
       { name: "Marcos S.", role: "Motorista Uber - Guarulhos", stars: 5, content: "Rodava com seguro de lazer e não sabia do risco. A Patro me explicou tudo e encontrou um seguro específico para app por R$ 280/mês. Já acionei uma vez e cobriram tudo!" },
-      { name: "Juliana P.", role: "Motorista 99 - São Paulo", stars: 5, content: "Meu carro foi roubado numa corrida noturna. O seguro pagou 100% da FIPE e o carro reserva me salvou — voltei a trabalhar em 2 dias. Sem a Patro eu estaria perdida." },
+      { name: "Juliana P.", role: "Motorista 99 - São Paulo", stars: 5, content: "A equipe me explicou que uso profissional, coberturas, indenização e carro reserva dependem da apólice contratada. O atendimento me ajudou a entender as condições do meu seguro." },
       { name: "Anderson L.", role: "Motorista Uber/99 - Guarulhos", stars: 5, content: "Compararam 6 seguradoras pra mim. Economizei R$ 1.200 no ano e ainda ganhei carro reserva de 30 dias. Atendimento no WhatsApp é muito rápido." },
     ]}
     objections={[
-      { question: "O seguro para app é muito mais caro que o convencional?", answer: "Em média, 20% a 40% mais. Mas considere: um sinistro negado por uso não declarado pode custar o valor total do seu carro. O seguro para app é um investimento na sua renda." },
-      { question: "Sou motorista parcial, preciso mesmo de seguro para app?", answer: "Sim. Mesmo rodando poucas horas, se sofrer sinistro durante uma corrida com seguro convencional, a cobertura pode ser negada. Motoristas parciais pagam menos." },
-      { question: "Todas as seguradoras aceitam motorista de app?", answer: "Não. Por isso a Patro é essencial — trabalhamos com todas as seguradoras que aceitam e encontramos a melhor opção para seu perfil e orçamento." },
+      { question: "O seguro para app é mais caro que o convencional?", answer: "Pode haver diferença porque o uso profissional altera a avaliação do risco, mas não há percentual universal. O prêmio depende do perfil, do veículo, da utilização, da seguradora e das condições contratadas." },
+      { question: "Sou motorista parcial, preciso informar o uso do aplicativo?", answer: "O uso profissional deve ser informado mesmo quando parcial, para que a seguradora avalie corretamente o risco. A aceitação e as condições dependem do produto e da apólice." },
+      { question: "Todas as seguradoras aceitam motorista de app?", answer: "Não necessariamente. A aceitação varia conforme seguradora, produto, veículo e perfil. A corretora pode analisar as alternativas disponíveis para o caso, sem garantir aceitação ou uma opção universalmente melhor." },
       { question: "Posso parcelar?", answer: "Sim! Até 10x sem juros no cartão ou débito em conta. Parcelas a partir de R$ 250/mês para carros populares." },
-      { question: "E se eu trocar de plataforma (Uber para 99, etc)?", answer: "Sem problema. O seguro cobre o uso do veículo para transporte por aplicativo independente da plataforma utilizada." },
+      { question: "E se eu trocar de plataforma, como Uber para 99?", answer: "Comunique a alteração à corretora ou à seguradora. Uber e 99 podem ter regras e produtos diferentes, e a cobertura deve ser verificada nas condições contratuais aplicáveis." },
     ]}
   />
 );

@@ -39,14 +39,14 @@ const CentralDeSinistro = () => (
         { step: "4", title: "Acompanhe a indenização", description: "Nossa equipe acompanha cada etapa até a conclusão do sinistro, esclarecendo dúvidas ao longo do caminho." },
       ]}
       importantDetails={[
-        { title: "Documentos úteis em caso de sinistro", content: "Tenha em mãos a apólice, CNH, CRLV, BO (quando aplicável), fotos do local e dos danos, e dados dos terceiros envolvidos." },
+        { title: "Documentos úteis em caso de sinistro", content: "A documentação varia conforme o ramo, o evento, a seguradora e a apólice. A apólice, documentos pessoais, registros da ocorrência, fotos e dados de terceiros podem ser solicitados quando aplicáveis; a seguradora pode pedir informações adicionais durante a regulação." },
         { title: "Horário de atendimento", content: "Nosso canal de sinistros funciona durante o horário comercial. Para emergências fora desse horário, acione diretamente a seguradora pelo 0800 da apólice." },
       ]}
       faqs={[
         { question: "O que fazer logo após uma batida?", answer: "Sinalize o local, verifique se há feridos e, se possível, tire fotos dos danos e da posição dos veículos antes de removê-los da via. Depois, entre em contato conosco para orientação." },
         { question: "Como aciono o guincho?", answer: "Você pode ligar diretamente para o 0800 da sua seguradora ou falar com nosso atendimento para que orientemos o acionamento." },
         { question: "A Patro vende seguro na central de sinistros?", answer: "Não. A central de sinistros é exclusiva para atendimento e orientação. Nosso objetivo é ajudar você a resolver a situação com calma e suporte técnico." },
-        { question: "Quais documentos preciso para abrir o sinistro?", answer: "Geralmente são necessários apólice, CNH, CRLV, Boletim de Ocorrência (quando houver), fotos do local e dados de terceiros envolvidos. Cada caso pode exigir documentos adicionais." },
+        { question: "Quais documentos preciso para abrir o sinistro?", answer: "Não existe uma lista universal. Os documentos dependem do ramo, do evento, da seguradora e da apólice. A seguradora informará os documentos iniciais e poderá solicitar complementos durante a regulação." },
       ]}
       relatedInsurances={[
         { title: "Seguro Auto", link: "/seguro-auto" },

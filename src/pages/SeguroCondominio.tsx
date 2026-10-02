@@ -89,7 +89,7 @@ Na Patro Seguros, apoiamos síndicos e administradoras em todo o processo: da co
         { question: "Quem contrata o seguro do condomínio?", answer: "O síndico ou a administradora, com aprovação em assembleia. O custo é rateado entre os condôminos." },
         { question: "O que não é coberto pelo seguro do condomínio?", answer: "Geralmente não cobre o interior das unidades privativas. Cada morador deve ter seu próprio seguro residencial." },
         { question: "Quanto custa o seguro de condomínio?", answer: "Depende do porte, mas geralmente custa de R$ 5 a R$ 15 por unidade ao mês. Um investimento muito baixo." },
-        { question: "É obrigatório ter seguro de condomínio?", answer: "Não é legalmente obrigatório em todos os casos, mas muitas convenções condominiais o estabelecem como obrigatório." },
+        { question: "É obrigatório ter seguro de condomínio?", answer: "O art. 1.346 do Código Civil (Lei 10.406/2002) exige seguro da edificação contra o risco de incêndio ou destruição, total ou parcial. Outras coberturas dependem do produto, da seguradora, do risco e da apólice contratada." },
         { question: "Cobre acidentes com visitantes?", answer: "Sim! A Responsabilidade Civil cobre acidentes com moradores, visitantes, prestadores de serviço e qualquer pessoa nas áreas comuns." },
       ]}
       relatedInsurances={[
