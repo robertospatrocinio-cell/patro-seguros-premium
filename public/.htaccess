@@ -188,8 +188,6 @@
     RewriteRule ^seguro-auto-gwm/?$ /seguro-gwm [R=301,L,NC]
     RewriteRule ^seguro-gmw/?$ /seguro-gwm [R=301,L,NC]
     RewriteRule ^seguro-auto-lexus/?$ /seguro-lexus [R=301,L,NC]
-    RewriteRule ^seguro-auto-guarulhos/?$ /lp/seguro-auto-guarulhos [R=301,L,NC]
-
     # ----------------------------------------------------------------------
     # | 301 legados de bairros e produto×bairro (Guarulhos)                |
     # | Fonte única: src/lib/legacyBairroRedirects.ts (espelhado em SPA).  |
