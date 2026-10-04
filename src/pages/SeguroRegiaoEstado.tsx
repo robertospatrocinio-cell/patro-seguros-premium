@@ -12,13 +12,17 @@ import {
   estadosNacionais,
   produtosNacionais,
   regiaoPath,
+  cidadeBySlug,
+  cidadePath,
   regioesNacionais,
+  slugify as slugCidade,
   type EstadoNacional,
 } from "@/data/atendimentoNacional";
 
 interface Props {
   regiaoSlug?: string;
   estadoSlug?: string;
+  cidadeSlug?: string;
 }
 
 const heroPorFoco = { agro: heroAgro, empresas: heroEmpresa, logistica: heroFrota } as const;
@@ -64,7 +68,7 @@ const faqsBase = (local: string) => [
   },
   {
     question: "A Patro é uma corretora registrada?",
-    answer: "Sim. A Patro Seguros é corretora registrada na SUSEP sob o código 212113511, com sede em Guarulhos/SP.",
+    answer: "Sim. A Patro Seguros é corretora registrada na SUSEP sob o código 212113511.",
   },
 ];
 
@@ -92,7 +96,13 @@ const Cidades = ({ estado }: { estado: EstadoNacional }) => (
         {estado.nome} ({estado.uf}) <ArrowRight className="h-3 w-3" aria-hidden="true" />
       </Link>
     </h3>
-    <p className="text-sm text-muted-foreground">{estado.cidades.join(", ")}</p>
+    <ul className="text-sm flex flex-wrap gap-x-3 gap-y-1">
+      {estado.cidades.map((c) => (
+        <li key={c}>
+          <Link to={cidadePath(`${slugCidade(c)}-${estado.uf.toLowerCase()}`)} className="text-muted-foreground hover:text-primary hover:underline">{c}</Link>
+        </li>
+      ))}
+    </ul>
   </div>
 );
 
@@ -108,7 +118,74 @@ const ProdutosLinks = () => (
   </ul>
 );
 
-const SeguroRegiaoEstado = ({ regiaoSlug, estadoSlug }: Props) => {
+const SeguroRegiaoEstado = ({ regiaoSlug, estadoSlug, cidadeSlug }: Props) => {
+  const cidade = cidadeSlug ? cidadeBySlug(cidadeSlug) : undefined;
+  if (cidade) {
+    const est = cidade.estado;
+    const reg = regioesNacionais.find((r) => r.slug === est.regiao)!;
+    const local = `${cidade.nome} (${est.uf})`;
+    const vizinhas = est.cidades.filter((c) => c !== cidade.nome);
+    return (
+      <InsurancePageTemplate
+        localSeo={{ skip: true }}
+        heroImage={heroPorFoco[est.foco]}
+        title={`Seguros em ${cidade.nome} - ${est.uf} | Rural, Frotas e Empresas | Patro Seguros`}
+        headline={`Seguros em ${cidade.nome} - ${est.uf}`}
+        subtitle={`Corretora com atendimento remoto em ${cidade.nome}: seguro rural, máquinas agrícolas, drones, frotas, empresarial e saúde PME.`}
+        icon="📍"
+        badge={`${est.nome} • ${reg.nome}`}
+        metaDescription={`Seguros em ${cidade.nome} - ${est.uf}: rural, máquinas, drones, frotas, empresarial e saúde PME. Cotação remota comparando seguradoras, sem preço tabelado.`}
+        description={`A Patro Seguros atende produtores, transportadoras e empresas de ${cidade.nome}, em ${est.nome}, de forma remota. ${est.perfil}`}
+        detailedDescription={`## Atendimento a distância em ${cidade.nome}
+
+O atendimento é feito por WhatsApp, e-mail e videochamada. A análise do risco, a comparação de propostas, a contratação e o pós-venda são conduzidos sem que você precise se deslocar.
+
+## Disponibilidade em ${cidade.nome}
+
+Cada seguradora define as localidades em que aceita cada tipo de risco. Confirmamos na cotação quais produtos e seguradoras estão disponíveis para ${local}.`}
+        howItWorks={como}
+        coverages={coberturas}
+        whoNeeds={[
+          `Produtores rurais de ${cidade.nome} e região`,
+          "Operadores de drones agrícolas e prestadores de serviço",
+          "Transportadoras e empresas com frota própria",
+          `Empresas de comércio, indústria e serviços de ${cidade.nome}`,
+          "Empresas que querem plano de saúde para a equipe",
+        ]}
+        whyPatro={whyPatro}
+        faqs={faqsBase(cidade.nome)}
+        relatedInsurances={related}
+        quoteUrl="/cotacao"
+        quoteCtaText={`Pedir cotação em ${cidade.nome}`}
+        extraSections={
+          <section aria-labelledby="cidade-links-heading" className="space-y-6">
+            <h2 id="cidade-links-heading" className="text-2xl md:text-3xl font-bold text-foreground inline-flex items-center gap-2">
+              <MapPin className="h-6 w-6 text-primary" aria-hidden="true" /> Seguros disponíveis em {cidade.nome}
+            </h2>
+            <ProdutosLinks />
+            {vizinhas.length > 0 && (
+              <>
+                <h3 className="font-semibold text-foreground">Outras cidades de {est.nome}</h3>
+                <ul className="flex flex-wrap gap-3">
+                  {vizinhas.map((c) => (
+                    <li key={c}>
+                      <Link to={cidadePath(`${slugCidade(c)}-${est.uf.toLowerCase()}`)} className="text-primary hover:underline">Seguros em {c}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            <p>
+              <Link to={estadoPath(est.slug)} className="text-primary hover:underline">Seguros em {est.nome}</Link>
+              {" • "}
+              <Link to={regiaoPath(reg.slug)} className="text-primary hover:underline">{reg.titulo}</Link>
+            </p>
+          </section>
+        }
+      />
+    );
+  }
+
   const estado = estadoSlug ? estadosNacionais.find((x) => x.slug === estadoSlug) : undefined;
   const regiao = regioesNacionais.find((r) => r.slug === (estado?.regiao ?? regiaoSlug));
   if (!regiao) return null;
@@ -128,7 +205,7 @@ const SeguroRegiaoEstado = ({ regiaoSlug, estadoSlug }: Props) => {
         description={`${estado.perfil} A Patro Seguros atende clientes de ${estado.nome} de forma remota, com análise do risco e comparação entre seguradoras parceiras.`}
         detailedDescription={`## Atendimento a distância em ${estado.nome}
 
-Com sede em Guarulhos/SP, a Patro Seguros atende ${estado.nome} por WhatsApp, e-mail e videochamada. A análise do risco, a comparação de propostas, a contratação e o pós-venda são feitos sem que você precise se deslocar.
+A Patro Seguros atende ${estado.nome} por WhatsApp, e-mail e videochamada. A análise do risco, a comparação de propostas, a contratação e o pós-venda são feitos sem que você precise se deslocar.
 
 ## Disponibilidade por município
 
@@ -153,8 +230,15 @@ Cada seguradora define as regiões em que aceita cada tipo de risco. Por isso, c
               <MapPin className="h-6 w-6 text-primary" aria-hidden="true" /> Cidades de referência em {estado.nome}
             </h2>
             <p className="text-muted-foreground">
-              {estado.cidades.join(", ")}. Atendemos também os demais municípios do estado, sempre de forma remota.
+              Atendemos também os demais municípios do estado, sempre de forma remota.
             </p>
+            <ul className="flex flex-wrap gap-3">
+              {estado.cidades.map((c) => (
+                <li key={c}>
+                  <Link to={cidadePath(`${slugCidade(c)}-${estado.uf.toLowerCase()}`)} className="text-primary hover:underline">Seguros em {c}</Link>
+                </li>
+              ))}
+            </ul>
             <h3 className="font-semibold text-foreground">Seguros disponíveis</h3>
             <ProdutosLinks />
             {vizinhos.length > 0 && (
