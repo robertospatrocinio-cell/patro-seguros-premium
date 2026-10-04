@@ -502,7 +502,7 @@ const InsurancePageTemplate = ({
               <Link to="/seguro-residencial" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Residencial</Link>
               <Link to="/planos-de-saude" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Saúde</Link>
               <Link to="/seguro-empresarial" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors">Empresarial</Link>
-              <Link to="/seguros-guarulhos" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors font-medium text-accent">Guarulhos</Link>
+              {!semGuarulhos && <Link to="/seguros-guarulhos" className="px-3 py-1 bg-white rounded-full border hover:border-accent transition-colors font-medium text-accent">Guarulhos</Link>}
             </div>
           </div>
         </div>
