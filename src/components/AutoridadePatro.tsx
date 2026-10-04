@@ -104,7 +104,7 @@ const AutoridadePatro = ({
             </span>
             <span>{CREDENCIAIS.cnpj}</span>
             <span>Desde {CREDENCIAIS.fundacao}</span>
-            <span>Sede: {CREDENCIAIS.sede}</span>
+            {!hideSede && <span>Sede: {CREDENCIAIS.sede}</span>}
           </div>
         </div>
       </div>

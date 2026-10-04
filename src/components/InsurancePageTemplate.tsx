@@ -264,6 +264,8 @@ export interface InsurancePageProps {
    * Use `skip: true` em páginas não-Guarulhos (Agro nacional, etc.) para
    * suprimir totalmente o schema local — evita sinal geo enganoso.
    */
+  /** Páginas de cidades/estados fora de Guarulhos: remove blocos e textos com Guarulhos. */
+  semGuarulhos?: boolean;
   localSeo?: {
     city?: string;
     neighborhood?: string;
@@ -329,6 +331,7 @@ const InsurancePageTemplate = ({
   canonicalUrl: canonicalUrlProp,
   howto,
   localSeo,
+  semGuarulhos = false,
   jumpLinks,
   sectionCtas,
 }: InsurancePageProps) => {
@@ -920,7 +923,11 @@ const InsurancePageTemplate = ({
              </div>
              {/* Bloco de autoridade / E-E-A-T — fundadores + credenciais */}
              <div className="mb-10">
-               <AutoridadePatro />
+               {semGuarulhos ? (
+                 <AutoridadePatro hideSede copy="Consultoria humana que analisa as entrelinhas das apólices para garantir que você tenha a melhor proteção pelo menor custo real, com atendimento remoto em todo o Brasil." />
+               ) : (
+                 <AutoridadePatro />
+               )}
              </div>
              {/* Como a Patro ajuda — 4 passos + CTA duplo consistente.
                  Suprimido quando a página traz `howItWorks` próprio para
@@ -1155,7 +1162,7 @@ const InsurancePageTemplate = ({
             {renderSectionCta("faq-heading")}
 
             {/* CTA para clientes fora de Guarulhos */}
-            <div className="mt-10 p-6 md:p-8 rounded-2xl border border-primary/10 bg-primary/[0.03] text-center">
+            {!semGuarulhos && <div className="mt-10 p-6 md:p-8 rounded-2xl border border-primary/10 bg-primary/[0.03] text-center">
               <p className="text-base md:text-lg font-semibold text-foreground mb-2">
                 Mora fora de Guarulhos? Sem problema!
               </p>
