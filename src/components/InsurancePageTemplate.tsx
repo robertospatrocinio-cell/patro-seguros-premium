@@ -1185,7 +1185,7 @@ const InsurancePageTemplate = ({
                   </Button>
                 </Link>
               </div>
-            </div>
+            </div>}
           </div>
         </section>
 
@@ -1207,9 +1207,11 @@ const InsurancePageTemplate = ({
 
         {/* Hub completo de links internos para fortalecer crawl & autoridade tópica.
             Páginas de escopo nacional (localSeo.skip) recebem heading sem geomodificador. */}
-        <InsuranceHubLinks
-          heading={localSeo?.skip ? "Guia Completo de Seguros da Patro — Atendimento em Todo o Brasil" : undefined}
-        />
+        {!semGuarulhos && (
+          <InsuranceHubLinks
+            heading={localSeo?.skip ? "Guia Completo de Seguros da Patro — Atendimento em Todo o Brasil" : undefined}
+          />
+        )}
         {/* Próximas leituras — só renderiza em rotas listadas em LONGTAIL_CLUSTERS. */}
         <ProximasLeiturasCluster pathname={location.pathname} />
         {/* Pager Prev/Next — navegação linear no cluster long-tail. */}

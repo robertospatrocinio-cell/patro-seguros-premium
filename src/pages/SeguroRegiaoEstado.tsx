@@ -128,6 +128,7 @@ const SeguroRegiaoEstado = ({ regiaoSlug, estadoSlug, cidadeSlug }: Props) => {
     return (
       <InsurancePageTemplate
         localSeo={{ skip: true }}
+        semGuarulhos
         heroImage={heroPorFoco[est.foco]}
         title={`Seguros em ${cidade.nome} - ${est.uf} | Rural, Frotas e Empresas | Patro Seguros`}
         headline={`Seguros em ${cidade.nome} - ${est.uf}`}
@@ -195,6 +196,7 @@ Cada seguradora define as localidades em que aceita cada tipo de risco. Confirma
     return (
       <InsurancePageTemplate
         localSeo={{ skip: true }}
+        semGuarulhos
         heroImage={heroPorFoco[estado.foco]}
         title={`Seguros em ${estado.nome} (${estado.uf}) | Agro, Frotas e Empresas | Patro`}
         headline={`Seguros em ${estado.nome}`}
@@ -267,6 +269,7 @@ Cada seguradora define as regiões em que aceita cada tipo de risco. Por isso, c
   return (
     <InsurancePageTemplate
       localSeo={{ skip: true }}
+        semGuarulhos
       heroImage={heroPorRegiao[regiao.slug]}
       title={`${regiao.titulo} | Agro, Frotas e Empresas | Patro Seguros`}
       headline={regiao.titulo}
