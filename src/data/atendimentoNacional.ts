@@ -179,3 +179,20 @@ export const estadosNacionais: EstadoNacional[] = [
 
 export const estadoPath = (slug: string) => `${ATENDIMENTO_NACIONAL_PATH}/estado/${slug}`;
 export const estadosDaRegiao = (regiao: string) => estadosNacionais.filter((x) => x.regiao === regiao);
+
+export const slugify = (s: string) =>
+  s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+export interface CidadeNacional {
+  nome: string;
+  /** Slug único: cidade + UF (ex.: "sorriso-mt"). */
+  slug: string;
+  estado: EstadoNacional;
+}
+
+export const cidadesNacionais: CidadeNacional[] = estadosNacionais.flatMap((estado) =>
+  estado.cidades.map((nome) => ({ nome, slug: `${slugify(nome)}-${estado.uf.toLowerCase()}`, estado })),
+);
+
+export const cidadePath = (slug: string) => `${ATENDIMENTO_NACIONAL_PATH}/cidade/${slug}`;
+export const cidadeBySlug = (slug: string) => cidadesNacionais.find((c) => c.slug === slug);
